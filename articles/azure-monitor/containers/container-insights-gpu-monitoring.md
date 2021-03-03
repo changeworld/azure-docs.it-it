@@ -1,31 +1,31 @@
 ---
-title: Configurare il monitoraggio GPU con monitoraggio di Azure per i contenitori | Microsoft Docs
-description: Questo articolo descrive come configurare il monitoraggio dei cluster Kubernetes con i nodi NVIDIA e AMD con GPU abilitati con monitoraggio di Azure per i contenitori.
+title: Configurare il monitoraggio GPU con informazioni dettagliate sul contenitore | Microsoft Docs
+description: Questo articolo descrive come configurare il monitoraggio dei cluster Kubernetes con i nodi NVIDIA e AMD con GPU abilitati con informazioni dettagliate sul contenitore.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 11a9de0872fd3e7589332322b3f8fb855d2c88ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2958b000ac0dabcd7fddf75a58f553b705a95e9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620057"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731868"
 ---
-# <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configurare il monitoraggio GPU con monitoraggio di Azure per i contenitori
+# <a name="configure-gpu-monitoring-with-container-insights"></a>Configurare il monitoraggio GPU con informazioni dettagliate sul contenitore
 
-A partire dalla versione dell'agente *ciprod03022019*, monitoraggio di Azure per i contenitori Integrated Agent supporta ora l'uso del monitoraggio GPU (unità di elaborazione grafica) nei nodi del cluster Kubernetes che supportano GPU e monitora i pod/contenitori che richiedono e usano le risorse GPU.
+A partire dalla versione dell'agente *ciprod03022019*, l'agente integrato di container Insights ora supporta il monitoraggio dell'utilizzo della GPU (unità di elaborazione grafica) nei nodi del cluster Kubernetes che supportano GPU e monitora i pod/contenitori che richiedono e usano le risorse GPU.
 
 ## <a name="supported-gpu-vendors"></a>Fornitori di GPU supportati
 
-Monitoraggio di Azure per contenitori supporta il monitoraggio dei cluster GPU dai fornitori di GPU seguenti:
+Il contenitore Insights supporta il monitoraggio dei cluster GPU dai fornitori di GPU seguenti:
 
 - [NVIDIA](https://developer.nvidia.com/kubernetes-gpu)
 
 - [AMD](https://github.com/RadeonOpenCompute/k8s-device-plugin)
 
-Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio dell'utilizzo della GPU nei nodi e la GPU che richiede i pod e i carichi di lavoro raccogliendo le metriche seguenti a intervalli 60sec e archiviando tali dati nella tabella **InsightMetrics** .
+Il contenitore Insights avvia automaticamente il monitoraggio dell'utilizzo della GPU nei nodi e la GPU che richiede i pod e i carichi di lavoro raccogliendo le metriche seguenti a intervalli 60sec e archiviando tali dati nella tabella **InsightMetrics** .
 
 >[!NOTE]
->Dopo il provisioning di un cluster con nodi GPU, verificare che il [driver GPU](../../aks/gpu-cluster.md) sia installato come richiesto da AKS per eseguire carichi di lavoro GPU. Il monitoraggio di Azure per i contenitori raccoglie le metriche GPU tramite Pod driver GPU in esecuzione nel nodo. 
+>Dopo il provisioning di un cluster con nodi GPU, verificare che il [driver GPU](../../aks/gpu-cluster.md) sia installato come richiesto da AKS per eseguire carichi di lavoro GPU. Il contenitore Insights raccoglie le metriche GPU tramite Pod driver GPU in esecuzione nel nodo. 
 
 |Nome metrica |Dimensione metrica (tag) |Descrizione |
 |------------|------------------------|------------|
@@ -39,7 +39,7 @@ Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio de
 
 ## <a name="gpu-performance-charts"></a>Grafici delle prestazioni GPU 
 
-Il monitoraggio di Azure per i contenitori include grafici preconfigurati per le metriche elencate in precedenza nella tabella come cartella di lavoro GPU per ogni cluster. Vedere [cartelle di lavoro in monitoraggio di Azure per i contenitori](../insights/container-insights-reports.md) per una descrizione delle cartelle di lavoro disponibili per il monitoraggio di Azure per i contenitori.
+Il contenitore Insights include grafici preconfigurati per le metriche elencate in precedenza nella tabella come cartella di lavoro GPU per ogni cluster. Per una descrizione delle cartelle di lavoro disponibili per informazioni sul contenitore, vedere [cartelle di lavoro in informazioni dettagliate sul contenitore](../insights/container-insights-reports.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

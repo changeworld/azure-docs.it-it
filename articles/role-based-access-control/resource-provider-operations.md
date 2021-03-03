@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/15/2021
+ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: ba38955666b296a0f8f0e9ab0aac9183277fb4ac
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 1ee422d4c040e8546135981e0640484acc997b0a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535145"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718727"
 ---
 # <a name="azure-resource-provider-operations"></a>Operazioni del provider di risorse di Azure
 
@@ -43,6 +43,7 @@ Fare clic sul nome del provider di risorse nella tabella seguente per visualizza
 | **Archiviazione** |
 | [Microsoft.ClassicStorage](#microsoftclassicstorage) |
 | [Microsoft.DataBox](#microsoftdatabox) |
+| [Microsoft.DataShare](#microsoftdatashare) |
 | [Microsoft.ImportExport](#microsoftimportexport) |
 | [Microsoft.NetApp](#microsoftnetapp) |
 | [Microsoft.Storage](#microsoftstorage) |
@@ -442,12 +443,14 @@ Servizio di Azure: [macchine virtuali](../virtual-machines/index.yml), [set di s
 > | Microsoft. Compute/diskAccesses/Read | Ottenere le proprietà della risorsa DiskAccess |
 > | Microsoft. Compute/diskAccesses/Write | Crea una nuova risorsa DiskAccess o ne aggiorna una esistente |
 > | Microsoft. Compute/diskAccesses/Delete | Eliminare una risorsa DiskAccess |
-> | Microsoft. Compute/diskAccesses/privateEndpointConnectionsApproval/Action | Approva una connessione all'endpoint privato |
+> | Microsoft. Compute/diskAccesses/privateEndpointConnectionsApproval/Action | Approva automaticamente una connessione all'endpoint privato |
 > | Microsoft. Compute/diskAccesses/privateEndpointConnectionProxies/Read | Ottenere le proprietà di un proxy di connessione all'endpoint privato |
 > | Microsoft. Compute/diskAccesses/privateEndpointConnectionProxies/Write | Creare un nuovo proxy di connessione all'endpoint privato |
 > | Microsoft. Compute/diskAccesses/privateEndpointConnectionProxies/Delete | Eliminare un proxy di connessione all'endpoint privato |
 > | Microsoft. Compute/diskAccesses/privateEndpointConnectionProxies/Validate/Action | Convalidare un oggetto proxy di connessione all'endpoint privato |
 > | Microsoft. Compute/diskAccesses/privateEndpointConnections/Delete | Eliminare una connessione all'endpoint privato |
+> | Microsoft. Compute/diskAccesses/privateEndpointConnections/Read | Ottenere una connessione all'endpoint privato |
+> | Microsoft. Compute/diskAccesses/privateEndpointConnections/Write | Approva o rifiuta una connessione all'endpoint privato |
 > | Microsoft. Compute/diskEncryptionSets/Read | Ottenere le proprietà di un set di crittografia del disco |
 > | Microsoft. Compute/diskEncryptionSets/Write | Crea un nuovo set di crittografia del disco o ne aggiorna uno esistente |
 > | Microsoft. Compute/diskEncryptionSets/Delete | Eliminare un set di crittografia dischi |
@@ -1550,6 +1553,60 @@ Servizio di Azure: [Azure Data Box](../databox/index.yml)
 > | Microsoft. DataBox/subscriptions/resourceGroups/moveResources/Action | Questo metodo esegue lo spostamento delle risorse. |
 > | Microsoft. DataBox/subscriptions/resourceGroups/validateMoveResources/Action | Questo metodo consente di verificare se lo spostamento di risorse è consentito o meno. |
 
+### <a name="microsoftdatashare"></a>Microsoft.DataShare
+
+Servizio di Azure: [condivisione dati di Azure](../data-share/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Azione | Descrizione |
+> | --- | --- |
+> | Microsoft. DataShare/registro/azione | Registrare la sottoscrizione per il provider di risorse della condivisione dati. |
+> | Microsoft. DataShare/Annulla registrazione/azione | Annullare la registrazione della sottoscrizione per il provider di risorse condivisione dati. |
+> | Microsoft. DataShare/Accounts/Read | Legge un account di condivisione dati. |
+> | Microsoft. DataShare/accounts/Write | Scrive un account di condivisione dati. |
+> | Microsoft. DataShare/accounts/Delete | Elimina un account di condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/Read | Legge una condivisione di condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/Write | Scrive una condivisione di condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/Delete | Elimina una condivisione di condivisione dei dati. |
+> | Microsoft. DataShare/accounts/shares/listSynchronizations/Action | Azione per la condivisione di dati ListSynchronization. |
+> | Microsoft. DataShare/accounts/shares/listSynchronizationDetails/Action | Azione per i dettagli ListSynchronization della condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/DataSets/Read | Legge un set di dati. |
+> | Microsoft. DataShare/accounts/shares/DataSets/Write | Creare un set di dati della condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/DataSets/Delete | Elimina un set di dati della condivisione dati. |
+> | Microsoft. DataShare/account/condivisioni/inviti/lettura | Legge un invito alla condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/inviti/Scritture | Scrive un invito alla condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/inviti/Delete | Elimina un invito alla condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/operationResults/Read | Legge una condivisione di condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/providerShareSubscriptions/Read | Legge un provider di condivisione dati ShareSubscription. |
+> | Microsoft. DataShare/accounts/shares/providerShareSubscriptions/Revoke/Action | Revoca una sottoscrizione di condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/providerShareSubscriptions/reintegro/azione | Ripristina una sottoscrizione della condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/synchronizationSettings/Read | Legge un'impostazione di sincronizzazione della condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/synchronizationSettings/Write | Scrive un'impostazione di sincronizzazione della condivisione dati. |
+> | Microsoft. DataShare/accounts/shares/synchronizationSettings/Delete | Eliminare un'impostazione di sincronizzazione della condivisione dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/cancelSynchronization/Action | Annulla una sincronizzazione della condivisione dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/Delete | Elimina una sottoscrizione di condivisione di condivisione dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/listSourceShareSynchronizationSettings/Action | Elencare la condivisione di origine dei dati SynchronizationSettings. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/listSynchronizationDetails/Action | Elenca i dettagli di sincronizzazione della condivisione dei dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/listSynchronizations/Action | Elencare le sincronizzazioni della condivisione dei dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/Read | Legge una condivisione di dati ShareSubscription. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/Synchronize/Action | Inizializzare un'operazione di sincronizzazione della condivisione dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/Write | Scrive una condivisione di dati ShareSubscription. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/consumerSourceDataSets/Read | Legge un set di dati di origine del consumer della condivisione dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/dataSetMappings/Delete | Elimina una condivisione di dati DataSetMapping. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/dataSetMappings/Write | Scrivere una condivisione di dati DataSetMapping. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/dataSetMappings/Read | Leggere una condivisione di dati DataSetMapping. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/operationResults/Read | Legge uno stato di operazione con esecuzione prolungata di ShareSubscription di condivisione dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/shareSubscriptionSynchronizations/Read | Legge una sincronizzazione della sottoscrizione di condivisione di condivisione dei dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/synchronizationOperationResults/Read | Legge un risultato dell'operazione di sincronizzazione della condivisione dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/Triggers/Read | Legge un trigger di condivisione dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/Triggers/Write | Scrivere un trigger di condivisione dati. |
+> | Microsoft. DataShare/accounts/shareSubscriptions/Triggers/Delete | Eliminare un trigger di condivisione dati. |
+> | Microsoft. DataShare/listInvitations/Read | Legge gli inviti a livello di tenant. |
+> | Microsoft. DataShare/locations/rejectInvitation/Action | Rifiuta un invito alla condivisione dati. |
+> | Microsoft. DataShare/locations/consumerInvitations/Read | Ottiene un invito del consumer della condivisione dati. |
+> | Microsoft. DataShare/percorsi/operationResult/lettura | Legge la condivisione di dati Locations è supportata in. |
+> | Microsoft. DataShare/operazioni/lettura | Legge tutte le operazioni disponibili nel provider di risorse della condivisione dati. |
+
 ### <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 Servizio di Azure: [importazione/esportazione di Azure](../import-export/storage-import-export-service.md)
@@ -1634,6 +1691,7 @@ Servizio di Azure: [archiviazione](../storage/index.yml)
 > | Microsoft. storage/locations/checknameavailability/Read | Controlla che il nome dell’account sia valido e non in uso. |
 > | Microsoft.Storage/locations/usages/read | Restituisce il limite e il conteggio corrente degli utilizzi per le risorse nella sottoscrizione specificata |
 > | Microsoft.Storage/operations/read | Interroga sullo stato di un’operazione asincrona. |
+> | Microsoft. storage/resilienciesProgressions/Read |  |
 > | Microsoft.Storage/skus/read | Elenca gli SKU supportati da Microsoft.Storage. |
 > | Microsoft. storage/storageAccounts/updateInternalProperties/Action |  |
 > | Microsoft. storage/storageAccounts/hnsonmigration/Action | Il cliente è in grado di interrompere una migrazione HNS in corso nell'account di archiviazione |
@@ -2913,6 +2971,7 @@ Servizio di Azure: [servizio Azure Kubernetes (AKS)](../aks/index.yml)
 > | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | Reimposta il profilo dell'entità servizio di un cluster gestito |
 > | Microsoft.ContainerService/managedClusters/resetAADProfile/action | Reimposta il profilo di AAD di un cluster gestito |
 > | Microsoft. servizio contenitore/managedClusters/rotateClusterCertificates/Action | Ruotare i certificati di un cluster gestito |
+> | Microsoft. servizio contenitore/managedClusters/EseguiComando/Action | Eseguire il comando emesso dall'utente sul server kubernetes gestito. |
 > | Microsoft. servizio contenitore/managedClusters/privateEndpointConnectionsApproval/Action | Determina se l'utente può approvare una connessione all'endpoint privato |
 > | Microsoft.ContainerService/managedClusters/accessProfiles/read | Recupera il profilo di accesso per un cluster gestito in base al nome del ruolo |
 > | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Recupera il profilo di accesso per un cluster gestito in base al nome del ruolo con un'operazione di elenco delle credenziali |
@@ -2922,8 +2981,12 @@ Servizio di Azure: [servizio Azure Kubernetes (AKS)](../aks/index.yml)
 > | Microsoft. servizio contenitore/managedClusters/agentPools/upgradeNodeImageVersion/Write | Aggiornare la versione dell'immagine del nodo del pool di agenti |
 > | Microsoft. servizio contenitore/managedClusters/agentPools/upgradeProfiles/Read | Ottiene il profilo di aggiornamento del pool di agenti |
 > | Microsoft. servizio contenitore/managedClusters/availableAgentPoolVersions/Read | Ottiene le versioni del pool di agenti disponibili del cluster |
+> | Microsoft. servizio contenitore/managedClusters/commandResults/Read | Recupera il risultato dal comando precedente emesso. |
 > | Microsoft. servizio contenitore/managedClusters/Detectors/Read | Ottenere il rilevamento del cluster gestito |
 > | Microsoft. servizio contenitore/managedClusters/diagnosticsState/Read | Ottiene lo stato di diagnostica del cluster |
+> | Microsoft. servizio contenitore/managedClusters/maintenanceConfigurations/Read | Ottiene una configurazione di manutenzione |
+> | Microsoft. servizio contenitore/managedClusters/maintenanceConfigurations/Write | Crea un nuovo MaintenanceConfiguration o ne aggiorna uno esistente |
+> | Microsoft. servizio contenitore/managedClusters/maintenanceConfigurations/Delete | Elimina una configurazione di manutenzione |
 > | Microsoft. servizio contenitore/managedClusters/privateEndpointConnections/Read | Ottenere la connessione all'endpoint privato |
 > | Microsoft. servizio contenitore/managedClusters/privateEndpointConnections/Write | Approva o rifiuta una connessione all'endpoint privato |
 > | Microsoft. servizio contenitore/managedClusters/privateEndpointConnections/Delete | Elimina connessione endpoint privato |
@@ -3261,9 +3324,9 @@ Servizio di Azure: [cache di Azure per Redis](../azure-cache-for-redis/index.yml
 > | Microsoft.Cache/checknameavailability/action | Verifica se un nome è disponibile per essere assegnato a nuova cache Redis |
 > | Microsoft.Cache/register/action | Registra il provider di risorse 'Microsoft.Cache' con una sottoscrizione |
 > | Microsoft.Cache/unregister/action | Annulla la registrazione del provider di risorse 'Microsoft.Cache' con una sottoscrizione |
-> | Microsoft. cache/locations/asyncOperations/Read | Elenca le operazioni supportate dal provider "Microsoft.Cache". |
-> | Microsoft.Cache/locations/operationresults/read | Ottiene il risultato di un'operazione a esecuzione prolungata per la quale l'intestazione "Location" è stata restituita precedentemente al client |
-> | Microsoft. cache/locations/operationsStatus/Read | Ottiene il risultato di un'operazione a esecuzione prolungata per la quale l'intestazione ' AzureAsync ' è stata precedentemente restituita al client. |
+> | Microsoft. cache/locations/asyncOperations/Read | Leggi lo stato di un'operazione asincrona |
+> | Microsoft. cache/percorsi/operationResult/lettura | Ottiene il risultato di un'operazione a esecuzione prolungata per la quale l'intestazione "Location" è stata restituita precedentemente al client |
+> | Microsoft. cache/locations/operationsStatus/Read | Visualizzare lo stato di un'operazione a esecuzione prolungata per la quale l'intestazione ' AzureAsync ' è stata precedentemente restituita al client |
 > | Microsoft.Cache/operations/read | Elenca le operazioni supportate dal provider "Microsoft.Cache". |
 > | Microsoft.Cache/redis/write | Modifica la configurazione e le impostazioni della Cache Redis nel portale di gestione |
 > | Microsoft.Cache/redis/read | Visualizza la configurazione e le impostazioni della Cache Redis nel portale di gestione |
@@ -3273,17 +3336,17 @@ Servizio di Azure: [cache di Azure per Redis](../azure-cache-for-redis/index.yml
 > | Microsoft.Cache/redis/import/action | Importa i dati di un formato specificato da più BLOB in Redis |
 > | Microsoft.Cache/redis/export/action | Esporta i dati Redis nei BLOB di archiviazione predefiniti nel formato specificato |
 > | Microsoft.Cache/redis/forceReboot/action | Forza il riavvio di un'istanza della cache, con possibile perdita di dati. |
-> | Microsoft.Cache/redis/stop/action | Arresta un'istanza della cache. |
-> | Microsoft.Cache/redis/start/action | Avvia un'istanza della cache. |
+> | Microsoft.Cache/redis/stop/action | Arrestare una cache di Azure per Redis, potenzialmente con perdita di dati. |
+> | Microsoft.Cache/redis/start/action | Avviare una cache di Azure per Redis |
 > | Microsoft. cache/Redis/eventGridFilters/lettura | Ottiene il filtro di griglia di eventi di cache Redis |
 > | Microsoft. cache/Redis/eventGridFilters/Write | Aggiornare i filtri di griglia di eventi di cache Redis |
 > | Microsoft. cache/Redis/eventGridFilters/Delete | Elimina i filtri di griglia di eventi di cache Redis |
 > | Microsoft.Cache/redis/firewallRules/read | Ottiene le regole del firewall IP di una cache Redis |
 > | Microsoft.Cache/redis/firewallRules/write | Modifica le regole del firewall IP di una cache Redis |
 > | Microsoft.Cache/redis/firewallRules/delete | Elimina le regole del firewall IP di una cache Redis |
-> | Microsoft.Cache/redis/linkedservers/read | Ottiene i server collegati associati a una cache Redis. |
-> | Microsoft.Cache/redis/linkedservers/write | Aggiunge un server collegato a una cache Redis |
-> | Microsoft.Cache/redis/linkedservers/delete | Elimina un server collegato da una cache Redis |
+> | Microsoft. cache/Redis/linkedServers/lettura | Ottiene i server collegati associati a una cache Redis. |
+> | Microsoft. cache/Redis/linkedServers/Write | Aggiunge un server collegato a una cache Redis |
+> | Microsoft. cache/Redis/linkedServers/Delete | Elimina un server collegato da una cache Redis |
 > | Microsoft.Cache/redis/metricDefinitions/read | Ottiene la metrica disponibile per una cache Redis |
 > | Microsoft.Cache/redis/patchSchedules/read | Ottiene la pianificazione dell'applicazione di patch di una cache Redis |
 > | Microsoft.Cache/redis/patchSchedules/write | Modifica la pianificazione dell'applicazione di patch di una cache Redis |
@@ -3296,11 +3359,22 @@ Servizio di Azure: [cache di Azure per Redis](../azure-cache-for-redis/index.yml
 > | Microsoft. cache/Redis/privateEndpointConnections/Write | Scrivere una connessione all'endpoint privato |
 > | Microsoft. cache/Redis/privateEndpointConnections/Delete | Eliminare una connessione all'endpoint privato |
 > | Microsoft. cache/Redis/privateLinkResources/lettura | Leggere ' groupId ' della sottorisorsa Redis a cui è possibile connettere un collegamento privato |
+> | Microsoft. cache/redisEnterprise/Delete | Eliminare l'intera cache Redis Enterprise |
+> | Microsoft. cache/redisEnterprise/Read | Visualizzare le impostazioni e la configurazione della cache di redis Enterprise nel portale di gestione |
+> | Microsoft. cache/redisEnterprise/Write | Modificare le impostazioni e la configurazione della cache di redis Enterprise nel portale di gestione |
+> | Microsoft. cache/redisEnterprise/databases/Delete | Elimina un database di redis Enterprise e il relativo contenuto |
+> | Microsoft. cache/redisEnterprise/database/lettura | Visualizzare le impostazioni e la configurazione del database di cache Redis Enterprise nel portale di gestione |
+> | Microsoft. cache/redisEnterprise/database/scrittura | Modificare le impostazioni e la configurazione del database di cache Redis Enterprise nel portale di gestione |
+> | Microsoft. cache/redisEnterprise/databases/forceUnlink/Action | Scollegare forzatamente un database di redis Enterprise di georeplica dai relativi peer |
 > | Microsoft. cache/redisEnterprise/privateEndpointConnectionProxies/Validate/Action | Convalidare il proxy di connessione all'endpoint privato |
 > | Microsoft. cache/redisEnterprise/privateEndpointConnectionProxies/Read | Ottenere il proxy di connessione all'endpoint privato |
 > | Microsoft. cache/redisEnterprise/privateEndpointConnectionProxies/Write | Creare il proxy di connessione all'endpoint privato |
 > | Microsoft. cache/redisEnterprise/privateEndpointConnectionProxies/Delete | Eliminare il proxy di connessione all'endpoint privato |
-> | Microsoft. cache/redisEnterprise/privateEndpointConnectionProxies/operationresults/Read | Eliminare il proxy di connessione all'endpoint privato |
+> | Microsoft. cache/redisEnterprise/privateEndpointConnectionProxies/operationResults/Read | Visualizzare il risultato delle operazioni di connessione all'endpoint privato nel portale di gestione |
+> | Microsoft. cache/redisEnterprise/privateEndpointConnections/Read | Lettura di una connessione a un endpoint privato |
+> | Microsoft. cache/redisEnterprise/privateEndpointConnections/Write | Scrivere una connessione all'endpoint privato |
+> | Microsoft. cache/redisEnterprise/privateEndpointConnections/Delete | Eliminare una connessione all'endpoint privato |
+> | Microsoft. cache/redisEnterprise/privateLinkResources/Read | Leggere ' groupId ' della sottorisorsa Redis a cui è possibile connettere un collegamento privato |
 > | Microsoft. cache/redisEnterprise/Providers/Microsoft. Insights/metricDefinitions/Read | Ottiene le metriche disponibili per una cache di redis Enterprise |
 
 ### <a name="microsoftdatafactory"></a>Microsoft.DataFactory
@@ -3778,6 +3852,12 @@ Servizio di Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Azione | Descrizione |
 > | --- | --- |
 > | Microsoft.DocumentDB/register/action |  Registra il provider di risorse Microsoft DocumentDB per la sottoscrizione |
+> | Microsoft.DocumentDB/cassandraClusters/Read | Leggi un cluster Cassandra gestito o elenca tutti i cluster Cassandra gestiti |
+> | Microsoft.DocumentDB/cassandraClusters/Write | Creare o aggiornare un cluster Cassandra gestito |
+> | Microsoft.DocumentDB/cassandraClusters/Delete | Eliminare un cluster Cassandra gestito |
+> | Microsoft.DocumentDB/cassandraClusters/Data Center/lettura | Leggi un data center in un cluster Cassandra gestito o elenca tutti i Data Center in un cluster Cassandra gestito |
+> | Microsoft.DocumentDB/cassandraClusters/Data Center/scrittura | Crea o aggiorna un data center in un cluster Cassandra gestito |
+> | Microsoft.DocumentDB/cassandraClusters/Data Center/delete | Eliminare un data center in un cluster Cassandra gestito |
 > | Microsoft.DocumentDB/databaseAccountNames/read | Controlla la disponibilità del nome. |
 > | Microsoft.DocumentDB/databaseAccounts/read | Esegue la lettura di un account di database. |
 > | Microsoft.DocumentDB/databaseAccounts/write | Aggiorna un account di database. |
@@ -3981,6 +4061,12 @@ Servizio di Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/throughputSettings/migrateToAutoscale/operationResults/Read | Lettura dello stato dell'operazione asincrona. |
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/throughputSettings/migrateToManualThroughput/operationResults/Read | Lettura dello stato dell'operazione asincrona. |
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/throughputSettings/operationResults/Read | Lettura dello stato dell'operazione asincrona. |
+> | Microsoft.DocumentDB/databaseAccounts/sqlroleassignments/Read | Lettura di un'assegnazione di ruolo SQL |
+> | Microsoft.DocumentDB/databaseAccounts/sqlroleassignments/Write | Crea o aggiorna un'assegnazione di ruolo SQL |
+> | Microsoft.DocumentDB/databaseAccounts/sqlroleassignments/Delete | Eliminare un'assegnazione di ruolo SQL |
+> | Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/Read | Leggi una definizione di ruolo SQL |
+> | Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/Write | Crea o aggiorna una definizione di ruolo SQL |
+> | Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/Delete | Eliminare una definizione di ruolo SQL |
 > | Microsoft.DocumentDB/databaseAccounts/Tables/Write | Creare o aggiornare una tabella. |
 > | Microsoft.DocumentDB/databaseAccounts/Tables/Read | Leggere una tabella o un elenco di tutte le tabelle. |
 > | Microsoft.DocumentDB/databaseAccounts/Tables/Delete | Eliminare una tabella. |
@@ -4745,6 +4831,8 @@ Servizio di Azure: [azure Esplora dati](/azure/data-explorer/)
 > | Microsoft. kusto/Clusters/AttachedDatabaseConfigurations/Read | Legge una risorsa di configurazione del database collegato. |
 > | Microsoft. kusto/Clusters/AttachedDatabaseConfigurations/Write | Scrive una risorsa di configurazione del database collegata. |
 > | Microsoft. kusto/Clusters/AttachedDatabaseConfigurations/Delete | Elimina una risorsa di configurazione del database collegata. |
+> | Microsoft. kusto/Clusters/AttachedDatabaseConfigurations/Write | Scrivere una risorsa script. |
+> | Microsoft. kusto/Clusters/AttachedDatabaseConfigurations/Delete | Eliminare una risorsa di script. |
 > | Microsoft.Kusto/Clusters/Databases/read | Questo comando legge una risorsa di database. |
 > | Microsoft.Kusto/Clusters/Databases/write | Questo comando scrive una risorsa di database. |
 > | Microsoft.Kusto/Clusters/Databases/delete | Questo comando elimina una risorsa di database. |
@@ -4763,6 +4851,7 @@ Servizio di Azure: [azure Esplora dati](/azure/data-explorer/)
 > | Microsoft. kusto/Clusters/databases/PrincipalAssignments/Read | Legge una risorsa assegnazioni di entità di database. |
 > | Microsoft. kusto/Clusters/databases/PrincipalAssignments/Write | Scrive una risorsa di assegnazioni di entità di database. |
 > | Microsoft. kusto/Clusters/databases/PrincipalAssignments/Delete | Elimina una risorsa assegnazioni entità di database. |
+> | Microsoft. kusto/Clusters/database/script/lettura | Legge una risorsa di configurazione del database collegato. |
 > | Microsoft. kusto/Clusters/DataConnection/lettura | Legge la risorsa connessioni dati di un cluster. |
 > | Microsoft. kusto/Clusters/DataConnection/Write | Scrive una risorsa connessioni dati del cluster. |
 > | Microsoft. kusto/Clusters/DataConnection/Delete | Elimina la risorsa connessioni dati di un cluster. |
@@ -4906,7 +4995,6 @@ Servizio di Azure: [analisi delle sinapsi di Azure](../synapse-analytics/index.y
 > | Microsoft. sinapsi/aree di lavoro/amministratori/eliminazione | Elimina area di lavoro Active Directory amministratore |
 > | Microsoft. sinapsi/Workspaces/auditingSettings/Write | Crea o aggiorna le impostazioni di controllo di SQL Server. |
 > | Microsoft. sinapsi/aree di lavoro/auditingSettings/lettura | Leggere le impostazioni di controllo predefinite di SQL Server. |
-> | Microsoft. sinapsi/Workspaces/auditingSettings/operationResults/Read | Impostazioni di controllo SQL Server |
 > | Microsoft. sinapsi/Workspaces/bigDataPools/Write | Crea o aggiorna tutti i pool Spark. |
 > | Microsoft. sinapsi/aree di lavoro/bigDataPools/lettura | Leggere tutti i pool Spark. |
 > | Microsoft. sinapsi/Workspaces/bigDataPools/Delete | Eliminare tutti i pool Spark. |
@@ -5428,7 +5516,6 @@ Servizio di Azure: [Servizi cognitivi](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/accounts/ImageSearch/Search/Action | Ottenere le immagini rilevanti per una query specificata. |
 > | Microsoft. CognitiveServices/accounts/ImageSearch/trend/Action | Ottenere immagini di tendenza. |
 > | Microsoft. CognitiveServices/accounts/ImmersiveReader/getcontentmodelforreader/Action | Crea una sessione di lettura immersiva |
-> | Microsoft. CognitiveServices/accounts/InkRecognizer/Recognize/azione | Dato un set di dati Stroke, analizza il contenuto e genera un elenco di entità riconosciute, incluso il testo riconosciuto. |
 > | Microsoft. CognitiveServices/accounts/LUIS/Predict/Action | Ottiene la stima dell'endpoint pubblicato per la query specificata. |
 > | Microsoft. CognitiveServices/accounts/LUIS/Apps/scrittura | Crea una nuova app LUIS. Aggiorna il nome o la descrizione dell'applicazione. |
 > | Microsoft. CognitiveServices/accounts/LUIS/Apps/azureaccounts/Action | Assegna un account Azure all'applicazione. |
@@ -5810,6 +5897,7 @@ Servizio di Azure: [servizio Machine Learning](../machine-learning/index.yml)
 > | Microsoft. MachineLearningServices/Workspaces/onlineEndpoints/Read | Recupera gli endpoint di inferenza online in Machine Learning Services aree di lavoro |
 > | Microsoft. MachineLearningServices/Workspaces/onlineEndpoints/Write | Crea o aggiorna un endpoint di inferenza online in Machine Learning Services aree di lavoro |
 > | Microsoft. MachineLearningServices/Workspaces/onlineEndpoints/Delete | Elimina un endpoint di inferenza online in Machine Learning Services aree di lavoro |
+> | Microsoft. MachineLearningServices/Workspaces/onlineEndpoints/Score/Action | Valutazione degli endpoint di inferenza online in Machine Learning Services aree di lavoro |
 > | Microsoft. MachineLearningServices/Workspaces/onlineEndpoints/checkNameAvailability/Read | Verifica il nome di un endpoint di inferenza online in Machine Learning Services aree di lavoro |
 > | Microsoft. MachineLearningServices/Workspaces/onlineEndpoints/Distributions/Read | Ottiene le distribuzioni in un endpoint di inferenza online in Machine Learning Services aree di lavoro |
 > | Microsoft. MachineLearningServices/Workspaces/onlineEndpoints/Distributions/Write | Crea o aggiorna la distribuzione in un endpoint di inferenza online in Machine Learning Services aree di lavoro |
@@ -6553,6 +6641,7 @@ Servizio di Azure: [griglia di eventi](../event-grid/index.yml)
 > | Microsoft.EventGrid/domains/delete | Elimina un dominio |
 > | Microsoft.EventGrid/domains/listKeys/action | Elenca le chiavi per un dominio |
 > | Microsoft.EventGrid/domains/regenerateKey/action | Rigenera la chiave per un dominio |
+> | Microsoft. EventGrid/Domains/PrivateEndpointConnectionsApproval/Action | Approva PrivateEndpointConnections per domini |
 > | Microsoft. EventGrid/Domains/privateEndpointConnectionProxies/Validate/Action | Convalidare PrivateEndpointConnectionProxies per i domini |
 > | Microsoft. EventGrid/Domains/privateEndpointConnectionProxies/Read | Leggere PrivateEndpointConnectionProxies per i domini |
 > | Microsoft. EventGrid/Domains/privateEndpointConnectionProxies/Write | Scrivere PrivateEndpointConnectionProxies per i domini |
@@ -6584,15 +6673,34 @@ Servizio di Azure: [griglia di eventi](../event-grid/index.yml)
 > | Microsoft.EventGrid/operationResults/read | Legge il risultato di un'operazione |
 > | Microsoft.EventGrid/operations/read | Elenca le operazioni EventGrid. |
 > | Microsoft.EventGrid/operationsStatus/read | Legge lo stato di un'operazione |
+> | Microsoft. EventGrid/partnerNamespaces/Write | Crea o aggiorna uno spazio dei nomi partner |
+> | Microsoft. EventGrid/partnerNamespaces/Read | Leggi uno spazio dei nomi partner |
+> | Microsoft. EventGrid/partnerNamespaces/Delete | Eliminare uno spazio dei nomi partner |
+> | Microsoft. EventGrid/partnerNamespaces/listKeys/Action | Elenca le chiavi per uno spazio dei nomi partner |
+> | Microsoft. EventGrid/partnerNamespaces/regenerateKey/Action | Rigenera chiave per uno spazio dei nomi partner |
+> | Microsoft. EventGrid/partnerNamespaces/eventChannels/Read | Leggi un canale di eventi |
+> | Microsoft. EventGrid/partnerNamespaces/eventChannels/Write | Crea o aggiorna un canale di eventi |
+> | Microsoft. EventGrid/partnerNamespaces/eventChannels/Delete | Eliminare un canale di eventi |
 > | Microsoft. EventGrid/partnerNamespaces/Providers/Microsoft. Insights/diagnosticSettings/Read | Ottiene l'impostazione di diagnostica per gli spazi dei nomi partner |
 > | Microsoft. EventGrid/partnerNamespaces/Providers/Microsoft. Insights/diagnosticSettings/Write | Crea o aggiorna l'impostazione di diagnostica per gli spazi dei nomi partner |
 > | Microsoft. EventGrid/partnerNamespaces/Providers/Microsoft. Insights/logDefinitions/Read | Consente l'accesso ai log di diagnostica |
 > | Microsoft. EventGrid/partnerNamespaces/Providers/Microsoft. Insights/metricDefinitions/Read | Ottiene la metrica disponibile per gli spazi dei nomi partner |
+> | Microsoft. EventGrid/partnerRegistrations/Write | Crea o aggiorna una registrazione partner |
+> | Microsoft. EventGrid/partnerRegistrations/Read | Leggi una registrazione partner |
+> | Microsoft. EventGrid/partnerRegistrations/Delete | Eliminare una registrazione partner |
+> | Microsoft. EventGrid/partnerTopics/Read | Leggi un argomento del partner |
+> | Microsoft. EventGrid/partnerTopics/Write | Crea o aggiorna un argomento del partner |
+> | Microsoft. EventGrid/partnerTopics/Delete | Eliminare un argomento del partner |
+> | Microsoft. EventGrid/partnerTopics/attiva/azione | Attiva argomento del partner |
+> | Microsoft. EventGrid/partnerTopics/Deactivate/Action | Disattiva argomento del partner |
 > | Microsoft. EventGrid/partnerTopics/Providers/Microsoft. Insights/diagnosticSettings/Read | Ottiene l'impostazione di diagnostica per gli argomenti del partner |
 > | Microsoft. EventGrid/partnerTopics/Providers/Microsoft. Insights/diagnosticSettings/Write | Crea o aggiorna l'impostazione di diagnostica per gli argomenti del partner |
 > | Microsoft. EventGrid/partnerTopics/Providers/Microsoft. Insights/logDefinitions/Read | Consente l'accesso ai log di diagnostica |
 > | Microsoft. EventGrid/partnerTopics/Providers/Microsoft. Insights/metricDefinitions/Read | Ottiene la metrica disponibile per gli argomenti del partner |
 > | Microsoft. EventGrid/SKU/Read | Leggere le definizioni dello SKU disponibili per le risorse di griglia di eventi |
+> | Microsoft. EventGrid/systemTopics/Read | Leggi un argomento di sistema |
+> | Microsoft. EventGrid/systemTopics/Write | Creare o aggiornare un argomento di sistema |
+> | Microsoft. EventGrid/systemTopics/Delete | Eliminare un argomento di sistema |
 > | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/diagnosticSettings/Read | Ottiene l'impostazione di diagnostica per gli argomenti di sistema |
 > | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/diagnosticSettings/Write | Crea o aggiorna l'impostazione di diagnostica per gli argomenti di sistema |
 > | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/logDefinitions/Read | Consente l'accesso ai log di diagnostica |
@@ -6602,6 +6710,7 @@ Servizio di Azure: [griglia di eventi](../event-grid/index.yml)
 > | Microsoft.EventGrid/topics/delete | Eliminare un argomento |
 > | Microsoft.EventGrid/topics/listKeys/action | Elenca le chiavi per un argomento |
 > | Microsoft.EventGrid/topics/regenerateKey/action | Rigenera la chiave per un argomento |
+> | Microsoft. EventGrid/topics/PrivateEndpointConnectionsApproval/Action | Approva PrivateEndpointConnections per gli argomenti |
 > | Microsoft. EventGrid/topics/privateEndpointConnectionProxies/Validate/Action | Convalidare PrivateEndpointConnectionProxies per gli argomenti |
 > | Microsoft. EventGrid/topics/privateEndpointConnectionProxies/Read | Leggere PrivateEndpointConnectionProxies per gli argomenti |
 > | Microsoft. EventGrid/topics/privateEndpointConnectionProxies/Write | Scrivere PrivateEndpointConnectionProxies per gli argomenti |
@@ -8623,6 +8732,9 @@ Servizio di Azure: [monitoraggio di Azure](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/query/AddonAzureBackupStorage/Read | Leggere i dati dalla tabella AddonAzureBackupStorage |
 > | Microsoft. OperationalInsights/Workspaces/query/ADFActivityRun/Read | Leggere i dati dalla tabella ADFActivityRun |
 > | Microsoft. OperationalInsights/Workspaces/query/ADFPipelineRun/Read | Leggere i dati dalla tabella ADFPipelineRun |
+> | Microsoft. OperationalInsights/Workspaces/query/ADFSandboxActivityRun/Read | Leggere i dati dalla tabella ADFSandboxActivityRun |
+> | Microsoft. OperationalInsights/Workspaces/query/ADFSandboxPipelineRun/Read | Leggere i dati dalla tabella ADFSandboxPipelineRun |
+> | Microsoft. OperationalInsights/Workspaces/query/ADFSSignInLogs/Read | Leggere i dati dalla tabella ADFSSignInLogs |
 > | Microsoft. OperationalInsights/Workspaces/query/ADFSSISIntegrationRuntimeLogs/Read | Leggere i dati dalla tabella ADFSSISIntegrationRuntimeLogs |
 > | Microsoft. OperationalInsights/Workspaces/query/ADFSSISPackageEventMessageContext/Read | Leggere i dati dalla tabella ADFSSISPackageEventMessageContext |
 > | Microsoft. OperationalInsights/Workspaces/query/ADFSSISPackageEventMessages/Read | Leggere i dati dalla tabella ADFSSISPackageEventMessages |
@@ -9203,7 +9315,10 @@ Servizio di Azure: [automazione](../automation/index.yml)
 > | Microsoft. Automation/automationAccounts/privateEndpointConnectionProxies/Delete | Eliminare un proxy di connessione all'endpoint privato di automazione di Azure |
 > | Microsoft. Automation/automationAccounts/privateEndpointConnectionProxies/operationResults/Read | Ottenere i risultati dell'operazione proxy di endpoint privato di automazione di Azure. |
 > | Microsoft. Automation/automationAccounts/privateEndpointConnections/Read | Ottenere lo stato di connessione dell'endpoint privato di automazione di Azure |
+> | Microsoft. Automation/automationAccounts/privateEndpointConnections/Read | Ottenere lo stato di connessione dell'endpoint privato di automazione di Azure |
 > | Microsoft. Automation/automationAccounts/privateEndpointConnections/Write | Approva o rifiuta una connessione all'endpoint privato di automazione di Azure |
+> | Microsoft. Automation/automationAccounts/privateEndpointConnections/Delete | Eliminare una connessione all'endpoint privato di automazione di Azure |
+> | Microsoft. Automation/automationAccounts/privateLinkResources/Read | Legge le informazioni sui gruppi per gli endpoint privati |
 > | Microsoft. Automation/automationAccounts/privateLinkResources/Read | Legge le informazioni sui gruppi per gli endpoint privati |
 > | Microsoft.Automation/automationAccounts/python2Packages/read | Ottiene un pacchetto di Automazione di Azure Python 2 |
 > | Microsoft.Automation/automationAccounts/python2Packages/write | Crea o aggiorna un pacchetto di Automazione di Azure Python 2 |
@@ -9317,43 +9432,18 @@ Servizio di Azure: [Gestione costi e fatturazione](../cost-management-billing/in
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
 > | --- | --- |
-> | Microsoft. Billing/validateAddress/azione |  |
-> | Microsoft.Billing/register/action |  |
 > | Microsoft.Billing/billingAccounts/read |  |
 > | Microsoft. Billing/billingAccounts/listInvoiceSectionsWithCreateSubscriptionPermission/azione |  |
 > | Microsoft. Billing/billingAccounts/Write |  |
-> | Microsoft. Billing/billingAccounts/Agreements/Read |  |
-> | Microsoft. Billing/billingAccounts/billingPermissions/lettura |  |
+> | Microsoft. Billing/billingAccounts/billingProfiles/Write |  |
 > | Microsoft. Billing/billingAccounts/billingProfiles/lettura |  |
 > | Microsoft. Billing/billingAccounts/billingProfiles/Write |  |
-> | Microsoft. Billing/billingAccounts/billingProfiles/billingPermissions/Read |  |
-> | Microsoft. Billing/billingAccounts/billingProfiles/Customers/Read |  |
+> | Microsoft. Billing/billingAccounts/billingProfiles/invoiceSections/Write |  |
 > | Microsoft. Billing/billingAccounts/billingProfiles/invoiceSections/Read |  |
 > | Microsoft. Billing/billingAccounts/billingProfiles/invoiceSections/Write |  |
-> | Microsoft. Billing/billingAccounts/billingProfiles/invoiceSections/billingPermissions/Read |  |
-> | Microsoft. Billing/billingAccounts/billingProfiles/pricesheets/download/azione |  |
-> | Microsoft. Billing/billingAccounts/billingRoleAssignments/Write |  |
-> | Microsoft. Billing/billingAccounts/billingSubscriptions/lettura |  |
-> | Microsoft. Billing/billingAccounts/billingSubscriptions/Move/Action |  |
-> | Microsoft. Billing/billingAccounts/billingSubscriptions/validateMoveEligibility/azione |  |
-> | Microsoft. Billing/billingAccounts/billingSubscriptions/downloadDocuments/azione | Scarica la fattura usando il collegamento per il download dall'elenco |
-> | Microsoft. Billing/billingAccounts/Customers/Read |  |
-> | Microsoft. Billing/billingAccounts/Customers/billingPermissions/Read |  |
-> | Microsoft.Billing/billingAccounts/departments/read |  |
-> | Microsoft. Billing/billingAccounts/repartis/billingPermissions/Read |  |
-> | Microsoft. Billing/billingAccounts/repartis/billingRoleAssignments/Write |  |
-> | Microsoft.Billing/billingAccounts/enrollmentAccounts/read |  |
-> | Microsoft. Billing/billingAccounts/enrollmentAccounts/billingPermissions/Read |  |
-> | Microsoft. Billing/billingAccounts/enrollmentAccounts/billingRoleAssignments/Write |  |
-> | Microsoft. Billing/billingAccounts/fatture/pricesheets/download/azione |  |
-> | Microsoft. Billing/billingAccounts/Products/Read |  |
-> | Microsoft. Billing/billingAccounts/Products/Move/Action |  |
-> | Microsoft. Billing/billingAccounts/Products/validateMoveEligibility/Action |  |
-> | Microsoft. Billing/billingProperty/Read |  |
+> | Microsoft. Billing/billingAccounts/billingProfiles/invoiceSections/validateDeleteInvoiceSectionEligibility/Write |  |
+> | Microsoft. Billing/billingAccounts/billingProfiles/validateDeleteBillingProfileEligibility/Write |  |
 > | Microsoft. Billing/billingProperty/Write |  |
-> | Microsoft.Billing/departments/read |  |
-> | Microsoft. Billing/fatture/download/azione | Scarica la fattura usando il collegamento per il download dall'elenco |
-> | Microsoft.Billing/invoices/read |  |
 > | Microsoft. fatturazione/operazioni/lettura |  |
 
 ### <a name="microsoftblueprint"></a>Microsoft.Blueprint
@@ -9999,78 +10089,83 @@ Servizio di Azure: [Site Recovery](../site-recovery/index.yml)
 > | Azione | Descrizione |
 > | --- | --- |
 > | Microsoft.RecoveryServices/register/action | Registra la sottoscrizione per il provider di risorse specificato |
-> | Microsoft. RecoveryServices/locations/backupCrossRegionRestore/Action | Attivare il ripristino tra più aree. |
-> | Microsoft. RecoveryServices/locations/backupCrrJob/Action | Ottenere i dettagli del processo di ripristino tra aree nell'area secondaria per l'insieme di credenziali di servizi di ripristino. |
-> | Microsoft. RecoveryServices/locations/backupCrrJobs/Action | Elencare i processi di ripristino tra aree nell'area secondaria per l'insieme di credenziali di servizi di ripristino. |
-> | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/Locations/backupStatus/action | Controlla lo stato del backup dell'insieme di credenziali di Servizi di ripristino |
-> | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Convalida le funzioni |
+> | Microsoft. recoveryservices/locations/backupCrossRegionRestore/Action | Attivare il ripristino tra più aree. |
+> | Microsoft. recoveryservices/locations/backupCrrJob/Action | Ottenere i dettagli del processo di ripristino tra aree nell'area secondaria per l'insieme di credenziali di servizi di ripristino. |
+> | Microsoft. recoveryservices/locations/backupCrrJobs/Action | Elencare i processi di ripristino tra aree nell'area secondaria per l'insieme di credenziali di servizi di ripristino. |
+> | Microsoft. recoveryservices/locations/backupPreValidateProtection/Action |  |
+> | Microsoft. recoveryservices/locations/backupStatus/Action | Controlla lo stato del backup dell'insieme di credenziali di Servizi di ripristino |
+> | Microsoft. recoveryservices/locations/backupValidateFeatures/Action | Convalida le funzioni |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp è un'operazione interna usata dal servizio |
 > | Microsoft.RecoveryServices/locations/checkNameAvailability/action | CheckNameAvailability è un'API per verificare se il nome di risorsa è disponibile |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp è un'operazione interna usata dal servizio |
-> | Microsoft. RecoveryServices/locations/backupAadProperties/Read | Ottenere le proprietà di AAD per l'autenticazione nella terza area per il ripristino tra più aree. |
-> | Microsoft. RecoveryServices/locations/backupCrrOperationResults/Read | Restituisce il risultato dell'operazione CRR per l'insieme di credenziali di servizi di ripristino. |
-> | Microsoft. RecoveryServices/locations/backupCrrOperationsStatus/Read | Restituisce lo stato dell'operazione CRR per l'insieme di credenziali di servizi di ripristino. |
-> | Microsoft. RecoveryServices/locations/backupProtectedItem/Write | Crea un elemento protetto di backup |
-> | Microsoft. RecoveryServices/locations/backupProtectedItems/Read | Restituisce l'elenco di tutti gli elementi protetti. |
+> | Microsoft. recoveryservices/locations/backupAadProperties/Read | Ottenere le proprietà di AAD per l'autenticazione nella terza area per il ripristino tra più aree. |
+> | Microsoft. recoveryservices/locations/backupCrrOperationResults/Read | Restituisce il risultato dell'operazione CRR per l'insieme di credenziali di servizi di ripristino. |
+> | Microsoft. recoveryservices/locations/backupCrrOperationsStatus/Read | Restituisce lo stato dell'operazione CRR per l'insieme di credenziali di servizi di ripristino. |
+> | Microsoft. recoveryservices/locations/backupProtectedItem/Write | Crea un elemento protetto di backup |
+> | Microsoft. recoveryservices/locations/backupProtectedItems/Read | Restituisce l'elenco di tutti gli elementi protetti. |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Ottiene lo stato dell'operazione per una determinata operazione |
 > | Microsoft.RecoveryServices/operations/read | L'operazione restituisce l'elenco delle operazioni per un provider di risorse |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Esporta processi |
-> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/action | Restituisce le informazioni sul PIN di sicurezza dell'insieme di credenziali di Servizi di ripristino. |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Convalida l'operazione sull'elemento protetto |
+> | Microsoft. recoveryservices/Vaults/backupJobsExport/Action | Esporta processi |
+> | Microsoft. recoveryservices/Vaults/backupSecurityPIN/Action | Restituisce le informazioni sul PIN di sicurezza dell'insieme di credenziali di Servizi di ripristino. |
+> | Microsoft. recoveryservices/Vaults/backupValidateOperation/Action | Convalida l'operazione sull'elemento protetto |
 > | Microsoft.RecoveryServices/Vaults/write | L'operazione Crea insieme di credenziali crea una risorsa di Azure di tipo 'vault' |
 > | Microsoft.RecoveryServices/Vaults/read | L'operazione Ottieni insieme di credenziali ottiene un oggetto che rappresenta la risorsa di Azure di tipo 'vault' |
 > | Microsoft.RecoveryServices/Vaults/delete | L'operazione Elimina insieme di credenziali elimina la risorsa di Azure specificata di tipo 'vault' |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/read | Restituisce la configurazione dell'insieme di credenziali di Servizi di ripristino. |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/write | Aggiorna la configurazione dell'insieme di credenziali di Servizi di ripristino. |
-> | Microsoft. RecoveryServices/Vaults/backupEncryptionConfigs/Read | Ottiene la configurazione della crittografia delle risorse di backup. |
-> | Microsoft. RecoveryServices/Vaults/backupEncryptionConfigs/Write | Aggiorna la configurazione della crittografia delle risorse di backup |
-> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Restituisce tutti i server di gestione di backup registrati nell'insieme di credenziali. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Aggiorna l'elenco di contenitori |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/delete | Elimina una finalità di protezione del backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Ottiene una finalità di protezione del backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Crea un programma di protezione del backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Restituisce lo stato dell'operazione |
-> | Microsoft. RecoveryServices/Vaults/backupFabrics/operationsStatus/Read | Restituisce lo stato dell'operazione |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Ottiene tutti i contenitori che si possono proteggere |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/delete | Elimina il contenitore registrato |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Esegue operazioni di richiesta di informazioni per i carichi di lavoro all'interno di un contenitore |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Restituisce tutti i contenitori registrati |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Crea un contenitore registrato |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Ottiene tutti gli elementi in un contenitore |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Ottiene il risultato dell'operazione eseguita sul contenitore di protezione. |
-> | Microsoft. RecoveryServices/Vaults/backupFabrics/protectionContainers/operationsStatus/Read | Ottiene lo stato dell'operazione eseguita sul contenitore di protezione. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Esegue il backup dell'elemento protetto. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Elimina l'elemento protetto |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Restituisce i dettagli dell'oggetto dell'elemento protetto |
-> | Microsoft. RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPointsRecommendedForMove/Action | Ottenere i punti di ripristino consigliati per lo spostamento a un altro livello |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Crea un elemento protetto di backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Ottiene il risultato dell'operazione eseguita sugli elementi protetti. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Restituisce lo stato dell'operazione eseguita sugli elementi protetti. |
-> | Microsoft. RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/Action | Ottenere AccessToken per il ripristino tra aree. |
-> | Microsoft. RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Move/Action | Sposta il punto di ripristino a un altro livello |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Effettua il provisioning del ripristino elementi immediato per l'elemento protetto |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Ottiene i punti di ripristino degli elementi protetti. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Ripristina i punti di ripristino degli elementi protetti. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revoca il ripristino elementi immediato per l'elemento protetto |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Annulla il processo |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Restituisce tutti gli oggetti processo |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Restituisce il risultato dell'operazione di processo. |
-> | Microsoft. RecoveryServices/Vaults/backupJobs/operationsStatus/Read | Restituisce lo stato dell'operazione di processo. |
-> | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Restituisce il risultato dell'operazione di backup di un insieme di credenziali di Servizi di ripristino. |
-> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Restituisce lo stato dell'operazione di backup dell'insieme di credenziali di Servizi di ripristino. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/delete | Elimina i criteri di protezione |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Restituisce tutti i criteri di protezione |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Crea i criteri di protezione |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Ottiene i risultati dell'operazione sui criteri. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Ottiene lo stato dell'operazione sui criteri. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Restituisce l'elenco di tutti gli elementi da proteggere. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Restituisce l'elenco di tutti gli elementi protetti. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Restituisce tutti i contenitori che appartengono alla sottoscrizione |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Elenca tutte le finalità di protezione del backup |
-> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Restituisce la configurazione di archiviazione dell'insieme di credenziali di Servizi di ripristino. |
-> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Aggiorna la configurazione di archiviazione dell'insieme di credenziali di Servizi di ripristino. |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Restituisce i riepiloghi per gli elementi protetti e i server protetti di un'istanza di Servizi di ripristino. |
+> | Microsoft. recoveryservices/Vaults/backupConfig/Read | Restituisce la configurazione dell'insieme di credenziali di Servizi di ripristino. |
+> | Microsoft. recoveryservices/Vaults/backupConfig/Write | Aggiorna la configurazione dell'insieme di credenziali di Servizi di ripristino. |
+> | Microsoft. recoveryservices/Vaults/backupEncryptionConfigs/Read | Ottiene la configurazione della crittografia delle risorse di backup. |
+> | Microsoft. recoveryservices/Vaults/backupEncryptionConfigs/Write | Aggiorna la configurazione della crittografia delle risorse di backup |
+> | Microsoft. recoveryservices/Vaults/backupEngines/Read | Restituisce tutti i server di gestione di backup registrati nell'insieme di credenziali. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/refreshContainers/Action | Aggiorna l'elenco di contenitori |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/backupProtectionIntent/Delete | Elimina una finalità di protezione del backup |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/backupProtectionIntent/Read | Ottiene una finalità di protezione del backup |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/backupProtectionIntent/Write | Crea un programma di protezione del backup |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/operationResults/Read | Restituisce lo stato dell'operazione |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/operationsStatus/Read | Restituisce lo stato dell'operazione |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectableContainers/Read | Ottiene tutti i contenitori che si possono proteggere |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/Delete | Elimina il contenitore registrato |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/domanda/azione | Esegue operazioni di richiesta di informazioni per i carichi di lavoro all'interno di un contenitore |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/Read | Restituisce tutti i contenitori registrati |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/Write | Crea un contenitore registrato |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/Items/Read | Ottiene tutti gli elementi in un contenitore |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/operationResults/Read | Ottiene il risultato dell'operazione eseguita sul contenitore di protezione. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/operationsStatus/Read | Ottiene lo stato dell'operazione eseguita sul contenitore di protezione. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/Action | Esegue il backup dell'elemento protetto. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/Delete | Elimina l'elemento protetto |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/Read | Restituisce i dettagli dell'oggetto dell'elemento protetto |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPointsRecommendedForMove/Action | Ottenere i punti di ripristino consigliati per lo spostamento a un altro livello |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/Write | Crea un elemento protetto di backup |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/Read | Ottiene il risultato dell'operazione eseguita sugli elementi protetti. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/Read | Restituisce lo stato dell'operazione eseguita sugli elementi protetti. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/Action | Ottenere AccessToken per il ripristino tra aree. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Move/Action | Sposta il punto di ripristino a un altro livello |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/Action | Effettua il provisioning del ripristino elementi immediato per l'elemento protetto |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Read | Ottiene i punti di ripristino degli elementi protetti. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Restore/Action | Ripristina i punti di ripristino degli elementi protetti. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/Action | Revoca il ripristino elementi immediato per l'elemento protetto |
+> | Microsoft. recoveryservices/Vaults/backupJobs/Annulla/azione | Annulla il processo |
+> | Microsoft. recoveryservices/Vaults/backupJobs/Read | Restituisce tutti gli oggetti processo |
+> | Microsoft. recoveryservices/Vaults/backupJobs/operationResults/Read | Restituisce il risultato dell'operazione di processo. |
+> | Microsoft. recoveryservices/Vaults/backupJobs/operationsStatus/Read | Restituisce lo stato dell'operazione di processo. |
+> | Microsoft. recoveryservices/Vaults/backupOperationResults/Read | Restituisce il risultato dell'operazione di backup di un insieme di credenziali di Servizi di ripristino. |
+> | Microsoft. recoveryservices/Vaults/backupOperations/Read | Restituisce lo stato dell'operazione di backup dell'insieme di credenziali di Servizi di ripristino. |
+> | Microsoft. recoveryservices/Vaults/backupOperationVaultGuardProxies/Delete | L'operazione Delete VaultGuard proxy elimina la risorsa di Azure specificata di tipo ' VaultGuard proxy ' |
+> | Microsoft. recoveryservices/Vaults/backupOperationVaultGuardProxies/Read | L'operazione Get VaultGuard proxy ottiene un oggetto che rappresenta la risorsa di Azure di tipo ' VaultGuard proxy ' |
+> | Microsoft. recoveryservices/Vaults/backupOperationVaultGuardProxies/Read | Ottenere l'elenco di proxy VaultGuard per una risorsa |
+> | Microsoft. recoveryservices/Vaults/backupOperationVaultGuardProxies/unlockDelete/Action | Unlock Delete VaultGuard operazione proxy Sblocca la successiva operazione critica Delete |
+> | Microsoft. recoveryservices/Vaults/backupOperationVaultGuardProxies/Write | L'operazione di creazione del proxy VaultGuard crea una risorsa di Azure di tipo ' VaultGuard proxy ' |
+> | Microsoft. recoveryservices/Vaults/backupPolicies/Delete | Elimina i criteri di protezione |
+> | Microsoft. recoveryservices/Vaults/backupPolicies/Read | Restituisce tutti i criteri di protezione |
+> | Microsoft. recoveryservices/Vaults/backupPolicies/Write | Crea i criteri di protezione |
+> | Microsoft. recoveryservices/Vaults/backupPolicies/operationResults/Read | Ottiene i risultati dell'operazione sui criteri. |
+> | Microsoft. recoveryservices/Vaults/backupPolicies/Operations/Read | Ottiene lo stato dell'operazione sui criteri. |
+> | Microsoft. recoveryservices/Vaults/backupProtectableItems/Read | Restituisce l'elenco di tutti gli elementi da proteggere. |
+> | Microsoft. recoveryservices/Vaults/backupProtectedItems/Read | Restituisce l'elenco di tutti gli elementi protetti. |
+> | Microsoft. recoveryservices/Vaults/backupProtectionContainers/Read | Restituisce tutti i contenitori che appartengono alla sottoscrizione |
+> | Microsoft. recoveryservices/Vaults/backupProtectionIntents/Read | Elenca tutte le finalità di protezione del backup |
+> | Microsoft. recoveryservices/Vaults/backupstorageconfig/Read | Restituisce la configurazione di archiviazione dell'insieme di credenziali di Servizi di ripristino. |
+> | Microsoft. recoveryservices/Vaults/backupstorageconfig/Write | Aggiorna la configurazione di archiviazione dell'insieme di credenziali di Servizi di ripristino. |
+> | Microsoft. recoveryservices/Vaults/backupUsageSummaries/Read | Restituisce i riepiloghi per gli elementi protetti e i server protetti di un'istanza di Servizi di ripristino. |
 > | Microsoft.RecoveryServices/Vaults/certificates/write | L'operazione Aggiorna certificato risorsa aggiorna il certificato delle credenziali della risorsa o dell'insieme di credenziali. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | L'operazione Ottieni informazioni estese ottiene le informazioni estese di un oggetto che rappresenta la risorsa di Azure di tipo ?vault? |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/write | L'operazione Ottieni informazioni estese ottiene le informazioni estese di un oggetto che rappresenta la risorsa di Azure di tipo ?vault? |
@@ -10079,14 +10174,14 @@ Servizio di Azure: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Risolve l'avviso. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Ottiene la configurazione delle notifiche dell'insieme di credenziali dei servizi di ripristino. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/write | Configura le notifiche di posta elettronica all'insieme di credenziali di Servizi di ripristino. |
-> | Microsoft. RecoveryServices/Vaults/privateEndpointConnectionProxies/Delete | Attendere alcuni minuti e ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. |
-> | Microsoft. RecoveryServices/Vaults/privateEndpointConnectionProxies/Read | Ottiene tutti i contenitori che si possono proteggere |
-> | Microsoft. RecoveryServices/Vaults/privateEndpointConnectionProxies/Validate/Action | Ottiene tutti i contenitori che si possono proteggere |
-> | Microsoft. RecoveryServices/Vaults/privateEndpointConnectionProxies/Write | Ottiene tutti i contenitori che si possono proteggere |
-> | Microsoft. RecoveryServices/Vaults/privateEndpointConnectionProxies/operationsStatus/Read | Ottiene tutti i contenitori che si possono proteggere |
-> | Microsoft. RecoveryServices/Vaults/privateEndpointConnections/Delete | Elimina le richieste di endpoint privati. Questa chiamata viene effettuata dall'amministratore di backup. |
-> | Microsoft. RecoveryServices/Vaults/privateEndpointConnections/Write | Approva o rifiuta le richieste di endpoint privati. Questa chiamata viene effettuata dall'amministratore di backup. |
-> | Microsoft. RecoveryServices/Vaults/privateEndpointConnections/operationsStatus/Read | Restituisce lo stato dell'operazione per una connessione all'endpoint privato. |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnectionProxies/Delete | Attendere alcuni minuti e ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnectionProxies/Read | Ottiene tutti i contenitori che si possono proteggere |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnectionProxies/Validate/Action | Ottiene tutti i contenitori che si possono proteggere |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnectionProxies/Write | Ottiene tutti i contenitori che si possono proteggere |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnectionProxies/operationsStatus/Read | Ottiene tutti i contenitori che si possono proteggere |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnections/Delete | Elimina le richieste di endpoint privati. Questa chiamata viene effettuata dall'amministratore di backup. |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnections/Write | Approva o rifiuta le richieste di endpoint privati. Questa chiamata viene effettuata dall'amministratore di backup. |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnections/operationsStatus/Read | Restituisce lo stato dell'operazione per una connessione all'endpoint privato. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | L'operazione Registra contenitore di servizi può essere usata per registrare un contenitore con il servizio di ripristino. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | L'operazione Ottieni contenitori può essere usata per ottenere i contenitori registrati per una risorsa. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/delete | L'operazione Annulla registrazione contenitore di servizi può essere usata per annullare la registrazione di un contenitore. |
@@ -10207,7 +10302,7 @@ Servizio di Azure: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft. RecoveryServices/Vaults/replicationVaultSettings/Read | Legge i sistemi operativi supportati  |
 > | Microsoft. RecoveryServices/Vaults/replicationVaultSettings/Write | Crea o aggiorna qualsiasi  |
 > | Microsoft.RecoveryServices/vaults/replicationvCenters/read | Legge i vCenter |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Restituisce i dettagli di utilizzo di un insieme di credenziali di Servizi di ripristino. |
+> | Microsoft. recoveryservices/Vaults/usages/Read | Restituisce i dettagli di utilizzo di un insieme di credenziali di Servizi di ripristino. |
 > | Microsoft.RecoveryServices/vaults/usages/read | Legge tutti gli utilizzi dell'insieme di credenziali |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | L'operazione Token dell'insieme di credenziali può essere usata per ottenere il token dell'insieme di credenziali per le operazioni di back-end a livello di insieme di credenziali. |
 

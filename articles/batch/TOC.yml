@@ -158,9 +158,6 @@
           href: batch-sig-images.md
         - name: Creare un pool con una risorsa immagine gestita
           href: batch-custom-images.md
-        - name: Creare un pool tra zone di disponibilità
-          displayName: 'region, zonal policy'
-          href: create-pool-availability-zones.md
         - name: Creare un pool con la crittografia disco abilitata
           href: disk-encryption.md
         - name: Creare un pool in una rete virtuale
@@ -172,8 +169,6 @@
         - name: Creare un pool senza indirizzi IP pubblici
           displayName: private
           href: batch-pool-no-public-ip-address.md
-        - name: Usare le estensioni con i pool
-          href: create-pool-extensions.md
         - name: Configurare le identità gestite
           displayName: user-assigned
           href: managed-identity-pools.md

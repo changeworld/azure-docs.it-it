@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 14203021846e97a53f59c3bc24a1586774613dec
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
-ms.translationtype: HT
+ms.openlocfilehash: de179ab2fe1c02b3912262ee57fbb41a23d56164
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704334"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715463"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico interno per le macchine virtuali mediante il portale di Azure
 
@@ -41,11 +41,13 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 >[!NOTE]
 >Il bilanciamento del carico di SKU Standard è l'impostazione consigliata per i carichi di lavoro di produzione.  Per altre informazioni sugli SKU, vedere **[SKU di Azure Load Balancer](skus.md)** .
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Risorse di Load Balancer Standard create per l'avvio rapido." border="false":::
-
 In questa sezione verrà creato un servizio di bilanciamento del carico che bilancia il carico delle macchine virtuali. 
 
 Quando si crea un servizio di bilanciamento del carico interno, occorre configurare una rete virtuale in cui eseguire il servizio. 
+
+Il diagramma seguente mostra le risorse create in questa Guida introduttiva:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Risorse di Load Balancer Standard create per l'avvio rapido." border="false":::
 
 Nella rete virtuale viene inoltre configurato un indirizzo IP privato come front-end (denominato **LoadBalancerFrontend** per impostazione predefinita) del servizio di bilanciamento del carico. 
 
@@ -66,7 +68,7 @@ In questa sezione si crea una rete virtuale e una subnet.
     | Gruppo di risorse   | Selezionare **CreateIntLBQS-rg** |
     | **Dettagli istanza** |                                                                 |
     | Nome             | Immettere **myVNet**                                    |
-    | Region           | Selezionare **Europa occidentale** |
+    | Region           | Select **(Europa) Europa occidentale** |
 
 3. Selezionare la scheda **Indirizzi IP** oppure il pulsante **Avanti: Indirizzi IP** nella parte inferiore della pagina.
 
@@ -104,16 +106,17 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 ## <a name="create-load-balancer"></a>Creare un servizio di bilanciamento del carico
 
-1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
+1. Selezionare **Crea una risorsa**. 
+2. Nella casella di ricerca immettere **Load Balancer**. Selezionare **Load Balancer** nei risultati della ricerca.
+3. Nella pagina **bilanciamento del carico** selezionare **Crea**.
+4. Nella pagina **Crea** servizio di bilanciamento del carico immettere o selezionare le informazioni seguenti: 
 
-2. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
-
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare il gruppo **CreateIntLBQS-rg** creato nel passaggio precedente.|
     | Nome                   | Immettere **myLoadBalancer**                                   |
-    | Region         | Selezionare **Europa occidentale**.                                        |
+    | Region         | Select **(Europe) West Europe**.                                        |
     | Type          | Selezionare **Interno**.                                        |
     | SKU           | selezionare **Standard** |
     | Rete virtuale | Selezionare la rete **myVNet** creata nel passaggio precedente. |
@@ -159,7 +162,7 @@ Creare un probe di integrità denominato **myHealthProbe** per monitorare l'inte
 
 2. In **Impostazioni** selezionare **Probe integrità** e quindi selezionare **Aggiungi**.
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHealthProbe**. |
     | Protocollo | Selezionare **HTTP**. |
@@ -187,7 +190,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
 
 3. Usare questi valori per configurare la regola di bilanciamento del carico:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHTTPRule**. |
     | Versione indirizzo IP | Selezionare **IPv4** |
@@ -199,12 +202,8 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
     | Probe di integrità | Selezionare **myHealthProbe**. |
     | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su **15** minuti. |
     | Reimpostazione TCP | Selezionare **Enabled**. |
-    | SNAT (Network Address Translation) di origine in uscita | Selezionare **(Scelta consigliata) Usa regole in uscita per fornire l'accesso a Internet ai membri del pool back-end**. |
-
+    
 4. Accettare tutte le impostazioni predefinite e quindi selezionare **OK**.
-
->[!NOTE]
->Le macchine virtuali nel pool back-end non avranno connettività Internet in uscita con questa configurazione. </br> Per altre informazioni su come fornire la connettività in uscita, vedere: </br> **[Connessioni in uscita in Azure](load-balancer-outbound-connections.md)**</br> Opzioni per fornire la connettività: </br> **[Configurazione del servizio di bilanciamento del carico solo in uscita](egress-only.md)** </br> **[Che cos'è NAT di rete virtuale?](../virtual-network/nat-overview.md)**
 
 ## <a name="create-backend-servers"></a>Creare i server back-end
 
@@ -230,7 +229,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | Gruppo di risorse | Selezionare **CreateIntLBQS-rg** |
     | **Dettagli istanza** |  |
     | Nome macchina virtuale | Immettere **myVM1** |
-    | Region | Selezionare **Europa occidentale** |
+    | Region | Select **(Europa) Europa occidentale** |
     | Opzioni di disponibilità | Selezionare **Zone di disponibilità** |
     | Zona di disponibilità | Selezionare **1** |
     | Immagine | Selezionare **Windows Server 2019 Datacenter** |
@@ -278,11 +277,13 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 >[!NOTE]
 >Il bilanciamento del carico di SKU Standard è l'impostazione consigliata per i carichi di lavoro di produzione.  Per altre informazioni sugli SKU, vedere **[SKU di Azure Load Balancer](skus.md)** .
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Risorse di Load Balancer Basic create per l'avvio rapido." border="false":::
-
 In questa sezione verrà creato un servizio di bilanciamento del carico che bilancia il carico delle macchine virtuali. 
 
 Quando si crea un servizio di bilanciamento del carico interno, occorre configurare una rete virtuale in cui eseguire il servizio. 
+
+Il diagramma seguente mostra le risorse create in questa Guida introduttiva:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Risorse di Load Balancer Basic create per l'avvio rapido." border="false":::
 
 Nella rete virtuale viene inoltre configurato un indirizzo IP privato come front-end (denominato **LoadBalancerFrontend** per impostazione predefinita) del servizio di bilanciamento del carico. 
 
@@ -303,7 +304,7 @@ In questa sezione si crea una rete virtuale e una subnet.
     | Gruppo di risorse   | Selezionare **CreateIntLBQS-rg** |
     | **Dettagli istanza** |                                                                 |
     | Nome             | Immettere **myVNet**                                    |
-    | Region           | Selezionare **Europa occidentale** |
+    | Region           | Select **(Europa) Europa occidentale** |
 
 3. Selezionare la scheda **Indirizzi IP** oppure il pulsante **Avanti: Indirizzi IP** nella parte inferiore della pagina.
 
@@ -345,12 +346,12 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 2. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare il gruppo **CreateIntLBQS-rg** creato nel passaggio precedente.|
     | Nome                   | Immettere **myLoadBalancer**                                   |
-    | Region         | Selezionare **Europa occidentale**.                                        |
+    | Region         | Select **(Europe) West Europe**.                                        |
     | Type          | Selezionare **Interno**.                                        |
     | SKU           | Selezionare **Basic** |
     | Rete virtuale | Selezionare la rete **myVNet** creata nel passaggio precedente. |
@@ -383,7 +384,7 @@ Creare il pool di indirizzi back-end **myBackendPool** per includere le macchine
 
 3. Nella pagina **Aggiungi pool back-end** immettere o selezionare:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myBackendPool**. |
     | Rete virtuale | Selezionare **myVNET**. |
@@ -403,7 +404,7 @@ Creare un probe di integrità denominato **myHealthProbe** per monitorare l'inte
 
 2. In **Impostazioni** selezionare **Probe integrità** e quindi selezionare **Aggiungi**.
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHealthProbe**. |
     | Protocollo | Selezionare **HTTP**. |
@@ -431,7 +432,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
 
 3. Usare questi valori per configurare la regola di bilanciamento del carico:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHTTPRule**. |
     | Versione indirizzo IP | Selezionare **IPv4** |
@@ -465,7 +466,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
    
 2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
-    | Impostazione | valore                                          |
+    | Impostazione | Valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
@@ -487,7 +488,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | Selezionare **myVNet** |

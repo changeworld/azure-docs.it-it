@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 4d4e868a181c216c29eeb5772b3e4c6108f514b1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cd216e277a64d6e3edc87dc4027550bc8c7c5bfa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616887"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726241"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Raccolta di origini dati JSON personalizzate con l'agente di Log Analytics per Linux in Monitoraggio di Azure
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-È possibile raccogliere origini dati JSON personalizzate in [Monitoraggio di Azure](../platform/data-platform.md) tramite l'agente di Log Analytics per Linux.  Queste origini dati personalizzate possono essere semplici script che restituiscono JSON, ad esempio [curl](https://curl.haxx.se/) o uno dei 300 plug-in di [fluentd](https://www.fluentd.org/plugins/all). Questo articolo descrive la configurazione necessaria per questa raccolta di dati.
+È possibile raccogliere origini dati JSON personalizzate in [Monitoraggio di Azure](../data-platform.md) tramite l'agente di Log Analytics per Linux.  Queste origini dati personalizzate possono essere semplici script che restituiscono JSON, ad esempio [curl](https://curl.haxx.se/) o uno dei 300 plug-in di [fluentd](https://www.fluentd.org/plugins/all). Questo articolo descrive la configurazione necessaria per questa raccolta di dati.
 
 
 > [!NOTE]
@@ -104,4 +104,4 @@ Sono supportate anche origini dati JSON annidate, che tuttavia vengono indicizza
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
+* Altre informazioni sulle [query di log](../logs/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.

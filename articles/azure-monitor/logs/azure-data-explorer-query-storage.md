@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 5a26e5d045be78772ee5dc940fcfecd3cfde9dc7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f24947eba71588d8b97afafea35f9a0bcab33c86
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618517"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711009"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Eseguire query sui dati esportati da monitoraggio di Azure con Esplora dati di Azure (anteprima)
 L'esportazione di dati da monitoraggio di Azure a un account di archiviazione di Azure consente la conservazione a basso costo e la possibilità di riallocare i log in aree diverse. Usare Esplora dati di Azure per eseguire query sui dati esportati dalle aree di lavoro di Log Analytics. Una volta configurate, le tabelle supportate inviate dalle aree di lavoro a un account di archiviazione di Azure saranno disponibili come origine dati per Esplora dati di Azure.
@@ -30,9 +30,9 @@ Il flusso del processo è il seguente:
 ## <a name="send-data-to-azure-storage"></a>Inviare dati ad archiviazione di Azure
 I log di monitoraggio di Azure possono essere esportati in un account di archiviazione di Azure usando una delle opzioni seguenti.
 
-- Per esportare tutti i dati dall'area di lavoro di Log Analytics a un account di archiviazione di Azure o a un hub eventi, usare la funzionalità di esportazione dei dati Log Analytics area di lavoro dei log di monitoraggio di Azure Vedere [log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)](../platform/logs-data-export.md)
-- Esportazione pianificata da una query di log tramite un'app per la logica. Questa operazione è simile alla funzionalità di esportazione dei dati, ma consente di inviare dati filtrati o aggregati in archiviazione di Azure. Questo metodo, tuttavia, è soggetto ai [limiti della query di log](../service-limits.md#log-analytics-workspaces) . vedere [archiviare i dati dall'area di lavoro log Analytics ad archiviazione di Azure usando l'app](../platform/logs-export-logic-app.md)
-- Esportare una volta usando un'app per la logica. Vedere [connettore dei log di monitoraggio di Azure per app per la logica e automazione dell'alimentazione](../platform/logicapp-flow-connector.md).
+- Per esportare tutti i dati dall'area di lavoro di Log Analytics a un account di archiviazione di Azure o a un hub eventi, usare la funzionalità di esportazione dei dati Log Analytics area di lavoro dei log di monitoraggio di Azure Vedere [log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)](./logs-data-export.md)
+- Esportazione pianificata da una query di log tramite un'app per la logica. Questa operazione è simile alla funzionalità di esportazione dei dati, ma consente di inviare dati filtrati o aggregati in archiviazione di Azure. Questo metodo, tuttavia, è soggetto ai [limiti della query di log](../service-limits.md#log-analytics-workspaces) . vedere [archiviare i dati dall'area di lavoro log Analytics ad archiviazione di Azure usando l'app](./logs-export-logic-app.md)
+- Esportare una volta usando un'app per la logica. Vedere [connettore dei log di monitoraggio di Azure per app per la logica e automazione dell'alimentazione](./logicapp-flow-connector.md).
 - Esportare una volta nel computer locale usando lo script di PowerShell. Vedere [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 > [!TIP]

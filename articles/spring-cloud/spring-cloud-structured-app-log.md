@@ -4,15 +4,15 @@ description: Questo articolo illustra come generare e raccogliere dati di log ap
 author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 02/05/2021
 ms.author: brendanm
 ms.custom: devx-track-java
-ms.openlocfilehash: c5c35fe8a352a1bc3467e9512a7fcbc068375bfb
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e846da81444ae1632cb7f9a4cd413bc3f9b7b232
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055926"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701944"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Registro applicazioni strutturate per il cloud Spring di Azure
 
@@ -238,4 +238,4 @@ AppPlatformLogsforSpring
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sulla query di log, vedere [Introduzione alle query di log in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* Per altre informazioni sulla query di log, vedere [Introduzione alle query di log in monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)

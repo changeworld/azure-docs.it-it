@@ -3,25 +3,25 @@ title: Usare Azure Image Builder & raccolta di immagini condivise per macchine v
 description: Informazioni su come usare Azure Image Builder e l'interfaccia della riga di comando di Azure per creare una versione di immagine in una raccolta di immagini condivise e quindi distribuire l'immagine a livello globale.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/05/2019
+ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: danis
-ms.openlocfilehash: 27635ef8b0ad1d8eeb6ee0105f911cd42d5592a8
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: cf7f5ed4a27772a89d0356c60e6f7135786ca07d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667283"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695601"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: Creare un'immagine Linux e distribuirla a una Raccolta immagini condivise 
 
 Questo articolo illustra come usare Image Builder e l'interfaccia della riga di comando di Azure per creare una versione dell'immagine in una [Raccolta immagini condivise](../shared-image-galleries.md), quindi come distribuire l'immagine globalmente. Questa operazione può essere eseguita anche tramite [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
-Per configurare l'immagine si userà un modello di esempio con estensione json. Il file con estensione json usato è il seguente: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
+Per configurare l'immagine si userà un modello di esempio con estensione json. Il file con estensione json usato è il seguente: [helloImageTemplateforSIG.json](https://github.com/azure/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
 Per distribuire l'immagine in una Raccolta immagini condivise, il modello usa [sharedImage](image-builder-json.md#distribute-sharedimage) come valore per la sezione `distribute`.
 
@@ -49,6 +49,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
+az provider show -n Microsoft.Network | grep registrationState
 ```
 
 Se non visualizzano Registered, eseguire le operazioni seguenti:
@@ -58,6 +59,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Network
 ```
 
 ## <a name="set-variables-and-permissions"></a>Impostare variabili e autorizzazioni 
@@ -108,7 +110,7 @@ imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $idenityName | grep "
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
 
 # this command will download an Azure role definition template, and update the template with the parameters specified earlier.
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
 
@@ -159,7 +161,7 @@ az sig image-definition create \
 Scaricare il modello con estensione json e configurarlo con le variabili.
 
 ```azurecli-interactive
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json -o helloImageTemplateforSIG.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json -o helloImageTemplateforSIG.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIG.json
 sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIG.json
 sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforSIG.json

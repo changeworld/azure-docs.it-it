@@ -5,12 +5,12 @@ description: Informazioni su come creare e usare un indirizzo IP pubblico static
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2eefeecfa550683dafcf66d936837e2a891c4c84
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563246"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726547"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un indirizzo IP pubblico statico per il traffico in uscita con un servizio di bilanciamento del carico SKU *Basic* in Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Questo articolo presuppone che si stia usando il Load Balancer Basic di Azure.  
 
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 > [!IMPORTANT]
 > Questo articolo usa il servizio di bilanciamento del carico SKU *Basic* con un pool a nodo singolo. Questa configurazione non è disponibile per più pool di nodi perché il servizio di bilanciamento del carico SKU *Basic* non è supportato con più pool di nodi. Vedere [usare un Load Balancer standard pubblico in Azure Kubernetes Service (AKS)][slb] per altri dettagli sull'uso del servizio di bilanciamento del carico *standard* SKU.
@@ -33,7 +33,7 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 Il traffico in uscita da un cluster servizio Azure Kubernetes segue le [convenzioni di Azure Load Balancer][outbound-connections]. Prima che venga creato il primo servizio Kubernetes di tipo `LoadBalancer`, i nodi dell'agente in un cluster di servizio Azure Kubernetes non appartengono ad alcun pool di Azure Load Balancer. In questa configurazione i nodi sono privi di indirizzo IP pubblico a livello di istanza. Azure trasla il flusso in uscita a un indirizzo IP pubblico di origine che non è configurabile o deterministico.
 
-Dopo che è stato creato un servizio Kubernetes di tipo `LoadBalancer`, i nodi dell'agente vengono aggiunti a un pool di Azure Load Balancer. Azure trasla il flusso in uscita al primo indirizzo IP pubblico che è stato configurato nel bilanciamento del carico. Questo indirizzo IP pubblico è valido solo per la durata di tale risorsa. Se si elimina il servizio di Kubernetes di tipo LoadBalancer, vengono eliminati anche il bilanciamento del carico e l'indirizzo IP associati. Se si vuole assegnare un indirizzo IP specifico o mantenere un indirizzo IP per i servizi Kubernetes ridistribuiti, è possibile creare e usare un indirizzo IP pubblico statico.
+Dopo che è stato creato un servizio Kubernetes di tipo `LoadBalancer`, i nodi dell'agente vengono aggiunti a un pool di Azure Load Balancer. Load Balancer Basic sceglie un unico front-end da usare per i flussi in uscita quando esistono più front-end IP (pubblici) candidati per i flussi in uscita. Questa selezione non è configurabile ed è consigliabile considerare casuale l'algoritmo di selezione. Questo indirizzo IP pubblico è valido solo per la durata di tale risorsa. Se si elimina il servizio di Kubernetes di tipo LoadBalancer, vengono eliminati anche il bilanciamento del carico e l'indirizzo IP associati. Se si vuole assegnare un indirizzo IP specifico o mantenere un indirizzo IP per i servizi Kubernetes ridistribuiti, è possibile creare e usare un indirizzo IP pubblico statico.
 
 ## <a name="create-a-static-public-ip"></a>Creare un IP pubblico statico
 

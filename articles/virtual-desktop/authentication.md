@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 02/26/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a4366bfee6b1d9c5f52d649910163269962684
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500301"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709258"
 ---
 # <a name="supported-authentication-methods"></a>Metodi di autenticazione supportati
 
@@ -21,14 +21,14 @@ In questo articolo viene illustrata una breve panoramica dei tipi di autenticazi
 
 ## <a name="session-host-authentication"></a>Autenticazione host sessione
 
-Desktop virtuale Windows supporta sia NT LAN Manager (NTLM) che Kerberos per l'autenticazione dell'host sessione. Tuttavia, per utilizzare Kerberos, il client deve ottenere i ticket di sicurezza Kerberos da un servizio Centro distribuzione chiavi (KDC) in esecuzione in un controller di dominio. Per ottenere i ticket, il client deve avere una linea di visibilità diretta per il controller di dominio. È possibile ottenere una linea di visione diretta usando la rete aziendale. È anche possibile usare una connessione VPN alla rete aziendale.
+Desktop virtuale Windows supporta sia NT LAN Manager (NTLM) che Kerberos per l'autenticazione dell'host sessione. Tuttavia, per utilizzare Kerberos, il client deve ottenere i ticket di sicurezza Kerberos da un servizio Centro distribuzione chiavi (KDC) in esecuzione in un controller di dominio. Per ottenere i ticket, il client deve avere una linea di visibilità diretta per il controller di dominio. È possibile ottenere una linea di visione diretta usando la rete aziendale. È anche possibile usare una connessione VPN alla rete aziendale o configurare un [server proxy KDC](key-distribution-center-proxy.md).
 
 Questi sono i metodi di accesso attualmente supportati:
 
 - Client desktop di Windows
     - Nome utente e password
     - Smart card
-    - Windows Hello
+    - Windows Hello for business (solo attendibilità del certificato)
 - Client Windows Store
     - Nome utente e password
 - Client Web
@@ -41,7 +41,7 @@ Questi sono i metodi di accesso attualmente supportati:
     - Nome utente e password
 
 >[!NOTE]
->Smart Card e Windows Hello possono usare solo Kerberos per accedere. L'accesso con Kerberos richiede una linea di visibilità al controller di dominio.
+>Smart Card e Windows Hello for business possono usare solo Kerberos per accedere. L'accesso con Kerberos richiede una linea di visibilità per il controller di dominio o un [server proxy KDC](key-distribution-center-proxy.md).
 
 ## <a name="hybrid-identity"></a>Identità ibrida
 

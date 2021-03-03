@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2742b03bcacd73e7e602666b898417f295905f19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 24ad325cae2ee71ad49ee8ee055a83ceb8fa7ef2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034072"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721736"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
 
@@ -77,8 +77,12 @@ Configurare i domini di routing. Se il provider di connettività gestisce la con
 
 Consentire il peering privato per connettersi alle macchine virtuali e ai servizi cloud distribuiti nella rete virtuale di Azure.
 
-* Subnet di peering per il percorso 1 (/30)
-* Subnet di peering per il percorso 2 (/30)
+* Subnet IPv4:
+    * Subnet di peering per il percorso 1 (/30)
+    * Subnet di peering per il percorso 2 (/30)
+* Subnet IPv6 (facoltativo):
+    * Subnet di peering per il percorso 1 (/126)
+    * Subnet di peering per il percorso 2 (/126)
 * ID VLAN per il peering
 * ASN per il peering
 * ASN ExpressRoute = 12076
@@ -88,8 +92,12 @@ Consentire il peering privato per connettersi alle macchine virtuali e ai serviz
 
 Consente di accedere a Microsoft Servizi online, ad esempio Microsoft 365. Inoltre, tutti i servizi PaaS di Azure sono accessibili tramite il peering Microsoft. È necessario assicurarsi di usare un proxy/Edge separato per connettersi a Microsoft rispetto a quello usato per Internet. Se si usa lo stesso server perimetrale per ExpressRoute e Internet, si verificherà un routing asimmetrico con interruzioni della connettività di rete.
 
-* Subnet di peering per il percorso 1 (/30). deve essere un indirizzo IP pubblico
-* Subnet di peering per il percorso 2 (/30)-deve essere un indirizzo IP pubblico
+* Subnet IPv4:
+    * Subnet di peering per il percorso 1 (/30). deve essere un indirizzo IP pubblico
+    * Subnet di peering per il percorso 2 (/30)-deve essere un indirizzo IP pubblico
+* Subnet IPv6 (facoltativo):
+    * Subnet di peering per il percorso 1 (/126). deve essere un indirizzo IP pubblico
+    * Subnet di peering per il percorso 2 (/126)-deve essere un indirizzo IP pubblico
 * ID VLAN per il peering
 * ASN per il peering
 * Prefissi annunciati: devono essere prefissi IP pubblici

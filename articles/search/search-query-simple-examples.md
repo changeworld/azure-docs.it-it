@@ -1,19 +1,19 @@
 ---
 title: Usare la sintassi di query Lucene semplice
 titleSuffix: Azure Cognitive Search
-description: Per informazioni sull'esecuzione di query in base alla semplice sintassi per la ricerca full-text, la ricerca di filtri, la ricerca geografica e la ricerca in base a un indice di ricerca cognitiva di Azure.
+description: Esempi di query che illustrano la semplice sintassi per la ricerca full-text, la ricerca di filtri e la ricerca geografica rispetto a un indice ricerca cognitiva di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/12/2020
-ms.openlocfilehash: ff9495e37a499b5502d8f8ced79b69608fa9552a
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 2abe19351c92bf9cea85c85dd55f47b5ee6d1625
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401747"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694037"
 ---
 # <a name="use-the-simple-search-syntax-in-azure-cognitive-search"></a>Usare la sintassi di ricerca "Simple" in Azure ricerca cognitiva
 
@@ -22,309 +22,508 @@ In ricerca cognitiva di Azure, la [sintassi di query semplice](query-simple-synt
 > [!NOTE]
 > Una sintassi di query alternativa è [Lucene completa](query-lucene-syntax.md), che supporta strutture di query più complesse, come la ricerca fuzzy e la ricerca con caratteri jolly. Per altre informazioni ed esempi, vedere [usare la sintassi Lucene completa](search-query-lucene-examples.md).
 
-## <a name="nyc-jobs-examples"></a>Esempi di processi NYC
+## <a name="hotels-sample-index"></a>Indice di esempio degli hotel
 
-Gli esempi seguenti sfruttano l' [indice di ricerca dei processi NYC](https://azjobsdemo.azurewebsites.net/) costituito da processi disponibili in base a un set di dati fornito dalla [città di New York parte Initiative](https://nycopendata.socrata.com/). Questi dati non devono essere considerati attuali o completi. L'indice si trova in un servizio sandbox fornito da Microsoft, il che significa che non è necessaria una sottoscrizione di Azure o un ricerca cognitiva di Azure per provare queste query.
+Le query seguenti sono basate su Hotels-sample-index, che è possibile creare seguendo le istruzioni riportate in questa [Guida introduttiva](search-get-started-portal.md).
 
-È necessario disporre di un post o di uno strumento equivalente per emettere la richiesta HTTP su GET o POST. Se non si ha familiarità con questi strumenti, vedere [Guida introduttiva: esplorare Azure ricerca cognitiva API REST](search-get-started-rest.md).
+Le query di esempio sono articolate usando l'API REST e le richieste POST. È possibile incollare ed eseguire tali elementi in un [post](search-get-started-rest.md) o in [Visual Studio Code con l'estensione ricerca cognitiva](search-get-started-vs-code.md).
 
-## <a name="set-up-the-request"></a>Configurare la richiesta
+Le intestazioni della richiesta devono contenere i valori seguenti:
 
-1. Le intestazioni della richiesta devono contenere i valori seguenti:
+| Chiave | valore |
+|-----|-------|
+| Content-Type | application/json|
+| api-key  | `<your-search-service-api-key>`, una query o una chiave amministratore |
 
-   | Chiave | valore |
-   |-----|-------|
-   | Content-Type | `application/json`|
-   | api-key  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (si tratta della chiave API di query effettiva per il servizio di ricerca sandbox che ospita l'indice dei processi NYC) |
-
-1. Impostare il verbo su **`GET`** .
-
-1. Impostare l'URL su **`https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&search=*&$count=true`** . 
-
-   + La raccolta Documents nell'indice contiene tutti i contenuti disponibili per la ricerca. La chiave API di query fornita nell'intestazione della richiesta funziona solo per le operazioni di lettura destinate alla raccolta Documents.
-
-   + **`$count=true`** Restituisce un conteggio dei documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, il conteggio sarà costituito da tutti i documenti nell'indice (circa 2558 nel caso dei processi NYC).
-
-   + **`search=*`** query non specificata, equivalente a una ricerca vuota o null. Non è particolarmente utile, ma è la ricerca più semplice che è possibile eseguire e Mostra tutti i campi recuperabili nell'indice, con tutti i valori.
-
-1. Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **Invia**. I risultati vengono restituiti come documenti JSON dettagliati.
-
-   ```http
-   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
-   ```
-
-### <a name="how-to-invoke-simple-query-parsing"></a>Come richiamare l'analisi di query semplice
-
-Per le query interattive, non è necessario specificare nulla: la sintassi semplice è quella predefinita. Nel codice, se in precedenza è stato richiamato **`queryType=full`** , è possibile reimpostare il valore predefinito con **`queryType=simple`** .
+I parametri URI devono includere l'endpoint del servizio di ricerca con il nome dell'indice, le raccolte docs, il comando di ricerca e la versione dell'API, in modo simile all'esempio seguente:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-{
-    "queryType": "simple"
-}
+https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
-## <a name="example-1-full-text-search-on-specific-fields"></a>Esempio 1: ricerca full-text in campi specifici
+Il corpo della richiesta deve essere formato come JSON valido:
 
-Questo primo esempio non è specifico del parser, ma viene presentato per primo come introduzione al primo concetto fondamentale delle query: l'indipendenza. Questo esempio limita l'esecuzione delle query e la risposta ad alcuni campi specifici. È importante sapere come strutturare una risposta JSON leggibile quando lo strumento usato è Postman o Esplora ricerche. 
-
-Questa query è destinata solo a *business_title* in **`searchFields`** , specificando tramite il **`select`** parametro lo stesso campo nella risposta.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+```json
 {
-    "count": true,
-    "queryType": "simple",
     "search": "*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "queryType": "simple",
+    "select": "HotelId, HotelName, Category, Tags, Description",
+    "count": true
 }
 ```
 
-La risposta per questa query dovrebbe essere simile alla seguente schermata.
++ "Search" impostato su `*` è una query non specificata, equivalente a null o a una ricerca vuota. Non è particolarmente utile, ma è la ricerca più semplice che è possibile eseguire e Mostra tutti i campi recuperabili nell'indice, con tutti i valori.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Risposta di esempio di Postman" border="false":::
++ "queryType" impostato su "Simple" è il valore predefinito e può essere omesso, ma è incluso per rinforzare ulteriormente che gli esempi di query in questo articolo sono espressi nella sintassi semplice.
 
-Si sarà notato il punteggio di ricerca nella risposta. I punteggi uniformi di **1** si verificano quando non esiste alcun rango, perché la ricerca non è full-text o perché non è stato fornito alcun criterio. Per una ricerca vuota, le righe vengono restituite in ordine arbitrario. Se si includono criteri effettivi, i punteggi di ricerca si convertono in valori significativi.
++ "Select" impostato su un elenco delimitato da virgole di campi viene usato per la composizione dei risultati della ricerca, inclusi solo i campi che risultano utili nel contesto dei risultati della ricerca.
+
++ "count" restituisce il numero di documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, il conteggio sarà costituito da tutti i documenti nell'indice (50 nel caso di Hotels-sample-index).
+
+## <a name="example-1-full-text-search"></a>Esempio 1: ricerca full-text
+
+La ricerca full-text può essere un numero qualsiasi di termini autonomi o frasi racchiuse tra virgolette, con o senza operatori booleani. 
+
+```http
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
+{
+    "search": "pool spa +airport",
+    "searchMode": any,
+    "queryType": "simple",
+    "select": "HotelId, HotelName, Category, Description",
+    "count": true
+}
+```
+
+Una ricerca di parole chiave composta da termini o frasi importanti tende a funzionare meglio. I campi stringa vengono sottoposti a analisi del testo durante l'indicizzazione e l'esecuzione di query, eliminando parole non essenziali quali "The", "and", "it". Per vedere come una stringa di query viene suddivisa in token nell'indice, passare la stringa in una chiamata di [testo Analyze](/rest/api/searchservice/test-analyzer) all'indice.
+
+Il parametro "searchMode" controlla la precisione e il richiamo. Se si desidera un maggior richiamo, utilizzare il valore predefinito "any", che restituisce un risultato se una parte della stringa di query viene confrontata. Se si preferisce la precisione, in cui è necessario trovare una corrispondenza per tutte le parti della stringa, impostare searchMode su "All". Provare la query precedente in entrambi i modi per vedere come searchMode modifica il risultato.
+
+La risposta per la query "Pool Spa + Airport" dovrebbe avere un aspetto simile all'esempio seguente, tagliato per brevità.
+
+```json
+"@odata.count": 6,
+"value": [
+    {
+        "@search.score": 7.3617697,
+        "HotelId": "21",
+        "HotelName": "Nova Hotel & Spa",
+        "Description": "1 Mile from the airport.  Free WiFi, Outdoor Pool, Complimentary Airport Shuttle, 6 miles from the beach & 10 miles from downtown.",
+        "Category": "Resort and Spa",
+        "Tags": [
+            "pool",
+            "continental breakfast",
+            "free parking"
+        ]
+    },
+    {
+        "@search.score": 2.5560288,
+        "HotelId": "25",
+        "HotelName": "Scottish Inn",
+        "Description": "Newly Redesigned Rooms & airport shuttle.  Minutes from the airport, enjoy lakeside amenities, a resort-style pool & stylish new guestrooms with Internet TVs.",
+        "Category": "Luxury",
+        "Tags": [
+            "24-hour front desk service",
+            "continental breakfast",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 2.2988036,
+        "HotelId": "35",
+        "HotelName": "Suites At Bellevue Square",
+        "Description": "Luxury at the mall.  Located across the street from the Light Rail to downtown.  Free shuttle to the mall and airport.",
+        "Category": "Resort and Spa",
+        "Tags": [
+            "continental breakfast",
+            "air conditioning",
+            "24-hour front desk service"
+        ]
+    }
+```
+
+Si noti il Punteggio di ricerca nella risposta. Questo è il Punteggio di pertinenza della corrispondenza. Per impostazione predefinita, un servizio di ricerca restituirà le prime 50 corrispondenze in base a questo punteggio.
+
+I punteggi uniformi di "1,0" si verificano quando non è disponibile alcuna classificazione, perché la ricerca non è full-text o perché non è stato fornito alcun criterio. Ad esempio, in una ricerca vuota (Search = `*` ), le righe vengono restituite in ordine arbitrario. Se si includono criteri effettivi, i punteggi di ricerca si convertono in valori significativi.
 
 ## <a name="example-2-look-up-by-id"></a>Esempio 2: ricerca per ID
 
-Quando si restituiscono i risultati della ricerca in una query, un passaggio logico successivo consiste nel fornire una pagina di dettagli che includa più campi dal documento. Questo esempio Mostra come restituire un singolo documento usando un'operazione di [ricerca](/rest/api/searchservice/lookup-document) per passare l'ID del documento.
-
-Tutti i documenti dispongono di un identificatore unico. Per provare la sintassi per una query di ricerca, restituire innanzitutto un elenco di ID documento per trovarne uno da usare. Per NYC Jobs, gli identificatori sono archiviati nel campo `id`.
+Quando si restituiscono i risultati della ricerca in una query, un passaggio successivo logico consiste nel fornire una pagina di dettagli che includa più campi dal documento. Questo esempio Mostra come restituire un singolo documento usando il [documento di ricerca](/rest/api/searchservice/lookup-document) passando l'ID del documento.
 
 ```http
-GET /indexes/nycjobs/docs?api-version=2020-06-30&search=*&$select=id&$count=true
+GET /indexes/hotels-sample-index/docs/41?api-version=2020-06-30
 ```
 
-Recuperare quindi un documento dalla raccolta in base a `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", che è comparso per primo nella risposta precedente. La query seguente restituisce tutti i campi recuperabili per l'intero documento.
+Tutti i documenti dispongono di un identificatore unico. Se si usa il portale, selezionare l'indice dalla scheda **indici** e quindi esaminare le definizioni dei campi per determinare quale campo è la chiave. Tramite REST, la chiamata [Get index](/rest/api/searchservice/get-index) restituisce la definizione di indice nel corpo della risposta.
 
-```http
-GET /indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30
+La risposta per la query precedente è costituita dal documento la cui chiave è 41. Tutti i campi contrassegnati come "recuperabili" nella definizione dell'indice possono essere restituiti nei risultati della ricerca e sottoposti a rendering nell'app.
+
+```json
+{
+    "HotelId": "41",
+    "HotelName": "Ocean Air Motel",
+    "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away.",
+    "Description_fr": "L'hôtel front de mer surplombant la plage dispose de chambres avec balcon privé et 2 piscines intérieures et extérieures. Divers commerces et animations artistiques sont sur la promenade, à quelques pas.",
+    "Category": "Budget",
+    "Tags": [
+        "pool",
+        "air conditioning",
+        "bar"
+    ],
+    "ParkingIncluded": true,
+    "LastRenovationDate": "1951-05-10T00:00:00Z",
+    "Rating": 3.5,
+    "Location": {
+        "type": "Point",
+        "coordinates": [
+            -157.846817,
+            21.295841
+        ],
+        "crs": {
+            "type": "name",
+            "properties": {
+                "name": "EPSG:4326"
+            }
+        }
+    },
+    "Address": {
+        "StreetAddress": "1450 Ala Moana Blvd 2238 Ala Moana Ctr",
+        "City": "Honolulu",
+        "StateProvince": "HI",
+        "PostalCode": "96814",
+        "Country": "USA"
+    },
 ```
 
-## <a name="example-3-filter-queries"></a>Esempio 3: query filtro
+## <a name="example-3-filter-on-text"></a>Esempio 3: filtrare in testo
 
-La [sintassi del filtro](./search-query-odata-filter.md) è un'espressione OData che è possibile utilizzare autonomamente o con **`search`** . Un filtro autonomo, senza un parametro di ricerca, è utile quando l'espressione filtro è in grado di specificare il nome completo dei documenti di interesse. Senza una stringa di query, non ci sono un'analisi lessicale o linguistica, un'assegnazione del punteggio (tutti i punteggi corrispondono a 1) e una classificazione. Si noti che la stringa di ricerca è vuota.
+La [sintassi del filtro](search-query-odata-filter.md) è un'espressione OData che è possibile utilizzare autonomamente o con "Search". Utilizzato insieme, "Filter" viene applicato per primo all'intero indice, quindi la ricerca viene eseguita sui risultati del filtro. I filtri quindi possono essere un'utile tecnica per migliorare le prestazioni delle query perché riducono il set di documenti che la query di ricerca deve elaborare.
+
+I filtri possono essere definiti in qualsiasi campo contrassegnato come "filtrabile" nella definizione dell'indice. Per Hotels-sample-index, i campi filtrabili includono Category, Tags, ParkingIncluded, rating e la maggior parte dei campi Address.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "art tours",
+    "queryType": "simple",
+    "filter": "Category eq 'Resort and Spa'",
+    "select": "HotelId,HotelName,Description,Category",
+    "count": true
+}
+```
+
+La risposta per la query precedente ha come ambito solo gli alberghi classificati come "report e Spa", che includono i termini "arte" o "Tours". In questo caso, è presente una sola corrispondenza.
+
+```json
+{
+    "@search.score": 2.8576312,
+    "HotelId": "31",
+    "HotelName": "Santa Fe Stay",
+    "Description": "Nestled on six beautifully landscaped acres, located 2 blocks from the Plaza. Unwind at the spa and indulge in art tours on site.",
+    "Category": "Resort and Spa"
+}
+```
+
+## <a name="example-4-filter-functions"></a>Esempio 4: funzioni di filtro
+
+Le espressioni di filtro possono includere [funzioni "search. IsMatch" e "search. ismatchscoring"](search-query-odata-full-text-search-functions.md), che consentono di compilare una query di ricerca all'interno del filtro. Questa espressione di filtro usa un carattere jolly *gratuito* per selezionare i servizi, tra cui Wi-Fi gratuito, parcheggio gratuito e così via.
+
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+  {
+    "search": "",
+    "filter": "search.ismatch('free*', 'Tags', 'full', 'any')",
+    "select": "HotelId, HotelName, Category, Description",
+    "count": true
+  }
+```
+
+La risposta per la query precedente corrisponde a 19 hotel che offrono servizi gratuiti. Si noti che il Punteggio di ricerca è un "1,0" uniforme per tutti i risultati. Ciò è dovuto al fatto che l'espressione di ricerca è null o vuota, ottenendo corrispondenze di filtro Verbatim, ma nessuna ricerca full-text. I punteggi di pertinenza vengono restituiti solo nella ricerca full-text. Se si usano filtri senza "Search", assicurarsi che siano disponibili campi ordinabili sufficienti per poter controllare il rango di ricerca.
+
+```json
+"@odata.count": 19,
+"value": [
     {
-      "count": true,
-      "search": "",
-      "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
-      "select": "job_id, business_title, agency, salary_range_from"
+        "@search.score": 1.0,
+        "HotelId": "31",
+        "HotelName": "Santa Fe Stay",
+        "Tags": [
+            "view",
+            "restaurant",
+            "free parking"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "27",
+        "HotelName": "Super Deluxe Inn & Suites",
+        "Tags": [
+            "bar",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "39",
+        "HotelName": "Whitefish Lodge & Suites",
+        "Tags": [
+            "continental breakfast",
+            "free parking",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "11",
+        "HotelName": "Regal Orb Resort & Spa",
+        "Tags": [
+            "free wifi",
+            "restaurant",
+            "24-hour front desk service"
+        ]
+    },
+```
+
+## <a name="example-5-range-filters"></a>Esempio 5: filtri di intervallo
+
+Il filtro di intervallo è supportato tramite espressioni di filtro per qualsiasi tipo di dati. Negli esempi seguenti vengono illustrati gli intervalli numerici e di stringa. I tipi di dati sono importanti nei filtri di intervallo e funzionano in modo ottimale quando i dati numerici si trovano nei campi numerici e i dati di tipo stringa nei campi stringa. I dati numerici nei campi stringa non sono adatti per gli intervalli perché le stringhe numeriche non sono confrontabili.
+
+La query seguente è un intervallo numerico. In Hotels-sample-index l'unico campo numerico filtrabile è rating.
+
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating ge 2 and Rating lt 4",
+    "select": "HotelId, HotelName, Rating",
+    "orderby": "Rating desc",
+    "count": true
+}
+```
+
+La risposta per questa query dovrebbe essere simile all'esempio seguente, troncata per brevità.
+
+```json
+"@odata.count": 27,
+"value": [
+    {
+        "@search.score": 1.0,
+        "HotelId": "22",
+        "HotelName": "Stone Lion Inn",
+        "Rating": 3.9
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "25",
+        "HotelName": "Scottish Inn",
+        "Rating": 3.8
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "2",
+        "HotelName": "Twin Dome Motel",
+        "Rating": 3.6
     }
 ```
 
-Usati insieme, il filtro viene applicato per primo all'intero indice, quindi la ricerca viene eseguita sui risultati del filtro. I filtri quindi possono essere un'utile tecnica per migliorare le prestazioni delle query perché riducono il set di documenti che la query di ricerca deve elaborare.
-
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Filtrare le risposte della query" border="false":::
-
-Un altro modo efficace per combinare il filtro e la ricerca avviene tramite **`search.ismatch*()`** un'espressione di filtro, in cui è possibile usare una query di ricerca all'interno del filtro. L'espressione filtro usa un carattere jolly nell'elemento *plan* per selezionare business_title includendo i termini plan, planner, planning, e così via.
+La query successiva è un filtro di intervallo su un campo stringa (Address/StateProvince):
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "search.ismatch('plan*', 'business_title', 'full', 'any')",
-      "select": "job_id, business_title, agency, salary_range_from"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Address/StateProvince ge 'A*' and Address/StateProvince lt 'D*'",
+    "select": "HotelId, HotelName, Address/StateProvince",
+    "count": true
+}
 ```
 
-Per altre informazioni sulla funzione, vedere [search.ismatch in "Esempi di filtro"](./search-query-odata-full-text-search-functions.md#examples).
+La risposta per questa query dovrebbe essere simile all'esempio seguente, tagliata per brevità. In questo esempio non è possibile eseguire l'ordinamento in base a StateProvince perché il campo non è attribuito come "ordinabile" nella definizione dell'indice.
 
-## <a name="example-4-range-filters"></a>Esempio 4: filtri di intervallo
+```json
+"@odata.count": 9,
+"value": [
+    {
+        "@search.score": 1.0,
+        "HotelId": "9",
+        "HotelName": "Smile Hotel",
+        "Address": {
+            "StateProvince": "CA "
+        }
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "39",
+        "HotelName": "Whitefish Lodge & Suites",
+        "Address": {
+            "StateProvince": "CO"
+        }
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "7",
+        "HotelName": "Countryside Resort",
+        "Address": {
+            "StateProvince": "CA "
+        }
+    },
+```
 
-Il filtro di intervallo è supportato tramite **`$filter`** espressioni per qualsiasi tipo di dati. Gli esempi seguenti eseguono la ricerca nei campi numerici e nei campi stringa. 
+## <a name="example-6-geo-search"></a>Esempio 6: ricerca geografica
 
-I tipi di dati sono importanti nei filtri di intervallo e funzionano in modo ottimale quando i dati numerici si trovano nei campi numerici e i dati di tipo stringa nei campi stringa. I dati numerici nei campi stringa non sono adatti per gli intervalli perché le stringhe numeriche non sono confrontabili in ricerca cognitiva di Azure.
-
-La query seguente è un intervallo numerico:
+L'indice Hotels-Sample include un campo geo_location con coordinate di latitudine e longitudine. Questo esempio usa la [funzione geo.distance](search-query-odata-geo-spatial-functions.md#examples) che applica il filtro ai documenti all'interno della circonferenza di un punto di partenza, fino a una distanza arbitraria (in chilometri) specificata. Per ridurre o ingrandire la superficie di attacco della query, è possibile modificare l'ultimo valore nella query (10).
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "num_of_positions ge 5 and num_of_positions lt 10",
-      "select": "job_id, business_title, num_of_positions, agency",
-      "orderby": "agency"
-    }
-```
-La risposta per questa query dovrebbe essere simile alla seguente schermata.
-
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Filtro di intervallo per intervalli numerici" border="false":::
-
-In questa query l'intervallo è posizionato su un campo stringa (business_title):
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "business_title ge 'A*' and business_title lt 'C*'",
-      "select": "job_id, business_title, agency",
-      "orderby": "business_title"
-    }
+POST /indexes/v/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "geo.distance(Location, geography'POINT(-122.335114 47.612839)') le 10",
+    "select": "HotelId, HotelName, Address/City, Address/StateProvince",
+    "count": true
+}
 ```
 
-La risposta per questa query dovrebbe essere simile alla seguente schermata.
+La risposta per questa query restituisce tutti gli alberghi entro una distanza di 10 chilometri dalle coordinate fornite:
 
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Filtro di intervallo per intervalli di testo" border="false":::
-
-> [!NOTE]
-> L'esplorazione in base a facet su intervalli di valori è un requisito comune delle applicazioni di ricerca. Per ulteriori informazioni ed esempi, vedere [la pagina relativa alla modalità di compilazione di un filtro facet](search-filters-facets.md).
-
-## <a name="example-5-geo-search"></a>Esempio 5: ricerca geografica
-
-L'indice degli esempi include un campo geo_location con le coordinate di latitudine e longitudine. Questo esempio usa la [funzione geo.distance](search-query-odata-geo-spatial-functions.md#examples) che applica il filtro ai documenti all'interno della circonferenza di un punto di partenza, fino a una distanza arbitraria (in chilometri) specificata. È possibile modificare l'ultimo valore nella query (4) per ridurre o aumentare l'area della query.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
-      "select": "business_title, work_location"
-    }
+```json
+{
+    "@odata.count": 3,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelId": "45",
+            "HotelName": "Arcadia Resort & Restaurant",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        },
+        {
+            "@search.score": 1.0,
+            "HotelId": "24",
+            "HotelName": "Gacc Capital",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        },
+        {
+            "@search.score": 1.0,
+            "HotelId": "16",
+            "HotelName": "Double Sanctuary Resort",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        }
+    ]
+}
 ```
-
-Per ottenere risultati più leggibili, i risultati della ricerca vengono tagliati per includere il titolo del processo e il percorso di lavoro. Le coordinate di inizio sono state ottenute da un documento casuale nell'indice (in questo caso, per una località di lavoro a Staten Island).
-
-  :::image type="content" source="media/search-query-simple-examples/geo-search.png" alt-text="Mappa di Staten Island" border="false":::
-
-## <a name="example-6-search-precision"></a>Esempio 6: precisione della ricerca
-
-Le query basate su termini sono composte da singoli termini valutati separatamente. Le query basate su frasi sono racchiuse tra virgolette e vengono valutate come stringhe verbatim. La precisione della corrispondenza è controllata da operatori e searchMode.
-
-Esempio 1: `search=fire`  corrisponde ai risultati 140, in cui tutte le corrispondenze contengono la parola Fire in qualche punto del documento.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "fire"
-    }
-```
-
-Esempio 2: `search=fire department` restituisce 2002 risultati. Vengono restituite corrispondenze per i documenti contenenti fire o department.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "fire department"
-    }
-```
-
-Esempio 3: `search="fire department"` restituisce 77 risultati. Racchiudendo la stringa tra virgolette si crea una ricerca di frasi costituita da entrambi i termini e le corrispondenze si trovano nei termini in formato token nell'indice costituito dai termini combinati. Questo spiega perché una ricerca come `search=+fire +department` non è equivalente. Entrambi i termini sono necessari, ma vengono analizzati in modo indipendente. 
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-    "count": true,
-    "search": "\"fire department\""
-    }
-```
-
-> [!Note]
-> Poiché una query di frase viene specificata tramite virgolette, in questo esempio viene aggiunto un carattere di escape ( `\` ) per mantenere la sintassi.
 
 ## <a name="example-7-booleans-with-searchmode"></a>Esempio 7: valori booleani con searchMode
 
-La sintassi semplice supporta gli operatori booleani sotto forma di caratteri (`+, -, |`). Il parametro searchMode informa i compromessi tra precisione e richiamo, **`searchMode=any`** che favorisce il richiamo (la corrispondenza in base a qualsiasi criterio qualifica un documento per il set di risultati) e **`searchMode=all`** privilegia la precisione (tutti i criteri devono corrispondere). 
+La sintassi semplice supporta gli operatori booleani sotto forma di caratteri ( `+, -, |` ) per supportare and, or e not logica di query. La ricerca booleana si comporta come previsto, con alcune eccezioni degne di nota. 
 
-Il valore predefinito è **`searchMode=any`** , che può essere confuso se si sta impilando una query con più operatori e ottenendo risultati più ampi anziché più ristretti. Questo è particolarmente vero con NOT, dove i risultati includono tutti i documenti che "non contengono" un termine specifico.
+Negli esempi precedenti, il parametro "searchMode" è stato introdotto come meccanismo per influenzare la precisione e il richiamo, con "searchMode = any" che favorisce il richiamo (un documento che soddisfa uno dei criteri è considerato una corrispondenza) e "searchMode = all" prediligendo la precisione (tutti i criteri devono essere associati a un documento). 
 
-Usando il valore predefinito searchMode (any), vengono restituiti i documenti 2800: quelli che contengono la frase "Fire Department", più tutti i documenti che non hanno la frase "Metrotech Center".
+Nel contesto di una ricerca booleana, il valore predefinito "searchMode = any" può essere confuso se si sta impilando una query con più operatori e ottenendo più ampio anziché risultati più ristretti. Questa operazione è particolarmente valida con NOT, dove i risultati includono tutti i documenti "non contenenti" un termine o una frase specifica.
 
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"-\"Metrotech Center\"",
-      "searchMode": "any"
-    }
-```
+Nell'esempio seguente viene illustrato questo concetto. Eseguendo la query seguente con searchMode (any), vengono restituiti i documenti 42: quelli che contengono il termine "ristorante", più tutti i documenti che non hanno la frase "aria condizionata". 
 
-La risposta per questa query dovrebbe essere simile alla seguente schermata.
-
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="modalità di ricerca = qualsiasi" border="false":::
-
-La modifica di per **`searchMode=all`** impone un effetto cumulativo sui criteri e restituisce un set di risultati più piccolo, ovvero 21 documenti, costituito da documenti che contengono l'intera frase "Fire Department", meno quei processi all'indirizzo Metrotech Center.
+Si noti che non è presente alcuno spazio tra l'operatore booleano ( `-` ) e la frase "aria condizionata".
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"-\"Metrotech Center\"",
-      "searchMode": "all"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "restaurant -\"air conditioning\"",
+    "searchMode": "any",
+    "searchFields": "Tags",
+    "select": "HotelId, HotelName, Tags",
+    "count": true
+}
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="modalità di ricerca = tutto" border="false":::
+Se si passa a "searchMode = all", viene applicato un effetto cumulativo sui criteri e viene restituito un set di risultati più piccolo (7 corrispondenze) costituito da documenti che contengono il termine "ristorante", meno quelli che contengono la frase "aria condizionata".
 
-## <a name="example-8-structuring-results"></a>Esempio 8: strutturazione dei risultati
+La risposta per questa query avrà un aspetto simile all'esempio seguente, troncata per brevità.
 
-Più parametri determinano i campi presenti nei risultati di ricerca, il numero di documenti restituiti in ciascun batch e l'ordinamento. Questo esempio illustra alcuni esempi precedenti, limitando i risultati a campi specifici usando l' **`$select`** istruzione e i criteri di ricerca Verbatim, restituendo 82 corrispondenze.
+```json
+"@odata.count": 7,
+"value": [
+    {
+        "@search.score": 2.5460577,
+        "HotelId": "11",
+        "HotelName": "Regal Orb Resort & Spa",
+        "Tags": [
+            "free wifi",
+            "restaurant",
+            "24-hour front desk service"
+        ]
+    },
+    {
+        "@search.score": 2.166792,
+        "HotelId": "10",
+        "HotelName": "Countryside Hotel",
+        "Tags": [
+            "24-hour front desk service",
+            "coffee in lobby",
+            "restaurant"
+        ]
+    },
+```
+
+## <a name="example-8-paging-results"></a>Esempio 8: paging dei risultati
+
+Negli esempi precedenti sono stati illustrati i parametri che influiscono sulla composizione dei risultati della ricerca, tra cui "Select", che determina quali campi sono in un risultato, ordinano gli ordini e come includere un conteggio di tutte le corrispondenze. Questo esempio è una continuazione della composizione dei risultati della ricerca sotto forma di parametri di paging che consentono di raggruppare il numero di risultati visualizzati in una determinata pagina. 
+
+Per impostazione predefinita, un servizio di ricerca restituisce le prime 50 corrispondenze. Per controllare il numero di corrispondenze in ogni pagina, usare "Top" per definire le dimensioni del batch, quindi usare "Skip" per selezionare i batch successivi.
+
+Nell'esempio seguente vengono utilizzati un filtro e un ordinamento per il campo rating (la classificazione può essere filtrata e ordinabile) perché è più semplice vedere gli effetti del paging sui risultati ordinati. In una normale query di ricerca completa, le corrispondenze principali vengono classificate e inserite in paging da " @search.score ".
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating gt 4",
+    "select": "HotelName, Rating",
+    "orderby": "Rating desc",
+    "top": "5",
+    "count": true
+}
 ```
 
-Aggiunto all'esempio precedente, è possibile ordinare in base al titolo. Questo ordinamento funziona perché civil_service_title è *ordinabile* nell'indice.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title"
-    }
-```
-
-Il paging dei risultati viene implementato utilizzando il **`$top`** parametro, in questo caso restituendo i primi 5 documenti:
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title",
-      "top": "5"
-    }
-```
+La query trova 21 documenti corrispondenti, ma poiché è stato specificato "Top", la risposta restituisce solo le prime cinque corrispondenze, con le classificazioni a partire da 4,9 e termina con 4,7 con "Lady of the Lake B & B". 
 
 Per ottenere i successivi 5, ignorare il primo batch:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating gt 4",
+    "select": "HotelName, Rating",
+    "orderby": "Rating desc",
+    "top": "5",
+    "skip": "5",
+    "count": true
+}
+```
+
+La risposta per il secondo batch ignora le prime cinque corrispondenze, restituendo i successivi cinque, a partire da "Pull'r Inn Motel". Per continuare con batch aggiuntivi, mantenere "Top" su 5 e quindi incrementare "Skip" di 5 per ogni nuova richiesta (Skip = 5, skip = 10, Skip = 15 e così via).
+
+```json
+"value": [
     {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title",
-      "top": "5",
-      "skip": "5"
+        "@search.score": 1.0,
+        "HotelName": "Pull'r Inn Motel",
+        "Rating": 4.7
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Sublime Cliff Hotel",
+        "Rating": 4.6
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Antiquity Hotel",
+        "Rating": 4.5
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Nordick's Motel",
+        "Rating": 4.5
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Winter Panorama Resort",
+        "Rating": 4.5
     }
+]
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare a specificare le query nel codice. I collegamenti seguenti illustrano come configurare le query di ricerca usando gli Azure SDK.
+A questo punto, dopo aver eseguito alcune procedure con la sintassi di base delle query, provare a specificare le query nel codice. I collegamenti seguenti illustrano come configurare le query di ricerca usando gli Azure SDK.
 
 + [Eseguire query sull'indice usando .NET SDK](search-get-started-dotnet.md)
 + [Eseguire query sull'indice con Python SDK](search-get-started-python.md)
@@ -335,5 +534,5 @@ Un riferimento alla sintassi aggiuntivo, l'architettura di query ed esempi sono 
 + [Esempi di query con sintassi Lucene per la compilazione di query avanzate](search-query-lucene-examples.md)
 + [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)
 + [Sintassi di query semplice](query-simple-syntax.md)
-+ [Sintassi di query Lucene completa](query-lucene-syntax.md)
++ [Full Lucene query syntax](query-lucene-syntax.md) (Sintassi di query completa Lucene)
 + [Sintassi del filtro](search-query-odata-filter.md)

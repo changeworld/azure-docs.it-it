@@ -7,14 +7,17 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 39950b4d62b7dbfacba94f5ba3c5de50bbb974b3
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5cbcbcf8914a663a6d039abecd6a4488eaf677b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653674"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739645"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Route in App Web statiche di Azure (anteprima)
+
+> [!IMPORTANT]
+> La funzionalità definita nella *routes.jssu* file è ora deprecata e implementata meglio nel [file di configurazione](./configuration.md#routes)delle app Web statiche di Azure.
 
 Il routing nelle app Web statiche di Azure definisce le regole di routing di back-end e il comportamento di autorizzazione per il contenuto statico e le API<sup>1</sup>. Le regole sono definite come una matrice di regole nel file _routes.json_.
 
@@ -29,6 +32,9 @@ L'argomento sul routing si sovrappone in modo significativo ai concetti relativi
 Per informazioni dettagliate, vedere il [file di route di esempio](#example-route-file) .
 
 ## <a name="location"></a>Location
+
+> [!IMPORTANT]
+> La funzionalità definita nella *routes.jssu* file è ora deprecata e implementata meglio nel [file di configurazione](./configuration.md#routes)delle app Web statiche di Azure.
 
 Il file _routes.json_ deve essere presente nella radice della cartella dell'artefatto della compilazione dell'app. Se l'app Web include un'istruzione di compilazione che copia i file compilati da una cartella specifica alla cartella dell'artefatto della compilazione, il file _routes.json_ deve essere presente in quella cartella specifica.
 
@@ -46,6 +52,9 @@ La tabella precedente è rappresentativa solo di alcuni Framework e librerie com
 
 ## <a name="defining-routes"></a>Definizione delle route
 
+> [!IMPORTANT]
+> La funzionalità definita nella *routes.jssu* file è ora deprecata e implementata meglio nel [file di configurazione](./configuration.md#routes)delle app Web statiche di Azure.
+
 Le route sono definite nel file _routes.json_ come una matrice di regole di route nella proprietà `routes`. Ogni regola è costituita da un modello di route, insieme a una o più proprietà della regola facoltative. Per gli esempi di utilizzo, vedere il [file di route di esempio](#example-route-file).
 
 | Proprietà regola  | Obbligatoria | Valore predefinito | Comment                                                      |
@@ -56,6 +65,9 @@ Le route sono definite nel file _routes.json_ come una matrice di regole di rout
 | `statusCode`   | No       | 200           | [Codice di stato HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) di risposta per la richiesta. |
 
 ## <a name="securing-routes-with-roles"></a>Protezione delle route con i ruoli
+
+> [!IMPORTANT]
+> La funzionalità definita nella *routes.jssu* file è ora deprecata e implementata meglio nel [file di configurazione](./configuration.md#routes)delle app Web statiche di Azure.
 
 Per proteggere le route è necessario aggiungere uno o più nomi di ruolo in una matrice `allowedRoles` di una regola. Per gli esempi di utilizzo, vedere il [file di route di esempio](#example-route-file).
 
@@ -81,6 +93,9 @@ Per impostazione predefinita, ogni utente appartiene al ruolo `anonymous` predef
 - I singoli utenti sono associati ai ruoli tramite [inviti](authentication-authorization.md).
 
 ## <a name="wildcards"></a>Caratteri jolly
+
+> [!IMPORTANT]
+> La funzionalità definita nella *routes.jssu* file è ora deprecata e implementata meglio nel [file di configurazione](./configuration.md#routes)delle app Web statiche di Azure.
 
 Le regole con caratteri jolly trovano la corrispondenza con tutte le richieste in un modello di route specificato. Se si definisce un valore `serve` nella regola, il percorso o il file specificato viene restituito come risposta.
 
@@ -109,6 +124,9 @@ Il file _calendar.html_ può quindi usare il routing lato client per restituire 
 
 ## <a name="fallback-routes"></a>Route di fallback
 
+> [!IMPORTANT]
+> La funzionalità definita nella *routes.jssu* file è ora deprecata e implementata meglio nel [file di configurazione](./configuration.md#routes)delle app Web statiche di Azure.
+
 Le applicazioni a pagina singola, che usano Framework o librerie JavaScript front-end o piattaforme webassembly come blazer, spesso si basano sul routing lato client per la navigazione delle app Web. Queste regole di routing lato client aggiornano la posizione della finestra del browser senza inviare di nuovo richieste al server. Se si aggiorna la pagina o si passa direttamente a posizioni generate dalle regole di routing lato client, è necessaria una route di fallback sul lato server per restituire la pagina HTML appropriata.
 
 Una route di fallback comune è illustrata nell'esempio seguente:
@@ -128,6 +146,9 @@ Una route di fallback comune è illustrata nell'esempio seguente:
 La route di fallback deve essere elencata per ultima nelle regole di routing, in quanto intercetta tutte le richieste non rilevate dalle regole definite in precedenza.
 
 ## <a name="redirects"></a>Reindirizzamenti
+
+> [!IMPORTANT]
+> La funzionalità definita nella *routes.jssu* file è ora deprecata e implementata meglio nel [file di configurazione](./configuration.md#routes)delle app Web statiche di Azure.
 
 Per reindirizzare le richieste da una route a un'altra, è possibile usare i codici di stato HTTP [301](https://en.wikipedia.org/wiki/HTTP_301) e [302](https://en.wikipedia.org/wiki/HTTP_302).
 
@@ -153,6 +174,9 @@ I reindirizzamenti funzionano anche con i percorsi che non definiscono file dist
 
 ## <a name="custom-error-pages"></a>Pagine di errore personalizzate
 
+> [!IMPORTANT]
+> La funzionalità definita nella *routes.jssu* file è ora deprecata e implementata meglio nel [file di configurazione](./configuration.md#routes)delle app Web statiche di Azure.
+
 Gli utenti potrebbero riscontrare numerose situazioni diverse che restituiscono un errore. Usando la matrice `platformErrorOverrides`, è possibile fornire un'esperienza personalizzata in risposta a questi errori. Per il posizionamento della matrice nel file [routes.json](#example-route-file), vedere il _file di route di esempio_.
 
 > [!NOTE]
@@ -171,6 +195,9 @@ La tabella seguente elenca gli override degli errori della piattaforma disponibi
 | `Unauthorized_Unknown` | 401 | Si è verificato un problema sconosciuto durante il tentativo di autenticazione dell'utente. È possibile che l'utente non sia stato riconosciuto perché non ha concesso il consenso all'applicazione.|
 
 ## <a name="custom-mime-types"></a>Tipi MIME personalizzati
+
+> [!IMPORTANT]
+> La funzionalità definita nella *routes.jssu* file è ora deprecata e implementata meglio nel [file di configurazione](./configuration.md#routes)delle app Web statiche di Azure.
 
 L' `mimeTypes` oggetto, elencato allo stesso livello della `routes` matrice, consente di associare [tipi MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) a estensioni di file.
 
@@ -194,6 +221,9 @@ Le considerazioni seguenti sono importanti quando si utilizzano i tipi MIME:
 > App Web statiche riconosce le applicazioni blazer e i tipi MIME previsti per i file WASM e DLL, non è necessario aggiungere i mapping per tali applicazioni.
 
 ## <a name="default-headers"></a>Intestazioni predefinite
+
+> [!IMPORTANT]
+> La funzionalità definita nella *routes.jssu* file è ora deprecata e implementata meglio nel [file di configurazione](./configuration.md#routes)delle app Web statiche di Azure.
 
 L' `defaultHeaders` oggetto, elencato allo stesso livello della `routes` matrice, consente di aggiungere, modificare o rimuovere [intestazioni di risposta](https://developer.mozilla.org/docs/Web/HTTP/Headers).
 
@@ -221,6 +251,9 @@ Le considerazioni seguenti sono importanti quando si utilizzano le intestazioni:
 - Le intestazioni definite in _routes.json_ si applicano solo al contenuto statico. È possibile personalizzare le intestazioni di risposta di un endpoint API nel codice della funzione.
 
 ## <a name="example-route-file"></a>File di route di esempio
+
+> [!IMPORTANT]
+> La funzionalità definita nella *routes.jssu* file è ora deprecata e implementata meglio nel [file di configurazione](./configuration.md#routes)delle app Web statiche di Azure.
 
 L'esempio seguente mostra come creare le regole di route per il contenuto statico e le API in un file _routes.json_. Alcune route usano la [cartella di sistema _/.auth_](authentication-authorization.md) per l'accesso agli endpoint correlati all'autenticazione.
 

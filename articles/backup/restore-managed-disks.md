@@ -3,12 +3,12 @@ title: Ripristinare Managed Disks di Azure
 description: Informazioni su come ripristinare Managed Disks di Azure dall'portale di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 995217cd17d1e2a16cd7a5f963ee88aa7116d4a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737377"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703750"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Ripristinare Managed Disks di Azure (in anteprima)
 
@@ -66,7 +66,7 @@ Per eseguire un'operazione di ripristino sono necessari i prerequisiti seguenti:
     >
     >Durante i backup pianificati o un'operazione di backup su richiesta, backup di Azure archivia gli snapshot incrementali del disco nel gruppo di risorse snapshot fornito durante la configurazione del backup del disco. Backup di Azure usa questi snapshot incrementali durante l'operazione di ripristino. Se gli snapshot vengono eliminati o spostati dal gruppo di risorse snapshot o se le assegnazioni di ruolo dell'insieme di credenziali di backup vengono revocate nel gruppo di risorse snapshot, l'operazione di ripristino avrà esito negativo.
 
-1. Se il disco da ripristinare è crittografato con le [chiavi gestite dal cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) o se si usa la [crittografia doppia usando chiavi gestite dalla piattaforma e chiavi gestite dal cliente](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), assegnare l'autorizzazione del ruolo **lettore** all'identità gestita dell'insieme di credenziali di backup nella risorsa del set di **crittografia del disco** .
+1. Se il disco da ripristinare è crittografato con le [chiavi gestite dal cliente (CMK)](../virtual-machines/disks-enable-customer-managed-keys-portal.md) o se si usa la [crittografia doppia usando chiavi gestite dalla piattaforma e chiavi gestite dal cliente](../virtual-machines/disks-enable-double-encryption-at-rest-portal.md), assegnare l'autorizzazione del ruolo **lettore** all'identità gestita dell'insieme di credenziali di backup nella risorsa del set di **crittografia del disco** .
 
 Una volta soddisfatti i prerequisiti, attenersi alla procedura seguente per eseguire l'operazione di ripristino.
 

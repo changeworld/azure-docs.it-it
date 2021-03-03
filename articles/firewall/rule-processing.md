@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 03/01/2021
 ms.author: victorh
-ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bbf838cfa2a6addc665df4b62e2322d056778b49
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95502196"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741362"
 ---
 # <a name="configure-azure-firewall-rules"></a>Configurare le regole del firewall di Azure
 È possibile configurare le regole NAT, le regole di rete e le regole delle applicazioni nel firewall di Azure. Le raccolte di regole vengono elaborate in base al tipo di regola in ordine di priorità, con numeri più alti da 100 a 65.000. Il nome di una raccolta di regole può includere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. Deve iniziare con una lettera o un numero e terminare con una lettera, un numero o un carattere di sottolineatura. La lunghezza massima del nome è di 80 caratteri.
@@ -38,11 +38,11 @@ Prima del 9 novembre 2020 **qualsiasi** **protocollo TCP**, **UDP** o **ICMP**. 
 
 ### <a name="nat-rules"></a>Regole NAT
 
-La connettività Internet in ingresso può essere abilitata configurando DNAT (Network Address Translation) di destinazione come descritto in [esercitazione: filtrare il traffico in ingresso con il firewall di Azure DNAT usando il portale di Azure](tutorial-firewall-dnat.md). Le regole NAT vengono applicate in precedenza prima delle regole di rete. Se viene trovata una corrispondenza, viene aggiunta in modo implicito una regola di rete corrispondente per consentire il traffico convertito. È possibile sostituire questo comportamento aggiungendo in modo esplicito una raccolta regole di rete con regole di negazione corrispondenti al traffico convertito.
+La connettività Internet in ingresso può essere abilitata configurando DNAT (Network Address Translation) di destinazione come descritto in [esercitazione: filtrare il traffico in ingresso con il firewall di Azure DNAT usando il portale di Azure](tutorial-firewall-dnat.md). Le regole NAT vengono applicate in precedenza prima delle regole di rete. Se viene trovata una corrispondenza, viene aggiunta in modo implicito una regola di rete corrispondente per consentire il traffico convertito. Per motivi di sicurezza, l'approccio consigliato consiste nell'aggiungere un'origine Internet specifica per consentire l'accesso DNAT alla rete ed evitare l'uso di caratteri jolly.
 
 Le regole dell'applicazione non sono applicate per le connessioni in ingresso. Se quindi si desidera filtrare il traffico HTTP/S in ingresso, è necessario utilizzare Web Application Firewall (WAF). Per altre informazioni, vedere [che cos'è il firewall applicazione Web di Azure?](../web-application-firewall/overview.md)
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Negli esempi seguenti vengono illustrati i risultati di alcune di queste combinazioni di regole.
 
@@ -63,7 +63,7 @@ La connessione a google.com è consentita a causa di una regola di rete corrispo
 
 - Azione: Nega
 
-|name  |Tipo di origine  |Source (Sorgente)  |Protocol:Port|FQDN di destinazione|
+|name  |Tipo di origine  |Source (Sorgente)  |Protocollo:Porta|FQDN di destinazione|
 |---------|---------|---------|---------|----------|----------|
 |Nega-Google     |Indirizzo IP|*|http: 80, https: 443|google.com
 

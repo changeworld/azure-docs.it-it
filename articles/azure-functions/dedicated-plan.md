@@ -3,12 +3,12 @@ title: Hosting dedicato di funzioni di Azure
 description: Informazioni sui vantaggi derivanti dall'esecuzione di funzioni di Azure in un piano di hosting dedicato del servizio app.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 0ee32d4c4a7d33664da88b133a1f7011fc09f298
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a9f976eda4a551c302ba7df92fbdbbf7a4fce1d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591063"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704566"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Piani di hosting dedicati per funzioni di Azure
 
@@ -41,7 +41,7 @@ Usando un piano di servizio app, è possibile aumentare manualmente il numero di
 
 ## <a name="app-service-environments"></a>Ambienti del servizio app
 
-L'esecuzione in un [ambiente del servizio app](../app-service/environment/intro.md) (ASE) consente di isolare completamente le funzioni e sfruttare i vantaggi di un numero maggiore di istanze rispetto a un piano di servizio app. Per iniziare, consultare .
+L'esecuzione in un ambiente del servizio app (ASE) consente di isolare completamente le funzioni e sfruttare i vantaggi di un numero maggiore di istanze rispetto a un piano di servizio app. Per iniziare, vedere [Introduzione agli ambienti del servizio app](../app-service/environment/intro.md).
 
 Se si vuole solo eseguire l'app per le funzioni in una rete virtuale, è possibile usare il [piano Premium](functions-premium-plan.md). Per altre informazioni, vedere [stabilire l'accesso al sito privato di funzioni di Azure](functions-create-private-site-access.md). 
 

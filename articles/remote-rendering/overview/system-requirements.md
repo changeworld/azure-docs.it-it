@@ -6,18 +6,14 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: 4380f14610fb0775c82aa79ec7cda9dc70cf0715
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: dd91622344263dc366a76c913ce0be95718550cd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722692"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705161"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
-
-> [!IMPORTANT]
-> **Rendering remoto di Azure** è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo capitolo elenca i requisiti di sistema minimi per l'uso di *Azure Remote rendering* (arr).
 
@@ -71,7 +67,7 @@ Per la risoluzione dei problemi di rete, vedere la [Guida alla risoluzione dei](
 
 Le macchine virtuali per il rendering remoto usano indirizzi IP condivisi dagli intervalli IP seguenti:
 
-| Nome             | Area         | Prefisso IP         |
+| Nome             | Region         | Prefisso IP         |
 |------------------|:---------------|:------------------|
 | Australia orientale   | australiaeast  | 20.53.44.240/28   |
 | Stati Uniti orientali          | eastus         | 20.62.129.224/28  |
@@ -97,7 +93,7 @@ Assicurarsi che i firewall (sul dispositivo, nei router e così via) non blocchi
 | Porta              | Protocollo | Allow    | Descrizione |
 |-------------------|----------|----------|-------------|
 | 50051             | TCP      | In uscita | Connessione iniziale (handshake HTTP) |
-| 8266              | UDP      | In uscita | Trasferimento di dati |
+| 8266              | UDP      | In uscita | Trasferimento dati |
 | 5000, 5433, 8443  | TCP      | In uscita | Obbligatorio per [lo strumento ArrInspector](../resources/tools/arr-inspector.md)|
 
 

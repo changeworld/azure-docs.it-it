@@ -696,7 +696,7 @@
           href: azure-ssis-integration-runtime-package-store.md
     - name: Creare trigger
       items:
-        - name: Creare un trigger basato su eventi
+        - name: Creare un trigger di evento di archiviazione
           href: how-to-create-event-trigger.md
         - name: Creare un trigger di pianificazione
           href: how-to-create-schedule-trigger.md

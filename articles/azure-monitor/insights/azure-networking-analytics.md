@@ -1,17 +1,16 @@
 ---
 title: Soluzione Azure Networking Analytics in Monitoraggio di Azure | Microsoft Docs
 description: È possibile usare la soluzione Azure Networking Analytics in Monitoraggio di Azure per esaminare i log del gruppo di sicurezza di rete e i log del gateway applicazione di Azure.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: cdb43bd8b91881905b1734d0c0b36c33fb27d232
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b8b03378e82810bc2b9680805bacf8360f322a94
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577509"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708136"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio di rete di Azure in Monitoraggio di Azure
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 3094d20a921f9aa13e111e7af60955ce934b91db
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: a37abf369d1f34dc8f4a27802dfad88dab79be44
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566805"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698434"
 ---
 # <a name="connect-your-imperva-waf-gateway-appliance-to-azure-sentinel"></a>Connettere il dispositivo WAF del gateway impervertito ad Azure Sentinel
 
@@ -35,7 +35,7 @@ Questo articolo illustra come connettere l'appliance del gateway WAF impervertit
 
 - È necessario disporre delle autorizzazioni di lettura e scrittura per l'area di lavoro di Azure Sentinel.
 
-- È necessario disporre delle autorizzazioni di lettura per le chiavi condivise per l'area di lavoro. [Altre informazioni sulle chiavi dell'area di lavoro](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- È necessario disporre delle autorizzazioni di lettura per le chiavi condivise per l'area di lavoro. [Altre informazioni sulle chiavi dell'area di lavoro](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## <a name="send-imperva-waf-gateway-logs-to-azure-sentinel"></a>Inviare i log del gateway WAF a Sentinel di Azure
 

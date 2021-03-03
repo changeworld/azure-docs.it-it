@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108059"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690618"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -229,17 +229,15 @@ Quando si esegue la migrazione del database da un livello di servizio basato su 
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Modificare il periodo di conservazione dei backup ripristino temporizzato usando il portale di Azure
 
-Per modificare il periodo di conservazione dei backup ripristino temporizzato per i database attivi utilizzando il portale di Azure, passare al server o all'istanza gestita con i database di cui si desidera modificare il periodo di memorizzazione. 
+Per modificare il periodo di conservazione dei backup ripristino temporizzato per i database attivi utilizzando il portale di Azure, passare al server o all'istanza gestita con i database di cui si desidera modificare il periodo di memorizzazione. Selezionare **backup** nel riquadro sinistro, quindi selezionare la scheda **criteri di conservazione** . Selezionare i database per i quali si desidera modificare la conservazione dei backup di ripristino temporizzato. Selezionare quindi **Configura conservazione** dalla barra delle azioni.
+
+
 
 #### <a name="sql-database"></a>[Database SQL](#tab/single-database)
-
-Le modifiche apportate alla conservazione dei backup di ripristino temporizzato per il database SQL vengono eseguite nella pagina Server nel portale. Per modificare la conservazione ripristino temporizzato per i database in un server, passare al pannello Panoramica Server. Selezionare **Gestisci backup** nel riquadro sinistro, selezionare i database nell'ambito della modifica e quindi selezionare **Configura conservazione** nella parte superiore della schermata:
 
 ![Modificare la conservazione ripristino temporizzato, a livello di server](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
 #### <a name="sql-managed-instance"></a>[Istanza gestita di SQL](#tab/managed-instance)
-
-Le modifiche apportate alla conservazione dei backup ripristino temporizzato per SQL Istanza gestita vengono eseguite a livello di singolo database. Per modificare la conservazione dei backup ripristino temporizzato per un database di istanza dalla portale di Azure, passare al pannello di panoramica del singolo database. Selezionare quindi **Configura conservazione backup** nella parte superiore della schermata:
 
 ![Modificare la conservazione ripristino temporizzato, istanza gestita](./media/automated-backups-overview/configure-backup-retention-sqlmi.png)
 

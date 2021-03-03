@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91ef5ca35cc96aa2028522d370ffbade45ecc2de
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: de67e356e54328944c55f41dc0c9670e2540e82e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779771"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694377"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
-Crittografia dischi di Azure consente di proteggere e salvaguardare i dati per soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. Usa la funzionalità [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per offrire la crittografia del volume per il disco del sistema operativo e i dischi dati delle macchine virtuali (VM) di Azure ed è integrato con [Azure Key Vault](../../key-vault/index.yml) per facilitare il controllo e la gestione delle chiavi e dei segreti di crittografia dei dischi. 
+Crittografia dischi di Azure consente di proteggere e salvaguardare i dati per soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. Usa la funzionalità [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per offrire la crittografia del volume per il disco del sistema operativo e i dischi dati delle macchine virtuali (VM) di Azure ed è integrato con [Azure Key Vault](../../key-vault/index.yml) per facilitare il controllo e la gestione delle chiavi e dei segreti di crittografia dei dischi.
+
+Crittografia dischi di Azure è la resilienza della zona, allo stesso modo delle macchine virtuali. Per informazioni dettagliate, vedere [servizi di Azure che supportano zone di disponibilità](../../availability-zones/az-region.md).
 
 Se si usa [Centro sicurezza di Azure](../../security-center/index.yml), si viene avvisati se sono presenti macchine virtuali non crittografate. Gli avvisi vengono visualizzati con un livello di gravità elevato e la raccomandazione di crittografare tali macchine virtuali.
 
@@ -26,7 +28,6 @@ Se si usa [Centro sicurezza di Azure](../../security-center/index.yml), si viene
 > [!WARNING]
 > - Se in precedenza è stato usato Crittografia dischi di Azure con Azure AD per crittografare una macchina virtuale, sarà necessario continuare a usare questa opzione per crittografare la macchina virtuale. Per altre informazioni, vedere [Crittografia dischi di Azure con Azure AD (versione precedente)](disk-encryption-overview-aad.md). 
 > - Alcune indicazioni possono comportare un maggior utilizzo delle risorse di calcolo, rete o dati con un conseguente aumento dei costi di licenza o sottoscrizione. Per creare le risorse in Azure nella aree geografiche supportate, è necessario avere una sottoscrizione di Azure attiva e valida.
-> - Attualmente le macchine virtuali di seconda generazione non supportano Crittografia dischi di Azure. Per altre informazioni, vedere [Supporto per le macchine virtuali di seconda generazione in Azure](../generation-2.md).
 
 È possibile apprendere in pochi minuti le nozioni di base di Crittografia dischi di Azure per Linux con [Avvio rapido: Creare e crittografare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](disk-encryption-cli-quickstart.md) o [Avvio rapido: Creare e crittografare una macchina virtuale Linux con Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -34,7 +35,11 @@ Se si usa [Centro sicurezza di Azure](../../security-center/index.yml), si viene
 
 ### <a name="supported-vms"></a>VM supportate
 
-Le macchine virtuali Linux sono disponibili in una [gamma di dimensioni](../sizes.md). Crittografia dischi di Azure non è disponibile nelle [macchine virtuali serie A di tipo Basic](https://azure.microsoft.com/pricing/details/virtual-machines/series/) o in quelle che non soddisfano questi requisiti di memoria minimi:
+Le macchine virtuali Linux sono disponibili in una [gamma di dimensioni](../sizes.md). Crittografia dischi di Azure è supportata nelle macchine virtuali di prima e seconda generazione. Crittografia dischi di Azure è disponibile anche per le macchine virtuali con Archiviazione Premium.
+
+Vedere [dimensioni delle macchine virtuali di Azure senza dischi temporanei locali](../azure-vms-no-temp-disk.md).
+
+Crittografia dischi di Azure non è disponibile anche nelle [VM di base, serie a](https://azure.microsoft.com/pricing/details/virtual-machines/series/)o nelle macchine virtuali che non soddisfano i requisiti di memoria minimi:
 
 | Macchina virtuale | Requisito di memoria minimo |
 |--|--|
@@ -42,13 +47,9 @@ Le macchine virtuali Linux sono disponibili in una [gamma di dimensioni](../size
 | Macchine virtuali Linux quando si usa la crittografia per i volumi di dati e del sistema operativo e nei casi in cui l'utilizzo del file system radice (/) è di 4 GB o inferiore | 8 GB |
 | Macchine virtuali Linux quando si usa la crittografia per i volumi di dati e del sistema operativo e nei casi in cui l'utilizzo del file system radice (/) è superiore a 4 GB | Utilizzo del file system radice x 2. Ad esempio, per un utilizzo del file system radice di 16 GB sono necessari almeno 32 GB di RAM |
 
-Al termine del processo di crittografia del disco del sistema operativo nelle macchine virtuali Linux, la macchina virtuale può essere configurata per l'esecuzione con una minore quantità di memoria. 
+Al termine del processo di crittografia del disco del sistema operativo nelle macchine virtuali Linux, la macchina virtuale può essere configurata per l'esecuzione con una minore quantità di memoria.
 
-Crittografia dischi di Azure è disponibile anche per le macchine virtuali con Archiviazione Premium.
-
-Crittografia dischi di Azure non è disponibile nelle macchine virtuali di [generazione 2](../generation-2.md#generation-1-vs-generation-2-capabilities) e [VM della serie Lsv2](../lsv2-series.md). Per altre eccezioni, vedere [Crittografia dischi di Azure: Scenari non supportati](disk-encryption-linux.md#unsupported-scenarios).
-
-Crittografia dischi di Azure non è disponibile per le immagini di macchina virtuale senza dischi temporanei (dv4, Dsv4, Ev4 e Esv4).  Vedere [dimensioni delle macchine virtuali di Azure senza dischi temporanei locali](../azure-vms-no-temp-disk.md).
+Per altre eccezioni, vedere [Crittografia dischi di Azure: Scenari non supportati](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -58,6 +59,7 @@ Crittografia dischi di Azure è supportato in un sottoinsieme di [distribuzioni 
 
 Le distribuzioni di server Linux non approvate da Azure non supportano Crittografia dischi di Azure. Tra quelle approvate, solo le distribuzioni e versioni seguenti supportano Crittografia dischi di Azure:
 
+
 | Editore | Offerta | SKU | URN | Tipo di volume supportato per la crittografia |
 | --- | --- |--- | --- |
 | Canonical | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | Disco del sistema operativo e dati |
@@ -65,9 +67,12 @@ Le distribuzioni di server Linux non approvate da Azure non supportano Crittogra
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | Disco del sistema operativo e dati |
 | Canonical | Ubuntu 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | Disco del sistema operativo e dati |
 | Canonical | Ubuntu 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | Disco del sistema operativo e dati |
+| RedHat | RHEL 8-LVM | 8-LVM | RedHat: RHEL: 8-LVM: più recente | Disco del sistema operativo e dati (vedere la nota di seguito) |
+| RedHat | RHEL 8,2 | 8.2 | RedHat: RHEL: 8.2: più recente | Disco del sistema operativo e dati (vedere la nota di seguito) |
+| RedHat | RHEL 8.1 | 8.1 | RedHat: RHEL: 8.1: più recente | Disco del sistema operativo e dati (vedere la nota di seguito) |
+| RedHat | RHEL 7-LVM | 7-LVM | RedHat: RHEL: 7-LVM: 7.8.2020111201 | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7,8 | 7.8 | RedHat: RHEL: 7.8: più recente | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
-| RedHat | RHEL 7-LVM | 7-LVM | RedHat: RHEL: 7-LVM: 7.8.2020111201 | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
@@ -75,9 +80,12 @@ Le distribuzioni di server Linux non approvate da Azure non supportano Crittogra
 | RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 6.8 | 6.8 | RedHat:RHEL:6.8:latest | Disco dati (vedere la nota di seguito) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Disco dati (vedere la nota di seguito) |
+| OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic: CentOS-LVM: 8-LVM: più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 8,2 | 8_2 | OpenLogic: CentOS: 8_2: più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 8,1 | 8_1 | OpenLogic: CentOS: 8_1: più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic: CentOS-LVM: 7-LVM: 7.8.2020111100 | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 7,8 | 7.8 | OpenLogic: CentOS: 7_8: più recente | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | Disco del sistema operativo e dati |
-| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic: CentOS-LVM: 7-LVM: 7.8.2020111100 | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | Disco del sistema operativo e dati |
@@ -148,7 +156,7 @@ La tabella seguente definisce alcuni dei termini comuni usati nella documentazio
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Avvio rapido: Creare e crittografare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure ](disk-encryption-cli-quickstart.md)
-- [Avvio rapido: Creare e crittografare una macchina virtuale Linux con Azure PowerShell](disk-encryption-powershell-quickstart.md)
+- [Guida introduttiva: creare e crittografare una VM Linux con Azure PowerShell](disk-encryption-powershell-quickstart.md) 
 - [Scenari di crittografia dischi di Azure per macchine virtuali Linux](disk-encryption-linux.md)
 - [Script dell'interfaccia della riga di comando dei prerequisiti di Crittografia dischi di Azure](https://github.com/ejarvi/ade-cli-getting-started)
 - [Script di PowerShell dei prerequisiti di Crittografia dischi di Azure](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)

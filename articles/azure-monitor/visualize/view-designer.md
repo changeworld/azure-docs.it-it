@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/04/2020
-ms.openlocfilehash: d63627c00f6fd06ba00a9d8a905891238ce94697
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 11a6d21a7a066d331a92453e9aaa876800da0bf4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613826"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700542"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creare visualizzazioni personalizzate usando Progettazione viste in monitoraggio di Azure
 Utilizzando Progettazione viste in monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nell'portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
@@ -38,10 +38,10 @@ Le visualizzazioni create con Progettazione visualizzazioni contengono gli eleme
 |:--- |:--- |
 | Riquadri | Vengono visualizzati nella pagina **Panoramica** di monitoraggio di Azure. Ogni riquadro mostra un riepilogo visivo della visualizzazione personalizzata che rappresenta. Ciascun tipo di riquadro offre una visualizzazione diversa dei record. Selezionare un riquadro per mostrare una visualizzazione personalizzata. |
 | Visualizzazione personalizzata | Viene mostrata quando si seleziona un riquadro. Ciascuna visualizzazione contiene una o più parti della visualizzazione. |
-| Parti della visualizzazione | Presentare una visualizzazione dei dati nell'area di lavoro Log Analytics in base a una o più [query di log](../log-query/log-query-overview.md). La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro Log Analytics. Per eseguire una query di log che fornisce record dettagliati, selezionare gli elementi nella parte. |
+| Parti della visualizzazione | Presentare una visualizzazione dei dati nell'area di lavoro Log Analytics in base a una o più [query di log](../logs/log-query-overview.md). La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro Log Analytics. Per eseguire una query di log che fornisce record dettagliati, selezionare gli elementi nella parte. |
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
-Per creare o modificare le visualizzazioni, è necessario disporre almeno [delle autorizzazioni a livello di collaboratore](../platform/manage-access.md#manage-access-using-azure-permissions) nell'area di lavoro log Analytics. Se non si dispone di questa autorizzazione, l'opzione Progettazione viste non verrà visualizzata nel menu.
+Per creare o modificare le visualizzazioni, è necessario disporre almeno [delle autorizzazioni a livello di collaboratore](../logs/manage-access.md#manage-access-using-azure-permissions) nell'area di lavoro log Analytics. Se non si dispone di questa autorizzazione, l'opzione Progettazione viste non verrà visualizzata nel menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Usare una visualizzazione esistente
@@ -54,7 +54,7 @@ Le opzioni sono descritte nella tabella seguente:
 | Opzione | Descrizione |
 |:--|:--|
 | Aggiorna   | Aggiorna la visualizzazione con i dati più recenti. | 
-| Log      | Apre il [log Analytics](../log-query/log-query-overview.md) per analizzare i dati con le query di log. |
+| Log      | Apre il [log Analytics](../logs/log-query-overview.md) per analizzare i dati con le query di log. |
 | Modifica       | Apre la visualizzazione in Progettazione visualizzazioni per modificarne il contenuto e la configurazione.  |
 | Clone      | Crea una nuova visualizzazione e la apre in Progettazione visualizzazioni. La nuova visualizzazione ha lo stesso nome dell'originale, con l'aggiunta di *Copia*. |
 | Intervallo di date | Impostare l'intervallo di tempo e di date per i dati inclusi nella vista. Questo intervallo di date viene applicato prima di eventuali intervalli di date impostati nelle query nella vista.  |

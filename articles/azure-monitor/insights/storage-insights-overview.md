@@ -1,17 +1,16 @@
 ---
 title: Monitorare i servizi di Archiviazione di Azure con Monitoraggio di Azure per l'archiviazione | Microsoft Docs
 description: Questo articolo descrive la funzionalità Monitoraggio di Azure per l'archiviazione, che consente agli amministratori dell'archiviazione di comprendere rapidamente i problemi di prestazioni e utilizzo degli account di archiviazione di Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 13c884d9f140fbd962bfa32ef2d853339aec325a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0baaca8df8865061b51f1629da14c3b18a527047
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587363"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708068"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitoraggio del servizio di archiviazione con Monitoraggio di Azure per l'archiviazione
 
@@ -85,7 +84,7 @@ Quando si seleziona un valore in una delle colonne della cartella di lavoro, si 
 
 ## <a name="view-from-a-storage-account"></a>Visualizzare da un account di archiviazione
 
-Per accedere a Monitoraggio di Azure per le macchine virtuali direttamente da un account di archiviazione:
+Per accedere a VM Insights direttamente da un account di archiviazione:
 
 1. Nel portale di Azure selezionare Account di archiviazione.
 

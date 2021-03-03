@@ -1,25 +1,25 @@
 ---
-title: Avvisi di integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
-description: Vengono descritti gli avvisi creati da Monitoraggio di Azure per le macchine virtuali integrità Guest, incluso il modo in cui abilitarli e configurare le notifiche.
+title: Avvisi di integrità Guest di VM Insights (anteprima)
+description: Vengono descritti gli avvisi creati dall'integrità Guest di VM Insights, inclusa la modalità di abilitazione e la configurazione delle notifiche.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 30025f387768aaf1e4d642292c21d5b15ccc7451
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a32ba9f1c4cf5d6bb9de69e1a6860c858e3ee2a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620627"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707507"
 ---
-# <a name="azure-monitor-for-vms-guest-health-alerts-preview"></a>Avvisi di integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
-Monitoraggio di Azure per le macchine virtuali integrità Guest consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. È possibile creare un avviso quando una macchina virtuale o un monitoraggio viene modificato in uno stato non integro. È possibile visualizzare e gestire questi avvisi con [quelli creati dalle regole di avviso in monitoraggio di Azure](../platform/alerts-overview.md) e scegliere di ricevere notifiche in modo proattivo quando viene creato un nuovo avviso.
+# <a name="vm-insights-guest-health-alerts-preview"></a>Avvisi di integrità Guest di VM Insights (anteprima)
+L'integrità Guest di VM Insights consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. È possibile creare un avviso quando una macchina virtuale o un monitoraggio viene modificato in uno stato non integro. È possibile visualizzare e gestire questi avvisi con [quelli creati dalle regole di avviso in monitoraggio di Azure](../alerts/alerts-overview.md) e scegliere di ricevere notifiche in modo proattivo quando viene creato un nuovo avviso.
 
 ## <a name="configure-alerts"></a>Configurare gli avvisi
-Non è possibile creare una regola di avviso esplicita per Monitoraggio di Azure per le macchine virtuali integrità Guest mentre questa funzionalità è in anteprima. Per impostazione predefinita, gli avvisi verranno creati per ogni macchina virtuale, ma non per ogni monitoraggio.  Ciò significa che se un monitoraggio viene modificato in uno stato che non influisce sullo stato corrente della macchina virtuale, non viene creato alcun avviso perché lo stato della macchina virtuale non è stato modificato. 
+Non è possibile creare una regola di avviso esplicita per l'integrità Guest di VM Insights mentre questa funzionalità è in anteprima. Per impostazione predefinita, gli avvisi verranno creati per ogni macchina virtuale, ma non per ogni monitoraggio.  Ciò significa che se un monitoraggio viene modificato in uno stato che non influisce sullo stato corrente della macchina virtuale, non viene creato alcun avviso perché lo stato della macchina virtuale non è stato modificato. 
 
-È possibile disabilitare gli avvisi per una determinata macchina virtuale o per un particolare monitoraggio in una macchina virtuale dall'impostazione **dello stato degli avvisi** nella configurazione della macchina virtuale nella portale di Azure. Per informazioni dettagliate sulla configurazione dei monitoraggi nel portale di Azure, vedere [configurare il monitoraggio in monitoraggio di Azure per le macchine virtuali Health Guest (anteprima)](vminsights-health-configure.md) . Per informazioni dettagliate sulla configurazione dei monitoraggi in un set di macchine virtuali, vedere [configurare il monitoraggio in monitoraggio di Azure per le macchine virtuali integrità Guest mediante regole di raccolta dati (anteprima)](vminsights-health-configure-dcr.md) .
+È possibile disabilitare gli avvisi per una determinata macchina virtuale o per un particolare monitoraggio in una macchina virtuale dall'impostazione **dello stato degli avvisi** nella configurazione della macchina virtuale nella portale di Azure. Per informazioni dettagliate sulla configurazione dei monitoraggi nel portale di Azure, vedere [configurare il monitoraggio in integrità Guest di VM Insights (anteprima)](vminsights-health-configure.md) . Per informazioni dettagliate sulla configurazione dei monitoraggi in un set di macchine virtuali, vedere [configurare il monitoraggio in integrità Guest di VM Insights tramite le regole di raccolta dati (anteprima)](vminsights-health-configure-dcr.md) .
 
 ## <a name="alert-severity"></a>Gravità dell'avviso
 Il livello di gravità dell'avviso creato dall'integrità Guest viene mappato direttamente alla gravità della macchina virtuale o al monitoraggio che ha attivato l'avviso.
@@ -31,12 +31,12 @@ Il livello di gravità dell'avviso creato dall'integrità Guest viene mappato di
 | Healthy  | Sev4 |
 
 ## <a name="alert-lifecycle"></a>Ciclo di vita degli avvisi
-Viene creato un [avviso di Azure](../platform/alerts-overview.md) per ogni macchina virtuale in qualsiasi momento in cui viene modificato in uno stato di **avviso** o **criticità** . Visualizzare l'avviso dagli **avvisi** dal menu **monitoraggio di Azure** o dal menu della macchina virtuale nel portale di Azure.
+Viene creato un [avviso di Azure](../alerts/alerts-overview.md) per ogni macchina virtuale in qualsiasi momento in cui viene modificato in uno stato di **avviso** o **criticità** . Visualizzare l'avviso dagli **avvisi** dal menu **monitoraggio di Azure** o dal menu della macchina virtuale nel portale di Azure.
 
 Se un avviso si trova già nello stato **attivato** quando viene modificato lo stato della macchina virtuale, non verrà creato un secondo avviso, ma la gravità dello stesso avviso verrà modificata in base allo stato della macchina virtuale. Se, ad esempio, la macchina virtuale diventa uno stato **critico** quando **un avviso** era già nello stato **attivato** , la gravità dell'avviso verrà modificata in **Sev1**. Se la macchina virtuale passa a uno stato di **avviso** quando un avviso **Sev1** è già stato **attivato** , il livello di gravità dell'avviso verrà modificato in **Sev2**. Se la macchina virtuale torna a uno stato **integro** , l'avviso verrà risolto con la gravità modificata in **Sev4**.
 
 ## <a name="viewing-alerts"></a>Visualizzazione degli avvisi
-Consente di visualizzare gli avvisi creati da Monitoraggio di Azure per le macchine virtuali integrità Guest con altri [avvisi nel portale di Azure](../platform/alerts-overview.md#alerts-experience). È possibile selezionare **avvisi** dal menu **monitoraggio di Azure** per visualizzare gli avvisi per tutte le risorse monitorate oppure selezionare **avvisi** dal menu di una macchina virtuale per visualizzare gli avvisi solo per tale macchina virtuale.
+Visualizzare gli avvisi creati dall'integrità Guest di VM Insights con altri [avvisi nell'portale di Azure](../platform/alerts-overview.md#alerts-experience). È possibile selezionare **avvisi** dal menu **monitoraggio di Azure** per visualizzare gli avvisi per tutte le risorse monitorate oppure selezionare **avvisi** dal menu di una macchina virtuale per visualizzare gli avvisi solo per tale macchina virtuale.
 
 ## <a name="alert-properties"></a>Proprietà avviso
 
@@ -106,6 +106,6 @@ In **Definisci in questo ambito** selezionare **gruppo di azioni** e quindi sele
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare l'integrità Guest in Monitoraggio di Azure per le macchine virtuali e caricare gli agenti.](vminsights-health-enable.md)
+- [Abilitare l'integrità Guest in VM Insights e caricare gli agenti.](vminsights-health-enable.md)
 - [Configurare i monitoraggi utilizzando il portale di Azure.](vminsights-health-configure.md)
 - [Configurare i monitoraggi con le regole di raccolta dati.](vminsights-health-configure-dcr.md)

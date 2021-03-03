@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c5a027773a55347b71c1e6a66d24d7fdb99220d0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567140"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725510"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -76,6 +76,11 @@ Non è possibile eseguire il file eseguibile scaricato nella macchina virtuale c
 ### <a name="virtual-machine-backups-having-large-disks"></a>Backup di macchine virtuali con dischi di grandi dimensioni
 
 Se il computer di cui è stato eseguito il backup ha un numero elevato di dischi (>16) o dischi di grandi dimensioni (> 4 TB ciascuno), non è consigliabile eseguire lo script nello stesso computer per il ripristino, poiché avrà un impatto significativo sulla macchina virtuale. È invece consigliabile avere una macchina virtuale separata solo per il ripristino dei file (VM D2v3 VM di Azure) e quindi arrestarla quando non è necessario. 
+
+Vedere Requisiti per ripristinare i file dalle macchine virtuali di cui è stato eseguito il backup con dischi di grandi dimensioni:<br>
+[Sistema operativo Windows](#for-backed-up-vms-with-large-disks-windows)<br>
+[Sistema operativo Linux](#for-backed-up-vms-with-large-disks-linux)
+
 
 ## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>Passaggio 3: requisiti del sistema operativo per eseguire correttamente lo script
 

@@ -3,12 +3,12 @@ title: Introduzione ad Analisi di video live in IoT Edge - Azure
 description: Questo argomento di avvio rapido descrive come iniziare a usare Analisi video live in IoT Edge. Informazioni su come rilevare il movimento in un flusso video live.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d9f2637166c3807e36f4304e9394bf2ecf91d88c
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 57edf1721249f839f5c781756b3e09bf59888dab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573807"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730287"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Avvio rapido: Introduzione: analisi di video live in IoT Edge
 
@@ -69,10 +69,10 @@ Per questo argomento di avvio rapido è consigliabile usare lo [script di config
     1. **Interfaccia di rete** : consente a una macchina virtuale di Azure di comunicare con Internet, Azure e altre risorse.
     1. **Connessione Bastion** : consente di connettersi alla macchina virtuale usando il browser e la portale di Azure.
     1. **Indirizzo IP pubblico** : consente alle risorse di Azure di comunicare con Internet e con servizi di Azure pubblici
-    1. **Rete virtuale** : consente a molti tipi di risorse di Azure, ad esempio la macchina virtuale, di comunicare in modo sicuro tra loro, con Internet e con le reti locali. Altre informazioni sulle [reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+    1. **Rete virtuale** : consente a molti tipi di risorse di Azure, ad esempio la macchina virtuale, di comunicare in modo sicuro tra loro, con Internet e con le reti locali. Altre informazioni sulle [reti virtuali](../../virtual-network/virtual-networks-overview.md).
     1. **Hub** di Internet delle cose: funge da Hub messaggi centrale per la comunicazione bidirezionale tra l'applicazione internet, IOT Edge moduli e i dispositivi gestiti.
     1. **Account del servizio multimediale** : consente di gestire e trasmettere in streaming contenuti multimediali in Azure.
-    1. **Account** di archiviazione: è necessario avere un account di archiviazione primario ed è possibile avere un numero qualsiasi di account di archiviazione secondari associati all'account di servizi multimediali. Per altre informazioni, vedere [Account di archiviazione di Azure con account di Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Account** di archiviazione: è necessario avere un account di archiviazione primario ed è possibile avere un numero qualsiasi di account di archiviazione secondari associati all'account di servizi multimediali. Per altre informazioni, vedere [Account di archiviazione di Azure con account di Servizi multimediali di Azure](../latest/storage-account-concept.md).
     1. **Registro contenitori** : consente di archiviare e gestire le immagini del contenitore Docker privato e gli artefatti correlati.
 
 Nell'output dello script una tabella di risorse include il nome dell'hub IoT. Cercare il tipo di risorsa **`Microsoft.Devices/IotHubs`** e prendere nota del nome. Servirà nel passaggio successivo.  

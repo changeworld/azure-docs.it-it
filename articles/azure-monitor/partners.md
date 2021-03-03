@@ -3,13 +3,13 @@ title: Partner che si integrano con monitoraggio di Azure
 description: Informazioni sui partner del monitoraggio di Azure e sulle modalità di accesso alla documentazione per l'integrazione.
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 5f97097d21beab12c5f58161751a1bc340fa6cf7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/19/2021
+ms.openlocfilehash: 8b4a30fb26a0b66d31fe16016e0a88fbfb9bbd03
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616807"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710992"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -101,6 +101,8 @@ Con la nuova integrazione di Azure-Datadog, le organizzazioni possono ora esegui
 -   Ottenere la fatturazione unificata per il servizio Datadog tramite la fatturazione della sottoscrizione di Azure.
 
 Iscriversi per l' [anteprima pubblica](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) della nuova integrazione di Datadog con Azure.  L'anteprima pubblica sarà disponibile in Azure Marketplace a partire dal 2020 ottobre.
+
+Sottoscrivere l'anteprima di "integrazione Datadog con Azure" disponibile in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
 
 Se si usa ancora l'integrazione configurata manualmente precedente, vedere la [documentazione nel sito Web DataDog](https://docs.datadoghq.com/integrations/azure/).
 

@@ -1,17 +1,17 @@
 ---
-title: Report in monitoraggio di Azure per i contenitori
-description: Vengono descritti i report disponibili per analizzare i dati raccolti da monitoraggio di Azure per i contenitori.
+title: Report in informazioni dettagliate sul contenitore
+description: Vengono descritti i report disponibili per analizzare i dati raccolti da informazioni dettagliate sul contenitore.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582320"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704277"
 ---
-# <a name="reports-in-azure-monitor-for-containers"></a>Report in monitoraggio di Azure per i contenitori
-I report in monitoraggio di Azure per i contenitori sono le cartelle di lavoro di [Azure](../visualize/workbooks-overview.md)predefinite. Questo articolo descrive i diversi report disponibili e come accedervi.
+# <a name="reports-in-container-insights"></a>Report in informazioni dettagliate sul contenitore
+I report in informazioni dettagliate sul contenitore sono le [cartelle di lavoro di Azure](../visualize/workbooks-overview.md)predefinite consigliate. Questo articolo descrive i diversi report disponibili e come accedervi.
 
 ## <a name="viewing-reports"></a>Visualizzazione dei report
 Dal menu **monitoraggio di Azure** nella portale di Azure selezionare **contenitori**. Selezionare **informazioni dettagliate** nella sezione **monitoraggio** , scegliere un cluster specifico e quindi selezionare la pagina **report (anteprima)** . 

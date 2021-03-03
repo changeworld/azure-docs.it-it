@@ -113,6 +113,9 @@
       items:
         - name: Interfaccia della riga di comando di Azure
           href: sample-scripts-azure-cli.md
+        - name: Criteri di Azure predefiniti
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
     - name: Concetti
       items:
         - name: Server
@@ -572,14 +575,6 @@
         - name: Progettare un database in tempo reale
           href: tutorial-design-database-hyperscale-realtime.md
           displayName: 'hyperscale, tutorial, real-time'
-    - name: Esempi
-      items:
-        - name: Interfaccia della riga di comando di Azure
-          href: sample-scripts-azure-cli.md
-          displayName: 'samples, azure cli'
-        - name: Criteri di Azure predefiniti
-          displayName: 'samples, policies, definitions'
-          href: ./policy-reference.md
     - name: Concetti
       items:
         - name: Dati distribuiti

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4db42d8fa8c676b20b236577ce6646b909df7c3a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: bd3a63db7dd4946a9836b3978992fb544b9ab0ab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638887"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688043"
 ---
 # <a name="api-management-caching-policies"></a>Criteri di memorizzazione nella cache in Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
@@ -59,7 +59,7 @@ Usare il criterio `cache-lookup` per eseguire una ricerca nella cache e restitui
 </cache-lookup>
 ```
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="example"></a>Esempio
 
@@ -138,7 +138,7 @@ Il criterio `cache-store` memorizza nella cache le risposte in base alle imposta
 <cache-store duration="seconds" />
 ```
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="example"></a>Esempio
 
@@ -235,7 +235,7 @@ Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione 
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | tipo di memorizzazione nella cache | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No       | `prefer-external` |
 | default-value    | Un valore che verrà assegnato alla variabile se la ricerca della chiave nella cache non produce risultati. Se questo attributo viene omesso, viene assegnato `null`.                                                                                                                                                                                                           | No       | `null`            |
-| Key              | Valore della chiave della cache da usare nella ricerca.                                                                                                                                                                                                                                                                                                                       | Sì      | N/D               |
+| key              | Valore della chiave della cache da usare nella ricerca.                                                                                                                                                                                                                                                                                                                       | Sì      | N/D               |
 | variable-name    | Nome della [variabile di contesto](api-management-policy-expressions.md#ContextVariables) a cui verrà assegnato il valore cercato, se la ricerca ha esito positivo. Se la ricerca non produce risultati, alla variabile sarà assegnato il valore dell'attributo `default-value` o `null`, se l'attributo `default-value` è omesso.                                       | Sì      | N/D               |
 
 ### <a name="usage"></a>Utilizzo
@@ -248,7 +248,7 @@ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policie
 `cache-store-value` esegue l'archiviazione nella cache in base alla chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri.
 
 > [!NOTE]
-> Questo criterio deve essere associato a un criterio [Recupera valore dalla cache](#GetFromCacheByKey) corrispondente.
+> L'operazione di archiviazione del valore nella cache eseguita da questo criterio è asincrona. Il valore archiviato può essere recuperato usando [get value from cache](#GetFromCacheByKey) Policy. Tuttavia, il valore archiviato potrebbe non essere immediatamente disponibile per il recupero perché l'operazione asincrona che archivia il valore nella cache potrebbe essere ancora in corso. 
 
 ### <a name="policy-statement"></a>Istruzione del criterio
 
@@ -278,8 +278,8 @@ Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione 
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | tipo di memorizzazione nella cache | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No       | `prefer-external` |
 | duration         | Il valore verrà memorizzato nella cache per il valore di durata specificato, espresso in secondi.                                                                                                                                                                                                                                                                                 | Sì      | N/D               |
-| Key              | La chiave della cache in cui verrà archiviato il valore.                                                                                                                                                                                                                                                                                                                   | Sì      | N/D               |
-| value            | Il valore da memorizzare nella cache.                                                                                                                                                                                                                                                                                                                                     | Sì      | N/D               |
+| key              | La chiave della cache in cui verrà archiviato il valore.                                                                                                                                                                                                                                                                                                                   | Sì      | N/D               |
+| Valore            | Il valore da memorizzare nella cache.                                                                                                                                                                                                                                                                                                                                     | Sì      | N/D               |
 ### <a name="usage"></a>Utilizzo
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -316,7 +316,7 @@ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policie
 | Nome             | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | tipo di memorizzazione nella cache | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No       | `prefer-external` |
-| Key              | La chiave del valore memorizzato in precedenza nella cache da rimuovere dalla cache.                                                                                                                                                                                                                                                                                        | Sì      | N/D               |
+| key              | La chiave del valore memorizzato in precedenza nella cache da rimuovere dalla cache.                                                                                                                                                                                                                                                                                        | Sì      | N/D               |
 
 #### <a name="usage"></a>Utilizzo
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.

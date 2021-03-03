@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461763"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730372"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
@@ -75,7 +75,7 @@ Tuttavia, test drive funziona automaticamente, senza interazione umana, pertanto
 
 | Tipo di metadati   | Tipo di parametro  | Descrizione     | Valore di esempio    |
 |---|---|---|---|
-| **baseUri**     | string          | URI di base del pacchetto di distribuzione| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **baseUri**     | string          | URI di base del pacchetto di distribuzione| `https://<..>.blob.core.windows.net/<..>` |
 | **username**    | string          | Nuovo nome utente casuale.| admin68876      |
 | **password**    | stringa sicura    | Nuova password casuale | Lp!ACS\^2kh     |
 | **ID sessione**   | string          | ID di sessione test drive univoco (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
@@ -300,7 +300,7 @@ La sezione finale da completare è la possibilità di distribuire automaticament
 
    ![Sottoscrizioni di Azure](media/test-drive/azure-subscriptions.png)
 
-2. Ottenere un **ID Tenant Azure ad**. Se è già disponibile un ID tenant, è possibile trovarlo nell' **Azure Active Directory**  >  **Properties**  >  **ID directory** delle proprietà:
+2. Ottenere un **ID Tenant Azure ad**. Se è già disponibile un ID tenant, è possibile trovarlo nell' **Azure Active Directory**  >    >  **ID directory** delle proprietà:
 
    ![Proprietà di Azure Active Directory](media/test-drive/azure-active-directory-properties.png)
 
@@ -313,7 +313,7 @@ La sezione finale da completare è la possibilità di distribuire automaticament
    3. Immettere un nome applicazione.
    4. Selezionare il **tipo** di **app Web/API**.
    5. Specificare qualsiasi valore nell'URL di accesso. questo campo non viene utilizzato.
-   6. Selezionare **Create** (Crea).
+   6. Selezionare **Crea**.
    7. Dopo aver creato l'applicazione, selezionare **Proprietà**  >  **impostare l'applicazione come multi-tenant** e quindi **salvare**.
 
 4. Selezionare **Salva**.

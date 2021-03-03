@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 02/24/2021
 ms.author: rezar
-ms.openlocfilehash: e2d9ef1d864d18122e7718c9be99eba8b7cf3973
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a5675b313586615d4bad733aec6eabf0360f8489
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672124"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694708"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Quali sono le soluzioni per eseguire Oracle WebLogic Server in Macchine virtuali di Microsoft Azure?
 
@@ -23,7 +23,7 @@ Questa pagina descrive le soluzioni per l'esecuzione di Oracle WebLogic Server (
 
 WLS è un server applicazioni Java leader che esegue alcune delle applicazioni Java aziendali più cruciali in tutto il mondo. WLS costituisce la base middleware per Oracle software suite. Oracle e Microsoft si impegnano per consentire ai clienti di WLS la scelta e la flessibilità di eseguire carichi di lavoro in Azure come piattaforma cloud leader.
 
-Le soluzioni WLS di Azure hanno lo scopo di semplificare il più possibile il trasferimento delle applicazioni Java EE in macchine virtuali di Azure tramite l'automazione della maggior parte delle operazioni standard. Le soluzioni eseguono automaticamente il provisioning di risorse di rete virtuale, archiviazione, Java e Linux. Con il minimo sforzo, WebLogic Server è installato. Le soluzioni possono configurare la sicurezza con un gruppo di sicurezza di rete, il bilanciamento del carico con app Azure gateway e l'autenticazione con Azure Active Directory. È anche possibile connettersi automaticamente al database esistente, tra cui Azure PostgreSQL, Azure SQL e Oracle DB nel cloud Oracle o in Azure. La mappa stradale per le soluzioni include la possibilità di abilitare la registrazione distribuita e la memorizzazione nella cache distribuita tramite la coerenza Oracle.  
+Le soluzioni Azure WLS hanno lo scopo di semplificare la migrazione delle applicazioni Java in macchine virtuali di Azure. A tale scopo, le soluzioni generano risorse distribuite per gli scenari di provisioning cloud più comuni. Le soluzioni eseguono automaticamente il provisioning di risorse di rete virtuale, archiviazione, Java, WLS e Linux. Con il minimo sforzo, WebLogic Server è installato. Le soluzioni possono configurare la sicurezza con un gruppo di sicurezza di rete, il bilanciamento del carico con app Azure gateway, l'autenticazione con Azure Active Directory, la registrazione centralizzata usando ELK e la memorizzazione nella cache distribuita con la coerenza Oracle. È anche possibile connettersi automaticamente al database esistente, tra cui Azure PostgreSQL, Azure SQL e Oracle DB nel cloud Oracle o in Azure. 
 
 :::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="È possibile usare la portale di Azure per distribuire WebLogic Server in Azure":::
 
@@ -31,9 +31,9 @@ Sono disponibili quattro offerte per soddisfare diversi scenari, ovvero [un sing
 
 _Le offerte si basano sul modello Bring Your Own License_. Si presuppone che l'utente abbia già ottenuto le licenze appropriate con Oracle e che disponga di una licenza corretta per l'esecuzione di offerte in Azure.
 
-Le offerte supportano una gamma di versioni del sistema operativo, Java e WLS tramite immagini di base, ad esempio WebLogic Server 14 e JDK 11 in Oracle Linux 7,6). Queste immagini di base sono disponibili anche in Azure autonomamente. Le immagini di base sono adatte per i clienti che necessitano di distribuzioni di Azure complesse e personalizzate. Il set corrente di immagini di base è disponibile [qui](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
+Le offerte supportano una gamma di versioni del sistema operativo, Java e WLS tramite immagini di base, ad esempio WebLogic Server 14 e JDK 11 in Oracle Linux 7,6). Queste immagini di base sono disponibili anche in Azure autonomamente. Le immagini di base sono adatte per i clienti che necessitano di distribuzioni di Azure complesse e personalizzate. Il set corrente di immagini di base è disponibile [qui](https://azuremarketplace.microsoft.com/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
 
-_Se si è interessati a lavorare a stretto contatto con gli scenari di migrazione con il team di progettazione che sviluppa queste offerte, selezionare il pulsante [Contatta](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) l'utente_ nella [pagina Panoramica dell'offerta del Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). I responsabili del programma, gli architetti e i tecnici ti contatteranno a breve e inizieranno a collaborare in stretta collaborazione. La possibilità di collaborare in uno scenario di migrazione è gratuita mentre le offerte sono in fase di sviluppo iniziale attivo.
+_Se si è interessati a lavorare a stretto contatto con gli scenari di migrazione con il team di progettazione che sviluppa queste offerte, selezionare il pulsante [Contatta](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) l'utente_ nella [pagina Panoramica dell'offerta del Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). I responsabili del programma, gli architetti e i tecnici ti contatteranno a breve e inizieranno a collaborare in stretta collaborazione. La possibilità di collaborare in uno scenario di migrazione è gratuita mentre le offerte sono in fase di sviluppo attivo.
 
 ## <a name="oracle-weblogic-server-single-node"></a>Oracle WebLogic Server a nodo singolo
 
@@ -55,7 +55,7 @@ Le soluzioni consentiranno un'ampia gamma di architetture di distribuzione pront
 
 :::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Le distribuzioni di WebLogic Server complesse sono abilitate in Azure":::
 
-Oltre a ciò di cui viene effettuato automaticamente il provisioning dalle soluzioni, i clienti hanno la massima flessibilità per personalizzare ulteriormente le distribuzioni. È probabile che, in base alla distribuzione di applicazioni, i clienti integrino altre risorse di Azure con le relative distribuzioni. I clienti sono invitati a fornire commenti e suggerimenti su come migliorare ulteriormente le soluzioni.
+Oltre a ciò di cui viene effettuato automaticamente il provisioning dalle soluzioni, i clienti hanno la massima flessibilità per personalizzare ulteriormente le distribuzioni. È probabile che, in base alla distribuzione di applicazioni, i clienti integrino altre risorse di Azure con le relative distribuzioni. I clienti sono invitati a [connettersi al team di sviluppo](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) e a inviare commenti e suggerimenti su come migliorare ulteriormente le soluzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

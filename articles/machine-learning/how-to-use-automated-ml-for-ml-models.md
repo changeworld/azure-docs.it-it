@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 1a40fe01240474c2a6df3e028b7d03f3e8bb73fc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d7a0832fd15df402c88e1ba565c90a24e0d6eb8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879748"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692420"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 
@@ -179,6 +179,21 @@ La scheda **Modelli** contiene un elenco dei modelli creati, ordinati in base al
 Eseguire il drill-down su uno dei modelli completati per visualizzare i dettagli delle esecuzioni di training, ad esempio un riepilogo del modello nella scheda **modello** o i grafici delle metriche delle prestazioni nella scheda **metriche** . [altre informazioni sui grafici](how-to-understand-automated-ml.md).
 
 [![Dettagli sull'iterazione](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+
+## <a name="model-explanations"></a>Spiegazioni del modello
+
+Per comprendere meglio il modello, vedere quali funzionalità dei dati (RAW o ingegnerizzate) hanno influenzato le stime del modello con il dashboard spiegazioni del modello. 
+
+Il dashboard spiegazione modello fornisce un'analisi complessiva del modello sottoposto a training insieme alle relative stime e spiegazioni. Consente inoltre di eseguire il drill-down di un singolo punto dati e della relativa importanza delle singole funzionalità. [Scopri di più sulla spiegazione delle visualizzazioni del dashboard e dei tracciati specifici](how-to-machine-learning-interpretability-aml.md#visualizations).
+
+Per ottenere spiegazioni per un particolare modello, 
+
+1. Nella scheda **modelli** selezionare il modello che si desidera utilizzare. 
+1. Selezionare il pulsante **spiega modello** e fornire un calcolo che può essere usato per generare le spiegazioni.
+1. Selezionare la scheda **esecuzioni figlio** per lo stato. 
+1. Al termine, passare alla scheda **spiegazioni (anteprima)** che contiene il dashboard spiegazioni. 
+
+    ![Dashboard spiegazione modello](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
 ## <a name="deploy-your-model"></a>Distribuire il modello
 

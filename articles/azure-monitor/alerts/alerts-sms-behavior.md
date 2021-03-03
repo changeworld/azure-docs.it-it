@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
-ms.openlocfilehash: 3ca776a1869874042a6a97cdd59dc00d3a917d33
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98558c2b1525094277dd6c165349f25ce5cd3b23
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614506"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717877"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento degli avvisi SMS nei gruppi di azione
 
@@ -42,7 +42,6 @@ Un ricevitore di SMS configurato come parte di un gruppo di azioni riceverà un 
 >Se un utente ha annullato la sottoscrizione agli avvisi SMS e viene in seguito aggiunto a un nuovo gruppo di azioni, l'utente riceve gli avvisi SMS del nuovo gruppo di azioni mantenendo l'annullamento della sottoscrizione a tutti i gruppi di azioni precedenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ottenere una [panoramica degli avvisi del log attività](../platform/alerts-overview.md) e informazioni sulla ricezione degli avvisi  
+Ottenere una [panoramica degli avvisi del log attività](./alerts-overview.md) e informazioni sulla ricezione degli avvisi  
 Altre informazioni sulla [limitazione della frequenza degli SMS](alerts-rate-limiting.md)  
-Altre informazioni sui [gruppi di azioni](../platform/action-groups.md)
-
+Altre informazioni sui [gruppi di azioni](./action-groups.md)

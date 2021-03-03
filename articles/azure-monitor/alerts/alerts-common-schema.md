@@ -4,12 +4,12 @@ description: Informazioni sullo schema di avviso comune, perché è consigliabil
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: aa619976c8fa03b925d66e884ad03fc4e385693e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 70e37f8f1c9391eee5901f611bae579efe1cd9b9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614716"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737291"
 ---
 # <a name="common-alert-schema"></a>Schema di avviso comune
 
@@ -52,7 +52,7 @@ Il nuovo schema consentirà inoltre un'esperienza di utilizzo più approfondita 
 > 1. Per impostazione predefinita, i tipi di avviso seguenti supportano lo schema comune (non è richiesto il consenso esplicito):
 >     * Avvisi del rilevamento intelligente
 > 1. Attualmente i tipi di avviso seguenti non supportano lo schema comune:
->     * Avvisi generati da [monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md)
+>     * Avvisi generati da [VM Insights](../vm/vminsights-overview.md)
 >     * Avvisi generati da [Gestione costi di Azure](../../cost-management-billing/manage/cost-management-budget-scenario.md)
 
 ### <a name="through-the-azure-portal"></a>Tramite il portale di Azure

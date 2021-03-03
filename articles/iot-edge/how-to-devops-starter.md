@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 97dc0fe5a3720a41dd63583c222762d832d636ea
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 933ddfb5fa5d58231e954dfd54bcc069b53dfe56
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436998"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721515"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Creare una pipeline di integrazione continua/distribuzione continua per IoT Edge con Azure DevOps Starter
 
@@ -29,6 +29,16 @@ DevOps Starter crea una pipeline CI/CD in Azure DevOps. È possibile creare una 
 1. Nel riquadro sinistro selezionare **Crea una risorsa** e quindi cercare **DevOps Starter**.  
 
 1. Selezionare **Crea**.
+
+1. Per impostazione predefinita, lo starter DevOps è configurato con GitHub. Per usare le funzionalità di questa procedura, cambiare lo starter DevOps per configurare usando Azure DevOps. Seguire il collegamento **modificare le impostazioni qui** .
+
+   ![Selezionare Modifica impostazioni qui per passare da GitHub ad Azure DevOps](./media/how-to-devops-starter/create-with-github-change-settings.png)
+
+1. Nel riquadro di destra, scegliere il riquadro **Azure DevOps** , quindi fare clic su **fine**.
+
+   ![Selezionare Azure DevOps per configurare il dispositivo di avvio DevOps](./media/how-to-devops-starter/select-azure-devops.png)
+
+   Si noterà ora che l'avvio di DevOps è configurato con Azure DevOps.
 
 ## <a name="create-a-new-application-pipeline"></a>Creare una nuova pipeline applicazione
 

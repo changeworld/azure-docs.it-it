@@ -5,18 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: 14ebe9dfd11bed2dfaded9f18e23f73d33a708ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 6001fff54b86b7c18684092aad6c7fdf64f81990
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650460"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729947"
 ---
 # <a name="about-azure-remote-rendering"></a>Informazioni su Rendering remoto di Azure
-
-> [!IMPORTANT]
-> **Rendering remoto di Azure** è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 *Rendering remoto di Azure* è un servizio che consente di eseguire il rendering di contenuti 3D interattivi di alta qualità nel cloud e di trasmetterli in streaming in tempo reale ai dispositivi come HoloLens 2.
 

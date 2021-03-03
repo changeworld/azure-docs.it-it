@@ -1,15 +1,15 @@
 ---
 title: Panoramica degli avvisi e del monitoraggio delle notifiche in Azure
-description: Panoramica degli avvisi in Azure. Avvisi, avvisi classici e l'interfaccia degli avvisi.
+description: Panoramica degli avvisi in monitoraggio di Azure
 ms.subservice: alerts
 ms.topic: conceptual
-ms.date: 01/28/2018
-ms.openlocfilehash: 96e15c1e07d437855b6553757295800406a4cf4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: e2d447b7407ed874d9c183c5cd2009882f1d6b3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614626"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723589"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -94,7 +94,7 @@ La pagina avvisi predefiniti fornisce un riepilogo degli avvisi creati in un int
 > [!NOTE]
    >  È possibile accedere solo agli avvisi generati negli ultimi 30 giorni.
 
-Non Mostra o tiene traccia degli avvisi classici. È possibile modificare le sottoscrizioni o i parametri di filtro per aggiornare la pagina. 
+È possibile modificare le sottoscrizioni o i parametri di filtro per aggiornare la pagina.
 
 ![Screenshot della pagina degli avvisi](media/alerts-overview/alerts-page.png)
 

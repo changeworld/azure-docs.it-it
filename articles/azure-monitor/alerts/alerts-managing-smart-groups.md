@@ -4,16 +4,16 @@ description: Gestione di gruppi intelligenti creati tramite le istanze di avviso
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/24/2018
-ms.openlocfilehash: c36162f35c152fd5b9898d92b57e2e12044635a7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 564440336bf6a90cbd40aba6c8284cbc6c5e3ff3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615437"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701077"
 ---
 # <a name="manage-smart-groups"></a>Gestire i gruppi intelligenti
 
-[I gruppi intelligenti](../platform/alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) usano algoritmi di machine learning per raggruppare gli avvisi in base alla co-occorrenza o somiglianza, in modo da consentire all'utente di gestire gruppi intelligenti anziché dover gestire singolarmente ogni avviso. Questo articolo illustrerà come accedere e usare i gruppi intelligenti in Monitoraggio di Azure.
+[I gruppi intelligenti](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) usano algoritmi di machine learning per raggruppare gli avvisi in base alla co-occorrenza o somiglianza, in modo da consentire all'utente di gestire gruppi intelligenti anziché dover gestire singolarmente ogni avviso. Questo articolo illustrerà come accedere e usare i gruppi intelligenti in Monitoraggio di Azure.
 
 1. Per visualizzare i gruppi intelligenti creati per le istanze di avviso, è possibile eseguire una delle operazioni seguenti:
 

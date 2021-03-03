@@ -7,26 +7,94 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/29/2020
+ms.date: 02/17/2021
 ms.author: aahi
-ms.openlocfilehash: 49a2b285d9494dfc5ca0863c021733b4bc874efa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a376b050d79709885e3542d330bb6b1eea48d046
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779080"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750777"
 ---
-Questa categoria di entità include informazioni finanziarie e forme ufficiali di identificazione. Disponibile a partire dalla versione del modello `2019-10-01` . I sottotipi sono elencati di seguito. 
-
 ### <a name="financial-account-identification"></a>Identificazione account finanziario
 
-| Nome sottotipo               | Description                                                                |
-|----------------------------|----------------------------------------------------------------------------|
-| ABA Routing Number (Codice ABA)        | Numeri di routing di transito American Banker Association (ABA).                  |
-| Codice SWIFT                 | Codici SWIFT per informazioni sulle istruzioni di pagamento.                           |
-| Carta di credito                | Numeri di carta di credito.                                                       |
-| International Banking Account Number (IBAN)                  | Codici IBAN per informazioni sulle istruzioni di pagamento.                            |
+Questa categoria di entità include informazioni finanziarie e forme ufficiali di identificazione.
 
+#### <a name="category-aba-routing-number"></a>Categoria: numero di Routing ABA
+
+Questa categoria contiene l'entità seguente:
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di Routing ABA
+
+    :::column-end:::
+    :::column span="2":::
+        **Dettagli**
+
+        Numeri di routing di transito American Banker Association (ABA).
+      
+    :::column-end:::
+:::row-end:::
+
+#### <a name="category-swift-code"></a>Categoria: codice SWIFT
+
+Questa categoria contiene l'entità seguente:
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Codice SWIFT
+
+    :::column-end:::
+    :::column span="2":::
+        **Dettagli**
+
+        Codici SWIFT per informazioni sulle istruzioni di pagamento.
+      
+    :::column-end:::
+:::row-end:::
+
+#### <a name="category-credit-card"></a>Categoria: carta di credito
+
+Questa categoria contiene l'entità seguente:
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Carta di credito
+
+    :::column-end:::
+    :::column span="2":::
+        **Dettagli**
+
+        Numeri di carta di credito. 
+      
+    :::column-end:::
+:::row-end:::
+
+#### <a name="category-international-banking-account-number-iban"></a>Categoria: numero di conto bancario internazionale (IBAN) 
+
+Questa categoria contiene l'entità seguente:
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Carta di credito
+
+    :::column-end:::
+    :::column span="2":::
+        **Dettagli**
+
+        Codici IBAN per informazioni sulle istruzioni di pagamento.
+      
+    :::column-end:::
+:::row-end:::
 
 ### <a name="government-and-countryregion-specific-identification"></a>Identificazione per enti pubblici e paesi/aree geografiche
 
@@ -37,249 +105,851 @@ Questa categoria di entità include informazioni finanziarie e forme ufficiali d
 
 Le entità seguenti sono raggruppate ed elencate in base al paese:
 
-Argentina
-* Numero di identità nazionale Argentina (DNI)
+#### <a name="argentina"></a>Argentina
 
-Austria
-* Scheda identità austriaca
-* Numero di identificazione fiscale austriaco
-* Numero di imposte IVA aggiunto al valore austriaco
+:::row:::
+    :::column span="":::
+        **Entità**
 
-Australia
-* Numero di conto bancario in Australia
-* Numero aziendale australiano
-* Numero società australiana
-* Numero di licenza del driver Australia
-* Numero di account medico dell'Australia
-* Numero Passport Australia
-* Numero di file fiscali Australia
+        Numero di identità nazionale Argentina (DNI)
 
-Belgio
-* Numero nazionale Belgio
-* Numero di imposte aggiunto al valore Belgium
+    :::column-end:::
+:::row-end:::
 
-Brasile 
-* Numero di entità legali in Brasile (CNPJ)
-* Numero CPF Brasile
-* Scheda ID nazionale (RG) del Brasile
 
-Bulgaria
-* Numero civile uniforme bulgaro
+#### <a name="austria"></a>Austria
 
-Canada
-* Numero conto bancario del Canada
-* Numero di licenza del driver Canada
-* Numero Servizio integrità Canada
-* Numero passaporto Canada
-* Numero di identificazione dell'integrità personale del Canada (PHIN)
-* Numero di assicurazioni sociali Canada
+:::row:::
+    :::column span="":::
+        **Entità**
 
-Cile
-* Numero di carta di identità 
+        Scheda identità austriaca
 
-Cina
-* Numero di carta di identità residente Cina (PRC)
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Croazia
-* Numero di carta identità Croazia
-* Numero di carta ID nazionale Croazia
-* Numero di identificazione personale della Croazia (OIB)
+        Numero di identificazione fiscale austriaco
 
-Cipro
-* Numero di carta identità Cipro
-* Numero di identificazione fiscale Cipro
+    :::column-end:::
 
-Repubblica Ceca
-* Numero di identità personale ceco
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Danimarca
-* Numero di identificazione personale Danimarca
+        Numero di imposte IVA aggiunto al valore austriaco
 
-Estonia
-* Codice di identificazione personale Estonia
+    :::column-end:::
+:::row-end:::
 
-Unione europea (UE)
-* Numero di carta di debito UE
-* Numero di patente di guida EU
-* Numero documento di identità EU
-* Numero di passaporto EU
-* Codice fiscale (CF) EU o ID equivalente
-* Numero identificativo contribuente EU
 
-Finlandia
-* Numero di assicurazioni sull'integrità europea finlandese
-* ID nazionale Finlandia
-* Numero di passaporto Finlandia
 
-Francia
-* Numero di licenza del driver Francia
-* Numero di assicurazioni di integrità Francia
-* Scheda ID nazionale Francia (CNI)
-* Numero di passaporto Francia
-* Numero di previdenza sociale in Francia (INSEE)
-* Numero di identificazione fiscale Francia (numéro SPI)
-* Numero di imposta aggiunto al valore Francia
+#### <a name="australia"></a>Australia
 
-Germania
-* Numero di licenza del driver tedesco
-* Numero di carta di identità Germania
-* Numero passaporto tedesco
-* Numero di identificazione fiscale Germania
-* Numero di imposta in Germania aggiunto al valore
+:::row:::
+    :::column span="":::
+        **Entità**
 
-Grecia 
-* Numero di carta ID nazionale Grecia
-* Numero di identificazione fiscale Grecia
+        Numero di conto bancario in Australia
 
-RAS di Hong Kong
-* Numero della carta di identità di Hong Kong (HKID)
+    :::column-end:::
 
-Ungheria
-* Numero di identificazione nazionale Ungheria
-* Numero di identificazione fiscale Ungheria
-* Numero di imposta aggiunto al valore Hungary
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-India
-* Numero di account permanente India (PAN)
-* Numero di identificazione univoca India (Aadhaar)
+        Numero aziendale australiano
 
-Indonesia
-* Numero KTP (Indonesia Identity Card)
+    :::column-end:::
 
-Irlanda
-* Numero di servizio pubblico personale (PPS) dell'Irlanda
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Israele
-* ID nazionale Israel
-* Numero conto di Israele Bank
+        Numero aziendale Australia
 
-Italia
-* ID licenza del driver Italia
-* Codice fiscale Italia
-* Numero di imposta aggiunto al valore Italia
+    :::column-end:::
 
-Giappone
-* Numero del conto bancario in Giappone
-* Numero di licenza del driver giapponese
-* Personale del mio numero giapponese
-* Il mio numero giapponese aziendale
-* Numero di registrazione residente in Giappone
-* Numero di tessera residenza giapponese
-* Numero di assicurazioni sociali Giappone (SIN)
-* Numero passaporto Giappone
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Lettonia
-* Codice personale della Lettonia
+        Licenza del driver Australia  
 
-Lituania
-* Codice personale della Lituania
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Lussemburgo
-* Numero di identificazione nazionale lussemburghese (persone naturali)
-* Numero di identificazione nazionale lussemburghese (persone non naturali)
+        Numero di account medico dell'Australia
 
-Malaysia
-* Numero di carta di identità Malaysia
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Malta
-* Numero di carta di identità Malta
-* Numero di identificazione fiscale Malta
+        Numero Passport Australia
 
-Paesi Bassi
-* Numero del servizio Citizen (del BSN) dei Paesi Bassi
-* Numero di identificazione fiscale Paesi Bassi
-* Numero di imposta aggiunto al valore olandese
+    :::column-end:::
 
-Nuova Zelanda
-* Numero di conto bancario Nuova Zelanda
-* Numero di patente del driver neozelandese
-* Numero di ricavi Inland Nuova Zelanda
-* Ministero della Nuova Zelanda per il numero di integrità
-* Numero di previdenza sociale in Nuova Zelanda
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Norvegia
-* Numero di identità norvegese
+        Numero Passport Australia
 
-Filippine
-* Numero di ID multifunzione unificato per le Filippine
+    :::column-end:::
 
-Polonia
-* Scheda identità della Polonia
-* ID nazionale Polonia (PESEL)
-* Numero passaporto Polonia
-* Numero di Polonia REGOn
-* Numero di identificazione fiscale Polonia
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Portogallo 
-* Numero di carta Citizen del Portogallo
-* Numero di identificazione fiscale Portugal
+        Numero di file fiscali Australia
 
-Romania
-* Codice numerico personale della Romania (CNP)
+    :::column-end:::
 
-Russia
-* Numero di passaporto russo (nazionale)
-* Numero di passaporto russo (internazionale)
+:::row-end:::
 
-Arabia Saudita
-* ID nazionale Arabia Saudita
 
-Singapore
-* Numero NRIC (National Registration ID card) di Singapore
+#### <a name="belgium"></a>Belgio
 
-Slovacchia 
-* Numero personale Slovakia
+:::row:::
+    :::column span="":::
+        **Entità**
 
-Slovenia
-* Numero di identificazione fiscale Slovenia
-* Numero di Citizen Master univoco Slovenia
+        Numero nazionale Belgio
 
-Sudafrica
-* Numero di identificazione sudafricano
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Corea del Sud
-* Numero di registrazione residente Corea del sud
+        Numero di imposte IVA aggiunto al valore Belgium
 
-Spagna 
-* DNI Spagna
-* Codice fiscale Spagna (SSN)
-* Numero di identificazione fiscale Spagna
+    :::column-end:::
 
-Svezia
-* ID nazionale svedese
-* Numero passaporto Svezia
-* Numero di identificazione fiscale Sweden
+:::row-end:::
 
-Svizzera
-* Numero di previdenza sociale Svizzera AVS
 
-Taiwan 
-* ID nazionale taiwanese
-* Certificato residente Taiwan (ARC/TARC Tax)
-* Numero passaporto Taiwan
+#### <a name="brazil"></a>Brasile 
 
-Thailandia
-* Codice di identificazione della popolazione tailandese
+:::row:::
+    :::column span="":::
+        **Entità**
 
-Turchia
-* Numero di identificazione nazionale turca
+        Numero di entità legali in Brasile (CNPJ)
 
-Ucraina
-* Numero passaporto ucraino (nazionale)
-* Numero passaporto ucraino (internazionale)
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Regno Unito
-* Regno Unito. Numero di patente del driver
-* Regno Unito. Numero di rollup elettorale
-* Regno Unito. Numero di Servizio integrità nazionale (NHS)
-* Regno Unito. Numero assicurativo nazionale (NINO)
-* Regno Unito. Numero passaporto
-* Regno Unito. Numero di riferimento del contribuente univoco
+        Numero CPF Brasile
 
-Stati Uniti
-* Numero di previdenza sociale (SSN) degli Stati Uniti
-* Numero di licenza del driver U.S.
-* Numero passaporto statunitense
-* Numero di identificazione dei singoli contribuenti statunitensi
-* Numero DEA (Drug Enforcement Agency) degli Stati Uniti
-* Numero di conto bancario statunitense
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Scheda ID nazionale (RG) del Brasile
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="canada"></a>Canada
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero conto bancario del Canada
+
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di licenza del driver Canada
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero del servizio integrità Canada
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero passaporto Canada
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di identificazione dell'integrità personale del Canada (PHIN)
+
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di assicurazioni sociali Canada
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="chile"></a>Cile 
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di carta identità Chile
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="china"></a>Cina
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di carta di identità residente Cina (PRC)
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="european-union-eu"></a>Unione europea (UE)
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di carta di debito UE
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di licenza del driver UE
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di identificazione nazionale UE
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero passaporto UE
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di previdenza sociale (SSN) o ID equivalente UE
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero identificativo contribuente EU
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Coordinate GPS UE
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="france"></a>Francia
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di licenza del driver Francia
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di assicurazioni di integrità Francia
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Scheda ID nazionale Francia (CNI)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di passaporto Francia
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di previdenza sociale in Francia (INSEE)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di identificazione fiscale Francia (numéro SPI)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero IVA aggiunto al valore Francia
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="germany"></a>Germania
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di licenza del driver tedesco
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di carta di identità Germania
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di passaporto Germania
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di identificazione fiscale Germania
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di imposta in Germania aggiunto al valore
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="hong-kong"></a>RAS di Hong Kong
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero della carta di identità di Hong Kong (HKID)
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="hungary"></a>Ungheria
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di identificazione personale in Ungheria
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di identificazione fiscale Ungheria
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di imposta aggiunto al valore Hungary
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="india"></a>India
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di account permanente India (PAN)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di identificazione univoca India (Aadhaar)
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="indonesia"></a>Indonesia
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero KTP (Indonesia Identity Card)
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="ireland"></a>Irlanda
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di servizio pubblico personale (PPS) dell'Irlanda
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="israel"></a>Israele
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        ID nazionale Israel
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero conto di Israele Bank
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="italy"></a>Italia
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        ID licenza del driver Italia
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Codice fiscale Italia
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di imposta aggiunto al valore Italia
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="japan"></a>Giappone
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero del conto bancario in Giappone
+
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di licenza del driver giapponese
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Giappone "numero mio" (personale)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Giappone "numero mio" (aziendale)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di registrazione residente in Giappone
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di carta di residenza del Giappone
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di assicurazioni sociali Giappone (SIN)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero passaporto Giappone
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="luxembourg"></a>Lussemburgo
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di identificazione nazionale lussemburghese (persone naturali)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di identificazione nazionale lussemburghese (persone non naturali)
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="malta"></a>Malta
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di carta di identità Malta
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di identificazione fiscale Malta
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="new-zealand"></a>Nuova Zelanda
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di conto bancario Nuova Zelanda
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di patente del driver neozelandese
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di ricavi Inland Nuova Zelanda
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Ministero della Nuova Zelanda per il numero di integrità
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Numero di previdenza sociale in Nuova Zelanda
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="philippines"></a>Filippine
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di ID multifunzione unificato per le Filippine
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="portugal"></a>Portogallo 
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di carta Citizen del Portogallo
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Numero di identificazione fiscale Portugal
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="singapore"></a>Singapore
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero NRIC (National Registration ID card) di Singapore
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="south-africa"></a>Sudafrica
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di identificazione sudafricano
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="south-korea"></a>Corea del Sud
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di registrazione residente Corea del sud
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="spain"></a>Spagna
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        DNI Spagna
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Codice fiscale Spagna (SSN)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero di identificazione fiscale Spagna
+
+    :::column-end:::
+:::row-end:::
+ 
+#### <a name="switzerland"></a>Svizzera
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di previdenza sociale Svizzera AVS
+
+    :::column-end:::
+:::row-end:::
+
+
+#### <a name="taiwan"></a>Taiwan 
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        ID nazionale taiwanese
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Certificato residente Taiwan (ARC/TARC Tax)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Numero passaporto Taiwan
+
+    :::column-end:::
+:::row-end:::
+
+#### <a name="united-kingdom"></a>Regno Unito
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Regno Unito. Numero di patente del driver
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Regno Unito. Numero di rollup elettorale
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Regno Unito. Numero di Servizio integrità nazionale (NHS)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Regno Unito. Numero assicurativo nazionale (NINO)
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Regno Unito. o numero di passaporto statunitense
+
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Regno Unito. Numero di riferimento del contribuente univoco
+
+    :::column-end:::
+
+:::row-end:::
+
+
+#### <a name="united-states"></a>Stati Uniti
+
+:::row:::
+    :::column span="":::
+        **Entità**
+
+        Numero di previdenza sociale (SSN) degli Stati Uniti
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Numero di licenza del driver U.S.
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Stati Uniti o Regno Unito Numero passaporto
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Numero di identificazione dei singoli contribuenti statunitensi
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Numero DEA (Drug Enforcement Agency) degli Stati Uniti
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+       Numero di conto bancario statunitense
+
+    :::column-end:::
+:::row-end:::

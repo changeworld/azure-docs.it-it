@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 9f01961ec7c7f8e0a4e2d72e28e6def50e93ad5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 2b75e6e0a8b79f374900e6cb2dfc49680d3d0190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854308"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739059"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Esercitazione: Configurare un gateway di rete virtuale per ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -46,12 +46,17 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 | Nome della subnet1 | *FrontEnd* |
 | Nome della subnet del gateway | *GatewaySubnet* |    
 | Spazio degli indirizzi della subnet del gateway | *192.168.200.0/26* |
-| Area | *Stati Uniti orientali* |
+| Region | *Stati Uniti orientali* |
 | Nome gateway | *GW* |   
 | Nome IP del gateway | *GWIP* |
 | Nome della configurazione IP del gateway | *gwipconf* |
 | Type | *ExpressRoute* |
 | Nome IP pubblico del gateway  | *gwpip* |
+
+> [!IMPORTANT]
+> Il supporto IPv6 per il peering privato è attualmente disponibile in **anteprima pubblica**. Se si vuole connettere la rete virtuale a un circuito ExpressRoute con peering privato basato su IPv6 configurato, assicurarsi che la rete virtuale sia a doppio stack e che segua le linee guida descritte [qui](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
 
 ## <a name="add-a-gateway"></a>Aggiungere un gateway
 
@@ -76,6 +81,11 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
+    Se si usa una rete virtuale a doppio stack e si prevede di usare il peering privato basato su IPv6 su ExpressRoute, creare invece una subnet del gateway dual stack.
+
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/26","ace:daa:daaa:deaa::/64"
    ```
 1. Impostare la configurazione.
 
@@ -102,6 +112,10 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
+> [!IMPORTANT]
+> Se si prevede di usare il peering privato basato su IPv6 su ExpressRoute, assicurarsi di selezionare un AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) per **-GatewaySku**.
+> 
+> 
 
 ## <a name="verify-the-gateway-was-created"></a>Verificare che il gateway sia stato creato
 Per verificare che il gateway sia stato creato, usare i comandi seguenti:

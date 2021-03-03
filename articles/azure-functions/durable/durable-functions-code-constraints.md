@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 63db8375379144b2ede78d9e7010a350b3f69b12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833096"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726411"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Vincoli del codice della funzione di orchestrazione
 
@@ -31,7 +31,7 @@ La tabella seguente illustra esempi di API da evitare perché *non* sono determi
 | Categoria API | Motivo | Soluzione alternativa |
 | ------------ | ------ | ---------- |
 | Date e ore  | Le API che restituiscono la data o l'ora corrente sono non deterministiche, perché il valore restituito è diverso per ogni riproduzione. | Usare la proprietà [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) in .NET, l' `currentUtcDateTime` API in JavaScript o l' `current_utc_datetime` API in Python, che sono sicure per la riproduzione. |
-| GUID e UUID  | Le API che restituiscono un GUID o un UUID casuale sono non deterministiche, perché il valore generato è diverso per ogni riproduzione. | Usare [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) in .NET o `newGuid` in JavaScript per generare in modo sicuro GUID casuali. |
+| GUID e UUID  | Le API che restituiscono un GUID o un UUID casuale sono non deterministiche, perché il valore generato è diverso per ogni riproduzione. | Usare [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) in .NET, `newGuid` in JavaScript e `new_guid` in Python per generare in modo sicuro GUID casuali. |
 | Numeri casuali | Le API che restituiscono numeri casuali sono non deterministiche, perché il valore generato è diverso per ogni riproduzione. | Utilizzare una funzione di attività per restituire numeri casuali a un'orchestrazione. I valori restituiti delle funzioni di attività sono sempre sicuri per la riproduzione. |
 | Associazioni | Le associazioni di input e output eseguono in genere operazioni di I/O e non deterministiche. Una funzione dell'agente di orchestrazione non deve usare direttamente anche le associazioni client di [orchestrazione](durable-functions-bindings.md#orchestration-client) e [client di entità](durable-functions-bindings.md#entity-client) . | Usare le associazioni di input e output all'interno di funzioni client o di attività. |
 | Rete | Le chiamate di rete coinvolgono sistemi esterni e sono non deterministiche. | Usare le funzioni di attività per effettuare chiamate di rete. Se è necessario effettuare una chiamata HTTP dalla funzione dell'agente di orchestrazione, è anche possibile usare le [API HTTP durevoli](durable-functions-http-features.md#consuming-http-apis). |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 95d35b3496248db9acb69181191acde58ede7b44
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2b5c053847852cc6090ee94858a5be52275d62fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589242"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725340"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 
@@ -324,7 +324,7 @@ Vedere gli articoli seguenti se non si ha familiarità con il servizio Azure Bat
 * Cmdlet [New AzureBatchPool](/powershell/module/az.batch/New-AzBatchPool) per creare un pool di Azure Batch.
 
 > [!IMPORTANT]
-> Quando si crea un nuovo pool di Azure Batch, è necessario usare ' VirtualMachineConfiguration ' e non ' CloudServiceConfiguration '. Per altri dettagli, vedere [Azure batch informazioni aggiuntive sulla migrazione del pool](https://docs.microsoft.com/azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration). 
+> Quando si crea un nuovo pool di Azure Batch, è necessario usare ' VirtualMachineConfiguration ' e non ' CloudServiceConfiguration '. Per altri dettagli, vedere [Azure batch informazioni aggiuntive sulla migrazione del pool](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
 
 ### <a name="example"></a>Esempio
 

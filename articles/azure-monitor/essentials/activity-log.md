@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 200c4c536df4a3e32b59945ae4ad97d7b770f269
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 38f5743e8a80af1ec824b07833f66ad50d67b91f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613414"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723300"
 ---
 # <a name="azure-activity-log"></a>Log attività di Azure
-Il log attività è un [log della piattaforma](../platform/platform-logs-overview.md) presente in Azure che fornisce informazioni sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Per altre funzionalità, è necessario creare un'impostazione di diagnostica per inviare il log attività ai [log di monitoraggio di Azure](../platform/data-platform-logs.md), a hub eventi di Azure in modo che inoltri al di fuori di Azure o ad archiviazione di Azure per l'archiviazione. Questo articolo fornisce informazioni dettagliate sulla visualizzazione del log attività e sull'invio a destinazioni diverse.
+Il log attività è un [log della piattaforma](./platform-logs-overview.md) presente in Azure che fornisce informazioni sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Per altre funzionalità, è necessario creare un'impostazione di diagnostica per inviare il log attività ai [log di monitoraggio di Azure](../logs/data-platform-logs.md), a hub eventi di Azure in modo che inoltri al di fuori di Azure o ad archiviazione di Azure per l'archiviazione. Questo articolo fornisce informazioni dettagliate sulla visualizzazione del log attività e sull'invio a destinazioni diverse.
 
-Per informazioni dettagliate sulla creazione di un'impostazione di diagnostica, vedere [creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](../platform/diagnostic-settings.md) .
+Per informazioni dettagliate sulla creazione di un'impostazione di diagnostica, vedere [creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](./diagnostic-settings.md) .
 
 > [!NOTE]
 > Le voci nel log attività sono generate dal sistema e non possono essere modificate o eliminate.
@@ -43,13 +43,13 @@ Se sono presenti modifiche associate all'evento, viene visualizzato un elenco di
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>Altri metodi per recuperare gli eventi del log attività
 È anche possibile accedere agli eventi del log attività usando i metodi seguenti.
 
-- Usare il cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) per recuperare il log attività da PowerShell. Vedere gli [esempi di PowerShell per monitoraggio di Azure](../samples/powershell-samples.md#retrieve-activity-log).
-- Usare [az monitor activity-log](/cli/azure/monitor/activity-log) per recuperare il log attività dall'interfaccia della riga di comando.  Vedere gli [esempi dell'interfaccia della riga di comando di Monitoraggio di Azure](../samples/cli-samples.md#view-activity-log).
+- Usare il cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) per recuperare il log attività da PowerShell. Vedere gli [esempi di PowerShell per monitoraggio di Azure](../powershell-samples.md#retrieve-activity-log).
+- Usare [az monitor activity-log](/cli/azure/monitor/activity-log) per recuperare il log attività dall'interfaccia della riga di comando.  Vedere gli [esempi dell'interfaccia della riga di comando di Monitoraggio di Azure](../cli-samples.md#view-activity-log).
 - Usare l'[API REST di Monitoraggio di Azure](/rest/api/monitor/) per recuperare il log attività da un client REST. 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Inviare all'area di lavoro Log Analytics
- Inviare il log attività a un'area di lavoro di Log Analytics per abilitare le funzionalità dei [log di monitoraggio di Azure](../platform/data-platform-logs.md) , inclusi i seguenti:
+ Inviare il log attività a un'area di lavoro di Log Analytics per abilitare le funzionalità dei [log di monitoraggio di Azure](../logs/data-platform-logs.md) , inclusi i seguenti:
 
 - Correlare i dati del log attività con altri dati di monitoraggio raccolti da monitoraggio di Azure.
 - Consolidare le voci di log da più sottoscrizioni e tenant di Azure in un'unica posizione per l'analisi insieme.
@@ -59,9 +59,9 @@ Se sono presenti modifiche associate all'evento, viene visualizzato un elenco di
 - Nessun addebito per l'inserimento dei dati per i dati del log attività archiviati in un'area di lavoro Log Analytics.
 - Nessun costo di conservazione dei dati fino a 90 giorni per i dati del log attività archiviati in un'area di lavoro Log Analytics.
 
-[Creare un'impostazione di diagnostica](../platform/diagnostic-settings.md) per inviare il log attività a un'area di lavoro log Analytics. È possibile inviare il log attività da una singola sottoscrizione a un massimo di cinque aree di lavoro. La raccolta dei log tra i tenant richiede il servizio [Azure Lighthouse](../../lighthouse/index.yml).
+[Creare un'impostazione di diagnostica](./diagnostic-settings.md) per inviare il log attività a un'area di lavoro log Analytics. È possibile inviare il log attività da una singola sottoscrizione a un massimo di cinque aree di lavoro. La raccolta dei log tra i tenant richiede il servizio [Azure Lighthouse](../../lighthouse/index.yml).
 
-I dati del log attività in un'area di lavoro Log Analytics vengono archiviati in una tabella denominata *AzureActivity* che è possibile recuperare con una [query di log](../log-query/log-query-overview.md) in [log Analytics](../log-query/log-analytics-tutorial.md). La struttura di questa tabella varia a seconda della [categoria della voce di log](activity-log-schema.md). Per una descrizione delle proprietà della tabella, vedere [informazioni di riferimento sui dati di monitoraggio di Azure](/azure/azure-monitor/reference/tables/azureactivity).
+I dati del log attività in un'area di lavoro Log Analytics vengono archiviati in una tabella denominata *AzureActivity* che è possibile recuperare con una [query di log](../logs/log-query-overview.md) in [log Analytics](../logs/log-analytics-tutorial.md). La struttura di questa tabella varia a seconda della [categoria della voce di log](activity-log-schema.md). Per una descrizione delle proprietà della tabella, vedere [informazioni di riferimento sui dati di monitoraggio di Azure](/azure/azure-monitor/reference/tables/azureactivity).
 
 Per visualizzare, ad esempio, un conteggio dei record del log attività per ogni categoria, utilizzare la query seguente.
 
@@ -400,6 +400,6 @@ A breve non sarà più possibile aggiungere la soluzione analisi dei log attivit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Leggere una [panoramica dei log della piattaforma di Azure](../platform/platform-logs-overview.md)
+* Leggere una [panoramica dei log della piattaforma di Azure](./platform-logs-overview.md)
 * [Esaminare lo schema degli eventi del log attività](activity-log-schema.md)
-* [Creare un'impostazione di diagnostica per inviare i log attività ad altre destinazioni](../platform/diagnostic-settings.md)
+* [Creare un'impostazione di diagnostica per inviare i log attività ad altre destinazioni](./diagnostic-settings.md)

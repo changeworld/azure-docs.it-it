@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f6b2b1c0f584e092c9e8f7d330a94b0b54fd6f2
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d68cfb91445e2055cb3c3feb88bf925987ea9852
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197422"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687397"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Microsoft Azure
 
@@ -113,7 +113,7 @@ A partire dal mese di novembre 2017, tutti i componenti di Controllo di accesso 
 Di seguito è riportata la pianificazione della deprecazione dei componenti di Controllo di accesso:
 
 - **Novembre 2017**: l'esperienza di amministrazione di Azure AD nel portale di Azure classico [è stata ritirata](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). A questo punto, la gestione degli spazi dei nomi per Controllo di accesso sarà disponibile presso un nuovo URL dedicato: `https://manage.windowsazure.com?restoreClassic=true`. Utilizzare questo URl per visualizzare gli spazi dei nomi esistenti, abilitarli, disabilitarli ed eventualmente eliminarli.
-- **2 aprile 2018**: il portale di Azure classico è stato completamente ritirato. Pertanto, la gestione degli spazi dei nomi di Controllo di accesso non è più disponibile tramite un URL. A questo punto, è impossibile disabilitare o abilitare, eliminare o enumerare gli spazi dei nomi di Controllo di accesso. Il portale di gestione di Controllo di accesso, tuttavia, sarà completamente funzionante e disponibile all'indirizzo `https://\<namespace\>.accesscontrol.windows.net`. Tutti gli altri componenti di Controllo di accesso continuano a funzionare normalmente.
+- **2 aprile 2018**: il portale di Azure classico è stato completamente ritirato. Pertanto, la gestione degli spazi dei nomi di Controllo di accesso non è più disponibile tramite un URL. A questo punto, è impossibile disabilitare o abilitare, eliminare o enumerare gli spazi dei nomi di Controllo di accesso. Il portale di gestione di Controllo di accesso, tuttavia, sarà completamente funzionante e disponibile all'indirizzo `https://<namespace>.accesscontrol.windows.net`. Tutti gli altri componenti di Controllo di accesso continuano a funzionare normalmente.
 - **7 novembre 2018**: tutti i componenti di Controllo di accesso vengono arrestati in modo permanente. Sono inclusi il portale di gestione di Controllo di accesso, il servizio di gestione, il servizio token di sicurezza e il motore di regole di trasformazione dei token. A questo punto, tutte le richieste inviate al controllo di accesso (che si trova in \<namespace\> . AccessControl.Windows.NET) hanno esito negativo. È necessario eseguire la migrazione di tutte le app e di tutti i servizi esistenti ad altre tecnologie molto prima di questa data.
 
 > [!NOTE]

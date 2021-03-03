@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c335c1cf7e5319b812345714dbdc6b87ddc4e81b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571351"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709173"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Risolvere i problemi di monitoraggio di Azure per desktop virtuale Windows (anteprima)
 
@@ -42,7 +42,7 @@ Se i dati non vengono visualizzati correttamente, controllare la configurazione,
     - Accesso in lettura ai gruppi di risorse della sottoscrizione che contengono gli host sessione desktop virtuale Windows 
     - Accesso in lettura all'area di lavoro Log Analytics
 
-- Potrebbe essere necessario aprire le porte in uscita nel firewall del server per consentire a monitoraggio di Azure di inviare dati al portale. vedere [porte in uscita](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
+- Potrebbe essere necessario aprire le porte in uscita nel firewall del server per consentire a monitoraggio di Azure di inviare dati al portale. vedere [porte in uscita](../azure-monitor/app/ip-addresses.md). 
 
 - Non vengono visualizzati dati dalle attività recenti? Potrebbe essere necessario attendere 15 minuti e aggiornare il feed. Monitoraggio di Azure prevede un periodo di latenza di 15 minuti per il popolamento dei dati di log. Per altre informazioni, vedere [tempo di inserimento dei dati di log in monitoraggio di Azure](../azure-monitor/logs/data-ingestion-time.md).
 
@@ -62,8 +62,8 @@ Per altre informazioni sui termini di dati, vedere il [Glossario monitoraggio di
 
 Se si desidera monitorare più contatori delle prestazioni o eventi, è possibile consentirne l'invio all'area di lavoro Log Analytics e monitorarli nella diagnostica host: browser host. 
 
-- Per aggiungere contatori delle prestazioni, vedere [configurazione dei contatori delle prestazioni](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-performance-counters)
-- Per aggiungere eventi di Windows, vedere [configurazione dei registri eventi di Windows](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events#configuring-windows-event-logs)
+- Per aggiungere contatori delle prestazioni, vedere [configurazione dei contatori delle prestazioni](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters)
+- Per aggiungere eventi di Windows, vedere [configurazione dei registri eventi di Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs)
 
 Non è possibile trovare un punto dati per facilitare la diagnosi di un problema? Invia commenti e suggerimenti
 

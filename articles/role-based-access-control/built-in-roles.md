@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/15/2021
+ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 1cd86ac2b9500c15bc32445e1866a40ca1c6b409
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 90c0be8e6df3e489595bdafed1f29d1ed0ef00f8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577002"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724507"
 ---
 # <a name="azure-built-in-roles"></a>Ruoli predefiniti di Azure
 
@@ -116,7 +116,7 @@ La tabella seguente contiene una breve descrizione e l'ID univoco di ogni ruolo 
 > | [Ricevitore dei dati di Hub eventi di Azure](#azure-event-hubs-data-receiver) | Consente l'accesso per la ricezione alle risorse dell'Hub eventi di Azure. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
 > | [Mittente dei dati di Hub eventi di Azure](#azure-event-hubs-data-sender) | Consente l'accesso per l'invio alle risorse dell'Hub eventi di Azure. | 2b629674-e913-4c01-ae53-ef4638d8f975 |
 > | [Collaboratore Data Factory](#data-factory-contributor) | Consente di creare e gestire data factory, oltre alle risorse figlio in esse contenute. | 673868aa-7521-48a0-acc6-0f60742d39f5 |
-> | [Pulizia dati](#data-purger) | Può eliminare i dati di analisi | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
+> | [Pulizia dati](#data-purger) | Elimina i dati privati da un'area di lavoro Log Analytics. | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | [Operatore di cluster HDInsight](#hdinsight-cluster-operator) | Consente di leggere e modificare le configurazioni dei cluster HDInsight. | 61ed4efc-fab3-44fd-b111-e24485cc132a |
 > | [Collaboratore Servizi di dominio HDInsight](#hdinsight-domain-services-contributor) | Può leggere, creare, modificare ed eliminare operazioni correlate ai Servizi di dominio necessarie per HDInsight Enterprise Security Package | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Collaboratore di Log Analytics](#log-analytics-contributor) | Il ruolo Collaboratore di Log Analytics può leggere tutti i dati di monitoraggio e modificare le impostazioni di monitoraggio. La modifica delle impostazioni di monitoraggio include l'aggiunta di estensioni delle VM alle VM, la lettura delle chiavi dell'account di archiviazione per potere configurare la raccolta di log dall'Archiviazione di Azure, la creazione e la configurazione degli account di Automazione, l'aggiunta di soluzioni e la configurazione di Diagnostica di Azure in tutte le risorse di Azure. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
@@ -3944,6 +3944,10 @@ Consente di gestire gli account Azure Cosmos DB, ma non di accedere ai dati cont
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/regenerateKey/* |  |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/listKeys/* |  |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/listConnectionStrings/* |  |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleDefinitions/Write | Crea o aggiorna una definizione di ruolo SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleDefinitions/Delete | Eliminare una definizione di ruolo SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/Write | Crea o aggiorna un'assegnazione di ruolo SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/Delete | Eliminare un'assegnazione di ruolo SQL |
 > | **DataActions** |  |
 > | *nessuna* |  |
 > | **NotDataActions** |  |
@@ -3973,7 +3977,11 @@ Consente di gestire gli account Azure Cosmos DB, ma non di accedere ai dati cont
         "Microsoft.DocumentDB/databaseAccounts/readonlyKeys/*",
         "Microsoft.DocumentDB/databaseAccounts/regenerateKey/*",
         "Microsoft.DocumentDB/databaseAccounts/listKeys/*",
-        "Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/*"
+        "Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/*",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/write",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/delete",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/write",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/delete"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -4774,7 +4782,7 @@ Consente di creare e gestire data factory, oltre alle risorse figlio in esse con
 
 ### <a name="data-purger"></a>Pulizia dati
 
-È possibile ripulire i dati di analisi [altre informazioni](../azure-monitor/logs/personal-data-mgmt.md)
+Elimina i dati privati da un'area di lavoro Log Analytics. [Scopri di più](../azure-monitor/logs/personal-data-mgmt.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |

@@ -2,19 +2,19 @@
 title: Eliminare tag e manifesti
 description: Usare un comando purge per eliminare più tag e manifesti da un Registro Azure Container in base all'età e a un filtro tag e, facoltativamente, pianificare le operazioni di rimozione.
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: 11750965ac563d1d5b7ad5ac7b52cf996e791e56
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 02/19/2021
+ms.openlocfilehash: 2dedfdd6eba73b7573743eba60294ac2231ffc56
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954039"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722229"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Eliminare automaticamente le immagini da un Registro Azure Container
 
 Quando si usa un Registro Azure Container come parte di un flusso di lavoro di sviluppo, il registro può riempirsi rapidamente di immagini o altri artefatti non necessari dopo un breve periodo di tempo. Potrebbe essere necessario eliminare tutti i tag creati oltre un determinato periodo di tempo o corrispondenti a un determinato filtro dei nomi. Questo articolo descrive il comando `acr purge` per eliminare rapidamente più artefatti, eseguibile come un'attività su richiesta o [pianificata](container-registry-tasks-scheduled.md) del Registro Azure Container. 
 
-Il comando `acr purge` è attualmente distribuito in un'immagine del contenitore pubblica (`mcr.microsoft.com/acr/acr-cli:0.3`), compilata dal codice sorgente nel repository [acr-cli](https://github.com/Azure/acr-cli) di GitHub.
+Il comando `acr purge` è attualmente distribuito in un'immagine del contenitore pubblica (`mcr.microsoft.com/acr/acr-cli:0.4`), compilata dal codice sorgente nel repository [acr-cli](https://github.com/Azure/acr-cli) di GitHub.
 
 Per eseguire gli esempi di attività di Registro Azure Container di questo articolo è possibile usare Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure. Se si preferisce l'interfaccia locale, è necessario usare la versione 2.0.76 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install]. 
 
@@ -45,6 +45,7 @@ Specificare come minimo quanto segue quando si esegue `acr purge`:
 * `--untagged`: specifica che i manifesti che non dispongono di tag associati (*manifesti senza tag*) vengono eliminati.
 * `--dry-run`: specifica che non vengono eliminati dati, ma l'output è come sarebbe se il comando fosse eseguito senza questo flag. Questo parametro è utile per il test di un comando purge per assicurarsi di non eliminare per sbaglio i dati che si desidera mantenere.
 * `--keep` -Specifica che viene mantenuto il numero x più recente di tag da eliminare.
+* `--concurrency` : Specifica un numero di attività di ripulitura da elaborare simultaneamente. Se questo parametro non viene specificato, viene utilizzato un valore predefinito.
 
 Eseguire `acr purge --help` per i parametri aggiuntivi. 
 

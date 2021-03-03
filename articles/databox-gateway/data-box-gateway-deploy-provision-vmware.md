@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/16/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: dfbc63ccbdf6f0a8abe1e955b43240d799d6783d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
-ms.translationtype: HT
+ms.openlocfilehash: 948005942be193c8b15c363282aa06c006eb244e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96580302"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727618"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in VMware
 
@@ -55,7 +55,7 @@ Prima di distribuire un dispositivo virtuale, è necessario:
 * Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning del dispositivo virtuale:
 
   * Un minimo di 4 memorie centrali.
-  * Almeno 8 GB di RAM.
+  * Almeno 8 GB di RAM. È consigliabile disporre di almeno 16 GB di RAM.
   * Un'interfaccia di rete.
   * Un disco del sistema operativo da 250 GB.
   * Un disco virtuale da 2 TB per i dati di sistema.

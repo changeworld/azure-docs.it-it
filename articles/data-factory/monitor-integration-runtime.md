@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
-ms.openlocfilehash: a52fad39e19bdf2edf110990c8f0e392ec5803ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1cb4fcaa51e1a59ee9d09eb178faf9b250173709
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377500"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740027"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitoraggio di un runtime di integrazione in Azure Data Factory
 
@@ -224,7 +224,17 @@ Per monitorare le Azure-SSIS IR in portale di Azure, passare alla pagina **runti
 
 ![Monitora tutti i runtime di integrazione](media/monitor-integration-runtime/monitor-integration-runtimes.png)
 
-Selezionare quindi il nome della Azure-SSIS IR per aprire la relativa pagina di monitoraggio, in cui è possibile visualizzare le proprietà complessive e specifiche del nodo e gli Stati. In questa pagina, a seconda di come vengono configurate le impostazioni generali, di distribuzione e avanzate del Azure-SSIS IR, sono disponibili vari riquadri informativi/funzionali.  I riquadri informazioni sul **tipo** e sull' **area** indicano rispettivamente il tipo e l'area dell'Azure-SSIS IR. Il riquadro informazioni **dimensioni nodo** Mostra lo SKU (SSIS edition_VM tier_VM Series), il numero di core CPU e le dimensioni della RAM per nodo per il Azure-SSIS IR. Il riquadro informativo dei nodi **in esecuzione/richiesto** confronta il numero di nodi attualmente in esecuzione con il numero totale di nodi precedentemente richiesti per la Azure-SSIS IR. I riquadri funzionali sono descritti in dettaglio di seguito.
+Selezionare quindi il nome della Azure-SSIS IR per aprire la relativa pagina di monitoraggio, in cui è possibile visualizzare le proprietà complessive e specifiche del nodo e gli Stati. In questa pagina, a seconda di come vengono configurate le impostazioni generali, di distribuzione e avanzate del Azure-SSIS IR, sono disponibili vari riquadri informativi/funzionali.
+
+I riquadri informazioni sul **tipo** e sull' **area** indicano rispettivamente il tipo e l'area dell'Azure-SSIS IR.
+
+Il riquadro informazioni **dimensioni nodo** Mostra lo SKU (SSIS edition_VM tier_VM Series), il numero di core CPU e le dimensioni della RAM per nodo per il Azure-SSIS IR. 
+
+Il riquadro informativo dei nodi **in esecuzione/richiesto** confronta il numero di nodi attualmente in esecuzione con il numero totale di nodi precedentemente richiesti per la Azure-SSIS IR.
+
+Il riquadro informativo **coppia/coppia standby** Mostra il nome della coppia di Azure-SSIS IR a doppia standby che funziona in sincronizzazione con il database SQL di Azure/istanza gestita gruppo di failover per la continuità aziendale e il ripristino di emergenza (BCdR) e il ruolo primario/secondario corrente del Azure-SSIS IR. Quando si verifica il failover di SSISDB, l'IRs Azure-SSIS primaria e secondaria esegue lo scambio dei ruoli (vedere [configurazione del Azure-SSIS IR per BCdR](./configure-bcdr-azure-ssis-integration-runtime.md)).
+
+I riquadri funzionali sono descritti in dettaglio di seguito.
 
 ![Monitorare la Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
@@ -254,13 +264,13 @@ Se si aggiunge il Azure-SSIS IR a una VNet, verrà visualizzato il riquadro **co
 
 Nel riquadro **diagnostica connettività** della pagina Monitoraggio Azure-SSIS IR è possibile selezionare il collegamento **Test connessione** per visualizzare una finestra, in cui è possibile controllare le connessioni tra l'Azure-SSIS IR e gli archivi di pacchetti/configurazione/dati rilevanti, nonché i servizi di gestione, tramite il nome di dominio completo (FQDN)/IP e la porta designata (vedere [test delle connessioni dal Azure-SSIS IR](./ssis-integration-runtime-diagnose-connectivity-faq.md)).
 
-![Screenshot che mostra dove è possibile testare le connessioni tra il Azure-SSIS IR e gli archivi di pacchetti/configurazione/dati pertinenti.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Monitorare il riquadro Azure-SSIS IR-diagnosi](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>Riquadro indirizzi IP pubblici statici
 
 Se si usano indirizzi IP pubblici statici per Azure-SSIS IR, il riquadro **indirizzi IP pubblici statici** verrà visualizzato nella pagina di monitoraggio Azure-SSIS IR (vedere l' [introduzione di indirizzi IP pubblici statici per Azure-SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)). In questo riquadro è possibile selezionare i collegamenti che definiscono il primo/secondo indirizzo IP pubblico statico per Azure-SSIS IR per visualizzare una finestra, in cui è possibile copiare l'ID risorsa ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` ) da una casella di testo. Nella finestra popup è possibile anche selezionare il collegamento **vedere il primo/secondo indirizzo IP pubblico statico** per gestire il primo/secondo indirizzo IP pubblico statico in portale di Azure.
 
-![Screenshot che mostra dove è possibile designare il primo/secondo indirizzo IP pubblico statico.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Monitorare il riquadro Azure-SSIS IR-STATIC](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Riquadro archivi pacchetti
 
@@ -272,7 +282,7 @@ Se si usa il modello di distribuzione del pacchetto in cui i pacchetti vengono a
 
 Se si verificano problemi durante l'avvio, l'arresto, la manutenzione o l'aggiornamento del Azure-SSIS IR, verrà visualizzato un ulteriore riquadro **errori** nella pagina di monitoraggio Azure-SSIS IR. In questo riquadro è possibile selezionare un collegamento che designa il numero di errori generati dal Azure-SSIS IR per visualizzare una finestra, in cui è possibile visualizzare tali errori in altri dettagli e copiarli per trovare le soluzioni consigliate nella Guida alla risoluzione dei problemi (vedere la pagina relativa alla [risoluzione dei problemi di Azure-SSIS IR](./ssis-integration-runtime-management-troubleshoot.md)).
 
-![Monitorare il riquadro Azure-SSIS IR-diagnosi](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
+![Monitorare il riquadro Azure-SSIS IR-ERROR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Monitorare il runtime di integrazione Azure-SSIS con monitoraggio di Azure
 

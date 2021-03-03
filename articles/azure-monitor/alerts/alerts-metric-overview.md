@@ -4,16 +4,16 @@ description: È disponibile una panoramica delle operazioni eseguibili con gli a
 ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 989c3b8a50c3e613e67726684f35c6adce9c8b96
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc0f41f23f1d9387f806c947ac27e6f31cc0e053
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614597"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723606"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
-Gli avvisi delle metriche in Monitoraggio di Azure si basano su metriche multidimensionali. Queste metriche possono essere [metriche di piattaforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [metriche personalizzate](../platform/metrics-custom-overview.md), [log comuni di Monitoraggio di Azure convertiti in metriche](./alerts-metric-logs.md) e metriche di Application Insights. Gli avvisi delle metriche eseguono valutazioni a intervalli regolari per verificare se le condizioni in una o più serie temporale di metriche vengono soddisfatte e, in caso affermativo, inviano una notifica. Gli avvisi delle metriche sono avvisi con stato, ovvero inviano notifiche solo quando lo stato cambia.
+Gli avvisi delle metriche in Monitoraggio di Azure si basano su metriche multidimensionali. Queste metriche possono essere [metriche di piattaforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [metriche personalizzate](../essentials/metrics-custom-overview.md), [log comuni di Monitoraggio di Azure convertiti in metriche](./alerts-metric-logs.md) e metriche di Application Insights. Gli avvisi delle metriche eseguono valutazioni a intervalli regolari per verificare se le condizioni in una o più serie temporale di metriche vengono soddisfatte e, in caso affermativo, inviano una notifica. Gli avvisi delle metriche sono avvisi con stato, ovvero inviano notifiche solo quando lo stato cambia.
 
 ## <a name="how-do-metric-alerts-work"></a>Funzionamento degli avvisi delle metriche
 
@@ -26,7 +26,7 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
 - Tipo di condizione: static
-- Tipo di aggregazione, ovvero una statistica eseguita su valori di metrica non elaborati. I [tipi di aggregazione supportati](../platform/metrics-aggregation-explained.md#aggregation-types) sono minimo, massimo, medio, totale, numero): media
+- Tipo di aggregazione, ovvero una statistica eseguita su valori di metrica non elaborati. I [tipi di aggregazione supportati](../essentials/metrics-aggregation-explained.md#aggregation-types) sono minimo, massimo, medio, totale, numero): media
 - Periodo (la finestra di ricerca su cui sono controllati i valori delle metriche): negli ultimi 5 minuti
 - Frequenza (la frequenza con cui l'avviso della metrica controlla se le condizioni sono soddisfatte): 1 minuto
 - Operatore: maggiore di
@@ -43,7 +43,7 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
 - Tipo di condizione: Dynamic
-- Tipo di aggregazione, ovvero una statistica eseguita su valori di metrica non elaborati. I [tipi di aggregazione supportati](../platform/metrics-aggregation-explained.md#aggregation-types) sono minimo, massimo, medio, totale, numero): media
+- Tipo di aggregazione, ovvero una statistica eseguita su valori di metrica non elaborati. I [tipi di aggregazione supportati](../essentials/metrics-aggregation-explained.md#aggregation-types) sono minimo, massimo, medio, totale, numero): media
 - Periodo (la finestra di ricerca su cui sono controllati i valori delle metriche): negli ultimi 5 minuti
 - Frequenza (la frequenza con cui l'avviso della metrica controlla se le condizioni sono soddisfatte): 1 minuto
 - Operatore: maggiore di
@@ -180,9 +180,8 @@ L'elenco completo dei tipi di risorse supportati è disponibile in questo [artic
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni su come creare, visualizzare e gestire gli avvisi delle metriche in Azure](../alerts/alerts-metric.md)
-- [Informazioni su come creare avvisi in Azure Montir Esplora metriche](../platform/metrics-charts.md#alert-rules)
+- [Informazioni su come creare avvisi in Azure Montir Esplora metriche](../essentials/metrics-charts.md#alert-rules)
 - [Informazioni su come distribuire gli avvisi delle metriche mediante modelli di Azure Resource Manager](./alerts-metric-create-templates.md)
-- [Altre informazioni sui gruppi di azioni](../platform/action-groups.md)
+- [Altre informazioni sui gruppi di azioni](./action-groups.md)
 - [Altre informazioni sul tipo di condizione delle soglie dinamiche](../alerts/alerts-dynamic-thresholds.md)
 - [Altre informazioni sulla risoluzione dei problemi negli avvisi delle metriche](alerts-troubleshoot-metric.md)
-

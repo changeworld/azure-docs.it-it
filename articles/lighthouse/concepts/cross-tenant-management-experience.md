@@ -3,12 +3,12 @@ title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 97b28409a7f180ffbf4f8766ee281710d6226019
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 644cac70ef6459a1b0be45e9ab8f2757fafddeed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573092"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699250"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -97,8 +97,8 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 - Visualizza gli avvisi per le sottoscrizioni Delegate, con la possibilità di visualizzare e aggiornare gli avvisi in tutte le sottoscrizioni
 - Visualizzare i dettagli del log attività per le sottoscrizioni delegate
-- [Log Analytics](../../azure-monitor/platform/service-providers.md): eseguire query sui dati dalle aree di lavoro remote in più tenant. si noti che gli account di automazione usati per accedere ai dati dalle aree di lavoro nei tenant dei clienti devono essere creati nello stesso tenant.
-- [Creare, visualizzare e gestire gli avvisi del log attività](../../azure-monitor/platform/alerts-activity-log.md) nei tenant dei clienti
+- [Log Analytics](../../azure-monitor/logs/service-providers.md): eseguire query sui dati dalle aree di lavoro remote in più tenant. si noti che gli account di automazione usati per accedere ai dati dalle aree di lavoro nei tenant dei clienti devono essere creati nello stesso tenant.
+- [Creare, visualizzare e gestire gli avvisi del log attività](../../azure-monitor/alerts/alerts-activity-log.md) nei tenant dei clienti
 - Creare avvisi nei tenant dei clienti che attivano l'automazione, ad esempio manuali operativi di automazione di Azure o funzioni di Azure, nel tenant di gestione tramite webhook
 - Creare [impostazioni di diagnostica](../..//azure-monitor/essentials/diagnostic-settings.md) nei tenant del cliente per inviare i log delle risorse alle aree di lavoro nel tenant di gestione
 - Per i carichi di lavoro SAP, [monitora le metriche delle soluzioni SAP con una visualizzazione aggregata tra i tenant dei clienti](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)

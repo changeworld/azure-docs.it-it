@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: bdbbf3e808e1dda0970aaf87d154ee79bea4dcb1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/24/2021
+ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964168"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740376"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Condividere e ricevere i dati da Database SQL di Azure e Azure Synapse Analytics
 
@@ -275,7 +275,7 @@ Seguire questa procedura per configurare la posizione in cui si desidera ricever
 ### <a name="trigger-a-snapshot"></a>Attivazione di uno snapshot
 Questa procedura si applica solo alla condivisione basata su snapshot.
 
-1. È possibile attivare uno snapshot selezionando la scheda **Dettagli** e quindi **Attiva snapshot**. Qui è possibile attivare uno snapshot completo o incrementale dei dati. Se è la prima volta che si ricevono i dati dal provider, selezionare Full copy (Copia completa). Per le origini SQL è supportato solo lo snapshot completo.
+1. È possibile attivare uno snapshot selezionando la scheda **Dettagli** e quindi **Attiva snapshot**. Qui è possibile attivare uno snapshot completo o incrementale dei dati. Se è la prima volta che si ricevono i dati dal provider, selezionare Full copy (Copia completa). Per le origini SQL è supportato solo lo snapshot completo. Quando uno snapshot è in esecuzione, gli snapshot successivi non vengono avviati fino al completamento di quello precedente.
 
    ![Attivazione dello snapshot](./media/trigger-snapshot.png "Attivazione dello snapshot") 
 
@@ -315,9 +315,9 @@ Quando si condividono dati da un'origine SQL, vengono usati i mapping seguenti t
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Oggetto |
-| testo |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | TINYINT |Int16 |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |

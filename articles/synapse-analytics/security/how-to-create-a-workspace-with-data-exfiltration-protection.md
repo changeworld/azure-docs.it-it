@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12d858488c4530e4b0d949cd36ed9ad2f7df4c59
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6fd28c9392d760888eafde37471a49ffaa2e4423
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694139"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Creare un'area di lavoro con la protezione Exfiltration dati abilitata
 Questo articolo descrive come creare un'area di lavoro con la protezione Exfiltration dati abilitata e come gestire i tenant Azure AD approvati per questa area di lavoro.
@@ -50,7 +50,7 @@ Seguire i passaggi elencati nella [Guida introduttiva: creare un'area di lavoro 
 >Le risorse in tenant diversi dal tenant dell'area di lavoro non devono avere regole firewall di blocco per i pool SQL per la connessione. Le risorse all'interno della rete virtuale gestita dell'area di lavoro, ad esempio i cluster Spark, possono connettersi attraverso collegamenti privati gestiti a risorse protette da firewall.
 
 ## <a name="known-limitations"></a>Limitazioni note
-Gli utenti possono fornire un file di configurazione dell'ambiente per installare i pacchetti Python da repository pubblici, ad esempio PyPI. Nelle aree di lavoro protette exfiltration dati, le connessioni ai repository in uscita sono bloccate. Di conseguenza, la libreria Python installata da repository pubblici come PyPI non è supportata. 
+Gli utenti possono fornire un file di configurazione dell'ambiente per installare i pacchetti Python da repository pubblici, ad esempio PyPI. Nelle aree di lavoro protette exfiltration dati, le connessioni ai repository in uscita sono bloccate. Di conseguenza, la libreria Python installata da repository pubblici come PyPI non è supportata. In alternativa, gli utenti possono creare un canale privato all'interno del proprio account di Azure Data Lake Storage primario e fare riferimento all'interno del file di configurazione dell'ambiente conda. 
   
 ## <a name="next-steps"></a>Passaggi successivi
 

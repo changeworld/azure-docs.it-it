@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: effdd156858caf5717aac92433e8bc5f4f6147ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89661453"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686870"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Rinnovare i certificati di federazione per Microsoft 365 e Azure Active Directory
 ## <a name="overview"></a>Panoramica
@@ -157,7 +157,7 @@ D'altra parte, se **AutoCertificateRollover** è impostata su **True**, ma i met
    >
 3. Esaminare l'output del comando in tutti i certificati elencati. Se AD FS ha generato un nuovo certificato, saranno presenti due certificati nell'output: uno per cui il valore **IsPrimary** è **True** e la data **NotAfter** è entro 5 giorni e uno per cui **IsPrimary** è **False** e **NotAfter** è una data successiva di circa un anno.
 4. Se è presente un solo certificato e la data **NotAfter** è entro 5 giorni, è necessario generare un nuovo certificato.
-5. Per generare un nuovo certificato, eseguire il comando seguente al prompt dei comandi di PowerShell: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+5. Per generare un nuovo certificato, eseguire il comando seguente al prompt dei comandi di PowerShell: `PS C:\Update-ADFSCertificate –CertificateType token-signing`.
 6. Verificare l'aggiornamento eseguendo di nuovo il comando seguente: PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
 A questo punto verranno elencati due certificati, uno dei quali ha una data **NotAfter** successiva di circa un anno e il valore **IsPrimary** è **False**.

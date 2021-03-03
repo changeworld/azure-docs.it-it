@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/09/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 7a482e268137946222f1c8b427424598bd78f935
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: HT
+ms.openlocfilehash: 2c56e847e3b112d50285cd2c116c8f22efbc507f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735097"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715531"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Esercitazione: Creare e modificare il peering per un circuito ExpressRoute usando l'interfaccia della riga di comando
 
@@ -243,8 +243,10 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 1. Configurare il peering privato di Azure per il circuito. Prima di continuare con i passaggi successivi, verificare di avere gli elementi seguenti:
 
-   * Una subnet /30 per il collegamento primario. La subnet non deve far parte di alcuno spazio indirizzi riservato per le reti virtuali.
-   * Una subnet /30 per il collegamento secondario. La subnet non deve far parte di alcuno spazio indirizzi riservato per le reti virtuali.
+   * Coppia di subnet che non fanno parte di alcuno spazio indirizzi riservato per le reti virtuali. Una subnet verrà usata per il collegamento primario e l'altra per il collegamento secondario. Da ognuna di queste subnet si assegnerà al router il primo indirizzo IP utilizzabile, poiché il secondo indirizzo IP utilizzabile per il router viene usato da Microsoft. Sono disponibili tre opzioni per questa coppia di subnet:
+       * IPv4: due subnet/30.
+       * IPv6: due subnet/126.
+       * Entrambi: due subnet/30 e due subnet/126.
    * Un ID VLAN valido su cui stabilire questo peering. Assicurarsi che nessun altro peering nel circuito usi lo stesso ID VLAN.
    * Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte. È possibile usare il numero AS privato per questo peering. Assicurarsi di non usare 65515.
    * **Facoltativo:** un hash MD5, se si sceglie di usarne uno.

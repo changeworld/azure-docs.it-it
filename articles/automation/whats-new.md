@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: overview
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/21/2021
+ms.date: 02/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8b412fffdda1ce6a2023a8b9ae459a52986cd93d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 899249c98c3ce0fdf061b1e689182f71c120aa13
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690865"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729396"
 ---
 # <a name="whats-new-in-azure-automation"></a>Novità di automazione di Azure
 
@@ -24,7 +24,55 @@ Automazione di Azure riceve i miglioramenti su base continuativa. Per stare al p
 
 Questa pagina viene aggiornata ogni mese, si consiglia pertanto di consultarla regolarmente.
 
+## <a name="february-2021"></a>2021 febbraio
+
+### <a name="support-for-automation-and-state-configuration-declared-ga-in-japan-west"></a>Supporto per l'automazione e la configurazione dello stato dichiarate GA in Giappone occidentale
+
+**Tipo:** Nuova funzionalità
+
+Disponibilità dell'account di automazione e della configurazione dello stato nell'area Giappone occidentale. Per ulteriori informazioni, leggere l' [annuncio](https://azure.microsoft.com/updates/azure-automation-in-japan-west-region/).
+
+### <a name="introduced-custom-azure-policy-compliance-to-enforce-runbook-execution-on-hybrid-worker"></a>È stata introdotta la conformità dei criteri di Azure personalizzata per applicare l'esecuzione di Runbook nel ruolo
+
+**Tipo:** Nuova funzionalità
+
+È possibile usare la nuova regola di conformità dei criteri di Azure per consentire la creazione di processi, webhook e pianificazioni di processi da eseguire solo nei gruppi di lavoro ibridi.
+
+### <a name="update-management-availability-in-east-us-france-central-and-north-europe-regions"></a>Gestione aggiornamenti disponibilità nelle aree Stati Uniti orientali, Francia centrale ed Europa settentrionale
+
+**Tipo:** Nuova funzionalità
+
+La funzionalità Gestione aggiornamenti di automazione è disponibile nelle aree Stati Uniti orientali, Francia centrale ed Europa settentrionale. Vedere [mapping delle aree supportate](how-to/region-mappings.md) per gli aggiornamenti alla documentazione che riflettono questa modifica.
+
 ## <a name="january-2021"></a>Gennaio 2021
+
+### <a name="support-for-automation-and-state-configuration-declared-ga-in-switzerland-west"></a>Supporto per l'automazione e la configurazione dello stato dichiarata GA in Svizzera occidentale
+
+**Tipo:** Nuova funzionalità
+
+Disponibilità dell'account di automazione e della configurazione dello stato nell'area Svizzera occidentale. Per ulteriori informazioni, leggere l' [annuncio](https://azure.microsoft.com/updates/azure-automation-in-switzerland-west-region/).
+
+### <a name="added-python-3-script-to-import-module-with-multiple-dependencies"></a>Aggiunta dello script Python 3 per importare il modulo con più dipendenze
+
+**Tipo:** Nuova funzionalità
+
+Lo script è disponibile per il download dal [repository GitHub](https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py). 
+ 
+### <a name="hybrid-runbook-worker-role-support-for-centos-8xrhel-8xsles-15"></a>Supporto del ruolo di lavoro ibrido per Runbook per CentOS 8. x/RHEL 8. x/SLES 15
+
+**Tipo.** Nuova funzionalità
+
+La funzionalità Hybrid Runbook Worker supporta le distribuzioni CentOS 8. x, REHL 8. x e SLES 15 per l'automazione dei processi solo nei ruoli di lavoro ibridi per Runbook.  Per riflettere queste modifiche, vedere [sistemi operativi supportati](automation-linux-hrw-install.md#supported-linux-operating-systems) per gli aggiornamenti della documentazione.
+
+### <a name="update-management--change-tracking-availability-in-australia-east-east-asia-west-us--central-us-regions"></a>Gestione aggiornamenti & disponibilità Rilevamento modifiche in Australia orientale, Asia orientale, Stati Uniti occidentali & aree Stati Uniti centrali
+
+**Tipo:** Nuova funzionalità
+
+Gli account di automazione, Rilevamento modifiche e inventario e i Gestione aggiornamenti sono disponibili nelle aree Australia orientale, Asia orientale, Stati Uniti occidentali & Stati Uniti centrali. 
+
+### <a name="introduced-public-preview-of-python-3-runbooks-in-us-government-cloud"></a>È stata introdotta l'anteprima pubblica di Python 3 manuali operativi nel cloud degli Stati Uniti
+
+**Tipo:** La nuova funzionalità automazione di Azure introduce il supporto per l'anteprima pubblica del cloud Python 3 e l'esecuzione di Runbook ibride nelle aree del cloud degli Stati Uniti.  Per altre informazioni, vedere l'[annuncio](https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
 
 ### <a name="azure-automation-runbooks-moved-from-technet-script-center-to-github"></a>Manuali operativi di automazione di Azure spostati da TechNet Script Center a GitHub
 

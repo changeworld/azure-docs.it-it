@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
-ms.openlocfilehash: 47134712bb953d9194bd943e228bae681877dcaa
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ebc71ea2d354caf0c8f31b1231ecc1487237dd29
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099450"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741889"
 ---
 # <a name="set-up-an-azure-front-door-standardpremium-preview-origin"></a>Configurare un'origine di Azure front door standard/Premium (anteprima)
 
@@ -60,16 +60,16 @@ Prima di creare un'origine standard/Premium di Azure front door, è necessario a
     > [!IMPORTANT]
     > Durante la configurazione, le API non vengono convalidate se l'origine non è accessibile dagli ambienti di porte anteriori. Assicurarsi che la porta anteriore possa raggiungere l'origine.
 
-1. Selezionare **Aggiungi** per creare la nuova origine. L'origine creata dovrebbe essere visualizzata nell'elenco di origine con il gruppo
+1. Selezionare **Aggiungi** per creare la nuova origine. L'origine creata dovrebbe essere visualizzata nell'elenco di origine con il gruppo.
   
-    :::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Screenshot della pagina Aggiungi un'origine.":::
+    :::image type="content" source="../media/how-to-create-origin/origin-list-view.png" alt-text="Screenshot dell'origine nella visualizzazione elenco.":::
 
 1. Selezionare **Aggiungi** per aggiungere il gruppo di origine all'endpoint corrente. Il gruppo di origine dovrebbe essere visualizzato all'interno del pannello gruppo di origine.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Per eliminare un gruppo di origine quando non è più necessario, fare clic su **...** e quindi selezionare **Elimina** dall'elenco a discesa.
 
-:::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Screenshot dell'eliminazione di un gruppo di origine.":::
+:::image type="content" source="../media/how-to-create-origin/delete-origin-group.png" alt-text="Screenshot dell'eliminazione di un gruppo di origine.":::
 
 Per eliminare un'origine quando non è più necessaria, fare clic su **...** e quindi selezionare **Elimina** dall'elenco a discesa. 
 

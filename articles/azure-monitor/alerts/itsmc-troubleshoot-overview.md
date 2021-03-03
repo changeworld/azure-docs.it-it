@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 991d37b097587e8e4a524c4fc8bc21e9b6af20b5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a01005231b5d775f79555ec10dedeb3f30b3426a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616667"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737206"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>Risolvere i problemi in IT Service Management Connector
 
@@ -55,7 +55,7 @@ Le sezioni seguenti identificano i sintomi comuni, le possibili cause e le risol
 
 * Le credenziali non sono corrette.
 * I privilegi sono insufficienti.
-* L'app Web è stata distribuita in modo errato.
+* Per le connessioni Service Manager: l'app Web è stata distribuita in modo errato.
 
 **Risoluzione**:
 
@@ -95,3 +95,12 @@ Le sezioni seguenti identificano i sintomi comuni, le possibili cause e le risol
 **Motivo**: una nuova istanza di connettore creata ha ancora completato la sincronizzazione iniziale.
 
 **Soluzione**: esaminare gli [errori comuni e le relative soluzioni](itsmc-dashboard-errors.md).
+
+### <a name="sync-connection"></a>Connessione di sincronizzazione 
+
+**Causa**: possono esserci diversi motivi per questo sintomo:
+
+* I modelli non vengono visualizzati come parte della definizione dell'azione.
+* Incedents/Events non vengono creati in ServiceNow.
+
+**Soluzione**: [sincronizzare il connettore](itsmc-resync-servicenow.md).

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: eb08bb262806cb662822a75898196546a5c1058e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 23bcfcb92a7fa642e111a67bf92c1306a606bb2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704804"
 ---
 # <a name="claim-sets"></a>Set di attestazioni
 
@@ -22,11 +22,12 @@ Le attestazioni generate nel processo di attestazione di enclavi usando Attestaz
 
 - **Attestazioni in uscita**: attestazioni generate dall'attestazione di Azure e contiene tutte le attestazioni che finiscono nel token di attestazione
 
-- **Attestazioni di proprietà**: le attestazioni create come output da Attestazione di Azure. Sono incluse tutte le attestazioni che rappresentano proprietà del token di attestazione, ad esempio la codifica del report, la durata di validità del report e così via.
+- **Attestazioni proprietà**: attestazioni create come output dall'attestazione di Azure. Sono incluse tutte le attestazioni che rappresentano proprietà del token di attestazione, ad esempio la codifica del report, la durata di validità del report e così via.
 
 ### <a name="common-incoming-claims-across-all-attestation-types"></a>Attestazioni in ingresso comuni per tutti i tipi di attestazione
 
-Le attestazioni seguenti vengono generate dall'attestazione di Azure e possono essere usate per definire le regole di autorizzazione in un criterio personalizzato:
+Le attestazioni seguenti vengono generate dall'attestazione di Azure e possono essere usate dagli autori dei criteri per definire le regole di autorizzazione in un criterio personalizzato per tutti i tipi di attestazione.
+
 - **x-ms-ver**: versione dello schema JWT (prevista come "1,0")
 - **x-ms-Attestation-Type**: valore stringa che rappresenta il tipo di attestazione 
 - **x-ms-Policy-hash**: hash dei criteri di valutazione dell'attestazione di Azure calcolati come BASE64URL (SHA256 (UTF8 (BASE64URL (UTF8 (testo del criterio))))
@@ -44,7 +45,9 @@ policy_signer | x-ms-Policy-firmatario
 
 ### <a name="common-outgoing-claims-across-all-attestation-types"></a>Attestazioni in uscita comuni in tutti i tipi di attestazione
 
-Di seguito sono riportate le attestazioni definite dalla [JWT IETF](https://tools.ietf.org/html/rfc7519) e usate dall'attestazione di Azure nell'oggetto Response:
+Di seguito sono elencate le attestazioni incluse nel token di attestazione per tutti i tipi di attestazione da parte del servizio.
+
+Origine: come definito da [IETF JWT](https://tools.ietf.org/html/rfc7519)
 
 - **Attestazione "ITC" (ID JWT)**
 - **Attestazione "ISS" (emittente)**
@@ -52,10 +55,12 @@ Di seguito sono riportate le attestazioni definite dalla [JWT IETF](https://tool
 - **Attestazione "EXP" (ora di scadenza)**
 - **Attestazione "NBF" (non prima)**
 
-Di seguito sono riportate le attestazioni definite da [IETF Eat](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9) e usate dall'attestazione di Azure nell'oggetto Response:
+Origine: come definito da [IETF Eat](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
+
 - **"Nonce claim" (nonce)**
 
-Le attestazioni seguenti vengono generate per impostazione predefinita in base alle attestazioni in ingresso
+Per impostazione predefinita, le attestazioni seguenti sono incluse nel token di attestazione in base alle attestazioni in ingresso:
+
 - **x-ms-ver**: versione dello schema JWT (prevista come "1,0")
 - **x-ms-Attestation-Type**: valore stringa che rappresenta il tipo di attestazione 
 - **x-ms-Policy-hash**: valore stringa contenente l'hash SHA256 del testo del criterio calcolato da BASE64URL (SHA256 (UTF8 (BASE64URL (UTF8 (testo del criterio))))
@@ -65,7 +70,8 @@ Le attestazioni seguenti vengono generate per impostazione predefinita in base a
 
 ### <a name="incoming-claims-specific-to-sgx-attestation"></a>Attestazioni in ingresso specifiche per l'attestazione SGX
 
-Le attestazioni seguenti vengono generate dal servizio per l'attestazione SGX e possono essere usate per definire le regole di autorizzazione in un criterio personalizzato:
+Le attestazioni seguenti vengono generate dall'attestazione di Azure e possono essere usate dagli autori dei criteri per definire le regole di autorizzazione in un criterio personalizzato per l'attestazione SGX.
+
 - **x-ms-SGX-is-debuggingable**: valore booleano che indica se l'enclave ha o meno abilitato il debug
 - **x-ms-SGX-Product-ID**
 - **x-ms-SGX-mrsigner**: valore con codifica esadecimale del campo "mrsigner" dell'offerta
@@ -74,7 +80,8 @@ Le attestazioni seguenti vengono generate dal servizio per l'attestazione SGX e 
 
 ### <a name="outgoing-claims-specific-to-sgx-attestation"></a>Attestazioni in uscita specifiche per l'attestazione SGX
 
-Le attestazioni seguenti vengono generate dal servizio e incluse nell'oggetto risposta per l'attestazione SGX:
+Le attestazioni seguenti vengono generate e incluse nel token di attestazione dal servizio per l'attestazione SGX.
+
 - **x-ms-SGX-is-debuggingable**: valore booleano che indica se l'enclave ha o meno abilitato il debug
 - **x-ms-SGX-Product-ID**
 - **x-ms-SGX-mrsigner**: valore con codifica esadecimale del campo "mrsigner" dell'offerta

@@ -3,16 +3,16 @@ title: Come spostare un dispositivo in IoT Central di Azure dall'hub Internet
 description: Come spostare il dispositivo in IoT Central di Azure dall'hub Internet delle cose
 author: TheRealJasonAndrew
 ms.author: v-anjaso
-ms.date: 12/20/2020
+ms.date: 02/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7898f842529b81b80febff444c97b199fbebba3c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f5a7693eeced1028d84598a6db3728776f845f7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98146454"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741617"
 ---
 # <a name="how-to-transfer-a-device-to-azure-iot-central-from-iot-hub"></a>Come trasferire un dispositivo ad Azure IoT Central dall'hub Internet delle cose
 
@@ -24,7 +24,7 @@ Un dispositivo si connette prima a un endpoint DPS per recuperare le informazion
 
 Un dispositivo può essere connesso direttamente a un hub Internet con una stringa di connessione o usando DPS. Il [servizio Device provisioning (DPS) dell'hub Azure](../../iot-dps/about-iot-dps.md) è la route per IOT Central.
 
-## <a name="to-move-the-device"></a>Per spostare il dispositivo
+## <a name="to-move-the-device-to-azure-iot-central"></a>Per spostare il dispositivo in Azure IoT Central
 
 Per connettere un dispositivo a IoT Central dall'hub Internet delle cose, è necessario aggiornare un dispositivo con:
 

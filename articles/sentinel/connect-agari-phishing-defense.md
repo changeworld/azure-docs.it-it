@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 3684b5a8069a6b683ae562c527af89814362a7f9
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a60a0291d6669b2a9115dffa8e0d4d63fae4a440
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806987"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724439"
 ---
 # <a name="connect-your-agari-phishing-defense-and-brand-protection-solutions-to-azure-sentinel"></a>Connetti le tue soluzioni di difesa del phishing e di protezione del marchio di Agari ad Azure Sentinel
 
@@ -39,7 +39,7 @@ Di seguito sono riportate le informazioni necessarie per connettere le soluzioni
 
 - Autorizzazioni di lettura e scrittura per l'area di lavoro di Azure Sentinel.
 
-- Autorizzazioni di lettura per le chiavi condivise per l'area di lavoro. [Altre informazioni sulle chiavi dell'area di lavoro](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Autorizzazioni di lettura per le chiavi condivise per l'area di lavoro. [Altre informazioni sulle chiavi dell'area di lavoro](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 - Autorizzazioni di lettura e scrittura per le funzioni di Azure per creare un app per le funzioni. [Altre informazioni su funzioni di Azure](../azure-functions/index.yml).
 

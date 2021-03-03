@@ -9,12 +9,12 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: 8a4b86fb8fa5a87283178d957e07617b908e6286
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: aeb84fca47dbf2922f17a3e8931e3158f9ee2cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790902"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706776"
 ---
 # <a name="sign-in-to-luis-portal"></a>Accedere al portale LUIS
 
@@ -48,7 +48,7 @@ Usare questo articolo per iniziare a usare il portale LUIS e creare una risorsa 
     * **Nome del gruppo di risorse di Azure** : nome del gruppo di risorse personalizzato scelto nella sottoscrizione. I gruppi di risorse consentono di raggruppare le risorse di Azure per l'accesso e la gestione. Se non si dispone attualmente di un gruppo di risorse nella sottoscrizione, non sarà possibile crearne uno nel portale LUIS. Passare a [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) per crearne uno, quindi passare a Luis per continuare il processo di accesso.
     * **Nome risorsa di Azure** : nome personalizzato scelto, usato come parte dell'URL per le transazioni di creazione. Il nome della risorsa può includere solo caratteri alfanumerici, `-` e non può iniziare o terminare con `-` . Se nel nome sono inclusi altri simboli, la creazione di una risorsa avrà esito negativo.
     * **Località** : scegliere di creare le applicazioni in una delle [tre posizioni di creazione](./luis-reference-regions.md) attualmente supportate da Luis, tra cui: Stati Uniti occidentali, Europa occidentale e Australia orientale.
-    * Piano **tariffario** : per impostazione predefinita, il piano tariffario per la creazione di F0 è selezionato come indicato. Creare una [chiave gestita dal cliente](./luis-encryption-of-data-at-rest.md#customer-managed-keys-for-language-understanding) dal portale di Azure se si sta cercando un livello aggiuntivo di sicurezza.
+    * Piano **tariffario** : per impostazione predefinita, il piano tariffario per la creazione di F0 è selezionato come indicato. Creare una [chiave gestita dal cliente](./encrypt-data-at-rest.md#customer-managed-keys-for-language-understanding) dal portale di Azure se si sta cercando un livello aggiuntivo di sicurezza.
 8. Ora è stato eseguito l'accesso a LUIS. È ora possibile iniziare a creare applicazioni.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi

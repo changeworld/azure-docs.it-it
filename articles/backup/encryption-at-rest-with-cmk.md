@@ -3,12 +3,12 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369459"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716738"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -235,11 +235,11 @@ InfrastructureEncryptionState : Disabled
 >[!NOTE]
 > Questo processo rimane invariato quando si desidera aggiornare o modificare la chiave di crittografia. Se si desidera aggiornare e utilizzare una chiave da un'altra Key Vault (diversa da quella attualmente in uso), verificare che:
 >
-> - Il Key Vault si trova nella stessa area dell'insieme di credenziali di servizi di ripristino
+> - L'insieme di credenziali delle chiavi si trova nella stessa area dell'insieme di credenziali di servizi di ripristino
 >
 > - Per l'insieme di credenziali delle chiavi è abilitata la protezione eliminazione temporanea e ripulitura
 >
-> - L'insieme di credenziali di servizi di ripristino dispone delle autorizzazioni necessarie per accedere al Key Vault.
+> - L'insieme di credenziali di servizi di ripristino dispone delle autorizzazioni necessarie per accedere all'insieme di credenziali delle chiavi.
 
 ## <a name="backing-up-to-a-vault-encrypted-with-customer-managed-keys"></a>Esecuzione del backup in un insieme di credenziali crittografato con chiavi gestite dal cliente
 

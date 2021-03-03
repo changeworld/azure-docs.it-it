@@ -4,18 +4,18 @@ description: Questa esercitazione offre istruzioni dettagliate per copiare dati 
 author: linda33wj
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 11/08/2019
+ms.date: 02/18/2021
 ms.author: jingwang
-ms.openlocfilehash: b2ec4a65f1001d6d1c93a23964d59972419f651e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a9e19f24c4889a194c85e33317860db1d3a68d2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380883"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736560"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiare dati da un BLOB di Azure al database SQL di Azure con Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In questa esercitazione si crea una pipeline di Data Factory che copia i dati da un archivio BLOB di Azure al database SQL di Azure. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere i [formati e gli archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 

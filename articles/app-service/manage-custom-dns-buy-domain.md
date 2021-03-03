@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f0ff7a54c2ad1fa1af649c8082498b442783c7e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: cdcf22a42375949cc4d6be0b4f3062cee26219d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608078"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704855"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
@@ -132,7 +132,7 @@ Per eseguire il mapping di un nome DNS personalizzato a un'app Web, il [piano di
 
 1. Selezionare uno dei livelli non gratuiti (**D1**, **B1**, **B2**, **B3** o uno qualsiasi dei livelli della categoria **Produzione**). Per altre opzioni, fare clic su **Visualizza opzioni aggiuntive**.
 
-1. Fare clic su **Apply**.
+1. Fare clic su **Applica**.
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Screenshot dei piani tariffari del dominio personalizzato nella categoria produzione con la scheda produzione, il piano B1 e il pulsante Applica evidenziato.":::
 
@@ -211,7 +211,7 @@ Azure gestisce i domini del servizio app in scadenza o scaduti come indicato di 
 * Se il rinnovo automatico è disabilitato: 90 giorni prima della scadenza del dominio, viene inviato un messaggio di posta elettronica di notifica del rinnovo e il pulsante **rinnova dominio** viene attivato nel portale.
 * Se il rinnovo automatico è abilitato: il giorno dopo la data di scadenza del dominio, Azure tenta di fatturare il rinnovo del nome di dominio.
 * Se si verifica un errore durante il rinnovo automatico, ad esempio se la scheda è scaduta o se il rinnovo automatico è disabilitato e si consente la scadenza del dominio, Azure invia una notifica alla scadenza del dominio e parcheggia il nome di dominio. È possibile [rinnovare manualmente](#renew-the-domain) il dominio.
-* Il giorno 4 e i 12 giorni dopo la scadenza, Azure invia messaggi di posta elettronica di notifica aggiuntivi. È possibile [rinnovare manualmente](#renew-the-domain) il dominio.
+* Il giorno 4 e i 12 giorni dopo la scadenza, Azure invia messaggi di posta elettronica di notifica aggiuntivi. È possibile [rinnovare manualmente](#renew-the-domain) il dominio. Il quinto giorno dopo la scadenza, la risoluzione DNS si interrompe per il dominio scaduto.
 * Il 19 ° giorno dopo la scadenza, il dominio rimane in attesa, ma diventa soggetto a una tariffa di riscatto. È possibile contattare il supporto tecnico per rinnovare il nome di dominio, in base alle eventuali tariffe di rinnovo e riscatto applicabili.
 * Il 25 ° giorno dopo la scadenza, Azure inserisce il dominio per l'asta a un servizio di vendita all'asta di un nome di dominio. È possibile contattare il supporto tecnico per rinnovare il nome di dominio, in base alle eventuali tariffe di rinnovo e riscatto applicabili.
 * Il 30 ° giorno dopo la scadenza non sarà più possibile riscattare il dominio.

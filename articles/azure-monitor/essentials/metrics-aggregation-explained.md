@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.subservice: metrics
-ms.openlocfilehash: c47c316c82d8c510b4446e4335a219f400d476e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a88a52163f03d2bffb0c9c4eab53fd814d9554fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615227"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725867"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Spiegazione della metrica di metriche di monitoraggio di Azure per l'aggregazione e la visualizzazione
 
@@ -101,7 +101,7 @@ Le metriche vengono acquisite per ogni singola risorsa. Tuttavia, il livello in 
 
 Quando si crea un grafico di una metrica in Esplora metriche, è possibile scegliere di suddividere il grafico in base a una dimensione.  Suddividendo un grafico si intende esaminare i dati sottostanti per ottenere informazioni più dettagliate e visualizzare i dati grafici o filtrati in Esplora metriche.
 
-Ad esempio, [Microsoft. ApiManagement/Service](../platform/metrics-supported.md#microsoftapimanagementservice) ha la *posizione* come dimensione per molte metriche. 
+Ad esempio, [Microsoft. ApiManagement/Service](./metrics-supported.md#microsoftapimanagementservice) ha la *posizione* come dimensione per molte metriche. 
 
 - La **capacità** è una metrica di questo tipo. Se la dimensione del *percorso* implica che il sistema sottostante archivia un record di metrica per la capacità di ogni posizione, anziché una sola per l'importo aggregato. È quindi possibile recuperare o suddividere tali informazioni in un grafico delle metriche.  
 
@@ -109,7 +109,7 @@ Ad esempio, [Microsoft. ApiManagement/Service](../platform/metrics-supported.md#
 
 - Una delle metriche più flessibili, **richieste**, ha 7 dimensioni diverse. 
  
-Per informazioni dettagliate su ogni metrica e sulle dimensioni disponibili, vedere l'articolo [supportato sulle metriche](../platform/metrics-supported.md) di monitoraggio di Azure. Inoltre, la documentazione per ogni provider di risorse e tipo può fornire informazioni aggiuntive sulle dimensioni e sulle misure che misurano.
+Per informazioni dettagliate su ogni metrica e sulle dimensioni disponibili, vedere l'articolo [supportato sulle metriche](./metrics-supported.md) di monitoraggio di Azure. Inoltre, la documentazione per ogni provider di risorse e tipo può fornire informazioni aggiuntive sulle dimensioni e sulle misure che misurano.
 
 È possibile utilizzare la suddivisione e il filtraggio insieme per analizzare un problema. Di seguito è riportato un esempio di un grafico che mostra i *byte di scrittura del disco media* per un gruppo di macchine virtuali in un gruppo di risorse. Si dispone di un rollup di tutte le macchine virtuali con questa metrica, ma è possibile approfondire il problema per vedere quali sono effettivamente responsabili dei picchi circa le 6.00. Si tratta dello stesso computer? Quanti computer sono interessati?  
 

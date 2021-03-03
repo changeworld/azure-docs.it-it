@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 780324d1a6f7d9edfb552377c3e966e6a186c231
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: dfedec85208ef9afaa58db2b200dc9f9988a845b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347932"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709241"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Aggiungere i Language Pack a un'immagine con più sessioni di Windows 10
 
@@ -53,6 +53,7 @@ Per personalizzare le immagini multisessione di Windows 10 Enterprise per aggiun
           - [Windows 10, versione 2004 o 20H2 **9C** LxP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
           - [Windows 10, versione 2004 o 20H2 **10C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
           - [Windows 10, versione 2004 o 20H2 **11C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
+          - [Windows 10, versione 2004 o 20H2 **1C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
 
 - Una condivisione File di Azure o una condivisione file in una macchina virtuale file server Windows
 
@@ -168,9 +169,6 @@ $LanguageList = Get-WinUserLanguageList
 $LanguageList.Add("zh-cn")
 Set-WinUserLanguageList $LanguageList -force
 ```
-
->[!IMPORTANT]
->Windows 10 Enterprise versioni 1903 e 1909 non richiedono il `Microsoft-Windows-Client-Language-Pack_x64_<language-code>.cab` file del pacchetto.
 
 Lo script potrebbe richiedere un po' di tempo a seconda del numero di lingue che è necessario installare.
 

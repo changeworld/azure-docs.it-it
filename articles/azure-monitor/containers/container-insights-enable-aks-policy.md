@@ -3,20 +3,20 @@ title: Abilitare l'addon di monitoraggio AKS usando criteri di Azure
 description: Viene descritto come abilitare l'addon di monitoraggio AKS usando i criteri personalizzati di Azure.
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.openlocfilehash: 302fdbbbcadf211339952f4b1bd97dcbb4ab1a85
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 2163527cc83e70913e9a6e11bf2e22f9ed9c6690
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808301"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713899"
 ---
 # <a name="enable-aks-monitoring-addon-using-azure-policy"></a>Abilitare l'addon di monitoraggio AKS usando criteri di Azure
 Questo articolo descrive come abilitare l'addon di monitoraggio AKS usando i criteri personalizzati di Azure. Il monitoraggio del criterio personalizzato dell'addon può essere assegnato all'ambito della sottoscrizione o del gruppo di risorse. Se l'area di lavoro di Azure Log Analytics e il cluster AKS si trovano in sottoscrizioni diverse, l'identità gestita usata dall'assegnazione dei criteri deve avere le autorizzazioni necessarie per entrambe le sottoscrizioni o almeno per la risorsa dell'area di lavoro Log Analytics. Analogamente, se il criterio è limitato al gruppo di risorse, l'identità gestita deve avere le autorizzazioni necessarie per il ruolo nell'area di lavoro Log Analytics se l'area di lavoro non è presente nell'ambito del gruppo di risorse selezionato.
 
 Il monitoraggio dell'addon richiede i seguenti ruoli sull'identità gestita usata da criteri di Azure:
 
- - [Azure-kubernetes-Service-collaboratore-ruolo](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-contributor-role)
- - [log-Analytics-collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor)
+ - [Azure-kubernetes-Service-collaboratore-ruolo](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)
+ - [log-Analytics-collaboratore](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
 ## <a name="create-and-assign-policy-definition-using-azure-portal"></a>Creare e assegnare la definizione dei criteri usando portale di Azure
 
@@ -79,6 +79,5 @@ Il monitoraggio dell'addon richiede i seguenti ruoli sull'identità gestita usat
 
 - Altre informazioni su [criteri di Azure](../../governance/policy/overview.md).
 - Informazioni sul [funzionamento della sicurezza](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works)per la correzione.
-- Scopri di più su [monitoraggio di Azure per i contenitori](../insights/container-insights-overview.md).
-- Installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
+- Altre informazioni su [container Insights](./container-insights-overview.md).
+- Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).

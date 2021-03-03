@@ -1,31 +1,31 @@
 ---
-title: Analisi delle modifiche in Monitoraggio di Azure per le macchine virtuali
-description: Monitoraggio di Azure per le macchine virtuali integrazione con l'integrazione dell'analisi delle modifiche dell'applicazione consente di visualizzare tutte le modifiche apportate a una macchina virtuale che potrebbe avere influenzato le prestazioni it.
+title: Analisi delle modifiche in VM Insights
+description: L'integrazione di VM Insights con l'integrazione dell'analisi delle modifiche dell'applicazione consente di visualizzare tutte le modifiche apportate a una macchina virtuale che potrebbe avere influenzato le prestazioni it.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/23/2020
-ms.openlocfilehash: 59799a09436d5968a441f6f17655d3138a2d84d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 48f0f0e124040dc070bd5e31f956f75e759303d3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618237"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704005"
 ---
-# <a name="change-analysis-in-azure-monitor-for-vms"></a>Analisi delle modifiche in Monitoraggio di Azure per le macchine virtuali
-Monitoraggio di Azure per le macchine virtuali integrazione con l'integrazione [dell'analisi delle modifiche dell'applicazione](../app/change-analysis.md) consente di visualizzare tutte le modifiche apportate a una macchina virtuale che potrebbe avere influenzato le prestazioni it.
+# <a name="change-analysis-in-vm-insights"></a>Analisi delle modifiche in VM Insights
+L'integrazione di VM Insights con l'integrazione [dell'analisi delle modifiche dell'applicazione](../app/change-analysis.md) consente di visualizzare tutte le modifiche apportate a una macchina virtuale che potrebbe avere influenzato le prestazioni it.
 
 ## <a name="overview"></a>Panoramica
-Si supponga di disporre di una macchina virtuale in esecuzione lenta e di voler verificare se le modifiche recenti alla configurazione potrebbero influire sulle prestazioni. È possibile visualizzare le prestazioni della macchina virtuale usando Monitoraggio di Azure per le macchine virtuali e verificare che sia presente un aumento dell'utilizzo della memoria nell'ultima ora. L'analisi delle modifiche può consentire di determinare se le modifiche apportate alla configurazione in questo periodo di tempo sono state provocate da questo aumento.
+Si supponga di disporre di una macchina virtuale in esecuzione lenta e di voler verificare se le modifiche recenti alla configurazione potrebbero influire sulle prestazioni. È possibile visualizzare le prestazioni della macchina virtuale usando VM Insights e verificare che sia presente un aumento dell'utilizzo della memoria nell'ultima ora. L'analisi delle modifiche può consentire di determinare se le modifiche apportate alla configurazione in questo periodo di tempo sono state provocate da questo aumento.
 
 Il servizio di analisi delle modifiche dell'applicazione aggrega le modifiche da [Azure Resource Graph](../../governance/resource-graph/how-to/get-resource-changes.md) , nonché le modifiche alle proprietà annidate, ad esempio le regole di sicurezza di rete da Azure Resource Manager. 
 
 ## <a name="enabling-change-analysis"></a>Abilitazione dell'analisi delle modifiche
-Per eseguire l'onboarding dell'analisi delle modifiche in Monitoraggio di Azure per le macchine virtuali, è necessario registrare il provider di risorse *Microsoft. ChangeAnalysis* . La prima volta che si avvia Monitoraggio di Azure per le macchine virtuali o l'analisi delle modifiche dell'applicazione nel portale di Azure, questo provider di risorse verrà automaticamente registrato. L'analisi delle modifiche dell'applicazione è un servizio gratuito che non comporta un sovraccarico delle prestazioni sulle risorse.
+Per eseguire l'onboarding dell'analisi delle modifiche in VM Insights, è necessario registrare il provider di risorse *Microsoft. ChangeAnalysis* . La prima volta che si avvia VM Insights o l'analisi delle modifiche dell'applicazione nella portale di Azure, questo provider di risorse verrà automaticamente registrato. L'analisi delle modifiche dell'applicazione è un servizio gratuito che non comporta un sovraccarico delle prestazioni sulle risorse.
 
 ## <a name="view-change-analysis"></a>Visualizza analisi modifiche
-L'analisi delle modifiche è disponibile nella scheda **prestazioni** o **mappa** del monitoraggio di Azure per le macchine virtuali selezionando l'opzione **Cambia** . 
+L'analisi delle modifiche è disponibile nella scheda **prestazioni** o **mappa** di VM Insights selezionando l'opzione **Cambia** . 
 
 [![Esaminare le modifiche](media/vminsights-change-analysis/investigate-changes-screenshot.png)](media/vminsights-change-analysis/investigate-changes-screenshot-zoom.png#lightbox)
 

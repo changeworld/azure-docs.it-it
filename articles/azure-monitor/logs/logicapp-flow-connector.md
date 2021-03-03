@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: fdd3886dda794ff9a91e2c2be6a3d810086d0ed2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9d93e3ec08ff16a1fcca0c914b9e817d4ca89d60
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615797"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707949"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Connettore dei log di monitoraggio di Azure per app per la logica e automazione dell'alimentazione
 [App](../../logic-apps/index.yml) per la logica di Azure e [Power automatizzate](https://flow.microsoft.com) consentono di creare flussi di lavoro automatizzati usando centinaia di azioni per un'ampia gamma di servizi. Il connettore log di monitoraggio di Azure consente di creare flussi di lavoro che recuperano dati da un'area di lavoro Log Analytics o da un'applicazione Application Insights in monitoraggio di Azure. Questo articolo descrive le azioni incluse nel connettore e fornisce una procedura dettagliata per creare un flusso di lavoro usando questi dati.
@@ -125,6 +125,6 @@ Al termine dell'app per la logica, controllare la posta del destinatario specifi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere altre informazioni sulle [query di log in Monitoraggio di Azure](../log-query/log-query-overview.md).
+- Vedere altre informazioni sulle [query di log in Monitoraggio di Azure](./log-query-overview.md).
 - Altre informazioni sulle [app](../../logic-apps/index.yml) per la logica
 - Altre informazioni su [Power automatizzate](https://flow.microsoft.com).

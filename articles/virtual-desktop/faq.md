@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b915445b74e202f010c5505cc240b6f36e9da77c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108508"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720274"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Domande frequenti su Desktop virtuale Windows
 
@@ -23,7 +23,7 @@ Se si desidera creare pool host e altri oggetti, è necessario disporre del ruol
 
 È necessario disporre del ruolo amministratore accesso utenti per un gruppo di app per pubblicare gruppi di app per utenti o gruppi di utenti.
 
-Per impedire a un amministratore di gestire solo le sessioni utente, ad esempio l'invio di messaggi agli utenti, la disconnessione degli utenti e così via, è possibile creare ruoli personalizzati. Esempio:
+Per impedire a un amministratore di gestire solo le sessioni utente, ad esempio l'invio di messaggi agli utenti, la disconnessione degli utenti e così via, è possibile creare ruoli personalizzati. Ad esempio:
 
 ```powershell
 "actions": [
@@ -56,7 +56,7 @@ Anche le aree di lavoro devono trovarsi nella stessa posizione dei gruppi di app
 
 Quando si esegue un cmdlet di PowerShell, vengono visualizzati solo il nome e il percorso della risorsa.
 
-Esempio:
+Ad esempio:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -68,7 +68,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 Per visualizzare tutte le proprietà di una risorsa, aggiungere `format-list` o `fl` alla fine del cmdlet.
 
-Esempio:
+Ad esempio:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -76,7 +76,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 Per visualizzare proprietà specifiche, aggiungere i nomi di proprietà specifici dopo `format-list` o `fl` .
 
-Esempio:
+Ad esempio:
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
@@ -125,7 +125,7 @@ Questi fattori possono influenzare il limite di scalabilità per i pool host:
 
 - Il modello di Azure è limitato a 800 oggetti. Per altre informazioni, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Ogni VM crea anche circa sei oggetti, quindi è possibile creare circa 132 VM ogni volta che si esegue il modello.
 
-- Esistono restrizioni sul numero di core che è possibile creare per area e per sottoscrizione. Ad esempio, se si dispone di una sottoscrizione di Enterprise Agreement, è possibile creare 350 core. È necessario dividere 350 per il numero predefinito di core per macchina virtuale o per il limite di core per determinare il numero di macchine virtuali che è possibile creare ogni volta che si esegue il modello. Per altre informazioni [, vedere limiti delle macchine virtuali-Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
+- Esistono restrizioni sul numero di core che è possibile creare per area e per sottoscrizione. Ad esempio, se si dispone di una sottoscrizione di Contratto Enterprise, è possibile creare 350 core. È necessario dividere 350 per il numero predefinito di core per macchina virtuale o per il limite di core per determinare il numero di macchine virtuali che è possibile creare ogni volta che si esegue il modello. Per altre informazioni [, vedere limiti delle macchine virtuali-Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - Il nome del prefisso della macchina virtuale e il numero di macchine virtuali sono inferiori a 15 caratteri. Per altre informazioni, vedere [regole di denominazione e restrizioni per le risorse di Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
 
@@ -136,3 +136,7 @@ Azure Lighthouse non supporta completamente la gestione di ambienti desktop virt
 Non è inoltre possibile utilizzare le sottoscrizioni CSP sandbox con il servizio desktop virtuale di Windows. Per altre informazioni, vedere [account sandbox di integrazione](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
 
 Infine, se è stato abilitato il provider di risorse dall'account del proprietario CSP, gli account del cliente CSP non saranno in grado di modificare il provider di risorse.
+
+## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Con quale frequenza è necessario attivare le VM per evitare problemi di registrazione?
+
+Dopo aver registrato una macchina virtuale in un pool di host nel servizio desktop virtuale di Windows, l'agente aggiorna periodicamente il token della macchina virtuale ogni volta che la macchina virtuale è attiva. Il certificato per il token di registrazione è valido per 90 giorni. A causa di questo limite di 90 giorni, è consigliabile avviare le VM ogni 90 giorni. Se la macchina virtuale viene riattivata entro questo limite di tempo, il token di registrazione non scadrà né diventerà non valido. Se la macchina virtuale è stata avviata dopo 90 giorni e si verificano problemi di registrazione, seguire le istruzioni riportate nella [Guida alla risoluzione dei problemi dell'agente desktop virtuale di Windows](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) per rimuovere la macchina virtuale dal pool host, reinstallare l'agente e registrarla nuovamente nel pool.

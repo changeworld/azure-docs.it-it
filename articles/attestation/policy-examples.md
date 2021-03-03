@@ -7,40 +7,72 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 252026f7c59f73dfb37f69d7708a80be827ce104
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
-ms.translationtype: HT
+ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748791"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720155"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Esempi di un criterio di attestazione
 
-Il criterio di attestazione viene usato per elaborare l'evidenza dell'attestazione e determinare se Attestazione di Azure emetterà un token di attestazione. La generazione del token di attestazione può essere controllata con criteri personalizzati. Di seguito sono riportati alcuni esempi di un criterio di attestazione.
+Il criterio di attestazione viene usato per elaborare l'evidenza dell'attestazione e determinare se Attestazione di Azure emetterà un token di attestazione. La generazione del token di attestazione può essere controllata con criteri personalizzati. Di seguito sono riportati alcuni esempi di un criterio di attestazione. 
 
-## <a name="default-policy-for-an-sgx-enclave-with-policyformattext"></a>Criterio predefinito per un'enclave con SGX con PolicyFormat=testo
+## <a name="sample-custom-policy-for-an-sgx-enclave"></a>Criteri personalizzati di esempio per un'enclave SGX 
 
 ```
-Version= 1.0;
+version= 1.0;
 authorizationrules
 {
-    c:[type==”$is-debuggable”] => permit();
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
+    => permit();
 };
+issuancerules {
+c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
+};
+
+```
+Per altre informazioni sulle attestazioni in ingresso generate dall'attestazione di Azure, vedere [set di attestazioni](/azure/attestation/claim-sets). Le attestazioni in ingresso possono essere utilizzate dagli autori di criteri per definire le regole di autorizzazione in un criterio personalizzato. 
+
+La sezione regole di rilascio non è obbligatoria. Questa sezione può essere usata dagli utenti per avere altre attestazioni in uscita generate nel token di attestazione con nomi personalizzati. Per ulteriori informazioni sulle attestazioni in uscita generate dal servizio nel token di attestazione, vedere [set](/azure/attestation/claim-sets)di attestazioni.
+
+## <a name="default-policy-for-an-sgx-enclave"></a>Criteri predefiniti per un'enclave SGX
+
+```
+version= 1.0;
+authorizationrules
+{
+    c:[type=="$is-debuggable"] => permit();
+};
+
 issuancerules
 {
-    c:[type==”$is-debuggable”] => issue(type=”is-debuggable”, value=c.value);
-    c:[type==”$sgx-mrsigner”] => issue(type=”sgx-mrsigner”, value=c.value);
-    c:[type==”$sgx-mrenclave”] => issue(type=”sgx-mrenclave”, value=c.value);
-    c:[type==”$product-id”] => issue(type=”product-id”, value=c.value);
-    c:[type==”$svn”] => issue(type=”svn”, value=c.value);
-    c:[type==”$tee”] => issue(type=”tee”, value=c.value);
+    c:[type=="$is-debuggable"] => issue(type="is-debuggable", value=c.value);
+    c:[type=="$sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);
+    c:[type=="$sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);
+    c:[type=="$product-id"] => issue(type="product-id", value=c.value);
+    c:[type=="$svn"] => issue(type="svn", value=c.value);
+    c:[type=="$tee"] => issue(type="tee", value=c.value);
 };
 ```
 
-## <a name="default-policy-for-vbs-enclave"></a>Criterio predefinito per l'enclave VBS
+Le attestazioni utilizzate nei criteri predefiniti sono considerate deprecate, ma sono completamente supportate e continueranno a essere incluse in futuro. Si consiglia di usare i nomi delle attestazioni non deprecate. Per ulteriori informazioni sui nomi di attestazione consigliati, vedere [set di attestazioni](/azure/attestation/claim-sets). 
 
-Non esistono criteri predefiniti per l'enclave VBS
+## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>Esempio di criteri personalizzati per supportare più enclavi SGX
 
+```
+version= 1.0;
+authorizationrules 
+{
+    [ type=="x-ms-sgx-is-debuggable", value==true ]&&
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+    [ type=="x-ms-sgx-is-debuggable", value==true ]&& 
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+};
+```
 
 ## <a name="unsigned-policy-for-an-sgx-enclave-with-policyformatjwt"></a>Criterio non firmato per un'enclave SGX con PolicyFormat=JWT
 

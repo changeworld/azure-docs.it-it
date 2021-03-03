@@ -6,17 +6,17 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: f16f034af18e0076da555aed0c7159de66da995b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.date: 02/18/2021
+ms.openlocfilehash: fa251b80f8e44f48de565685a0841f57f48620f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094697"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724966"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Copiare dati da un database di SQL Server all'archiviazione BLOB di Azure
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In questa esercitazione si usa l'interfaccia utente di Azure Data Factory per creare una pipeline di data factory che copia i dati da un database di SQL Server all'archiviazione BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud.
 

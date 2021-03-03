@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: 8de92e1f64389824e02882c02a860e9731a62b25
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: df165b83a6635fbcf72c94a4d16cbdf16c337636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617436"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713593"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -40,9 +40,11 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 - Se la regola di esportazione dei dati include una tabella non supportata, l'operazione avrà esito positivo, ma non verranno esportati dati per tale tabella finché la tabella non viene supportata. 
 - Se la regola di esportazione dei dati include una tabella che non esiste, avrà esito negativo con l'errore ```Table <tableName> does not exist in the workspace``` .
 - L'area di lavoro Log Analytics può trovarsi in qualsiasi area, ad eccezione di quanto segue:
-  - Svizzera settentrionale
-  - Svizzera occidentale
   - Aree di Azure per enti pubblici
+  - Giappone occidentale
+  - Brasile meridionale orientale
+  - Norvegia orientale
+  - Emirati Arabi Uniti settentrionali
 - È possibile creare due regole di esportazione in un'area di lavoro: in può essere una regola per hub eventi e una regola per l'account di archiviazione.
 - L'account di archiviazione di destinazione o l'hub eventi deve trovarsi nella stessa area dell'area di lavoro Log Analytics.
 - I nomi delle tabelle da esportare non possono contenere più di 60 caratteri per un account di archiviazione e non più di 47 caratteri in un hub eventi. Le tabelle con nomi più lunghi non verranno esportate.
@@ -72,6 +74,9 @@ Log Analytics esportazione dei dati può scrivere BLOB di Accodamento in account
 
 ### <a name="event-hub"></a>Hub eventi
 I dati vengono inviati all'hub eventi in tempo quasi reale mentre raggiunge monitoraggio di Azure. Viene creato un hub eventi per ogni tipo di dati esportato con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un hub eventi denominato *am-SecurityEvent*. Se si vuole che i dati esportati raggiungano un hub eventi specifico o se si dispone di una tabella con un nome che supera il limite di 47 caratteri, è possibile specificare il nome dell'hub eventi ed esportare tutti i dati per le tabelle definite.
+
+> [!IMPORTANT]
+> Il [numero di hub eventi supportati per spazio dei nomi è 10](../../event-hubs/event-hubs-quotas#common-limits-for-all-tiers). Se si esportano più di 10 tabelle, specificare il nome dell'hub eventi per esportare tutte le tabelle nell'hub eventi. 
 
 Considerazioni:
 1. Lo SKU dell'hub eventi ' Basic ' supporta il [limite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) di dimensioni degli eventi inferiore e alcuni log nell'area di lavoro possono essere superati ed eliminati. È consigliabile usare l'hub eventi "standard" o "dedicato" come destinazione di esportazione.

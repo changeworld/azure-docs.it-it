@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: fe98ef297c6bed5ef3d982ed09db361244f75216
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5d6ea75936383388a57a7822f054e0ea7297471e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675691"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695516"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver
 
@@ -1057,47 +1057,17 @@ La nuova estensione VM per SAP usa un'identità gestita assegnata alla VM per ac
    az login
    ```
 
-1. Seguire i passaggi nell'articolo [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure usando l'interfaccia][qs-configure-cli-windows-vm] della riga di comando di Azure per abilitare una System-Assigned identità gestita per la macchina virtuale. User-Assigned identità gestite non sono supportate dall'estensione della macchina virtuale per SAP. Tuttavia, è possibile abilitare sia l'identità assegnata dal sistema che quella assegnata dall'utente.
-
-   Esempio:
+1. Installare l'estensione dell'interfaccia della riga di comando di Azure. Assicurarsi di usare almeno la versione 0.2.0 o successiva.
+  
    ```azurecli
-   az vm identity assign -g <resource-group-name> -n <vm name>
+   az extension add --name aem
    ```
-
-1. Assegnare l'accesso a identità gestite al gruppo di risorse della macchina virtuale o a tutte le interfacce di rete, i dischi gestiti e la macchina virtuale stessa, come descritto in [assegnare un'identità gestita accesso a una risorsa tramite l'interfaccia][howto-assign-access-cli] della riga di comando di Azure
-
-    Esempio:
-
-    ```azurecli
-    # Azure CLI on Linux
-    spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
-    rgId=$(az group show -g <resource-group-name> --query id --out tsv)
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-
-    # Azure CLI on Windows/PowerShell
-    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
-    $rgId=az group show -g <resource-group-name> --query id --out tsv
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-    ```
-
-1. Eseguire il comando dell'interfaccia della riga di comando di Azure seguente per installare l'estensione di Azure per SAP.
-    L'estensione è attualmente supportata solo in AzureCloud. Azure China 21Vianet, Azure per enti pubblici o uno qualsiasi degli altri ambienti speciali non sono ancora supportati.
-
-    ```azurecli
-    # Azure CLI on Linux
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    # Azure CLI on Windows/PowerShell
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-    ```
+  
+1. Installare la nuova estensione con
+  
+   ```azurecli
+   az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
+   ```
 
 ## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Controlli e risoluzione dei problemi
 

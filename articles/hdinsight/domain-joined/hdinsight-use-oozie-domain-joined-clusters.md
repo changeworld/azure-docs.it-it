@@ -1,18 +1,16 @@
 ---
 title: Flussi di lavoro di Apache Oozie ed Enterprise Security - Azure HDInsight
 description: Proteggere i flussi di lavoro di Apache Oozie con Enterprise Security Package di Azure HDInsight. Informazioni su come definire un flusso di lavoro Oozie e inviare un processo Oozie.
-author: omidm1
-ms.author: omidm
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.custom: seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: 559779e3979ab2ada2191f55cfc06ceb2470bd7d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: dc20a258028bb76351ae70362234e7c4c8c741a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699403"
 ---
 # <a name="run-apache-oozie-in-azure-hdinsight-clusters-with-enterprise-security-package"></a>Eseguire Apache Oozie nei cluster Azure HDInsight con Enterprise Security Package
 
@@ -56,7 +54,7 @@ Per altre informazioni su SSH (Secure Shell), vedere [Connettersi a HDInsight (H
 
 Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache hPDL (Hadoop Process Definition Language). hPDL è un linguaggio di definizione di processi XML. Seguire questa procedura per definire il flusso di lavoro:
 
-1. Configurare l'area di lavoro dell'utente del dominio:
+1. Configurare l'area di lavoro di un utente di dominio:
 
    ```bash
    hdfs dfs -mkdir /user/<DomainUser>

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 02/16/2021
+ms.date: 02/24/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 56d04abe73020cef09383d4f79a58f037c266a93
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 6e5b553ea3be7e5b4b1d8cb396b35fdf2d5796a9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547997"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721770"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -55,7 +55,8 @@ Il Firewall di Azure presenta i problemi noti seguenti:
 
 |Problema  |Descrizione  |Strategia di riduzione del rischio  |
 |---------|---------|---------|
-Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](../load-balancer/load-balancer-overview.md). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.|
+|Se si aggiorna una regola dall'indirizzo IP al gruppo IP o viceversa usando il portale, vengono salvati entrambi i tipi, ma solo uno viene visualizzato nel portale.|Questo problema si verifica con le regole classiche.<br><br>Quando si usa il portale per aggiornare un tipo di origine di una regola NAT da un indirizzo IP a un gruppo IP o viceversa, Salva entrambi i tipi nel back-end, ma presenta solo il tipo appena aggiornato.<br><br>Lo stesso problema si verifica quando si aggiorna un tipo di destinazione di una regola di rete o di applicazione da indirizzo IP a tipo di gruppo IP o viceversa.|Una correzione del portale è destinata a marzo 2021.<br><br>Nel frattempo, usare Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API per modificare una regola da un indirizzo IP a un gruppo IP o viceversa.|
+|Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](../load-balancer/load-balancer-overview.md). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.|
 |Supporto di PowerShell e CLI mancante per ICMP|Azure PowerShell e l'interfaccia della riga di comando non supportano ICMP come protocollo valido nelle regole di rete.|È comunque possibile usare ICMP come protocollo tramite il portale e l'API REST. A breve ICMP sarà aggiunto anche in PowerShell e nell'interfaccia della riga di comando.|
 |I tag FQDN richiedono l'impostazione di protocol:port|Le regole di applicazione con tag FQDN richiedono la definizione port:protocol.|È possibile usare **https** come valore port:protocol. A breve questo campo sarà reso facoltativo quando vengono usati i tag FQDN.|
 |Lo spostamento di un firewall in un altro gruppo di risorse o un'altra sottoscrizione non è supportato|Lo spostamento di un firewall in un altro gruppo di risorse o un'altra sottoscrizione non è supportato.|Il supporto di questa funzionalità è previsto per il futuro. Per spostare un firewall in un altro gruppo di risorse o sottoscrizione, è necessario eliminare l'istanza corrente e ricrearla nel nuovo gruppo di risorse o sottoscrizione.|

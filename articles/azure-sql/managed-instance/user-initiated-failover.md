@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 02/23/2021
-ms.openlocfilehash: c154699b7701b584e465ebea7950d4fe50be961f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.date: 02/27/2021
+ms.openlocfilehash: 3c969c1898e67361e37a825d7976b1c52d08dd24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660798"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691145"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in Istanza gestita di SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -151,6 +151,7 @@ La breve perdita di connettività dal client durante il failover, che in genere 
 > - Per le istanze BC è necessario che esista il quorum delle repliche affinché venga accettata la richiesta di failover.
 > - Per le istanze BC non è possibile specificare la replica secondaria leggibile su cui avviare il failover.
 > - Il failover non sarà consentito fino al completamento del primo backup completo per un nuovo database da parte dei sistemi di backup automatici.
+> - Il failover non sarà consentito se esiste un ripristino del database in corso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Scopri di più sul test delle applicazioni per la preparazione al cloud con [test della conformità del cloud per le app per la resilienza del failover con la](https://youtu.be/FACWYLgYDL8) ricodifica video di SQL istanza gestita.

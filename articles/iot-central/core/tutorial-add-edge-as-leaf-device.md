@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - device-developer
 - iot-edge
-ms.openlocfilehash: 9b4bb462c94ab5a59dbd9d8fdd4cf619e311df56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 373d144b4df818a075f0088e9cbf31cb5027e747
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987010"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724881"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Esercitazione: Aggiungere un dispositivo Azure IoT Edge nell'applicazione Azure IoT Central
 
@@ -61,6 +61,9 @@ Per creare un modello di dispositivo da un manifesto IoT Edge:
 
 :::image type="content" source="media/tutorial-add-edge-as-leaf-device/imported-manifest.png" alt-text="Modello di dispositivo creato dal manifesto IoT Edge":::
 
+> [!TIP]
+> Questo manifesto di distribuzione estrae le immagini del modulo da un repository di Azure Container Registry che non richiede credenziali per la connessione. Se si vogliono usare le immagini del modulo da un repository privato, impostare le credenziali del registro contenitori nel manifesto.
+
 ### <a name="add-telemetry-to-manifest"></a>Aggiungere i dati di telemetria al manifesto
 
 Un manifesto IoT Edge non definisce i dati di telemetria inviati da un modulo. È necessario aggiungere le definizioni di telemetria al modello di dispositivo in IoT Central. Il modulo **SimulatedTemperatureSensor** invia messaggi di telemetria simili al codice JSON seguente:
@@ -99,7 +102,7 @@ Per aggiungere le definizioni di telemetria al modello di dispositivo:
 
 L'interfaccia **Gestisci** ora include i tipi di telemetria **machine**, **ambient** e **timeCreated**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Modello di dispositivo creato dal manifesto IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Interfaccia con i tipi di dati di telemetria machine e ambient":::
 
 ### <a name="add-views-to-template"></a>Aggiungere visualizzazioni al modello
 
@@ -115,7 +118,7 @@ Il modello di dispositivo non ha ancora una visualizzazione che consenta a un op
 
 1. Selezionare **Salva** per salvare la visualizzazione **Visualizza dati di telemetria dispositivo IoT Edge**.
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Modello di dispositivo creato dal manifesto IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Modello di dispositivo con visualizzazione dei dati di telemetria":::
 
 ### <a name="publish-the-template"></a>Pubblicare il modello
 
@@ -123,7 +126,7 @@ Prima di aggiungere un dispositivo che usa il modello **Dispositivo perimetrale 
 
 Passare al modello **Dispositivo perimetrale sensore ambientale** e selezionare **Pubblica**. Nel pannello **Pubblica questo modello di dispositivo nell'applicazione** selezionare **Pubblica** per pubblicare il modello:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Modello di dispositivo creato dal manifesto IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Pubblicare il modello di dispositivo":::
 
 ## <a name="add-iot-edge-device"></a>Aggiungere il dispositivo IoT Edge
 
@@ -135,7 +138,7 @@ Una volta pubblicato il modello **Dispositivo perimetrale sensore ambientale**, 
 
 Si dispone ora di un nuovo dispositivo con stato **Registrato**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Modello di dispositivo creato dal manifesto IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Nuovo dispositivo registrato":::
 
 ### <a name="get-the-device-credentials"></a>Ottenere le credenziali del dispositivo
 
@@ -181,7 +184,7 @@ Nella pagina **Distribuzione personalizzata**:
 
 1. Esaminare le scelte effettuate e quindi selezionare **Crea**:
 
-    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Modello di dispositivo creato dal manifesto IoT Edge":::
+    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Creare una macchina virtuale IoT Edge":::
 
 Il completamento della distribuzione richiede alcuni minuti. Al termine della distribuzione, passare al gruppo di risorse **central-edge-rg** nel portale di Azure.
 
@@ -269,15 +272,15 @@ Per configurare IoT Edge nella macchina virtuale per usare DPS per la registrazi
 
 Il dispositivo IoT Edge simulato è ora in esecuzione nella VM. Nell'applicazione IoT Central lo stato del dispositivo è ora **Provisioning eseguito** nella pagina **Dispositivi**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Modello di dispositivo creato dal manifesto IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Dispositivo IoT Edge di cui è stato effettuato il provisioning":::
 
 È possibile visualizzare i dati di telemetria dal dispositivo nella pagina **Visualizza dati di telemetria dispositivo IoT Edge**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Modello di dispositivo creato dal manifesto IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Telemetria del dispositivo":::
 
 La pagina **Moduli** mostra lo stato dei moduli IoT Edge nel dispositivo:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Modello di dispositivo creato dal manifesto IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Stato dei moduli nel dispositivo":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

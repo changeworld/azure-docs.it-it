@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5cde7e677bd0121954b01cf9bb8defe45111a5b2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8d518d540e50d96486fa98eea3c3267685776668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369189"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706283"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Supporto per le lingue naturali per i servizi cognitivi di Azure
 
@@ -24,7 +24,7 @@ I servizi cognitivi di Azure consentono di creare applicazioni in grado di veder
 Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazioni basate sul linguaggio umano.
 
 * [Rilevamento anomalie (anteprima)](./anomaly-detector/index.yml)
-* [Visione personalizzata](./Custom-Vision-Service/index.yml)
+* [Visione personalizzata](./custom-vision-service/index.yml)
 * [Viso](./face/index.yml)
 * [Personalizza esperienze](./personalizer/index.yml)
 
@@ -32,7 +32,7 @@ Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazion
 
 * [Visione artificiale](./computer-vision/language-support.md)
 * [Riconoscimento moduli (anteprima)](./form-recognizer/language-support.md)
-* [Riconoscimento input penna (anteprima)](./ink-recognizer/language-support.md)
+* [Riconoscimento input penna (anteprima)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
 * [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
 
 ## <a name="language"></a>Linguaggio
@@ -43,7 +43,7 @@ Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazion
 * [Analisi del testo](./text-analytics/language-support.md)
 * [Translator](./translator/language-support.md)
 
-## <a name="speech"></a>Sintesi vocale
+## <a name="speech"></a>Voce
 
 * [Servizio vocale: Riconoscimento vocale](./speech-service/language-support.md#speech-to-text)
 * [Servizio vocale: Riconoscimento vocale](./speech-service/language-support.md#text-to-speech)
@@ -63,7 +63,7 @@ Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazion
 
 * [Content Moderator](./content-moderator/language-support.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Che cosa sono i servizi cognitivi?](./what-are-cognitive-services.md)
 * [Creare un account](cognitive-services-apis-create-account.md)

@@ -3,15 +3,15 @@ title: Creare e gestire gruppi di azione nel portale di Azure
 description: Informazioni su come creare e gestire gruppi di azione nel portale di Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 02/25/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8905c3e4dfa1053646ede5c0b62149844e21ee7d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 50fb898e1ea55d0bcc09fc10dfee051ca7b1d809
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617247"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701162"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. 
@@ -118,6 +118,8 @@ Vedere i [Limiti del servizio per la sottoscrizione di Azure](../../azure-resour
 Un Gruppo di azioni può contenere un numero limitato di azioni di tipo Runbook. 
 
 ### <a name="azure-app-push-notifications"></a>Notifiche push dell'app Azure
+Abilitare le notifiche push all' [app per dispositivi mobili di Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/) fornendo l'indirizzo di posta elettronica usato come ID account durante la configurazione della app per dispositivi mobili di Azure.
+
 Un Gruppo di azioni può contenere un numero limitato di azioni dell'app Azure.
 
 ### <a name="email"></a>Email
@@ -139,11 +141,11 @@ Se non si ricevono notifiche sul messaggio di *posta elettronica principale*, è
 2. Fare clic su tutti gli utenti (nel riquadro sinistro), viene visualizzato l'elenco di utenti (nel riquadro destro).
 3. Selezionare l'utente per il quale si desidera esaminare le informazioni di *posta elettronica primarie* .
 
-  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Esempio su come verificare il profilo utente."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Esempio su come verificare il profilo utente." border="true":::
 
 4. In profilo utente in informazioni di contatto se la scheda "posta elettronica" è vuota, fare clic sul pulsante *modifica* nella parte superiore e aggiungere il *messaggio di posta elettronica principale* e premere il pulsante *Salva* nella parte superiore.
 
-  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Esempio su come aggiungere un messaggio di posta elettronica primario."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Esempio su come aggiungere un messaggio di posta elettronica primario." border="true":::
 
 Un Gruppo di azioni può contenere un numero limitato di azioni di posta elettronica. Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./alerts-rate-limiting.md).
 
@@ -153,7 +155,7 @@ Chiama un endpoint di trigger HTTP esistente in [Funzioni di Azure](../../azure-
 Un Gruppo di azioni può contenere un numero limitato di funzioni.
 
 ### <a name="itsm"></a>Gestione dei servizi IT
-L'azione ITSM richiede una connessione ITSM. Informazioni su come creare una [connessione ITSM](../platform/itsmc-overview.md).
+L'azione ITSM richiede una connessione ITSM. Informazioni su come creare una [connessione ITSM](./itsmc-overview.md).
 
 Un Gruppo di azioni può contenere un numero limitato di azioni di gestione dei servizi IT. 
 
@@ -191,7 +193,7 @@ L'azione Webhook dei gruppi di azione consente di sfruttare Azure Active Directo
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
     
 # This is your Azure AD Application's ObjectId. 
-$myAzureADApplicationObjectId = "<the Object Id of your Azure AD Application>"
+$myAzureADApplicationObjectId = "<the Object ID of your Azure AD Application>"
     
 # This is the Action Groups Azure AD AppId
 $actionGroupsAppId = "461e8683-5575-4561-ac7f-899cc907d62a"
@@ -334,7 +336,7 @@ Vedere [gli indirizzi IP del gruppo di azioni per gli](../app/ip-addresses.md) i
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [Comportamento degli avvisi SMS](./alerts-sms-behavior.md).  
 * Leggere le [informazioni sullo schema webhook degli avvisi del log attività](./activity-log-alerts-webhook.md).  
-* Altre informazioni sul [connettore ITSM](../platform/itsmc-overview.md).
+* Altre informazioni sul [connettore ITSM](./itsmc-overview.md).
 * Altre informazioni sulla [limitazione della frequenza](./alerts-rate-limiting.md) degli avvisi.
-* Leggere una [panoramica degli avvisi del log attività](../platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.  
+* Leggere una [panoramica degli avvisi del log attività](./alerts-overview.md) e informazioni su come ricevere gli avvisi.  
 * Informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md).

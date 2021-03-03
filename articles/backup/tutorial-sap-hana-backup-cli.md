@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come eseguire il backup di database S
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f146bed9ee607fe1b1b6062f9fe372fbb9b9ba6a
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
-ms.translationtype: HT
+ms.openlocfilehash: ba06ef876f30dc51e04fe7491d491621f5d8e21b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746746"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710601"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Esercitazione: Eseguire il backup di database SAP HANA in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -176,9 +176,7 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 La risposta fornirà il nome del processo. Questo nome di processo può essere usato per tenere traccia dello stato del processo usando il cmdlet [az backup job show](/cli/azure/backup/job#az-backup-job-show).
 
 >[!NOTE]
->Oltre pianificare un backup completo o differenziale, è anche possibile attivare il backup manualmente. I backup del log vengono attivati e gestiti automaticamente da SAP HANA internamente.
->
-> I backup incrementali non sono attualmente supportati da Backup di Azure.
+>I backup del log vengono attivati e gestiti automaticamente da SAP HANA internamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

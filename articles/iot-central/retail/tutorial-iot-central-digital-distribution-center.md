@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 9d7c4d2afa8eaf197ec05bcb0aed654153fb8f0d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 40b0d7eeb77f165c50c5470e1b5869e240d36534
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831298"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702692"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione del centro distribuzione digitale
 
@@ -21,7 +21,8 @@ Questa esercitazione illustra come iniziare a distribuire un modello di applicaz
 In questa esercitazione si apprenderà come: 
 
 > [!div class="checklist"]
-> Creare un'applicazione del centro distribuzione digitale nell'applicazione 
+> * Creare un'applicazione per il centro distribuzione digitale 
+> * Esaminare l'applicazione 
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Non sono richiesti prerequisiti specifici per distribuire l'app

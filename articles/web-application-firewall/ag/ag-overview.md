@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 2de8a47b841a4a5c82aaeb92419ec3d9714268ea
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 48d4fe254f51dde932f04ef791e1109a0ced07ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879428"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701621"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Che cos'è Azure web application firewall nel gateway applicazione di Azure?
 
@@ -173,7 +173,7 @@ Con la cartella di lavoro predefinita degli eventi del firewall Azure WAF, è po
 
 #### <a name="azure-monitor-workbook-for-waf"></a>Cartella di lavoro di Monitoraggio di Azure per WAF
 
-Questa cartella di lavoro consente la visualizzazione personalizzata degli eventi di WAF pertinenti per la sicurezza in diversi pannelli filtrabili. È compatibile con tutti i tipi di WAF, tra cui gateway applicazione, Frontdoor e rete CDN, e può essere filtrata in base al tipo di WAF o a una specifica istanza di WAF. Importarla tramite un modello di Resource Manager o un modello di raccolta. Per distribuire questa cartella di lavoro, vedere [Cartella di lavoro di WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
+Questa cartella di lavoro consente la visualizzazione personalizzata degli eventi di WAF pertinenti per la sicurezza in diversi pannelli filtrabili. È compatibile con tutti i tipi di WAF, tra cui gateway applicazione, Frontdoor e rete CDN, e può essere filtrata in base al tipo di WAF o a una specifica istanza di WAF. Importarla tramite un modello di Resource Manager o un modello di raccolta. Per distribuire questa cartella di lavoro, vedere [Cartella di lavoro di WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Registrazione
 

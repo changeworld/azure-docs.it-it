@@ -1,19 +1,18 @@
 ---
 title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
-ms.date: 10/22/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 607d1d85dbb370305d0337cc311433c37e36c4c0
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 741cfce56554e05d0c5f5a9242a33502b8a6fbe6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493312"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699420"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
-Criteri di Azure stabilisce le convenzioni per le risorse. Le definizioni di criteri descrivono le [condizioni](#conditions) di conformità delle risorse e l'effetto da eseguire se viene soddisfatta una condizione. Una condizione Confronta un [campo](#fields) della proprietà della risorsa o un [valore](#value) con un valore obbligatorio. È possibile accedere ai campi delle proprietà delle risorse usando [alias](#aliases). Quando un campo della proprietà della risorsa è una matrice, è possibile usare un [alias di matrice](#understanding-the--alias) speciale per selezionare i valori di tutti i membri della matrice e applicare una condizione a ciascuna di esse.
-Altre informazioni sulle [condizioni](#conditions).
+Criteri di Azure stabilisce le convenzioni per le risorse. Le definizioni di criteri descrivono le [condizioni](#conditions) di conformità delle risorse e l'effetto da eseguire se viene soddisfatta una condizione. Una condizione Confronta un [campo](#fields) della proprietà della risorsa o un [valore](#value) con un valore obbligatorio. È possibile accedere ai campi delle proprietà delle risorse usando [alias](#aliases). Quando un campo della proprietà della risorsa è una matrice, è possibile usare un [alias di matrice](#understanding-the--alias) speciale per selezionare i valori di tutti i membri della matrice e applicare una condizione a ciascuna di esse. Altre informazioni sulle [condizioni](#conditions).
 
 Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. È ad esempio possibile specificare che vengano consentiti solo determinati tipi di macchine virtuali. In alternativa, è possibile richiedere che le risorse abbiano un tag specifico. Le assegnazioni dei criteri vengono ereditate dalle risorse figlio. Se un'assegnazione di criteri viene applicata a un gruppo di risorse, è applicabile a tutte le risorse nel gruppo di risorse.
 
@@ -118,7 +117,7 @@ Le modalità del provider di risorse seguenti sono attualmente supportate come *
 
 ## <a name="metadata"></a>Metadati
 
-La proprietà facoltativa `metadata` archivia le informazioni sulla definizione dei criteri. I clienti possono definire le proprietà e i valori utili per la propria organizzazione in `metadata` . Tuttavia, esistono alcune proprietà _comuni_ utilizzate dai criteri di Azure e in quelli predefiniti.
+La proprietà facoltativa `metadata` archivia le informazioni sulla definizione dei criteri. I clienti possono definire le proprietà e i valori utili per la propria organizzazione in `metadata` . Tuttavia, esistono alcune proprietà _comuni_ utilizzate dai criteri di Azure e in quelli predefiniti. Ogni `metadata` proprietà ha un limite di 1024 caratteri.
 
 ### <a name="common-metadata-properties"></a>Proprietà dei metadati comuni
 
@@ -148,7 +147,7 @@ Un parametro presenta le proprietà seguenti, usate nella definizione di criteri
   - `description`: la spiegazione di ciò per cui viene usato il parametro. Può essere usata per fornire esempi di valori accettabili.
   - `displayName`: il nome descrittivo visualizzato per il parametro nel portale.
   - `strongType`: (facoltativa) usata quando si assegna la definizione di criteri tramite portale. Fornisce un elenco con riconoscimento del contesto. Per altre informazioni, vedere [strongType](#strongtype).
-  - `assignPermissions`: (Facoltativo) Impostare come _true_ per consentire al portale di Azure di creare assegnazioni di ruolo durante l'assegnazione dei criteri. Questa proprietà è utile nel caso in cui si desideri assegnare autorizzazioni al di fuori dell'ambito di assegnazione. È disponibile un'assegnazione di ruolo per ogni definizione del ruolo nel criterio (o per definizione del ruolo in tutti i criteri dell'iniziativa). Il valore del parametro deve essere una risorsa o un ambito valido.
+  - `assignPermissions`: (Facoltativo) Impostare come _true_ per consentire al portale di Azure di creare assegnazioni di ruolo durante l'assegnazione dei criteri. Questa proprietà è utile nel caso in cui si desideri assegnare autorizzazioni al di fuori dell'ambito di assegnazione. È disponibile un'assegnazione di ruolo per ogni definizione di ruolo nel criterio (o per definizione di ruolo in tutti i criteri dell'iniziativa). Il valore del parametro deve essere una risorsa o un ambito valido.
 - `defaultValue`: (facoltativa) imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore.
   Obbligatoria quando si aggiorna una definizione di criteri esistente già assegnata.
 - `allowedValues`: (Facoltativo) Fornisce una matrice di valori accettati dal parametro durante l'assegnazione.
@@ -286,15 +285,13 @@ Una condizione valuta se un valore soddisfa determinati criteri. Le condizioni s
 
 Per **less**, **lessOrEquals**, **greater** e **greaterOrEquals**, se il tipo di proprietà non corrisponde al tipo di condizione, viene generato un errore. I confronti tra stringhe vengono eseguiti usando `InvariantCultureIgnoreCase`.
 
-Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore.
-Il valore non deve contenere più di un carattere jolly `*`.
+Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore. Il valore non deve contenere più di un carattere jolly `*`.
 
 Quando si usano le condizioni **match** e **notMatch**, specificare `#` per rappresentare una cifra, `?` per rappresentare una lettera, `.` per rappresentare tutti i caratteri e qualunque altro carattere per rappresentare il carattere effettivo. Mentre **match** e **notMatch** fanno distinzione tra maiuscole e minuscole, tutte le altre condizioni che valutano un _StringValue_ non fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**.
 
 ### <a name="fields"></a>Campi
 
-Condizioni che valutano se i valori delle proprietà nel payload della richiesta di risorse soddisfano determinati criteri possono essere creati usando un'espressione di **campo** .
-Sono supportati i seguenti campi:
+Condizioni che valutano se i valori delle proprietà nel payload della richiesta di risorse soddisfano determinati criteri possono essere creati usando un'espressione di **campo** . Sono supportati i seguenti campi:
 
 - `name`
 - `fullName`
@@ -324,8 +321,7 @@ Sono supportati i seguenti campi:
 > `tags.<tagName>`, `tags[tagName]` e `tags[tag.with.dots]` sono comunque modi accettabili per dichiarare un campo tags. Tuttavia, le espressioni preferibili sono quelle elencate in precedenza.
 
 > [!NOTE]
-> Nelle espressioni di **campo** che fanno riferimento a un **\[ \* \] alias**, ogni elemento nella matrice viene valutato singolarmente con gli elementi Logical **e** between.
-> Per altre informazioni, vedere [riferimento alle proprietà delle risorse di matrice](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+> Nelle espressioni di **campo** che fanno riferimento a un **\[ \* \] alias**, ogni elemento nella matrice viene valutato singolarmente con gli elementi Logical **e** between. Per altre informazioni, vedere [riferimento alle proprietà delle risorse di matrice](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="use-tags-with-parameters"></a>Usare tag con parametri
 
@@ -472,6 +468,7 @@ Le espressioni di **conteggio dei campi** possono enumerare la stessa matrice di
 Per altre informazioni su come usare le proprietà di matrice in criteri di Azure, inclusa una spiegazione dettagliata su come viene valutata l'espressione di **conteggio dei campi** , vedere [riferimento alle proprietà delle risorse di matrice](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="value-count"></a>Conteggio valori
+
 Contare il numero di membri di una matrice che soddisfano una condizione. La matrice può essere una matrice di valori letterali o un [riferimento a un parametro di matrice](#using-a-parameter-value). La struttura delle espressioni di **conteggio dei valori** è:
 
 ```json
@@ -500,7 +497,7 @@ Vengono applicati i limiti seguenti:
 
 #### <a name="the-current-function"></a>Funzione corrente
 
-La `current()` funzione è disponibile solo all'interno della `count.where` condizione. Restituisce il valore del membro della matrice attualmente enumerato da una valutazione dell'espressione **count** .
+La `current()` funzione è disponibile solo all'interno della `count.where` condizione. Restituisce il valore del membro della matrice attualmente enumerato dalla valutazione dell'espressione **count** .
 
 **Utilizzo conteggio valori**
 
@@ -648,7 +645,7 @@ Esempio 1: verificare se il nome della risorsa corrisponde a uno dei modelli di 
 }
 ```
 
-Esempio 2: verificare se il nome della risorsa corrisponde a uno dei modelli di nome specificati. La `current()` funzione non specifica un nome di indice. Il risultato è lo stesso dell'esempio precedente.
+Esempio 2: verificare se il nome della risorsa corrisponde a uno dei modelli di nome specificati. La `current()` funzione non specifica un nome di indice. Il risultato è identico a quello dell'esempio precedente.
 
 ```json
 {
@@ -679,7 +676,7 @@ Esempio 3: verificare se il nome della risorsa corrisponde a uno dei modelli di 
 }
 ```
 
-Esempio 4: controllare se uno dei prefissi di indirizzo della rete virtuale non è presente nell'elenco dei prefissi approvati.
+Esempio 4: controllare se uno dei prefissi di indirizzo della rete virtuale non è incluso nell'elenco dei prefissi approvati.
 
 ```json
 {
@@ -769,7 +766,7 @@ Criteri di Azure supporta i tipi di effetto seguenti:
 - **Deny**: genera un evento nel log attività e nega la richiesta
 - **DeployIfNotExists**: distribuisce una risorsa correlata se non esiste già
 - **Disabled**: non valuta le risorse per garantire la conformità alla regola dei criteri
-- **Modify**: aggiunge, aggiorna o rimuove i tag definiti da una risorsa
+- **Modifica**: aggiunge, aggiorna o rimuove i tag definiti da una risorsa o una sottoscrizione
 - **EnforceOPAConstraint** (deprecato): configura il controller di ammissione di agenti criteri aperti con gatekeeper V3 per i cluster Kubernetes autogestiti in Azure
 - **EnforceRegoPolicy** (deprecato): configura il controller di ammissione di agenti criteri aperti con gatekeeper V2 nel servizio Azure Kubernetes
 
@@ -822,18 +819,18 @@ Le funzioni seguenti sono disponibili solo nelle regole dei criteri:
   ```
 
 - `ipRangeContains(range, targetRange)`
-    - **Range**: [Required] stringa-stringa che specifica un intervallo di indirizzi IP.
-    - **targetRange proviene**: [Required] stringa-stringa che specifica un intervallo di indirizzi IP.
+  - **Range**: [Required] stringa-stringa che specifica un intervallo di indirizzi IP.
+  - **targetRange proviene**: [Required] stringa-stringa che specifica un intervallo di indirizzi IP.
 
-    Restituisce un valore che indica se l'intervallo di indirizzi IP specificato contiene l'intervallo di indirizzi IP di destinazione. Gli intervalli vuoti o la combinazione tra famiglie IP non sono consentiti e genera un errore di valutazione.
+  Restituisce un valore che indica se l'intervallo di indirizzi IP specificato contiene l'intervallo di indirizzi IP di destinazione. Gli intervalli vuoti o la combinazione tra famiglie IP non sono consentiti e genera un errore di valutazione.
 
-    Formati supportati:
-    - Singolo indirizzo IP (esempi: `10.0.0.0` , `2001:0DB8::3:FFFE` )
-    - Intervallo CIDR (esempi: `10.0.0.0/24` , `2001:0DB8::/110` )
-    - Intervallo definito dagli indirizzi IP di inizio e fine (esempi: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
+  Formati supportati:
+  - Singolo indirizzo IP (esempi: `10.0.0.0` , `2001:0DB8::3:FFFE` )
+  - Intervallo CIDR (esempi: `10.0.0.0/24` , `2001:0DB8::/110` )
+  - Intervallo definito dagli indirizzi IP di inizio e fine (esempi: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
 
 - `current(indexName)`
-    - Funzione speciale che può essere usata solo all'interno delle [espressioni count](#count).
+  - Funzione speciale che può essere usata solo all'interno delle [espressioni count](#count).
 
 #### <a name="policy-function-example"></a>Esempio di funzione dei criteri
 
@@ -918,7 +915,7 @@ L' **\[\*\]** alias rappresenta una raccolta di valori selezionati dagli element
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | Elementi della `ipRules` matrice. |
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | Valori della `action` proprietà da ogni elemento della `ipRules` matrice. |
 
-Quando viene usato in una condizione di [campo](#fields) , gli alias di matrice consentono di confrontare ogni singolo elemento della matrice con un valore di destinazione. Se utilizzata con l'espressione [count](#count) , è possibile:
+Quando vengono usati in una condizione di [campo](#fields) , gli alias di matrice consentono di confrontare ogni singolo elemento della matrice con un valore di destinazione. Quando viene usata con l'espressione [count](#count) , è possibile:
 
 - Controllare le dimensioni di una matrice
 - Controllare se all\any\none degli elementi della matrice soddisfa una condizione complessa

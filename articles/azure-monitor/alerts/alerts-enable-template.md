@@ -4,19 +4,19 @@ description: Informazioni su come usare un modello di Resource Manager per crear
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 418dde8311c2555f8df5929dd96ce72611422ee9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0923be317d497e471724b7611fe6b831a4be6f37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618136"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718047"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creare un avviso di metrica classico con un modello di Resource Manager
 
 > [!WARNING]
-> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [avvisi delle metriche near Real time più recenti e una nuova esperienza di avvisi](../platform/alerts-overview.md). Gli avvisi classici sono [ritirati](../platform/monitoring-classic-retirement.md) per gli utenti del cloud pubblico, anche se sono in uso limitato per le risorse che non supportano ancora i nuovi avvisi.
+> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [avvisi delle metriche near Real time più recenti e una nuova esperienza di avvisi](./alerts-overview.md). Gli avvisi classici sono [ritirati](./monitoring-classic-retirement.md) per gli utenti del cloud pubblico, anche se sono ancora in uso limitato fino al **31 maggio 2021**. Gli avvisi classici per il cloud di Azure per enti pubblici e Azure Cina 21Vianet si ritireranno il **29 febbraio 2024**.
 >
 
 Questo articolo illustra come usare un modello di [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per configurare gli avvisi delle metriche di Azure classico. Consente di configurare automaticamente gli avvisi relativi alle risorse al momento della loro creazione, per assicurarsi che tutte le risorse siano correttamente monitorate.
@@ -399,6 +399,6 @@ In genere, un avviso in un modello di Resource Manager è più utile quando si c
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni sugli avvisi](../platform/alerts-overview.md)
-* [Aggiungere impostazioni di diagnostica](../samples/resource-manager-diagnostic-settings.md) al modello di Resource Manager
+* [Altre informazioni sugli avvisi](./alerts-overview.md)
+* [Aggiungere impostazioni di diagnostica](../essentials/resource-manager-diagnostic-settings.md) al modello di Resource Manager
 * Per la sintassi e le proprietà JSON, vedere le informazioni di riferimento sul modello [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).

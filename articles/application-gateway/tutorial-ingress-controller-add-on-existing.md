@@ -5,18 +5,18 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/24/2020
+ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: d491b714c7d553fbd89d72315f46e6927d437717
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 1daf5fef1383272f728ff3dac7557e55398f7d50
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593815"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720223"
 ---
-# <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Esercitazione: Abilitare il componente aggiuntivo Controller in ingresso del gateway applicazione per un cluster del servizio Azure Kubernetes esistente con un gateway applicazione esistente tramite l'interfaccia della riga di comando di Azure (anteprima)
+# <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway"></a>Esercitazione: abilitare il componente aggiuntivo del controller di ingresso del gateway applicazione per un cluster AKS esistente con un gateway applicazione esistente
 
-È possibile usare l'interfaccia della riga di comando di Azure per abilitare il componente aggiuntivo [Controller in ingresso del gateway applicazione](ingress-controller-overview.md), attualmente disponibile in anteprima, per il cluster del [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/). Questa esercitazione illustra come usare il componente aggiuntivo Controller in ingresso del gateway applicazione per esporre l'applicazione Kubernetes in un cluster del servizio Azure Kubernetes esistente tramite un gateway applicazione esistente distribuito in reti virtuali separate. Per iniziare, si creerà un cluster del servizio Azure Kubernetes in una rete virtuale e un gateway applicazione in una rete virtuale separata per simulare le risorse esistenti. Sarà quindi possibile abilitare il componente aggiuntivo Controller in ingresso del gateway applicazione, eseguire il peering combinato delle due reti virtuali e distribuire un'applicazione di esempio che verrà esposta tramite il gateway applicazione usando il componente aggiuntivo Controller in ingresso del gateway applicazione. Se si abilita il componente aggiuntivo Controller in ingresso del gateway applicazione per un gateway applicazione esistente e un cluster del servizio Azure Kubernetes esistente nella stessa rete virtuale, è possibile ignorare il passaggio relativo al peering illustrato di seguito. Il componente aggiuntivo costituisce una soluzione di gran lunga più rapida per distribuire Controller in ingresso del gateway applicazione per il cluster del servizio Azure Kubernetes rispetto a [quella precedente basata su Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) e offre anche un'esperienza completamente gestita.  
+È possibile usare l'interfaccia della riga di comando di Azure o il portale per abilitare il componente aggiuntivo [controller di ingresso del gateway applicazione (AGIC)](ingress-controller-overview.md) per un cluster [Azure KUBERNETES Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) esistente. Questa esercitazione illustra come usare il componente aggiuntivo Controller in ingresso del gateway applicazione per esporre l'applicazione Kubernetes in un cluster del servizio Azure Kubernetes esistente tramite un gateway applicazione esistente distribuito in reti virtuali separate. Per iniziare, si creerà un cluster del servizio Azure Kubernetes in una rete virtuale e un gateway applicazione in una rete virtuale separata per simulare le risorse esistenti. Sarà quindi possibile abilitare il componente aggiuntivo AGIC, eseguire il peering delle due reti virtuali insieme e distribuire un'applicazione di esempio che verrà esposta tramite il gateway applicazione usando il componente aggiuntivo AGIC. Se si abilita il componente aggiuntivo Controller in ingresso del gateway applicazione per un gateway applicazione esistente e un cluster del servizio Azure Kubernetes esistente nella stessa rete virtuale, è possibile ignorare il passaggio relativo al peering illustrato di seguito. Il componente aggiuntivo costituisce una soluzione di gran lunga più rapida per distribuire Controller in ingresso del gateway applicazione per il cluster del servizio Azure Kubernetes rispetto a [quella precedente basata su Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) e offre anche un'esperienza completamente gestita.  
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -24,7 +24,8 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare un gruppo di risorse 
 > * Creare un nuovo cluster del servizio Azure Kubernetes 
 > * Creare un nuovo gateway applicazione 
-> * Abilitare il componente aggiuntivo Controller in ingresso del gateway applicazione nel cluster del servizio Azure Kubernetes esistente con il gateway applicazione esistente 
+> * Abilitare il componente aggiuntivo AGIC nel cluster AKS esistente tramite l'interfaccia della riga di comando di Azure 
+> * Abilitare il componente aggiuntivo AGIC nel cluster AKS esistente tramite il portale 
 > * Eseguire il peering della rete virtuale del gateway applicazione con la rete virtuale del cluster del servizio Azure Kubernetes
 > * Distribuire un'applicazione di esempio usando Controller in ingresso del gateway applicazione per il traffico in ingresso nel cluster del servizio Azure Kubernetes
 > * Verificare che l'applicazione sia raggiungibile tramite il gateway applicazione
@@ -32,22 +33,6 @@ In questa esercitazione verranno illustrate le procedure per:
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
- - Per questa esercitazione è necessaria la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
-
- - Per registrare il flag di funzionalità *AKS-IngressApplicationGatewayAddon*, usare il comando [az feature register](/cli/azure/feature#az-feature-register) come illustrato nell'esempio seguente. È necessario eseguire questa operazione una sola volta per ogni sottoscrizione finché il componente aggiuntivo è disponibile in anteprima.
-     ```azurecli-interactive
-     az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
-     ```
-    Potrebbe essere necessario attendere alcuni minuti prima che venga visualizzato lo stato Registered. È possibile controllare lo stato di registrazione usando il comando [az feature list](/cli/azure/feature#az-feature-register):
-     ```azurecli-interactive
-     az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-     ```
-
- - Quando si è pronti, aggiornare la registrazione del provider di risorse Microsoft.ContainerService usando il comando [az provider register](/cli/azure/provider#az-provider-register):
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -61,7 +46,7 @@ az group create --name myResourceGroup --location canadacentral
 
 Verrà ora distribuito un nuovo cluster del servizio Azure Kubernetes per simulare la presenza di un cluster del servizio Azure Kubernetes esistente per il quale si vuole abilitare il componente aggiuntivo Controller in ingresso del gateway applicazione.  
 
-Nell'esempio seguente verrà distribuito un nuovo cluster del servizio Azure Kubernetes denominato *myCluster* usando [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) e [Identità gestite](../aks/use-managed-identity.md) nel gruppo di risorse creato, ovvero *myResourceGroup*.    
+Nell'esempio seguente verrà distribuito un nuovo cluster del servizio Azure Kubernetes denominato *myCluster* usando [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) e [Identità gestite](../aks/use-managed-identity.md) nel gruppo di risorse creato, ovvero *myResourceGroup*.
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
@@ -84,18 +69,24 @@ az network application-gateway create -n myApplicationGateway -l canadacentral -
 > [!NOTE]
 > Il componente aggiuntivo Controller in ingresso del gateway applicazione supporta **solo** SKU del gateway applicazione V2 (Standard e WAF) e **non** SKU del gateway applicazione V1. 
 
-## <a name="enable-the-agic-add-on-in-existing-aks-cluster-with-existing-application-gateway"></a>Abilitare il componente aggiuntivo Controller in ingresso del gateway applicazione nel cluster del servizio Azure Kubernetes esistente con il gateway applicazione esistente 
+## <a name="enable-the-agic-add-on-in-existing-aks-cluster-through-azure-cli"></a>Abilitare il componente aggiuntivo AGIC nel cluster AKS esistente tramite l'interfaccia della riga di comando di Azure 
 
-A questo punto, verrà abilitato il componente aggiuntivo Controller in ingresso del gateway applicazione nel cluster del servizio Azure Kubernetes creato, ovvero *myCluster*, e verrà specificato il componente aggiuntivo Controller in ingresso del gateway applicazione per usare il gateway applicazione esistente creato, ovvero *myApplicationGateway*. Assicurarsi di aver aggiunto o aggiornato l'estensione aks-preview all'inizio di questa esercitazione. 
+Se si vuole continuare a usare l'interfaccia della riga di comando di Azure, è possibile continuare ad abilitare il componente aggiuntivo AGIC nel cluster AKS creato, in *cluster* e specificare il componente aggiuntivo AGIC per usare il gateway applicazione esistente creato, *myApplicationGateway*.
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id") 
 az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id $appgwId
 ```
 
+## <a name="enable-the-agic-add-on-in-existing-aks-cluster-through-portal"></a>Abilitare il componente aggiuntivo AGIC nel cluster AKS esistente tramite il portale 
+
+Se si vuole usare portale di Azure per abilitare il componente aggiuntivo AGIC, passare a [( https://aka.ms/azure/portal/aks/agic) ](https://aka.ms/azure/portal/aks/agic) e passare al cluster AKS tramite il collegamento del portale. Da qui, passare alla scheda rete nel cluster AKS. Verrà visualizzata una sezione del controller di ingresso del gateway applicazione, che consente di abilitare o disabilitare il componente aggiuntivo del controller di ingresso usando l'interfaccia utente del portale. Selezionare la casella accanto a "Abilita controller in ingresso" e selezionare il gateway applicazione creato, *myApplicationGateway* dal menu a discesa. 
+
+![Portale del controller di ingresso del gateway applicazione](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+
 ## <a name="peer-the-two-virtual-networks-together"></a>Eseguire il peering combinato delle due reti virtuali
 
-Dal momento che il cluster del servizio Azure Kubernetes è stato distribuito nella propria rete virtuale e il gateway applicazione è stato distribuito in un'altra rete virtuale, sarà necessario eseguire il peering delle due reti virtuali per consentire il flusso del traffico dal gateway applicazione ai pod nel cluster. Per eseguire il peering delle due reti virtuali, è necessario eseguire per due volte il comando dell'interfaccia della riga di comando di Azure per garantire che la connessione sia bidirezionale. Il primo comando creerà una connessione di peering dalla rete virtuale del gateway applicazione alla rete virtuale del servizio Azure Kubernetes; il secondo comando creerà una connessione di peering nell'altra direzione. 
+Dal momento che il cluster del servizio Azure Kubernetes è stato distribuito nella propria rete virtuale e il gateway applicazione è stato distribuito in un'altra rete virtuale, sarà necessario eseguire il peering delle due reti virtuali per consentire il flusso del traffico dal gateway applicazione ai pod nel cluster. Per eseguire il peering delle due reti virtuali, è necessario eseguire per due volte il comando dell'interfaccia della riga di comando di Azure per garantire che la connessione sia bidirezionale. Il primo comando creerà una connessione di peering dalla rete virtuale del gateway applicazione alla rete virtuale del servizio Azure Kubernetes; il secondo comando creerà una connessione di peering nell'altra direzione.
 
 ```azurecli-interactive
 nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "nodeResourceGroup")
@@ -107,6 +98,7 @@ az network vnet peering create -n AppGWtoAKSVnetPeering -g myResourceGroup --vne
 appGWVnetId=$(az network vnet show -n myVnet -g myResourceGroup -o tsv --query "id")
 az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --vnet-name $aksVnetName --remote-vnet $appGWVnetId --allow-vnet-access
 ```
+
 ## <a name="deploy-a-sample-application-using-agic"></a>Distribuire un'applicazione di esempio con Controller in ingresso del gateway applicazione 
 
 Verrà ora distribuita un'applicazione di esempio nel cluster del servizio Azure Kubernetes creato che userà il componente aggiuntivo Controller in ingresso del gateway applicazione per il traffico in ingresso e connetterà il gateway applicazione al cluster del servizio Azure Kubernetes. Per prima cosa, ottenere le credenziali per il cluster del servizio Azure Kubernetes distribuito eseguendo il comando `az aks get-credentials`. 

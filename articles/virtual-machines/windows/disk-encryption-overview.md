@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27d962a2cf1a1c453d942d320d65b3e9b9a4b959
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e9436a9ec7db660fa2d7012df98188b96ea8ee16
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357794"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694309"
 ---
-# <a name="azure-disk-encryption-for-windows-vms"></a>Crittografia dischi di Azure per macchine virtuali Windows 
+# <a name="azure-disk-encryption-for-windows-vms"></a>Crittografia dischi di Azure per macchine virtuali Windows
 
-Crittografia dischi di Azure consente di proteggere e salvaguardare i dati per soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. Usa la funzionalità [BitLocker](https://en.wikipedia.org/wiki/BitLocker) di Windows per fornire la crittografia del volume per il sistema operativo e i dischi dati delle macchine virtuali (VM) di Azure ed è integrato con [Azure Key Vault](../../key-vault/index.yml) per facilitare il controllo e la gestione delle chiavi e dei segreti di crittografia del disco. 
+Crittografia dischi di Azure consente di proteggere i dati per soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. Usa la funzionalità [BitLocker](https://en.wikipedia.org/wiki/BitLocker) di Windows per fornire la crittografia del volume per il sistema operativo e i dischi dati delle macchine virtuali (VM) di Azure ed è integrato con [Azure Key Vault](../../key-vault/index.yml) per facilitare il controllo e la gestione delle chiavi e dei segreti di crittografia del disco.
+
+Crittografia dischi di Azure è la resilienza della zona, allo stesso modo delle macchine virtuali. Per informazioni dettagliate, vedere [servizi di Azure che supportano zone di disponibilità](../../availability-zones/az-region.md).
 
 Se si usa [Centro sicurezza di Azure](../../security-center/index.yml), si viene avvisati se sono presenti macchine virtuali non crittografate. Gli avvisi vengono visualizzati con un livello di gravità elevato e la raccomandazione di crittografare tali macchine virtuali.
 
@@ -27,19 +29,15 @@ Se si usa [Centro sicurezza di Azure](../../security-center/index.yml), si viene
 > - Se in precedenza è stata usata la funzionalità Crittografia dischi di Azure con Azure AD per crittografare una macchina virtuale, sarà necessario continuare a usare questa opzione per crittografarla. Per altre informazioni, vedere [Crittografia dischi di Azure con Azure AD (versione precedente)](disk-encryption-overview-aad.md). 
 > - Alcune indicazioni possono comportare un maggior utilizzo delle risorse di calcolo, rete o dati con un conseguente aumento dei costi di licenza o sottoscrizione. Per creare le risorse in Azure nella aree geografiche supportate, è necessario avere una sottoscrizione di Azure attiva e valida.
 
-È possibile apprendere le nozioni di base di crittografia dischi di Azure per Windows in pochi minuti con la Guida [introduttiva creare e crittografare una macchina virtuale Windows con l'interfaccia](disk-encryption-cli-quickstart.md) della riga di comando di Azure o [creare e crittografare una VM Windows con Azure PowerShell](disk-encryption-powershell-quickstart.md).
+È possibile apprendere le nozioni di base di crittografia dischi di Azure per Windows in pochi minuti con la Guida [introduttiva creare e crittografare una macchina virtuale Windows con l'interfaccia](disk-encryption-cli-quickstart.md) della riga di comando di Azure o [creare e crittografare una vm Windows con Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
 ## <a name="supported-vms-and-operating-systems"></a>Macchine virtuali e sistemi operativi supportati
 
 ### <a name="supported-vms"></a>VM supportate
 
-Le macchine virtuali Windows sono disponibili in un [intervallo di dimensioni](../sizes-general.md). Crittografia dischi di Azure non è disponibile nelle [VM Basic, serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)o nelle macchine virtuali con meno di 2 GB di memoria.
+Le macchine virtuali Windows sono disponibili in un [intervallo di dimensioni](../sizes-general.md). Crittografia dischi di Azure è supportata nelle macchine virtuali di prima e seconda generazione. Crittografia dischi di Azure è disponibile anche per le macchine virtuali con Archiviazione Premium.
 
-Crittografia dischi di Azure è disponibile anche per le macchine virtuali con Archiviazione Premium.
-
-Crittografia dischi di Azure non è disponibile nelle [macchine virtuali di seconda generazione](../generation-2.md#generation-1-vs-generation-2-capabilities). Per altre eccezioni, vedere [Crittografia dischi di Azure: Scenari non supportati](disk-encryption-windows.md#unsupported-scenarios).
-
-Crittografia dischi di Azure non è disponibile per le immagini di macchina virtuale senza dischi temporanei (dv4, Dsv4, Ev4 e Esv4).  Vedere [dimensioni delle macchine virtuali di Azure senza dischi temporanei locali](../azure-vms-no-temp-disk.md).
+Crittografia dischi di Azure non è disponibile nelle [VM Basic, serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)o nelle macchine virtuali con meno di 2 GB di memoria.  Crittografia dischi di Azure non è disponibile anche per le immagini di macchina virtuale senza dischi temporanei (dv4, Dsv4, Ev4 e Esv4).  Vedere [dimensioni delle macchine virtuali di Azure senza dischi temporanei locali](../azure-vms-no-temp-disk.md).  Per altre eccezioni, vedere [Crittografia dischi di Azure: Scenari non supportati](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -85,12 +83,11 @@ La tabella seguente definisce alcuni dei termini comuni usati nella documentazio
 | Chiave di crittografia della chiave (KEK) | La chiave asimmetrica (RSA 2048) che è possibile usare per proteggere il segreto o eseguirne il wrapping. È possibile fornire una chiave protetta tramite modulo di protezione hardware o una chiave protetta tramite software. Per altre informazioni, vedere la documentazione di [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) e [Creazione e configurazione di un insieme di credenziali delle chiavi per Crittografia dischi di Azure](disk-encryption-key-vault.md). |
 | Cmdlet PowerShell | Per altre informazioni, vedere [Cmdlet di Azure PowerShell](/powershell/azure/). |
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Guida introduttiva: creare e crittografare una VM Windows con l'interfaccia della riga di comando ](disk-encryption-cli-quickstart.md)
-- [Guida introduttiva: creare e crittografare una VM Windows con Azure PowerShell](disk-encryption-powershell-quickstart.md)
+- [Guida introduttiva: creare e crittografare una macchina virtuale Windows con Azure PowerShell](disk-encryption-powershell-quickstart.md)
 - [Scenari di crittografia dischi di Azure per macchine virtuali Windows](disk-encryption-windows.md)
-- [Script dell'interfaccia della riga di comando dei prerequisiti di Crittografia dischi di Azure](https://github.com/ejarvi/ade-cli-getting-started)
+- [Script dell'interfaccia della riga di comando dei prerequisiti di Crittografia dischi di Azure](https://github.com/ejarvi/ade-cli-getting-started) 
 - [Script di PowerShell dei prerequisiti di Crittografia dischi di Azure](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - [Creazione e configurazione di un insieme di credenziali delle chiavi per la crittografia dischi di Azure](disk-encryption-key-vault.md)

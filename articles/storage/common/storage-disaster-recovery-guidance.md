@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9a4453c29c52f8821643e93584666c3a6a8e6b4c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379829"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737648"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Ripristino di emergenza e failover dell'account di archiviazione
 
@@ -55,7 +55,7 @@ Tenere anche presenti queste procedure consigliate per mantenere la disponibilit
 
 - **Dischi:** Usare [backup di Azure](https://azure.microsoft.com/services/backup/) per eseguire il backup dei dischi di VM usati dalle macchine virtuali di Azure. Valutare anche l'opportunità di usare [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) per proteggere le macchine virtuali in caso di emergenza a livello di area.
 - **BLOB in blocchi:** Attivare l' [eliminazione](../blobs/soft-delete-blob-overview.md) temporanea per proteggersi da eliminazioni a livello di oggetto e sovrascritture oppure copiare BLOB in blocchi in un altro account di archiviazione in un'area diversa usando [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/)o la [libreria di spostamento dei dati di Azure](storage-use-data-movement-library.md).
-- **File:** Usare [backup di Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) per eseguire il backup delle condivisioni file. Abilitare anche l' [eliminazione](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) temporanea per la protezione da eliminazioni accidentali di condivisioni file. Per la ridondanza geografica quando GRS non è disponibile, usare [AzCopy](./storage-use-azcopy-v10.md) o [Azure PowerShell](/powershell/module/az.storage/) per copiare i file in un altro account di archiviazione in un'area diversa.
+- **File:** Usare [backup di Azure](../../backup/azure-file-share-backup-overview.md) per eseguire il backup delle condivisioni file. Abilitare anche l' [eliminazione](../files/storage-files-prevent-file-share-deletion.md) temporanea per la protezione da eliminazioni accidentali di condivisioni file. Per la ridondanza geografica quando GRS non è disponibile, usare [AzCopy](./storage-use-azcopy-v10.md) o [Azure PowerShell](/powershell/module/az.storage/) per copiare i file in un altro account di archiviazione in un'area diversa.
 - **Tabelle:** usare [AzCopy](./storage-use-azcopy-v10.md) per esportare i dati delle tabelle in un altro account di archiviazione in un'area diversa.
 
 ## <a name="track-outages"></a>Tenere traccia delle interruzioni

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c59e164d67a665a5e99cb5045b3b0cf38e33dc87
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ec04000e678cd3fc55f4681781f91b6d98ea41f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364274"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730865"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -575,9 +575,7 @@ In questo passaggio si crea un servizio collegato per l'account di Batch, che ve
    d. Immettere l'URI del batch per la proprietà JSON **batchUri** .
 
       > [!IMPORTANT]
-      > L'URL del pannello **account batch** è nel formato seguente: \<accountname\> . \<region\> . batch.azure.com. Per la proprietà **batchUri** nello script JSON è necessario rimuovere a88"accountname."** dall'URL. Un esempio è `"batchUri": "https://eastus.batch.azure.com"`.
-      >
-      >
+      > L'URL del pannello **account batch** è nel formato seguente: `<accountname>.<region>.batch.azure.com` . Per la `batchUri` proprietà nello script JSON, è necessario rimuovere `<accountname>.` dall'URL. Un esempio è `"batchUri": "https://eastus.batch.azure.com"`.
 
       ![Pannello Account di Batch](./media/data-factory-data-processing-using-batch/image9.png)
 

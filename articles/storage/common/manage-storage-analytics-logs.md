@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: bc6632b55ba8fd90317a8b5046a3e84d863bf0ef
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 0c182e1093c29206d27a0e55a46dd9a5607fa6ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221715"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701706"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Abilitare e gestire i log di Analisi archiviazione di Azure (versione classica)
 
-[Analisi archiviazione di Azure](storage-analytics.md) fornisce log per BLOB, code e tabelle. È possibile usare la [portale di Azure](https://portal.azure.com) per configurare i log registrati per l'account. Questo articolo illustra come abilitare e gestire i log. Per informazioni su come abilitare le metriche, vedere [Enable and manage analisi archiviazione di Azure Metrics (classico)](storage-monitor-storage-account.md).  L'analisi e l'archiviazione dei dati di monitoraggio nel portale di Azure sono i costi associati. Per altre informazioni, vedere [Analisi archiviazione](storage-analytics.md).
+[Analisi archiviazione di Azure](storage-analytics.md) fornisce log per BLOB, code e tabelle. È possibile usare la [portale di Azure](https://portal.azure.com) per configurare i log registrati per l'account. Questo articolo illustra come abilitare e gestire i log. Per informazioni su come abilitare le metriche, vedere [Enable and manage analisi archiviazione di Azure Metrics (classico)]().  L'analisi e l'archiviazione dei dati di monitoraggio nel portale di Azure sono i costi associati. Per altre informazioni, vedere [Analisi archiviazione](storage-analytics.md).
 
 > [!NOTE]
 > È consigliabile usare i log di archiviazione di Azure in monitoraggio di Azure invece dei log Analisi archiviazione. I log di Archiviazione di Azure in Monitoraggio di Azure si trovano in anteprima pubblica ed è possibile verificare l'anteprima in tutte le aree del cloud pubblico. Questa anteprima Abilita i log per i BLOB (che includono Azure Data Lake Storage Gen2), file, code e tabelle. Per altre informazioni, vedere gli articoli seguenti:
@@ -191,7 +191,7 @@ I dati di log possono accumularsi nell'account nel tempo, che può aumentare il 
 
    * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione. 
 
-6. Usare [Get-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageserviceloggingproperty) per visualizzare i criteri di conservazione dei log correnti. Nell'esempio seguente viene stampato nella console il periodo di conservazione per i servizi di archiviazione BLOB e di Accodamento.
+6. Usare [Get-AzStorageServiceLoggingProperty](/powershell/module/az.storage/get-azstorageserviceloggingproperty) per visualizzare i criteri di conservazione dei log correnti. Nell'esempio seguente viene stampato nella console il periodo di conservazione per i servizi di archiviazione BLOB e di Accodamento.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
@@ -202,7 +202,7 @@ I dati di log possono accumularsi nell'account nel tempo, che può aumentare il 
    > [!div class="mx-imgBorder"]
    > ![Criteri di conservazione nell'output di PowerShell](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. Usare [set-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageserviceloggingproperty) per modificare il periodo di memorizzazione. Nell'esempio seguente il periodo di conservazione viene modificato in 4 giorni.  
+7. Usare [set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) per modificare il periodo di memorizzazione. Nell'esempio seguente il periodo di conservazione viene modificato in 4 giorni.  
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
@@ -290,7 +290,6 @@ Una volta scaricati i dati di log, è possibile visualizzare le voci di log nei 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per ulteriori informazioni su Analisi archiviazione, vedere [analisi archiviazione](storage-analytics.md) per analisi archiviazione.
-* [Configurare analisi archiviazione metrica](storage-monitor-storage-account.md).
 * Per altre informazioni sull'uso di un linguaggio .NET per configurare Registrazione archiviazione, vedere [Riferimenti alla libreria del client di archiviazione](/previous-versions/azure/dn261237(v=azure.100)). 
 * Per informazioni generali sulla configurazione di Registrazione archiviazione mediante l'API REST, vedere [Abilitazione e configurazione di Analisi archiviazione](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
 * Altre informazioni sul formato dei log di Analisi archiviazione. Vedere [analisi archiviazione formato di log](/rest/api/storageservices/storage-analytics-log-format).

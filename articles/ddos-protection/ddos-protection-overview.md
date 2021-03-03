@@ -1,5 +1,5 @@
 ---
-title: Panoramica di protezione DDoS di Azure standard
+title: Panoramica di Protezione DDoS di Azure Standard
 description: Informazioni su Protezione DDoS di Azure Standard che, in combinazione con le procedure consigliate per la progettazione di applicazione, offre un meccanismo di difesa dagli attacchi DDoS.
 services: virtual-network
 documentationcenter: na
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: 71eada0dcd7f7684e6c6be935bcb44405eb95322
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 2b0f8a73a6852883f87ba9fc4333cb6fa8101a39
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626207"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703117"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Panoramica di Protezione DDoS di Azure Standard
 
@@ -54,7 +54,7 @@ Per informazioni sui prezzi standard di protezione DDoS di Azure, vedere la pagi
 
 ## <a name="reference-architectures"></a>Architetture di riferimento
 
-Protezione DDoS standard è progettato per i [servizi distribuiti in una rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services). Per altri servizi si applica il servizio Protezione DDoS Basic predefinito. Per altre informazioni sulle architetture supportate, vedere le [architetture di riferimento per la protezione DDoS](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures). 
+Protezione DDoS standard è progettato per i [servizi distribuiti in una rete virtuale](../virtual-network/virtual-network-for-azure-services.md). Per altri servizi si applica il servizio Protezione DDoS Basic predefinito. Per altre informazioni sulle architetture supportate, vedere le [architetture di riferimento per la protezione DDoS](./ddos-protection-reference-architectures.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

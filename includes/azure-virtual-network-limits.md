@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 59329fccda77f16e4a595e9b1789ef684c5cbf95
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
-ms.translationtype: HT
+ms.openlocfilehash: 44245bc3cd9fd1afcfe9a74d60e2f51135a247ee
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256215"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734102"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limiti relativi alla rete - Azure Resource Manager
 I limiti seguenti si applicano solo alle risorse di rete gestite tramite **Azure Resource Manager** per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
@@ -69,7 +69,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Risorsa                                | Limite         |
 |-----------------------------------------|-------------------------------|
 | Servizi di bilanciamento del carico                          | 1\.000                         |
-| Regole per risorsa                      | 1\.500                         |
+| Regole (Load Balancer + NAT in ingresso) per risorsa                      | 1\.500                         |
 | Regole per scheda di interfaccia di rete (per tutti gli indirizzi IP in una scheda di interfaccia di rete) | 300                           |
 | Configurazioni IP front-end              | 600                           |
 | Dimensioni del pool back-end                       | 1\.000 configurazioni IP, singola rete virtuale |
@@ -78,7 +78,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Regole in uscita per Load Balancer        | 600                           |
 | Numero di Load Balancer per macchina virtuale                   | 2 (1 pubblico e 1 interno)   |
 
-<sup>1</sup>Il limite è fino a 150 risorse, in qualsiasi combinazione di risorse macchine virtuali autonome, risorse set di disponibilità e gruppi di selezione host per set di scalabilità di macchine virtuali.
+<sup>1</sup> il limite è fino a 150 risorse, in qualsiasi combinazione di risorse di macchine virtuali autonome, risorse dei set di disponibilità e gruppi di posizionamento di set di scalabilità di macchine virtuali.
 
 **Load Balancer di base**
 
@@ -87,10 +87,12 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Servizi di bilanciamento del carico                          | 1\.000                        |
 | Regole per risorsa                      | 250                          |
 | Regole per scheda di interfaccia di rete (per tutti gli indirizzi IP in una scheda di interfaccia di rete) | 300                          |
-| Configurazioni IP front-end              | 200                          |
+| Configurazioni IP front-end <sup> 2<sup>  | 200                          |
 | Dimensioni del pool back-end                       | 300 configurazioni IP, singolo set di disponibilità |
 | Set di disponibilità per Load Balancer     | 1                            |
 | Numero di Load Balancer per macchina virtuale                   | 2 (1 pubblico e 1 interno)  |
+
+<sup>2</sup> il limite per una singola risorsa discreta in un pool back-end (macchina virtuale autonoma, set di disponibilità o gruppo di posizionamento set di scalabilità di macchine virtuali) prevede un massimo di 250 configurazioni IP front-end in un singolo Load Balancer pubblico di base e Load Balancer interno di base.
 
 <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo alle risorse di rete gestite tramite il modello di distribuzione **classico** per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 

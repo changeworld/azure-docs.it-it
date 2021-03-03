@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 79314db13531f1fcf518c7931d4a1aa9158a172b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: a77476086d6100cbaf49d54791972940cca0644f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397196"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708935"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Riscrivere le intestazioni di richiesta e risposta HTTP con applicazione Azure gateway-portale di Azure
 
@@ -31,17 +31,17 @@ Per configurare la riscrittura dell'intestazione HTTP, è necessario completare 
 
 1. Creare gli oggetti necessari per la riscrittura dell'intestazione HTTP:
 
-   - **Azione di riscrittura** : utilizzata per specificare i campi di richiesta e di intestazione della richiesta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile associare una o più condizioni di riscrittura con un'azione di riscrittura.
+   - **Azione di riscrittura**: utilizzata per specificare i campi di richiesta e di intestazione della richiesta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile associare una o più condizioni di riscrittura con un'azione di riscrittura.
 
-   - **Condizione di riscrittura** : una configurazione facoltativa. Le condizioni di riscrittura valutano il contenuto delle richieste e delle risposte HTTP (S). L'azione di riscrittura si verificherà se la richiesta o la risposta HTTP (S) corrisponde alla condizione di riscrittura.
+   - **Condizione di riscrittura**: una configurazione facoltativa. Le condizioni di riscrittura valutano il contenuto delle richieste e delle risposte HTTP (S). L'azione di riscrittura si verificherà se la richiesta o la risposta HTTP (S) corrisponde alla condizione di riscrittura.
 
      Se si associa più di una condizione a un'azione, l'azione si verifica solo quando vengono soddisfatte tutte le condizioni. In altre parole, l'operazione è un'operazione AND logica.
 
-   - **Regola di riscrittura** : contiene più combinazioni di operazioni di riscrittura/riscrittura delle condizioni.
+   - **Regola di riscrittura**: contiene più combinazioni di operazioni di riscrittura/riscrittura delle condizioni.
 
-   - **Sequenza di regole** : consente di determinare l'ordine in cui vengono eseguite le regole di riscrittura. Questa configurazione è utile quando si dispone di più regole di riscrittura in un set di riscrittura. Viene eseguita prima una regola di riscrittura con un valore di sequenza di regole inferiore. Se si assegna lo stesso valore di sequenza della regola a due regole di riscrittura, l'ordine di esecuzione è non deterministico.
+   - **Sequenza di regole**: consente di determinare l'ordine in cui vengono eseguite le regole di riscrittura. Questa configurazione è utile quando si dispone di più regole di riscrittura in un set di riscrittura. Viene eseguita prima una regola di riscrittura con un valore di sequenza di regole inferiore. Se si assegna lo stesso valore di sequenza della regola a due regole di riscrittura, l'ordine di esecuzione è non deterministico.
 
-   - **Rewrite set** : contiene più regole di riscrittura che saranno associate a una regola di routing delle richieste.
+   - **Rewrite set**: contiene più regole di riscrittura che saranno associate a una regola di routing delle richieste.
 
 2. Alleghi il set di riscrittura a una regola di routing. La configurazione di riscrittura è collegata al listener di origine tramite la regola di routing. Quando si usa una regola di routing di base, la configurazione dell'intestazione di riscrittura è associata a un listener di origine ed è una riscrittura dell'intestazione globale. Quando si usa una regola di routing basata sul percorso, la configurazione dell'intestazione di riscrittura è definita nella mappa del percorso URL. In tal caso, si applica solo all'area del percorso specifica di un sito.
 
@@ -59,7 +59,7 @@ In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'int
 
 2. Selezionare **riscritture** nel riquadro sinistro.
 
-3. Selezionare il **set di riscrittura** :
+3. Selezionare il **set di riscrittura**:
 
    ![Aggiungi riscrittura set](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
@@ -99,7 +99,7 @@ In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'int
 
    - Nell'elenco **operatore** selezionare uguale a **(=)**.
 
-   - Immettere un modello di espressione regolare. In questo esempio verrà usato il modello  `(https?):\/\/.*azurewebsites\.net(.*)$` .
+   - Immettere un modello di espressione regolare. In questo esempio verrà usato il modello `(https?)://.*azurewebsites.net(.*)$` .
 
    - Selezionare **OK**.
 

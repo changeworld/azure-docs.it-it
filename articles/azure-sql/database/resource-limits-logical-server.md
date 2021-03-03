@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 02/02/2021
-ms.openlocfilehash: aa18baf9739663c7132a49d3d07434b9d187f02b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588756"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691230"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limiti delle risorse per il database SQL di Azure e i server di analisi di Azure sinapsi
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -70,7 +70,7 @@ In caso di uso elevato di spazio, le opzioni di mitigazione includono:
 - Aumentare le dimensioni massime del database o del pool elastico o aggiungere ulteriore spazio di archiviazione. Vedere [Ridimensionare le risorse del database singolo](single-database-scale.md) e [Ridimensionare le risorse del pool elastico](elastic-pool-scale.md).
 - Se il database si trova in un pool elastico, in alternativa è possibile spostare il database all'esterno del pool in modo che lo spazio di archiviazione non sia condiviso con altri database.
 - Compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [gestire lo spazio di file nel database SQL di Azure](file-space-manage.md).
-- Controllare se l'utilizzo dello spazio elevato è dovuto a un picco nelle dimensioni dell'archivio versioni permanente (PVS). PVS è parte di ogni database e viene usato per implementare il  [recupero accelerato del database](../accelerated-database-recovery.md). Per determinare le dimensioni PVS correnti, vedere la pagina relativa alla [risoluzione dei problemi di PVS](https://docs.microsoft.com/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Un motivo comune per grandi dimensioni PVS è una transazione aperta per molto tempo (ore), impedendo la pulizia delle versioni precedenti in PVS.
+- Controllare se l'utilizzo dello spazio elevato è dovuto a un picco nelle dimensioni dell'archivio versioni permanente (PVS). PVS è parte di ogni database e viene usato per implementare il  [recupero accelerato del database](../accelerated-database-recovery.md). Per determinare le dimensioni PVS correnti, vedere la pagina relativa alla [risoluzione dei problemi di PVS](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Un motivo comune per grandi dimensioni PVS è una transazione aperta per molto tempo (ore), impedendo la pulizia delle versioni precedenti in PVS.
 
 ### <a name="sessions-and-workers-requests"></a>Sessioni e ruoli di lavoro (richieste)
 

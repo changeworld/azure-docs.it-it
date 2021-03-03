@@ -6,12 +6,16 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 5ebb30101d191bb254017db7b0de2f9b8bce145d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-cli-java-uiex
+ms.openlocfilehash: 0ef52da8400cfadfaaa26664d984d8b898a3b9a3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755174"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729301"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione Java in Azure dalla riga di comando
 
@@ -79,7 +83,7 @@ In Funzioni di Azure un progetto di funzione è un contenitore per una o più fu
 1. Maven chiede i valori necessari per completare la generazione del progetto nella distribuzione.   
     Quando richiesto, specificare i valori seguenti:
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | **groupId** | `com.fabrikam` | Un valore che identifica in modo univoco il progetto tra tutti gli altri, seguendo le [regole di denominazione dei pacchetti](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) per Java. |
     | **artifactId** | `fabrikam-functions` | Un valore che corrisponde al nome del jar, senza un numero di versione. |

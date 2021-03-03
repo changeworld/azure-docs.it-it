@@ -10,48 +10,45 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/17/2021
+ms.date: 2/19/2021
 ms.author: gunnarcms
-ms.openlocfilehash: 1a77ab15bc4d1095f47d9d411b5a0fd64bb568de
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b2e0df6d9e2865dad206b78273c1c24998d3d5c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650797"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706946"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Il riporto degli aggiornamenti viene sempre eseguito per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
 ## <a name="february-2021-guest-os"></a>Sistema operativo guest di febbraio 2021
 
->[!NOTE] 
-
->Il sistema operativo guest di febbraio è attualmente in fase di implementazione in macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Nel sistema operativo guest di febbraio sono incluse le patch seguenti. L'elenco è soggetto a variazioni. 
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 21-02 |  [4601345]  |  Aggiornamento cumulativo più recente | 6,28 | 9 febbraio 2021 |
-|  Rel 21-02 |  [4580325]  |  Aggiornamento Flash | 3,94, 4,87, 5,52, 6,28 | 13 ottobre 2020 |
-|  Rel 21-02 |  [4586768]  |  Aggiornamenti cumulativi IE | 2,107, 3,94, 4,87 | 10 novembre 2020 |
-|  Rel 21-02 |  [4601318]  |  Aggiornamento cumulativo più recente | 5.52 | 9 febbraio 2021 |
-|  Rel 21-02 |  [4578952]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 2,107 | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | 2,107 | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 4,87 | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578956]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | 4,87 | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578950]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 3,94 | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578954]  |  . Rollup della sicurezza e della qualità di 4.5.2 di .NET Framework | 3,94 | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578966]  |  . Aggiornamento cumulativo di .NET Framework 3,5 e 4.7.2 | 6,28 | 13 ottobre 2020 |
-|  Rel 21-02 |  [4601347]  |  Rollup mensile | 2,107 | 9 febbraio 2021 |
-|  Rel 21-02 |  [4601348]  |  Rollup mensile | 3,94 | 9 febbraio 2021 |
-|  Rel 21-02 |  [4601384]  |  Rollup mensile | 4,87 | 9 febbraio 2021 |
-|  Rel 21-02 |  [4566426]  |  Aggiornamento dello stack di manutenzione | 3,94 | 14 luglio 2020 |
-|  Rel 21-02 |  [4566425]  |  Aggiornamento dello stack di manutenzione | 4,87 | 14 luglio 2020 |
-|  Rel 21-02 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo | 4,87 | 19 agosto 2020 |
-|  Rel 21-02 |  [4601392]  |  Aggiornamento dello stack di manutenzione | 5.52 | 9 febbraio 2021 |
-|  Rel 21-02 |  [4592510]  |  Aggiornamento dello stack di manutenzione | 2,107 | 8 dicembre 2020 |
-|  Rel 21-02 |  [4601393]  |  Aggiornamento dello stack di manutenzione | 6,28 | 9 febbraio 2021 |
-|  Rel 21-02 |  [4494175]  |  Microcodice | 5.52 | 1 ° settembre 2020 |
-|  Rel 21-02 |  [4494174]  |  Microcodice | 6,28 | 1 ° settembre 2020 |
+|  Rel 21-02 |  [4601345]  |  Aggiornamento cumulativo più recente | [6,28] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4580325]  |  Aggiornamento Flash | [3,94], [4,87], [5,52], [6,28] | 13 ottobre 2020 |
+|  Rel 21-02 |  [4586768]  |  Aggiornamenti cumulativi IE | [2,107], [3,94], [4,87] | 10 novembre 2020 |
+|  Rel 21-02 |  [4601318]  |  Aggiornamento cumulativo più recente | [5,52] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4578952]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [2,107] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [2,107] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [4,87] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578956]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [4,87] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578950]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [3,94] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578954]  |  . Rollup della sicurezza e della qualità di 4.5.2 di .NET Framework | [3,94] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578966]  |  . Aggiornamento cumulativo di .NET Framework 3,5 e 4.7.2 | [6,28] | 13 ottobre 2020 |
+|  Rel 21-02 |  [4601347]  |  Rollup mensile | [2,107] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4601348]  |  Rollup mensile | [3,94] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4601384]  |  Rollup mensile | [4,87] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3,94] | 14 luglio 2020 |
+|  Rel 21-02 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4,87] | 14 luglio 2020 |
+|  Rel 21-02 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo | [4,87] | 19 agosto 2020 |
+|  Rel 21-02 |  [4601392]  |  Aggiornamento dello stack di manutenzione | [5,52] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4592510]  |  Aggiornamento dello stack di manutenzione | [2,107] | 8 dicembre 2020 |
+|  Rel 21-02 |  [4601393]  |  Aggiornamento dello stack di manutenzione | [6,28] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4494175]  |  Microcodice | [5,52] | 1 ° settembre 2020 |
+|  Rel 21-02 |  [4494174]  |  Microcodice | [6,28] | 1 ° settembre 2020 |
 
 [4601345]: https://support.microsoft.com/kb/4601345
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -75,6 +72,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4601393]: https://support.microsoft.com/kb/4601393
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
+[2,107]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,94]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,87]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,52]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,28]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="january-2021-guest-os"></a>Sistema operativo guest di gennaio 2021

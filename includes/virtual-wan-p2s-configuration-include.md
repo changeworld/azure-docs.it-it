@@ -1,31 +1,46 @@
 ---
-title: includere file
-description: includere file
-services: virtual-wan
 author: cherylmc
+ms.author: cherylmc
+ms.date: 02/23/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/12/2018
-ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 411c28c0bbbf5ea659c6b6cca1e5bfae847ddd7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: b5c0bdbb29af7b8894d86233520ff09854faa201
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812725"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732489"
 ---
-1. Passare a **Tutte le risorse**.
-1. Selezionare la rete WAN virtuale creata.
-1. Selezionare **+ Crea configurazione VPN utente** nella parte superiore della pagina per aprire la pagina **Crea nuova configurazione VPN utente**.
+1. Passare a **tutte le risorse** e selezionare la rete WAN virtuale creata, quindi selezionare **configurazioni VPN utente** dal menu a sinistra.
+1. Nella pagina **configurazioni VPN utente** selezionare **+ Crea configurazione VPN utente** nella parte superiore della pagina per aprire la pagina di configurazione per la creazione di una **nuova VPN utente** .
 
-   :::image type="content" source="media/virtual-wan-p2s-configuration/user-vpn.jpg" alt-text="Configurazioni VPN utente":::
+   :::image type="content" source="media/virtual-wan-p2s-configuration/user-vpn.png" alt-text="Screenshot della pagina configurazioni VPN utente.":::
 
-1. Nella pagina **Crea nuova configurazione VPN utente** completare i campi seguenti:
+1. Nella scheda informazioni di **base** , in **Dettagli istanza**, immettere il **nome** che si vuole assegnare alla configurazione VPN.
+1. Per **tipo di tunnel**, dall'elenco a discesa, selezionare il tipo di tunnel desiderato. Le opzioni relative al tipo di tunnel sono: **IKEV2 VPN**, **OpenVPN**, OpenVPN **e IKEv2**.
+1. Usare i passaggi seguenti che corrispondono al tipo di tunnel selezionato. Una volta specificati tutti i valori, fare clic su **Verifica + crea** e quindi su **Crea** per creare la configurazione.
 
-   * **Nome configurazione**: nome da usare per fare riferimento alla configurazione.
-   * **Tipo di tunnel**: protocollo da usare per il tunnel.
-   * **Root Certificate Name** (Nome certificato radice): nome descrittivo per il certificato.
-   * **Dati del certificato pubblico**: dati del certificato X.509 con codifica in base 64.
-  
-1. Selezionare **Crea** per creare la configurazione.
+   **VPN IKEv2**
+
+   * **Requisiti:** Quando si seleziona il tipo di tunnel **IKEv2** , viene visualizzato un messaggio che indica di selezionare un metodo di autenticazione. Per IKEv2, è possibile specificare un solo metodo di autenticazione. È possibile scegliere il certificato di Azure, Azure Active Directory o l'autenticazione basata su RADIUS.
+ 
+   * **Parametri personalizzati IPSec:** Per personalizzare i parametri per la fase 1 e la fase 2 di IKE, impostare l'opzione IPsec su **Custom** e selezionare i valori dei parametri. Per ulteriori informazioni sui parametri personalizzabili, vedere l'articolo relativo a [IPsec personalizzato](../articles/virtual-wan/point-to-site-ipsec.md) .
+
+     :::image type="content" source="media/virtual-wan-p2s-configuration/custom.png" alt-text="Screenshot del passaggio IPsec a Custom.":::
+
+   * **Autenticazione:** Passare al meccanismo di autenticazione che si vuole usare facendo clic su **Avanti** nella parte inferiore della pagina per passare al metodo di autenticazione oppure fare clic sulla scheda appropriata nella parte superiore della pagina. Impostare l'opzione su **Sì** per selezionare il metodo.
+
+     In questo esempio è selezionata l'autenticazione RADIUS. Per l'autenticazione basata su RADIUS, è possibile specificare un indirizzo IP del server RADIUS secondario e un segreto server.
+
+     :::image type="content" source="media/virtual-wan-p2s-configuration/ike-radius.png" alt-text="Screenshot di IKE.":::
+
+   **OpenVPN**
+
+   * **Requisiti:** Quando si seleziona il tipo di tunnel **OpenVPN** , viene visualizzato un messaggio che indica di selezionare un meccanismo di autenticazione. Se si seleziona OpenVPN come tipo di tunnel, è possibile specificare più metodi di autenticazione. È possibile scegliere qualsiasi subset di certificati di Azure, Azure Active Directory o l'autenticazione basata su RADIUS. Per l'autenticazione basata su RADIUS, è possibile specificare un indirizzo IP del server RADIUS secondario e un segreto server.
+
+   * **Autenticazione:** Passare al metodo di autenticazione che si vuole usare facendo clic su **Avanti** nella parte inferiore della pagina per passare al metodo di autenticazione oppure fare clic sulla scheda appropriata nella parte superiore della pagina.
+   Per ogni metodo che si desidera selezionare, impostare l'opzione su **Sì** e immettere i valori appropriati.
+
+     In questo esempio Azure Active Directory è selezionata.
+
+     :::image type="content" source="media/virtual-wan-p2s-configuration/openvpn.png" alt-text="Screenshot della pagina OpenVPN.":::

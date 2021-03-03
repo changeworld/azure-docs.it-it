@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.date: 02/18/2021
+ms.openlocfilehash: 642fa044b3272e311769ddbcc5462cb396563652
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104502"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702556"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -349,9 +349,9 @@ Nel [portale di Azure](https://portal.azure.com), questo filtro interessa sia i 
 
 Nel modello ARM specificare gli intervalli di indirizzi IP in ingresso consentiti nella definizione di risorsa dell'app per la logica usando la `accessControl` sezione. In questa sezione usare le `triggers` sezioni, `actions` e facoltative in `contents` base alle esigenze, includendo la `allowedCallerIpAddresses` sezione con la `addressRange` proprietà e impostando il valore della proprietà sull'intervallo di indirizzi IP consentiti nel formato x. x.x. x */x* o *x.* x. x. x-x. x.x. x.
 
-* Se l'app per la logica nidificata usa l' **unica opzione altre** app per la logica, che consente le chiamate in ingresso solo da altre app per la logica che usano l'azione app per la logica di Azure, impostare la `addressRange` proprietà su una matrice vuota (**[]**).
+* Se l'app per la logica nidificata usa l' **unica opzione altre** app per la logica, che consente le chiamate in ingresso solo da altre app per la logica che usano l'azione predefinita app per la logica di Azure, impostare la `allowedCallerIpAddresses` proprietà su una matrice vuota (**[]**) e *omettere* la `addressRange` Proprietà.
 
-* Se l'app per la logica nidificata usa l'opzione **intervalli IP specifici** per altre chiamate in ingresso, ad esempio altre app per la logica che usano l'azione http, impostare la `addressRange` proprietà sull'intervallo di indirizzi IP consentiti.
+* Se l'app per la logica nidificata usa l'opzione **intervalli IP specifici** per altre chiamate in ingresso, ad esempio altre app per la logica che usano l'azione http, includere la `allowedCallerIpAddresses` sezione e impostare la `addressRange` proprietà sull'intervallo di indirizzi IP consentiti.
 
 Questo esempio illustra una definizione di risorsa per un'app per la logica annidata che consente chiamate in ingresso solo da app per la logica che usano l'azione predefinita app per la logica di Azure:
 
@@ -378,18 +378,14 @@ Questo esempio illustra una definizione di risorsa per un'app per la logica anni
             },
             "accessControl": {
                "triggers": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
                },
                "actions": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
+               },
+               // Optional
+               "contents": {
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}

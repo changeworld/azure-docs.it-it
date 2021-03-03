@@ -2,20 +2,20 @@
 title: Configurare firewall Azure Key Vault e reti virtuali - Azure Key Vault
 description: Istruzioni passo per passo per configurare reti virtuali e firewall di Azure Key Vault
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 10/01/2020
-ms.author: sudbalas
+ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3639237a0dc34c521fd3fa52631fdb19c26ec284
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.openlocfilehash: 13ead70f278f12866dbe00b53c487aebcc43304f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936346"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742637"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurare reti virtuali e firewall di Azure Key Vault
 
@@ -39,7 +39,7 @@ Per determinare se un servizio che si prova a usare è incluso nell'elenco di se
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Firewall di Key Vault abilitato (indirizzi e intervalli IPv4 - IP statici)
 
-Per autorizzare un particolare servizio ad accedere all'insieme di credenziali delle chiavi attraverso il firewall di Key Vault, è possibile aggiungere il relativo indirizzo IP all'elenco di indirizzi consentiti del firewall. Questa configurazione è ottimale per i servizi che usano indirizzi IP statici o intervalli noti.
+Per autorizzare un particolare servizio ad accedere all'insieme di credenziali delle chiavi attraverso il firewall di Key Vault, è possibile aggiungere il relativo indirizzo IP all'elenco di indirizzi consentiti del firewall. Questa configurazione è ottimale per i servizi che usano indirizzi IP statici o intervalli noti. Per questo caso è previsto un limite di 1000 intervalli CIDR.
 
 Per consentire un indirizzo IP o un intervallo di una risorsa di Azure, ad esempio un'app Web o App per la logica, seguire questa procedura.
 

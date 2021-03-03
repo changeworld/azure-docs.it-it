@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083770"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735506"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello
 
@@ -122,10 +122,10 @@ Ogni sito è costituito da informazioni di binding. Tali informazioni includono 
 
 ![Screenshot che mostra l'impostazione dell'associazione TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
-Se è stato associato l'indirizzo IP a un sito, è necessario aggiornare tutti i binding del sito con il nuovo indirizzo IP. Per modificare i binding del sito, è possibile aggiungere uno [script di aggiornamento del livello Web IIS](https://aka.ms/asr-web-tier-update-runbook-classic) dopo il Gruppo 3 nel piano di ripristino.
+Se è stato associato l'indirizzo IP a un sito, è necessario aggiornare tutti i binding del sito con il nuovo indirizzo IP. Per modificare i binding del sito, è possibile aggiungere uno [script di aggiornamento del livello Web IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) dopo il Gruppo 3 nel piano di ripristino.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Aggiornare l'indirizzo IP del servizio di bilanciamento del carico
-Se è presente una macchina virtuale Application Request Routing, aggiungere uno [script di failover ARR IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) dopo il Gruppo 4 per aggiornare l'indirizzo IP.
+Se è presente una macchina virtuale Application Request Routing, aggiungere uno [script di failover ARR IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) dopo il Gruppo 4 per aggiornare l'indirizzo IP.
 
 #### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Binding del certificato TLS/SSL per una connessione HTTPS
 Un sito Web potrebbe disporre di un certificato TLS/SSL associato che consente di garantire una comunicazione sicura tra il server Web e il browser dell'utente. Se il sito Web ha una connessione HTTPS e dispone anche di un binding del sito HTTPS associato all'indirizzo IP del server IIS con un'associazione al certificato TLS/SSL, è necessario aggiungere un nuovo binding del sito per il certificato con l'indirizzo IP della macchina virtuale IIS dopo il failover.

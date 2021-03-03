@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0b4a31200b99062a72a02ca62ac8f3bf1206f9c9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546806"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722093"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Connettersi a Azure Resource Manager nel dispositivo Azure Stack Edge Pro
 
@@ -130,7 +130,7 @@ Il client Windows in cui si richiameranno le API Azure Resource Manager deve sta
 
 Il client Windows deve soddisfare i prerequisiti seguenti:
 
-1. Eseguire PowerShell versione 5,0. È necessario disporre di PowerShell versione 5,0 o successiva. Per controllare la versione di PowerShell nel sistema, eseguire il cmdlet seguente:
+1. Eseguire PowerShell versione 5,0. È necessario disporre di PowerShell versione 5,0. PowerShell Core non è supportato. Per controllare la versione di PowerShell nel sistema, eseguire il cmdlet seguente:
 
     ```powershell
     $PSVersionTable.PSVersion

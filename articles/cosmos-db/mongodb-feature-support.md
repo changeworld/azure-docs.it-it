@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 652be939136139620f6ec024fe98463113c6fb4a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 61c034d6365909ca6255adcdc0c75e5a8ddd6cb4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657520"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692250"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione 3.2): funzionalità e sintassi supportate
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -22,7 +22,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 Usando l'API di Azure Cosmos DB per MongoDB è possibile sfruttare i noti vantaggi di MongoDB con tutte le funzionalità aziendali offerte da Cosmos DB: [distribuzione globale](distribute-data-globally.md), [partizionamento orizzontale automatico](partitioning-overview.md), garanzie di disponibilità e latenza, indicizzazione automatica di ogni campo, crittografia di dati inattivi, backup e molto altro.
 
 > [!NOTE]
-> Questo articolo riguarda l'API di Azure Cosmos DB per MongoDB 3.2. Per le versioni MongoDB 3,6 e 4,0, vedere la sintassi e le funzionalità supportate di [mongodb 3,6](mongodb-feature-support-36.md) e gli articoli [sulla sintassi e sulle funzionalità supportate di MongoDB 4,0](mongodb-feature-support-40.md) .
+> La versione 3,2 dell'API Cosmos DB per MongoDB non prevede alcun piano corrente per la fine del ciclo di vita (EOL). Il preavviso minimo per una futura EOL è di tre anni.
 
 ## <a name="protocol-support"></a>Protocolli supportati
 

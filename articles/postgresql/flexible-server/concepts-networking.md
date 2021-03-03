@@ -5,13 +5,13 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: c30c01a18a17981b4e034c9df2cf822e6580430e
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.date: 02/21/2021
+ms.openlocfilehash: a6f049670a6860bbc195b92458945d1a53029b4f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567723"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732803"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Panoramica della rete-database di Azure per PostgreSQL-server flessibile
 
@@ -61,6 +61,8 @@ Di seguito sono riportati alcuni concetti che è necessario conoscere quando si 
 * **Subnet delegata** : una rete virtuale contiene subnet (sottoreti). Le subnet consentono di segmentare la rete virtuale in spazi di indirizzi più piccoli. Le risorse di Azure vengono distribuite in subnet specifiche all'interno di una rete virtuale. 
 
    Il server flessibile PostgreSQL deve trovarsi in una subnet **delegata** solo per l'uso di server flessibili PostgreSQL. Questa delega indica che solo i server flessibili di database di Azure per PostgreSQL possono usare tale subnet. Gli altri tipi di risorsa di Azure non possono trovarsi nella subnet delegata. Si delega una subnet assegnando la relativa proprietà di delega come Microsoft. DBforPostgreSQL/flexibleServers.
+
+   Aggiungere `Microsoft.Storage` all'endpoint servizio per la subnet delegata a server flessibili. 
 
 * **Gruppi di sicurezza di rete (NSG)** Le regole di sicurezza nei gruppi di sicurezza di rete consentono di filtrare il tipo di traffico di rete che può fluire in entrata e in uscita dalle subnet della rete virtuale e dalle interfacce di rete. Per ulteriori informazioni, vedere la [Panoramica del gruppo di sicurezza di rete](../../virtual-network/network-security-groups-overview.md) .
 

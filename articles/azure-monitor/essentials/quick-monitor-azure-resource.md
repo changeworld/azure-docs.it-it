@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: cab41c025f9f3e5b03f042a2bf5686cb08dbd0a9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 62afc0ab4e65da53adb35510503051d39e0edc4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628899"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734231"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Avvio rapido: Monitorare una risorsa di Azure con Monitoraggio di Azure
 [Monitoraggio di Azure](../overview.md) avvia la raccolta di dati dalle risorse di Azure nel momento in cui vengono create. Questa guida di avvio rapido illustra brevemente i dati raccolti automaticamente per una risorsa e come visualizzare tali dati nel portale di Azure per una determinata risorsa. In un secondo momento, si potrà aggiungere la configurazione necessaria per raccogliere altri dati nonché passare al menu di Monitoraggio di Azure per usare gli stessi strumenti per accedere ai dati raccolti per tutte le risorse nella sottoscrizione.
@@ -67,7 +67,7 @@ Le metriche sono valori numerici che descrivono alcuni aspetti della risorsa in 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa guida di avvio rapido si sono visualizzati il log attività e le metriche per una risorsa di Azure che vengono raccolti automaticamente da Monitoraggio di Azure. Continuare con la guida di avvio rapido successiva, che illustra come raccogliere il log attività in un'area di lavoro Log Analytics in cui può essere analizzato usando [query di log](../log-query/log-query-overview.md).
+In questa guida di avvio rapido si sono visualizzati il log attività e le metriche per una risorsa di Azure che vengono raccolti automaticamente da Monitoraggio di Azure. Continuare con la guida di avvio rapido successiva, che illustra come raccogliere il log attività in un'area di lavoro Log Analytics in cui può essere analizzato usando [query di log](../logs/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Inviare il log attività di Azure all'area di lavoro Log Analytics](../learn/quick-collect-activity-log-portal.md)
+> [Inviare il log attività di Azure all'area di lavoro Log Analytics](./quick-collect-activity-log-portal.md)

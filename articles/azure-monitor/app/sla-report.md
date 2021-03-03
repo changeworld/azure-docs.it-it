@@ -3,12 +3,12 @@ title: Cartella di lavoro di inattività, SLA e interruzioni-Application Insight
 description: Calcola e segnala il contratto di servizio per il test Web tramite un unico riquadro di vetro tra le risorse Application Insights e le sottoscrizioni di Azure.
 ms.topic: conceptual
 ms.date: 02/8/2021
-ms.openlocfilehash: 884d65d10ab0360957360efa8bf9dc4cac59949b
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989396"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714052"
 ---
 # <a name="downtime-sla-and-outages-workbook"></a>Tempi di inattività, SLA e interruzioni della cartella di lavoro
 
@@ -51,13 +51,13 @@ La scheda interruzioni **e tempi di inattività** contiene informazioni sulle is
 
 ## <a name="edit-the-report"></a>Modificare il report
 
-È possibile modificare il report come qualsiasi altra [cartella di lavoro di monitoraggio di Azure](../platform/workbooks-overview.md). È possibile personalizzare le query o le visualizzazioni in base alle esigenze del team.
+È possibile modificare il report come qualsiasi altra [cartella di lavoro di monitoraggio di Azure](../visualize/workbooks-overview.md). È possibile personalizzare le query o le visualizzazioni in base alle esigenze del team.
 
 :::image type="content" source="./media/sla-report/edit.gif" alt-text=" GIF della selezione del pulsante modifica per modificare la visualizzazione in un grafico a torta." lightbox="./media/sla-report/edit.gif":::
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Tutte le query possono essere eseguite in [log Analytics](../log-query/log-analytics-overview.md) e usate in altri report o dashboard. Rimuovere la restrizione del parametro e riutilizzare la query principale.
+Tutte le query possono essere eseguite in [log Analytics](../logs/log-analytics-overview.md) e usate in altri report o dashboard. Rimuovere la restrizione del parametro e riutilizzare la query principale.
 
 :::image type="content" source="./media/sla-report/logs.gif" alt-text=" GIF della query di log." lightbox="./media/sla-report/logs.gif":::
 
@@ -69,6 +69,6 @@ Il report può essere condiviso con i team, la leadership o aggiunto a un dashbo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Log Analytics suggerimenti](../log-query/query-optimization.md)per l'ottimizzazione delle query.
-- Informazioni su come [creare un grafico nelle cartelle di lavoro](../platform/workbooks-chart-visualizations.md)di.
+- [Log Analytics suggerimenti](../logs/query-optimization.md)per l'ottimizzazione delle query.
+- Informazioni su come [creare un grafico nelle cartelle di lavoro](../visualize/workbooks-chart-visualizations.md)di.
 - Informazioni su come monitorare il sito Web con i [test di disponibilità](monitor-web-app-availability.md).

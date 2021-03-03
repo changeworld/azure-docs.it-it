@@ -12,15 +12,15 @@ ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 02/23/2021
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 63d3ac356e4f2c1d17e1511227f5089b7ff4266f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.openlocfilehash: 59f8d721c23cbb033f295f2ef3045fc96f08ba96
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589159"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733185"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Creare una pipeline CI/CD per .NET con Azure DevOps Starter
 
@@ -43,7 +43,9 @@ DevOps Starter crea una pipeline CI/CD in Azure DevOps. È possibile creare una 
 1. Selezionare l'applicazione di esempio **.NET**. Gli esempi .NET consentono di scegliere tra il framework ASP.NET open source o il framework .NET Core multipiattaforma.
 
    ![.NET Framework](_img/azure-devops-project-aspnet-core/select-dotnet.png)
-
+   
+   > [!NOTE]
+   > L'opzione predefinita per la configurazione dell'avvio di DevOps è con **GitHub**, ma questa impostazione può essere modificata dalla procedura guidata.
 2. Questo esempio è un'applicazione MVC ASP.NET Core. Selezionare il framework applicazione **.NET Core**, quindi selezionare **Avanti**.    
     
 3. Selezionare **App Web Windows** come destinazione della distribuzione, quindi selezionare **Avanti**. Facoltativamente, è possibile scegliere altri servizi di Azure per la distribuzione. Il framework applicazione, scelto in precedenza, determina il tipo di destinazione della distribuzione del servizio di Azure disponibile.

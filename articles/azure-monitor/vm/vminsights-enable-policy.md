@@ -1,20 +1,20 @@
 ---
-title: Abilitare Monitoraggio di Azure per le macchine virtuali con Criteri di Azure
-description: Viene descritto come abilitare Monitoraggio di Azure per le macchine virtuali per più macchine virtuali di Azure o set di scalabilità di macchine virtuali usando criteri di Azure.
+title: Abilitare VM Insights tramite criteri di Azure
+description: Viene descritto come abilitare VM Insights per più macchine virtuali di Azure o set di scalabilità di macchine virtuali usando criteri di Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 4da0610de1f71cd422ec684ea633a4474c078862
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a63a647f3d76e3cc2616f05fe96d86dbdd36e74d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619827"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707541"
 ---
-# <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Abilitare Monitoraggio di Azure per le macchine virtuali con Criteri di Azure
-Questo articolo illustra come abilitare Monitoraggio di Azure per le macchine virtuali per macchine virtuali di Azure o macchine virtuali ibride connesse con Azure Arc (anteprima) usando criteri di Azure. Criteri di Azure consente di assegnare le definizioni dei criteri che installano gli agenti necessari per Monitoraggio di Azure per le macchine virtuali nell'ambiente Azure e abilitano automaticamente il monitoraggio per le macchine virtuali durante la creazione di ogni macchina virtuale. Monitoraggio di Azure per le macchine virtuali offre una funzionalità che consente di individuare e correggere le macchine virtuali non conformi nell'ambiente in uso. Usare questa funzionalità anziché lavorare direttamente con criteri di Azure.
+# <a name="enable-vm-insights-by-using-azure-policy"></a>Abilitare VM Insights tramite criteri di Azure
+Questo articolo illustra come abilitare VM Insights per macchine virtuali di Azure o macchine virtuali ibride connesse con Azure Arc (anteprima) usando criteri di Azure. Criteri di Azure consente di assegnare le definizioni dei criteri che installano gli agenti richiesti per le informazioni sulle VM nell'ambiente Azure e abilitano automaticamente il monitoraggio delle macchine virtuali durante la creazione di ogni macchina virtuale. VM Insights offre una funzionalità che consente di individuare e correggere le macchine virtuali non conformi nell'ambiente in uso. Usare questa funzionalità anziché lavorare direttamente con criteri di Azure.
 
 Se non si ha familiarità con i criteri di Azure, è possibile ottenere una breve introduzione alla [distribuzione di monitoraggio di Azure su larga scala usando criteri di Azure](../deploy-scale.md).
 
@@ -22,15 +22,15 @@ Se non si ha familiarità con i criteri di Azure, è possibile ottenere una brev
 > Per usare i criteri di Azure con i set di scalabilità di macchine virtuali di Azure o per usare direttamente i criteri di Azure per abilitare le macchine virtuali di Azure, vedere [distribuire monitoraggio di Azure su larga scala con criteri di Azure](../deploy-scale.md#azure-monitor-for-vms).
 
 ## <a name="prerequisites"></a>Prerequisiti
-- [Creare e configurare un'area di lavoro log Analytics](../insights/vminsights-configure-workspace.md).
-- Vedere [sistemi operativi supportati](../insights/vminsights-enable-overview.md#supported-operating-systems) per assicurarsi che il sistema operativo della macchina virtuale o del set di scalabilità di macchine virtuali che si sta abilitando sia supportato. 
+- [Creare e configurare un'area di lavoro log Analytics](./vminsights-configure-workspace.md).
+- Vedere [sistemi operativi supportati](./vminsights-enable-overview.md#supported-operating-systems) per assicurarsi che il sistema operativo della macchina virtuale o del set di scalabilità di macchine virtuali che si sta abilitando sia supportato. 
 
 
-## <a name="azure-monitor-for-vms-initiative"></a>Monitoraggio di Azure per le macchine virtuali Initiative
-Monitoraggio di Azure per le macchine virtuali fornisce le definizioni dei criteri predefiniti per installare l'agente di Log Analytics e l'agente di dipendenza nelle macchine virtuali di Azure. L'iniziativa **Enable monitoraggio di Azure per le macchine virtuali** include ognuna di queste definizioni di criteri. Assegnare questa iniziativa a un gruppo di gestione, a una sottoscrizione o a un gruppo di risorse per installare automaticamente gli agenti in qualsiasi macchina virtuale Windows o Linux di Azure in tale ambito.
+## <a name="vm-insights-initiative"></a>Iniziativa di VM Insights
+In VM Insights sono disponibili definizioni di criteri predefinite per l'installazione dell'agente di Log Analytics e di Dependency Agent nelle macchine virtuali di Azure. L'iniziativa **Enable VM Insights** include ognuna di queste definizioni di criteri. Assegnare questa iniziativa a un gruppo di gestione, a una sottoscrizione o a un gruppo di risorse per installare automaticamente gli agenti in qualsiasi macchina virtuale Windows o Linux di Azure in tale ambito.
 
 ## <a name="open-policy-coverage-feature"></a>Apri la funzionalità copertura criteri
-Per accedere **monitoraggio di Azure per le macchine virtuali copertura dei criteri**, passare alle **macchine virtuali** nel menu **monitoraggio di Azure** nel portale di Azure. Selezionare **altre opzioni di onboarding** e quindi **abilitare** in **Abilita utilizzando i criteri**.
+Per accedere alla **copertura dei criteri di VM Insights**, passare alle **macchine virtuali** nel menu **monitoraggio di Azure** della portale di Azure. Selezionare **altre opzioni di onboarding** e quindi **abilitare** in **Abilita utilizzando i criteri**.
 
 [![Scheda Introduzione a monitoraggio di Azure dalla macchina virtuale](./media/vminsights-enable-policy/get-started-page.png)](./media/vminsights-enable-policy/get-started-page.png#lightbox)
 
@@ -39,7 +39,7 @@ Se non si dispone già di un'assegnazione, crearne una nuova facendo clic su **a
 
 [![Crea assegnazione](media/vminsights-enable-policy/create-assignment.png)](media/vminsights-enable-policy/create-assignment.png#lightbox)
 
-Si tratta della stessa pagina che consente di assegnare un'iniziativa in criteri di Azure, ad eccezione del fatto che è hardcoded con l'ambito selezionato e con la definizione **Enable monitoraggio di Azure per le macchine virtuali** Initiative. Facoltativamente, è possibile modificare il **nome dell'assegnazione** e aggiungere una **Descrizione**. Selezionare **esclusioni** se si desidera fornire un'esclusione per l'ambito. Ad esempio, l'ambito può essere un gruppo di gestione ed è possibile specificare una sottoscrizione in tale gruppo di gestione da escludere dall'assegnazione.
+Si tratta della stessa pagina che consente di assegnare un'iniziativa in criteri di Azure, ad eccezione del fatto che è hardcoded con l'ambito selezionato e Abilita la definizione di iniziativa di **VM Insights** . Facoltativamente, è possibile modificare il **nome dell'assegnazione** e aggiungere una **Descrizione**. Selezionare **esclusioni** se si desidera fornire un'esclusione per l'ambito. Ad esempio, l'ambito può essere un gruppo di gestione ed è possibile specificare una sottoscrizione in tale gruppo di gestione da escludere dall'assegnazione.
 
 [![Assegna iniziativa](media/vminsights-enable-policy/assign-initiative.png)](media/vminsights-enable-policy/assign-initiative.png#lightbox)
 
@@ -48,14 +48,14 @@ Nella pagina **parametri** selezionare un'area di **lavoro log Analytics** che v
    > [!NOTE]
    > Se l'area di lavoro non rientra nell'ambito dell'assegnazione, concedere le autorizzazioni di *Collaboratore di Log Analytics* all'ID entità di sicurezza dell'assegnazione dei criteri. Se non si esegue questa operazione, è possibile che venga visualizzato un errore di distribuzione come `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
-[![Area di lavoro](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
+[![Area](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
 
 Fare clic su **Verifica + crea** per esaminare i dettagli dell'assegnazione prima di fare clic su **Crea** per crearla. In questo momento non è possibile creare un'attività di correzione poiché è molto probabile che siano necessarie più attività di monitoraggio e aggiornamento per abilitare le macchine virtuali esistenti. Vedere [correggere i risultati di conformità](#remediate-compliance-results) di seguito.
 
 ## <a name="review-compliance"></a>Verifica conformità
-Una volta creata un'assegnazione, è possibile esaminare e gestire la copertura per **abilitare monitoraggio di Azure per le macchine virtuali** Initiative nei gruppi di gestione e nelle sottoscrizioni. Verrà visualizzato il numero di macchine virtuali presenti in ognuno dei gruppi di gestione o delle sottoscrizioni e il relativo stato di conformità.
+Una volta creata un'assegnazione, è possibile esaminare e gestire la copertura per l'iniziativa **Abilita VM Insights** tra i gruppi di gestione e le sottoscrizioni. Verrà visualizzato il numero di macchine virtuali presenti in ognuno dei gruppi di gestione o delle sottoscrizioni e il relativo stato di conformità.
 
-[![Pagina di gestione dei criteri di Monitoraggio di Azure per le macchine virtuali](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
+[![Pagina di gestione dei criteri di VM Insights](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
 
 
 Nella tabella seguente viene fornita una descrizione delle informazioni contenute in questa vista.
@@ -105,11 +105,11 @@ Fare **clic su** Correggi per creare l'attività di monitoraggio e aggiornamento
 [![Screenshot che mostra il riquadro monitoraggio e aggiornamento dei criteri per il monitoraggio | Macchine virtuali.](media/vminsights-enable-policy/remediation.png)](media/vminsights-enable-policy/remediation.png#lightbox)
 
 
-Una volta completate le attività di correzione, le macchine virtuali devono essere conformi agli agenti installati e abilitati per Monitoraggio di Azure per le macchine virtuali. 
+Una volta completate le attività di correzione, le macchine virtuali devono essere conformi agli agenti installati e abilitati per VM Insights. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che il monitoraggio è abilitato per le macchine virtuali, queste informazioni sono disponibili per l'analisi con Monitoraggio di Azure per le macchine virtuali. 
+Ora che il monitoraggio è abilitato per le macchine virtuali, queste informazioni sono disponibili per l'analisi con VM Insights. 
 
-- Per visualizzare le dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](vminsights-maps.md). 
-- Per identificare i colli di bottiglia e l'utilizzo complessivo delle prestazioni della VM, vedere [visualizzare le prestazioni delle VM di Azure](vminsights-performance.md). 
+- Per visualizzare le dipendenze dell'applicazione individuate, vedere [visualizzare la mappa di VM Insights](vminsights-maps.md). 
+- Per identificare i colli di bottiglia e l'utilizzo complessivo delle prestazioni della VM, vedere [visualizzare le prestazioni delle VM di Azure](vminsights-performance.md).

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d1ab7da9753642093505fa91ea76b9327612a6ac
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 5072ae58d3a9412237e70a9bc98970296ce1e1fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582367"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686581"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>API Web che chiama API Web: configurazione del codice
 
@@ -245,6 +245,8 @@ class MsalAuthHelper {
 Il flusso per conto di (OBO) viene usato per ottenere un token per chiamare l'API Web downstream. In questo flusso, l'API Web riceve un bearer token con autorizzazioni delegate dall'utente dall'applicazione client e quindi scambia questo token per un altro token di accesso per chiamare l'API Web downstream.
 
 Un'API Web Python dovrà usare un middleware per convalidare la bearer token ricevuta dal client. L'API Web può quindi ottenere il token di accesso per l'API downstream usando la libreria MSAL Python chiamando il [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) metodo. Per un esempio dell'uso di questa API, vedere il [codice di test per Microsoft-Authentication-Library-for-Python su GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Vedere anche la discussione sul [problema 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) nello stesso repository per un approccio che ignora la necessità di un'applicazione di livello intermedio.
+
+È anche possibile vedere un esempio dell'implementazione del flusso OBO nell'esempio [MS-Identity-Python-on-conto-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of) .
 
 ---
 

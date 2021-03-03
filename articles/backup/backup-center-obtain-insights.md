@@ -3,16 +3,16 @@ title: Ottenere informazioni dettagliate con backup Center
 description: Informazioni su come analizzare le tendenze cronologiche e ottenere informazioni più dettagliate sui backup con il centro di backup.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 3086224e4dbb1be2ccfadbfcfcb7441b68a5ff6b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47158e53e6248b2b9cef4ff6fd6b5da5972786eb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592014"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719458"
 ---
-# <a name="obtain-insights-using-backup-center-preview"></a>Ottenere informazioni dettagliate usando il centro di backup (anteprima)
+# <a name="obtain-insights-using-backup-center"></a>Ottenere informazioni dettagliate con backup Center
 
-Per analizzare le tendenze cronologiche e ottenere informazioni più approfondite sui backup, Backup Center fornisce un'interfaccia per i report di [backup (anteprima)](configure-reports.md), che usa i [log di monitoraggio di Azure](../azure-monitor/logs/data-platform-logs.md) e le [cartelle di lavoro di Azure](../azure-monitor/visualize/workbooks-overview.md). I report di backup offrono le funzionalità seguenti:
+Per analizzare le tendenze cronologiche e ottenere informazioni più approfondite sui backup, Backup Center fornisce un'interfaccia per il backup dei [report](configure-reports.md), che usa i [log di monitoraggio di Azure](../azure-monitor/logs/data-platform-logs.md) e le [cartelle di lavoro di Azure](../azure-monitor/visualize/workbooks-overview.md). I report di backup offrono le funzionalità seguenti:
 
 - Allocazione e previsione dello spazio di archiviazione cloud utilizzato.
 
@@ -24,7 +24,7 @@ Per analizzare le tendenze cronologiche e ottenere informazioni più approfondit
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
-- I report di backup (anteprima) non sono attualmente disponibili per il backup del server database di Azure per PostgreSQL.
+- I report di backup non sono attualmente disponibili per il backup del server database di Azure per PostgreSQL.
 
 - Per un elenco dettagliato degli scenari supportati e non supportati, vedere la [matrice di supporto](backup-center-support-matrix.md) .
 
@@ -53,6 +53,8 @@ Di seguito sono riportate le visualizzazioni disponibili:
 1. **Criteri** : usare questa scheda per visualizzare le informazioni su tutti i criteri attivi, ad esempio il numero di elementi associati e l'archiviazione cloud totale utilizzata dagli elementi di cui è stato eseguito il backup in base a un determinato criterio. [Scopri di più](./configure-reports.md#policies)
 
 1. **Ottimizza** : usare questa scheda per ottenere visibilità sulle possibili opportunità di ottimizzazione dei costi per i backup. [Scopri di più](./configure-reports.md#optimize)
+
+1. **Conformità ai criteri** : utilizzare questa scheda per ottenere una visibilità specifica se a ogni istanza di backup è stato associato almeno un backup al giorno.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

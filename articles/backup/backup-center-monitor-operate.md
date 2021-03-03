@@ -3,20 +3,20 @@ title: Monitorare e gestire i backup con Centro backup
 description: Questo articolo illustra come monitorare e gestire i backup su larga scala con backup Center
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 9ce3b0f00c51e9b466a9ed040b677df811448b1d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1c40f7804a0f0bb7694e6df205648d3ad20ad80e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893779"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719543"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center-preview"></a>Monitorare e usare i backup con backup Center (anteprima)
+# <a name="monitor-and-operate-backups-using-backup-center"></a>Monitorare e gestire i backup con Centro backup
 
 Come amministratore di backup, è possibile usare il centro di backup come un unico riquadro di vetro per monitorare i processi e l'inventario dei backup su base giornaliera. È anche possibile usare il centro di backup per eseguire le normali operazioni, ad esempio la risposta alle richieste di backup su richiesta, il ripristino dei backup, la creazione di criteri di backup e così via.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
-* Il centro di backup è attualmente supportato per il backup di macchine virtuali di Azure, SQL nel backup di VM di Azure, SAP HANA nel backup di macchine virtuali di Azure, Backup File di Azure e backup del server di database di Azure per PostgreSQL.
+* Il centro di backup è attualmente supportato per il backup di macchine virtuali di Azure, SQL nel backup di VM di Azure, SAP HANA nel backup di macchine virtuali di Azure, Backup File di Azure, backup BLOB di Azure, backup di Azure Managed Disks e backup del server di database di Azure per PostgreSQL
 * Per un elenco dettagliato degli scenari supportati e non supportati, vedere la [matrice di supporto](backup-center-support-matrix.md) .
 
 ## <a name="backup-instances"></a>Istanze di backup

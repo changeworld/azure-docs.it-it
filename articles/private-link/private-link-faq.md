@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582010"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709410"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Domande frequenti sul collegamento privato di Azure
 
@@ -65,6 +65,12 @@ I backend del servizio devono trovarsi in una rete virtuale e dietro un Load Bal
 - Aggiungere macchine virtuali back-end al pool dietro la Load Balancer Standard 
 - Aggiungere un indirizzo IP al servizio di collegamento privato. Sono consentiti fino a 8 indirizzi IP per servizio di collegamento privato.  
 - Aggiungere un nuovo servizio di collegamento privato per Load Balancer Standard. Sono consentiti fino a otto servizi di collegamento privato per ogni servizio di bilanciamento del carico.   
+
+### <a name="what-is-natnetwork-address-translation-ip-configuration-used-in-private-link-service-how-can-i-scale-in-terms-of-available-ports-and-connections"></a>Che cos'è la configurazione IP NAT (Network Address Translation) usata nel servizio di collegamento privato? Come è possibile applicare la scalabilità in termini di porte e connessioni disponibili? 
+
+La configurazione IP NAT garantisce che non esistano conflitti IP tra l'origine (lato utente) e lo spazio degli indirizzi di destinazione (provider di servizi) fornendo la NAT di origine sul traffico dei collegamenti privati sul lato di destinazione (lato provider di servizi). L'indirizzo IP NAT viene visualizzato come IP di origine per tutti i pacchetti ricevuti dal servizio e dall'IP di destinazione per tutti i pacchetti inviati dal servizio.  È possibile scegliere l'indirizzo IP NAT da qualsiasi subnet nella rete virtuale di un provider di servizi. 
+
+Ogni IP NAT fornisce connessioni TCP 64K (porte 64K) per macchina virtuale dietro la Load Balancer Standard. Per ridimensionare e aggiungere altre connessioni, è possibile aggiungere nuovi IP NAT o aggiungere altre macchine virtuali dietro la Load Balancer Standard. Questa operazione consente di ridimensionare la disponibilità delle porte e consentire più connessioni. Le connessioni verranno distribuite tra IP NAT e macchine virtuali dietro la Load Balancer Standard.
 
 ### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>È possibile connettere il servizio a più endpoint privati?
 Sì. Un servizio di collegamento privato può ricevere connessioni da più endpoint privati. Un endpoint privato può tuttavia connettersi a un solo servizio di collegamento privato.  

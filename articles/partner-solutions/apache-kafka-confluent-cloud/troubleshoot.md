@@ -3,15 +3,15 @@ title: Risoluzione dei problemi relativi a Apache Kafka per il cloud Confluent-s
 description: Questo articolo fornisce informazioni sulla risoluzione dei problemi e sulle domande frequenti per il cloud Confluent in Azure.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: cbf166086a489165e8100dafd7c212ab6c298b41
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: b1e4b06fcbecf11d7d5f58a583fe3bd6643d99ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253526"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709395"
 ---
 # <a name="troubleshooting-apache-kafka-for-confluent-cloud-solutions"></a>Risoluzione dei problemi Apache Kafka per soluzioni cloud confluenti
 
@@ -28,6 +28,16 @@ Per trovare l'offerta in Azure Marketplace, seguire questa procedura:
 1. Selezionare il riquadro dell'applicazione.
 
 Se l'offerta non è visualizzata, contattare il [supporto tecnico](https://support.confluent.io). L'ID tenant di Azure Active Directory deve essere nell'elenco dei tenant consentiti. Per informazioni su come trovare l'ID tenant, vedere [come trovare l'ID tenant di Azure Active Directory](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+
+## <a name="purchase-errors"></a>Errori di acquisto
+
+* L'acquisto non riesce perché una carta di credito valida non è connessa alla sottoscrizione di Azure oppure un metodo di pagamento non è associato alla sottoscrizione.
+
+  Usare una sottoscrizione di Azure diversa. In alternativa, aggiungere o aggiornare la carta di credito o il metodo di pagamento per la sottoscrizione. Per ulteriori informazioni, vedere [aggiornamento del metodo di pagamento e di credito](../../cost-management-billing/manage/change-credit-card.md).
+
+* La sottoscrizione EA non consente acquisti nel Marketplace.
+
+  Usare una sottoscrizione diversa. In alternativa, controllare se la sottoscrizione EA è abilitata per l'acquisto del Marketplace. Per altre informazioni, vedere [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). Se tali opzioni non risolvono il problema, contattare il [supporto tecnico](https://support.confluent.io).
 
 ## <a name="conflict-error"></a>errore di conflitto
 

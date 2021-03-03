@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d134532e7f285f391b6791a9fc73d5e3251ddac8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
-ms.translationtype: HT
+ms.openlocfilehash: 1a7e1cc2303438a904b95a378a14bd02ac88c179
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369410"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736634"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Informazioni su Servizi cognitivi di Azure
 
@@ -43,7 +43,7 @@ Le sezioni seguenti di questo articolo contengono un elenco dei servizi che fann
 |[Servizio Visione personalizzata](./custom-vision-service/overview.md "Servizio visione artificiale personalizzato")|Il Servizio visione artificiale personalizzato consente di creare classificatori di immagini personalizzati.|
 |[Viso](./face/index.yml "Viso")| Il servizio Viso fornisce l'accesso ad algoritmi viso avanzati consentendo il rilevamento e il riconoscimento degli attributi del viso.|
 |[Riconoscimento modulo](./form-recognizer/index.yml "Riconoscimento modulo")|Il riconoscimento modulo identifica ed estrae le coppie chiave-valore e i dati delle tabelle dai documenti dei moduli, quindi restituisce dati strutturati che includono le relazioni nel file originale.|
-|[Riconoscimento input penna](./ink-recognizer/index.yml "Riconoscimento input penna") (in fase di ritiro)|Il riconoscimento input penna consente di riconoscere e analizzare i dati del tratto di input penna digitale, le forme e il contenuto scritto a mano e di restituire una struttura di documento con tutte le entità riconosciute.|
+|[Riconoscimento input penna](/previous-versions/azure/cognitive-services/Ink-Recognizer/ "Riconoscimento input penna") (in fase di ritiro)|Il riconoscimento input penna consente di riconoscere e analizzare i dati del tratto di input penna digitale, le forme e il contenuto scritto a mano e di restituire una struttura di documento con tutte le entità riconosciute.|
 |[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer consente di estrarre informazioni dettagliate dai video.|
 
 ## <a name="speech-apis"></a>Speech API

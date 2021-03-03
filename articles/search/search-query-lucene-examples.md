@@ -1,273 +1,356 @@
 ---
 title: Usa la sintassi di query Lucene completa
 titleSuffix: Azure Cognitive Search
-description: Sintassi di query Lucene per la ricerca fuzzy, la ricerca per prossimità, l'aumento dei termini, la ricerca di espressioni regolari e le ricerche con caratteri jolly in un servizio ricerca cognitiva di Azure.
+description: Esempi di query che illustrano la sintassi di query Lucene per la ricerca fuzzy, la ricerca per prossimità, l'aumento dei termini, la ricerca di espressioni regolari e le ricerche con caratteri jolly in un indice ricerca cognitiva di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: df26cfc3b220f40a7e73ff1c750d2b2ae37e7625
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 6213efb6ba14052c6f957a6d999f48f55f65186c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401458"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693561"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Usare la sintassi di ricerca Lucene "completa" (query avanzate in Azure ricerca cognitiva)
 
-Quando si creano query per Azure ricerca cognitiva, è possibile sostituire il [parser di query semplice](query-simple-syntax.md) predefinito con il parser di query Lucene più potente [in Azure ricerca cognitiva](query-lucene-syntax.md) per formulare definizioni di query specializzate e avanzate. 
+Quando si creano query per Azure ricerca cognitiva, è possibile sostituire il [parser di query semplice](query-simple-syntax.md) predefinito con il parser di query [Lucene](query-lucene-syntax.md) più potente per formulare espressioni di query specializzate e avanzate.
 
-Il parser Lucene supporta costrutti di query complessi, ad esempio query con ambito campo, ricerca fuzzy, ricerca con caratteri jolly infissi e suffissi, ricerca di prossimità, aumento della priorità dei termini e ricerca di espressioni regolari. Il livello più avanzato comporta requisiti di elaborazione aggiuntivi. È pertanto opportuno prevedere un tempo di esecuzione leggermente superiore. In questo articolo è possibile esaminare gli esempi che illustrano le operazioni di query in base alla sintassi completa.
+Il parser Lucene supporta formati di query complessi, ad esempio query con ambito campo, ricerca fuzzy, infissi e ricerca con caratteri jolly suffisso, ricerca di prossimità, boosting dei termini e ricerca di espressioni regolari. Il livello più avanzato comporta requisiti di elaborazione aggiuntivi. È pertanto opportuno prevedere un tempo di esecuzione leggermente superiore. In questo articolo è possibile esaminare gli esempi che illustrano le operazioni di query in base alla sintassi completa.
 
 > [!Note]
 > Molte delle costruzioni di query specializzate possibili attraverso la sintassi di query Lucene completa non vengono [analizzate dal punto di vista del testo](search-lucene-query-architecture.md#stage-2-lexical-analysis), fatto che può sembrare sorprendente se ci si aspetta lo stemming o la lemmatizzazione. L'analisi lessicale viene eseguita solo su termini completi, la query di un termine o di una locuzione. I tipi di query con termini incompleti, ad esempio query di prefisso, di caratteri jolly, di espressioni regolari, fuzzy, vengono aggiunte direttamente alla struttura della query, ignorando la fase di analisi. L'unica trasformazione eseguita su termini di query parziali è minuscole. 
 >
 
-## <a name="nyc-jobs-examples"></a>Esempi di processi NYC
+## <a name="hotels-sample-index"></a>Indice di esempio degli hotel
 
-Gli esempi seguenti sfruttano l' [indice di ricerca dei processi NYC](https://azjobsdemo.azurewebsites.net/)  costituito da processi disponibili in base a un set di dati fornito dalla [città di New York parte Initiative](https://nycopendata.socrata.com/). Questi dati non devono essere considerati attuali o completi. L'indice si trova in un servizio sandbox fornito da Microsoft, il che significa che non è necessaria una sottoscrizione di Azure o un ricerca cognitiva di Azure per provare queste query.
+Le query seguenti sono basate su Hotels-sample-index, che è possibile creare seguendo le istruzioni riportate in questa [Guida introduttiva](search-get-started-portal.md).
 
-È necessario disporre di un post o di uno strumento equivalente per emettere la richiesta HTTP su GET o POST. Se non si ha familiarità con questi strumenti, vedere [Guida introduttiva: esplorare Azure ricerca cognitiva API REST](search-get-started-rest.md).
+Le query di esempio sono articolate usando l'API REST e le richieste POST. È possibile incollare ed eseguire tali elementi in un [post](search-get-started-rest.md) o in [Visual Studio Code con l'estensione ricerca cognitiva](search-get-started-vs-code.md).
 
-## <a name="set-up-the-request"></a>Configurare la richiesta
+Le intestazioni della richiesta devono contenere i valori seguenti:
 
-1. Le intestazioni della richiesta devono contenere i valori seguenti:
+| Chiave | valore |
+|-----|-------|
+| Content-Type | application/json|
+| api-key  | `<your-search-service-api-key>`, una query o una chiave amministratore |
 
-   | Chiave | valore |
-   |-----|-------|
-   | Content-Type | `application/json`|
-   | api-key  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (si tratta della chiave API di query effettiva per il servizio di ricerca sandbox che ospita l'indice dei processi NYC) |
-
-1. Impostare il verbo su **`GET`** .
-
-1. Impostare l'URL su **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30&queryType=full`**
-
-   + La raccolta Documents nell'indice contiene tutti i contenuti disponibili per la ricerca. Una chiave API di query fornita nell'intestazione della richiesta funziona solo per le operazioni di lettura destinate alla raccolta Documents.
-
-   + **`$count=true`** Restituisce un conteggio dei documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, il conteggio sarà costituito da tutti i documenti nell'indice (circa 2558 nel caso dei processi NYC).
-
-   + **`search=*`** query non specificata, equivalente a una ricerca vuota o null. Non è particolarmente utile, ma è la ricerca più semplice che è possibile eseguire e Mostra tutti i campi recuperabili nell'indice, con tutti i valori.
-
-   + **`queryType=full`** richiama l'analizzatore Lucene completo.
-
-1. Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **Invia**. I risultati vengono restituiti come documenti JSON dettagliati.
-
-   ```http
-   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
-   ```
-
-### <a name="how-to-invoke-full-lucene-parsing"></a>Come richiamare l'analisi completa di Lucene
-
-Aggiungere **`queryType=full`** per richiamare la sintassi di query completa, eseguendo l'override della sintassi di query semplice predefinita. Tutti gli esempi in questo articolo specificano il **`queryType=full`** parametro Search, che indica che la sintassi completa viene gestita dal parser di query Lucene. 
+I parametri URI devono includere l'endpoint del servizio di ricerca con il nome dell'indice, le raccolte docs, il comando di ricerca e la versione dell'API, in modo simile all'esempio seguente:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-{
-    "queryType": "full"
-}
+https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
-## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Esempio 1: query con ambito per un elenco di campi
+Il corpo della richiesta deve essere formato come JSON valido:
 
-Questo primo esempio non è specifico del parser, ma viene presentato per primo come introduzione al primo concetto fondamentale delle query: l'indipendenza. Questo esempio limita l'esecuzione delle query e la risposta ad alcuni campi specifici. È importante sapere come strutturare una risposta JSON leggibile quando lo strumento usato è Postman o Esplora ricerche. 
-
-Questa query è destinata solo a *business_title* in **`searchFields`** , specificando tramite il **`select`** parametro lo stesso campo nella risposta.
-
-```http
-POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30
+```json
 {
-    "count": true,
-    "queryType": "full",
     "search": "*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "queryType": "full",
+    "select": "HotelId, HotelName, Category, Tags, Description",
+    "count": true
 }
 ```
 
-La risposta per questa query dovrebbe essere simile alla seguente schermata.
++ "Search" impostato su `*` è una query non specificata, equivalente a null o a una ricerca vuota. Non è particolarmente utile, ma è la ricerca più semplice che è possibile eseguire e Mostra tutti i campi recuperabili nell'indice, con tutti i valori.
 
-  ![Esempio di risposta ai punteggi](media/search-query-lucene-examples/postman-sample-results.png)
++ "queryType" impostato su "full" richiama il parser di query Lucene completo ed è necessario per questa sintassi.
 
-Si sarà notato il punteggio di ricerca nella risposta. I punteggi uniformi di **1** si verificano quando non esiste alcun rango, perché la ricerca non è full-text o perché non è stato fornito alcun criterio. Per una ricerca vuota, le righe vengono restituite in ordine arbitrario. Se si includono criteri effettivi, i punteggi di ricerca si convertono in valori significativi.
++ "Select" impostato su un elenco delimitato da virgole di campi viene usato per la composizione dei risultati della ricerca, inclusi solo i campi che risultano utili nel contesto dei risultati della ricerca.
 
-## <a name="example-2-fielded-search"></a>Esempio 2: ricerca nel campo
++ "count" restituisce il numero di documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, il conteggio sarà costituito da tutti i documenti nell'indice (50 nel caso di Hotels-sample-index).
 
-La sintassi Lucene completa supporta l'ambito di singole espressioni di ricerca in un campo specifico. Questo esempio cerca i titoli aziendali con il termine senior, ma non Junior. È possibile specificare più campi utilizzando e.
+## <a name="example-1-fielded-search"></a>Esempio 1: ricerca nel campo
+
+Ambito di ricerca in campo, singole espressioni di ricerca incorporate in un campo specifico. Questo esempio cerca i nomi degli alberghi con il termine "Hotel", ma non con "Motel". È possibile specificare più campi utilizzando e. 
+
+Quando si usa questa sintassi di query, è possibile omettere il parametro "searchFields" quando i campi di cui si vuole eseguire una query si trovano nell'espressione di ricerca stessa. Se si include "searchFields" con la ricerca in campo, ha `fieldName:searchExpression` sempre la precedenza su "searchFields".
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:(hotel NOT motel) AND Category:'Resort and Spa'",
     "queryType": "full",
-    "search": "business_title:(senior NOT junior) AND posting_type:external",
-    "searchFields": "business_title, posting_type",
-    "select": "business_title, posting_type"
+    "select": "HotelName, Category",
+    "count": true
 }
 ```
 
-La risposta per questa query dovrebbe avere un aspetto simile allo screenshot seguente (posting_type non viene visualizzata).
+La risposta per questa query dovrebbe essere simile all'esempio seguente, filtrato in "Resort and Spa", restituendo gli hotel che includono "Hotel" o "Motel" nel nome.
 
-  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Espressione di ricerca della risposta di esempio del post" border="false":::
+```json
+"@odata.count": 4,
+"value": [
+    {
+        "@search.score": 4.481559,
+        "HotelName": "Nova Hotel & Spa",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.4524608,
+        "HotelName": "King's Palace Hotel",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.3970203,
+        "HotelName": "Triple Landscape Hotel",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.2953436,
+        "HotelName": "Peaceful Market Hotel & Spa",
+        "Category": "Resort and Spa"
+    }
+]
+```
 
-L'espressione di ricerca può essere costituita da una singola parola o frase o da un'espressione più complessa tra parentesi, facoltativamente con operatori booleani. Ecco alcuni esempi:
+L'espressione di ricerca può essere costituita da un solo termine o una frase o da un'espressione più complessa tra parentesi, facoltativamente con operatori booleani. Ecco alcuni esempi:
 
-+ `business_title:(senior NOT junior)`
-+ `state:("New York" OR "New Jersey")`
-+ `business_title:(senior NOT junior) AND posting_type:external`
++ `HotelName:(hotel NOT motel)`
++ `Address/StateProvince:("WA" OR "CA")`
++ `Tags:("free wifi" NOT "free parking") AND "coffee in lobby"`
 
-Assicurarsi di inserire più stringhe tra virgolette se si desidera che entrambe le stringhe vengano valutate come una singola entità, come in questo caso la ricerca di due posizioni distinte nel `state` campo. A seconda dello strumento, potrebbe essere necessario utilizzare caratteri di escape ( `\` ) per le virgolette. 
+Assicurarsi di inserire una frase tra virgolette se si desidera che entrambe le stringhe vengano valutate come una singola entità, come in questo caso la ricerca di due posizioni distinte nel campo Address/StateProvince. A seconda del client, potrebbe essere necessario utilizzare caratteri di escape ( `\` ) per le virgolette.
 
-Il campo specificato in **FieldName: searchExpression** deve essere un campo ricercabile. Per informazioni dettagliate sull'uso degli attributi di indice nelle definizioni di campo, vedere [create index (API REST di Azure ricerca cognitiva)](/rest/api/searchservice/create-index) .
+Il campo specificato in `fieldName:searchExpression` deve essere un campo ricercabile. Per informazioni dettagliate sul modo in cui vengono attribuiti le definizioni dei campi, vedere [create index (API REST)](/rest/api/searchservice/create-index) .
 
-> [!NOTE]
-> Nell'esempio precedente, il **`searchFields`** parametro viene omesso perché ogni parte della query ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile usare **`searchFields`** se la query contiene più parti (usando le istruzioni e). La query, ad esempio, `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` corrisponderà `senior NOT junior` solo al `business_title` campo, mentre corrisponderebbe a "External" con il `posting_type` campo. Il nome del campo fornito in ha `fieldName:searchExpression` sempre la precedenza su **`searchFields`** , motivo per cui in questo esempio è possibile omettere `business_title` **`searchFields`** .
+## <a name="example-2-fuzzy-search"></a>Esempio 2: ricerca fuzzy
 
-## <a name="example-3-fuzzy-search"></a>Esempio 3: ricerca fuzzy
-
-La sintassi Lucene completa supporta anche la ricerca fuzzy, basata sui termini che hanno una costruzione simile. Per eseguire una ricerca fuzzy, aggiungere il simbolo tilde `~` alla fine di una parola con un parametro facoltativo, un valore compreso tra 0 e 2, che specifica la distanza di edit. Ad esempio, `blue~` o `blue~1` restituirà blue, blues e glue.
+La ricerca fuzzy corrisponde a termini simili, incluse le parole errate. Per eseguire una ricerca fuzzy, aggiungere il simbolo tilde `~` alla fine di una parola con un parametro facoltativo, un valore compreso tra 0 e 2, che specifica la distanza di edit. Ad esempio, `blue~` o `blue~1` restituirà blue, blues e glue.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "Tags:conserge~",
     "queryType": "full",
-    "search": "business_title:asosiate~",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Category, Tags",
+    "searchFields": "HotelName, Category, Tags",
+    "count": true
 }
 ```
 
-Le frasi non sono supportate direttamente, ma è possibile specificare una corrispondenza fuzzy per ogni termine di una frase in più parti, ad esempio `search=business_title:asosiate~ AND comm~` .  Nella schermata riportata di seguito, la risposta include una corrispondenza nell' *associazione della community*.
+La risposta per questa query viene risolta in "concierge" nei documenti corrispondenti, tagliata per brevità:
 
-  :::image type="content" source="media/search-query-lucene-examples/fuzzysearch.png" alt-text="Risposta di Ricerca fuzzy" border="false":::
+```json
+"@odata.count": 12,
+"value": [
+    {
+        "@search.score": 1.1832147,
+        "HotelName": "Secret Point Motel",
+        "Category": "Boutique",
+        "Tags": [
+            "pool",
+            "air conditioning",
+            "concierge"
+        ]
+    },
+    {
+        "@search.score": 1.1819803,
+        "HotelName": "Twin Dome Motel",
+        "Category": "Boutique",
+        "Tags": [
+            "pool",
+            "free wifi",
+            "concierge"
+        ]
+    },
+    {
+        "@search.score": 1.1773309,
+        "HotelName": "Smile Hotel",
+        "Category": "Suite",
+        "Tags": [
+            "view",
+            "concierge",
+            "laundry service"
+        ]
+    },
+```
+
+Le frasi non sono supportate direttamente, ma è possibile specificare una corrispondenza fuzzy per ogni termine di una frase in più parti, ad esempio `search=Tags:landy~ AND sevic~` .  Questa espressione di query trova 15 corrispondenze in "servizio di lavanderia".
 
 > [!Note]
-> Le query fuzzy non vengono [analizzate](search-lucene-query-architecture.md#stage-2-lexical-analysis). I tipi di query con termini incompleti, ad esempio query di prefisso, di caratteri jolly, di espressioni regolari, fuzzy, vengono aggiunte direttamente alla struttura della query, ignorando la fase di analisi. L'unica trasformazione eseguita su termini di query parziali è minuscole.
+> Le query fuzzy non vengono [analizzate](search-lucene-query-architecture.md#stage-2-lexical-analysis). I tipi di query con termini incompleti, ad esempio query di prefisso, di caratteri jolly, di espressioni regolari, fuzzy, vengono aggiunte direttamente alla struttura della query, ignorando la fase di analisi. L'unica trasformazione eseguita su termini di query parziali è la maiuscola e minuscola.
 >
 
-## <a name="example-4-proximity-search"></a>Esempio 4: ricerca di prossimità
+## <a name="example-3-proximity-search"></a>Esempio 3: ricerca vicina
 
-Le ricerche per prossimità vengono usate per trovare termini che si trovano vicini in un documento. Inserire un carattere tilde "~" alla fine di una frase seguito dal numero di parole che creano il limite di prossimità. Ad esempio, "hotel airport"~5 troverà i termini hotel e airport entro 5 parole di distanza una dall'altra in un documento.
+La ricerca per prossimità trova termini vicini tra loro in un documento. Inserire un carattere tilde "~" alla fine di una frase seguito dal numero di parole che creano il limite di prossimità.
 
-Questa query cerca i termini "senior" e "Analyst", dove ogni termine è separato da più di una parola e le virgolette sono precedute da un carattere di escape ( `\"` ) per mantenere la frase:
+Questa query cerca i termini "Hotel" e "Airport" entro 5 parole l'uno dall'altro in un documento. Le virgolette sono precedute da un carattere di escape ( `\"` ) per mantenere la frase:
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "Description: \"hotel airport\"~5",
     "queryType": "full",
-    "search": "business_title:\"senior analyst\"~1",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Description",
+    "searchFields": "HotelName, Description",
+    "count": true
 }
 ```
 
-La risposta per questa query dovrebbe avere un aspetto simile allo screenshot seguente 
+La risposta per questa query dovrebbe essere simile all'esempio seguente:
 
-  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Query di prossimità" border="false":::
+```json
+"@odata.count": 2,
+"value": [
+    {
+        "@search.score": 0.6331726,
+        "HotelName": "Trails End Motel",
+        "Description": "Only 8 miles from Downtown.  On-site bar/restaurant, Free hot breakfast buffet, Free wireless internet, All non-smoking hotel. Only 15 miles from airport."
+    },
+    {
+        "@search.score": 0.43032226,
+        "HotelName": "Catfish Creek Fishing Cabins",
+        "Description": "Brand new mattresses and pillows.  Free airport shuttle. Great hotel for your business needs. Comp WIFI, atrium lounge & restaurant, 1 mile from light rail."
+    }
+]
+```
 
-Riprovare, eliminando qualsiasi distanza ( `~0` ) tra i termini "analista senior". Si noti che vengono restituiti 8 documenti per questa query, rispetto ai 10 per la query precedente.
+## <a name="example-4-term-boosting"></a>Esempio 4: incremento del termine
+
+Questa definizione si riferisce alla termine si riferisce alla classificazione più alta di un documento se contiene il termine con aumento di priorità, rispetto a documenti che non contengono il termine. Per incrementare un termine, usare il punto di inserimento, `^` , simbolo con un fattore di incremento (un numero) alla fine del periodo di ricerca. Il valore predefinito del fattore di incremento è 1, anche se deve essere positivo, può essere minore di 1 (ad esempio, 0,2). L'aumento priorità dei termini si differenzia dai profili di punteggio per il fatto che questi ultimi aumentano la priorità di alcuni campi e non di termini specifici.
+
+In questa query "before" cercare "accesso alla spiaggia" e notare che sono presenti sette documenti corrispondenti in uno o entrambi i termini.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "beach access",
     "queryType": "full",
-    "search": "business_title:\"senior analyst\"~0",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Description, Tags",
+    "searchFields": "HotelName, Description, Tags",
+    "count": true
 }
 ```
 
-## <a name="example-5-term-boosting"></a>Esempio 5: aumento priorità termine
+In realtà, esiste un solo documento che corrisponde a "accesso" e poiché è l'unica corrispondenza, la posizione è alta (seconda posizione) anche se nel documento manca il termine "spiaggia".
 
-Questa definizione si riferisce alla termine si riferisce alla classificazione più alta di un documento se contiene il termine con aumento di priorità, rispetto a documenti che non contengono il termine. Per incrementare un termine, usare il punto di inserimento, `^` , simbolo con un fattore di incremento (un numero) alla fine del periodo di ricerca.
-
-In questa query "before" cercare le opportunità di lavoro con il termine *computer analyst* e si noti che non vi sono risultati con le parole *computer* e *analyst*, eppure i lavori *computer* sono i primi risultati.
-
-```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "business_title:computer analyst",
-    "searchFields": "business_title",
-    "select": "business_title"
-}
+```json
+"@odata.count": 7,
+"value": [
+    {
+        "@search.score": 2.2723424,
+        "HotelName": "Nova Hotel & Spa",
+        "Description": "1 Mile from the airport.  Free WiFi, Outdoor Pool, Complimentary Airport Shuttle, 6 miles from the beach & 10 miles from downtown."
+    },
+    {
+        "@search.score": 1.5507699,
+        "HotelName": "Old Carrabelle Hotel",
+        "Description": "Spacious rooms, glamorous suites and residences, rooftop pool, walking access to shopping, dining, entertainment and the city center."
+    },
+    {
+        "@search.score": 1.5358944,
+        "HotelName": "Whitefish Lodge & Suites",
+        "Description": "Located on in the heart of the forest. Enjoy Warm Weather, Beach Club Services, Natural Hot Springs, Airport Shuttle."
+    },
+    {
+        "@search.score": 1.3433652,
+        "HotelName": "Ocean Air Motel",
+        "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away."
+    },
 ```
 
-Nella query "after", ripetere la ricerca, questa volta aumentando la priorità dei risultati con il termine *analyst* rispetto al termine *computer* se nessuna delle due parole esiste. Una versione leggibile della query è `search=business_title:computer analyst^2` . Per una query praticabile nel post, `^2` viene codificato come `%5E2` .
+Nella query "After" (dopo) ripetere la ricerca, in questo caso l'incremento dei risultati con il termine "Beach" sul termine "Access". Una versione leggibile della query è `search=Description:beach^2 access` . A seconda del client, potrebbe essere necessario esprimere `^2` come `%5E2` .
 
-```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "business_title:computer analyst%5e2",
-    "searchFields": "business_title",
-    "select": "business_title"
-}
-```
+Dopo aver incrementato il termine "spiaggia", la corrispondenza nell'hotel Carrabelle precedente si sposta al sesto posto.
 
-La risposta per questa query dovrebbe essere simile alla seguente schermata.
+<!-- Consider a scoring profile that boosts matches in a certain field, such as "genre" in a music app. Term boosting could be used to further boost certain search terms higher than others. For example, "rock^2 electronic" will boost documents that contain the search terms in the "genre" field higher than other searchable fields in the index. Furthermore, documents that contain the search term "rock" will be ranked higher than the other search term "electronic" as a result of the term boost value (2). -->
 
-  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Aumento priorità termini &quot;after&quot;" border="false":::
-
-L'aumento priorità dei termini si differenzia dai profili di punteggio per il fatto che questi ultimi aumentano la priorità di alcuni campi e non di termini specifici. L'esempio seguente illustra le differenze.
-
-Considerare un profilo di punteggio che migliora le corrispondenze in un determinato campo, ad esempio **genre** (genere) nell'esempio musicstoreindex. L'aumento di priorità di un termine si usa per assegnare a determinati termini di ricerca una priorità maggiore rispetto ad altri. Ad esempio, "rock^2 electronic" aumenta la priorità nell'indice dei documenti che contengono tali termini di ricerca nel campo **genre** rispetto a quelli con altri campi ricercabili. Inoltre, i documenti che contengono il termine di ricerca "rock" verranno classificati con una priorità superiore rispetto all'altro termine di ricerca "electronic" come risultato il valore di priorità del termine (2).
-
-Quando si imposta il fattore, maggiore è il fattore di aumento, maggiore è la rilevanza del termine relativamente ad altri termini di ricerca. Per impostazione predefinita, il fattore di aumento di priorità è 1. Anche se il fattore di aumento di priorità deve essere positivo, può essere minore di 1 (ad esempio 0,2).
-
-## <a name="example-6-regex"></a>Esempio 6: Regex
+## <a name="example-5-regex"></a>Esempio 5: Regex
 
 Una ricerca con espressione regolare trova una corrispondenza in base al contenuto incluso tra le barre "/", come indicato nella [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:/(Mo|Ho)tel/",
     "queryType": "full",
-    "search": "business_title:/(Sen|Jun)ior/",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName",
+    "count": true
 }
 ```
 
-La risposta per questa query dovrebbe essere simile alla seguente schermata.
+La risposta per questa query dovrebbe essere simile all'esempio seguente:
 
-  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Query Regex" border="false":::
+```json
+    "@odata.count": 22,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelName": "Days Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Triple Landscape Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Smile Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Pelham Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Sublime Cliff Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Twin Dome Motel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Nova Hotel & Spa"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scarlet Harbor Hotel"
+        },
+```
 
 > [!Note]
-> Le query Regex non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita su termini di query parziali è minuscole.
+> Le query Regex non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita su termini di query parziali è la maiuscola e minuscola.
 >
 
-## <a name="example-7-wildcard-search"></a>Esempio 7: ricerca con caratteri jolly
+## <a name="example-6-wildcard-search"></a>Esempio 6: ricerca con caratteri jolly
 
-È possibile usare una sintassi generalmente riconosciuta per ricerche con caratteri jolly per trovare più caratteri (\*) o un singolo carattere (?). Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.
+È possibile utilizzare la sintassi generalmente riconosciuta per più `*` ricerche con caratteri jolly () o Single ( `?` ). Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.
 
-In questa query cercare le opportunità di lavoro che contengono il prefisso 'prog' che include le qualifiche professionali con i termini programming e programmer. Non è possibile usare `*` un `?` simbolo o come primo carattere di una ricerca.
+In questa query cercare i nomi degli hotel che contengono il prefisso "SC". Non è possibile usare `*` un `?` simbolo o come primo carattere di una ricerca.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:sc*",
     "queryType": "full",
-    "search": "business_title:prog*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName",
+    "count": true
 }
 ```
 
-La risposta per questa query dovrebbe essere simile alla seguente schermata.
+La risposta per questa query dovrebbe essere simile all'esempio seguente:
 
-  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Query con caratteri jolly" border="false":::
+```json
+    "@odata.count": 2,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scarlet Harbor Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scottish Inn"
+        }
+    ]
+```
 
 > [!Note]
-> Le query con caratteri jolly non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita su termini di query parziali è minuscole.
+> Le query con caratteri jolly non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita su termini di query parziali è la maiuscola e minuscola.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -283,5 +366,5 @@ Un riferimento alla sintassi aggiuntivo, l'architettura di query ed esempi sono 
 + [Esempi di query con sintassi Lucene per la compilazione di query avanzate](search-query-lucene-examples.md)
 + [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)
 + [Sintassi di query semplice](query-simple-syntax.md)
-+ [Sintassi di query Lucene completa](query-lucene-syntax.md)
++ [Full Lucene query syntax](query-lucene-syntax.md) (Sintassi di query completa Lucene)
 + [Sintassi del filtro](search-query-odata-filter.md)

@@ -4,16 +4,16 @@ description: Informazioni sulle aree e zone di disponibilità in Azure per soddi
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: dae5319e6c8b87d6a9eef98875ad7e8da623e65c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 4adfb63ecab72eb42e188af472bb5387a0276a79
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955801"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723776"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Aree e zone di disponibilità in Azure
 
@@ -31,7 +31,7 @@ Per comprendere meglio le aree e zone di disponibilità in Azure, è utile compr
 | area consigliata | Area che fornisce la più ampia gamma di funzionalità del servizio ed è progettata per supportare zone di disponibilità ora o in futuro. Queste sono indicate nel portale di Azure come **consigliato**. |
 | area alternativa (altro) | Area che estende il footprint di Azure entro un limite di residenza dei dati in cui esiste anche un'area consigliata. Le aree alternative consentono di ottimizzare la latenza e forniscono una seconda area per le esigenze di ripristino di emergenza. Non sono progettati per supportare la zone di disponibilità (anche se Azure esegue una valutazione regolare di queste aree per determinare se devono diventare aree consigliate). Queste sono indicate nel portale di Azure come **altro**. |
 | servizio Foundation | Un servizio di base di Azure disponibile in tutte le aree in cui l'area è disponibile a livello generale. |
-| servizio mainstream | Un servizio di Azure disponibile in tutte le aree consigliate entro 12 mesi dalla disponibilità generale a livello di area/servizio o alla disponibilità basata su richiesta in aree alternative. |
+| servizio mainstream | Servizio di Azure disponibile in tutte le aree consigliate entro 90 giorni dalla disponibilità generale dell'area o della disponibilità basata su richiesta in aree alternative. |
 | servizio specializzato | Un servizio di Azure che è una disponibilità basata su richiesta tra le aree supportate da hardware personalizzato o specializzato. |
 | servizio a livello di area | Un servizio di Azure distribuito a livello di area e consente al cliente di specificare l'area in cui verrà distribuito il servizio. Per un elenco completo, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=all). |
 | servizio non a livello di area | Un servizio di Azure per il quale non esiste alcuna dipendenza da una specifica area di Azure. I servizi non a livello di area vengono distribuiti in due o più aree e se si verifica un errore a livello di area, l'istanza del servizio in un'altra area continua a servire i clienti. Per un elenco completo, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=all). |
@@ -69,8 +69,8 @@ L'approccio di Azure sulla disponibilità dei servizi di Azure tra le aree è pi
 
 I servizi di Azure sono raggruppati in tre categorie: fondamentale, principale e specializzato. I criteri generali di Azure per la distribuzione dei servizi in una determinata area sono principalmente basati sul tipo di area, sulle categorie di servizi e sulla domanda dei clienti:
 
-- **Fondamento** : disponibile in tutte le aree consigliate e alternative quando l'area è disponibile a livello generale oppure entro 12 mesi da un nuovo servizio di base che diventa disponibile a livello generale.
-- **Mainstream** : disponibile in tutte le aree consigliate entro 12 mesi dalla disponibilità generale a livello di area/servizio. basati su richiesta in aree alternative (molte sono già distribuite in un ampio subset di aree alternative).
+- **Fondamento** : disponibile in tutte le aree consigliate e alternative quando l'area è disponibile a livello generale oppure entro 90 giorni da un nuovo servizio di base che diventa disponibile a livello generale.
+- **Mainstream** : disponibile in tutte le aree consigliate entro 90 giorni dalla disponibilità a livello generale dell'area; basati su richiesta in aree alternative (molte sono già distribuite in un ampio subset di aree alternative).
 - Offerte di servizi mirate **specializzate** , spesso incentrate sul settore o basate su hardware personalizzato o specializzato. Disponibilità basata su richiesta tra le aree (molte sono già distribuite in un ampio subset di aree consigliate).
 
 Per visualizzare i servizi distribuiti in una determinata area, nonché la roadmap futura per l'anteprima o la disponibilità generale dei servizi in un'area, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=all).
@@ -82,78 +82,129 @@ Se un'offerta di servizio non è disponibile in un'area specifica, è possibile 
 | Consigliato | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | :heavy_check_mark: | :heavy_check_mark: |
 | Alternativo | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | Basata su richiesta | N/D | :heavy_check_mark: |
 
-### <a name="services-by-category"></a>Servizi per categoria
+### <a name="services-by-category-with-availability-zones"></a>Servizi per categoria con zone di disponibilità
 
-Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondamentale, mainstream e specializzato. Le categorie di servizio vengono assegnate a livello generale. Spesso i servizi avviano il ciclo di vita come servizio specializzato e gli aumenti di richiesta e utilizzo possono essere promossi al mainstream o alla base. La tabella seguente elenca la categoria per i servizi come base, mainstream o specializzata. Per la tabella è necessario tenere presente quanto segue:
+Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondamentale, mainstream e specializzato. Le categorie di servizio vengono assegnate a livello generale. Spesso i servizi avviano il ciclo di vita come servizio specializzato e gli aumenti di richiesta e utilizzo possono essere promossi al mainstream o alla base. La tabella seguente elenca la categoria per i servizi come base, mainstream. Per la tabella è necessario tenere presente quanto segue:
 
 - Alcuni servizi non sono a livello di area. Per informazioni e un elenco di servizi non regionali, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/).
-- Le macchine virtuali di generazione meno recenti non sono elencate. Per ulteriori informazioni, vedere la documentazione relativa alle [generazioni precedenti di dimensioni di macchine virtuali](../virtual-machines/sizes-previous-gen.md)
+- Non sono elencate le generazioni precedenti di servizi o macchine virtuali. Per ulteriori informazioni, vedere la documentazione relativa alle [generazioni precedenti di dimensioni di macchine virtuali](../virtual-machines/sizes-previous-gen.md)
 - . Ai servizi non viene assegnata una categoria fino alla disponibilità generale (GA). Per informazioni e per un elenco dei servizi in anteprima, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). 
 
 > [!div class="mx-tableFixed"]
-> | Fondamentale                          | Mainstream                                        | Specializzata                                          |
-> |---------------------------------------|---------------------------------------------------|------------------------------------------------------|
-> | Account di archiviazione                      | Gestione API                                    | API di Azure per FHIR                                   |
-> | Gateway applicazione                   | Configurazione app                                 | Azure Analysis Services                              |
-> | Backup di Azure                          | Servizio app                                       | Servizi cognitivi di Azure: rilevamento anomalie           |
-> | Azure Cosmos DB                       | Automazione                                        | Servizi cognitivi di Azure: Visione personalizzata              |
-> | Azure Data Lake Storage Gen2          | Servizi di dominio Azure Active Directory            | Servizi cognitivi di Azure: riconoscimento moduli            |
-> | Azure ExpressRoute                    | Azure Bastion                                     | Servizi cognitivi di Azure: personalizzatore               |
-> | IP pubblico di Azure                       | Cache Redis di Azure                             | Servizi cognitivi di Azure: QnA Maker                  |
-> | Database SQL di Azure                    | Ricerca cognitiva di Azure                            | Database di Azure per MariaDB                           |
-> | Azure SQL: Istanza gestita          | Servizi cognitivi di Azure                          | Servizio Migrazione del database di Azure                     |
-> | Servizi cloud                        | Servizi cognitivi di Azure: Visione artificiale         | Modulo di protezione hardware dedicato di Azure                                  |
-> | Servizi cloud: Av2-Series            | Servizi cognitivi di Azure: Content Moderator       | Gemelli digitali di Azure                                  |
-> | Servizi cloud: Dv2-Series            | Servizi cognitivi di Azure: viso                    | Bot per l'integrità di Azure                                     |
-> | Servizi cloud: Dv3-Series            | Servizi cognitivi di Azure: Lettore immersivo        | Cache HPC di Azure                                      |
-> | Servizi cloud: Ev3-Series            | Servizi cognitivi di Azure: Language Understanding  | Azure Lab Services                                   |
-> | Servizi cloud: indirizzi IP a livello di istanza    | Servizi cognitivi di Azure: servizi vocali         | Azure NetApp Files                                   |
-> | Servizi cloud: IP riservato           | Servizi cognitivi di Azure: Analisi del testo          | Servizio Azure SignalR                                |
-> | Archiviazione su disco                          | Servizi cognitivi di Azure: Translator              | Servizio cloud Spring di Azure                           |
-> | Hub eventi                            | Esplora dati di Azure                               | Azure Time Series Insights                           |
-> | Key Vault                             | Condivisione dati di Azure                                  | Soluzione Azure VMware                                |
-> | Bilanciamento del carico                         | Database di Azure per MySQL                          | Soluzione Azure VMware di CloudSimple                 |
-> | Bus di servizio                           | Database di Azure per PostgreSQL                     | Servizi cloud: serie H                             |
-> | Service Fabric                        | Azure Databricks                                  | Data Catalog                                         |
-> | Archiviazione: livelli di archiviazione BLOB ad accesso frequente/sporadico  | Protezione DDoS di Azure                             | Data Lake Analytics                                  |
-> | Archiviazione: Managed Disks                | Azure DevTest Labs                                | Azure Machine Learning Studio (versione classica)              |
-> | Set di scalabilità di macchine virtuali            | Firewall di Azure                                    | Ancoraggi nello spazio                                      |
-> | Macchine virtuali                      | Gestione firewall di Azure                            | Archiviazione: Spazio di archiviazione                             |
-> | Macchine virtuali: Av2-Series          | Funzioni di Azure                                   | StorSimple                                           |
-> | Macchine virtuali: Bs-Series           | Hub IoT Azure                                     | archiviazione su disco Ultra                                   |
-> | Macchine virtuali: DSv2-Series         | Servizio Azure Kubernetes                    | Video Indexer                                        |
-> | Macchine virtuali: DSv3-Series         | Azure Machine Learning                            | Macchine virtuali: DASv4-Series                       |
-> | Macchine virtuali: Dv2-Series          | Monitoraggio di Azure: Application Insights               | Macchine virtuali: DAv4-Series                        |
-> | Macchine virtuali: Dv3-Series          | Monitoraggio di Azure: Log Analytics                      | Macchine virtuali: serie DCsv2                       |
-> | Macchine virtuali: ESv3-Series         | Collegamento privato di Azure                                | Macchine virtuali: EASv4-Series                       |
-> | Macchine virtuali: Ev3-Series          | Azure Red Hat OpenShift                           | Macchine virtuali: EAv4-Series                        |
-> | Macchine virtuali: indirizzi IP a livello di istanza  | Azure Site Recovery                               | Macchine virtuali: HBv1-Series                        |
-> | Macchine virtuali: IP riservato         | Analisi di flusso di Azure                            | Macchine virtuali: HBv2-Series                        |
-> | Rete virtuale                       | Azure Synapse Analytics                           | Macchine virtuali: HCv1-Series                        |
-> | Gateway VPN                           | Batch                                             | Macchine virtuali: serie H                           |
-> |                                       | Servizi cloud: serie M                          | Macchine virtuali: LSv2-Series                        |
-> |                                       | Istanze di contenitore                               | Macchine virtuali: Mv2-Series                         |
-> |                                       | Registro contenitori                                | Macchine virtuali: NCv3-Series                        |
-> |                                       | Data Factory                                      | Macchine virtuali: NDv2-Series                        |
-> |                                       | Griglia di eventi                                        | Macchine virtuali: NVv3-Series                        |
-> |                                       | HDInsight                                         | Macchine virtuali: NVv4-Series                        |> 
-> |                                       | App per la logica                                        | Macchine virtuali: SAP HANA in istanze Large di Azure  |
-> |                                       | Servizi multimediali                                    |                                                      |
-> |                                       | Network Watcher                                   |                                                      |
-> |                                       | Hub di notifica                                 |                                                      |
-> |                                       | Archiviazione BLOB Premium                              |                                                      |
-> |                                       | Archiviazione file Premium                             |                                                      |
-> |                                       | Macchine virtuali: Ddsv4-Series                    |                                                      |
-> |                                       | Macchine virtuali: Ddv4-Series                     |                                                      |
-> |                                       | Macchine virtuali: Dsv4-Series                     |                                                      |
-> |                                       | Macchine virtuali: Dv4-Series                      |                                                      |
-> |                                       | Macchine virtuali: Edsv4-Series                    |                                                      |
-> |                                       | Macchine virtuali: Edv4-Series                     |                                                      |
-> |                                       | Macchine virtuali: Esv4-Series                     |                                                      |
-> |                                       | Macchine virtuali: Ev4-Series                      |                                                      |
-> |                                       | Macchine virtuali: Fsv2-Series                     |                                                      |
-> |                                       | Macchine virtuali: serie M                        |                                                      |
-> |                                       | Rete WAN virtuale                                       |                                                      |
+> | Fondamentale                           | Mainstream                                        | 
+> |----------------------------------------|---------------------------------------------------|
+> | Account di archiviazione                       | Gestione API                                    | 
+> | Gateway applicazione                    | Configurazione app                                 | 
+> | Backup di Azure                           | Servizio app                                       | 
+> | Azure Cosmos DB                        | Automazione                                        | 
+> | Azure Data Lake Storage Gen2           | Servizi di dominio Azure Active Directory            | 
+> | Azure ExpressRoute                     | Azure Bastion                                     | 
+> | IP pubblico di Azure                        | Cache Redis di Azure                             | 
+> | Database SQL di Azure                     | Ricerca cognitiva di Azure                            | 
+> | Azure SQL: Istanza gestita           | Servizi cognitivi di Azure                          | 
+> | Archiviazione su disco                           | Servizi cognitivi di Azure: Visione artificiale         | 
+> | Hub eventi                             | Servizi cognitivi di Azure: Content Moderator       | 
+> | Key Vault                              | Servizi cognitivi di Azure: viso                    | 
+> | Bilanciamento del carico                          | Servizi cognitivi di Azure: Lettore immersivo        | 
+> | Bus di servizio                            | Servizi cognitivi di Azure: Language Understanding  | 
+> | Service Fabric                         | Servizi cognitivi di Azure: servizi vocali         | 
+> | Archiviazione: livelli di archiviazione BLOB ad accesso frequente/sporadico   | Servizi cognitivi di Azure: Analisi del testo          | 
+> | Archiviazione: Managed Disks                 | Servizi cognitivi di Azure: Translator              | 
+> | Set di scalabilità di macchine virtuali             | Esplora dati di Azure                               | 
+> | Macchine virtuali                       | Condivisione dati di Azure                                  | 
+> | Macchine virtuali: host dedicato di Azure | Database di Azure per MySQL                          | 
+> | Macchine virtuali: Av2-Series           | Database di Azure per PostgreSQL                     | 
+> | Macchine virtuali: Bs-Series            | Protezione DDoS di Azure                             | 
+> | Macchine virtuali: DSv2-Series          | Firewall di Azure                                    | 
+> | Macchine virtuali: DSv3-Series          | Gestione firewall di Azure                            | 
+> | Macchine virtuali: Dv2-Series           | Funzioni di Azure                                   | 
+> | Macchine virtuali: Dv3-Series           | Hub IoT Azure                                     |     
+> | Macchine virtuali: ESv3-Series          | Servizio Azure Kubernetes                    | 
+> | Macchine virtuali: Ev3-Series           | Azure Machine Learning                            | 
+> | Rete virtuale                        | Monitoraggio di Azure: Application Insights               | 
+> | Gateway VPN                            | Monitoraggio di Azure: Log Analytics                      | 
+> |                                        | Collegamento privato di Azure                                | 
+> |                                        | Azure Red Hat OpenShift                           | 
+> |                                        | Azure Site Recovery                               | 
+> |                                        | Analisi di flusso di Azure                            | 
+> |                                        | Azure Synapse Analytics                           | 
+> |                                        | Batch                                             | 
+> |                                        | Servizi cloud: serie M                          | 
+> |                                        | Istanze di contenitore                               | 
+> |                                        | Registro contenitori                                | 
+> |                                        | Data Factory                                      | 
+> |                                        | Griglia di eventi                                        | 
+> |                                        | HDInsight                                         |  
+> |                                        | App per la logica                                        | 
+> |                                        | Servizi multimediali                                    | 
+> |                                        | Network Watcher                                   | 
+> |                                        | Hub di notifica                                 | 
+> |                                        | Archiviazione BLOB Premium                              | 
+> |                                        | Archiviazione file Premium                             | 
+> |                                        | Macchine virtuali: Ddsv4-Series                    | 
+> |                                        | Macchine virtuali: Ddv4-Series                     | 
+> |                                        | Macchine virtuali: Dsv4-Series                     | 
+> |                                        | Macchine virtuali: Dv4-Series                      | 
+> |                                        | Macchine virtuali: Edsv4-Series                    | 
+> |                                        | Macchine virtuali: Edv4-Series                     | 
+> |                                        | Macchine virtuali: Esv4-Series                     | 
+> |                                        | Macchine virtuali: Ev4-Series                      | 
+> |                                        | Macchine virtuali: Fsv2-Series                     | 
+> |                                        | Macchine virtuali: serie M                        | 
+> |                                        | Rete WAN virtuale                                       | 
+
+
+
+### <a name="specialized-services"></a>Servizi specializzati
+Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondamentale, mainstream e specializzato. Le categorie di servizio vengono assegnate a livello generale. Spesso i servizi avviano il ciclo di vita come servizio specializzato e gli aumenti di richiesta e utilizzo possono essere promossi al mainstream o alla base. Nella tabella seguente sono elencati i servizi specializzati. 
+
+> [!div class="mx-tableFixed"]
+> | Specializzata                                          |
+> |------------------------------------------------------|
+> | API di Azure per FHIR                                   |
+> | Azure Analysis Services                              |
+> | Servizi cognitivi di Azure: rilevamento anomalie           |
+> | Servizi cognitivi di Azure: Visione personalizzata              |
+> | Servizi cognitivi di Azure: riconoscimento moduli            |
+> | Servizi cognitivi di Azure: personalizzatore               |
+> | Servizi cognitivi di Azure: QnA Maker                  |
+> | Database di Azure per MariaDB                           |
+> | Servizio Migrazione del database di Azure                     |
+> | Modulo di protezione hardware dedicato di Azure                                  |
+> | Gemelli digitali di Azure                                  |
+> | Bot per l'integrità di Azure                                     |
+> | Cache HPC di Azure                                      |
+> | Azure Lab Services                                   |
+> | Azure NetApp Files                                   |
+> | Servizio Azure SignalR                                |
+> | Servizio cloud Spring di Azure                           |
+> | Azure Time Series Insights                           |
+> | Soluzione Azure VMware                                |
+> | Soluzione Azure VMware di CloudSimple                 |
+> | Data Lake Analytics                                  |
+> | Azure Machine Learning Studio (versione classica)              |
+> | Ancoraggi nello spazio                                      |
+> | Archiviazione: Spazio di archiviazione                             |
+> | archiviazione su disco Ultra                                   |
+> | Video Indexer                                        |
+> | Macchine virtuali: DASv4-Series                       |
+> | Macchine virtuali: DAv4-Series                        |
+> | Macchine virtuali: serie DCsv2                       |
+> | Macchine virtuali: EASv4-Series                       |
+> | Macchine virtuali: EAv4-Series                        |
+> | Macchine virtuali: HBv1-Series                        |
+> | Macchine virtuali: HBv2-Series                        |
+> | Macchine virtuali: HCv1-Series                        |
+> | Macchine virtuali: serie H                           |
+> | Macchine virtuali: LSv2-Series                        |
+> | Macchine virtuali: Mv2-Series                         |
+> | Macchine virtuali: NCv3-Series                        |
+> | Macchine virtuali: NDv2-Series                        |
+> | Macchine virtuali: NVv3-Series                        |
+> | Macchine virtuali: NVv4-Series                        | 
+> | Macchine virtuali: SAP HANA in istanze Large di Azure  |
+
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

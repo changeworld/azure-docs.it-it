@@ -6,12 +6,12 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.date: 02/05/2021
-ms.openlocfilehash: d41646ef1ef964db38245009717554eaeb783824
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: c4d6ebc8d57857deeb2a5cc71867484bd3519ea6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526307"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699692"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-data-factory-data-flows"></a>Risparmiare sui costi per le risorse con capacità riservata: flussi di dati Azure Data Factory
 
@@ -21,12 +21,12 @@ Risparmia denaro con Azure Data Factory costi del flusso di dati eseguendo il co
 
 Non è necessario assegnare la prenotazione a una factory o a un runtime di integrazione specifico. Le fabbriche esistenti o le nuove Factory distribuite ottengono automaticamente il vantaggio. Con l'acquisto di una prenotazione, viene eseguito il commit dell'utilizzo per i costi di calcolo del flusso di dati per un periodo di uno o tre anni. Non appena si acquista una prenotazione, i costi di calcolo che corrispondono agli attributi di prenotazione non vengono più addebitati in base alle tariffe con pagamento in base al consumo. 
 
-È possibile acquistare [capacità riservata](https://portal.azure.com) scegliendo prenotazioni [in anticipo o con pagamenti mensili](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepare-buy-reservation.md). Per acquistare capacità riservata:
+È possibile acquistare [capacità riservata](https://portal.azure.com) scegliendo prenotazioni [in anticipo o con pagamenti mensili](../cost-management-billing/reservations/prepare-buy-reservation.md). Per acquistare capacità riservata:
 
 - È necessario avere il ruolo di proprietario per almeno una sottoscrizione Enterprise o singola con tariffe con pagamento in base al consumo.
 - Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore della sottoscrizione con contratto Enterprise. Capacità riservata.
 
-Per altre informazioni su come i clienti aziendali e i clienti con pagamento in base al consumo vengono addebitati per gli acquisti di prenotazione, vedere [informazioni sull'utilizzo della prenotazione di Azure per la registrazione Enterprise](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) e [informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage).
+Per altre informazioni su come i clienti aziendali e i clienti con pagamento in base al consumo vengono addebitati per gli acquisti di prenotazione, vedere [informazioni sull'utilizzo della prenotazione di Azure per la registrazione Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) e [informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 > [!NOTE]
 > L'acquisto di capacità riservata non consente di pre-allocare o riservare risorse di infrastruttura specifiche (macchine virtuali o cluster) per l'utilizzo.
@@ -49,7 +49,7 @@ Si supponga, ad esempio, di eseguire una pipeline ogni ora usando l'ottimizzazio
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 
-È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 

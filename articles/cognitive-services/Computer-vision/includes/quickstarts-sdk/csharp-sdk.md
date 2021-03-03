@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8bb0c8e58c7b5eb1a0ba8a8ca4006ef04b2e2423
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: a00ea22ee0d9125588f2bb97505d7a4c0ba9a1ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99531864"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750875"
 ---
 <a name="HOLTop"></a>
 
@@ -106,7 +106,7 @@ Nel metodo `Main` dell'applicazione aggiungere le chiamate per i metodi usati in
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
 > [!div class="nextstepaction"]
-> [Il client è stato configurato](?success=set-up-client#object-model) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [Il client è stato configurato](?success=set-up-client#object-model) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=set-up-client)
 
 ## <a name="object-model"></a>Modello a oggetti
 
@@ -136,7 +136,7 @@ In un nuovo metodo creare un'istanza di un client con l'endpoint e la chiave. Cr
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [Il client è stato autenticato](?success=authenticate-client#analyze-an-image) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [Il client è stato autenticato](?success=authenticate-client#analyze-an-image) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analizzare un'immagine
 
@@ -238,7 +238,7 @@ Il codice seguente stampa informazioni sul tipo di immagine,&mdash;ad esempio se
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_type)]
 
 > [!div class="nextstepaction"]
-> [L'immagine è stata analizzata](?success=analyze-image#read-printed-and-handwritten-text) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [L'immagine è stata analizzata](?success=analyze-image#read-printed-and-handwritten-text) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Leggere il testo stampato e scritto a mano
 

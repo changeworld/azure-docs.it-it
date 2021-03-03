@@ -1,19 +1,19 @@
 ---
-title: Come aggiornare monitoraggio di Azure per i contenitori per le metriche | Microsoft Docs
-description: Questo articolo descrive come aggiornare monitoraggio di Azure per i contenitori per abilitare la funzionalità metrica personalizzata che supporta l'esplorazione e l'invio di avvisi sulle metriche aggregate.
+title: Come aggiornare informazioni dettagliate sui contenitori per le metriche | Microsoft Docs
+description: Questo articolo descrive come aggiornare il contenitore per abilitare la funzionalità metrica personalizzata che supporta l'esplorazione e l'invio di avvisi per le metriche aggregate.
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 37c19cd074e9ce1985d5d0e82137d8603913d4bd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: edca7e4e8f6a9ea8dd9efdaafab8c906efd671b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615297"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708272"
 ---
-# <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Come aggiornare Monitoraggio di Azure per contenitori per abilitare le metriche
+# <a name="how-to-update-container-insights-to-enable-metrics"></a>Come aggiornare informazioni dettagliate sul contenitore per abilitare le metriche
 
-Il monitoraggio di Azure per i contenitori introduce il supporto per la raccolta di metriche dai nodi di Azure Kubernetes Services (AKS) e da Azure Arc abilitati per i cluster Kubernetes e i pod e la scrittura nell'archivio di metriche di monitoraggio di Azure. Questa modifica ha lo scopo di offrire una tempestività migliorata quando si presentano calcoli di aggregazione (AVG, Count, Max, min, Sum) nei grafici delle prestazioni, supporta l'aggiunta di grafici delle prestazioni in Dashboard portale di Azure e il supporto degli avvisi delle metriche.
+Il contenitore Insights introduce il supporto per la raccolta di metriche dai nodi di Azure Kubernetes Services (AKS) e da Azure Arc Enabled Kubernetes Clusters e i pod e la scrittura nell'archivio di metriche di monitoraggio di Azure. Questa modifica ha lo scopo di offrire una tempestività migliorata quando si presentano calcoli di aggregazione (AVG, Count, Max, min, Sum) nei grafici delle prestazioni, supporta l'aggiunta di grafici delle prestazioni in Dashboard portale di Azure e il supporto degli avvisi delle metriche.
 
 >[!NOTE]
 >Questa funzionalità non supporta attualmente i cluster OpenShift di Azure Red Hat.
@@ -47,7 +47,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Aggiornare un cluster dalla portale di Azure
 
-Per i cluster AKS esistenti monitorati da monitoraggio di Azure per i contenitori, dopo aver selezionato il cluster per visualizzare l'integrità dalla visualizzazione multicluster in monitoraggio di Azure o direttamente dal cluster selezionando **Insights** nel riquadro a sinistra, verrà visualizzato un banner nella parte superiore del portale.
+Per i cluster AKS esistenti monitorati da informazioni dettagliate sul contenitore, dopo aver selezionato il cluster per visualizzare l'integrità dalla visualizzazione multicluster in monitoraggio di Azure o direttamente dal cluster selezionando **Insights** nel riquadro a sinistra, verrà visualizzato un banner nella parte superiore del portale.
 
 ![Aggiornare il banner del cluster AKS in portale di Azure](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 

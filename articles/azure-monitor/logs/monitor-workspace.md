@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: bef7db19142f0387077af1487230e7891c255aa1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09df1c2ecb94089f23a88dd36c5343bb4cf2feea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617526"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710941"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorare l'integrità dell'area di lavoro Log Analytics in monitoraggio di Azure
 Per mantenere le prestazioni e la disponibilità dell'area di lavoro Log Analytics in monitoraggio di Azure, è necessario essere in grado di rilevare in modo proattivo tutti i problemi che si verificano. Questo articolo descrive come monitorare l'integrità dell'area di lavoro di Log Analytics usando i dati nella tabella delle [operazioni](/azure/azure-monitor/reference/tables/operation) . Questa tabella è inclusa in ogni area di lavoro Log Analytics e contiene gli errori e gli avvisi che si verificano nell'area di lavoro. È consigliabile esaminare periodicamente questi dati e creare avvisi per ricevere notifiche proattive in caso di eventi imprevisti importanti nell'area di lavoro.
@@ -58,10 +58,10 @@ Le operazioni di inserimento sono problemi che si sono verificati durante l'inse
 | Log personalizzato | Errore   | È stato raggiunto il limite di colonne per i campi personalizzati. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) |
 | Log personalizzato | Errore   | Inserimento dei log personalizzati non riuscito. | |
 | Metadata. | Errore | Errore di configurazione rilevato. | |
-| Raccolta dati | Errore   | I dati sono stati eliminati perché la richiesta è stata creata prima del numero di giorni impostati. | [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](../platform/manage-cost-storage.md#alert-when-daily-cap-reached)
+| Raccolta dati | Errore   | I dati sono stati eliminati perché la richiesta è stata creata prima del numero di giorni impostati. | [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](./manage-cost-storage.md#alert-when-daily-cap-reached)
 | Raccolta dati | Info    | È stata rilevata la configurazione del computer della raccolta.| |
-| Raccolta dati | Info    | Raccolta dati avviata a causa di un nuovo giorno. | [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Raccolta dati | Avviso | Raccolta dati arrestata a causa del raggiungimento del limite giornaliero.| [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Raccolta dati | Info    | Raccolta dati avviata a causa di un nuovo giorno. | [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Raccolta dati | Avviso | Raccolta dati arrestata a causa del raggiungimento del limite giornaliero.| [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](./manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Elaborazione dati | Errore   | Formato JSON non valido. | [Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)](../logs/data-collector-api.md#request-body) | 
 | Elaborazione dati | Avviso | Il valore è stato tagliato fino alla dimensione massima consentita. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) |
 | Elaborazione dati | Avviso | Il valore del campo è stato tagliato come limite dimensioni raggiunto. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) | 
@@ -125,4 +125,4 @@ Nell'esempio seguente viene creato un avviso quando la raccolta dati ha raggiunt
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sugli [avvisi del log](../alerts/alerts-log.md).
-- [Raccogliere i dati di controllo della query](../log-query/query-audit.md) per l'area di lavoro.
+- [Raccogliere i dati di controllo della query](./query-audit.md) per l'area di lavoro.

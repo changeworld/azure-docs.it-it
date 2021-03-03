@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 482a0ba4051fb8b5d1705e0f951a9e075f40bbdb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ed9690a750ad6e1167ba0a0ae4a87b603c4a1f15
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614057"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717401"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di Monitoraggio di Azure
 
@@ -25,7 +25,7 @@ Un'area di lavoro Log Analytics offre:
 
 * Una posizione geografica per l'archiviazione dei dati.
 * Isolamento dei dati tramite la concessione di diritti di accesso a utenti diversi dopo una delle strategie di progettazione consigliate.
-* Ambito per la configurazione di impostazioni quali il piano [tariffario](../platform/manage-cost-storage.md#changing-pricing-tier), la [conservazione](../platform/manage-cost-storage.md#change-the-data-retention-period)e la [capsulatura dei dati](../platform/manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+* Ambito per la configurazione di impostazioni quali il piano [tariffario](./manage-cost-storage.md#changing-pricing-tier), la [conservazione](./manage-cost-storage.md#change-the-data-retention-period)e la [capsulatura dei dati](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
 Le aree di lavoro sono ospitate in cluster fisici. Per impostazione predefinita, il sistema sta creando e gestendo questi cluster. I clienti che inseriscono più di 4 TB al giorno dovranno creare i propri cluster dedicati per le aree di lavoro, consentendo un controllo migliore e una velocità di inserimento superiore.
 
@@ -68,8 +68,8 @@ I dati a cui un utente può accedere sono determinati da una combinazione di fat
 |:---|:---|
 | [Modalità di accesso](#access-mode) | Metodo utilizzato dall'utente per accedere all'area di lavoro.  Definisce l'ambito dei dati disponibili e la modalità di controllo di accesso applicata. |
 | [Modalità di controllo di accesso](#access-control-mode) | Impostazione nell'area di lavoro che definisce se le autorizzazioni vengono applicate a livello di area di lavoro o di risorsa. |
-| [Autorizzazioni](../platform/manage-access.md) | Autorizzazioni applicate a singoli utenti o gruppi di utenti per l'area di lavoro o la risorsa. Definisce i dati a cui l'utente avrà accesso. |
-| [Controllo RBAC di Azure a livello di tabella](../platform/manage-access.md#table-level-azure-rbac) | Autorizzazioni granulari facoltative che si applicano a tutti gli utenti indipendentemente dalla modalità di accesso o dal controllo di accesso. Definisce i tipi di dati a cui un utente può accedere. |
+| [Autorizzazioni](./manage-access.md) | Autorizzazioni applicate a singoli utenti o gruppi di utenti per l'area di lavoro o la risorsa. Definisce i dati a cui l'utente avrà accesso. |
+| [Controllo RBAC di Azure a livello di tabella](./manage-access.md#table-level-azure-rbac) | Autorizzazioni granulari facoltative che si applicano a tutti gli utenti indipendentemente dalla modalità di accesso o dal controllo di accesso. Definisce i tipi di dati a cui un utente può accedere. |
 
 ## <a name="access-mode"></a>Modalità di accesso
 
@@ -91,7 +91,7 @@ Gli utenti hanno due opzioni per accedere ai dati:
     > - Service Fabric
     > - Application Insights
     >
-    > È possibile verificare se i log sono associati correttamente alla propria risorsa eseguendo una query ed esaminando i record a cui si è interessati. Se l'ID di risorsa corretto si trova nella proprietà [_ResourceId](../platform/log-standard-columns.md#_resourceid) , i dati sono disponibili per le query incentrate sulle risorse.
+    > È possibile verificare se i log sono associati correttamente alla propria risorsa eseguendo una query ed esaminando i record a cui si è interessati. Se l'ID di risorsa corretto si trova nella proprietà [_ResourceId](./log-standard-columns.md#_resourceid) , i dati sono disponibili per le query incentrate sulle risorse.
 
 Monitoraggio di Azure determina automaticamente la modalità corretta a seconda del contesto in cui si esegue la ricerca log. L'ambito viene sempre presentato nella sezione in alto a sinistra del Log Analytics.
 
@@ -102,8 +102,8 @@ Nella tabella seguente sono riepilogate le modalità di accesso:
 | Problema | Contesto area di lavoro | Contesto risorse |
 |:---|:---|:---|
 | Per chi è destinato ogni modello? | Amministrazione centrale. Amministratori che devono configurare la raccolta di dati e gli utenti che devono accedere a una vasta gamma di risorse. Attualmente necessaria anche per gli utenti che devono accedere ai log per le risorse esterne ad Azure. | Team di applicazioni. Amministratori delle risorse di Azure da monitorare. |
-| Cosa richiede un utente per visualizzare i log? | Autorizzazioni per l'area di lavoro. Vedere **autorizzazioni dell'area di lavoro** in [gestire l'accesso tramite le autorizzazioni dell'area di lavoro](../platform/manage-access.md#manage-access-using-workspace-permissions) | Accesso in lettura alla risorsa. Vedere **autorizzazioni** per le risorse in [gestire l'accesso tramite le autorizzazioni di Azure](../platform/manage-access.md#manage-access-using-azure-permissions). Le autorizzazioni possono essere ereditate, ad esempio dal gruppo di risorse contenitore, o assegnate direttamente alla risorsa. L'autorizzazione ai log per la risorsa verrà assegnata automaticamente. |
-| Qual è l'ambito delle autorizzazioni? | Area. Gli utenti che dispongono dell'accesso all'area di lavoro possono eseguire una query su tutti i log dell'area di lavoro dalle tabelle per cui dispongono delle autorizzazioni. Vedere [controllo di accesso alle tabelle](../platform/manage-access.md#table-level-azure-rbac) | Risorsa di Azure. L'utente può eseguire query sui log per risorse, gruppi di risorse o sottoscrizioni specifici a cui ha accesso da qualsiasi area di lavoro, ma non può eseguire query nei log per altre risorse. |
+| Cosa richiede un utente per visualizzare i log? | Autorizzazioni per l'area di lavoro. Vedere **autorizzazioni dell'area di lavoro** in [gestire l'accesso tramite le autorizzazioni dell'area di lavoro](./manage-access.md#manage-access-using-workspace-permissions) | Accesso in lettura alla risorsa. Vedere **autorizzazioni** per le risorse in [gestire l'accesso tramite le autorizzazioni di Azure](./manage-access.md#manage-access-using-azure-permissions). Le autorizzazioni possono essere ereditate, ad esempio dal gruppo di risorse contenitore, o assegnate direttamente alla risorsa. L'autorizzazione ai log per la risorsa verrà assegnata automaticamente. |
+| Qual è l'ambito delle autorizzazioni? | Area. Gli utenti che dispongono dell'accesso all'area di lavoro possono eseguire una query su tutti i log dell'area di lavoro dalle tabelle per cui dispongono delle autorizzazioni. Vedere [controllo di accesso alle tabelle](./manage-access.md#table-level-azure-rbac) | Risorsa di Azure. L'utente può eseguire query sui log per risorse, gruppi di risorse o sottoscrizioni specifici a cui ha accesso da qualsiasi area di lavoro, ma non può eseguire query nei log per altre risorse. |
 | Come è possibile accedere ai log utente? | <ul><li>Avviare i **log** dal menu di **monitoraggio di Azure** .</li></ul> <ul><li>Avviare i **log** dalle **aree di lavoro log Analytics**.</li></ul> <ul><li>Da cartelle di [lavoro](../visualizations.md#workbooks)di monitoraggio di Azure.</li></ul> | <ul><li>Avviare i **log** dal menu per la risorsa di Azure</li></ul> <ul><li>Avviare i **log** dal menu di **monitoraggio di Azure** .</li></ul> <ul><li>Avviare i **log** dalle **aree di lavoro log Analytics**.</li></ul> <ul><li>Da cartelle di [lavoro](../visualizations.md#workbooks)di monitoraggio di Azure.</li></ul> |
 
 ## <a name="access-control-mode"></a>Modalità di controllo di accesso
@@ -125,7 +125,7 @@ La *modalità di controllo di accesso* è un'impostazione in ogni area di lavoro
     > [!NOTE]
     > Se un utente dispone solo delle autorizzazioni di risorse per l'area di lavoro, può accedere solo all'area di lavoro usando la modalità del contesto delle risorse, presupponendo che la modalità di accesso all'area di lavoro sia impostata per l' **uso delle autorizzazioni di risorse o**
 
-Per informazioni su come modificare la modalità di controllo di accesso nel portale, con PowerShell o usando un modello di Gestione risorse, vedere [configurare la modalità di controllo di accesso](../platform/manage-access.md#configure-access-control-mode).
+Per informazioni su come modificare la modalità di controllo di accesso nel portale, con PowerShell o usando un modello di Gestione risorse, vedere [configurare la modalità di controllo di accesso](./manage-access.md#configure-access-control-mode).
 
 ## <a name="scale-and-ingestion-volume-rate-limit"></a>Limite di velocità del volume di inserimenti e scalabilità
 
@@ -133,7 +133,7 @@ Monitoraggio di Azure è un servizio dati a scalabilità elevata che serve a mig
 
 Per proteggere e isolare i clienti di monitoraggio di Azure e la relativa infrastruttura di back-end, esiste un limite di velocità di inserimento predefinito progettato per la protezione da picchi e situazioni di Flood. Il valore predefinito del limite di velocità è di circa **6 GB al minuto** ed è progettato per consentire l'inserimento normale. Per altri dettagli sulla misurazione del limite del volume di inserimento, vedere [limiti del servizio di monitoraggio di Azure](../service-limits.md#data-ingestion-volume-rate).
 
-I clienti che inseriscono meno di 4 TB al giorno non soddisfano questi limiti. I clienti che inseriscono volumi più elevati o che presentano picchi come parte delle normali operazioni dovranno considerare il passaggio a [cluster dedicati](../log-query/logs-dedicated-clusters.md) in cui è possibile generare il limite di velocità di inserimento.
+I clienti che inseriscono meno di 4 TB al giorno non soddisfano questi limiti. I clienti che inseriscono volumi più elevati o che presentano picchi come parte delle normali operazioni dovranno considerare il passaggio a [cluster dedicati](./logs-dedicated-clusters.md) in cui è possibile generare il limite di velocità di inserimento.
 
 Quando viene attivato il limite di velocità di inserimento o si arriva al 80% della soglia, viene aggiunto un evento alla tabella *Operation* nell'area di lavoro. È consigliabile monitorarlo e creare un avviso. Per altre informazioni, vedere [velocità del volume](../service-limits.md#data-ingestion-volume-rate)di inserimento dati.
 
@@ -144,7 +144,7 @@ Quando viene attivato il limite di velocità di inserimento o si arriva al 80% d
 
 Questo scenario illustra una singola progettazione dell'area di lavoro nella sottoscrizione dell'organizzazione IT, che non è vincolata dalla sovranità dei dati o dalla conformità alle normative, oppure è necessario eseguire il mapping alle aree in cui vengono distribuite le risorse. Consente ai team di sicurezza e amministrazione IT dell'organizzazione di sfruttare la migliore integrazione con la gestione dell'accesso di Azure e un controllo di accesso più sicuro.
 
-Tutte le risorse, le soluzioni di monitoraggio e le informazioni dettagliate, ad esempio Application Insights e Monitoraggio di Azure per le macchine virtuali, il supporto dell'infrastruttura e delle applicazioni gestite dai diversi team sono configurate per l'invio dei dati di log raccolti all'area di lavoro condivisa centralizzata dell'organizzazione IT. Agli utenti di ogni team viene concesso l'accesso ai log per le risorse a cui è stato concesso l'accesso.
+Tutte le risorse, le soluzioni di monitoraggio e le informazioni dettagliate, ad esempio Application Insights e le informazioni dettagliate su VM, che supportano l'infrastruttura e le applicazioni gestite dai diversi team, sono configurate per l'invio dei dati di log raccolti all'area di lavoro condivisa centralizzata dell'organizzazione IT. Agli utenti di ogni team viene concesso l'accesso ai log per le risorse a cui è stato concesso l'accesso.
 
 Una volta distribuita l'architettura dell'area di lavoro, è possibile applicarla alle risorse di Azure con [criteri di Azure](../../governance/policy/overview.md). Fornisce un modo per definire i criteri e garantire la conformità alle risorse di Azure in modo che invii tutti i log delle risorse a una determinata area di lavoro. Con le macchine virtuali di Azure o i set di scalabilità di macchine virtuali, ad esempio, è possibile usare i criteri esistenti per valutare la conformità dell'area di lavoro e i risultati del report oppure personalizzarli in modo da correggerli se non conformi.  
 
@@ -159,8 +159,8 @@ Quando si pianifica la migrazione a questo modello, considerare quanto segue:
 * Identificare l'accesso concesso alle risorse per i team dell'applicazione ed eseguire il test in un ambiente di sviluppo prima dell'implementazione nell'ambiente di produzione.
 * Configurare l'area di lavoro per abilitare l' **uso delle autorizzazioni di risorse o aree di lavoro**.
 * Rimuovere l'autorizzazione per la lettura e l'esecuzione di query nell'area di lavoro.
-* Abilita e configura tutte le soluzioni di monitoraggio, informazioni dettagliate, ad esempio monitoraggio di Azure per contenitori e/o Monitoraggio di Azure per le macchine virtuali, gli account di automazione e le soluzioni di gestione come Gestione aggiornamenti, avviare/arrestare macchine virtuali e così via, che sono state distribuite nell'area di lavoro originale.
+* Abilita e configura tutte le soluzioni di monitoraggio, informazioni dettagliate, ad esempio informazioni dettagliate sul contenitore e/o Monitoraggio di Azure per le macchine virtuali, gli account di automazione e le soluzioni di gestione come Gestione aggiornamenti, avviare/arrestare macchine virtuali e così via, che sono state distribuite nell'area di lavoro originale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per implementare le autorizzazioni e i controlli di sicurezza consigliati in questa guida, vedere [gestire l'accesso ai log](../platform/manage-access.md).
+Per implementare le autorizzazioni e i controlli di sicurezza consigliati in questa guida, vedere [gestire l'accesso ai log](./manage-access.md).

@@ -7,12 +7,15 @@ ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: b42abfda863ed38eb3c29004630f905edef075c4
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
-ms.translationtype: HT
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-nodejs-uiex
+ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359103"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735115"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creare un'app Web Node.js in Azure
 
@@ -59,7 +62,7 @@ Per iniziare a usare il servizio app di Azure, creare un'app Node.js/Express loc
 
 In questa sezione si distribuisce l'app Node.js in Azure usando VS Code e l'estensione Servizio app di Azure.
 
-1. Nel terminale assicurarsi di trovarsi nella cartella *nodejs-docs-hello-world* , quindi avviare Visual Studio Code con il comando seguente:
+1. Nel terminale assicurarsi di trovarsi nella cartella *nodejs-docs-hello-world*, quindi avviare Visual Studio Code con il comando seguente:
 
     ```bash
     code .
@@ -69,7 +72,7 @@ In questa sezione si distribuisce l'app Node.js in Azure usando VS Code e l'este
 
     ![Accedere ad Azure](media/quickstart-nodejs/sign-in.png)
 
-1. In Esplora risorse del **SERVIZIO APP DI AZURE** di VS Code selezionare l'icona della freccia verso l'alto blu per distribuire l'app in Azure. È anche possibile richiamare lo stesso comando dal **riquadro comandi** ( **CTRL**+**MAIUSC**+**P** ) digitando 'Distribuisci nell'app Web' e scegliendo **Servizio app di Azure: Distribuisci nell'app Web**.
+1. In Esplora risorse del **SERVIZIO APP DI AZURE** di VS Code selezionare l'icona della freccia verso l'alto blu per distribuire l'app in Azure. È anche possibile richiamare lo stesso comando dal **riquadro comandi** (**CTRL**+**MAIUSC**+**P**) digitando 'Distribuisci nell'app Web' e scegliendo **Servizio app di Azure: Distribuisci nell'app Web**.
 
     :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Screenshot del servizio app di Azure in VS Code con l'icona della freccia blu selezionata.":::
         
@@ -85,9 +88,9 @@ In questa sezione si distribuisce l'app Node.js in Azure usando VS Code e l'este
 1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS**.
 
 1. Se la destinazione è Windows, seguire le istruzioni aggiuntive:
-    1. Selezionare **Creare un nuovo gruppo di risorse** , quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
+    1. Selezionare **Creare un nuovo gruppo di risorse**, quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
     1. Selezionare **Windows** come sistema operativo.
-    1. Selezionare **Crea nuovo piano di servizio app** , quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito**.
+    1. Selezionare **Crea nuovo piano di servizio app**, quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito**.
     1. Scegliere **Ignora per adesso** quando viene richiesto riguardo ad Application Insights.
     1. Scegliere un'area vicina al proprio ambiente o alle risorse a cui si vuole accedere.
 
@@ -103,7 +106,7 @@ In questa sezione si distribuisce l'app Node.js in Azure usando VS Code e l'este
 
 1. Per la distribuzione in Windows, è prima necessario impostare il numero di versione di Node.js per l'app Web:
 
-    1. In VS Code espandere il nodo del nuovo servizio app, quindi fare clic con il pulsante destro del mouse su **Impostazioni applicazione** e scegliere **Aggiungi nuova impostazione** :
+    1. In VS Code espandere il nodo del nuovo servizio app, quindi fare clic con il pulsante destro del mouse su **Impostazioni applicazione** e scegliere **Aggiungi nuova impostazione**:
 
         ![Comando Aggiungi impostazione app](media/quickstart-nodejs/add-setting.png)
 
@@ -272,7 +275,7 @@ Nell'area **SERVIZIO APP DI AZURE** selezionare l'icona della freccia verso l'al
 
 1. Scegliere la directory attualmente aperta, `myExpressApp`.
 
-1. Scegliere **Crea una nuova app Web** , che esegue la distribuzione in Servizio app di Azure in Linux per impostazione predefinita.
+1. Scegliere **Crea una nuova app Web**, che esegue la distribuzione in Servizio app di Azure in Linux per impostazione predefinita.
 
 1. Digitare un nome univoco a livello globale per l'app Web e premere INVIO. I caratteri validi per il nome dell'app sono "a-z", "0-9" e "-".
 
@@ -310,7 +313,7 @@ Se viene visualizzato l'errore **"Non si dispone delle autorizzazioni necessarie
 
 In questa sezione si è appreso come visualizzare i log dell'app del Servizio app in esecuzione. Tutte le chiamate a `console.log` nell'app vengono visualizzate nella finestra di output in Visual Studio Code.
 
-Trovare l'app nello strumento di esplorazione dei **servizi app di Azure** , fare clic su di essa con il pulsante destro del mouse e scegliere **Visualizza log in streaming**.
+Trovare l'app nello strumento di esplorazione dei **servizi app di Azure**, fare clic su di essa con il pulsante destro del mouse e scegliere **Visualizza log in streaming**.
 
 Verrà aperta la finestra di output di VS Code con una connessione al flusso di log.
 

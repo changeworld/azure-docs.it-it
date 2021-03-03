@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a8ab7195958a6c2d5a730c38232eb348d505deda
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d1310e3c4b4a56a27219cce613e8f6109d32c8c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593604"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729393"
 ---
 # <a name="quickstart-set-up-azure-attestation-by-using-the-azure-portal"></a>Guida introduttiva: configurare l'attestazione di Azure usando il portale di Azure
 
@@ -90,7 +90,7 @@ Eseguire la procedura descritta in questa sezione per visualizzare, aggiungere e
 1. Passare al menu portale di Azure o al home page e selezionare **tutte le risorse**.
 1. Nella casella filtro immettere il nome del provider di attestazione.
 1. Selezionare il provider di attestazione e passare alla pagina panoramica.
-1. Selezionare **certificati di firma dei criteri** dal menu delle risorse sul lato sinistro della finestra o nel riquadro inferiore.
+1. Selezionare **certificati di firma dei criteri** dal menu delle risorse sul lato sinistro della finestra o nel riquadro inferiore. Viene visualizzato un prompt per selezionare il certificato per l'autenticazione. Scegliere l'opzione appropriata per continuare.
 1. Selezionare **Scarica certificati di firma dei criteri**. Il pulsante verrà disabilitato per i provider di attestazione creati senza il requisito di firma dei criteri.
 1. Il file di testo scaricato avrà tutti i certificati in un formato JWS.
 1. Verificare il numero di certificati e i certificati scaricati.
@@ -122,7 +122,7 @@ In questa sezione viene descritto come visualizzare i criteri di attestazione e 
 1.  Passare al menu portale di Azure o al home page e selezionare **tutte le risorse**.
 1.  Nella casella filtro immettere il nome del provider di attestazione.
 1.  Selezionare il provider di attestazione e passare alla pagina panoramica.
-1.  Selezionare **criteri** dal menu delle risorse sul lato sinistro della finestra o nel riquadro inferiore.
+1.  Selezionare **criteri** dal menu delle risorse sul lato sinistro della finestra o nel riquadro inferiore. Viene visualizzato un prompt per selezionare il certificato per l'autenticazione. Scegliere l'opzione appropriata per continuare.
 1.  Selezionare il **tipo di attestazione** preferito e visualizzare i **criteri correnti**.
 
 ### <a name="configure-an-attestation-policy"></a>Configurare un criterio di attestazione
@@ -144,6 +144,7 @@ Seguire questa procedura per caricare un criterio in JWT o in formato testo se i
    Per l'opzione di caricamento dei file, l'anteprima dei criteri viene visualizzata in formato testo e non è modificabile.
 
 1. Selezionare **Aggiorna** nel menu superiore per visualizzare i criteri configurati.
+
 
 Se il provider di attestazione è stato creato con un requisito di firma dei criteri, attenersi alla procedura seguente per caricare un criterio nel formato JWT.
 

@@ -6,16 +6,16 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e872d28063a3e0671558ee4d388cad280b94f45b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 620afb0ca5de7c6a89db107fb4616748473f0809
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596919"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701655"
 ---
 # <a name="monitoring-azure-files"></a>File di Azure di monitoraggio
 
@@ -481,21 +481,10 @@ Le voci di registro vengono create solo se esistono richieste effettuate per l'e
 
 - Richieste riuscite
 - Richieste non riuscite, tra cui errori di timeout, limitazione, rete, autorizzazione e di altro tipo
-- Richieste che usano una firma di accesso condiviso o OAuth, incluse le richieste riuscite e non riuscite
-- Richieste ai dati di analisi (dati di log classici nel contenitore **$logs** e dati di metrica della classe nelle tabelle **$metric**)
+- Richieste che usano Kerberos, NTLM o la firma di accesso condiviso (SAS), incluse le richieste non riuscite e riuscite
+- Richieste ai dati di analisi (dati di log classici nel contenitore **$logs** e dati di metrica classici nelle tabelle **$Metric** )
 
 Le richieste effettuate dal servizio File di Azure stesso, ad esempio la creazione o l'eliminazione di log, non vengono registrate. Per un elenco completo delle richieste SMB e REST registrate, vedere [operazioni registrate di archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [file di Azure riferimento ai dati di monitoraggio](storage-files-monitoring-reference.md).
-
-### <a name="log-anonymous-requests"></a>Richieste di registrazione anonime
-
- Vengono registrati i seguenti tipi di richieste anonime:
-
-- Richieste riuscite
-- Errori del server
-- Errori di timeout per client e server
-- Richieste GET non riuscite con codice di errore 304 (non modificate)
-
-Tutte le altre richieste anonime non riuscite non vengono registrate. Per un elenco completo delle richieste SMB e REST registrate, vedere [operazioni registrate di archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [file di Azure riferimento ai dati di monitoraggio](storage-files-monitoring-reference.md).
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Accesso ai log in un account di archiviazione
 
@@ -631,13 +620,12 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
    > [!NOTE]
    > Se i tipi di risposta non sono elencati nell'elenco a discesa **valori dimensione** , significa che la risorsa non è stata limitata. Per aggiungere i valori della dimensione, accanto all'elenco a discesa **valori dimensione** selezionare **Aggiungi valore personalizzato**, immettere il tipo di Response (ad esempio, **SuccessWithThrottling**), fare clic su **OK**, quindi ripetere questi passaggi per aggiungere tutti i tipi di risposta applicabili per la condivisione file.
 
-8. Fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
-9. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
-
+8. Per le **condivisioni file Premium**, fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**. Per le **condivisioni file standard**, passare al **passaggio #10**.
 
    > [!NOTE]
-   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
+   > Se la condivisione file è una condivisione file standard, nella dimensione **condivisione file** non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
 
+9. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
 10. Definire i **parametri di avviso** (valore soglia, operatore, granularità aggregazione e frequenza di valutazione) e fare clic su **fine**.
 
     > [!TIP]
@@ -654,12 +642,12 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
 4. Fare clic su **Aggiungi condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica della **capacità del file** .
-6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
-7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
+6. Per le **condivisioni file Premium**, fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**. Per le **condivisioni file standard**, passare al **passaggio #8**.
 
    > [!NOTE]
-   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi per le condivisioni file standard sono basati su tutte le condivisioni file nell'account di archiviazione. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
+   > Se la condivisione file è una condivisione file standard, nella dimensione **condivisione file** non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi per le condivisioni file standard sono basati su tutte le condivisioni file nell'account di archiviazione. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
 
+7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
 8. Immettere il **valore soglia** in byte. Se ad esempio la dimensione della condivisione file è 100 TiB e si desidera ricevere un avviso quando la dimensione della condivisione file è 80% di capacità, il valore soglia in byte è 87960930222080.
 9. Definire il resto dei **parametri di avviso** (granularità di aggregazione e frequenza di valutazione) e fare clic su **fine**.
 10. Fare clic su **Aggiungi gruppi di azioni** per aggiungere un gruppo di **azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
@@ -673,12 +661,12 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
 4. Fare clic su **Aggiungi condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica in **uscita** .
-6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
-7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
+6. Per le **condivisioni file Premium**, fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**. Per le **condivisioni file standard**, passare al **passaggio #8**.
 
    > [!NOTE]
-   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi per le condivisioni file standard sono basati su tutte le condivisioni file nell'account di archiviazione. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
+   > Se la condivisione file è una condivisione file standard, nella dimensione **condivisione file** non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi per le condivisioni file standard sono basati su tutte le condivisioni file nell'account di archiviazione. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
 
+7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
 8. Immettere **536870912000** byte per valore soglia. 
 9. Fare clic sull'elenco a discesa **granularità aggregazione** e selezionare **24 ore**.
 10. Selezionare la **frequenza di valutazione** e **fare clic su fine**.

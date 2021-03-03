@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8d748f93337a770e0d565bab79fdfb3625bda70d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587815"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735523"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -30,7 +30,7 @@ Hyper-V senza Virtual Machine Manager | È possibile eseguire il ripristino di e
 
 ## <a name="on-premises-servers"></a>Server locali
 
-**Server** | **Requirements** | **Dettagli**
+**Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
 Hyper-V (in esecuzione senza Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 con gli aggiornamenti più recenti <br/><br/> **Nota:** Sono supportate anche l'installazione dei componenti di base del server di questi sistemi operativi. | Se si è già configurato Windows Server 2012 R2 con/o SCVMM 2012 R2 con Azure Site Recovery e si prevede di aggiornare il sistema operativo, seguire le indicazioni nella [documentazione](upgrade-2012R2-to-2016.md) correlata.
 Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Nota:** Sono supportate anche l'installazione dei componenti di base del server di questi sistemi operativi.  | Se si usa Virtual Machine Manager, gli host Windows Server 2019 devono essere gestiti in Virtual Machine Manager 2019. Analogamente, gli host Windows Server 2016 devono essere gestiti in Virtual Machine Manager 2016.
@@ -71,7 +71,7 @@ Rete delle macchine virtuali guest: IP statico (Windows) | Sì | Sì
 Rete delle macchine virtuali guest: IP statico (Linux) | No | No
 Rete delle macchine virtuali guest: più NIC | Sì | Sì
 Proxy HTTPS | No | No
-Accesso a collegamento privato al servizio Site Recovery | Sì. [Altre informazioni](hybrid-how-to-enable-replication-private-endpoints.md). | Sì. [Altre informazioni](hybrid-how-to-enable-replication-private-endpoints.md).
+Accesso a collegamento privato al servizio Site Recovery | Sì. [Altre informazioni](hybrid-how-to-enable-replication-private-endpoints.md) | Sì. [Altre informazioni](hybrid-how-to-enable-replication-private-endpoints.md)
 
 
 
@@ -143,7 +143,7 @@ Archiviazione standard | Sì | Sì
 Servizio di importazione/esportazione | No | No
 Account di archiviazione di Azure con firewall abilitato | Sì. Per l'archiviazione e la cache di destinazione. | Sì. Per l'archiviazione e la cache di destinazione.
 Modifica dell'account di archiviazione | No. L'account di archiviazione di Azure di destinazione non può essere modificato dopo l'abilitazione della replica. Per modificare, disabilitare e quindi riabilitare il ripristino di emergenza. | No
-Opzione di trasferimento sicuro | Sì
+Opzione di trasferimento sicuro | Sì | Sì
 
 
 ## <a name="azure-compute-features"></a>Funzionalità di calcolo di Azure
@@ -158,7 +158,7 @@ Dischi gestiti | Sì, per il failover.<br/><br/> Non è supportato il failback d
 
 Le macchine virtuali locali replicate in Azure devono soddisfare i requisiti per le VM di Azure riepilogati in questa tabella.
 
-**Componente** | **Requirements** | **Dettagli**
+**Componente** | **Requisiti** | **Dettagli**
 --- | --- | ---
 Sistema operativo guest | Site Recovery supporta tutti i sistemi operativi [supportati da Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).  | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Architettura del sistema operativo guest | 32 bit (Windows Server 2008)/64-bit | Il controllo dei prerequisiti ha esito negativo se non supportato.
@@ -167,12 +167,12 @@ Conteggio dischi del sistema operativo | 1 | Il controllo dei prerequisiti ha es
 Conteggio dischi dati | Fino a 16  | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Dimensioni VHD dischi dati | Fino a 4.095 GB | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Schede di rete | Sono supportate più schede |
-VHD condiviso | Non supportate | Il controllo dei prerequisiti ha esito negativo se non supportato.
-Disco FC | Non supportate | Il controllo dei prerequisiti ha esito negativo se non supportato.
+VHD condiviso | Non supportato | Il controllo dei prerequisiti ha esito negativo se non supportato.
+Disco FC | Non supportato | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Formato disco rigido | VHD  <br/><br/>  VHDX | In Site Recovery VHDX viene convertito automaticamente in VHD quando si esegue il failover in Azure. Quando si esegue il failback in locale, le macchine virtuali continuano a usare il formato VHDX.
-BitLocker | Non supportate | Prima di abilitare la replica per una macchina virtuale occorre disabilitare BitLocker.
+BitLocker | Non supportato | Prima di abilitare la replica per una macchina virtuale occorre disabilitare BitLocker.
 Nome della VM. | Tra 1 e 63 caratteri. Limitato a lettere, numeri e trattini. Il nome della macchina virtuale deve iniziare e terminare con una lettera o un numero. | Aggiornare il valore nelle proprietà della VM in Site Recovery.
-Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="recovery-services-vault-actions"></a>Azioni dell'insieme di credenziali dei Servizi di ripristino
 

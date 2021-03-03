@@ -5,14 +5,14 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630703"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732565"
 ---
-# <a name="networking"></a>Funzionalità di rete
+# <a name="networking"></a>Rete
 
 Quando si creano e si gestiscono cluster di Azure Service Fabric, viene fornita la connettività di rete per i nodi e le applicazioni. Le risorse di rete includono gli intervalli di indirizzi IP, le reti virtuali, i bilanciamenti del carico e i gruppi di sicurezza di rete. In questo articolo verranno illustrate le procedure consigliate per queste risorse.
 
@@ -39,7 +39,7 @@ Ottimizzare le prestazioni della macchina virtuale con la rete accelerata, dichi
 ```
 È possibile effettuare il provisioning di un cluster di Service Fabric in [Linux con rete la accelerata](../virtual-network/create-vm-accelerated-networking-cli.md) e in [Windows con la rete accelerata](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
-La funzionalità rete accelerata è supportata per gli SKU delle serie di macchine virtuali di Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e MS/MMS. La funzionalità rete accelerata è stata testata correttamente usando lo SKU Standard_DS8_v3 su 01/23/2019 per un cluster Windows Service Fabric e usando Standard_DS12_v2 su 01/29/2019 per un cluster Service Fabric Linux.
+La funzionalità rete accelerata è supportata per gli SKU delle serie di macchine virtuali di Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e MS/MMS. La funzionalità rete accelerata è stata testata correttamente usando lo SKU Standard_DS8_v3 su 01/23/2019 per un cluster Windows Service Fabric e usando Standard_DS12_v2 su 01/29/2019 per un cluster Service Fabric Linux. Si noti che la rete accelerata richiede almeno 4 vCPU. 
 
 Per abilitare la rete accelerata in un cluster di Service Fabric esistente, è necessario prima [Ridimensionare un cluster di Service Fabric aggiungendo un set di scalabilità di macchine virtuali](./virtual-machine-scale-set-scale-node-type-scale-out.md) per poter eseguire le operazioni seguenti:
 1. Effettuare il provisioning di un tipo di nodo con la rete accelerata abilitata
@@ -61,18 +61,18 @@ Per abilitare la rete accelerata in un cluster esistente è necessario ridimensi
 
 Di seguito sono riportate le regole di base per un blocco di sicurezza di un cluster di Service Fabric gestito di Azure. L'impossibilità di aprire le porte seguenti o di approvare l'IP/URL impedirà il corretto funzionamento del cluster e potrebbe non essere supportato. Con questo set di regole è strettamente necessario usare gli [aggiornamenti automatici delle immagini del sistema operativo](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). in caso contrario, sarà necessario aprire porte aggiuntive.
 
-### <a name="inbound"></a>In entrata 
+### <a name="inbound"></a>In ingresso 
 |Priorità   |Nome               |Porta        |Protocollo  |Source (Sorgente)             |Destination       |Azione   
 |---        |---                |---         |---       |---                |---               |---
-|3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Consenti
-|3910       |Client             |19000       |TCP       |Internet           |VirtualNetwork    |Consenti
-|3920       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |VirtualNetwork    |Consenti
-|3930       |Effimera          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |Consenti
-|3940       |Applicazione        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |Consenti
-|3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |Consenti
+|3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Allow
+|3910       |Client             |19000       |TCP       |Internet           |VirtualNetwork    |Allow
+|3920       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
+|3930       |Effimera          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
+|3940       |Applicazione        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
+|3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
 |3960       |RDP                |3389-3488   |TCP       |Internet           |VirtualNetwork    |Nega
 |3970       |SSH                |22          |TCP       |Internet           |VirtualNetwork    |Nega
-|3980       |Endpoint personalizzato    |80          |TCP       |Internet           |VirtualNetwork    |Consenti
+|3980       |Endpoint personalizzato    |80          |TCP       |Internet           |VirtualNetwork    |Allow
 |4100       |Blocca in ingresso      |443         |Qualsiasi       |Qualsiasi                |Qualsiasi               |Allow
 
 Ulteriori informazioni sulle regole di sicurezza in ingresso:
@@ -99,9 +99,9 @@ Ulteriori informazioni sulle regole di sicurezza in ingresso:
 
 |Priorità   |Nome               |Porta        |Protocollo  |Source (Sorgente)             |Destination       |Azione   
 |---        |---                |---         |---       |---                |---               |---
-|3900       |Rete            |Qualsiasi         |TCP       |VirtualNetwork     |VirtualNetwork    |Consenti
-|3910       |Provider di risorse  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Consenti
-|3920       |Aggiornamento            |443         |TCP       |VirtualNetwork     |Internet          |Consenti
+|3900       |Rete            |Qualsiasi         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
+|3910       |Provider di risorse  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Allow
+|3920       |Aggiornamento            |443         |TCP       |VirtualNetwork     |Internet          |Allow
 |3950       |Blocca in uscita     |Qualsiasi         |Qualsiasi       |Qualsiasi                |Qualsiasi               |Nega
 
 Ulteriori informazioni sulle regole di sicurezza in uscita:

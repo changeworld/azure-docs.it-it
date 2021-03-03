@@ -6,13 +6,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/04/2020
-ms.openlocfilehash: 5b2197950d5dbb95bd0a90f15506756ee3ed0b2d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369833"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699760"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapping della modalità di debug del flusso di dati
 
@@ -39,9 +39,9 @@ Nella maggior parte dei casi, è consigliabile compilare i flussi di dati in mod
 
 ## <a name="cluster-status"></a>Stato del cluster
 
-L'indicatore di stato del cluster nella parte superiore dell'area di progettazione viene trasformato in verde quando il cluster è pronto per il debug. Se il cluster è già pronto, l'indicatore verde viene visualizzato quasi immediatamente. Se il cluster non era già in esecuzione quando è stata attivata la modalità di debug, sarà necessario attendere 5-7 minuti prima che il cluster si avvii. L'indicatore verrà ruotato fino a quando non è pronto.
+L'indicatore di stato del cluster nella parte superiore dell'area di progettazione viene trasformato in verde quando il cluster è pronto per il debug. Se il cluster è già pronto, l'indicatore verde viene visualizzato quasi immediatamente. Se il cluster non è ancora in esecuzione quando è stata attivata la modalità di debug, il cluster Spark eseguirà un avvio a freddo. L'indicatore verrà ruotato fino a quando l'ambiente non è pronto per il debug interattivo.
 
-Al termine del debug, disattivare l'opzione debug in modo che il cluster di Azure Databricks possa terminare e non verrà più addebitato l'attività di debug.
+Al termine del debug, disattivare lo switch di debug in modo che il cluster Spark possa terminare e non verrà più addebitato l'attività di debug.
 
 ## <a name="debug-settings"></a>Impostazioni di debug
 
@@ -50,6 +50,8 @@ Una volta attivata la modalità di debug, è possibile modificare il modo in cui
 ![Impostazioni di debug](media/data-flow/debug-settings.png "Impostazioni di debug")
 
 Se sono presenti parametri nel flusso di dati o in uno dei set di dati a cui viene fatto riferimento, è possibile specificare i valori da usare durante il debug selezionando la scheda **parametri** .
+
+Utilizzare qui le impostazioni di campionamento per puntare a file di esempio o a tabelle di esempio di dati, in modo da non dover modificare i set di dati di origine. Utilizzando un file o una tabella di esempio, è possibile mantenere le stesse impostazioni della logica e delle proprietà nel flusso di dati durante il testing su un subset di dati.
 
 ![Parametri delle impostazioni di debug](media/data-flow/debug-settings2.png "Parametri delle impostazioni di debug")
 

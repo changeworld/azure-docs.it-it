@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 1425be4fc4e462185f9fee573dc87b04a68bfea4
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 104329928c507c288537704fbbef4e35b65cb445
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650746"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739437"
 ---
 # <a name="create-sas-tokens-for-document-translation"></a>Creare token SAS per la traduzione dei documenti
 
@@ -21,8 +21,8 @@ In questo articolo si apprenderà come creare token di firma di accesso condivis
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* È necessaria un'app [**Azure Storage Explorer**](/azure/vs-azure-tools-storage-manage-with-storage-explorer) installata nell'ambiente di sviluppo Windows, MacOS o Linux. Azure Storage Explorer è uno strumento gratuito che consente di gestire facilmente le risorse di archiviazione cloud di Azure.
-* Dopo aver installato l'app Azure Storage Explorer, [connetterla all'account di archiviazione](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#connect-to-a-storage-account-or-service) usato per la traduzione dei documenti.
+* È necessaria un'app [**Azure Storage Explorer**](../../../vs-azure-tools-storage-manage-with-storage-explorer.md) installata nell'ambiente di sviluppo Windows, MacOS o Linux. Azure Storage Explorer è uno strumento gratuito che consente di gestire facilmente le risorse di archiviazione cloud di Azure.
+* Dopo aver installato l'app Azure Storage Explorer, [connetterla all'account di archiviazione](../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) usato per la traduzione dei documenti.
 
 ### <a name="create-your-tokens"></a>Creare i token
 
@@ -65,7 +65,7 @@ In questo articolo si apprenderà come creare token di firma di accesso condivis
 ## <a name="create-sas-tokens-for-blobs-in-the-azure-portal"></a>Creare token SAS per i BLOB nel portale di Azure
 
 > [!NOTE]
-> La creazione di token SAS per i contenitori direttamente nel portale di Azure non è attualmente supportata. Tuttavia, è possibile creare un token SAS con [**Azure Storage Explorer**](#create-sas-tokens-with-azure-storage-explorer) o completare l'attività [a livello di codice](/azure/storage/blobs/sas-service-create).
+> La creazione di token SAS per i contenitori direttamente nel portale di Azure non è attualmente supportata. Tuttavia, è possibile creare un token SAS con [**Azure Storage Explorer**](#create-sas-tokens-with-azure-storage-explorer) o completare l'attività [a livello di codice](../../../storage/blobs/sas-service-create.md).
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="prerequisites"></a>Prerequisiti
@@ -104,7 +104,7 @@ Passare alla [portale di Azure](https://ms.portal.azure.com/#home) e spostarsi c
 
 ## <a name="learn-more"></a>Altre informazioni
 
-* [Creare token SAS per BLOB o contenitori a livello di codice](/azure/storage/blobs/sas-service-create)
+* [Creare token SAS per BLOB o contenitori a livello di codice](../../../storage/blobs/sas-service-create.md)
 * [Autorizzazioni per una directory, un contenitore o un BLOB](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob)
 
 ## <a name="next-steps"></a>Passaggi successivi

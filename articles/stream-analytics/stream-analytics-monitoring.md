@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 484e8853d02aa68c8a8695ba7cc724adb5a8766a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572966"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726768"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
 
@@ -30,6 +30,7 @@ Verrà visualizzata la finestra mostrata di seguito:
 | ---------------------- | ---------------------------------------- |
 | Eventi di input con backlog       | Numero di eventi di input con backlog. Un valore diverso da zero per questa metrica implica che il processo non è in grado di rimanere aggiornato con il numero di eventi in arrivo. Se il valore aumenta lentamente o in modo coerente con un numero diverso da zero, è necessario aumentare il numero di istanze del processo. Per altre informazioni, visitare [Informazioni sulle unità di flusso e su come modificarle](stream-analytics-streaming-unit-consumption.md). |
 | Errori di conversione dati | Numero di eventi di output che non è stato possibile convertire nello schema di output previsto. Criteri di errore possono essere modificati in "Drop" (rilascia) per rimuovere gli eventi che verificano questo scenario. |
+| % Di utilizzo CPU (anteprima)       | Percentuale di CPU utilizzata dal processo. Se questa metrica è costantemente superiore al 80%, potrebbe significare che il processo ha un collo di bottiglia nell'utilizzo della CPU e probabilmente causerà il backlog degli eventi di input. È possibile aumentare il numero di unità di streaming allocate al processo per attenuare tali problemi. |
 | Eventi di input anticipati       | Eventi il cui timestamp di applicazione è precedente all'ora di arrivo di più di 5 minuti. |
 | Richieste di funzioni non riuscite | Numero di chiamate non riuscite alla funzione di Azure Machine Learning (se presente). |
 | Eventi di funzioni        | Numero di chiamate inviate alla funzione di Azure Machine Learning (se presente). |
@@ -42,7 +43,7 @@ Verrà visualizzata la finestra mostrata di seguito:
 | Eventi non ordinati    | Numero di eventi non ordinati ricevuti che sono stati eliminati o a cui è stato assegnato un timestamp modificato, in base ai Criteri di ordinamento eventi. Può essere influenzato dalla configurazione dell'impostazione della Finestra di tolleranza elementi non in ordine. |
 | Eventi di output          | Quantità di dati inviata dal processo di Analisi di flusso alla destinazione di output, in termini di numero di eventi. |
 | Errori di runtime         | Numero totale di errori correlati all'elaborazione delle query (esclusi gli errori rilevati durante l'inserimento di eventi o l'output dei risultati) |
-| % utilizzo unità di streaming       | Se l'utilizzo delle risorse è costantemente superiore al 80%, il ritardo della filigrana è in aumento e il numero di eventi backlog è in aumento, è consigliabile aumentare le unità di streaming. Un utilizzo elevato indica che il processo sta usando vicino al numero massimo di risorse allocate. |
+| % utilizzo unità di streaming       | Percentuale di memoria utilizzata dal processo. Se il% di utilizzo è costantemente superiore al 80%, il ritardo della filigrana è in aumento e il numero di eventi backlog è in aumento, è consigliabile aumentare le unità di streaming. Un utilizzo elevato indica che il processo sta usando vicino al numero massimo di risorse allocate. |
 | Ritardo limite       | Il ritardo limite massimo in tutte le partizioni di tutti gli output del processo. |
 
 È possibile usare queste metriche per [monitorare le prestazioni del processo di Analisi di flusso](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 

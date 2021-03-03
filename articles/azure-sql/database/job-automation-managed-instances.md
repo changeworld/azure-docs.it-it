@@ -12,12 +12,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 02/01/2021
-ms.openlocfilehash: beb82f8435aea817a074ce83fddc6a5417b86c26
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6ba1ba9d8c809a805fe8691baf96350b70ec6a51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417635"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691893"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Automatizzare le attività di gestione usando i processi di SQL Agent in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -78,7 +78,7 @@ Di seguito sono riportati i concetti chiave dei processi di SQL Agent:
 
 I passaggi di processo di SQL Agent sono sequenze di azioni che devono essere eseguite da SQL Agent. Ogni passaggio include il passaggio successivo da eseguire in caso di esito positivo o negativo e il numero di tentativi in caso di errore.
 
-SQL Agent consente di creare diversi tipi di passaggi di processo, ad esempio i passaggi del processo Transact-SQL che eseguono un singolo batch Transact-SQL per il database o i passaggi del comando/PowerShell del sistema operativo in grado di eseguire script del sistema operativo personalizzati, i [passaggi di processo SSIS](/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent) che consentono di caricare i dati tramite SSIS Runtime o passaggi di [replica](../managed-instance/replication-transactional-overview.md) che possono pubblicare le modifiche dal database ad altri
+SQL Agent consente di creare diversi tipi di passaggi di processo, ad esempio i passaggi del processo Transact-SQL che eseguono un singolo batch Transact-SQL per il database o i passaggi del comando/PowerShell del sistema operativo in grado di eseguire script del sistema operativo personalizzati, i [passaggi di processo SSIS](../../data-factory/how-to-invoke-ssis-package-managed-instance-agent.md) che consentono di caricare i dati tramite SSIS Runtime o passaggi di [replica](../managed-instance/replication-transactional-overview.md) che possono pubblicare le modifiche dal database ad altri
 
 > [!Note]
 > Per altre informazioni sull'uso del Integration Runtime SSIS di Azure con SSISDB ospitato da Istanza gestita SQL di Azure, vedere [usare istanza gestita SQL di Azure con SQL Server Integration Services (SSIS) in Azure Data Factory](/../azure/data-factory/how-to-use-sql-managed-instance-with-ir.md).

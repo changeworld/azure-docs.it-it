@@ -3,15 +3,15 @@ title: Creare un runtime di integrazione SSIS di Azure in Azure Data Factory
 description: Informazioni su come creare un runtime di integrazione Azure-SSIS in Azure Data Factory in modo da rendere possibile distribuire ed eseguire pacchetti SSIS in Azure.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 02/22/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 4e3137b08c558c8e9dfadda07f0b8bb66433ee83
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4b26abe1d1340e4e8c5f034fad72f612f0b246a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389417"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739411"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione SSIS di Azure in Azure Data Factory
 
@@ -147,15 +147,21 @@ Se si seleziona la casella di controllo, sarà necessario completare la procedur
    
       In base al server di database selezionato, l'istanza di SSISDB può essere creata per conto dell'utente come database singolo, come parte di un pool elastico o in un'istanza gestita e resa accessibile in una rete pubblica o tramite aggiunta a una rete virtuale. Per materiale sussidiario sulla scelta del tipo di server di database in cui ospitare SSISDB, vedere [Confrontare il database SQL e Istanza gestita di database SQL](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).   
 
-      Se per ospitare SSISDB si seleziona il server di database SQL di Azure con regole del firewall per gli indirizzi IP/endpoint servizio di rete virtuale o un'istanza gestita con un endpoint privato oppure se è richiesto l'accesso ai dati in locale senza configurare il runtime di integrazione self-hosted, è necessario aggiungere Azure-SSIS IR a una rete virtuale. Per altre informazioni, vedere [Creare un'istanza di Azure-SSIS IR in una rete virtuale]().
+      Se per ospitare SSISDB si seleziona il server di database SQL di Azure con regole del firewall per gli indirizzi IP/endpoint servizio di rete virtuale o un'istanza gestita con un endpoint privato oppure se è richiesto l'accesso ai dati in locale senza configurare il runtime di integrazione self-hosted, è necessario aggiungere Azure-SSIS IR a una rete virtuale. Per ulteriori informazioni, vedere [aggiungere un Azure-SSIS IR a una rete virtuale](./join-azure-ssis-integration-runtime-virtual-network.md).
 
    1. Selezionare la casella di controllo **Use AAD authentication with the managed identity for your ADF** (Usa l'autenticazione di Azure AD con l'identità gestita per Azure Data Factory) per scegliere il metodo di autenticazione per il server di database in cui ospitare SSISDB. Scegliere l'autenticazione SQL o l'autenticazione di AAD con l'identità gestita per la data factory.
 
-      Se si seleziona la casella di controllo, sarà necessario aggiungere l'identità gestita per la data factory nel gruppo di Azure AD con autorizzazioni di accesso al server di database. Per altre informazioni, vedere [Creare un'istanza di Azure-SSIS IR con l'autenticazione di Azure AD]().
+      Se si seleziona la casella di controllo, sarà necessario aggiungere l'identità gestita per la data factory nel gruppo di Azure AD con autorizzazioni di accesso al server di database. Per ulteriori informazioni, vedere [abilitare l'autenticazione Azure ad per un Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
    
    1. Per **Nome utente amministratore**, immettere il nome utente di autenticazione SQL per il server di database in cui ospitare SSISDB. 
 
    1. Per **Password amministratore**, immettere la password di autenticazione SQL per il server di database in cui ospitare SSISDB. 
+
+   1. Selezionare la casella di controllo **USA coppia di Azure-SSIS Integration Runtime a doppio standby con failover SSISDB** per configurare una coppia di runtime di integrazione SSIS di Azure con due standby che funziona in sincronizzazione con il database SQL di azure/istanza gestita gruppo di failover per la continuità aziendale e il ripristino di emergenza (BCdR).
+   
+      Se si seleziona la casella di controllo, immettere un nome per identificare la coppia di Azure-SSIS primaria e secondaria di Azure-SSIS nella casella di testo **nome coppia di doppio standby** . È necessario immettere lo stesso nome della coppia quando si crea l'IRs di Azure-SSIS primario e secondario.
+
+      Per altre informazioni, vedere [configurare la Azure-SSIS IR per BCdR](./configure-bcdr-azure-ssis-integration-runtime.md).
 
    1. Per **Catalog Database Service Tier** (Livello di servizio del database di catalogo) selezionare il livello di servizio per il server di database in cui ospitare SSISDB. Selezionare il livello Basic, Standard o Premium oppure il nome di un pool elastico.
 

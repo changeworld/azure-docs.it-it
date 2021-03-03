@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 2947f1c484f013c2d0bef9899b849f7ea761d89e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8b0debed6e0865f39cd42c7003347b2510600f81
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613595"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720019"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Origini dati di Log Analytics Agent in monitoraggio di Azure
-I dati raccolti da monitoraggio di Azure dalle macchine virtuali con l'agente di [log Analytics](../platform/log-analytics-agent.md) vengono definiti dalle origini dati configurate nell' [area di lavoro log Analytics](../platform/data-platform-logs.md).   Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
+I dati raccolti da monitoraggio di Azure dalle macchine virtuali con l'agente di [log Analytics](./log-analytics-agent.md) vengono definiti dalle origini dati configurate nell' [area di lavoro log Analytics](../logs/data-platform-logs.md).   Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
 
 > [!IMPORTANT]
-> Questo articolo illustra le origini dati per l' [agente di log Analytics](../platform/log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](agents-overview.md) .
+> Questo articolo illustra le origini dati per l' [agente di log Analytics](./log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](agents-overview.md) .
 
 ![Raccolta dati di log](media/agent-data-sources/overview.png)
 
@@ -51,7 +51,7 @@ Qualsiasi configurazione viene recapitata a tutti gli agenti connessi all'area d
 ## <a name="data-collection"></a>Raccolta dati
 Le configurazioni dell'origine dati vengono distribuite agli agenti connessi direttamente a Monitoraggio di Azure entro pochi minuti.  I dati specificati vengono raccolti dall'agente e distribuiti direttamente a Monitoraggio di Azure a intervalli specifici per ogni origine dati.  Per informazioni sugli intervalli specifici di ogni origine dati, vedere la documentazione.
 
-Per gli agenti di System Center Operations Manager in un gruppo di gestione connesso, le configurazioni dell'origine dati vengono convertite in Management Pack e recapitate al gruppo di gestione ogni 5 minuti per impostazione predefinita.  L'agente scarica il Management Pack e raccoglie i dati specificati. A seconda dell'origine dati, i dati verranno inviati a un server di gestione che li inoltrerà a Monitoraggio di Azure oppure verranno inviati dall'agente a Monitoraggio di Azure senza passare per il server di gestione. Per informazioni dettagliate, vedere [Informazioni dettagliate sulla raccolta dati per le soluzioni di gestione in Azure](../monitor-reference.md).  È possibile leggere informazioni sulla connessione di Operations Manager e Monitoraggio di Azure e sulla modifica della frequenza a cui tale configurazione viene distribuita nell'articolo relativo alla [configurazione dell'integrazione con System Center Operations Manager](../platform/om-agents.md).
+Per gli agenti di System Center Operations Manager in un gruppo di gestione connesso, le configurazioni dell'origine dati vengono convertite in Management Pack e recapitate al gruppo di gestione ogni 5 minuti per impostazione predefinita.  L'agente scarica il Management Pack e raccoglie i dati specificati. A seconda dell'origine dati, i dati verranno inviati a un server di gestione che li inoltrerà a Monitoraggio di Azure oppure verranno inviati dall'agente a Monitoraggio di Azure senza passare per il server di gestione. Per informazioni dettagliate, vedere [Informazioni dettagliate sulla raccolta dati per le soluzioni di gestione in Azure](../monitor-reference.md).  È possibile leggere informazioni sulla connessione di Operations Manager e Monitoraggio di Azure e sulla modifica della frequenza a cui tale configurazione viene distribuita nell'articolo relativo alla [configurazione dell'integrazione con System Center Operations Manager](./om-agents.md).
 
 Se l'agente non riesce a connettersi a Monitoraggio di Azure o a Operations Manager, continuerà a raccogliere dati che distribuirà quando stabilirà una connessione.  I dati possono andare persi se la quantità di dati raggiunge la dimensione massima della cache per il client o se l'agente non riesce a stabilire una connessione entro 24 ore.
 
@@ -60,5 +60,5 @@ Tutti i dati raccolti da Monitoraggio di Azure vengono archiviati nell'area di l
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sulle [soluzioni di monitoraggio](../insights/solutions.md) che aggiungono funzionalità a Monitoraggio di Azure e raccolgono anche dati nell'area di lavoro.
-* Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni di monitoraggio.  
-* Configurare gli [avvisi](../platform/alerts-overview.md) per inviare notifiche immediate sui dati critici raccolti da origini dati e soluzioni di monitoraggio.
+* Altre informazioni sulle [query di log](../logs/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni di monitoraggio.  
+* Configurare gli [avvisi](../alerts/alerts-overview.md) per inviare notifiche immediate sui dati critici raccolti da origini dati e soluzioni di monitoraggio.

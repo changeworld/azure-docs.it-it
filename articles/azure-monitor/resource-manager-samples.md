@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 0791ccf10c76f2a1781bf373c674f606ca365fff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9218886ded7827d4b7a1e2413f1470ee5cd1563d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627869"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733959"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Esempi di modelli di Resource Manager per Monitoraggio di Azure
 
@@ -54,7 +54,7 @@ az deployment group create \
 - [Query su log](logs/resource-manager-log-queries.md): creare query su log salvate in un'area di lavoro Log Analytics.
 - [Area di lavoro Log Analytics](logs/resource-manager-workspace.md): creare un'area di lavoro Log Analytics e configurare la raccolta di origini dati diverse dall'agente di Log Analytics.
 - [Cartelle di lavoro](visualize/resource-manager-workbooks.md): creare cartelle di lavoro.
-- [Monitoraggio di Azure per i contenitori](containers/resource-manager-container-insights.md): eseguire l'onboarding di cluster in Monitoraggio di Azure per i contenitori.
+- [Container Insights](containers/resource-manager-container-insights.md) : caricare i cluster in informazioni dettagliate sul contenitore.
 - [Monitoraggio di Azure per le macchine virtuali](vm/resource-manager-vminsights.md): eseguire l'onboarding di VM in Monitoraggio di Azure per le macchine virtuali.
 
 

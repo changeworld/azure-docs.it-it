@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f37c7e2f21c76fcc902b0922399081b9be949e99
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365532"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688468"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticazione del codice di accesso monouso tramite posta elettronica
 
@@ -26,7 +26,8 @@ Questo articolo descrive come abilitare l'autenticazione del codice di posta ele
 ![Diagramma di panoramica del codice di accesso monouso di posta elettronica](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> **A partire dall'ottobre 2021**, la funzionalità di accesso monouso per il codice di posta elettronica verrà attivata per tutti i tenant esistenti e abilitata per impostazione predefinita per i nuovi tenant. Se non si vuole consentire l'attivazione automatica di questa funzionalità, è possibile disabilitarla. Vedere la pagina relativa alla [disabilitazione della password una sola volta](#disable-email-one-time-passcode) .
+> - **A partire dall'ottobre 2021**, la funzionalità di accesso monouso per il codice di posta elettronica verrà attivata per tutti i tenant esistenti e abilitata per impostazione predefinita per i nuovi tenant. Se non si vuole consentire l'attivazione automatica di questa funzionalità, è possibile disabilitarla. Vedere la pagina relativa alla [disabilitazione della password una sola volta](#disable-email-one-time-passcode) .
+> - Le impostazioni di password monouso per la posta elettronica sono state spostate nella portale di Azure dalle **impostazioni di collaborazione esterna** a **tutti i provider di identità**.
 
 > [!NOTE]
 > Gli utenti con passcode monouso devono accedere tramite un collegamento che include il contesto tenant (ad esempio `https://myapps.microsoft.com/?tenantid=<tenant id>` o `https://portal.azure.com/<tenant id>` oppure, nel caso di un dominio verificato, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). È possibile usare anche collegamenti diretti alle applicazioni e alle risorse, purché includano tale contesto. Gli utenti guest attualmente non possono accedere tramite endpoint privi di un contesto tenant. Se ad esempio `https://myapps.microsoft.com` si usa, `https://portal.azure.com` verrà generato un errore.
@@ -83,27 +84,50 @@ A partire dall'ottobre 2021, la funzionalità di accesso monouso per il codice d
 
 2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
 
-3. Selezionare **Identità esterne** > **Impostazioni di collaborazione esterna**.
+3. Selezionare **Identità esterne** > **Tutti i provider di identità**.
 
-4. In **password monouso per i guest** selezionare Disabilita il **codice di accesso monouso per i guest**.
+4. Selezionare **indirizzo di posta elettronica** monouso e quindi selezionare **Disabilita il codice di accesso monouso per i guest**.
 
    > [!NOTE]
-   > Se viene visualizzato il seguente interruttore anziché le opzioni di accesso monouso per il messaggio di posta elettronica, ciò significa che in precedenza è stata abilitata, disabilitata o è stata scelta l'anteprima della funzionalità. Selezionare **No** per disabilitare la funzionalità.
+   > Le impostazioni di password monouso per la posta elettronica sono state spostate nella portale di Azure dalle **impostazioni di collaborazione esterna** a **tutti i provider di identità**.
+   > Se viene visualizzato un interruttore anziché le opzioni di password monouso per il messaggio di posta elettronica, ciò significa che in precedenza è stata abilitata, disabilitata o è stata scelta l'anteprima della funzionalità. Selezionare **No** per disabilitare la funzionalità.
    >
-   >![Abilita la password monouso per la posta elettronica](media/delegate-invitations/enable-email-otp-opted-in.png)
+   >![Attiva/disattiva password monouso di posta elettronica disabilitato](media/one-time-passcode/enable-email-otp-disabled.png)
 
 5. Selezionare **Salva**.
 
 ## <a name="note-for-public-preview-customers"></a>Nota per i clienti dell'anteprima pubblica
 
-Se si è scelto in precedenza l'anteprima pubblica di un codice di accesso monouso per la posta elettronica, la data di ottobre 2021 per l'abilitazione automatica delle funzionalità non è applicabile, quindi i processi aziendali correlati non saranno interessati. Inoltre, nel portale di Azure, sotto le proprietà del **codice di posta elettronica** monouso per i guest, non verrà visualizzata l'opzione per abilitare automaticamente il codice di accesso monouso della **posta elettronica per i guest nel 2021 ottobre**. Al contrario, verrà visualizzato **quanto segue:** 
+Se si è scelto in precedenza l'anteprima pubblica di un codice di accesso monouso per la posta elettronica, la data di ottobre 2021 per l'abilitazione automatica delle funzionalità non è applicabile, quindi i processi aziendali correlati non saranno interessati. Inoltre, nel portale di Azure, sotto le proprietà del **codice di posta elettronica** monouso per i guest, non verrà visualizzata l'opzione per abilitare automaticamente il codice di accesso monouso della **posta elettronica per i Guest a partire dal 2021 ottobre**. Al contrario, verrà visualizzato **quanto segue:** 
 
-![Abilita la password monouso per la posta elettronica](media/delegate-invitations/enable-email-otp-opted-in.png)
+![Indirizzo di posta elettronica per la password monouso](media/one-time-passcode/enable-email-otp-opted-in.png)
 
 Tuttavia, se si preferisce rifiutare esplicitamente la funzionalità e consentirne l'abilitazione automatica nel 2021 ottobre, è possibile ripristinare le impostazioni predefinite usando il [tipo di risorsa di configurazione del metodo di autenticazione della posta elettronica](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Dopo aver ripristinato le impostazioni predefinite, le opzioni seguenti saranno disponibili con il **codice di posta elettronica** monouso per i guest:
 
-- **Abilitare automaticamente il codice di accesso monouso tramite posta elettronica per i guest nel 2021 ottobre**. Predefinita Se la funzionalità di accesso monouso per il messaggio di posta elettronica non è già abilitata per il tenant, verrà attivata automaticamente nel 2021 ottobre. Non è necessaria alcuna azione aggiuntiva se si desidera che la funzionalità sia abilitata in quel momento. Se la funzionalità è già stata abilitata o disabilitata, questa opzione non sarà disponibile.
+![Abilita la password monouso per la posta elettronica](media/one-time-passcode/email-otp-options.png)
+
+- **Abilitare automaticamente il codice di accesso monouso tramite posta elettronica per i Guest a partire dal 2021 ottobre**. Predefinita Se la funzionalità di accesso monouso per il messaggio di posta elettronica non è già abilitata per il tenant, verrà attivata automaticamente a partire dal 2021 ottobre. Non è necessaria alcuna azione aggiuntiva se si desidera che la funzionalità sia abilitata in quel momento. Se la funzionalità è già stata abilitata o disabilitata, questa opzione non sarà disponibile.
 
 - **Consente di abilitare il codice di posta elettronica monouso per i guest**. Attiva la funzionalità di accesso monouso della posta elettronica per il tenant.
 
 - **Disabilitare il codice di posta elettronica monouso per i guest**. Disattiva la funzionalità di accesso monouso della posta elettronica per il tenant e impedisce l'attivazione della funzionalità nel 2021 ottobre.
+
+## <a name="note-for-azure-us-government-customers"></a>Nota per i clienti di Azure per enti pubblici statunitensi
+
+La funzionalità di accesso monouso per il codice di posta elettronica è disattivata per impostazione predefinita nel Cloud Azure per enti pubblici statunitensi.  
+
+ ![Indirizzo di accesso monouso della posta elettronica disabilitato](media/one-time-passcode/enable-email-otp-disabled.png)
+
+Per abilitare la funzionalità di accesso monouso per la posta elettronica nel cloud del governo degli Stati Uniti di Azure:
+
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale di Azure AD.
+2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
+3. Selezionare **Impostazioni relazioni organizzative**   >  ****.
+
+   > [!NOTE]
+   > - Se non vengono visualizzate le **relazioni organizzative**, cercare "identità esterne" nella barra di ricerca nella parte superiore.
+
+4. Selezionare **indirizzo di posta elettronica** monouso e quindi selezionare **Sì**.
+5. Selezionare **Salva**.
+
+Per altre informazioni sulle limitazioni correnti, vedere [cloud per enti pubblici degli Stati Uniti di Azure](current-limitations.md#azure-us-government-clouds).

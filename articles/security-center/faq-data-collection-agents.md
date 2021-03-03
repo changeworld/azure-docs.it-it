@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 30744ab97549d585cb6893dc2e2e12009e8cd3fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 754e9516c5fd47668cbff5bdc64b8dfdeed050d8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595771"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705136"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Domande frequenti sulla raccolta dati, gli agenti e le aree di lavoro
 
@@ -29,9 +29,9 @@ Il Centro sicurezza raccoglie i dati dalle macchine virtuali (VM) di Azure, dai 
 
 No. Le aree di lavoro create dal Centro sicurezza non comportano addebiti di Monitoraggio di Azure, benché siano configurate per la fatturazione di Monitoraggio di Azure per nodo. La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
 
-- **Azure Defender off** : il Centro sicurezza Abilita la soluzione ' SecurityCenterFree ' nell'area di lavoro predefinita. Non verrà addebitato alcun costo se Azure Defender è disattivato.
+- **Azure Defender off** : il Centro sicurezza Abilita la soluzione "SecurityCenterFree" nell'area di lavoro predefinita. Non verrà addebitato alcun costo se Azure Defender è disattivato.
 
-- **Azure Defender on** : il Centro sicurezza Abilita la soluzione ' Security ' nell'area di lavoro predefinita.
+- **Azure Defender on** : il Centro sicurezza Abilita la soluzione di sicurezza nell'area di lavoro predefinita.
 
 Per altre informazioni sui prezzi, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -146,7 +146,7 @@ Se l'agente di Log Analytics viene installato direttamente nella macchina virtua
 
 L'agente installato continuerà a generare report per le aree di lavoro già configurate e in più genererà report per l'area di lavoro configurata nel Centro sicurezza (il multihoming è supportato nei computer Windows).
 
-Se l'area di lavoro configurata è un'area di lavoro utente e non l'area di lavoro predefinita del Centro sicurezza, sarà necessario installare la soluzione "Security/"SecurityCenterFree" su di essa in modo che il Centro sicurezza avvii l'elaborazione degli eventi provenienti dalle macchine virtuali e dai computer che inviano report a tale area di lavoro.
+Se l'area di lavoro configurata è un'area di lavoro dell'utente (non l'area di lavoro predefinita del Centro sicurezza), è necessario installare la soluzione "Security" o "SecurityCenterFree" per il Centro sicurezza per avviare l'elaborazione degli eventi dalle macchine virtuali e dai computer che inviano report a tale area di lavoro.
 
 Per i computer Linux, il multihoming dell'agente non è ancora supportato. Di conseguenza, se viene rilevata un'installazione di un agente esistente, il provisioning automatico non verrà eseguito e la configurazione del computer non verrà modificata.
 
@@ -207,7 +207,7 @@ Al termine della migrazione, il Centro sicurezza non potrà raccogliere dati sul
 
 Installare manualmente l'estensione agente Log Analytics in modo che il Centro sicurezza possa raccogliere i dati sulla sicurezza dalle macchine virtuali e fornire raccomandazioni e avvisi. Vedere [installazione dell'agente per macchine virtuali Windows](../virtual-machines/extensions/oms-windows.md) oppure [installazione dell'agente per macchine virtuali Linux](../virtual-machines/extensions/oms-linux.md) per indicazioni sull'installazione.
 
-È possibile connettere l'agente a qualsiasi area di lavoro personalizzata esistente o all'area di lavoro creata dal Centro sicurezza. Se per un'area di lavoro personalizzata non è abilitata la soluzione "Security" o "SecurityCenterFree", sarà necessario applicare una soluzione. A tale scopo, selezionare l'area di lavoro personalizzata o la sottoscrizione e applicare un piano tariffario tramite la pagina **Criteri di sicurezza - Piano tariffario**.
+È possibile connettere l'agente a qualsiasi area di lavoro personalizzata esistente o all'area di lavoro creata dal Centro sicurezza. Se per un'area di lavoro personalizzata non sono abilitate le soluzioni "Security" o "SecurityCenterFree", sarà necessario applicare una soluzione. A tale scopo, selezionare l'area di lavoro personalizzata o la sottoscrizione e applicare un piano tariffario tramite la pagina **Criteri di sicurezza - Piano tariffario**.
 
 :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Abilitare o disabilitare Azure Defender":::
 

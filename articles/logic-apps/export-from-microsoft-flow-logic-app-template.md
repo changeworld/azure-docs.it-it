@@ -5,30 +5,30 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: a90f75db6961ea06b1cf9c2958556c1c2ef24805
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/22/2021
+ms.openlocfilehash: f2b4e09ec9b50bb6993c89d90b0f33c0c905cbf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380135"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699097"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Esportare flussi da Power Automate e distribuirli in App per la logica di Azure
 
-> Per i flussi creati dopo il 2020 ottobre, non è più possibile eseguire l'esportazione da Power automatizzate e distribuirle in app per la logica di Azure.
-
 Per estendere ed espandere le funzionalità del flusso, è possibile eseguire la migrazione di tale flusso da [Power automatici](https://flow.microsoft.com) ad app per la [logica di Azure](../logic-apps/logic-apps-overview.md). È possibile esportare il flusso come modello di Azure Resource Manager per un'app per la logica, distribuire il modello di app per la logica in un gruppo di risorse di Azure e quindi aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
-> [!NOTE]
-> Non tutti i connettori di Power automatizzate sono disponibili nelle app per la logica di Azure. È possibile eseguire la migrazione solo dei flussi di Power automatizzati che dispongono di connettori equivalenti nelle app per la logica di Azure. Ad esempio, il trigger del pulsante, il connettore di approvazione e il connettore di notifica sono specifici per l'automazione dell'energia elettrica. Attualmente i flussi basati su OpenAPI in Power automatizzate non sono supportati per l'esportazione e la distribuzione come modelli di app per la logica.
->
-> * Per individuare i connettori di Power automatizzate che non dispongono di equivalenti di app per la logica, vedere [connettori di Power automatizzate](/connectors/connector-reference/connector-reference-powerautomate-connectors).
->
-> * Per individuare i connettori delle app per la logica che non dispongono di energia automatica equivalenti, vedere [connettori per app](/connectors/connector-reference/connector-reference-logicapps-connectors)per la logica.
+> [!IMPORTANT]
+> L'esportazione in app per la logica non è disponibile per i flussi di Power automatici creati dopo il 2020 agosto. Nel 2020 ottobre, Power automatizza la creazione di nuovi flussi standardizzati sul [protocollo OpenAPI 2,0](https://swagger.io/specification/v2/). I nuovi flussi basati su questo protocollo non sono compatibili con i flussi di lavoro delle app per la logica, quindi l'esportazione di questi flussi in app per la logica è stata disabilitata È invece necessario creare manualmente [app](quickstart-create-first-logic-app-workflow.md) per la logica per questi flussi.
+
+Non tutti i connettori di Power automatizzate sono disponibili nelle app per la logica di Azure. È possibile eseguire la migrazione solo dei flussi di Power automatizzati che dispongono di connettori equivalenti nelle app per la logica di Azure. Ad esempio, il trigger del pulsante, il connettore di approvazione e il connettore di notifica sono specifici per l'automazione dell'energia elettrica. 
+
+* Per individuare i connettori di Power automatizzate che non dispongono di equivalenti di app per la logica, vedere [connettori di Power automatizzate](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+
+* Per individuare i connettori delle app per la logica che non dispongono di energia automatica equivalenti, vedere [connettori per app](/connectors/connector-reference/connector-reference-logicapps-connectors)per la logica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
+* Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Il flusso che si vuole esportare dall'energia automatica
 

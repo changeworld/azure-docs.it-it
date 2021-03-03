@@ -1,17 +1,16 @@
 ---
 title: Visualizzare i dati di analisi di App Web di Azure | Microsoft Docs
 description: È possibile usare la soluzione Analisi app Web di Azure per ottenere informazioni dettagliate su App Web di Azure, raccogliendo metriche diverse in tutte le risorse app Web di Azure.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/02/2018
-ms.openlocfilehash: e8f70563e54718c7714c21e27be2bacfe81a4439
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df5b340dc297a9dc3154e8855d5ad584072e2fdb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318012"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704260"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualizzare i dati di analisi per le metriche di tutte le risorse app Web di Azure
 

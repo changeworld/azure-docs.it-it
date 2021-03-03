@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: ec8fc4473669b0c056d0b22ff44e5818b87ba3fa
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: fa106fac683619706f4be330ad1c4bff7b56f2dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549742"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721787"
 ---
 # <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Distribuire e configurare Azure Firewall Premium Preview
 
@@ -34,7 +34,7 @@ Si userà un modello per distribuire un ambiente di test con una VNet centrale (
 - una subnet di Azure Bastion (10.0.20.0/24)
 - una subnet firewall (10.0.100.0/24)
 
-Per semplicità, in questo ambiente di test viene usato un solo VNet centrale. Ai fini della produzione, una [topologia hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) con reti virtuali con peering è più comune.
+Per semplicità, in questo ambiente di test viene usato un solo VNet centrale. Ai fini della produzione, una [topologia hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) con reti virtuali con peering è più comune.
 
 :::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="Topologia VNet centrale":::
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 61cb37e727808566db1bc9b1161960926e03cb91
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: edf671c8005fa67f6161f383c503ca278dba3105
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570897"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702165"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Creare un monitoraggio in Connection Monitor usando il portale di Azure
 
@@ -121,7 +121,7 @@ Nel portale di Azure, per creare un gruppo di test in un monitoraggio della conn
 
    * Per scegliere gli agenti locali, selezionare la scheda **endpoint non di Azure** . Per impostazione predefinita, gli agenti sono raggruppati in aree di lavoro in base all'area. Per tutte queste aree di lavoro è configurata la Monitoraggio prestazioni rete. 
    
-       Se è necessario aggiungere Monitoraggio prestazioni rete all'area di lavoro, ottenerla da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Per informazioni su come aggiungere Monitoraggio prestazioni rete, vedere [monitoraggio delle soluzioni in monitoraggio di Azure](../azure-monitor/insights/solutions.md). 
+       Se è necessario aggiungere Monitoraggio prestazioni rete all'area di lavoro, ottenerla da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). Per informazioni su come aggiungere Monitoraggio prestazioni rete, vedere [monitoraggio delle soluzioni in monitoraggio di Azure](../azure-monitor/insights/solutions.md). 
    
        In **Crea monitoraggio connessione**, nella scheda **nozioni di base** , l'area predefinita è selezionata. Se si modifica l'area, è possibile scegliere agenti dalle aree di lavoro nella nuova area. È possibile selezionare uno o più agenti o subnet. Nella visualizzazione **subnet** è possibile selezionare indirizzi IP specifici per il monitoraggio. Se si aggiungono più subnet, verrà creata una rete locale personalizzata denominata **OnPremises_Network_1** . È anche possibile modificare il selettore **Group by** in Group by Agents.
 

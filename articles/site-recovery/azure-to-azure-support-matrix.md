@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 522af9738cac098dcc9e8cb73183c0bd6b3b4902
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 7e9cb2397017c428c3a5251ed0d0c4f9a076c72f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534677"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735540"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -258,6 +258,7 @@ Crittografia a doppio inattivo | Supportato | Altre informazioni sulle aree supp
 Crittografia dischi di Azure (ADE) per sistema operativo Windows | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi con protezione HSM non sono supportate. <br/><br/> La crittografia dei singoli volumi in un unico disco non è supportata. |
 Crittografia dischi di Azure (ADE) per sistema operativo Linux | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi con protezione HSM non sono supportate. <br/><br/> La crittografia dei singoli volumi in un unico disco non è supportata. <br><br> Problema noto relativo all'abilitazione della replica. [Altre informazioni.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotazione della chiave SAS | Non supportato | Se la chiave SAS per gli account di archiviazione viene ruotata, il cliente deve disabilitare e riabilitare la replica. |
+Memorizzazione nella cache dell'host | Supportato
 Aggiunta a caldo    | Supportato | L'abilitazione della replica per un disco dati aggiunto a una macchina virtuale di Azure replicata è supportata per le macchine virtuali che usano dischi gestiti. <br/><br/> È possibile aggiungere a caldo un solo disco alla volta a una macchina virtuale di Azure. L'aggiunta parallela di più dischi non è supportata. |
 Rimozione a caldo del disco    | Non supportate | Se si rimuovono dischi dati nella macchina virtuale, è necessario disabilitare la replica e abilitarla nuovamente per la macchina virtuale.
 Esclusione disco | Supportato. È necessario usare [PowerShell](azure-to-azure-exclude-disks.md) per la configurazione. |    I dischi temporanei sono esclusi per impostazione predefinita.

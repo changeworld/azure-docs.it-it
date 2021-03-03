@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 762c8dbfc4476f96b4053248c42b075089f9ab84
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 06c7752494f6232bf09140ca6332d87e20a54331
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093048"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729921"
 ---
-|Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
+|Nome criteri<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|--|
 |[Per la sottoscrizione devono essere designati al massimo 3 proprietari](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f11b553-d42e-4e3a-89be-32ca364cad4c) |È consigliabile designare fino a 3 proprietari della sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_DesignateLessThanXOwners_Audit.json) |
 |[È consigliabile abilitare una soluzione di valutazione della vulnerabilità nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Controlla le macchine virtuali per rilevare se eseguono una soluzione di valutazione della vulnerabilità supportata. Un componente principale di ogni programma per la sicurezza e il rischio informatico è costituito dall'identificazione e dall'analisi delle vulnerabilità. Il piano tariffario standard del Centro sicurezza di Azure include l'analisi delle vulnerabilità per le macchine virtuali senza costi aggiuntivi. Inoltre, il Centro sicurezza è in grado di distribuire automaticamente questo strumento. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |

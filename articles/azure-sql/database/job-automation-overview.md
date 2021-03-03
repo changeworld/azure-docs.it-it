@@ -13,12 +13,12 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 942698e5c42e1f46ff05dacdacdb0d124135a6c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1f4bd28d2b95aeebe07fcad84d757327622d51f0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390760"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690431"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>Automatizzare le attività di gestione usando processi elastici (anteprima)
 
@@ -56,7 +56,7 @@ I processi elastici possono avere come destinazione [database SQL](sql-database-
 
 Per l'automazione dei processi di script T-SQL in SQL Server e Istanza gestita SQL di Azure, prendere in considerazione [SQL Agent](job-automation-managed-instances.md). 
 
-Per l'automazione dei processi di script T-SQL in Azure sinapsi Analytics, prendere in considerazione [le pipeline con trigger ricorrenti](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md), [basate su Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
+Per l'automazione dei processi di script T-SQL in Azure sinapsi Analytics, prendere in considerazione [le pipeline con trigger ricorrenti](../../synapse-analytics/data-integration/concepts-data-factory-differences.md), [basate su Azure Data Factory](../../synapse-analytics/data-integration/concepts-data-factory-differences.md).
 
 Vale la pena notare le differenze tra SQL Agent (disponibile in SQL Server e come parte di SQL Istanza gestita) e l'agente processo elastico di database (che può eseguire T-SQL su database o database SQL di Azure in SQL Server e Azure SQL Istanza gestita, Azure sinapsi Analytics).
 

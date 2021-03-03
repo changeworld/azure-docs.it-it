@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/09/2020
-ms.openlocfilehash: e8d89de079a50159bbed9c38487effb0c89448c2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: c479f525435139b2f92838bf15edf4563aeed4e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615886"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704124"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colonne standard nei log di monitoraggio di Azure
 I dati nei log di monitoraggio di Azure vengono [archiviati come set di record in un'area di lavoro log Analytics o in un'applicazione Application Insights](../logs/data-platform-logs.md), ognuno con un particolare tipo di dati che dispone di un set univoco di colonne. Molti tipi di dati avranno colonne standard comuni tra più tipi. Questo articolo descrive queste colonne e fornisce esempi di come è possibile usarle nelle query.
@@ -20,6 +20,10 @@ Le applicazioni basate su aree di lavoro in Application Insights archiviano i da
 
 > [!NOTE]
 > Alcune colonne standard non verranno visualizzate nella visualizzazione schema o in IntelliSense in Log Analytics e non verranno visualizzate nei risultati della query a meno che non si specifichi in modo esplicito la colonna nell'output.
+> 
+
+## <a name="tenantid"></a>TenantId
+La colonna **TenantId** include l'ID dell'area di lavoro per l'area di lavoro log Analytics.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated e timestamp
 Le colonne **TimeGenerated** (area di lavoro log Analytics) e **timestamp** (Application Insights applicazione) contengono la data e l'ora in cui il record è stato creato dall'origine dati. Per altri dettagli, vedere [Tempo di inserimento dei dati di log in Monitoraggio di Azure](../logs/data-ingestion-time.md).
@@ -49,6 +53,10 @@ exceptions
 
 ## <a name="_timereceived"></a>\_TimeReceived
 La colonna **\_ TimeReceived** contiene la data e l'ora in cui il record è stato ricevuto dal punto di inserimento di monitoraggio di Azure nel cloud di Azure. Questa proprietà può essere utile per identificare i problemi di latenza tra l'origine dati e il cloud. Un esempio può essere un problema di rete che causa un ritardo durante l'invio dei dati da un agente. Per altri dettagli, vedere [Tempo di inserimento dei dati di log in Monitoraggio di Azure](../logs/data-ingestion-time.md).
+
+> [!NOTE]
+> La colonna **\_ TimeReceived** viene calcolata ogni volta che viene utilizzata. Questo processo è a elevato utilizzo di risorse. Ridefinire l'utilizzo per filtrare un numero elevato di record. L'utilizzo di questa funzione in modo ricorrente può causare un aumento della durata dell'esecuzione delle query.
+
 
 La query seguente restituisce la latenza media per ora relativa ai record di evento inviati da un agente. Sono inclusi il tempo del trasferimento dall'agente al cloud e il tempo totale in cui il record sarà disponibile per le query sui log.
 
@@ -238,6 +246,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere altre informazioni su come [vengono archiviati i dati di log di Monitoraggio di Azure](../log-query/log-query-overview.md).
-- Seguire una lezione sulla [scrittura di query di log](../log-query/get-started-queries.md).
+- Leggere altre informazioni su come [vengono archiviati i dati di log di Monitoraggio di Azure](./log-query-overview.md).
+- Seguire una lezione sulla [scrittura di query di log](./get-started-queries.md).
 - Seguire una lezione sul [join di tabelle nelle query di log](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).

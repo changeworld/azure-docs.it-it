@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
 ms.subservice: alerts
-ms.openlocfilehash: 304a7adf69ed3622cf2031cfbebb920bff5238cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5589697771227c8105adcce61e4daeebdb315391
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614706"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714341"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
 
@@ -27,7 +27,7 @@ I passaggi di base sono i seguenti:
 
 1. Usare uno dei modelli di seguito come file JSON che descrive come creare l'avviso.
 2. Modificare e usare il file di parametri corrispondente come JSON per personalizzare l'avviso.
-3. Per il `metricName` parametro, vedere le metriche disponibili in [monitoraggio di Azure metriche supportate](../platform/metrics-supported.md).
+3. Per il `metricName` parametro, vedere le metriche disponibili in [monitoraggio di Azure metriche supportate](../essentials/metrics-supported.md).
 4. Distribuire il modello usando un [metodo di distribuzione qualsiasi](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Modello per un semplice avviso delle metriche con soglia statica
@@ -1247,7 +1247,7 @@ az deployment group create \
 
 È possibile usare il modello seguente per creare una regola di avviso con soglia statica per una metrica personalizzata.
 
-Per altre informazioni sulle metriche personalizzate in Monitoraggio di Azure, vedere [Metriche personalizzate in Monitoraggio di Azure](../platform/metrics-custom-overview.md).
+Per altre informazioni sulle metriche personalizzate in Monitoraggio di Azure, vedere [Metriche personalizzate in Monitoraggio di Azure](../essentials/metrics-custom-overview.md).
 
 Quando si crea una regola di avviso per una metrica personalizzata, è necessario specificare sia il nome che lo spazio dei nomi della metrica. È anche necessario assicurarsi che la metrica sia già stata segnalata, perché non è possibile definire una regola di avviso per una metrica personalizzata che non esiste ancora.
 
@@ -1503,7 +1503,7 @@ az deployment group create \
 
 >[!NOTE]
 >
-> Per trovare lo spazio dei nomi di una specifica metrica personalizzata, [esplorare le metriche personalizzate tramite il portale di Azure](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
+> Per trovare lo spazio dei nomi di una specifica metrica personalizzata, [esplorare le metriche personalizzate tramite il portale di Azure](../essentials/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Modello per un avviso di metrica che monitora più risorse
@@ -3624,7 +3624,6 @@ az deployment group create \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sugli [avvisi in Azure](../platform/alerts-overview.md)
+- Altre informazioni sugli [avvisi in Azure](./alerts-overview.md)
 - Informazioni su come [creare un gruppo di azione con i modelli di Resource Manager](../alerts/action-groups-create-resource-manager-template.md)
 - Per la sintassi e le proprietà JSON, vedere le informazioni di riferimento sul modello [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts).
-

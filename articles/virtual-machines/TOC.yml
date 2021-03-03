@@ -860,87 +860,71 @@
                   href: windows/disks-enable-double-encryption-at-rest-powershell.md
                 - name: CLI
                   href: linux/disks-enable-double-encryption-at-rest-cli.md
-        - name: Scenari di crittografia dischi di Azure
+        - name: Azure Disk Encryption
           items:
-            - name: Panoramica di crittografia dischi di Azure
-              items:
-                - name: Windows
-                - name: Linux
             - name: Linux
-              href: ./linux/disk-encryption-linux.md
-            - name: Windows
-              href: ./windows/disk-encryption-windows.md
-            - name: CLI
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-cli-quickstart.md
-                - name: Windows
-                  href: ./windows/disk-encryption-cli-quickstart.md
-            - name: PowerShell
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-powershell-quickstart.md
-                - name: Windows
-                  href: ./windows/disk-encryption-powershell-quickstart.md
-            - name: Portale
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-portal-quickstart.md
-                - name: Windows
-                  href: ./windows/disk-encryption-portal-quickstart.md
-            - name: Key Vault per Crittografia dischi di Azure
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-key-vault.md
-                - name: Windows
-                  href: ./windows/disk-encryption-key-vault.md
-            - name: Script di esempio
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-sample-scripts.md
-                - name: Windows
-                  href: ./windows/disk-encryption-sample-scripts.md
-            - name: Crittografia dischi di Azure in una rete isolata
-              href: ./linux/disk-encryption-isolated-network.md
-            - name: Come verificare lo stato della crittografia
-              href: ./linux/how-to-verify-encryption-status.md
-            - name: Come configurare RAID LVM con la crittografia
-              href: ./linux/how-to-configure-lvm-raid-on-crypt.md
-            - name: Come ridimensionare i volumi LVM crittografati
-              href: ./linux/how-to-resize-encrypted-lvm.md
-            - name: Ridimensionare le partizioni del sistema operativo GPT Linux
-              href: linux/resize-os-disk-gpt-partition.md
-            - name: Risoluzione dei problemi
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-troubleshooting.md
-                - name: Windows
-                  href: ./windows/disk-encryption-troubleshooting.md
-            - name: Domande frequenti
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-faq.md
-                - name: Windows
-                  href: ./windows/disk-encryption-faq.md
-            - name: Crittografia dischi di Azure-versione precedente
               items:
                 - name: Panoramica
+                  href: ./linux/disk-encryption-overview.md
+                - name: Avvi rapidi
                   items:
-                    - name: Linux
-                      href: ./linux/disk-encryption-overview-aad.md
-                    - name: Windows
-                      href: ./windows/disk-encryption-overview-aad.md
+                    - name: Interfaccia della riga di comando di Azure
+                      href: ./linux/disk-encryption-cli-quickstart.md
+                    - name: Azure PowerShell
+                      href: ./linux/disk-encryption-powershell-quickstart.md
+                    - name: Portale di Azure
+                      href: ./linux/disk-encryption-portal-quickstart.md
                 - name: Key Vault per Crittografia dischi di Azure
+                  href: ./linux/disk-encryption-key-vault.md
+                - name: Script di esempio per la crittografia dei dischi
+                  href: ./linux/disk-encryption-sample-scripts.md
+                - name: Crittografia dischi in una rete isolata
+                  href: ./linux/disk-encryption-isolated-network.md
+                - name: Come verificare lo stato della crittografia
+                  href: ./linux/how-to-verify-encryption-status.md
+                - name: Come configurare RAID LVM con la crittografia
+                  href: ./linux/how-to-configure-lvm-raid-on-crypt.md
+                - name: Come ridimensionare volumi LVM crittografati
+                  href: ./linux/how-to-resize-encrypted-lvm.md
+                - name: Risoluzione dei problemi di crittografia dei dischi
+                  href: ./linux/disk-encryption-troubleshooting.md
+                - name: Domande frequenti sulla crittografia del disco
+                  href: ./linux/disk-encryption-faq.md
+                - name: Crittografia dischi - versione precedente
                   items:
-                    - name: Linux
+                    - name: Panoramica
+                      href: ./linux/disk-encryption-overview-aad.md
+                    - name: Key Vault per Crittografia dischi di Azure
                       href: ./linux/disk-encryption-key-vault-aad.md
-                    - name: Windows
-                      href: ./windows/disk-encryption-key-vault-aad.md
-                - name: Scenari di crittografia del disco
-                  items:
-                    - name: Linux
+                    - name: Scenari di crittografia dei dischi per Linux
                       href: ./linux/disk-encryption-linux-aad.md
-                    - name: Windows
+            - name: Windows
+              items:
+                - name: Scenari di crittografia dei dischi per Windows
+                  href: ./windows/disk-encryption-windows.md
+                - name: Avvi rapidi
+                  items:
+                    - name: Interfaccia della riga di comando di Azure
+                      href: ./windows/disk-encryption-cli-quickstart.md
+                    - name: Azure PowerShell
+                      href: ./windows/disk-encryption-powershell-quickstart.md
+                    - name: Portale di Azure
+                      href: ./windows/disk-encryption-portal-quickstart.md
+                - name: Key Vault per Crittografia dischi di Azure
+                  href: ./windows/disk-encryption-key-vault.md
+                - name: Script di esempio per la crittografia dei dischi
+                  href: ./windows/disk-encryption-sample-scripts.md
+                - name: Risoluzione dei problemi di crittografia dei dischi
+                  href: ./windows/disk-encryption-troubleshooting.md
+                - name: Domande frequenti sulla crittografia del disco
+                  href: ./windows/disk-encryption-faq.md
+                - name: Crittografia dischi - versione precedente
+                  items:
+                    - name: Panoramica
+                      href: ./windows/disk-encryption-overview-aad.md
+                    - name: Key Vault per Crittografia dischi di Azure
+                      href: ./windows/disk-encryption-key-vault-aad.md
+                    - name: Scenari di crittografia dei dischi per Windows
                       href: ./windows/disk-encryption-windows-aad.md
     - name: Ottimizzazione delle prestazioni e dei costi
       items:

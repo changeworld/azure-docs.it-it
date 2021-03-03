@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 12/16/2020
-ms.openlocfilehash: 242980ac1b89345ed9d8ff903e65129cff3cb917
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/23/2021
+ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964100"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739263"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Condividere e ricevere dati da Archiviazione BLOB di Azure e Azure Data Lake Storage
 
@@ -24,6 +24,7 @@ La condivisione di dati di Azure supporta la condivisione di file, cartelle e fi
 Quando i file System, i contenitori o le cartelle sono condivisi nella condivisione basata su snapshot, i consumer di dati possono scegliere di eseguire una copia completa dei dati della condivisione. In alternativa, è possibile usare la funzionalità di snapshot incrementale per copiare solo i file nuovi o aggiornati. La funzionalità di snapshot incrementale è basata sull'ora dell'Ultima modifica dei file. 
 
 I file esistenti con lo stesso nome vengono sovrascritti durante uno snapshot. Un file eliminato dall'origine non viene eliminato nella destinazione. Le sottocartelle vuote nell'origine non vengono copiate nella destinazione. 
+
 ## <a name="share-data"></a>Condividere dati
 
 Usare le informazioni nelle sezioni riportate di seguito per condividere i dati usando la condivisione di dati di Azure. 
@@ -109,7 +110,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
 1. Selezionare **Continua**.
 
-1. Nella scheda **revisione e creazione** esaminare il contenuto del pacchetto, le impostazioni, i destinatari e le impostazioni di sincronizzazione. Selezionare quindi **Crea**.
+1. Nella scheda **revisione e creazione** esaminare il contenuto del pacchetto, le impostazioni, i destinatari e le impostazioni di sincronizzazione. Quindi selezionare **Crea**
 
 A questo punto è stata creata la condivisione di dati di Azure. Il destinatario della condivisione dati può accettare l'invito. 
 
@@ -184,7 +185,7 @@ Eseguire la procedura descritta in questa sezione per configurare un percorso pe
 ### <a name="trigger-a-snapshot"></a>Attivazione di uno snapshot
 I passaggi descritti in questa sezione si applicano solo alla condivisione basata su snapshot.
 
-1. È possibile attivare uno snapshot dalla scheda **Dettagli** . Nella scheda selezionare **trigger snapshot**. È possibile scegliere di attivare uno snapshot completo o uno snapshot incrementale dei dati. Se si ricevono dati dal provider di dati per la prima volta, selezionare **copia completa**. 
+1. È possibile attivare uno snapshot dalla scheda **Dettagli** . Nella scheda selezionare **trigger snapshot**. È possibile scegliere di attivare uno snapshot completo o uno snapshot incrementale dei dati. Se si ricevono dati dal provider di dati per la prima volta, selezionare **copia completa**. Quando uno snapshot è in esecuzione, gli snapshot successivi non vengono avviati fino al completamento di quello precedente.
 
    ![Screenshot che mostra la selezione dello snapshot del trigger.](./media/trigger-snapshot.png "Snapshot del trigger.") 
 
@@ -194,6 +195,14 @@ I passaggi descritti in questa sezione si applicano solo alla condivisione basat
 
 ### <a name="view-history"></a>Visualizzare la cronologia
 È possibile visualizzare la cronologia degli snapshot solo nella condivisione basata su snapshot. Per visualizzare la cronologia, aprire la scheda **cronologia** . Qui viene visualizzata la cronologia di tutti gli snapshot generati negli ultimi 30 giorni. 
+
+## <a name="storage-snapshot-performance"></a>Prestazioni degli snapshot di archiviazione
+Le prestazioni degli snapshot di archiviazione sono interessate da diversi fattori, oltre al numero di file e alle dimensioni dei dati condivisi. È sempre consigliabile eseguire il test delle prestazioni. Di seguito sono riportati alcuni fattori di esempio che influiscono sulle prestazioni.
+
+* Accesso simultaneo agli archivi dati di origine e di destinazione.  
+* Percorso degli archivi dati di origine e di destinazione. 
+* Per gli snapshot incrementali, il numero di file nel set di dati condiviso può influito sul tempo necessario per trovare l'elenco dei file con l'ora dell'Ultima modifica dopo l'ultimo snapshot riuscito. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Si è appreso come condividere e ricevere dati da un account di archiviazione usando il servizio di condivisione dati di Azure. Per informazioni sulla condivisione da altre origini dati, vedere [archivi dati supportati](supported-data-stores.md).

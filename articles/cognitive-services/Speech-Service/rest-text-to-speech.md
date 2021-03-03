@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: b4a4fa8a207320a5867b6cdf1dc347bbb2f453af
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: e5872b6ab97a47c09081cf9c26fb7f140b110c3f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525739"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733449"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST di sintesi vocale
 
@@ -279,5 +279,5 @@ Se lo stato HTTP è `200 OK`, il corpo della risposta contiene un file audio nel
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare un account Azure gratuito](https://azure.microsoft.com/free/cognitive-services/)
-- [Sintesi asincrona per audio a lungo termine](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Sintesi asincrona per audio a lungo termine](./long-audio-api.md)
 - [Introduzione a Voce personalizzata](how-to-custom-voice.md)

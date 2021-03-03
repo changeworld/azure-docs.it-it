@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 940f7efc7130ef80817be3b42e3c0eff83588a90
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a46ddeddfcefcd4d6e7f87747fe36cfc6ec82e35
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587985"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737563"
 ---
 # <a name="monitoring-time-series-insights"></a>Time Series Insights di monitoraggio
 
@@ -63,7 +63,7 @@ Vedere [creare un'impostazione di diagnostica per raccogliere i log e le metrich
 
 ## <a name="analyzing-metrics"></a>Analisi delle metriche
 
-È possibile analizzare le metriche per Azure Time Series Insights, insieme alle metriche di altri servizi di Azure, aprendo le metriche dal menu monitoraggio di Azure. Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../azure-monitor/platform/metrics-getting-started.md).
+È possibile analizzare le metriche per Azure Time Series Insights, insieme alle metriche di altri servizi di Azure, aprendo le metriche dal menu monitoraggio di Azure. Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../azure-monitor/essentials/metrics-getting-started.md).
 
 Per un elenco delle metriche della piattaforma raccolte, vedere [informazioni di riferimento sui dati di monitoraggio Azure Time Series Insights](how-to-monitor-tsi-reference.md#metrics)
 
@@ -115,7 +115,7 @@ Di seguito sono riportate le query che è possibile usare per monitorare l'ambie
 
 ## <a name="alerts"></a>Avvisi
 
-Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi nel sistema prima che i clienti li notino. È possibile impostare avvisi su [metriche](../azure-monitor/platform/alerts-metric-overview.md), [log](../azure-monitor/platform/alerts-unified-log.md)e [log attività](../azure-monitor/platform/activity-log-alerts.md). Tipi diversi di avvisi presentano vantaggi e svantaggi.
+Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi nel sistema prima che i clienti li notino. È possibile impostare avvisi su [metriche](../azure-monitor/alerts/alerts-metric-overview.md), [log](../azure-monitor/alerts/alerts-unified-log.md)e [log attività](../azure-monitor/alerts/activity-log-alerts.md). Tipi diversi di avvisi presentano vantaggi e svantaggi.
 
 Quando si crea una regola di avviso basata sulle metriche della piattaforma, tenere presente che, per Time Series Insights metriche della piattaforma raccolte in unità di conteggio, alcune aggregazioni potrebbero non essere disponibili o utilizzabili.
 

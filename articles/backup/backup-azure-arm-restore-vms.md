@@ -4,12 +4,12 @@ description: Ripristinare una macchina virtuale di Azure da un punto di ripristi
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 256998f2e687152bb63c9368af1a56f05bba7672
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: c15b2dc39202c6f8386031bcf055688aa2d279df
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820569"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722688"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Come ripristinare i dati delle macchine virtuali di Azure in portale di Azure
 
@@ -160,7 +160,7 @@ Se CRR è abilitato, è possibile visualizzare gli elementi di backup nell'area 
 
 L'esperienza utente per il ripristino dell'area secondaria sarà simile all'esperienza utente per il ripristino dell'area primaria. Quando si configurano i dettagli nel riquadro Configurazione ripristino per configurare il ripristino, verrà richiesto di fornire solo parametri dell'area secondaria.
 
-Attualmente, l'area secondaria [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) è fino a 12 ore dall'area primaria, anche se la replica con [ridondanza geografica e accesso in lettura (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) è 15 minuti.
+Attualmente, l'area secondaria [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) è fino a 12 ore dall'area primaria, anche se la replica con [ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) è 15 minuti.
 
 ![Scegliere la macchina virtuale da ripristinare](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
@@ -179,7 +179,7 @@ Attualmente, l'area secondaria [RPO](azure-backup-glossary.md#rpo-recovery-point
 >- La funzionalità di ripristino tra aree Ripristina le macchine virtuali di Azure abilitate per CMK (chiavi gestite dal cliente), che non vengono sottoposte a backup in un insieme di credenziali di servizi di ripristino abilitato per CMK, come le macchine virtuali abilitate per CMK nell'area secondaria.
 >- I ruoli di Azure necessari per il ripristino nell'area secondaria sono identici a quelli dell'area primaria.
 
-Le VM bloccate di [Azure zone](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) possono essere ripristinate in qualsiasi zona di [disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview) della stessa area.
+Le VM bloccate di [Azure zone](../virtual-machines/windows/create-portal-availability-zone.md) possono essere ripristinate in qualsiasi zona di [disponibilità](../availability-zones/az-overview.md) della stessa area.
 
 Nel processo di ripristino verrà visualizzata l'opzione zona di **disponibilità.** Verrà visualizzata prima la zona predefinita. Per scegliere una zona diversa, scegliere il numero dell'area desiderata. Se l'area bloccata non è disponibile, non sarà possibile ripristinare i dati in un'altra zona perché i dati di cui è stato eseguito il backup non sono zonally replicati.
 

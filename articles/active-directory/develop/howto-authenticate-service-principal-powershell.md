@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev , devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
-ms.date: 06/26/2020
+ms.date: 02/22/2021
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: b07679c6dd5e03131fde1439213783893971a088
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: b27af53d615fa9c0c46699a52a004098dc46b7b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581823"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688536"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procedure: Usare Azure PowerShell per creare un'entità servizio con un certificato
 
@@ -72,7 +72,7 @@ L'esempio viene sospeso per 20 secondi per consentire la propagazione della nuov
 
 È possibile definire l'ambito di assegnazione di ruolo a un gruppo di risorse specifico tramite il parametro **ResourceGroupName**. È possibile definire l'ambito per una risorsa specifica usando anche i parametri **ResourceType** e **ResourceName**. 
 
-Se **non si dispone di Windows 10 o Windows Server 2016**, scaricare il [Generatore di certificati autofirmati](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) da Microsoft Script Center. Estrarre i contenuti e importare il cmdlet necessario.
+Se **non si dispone di Windows 10 o Windows Server 2016**, scaricare il [cmdlet New-SELFSIGNEDCERTIFICATEEX](https://www.pkisolutions.com/tools/pspki/New-SelfSignedCertificateEx/) dalle soluzioni PKI. Estrarre i contenuti e importare il cmdlet necessario.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate

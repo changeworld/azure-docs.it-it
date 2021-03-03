@@ -7,12 +7,12 @@ ms.date: 01/16/2018
 author: dcstwh
 ms.author: weetok
 ms.custom: devx-track-python
-ms.openlocfilehash: 038da033c2bdf78a0a2547cc713944bc11bf093d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6c913c7c623c77baea0c575d06d2c44709af43fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379897"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740441"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorare a livello di codice una data factory di Azure
 
@@ -30,7 +30,7 @@ Se si vuole tenere i dati di esecuzione della pipeline per più di 45 giorni, co
 
 ## <a name="pipeline-run-information"></a>Informazioni sull'esecuzione della pipeline
 
-Per le proprietà di esecuzione della pipeline, vedere informazioni di [riferimento sull'API PipelineRun](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/get#pipelinerun). Un'esecuzione di pipeline presenta uno stato diverso durante il ciclo di vita. i possibili valori dello stato di esecuzione sono elencati di seguito:
+Per le proprietà di esecuzione della pipeline, vedere informazioni di [riferimento sull'API PipelineRun](/rest/api/datafactory/pipelineruns/get#pipelinerun). Un'esecuzione di pipeline presenta uno stato diverso durante il ciclo di vita. i possibili valori dello stato di esecuzione sono elencati di seguito:
 
 * Queued
 * InProgress
@@ -163,5 +163,4 @@ Per una procedura dettagliata completa di creazione e monitoraggio di una pipeli
 Per una documentazione completa sui cmdlet di PowerShell, vedere [Data Factory PowerShell cmdlet reference](/powershell/module/az.datafactory) (Informazioni di riferimento sui cmdlet di PowerShell per Data Factory).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni sull'utilizzo di Monitoraggio di Azure per monitorare le pipeline di Data Factory, vedere l'articolo sul [monitoraggio delle pipeline mediante Monitoraggio di Azure](monitor-using-azure-monitor.md). 
-
+Per informazioni sull'utilizzo di Monitoraggio di Azure per monitorare le pipeline di Data Factory, vedere l'articolo sul [monitoraggio delle pipeline mediante Monitoraggio di Azure](monitor-using-azure-monitor.md).

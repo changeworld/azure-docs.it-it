@@ -3,16 +3,27 @@ title: Creare una funzione in Java con Visual Studio Code - Funzioni di Azure
 description: Informazioni su come creare una funzione in Java e quindi pubblicare il progetto locale nell'hosting serverless in Funzioni di Azure usando l'estensione Funzioni di Azure in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: 36516abd8b50c0b0b7d72e6bae0b67701509ca65
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-vs-code-java-uiex
+ms.openlocfilehash: 10ac677fb65428e8b8855c43b319bbebe7bbbb71
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493635"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701433"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Avvio rapido: Creare una funzione in Java in Azure con Visual Studio Code
 
-[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
+> [!div class="op_single_selector" title1="Selezionare il linguaggio della funzione: "]
+> - [Java](create-first-function-vs-code-java.md)
+> - [Python](create-first-function-vs-code-python.md)
+> - [C#](create-first-function-vs-code-csharp.md)
+> - [JavaScript](create-first-function-vs-code-node.md)
+> - [PowerShell](create-first-function-vs-code-powershell.md)
+> - [TypeScript](create-first-function-vs-code-typescript.md)
+> - [Altro (Go/Rust)](create-first-function-vs-code-other.md)
 
 In questo articolo si userà Visual Studio Code per creare una funzione Java che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure.
 

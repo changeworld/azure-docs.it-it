@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/26/2020
+ms.date: 2/18/2021
 ms.author: shhazam
-ms.openlocfilehash: 06cf8b5f35bdebed0ebaa9e6949261d7c0d516f2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c224dc3f919471e769717f308aff9ae58630d421
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522564"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712760"
 ---
 # <a name="get-started-with-defender-for-iot"></a>Inizia a usare Defender per le cose
 
@@ -69,6 +69,8 @@ Per eseguire la registrazione:
 1. Selezionare **onboarding Subscription**.
 1. Nella pagina dei **prezzi** selezionare una sottoscrizione o crearne una nuova e aggiungere il numero di dispositivi di cui è stato eseguito il commit.
 1. Selezionare la scheda **download the on-premises Management Console** e salvare il file di attivazione scaricato. Questo file contiene i dispositivi aggregati di cui è stato eseguito il commit definiti. Il file verrà caricato nella console di gestione dopo l'accesso iniziale.
+
+Per informazioni su come offboard una sottoscrizione, vedere [offboard a Subscription](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
 
 ## <a name="3-install-and-set-up-the-on-premises-management-console"></a>3. installare e configurare la console di gestione locale
 
@@ -126,8 +128,9 @@ Per ulteriori informazioni, vedere [Connect Sensors to the on-premises Managemen
 ## <a name="7-populate-azure-sentinel-with-alert-information-optional"></a>7. popolare Azure Sentinel con le informazioni sugli avvisi (facoltativo)
 
 Inviare informazioni sugli avvisi ad Azure Sentinel configurando Sentinel di Azure. Vedere [connettere i dati da Defender per le cose a sentinella di Azure](how-to-configure-with-sentinel.md).
-## <a name="next-steps"></a>Passaggi successivi
 
-[Benvenuti in Azure Defender](overview.md)
+## <a name="see-also"></a>Vedi anche
 
-[Azure Defender per l'architettura dell'it](architecture.md)
+- [Benvenuti in Azure Defender](overview.md)
+
+- [Azure Defender per l'architettura dell'it](architecture.md)

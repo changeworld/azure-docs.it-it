@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: a2c29049decc056f0d3c8083d21574456610c124
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 375e8a748e8833e9483d92353ed04add287e90fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555135"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705093"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Modifiche importanti che interesseranno il Centro sicurezza di Azure
 
@@ -31,9 +31,25 @@ Se si cercano le note sulla versione più recenti, vedere [Novità del Centro si
 
 ## <a name="planned-changes"></a>Modifiche pianificate
 
+- [Due consigli legacy non scriveranno più dati direttamente nel log attività di Azure](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Miglioramenti alla raccomandazione di classificazione dei dati SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Deprecazione di 11 avvisi di Azure Defender](#deprecation-of-11-azure-defender-alerts)
+
+
+### <a name="two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log"></a>Due consigli legacy non scriveranno più dati direttamente nel log attività di Azure 
+
+**Data stimata per la modifica:** 2021 marzo
+
+Il Centro sicurezza passa i dati per quasi tutte le raccomandazioni sulla sicurezza a Azure Advisor che, a sua volta, li scrive nel [log attività di Azure](../azure-monitor/essentials/activity-log.md).
+
+Per due consigli, i dati vengono scritti simultaneamente direttamente nel log attività di Azure. Con questa modifica, il Centro sicurezza smetterà di scrivere i dati per queste raccomandazioni di sicurezza legacy direttamente nel log attività. Al contrario, i dati verranno esportati in Azure Advisor come per tutti gli altri consigli. 
+
+Le due raccomandazioni legacy sono:
+- È consigliabile risolvere i problemi di integrità di Endpoint Protection nei computer
+- Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
+
+Se è stato effettuato l'accesso alle informazioni per questi due consigli nella categoria "raccomandazione di tipo TaskDiscovery" del log attività, questo non sarà più disponibile.
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti 
 

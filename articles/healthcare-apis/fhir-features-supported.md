@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: e75cf8d6660bf6f2630b83e0c2c812fa7cf59057
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 19f051320aaa675ebe5ff148fb6580c2a5d8770c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430243"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719135"
 ---
 # <a name="features"></a>Funzionalità
 
@@ -35,7 +35,7 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 | aggiornamento con blocco ottimistico | Sì       | Sì       | Sì       |                                                     |
 | aggiornamento (condizionale)           | Sì       | Sì       | Sì       |                                                     |
 | patch                          | No        | No        | No        |                                                     |
-| eliminare                         | Sì       | Sì       | Sì       |                                                     |
+| eliminare                         | Sì       | Sì       | Sì       |  Vedere la nota di seguito                                                   |
 | Elimina (condizionale)           | No        | No        | No        |                                                     |
 | history                        | Sì       | Sì       | Sì       |                                                     |
 | create                         | Sì       | Sì       | Sì       | Supporto per POST/PUT                               |
@@ -48,6 +48,9 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 | transaction                    | No        | Sì       | No        |                                                     |
 | paging                         | Parziale   | Parziale   | Parziale   | `self` e `next` sono supportati                     |
 | intermediari                 | No        | No        | No        |                                                     |
+
+> [!Note]
+> L'eliminazione definita dalla specifica FHIR richiede che dopo l'eliminazione, le letture successive non specifiche della versione di una risorsa restituiscono un codice di stato HTTP 410 e la risorsa non viene più trovata tramite la ricerca. L'API di Azure per FHIR consente inoltre di eliminare completamente (inclusa tutta la cronologia) la risorsa. Per eliminare completamente la risorsa, è possibile passare le impostazioni di un parametro `hardDelete` a true ( `DELETE {server}/{resource}/{id}?hardDelete=true` ). Se questo parametro non viene passato o impostato `hardDelete` su false, le versioni storiche della risorsa saranno ancora disponibili.
 
 ## <a name="search"></a>Ricerca
 
@@ -89,7 +92,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | `_list`                 | Sì       | Sì       | Sì       |         |
 | `_type`                 | Sì       | Sì       | Sì       | [#1562](https://github.com/microsoft/fhir-server/issues/1562) problema        |
 | `_security`             | Sì       | Sì       | Sì       |         |
-| `_profile`              | Parziale   | Parziale   | Parziale   | Supportato solo in STU3, nessun supporto in R4 |
+| `_profile`              | Parziale   | Parziale   | Parziale   | Supportato in STU3. Se il database è stato creato **dopo** il 20 febbraio 2021, sarà presente anche il supporto per R4. Si sta lavorando per abilitare _profile nei database creati prima del 20 febbraio 2021. |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
 | `_has`                  | No        | No        | No        |         |
@@ -99,7 +102,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | Parametri dei risultati della ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_elements`             | Sì       | Sì       | Sì       | [#1256](https://github.com/microsoft/fhir-server/issues/1256) problema        |
-| `_count`                | Sì       | Sì       | Sì       | `_count` è limitato a 100 caratteri. Se è impostato su un valore superiore a 100, verrà restituito solo 100 e nel bundle verrà restituito un avviso. |
+| `_count`                | Sì       | Sì       | Sì       | `_count` è limitato a 1000 caratteri. Se è impostato su un valore superiore a 1000, verrà restituito solo 1000 e nel bundle verrà restituito un avviso. |
 | `_include`              | Sì       | Sì       | Sì       |Gli elementi inclusi sono limitati a 100. L'inclusione in PaaS e OSS in Cosmos DB non include: iterate support.|
 | `_revinclude`           | Sì       | Sì       | Sì       | Gli elementi inclusi sono limitati a 100. L'inclusione in PaaS e OSS in Cosmos DB non [include: iterate support](https://github.com/microsoft/fhir-server/issues/1313). [#1319](https://github.com/microsoft/fhir-server/issues/1319) problema|
 | `_summary`              | Parziale   | Parziale   | Parziale   | `_summary=count` è supportato |

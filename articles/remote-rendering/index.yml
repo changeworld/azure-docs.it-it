@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentazione di Rendering remoto di Azure
-summary: Rendering remoto di Azure è un servizio che consente di eseguire il rendering di modelli 3D estremamente complessi in tempo reale su dispositivi come HoloLens 2. Il servizio è attualmente disponibile in anteprima pubblica.
+summary: Rendering remoto di Azure è un servizio che consente di eseguire il rendering di modelli 3D estremamente complessi in tempo reale su dispositivi come HoloLens 2.
 metadata:
   title: Documentazione di Rendering remoto di Azure
   description: Informazioni su come usare il servizio Rendering remoto di Azure per eseguire il rendering di modelli 3D estremamente complessi in remoto e in tempo reale e visualizzare il risultato su dispositivi come HoloLens 2.
@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: e740fd08dc3e616b0768c6c15fd4191cb58e261a
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-  ms.translationtype: HT
+  ms.openlocfilehash: c60dfe8febb76936a41be48e5e8749be7a0ef3e7
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "85565425"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101732701"
 landingContent:
 - title: Informazioni su Rendering remoto di Azure
   linkLists:

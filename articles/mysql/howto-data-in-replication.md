@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 22974a47a6b1e9d49e5055a85f46286497cfe149
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 29ac0c5991964de48cedd15622d15e929bc9d733
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250533"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709547"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
@@ -101,9 +101,23 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    ```
 
    Se la variabile [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) viene restituita con il valore "on", la registrazione binaria è abilitata nel server.
-
-   Se `log_bin` viene restituito con il valore "off", attivare la registrazione binaria modificando il file My. cnf in modo che `log_bin=ON` e riavviare il server per rendere effettive le modifiche.
-
+   
+   Se `log_bin` viene restituito con il valore "off", 
+   1. Individuare il file di configurazione di MySQL (My. cnf) nel server di origine. Ad esempio:/etc/my.cnf
+   2. Aprire il file di configurazione per modificarlo e individuare la sezione **mysqld** nel file.
+   3.  Nella sezione mysqld aggiungere la riga seguente
+   
+       ```bash
+       log-bin=mysql-bin.log
+       ```
+     
+   4. Riavviare il server di origine MySQL per rendere effettive le modifiche.
+   5. Una volta riavviato il server, verificare che la registrazione binaria sia abilitata eseguendo la stessa query precedente:
+   
+      ```sql
+      SHOW VARIABLES LIKE 'log_bin';
+      ```
+   
 4. Impostazioni del server di origine
 
    Replica dei dati in ingresso richiede `lower_case_table_names` che il parametro sia coerente tra i server di origine e di replica. Per impostazione predefinita, in Database di Azure per MySQL questo parametro è impostato su 1.
@@ -216,7 +230,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    > [!NOTE]
    > Se il server di origine è ospitato in una macchina virtuale di Azure, impostare "Consenti l'accesso ai servizi di Azure" su "ON" per consentire la comunicazione tra i server di origine e di replica. Questa impostazione può essere modificata dalle opzioni di **sicurezza delle connessioni**. Per altre informazioni, vedere [Manage firewall rules using the Portal](howto-manage-firewall-using-portal.md) .
 
-   **Esempi**
+   **esempi**
 
    *Replica con SSL*
 

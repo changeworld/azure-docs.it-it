@@ -3,12 +3,12 @@ title: Risolvere i problemi di ripristino del file di VM di Azure
 description: Risolvere i problemi relativi al ripristino di file e cartelle da un backup di VM di Azure.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ee856b10c6a5fbea6f6f76b2082949ab9c1e0db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735878"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700304"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Risolvere i problemi relativi al ripristino dei file di un backup di una macchina virtuale di Azure
 
@@ -36,7 +36,7 @@ Questa sezione illustra la procedura per risolvere i problemi relativi ai messag
 
 **Azione consigliata**: 12 ore dopo il download dello script, questo diventa non valido e non può essere eseguito. Passare al portale e quindi scaricare un nuovo script per continuare con il ripristino del file.
 
-### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>non è possibile caricare il modulo iscsi_tcp (o) iscsi_tcp_module non è stato trovato
+### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>Il modulo iscsi_tcp non può essere caricato oppure non è stato trovato
 
 **Azione consigliata**: per risolvere questo problema, seguire la procedura descritta in [download dello script, ma non è possibile eseguirlo correttamente](#the-script-downloads-successfully-but-fails-to-run).
 
@@ -88,7 +88,7 @@ Risolvere questo problema attenendosi alla procedura per il sistema operativo in
 Quando si esegue lo script per la prima volta in Windows Server 2012 R2 e Windows Server 2016 (con pool di archiviazione), il pool di archiviazione potrebbe essere collegato alla macchina virtuale in sola lettura.
 
 >[!Tip]
-> Assicurarsi di disporre del [computer corretto per l'esecuzione dello script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+> Assicurarsi di disporre del [computer corretto per l'esecuzione dello script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 Per risolvere questo problema, assegnare manualmente l'accesso in lettura/scrittura al pool di archiviazione e alleghi i dischi virtuali:
 
@@ -108,7 +108,7 @@ Per risolvere questo problema, assegnare manualmente l'accesso in lettura/scritt
 
 Durante l'esecuzione del ripristino dei file, il servizio di backup rileva i volumi e i montaggi automatici. Tuttavia, se i dischi di cui è stato eseguito il backup hanno partizioni non elaborate, questi dischi non sono montati automaticamente e non è possibile visualizzare il disco dati per il ripristino.
 
-Per risolvere questo problema, passare a [ripristinare i file dal backup della macchina virtuale di Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Per risolvere questo problema, passare a [ripristinare i file dal backup della macchina virtuale di Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 #### <a name="linux-file-recovery-fails-because-the-os-couldnt-identify-the-file-system"></a>Il ripristino del file Linux non riesce perché il sistema operativo non è riuscito a identificare il file system
 
@@ -122,7 +122,7 @@ Per risolvere questo problema, controllare se il volume è crittografato con un'
 
    ![Screenshot che mostra i risultati del comando per elencare i dispositivi a blocchi.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
-1. Verificare il file system e la crittografia. Se il volume è crittografato, il ripristino dei file non è supportato. Altre informazioni sono disponibili nella [matrice di supporto per il backup delle macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
+1. Verificare il file system e la crittografia. Se il volume è crittografato, il ripristino dei file non è supportato. Altre informazioni sono disponibili nella [matrice di supporto per il backup delle macchine virtuali di Azure](./backup-support-matrix-iaas.md#support-for-file-level-restore).
 
 ### <a name="disks-are-attached-but-the-volumes-arent-mounted"></a>I dischi sono collegati, ma i volumi non sono montati
 
@@ -139,7 +139,7 @@ Quando si esegue lo script di ripristino del file per Windows, viene visualizzat
 Per identificare e risolvere il problema, seguire questa procedura:
 
 >[!Tip]
->Assicurarsi di disporre del [computer corretto per l'esecuzione dello script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Assicurarsi di disporre del [computer corretto per l'esecuzione dello script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 1. Nella finestra **cmd** eseguire **diskmgmt** per aprire **Gestione disco**.
 1. Cercare eventuali dischi aggiuntivi. Nell'esempio seguente, il **disco 2** è un disco aggiuntivo.
@@ -159,9 +159,9 @@ Per identificare e risolvere il problema, seguire questa procedura:
 #### <a name="linux"></a>Linux
 
 >[!Tip]
->Assicurarsi di disporre del [computer corretto per l'esecuzione dello script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Assicurarsi di disporre del [computer corretto per l'esecuzione dello script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
-Se la VM Linux protetta usa LVM o array RAID, seguire la procedura descritta in [ripristinare i file dal backup della macchina virtuale di Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Se la VM Linux protetta usa LVM o array RAID, seguire la procedura descritta in [ripristinare i file dal backup della macchina virtuale di Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 ### <a name="you-cant-copy-the-files-from-mounted-volumes"></a>Non è possibile copiare i file dai volumi montati
 

@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: allensu
-ms.openlocfilehash: 5c5650d896442f10846e16903a1231010d032a44
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e6b7648188e2307da4ef40e0ab3daf6201f9d89d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675198"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694870"
 ---
 # <a name="create-a-public-ip-address-using-the-azure-portal"></a>Creare un indirizzo IP pubblico usando il portale di Azure
 
@@ -74,7 +74,6 @@ In questa sezione viene creato un indirizzo IP pubblico di base denominato **myB
     | Versione indirizzo IP              | Selezionare IPv4                 |    
     | SKU                     | Selezionare **Basic**         |
     | Nome                    | Immettere *myBasicPublicIP*          |
-    | Preferenza di routing      | Lasciare l'impostazione predefinita **rete Microsoft**. </br> Per ulteriori informazioni sulle preferenze di routing, vedere informazioni sulle preferenze di [routing (anteprima)](./routing-preference-overview.md). |
     | Assegnazione indirizzi IP   | Seleziona **statico** (vedere la nota sotto)                                     |
     | Timeout di inattività (minuti)  | Lasciare il valore predefinito **4**.       |
     | Etichetta del nome DNS          | Lasciare vuoto il valore    |
@@ -82,7 +81,7 @@ In questa sezione viene creato un indirizzo IP pubblico di base denominato **myB
     | Resource group          | Selezionare **Crea nuovo**, immettere **myResourceGroup**. </br> Selezionare **OK**. |
     | Location                | Selezionare **Stati Uniti orientali 2**      |
 
-:::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Crea indirizzo IP standard in portale di Azure" border="false":::
+:::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Crea indirizzo IP standard in portale di Azure" border="false":::
 
 Se è accettabile che l'indirizzo IP cambi nel tempo, è possibile selezionare Assegnazione IP **dinamica** .
 

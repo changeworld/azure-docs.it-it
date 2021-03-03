@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f8f9da1b9c0b2df4e353b90538d52d9cb9b9e241
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 62be64f3134bbbbbe2b18bef384654168f958287
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093908"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701604"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Baseline della sicurezza di Azure per gestione traffico di Azure
 
@@ -62,7 +62,7 @@ Abilitare le impostazioni di diagnostica in monitoraggio di Azure per l'accesso 
 
 - [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

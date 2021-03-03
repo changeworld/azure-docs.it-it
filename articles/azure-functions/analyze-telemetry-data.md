@@ -4,12 +4,12 @@ description: Informazioni su come visualizzare ed eseguire query per i dati di t
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 56af6af6f4204a819c06fd97cda357dca20a19b0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d06fe64ddc0475b5ca7d9c16876c8dfc9acda544
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591186"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729369"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analizzare la telemetria di funzioni di Azure in Application Insights 
 
@@ -142,14 +142,14 @@ Le seguenti query di telemetria sono specifiche per le metriche che incidono sul
 
 ## <a name="azure-monitor-metrics"></a>Metriche di monitoraggio di Azure
 
-Oltre ai dati di telemetria raccolti da Application Insights, è anche possibile ottenere informazioni sul modo in cui l'app per le funzioni viene eseguita dalle [metriche di monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md). Insieme alle metriche consuete [disponibili per](../app-service/web-sites-monitor.md#understand-metrics)le app del servizio app, esistono due metriche specifiche per le funzioni di interesse:
+Oltre ai dati di telemetria raccolti da Application Insights, è anche possibile ottenere informazioni sul modo in cui l'app per le funzioni viene eseguita dalle [metriche di monitoraggio di Azure](../azure-monitor/essentials/data-platform-metrics.md). Insieme alle metriche consuete [disponibili per](../app-service/web-sites-monitor.md#understand-metrics)le app del servizio app, esistono due metriche specifiche per le funzioni di interesse:
 
 | Metrica | Descrizione |
 | ---- | ---- |
 | **FunctionExecutionCount** | Conteggio esecuzioni di funzioni indica il numero di volte in cui l'app per le funzioni è stata eseguita. Questo è correlato al numero di volte in cui una funzione viene eseguita nell'app. Questa metrica non è attualmente supportata per i piani Premium e dedicati (servizio app) in esecuzione su Linux. |
 | **FunctionExecutionUnits** | Le unità di esecuzione della funzione sono una combinazione di tempo di esecuzione e di utilizzo della memoria.  I dati di memoria non sono una metrica attualmente disponibile tramite monitoraggio di Azure. Tuttavia, se si vuole ottimizzare l'utilizzo della memoria dell'app, può usare i dati dei contatori delle prestazioni raccolti da Application Insights. Questa metrica non è attualmente supportata per i piani Premium e dedicati (servizio app) in esecuzione su Linux.|
 
-Per altre informazioni sul calcolo dei costi per un piano a consumo usando i dati Application Insights, vedere [stima dei costi del piano a consumo](functions-consumption-costs.md). Per altre informazioni sull'uso di Esplora monitor per visualizzare le metriche, vedere [Introduzione ad Azure Esplora metriche](../azure-monitor/platform/metrics-getting-started.md).
+Per altre informazioni sul calcolo dei costi per un piano a consumo usando i dati Application Insights, vedere [stima dei costi del piano a consumo](functions-consumption-costs.md). Per altre informazioni sull'uso di Esplora monitor per visualizzare le metriche, vedere [Introduzione ad Azure Esplora metriche](../azure-monitor/essentials/metrics-getting-started.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -158,4 +158,3 @@ Altre informazioni sul monitoraggio di funzioni di Azure:
 
 + [Monitorare Funzioni di Azure](functions-monitoring.md)
 + [Come configurare il monitoraggio per funzioni di Azure](configure-monitoring.md)
-

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 028088087b16ded182042aadec4be08a4b8a9589
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 4db7c9fdfd439e049ca76fec6f0e66bd4a37fffd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062679"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702709"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Connettersi ad Azure IoT Central
 
@@ -217,7 +217,44 @@ Quando un dispositivo reale si connette all'applicazione IoT Central, lo stato d
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Non salvare in modo permanente o memorizzare nella cache la stringa di connessione del dispositivo che DPS restituisce quando si connette il dispositivo per la prima volta. Per riconnettere un dispositivo, esaminare il flusso di registrazione del dispositivo standard per ottenere la stringa di connessione del dispositivo corretta. Se il dispositivo memorizza nella cache la stringa di connessione, il software del dispositivo rischia di avere una stringa di connessione obsoleta. Se IoT Central aggiorna l'hub delle cose di Azure sottostante usato, un dispositivo con una stringa di connessione non aggiornata non può connettersi.
+Questi consigli illustrano come implementare i dispositivi per sfruttare i vantaggi del ripristino di emergenza incorporato e della scalabilità automatica in IoT Central.
+
+L'elenco seguente illustra il flusso di alto livello quando un dispositivo si connette a IoT Central:
+
+1. Usare DPS per eseguire il provisioning del dispositivo e ottenere una stringa di connessione del dispositivo.
+
+1. Usare la stringa di connessione per connettere l'endpoint dell'hub degli elementi interni di IoT Central. Inviare dati e ricevere dati dall'applicazione IoT Central.
+
+1. Se il dispositivo ottiene errori di connessione, a seconda del tipo di errore, ritentare la connessione o effettuare nuovamente il provisioning del dispositivo.
+
+### <a name="use-dps-to-provision-the-device"></a>Usare DPS per eseguire il provisioning del dispositivo
+
+Per eseguire il provisioning di un dispositivo con DPS, usare l'ID ambito, le credenziali e l'ID dispositivo dell'applicazione IoT Central. Per altre informazioni sui tipi di credenziali, vedere registrazione del [gruppo X. 509](#x509-group-enrollment) e [registrazione del gruppo SAS](#sas-group-enrollment). Per altre informazioni sugli ID dispositivo, vedere [registrazione del dispositivo](#device-registration).
+
+In seguito all'esito positivo, DPS restituisce una stringa di connessione che il dispositivo può usare per connettersi all'applicazione IoT Central. Per risolvere gli errori di provisioning, vedere [controllare lo stato del provisioning del dispositivo](troubleshoot-connection.md#check-the-provisioning-status-of-your-device).
+
+Il dispositivo può memorizzare nella cache la stringa di connessione da usare per le connessioni successive. Tuttavia, il dispositivo deve essere pronto a [gestire gli errori di connessione](#handle-connection-failures).
+
+### <a name="connect-to-iot-central"></a>Connetti a IoT Central
+
+Usare la stringa di connessione per connettere l'endpoint dell'hub degli elementi interni di IoT Central. La connessione consente di inviare dati di telemetria all'applicazione IoT Central, sincronizzare i valori delle proprietà con l'applicazione IoT Central e rispondere ai comandi inviati dall'applicazione IoT Central.
+
+### <a name="handle-connection-failures"></a>Gestione degli errori di connessione
+
+Ai fini della scalabilità o del ripristino di emergenza, IoT Central possibile aggiornare l'hub Internet delle cose sottostante. Per mantenere la connettività, il codice del dispositivo deve gestire errori di connessione specifici stabilendo una connessione al nuovo endpoint dell'hub.
+
+Se il dispositivo riceve uno degli errori seguenti quando si connette, deve ripetere il passaggio di provisioning con DPS per ottenere una nuova stringa di connessione. Questi errori indicano che la stringa di connessione usata dal dispositivo non è più valida:
+
+- Endpoint dell'hub di Internet delle cose irraggiungibile.
+- Token di sicurezza scaduto.
+- Dispositivo disabilitato nell'hub Internet.
+
+Se il dispositivo riceve uno degli errori seguenti quando si connette, deve usare una strategia di back-off per ritentare la connessione. Questi errori indicano che la stringa di connessione usata dal dispositivo è ancora valida, ma le condizioni transitorie arrestano la connessione del dispositivo:
+
+- Dispositivo bloccato dall'operatore.
+- Errore interno 500 dal servizio.
+
+Per altre informazioni sui codici di errore del dispositivo, vedere [risoluzione dei problemi relativi alle connessioni del dispositivo](troubleshoot-connection.md).
 
 ## <a name="sdk-support"></a>Supporto SDK
 

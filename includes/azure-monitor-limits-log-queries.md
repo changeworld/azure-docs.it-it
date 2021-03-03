@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: ff5d04a2923f16c763e1529ecb365f60d6275ca2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 5f2b77c7d8e1a2da9517183043231b717b6cceab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027793"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734082"
 ---
 ### <a name="general-query-limits"></a>Limiti per le query generici
 
 | Limite | Descrizione |
 |:---|:---|
 | Linguaggio di query | Monitoraggio di Azure usa lo stesso [linguaggio di query Kusto](/azure/kusto/query/) di Esplora dati di Azure. Vedere [Differenze nel linguaggio di query di log di Monitoraggio di Azure](/azure/data-explorer/kusto/query/) per gli elementi del linguaggio KQL non supportati in Monitoraggio di Azure. |
-| Aree di Azure | Nelle query su log è possibile riscontrare un sovraccarico eccessivo quando i dati si estendono in più aree di Azure nelle aree di lavoro Log Analytics. Per informazioni dettagliate, vedere [Limiti per le query](../articles/azure-monitor/log-query/scope.md#query-scope-limits). |
-| Query su più risorse | Il numero massimo di risorse di Application Insights e di aree di lavoro Log Analytics che è possibile includere in una singola query è limitato a 100.<br>Le query su più risorse non sono supportate Progettazione visualizzazioni.<br>Le query su più risorse negli avvisi dei log sono supportate nella nuova API scheduledQueryRules.<br>Per informazioni dettagliate, vedere [Limiti per le query su più risorse](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits). |
+| Aree di Azure | Nelle query su log è possibile riscontrare un sovraccarico eccessivo quando i dati si estendono in più aree di Azure nelle aree di lavoro Log Analytics. Per informazioni dettagliate, vedere [Limiti per le query](../articles/azure-monitor/logs/scope.md#query-scope-limits). |
+| Query su più risorse | Il numero massimo di risorse di Application Insights e di aree di lavoro Log Analytics che è possibile includere in una singola query è limitato a 100.<br>Le query su più risorse non sono supportate Progettazione visualizzazioni.<br>Le query su più risorse negli avvisi dei log sono supportate nella nuova API scheduledQueryRules.<br>Per informazioni dettagliate, vedere [Limiti per le query su più risorse](../articles/azure-monitor/logs/cross-workspace-query.md#cross-resource-query-limits). |
 
 ### <a name="user-query-throttling"></a>Limitazione delle query utente
 Monitoraggio di Azure prevede diversi limiti per evitare che gli utenti inviino un numero eccessivo di query. Questo comportamento può potenzialmente sovraccaricare le risorse back-end di sistema e compromettere la velocità di risposta del servizio. I limiti seguenti sono progettati per proteggere i clienti dalle interruzioni e garantire un livello di servizio uniforme. I limiti e la limitazione delle richieste utente sono pensati solo per scenari di utilizzo estremo e non devono essere considerati pertinenti nei casi di utilizzo standard.
@@ -34,6 +34,6 @@ Monitoraggio di Azure prevede diversi limiti per evitare che gli utenti inviino 
 | Totale query nella coda di concorrenza | 200 | Quando nella coda sono presenti 200 query, eventuali query aggiuntive vengono rifiutate e viene restituito un codice errore HTTP 429. Questo numero si aggiunge alle cinque query che possono essere eseguite contemporaneamente. |
 | Frequenza delle query | 200 query ogni 30 secondi | Si tratta della velocità complessiva con cui le query possono essere inviate da un singolo utente a tutte le aree di lavoro.  Questo limite si applica alle query a livello di codice o alle query avviate da parti di visualizzazione, come i dashboard di Azure e la pagina di riepilogo dell'area di lavoro Log Analytics. |
 
-- Ottimizzare le query come descritto in [Ottimizzare le query sui log in Monitoraggio di Azure](../articles/azure-monitor/log-query/query-optimization.md).
+- Ottimizzare le query come descritto in [Ottimizzare le query sui log in Monitoraggio di Azure](../articles/azure-monitor/logs/query-optimization.md).
 - I dashboard e le cartelle di lavoro possono contenere più query in una singola visualizzazione e generano un picco di query ogni volta che vengono caricati o aggiornati. Provare a suddividerli in più visualizzazioni che vengono caricate su richiesta. 
 - In Power BI è consigliabile estrarre solo i risultati aggregati invece dei log non elaborati.

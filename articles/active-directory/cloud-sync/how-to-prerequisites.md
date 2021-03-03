@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/02/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83c9b0ece933ad71810c50e89ae296aa218ec75
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: ac247b9dc70c565621d3544d14e2f76ff12fda47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613667"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689318"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Prerequisiti per Azure AD Connect sincronizzazione cloud
 Questo articolo fornisce indicazioni su come scegliere e usare Azure Active Directory (Azure AD) Connect Cloud Sync come soluzione di identità.
@@ -26,16 +26,16 @@ Per usare Azure AD Connect sincronizzazione cloud è necessario quanto segue:
 
 - Credenziali di amministratore di dominio o di amministratore dell'organizzazione per creare l'Azure AD Connect Cloud Sync gMSA (account del servizio gestito del gruppo) per eseguire il servizio Agent. 
 - Un account amministratore di identità ibrido per il tenant di Azure AD che non è un utente Guest.
-- Un server locale per l'agente di provisioning con Windows 2012 R2 o versione successiva.  Questo server deve essere un server di livello 0 basato sul [modello di livello amministrativo Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Un server locale per l'agente di provisioning con Windows 2016 o versione successiva.  Questo server deve essere un server di livello 0 basato sul [modello di livello amministrativo Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Configurazione del firewall locale.
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
 Un account del servizio gestito del gruppo è un account di dominio gestito che offre la gestione automatica delle password, la gestione semplificata del nome dell'entità servizio (SPN), la possibilità di delegare la gestione ad altri amministratori e anche di estendere questa funzionalità su più server.  Azure AD Connect Cloud Sync supporta e usa un gMSA per l'esecuzione dell'agente.  Verranno richieste le credenziali amministrative durante l'installazione, per creare questo account.  L'account verrà visualizzato come (domain\provAgentgMSA $).  Per altre informazioni su un gMSA, vedere [account del servizio gestito del gruppo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### <a name="prerequisites-for-gmsa"></a>Prerequisiti per gMSA:
-1.  È necessario aggiornare lo schema Active Directory nella foresta del dominio gMSA a Windows Server 2012
+1.  È necessario aggiornare lo schema Active Directory nella foresta del dominio gMSA a Windows Server 2012.
 2.  [Moduli amministrazione remota di PowerShell](/windows-server/remote/remote-server-administration-tools) in un controller di dominio
-3.  Almeno un controller di dominio nel dominio deve eseguire Windows Server 2012.
+3.  Almeno un controller di dominio nel dominio deve eseguire Windows Server 201.
 4.  Un server aggiunto a un dominio in cui è installato l'agente deve essere Windows Server 2012 o versione successiva.
 
 ### <a name="custom-gmsa-account"></a>Account gMSA personalizzato
@@ -65,7 +65,7 @@ Eseguire lo [strumento IdFix](/office365/enterprise/prepare-directory-attributes
 
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
-1. Identificare un server host aggiunto al dominio che esegue Windows Server 2012 R2 o versione successiva con almeno 4 GB di RAM e il runtime di .NET 4.7.1 o versione successiva.
+1. Identificare un server host aggiunto al dominio che esegue Windows Server 2016 o versione successiva con almeno 4 GB di RAM e .NET 4.7.1 + Runtime.
 
 2. I criteri di esecuzione di PowerShell nel server locale devono essere impostati su Undefined o RemoteSigned.
 

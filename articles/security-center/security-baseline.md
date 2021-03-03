@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 195c264eca0c40712816495a09e1387fcaa2c910
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 330b466360cc5687f78db81fbb4545e1c3409098
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572937"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729879"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Baseline della sicurezza di Azure per il Centro sicurezza
 
@@ -142,7 +142,7 @@ In alternativa, è possibile inviare i dati generati dal centro sicurezza ad Azu
 
 - [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

@@ -7,18 +7,18 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 63613307847ba2bf617d7a6a1018d083dc5db3fe
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 809dc6d0958b754911362f933e9fe964bce9c679
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393123"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727924"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
-> * [Versione 1](v1/data-factory-azure-blob-connector.md)
-> * [Versione corrente](connector-azure-blob-storage.md)
+> - [Versione 1](v1/data-factory-azure-blob-connector.md)
+> - [Versione corrente](connector-azure-blob-storage.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -39,7 +39,7 @@ Questo connettore di archiviazione BLOB di Azure è supportato per le attività 
 
 Per l'attività di copia, questo connettore di archiviazione BLOB supporta:
 
-- La copia di BLOB in e da account di archiviazione di Azure per utilizzo generico e servizi di Archiviazione BLOB ad accesso frequente o sporadico. 
+- La copia di BLOB in e da account di archiviazione di Azure per utilizzo generico e servizi di Archiviazione BLOB ad accesso frequente o sporadico.
 - Copia di BLOB usando una chiave dell'account, una firma di accesso condiviso del servizio, un'entità servizio o identità gestite per le autenticazioni di risorse di Azure.
 - La copia di BLOB da BLOB in blocchi, di aggiunta o di pagine e la copia di dati solo in BLOB in blocchi.
 - La copia di BLOB così come sono o l'analisi o la generazione di BLOB con [formati di file e codec di compressione supportati](supported-file-formats-and-compression-codecs.md).
@@ -73,15 +73,15 @@ Data Factory supporta le seguenti proprietà per l'autenticazione della chiave d
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** deve essere impostata su **AzureBlobStorage** (suggerito) o **AzureStorage** (vedere le note seguenti). |Sì |
-| connectionString | Specificare le informazioni necessarie per la connessione alla risorsa di archiviazione per la proprietà **ConnectionString** . <br/> È anche possibile inserire la chiave dell'account in Azure Key Vault ed estrarre la `accountKey` configurazione dalla stringa di connessione. Per ulteriori informazioni, vedere gli esempi seguenti e le [credenziali di archiviazione in Azure Key Vault](store-credentials-in-key-vault.md) articolo. |Sì |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. |No |
+| type | La `type` proprietà deve essere impostata su `AzureBlobStorage` (suggerito) o `AzureStorage` (vedere le note seguenti). | Sì |
+| connectionString | Specificare le informazioni necessarie per connettersi alla risorsa di archiviazione per la `connectionString` Proprietà. <br/> È anche possibile inserire la chiave dell'account in Azure Key Vault ed estrarre la `accountKey` configurazione dalla stringa di connessione. Per ulteriori informazioni, vedere gli esempi seguenti e le [credenziali di archiviazione in Azure Key Vault](store-credentials-in-key-vault.md) articolo. | Sì |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. | No |
 
 >[!NOTE]
 >Un endpoint di servizio BLOB secondario non è supportato quando si usa l'autenticazione della chiave dell'account. È possibile usare altri tipi di autenticazione.
 
 >[!NOTE]
->Se si usa il servizio collegato di tipo "AzureStorage", è ancora supportato così com'è. Tuttavia, è consigliabile usare il nuovo tipo di servizio collegato "AzureBlobStorage" in futuro.
+>Se si usa il `AzureStorage` tipo servizio collegato, è ancora supportato così com'è. Tuttavia, è consigliabile usare il nuovo `AzureBlobStorage` tipo di servizio collegato in futuro.
 
 **Esempio:**
 
@@ -91,11 +91,11 @@ Data Factory supporta le seguenti proprietà per l'autenticazione della chiave d
     "properties": {
         "type": "AzureBlobStorage",
         "typeProperties": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },
         "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
+          "referenceName": "<name of Integration Runtime>",
+          "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -110,19 +110,19 @@ Data Factory supporta le seguenti proprietà per l'autenticazione della chiave d
         "type": "AzureBlobStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;",
-            "accountKey": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "accountKey": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "<secretName>"
             }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
-        }            
+        }
     }
 }
 ```
@@ -131,7 +131,7 @@ Data Factory supporta le seguenti proprietà per l'autenticazione della chiave d
 
 Una firma di accesso condiviso fornisce accesso delegato controllato alle risorse dell'account di archiviazione. È possibile usarla per concedere a un client autorizzazioni limitate per gli oggetti nell'account di archiviazione per un periodo di tempo specificato. 
 
-Non è necessario condividere le chiavi di accesso degli account. La firma di accesso condiviso è un URI che racchiude nei parametri di query tutte le informazioni necessarie per l'accesso autenticato a una risorsa di archiviazione. Per accedere alle risorse di archiviazione con la firma di accesso condiviso, il client deve solo passare la firma di accesso condiviso al costruttore o al metodo appropriato. 
+Non è necessario condividere le chiavi di accesso degli account. La firma di accesso condiviso è un URI che racchiude nei parametri di query tutte le informazioni necessarie per l'accesso autenticato a una risorsa di archiviazione. Per accedere alle risorse di archiviazione con la firma di accesso condiviso, il client deve solo passare la firma di accesso condiviso al costruttore o al metodo appropriato.
 
 Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../storage/common/storage-sas-overview.md).
 
@@ -143,12 +143,12 @@ Data Factory supporta le seguenti proprietà per l'uso dell'autenticazione della
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** deve essere impostata su **AzureBlobStorage** (suggerito) o **AzureStorage** (vedere la nota seguente). |Sì |
-| sasUri | Specificare l'URI della firma di accesso condiviso per le risorse di archiviazione, ad esempio BLOB o contenitore. <br/>Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory. È anche possibile inserire il token SAS in Azure Key Vault per usare la rotazione automatica e rimuovere la parte del token. Per ulteriori informazioni, vedere gli esempi seguenti e [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. |No |
+| type | La `type` proprietà deve essere impostata su `AzureBlobStorage` (suggerito) o `AzureStorage` (vedere la nota seguente). | Sì |
+| sasUri | Specificare l'URI della firma di accesso condiviso per le risorse di archiviazione, ad esempio BLOB o contenitore. <br/>Contrassegnare questo campo come `SecureString` per archiviarlo in modo sicuro in data factory. È anche possibile inserire il token SAS in Azure Key Vault per usare la rotazione automatica e rimuovere la parte del token. Per ulteriori informazioni, vedere gli esempi seguenti e [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. | No |
 
 >[!NOTE]
->Se si usa il servizio collegato di tipo "AzureStorage", è ancora supportato così com'è. Tuttavia, è consigliabile usare il nuovo tipo di servizio collegato "AzureBlobStorage" in futuro.
+>Se si usa il `AzureStorage` tipo servizio collegato, è ancora supportato così com'è. Tuttavia, è consigliabile usare il nuovo `AzureBlobStorage` tipo di servizio collegato in futuro.
 
 **Esempio:**
 
@@ -183,13 +183,13 @@ Data Factory supporta le seguenti proprietà per l'uso dell'autenticazione della
                 "type": "SecureString",
                 "value": "<SAS URI of the Azure Storage resource without token e.g. https://<accountname>.blob.core.windows.net/>"
             },
-            "sasToken": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
+            "sasToken": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
                     "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"
             }
         },
         "connectVia": {
@@ -227,14 +227,14 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** deve essere impostata su **AzureBlobStorage**. |Sì |
-| serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. |Sì |
-| accountKind | Specificare il tipo di account di archiviazione. I valori consentiti sono: **storage** (utilizzo generico V1), **archiviazione V2** (utilizzo generico v2), **BlobStorage** o **BlockBlobStorage**. <br/> Quando si usa il servizio collegato BLOB di Azure nel flusso di dati, l'identità gestita o l'autenticazione basata su entità servizio non è supportata quando il tipo di account è vuoto o "archiviazione". Specificare il tipo di account appropriato, scegliere un'autenticazione diversa oppure aggiornare l'account di archiviazione a utilizzo generico V2. |No |
+| type | La proprietà **Type** deve essere impostata su **AzureBlobStorage**. | Sì |
+| serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. | Sì |
+| accountKind | Specificare il tipo di account di archiviazione. I valori consentiti sono: **storage** (utilizzo generico V1), **archiviazione V2** (utilizzo generico v2), **BlobStorage** o **BlockBlobStorage**. <br/> Quando si usa il servizio collegato BLOB di Azure nel flusso di dati, l'identità gestita o l'autenticazione basata su entità servizio non è supportata quando il tipo di account è vuoto o "archiviazione". Specificare il tipo di account appropriato, scegliere un'autenticazione diversa oppure aggiornare l'account di archiviazione a utilizzo generico V2. | No |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory o [fare riferimento a un segreto archiviato nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarla passando il mouse sull'angolo superiore destro della portale di Azure. | Sì |
 | azureCloudType | Per l'autenticazione dell'entità servizio, specificare il tipo di ambiente cloud di Azure in cui è registrata l'applicazione Azure Active Directory. <br/> I valori consentiti sono **AzurePublic**, **AzureChina**, **AzureUsGovernment** e **AzureGermany**. Per impostazione predefinita, viene usato l'ambiente cloud del data factory. | No |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. |No |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. | No |
 
 >[!NOTE]
 >Se l'account BLOB consente l' [eliminazione](../storage/blobs/soft-delete-blob-overview.md)temporanea, l'autenticazione dell'entità servizio non è supportata nel flusso di dati.
@@ -287,10 +287,10 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** deve essere impostata su **AzureBlobStorage**. |Sì |
-| serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. |Sì |
-| accountKind | Specificare il tipo di account di archiviazione. I valori consentiti sono: **storage** (utilizzo generico V1), **archiviazione V2** (utilizzo generico v2), **BlobStorage** o **BlockBlobStorage**. <br/> Quando si usa il servizio collegato BLOB di Azure nel flusso di dati, l'identità gestita o l'autenticazione basata su entità servizio non è supportata quando il tipo di account è vuoto o "archiviazione". Specificare il tipo di account appropriato, scegliere un'autenticazione diversa oppure aggiornare l'account di archiviazione a utilizzo generico V2. |No |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. |No |
+| type | La proprietà **Type** deve essere impostata su **AzureBlobStorage**. | Sì |
+| serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. | Sì |
+| accountKind | Specificare il tipo di account di archiviazione. I valori consentiti sono: **storage** (utilizzo generico V1), **archiviazione V2** (utilizzo generico v2), **BlobStorage** o **BlockBlobStorage**. <br/> Quando si usa il servizio collegato BLOB di Azure nel flusso di dati, l'identità gestita o l'autenticazione basata su entità servizio non è supportata quando il tipo di account è vuoto o "archiviazione". Specificare il tipo di account appropriato, scegliere un'autenticazione diversa oppure aggiornare l'account di archiviazione a utilizzo generico V2. | No |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. | No |
 
 > [!NOTE]
 > Se l'account BLOB consente l' [eliminazione](../storage/blobs/soft-delete-blob-overview.md)temporanea, l'autenticazione dell'identità gestita non è supportata nel flusso di dati.
@@ -377,10 +377,10 @@ Le proprietà seguenti sono supportate per l'archiviazione BLOB di Azure in `sto
 | OPZIONE 2: prefisso BLOB<br>- prefisso | Prefisso per il nome del BLOB nel contenitore specificato configurato in un set di dati per filtrare i BLOB di origine. Sono selezionati i BLOB i cui nomi iniziano con `container_in_dataset/this_prefix` . Usa il filtro sul lato servizio per l'archiviazione BLOB, che offre prestazioni migliori rispetto a un filtro con caratteri jolly.<br><br>Quando si usa prefix e si sceglie di copiare in un sink basato su file con la gerarchia di mantenimento, tenere presente che il percorso secondario dopo l'ultimo "/" nel prefisso verrà mantenuto. Ad esempio, si dispone di source  `container/folder/subfolder/file.txt` e si configura Prefix come `folder/sub` , quindi il percorso del file mantenuto è `subfolder/file.txt` . | No                                                          |
 | OPZIONE 3: carattere jolly<br>- wildcardFolderPath | Percorso della cartella con caratteri jolly nel contenitore specificato configurato in un set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Utilizzare `^` per eseguire l'escape se il nome della cartella contiene caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | OPZIONE 3: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly nel contenitore e nel percorso della cartella specificati (o percorso della cartella con caratteri jolly) per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per eseguire l'escape se il nome del file contiene un carattere jolly o questo carattere di escape. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì |
-| OPZIONE 4: un elenco di file<br>- fileListPath | Indica di copiare un determinato set di file. Puntare a un file di testo che include un elenco di file da copiare, un file per riga, che rappresenta il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare un nome di file nel set di dati. Per altri esempi, vedere [Esempi di elenco di file](#file-list-examples). |No |
+| OPZIONE 4: un elenco di file<br>- fileListPath | Indica di copiare un determinato set di file. Puntare a un file di testo che include un elenco di file da copiare, un file per riga, che rappresenta il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare un nome di file nel set di dati. Per altri esempi, vedere [Esempi di elenco di file](#file-list-examples). | No |
 | ***Impostazioni aggiuntive:*** |  | |
-| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando l'opzione **ricorsiva** è impostata su **true** e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono **true** (predefinito) e **false**.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
-| deleteFilesAfterCompletion | Indica se i file binari verranno eliminati dall'archivio di origine dopo che è stato eseguito il passaggio all'archivio di destinazione. L'eliminazione del file è per file, pertanto quando l'attività di copia ha esito negativo, si noterà che alcuni file sono già stati copiati nella destinazione ed eliminati dall'origine, mentre altri ancora rimangono nell'archivio di origine. <br/>Questa proprietà è valida solo nello scenario di copia di file binari. Valore predefinito: false. |No |
+| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando l'opzione **ricorsiva** è impostata su **true** e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono **true** (predefinito) e **false**.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. | No |
+| deleteFilesAfterCompletion | Indica se i file binari verranno eliminati dall'archivio di origine dopo che è stato eseguito il passaggio all'archivio di destinazione. L'eliminazione del file è per file, pertanto quando l'attività di copia ha esito negativo, si noterà che alcuni file sono già stati copiati nella destinazione ed eliminati dall'origine, mentre altri ancora rimangono nell'archivio di origine. <br/>Questa proprietà è valida solo nello scenario di copia di file binari. Valore predefinito: false. | No |
 | modifiedDatetimeStart    | I file vengono filtrati in base all'attributo: data Ultima modifica. <br>I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata a un fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br> Le proprietà possono essere **null**, il che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è **null**, verranno selezionati i file il cui attributo Last modified è maggiore o uguale al valore DateTime.  Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è **null**, verranno selezionati i file il cui attributo Last modified è minore del valore DateTime.<br/>Questa proprietà non è applicabile quando si configura `fileListPath`. | No                                            |
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                            |
 | enablePartitionDiscovery | Per i file partizionati, specificare se analizzare le partizioni dal percorso del file e aggiungerle come colonne di origine aggiuntive.<br/>I valori consentiti sono **false** (impostazione predefinita) e **true**. | No                                            |
@@ -442,7 +442,7 @@ Le proprietà seguenti sono supportate per l'archiviazione BLOB di Azure in `sto
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La proprietà **Type** in `storeSettings` deve essere impostata su **AzureBlobStorageWriteSettings**. | Sì      |
+| type                     | La `type` Proprietà in `storeSettings` deve essere impostata su `AzureBlobStorageWriteSettings` . | Sì      |
 | copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (impostazione predefinita)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome del file o del BLOB , il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
 | blockSizeInMB | Specificare le dimensioni del blocco, in megabyte, utilizzate per scrivere i dati nei BLOB in blocchi. Altre informazioni sui [BLOB in blocchi](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Il valore consentito è *compreso tra 4 MB e 100 MB*. <br/>Per impostazione predefinita, Data Factory determina automaticamente le dimensioni del blocco in base al tipo e ai dati dell'archivio di origine. Per la copia non binaria nell'archivio BLOB, le dimensioni predefinite del blocco sono pari a 100 MB, in modo che possano adattarsi (al massimo) 4,95 TB di dati. Potrebbe non essere ottimale quando i dati non sono di grandi dimensioni, soprattutto quando si usa il runtime di integrazione self-hosted con connessioni di rete insufficienti che causano problemi di prestazioni o di timeout dell'operazione. È possibile specificare in modo esplicito una dimensione del blocco, garantendo al tempo stesso una dimensione `blockSizeInMB*50000` sufficiente per archiviare i dati. In caso contrario, l'esecuzione dell'attività di copia avrà esito negativo. | No |
 | maxConcurrentConnections | Numero di connessioni simultanee all'archiviazione. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | No       |
@@ -523,12 +523,13 @@ Quando si copiano i file da Amazon S3, archiviazione BLOB di Azure o Azure Data 
 ## <a name="mapping-data-flow-properties"></a>Proprietà del flusso di dati per mapping
 
 Quando si trasformano i dati nei flussi di dati di mapping, è possibile leggere e scrivere file dall'archiviazione BLOB di Azure nei formati seguenti:
-* [Avro](format-avro.md#mapping-data-flow-properties)
-* [Testo delimitato](format-delimited-text.md#mapping-data-flow-properties)
-* [Delta](format-delta.md#mapping-data-flow-properties)
-* [Excel](format-excel.md#mapping-data-flow-properties)
-* [JSON](format-json.md#mapping-data-flow-properties)
-* [Parquet](format-parquet.md#mapping-data-flow-properties)
+
+- [Avro](format-avro.md#mapping-data-flow-properties)
+- [Testo delimitato](format-delimited-text.md#mapping-data-flow-properties)
+- [Delta](format-delta.md#mapping-data-flow-properties)
+- [Excel](format-excel.md#mapping-data-flow-properties)
+- [JSON](format-json.md#mapping-data-flow-properties)
+- [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 Le impostazioni specifiche del formato si trovano nella documentazione relativa a tale formato. Per ulteriori informazioni, vedere [trasformazione origine nel flusso di dati di mapping](data-flow-source.md) e [trasformazione sink nel flusso di dati del mapping](data-flow-sink.md).
 
@@ -544,17 +545,17 @@ Nel contenitore di origine scegliere una serie di file che corrispondono a un cr
 
 Esempi di caratteri jolly:
 
-* ```*``` Rappresenta qualsiasi set di caratteri.
-* ```**``` Rappresenta l'annidamento di directory ricorsiva.
-* ```?``` Sostituisce un carattere.
-* ```[]``` Trova la corrispondenza di uno o più caratteri tra parentesi quadre.
+- `*` Rappresenta qualsiasi set di caratteri.
+- `**` Rappresenta l'annidamento di directory ricorsiva.
+- `?` Sostituisce un carattere.
+- `[]` Trova la corrispondenza di uno o più caratteri tra parentesi quadre.
 
-* ```/data/sales/**/*.csv``` Ottiene tutti i file con estensione CSV in/data/Sales.
-* ```/data/sales/20??/**/``` Ottiene tutti i file nel ventesimo secolo.
-* ```/data/sales/*/*/*.csv``` Ottiene i file con estensione CSV a due livelli sotto/data/Sales.
-* ```/data/sales/2004/*/12/[XY]1?.csv``` Ottiene tutti i file con estensione CSV nel 2004 dicembre a partire da X o Y preceduto da un numero a due cifre.
+- `/data/sales/**/*.csv` Ottiene tutti i file con estensione CSV in/data/Sales.
+- `/data/sales/20??/**/` Ottiene tutti i file nel ventesimo secolo.
+- `/data/sales/*/*/*.csv` Ottiene i file con estensione CSV a due livelli sotto/data/Sales.
+- `/data/sales/2004/*/12/[XY]1?.csv` Ottiene tutti i file con estensione CSV nel 2004 dicembre a partire da X o Y preceduto da un numero a due cifre.
 
-**Percorso radice partizione:** Se nell'origine file sono presenti cartelle partizionate con un ```key=value``` formato (ad esempio, `year=2019` ), è possibile assegnare il livello principale dell'albero delle cartelle della partizione a un nome di colonna nel flusso di dati del flusso di dati.
+**Percorso radice partizione:** Se nell'origine file sono presenti cartelle partizionate con un `key=value` formato (ad esempio, `year=2019` ), è possibile assegnare il livello principale dell'albero delle cartelle della partizione a un nome di colonna nel flusso di dati del flusso di dati.
 
 Per prima cosa, impostare un carattere jolly per includere tutti i percorsi che rappresentano le cartelle partizionate e i file foglia che si desidera leggere.
 
@@ -574,17 +575,17 @@ Per spostare i file di origine in un altro percorso dopo l'elaborazione, selezio
 
 Se si dispone di un percorso di origine con carattere jolly, la sintassi avrà un aspetto simile al seguente:
 
-```/data/sales/20??/**/*.csv```
+`/data/sales/20??/**/*.csv`
 
 È possibile specificare "from" come:
 
-```/data/sales```
+`/data/sales`
 
 È anche possibile specificare "to" come:
 
-```/backup/priorSales```
+`/backup/priorSales`
 
-In questo caso, tutti i file originati in/data/sales vengono spostati in /backup/priorSales.
+In questo caso, tutti i file originati in `/data/sales` vengono spostati in `/backup/priorSales` .
 
 > [!NOTE]
 > Le operazioni sui file vengono eseguite solo quando si avvia il flusso di dati da un'esecuzione di pipeline (esecuzione del debug o esecuzione della pipeline) che usa l'attività di esecuzione del flusso di dati in una pipeline. Le operazioni sui file *non* vengono eseguite in modalità di debug del flusso di dati.
@@ -600,11 +601,11 @@ Nella trasformazione sink è possibile scrivere in un contenitore o in una carte
 **Clear the folder** (Cancellare la cartella): determina se la cartella di destinazione viene cancellata prima della scrittura dei dati.
 
 **File name option** (Opzione nome file): determina la modalità di denominazione dei file finali nella cartella di destinazione. Le opzioni di nomi di file sono indicate di seguito:
-   * **Predefinita**: consente a Spark di denominare i file basati sulle impostazioni predefinite di PART.
-   * **Pattern** (Modello): consente di immettere un modello che enumera i file di output per partizione. **loans[n].csv**, ad esempio, creerà loans1.csv, loans2.csv e così via.
-   * **Per partition** (Per partizione): consente di immettere un nome di file per partizione.
-   * **As data in column** (Come dati in colonna): consente di impostare il file di output sul valore di una colonna. Il percorso è relativo al contenitore del set di dati e non alla cartella di destinazione. Se nel set di dati è presente un percorso di cartella, quest'ultimo verrà ignorato.
-   * **Output to a single file** (Output in un singolo file): consente di combinare i file di output partizionati in un singolo file denominato. Il percorso è relativo alla cartella del set di dati. Tenere presente che l'operazione di Unione potrebbe avere esito negativo in base alle dimensioni del nodo. Questa opzione non è consigliata per i set di impostazioni di grandi dimensioni.
+   - **Predefinita**: consente a Spark di denominare i file basati sulle impostazioni predefinite di PART.
+   - **Pattern** (Modello): consente di immettere un modello che enumera i file di output per partizione. Ad esempio, creerà `loans[n].csv` `loans1.csv` , `loans2.csv` e così via.
+   - **Per partition** (Per partizione): consente di immettere un nome di file per partizione.
+   - **As data in column** (Come dati in colonna): consente di impostare il file di output sul valore di una colonna. Il percorso è relativo al contenitore del set di dati e non alla cartella di destinazione. Se nel set di dati è presente un percorso di cartella, quest'ultimo verrà ignorato.
+   - **Output to a single file** (Output in un singolo file): consente di combinare i file di output partizionati in un singolo file denominato. Il percorso è relativo alla cartella del set di dati. Tenere presente che l'operazione di Unione potrebbe avere esito negativo in base alle dimensioni del nodo. Questa opzione non è consigliata per i set di impostazioni di grandi dimensioni.
 
 **Tutte le virgolette:** Determina se racchiudere tutti i valori tra virgolette.
 
@@ -629,13 +630,13 @@ Per informazioni dettagliate sulle proprietà, controllare l' [attività di elim
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** del set di dati deve essere impostata su **AzureBlob**. |Sì |
-| folderPath | Percorso del contenitore e della cartella nell'archivio BLOB. <br/><br/>Per il percorso è supportato un filtro con caratteri jolly, escluso il nome del contenitore. I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella contiene un carattere jolly o questo carattere di escape all'interno di. <br/><br/>Un esempio è: contenitoreblob/cartellablob/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |Sì per l'attività di copia o ricerca, no per l'attività GetMetadata |
-| fileName | Nome o filtro con caratteri jolly per i BLOB nel valore **folderPath** specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i BLOB nella cartella. <br/><br/>Per il filtro, i caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per eseguire l'escape se il nome del file contiene un carattere jolly o questo carattere di escape.<br/><br/>Quando **filename** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, l'attività di copia genera automaticamente il nome del BLOB con il modello seguente: "*Data. [ GUID ID esecuzione attività]. [GUID se FlattenHierarchy]. [format se configurato]. [compressione se configurata]*". Ad esempio: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. gz". <br/><br/>Se si copia da un'origine tabulare usando un nome di tabella anziché una query, il modello del nome è "*[nome tabella]. [ formato]. [compressione se configurata]*". Ad esempio: "MyTable.csv". |No |
-| modifiedDatetimeStart | I file vengono filtrati in base all'attributo: data Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata in base al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che l'abilitazione di questa impostazione influirà sulle prestazioni complessive dello spostamento dei dati quando si desidera filtrare grandi quantità di file. <br/><br/> Le proprietà possono essere **null**, il che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è **null**, verranno selezionati i file il cui attributo Last modified è maggiore o uguale al valore DateTime.  Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è **null**, verranno selezionati i file il cui attributo Last modified è minore del valore DateTime.| No |
-| modifiedDatetimeEnd | I file vengono filtrati in base all'attributo: data Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata in base al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che l'abilitazione di questa impostazione influirà sulle prestazioni complessive dello spostamento dei dati quando si desidera filtrare grandi quantità di file. <br/><br/> Le proprietà possono essere **null**, il che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è **null**, verranno selezionati i file il cui attributo Last modified è maggiore o uguale al valore DateTime.  Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è **null**, verranno selezionati i file il cui attributo Last modified è minore del valore DateTime.| No |
-| format | Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output.<br/><br/>Se si vuole analizzare o generare file con un formato specifico, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in **format** su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato AVRO](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato OCR](supported-file-formats-and-compression-codecs-legacy.md#orc-format) e [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |No (solo per uno scenario di copia binaria) |
-| compressione | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>I livelli supportati sono **Ottimale** e **Più veloce**. |No |
+| type | La `type` proprietà del set di dati deve essere impostata su `AzureBlob` . | Sì |
+| folderPath | Percorso del contenitore e della cartella nell'archivio BLOB. <br/><br/>Per il percorso è supportato un filtro con caratteri jolly, escluso il nome del contenitore. I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella contiene un carattere jolly o questo carattere di escape all'interno di. <br/><br/>Ad esempio: `myblobcontainer/myblobfolder/`. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì per l'attività di copia o ricerca, no per l'attività GetMetadata |
+| fileName | Nome o filtro con caratteri jolly per i BLOB in base al `folderPath` valore specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i BLOB nella cartella. <br/><br/>Per il filtro, i caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per eseguire l'escape se il nome del file contiene un carattere jolly o questo carattere di escape.<br/><br/>Quando `fileName` non è specificato per un set di dati di output e `preserveHierarchy` non è specificato nel sink dell'attività, l'attività di copia genera automaticamente il nome del BLOB con il modello seguente: "*Data. [ GUID ID esecuzione attività]. [GUID se FlattenHierarchy]. [format se configurato]. [compressione se configurata]*". Ad esempio: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. gz". <br/><br/>Se si copia da un'origine tabulare usando un nome di tabella anziché una query, il modello del nome è `[table name].[format].[compression if configured]` . Ad esempio: "MyTable.csv". | No |
+| modifiedDatetimeStart | I file vengono filtrati in base all'attributo: data Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata in base al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che l'abilitazione di questa impostazione influirà sulle prestazioni complessive dello spostamento dei dati quando si desidera filtrare grandi quantità di file. <br/><br/> Le proprietà possono essere `NULL` , che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è `NULL` , verranno selezionati i file il cui attributo Last modified è maggiore o uguale al valore DateTime.  Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è `NULL` , i file il cui attributo Last modified è inferiore al valore DateTime verrà selezionato.| No |
+| modifiedDatetimeEnd | I file vengono filtrati in base all'attributo: data Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata in base al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che l'abilitazione di questa impostazione influirà sulle prestazioni complessive dello spostamento dei dati quando si desidera filtrare grandi quantità di file. <br/><br/> Le proprietà possono essere `NULL` , che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è `NULL` , verranno selezionati i file il cui attributo Last modified è maggiore o uguale al valore DateTime.  Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è `NULL` , i file il cui attributo Last modified è inferiore al valore DateTime verrà selezionato.| No |
+| format | Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output.<br/><br/>Se si vuole analizzare o generare file con un formato specifico, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in **format** su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato AVRO](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato OCR](supported-file-formats-and-compression-codecs-legacy.md#orc-format) e [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). | No (solo per uno scenario di copia binaria) |
+| compressione | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>I livelli supportati sono **Ottimale** e **Più veloce**. | No |
 
 >[!TIP]
 >Per copiare tutti i BLOB in una cartella, specificare solo **folderPath**.<br>Per copiare un singolo BLOB con un nome specificato, specificare **folderPath** per la parte della cartella **e il nome file** per il nome file.<br>Per copiare un subset di BLOB in una cartella, specificare **folderPath** per la parte della cartella e il **nome file** con un filtro con caratteri jolly. 
@@ -674,8 +675,8 @@ Per informazioni dettagliate sulle proprietà, controllare l' [attività di elim
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **BlobSource**. |Sì |
-| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando l'opzione **ricorsiva** è impostata su **true** e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink.<br/>I valori consentiti sono **true** (predefinito) e **false**. | No |
+| type | La `type` proprietà dell'origine dell'attività di copia deve essere impostata su `BlobSource` . | Sì |
+| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando `recursive` è impostato su `true` e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink.<br/>I valori consentiti sono `true` (impostazione predefinita) e `false` . | No |
 | maxConcurrentConnections | Numero di connessioni simultanee all'archiviazione. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | No |
 
 **Esempio:**
@@ -714,7 +715,7 @@ Per informazioni dettagliate sulle proprietà, controllare l' [attività di elim
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** del sink dell'attività di copia deve essere impostata su **BlobSink**. |Sì |
+| type | La `type` proprietà del sink dell'attività di copia deve essere impostata su `BlobSink` . | Sì |
 | copyBehavior | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (impostazione predefinita)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome del file o del BLOB , il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No |
 | maxConcurrentConnections | Numero di connessioni simultanee all'archiviazione. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | No |
 

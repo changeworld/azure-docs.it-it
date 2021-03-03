@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: e5236bb7034ae4d5f86ab2f8f965bdbfbc3d6ccd
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: cbff2e774fae1f71624aa3cdbd83bfb21e3a9586
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832046"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721464"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Esercitazione: Modificare e creare i moduli del gateway Analisi video live
 
@@ -25,11 +25,13 @@ Nelle esercitazioni precedenti vengono usate immagini predefinite dei moduli.
 
 Per completare la procedura di questa esercitazione, è necessario quanto segue:
 
-* [Node.js](https://nodejs.org/en/download/) versione 10 o successiva
-* [Visual Studio Code](https://code.visualstudio.com/Download) con l'estensione [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) installata
-* Motore [Docker](https://www.docker.com/products/docker-desktop)
-* Un'istanza di [Registro Azure Container](../../container-registry/index.yml) per ospitare le versioni personalizzate dei moduli.
-* Un account di [Servizi multimediali di Azure](../../media-services/index.yml). Se sono state completate le esercitazioni precedenti, è possibile riutilizzare quello creato in precedenza.
+
+> [!div class="checklist"]
+> * [Node.js](https://nodejs.org/en/download/) versione 10 o successiva
+> * [Visual Studio Code](https://code.visualstudio.com/Download) con l'estensione [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) installata
+> * Motore [Docker](https://www.docker.com/products/docker-desktop)
+> * Un'istanza di [Registro Azure Container](../../container-registry/index.yml) per ospitare le versioni personalizzate dei moduli.
+> * Un account di [Servizi multimediali di Azure](../../media-services/index.yml). Se sono state completate le esercitazioni precedenti, è possibile riutilizzare quello creato in precedenza.
 
 ## <a name="clone-the-repository"></a>Clonare il repository
 

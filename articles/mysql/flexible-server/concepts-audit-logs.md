@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1232a0753c988f5a28ebba28f9819aa67ce28603
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591760"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718744"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Tenere traccia dell'attività del database con i log di controllo nel database di Azure per MySQL server flessibile
 
@@ -46,7 +46,7 @@ Altri parametri che è possibile modificare per controllare il comportamento del
 | `DCL` | Query come "Concedi autorizzazione" |
 | `ADMIN` | Query come "Mostra stato" |
 | `GENERAL` | Tutto in DML_SELECT, DML_NONSELECT, DML, DDL, DCL e ADMIN |
-| `TABLE_ACCESS` | -Disponibile solo per MySQL 5,7 <br> -Istruzioni Read della tabella, ad esempio SELECT o INSERT INTO... Selezionare <br> -Istruzioni DELETE della tabella, ad esempio DELETE o TRUNCATE TABLE <br> -Istruzioni Table Insert, ad esempio INSERT o REPLACE <br> -Istruzioni Update della tabella, ad esempio UPDATE |
+| `TABLE_ACCESS` | -Istruzioni Read della tabella, ad esempio SELECT o INSERT INTO... Selezionare <br> -Istruzioni DELETE della tabella, ad esempio DELETE o TRUNCATE TABLE <br> -Istruzioni Table Insert, ad esempio INSERT o REPLACE <br> -Istruzioni Update della tabella, ad esempio UPDATE |
 
 ## <a name="access-audit-logs"></a>Accedere ai log di controllo
 
@@ -72,7 +72,7 @@ Le sezioni seguenti descrivono l'output dei log di controllo di MySQL in base al
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome del server |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT` , `CHANGE USER` (disponibile solo per MySQL 5,7) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` |
 | `connection_id_d` | ID connessione univoco generato da MySQL |
 | `host_s` | Vuoto |
 | `ip_s` | Indirizzo IP del client che si connette a MySQL |
@@ -116,7 +116,7 @@ Lo schema riportato di seguito si applica ai tipi di evento GENERAL, DML_SELECT,
 ### <a name="table-access"></a>Accesso alla tabella
 
 > [!NOTE]
-> I log di accesso alle tabelle vengono restituiti solo per MySQL 5,7.<br>Per `sql_text_s` , log verrà troncato se supera i 2048 caratteri.
+> Per `sql_text_s` , log verrà troncato se supera i 2048 caratteri.
 
 | **Proprietà** | **Descrizione** |
 |---|---|

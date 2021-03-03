@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: ed58bc9e2bf8757cad79c1043459ceb5b845be40
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633904"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710669"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -115,6 +115,7 @@ Ripristino dei file da account di archiviazione con limitazioni di rete | Non su
 Ripristino dei file nelle macchine virtuali con spazi di archiviazione di Windows | Il ripristino nella stessa macchina virtuale non è supportato.<br/><br/> Ripristinare invece i file in una macchina virtuale compatibile.
 Ripristino dei file in una macchina virtuale Linux con LVM/matrici RAID | Il ripristino nella stessa macchina virtuale non è supportato.<br/><br/> Eseguire il ripristino in una macchina virtuale compatibile.
 Ripristino dei file con impostazioni di rete speciali | Il ripristino nella stessa macchina virtuale non è supportato. <br/><br/> Eseguire il ripristino in una macchina virtuale compatibile.
+Ripristinare i file da un disco condiviso, un'unità temporanea, un disco deduplicato, un disco Ultra e un disco con l'acceleratore di scrittura abilitato | Il ripristino non è supportato. <br/><br/>vedere [supporto per l'archiviazione delle macchine virtuali di Azure](#vm-storage-support).
 
 ## <a name="support-for-vm-management"></a>Supporto per la gestione delle macchine virtuali
 
@@ -149,7 +150,7 @@ Ripristino di macchine virtuali aggiunte alla zona | Supportato (per una macchin
 Macchine virtuali di seconda generazione | Supportato <br> Backup di Azure supporta il backup e il ripristino di [macchine virtuali di seconda generazione](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando queste VM vengono ripristinate dal punto di ripristino, vengono ripristinate come [macchine virtuali Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup di macchine virtuali di Azure con blocchi | Non supportato per le macchine virtuali non gestite. <br><br> Supportato per le macchine virtuali gestite.
 [VM Spot](../virtual-machines/spot-vms.md) | Non supportato. Backup di Azure Ripristina le VM spot come normali macchine virtuali di Azure.
-[Host dedicato di Azure](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Supportato
+[Host dedicato di Azure](../virtual-machines/dedicated-hosts.md) | Supportato
 Configurazione di spazi di archiviazione di Windows per macchine virtuali di Azure autonome | Supportato
 
 ## <a name="vm-storage-support"></a>Supporto per l'archiviazione delle macchine virtuali
@@ -168,7 +169,7 @@ Ridimensionamento di un disco in una macchina virtuale protetta | Supportato.
 Archiviazione condivisa| Il backup di macchine virtuali con Volume condiviso cluster (CSV) o Scale-Out file server non è supportato. È probabile che i writer Volume condiviso cluster generino un errore durante il backup. Al momento del ripristino, i dischi contenenti volumi Volume condiviso cluster potrebbero non essere disponibili.
 [Dischi condivisi](../virtual-machines/disks-shared-enable.md) | Non supportato.
 Dischi Ultra SSD | Non supportata. Per ulteriori informazioni, vedere queste [limitazioni](selective-disk-backup-restore.md#limitations).
-[Dischi temporanei](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | I dischi temporanei non vengono sottoposti a backup da backup di Azure.
+[Dischi temporanei](../virtual-machines/managed-disks-overview.md#temporary-disk) | I dischi temporanei non vengono sottoposti a backup da backup di Azure.
 
 ## <a name="vm-network-support"></a>Supporto della rete delle macchine virtuali
 

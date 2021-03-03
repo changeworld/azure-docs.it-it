@@ -3,14 +3,14 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 78ab22bece54caa15e23021e594eaa0742505f79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591984"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710618"
 ---
-# <a name="configure-azure-backup-reports-preview"></a>Configurare i report di backup di Azure (anteprima)
+# <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
 Un'esigenza comune degli amministratori del backup è quella di ottenere informazioni dettagliate sui backup in base a dati che abbracciano un lungo periodo di tempo. I casi d'uso per una soluzione di questo tipo includono:
 
@@ -139,6 +139,20 @@ Selezionando il riquadro **ottimizzazioni dei criteri** seguito dal riquadro **o
 Il filtro del **tipo di gestione di backup** nella parte superiore della scheda deve avere gli elementi **SQL in VM di Azure** e **SAP Hana nella macchina virtuale di Azure** selezionata per consentire alla griglia di visualizzare i carichi di lavoro del database come previsto.
 
 ![Ottimizza la scheda-ottimizzazioni della pianificazione dei backup](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
+
+###### <a name="policy-adherence"></a>Conformità dei criteri
+
+Utilizzando questa scheda è possibile stabilire se per tutte le istanze di backup è stato eseguito almeno un backup di ogni giorno. È possibile visualizzare la conformità dei criteri in base al periodo di tempo o all'istanza di backup.
+
+###### <a name="email-azure-backup-reports"></a>Inviare i report di backup di Azure
+
+Utilizzando la funzionalità **report di posta elettronica** disponibile nei report di backup, è possibile creare attività automatizzate per ricevere report periodici tramite posta elettronica. Questa funzionalità funziona distribuendo un'app per la logica nell'ambiente Azure che esegue query sui dati dalle aree di lavoro selezionate della Log Analytics (LA), in base agli input forniti.
+
+Una volta creata l'app per la logica, è necessario autorizzare le connessioni ai log di monitoraggio di Azure e a Office 365. A tale scopo, passare a **app** per la logica nella portale di Azure e cercare il nome dell'attività creata. Selezionando la voce di menu **connessioni API** si apre l'elenco delle connessioni API che è necessario autorizzare.
+
+###### <a name="customize-azure-backup-reports"></a>Personalizzare i report di backup di Azure
+
+I report di backup usano funzioni nei log di monitoraggio di Azure. Queste funzioni operano sui dati nelle tabelle di backup di Azure non elaborate in LA e restituiscono dati formattati che consentono di recuperare facilmente le informazioni di tutte le entità correlate al backup, usando query semplici.
 
 ## <a name="export-to-excel"></a>Eseguire l'esportazione in Excel
 

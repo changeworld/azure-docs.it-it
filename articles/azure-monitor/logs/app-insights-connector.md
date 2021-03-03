@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e103bb3cce364aeb5c25dcc2b54bf78c6993ca0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2dda18232e0cf3afa63a01814e776b90988e0b10
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618677"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704345"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
 
@@ -22,7 +22,7 @@ ms.locfileid: "100618677"
 >
 >Le connessioni esistenti continueranno a funzionare fino al 30 giugno 2019.  Con la deprecazione del portale OMS, non è disponibile alcun modo per configurare e rimuovere le connessioni esistenti dal portale. Vedere [Rimozione del connettore con PowerShell](#removing-the-connector-with-powershell) più avanti per uno script sull'uso di PowerShell per rimuovere connessioni esistenti.
 >
->Per indicazioni sull'esecuzione di query sui dati dei log di Application Insights per più applicazioni, vedere [Unificare più risorse di Application Insights in Monitoraggio di Azure](../log-query/unify-app-resource-data.md). Per altre informazioni sulla deprecazione del portale OMS, vedere [Portale di OMS che si sposta in Azure](../platform/oms-portal-transition.md).
+>Per indicazioni sull'esecuzione di query sui dati dei log di Application Insights per più applicazioni, vedere [Unificare più risorse di Application Insights in Monitoraggio di Azure](./unify-app-resource-data.md). Per altre informazioni sulla deprecazione del portale OMS, vedere [Portale di OMS che si sposta in Azure](./oms-portal-transition.md).
 >
 > 
 
@@ -318,5 +318,4 @@ ApplicationInsights | summarize by ApplicationName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Usare la [ricerca log](../log-query/log-query-overview.md) per visualizzare informazioni dettagliate per le app Application Insights.
-
+- Usare la [ricerca log](./log-query-overview.md) per visualizzare informazioni dettagliate per le app Application Insights.

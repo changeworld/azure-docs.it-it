@@ -1,26 +1,26 @@
 ---
-title: Integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
-description: Panoramica della funzionalità di integrità di Monitoraggio di Azure per le macchine virtuali, incluso il modo in cui è possibile visualizzare l'integrità delle macchine virtuali e ricevere avvisi quando una macchina virtuale diventa non integra.
+title: Integrità Guest di VM Insights (anteprima)
+description: Panoramica della funzionalità di integrità di VM Insights, inclusa la modalità di visualizzazione dell'integrità delle macchine virtuali e la ricezione di avvisi quando una macchina virtuale diventa non integra.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
-ms.openlocfilehash: 96bed9f3b04e54e2e9a5234d78f9a2660126742e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3db6c2f4da28bba2d12aacc90b2fa8e420aa6fbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614896"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707456"
 ---
-# <a name="azure-monitor-for-vms-guest-health-preview"></a>Integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
-Monitoraggio di Azure per le macchine virtuali integrità Guest consente di visualizzare l'integrità delle macchine virtuali in base a un set di misurazioni delle prestazioni campionate a intervalli regolari dal sistema operativo guest. È possibile controllare rapidamente l'integrità di tutte le macchine virtuali in una sottoscrizione o in un gruppo di risorse, eseguire il drill-down sull'integrità dettagliata di una determinata macchina virtuale o ricevere notifiche proattive quando una macchina virtuale diventa non integra. 
+# <a name="vm-insights-guest-health-preview"></a>Integrità Guest di VM Insights (anteprima)
+L'integrità Guest di VM Insights consente di visualizzare l'integrità delle macchine virtuali in base a un set di misurazioni delle prestazioni campionate a intervalli regolari dal sistema operativo guest. È possibile controllare rapidamente l'integrità di tutte le macchine virtuali in una sottoscrizione o in un gruppo di risorse, eseguire il drill-down sull'integrità dettagliata di una determinata macchina virtuale o ricevere notifiche proattive quando una macchina virtuale diventa non integra. 
 
 ## <a name="enable-virtual-machine-health"></a>Abilita integrità macchina virtuale
-Per informazioni dettagliate sull'abilitazione della funzionalità di integrità Guest e sull'onboarding delle macchine virtuali, vedere [Enable monitoraggio di Azure per le macchine virtuali Health Guest (anteprima)](vminsights-health-enable.md) .
+Per informazioni dettagliate sull'abilitazione della funzionalità di integrità Guest e sull'onboarding delle macchine virtuali, vedere [abilitare l'integrità Guest di VM Insights (anteprima)](vminsights-health-enable.md) .
 
 ## <a name="pricing"></a>Prezzi
-Non esiste alcun costo diretto per la funzionalità di integrità Guest, ma è previsto un costo per l'inserimento e l'archiviazione dei dati sullo stato di integrità nell'area di lavoro Log Analytics. Tutti i dati vengono archiviati nella tabella *HealthStateChangeEvent* . Per informazioni dettagliate sui modelli di prezzi e sui costi, vedere [gestire l'utilizzo e i costi con i log di monitoraggio di Azure](../platform/manage-cost-storage.md) .
+Non esiste alcun costo diretto per la funzionalità di integrità Guest, ma è previsto un costo per l'inserimento e l'archiviazione dei dati sullo stato di integrità nell'area di lavoro Log Analytics. Tutti i dati vengono archiviati nella tabella *HealthStateChangeEvent* . Per informazioni dettagliate sui modelli di prezzi e sui costi, vedere [gestire l'utilizzo e i costi con i log di monitoraggio di Azure](../logs/manage-cost-storage.md) .
 
 ## <a name="view-virtual-machine-health"></a>Visualizza integrità macchina virtuale
 La colonna **stato VM guest** nella pagina attività **iniziali** consente di visualizzare rapidamente l'integrità di ogni macchina virtuale in una sottoscrizione o in un gruppo di risorse specifico. Lo stato di integrità corrente di ogni macchina virtuale viene visualizzato mentre le icone di ogni gruppo indicano il numero di macchine virtuali attualmente in ogni stato del gruppo.
@@ -95,7 +95,7 @@ Selezionare un monitoraggio per visualizzarne i dettagli, che include le schede 
 [![Cronologia dei dettagli del monitoraggio](media/vminsights-health-overview/monitor-details-history.png)](media/vminsights-health-overview/monitor-details-history.png#lightbox)
 
 ### <a name="configuration"></a>Configurazione
-Visualizzare e modificare la configurazione del monitoraggio per la macchina virtuale selezionata. Per informazioni dettagliate, vedere [configurare il monitoraggio in monitoraggio di Azure per le macchine virtuali integrità Guest (anteprima)](vminsights-health-enable.md) .
+Visualizzare e modificare la configurazione del monitoraggio per la macchina virtuale selezionata. Per informazioni dettagliate, vedere [configurare il monitoraggio in integrità Guest di VM Insights (anteprima)](vminsights-health-enable.md) .
 
 [![Configurazione dei dettagli del monitoraggio](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 
@@ -104,6 +104,6 @@ Visualizzare e modificare la configurazione del monitoraggio per la macchina vir
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare l'integrità Guest in Monitoraggio di Azure per le macchine virtuali e caricare gli agenti.](vminsights-health-enable.md)
+- [Abilitare l'integrità Guest in VM Insights e caricare gli agenti.](vminsights-health-enable.md)
 - [Configurare i monitoraggi utilizzando il portale di Azure.](vminsights-health-configure.md)
 - [Configurare i monitoraggi con le regole di raccolta dati.](vminsights-health-configure-dcr.md)

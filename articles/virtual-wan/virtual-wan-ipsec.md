@@ -1,20 +1,21 @@
 ---
-title: Criteri IPsec predefiniti della rete WAN virtuale di Azure | Microsoft Docs
+title: Criteri IPsec da sito a sito WAN virtuale
+titleSuffix: Azure Virtual WAN
 description: Informazioni sui criteri di connettività IPsec WAN virtuali di Azure, inclusi i criteri di iniziatore e risponditore predefiniti e le combinazioni di criteri personalizzati.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/24/2021
 ms.author: cherylmc
-ms.openlocfilehash: 30c58a26a326370a2566bc9ebbec33bfbd4b3173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94225ea6ef8b53a83388b2be6ea3b32c1e5204bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267364"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726683"
 ---
-# <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Criteri predefiniti della rete WAN virtuale per la connettività IPsec
+# <a name="site-to-site-ipsec-policies"></a>Criteri IPsec da sito a sito
 
 Questo articolo illustra le combinazioni di criteri IPsec supportate.
 
@@ -29,4 +30,5 @@ Questo articolo illustra le combinazioni di criteri IPsec supportate.
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per i passaggi necessari per configurare un criterio IPsec personalizzato, vedere [configurare un criterio IPsec personalizzato per la rete WAN virtuale](virtual-wan-custom-ipsec-portal.md).
+
 Per altre informazioni sulla rete WAN virtuale, vedere [Informazioni sulla rete WAN virtuale di Azure](virtual-wan-about.md) e [Domande frequenti sulla rete WAN virtuale di Azure](virtual-wan-faq.md).

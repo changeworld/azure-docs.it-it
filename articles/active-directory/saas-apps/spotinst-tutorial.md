@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: d9c9ac87e655cf9178d58f04b502f7e781d1fef7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 402b5a975b3ded8327edcea81b680e9990bac39e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181408"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686567"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Spotinst
 
@@ -59,7 +59,7 @@ Configurare e testare l'accesso SSO di Azure AD con Spotinst usando un utente di
 Per configurare e testare l'accesso SSO di Azure AD con Spotinst, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Spotinst](#configure-spotinst-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di Spotinst](#create-spotinst-test-user)** : per avere una controparte di B.Simon in Spotinst collegata alla rappresentazione dell'utente in Azure AD.
@@ -171,9 +171,9 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Spotinst.
 
     ![Screenshot che mostra la sezione Add User in cui è possibile immettere i valori descritti.](./media/spotinst-tutorial/adduser2.png)
 
-    * Nella casella di testo **Full Name** (Nome completo) immettere nome e cognome dell'utente, ad esempio **BrittaSimon**.
+    * Nella casella di testo **Full Name (nome completo** ) immettere il nome completo dell'utente, ad esempio `BrittaSimon` .
 
-    * Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio `brittasimon\@contoso.com`.
+    * Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio `brittasimon@contoso.com`.
 
     * Selezionare i dettagli specifici dell'organizzazione per **Organization Role, Account Role e Accounts** (Ruolo organizzazione, Ruolo account e Account).
 

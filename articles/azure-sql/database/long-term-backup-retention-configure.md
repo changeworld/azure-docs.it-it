@@ -11,35 +11,39 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/16/2020
-ms.openlocfilehash: 983fc2cd7e9863361776d5a9d5bc02359fccd510
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fad19d360f7c476ba71a9bbe00b58387b92f8ac4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580815"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690558"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Nel database SQL di Azure è possibile configurare un database con criteri di [conservazione dei backup a lungo termine](long-term-retention-overview.md) per mantenere automaticamente i backup del database in contenitori di archiviazione BLOB di Azure separati per un massimo di 10 anni. È quindi possibile ripristinare un database usando questi backup tramite il portale di Azure o PowerShell. È possibile configurare la conservazione a lungo termine anche per un [istanza gestita SQL di Azure](../managed-instance/long-term-backup-retention-configure.md) , ma è attualmente disponibile in anteprima pubblica limitata.
+Con il database SQL di Azure è possibile impostare un criterio di [conservazione dei backup a lungo termine](long-term-retention-overview.md) per conservare automaticamente i backup in contenitori di archiviazione BLOB di Azure separati per un massimo di 10 anni. È quindi possibile ripristinare un database usando questi backup tramite il portale di Azure o PowerShell. I criteri di conservazione a lungo termine sono supportati anche per [istanza gestita SQL di Azure](../managed-instance/long-term-backup-retention-configure.md).
 
 ## <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Le sezioni seguenti mostrano come usare il portale di Azure per configurare il periodo di conservazione a lungo termine, visualizzare i backup con conservazione a lungo termine e ripristinare il backup dalla conservazione a lungo termine.
+Le sezioni seguenti illustrano come usare la portale di Azure per impostare i criteri di conservazione a lungo termine, gestire i backup di conservazione a lungo termine disponibili e ripristinare da un backup disponibile.
 
 ### <a name="configure-long-term-retention-policies"></a>Configurare i criteri di conservazione a lungo termine
 
 È possibile configurare il database SQL per [conservare i backup automatizzati](long-term-retention-overview.md) per un periodo più lungo rispetto al periodo di conservazione associato al livello di servizio.
 
-1. Nella portale di Azure selezionare l'istanza di SQL Server e quindi fare clic su **Gestisci backup**. Nella scheda **Configura criteri** selezionare la casella di controllo relativa al database in cui si vogliono impostare o modificare i criteri di conservazione a lungo termine dei backup. Se la casella di controllo accanto al database non è selezionata, le modifiche dei criteri non verranno applicate al database.  
+1. Nella portale di Azure passare al server e quindi selezionare **backup**. Selezionare la scheda **criteri di conservazione** per modificare le impostazioni di conservazione dei backup.
 
-   ![collegamento di gestione backup](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
+   ![esperienza dei criteri di conservazione](./media/long-term-backup-retention-configure/ltr-policies-tab.png)
 
-2. Nel riquadro **Configure policies** (Configura criteri) scegliere se si vuole conservare i backup per settimane, mesi o anni e specificare per ognuno il periodo di conservazione.
+2. Nella scheda criteri di conservazione Selezionare i database per i quali si desidera impostare o modificare i criteri di conservazione dei backup a lungo termine. I database non selezionati non saranno interessati.
 
-   ![Configurare criteri](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
+   ![Selezionare il database per configurare i criteri di conservazione dei backup](./media/long-term-backup-retention-configure/ltr-policies-tab-configure.png)
 
-3. Al termine, fare clic su **Applica**.
+3. Nel riquadro **Configura criteri** specificare il periodo di memorizzazione desiderato per i backup settimanali, mensili o annuali. Scegliere un periodo di memorizzazione di ' 0' per indicare che non è necessario impostare la conservazione dei backup a lungo termine.
+
+   ![riquadro Configura criteri](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
+
+4. Selezionare **applica** per applicare le impostazioni di conservazione scelte a tutti i database selezionati.
 
 > [!IMPORTANT]
 > Quando si Abilita un criterio di conservazione dei backup a lungo termine, potrebbe essere necessario attendere fino a 7 giorni prima che il primo backup diventi visibile e disponibile per il ripristino. Per informazioni dettagliate sul backup Cadance di LTR, vedere [conservazione dei backup a lungo termine](long-term-retention-overview.md).
@@ -48,21 +52,23 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
 
 Visualizzare i backup conservati per un database specifico con un criterio LTR e ripristinare da tali backup.
 
-1. Nella portale di Azure selezionare il server e quindi fare clic su **Gestisci backup**. Nella scheda **Available backups** (Backup disponibili) selezionare il database per cui si vuole visualizzare i backup disponibili.
+1. Nella portale di Azure passare al server e quindi selezionare **backup**. Per visualizzare i backup di LTR disponibili per un database specifico, selezionare **Gestisci** nella colonna backup di LTR disponibili. Verrà visualizzato un riquadro con un elenco dei backup di LTR disponibili per il database selezionato.
 
-   ![Selezionare il database](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
+   ![esperienza backup disponibili](./media/long-term-backup-retention-configure/ltr-available-backups-tab.png)
 
-1. Nel riquadro **Available backups** (Backup disponibili) esaminare i backup disponibili.
+1. Nel riquadro **backup di LTR disponibili** visualizzato esaminare i backup disponibili. È possibile selezionare un backup da cui eseguire il ripristino o da eliminare.
 
-   ![Visualizzare i backup](./media/long-term-backup-retention-configure/ltr-available-backups.png)
+   ![visualizzare i backup di LTR disponibili](./media/long-term-backup-retention-configure/ltr-available-backups-manage.png)
 
-1. Selezionare il backup da cui si vuole eseguire il ripristino e quindi specificare il nome del nuovo database.
+1. Per eseguire il ripristino da un backup di LTR disponibile, selezionare il backup da cui si vuole eseguire il ripristino e quindi selezionare **Ripristina**.
 
-   ![ripristinare](./media/long-term-backup-retention-configure/ltr-restore.png)
+   ![ripristino da un backup di LTR disponibile](./media/long-term-backup-retention-configure/ltr-available-backups-restore.png)
 
-1. Fare clic su **OK** per ripristinare il database dal backup in archiviazione di Azure al nuovo database.
+1. Scegliere un nome per il nuovo database, quindi selezionare **Verifica + crea** per esaminare i dettagli del ripristino. Selezionare **Crea** per ripristinare il database dal backup scelto.
 
-1. Sulla barra degli strumenti fare clic sull'icona di notifica per visualizzare lo stato del processo di ripristino.
+   ![configurare i dettagli del ripristino](./media/long-term-backup-retention-configure/restore-ltr.png)
+
+1. Sulla barra degli strumenti selezionare l'icona di notifica per visualizzare lo stato del processo di ripristino.
 
    ![avanzamento processo di ripristino](./media/long-term-backup-retention-configure/restore-job-progress-long-term.png)
 

@@ -3,12 +3,12 @@ title: Novità di Backup di Azure
 description: Informazioni sulle nuove funzionalità di backup di Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 5343ec2ae04853492abbaace2432cf94c9fb5a07
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: dd9546002e63072ce9631f5b8e7ac09ab0f5352b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762365"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728179"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novità di Backup di Azure
 
@@ -18,6 +18,8 @@ Per ulteriori informazioni sulle nuove versioni, è possibile aggiungere un segn
 
 ## <a name="updates-summary"></a>Riepilogo aggiornamenti
 
+- 2021 febbraio
+  - [Backup per i BLOB di Azure (in anteprima)](#backup-for-azure-blobs-in-preview)
 - Gennaio 2021
   - [Backup su disco di Azure (in anteprima)](#azure-disk-backup-in-preview)
   - [Crittografia dei componenti inattivi con chiavi gestite dal cliente (disponibilità generale)](#encryption-at-rest-using-customer-managed-keys)
@@ -34,6 +36,14 @@ Per ulteriori informazioni sulle nuove versioni, è possibile aggiungere un segn
   - [Backup SAP HANA in macchine virtuali di Azure RHEL (in anteprima)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Archiviazione con ridondanza della zona (ZRS) per i dati di backup (in anteprima)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Eliminazione temporanea per carichi di lavoro di SQL Server e SAP HANA in macchine virtuali di Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="backup-for-azure-blobs-in-preview"></a>Backup per i BLOB di Azure (in anteprima)
+
+Il backup operativo per i BLOB è una soluzione gestita di protezione dei dati locale che consente di proteggere i BLOB in blocchi da diversi scenari di perdita di dati, ad esempio danneggiamenti, eliminazioni di BLOB e eliminazione accidentale di account di archiviazione. I dati vengono archiviati in locale all'interno dell'account di archiviazione di origine e possono essere ripristinati in un punto nel tempo selezionato, se necessario. Quindi, fornisce un mezzo semplice, sicuro ed economicamente conveniente per proteggere i BLOB.
+
+Il backup operativo per i BLOB si integra con backup Center, tra le altre funzionalità di gestione dei backup, per fornire un unico riquadro di vetro che consente di gestire, monitorare, operare e analizzare i backup su larga scala.
+
+Per altre informazioni, vedere [Panoramica del backup operativo per i BLOB di Azure (in anteprima)](blob-backup-overview.md).
 
 ## <a name="azure-disk-backup-in-preview"></a>Backup su disco di Azure (in anteprima)
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: a43a27a8e880c76ba21639437c0c20f583620d50
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: af028499d84a767ccb2a888ec7e7f92c80dbdd36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653619"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710567"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
 
@@ -295,7 +295,7 @@ Installare la versione di 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Registrare quindi il computer host come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una stringa di [connessione](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
+Registrare quindi il computer host come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una stringa di [connessione](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06).
 
 È necessario connettere il dispositivo IoT Edge all'hub Azure. È necessario copiare la stringa di connessione dal dispositivo IoT Edge creato in precedenza. In alternativa, è possibile eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
@@ -446,7 +446,7 @@ Installare la versione di 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Registrare quindi la macchina virtuale come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una [stringa di connessione](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
+Registrare quindi la macchina virtuale come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una [stringa di connessione](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06).
 
 È necessario connettere il dispositivo IoT Edge all'hub Azure. È necessario copiare la stringa di connessione dal dispositivo IoT Edge creato in precedenza. In alternativa, è possibile eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 

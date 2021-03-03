@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 875fa2ad5a3a18c0e2582425a6528730234ac8ed
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: adcfef19de5987b9b4c54f6765589f2ae9868c11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585076"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736747"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modello di fattura precompilato del modulo di riconoscimento
 
@@ -41,7 +41,7 @@ Per provare il modulo del servizio di fatturazione di riconoscimento, passare al
 
 ### <a name="input-requirements"></a>Requisiti di input 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-invoice-operation"></a>Operazione di analisi della fattura
 
@@ -80,8 +80,8 @@ Il servizio di fatturazione estrae i campi del testo, delle tabelle e dei 26 Inv
 | CustomerId | string | ID di riferimento per il cliente | CID-12345 |  |
 | PurchaseOrder | string | Numero di riferimento dell'ordine di acquisto | PO-3333 | |  |
 | InvoiceId | string | ID per la fattura specifica (spesso "numero di fattura") | INV-100 | |  |
-| Data fattura | Data | Data di emissione della fattura | 15/11/2019 | 
-| DueDate | Data | Il pagamento della data per la fattura è dovuto | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| Data fattura | Data | Data di emissione della fattura | 15/11/2019 | 2019-11-15 |
+| DueDate | Data | Il pagamento della data per la fattura è dovuto | 12/15/2019 | 2019-12-15 |
 | NomeFornitore | string | Fornitore che ha creato la fattura | CONTOSO LTD. | |
 | VendorAddress | string | Indirizzo postale per il fornitore | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | string | Nome associato a VendorAddress | Sede centrale contoso | |

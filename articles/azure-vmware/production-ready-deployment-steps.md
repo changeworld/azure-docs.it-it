@@ -2,13 +2,13 @@
 title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
-ms.date: 10/16/2020
-ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/22/2021
+ms.openlocfilehash: f9d49d7ff8109364c9fc1eee4388b30ccc1a61b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762861"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733662"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
@@ -51,12 +51,6 @@ Identificare gli host dimensioni da usare durante la distribuzione della soluzio
 Definire il numero di host da distribuire nel cloud privato della soluzione Azure VMware.  Il numero minimo di host è tre e il numero massimo è 16 per cluster.  Per altre informazioni, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#clusters).
 
 È sempre possibile estendere il cluster in un secondo momento se è necessario incrementare il numero di distribuzione iniziale.
-
-## <a name="vcenter-admin-password"></a>Password dell'amministratore di vCenter
-Definire la password dell'amministratore di vCenter.  Durante la distribuzione verrà creata una password per l'amministratore di vCenter. La password è assegnata a cloudadmin@vsphere.local nell'account dell'amministratore durante la compilazione di vCenter. Verrà usata per accedere a vCenter.
-
-## <a name="nsx-t-admin-password"></a>Password dell'amministratore di NSX-T
-Definire la password dell'amministratore di NSX-T.  Durante la distribuzione verrà creata una password per l'amministratore di NSX-T. La password è assegnata all'utente amministratore nell'account NSX durante la compilazione di NSX. Verrà usata per accedere a NSX-T Manager.
 
 ## <a name="ip-address-segment"></a>Segmento di indirizzo IP
 

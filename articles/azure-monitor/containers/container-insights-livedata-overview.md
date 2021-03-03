@@ -1,26 +1,26 @@
 ---
-title: Visualizzare i dati in tempo reale (anteprima) con monitoraggio di Azure per i contenitori | Microsoft Docs
-description: Questo articolo descrive la visualizzazione in tempo reale di log di Kubernetes, eventi e metriche Pod senza usare kubectl in monitoraggio di Azure per i contenitori.
+title: Visualizzare i dati in tempo reale (anteprima) con informazioni dettagliate sul contenitore | Microsoft Docs
+description: Questo articolo descrive la visualizzazione in tempo reale di log Kubernetes, eventi e metriche Pod senza usare kubectl in informazioni sul contenitore.
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3655ff8e5879aa4113753b5529c1e484fb079401
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7e644680916097bc453c30be63a7db324df5f8f6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614326"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711230"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale
 
-Il monitoraggio di Azure per i contenitori include la funzionalità dati in tempo reale (anteprima), una funzionalità di diagnostica avanzata che consente di accedere direttamente ai log del contenitore del servizio Kubernetes di Azure (AKS/stderrr), agli eventi e alle metriche pod. Espone l'accesso diretto a `kubectl logs -c` , `kubectl get` gli eventi e `kubectl top pods` . Un riquadro della console mostra i log, gli eventi e le metriche generati dal motore di contenitori per facilitare ulteriormente la risoluzione dei problemi in tempo reale.
+Il contenitore Insights include la funzionalità dati in tempo reale (anteprima), una funzionalità di diagnostica avanzata che consente di accedere direttamente ai log del contenitore del servizio Kubernetes di Azure (AKS/stderrer), agli eventi e alle metriche pod. Espone l'accesso diretto a `kubectl logs -c` , `kubectl get` gli eventi e `kubectl top pods` . Un riquadro della console mostra i log, gli eventi e le metriche generati dal motore di contenitori per facilitare ulteriormente la risoluzione dei problemi in tempo reale.
 
 Questo articolo fornisce una panoramica dettagliata e consente di comprendere come usare questa funzionalità.
 
 Per informazioni sulla configurazione o la risoluzione dei problemi relativi alla funzionalità dati in tempo reale (anteprima), vedere la [Guida all'installazione](container-insights-livedata-setup.md). Questa funzionalità consente di accedere direttamente all'API Kubernetes e altre informazioni sul modello di autenticazione sono disponibili [qui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
 ## <a name="view-deployment-live-logs-preview"></a>Visualizzare i log di distribuzione in tempo reale (anteprima)
-Usare la procedura seguente per visualizzare i log Live per le distribuzioni che fanno parte di cluster AKS che non sono monitorati da monitoraggio di Azure per i contenitori. Se il cluster USA monitoraggio di Azure per i contenitori, usare il processo seguente per visualizzare i dati dinamici per nodi, controller, contenitori e distribuzioni.
+Usare la procedura seguente per visualizzare i log Live per le distribuzioni che fanno parte di cluster AKS che non sono monitorati da informazioni dettagliate sul contenitore. Se il cluster USA informazioni dettagliate sul contenitore, usare il processo seguente per visualizzare i dati dinamici per nodi, controller, contenitori e distribuzioni.
 
 1. Nella portale di Azure passare al gruppo di risorse del cluster AKS e selezionare la risorsa AKS.
 
@@ -104,7 +104,7 @@ Dopo l'autenticazione, il riquadro della console dati attivi (anteprima) verrà 
 ## <a name="using-live-data-views"></a>Uso delle visualizzazioni dati attive
 Le sezioni seguenti descrivono le funzionalità che è possibile usare nelle diverse visualizzazioni dati in tempo reale.
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 La funzionalità dati in tempo reale (anteprima) include funzionalità di ricerca. Nel campo di **ricerca** è possibile filtrare i risultati digitando una parola chiave o un termine e i risultati corrispondenti vengono evidenziati per consentire la revisione rapida. Quando si visualizzano gli eventi, è anche possibile limitare i risultati usando la pillola di **filtro** trovata a destra della barra di ricerca. A seconda della risorsa selezionata, la pillola elenca un pod, uno spazio dei nomi o un cluster da cui scegliere.
 
 ![Esempio di filtro del riquadro della console dati in tempo reale](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: f16e5363af7de2152a7fa73bb52219d87971a249
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: bc03d8cdcaf0079ef15e648d16fd5656d9da368c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091203"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725680"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure
 
@@ -285,7 +285,7 @@ Gli esempi precedenti definiscono un elenco di tabelle consentite. Questo esempi
 
 ### <a name="custom-logs"></a>Log personalizzati
 
- I log personalizzati vengono creati dalle origini dati, ad esempio i log personalizzati e l'API dell'agente di raccolta dati HTTP. Il modo più semplice per identificare il tipo di log consiste nel controllare le tabelle elencate [in log personalizzati nello schema del log](../log-query/log-analytics-tutorial.md#table-schema).
+ I log personalizzati vengono creati dalle origini dati, ad esempio i log personalizzati e l'API dell'agente di raccolta dati HTTP. Il modo più semplice per identificare il tipo di log consiste nel controllare le tabelle elencate [in log personalizzati nello schema del log](./log-analytics-tutorial.md#table-schema).
 
  Non è possibile concedere l'accesso ai singoli log personalizzati, ma è possibile concedere l'accesso a tutti i log personalizzati. Per creare un ruolo con accesso a tutti i log personalizzati, creare un ruolo personalizzato utilizzando le azioni seguenti:
 
@@ -312,4 +312,4 @@ Talvolta i log personalizzati provengono da origini non direttamente associate a
 
 * Vedere [Log Analytics agent overview](../agents/log-analytics-agent.md) (Panoramica dell'agente di Log Analytics) per raccogliere dati dai computer nel data center o in un altro ambiente cloud.
 
-* Vedere [raccogliere dati sulle macchine virtuali di Azure](../learn/quick-collect-azurevm.md) per configurare la raccolta dati dalle macchine virtuali di Azure.
+* Vedere [raccogliere dati sulle macchine virtuali di Azure](../vm/quick-collect-azurevm.md) per configurare la raccolta dati dalle macchine virtuali di Azure.

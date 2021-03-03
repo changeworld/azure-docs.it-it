@@ -1,26 +1,23 @@
 ---
-title: Usare Desktop remoto per una macchina virtuale Linux in Azure
+title: Usare xrdp con Linux
 description: Informazioni sull'installazione e la configurazione di Desktop remoto (xrdp) per collegarsi a una macchina virtuale Linux di Azure usando strumenti grafici
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 09/12/2019
+ms.date: 03/01/2021
 ms.author: cynthn
-ms.openlocfilehash: bea7e38c35ceddafb64937d6e1a6f69d7c727f44
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 448e9f6487b5afc51be9b3dee8e07007c8534a0b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196385"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695176"
 ---
-# <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-a-linux-vm"></a>Installare e configurare xrdp per l'uso di Desktop remoto con una VM Linux
+
 Le macchine virtuali Linux (VM) di Azure in genere vengono gestite dalla riga di comando tramite una connessione secure shell (SSH). Quando si è nuovi a Linux, o per scenari di risoluzione dei problemi rapidi, l'uso di desktop remoto potrebbe risultare più facile. Questo articolo illustra come installare e configurare un ambiente desktop ([xfce](https://www.xfce.org)) e desktop remoto ([xrdp](http://xrdp.org)) per VM Linux usando il modello di distribuzione Resource Manager.
 
 
@@ -32,6 +29,7 @@ Questo articolo richiede l'esistenza di una macchina virtuale Ubuntu 18.04 LTS i
 
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Installare un ambiente desktop nella VM Linux
+
 La maggior parte delle macchine virtuali Linux di Azure non presenta un ambiente desktop installato per impostazione predefinita. Le macchine virtuali Linux in genere vengono gestite usando connessioni SSH piuttosto che un ambiente desktop. In Linux esistono diversi ambienti desktop tra i quali è possibile scegliere. A seconda dell'ambiente desktop scelto, questo può consumare da 1 a 2 GB di spazio su disco e può impiegare da 5 a 10 minuti per installare e configurare tutti i pacchetti necessari.
 
 Nell'esempio seguente viene installato l'ambiente desktop leggero [xfce4](https://www.xfce.org/) in una macchina virtuale Ubuntu 18.04 LTS. I comandi per le altre distribuzioni sono leggermente diversi (ad esempio, usare `yum` per installare in Red Hat Enterprise Linux e configurare regole `selinux` appropriate, oppure usare `zypper` per installare in SUSE).
@@ -94,9 +92,14 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Connettere la macchina virtuale Linux con un client di Desktop remoto
-Aprire il client di Desktop remoto locale e connettersi all'indirizzo IP o nome DNS della VM Linux. Immettere il nome utente e la password per l'account utente nella macchina virtuale come indicato di seguito:
 
-![Connettersi a xrdp usando il client di Desktop remoto](./media/use-remote-desktop/remote-desktop-client.png)
+Aprire il client di Desktop remoto locale e connettersi all'indirizzo IP o nome DNS della VM Linux. 
+
+:::image type="content" source="media/use-remote-desktop/remote-desktop.png" alt-text="Screenshot del client desktop remoto.":::
+
+Immettere il nome utente e la password per l'account utente nella macchina virtuale come indicato di seguito:
+
+:::image type="content" source="media/use-remote-desktop/xrdp-login.png" alt-text="Screenshot della schermata di accesso xrdp.":::
 
 Dopo l'autenticazione, l'ambiente desktop xfce verrà caricato e apparirà come nell'esempio seguente:
 

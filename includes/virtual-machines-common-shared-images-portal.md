@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7bf71f55e1b49a9280b25cfcc01090afbd0c42db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878825"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750296"
 ---
 ## <a name="create-an-image-gallery"></a>Creare un raccolta di immagini
 
@@ -93,10 +93,7 @@ La replica dell'immagine in tutte le aree di destinazione può richiedere tempo.
 
 È consigliabile condividere l'accesso a livello di raccolta immagini. Di seguito viene illustrata la condivisione della raccolta appena creata.
 
-1. Aprire il [portale di Azure](https://portal.azure.com).
-1. Nel menu a sinistra selezionare **gruppi di risorse**. 
-1. Nell'elenco dei gruppi di risorse selezionare **myGalleryRG**. Viene aperto il pannello del gruppo di risorse.
-1. Nel menu a sinistra della pagina **myGalleryRG** selezionare **controllo di accesso (IAM)**. 
+1. Nella pagina della nuova raccolta immagini, nel menu a sinistra selezionare **controllo di accesso (IAM)**. 
 1. In **Aggiungi un'assegnazione di ruolo** selezionare **Aggiungi**. Viene visualizzato il riquadro **Aggiungi assegnazione ruolo** . 
 1. In **ruolo** selezionare **Reader**.
 1. In **assegna accesso a** lasciare l'impostazione predefinita **Azure ad utente, gruppo o entità servizio**.

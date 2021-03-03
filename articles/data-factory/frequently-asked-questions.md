@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: a3b892b5d92feb743d9a538c4e418b1f47e39b03
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386306"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739335"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 
@@ -48,7 +48,7 @@ Data Factory consente di modellare liberamente qualsiasi stile di flusso che ris
     - Ciclo di contenitori:
         * L'attività ForEach eseguirà l'iterazione di una raccolta specificata di attività in un ciclo. 
 - Flussi attivati da trigger:
-    - Le pipeline possono essere attivate su richiesta o in base al tempo totale di esecuzione.
+    - Le pipeline possono essere attivate su richiesta, dal tempo reale o in risposta agli argomenti basati su griglia di eventi
 - Flussi delta:
     - I parametri possono essere usati per definire il limite massimo per la copia Delta durante lo trasferimento di tabelle di dimensioni o di riferimento da un archivio relazionale, in locale o nel cloud, per caricare i dati nel Lake.
 

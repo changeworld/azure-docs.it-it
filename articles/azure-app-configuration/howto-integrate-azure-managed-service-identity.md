@@ -5,15 +5,15 @@ description: Eseguire l'autenticazione per app Azure configurazione mediante ide
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 483af51cbaeb8f7b295adb4231e65f742e3f53a1
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b1de1a24a506c049782443e4d32039c28fece436
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185462"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718251"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Usare le identità gestite per accedere a Configurazione app
 
@@ -139,6 +139,15 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     ```
     ---
 
+    > [!NOTE]
+    > Nel caso in cui si desideri usare un' **identità gestita assegnata dall'utente**, assicurarsi di specificare i ClientID durante la creazione del [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true).
+    >```
+    >config.AddAzureAppConfiguration(options =>
+    >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
+    >```
+    >Come illustrato nelle [domande frequenti sulle identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request), esiste una modalità predefinita per risolvere l'identità gestita usata. In questo caso, la libreria di identità di Azure impone di specificare l'identità desiderata per evitare problemi di runtime di posible in futuro, ad esempio se viene aggiunta una nuova identità gestita assegnata dall'utente o se è abilitata l'identità gestita assegnata dal sistema. Sarà quindi necessario specificare i ClientID anche se è definita una sola identità gestita assegnata dall'utente e non è presente alcuna identità gestita assegnata dal sistema.
+
+
 1. Per usare sia i valori di configurazione delle app che i riferimenti Key Vault, aggiornare *Program.cs* come illustrato di seguito. Questo codice chiama `SetCredential` come parte di `ConfigureKeyVault` per indicare al provider di configurazione le credenziali da usare per l'autenticazione per Key Vault.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
@@ -193,6 +202,8 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
 
     > [!NOTE]
     > `ManagedIdentityCredential`Funziona solo in ambienti Azure di servizi che supportano l'autenticazione di identità gestita. Non funziona nell'ambiente locale. Usare [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) affinché il codice funzioni sia negli ambienti locali che in quelli di Azure, in quanto verrà eseguito il fallback ad alcune opzioni di autenticazione, inclusa l'identità gestita.
+    > 
+    > Se si vuole usare un' **identità gestita dall'utente asigned** con il quando viene `DefaultAzureCredential` distribuito in Azure, [specificare il ClientID](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 8f698aadc24d0dc0691743f1d8dd54c5d5fd287e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: d900ffa4481ba2b6deb21a8325f3f8def8084f84
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220957"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714732"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metriche di Analisi archiviazione di Azure (versione classica)
 
@@ -25,7 +25,7 @@ Archiviazione di Azure usa la soluzione Analisi archiviazione per archiviare le 
 - Diagnosticare i problemi con richieste al servizio di archiviazione.
 - Migliorare le prestazioni delle applicazioni che usano un servizio.
 
- Le metriche di Analisi archiviazione sono abilitate per impostazione predefinita per i nuovi account di archiviazione. È possibile configurare le metriche nel [portale di Azure](https://portal.azure.com/), usando PowerShell o l'interfaccia della riga di comando di Azure. Per istruzioni dettagliate, vedere [abilitare e gestire la metrica di analisi di archiviazione di Azure (versione classica)](./storage-monitor-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Per abilitare Analisi archiviazione per ogni servizio, usare le operazioni che consentono di impostare le proprietà dei servizi.  
+ Le metriche di Analisi archiviazione sono abilitate per impostazione predefinita per i nuovi account di archiviazione. È possibile configurare le metriche nel [portale di Azure](https://portal.azure.com/), usando PowerShell o l'interfaccia della riga di comando di Azure. Per istruzioni dettagliate, vedere [abilitare e gestire la metrica di analisi di archiviazione di Azure (versione classica)](./manage-storage-analytics-logs.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Per abilitare Analisi archiviazione per ogni servizio, usare le operazioni che consentono di impostare le proprietà dei servizi.  
 
 > [!NOTE]
 > Le metriche di Analisi archiviazione sono disponibili per Archiviazione BLOB di Azure, Archiviazione code di Azure, Archiviazione tabelle di Azure e File di Azure.
@@ -69,7 +69,7 @@ Archiviazione di Azure usa la soluzione Analisi archiviazione per archiviare le 
  Tali tabelle vengono create automaticamente quando viene abilitato Analisi archiviazione per un endpoint di servizio di archiviazione. L'accesso alle tabelle viene eseguito tramite lo spazio dei nomi dell'account di archiviazione, ad esempio, `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`. Le tabelle delle metriche non vengono visualizzate in un'operazione di elenco ed è necessario accedervi direttamente tramite il nome della tabella.
 
 ## <a name="metrics-alerts"></a>Avvisi delle metriche
-È consigliabile impostare gli avvisi nel [portale di Azure](https://portal.azure.com) in modo da ricevere notifiche automatiche in caso di modifiche importanti nel comportamento dei servizi di archiviazione. Per istruzioni dettagliate, vedere [creare avvisi di metrica](storage-monitor-storage-account.md#create-metric-alerts).
+È consigliabile impostare gli avvisi nel [portale di Azure](https://portal.azure.com) in modo da ricevere notifiche automatiche in caso di modifiche importanti nel comportamento dei servizi di archiviazione. Per istruzioni dettagliate, vedere [creare avvisi di metrica](./manage-storage-analytics-logs.md).
 
 Se si usa uno strumento di esplorazione di archiviazione per scaricare i dati di metrica in un formato delimitato, è possibile usare Microsoft Excel per analizzare i dati. In [Strumenti client di Archiviazione di Azure](./storage-explorers.md) è presente un elenco degli strumenti di esplorazione di archiviazione disponibili.
 

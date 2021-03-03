@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: overview
-ms.openlocfilehash: 331d4a36e2e466ea4103bda4a7f8c9f443751beb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 65f61324c496d4b76e6f599966a780c735114870
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90946299"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686666"
 ---
 # <a name="azure-arc-enabled-sql-managed-instance-overview"></a>Panoramica di Istanza gestita di SQL con abilitazione di Azure Arc
 
@@ -26,11 +26,11 @@ Istanza gestita di SQL con abilitazione di Azure Arc è un servizio dati di SQL 
 
 Istanza gestita di SQL con abilitazione di Azure Arc offre una compatibilità quasi del 100% con l'ultima versione del motore di database di SQL Server e consente agli attuali clienti di SQL Server di trasferire in modalità lift-and-shift le loro applicazioni nei servizi dati di Azure Arc con modifiche minime di applicazioni e database, mantenendo la sovranità dei dati. Allo stesso tempo, Istanza gestita di SQL include funzionalità di gestione incorporate che riducono drasticamente il sovraccarico di gestione. 
 
-Istanza gestita di SQL con abilitazione di Azure Arc è attualmente disponibile in anteprima.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su [caratteristiche e funzionalità di Istanza gestita di SQL con abilitazione di Azure Arc](managed-instance-features.md)
+
+[Azure Arc abilitato Istanza gestita disponibilità elevata](managed-instance-high-availability.md)
 
 [Iniziare con la creazione di un controller dati](create-data-controller.md)
 

@@ -3,12 +3,13 @@ title: Domande frequenti relative al servizio Azure Kubernetes
 description: Questo articolo include le risposte ad alcune domande frequenti sul servizio Azure Kubernetes.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.custom: references_regions
+ms.openlocfilehash: 6d7ea48722e6604fe67d7a4ddcb12870623d9354
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820263"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739628"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -134,7 +135,7 @@ Il supporto di Windows Server per il pool di nodi include alcune limitazioni che
 
 AKS fornisce garanzie per il contratto di servizio come funzionalità facoltativa del componente aggiuntivo con contratto di servizio con [tempo di esecuzione][uptime-sla]. 
 
-Il contratto di servizio gratuito offerto per impostazione predefinita non garantisce un endpoint server API a disponibilità elevata (l'obiettivo del livello di servizio è 99,5%). È possibile che si verifichino problemi di connettività temporanei in caso di aggiornamenti, nodi sottoposti a non integrità, manutenzione della piattaforma e così via. Se il carico di lavoro non tollera il riavvio del APIServer, è consigliabile usare il contratto di tempo per il tempo di esecuzione.
+Lo SKU gratuito offerto per impostazione predefinita non ha un *contratto* di servizio associato, ma ha un *obiettivo* del livello di servizio pari al 99,5%. È possibile che si verifichino problemi di connettività temporanei in caso di aggiornamenti, nodi sottoposti a non integrità, manutenzione della piattaforma, applicazioni che sovraccaricano il server API con richieste e così via. Se il carico di lavoro non tollera i riavvii del server API, è consigliabile usare il contratto di esecuzione del tempo di esecuzione.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>È possibile applicare gli sconti per le prenotazioni di Azure ai nodi dell'agente del servizio Azure Kubernetes?
 
@@ -202,7 +203,7 @@ L'agente di Log Analytics è supportato perché è un'estensione gestita da Micr
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS archivia i dati dei clienti al di fuori dell'area del cluster?
 
-La funzionalità che consente di archiviare i dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sudorientale (Singapore) del Asia Pacifico Geo. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo.
+La funzionalità per l'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sud-orientale (Singapore) dell'area geografica di Asia Pacifico geografica e del Brasile meridionale (stato di San Paolo) del Brasile. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo.
 
 ## <a name="are-aks-images-required-to-run-as-root"></a>Le immagini AKS sono necessarie per l'esecuzione come radice?
 

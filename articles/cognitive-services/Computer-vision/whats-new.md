@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390403"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738226"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novità di Visione artificiale
 
@@ -50,8 +50,8 @@ L'anteprima pubblica dell'API v 3.2 di Visione artificiale, disponibile come ser
 * **Modifica di rilievo**: l'evento *personZoneEvent* è stato rinominato in *personZoneEnterExitEvent*. Questo evento viene generato dall'operazione *personcrossingpolygon* quando una persona immette o esce dalla zona e fornisce informazioni direzionali con il lato numerato della zona che è stata superata.
 * L'URL del video può essere specificato come "parametro privato/offuscato" in tutte le operazioni. L'offuscamento è ora facoltativo e funzionerà solo se `KEY` e `IV` vengono fornite come variabili di ambiente.
 * La taratura è abilitata per impostazione predefinita per tutte le operazioni. Impostare `do_calibration: false` per disabilitarlo.
-* Aggiunto il supporto per la ritaratura automatica (disabilitato per impostazione predefinita) tramite il `enable_recalibration` parametro. per informazioni dettagliate, vedere [operazioni di analisi spaziale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations)
-* Parametri di calibrazione della fotocamera per il `DETECTOR_NODE_CONFIG` . Per informazioni dettagliate, vedere [operazioni di analisi spaziale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) .
+* Aggiunto il supporto per la ritaratura automatica (disabilitato per impostazione predefinita) tramite il `enable_recalibration` parametro. per informazioni dettagliate, vedere [operazioni di analisi spaziale](./spatial-analysis-operations.md)
+* Parametri di calibrazione della fotocamera per il `DETECTOR_NODE_CONFIG` . Per informazioni dettagliate, vedere [operazioni di analisi spaziale](./spatial-analysis-operations.md) .
 
 
 ## <a name="october-2020"></a>Ottobre 2020

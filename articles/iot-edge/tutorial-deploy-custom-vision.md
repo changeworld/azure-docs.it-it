@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 564f19a1be5b3ce8a5267a07bd4f1f6de80fecf1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
-ms.translationtype: HT
+ms.openlocfilehash: 8e64233ce1d59512e38ce6c366eba889392c4623
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621281"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736492"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Esercitazione: Eseguire la classificazione delle immagini nella rete perimetrale con il Servizio visione artificiale personalizzato
 
@@ -40,7 +40,7 @@ In questa esercitazione verranno illustrate le procedure per:
 ## <a name="prerequisites"></a>Prerequisiti
 
 >[!TIP]
->Questa esercitazione è una versione semplificata del progetto di esempio [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) (Visione personalizzata e Azure IoT Edge in un Raspberry Pi 3). È stata progettata per l'esecuzione in una macchina virtuale cloud e usa immagini statiche per eseguire il training e il test del classificatore di immagini, utile per chi inizia a valutare Visione personalizzata in IoT Edge. Il progetto di esempio usa hardware fisico e configura un feed di videocamera dal vivo per eseguire il training e il test del classificatore di immagini, utile per chi vuole provare uno scenario reale più dettagliato.
+>Questa esercitazione è una versione semplificata del progetto di esempio [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi) (Visione personalizzata e Azure IoT Edge in un Raspberry Pi 3). È stata progettata per l'esecuzione in una macchina virtuale cloud e usa immagini statiche per eseguire il training e il test del classificatore di immagini, utile per chi inizia a valutare Visione personalizzata in IoT Edge. Il progetto di esempio usa hardware fisico e configura un feed di videocamera dal vivo per eseguire il training e il test del classificatore di immagini, utile per chi vuole provare uno scenario reale più dettagliato.
 
 Prima di iniziare questa esercitazione, è necessario aver completato l'esercitazione precedente per configurare l'ambiente per lo sviluppo di contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti:
 
@@ -72,7 +72,7 @@ Dopo aver compilato ed eseguito il training del classificatore di immagini, è p
 
 4. Creare il progetto con i valori seguenti:
 
-   | Campo | valore |
+   | Campo | Valore |
    | ----- | ----- |
    | Nome | Specificare un nome per il progetto, ad esempio **EdgeTreeClassifier**. |
    | Descrizione | Descrizione facoltativa del progetto. |

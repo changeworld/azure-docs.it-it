@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3f9ec395e8ccf6d5162717b2e38b0650ccc84812
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6e4a776bd9aaf3900d05a6191b8ff4dcbb11fd52
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091807"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731664"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -156,7 +156,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |---|---|---|---|---|---|---|
 |attivo-timer-conteggio|Sì|attivo-timer-conteggio|Conteggio|Media|Numero di timer attualmente attivi|Distribuzione, AppName, Pod|
 |frequenza di allocazione|Sì|frequenza di allocazione|Byte|Media|Numero di byte allocati nell'heap gestito|Distribuzione, AppName, Pod|
-|AppCpuUsage|Sì|Utilizzo CPU app (anteprima)|Percentuale|Media|Utilizzo della CPU recente per l'app|Distribuzione, AppName, Pod|
+|AppCpuUsage|Sì|Utilizzo CPU dell'app |Percentuale|Media|Utilizzo della CPU recente per l'app|Distribuzione, AppName, Pod|
 |conteggio assembly|Sì|conteggio assembly|Conteggio|Media|Numero di assembly caricati|Distribuzione, AppName, Pod|
 |utilizzo CPU|Sì|utilizzo CPU|Percentuale|Media|Percentuale tempo di utilizzo della CPU da parte del processo|Distribuzione, AppName, Pod|
 |richieste correnti|Sì|richieste correnti|Conteggio|Media|Numero totale di richieste nell'elaborazione della durata del processo|Distribuzione, AppName, Pod|
@@ -2167,9 +2167,9 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|QueryVolume|Sì|Volume della query|Conteggio|Totale|Numero di query per zona DNS|Nessuna dimensione|
+|QueryVolume|No|Volume della query|Conteggio|Totale|Numero di query per zona DNS|Nessuna dimensione|
 |RecordSetCapacityUtilization|No|Uso della capacità di set di record|Percentuale|Massimo|Percentuale della capacità di set di record usata da una zona DNS|Nessuna dimensione|
-|RecordSetCount|Sì|Numero di set di record|Conteggio|Massimo|Numero di set di record in una zona DNS|Nessuna dimensione|
+|RecordSetCount|No|Numero di set di record|Conteggio|Massimo|Numero di set di record in una zona DNS|Nessuna dimensione|
 
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
@@ -2799,7 +2799,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |SuccessE2ELatency|Sì|Latenza end-to-end per richieste con esito positivo|Millisecondi|Media|Latenza end-to-end media di richieste con esito positivo eseguite in un servizio di archiviazione o nell'operazione API specificata, in millisecondi. Questo valore include il tempo di elaborazione necessario in Archiviazione di Azure per leggere la richiesta, inviare la risposta e ricevere il riconoscimento della risposta.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Sì|Latenza server per richieste con esito positivo|Millisecondi|Media|Tempo medio necessario per l'elaborazione di una richiesta con esito positivo da parte di Archiviazione di Azure. Questo valore non include la latenza di rete specificata in SuccessE2ELatency.|GeoType, ApiName, Authentication|
 |Transazioni|Sì|Transazioni|Conteggio|Totale|Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. Usare la dimensione ResponseType per il numero di tipi di risposta diversi.|ResponseType, GeoType, ApiName, Authentication|
-|UsedCapacity|No|Capacità usata|Byte|Media|Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB, è uguale a BlobCapacity o filecapacity.|Nessuna dimensione|
+|UsedCapacity|Sì|Capacità usata|Byte|Media|Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB, è uguale a BlobCapacity o filecapacity.|Nessuna dimensione|
 
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
@@ -3137,11 +3137,11 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |AverageResponseTime|Sì|Tempo medio di risposta (obsoleto)|Secondi|Media|Tempo medio impiegato dall'app per gestire le richieste, in secondi.|Istanza|
 |BytesReceived|Sì|Dati in entrata|Byte|Totale|Larghezza di banda in entrata utilizzata dall'app, espressa in MiB.|Istanza|
 |BytesSent|Sì|Dati in uscita|Byte|Totale|Larghezza di banda in uscita utilizzata dall'app, espressa in MiB.|Istanza|
-|CpuTime|Sì|Tempo CPU|Secondi|Totale|Quantità di CPU utilizzata dall'app, espressa in secondi. Per ulteriori informazioni su questa metrica. Vedere https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (tempo CPU e percentuale CPU).|Istanza|
+|CpuTime|Sì|Tempo CPU|Secondi|Totale|Quantità di CPU utilizzata dall'app, espressa in secondi. Per ulteriori informazioni su questa metrica. Vedere https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (tempo CPU e percentuale CPU). Non applicabile a funzioni di Azure.|Istanza|
 |CurrentAssemblies|Sì|Assembly attuali|Conteggio|Media|Numero corrente di assembly caricati in tutti i domini dell'applicazione di questa applicazione.|Istanza|
 |FileSystemUsage|Sì|Utilizzo del file System|Byte|Media|Percentuale di quota del file System utilizzata dall'app.|Nessuna dimensione|
-|FunctionExecutionCount|Sì|Conteggio delle esecuzioni della funzione|Conteggio|Totale|Conteggio delle esecuzioni della funzione|Istanza|
-|FunctionExecutionUnits|Sì|Unità di esecuzione della funzione|Conteggio|Totale|Unità di esecuzione della funzione|Istanza|
+|FunctionExecutionCount|Sì|Conteggio delle esecuzioni della funzione|Conteggio|Totale|Conteggio esecuzioni di funzioni. Presente solo per funzioni di Azure.|Istanza|
+|FunctionExecutionUnits|Sì|Unità di esecuzione della funzione|Conteggio|Totale|Unità di esecuzione della funzione. Presente solo per funzioni di Azure.|Istanza|
 |Gen0Collections|Sì|Garbage Collection di generazione 0|Conteggio|Totale|Numero di operazioni di Garbage Collection sugli oggetti di generazione 0 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|Istanza|
 |Gen1Collections|Sì|Garbage Collection di generazione 1|Conteggio|Totale|Numero di operazioni di Garbage Collection sugli oggetti di generazione 1 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|Istanza|
 |Gen2Collections|Sì|Garbage Collection di generazione 2|Conteggio|Totale|Numero di operazioni di Garbage Collection sugli oggetti di generazione 2 dall'avvio del processo dell'app.|Istanza|

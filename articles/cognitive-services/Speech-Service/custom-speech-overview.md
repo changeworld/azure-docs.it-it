@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: f2dca513b4413f1761ea1b21bf71f90bb27d3053
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 39370659e71a7d281914b360eea83eb0b68b25ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388652"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716568"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è il servizio Riconoscimento vocale personalizzato?
 
@@ -45,7 +45,9 @@ In questo diagramma vengono evidenziati i componenti che costituiscono l' [area 
 Prima di poter usare [speech studio](https://speech.microsoft.com/customspeech) per creare un modello personalizzato, è necessario avere un account Azure e una sottoscrizione al servizio di riconoscimento vocale. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](overview.md#try-the-speech-service-for-free).
 
 > [!NOTE]
-> Se si prevede di eseguire il training di un modello personalizzato con **dati audio**, scegliere una delle aree seguenti per cui è disponibile hardware dedicato per il training. In questo modo si riduce il tempo necessario per il training di un modello.
+> Assicurarsi di creare una sottoscrizione standard (S0). Le sottoscrizioni gratuite (F0) non sono supportate.
+
+Se si prevede di eseguire il training di un modello personalizzato con **dati audio**, scegliere una delle aree seguenti per cui è disponibile hardware dedicato per il training. Questo consente di ridurre il tempo necessario per eseguire il training di un modello e consentire l'uso di più audio per il training. In queste aree, il servizio di riconoscimento vocale utilizzerà fino a 20 ore di audio per il training; in altre aree utilizzerà solo fino a 8 ore.
 
 * Australia orientale
 * Canada centrale
@@ -61,9 +63,6 @@ Prima di poter usare [speech studio](https://speech.microsoft.com/customspeech) 
 * US Gov Virginia
 * Europa occidentale
 * Stati Uniti occidentali 2
-
-> [!NOTE]
-> Assicurarsi di creare una sottoscrizione standard (S0). Le sottoscrizioni gratuite (F0) non sono supportate.
 
 Dopo aver creato un account Azure e una sottoscrizione al servizio vocale, è necessario accedere a [speech studio](https://speech.microsoft.com/customspeech) e connettere la sottoscrizione.
 

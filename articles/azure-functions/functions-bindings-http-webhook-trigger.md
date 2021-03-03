@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: e64f8cded851427636a19e16cccd78932dd6baac
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: a9bb87206ccb0dca56c1744d5578eac7a17418c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054958"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726394"
 ---
 # <a name="azure-functions-http-trigger"></a>Trigger HTTP di Funzioni di Azure
 
@@ -751,7 +751,7 @@ La configurazione seguente illustra in che modo il parametro `{id}` viene passat
 
 Quando si usano i parametri di route, `invoke_URL_template` viene creato automaticamente un oggetto per la funzione. I client possono usare il modello di URL per comprendere i parametri che devono passare all'URL quando chiamano la funzione usando il relativo URL. Passare a una delle funzioni attivate da HTTP nella [portale di Azure](https://portal.azure.com) e selezionare **Ottieni URL funzione**.
 
-È possibile accedere a a livello `invoke_URL_template` di codice usando le api Azure Resource Manager per le [funzioni di elenco](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) o [Get Function](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction).
+È possibile accedere a a livello `invoke_URL_template` di codice usando le api Azure Resource Manager per le [funzioni di elenco](/rest/api/appservice/webapps/listfunctions) o [Get Function](/rest/api/appservice/webapps/getfunction).
 
 ## <a name="working-with-client-identities"></a>Utilizzo delle identità client
 

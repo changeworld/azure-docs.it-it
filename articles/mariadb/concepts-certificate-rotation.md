@@ -3,50 +3,41 @@ title: Rotazione dei certificati per database di Azure per MariaDB
 description: Informazioni sulle modifiche imminenti delle modifiche apportate al certificato radice che influiranno sul database di Azure per MariaDB
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: 66db443c4c52e4994e62a9f83f8a624319b349ab
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 105bc7f14f9ddcc4a64564edc1eebcd17b898bc6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98659887"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698995"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per il database di Azure per MariaDB
 
-Il database di Azure per MariaDB modificherà il certificato radice per l'applicazione client o il driver abilitato con SSL, da usare per [connettersi al server di database](concepts-connectivity-architecture.md). Il certificato radice attualmente disponibile è impostato in modo da scadere il 15 febbraio 2021 (02/15/2021) come parte delle procedure consigliate per la manutenzione e la sicurezza standard. In questo articolo vengono fornite ulteriori informazioni sulle modifiche imminenti, sulle risorse interessate e sui passaggi necessari per garantire che l'applicazione mantenga la connettività al server di database.
-
->[!NOTE]
-> In base ai commenti e suggerimenti dei clienti, è stata estesa la deprecazione del certificato radice per la CA radice Baltimore esistente dal 26 ottobre 2020 fino al 15 febbraio 2021. Ci auguriamo che questa estensione fornisca lead time sufficienti per consentire agli utenti di implementare le modifiche apportate al client, se interessate.
+Il database di Azure per MariaDB ha completato la modifica del certificato radice il **15 febbraio 2021 (02/15/2021)** come parte delle procedure consigliate per la manutenzione e la sicurezza standard. Questo articolo fornisce ulteriori informazioni sulle modifiche, sulle risorse interessate e sui passaggi necessari per garantire che l'applicazione mantenga la connettività al server di database.
 
 > [!NOTE]
 > Questo articolo contiene riferimenti al termine _slave_, un termine che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
+>
 
-## <a name="what-update-is-going-to-happen"></a>Quale aggiornamento verrà eseguita?
+## <a name="why-root-certificate-update-is-required"></a>Perché è necessario l'aggiornamento del certificato radice?
 
-In alcuni casi, le applicazioni utilizzano un file di certificato locale generato da un file di certificato dell'autorità di certificazione (CA) attendibile per la connessione sicura. Attualmente i clienti possono usare solo il certificato predefinito per connettersi a un database di Azure per il server MariaDB, disponibile [qui](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). Tuttavia, il [Forum del browser dell'autorità di certificazione (CA)](https://cabforum.org/)ha pubblicato di   recente report di più certificati rilasciati dai fornitori di CA come non conformi.
+Gli utenti del database di Azure per MariaDB possono usare solo il certificato predefinito per connettersi a un database di Azure per il server MariaDB, disponibile [qui](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). Tuttavia, il [Forum del browser dell'autorità di certificazione (CA)](https://cabforum.org/)ha pubblicato di   recente report di più certificati rilasciati dai fornitori di CA come non conformi.
 
-In base ai requisiti di conformità del settore, i fornitori di CA hanno iniziato a revocare i certificati della CA per le CA non conformi, che richiedono che i server usino certificati rilasciati da CA conformi e firmati da certificati della CA da tali CA conformi. Poiché il database di Azure per MariaDB attualmente usa uno di questi certificati non conformi, che le applicazioni client usano per convalidare le connessioni SSL, è necessario assicurarsi che vengano eseguite le azioni appropriate (descritte di seguito) per ridurre al minimo il potenziale impatto sui server MariaDB.
+In base ai requisiti di conformità del settore, i fornitori di CA hanno iniziato a revocare i certificati della CA per le CA non conformi, che richiedono che i server usino certificati rilasciati da CA conformi e firmati da certificati della CA da tali CA conformi. Poiché il database di Azure per MariaDB ha usato uno di questi certificati non conformi, è necessario ruotare il certificato nella versione conforme per ridurre al minimo le potenziali minacce per i server MySQL.
 
-Il nuovo certificato verrà usato a partire dal 15 febbraio 2021 (02/15/2021). Se si usa la convalida della CA o la convalida completa del certificato del server quando ci si connette da un client MySQL (sslmode = Verify-CA o sslmode = Verify-Full), è necessario aggiornare la configurazione dell'applicazione prima del 15 febbraio 2021 (02/15/2021).
+Il nuovo certificato viene implementato e in vigore a partire dal 15 febbraio 2021 (02/15/2021). 
 
-## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Ricerca per categorie verificare se il database sarà interessato?
+## <a name="what-change-was-performed-on-february-15-2021-02152021"></a>Quale modifica è stata eseguita il 15 febbraio 2021 (02/15/2021)?
 
-Tutte le applicazioni che usano SSL/TLS e verificano che il certificato radice debba aggiornare il certificato radice. È possibile stabilire se le connessioni verificano il certificato radice rivedendo la stringa di connessione.
+Il 15 febbraio 2021 il [certificato radice BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) è stato sostituito con una **versione conforme** dello stesso [certificato radice BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) per garantire che i clienti esistenti non debbano apportare modifiche e che non vi sia alcun effetto sulle connessioni al server. Durante questa modifica, il [certificato radice BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) non è stato **sostituito** con [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) e tale modifica viene posticipata per consentire ai clienti di apportare la modifica in modo più tempo.
 
-- Se la stringa di connessione include `sslmode=verify-ca` o `sslmode=verify-identity` , è necessario aggiornare il certificato.
-- Se la stringa di connessione include `sslmode=disable` ,, `sslmode=allow` `sslmode=prefer` o `sslmode=require` , non è necessario aggiornare i certificati.
-- Se la stringa di connessione non specifica sslmode, non è necessario aggiornare i certificati.
+## <a name="do-i-need-to-make-any-changes-on-my-client-to-maintain-connectivity"></a>È necessario apportare modifiche nel client per mantenere la connettività?
 
-Se si usa un client che astrae la stringa di connessione, esaminare la documentazione del client per capire se i certificati sono verificati.
-Per informazioni su database di Azure per MariaDB sslmode, vedere le [descrizioni della modalità SSL](concepts-ssl-connection-security.md#default-settings).
+Non sono necessarie modifiche sul lato client. Se è stata seguita la raccomandazione precedente, sarà comunque possibile continuare a connettersi fino a quando il **certificato BaltimoreCyberTrustRoot non viene rimosso** dal certificato della CA combinato. **Si consiglia di non rimuovere il BaltimoreCyberTrustRoot dal certificato della CA combinato fino a quando non si notano altre informazioni per mantenere la connettività.**
 
-Per evitare che la disponibilità dell'applicazione venga interrotta a causa di un arresto imprevisto dei certificati o per l'aggiornamento di un certificato revocato, vedere la sezione [**"cosa devo fare per mantenere la connettività"**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity) .
-
-## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>Cosa è necessario fare per mantenere la connettività
-
-Per evitare che la disponibilità dell'applicazione venga interrotta a causa di un arresto imprevisto dei certificati o per l'aggiornamento di un certificato revocato, attenersi alla procedura riportata di seguito. L'idea è creare un nuovo file con *estensione PEM* , che combina il certificato corrente e quello nuovo e durante la convalida del certificato SSL dopo che verranno usati i valori consentiti. Vedere i passaggi seguenti:
+### <a name="previous-recommendation"></a>Raccomandazione precedente
 
 - Scaricare la CA **BaltimoreCyberTrustRoot**  &  **DigiCertGlobalRootG2** dai collegamenti seguenti:
 
@@ -90,15 +81,15 @@ Per evitare che la disponibilità dell'applicazione venga interrotta a causa di 
 - Sostituire il file PEM CA radice originale con il file CA radice combinato e riavviare l'applicazione/client.
 - In futuro, dopo la distribuzione del nuovo certificato sul lato server, è possibile modificare il file di CA PEM in DigiCertGlobalRootG2. CRT. pem.
 
-## <a name="what-can-be-the-impact-of-not-updating-the-certificate"></a>Quale può essere l'effetto del mancato aggiornamento del certificato?
+## <a name="why-was-baltimorecybertrustroot-certificate-not-replaced-to-digicertglobalrootg2-during-this-change-on-february-15-2021"></a>Perché il certificato BaltimoreCyberTrustRoot non è stato sostituito in DigiCertGlobalRootG2 durante questa modifica il 15 febbraio 2021?
 
-Se si usa il certificato rilasciato da database di Azure per MariaDB, come descritto in questo articolo, è possibile che la disponibilità dell'applicazione venga interrotta perché il database non sarà raggiungibile. A seconda dell'applicazione, è possibile che vengano visualizzati diversi messaggi di errore, tra cui:
+Abbiamo valutato la preparazione del cliente per questa modifica e abbiamo realizzato che molti clienti stavano cercando ulteriori lead time per gestire questa modifica. Per garantire la conformità a più lead time ai clienti, abbiamo deciso di rinviare la modifica del certificato a DigiCertGlobalRootG2 per almeno un anno garantendo una lead time sufficiente ai clienti e agli utenti finali. 
 
-- Certificato/certificato revocato non valido
-- Timeout della connessione
+Le indicazioni per gli utenti sono: usare i passaggi indicati in questo documento per creare un certificato combinato e connettersi al server, ma non rimuovere il certificato BaltimoreCyberTrustRoot fino a quando non viene inviata una comunicazione per rimuoverlo. 
 
-> [!NOTE]
-> Non eliminare o modificare il **certificato Baltimore** fino a quando non viene apportata la modifica del certificato. Al termine della modifica verrà inviata una comunicazione, dopo la quale è possibile eliminare il certificato Baltimore.
+## <a name="what-if-we-removed-the-baltimorecybertrustroot-certificate"></a>Cosa accade se è stato rimosso il certificato BaltimoreCyberTrustRoot?
+
+Si inizierà a errori di connettività durante la connessione al database di Azure per il server MariaDB. Per mantenere la connettività, sarà necessario configurare di nuovo [SSL](howto-configure-ssl.md) con il certificato [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) .
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -110,16 +101,22 @@ Non sono necessarie azioni se non si usa SSL/TLS.
 
 No, non è necessario riavviare il server di database per iniziare a usare il nuovo certificato. L'aggiornamento del certificato è una modifica sul lato client e le connessioni client in ingresso devono usare il nuovo certificato per assicurarsi che possano connettersi al server di database.
 
-### <a name="3-what-will-happen-if-i-dont-update-the-root-certificate-before-february-15-2021-02152021"></a>3. cosa accade se non si aggiorna il certificato radice prima del 15 febbraio 2021 (02/15/2021)?
+### <a name="3-how-do-i-know-if-im-using-ssltls-with-root-certificate-verification"></a>3. Ricerca per categorie verificare se si usa SSL/TLS con la verifica del certificato radice?
 
-Se non si aggiorna il certificato radice prima del 15 febbraio 2021 (02/15/2021), le applicazioni che si connettono tramite SSL/TLS e la verifica del certificato radice non saranno in grado di comunicare con il server di database MariaDB e l'applicazione verificherà problemi di connettività al server di database MariaDB.
+È possibile stabilire se le connessioni verificano il certificato radice rivedendo la stringa di connessione.
+
+- Se la stringa di connessione include `sslmode=verify-ca` o `sslmode=verify-identity` , è necessario aggiornare il certificato.
+- Se la stringa di connessione include `sslmode=disable` ,, `sslmode=allow` `sslmode=prefer` o `sslmode=require` , non è necessario aggiornare i certificati.
+- Se la stringa di connessione non specifica sslmode, non è necessario aggiornare i certificati.
+
+Se si usa un client che astrae la stringa di connessione, esaminare la documentazione del client per capire se i certificati sono verificati.
 
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mariadb"></a>4. quali sono le conseguenze dell'uso del servizio app con il database di Azure per MariaDB?
 
 Per i servizi app di Azure che si connettono al database di Azure per MariaDB, esistono due possibili scenari, a seconda di come si usa SSL con l'applicazione.
 
-- Questo nuovo certificato è stato aggiunto al servizio app a livello di piattaforma. Se si usano i certificati SSL inclusi nella piattaforma del servizio app nell'applicazione, non è necessaria alcuna azione.
-- Se si include in modo esplicito il percorso del file del certificato SSL nel codice, è necessario scaricare il nuovo certificato e aggiornare il codice per usare il nuovo certificato. Un esempio valido di questo scenario è quando si usano contenitori personalizzati nel servizio app come condivisi nella [documentazione del servizio app](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress)
+- Questo nuovo certificato è stato aggiunto al servizio app a livello di piattaforma. Se si usano i certificati SSL inclusi nella piattaforma del servizio app nell'applicazione, non è necessaria alcuna azione. Questo è lo scenario più comune. 
+- Se si include in modo esplicito il percorso del file del certificato SSL nel codice, è necessario scaricare il nuovo certificato e aggiornare il codice per usare il nuovo certificato. Un esempio valido di questo scenario è quando si usano contenitori personalizzati nel servizio app come condivisi nella [documentazione del servizio app](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress). Si tratta di uno scenario insolito, ma alcuni utenti lo usano.
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mariadb"></a>5. quale è l'effetto se si usa Azure Kubernetes Services (AKS) con database di Azure per MariaDB?
 
@@ -135,23 +132,19 @@ Per il connettore che usa Integration Runtime self-hosted in cui si include in m
 
 No. Poiché la modifica è solo sul lato client per la connessione al server di database, non è necessario alcun tempo di inattività di manutenzione per il server di database per questa modifica.
 
-### <a name="8--what-if-i-cant-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. cosa accade se non è possibile ottenere un tempo di inattività pianificato per questa modifica prima del 15 febbraio 2021 (02/15/2021)?
+### <a name="8-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>8. Se si crea un nuovo server dopo il 15 febbraio 2021 (02/15/2021), si avrà un effetto?
 
-Poiché i client usati per la connessione al server devono aggiornare le informazioni del certificato come descritto [nella sezione correzione](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), in questo caso non è necessario un tempo di inattività per il server.
+Per i server creati dopo il 15 febbraio 2021 (02/15/2021), si continuerà a usare [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) per le applicazioni per la connessione tramite SSL.
 
-### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Se si crea un nuovo server dopo il 15 febbraio 2021 (02/15/2021), si avrà un effetto?
+### <a name="9-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>9. con quale frequenza Microsoft aggiorna i certificati o quali sono i criteri di scadenza?
 
-Per i server creati dopo il 15 febbraio 2021 (02/15/2021), è possibile usare il certificato appena emesso per le applicazioni per la connessione tramite SSL.
+Questi certificati usati da database di Azure per MariaDB sono forniti da autorità di certificazione (CA) attendibili. Il supporto di questi certificati è quindi associato al supporto di questi certificati da parte della CA. Il certificato [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) è pianificato per scadere nel 2025, pertanto Microsoft dovrà eseguire una modifica del certificato prima della scadenza. Inoltre, nel caso in cui siano presenti bug non previsti in questi certificati predefiniti, è necessario che Microsoft effettui la rotazione del certificato nel primo momento simile alla modifica eseguita il 15 febbraio 2021 per garantire che il servizio sia sempre protetto e conforme.
 
-### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. con quale frequenza Microsoft aggiorna i certificati o quali sono i criteri di scadenza?
-
-Questi certificati usati da database di Azure per MariaDB sono forniti da autorità di certificazione (CA) attendibili. Il supporto di questi certificati nel database di Azure per MariaDB è quindi associato al supporto di questi certificati da parte della CA. Tuttavia, come in questo caso, in questi certificati predefiniti possono essere presenti bug non previsti, che devono essere corretti al più presto.
-
-### <a name="11-if-im-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. Se si usano le repliche di lettura, è necessario eseguire questo aggiornamento solo sul server di origine o sulle repliche di lettura?
+### <a name="10-if-im-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>10. Se si usano le repliche di lettura, è necessario eseguire questo aggiornamento solo sul server di origine o sulle repliche di lettura?
 
 Poiché questo aggiornamento è una modifica lato client, se il client utilizzato per leggere i dati dal server di replica, è necessario applicare anche le modifiche per tali client.
 
-### <a name="12-if-im-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Se si usa la replica dati, è necessario eseguire qualsiasi azione?
+### <a name="11-if-im-using-data-in-replication-do-i-need-to-perform-any-action"></a>11. Se si usa la replica dati, è necessario eseguire qualsiasi azione?
 
 - Se la replica dei dati viene eseguita da una macchina virtuale (locale o da una macchina virtuale di Azure) al database di Azure per MySQL, è necessario verificare se SSL è usato per creare la replica. Eseguire **show slave status** e verificare l'impostazione seguente.
 
@@ -177,18 +170,18 @@ Se si usa la [replica dei dati](concepts-data-in-replication.md) per connettersi
   Master_SSL_Key                : ~\azure_mysqlclient_key.pem
   ```
 
-  Se viene visualizzato il certificato fornito per il CA_file, SSL_Cert e SSL_Key, sarà necessario aggiornare il file aggiungendo il [nuovo certificato](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
+  Se viene visualizzato il certificato fornito per il CA_file, SSL_Cert e SSL_Key, sarà necessario aggiornare il file aggiungendo il [nuovo certificato](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) e creare un file di certificato combinato.
 
 - Se la replica dei dati è tra due database di Azure per MySQL, sarà necessario reimpostare la replica eseguendo **CALL MySQL.az_replication_change_master** e fornire il nuovo certificato radice duale come ultimo parametro [master_ssl_ca](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication).
 
-### <a name="13-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>13. esiste una query sul lato server per verificare se è in uso SSL?
+### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. è presente una query sul lato server per verificare se è in uso SSL?
 
 Per verificare se si sta usando la connessione SSL per la connessione al server, fare riferimento alla [verifica SSL](howto-configure-ssl.md#verify-the-ssl-connection).
 
-### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. esiste un'azione necessaria se si dispone già di DigiCertGlobalRootG2 nel file di certificato?
+### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. esiste un'azione necessaria se si dispone già di DigiCertGlobalRootG2 nel file di certificato?
 
 No. Non è necessario alcun intervento se il file del certificato dispone già del **DigiCertGlobalRootG2**.
 
-### <a name="15-what-if-i-have-further-questions"></a>15. cosa accade se si hanno altre domande?
+### <a name="14-what-if-i-have-further-questions"></a>14. cosa accade se si hanno altre domande?
 
 In caso di domande, ottenere le risposte dagli esperti della community in [Microsoft Q&a](mailto:AzureDatabaseformariadb@service.microsoft.com). Se si dispone di un piano di supporto ed è necessario assistenza tecnica, [contattare](mailto:AzureDatabaseformariadb@service.microsoft.com)Microsoft.

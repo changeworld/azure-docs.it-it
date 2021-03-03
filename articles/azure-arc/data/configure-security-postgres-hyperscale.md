@@ -9,20 +9,21 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6e27fddceb69efbb2c1697c09ee9b61d7f38ee4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273201"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687975"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurare la sicurezza per il gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
 
 In questo documento vengono descritti i vari aspetti correlati alla sicurezza del gruppo di server:
 - Crittografia di dati inattivi
-- Gestione utente
+- Gestione degli utenti
    - Prospettive generali
    - Modificare la password dell'utente amministratore _Postgres_
+- Audit
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -148,7 +149,7 @@ Quando ci si connette con l'applicazione e si passa una password, la ricerca vie
 
 Questo piccolo esempio dimostra che è possibile crittografare i dati inattivi (archiviare i dati crittografati) in Azure Arc abilitata per l'iperscalabilità di PostgreSQL usando l'estensione Postgres `pgcrypto` e le applicazioni possono usare funzioni offerte da `pgcrypto` per modificare i dati crittografati.
 
-## <a name="user-management"></a>Gestione utente
+## <a name="user-management"></a>Gestione degli utenti
 ### <a name="general-perspectives"></a>Prospettive generali
 È possibile usare il metodo Postgres Standard per creare utenti o ruoli. Tuttavia, in tal caso, gli artefatti saranno disponibili solo nel ruolo di coordinatore. In anteprima, gli utenti o i ruoli non potranno ancora accedere ai dati distribuiti all'esterno del nodo coordinatore e nei nodi di lavoro del gruppo di server. Il motivo è che in anteprima la definizione dell'utente non viene replicata nei nodi di lavoro.
 
@@ -159,18 +160,19 @@ Il formato generale del comando per modificare la password è:
 azdata arc postgres server edit --name <server group name> --admin-password
 ```
 
-Dove--admin-password è un valore booleano che si riferisce alla presenza di un valore nella variabile di ambiente della **sessione**di AZDATA_PASSWORD.
-Se la variabile di ambiente della **sessione**di AZDATA_PASSWORD esiste e contiene un valore, l'esecuzione del comando precedente imposterà la password dell'utente postgres sul valore di questa variabile di ambiente.
+Dove `--admin-password` è un valore booleano che si riferisce alla presenza di un valore nella variabile di ambiente AZDATA_PASSWORD **sessione** .
+Se la variabile di ambiente della **sessione** AZDATA_PASSWORD esiste e contiene un valore, l'esecuzione del comando precedente imposterà la password dell'utente postgres sul valore di questa variabile di ambiente.
 
-Se la variabile di ambiente della **sessione**di AZDATA_PASSWORD esiste ma non ha valore o la variabile di ambiente della **sessione**di AZDATA_PASSWORD non esiste, l'esecuzione del comando precedente richiederà all'utente di immettere una password in modo interattivo
+Se la variabile di ambiente della **sessione** AZDATA_PASSWORD esiste ma non ha valore o la variabile di ambiente della **sessione** di AZDATA_PASSWORD non esiste, l'esecuzione del comando precedente richiederà all'utente di immettere una password in modo interattivo
 
-#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Modifica della password dell'utente amministratore Postgres in modo interattivo:
-1. Elimina la variabile di ambiente della **sessione**di AZDATA_PASSWORD o ne elimina il valore
+#### <a name="change-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Modificare la password dell'utente amministratore Postgres in modo interattivo
+
+1. Elimina la variabile di ambiente della **sessione** di AZDATA_PASSWORD o ne elimina il valore
 2. Eseguire il comando:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
    ```
-   Ad esempio
+   Ad esempio:
    ```console
    azdata arc postgres server edit -n postgres01 --admin-password
    ```
@@ -186,13 +188,13 @@ Se la variabile di ambiente della **sessione**di AZDATA_PASSWORD esiste ma non h
    postgres01 is Ready
    ```
    
-#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>Modifica della password dell'utente amministratore Postgres usando la variabile di ambiente della **sessione**di AZDATA_PASSWORD:
-1. Impostare il valore della variabile di ambiente della **sessione**di AZDATA_PASSWORD su ciò che si desidera impostare come password.
-2. Eseguire il comando :
+#### <a name="change-the-password-of-the-postgres-administrative-user-using-the-azdata_password-session-environment-variable"></a>Modificare la password dell'utente amministratore Postgres usando la variabile di ambiente AZDATA_PASSWORD **sessione** :
+1. Impostare il valore della variabile di ambiente della **sessione** di AZDATA_PASSWORD su ciò che si desidera impostare come password.
+2. Eseguire il comando:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
    ```
-   Ad esempio
+   Ad esempio:
    ```console
    azdata arc postgres server edit -n postgres01 --admin-password
    ```
@@ -216,9 +218,12 @@ Se la variabile di ambiente della **sessione**di AZDATA_PASSWORD esiste ma non h
 > echo $env:AZDATA_PASSWORD
 > ```
 
+## <a name="audit"></a>Audit
+
+Per gli scenari di controllo, configurare il gruppo di server per l'uso delle `pgaudit` estensioni di postgres. Per altre informazioni `pgaudit` , vedere il [ `pgAudit` progetto GitHub](https://github.com/pgaudit/pgaudit/blob/master/README.md). Per abilitare l' `pgaudit` estensione nel gruppo di server, leggere [usare le estensioni PostgreSQL](using-extensions-in-postgresql-hyperscale-server-group.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per informazioni dettagliate sull' `pgcrypto` estensione, vedere [qui](https://www.postgresql.org/docs/current/pgcrypto.html).
-- Per informazioni dettagliate su come usare le estensioni Postgres, vedere [qui](using-extensions-in-postgresql-hyperscale-server-group.md).
+- Vedere l' [ `pgcrypto` estensione](https://www.postgresql.org/docs/current/pgcrypto.html)
+- Vedere [usare le estensioni PostgreSQL](using-extensions-in-postgresql-hyperscale-server-group.md)
 

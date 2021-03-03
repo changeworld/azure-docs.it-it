@@ -1,20 +1,20 @@
 ---
-title: Caricare e gestire i sensori nel portale Defender per le cose
+title: Caricare e gestire sensori e sottoscrizioni nel portale di Defender per le cose
 description: Informazioni su come eseguire l'onboarding, visualizzare e gestire i sensori in Defender per il portale.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/27/2020
+ms.date: 2/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cc4fe4e2b675fb1b46bb4404d892c02a1f00553
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526863"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733262"
 ---
-# <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Caricare e gestire i sensori nel portale Defender per le cose
+# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Caricare e gestire sensori e sottoscrizioni nel portale di Defender per le cose
 
 Questo articolo descrive come eseguire l'onboarding, visualizzare e gestire i sensori nel [portale Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)Internet.
 
@@ -64,7 +64,7 @@ Nel [portale Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_D
 
 ## <a name="manage-onboarded-sensors"></a>Gestire i sensori caricati
 
-Per le attività di gestione correlate ai sensori è possibile usare il [portale di Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) Internet.
+Usare [Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) Internet per le attività di gestione correlate ai sensori.
 
 I sensori caricati possono essere visualizzati nella pagina **siti e sensori** . È anche possibile modificare le informazioni sui sensori da questa pagina.
 
@@ -78,8 +78,8 @@ Usare le opzioni di modifica dei **siti e dei sensori** per modificare il nome e
 
 Per modificare:
 
-1. Fare clic con il pulsante destro del mouse sui puntini di sospensione (**...**) per il sensore che si desidera modificare.
-1. Selezionare Modifica.
+1. Selezionare i **puntini** di sospensione (**...**) per il sensore che si desidera modificare.
+1. Selezionare **Modifica**.
 1. Aggiornare la zona del sensore o creare una nuova zona.
 
 ### <a name="delete-a-sensor"></a>Eliminare un sensore
@@ -122,6 +122,24 @@ Per riattivare un sensore:
 8. Selezionare **carica** e selezionare il file salvato dalla pagina del sensore di onboarding.
 
 9. Selezionare **Attiva**.
+
+## <a name="offboard-a-subscription"></a>Offboard una sottoscrizione
+
+Le sottoscrizioni vengono gestite su base mensile. Quando offboard una sottoscrizione, ti verrà addebitata la sottoscrizione fino alla fine del mese. 
+
+Disinstallare tutti i sensori associati alla sottoscrizione prima di Offboarding la sottoscrizione. Per altre informazioni su come eliminare un sensore, vedere [eliminare un sensore](#delete-a-sensor). 
+
+Per offboard una sottoscrizione:
+
+1. Passare alla pagina dei **prezzi** .
+1. Selezionare la sottoscrizione e quindi selezionare l'icona **Elimina** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false"::: .
+1. Nella finestra popup di conferma selezionare la casella di controllo per confermare di avere eliminato tutti i sensori associati alla sottoscrizione.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Selezionare la casella di controllo e selezionare offboard per offboard il sensore.":::
+
+1. Selezionare il pulsante **offboard** . 
+
+L'ambiente locale non è interessato, ma è necessario disinstallare il sensore dall'ambiente locale oppure riassegnare il sensore a un'altra sottoscrizione, in modo da impedire che i dati correlati vengano propagati alla console di gestione locale. 
 
 ## <a name="see-also"></a>Vedi anche
 

@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 26cfdf05847b01d28a8574483acc89cfeced0ffa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617567"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717741"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali di Microsoft Azure
 È possibile aumentare e ridurre il numero di istanze dei set di scalabilità di macchine virtuali in base ai valori soglia per le metriche delle prestazioni, a una pianificazione ricorrente oppure a una data specifica. È anche possibile configurare notifiche di posta elettronica e webhook per le azioni di scalabilità. Questa procedura dettagliata illustra un esempio di configurazione di tutti tali oggetti usando in modello di Resource Manager in un set di scalabilità di macchine virtuali.
@@ -243,9 +243,9 @@ Per altre informazioni sulla scalabilità automatica, usare questi collegamenti.
 
 [Procedure consigliate per il ridimensionamento automatico di Azure](autoscale-best-practices.md)
 
-[Gestire il ridimensionamento automatico con PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
+[Gestire il ridimensionamento automatico con PowerShell](../powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Gestire il ridimensionamento automatico con l'interfaccia della riga di comando](../samples/cli-samples.md#autoscale)
+[Gestire il ridimensionamento automatico con l'interfaccia della riga di comando](../cli-samples.md#autoscale)
 
 [Configurare notifiche webhook e di posta elettronica per il ridimensionamento automatico](autoscale-webhook-email.md)
 

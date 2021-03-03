@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 64432e2717057c1ff6bb09e0158ddb779d5b5373
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946263"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742603"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Bilanciamento del carico tra aree (anteprima)
 
@@ -35,7 +35,7 @@ Azure Load Balancer Standard supporta il bilanciamento del carico tra aree che c
 * Crea una soluzione di [bilanciamento del carico esistente](#build-cross-region-solution-on-existing-azure-load-balancer) senza alcuna curva di apprendimento
 
 > [!IMPORTANT]
-> Il servizio di bilanciamento del carico tra aree è attualmente disponibile in anteprima e può essere distribuito nel portale. Accedere a **https://preview.portal.azure.com** per visualizzare e distribuire la funzionalità. </br> </br>
+> Il servizio di bilanciamento del carico tra aree è attualmente disponibile in anteprima.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il bilanciamento del carico tra aree offre gli stessi vantaggi di prestazioni elevate e bassa latenza del servizio Load Balancer standard regionale. 
@@ -79,7 +79,7 @@ Per altre informazioni, vedere [Configurare la modalità di distribuzione per Az
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Possibilità di eseguire la scalabilità verticale e verticale dietro un singolo endpoint
 
-Quando si espone l'endpoint globale di un servizio di bilanciamento del carico tra aree ai clienti, è possibile aggiungere o rimuovere le distribuzioni regionali dietro l'endpoint globale senza alcun intervento da parte del cliente. 
+Quando si espone l'endpoint globale di un servizio di bilanciamento del carico tra aree ai clienti, è possibile aggiungere o rimuovere le distribuzioni regionali dietro l'endpoint globale senza interruzioni. 
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
@@ -94,7 +94,7 @@ Il pool back-end del servizio di bilanciamento del carico tra aree contiene uno 
 
 Aggiungere le distribuzioni del servizio di bilanciamento del carico esistenti a un servizio di bilanciamento del carico tra aree per una distribuzione a disponibilità elevata e tra aree.
 
-L' **area principale** è la posizione in cui viene distribuito il servizio di bilanciamento del carico tra aree. Questa area non influisce sul modo in cui il traffico verrà indirizzato. Se un'area di casa diventa inattiva, non influisce sul flusso di traffico.
+L' **area principale** è la posizione in cui viene distribuito il servizio di bilanciamento del carico tra aree. Questa area non influisce sul modo in cui il traffico verrà indirizzato. Se un'area principale diventa inattiva, il flusso del traffico non è interessato.
 
 ### <a name="home-regions"></a>Aree domestiche
 * Stati Uniti orientali 2
@@ -137,13 +137,13 @@ Il servizio di bilanciamento del carico tra aree instrada il traffico al servizi
 
 * Le configurazioni IP front-end tra aree sono solo pubbliche. Un front-end interno non è al momento supportato.
 
-* Il servizio di bilanciamento del carico interno o privato non può essere aggiunto al pool back-end del servizio di bilanciamento del carico tra più aree 
+* Il servizio di bilanciamento del carico interno o privato non può essere aggiunto al pool back-end di un servizio di bilanciamento del carico tra aree 
 
 * Le configurazioni IP front-end IPv6 tra più aree non sono supportate. 
 
 * Attualmente non è possibile configurare un probe di integrità. Un probe di integrità predefinito raccoglie automaticamente le informazioni sulla disponibilità relative al servizio di bilanciamento del carico a livello di area ogni 20 secondi. 
 
-* Attualmente il servizio Azure kubernetes (AKS) non può essere integrato con Load Balancer tra aree. La perdita di connettività dovrebbe essere prevista quando si configura una Load Balancer tra aree davanti a un Load Balancer pubblico distribuito con AKS.
+* L'integrazione con Azure Kubernetes Service (AKS) non è attualmente disponibile. Si verificherà una perdita di connettività quando si distribuisce un servizio di bilanciamento del carico tra aree con il servizio di bilanciamento del carico pubblico AKS.
 
 ## <a name="pricing-and-sla"></a>Prezzi e contratto di servizio
 Il servizio di bilanciamento del carico tra aree, condivide il [contratto](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) di servizio del servizio di bilanciamento del carico standard.

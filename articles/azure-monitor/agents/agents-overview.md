@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: d46fef97824b9dbe72539177a14b4a778058c625
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: af18356ef42f8796b972626da4567aac68a6de5a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613510"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719985"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -21,7 +21,7 @@ Per le macchine virtuali e altre risorse di calcolo è necessario che un agente 
 > [!NOTE]
 > Monitoraggio di Azure dispone attualmente di più agenti a causa del consolidamento recente di monitoraggio di Azure e Log Analytics. Sebbene sia possibile che si verifichi una sovrapposizione delle funzionalità, ognuna presenta funzionalità univoche. A seconda dei requisiti, potrebbe essere necessario disporre di uno o più agenti nei computer. 
 
-È possibile che si disponga di un set specifico di requisiti che non possono essere soddisfatti completamente da un singolo agente per un computer specifico. Ad esempio, si consiglia di usare gli avvisi delle metriche che richiedono l'estensione diagnostica di Azure, ma anche di sfruttare le funzionalità di Monitoraggio di Azure per le macchine virtuali che richiedono l'agente Log Analytics e Dependency Agent. In casi come questo, è possibile usare più agenti e si tratta di uno scenario comune per i clienti che necessitano di funzionalità.
+È possibile che si disponga di un set specifico di requisiti che non possono essere soddisfatti completamente da un singolo agente per un computer specifico. Ad esempio, è possibile usare gli avvisi delle metriche che richiedono l'estensione diagnostica di Azure, ma si vuole anche sfruttare le funzionalità di VM Insights che richiedono l'agente Log Analytics e Dependency Agent. In casi come questo, è possibile usare più agenti e si tratta di uno scenario comune per i clienti che necessitano di funzionalità.
 
 ## <a name="summary-of-agents"></a>Riepilogo degli agenti
 
@@ -38,7 +38,7 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 | **Requisiti dell'agente**  | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
 | **Dati raccolti** | Log eventi<br>Prestazioni | Log eventi<br>eventi ETW<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Log delle app .NET<br>Dump di arresto anomalo<br>Log di diagnostica agente | Log eventi<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Informazioni dettagliate e soluzioni<br>Altri servizi | Dipendenze dei processi<br>Metriche della connessione di rete |
 | **Dati inviati a** | Log di Monitoraggio di Azure<br>Metriche di Monitoraggio di Azure | Archiviazione di Azure<br>Metriche di Monitoraggio di Azure<br>Hub eventi | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure<br>(tramite agente Log Analytics) |
-| **Servizi e**<br>**funzionalità**<br>**supportato** | Log Analytics<br>Esplora metriche | Esplora metriche | Monitoraggio di Azure per le macchine virtuali<br>Log Analytics<br>Automazione di Azure<br>Centro sicurezza di Azure<br>Azure Sentinel | Monitoraggio di Azure per le macchine virtuali<br>Elenco dei servizi |
+| **Servizi e**<br>**funzionalità**<br>**supportato** | Log Analytics<br>Esplora metriche | Esplora metriche | Informazioni dettagliate sulle macchine virtuali<br>Log Analytics<br>Automazione di Azure<br>Centro sicurezza di Azure<br>Azure Sentinel | Informazioni dettagliate sulle macchine virtuali<br>Elenco dei servizi |
 
 ### <a name="linux-agents"></a>Agenti Linux
 
@@ -48,7 +48,7 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 | **Requisiti dell'agente**  | nessuno | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
 | **Dati raccolti** | syslog<br>Prestazioni | syslog<br>Prestazioni | Prestazioni | syslog<br>Prestazioni| Dipendenze dei processi<br>Metriche della connessione di rete |
 | **Dati inviati a** | Log di Monitoraggio di Azure<br>Metriche di Monitoraggio di Azure | Archiviazione di Azure<br>Hub eventi | Metriche di Monitoraggio di Azure | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure<br>(tramite agente Log Analytics) |
-| **Servizi e**<br>**funzionalità**<br>**supportato** | Log Analytics<br>Esplora metriche | | Esplora metriche | Monitoraggio di Azure per le macchine virtuali<br>Log Analytics<br>Automazione di Azure<br>Centro sicurezza di Azure<br>Azure Sentinel | Monitoraggio di Azure per le macchine virtuali<br>Elenco dei servizi |
+| **Servizi e**<br>**funzionalità**<br>**supportato** | Log Analytics<br>Esplora metriche | | Esplora metriche | Informazioni dettagliate sulle macchine virtuali<br>Log Analytics<br>Automazione di Azure<br>Centro sicurezza di Azure<br>Azure Sentinel | Informazioni dettagliate sulle macchine virtuali<br>Elenco dei servizi |
 
 
 ## <a name="azure-monitor-agent-preview"></a>Agente di Monitoraggio di Azure (anteprima)
@@ -60,7 +60,7 @@ Usare l'agente di monitoraggio di Azure se è necessario:
 - Raccogli i log e le metriche Guest da qualsiasi computer in Azure, in altri cloud o in locale. ([Server abilitati per Azure Arc](../../azure-arc/servers/overview.md) necessari per i computer esterni ad Azure). 
 - Inviare dati ai log di monitoraggio di Azure e alle metriche di monitoraggio di Azure per l'analisi con monitoraggio di Azure. 
 - Inviare i dati ad archiviazione di Azure per l'archiviazione.
-- Inviare dati a strumenti di terze parti usando [Hub eventi di Azure](../platform/diagnostics-extension-stream-event-hubs.md).
+- Inviare dati a strumenti di terze parti usando [Hub eventi di Azure](./diagnostics-extension-stream-event-hubs.md).
 - Gestire la sicurezza dei computer usando il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md)  o [Azure Sentinel](../../sentinel/overview.md). (Non disponibile in anteprima).
 
 Le limitazioni dell'agente di monitoraggio di Azure includono:
@@ -69,7 +69,7 @@ Le limitazioni dell'agente di monitoraggio di Azure includono:
 
 ## <a name="log-analytics-agent"></a>Agente di Log Analytics
 
-L' [agente di log Analytics](../platform/log-analytics-agent.md) raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali in Azure, altri provider di servizi cloud e computer locali. Invia i dati a un'area di lavoro Log Analytics. L'agente di Log Analytics è lo stesso agente usato da System Center Operations Manager ed è possibile usare i computer multihome Agent per comunicare simultaneamente con il gruppo di gestione e con monitoraggio di Azure. Questo agente è richiesto anche da alcune informazioni dettagliate in monitoraggio di Azure e in altri servizi in Azure.
+L' [agente di log Analytics](./log-analytics-agent.md) raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali in Azure, altri provider di servizi cloud e computer locali. Invia i dati a un'area di lavoro Log Analytics. L'agente di Log Analytics è lo stesso agente usato da System Center Operations Manager ed è possibile usare i computer multihome Agent per comunicare simultaneamente con il gruppo di gestione e con monitoraggio di Azure. Questo agente è richiesto anche da alcune informazioni dettagliate in monitoraggio di Azure e in altri servizi in Azure.
 
 > [!NOTE]
 > L'agente di Log Analytics per Windows è spesso indicato come Microsoft Monitoring Agent (MMA). L'agente di Log Analytics per Linux è spesso definito agente OMS.
@@ -77,8 +77,8 @@ L' [agente di log Analytics](../platform/log-analytics-agent.md) raccoglie i dat
 Usare l'agente di Log Analytics se è necessario:
 
 * Raccogli i log e i dati sulle prestazioni dalle macchine virtuali di Azure o da macchine ibride ospitate all'esterno di Azure.
-* Inviare dati a un'area di lavoro di Log Analytics per sfruttare le funzionalità supportate dai [log di monitoraggio di Azure](../platform/data-platform-logs.md) , ad esempio le query di [log](../log-query/log-query-overview.md).
-* Usare [monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) che consente di monitorare i computer su larga scala e monitora i processi e le dipendenze da altre risorse e processi esterni.  
+* Inviare dati a un'area di lavoro di Log Analytics per sfruttare le funzionalità supportate dai [log di monitoraggio di Azure](../logs/data-platform-logs.md) , ad esempio le query di [log](../logs/log-query-overview.md).
+* USA [VM Insights](../vm/vminsights-overview.md) che ti permette di monitorare i computer su larga scala e monitora i processi e le dipendenze da altre risorse e processi esterni.  
 * Gestire la sicurezza dei computer usando il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md)  o [Azure Sentinel](../../sentinel/overview.md).
 * USA [Gestione aggiornamenti di automazione di Azure](../../automation/update-management/overview.md), la [configurazione dello stato di automazione](../../automation/automation-dsc-overview.md)di Azure o rilevamento modifiche di automazione di [Azure e l'inventario](../../automation/change-tracking/overview.md) per offrire una gestione completa dei computer Azure e non Azure.
 * Utilizzare diverse [soluzioni](../monitor-reference.md#insights-and-core-solutions) per monitorare un servizio o un'applicazione specifica.
@@ -91,13 +91,13 @@ Le limitazioni dell'agente Log Analytics includono:
 
 ## <a name="azure-diagnostics-extension"></a>Estensione Diagnostica di Azure
 
-L' [estensione diagnostica di Azure](../platform/diagnostics-extension-overview.md) raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali di Azure e di altre risorse di calcolo. Raccoglie principalmente i dati in archiviazione di Azure, ma consente anche di definire i sink di dati per inviare dati ad altre destinazioni, ad esempio le metriche di monitoraggio di Azure e hub eventi di Azure.
+L' [estensione diagnostica di Azure](./diagnostics-extension-overview.md) raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali di Azure e di altre risorse di calcolo. Raccoglie principalmente i dati in archiviazione di Azure, ma consente anche di definire i sink di dati per inviare dati ad altre destinazioni, ad esempio le metriche di monitoraggio di Azure e hub eventi di Azure.
 
 Usare l'estensione diagnostica di Azure se è necessario:
 
 - Inviare i dati ad archiviazione di Azure per l'archiviazione o analizzarli con strumenti come [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-- Inviare dati alle [metriche di monitoraggio di Azure](../platform/data-platform-metrics.md) per analizzarli con [Esplora metriche](../platform/metrics-getting-started.md) e per sfruttare i vantaggi offerti dalle funzionalità, ad esempio gli [avvisi delle metriche](./../platform/alerts-metric-overview.md) near Real Time e la [scalabilità](../platform/autoscale-overview.md) automatica (solo Windows).
-- Inviare dati a strumenti di terze parti usando [Hub eventi di Azure](../platform/diagnostics-extension-stream-event-hubs.md).
+- Inviare dati alle [metriche di monitoraggio di Azure](../essentials/data-platform-metrics.md) per analizzarli con [Esplora metriche](../essentials/metrics-getting-started.md) e per sfruttare i vantaggi offerti dalle funzionalità, ad esempio gli [avvisi delle metriche](../alerts/alerts-metric-overview.md) near Real Time e la [scalabilità](../autoscale/autoscale-overview.md) automatica (solo Windows).
+- Inviare dati a strumenti di terze parti usando [Hub eventi di Azure](./diagnostics-extension-stream-event-hubs.md).
 - Raccogliere la [diagnostica di avvio](../../virtual-machines/troubleshooting/boot-diagnostics.md) per esaminare i problemi di avvio della macchina virtuale.
 
 Le limitazioni dell'estensione diagnostica di Azure includono:
@@ -107,11 +107,11 @@ Le limitazioni dell'estensione diagnostica di Azure includono:
 
 ## <a name="telegraf-agent"></a>Agente Telegraf
 
-L' [agente Telegraf InfluxData](../platform/collect-custom-metrics-linux-telegraf.md) viene usato per raccogliere i dati sulle prestazioni dai computer Linux alle metriche di monitoraggio di Azure.
+L' [agente Telegraf InfluxData](../essentials/collect-custom-metrics-linux-telegraf.md) viene usato per raccogliere i dati sulle prestazioni dai computer Linux alle metriche di monitoraggio di Azure.
 
 Usare l'agente Telegraf se è necessario:
 
-* Inviare dati alle [metriche di monitoraggio di Azure](../platform/data-platform-metrics.md) per analizzarli con [Esplora metriche](../platform/metrics-getting-started.md) e per sfruttare le funzionalità, ad esempio gli [avvisi delle metriche](./../platform/alerts-metric-overview.md) near Real Time e la [scalabilità](../platform/autoscale-overview.md) automatica (solo Linux).
+* Inviare dati alle [metriche di monitoraggio di Azure](../essentials/data-platform-metrics.md) per analizzarli con [Esplora metriche](../essentials/metrics-getting-started.md) e per sfruttare le funzionalità, ad esempio gli [avvisi delle metriche](../alerts/alerts-metric-overview.md) near Real Time e la [scalabilità](../autoscale/autoscale-overview.md) automatica (solo Linux).
 
 ## <a name="dependency-agent"></a>Dependency Agent
 
@@ -119,7 +119,7 @@ Dependency Agent raccoglie i dati individuati sui processi in esecuzione nel com
 
 Usare Dependency Agent se è necessario:
 
-* Usare la funzione map [monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) o la soluzione [mapping dei servizi](../insights/service-map.md) .
+* Usare la funzionalità di mapping di [VM Insights](../vm/vminsights-overview.md) o la soluzione [mapping dei servizi](../vm/service-map.md) .
 
 Quando si usa Dependency Agent, tenere presente quanto segue:
 
@@ -224,6 +224,6 @@ Poiché Dependency Agent funziona a livello di kernel, il supporto dipende anche
 
 Per ulteriori informazioni su ciascuno degli agenti, fare quanto segue:
 
-- [Panoramica dell'agente di Log Analytics](../platform/log-analytics-agent.md)
-- [Panoramica dell'estensione Diagnostica di Azure](../platform/diagnostics-extension-overview.md)
-- [Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf](../platform/collect-custom-metrics-linux-telegraf.md)
+- [Panoramica dell'agente di Log Analytics](./log-analytics-agent.md)
+- [Panoramica dell'estensione Diagnostica di Azure](./diagnostics-extension-overview.md)
+- [Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md)

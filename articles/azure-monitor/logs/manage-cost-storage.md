@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/31/2021
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: d4ead88fb34d6475dae66d9708d7203eb94eaef1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4e711eb70c1fa099dd67b1ec23a0e8014ee11e47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617077"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731392"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -268,7 +268,7 @@ Per iniziare, di seguito sono riportate le impostazioni consigliate per l'avviso
 - Nome regola di avviso: Soglia dei dati giornaliera raggiunta
 - Gravità: Avviso (Gravità 1)
 
-Una volta definito l'avviso e raggiunto il limite, viene attivato un avviso e viene eseguita la risposta definita nel gruppo di azioni. È possibile informare il team tramite posta elettronica e SMS oppure automatizzare le operazioni usando webhook o runbook di Automazione oppure tramite l'[integrazione con una soluzione di Gestione dei servizi IT esterna](../platform/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
+Una volta definito l'avviso e raggiunto il limite, viene attivato un avviso e viene eseguita la risposta definita nel gruppo di azioni. È possibile informare il team tramite posta elettronica e SMS oppure automatizzare le operazioni usando webhook o runbook di Automazione oppure tramite l'[integrazione con una soluzione di Gestione dei servizi IT esterna](../alerts/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Risoluzione dei problemi che determinano un utilizzo superiore al previsto
 
@@ -488,8 +488,8 @@ Ecco alcuni suggerimenti utili per ridurre il volume dei log raccolti:
 | AzureDiagnostics           | Modificare la [raccolta di log delle risorse](../essentials/diagnostic-settings.md#create-in-azure-portal) in: <br> - Ridurre il numero di risorse che inviano log a Log Analytics <br> - Raccogliere solo i log necessari |
 | Dati della soluzione da computer che non richiedono la soluzione | Usare il [targeting della soluzione](../insights/solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari |
 | Application Insights | Esaminare le opzioni per [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Usare [set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) per ottimizzare le impostazioni di controllo. |
-| Azure Sentinel | Esaminare le [origini dati Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources) che sono state recentemente abilitate come origini di un volume di dati aggiuntivo. |
+| [SQL Analytics](../insights/azure-sql.md) | Usare [set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) per ottimizzare le impostazioni di controllo. |
+| Azure Sentinel | Esaminare le [origini dati Sentinel](../../sentinel/connect-data-sources.md) che sono state recentemente abilitate come origini di un volume di dati aggiuntivo. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Recupero dei nodi come fatturati nel piano tariffario per nodo
 

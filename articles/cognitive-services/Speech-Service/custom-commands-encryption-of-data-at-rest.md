@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 0f932eed2f1d58e8470a24ea595e21712deb7f03
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 89d7a6f8beb004f57a00dfe75e4cc387c8591b1e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021899"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716585"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi per i comandi personalizzati
 
 I comandi personalizzati crittografano automaticamente i dati quando vengono salvati in modo permanente nel cloud. La crittografia del servizio Custom Commands protegge i dati e consente di soddisfare gli impegni di sicurezza e conformità dell'organizzazione.
 
 > [!NOTE]
-> Il servizio comandi personalizzati non abilita automaticamente la crittografia per le risorse LUIS associate all'applicazione. Se necessario, è necessario abilitare la crittografia per la risorsa LUIS da [qui](./../LUIS/luis-encryption-of-data-at-rest.md).
+> Il servizio comandi personalizzati non abilita automaticamente la crittografia per le risorse LUIS associate all'applicazione. Se necessario, è necessario abilitare la crittografia per la risorsa LUIS da [qui](../luis/encrypt-data-at-rest.md).
 
 ## <a name="about-cognitive-services-encryption"></a>Informazioni sulla crittografia di servizi cognitivi
 I dati vengono crittografati e decrittografati usando la crittografia [AES a 256 bit](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conforme allo standard [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . La crittografia e la decrittografia sono trasparenti, ovvero la crittografia e l'accesso vengono gestite per l'utente. I dati sono protetti per impostazione predefinita e non è necessario modificare il codice o le applicazioni per sfruttare la crittografia.

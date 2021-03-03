@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: duau
-ms.openlocfilehash: b721a9b8d8bdff3f3aaf05f15857c00347e7abb4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 45b059784cc0b442b615a2a1cb50386da6ee990f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202379"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740920"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Informazioni sui gateway di rete virtuale per ExpressRoute
 
@@ -53,7 +53,7 @@ Prima di creare un gateway ExpressRoute, è necessario creare una subnet del gat
 
 Quando si crea la subnet del gateway, si specifica il numero di indirizzi IP inclusi nella subnet. Gli indirizzi IP inclusi nella subnet del gateway sono allocati alle VM del gateway e ai servizi del gateway. Alcune configurazioni richiedono più indirizzi IP di altre. 
 
-Quando si pianificano le dimensioni della subnet del gateway, fare riferimento alla documentazione per la configurazione che si prevede di creare. Ad esempio, la configurazione della coesistenza del gateway ExpressRoute/VPN richiede una subnet del gateway di dimensioni maggiori rispetto alla maggior parte delle altre configurazioni. È anche consigliabile verificare che la subnet del gateway contenga una quantità di indirizzi IP sufficiente per supportare possibili future configurazioni aggiuntive. Sebbene sia possibile creare una subnet del gateway con dimensioni pari a/29, è consigliabile creare una subnet del gateway di/27 o superiore (/27,/26 e così via) se si dispone dello spazio degli indirizzi disponibile. La maggior parte delle configurazioni verrà adattata.
+Quando si pianificano le dimensioni della subnet del gateway, fare riferimento alla documentazione per la configurazione che si prevede di creare. Ad esempio, la configurazione della coesistenza del gateway ExpressRoute/VPN richiede una subnet del gateway di dimensioni maggiori rispetto alla maggior parte delle altre configurazioni. È anche consigliabile verificare che la subnet del gateway contenga una quantità di indirizzi IP sufficiente per supportare possibili future configurazioni aggiuntive. Sebbene sia possibile creare una subnet del gateway con dimensioni pari a/29, è consigliabile creare una subnet del gateway di/27 o superiore (/27,/26 e così via) se si dispone dello spazio degli indirizzi disponibile. Se si sta creando una subnet del gateway dual stack, è consigliabile usare anche un intervallo IPv6 di/64 o superiore. La maggior parte delle configurazioni verrà adattata.
 
 L'esempio seguente di PowerShell Resource Manager illustra una subnet del gateway denominata GatewaySubnet. La notazione CIDR specifica /27. Questa dimensione ammette un numero di indirizzi IP sufficiente per la maggior parte delle configurazioni attualmente esistenti.
 
@@ -76,6 +76,11 @@ I gateway con ridondanza della zona usano nuovi SKU gateway specifici per il gat
 * ErGw3AZ
 
 I nuovi SKU gateway supportano anche altre opzioni di distribuzione per soddisfare meglio le esigenze. Quando si crea un gateway di rete virtuale usando i nuovi SKU gateway, è anche possibile distribuire il gateway in una zona specifica. In questo caso si parla di gateway a livello di zona. Quando si distribuisce un gateway a livello di zona, tutte le istanze del gateway vengono distribuite nella stessa zona di disponibilità.
+
+> [!IMPORTANT]
+> Se si prevede di usare il peering privato basato su IPv6 su ExpressRoute, assicurarsi di selezionare uno SKU AZ per il gateway distribuito in una subnet del gateway dual stack.
+> 
+>
 
 ## <a name="fastpath"></a><a name="fastpath"></a>FastPath
 

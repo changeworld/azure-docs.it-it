@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 96872a067d2414254aec3f212542dadabdf2bd6f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791742"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715701"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Come usare il post per inviare richieste alle API dei dispositivi gemelli digitali di Azure
 
@@ -140,7 +140,7 @@ Per procedere con una query di esempio, in questo articolo verrà usata l'API di
 1. Verificare che le intestazioni visualizzate per la richiesta nella scheda *intestazioni* corrispondano a quelle descritte nella documentazione di riferimento. Per questa richiesta sono state compilate automaticamente diverse intestazioni. Per l'API di query, nessuna delle opzioni di intestazione è obbligatoria, quindi questo passaggio viene eseguito.
 1. Verificare che il corpo visualizzato per la richiesta nella scheda *corpo* corrisponda alle esigenze descritte nella documentazione di riferimento. Per l'API di query, è necessario un corpo JSON per fornire il testo della query. Di seguito è riportato un esempio di corpo per questa richiesta che esegue query per tutti i dispositivi gemelli digitali nell'istanza:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Nei dettagli della nuova richiesta viene visualizzata la scheda corpo. Contiene un corpo JSON non elaborato con una query di ' SELECT * FROM DIGITALTWINS '."lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Nei dettagli della nuova richiesta viene visualizzata la scheda corpo. Contiene un corpo JSON non elaborato con una query di ' SELECT * FROM DIGITALTWINS '." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    Per altre informazioni sulla creazione di query dei dispositivi gemelli digitali di Azure, vedere [*procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md).
 

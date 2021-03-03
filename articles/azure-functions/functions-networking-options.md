@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ceef827f7406f8915d205349372a43626c917e4b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806988"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729233"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -87,7 +87,7 @@ Per altre informazioni, vedere [Endpoint servizio di rete virtuale](../virtual-n
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Limitare l'account di archiviazione a una rete virtuale 
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella.  È possibile sostituire questo account di archiviazione con uno protetto con endpoint di servizio o privato.  Questa funzionalità attualmente funziona solo con i piani Premium di Windows.  Per configurare una funzione con un account di archiviazione limitato a una rete privata:
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella.  È possibile sostituire questo account di archiviazione con uno protetto con endpoint di servizio o privato.  Questa funzionalità funziona attualmente solo per tutti gli SKU supportati da VNET, che includono standard e Premium, tranne che per gli indicatori Flex in cui VNET è disponibile solo per lo SKU Premium. Per configurare una funzione con un account di archiviazione limitato a una rete privata:
 
 1. Creare una funzione con un account di archiviazione in cui non sono abilitati gli endpoint di servizio.
 1. Configurare la funzione per la connessione alla rete virtuale.

@@ -8,14 +8,14 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: bdd5a379afb9603c8966320d85c778632948cfd0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662724"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687567"
 ---
-# <a name="hotpatch-for-windows-server-azure-edition-preview"></a>Danneggiata per Windows Server Azure Edition (anteprima)
+# <a name="hotpatch-for-new-virtual-machines-preview"></a>Danneggiata per le nuove macchine virtuali (anteprima)
 
 Patch a caldo è un nuovo modo per installare gli aggiornamenti nelle nuove macchine virtuali (VM) di Windows Server Azure Edition che non richiedono un riavvio dopo l'installazione. Questo articolo illustra le informazioni su danneggiata per le macchine virtuali di Windows Server Azure Edition con i vantaggi seguenti:
 * Minore effetto sul carico di lavoro con meno riavvii
@@ -26,7 +26,7 @@ Patch a caldo è un nuovo modo per installare gli aggiornamenti nelle nuove macc
 
 Danneggiata funziona stabilendo prima di tutto una baseline con un Windows Update aggiornamento cumulativo più recente. Hotpatches vengono rilasciati periodicamente (ad esempio, il secondo martedì del mese) che si basano su tale Baseline. Hotpatches conterrà gli aggiornamenti che non richiedono un riavvio. Periodicamente (a partire da ogni tre mesi), la baseline viene aggiornata con un nuovo aggiornamento cumulativo più recente.
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Pianificazione di esempio danneggiata.":::
 
 Esistono due tipi di Baseline: **baseline pianificate** e **linee di base non pianificate**.
 *  Le **linee di base pianificate** vengono rilasciate a cadenza regolare, con le versioni danneggiata.  Le linee di base pianificate includono tutti gli aggiornamenti in un _aggiornamento cumulativo più recente_ e comparabile per quel mese e richiedono un riavvio.
@@ -154,7 +154,7 @@ Per visualizzare lo stato della patch per la macchina virtuale, passare alla sez
 In questa schermata verrà visualizzato lo stato danneggiata per la macchina virtuale. È anche possibile verificare se sono presenti patch disponibili per la VM che non sono state installate. Come descritto nella sezione precedente "installazione patch", tutti gli aggiornamenti critici e di sicurezza verranno installati automaticamente nella macchina virtuale tramite l'applicazione [automatica di patch per guest VM](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) e non sono necessarie azioni aggiuntive. Le patch con altre classificazioni di aggiornamento non vengono installate automaticamente. Sono invece visualizzabili nell'elenco delle patch disponibili nella scheda "conformità aggiornamenti". È anche possibile visualizzare la cronologia delle distribuzioni degli aggiornamenti nella macchina virtuale tramite "cronologia aggiornamenti". Viene visualizzata la cronologia degli aggiornamenti degli ultimi 30 giorni, insieme ai dettagli sull'installazione della patch.
 
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Gestione danneggiata.":::
 
 Con l'applicazione automatica di patch per guest VM, la macchina virtuale viene valutata periodicamente e automaticamente per gli aggiornamenti disponibili. Queste valutazioni periodiche assicurano che vengano rilevate patch disponibili. È possibile visualizzare i risultati della valutazione nella schermata degli aggiornamenti precedente, inclusa la data dell'ultima valutazione. È anche possibile scegliere di attivare una valutazione delle patch su richiesta per la macchina virtuale in qualsiasi momento usando l'opzione "valuta ora" ed esaminare i risultati al termine della valutazione.
 
@@ -197,7 +197,7 @@ Ci sono alcune considerazioni importanti per l'esecuzione di una VM Windows Serv
 
 ### <a name="are-reboots-still-needed-for-a-vm-enrolled-in-hotpatch"></a>I riavvii sono ancora necessari per una macchina virtuale registrata in danneggiata?
 
-* I riavvii sono ancora necessari per installare gli aggiornamenti non inclusi nel programma danneggiata e sono necessari periodicamente dopo l'installazione di una baseline (Windows Update aggiornamento cumulativo più recente). Questo riavvio manterrà la macchina virtuale sincronizzata con tutte le patch incluse nell'aggiornamento cumulativo. Le linee di base (che richiedono un riavvio) iniziano con una cadenza di tre mesi e aumentano nel tempo a 6 mesi.
+* I riavvii sono ancora necessari per installare gli aggiornamenti non inclusi nel programma danneggiata e sono necessari periodicamente dopo l'installazione di una baseline (Windows Update aggiornamento cumulativo più recente). Questo riavvio manterrà la macchina virtuale sincronizzata con tutte le patch incluse nell'aggiornamento cumulativo. Le linee di base (che richiedono un riavvio) iniziano con una cadenza di tre mesi e aumentano nel tempo.
 
 ### <a name="are-my-applications-affected-when-a-hotpatch-update-is-installed"></a>Le applicazioni sono interessate quando viene installato un aggiornamento danneggiata?
 

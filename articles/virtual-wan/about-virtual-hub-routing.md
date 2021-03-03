@@ -6,19 +6,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/17/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 51480a49aab2c1277eeb846c593fcb2bc858d1f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1a2a54bf2d4c5de3e6cfca66256f60592fc1f3e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983726"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737512"
 ---
 # <a name="about-virtual-hub-routing"></a>Informazioni sul routing dell'hub virtuale
 
-Le funzionalità di routing in un hub virtuale sono fornite da un router che gestisce tutto il routing tra i gateway usando Border Gateway Protocol (BGP). Un hub virtuale può contenere più gateway, ad esempio un gateway VPN da sito a sito, un gateway ExpressRoute, un gateway da punto a sito, un firewall di Azure. Questo router fornisce anche la connettività di transito tra le reti virtuali che si connettono a un hub virtuale e può supportare fino a una velocità effettiva aggregata di 50 Gbps. Queste funzionalità di routing si applicano ai clienti WAN virtuali standard. 
+Le funzionalità di routing in un hub virtuale sono fornite da un router che gestisce tutto il routing tra i gateway usando Border Gateway Protocol (BGP). Un hub virtuale può contenere più gateway, ad esempio un gateway VPN da sito a sito, un gateway ExpressRoute, un gateway da punto a sito, un firewall di Azure. Questo router fornisce anche la connettività di transito tra le reti virtuali che si connettono a un hub virtuale e può supportare fino a una velocità effettiva aggregata di 50 Gbps. Queste funzionalità di routing si applicano ai clienti WAN virtuali standard.
 
 Per configurare il routing, vedere [How to Configure Virtual Hub routing](how-to-virtual-hub-routing.md).
 
@@ -28,9 +28,9 @@ Le sezioni seguenti descrivono i concetti chiave del routing dell'hub virtuale.
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabella di route Hub
 
-Una tabella di route dell'hub virtuale può contenere una o più route. Una route include il nome, un'etichetta, un tipo di destinazione, un elenco di prefissi di destinazione e informazioni di hop successivo per un pacchetto da indirizzare. Una **connessione** in genere avrà una configurazione di routing che viene associata o propagata a una tabella di route
+Una tabella di route dell'hub virtuale può contenere una o più route. Una route include il nome, un'etichetta, un tipo di destinazione, un elenco di prefissi di destinazione e informazioni di hop successivo per un pacchetto da indirizzare. Una **connessione** in genere avrà una configurazione di routing che viene associata o propagata a una tabella di route.
 
-### <a name="connection"></a><a name="connection"></a>Connessioni
+### <a name="connections"></a><a name="connection"></a>Connessioni
 
 Le connessioni sono Gestione risorse risorse che dispongono di una configurazione di routing. I quattro tipi di connessioni sono:
 
@@ -55,29 +55,33 @@ Le connessioni propagano dinamicamente le route a una tabella di route. Con una 
 
 Per ogni hub virtuale è disponibile anche una **tabella di route None** . La propagazione alla tabella di route None implica che non è necessario propagare le route dalla connessione. VPN, ExpressRoute e connessioni VPN utente propagano le route allo stesso set di tabelle di route.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Associazione":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagazione":::
 
-### <a name="labels"></a><a name="static"></a>Etichette
-Le etichette forniscono un meccanismo per raggruppare logicamente le tabelle di route. Questa operazione è particolarmente utile durante la propagazione delle route dalle connessioni a più tabelle di route. Ad esempio, la tabella di route predefinita include un'etichetta incorporata denominata ' default '. Quando gli utenti propagano le route di connessione all'etichetta ' default ', si applica automaticamente a tutte le tabelle di route predefinite in ogni hub della rete WAN virtuale. 
+### <a name="labels"></a><a name="labels"></a>Etichette
+
+Le etichette forniscono un meccanismo per raggruppare logicamente le tabelle di route. Questa operazione è particolarmente utile durante la propagazione delle route dalle connessioni a più tabelle di route. Ad esempio, la **tabella di route predefinita** include un'etichetta incorporata denominata ' default '. Quando gli utenti propagano le route di connessione all'etichetta ' default ', si applica automaticamente a tutte le tabelle di route predefinite in ogni hub della rete WAN virtuale.
 
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Configurazione delle route statiche in una connessione di rete virtuale
 
 La configurazione delle route statiche fornisce un meccanismo per gestire il traffico attraverso un indirizzo IP hop successivo, che può essere un appliance virtuale di rete sottoposta a provisioning in una VNet spoke collegata a un hub virtuale. La route statica è costituita da un nome di route, da un elenco di prefissi di destinazione e da un indirizzo IP hop successivo.
 
-## <a name="reset-hub"></a><a name="route"></a>Reimposta Hub
-Disponibile solo nella portale di Azure, questa opzione consente all'utente di portare le risorse non riuscite, ad esempio le tabelle di route, il router hub o la risorsa dell'hub virtuale, tornando allo stato di provisioning legittimo. Si tratta di un'opzione aggiuntiva che l'utente deve prendere in considerazione prima di contattare Microsoft per ottenere assistenza. Questa operazione non Reimposta alcun gateway in un hub virtuale. 
-
-## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Eseguire il routing delle tabelle nelle WAN virtuali Basic e standard prima del set di funzionalità di associazione e propagazione
+## <a name="route-tables-for-pre-existing-routes"></a><a name="route"></a>Tabelle di route per Route preesistenti
 
 Le tabelle di route includono ora funzionalità per l'associazione e la propagazione. Le tabelle di route preesistenti non hanno queste funzionalità. Se si dispone di route preesistenti nel routing dell'hub e si vogliono usare le nuove funzionalità, considerare le opzioni seguenti:
 
 * **Clienti WAN virtuali standard con route preesistenti nell'hub virtuale**:
 
-Se sono presenti route preesistenti nella sezione di routing per l'hub in portale di Azure, sarà necessario prima eliminarle e quindi provare a creare nuove tabelle di route (disponibili nella sezione tabelle di route per l'hub in portale di Azure)
+   Se nella sezione Routing per l'hub del portale di Azure sono presenti route preesistenti, è necessario eliminarle e quindi provare a creare nuove tabelle di route (disponibili nella sezione Tabelle di route per l'hub del portale di Azure).
 
-* **Clienti WAN virtuali di base con route preesistenti nell'hub virtuale**: se sono presenti route preesistenti nella sezione di routing per l'hub in portale di Azure, sarà necessario prima eliminarle, quindi **aggiornare** la rete WAN virtuale di base alla rete WAN virtuale standard. Vedere [Aggiornare una rete WAN virtuale da Basic a Standard](upgrade-virtual-wan.md).
+* **Clienti WAN virtuali di base con route preesistenti nell'hub virtuale**:
 
-## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Considerazioni sul routing della rete WAN virtuale
+   Se nella sezione Routing per l'hub del portale di Azure sono presenti route preesistenti, è necessario eliminarle e quindi **aggiornare** la rete WAN virtuale Basic alla rete WAN virtuale Standard. Vedere [Aggiornare una rete WAN virtuale da Basic a Standard](upgrade-virtual-wan.md).
+
+## <a name="hub-reset"></a><a name="reset"></a>Ripristino dell'hub
+
+La **reimpostazione** dell'hub virtuale è disponibile solo nella portale di Azure. La reimpostazione consente di portare le risorse non riuscite, ad esempio le tabelle di route, il router hub o la risorsa dell'hub virtuale, tornando allo stato di provisioning legittimo. Provare a reimpostare l'hub prima di contattare Microsoft per ottenere assistenza. Questa operazione non Reimposta alcun gateway in un hub virtuale.
+
+## <a name="additional-considerations"></a><a name="considerations"></a>Altre considerazioni
 
 Quando si configura il routing WAN virtuale, tenere presente quanto segue:
 
@@ -86,11 +90,8 @@ Quando si configura il routing WAN virtuale, tenere presente quanto segue:
 * Il ramo da ramo a ramo tramite il firewall di Azure non è attualmente supportato.
 * Quando si usa il firewall di Azure in più aree, tutte le reti virtuali spoke devono essere associate alla stessa tabella di route. Ad esempio, se si ha un subset di reti virtuali che passano attraverso il firewall di Azure mentre altri reti virtuali ignorano il firewall di Azure nello stesso hub virtuale, non è possibile.
 * È possibile configurare un singolo IP hop successivo per ogni connessione VNet.
-* Hub virtuale non supporta la route statica per 0.0.0.0/0 e la connessione di rete virtuale hop successivo (o un indirizzo IP di un dispositivo nella connessione VNet)
-* Tutte le informazioni relative alla Route 0.0.0.0/0 sono confinate alla tabella di route di un Hub locale. Questa route non viene propagata tra gli hub.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per configurare il routing, vedere [How to Configure Virtual Hub routing](how-to-virtual-hub-routing.md).
-
-Per altre informazioni sulla rete WAN virtuale, vedere le [domande frequenti](virtual-wan-faq.md).
+* Per configurare il routing, vedere [How to Configure Virtual Hub routing](how-to-virtual-hub-routing.md).
+* Per altre informazioni sulla rete WAN virtuale, vedere le [domande frequenti](virtual-wan-faq.md).

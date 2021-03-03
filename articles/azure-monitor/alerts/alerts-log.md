@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 579e86df23a0b6369f7ff5b6113c4972e054d5cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2cff0773883f7de5788bca5e4e3f680818e2bd77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620966"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734877"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
 ## <a name="overview"></a>Panoramica
 
-Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](../platform/action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](../platform/alerts-unified-log.md).
+Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../logs/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](./action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](./alerts-unified-log.md).
 
 Questo articolo illustra come creare e gestire gli avvisi di log con monitoraggio di Azure. Le regole di avviso sono definite da tre componenti:
 - Target: una risorsa di Azure specifica da monitorare.
@@ -27,7 +27,7 @@ Questo articolo illustra come creare e gestire gli avvisi di log con monitoraggi
 È anche possibile creare regole di avviso del log usando Azure Resource Manager modelli, descritti in [un articolo separato](../alerts/alerts-log-create-templates.md).
 
 > [!NOTE]
-> I dati di log da un' [area di lavoro log Analytics](../log-query/log-analytics-tutorial.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](../platform/alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](../platform/alerts-metric-logs.md).
+> I dati di log da un' [area di lavoro log Analytics](../logs/log-analytics-tutorial.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](./alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](./alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Creare una regola per gli avvisi relativi ai log con il portale di Azure
 
@@ -35,13 +35,13 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
 1. Passare alla risorsa su cui si vuole inviare l'avviso. Prendere in considerazione la configurazione di regole di avviso per più risorse selezionando una sottoscrizione o un ambito del gruppo di risorse laddove possibile. L'invio di avvisi su più risorse riduce i costi e la necessità di gestire più regole di avviso.
 1. In **monitoraggio** selezionare **log**.
-1. Eseguire una query sui dati del log che possono indicare il problema. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/example-queries.md) per capire cosa è possibile individuare o [iniziare a scrivere una query personalizzata](../log-query/log-analytics-tutorial.md). È anche possibile trovare [informazioni su come creare query di avviso ottimizzate](alerts-log-query.md).
+1. Eseguire una query sui dati del log che possono indicare il problema. È possibile usare l' [argomento degli esempi di query di avviso](../logs/example-queries.md) per capire cosa è possibile individuare o [iniziare a scrivere una query personalizzata](../logs/log-analytics-tutorial.md). È anche possibile trovare [informazioni su come creare query di avviso ottimizzate](alerts-log-query.md).
 1. Premere il pulsante "+ nuovo regola di avviso" per avviare il flusso di creazione dell'avviso.
 
     ![Log Analytics - Imposta avviso](media/alerts-log/AlertsAnalyticsCreate.png)
 
 > [!NOTE]
-> Si consiglia di creare avvisi su larga scala, quando si usa la modalità di accesso alle risorse per i log, che viene eseguita in più risorse usando un gruppo di risorse o un ambito di sottoscrizione. L'invio di avvisi su larga scala riduce il sovraccarico di gestione regole. Per essere in grado di specificare come destinazione le risorse, includere la colonna ID risorsa nei risultati. [Altre informazioni sulla suddivisione degli avvisi in base alle dimensioni](../platform/alerts-unified-log.md#split-by-alert-dimensions).
+> Si consiglia di creare avvisi su larga scala, quando si usa la modalità di accesso alle risorse per i log, che viene eseguita in più risorse usando un gruppo di risorse o un ambito di sottoscrizione. L'invio di avvisi su larga scala riduce il sovraccarico di gestione regole. Per essere in grado di specificare come destinazione le risorse, includere la colonna ID risorsa nei risultati. [Altre informazioni sulla suddivisione degli avvisi in base alle dimensioni](./alerts-unified-log.md#split-by-alert-dimensions).
 
 ### <a name="log-alert-for-log-analytics-and-application-insights"></a>Avviso di log per Log Analytics e Application Insights
 
@@ -51,9 +51,9 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
     ![Configurare una regola di avviso](media/alerts-log/AlertsPreviewAlertLog.png)
 
-1. Consente di scegliere l'intervallo di tempo in cui valutare la condizione specificata, usando l'opzione [**period**](../platform/alerts-unified-log.md#query-time-range) .
+1. Consente di scegliere l'intervallo di tempo in cui valutare la condizione specificata, usando l'opzione [**period**](./alerts-unified-log.md#query-time-range) .
 
-1. Gli avvisi del log possono essere basati su due tipi di [**misure**](../platform/alerts-unified-log.md#measure):
+1. Gli avvisi del log possono essere basati su due tipi di [**misure**](./alerts-unified-log.md#measure):
     1. **Numero di risultati: numero** di record restituiti dalla query.
     1. **Misurazione metrica**  -  *Valore di aggregazione* calcolato utilizzando il riepilogo raggruppato per espressioni selezionate e la selezione [bin ()](/azure/kusto/query/binfunction) . Ad esempio:
 
@@ -65,29 +65,29 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
     | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
     ```
 
-1. Per la logica di avviso delle misurazioni metrica, è possibile specificare facoltativamente come [suddividere gli avvisi in base alle dimensioni](../platform/alerts-unified-log.md#split-by-alert-dimensions) usando l'opzione **aggrega su** . L'espressione di raggruppamento di righe deve essere univoca e ordinata.
+1. Per la logica di avviso delle misurazioni metrica, è possibile specificare facoltativamente come [suddividere gli avvisi in base alle dimensioni](./alerts-unified-log.md#split-by-alert-dimensions) usando l'opzione **aggrega su** . L'espressione di raggruppamento di righe deve essere univoca e ordinata.
 
     > [!NOTE]
     > Poiché [bin ()](/azure/kusto/query/binfunction) può produrre intervalli di tempo non uniformi, il servizio avvisi convertirà automaticamente la funzione [bin ()](/azure/kusto/query/binfunction) in [bin_at funzione ()](/azure/kusto/query/binatfunction) con il tempo appropriato in fase di esecuzione, per garantire i risultati con un punto fisso.
 
     > [!NOTE]
-    > La divisione in base alle dimensioni di avviso è disponibile solo per l'API scheduledQueryRules corrente. Se si usa l' [API log Analytics Alert](../platform/api-alerts.md)legacy, sarà necessario passare a. [Altre informazioni sul cambio](./alerts-log-api-switch.md). Gli avvisi incentrati sulle risorse alla scala sono supportati solo nella versione dell'API `2020-05-01-preview` e versioni successive.
+    > La divisione in base alle dimensioni di avviso è disponibile solo per l'API scheduledQueryRules corrente. Se si usa l' [API log Analytics Alert](./api-alerts.md)legacy, sarà necessario passare a. [Altre informazioni sul cambio](./alerts-log-api-switch.md). Gli avvisi incentrati sulle risorse alla scala sono supportati solo nella versione dell'API `2020-05-01-preview` e versioni successive.
 
     ![opzione aggrega in base a](media/alerts-log/aggregate-on.png)
 
-1. Quindi, in base ai dati di anteprima, impostare l' [ **operatore**, il **valore di soglia**](../platform/alerts-unified-log.md#threshold-and-operator)e la [**frequenza**](../platform/alerts-unified-log.md#frequency).
+1. Quindi, in base ai dati di anteprima, impostare l' [ **operatore**, il **valore di soglia**](./alerts-unified-log.md#threshold-and-operator)e la [**frequenza**](./alerts-unified-log.md#frequency).
 
-1. Facoltativamente, è anche possibile impostare il [numero di violazioni per attivare un avviso](../platform/alerts-unified-log.md#number-of-violations-to-trigger-alert) utilizzando **violazioni totali o consecutive**.
+1. Facoltativamente, è anche possibile impostare il [numero di violazioni per attivare un avviso](./alerts-unified-log.md#number-of-violations-to-trigger-alert) utilizzando **violazioni totali o consecutive**.
 
 1. Selezionare **Fine**. 
 
 1. Definire il **nome** e la **Descrizione** della regola di avviso e selezionare la **gravità** dell'avviso. Questi dettagli vengono usati in tutte le azioni di avviso. Inoltre, è possibile scegliere di non attivare la regola di avviso durante la creazione selezionando **Abilita regola al momento della creazione**.
 
-1. Scegliere se si desidera eliminare le azioni regola per un periodo di tempo dopo la generazione di un avviso, utilizzare l'opzione non [**visualizzare avvisi**](../platform/alerts-unified-log.md#state-and-resolving-alerts) . La regola verrà comunque eseguita e creerà avvisi, ma le azioni non verranno attivate per evitare il rumore. Il valore di azioni mute deve essere maggiore della frequenza di avviso per essere effettivo.
+1. Scegliere se si desidera eliminare le azioni regola per un periodo di tempo dopo la generazione di un avviso, utilizzare l'opzione non [**visualizzare avvisi**](./alerts-unified-log.md#state-and-resolving-alerts) . La regola verrà comunque eseguita e creerà avvisi, ma le azioni non verranno attivate per evitare il rumore. Il valore di azioni mute deve essere maggiore della frequenza di avviso per essere effettivo.
 
     ![Elimina avvisi per gli avvisi del log](media/alerts-log/AlertsPreviewSuppress.png)
 
-1. Consente di specificare se la regola di avviso deve attivare uno o più [**gruppi di azioni**](../platform/action-groups.md#webhook) quando viene soddisfatta la condizione di avviso.
+1. Consente di specificare se la regola di avviso deve attivare uno o più [**gruppi di azioni**](./action-groups.md#webhook) quando viene soddisfatta la condizione di avviso.
 
     > [!NOTE]
     > Vedere i [limiti del servizio di sottoscrizione di Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) per i limiti sulle azioni che è possibile eseguire.  
@@ -148,11 +148,11 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
 1. Iniziare dalla scheda **condizione** :
 
-    1. Verificare che la [**misura**](../platform/alerts-unified-log.md#measure), il [**tipo di aggregazione**](../platform/alerts-unified-log.md#aggregation-type)e la [**granularità di aggregazione**](../platform/alerts-unified-log.md#aggregation-granularity) siano corretti. 
+    1. Verificare che la [**misura**](./alerts-unified-log.md#measure), il [**tipo di aggregazione**](./alerts-unified-log.md#aggregation-type)e la [**granularità di aggregazione**](./alerts-unified-log.md#aggregation-granularity) siano corretti. 
         1. Per impostazione predefinita, la regola conta il numero di risultati negli ultimi 5 minuti.
         1. Se si rilevano i risultati delle query riepilogate, la regola verrà aggiornata automaticamente entro pochi secondi per poterla acquisire.
 
-    1. Scegliere la [suddivisione degli avvisi in base alle dimensioni](../platform/alerts-unified-log.md#split-by-alert-dimensions), se necessario: 
+    1. Scegliere la [suddivisione degli avvisi in base alle dimensioni](./alerts-unified-log.md#split-by-alert-dimensions), se necessario: 
        - La **colonna ID risorsa** viene selezionata automaticamente, se rilevata, e modifica il contesto dell'avviso attivato sulla risorsa del record. 
        - La **colonna ID risorsa** può essere deselezionata per generare avvisi per la sottoscrizione o i gruppi di risorse. La deselezione è utile quando i risultati della query sono basati su risorse incrociate. Ad esempio, una query che verifica se il 80% delle macchine virtuali del gruppo di risorse sta riscontrando un utilizzo elevato della CPU.
        - È inoltre possibile selezionare fino a sei altre suddivisioni per qualsiasi tipo di colonna numerico o di testo utilizzando la tabella dimensioni.
@@ -164,19 +164,19 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
         ![Grafico di anteprima](media/alerts-log/preview-chart.png)
 
-    1. Quindi, in base ai dati di anteprima, impostare la **logica di avviso**. [ **Operatore**, **valore di soglia**](../platform/alerts-unified-log.md#threshold-and-operator)e [**frequenza**](../platform/alerts-unified-log.md#frequency).
+    1. Quindi, in base ai dati di anteprima, impostare la **logica di avviso**. [ **Operatore**, **valore di soglia**](./alerts-unified-log.md#threshold-and-operator)e [**frequenza**](./alerts-unified-log.md#frequency).
 
         ![Grafico di anteprima con soglia e logica di avviso](media/alerts-log/chart-and-alert-logic.png)
 
-    1. Facoltativamente, è possibile impostare [**il numero di violazioni per attivare l'avviso**](../platform/alerts-unified-log.md#number-of-violations-to-trigger-alert) nella sezione **Opzioni avanzate** .
+    1. Facoltativamente, è possibile impostare [**il numero di violazioni per attivare l'avviso**](./alerts-unified-log.md#number-of-violations-to-trigger-alert) nella sezione **Opzioni avanzate** .
     
         ![Advanced Options](media/alerts-log/advanced-options.png)
 
-1. Nella scheda **azioni** selezionare o creare i [gruppi di azioni](../platform/action-groups.md)necessari.
+1. Nella scheda **azioni** selezionare o creare i [gruppi di azioni](./action-groups.md)necessari.
 
     ![Scheda azioni](media/alerts-log/actions-tab.png)
 
-1. Nella scheda **Dettagli** definire i dettagli della **regola di avviso** e i **Dettagli del progetto**. Facoltativamente, è possibile impostare se non **avviare l'esecuzione** o [**disattivare le azioni**](../platform/alerts-unified-log.md#state-and-resolving-alerts) per un periodo di tempo dopo il quale la regola di avviso viene attivata.
+1. Nella scheda **Dettagli** definire i dettagli della **regola di avviso** e i **Dettagli del progetto**. Facoltativamente, è possibile impostare se non **avviare l'esecuzione** o [**disattivare le azioni**](./alerts-unified-log.md#state-and-resolving-alerts) per un periodo di tempo dopo il quale la regola di avviso viene attivata.
 
     > [!NOTE]
     > Le regole di avviso del log sono attualmente senza stato e generano un'azione ogni volta che viene creato un avviso, a meno che non sia stato definito muting.
@@ -199,7 +199,7 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 1. Gestione avvisi consente di visualizzare tutti gli avvisi generati. Ulteriori [informazioni sulla gestione degli avvisi](alerts-managing-alert-instances.md).
 
     > [!NOTE]
-    > Le regole di avviso del log sono attualmente senza stato e non vengono [risolte](../platform/alerts-unified-log.md#state-and-resolving-alerts).
+    > Le regole di avviso del log sono attualmente senza stato e non vengono [risolte](./alerts-unified-log.md#state-and-resolving-alerts).
 
 1. Per modificare le regole, fare clic sul pulsante **Gestisci regole di avviso** nella barra superiore:
 
@@ -221,13 +221,13 @@ I cmdlet di PowerShell elencati di seguito sono disponibili per gestire le regol
 - [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : cmdlet di PowerShell per creare o aggiornare un oggetto che specifica i parametri di azione per un avviso del log. Usato come input mediante il cmdlet [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) e [set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) .
 - [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : cmdlet di PowerShell per creare o aggiornare un oggetto che specifica i parametri dei gruppi di azioni per un avviso del log. Usato come input dal cmdlet [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) .
 - [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : cmdlet di PowerShell per creare o aggiornare un oggetto specificando i parametri della condizione trigger per l'avviso del log. Usato come input dal cmdlet [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) .
-- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : cmdlet di PowerShell per creare o aggiornare un oggetto specificando i parametri della condizione del trigger di metrica per l' [Avviso del log di tipo misurazione metrica](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value). Usato come input dal cmdlet [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) .
+- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : cmdlet di PowerShell per creare o aggiornare un oggetto specificando i parametri della condizione del trigger di metrica per l' [Avviso del log di tipo misurazione metrica](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value). Usato come input dal cmdlet [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) .
 - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule) : cmdlet di PowerShell per elencare le regole di avviso del log esistenti o una regola di avviso del log specifica
 - [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule) : cmdlet di PowerShell per abilitare o disabilitare la regola di avviso del log
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): cmdlet di PowerShell per eliminare una regola di avviso del log esistente
 
 > [!NOTE]
-> I cmdlet di PowerShell per ScheduledQueryRules possono gestire solo le regole create nell' [API delle regole di query pianificate](/rest/api/monitor/scheduledqueryrules/)correnti. Le regole di avviso del log create tramite l' [API di avviso log Analytics](../platform/api-alerts.md) legacy possono essere gestite solo tramite PowerShell solo dopo il [trasferimento all'API delle regole di query pianificate](../alerts/alerts-log-api-switch.md).
+> I cmdlet di PowerShell per ScheduledQueryRules possono gestire solo le regole create nell' [API delle regole di query pianificate](/rest/api/monitor/scheduledqueryrules/)correnti. Le regole di avviso del log create tramite l' [API di avviso log Analytics](./api-alerts.md) legacy possono essere gestite solo tramite PowerShell solo dopo il [trasferimento all'API delle regole di query pianificate](../alerts/alerts-log-api-switch.md).
 
 Di seguito sono riportati i passaggi di esempio per la creazione di una regola di avviso del log usando PowerShell:
 
@@ -247,6 +247,25 @@ $alertingAction = New-AzScheduledQueryRuleAlertingAction -AznsAction $aznsAction
 New-AzScheduledQueryRule -ResourceGroupName "contosoRG" -Location "Region Name for your Application Insights App or Log Analytics Workspace" -Action $alertingAction -Enabled $true -Description "Alert description" -Schedule $schedule -Source $source -Name "Alert Name"
 ```
 
+Ecco i passaggi di esempio per la creazione di una regola di avviso del log usando PowerShell con query tra risorse:
+
+```powershell
+$authorized = @ ("/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicewsCrossExample", "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceAppInsights")
+
+$source = New-AzScheduledQueryRuleSource -Query 'Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m), _ResourceId' -DataSourceId "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews" -AuthorizedResource $authorized
+
+$schedule = New-AzScheduledQueryRuleSchedule -FrequencyInMinutes 15 -TimeWindowInMinutes 30
+
+$metricTrigger = New-AzScheduledQueryRuleLogMetricTrigger -ThresholdOperator "GreaterThan" -Threshold 2 -MetricTriggerType "Consecutive" -MetricColumn "_ResourceId"
+
+$triggerCondition = New-AzScheduledQueryRuleTriggerCondition -ThresholdOperator "LessThan" -Threshold 5 -MetricTrigger $metricTrigger
+
+$aznsActionGroup = New-AzScheduledQueryRuleAznsActionGroup -ActionGroup "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG" -EmailSubject "Custom email subject" -CustomWebhookPayload "{ `"alert`":`"#alertrulename`", `"IncludeSearchResults`":true }"
+
+$alertingAction = New-AzScheduledQueryRuleAlertingAction -AznsAction $aznsActionGroup -Severity "3" -Trigger $triggerCondition
+New-AzScheduledQueryRule -ResourceGroupName "contosoRG" -Location "Region Name for your Application Insights App or Log Analytics Workspace" -Action $alertingAction -Enabled $true -Description "Alert description" -Schedule $schedule -Source $source -Name "Alert Name" 
+```
+
 È anche possibile creare l'avviso del log usando un [modello e](./alerts-log-create-templates.md) i file dei parametri usando PowerShell:
 
 ```powershell
@@ -261,7 +280,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
 ## <a name="managing-log-alerts-using-cli"></a>Gestione degli avvisi di log con CLI
 
 > [!NOTE]
-> Il supporto dell'interfaccia della riga di comando di Azure è disponibile solo per la versione API scheduledQueryRules `2020-05-01-preview` e versioni successive. La versione dell'API precedente può usare l'interfaccia della riga di comando Azure Resource Manager con i modelli come descritto di seguito. Se si usa l' [API log Analytics Alert](../platform/api-alerts.md)legacy, sarà necessario passare a usare l'interfaccia della riga di comando. [Altre informazioni sul cambio](./alerts-log-api-switch.md).
+> Il supporto dell'interfaccia della riga di comando di Azure è disponibile solo per la versione API scheduledQueryRules `2020-05-01-preview` e versioni successive. La versione dell'API precedente può usare l'interfaccia della riga di comando Azure Resource Manager con i modelli come descritto di seguito. Se si usa l' [API log Analytics Alert](./api-alerts.md)legacy, sarà necessario passare a usare l'interfaccia della riga di comando. [Altre informazioni sul cambio](./alerts-log-api-switch.md).
 
 Nelle sezioni precedenti è stato descritto come creare, visualizzare e gestire le regole di avviso del log utilizzando portale di Azure. Questa sezione descrive come eseguire la stessa operazione usando l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli) multipiattaforma. [Azure Cloud Shell](../../cloud-shell/overview.md) è il metodo più rapido per iniziare a usare l'interfaccia della riga di comando di Azure. Per questo articolo verrà usato Cloud Shell.
 
@@ -323,7 +342,7 @@ Al completamento della creazione, viene restituito 201. In seguito all'esito pos
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sugli [avvisi del log](../platform/alerts-unified-log.md).
+* Informazioni sugli [avvisi del log](./alerts-unified-log.md).
 * Creare avvisi del log usando [modelli di Azure Resource Manager](./alerts-log-create-templates.md).
 * Informazioni sulle [azioni webhook per gli avvisi del log](./alerts-log-webhook.md).
-* Altre informazioni sulle [query di log](../log-query/log-query-overview.md).
+* Altre informazioni sulle [query di log](../logs/log-query-overview.md).

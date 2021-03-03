@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: db3d8f4424f59d8432221753af776a5b55859882
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: af6ced49071b7fbae983508e68964aa064ef38e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388856"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700032"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Come creare trascrizioni con etichetta umana
 
 Se si vuole migliorare l'accuratezza del riconoscimento, in particolare per i problemi che si verificano quando le parole vengono eliminate o sostituite in modo errato, è opportuno usare trascrizioni con etichetta umana insieme ai dati audio. Che cosa sono le trascrizioni con etichetta umana? Si tratta di un'operazione semplice, ovvero le trascrizioni Verbatim di un file audio.
 
-Per migliorare il riconoscimento è necessario un ampio esempio di dati di trascrizione, quindi è consigliabile fornire tra 10 e 20 ore di dati di trascrizione. In questa pagina, verranno esaminate le linee guida progettate per facilitare la creazione di trascrizioni di alta qualità. Questa guida è suddivisa in base alle impostazioni locali, con sezioni per l'inglese (Stati Uniti), cinese mandarino e tedesco.
+Per migliorare il riconoscimento è necessario un ampio esempio di dati di trascrizione, quindi è consigliabile fornire tra 1 e 20 ore di dati di trascrizione. Il servizio di riconoscimento vocale utilizzerà fino a 20 ore di audio per il training. In questa pagina, verranno esaminate le linee guida progettate per facilitare la creazione di trascrizioni di alta qualità. Questa guida è suddivisa in base alle impostazioni locali, con sezioni per l'inglese (Stati Uniti), cinese mandarino e tedesco.
 
 > [!NOTE]
 > Non tutti i modelli di base supportano la personalizzazione con i file audio. Se un modello di base non la supporta, il training utilizzerà semplicemente il testo delle trascrizioni in modo analogo all'utilizzo del testo correlato. Per un elenco dei modelli di base che supportano il training con dati audio, vedere Supporto per le [lingue](language-support.md#speech-to-text) .

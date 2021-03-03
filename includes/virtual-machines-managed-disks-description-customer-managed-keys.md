@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/05/2020
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 52b9bee1d43c0f136889a6a54277d4bb45dd4a45
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98792358"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750276"
 ---
 È possibile scegliere di gestire la crittografia a livello di ogni disco gestito, con le proprie chiavi. La crittografia lato server per i dischi gestiti con chiavi gestite dal cliente offre un'esperienza integrata con Azure Key Vault. È possibile importare [le proprie chiavi RSA](../articles/key-vault/keys/hsm-protected-keys.md) nel proprio insieme di credenziali delle chiavi o generare nuove chiavi RSA in Azure Key Vault. 
 
@@ -43,3 +43,7 @@ L'elenco seguente illustra il diagramma in maggiore dettaglio:
 1. Per la lettura o la scrittura di dati, i dischi gestiti inviano richieste ad Azure Key Vault per crittografare (eseguire il wrapping) e decrittografare (annullare il wrapping) la chiave di crittografia dei dati al fine di eseguire la crittografia e la decrittografia dei dati. 
 
 Per revocare l'accesso alle chiavi gestite dal cliente, vedere [PowerShell per Azure Key Vault](/powershell/module/azurerm.keyvault/) e [Interfaccia della riga di comando per Azure Key Vault](/cli/azure/keyvault). La revoca dell'accesso blocca di fatto l'accesso a tutti i dati dell'account di archiviazione poiché il servizio Archiviazione di Azure non può accedere alla chiave di crittografia.
+
+#### <a name="automatic-key-rotation-of-customer-managed-keys-preview"></a>Rotazione automatica delle chiavi gestite dal cliente (anteprima)
+
+È possibile scegliere di abilitare la rotazione automatica della chiave per la versione più recente della chiave. Un disco fa riferimento a una chiave tramite il relativo set di crittografia del disco. Quando si Abilita la rotazione automatica per un set di crittografia del disco, il sistema aggiornerà automaticamente tutti i dischi gestiti, gli snapshot e le immagini che fanno riferimento al set di crittografia del disco per usare la nuova versione della chiave entro un'ora. La funzionalità è attualmente disponibile in aree limitate in anteprima. Per la disponibilità a livello di area, vedere la sezione [aree supportate](#supported-regions) .

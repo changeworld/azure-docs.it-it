@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: cdc5de8153e8b2e0ea8bb8ea372fe8610ccb895b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: da172e9a7605876711e4a4f32bf4fac698b35109
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679831"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694802"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Aggiungere il controllo ortografico alle query in ricerca cognitiva
 
@@ -36,7 +36,7 @@ ms.locfileid: "101679831"
   Il queryLanguage è obbligatorio per il correttore ortografico e attualmente "en-US" è l'unico valore valido.
 
 > [!Note]
-> Il parametro del correttore ortografico è disponibile in tutti i livelli, nelle stesse aree che forniscono la ricerca semantica. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
+> Il parametro del correttore ortografico è disponibile in tutti i livelli, nelle stesse aree che forniscono la ricerca semantica. Non è necessario iscriversi per accedere a questa funzionalità in anteprima. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
 
 ## <a name="spell-correction-with-simple-search"></a>Correzione ortografica con ricerca semplice
 
@@ -94,7 +94,13 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="language-considerations"></a>Considerazioni sul linguaggio
 
-Il parametro queryLanguage richiesto per il correttore ortografico deve essere coerente con tutti gli [analizzatori di linguaggio](index-add-language-analyzers.md) assegnati alle definizioni di campo nello schema dell'indice. Specificata in una richiesta di query, queryLanguage determina i lessico usati per il controllo ortografico e viene usato anche come input per l'algoritmo di [classificazione semantica](semantic-how-to-query-response.md) se lo si usa. Gli analizzatori di linguaggio vengono usati durante l'indicizzazione e durante il recupero dei documenti corrispondenti nell'indice di ricerca. Per essere coerente, se queryLanguage è "en-US", tutti gli analizzatori di lingua devono essere anche una variante inglese ("en. Microsoft" o "en. Lucene"). 
+Il parametro queryLanguage richiesto per il correttore ortografico deve essere coerente con tutti gli [analizzatori di linguaggio](index-add-language-analyzers.md) assegnati alle definizioni di campo nello schema dell'indice. 
+
++ queryLanguage determina i lessico usati per il controllo ortografico e viene usato anche come input per l'algoritmo di [classificazione semantica](semantic-how-to-query-response.md) se si usa "QueryType = Semantic".
+
++ Gli analizzatori di linguaggio vengono usati durante l'indicizzazione e l'esecuzione di query per trovare i documenti corrispondenti nell'indice di ricerca. Un esempio di definizione di campo che usa un analizzatore del linguaggio è `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"` .
+
+Per ottenere risultati ottimali quando si usa il correttore ortografico, se queryLanguage è "en-US", tutti gli analizzatori di linguaggio devono anche essere una variante inglese ("en. Microsoft" o "en. Lucene").
 
 > [!NOTE]
 > Gli analizzatori indipendenti dal linguaggio (ad esempio parola chiave, Simple, standard, stop, spazi vuoti o `standardasciifolding.lucene` ) non sono in conflitto con le impostazioni di queryLanguage.

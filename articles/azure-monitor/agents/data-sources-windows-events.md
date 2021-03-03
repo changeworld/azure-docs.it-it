@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: c911b3a2ef927bf000513665dfafd735e3bcf181
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b747a4b58c9c460178d415d0b45ade814723d8fe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719866"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Raccolta delle origini dati del registro eventi di Windows con Log Analytics Agent
 I registri eventi di Windows sono una delle [origini dati](../agents/agent-data-sources.md) più comuni per log Analytics agenti nelle macchine virtuali Windows perché molte applicazioni scrivono nel registro eventi di Windows.  È possibile raccogliere gli eventi dai log standard, ad esempio sistema e applicazioni, oltre a specificare qualsiasi log personalizzato creato dalle applicazioni da monitorare.
 
 > [!IMPORTANT]
-> Questo articolo illustra la raccolta di eventi di Windows con l' [agente di log Analytics](../platform/log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](../agents/agents-overview.md) .
+> Questo articolo illustra la raccolta di eventi di Windows con l' [agente di log Analytics](./log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](../agents/agents-overview.md) .
 
 ![Eventi Windows](media/data-sources-windows-events/overview.png)     
 
@@ -73,5 +73,5 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare Log Analytics per raccogliere altre [origini dati](../agents/agent-data-sources.md) per l'analisi.
-* Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
+* Altre informazioni sulle [query di log](../logs/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
 * Configurare la [raccolta dei contatori delle prestazioni](data-sources-performance-counters.md) dagli agenti di Windows.

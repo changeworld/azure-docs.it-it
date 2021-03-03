@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 395c274630131c2ae5f451443913e1e69c7c422a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591196"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738702"
 ---
 # <a name="msix-app-attach-faq"></a>Domande frequenti sull'aggiunta di app MSIX
 
@@ -61,7 +61,7 @@ Tutte le macchine virtuali in un pool host che usa l'associazione dell'app MSIX 
 
 ## <a name="can-i-use-msix-app-attach-for-http-or-https"></a>È possibile usare la connessione app MSIX per HTTP o HTTPs?
 
-Tutte le macchine virtuali che fanno parte di un pool host che usa la connessione app MSIX devono disporre delle autorizzazioni di lettura per la condivisione file in cui sono archiviate le immagini MSIX. Se File di Azure viene utilizzato sia le autorizzazioni RBAC che quelle NTFS devono essere concesse.
+L'uso della connessione app MSIX su HTTP o HTTPs non è al momento supportato.
 
 ## <a name="can-i-restage-the-same-msix-application"></a>È possibile basare la stessa applicazione MSIX?
 
@@ -69,7 +69,7 @@ Sì. È possibile fare in modo che le applicazioni di cui è già stata effettua
 
 ## <a name="does-msix-app-attach-support-self-signed-certificates"></a>La connessione dell'app MSIX supporta i certificati autofirmati?
 
-L'uso della connessione app MSIX su HTTP o HTTPs non è al momento supportato.
+Sì. È necessario installare il certificato autofirmato in tutte le VM host sessione in cui viene usato il MSIX app alleghi per ospitare l'applicazione autofirmata.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

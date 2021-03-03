@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 02dd9aa74da42f0a5d70de4513b88756a97bea1e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9fa0f73d06bda02d784628823ee70bc538b375e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679863"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695805"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Risoluzione dei problemi del server di route di Azure
 
@@ -21,11 +21,15 @@ ms.locfileid: "101679863"
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="bgp-connectivity-issues"></a>Problemi di connettività BGP
+## <a name="connectivity-issues"></a>Problemi di connettività
 
-### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>Perché è in corso il peering BGP tra l'appliance virtuale di Azure e il server di route di Azure ("sbattimento")?
+### <a name="why-does-my-nva-lose-internet-connectivity-after-it-advertises-the-default-route-00000-to-azure-route-server"></a>Perché l'appliance virtuale di rete perde la connettività Internet dopo aver annunciato la route predefinita (0.0.0.0/0) al server di route di Azure?
+Quando l'appliance virtuale di rete annuncia la route predefinita, il server di routing di Azure li programma per tutte le macchine virtuali nella rete virtuale, inclusa l'appliance virtuale di rete. Questa route predefinita imposta l'appliance virtuale di rete come hop successivo per tutto il traffico associato a Internet. Se l'appliance virtuale di rete richiede la connettività Internet, è necessario configurare una [route definita dall'utente](../virtual-network/virtual-networks-udr-overview.md) per eseguire l'override di questa route predefinita dall'appliance virtuale di rete e collegarla alla subnet in cui è ospitata l'appliance virtuale di rete (vedere l'esempio seguente). In caso contrario, il computer host dell'appliance virtuale di rete continuerà a inviare il traffico associato a Internet, incluso quello inviato dall'appliance virtuale di rete, all'appliance virtuale di rete.
 
-La causa del problema potrebbe essere dovuta all'impostazione del timer BGP. Per impostazione predefinita, il timer keep-alive sul server di route di Azure è impostato su 60 secondi e il timer di attesa è 180 secondi.
+| Route | Hop successivo |
+|-------|----------|
+| 0.0.0.0/0 | Internet |
+
 
 ### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-goes-down"></a>Perché è possibile eseguire il ping dall'appliance virtuale di Azure all'indirizzo IP del peer BGP nel server di route di Azure, ma dopo aver configurato il peering BGP tra di essi, non è più possibile eseguire il ping dello stesso IP? Perché il peering BGP diventa inattivo?
 
@@ -37,11 +41,18 @@ In alcune appliance virtuale di Azure è necessario aggiungere una route statica
 
 10.0.1.1 è l'indirizzo IP del gateway predefinito nella subnet in cui è ospitata l'appliance virtuale di rete (o più precisamente una delle schede di rete).
 
-## <a name="bgp-route-issues"></a>Problemi di route BGP
+### <a name="why-do-i-lose-connectivity-to-my-on-premises-network-over-expressroute-andor-azure-vpn-when-im-deploying-azure-route-server-to-a-virtual-network-that-already-has-expressroute-gateway-andor-azure-vpn-gateway"></a>Perché si perde la connettività alla rete locale tramite ExpressRoute e/o la VPN di Azure quando si distribuisce il server di route di Azure in una rete virtuale che dispone già del gateway ExpressRoute e/o del gateway VPN di Azure?
+Quando si distribuisce il server di routing di Azure a una rete virtuale, è necessario aggiornare il piano di controllo tra i gateway e la rete virtuale. Durante questo aggiornamento, si verifica un periodo di tempo durante il quale le VM nella rete virtuale perderanno la connettività alla rete locale. Si consiglia di pianificare una manutenzione per la distribuzione del server di route di Azure nell'ambiente di produzione.  
+
+## <a name="control-plane-issues"></a>Problemi del piano di controllo
+
+### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>Perché è in corso il peering BGP tra l'appliance virtuale di Azure e il server di route di Azure ("sbattimento")?
+
+La causa del problema potrebbe essere dovuta all'impostazione del timer BGP. Per impostazione predefinita, il timer keep-alive sul server di route di Azure è impostato su 60 secondi e il timer di attesa è 180 secondi.
 
 ### <a name="why-does-my-nva-not-receive-routes-from-azure-route-server-even-though-the-bgp-peering-is-up"></a>Perché l'appliance virtuale di Azure non riceve route dal server di route di Azure anche se il peering BGP è attivo?
 
-Il numero ASN utilizzato dal server di route di Azure è 65515. Assicurarsi di configurare un ASN diverso per l'appliance virtuale di sistema in modo che sia possibile stabilire una sessione "eBGP" tra l'appliance virtuale di Azure e il server di route di Azure in modo che la propagazione delle route possa verificarsi automaticamente
+Il numero ASN utilizzato dal server di route di Azure è 65515. Assicurarsi di configurare un ASN diverso per l'appliance virtuale di sistema in modo che sia possibile stabilire una sessione "eBGP" tra l'appliance virtuale di Azure e il server di route di Azure in modo che la propagazione delle route possa verificarsi automaticamente Assicurarsi di abilitare "multihop" nella configurazione BGP perché l'appliance virtuale di rete e il server di route di Azure si trovano in subnet diverse nella rete virtuale.
 
 ### <a name="the-bgp-peering-between-my-nva-and-azure-route-server-is-up-i-can-see-routes-exchanged-correctly-between-them-why-arent-the-nva-routes-in-the-effective-routing-table-of-my-vm"></a>Il peering BGP tra l'appliance virtuale di Azure e il server di route di Azure è attivo. È possibile visualizzare le route scambiate correttamente tra di esse. Perché le route dell'appliance virtuale di servizio non sono presenti nella tabella di routing effettiva della macchina virtuale? 
 

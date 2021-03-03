@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 4a7e80b77048d1853c9cb0d6e59c5bdd76e8d823
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 41293f96246dd4badab000c4e7f936d825e7665a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665475"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691128"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione Server 4,0): funzionalità e sintassi supportate
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -583,7 +583,7 @@ Azure Cosmos DB supporta un valore TTL (time-to-Live) in base al timestamp del d
 
 ## <a name="transactions"></a>Transazioni
 
-Azure Cosmos DB supporta le transazioni per le raccolte non partizionate. Il timeout per le transazioni è di 5 secondi fissi.
+Le transazioni a più documenti sono supportate all'interno di una raccolta non partizionata. Le transazioni a più documenti non sono supportate nelle raccolte o nelle raccolte partizionate. Il timeout per le transazioni è di 5 secondi fissi.
 
 ## <a name="user-and-role-management"></a>Gestione di utenti e ruoli
 

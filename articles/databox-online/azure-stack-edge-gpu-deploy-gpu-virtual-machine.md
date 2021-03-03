@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 7534052412c2bee0f31e352fc577d376c11215c3
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: cb6b8e310f46cd98c4d3343d44fd83a3cc714a32
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804923"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730712"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>VM GPU per il dispositivo Azure Stack Edge Pro
 
@@ -110,8 +110,8 @@ Per la distribuzione di VM GPU nel dispositivo, seguire questa procedura:
 1. Dopo aver creato la macchina virtuale, distribuire l'estensione della GPU usando il modello di estensione. Per le macchine virtuali Linux, vedere [Install GPU Extension for Linux](#gpu-extension-for-linux) and for Windows VMS, vedere [Install GPU Extension for Windows](#gpu-extension-for-windows).
 
 1. Per verificare l'installazione dell'estensione GPU, connettersi alla VM GPU:
-    1. Se si usa una macchina virtuale Windows, attenersi alla procedura descritta in [connettersi a una macchina virtuale Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-windows-vm). [Verificare l'installazione](#verify-windows-driver-installation).
-    1. Se si usa una VM Linux, seguire la procedura descritta in [connettersi a una VM Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). [Verificare l'installazione](#verify-linux-driver-installation).
+    1. Se si usa una macchina virtuale Windows, attenersi alla procedura descritta in [connettersi a una macchina virtuale Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm). [Verificare l'installazione](#verify-windows-driver-installation).
+    1. Se si usa una VM Linux, seguire la procedura descritta in [connettersi a una VM Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). [Verificare l'installazione](#verify-linux-driver-installation).
 
 1. Se necessario, è possibile riportare la rete di calcolo in base a qualsiasi esigenza. 
 
@@ -545,7 +545,7 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente: `/v
 
 Per verificare l'installazione del driver, attenersi alla procedura seguente:
 
-1. Connettersi alla VM GPU. Seguire le istruzioni riportate in [connettersi a una VM Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). 
+1. Connettersi alla VM GPU. Seguire le istruzioni riportate in [connettersi a una VM Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). 
 
     Di seguito è riportato un output di esempio:
 

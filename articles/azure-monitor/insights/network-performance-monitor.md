@@ -1,24 +1,23 @@
 ---
 title: Soluzione Monitoraggio prestazioni rete in Azure | Microsoft Docs
 description: Monitoraggio prestazioni rete di Azure consente di monitorare le prestazioni delle reti, quasi in tempo reale, per rilevare e trovare i colli di bottiglia delle prestazioni di rete.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 92326ea4d3de896a67b2953fb612b79948044d08
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dd9f35a0b7c3bb5c2c5888765e4ebac436b4cde1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573420"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711128"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
 ![Simbolo di Monitoraggio prestazioni rete](./media/network-performance-monitor/npm-symbol.png)
 
 > [!IMPORTANT]
-> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher prima del 29 febbraio 2024.
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher prima del 29 febbraio 2024.
 
 Monitoraggio prestazioni rete è una soluzione di monitoraggio reti ibrida basata sul cloud che consente di monitorare le prestazioni della rete tra vari punti dell'infrastruttura di rete. Consente anche di monitorare la connettività di rete al servizio e agli endpoint dell'applicazione e di monitorare le prestazioni di Microsoft Azure ExpressRoute. 
 
@@ -301,4 +300,4 @@ Le informazioni sui prezzi sono disponibili [online](network-performance-monitor
 * **Unisciti alla coorte:** Siamo sempre interessati a far partecipare i nuovi clienti alla coorte. In questo contesto si avrà accesso in anteprima alle nuove funzionalità e si avrà l'opportunità di contribuire a migliorare Monitoraggio prestazioni rete. Se si è interessati a partecipare, compilare questo [sondaggio rapido](https://aka.ms/npmcohort). 
 
 ## <a name="next-steps"></a>Passaggi successivi 
-Per altre informazioni, vedere [Monitoraggio prestazioni rete](network-performance-monitor-performance-monitor.md), [Monitoraggio connettività servizio](network-performance-monitor-performance-monitor.md) e [Monitoraggio di ExpressRoute](network-performance-monitor-expressroute.md). 
+Per altre informazioni, vedere [Monitoraggio prestazioni rete](network-performance-monitor-performance-monitor.md), [Monitoraggio connettività servizio](network-performance-monitor-performance-monitor.md) e [Monitoraggio di ExpressRoute](network-performance-monitor-expressroute.md).

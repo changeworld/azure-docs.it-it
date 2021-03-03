@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 5506d2da0ccf09de7db7aff744984ae93c59fd32
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8c375c3dc9f4c5fdb20270797eb55b3a20a6e214
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571707"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698281"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informazioni sulle metriche per il cloud Spring di Azure
 
@@ -99,7 +99,7 @@ Le tabelle seguenti illustrano le metriche e i dettagli disponibili.
 >|----|----|----|------------|
 >| System. CPU. Usage | System. CPU. Usage | Percentuale | Utilizzo di CPU recente per l'intero sistema (obsoleto e sconsigliato per l'uso). Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che tutte le CPU erano inattive durante il periodo di tempo recente osservato, mentre un valore pari a 1,0 indica che tutte le CPU stavano eseguendo attivamente il 100% del tempo durante l'osservazione del periodo recente.|
 >| Process. CPU. Usage | App CPU Usage Percentage (Percentuale di utilizzo CPU app) | Percentuale | Utilizzo della CPU recente per il processo di Java Virtual Machine (obsoleto e sconsigliato di utilizzarlo). Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che nessuna CPU stava eseguendo thread dal processo JVM durante il periodo di tempo recente osservato, mentre il valore 1,0 indica che tutte le CPU stavano eseguendo attivamente i thread dalla JVM 100% del tempo durante il periodo recente osservato. I thread del JVM includono i thread dell'applicazione, nonché i thread interni JVM.|
->| AppCpuUsage | Utilizzo CPU app (anteprima) | Percentuale | Utilizzo della CPU recente del processo JVM sulla CPU allocata a questa app, valore di tipo Double compreso tra [0,0, 1.0]. Il valore 0,0 indica che nessuna CPU stava eseguendo thread dal processo JVM durante il periodo di tempo recente osservato, mentre il valore 1,0 indica che tutte le CPU stavano eseguendo attivamente i thread dalla JVM 100% del tempo durante il periodo recente osservato. I thread del JVM includono i thread dell'applicazione, nonché i thread interni JVM.|
+>| AppCpuUsage | Utilizzo CPU dell'app | Percentuale | Utilizzo della CPU recente del processo JVM sulla CPU allocata a questa app, valore di tipo Double compreso tra [0,0, 1.0]. Il valore 0,0 indica che nessuna CPU stava eseguendo thread dal processo JVM durante il periodo di tempo recente osservato, mentre il valore 1,0 indica che tutte le CPU stavano eseguendo attivamente i thread dalla JVM 100% del tempo durante il periodo recente osservato. I thread del JVM includono i thread dell'applicazione, nonché i thread interni JVM.|
 >| JVM. memory. commit | JVM. memory. commit | Byte | Rappresenta la quantità di memoria che deve essere disponibile per l'utilizzo da parte della JVM. JVM può rilasciare memoria al sistema e il commit potrebbe essere inferiore a init. il commit sarà sempre maggiore o uguale a quello usato. |
 >| JVM. memory. used | JVM. memory. used | Byte | Rappresenta la quantità di memoria attualmente utilizzata in byte. |
 >| JVM. memory. max | JVM. memory. max | Byte | Rappresenta la quantità massima di memoria che può essere utilizzata per la gestione della memoria. La quantità di memoria utilizzata e di cui è stato eseguito il commit sarà sempre minore o uguale a max se è definito max. Un'allocazione di memoria potrebbe non riuscire se tenta di aumentare la memoria utilizzata, in modo da usare > eseguito il commit anche se utilizzata <= Max sarebbe ancora true (ad esempio, quando il sistema è insufficiente nella memoria virtuale). |

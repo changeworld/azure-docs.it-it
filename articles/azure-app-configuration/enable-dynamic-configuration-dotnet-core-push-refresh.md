@@ -14,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/25/2020
 ms.author: abarora
-ms.openlocfilehash: 553c5081947ad784a8cdae6ad0eb92fc3e2a2c85
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 977982bf1a36b4b85524df2513f2272fe4a8d1bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99982265"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701519"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-net-core-app"></a>Esercitazione: usare la configurazione dinamica usando l'aggiornamento push in un'app .NET Core
 
@@ -27,7 +27,7 @@ La libreria client .NET Core per la configurazione delle app supporta l'aggiorna
 
 1. Modello di polling: questo è il comportamento predefinito che usa il polling per rilevare le modifiche nella configurazione. Una volta che il valore memorizzato nella cache di un'impostazione scade, la chiamata successiva a `TryRefreshAsync` o `RefreshAsync` Invia una richiesta al server per verificare se la configurazione è stata modificata ed esegue il pull della configurazione aggiornata, se necessario.
 
-1. Modello push: USA [gli eventi di configurazione dell'app](./concept-app-configuration-event.md) per rilevare le modifiche nella configurazione. Una volta configurata la configurazione dell'app per l'invio di eventi di modifica del valore chiave a griglia di eventi di Azure, l'applicazione può usare questi eventi per ottimizzare il numero totale di richieste necessarie per aggiornare la configurazione. Le applicazioni possono scegliere di sottoscriverle direttamente da griglia di eventi o anche se uno dei [gestori di eventi supportati](https://docs.microsoft.com/azure/event-grid/event-handlers) , ad esempio un webhook, una funzione di Azure o un argomento del bus di servizio.
+1. Modello push: USA [gli eventi di configurazione dell'app](./concept-app-configuration-event.md) per rilevare le modifiche nella configurazione. Una volta configurata la configurazione dell'app per l'invio di eventi di modifica del valore chiave a griglia di eventi di Azure, l'applicazione può usare questi eventi per ottimizzare il numero totale di richieste necessarie per aggiornare la configurazione. Le applicazioni possono scegliere di sottoscriverle direttamente da griglia di eventi o anche se uno dei [gestori di eventi supportati](../event-grid/event-handlers.md) , ad esempio un webhook, una funzione di Azure o un argomento del bus di servizio.
 
 Le applicazioni possono scegliere di sottoscrivere questi eventi direttamente da griglia di eventi o tramite un webhook oppure tramite l'invio di eventi al bus di servizio di Azure. Azure Service Bus SDK fornisce un'API per la registrazione di un gestore di messaggi che semplifica questo processo per le applicazioni che non dispongono di un endpoint HTTP o non desiderano eseguire il polling continuo della griglia di eventi per le modifiche.
 
@@ -50,7 +50,7 @@ Per completare questa esercitazione, installare [.NET Core SDK](https://dotnet.m
 
 ## <a name="set-up-azure-service-bus-topic-and-subscription"></a>Configurare l'argomento e la sottoscrizione del bus di servizio di Azure
 
-Questa esercitazione usa l'integrazione del bus di servizio per griglia di eventi per semplificare il rilevamento delle modifiche di configurazione per le applicazioni che non vogliono eseguire il polling continuo della configurazione dell'app per le modifiche. Azure Service Bus SDK fornisce un'API per registrare un gestore di messaggi che può essere usato per aggiornare la configurazione quando vengono rilevate modifiche nella configurazione dell'app. Seguire i passaggi della [Guida introduttiva: usare la portale di Azure per creare un argomento e una sottoscrizione del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) per creare uno spazio dei nomi, un argomento e una sottoscrizione del bus di servizio.
+Questa esercitazione usa l'integrazione del bus di servizio per griglia di eventi per semplificare il rilevamento delle modifiche di configurazione per le applicazioni che non vogliono eseguire il polling continuo della configurazione dell'app per le modifiche. Azure Service Bus SDK fornisce un'API per registrare un gestore di messaggi che può essere usato per aggiornare la configurazione quando vengono rilevate modifiche nella configurazione dell'app. Seguire i passaggi della [Guida introduttiva: usare la portale di Azure per creare un argomento e una sottoscrizione del bus di servizio](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) per creare uno spazio dei nomi, un argomento e una sottoscrizione del bus di servizio.
 
 Una volta create le risorse, aggiungere le variabili di ambiente seguenti. Questi verranno usati per registrare un gestore eventi per le modifiche di configurazione nel codice dell'applicazione.
 
@@ -81,7 +81,7 @@ Una volta create le risorse, aggiungere le variabili di ambiente seguenti. Quest
     ![Sottoscrizioni di eventi di configurazione delle app](./media/event-subscription-view.png)
 
 > [!NOTE]
-> Quando si esegue la sottoscrizione per le modifiche alla configurazione, è possibile usare uno o più filtri per ridurre il numero di eventi inviati all'applicazione. Possono essere configurati come [filtri di sottoscrizione di griglia di eventi](https://docs.microsoft.com/azure/event-grid/event-filtering) o [filtri di sottoscrizione del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters). È ad esempio possibile usare un filtro di sottoscrizione per sottoscrivere solo gli eventi per le modifiche in una chiave che inizia con una stringa specifica.
+> Quando si esegue la sottoscrizione per le modifiche alla configurazione, è possibile usare uno o più filtri per ridurre il numero di eventi inviati all'applicazione. Possono essere configurati come [filtri di sottoscrizione di griglia di eventi](../event-grid/event-filtering.md) o [filtri di sottoscrizione del bus di servizio](../service-bus-messaging/topic-filters.md). È ad esempio possibile usare un filtro di sottoscrizione per sottoscrivere solo gli eventi per le modifiche in una chiave che inizia con una stringa specifica.
 
 ## <a name="register-event-handler-to-reload-data-from-app-configuration"></a>Registrare il gestore eventi per ricaricare i dati dalla configurazione dell'app
 
@@ -171,7 +171,7 @@ namespace TestConsole
 }
 ```
 
-Il metodo [IsDirty](https://docs.microsoft.com/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) viene usato per impostare il valore memorizzato nella cache per i valori di chiave registrati per l'aggiornamento come dirty. In questo modo si garantisce che la chiamata successiva a `RefreshAsync` o `TryRefreshAsync` riconvalida i valori memorizzati nella cache con la configurazione dell'app e li aggiorni se necessario.
+Il metodo [IsDirty](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) viene usato per impostare il valore memorizzato nella cache per i valori di chiave registrati per l'aggiornamento come dirty. In questo modo si garantisce che la chiamata successiva a `RefreshAsync` o `TryRefreshAsync` riconvalida i valori memorizzati nella cache con la configurazione dell'app e li aggiorni se necessario.
 
 Un ritardo casuale viene aggiunto prima che il valore memorizzato nella cache venga contrassegnato come Dirty per ridurre la potenziale limitazione nel caso in cui più istanze vengano aggiornate contemporaneamente. Il ritardo massimo predefinito prima che il valore memorizzato nella cache venga contrassegnato come Dirty è 30 secondi, ma è possibile eseguirne l'override passando un `TimeSpan` parametro facoltativo al `SetDirty` metodo.
 

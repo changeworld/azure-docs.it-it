@@ -5,20 +5,20 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/22/2020
 ms.subservice: metrics
-ms.openlocfilehash: 8f503623031b7071c5e0a206d078175e16a7e919
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d48dcb4e45bbaf3d516f2a45e14a6be0837b55c0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617107"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734384"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Metriche di piattaforma di Monitoraggio di Azure esportabili tramite Impostazioni di diagnostica
 
-Monitoraggio di Azure offre [metriche di piattaforma](../essentials/data-platform-metrics.md) per impostazione predefinita senza configurazione. Sono disponibili diversi modi per interagire con le metriche di piattaforma, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. Per un elenco completo delle metriche di piattaforma attualmente disponibili con la pipeline delle metriche consolidate di Monitoraggio di Azure, vedere la pagina relativa alle [metriche supportate](../platform/metrics-supported.md). Per richiedere queste metriche e accedervi, usare la [versione API 2018-01-01](/rest/api/monitor/metricdefinitions). Altre metriche potrebbero essere disponibili nel portale o tramite le API legacy.
+Monitoraggio di Azure offre [metriche di piattaforma](../essentials/data-platform-metrics.md) per impostazione predefinita senza configurazione. Sono disponibili diversi modi per interagire con le metriche di piattaforma, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. Per un elenco completo delle metriche di piattaforma attualmente disponibili con la pipeline delle metriche consolidate di Monitoraggio di Azure, vedere la pagina relativa alle [metriche supportate](./metrics-supported.md). Per richiedere queste metriche e accedervi, usare la [versione API 2018-01-01](/rest/api/monitor/metricdefinitions). Altre metriche potrebbero essere disponibili nel portale o tramite le API legacy.
 
 ## <a name="metrics-not-exportable-via-diagnostic-settings"></a>Metriche non esportabili tramite le impostazioni di diagnostica
 
-Il contenuto che si trovava in questa posizione è stato spostato nell' [elenco supportato di metriche di monitoraggio di Azure](../platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
+Il contenuto che si trovava in questa posizione è stato spostato nell' [elenco supportato di metriche di monitoraggio di Azure](./metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
 Esistono alcune limitazioni durante l'esportazione delle metriche tramite le impostazioni di diagnostica. Tutte le metriche sono esportabili tramite l'API REST. 
 
@@ -548,5 +548,4 @@ Di seguito è riportato un elenco delle metriche il cui comportamento è stato m
 | Microsoft.Sql/servers/elasticPools | xtp_storage_percent | Percentuale di archiviazione OLTP in memoria | 
 | Microsoft.Sql/servers | dtu_consumption_percent | Percentuale di DTU | 
 | Microsoft.Sql/servers | dtu_used | Uso DTU | 
-| Microsoft.Sql/managedInstances | avg_cpu_percent | Percentuale CPU Media | 
-
+| Microsoft.Sql/managedInstances | avg_cpu_percent | Percentuale CPU Media |

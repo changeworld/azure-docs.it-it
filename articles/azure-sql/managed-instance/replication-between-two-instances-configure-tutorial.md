@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
-ms.translationtype: HT
+ms.openlocfilehash: 47ea5ea73c581313f90791ca6d7892ebad3f666b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900455"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690686"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Esercitazione: Configurare la replica tra due istanze gestite
 
@@ -51,7 +51,7 @@ Per configurare Istanza gestita di SQL in modo che svolga la funzione di server 
 - L'istanza gestita del server di pubblicazione si trova nella stessa rete virtuale del database di distribuzione e del database sottoscrittore oppure sono stati configurati [gateway VPN](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) tra le reti virtuali di tutte e tre le entità. 
 - Per la connettività viene usata l'autenticazione SQL tra i partecipanti alla replica.
 - Una condivisione di account di archiviazione di Azure per la directory di lavoro della replica.
-- La porta 445 (porta in uscita TCP) è aperta nelle regole di sicurezza del gruppo di sicurezza di rete per permettere alle istanze gestite di accedere alla condivisione file di Azure.  Se viene visualizzato l'errore `failed to connect to azure storage \<storage account name> with os error 53`, sarà necessario aggiungere una regola in uscita al gruppo di sicurezza di rete della subnet di Istanza gestita di SQL appropriata.
+- La porta 445 (porta in uscita TCP) è aperta nelle regole di sicurezza del gruppo di sicurezza di rete per permettere alle istanze gestite di accedere alla condivisione file di Azure.  Se viene visualizzato l'errore `failed to connect to azure storage <storage account name> with os error 53`, sarà necessario aggiungere una regola in uscita al gruppo di sicurezza di rete della subnet di Istanza gestita di SQL appropriata.
 
 ## <a name="1---create-a-resource-group"></a>1 - Creare un gruppo di risorse
 

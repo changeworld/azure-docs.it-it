@@ -1,0 +1,56 @@
+### YamlMime:Landing
+title: Documentazione di soluzioni partner convalidate per archiviazione di Azure
+summary: Le soluzioni dei partner convalidati per archiviazione di Azure consentono scenari avanzati nella piattaforma di archiviazione di Azure.
+metadata:
+  title: Soluzioni partner convalidate per archiviazione di Azure
+  description: Le soluzioni dei partner convalidati per archiviazione di Azure consentono scenari avanzati nella piattaforma di archiviazione di Azure.
+  services: storage
+  ms.service: storage
+  ms.topic: landing-page
+  ms.collection: collection
+  author: beber-msft
+  ms.author: beber
+  ms.date: 12/08/2020
+  ms.openlocfilehash: 2e9a2ac1e8d33020a94c2c783d3d695a459fcea5
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101749121"
+landingContent:
+- title: Partner Analisi archiviazione di Azure e Big Data
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Partner di Analisi archiviazione di Azure convalidati
+      url: .\validated-partners\analytics\partner-overview.md
+- title: Partner di archivio, backup e BCDR di archiviazione di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Partner di archiviazione e BCDR di archiviazione di Azure convalidati
+      url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Guida introduttiva di CommVault
+      url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
+    - text: Guida introduttiva a Veeam
+      url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+- title: Partner della soluzione contenitore di archiviazione di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Partner della soluzione contenitore di archiviazione di Azure convalidati
+      url: .\validated-partners\container-solutions\partner-overview.md
+- title: Partner di migrazione e gestione dati di archiviazione di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Partner di migrazione e gestione dati di archiviazione di Azure convalidati
+      url: .\validated-partners\data-management\partner-overview.md
+- title: Partner di archiviazione primari e secondari di archiviazione di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Partner convalidati per l'archiviazione primaria e secondaria
+      url: .\validated-partners\primary-secondary-storage\partner-overview.md

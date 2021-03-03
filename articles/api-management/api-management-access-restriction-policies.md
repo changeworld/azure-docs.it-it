@@ -7,14 +7,14 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 02/09/2021
+ms.date: 02/26/2021
 ms.author: apimpm
-ms.openlocfilehash: 0b18a73d0357b5dd90b329ba55c6601e60df5bbc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 882d96271b6976db1ffc0dde181d5699c5cc27de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367572"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688247"
 ---
 # <a name="api-management-access-restriction-policies"></a>Criteri di limitazione dell'accesso di Gestione API
 
@@ -137,8 +137,8 @@ Nell'esempio seguente il limite di velocità per sottoscrizione è 20 chiamate p
 | Nome           | Descrizione                                                                                           | Obbligatoria | Predefinito |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Il nome dell'API a cui si desidera applicare il limite di frequenza.                                                | Sì      | N/D     |
-| calls          | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`. | Sì      | N/D     |
-| renewal-period | Periodo di tempo in secondi dopo il quale viene reimpostato il tasso.                                              | Sì      | N/D     |
+| calls          | Numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period` . | Sì      | N/D     |
+| renewal-period | Lunghezza in secondi della finestra temporale scorrevole durante la quale il numero di richieste consentite non deve superare il valore specificato in `calls` .                                              | Sì      | N/D     |
 | Retry-After-header-name    | Nome di un'intestazione di risposta il cui valore è l'intervallo di tentativi consigliato in secondi dopo il superamento della frequenza di chiamate specificata. |  No | N/D  |
 | Retry-After-nome-variabile    | Nome di una variabile di espressione di criteri che archivia l'intervallo di tentativi consigliato in secondi dopo il superamento della frequenza di chiamate specificata. |  No | N/D  |
 | Nome-intestazione-chiamate rimanenti    | Il nome di un'intestazione di risposta il cui valore dopo ogni esecuzione del criterio è il numero di chiamate rimanenti consentite per l'intervallo di tempo specificato in `renewal-period` . |  No | N/D  |
@@ -214,7 +214,7 @@ Nell'esempio seguente il limite di frequenza di 10 chiamate per 60 secondi viene
 | calls               | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`. | Sì      | N/D     |
 | counter-key         | La chiave deve essere usata per i criteri relativi ai limiti di frequenza.                                                             | Sì      | N/D     |
 | increment-condition | Espressione booleana che specifica se la richiesta deve essere conteggiata rispetto alla frequenza ( `true` ).        | No       | N/D     |
-| renewal-period      | Periodo di tempo in secondi dopo il quale viene reimpostato il tasso.                                              | Sì      | N/D     |
+| renewal-period      | Lunghezza in secondi della finestra temporale scorrevole durante la quale il numero di richieste consentite non deve superare il valore specificato in `calls` .                                           | Sì      | N/D     |
 | Retry-After-header-name    | Nome di un'intestazione di risposta il cui valore è l'intervallo di tentativi consigliato in secondi dopo il superamento della frequenza di chiamate specificata. |  No | N/D  |
 | Retry-After-nome-variabile    | Nome di una variabile di espressione di criteri che archivia l'intervallo di tentativi consigliato in secondi dopo il superamento della frequenza di chiamate specificata. |  No | N/D  |
 | Nome-intestazione-chiamate rimanenti    | Il nome di un'intestazione di risposta il cui valore dopo ogni esecuzione del criterio è il numero di chiamate rimanenti consentite per l'intervallo di tempo specificato in `renewal-period` . |  No | N/D  |
@@ -317,7 +317,7 @@ Il criterio `quota` consente di applicare una quota rinnovabile o permanente per
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Elemento radice.                                                                                                                                                                                                                                                                                | Sì      |
 | api       | Aggiungere uno o più di questi elementi per imporre una quota di chiamate per le API all'interno del prodotto. Le quote di chiamate API e del prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'API tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.                    | No       |
-| operation | Aggiungere uno o più di questi elementi per imporre una quota di chiamate alle operazioni all'interno di un'API. Le quote di chiamate per le operazioni, l'API e il prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato. | No       |
+| operation | Aggiungere uno o più di questi elementi per imporre una quota di chiamate alle operazioni all'interno di un'API. Le quote di chiamate per le operazioni, l'API e il prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato. | No      |
 
 ### <a name="attributes"></a>Attributi
 
@@ -326,7 +326,7 @@ Il criterio `quota` consente di applicare una quota rinnovabile o permanente per
 | name           | Nome dell'API o dell'operazione per cui è applicabile la quota.                                             | Sì                                                              | N/D     |
 | bandwidth      | Il numero totale massimo di kilobyte consentiti durante l'intervallo di tempo specificato in `renewal-period`. | Devono essere specificati `calls`, `bandwidth` o entrambi. | N/D     |
 | calls          | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.     | Devono essere specificati `calls`, `bandwidth` o entrambi. | N/D     |
-| renewal-period | Periodo, in secondi, dopo il quale la quota si reimposta.                                                  | Sì                                                              | N/D     |
+| renewal-period | Periodo, in secondi, dopo il quale la quota si reimposta. Quando è impostato su, `0` il periodo è impostato su infinito. | Sì                                                              | N/D     |
 
 ### <a name="usage"></a>Utilizzo
 
@@ -390,7 +390,7 @@ Nell'esempio seguente la quota viene associata a una chiave dall'indirizzo IP de
 | calls               | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.     | Devono essere specificati `calls`, `bandwidth` o entrambi. | N/D     |
 | counter-key         | La chiave deve essere usata per i criteri relativi alla quota.                                                                      | Sì                                                              | N/D     |
 | increment-condition | Espressione booleana che specifica se la richiesta deve essere conteggiata ai fini della quota (`true`).             | No                                                               | N/D     |
-| renewal-period      | Periodo, in secondi, dopo il quale la quota si reimposta.                                                  | Sì                                                              | N/D     |
+| renewal-period      | Periodo, in secondi, dopo il quale la quota si reimposta. Quando è impostato su, `0` il periodo è impostato su infinito.                                                   | Sì                                                              | N/D     |
 
 ### <a name="usage"></a>Utilizzo
 

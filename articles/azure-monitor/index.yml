@@ -8,12 +8,12 @@ metadata:
   author: rboucher
   ms.author: robb
   ms.date: 10/08/2019
-  ms.openlocfilehash: 788515589c4e250d6837a189d3cfcfac9e55d2ec
-  ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+  ms.openlocfilehash: 4753e4bb7fca1dadf0266c8fae11313872b29a3b
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100577545"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101725714"
 landingContent:
 - title: Informazioni su Monitoraggio di Azure
   linkLists:
@@ -22,7 +22,7 @@ landingContent:
     - text: Informazioni su Monitoraggio di Azure
       url: overview.md
     - text: A cosa servono i log di Monitoraggio di Azure e Log Analytics?
-      url: platform/data-platform-logs.md
+      url: ./logs/data-platform-logs.md
     - text: Informazioni su Azure Application Insights
       url: app/app-insights-overview.md
     - text: Pagina dell'hub di contenuti di Application Insights
@@ -34,7 +34,7 @@ landingContent:
     - text: Panoramica delle origini dati
       url: agents/data-sources.md
     - text: Panoramica della piattaforma dati
-      url: platform/data-platform.md
+      url: ./data-platform.md
 - title: Guide di avvio rapido di 10 minuti
   linkLists:
   - linkListType: quickstart
@@ -42,15 +42,15 @@ landingContent:
     - text: Monitoraggio e avvisi per le metriche
       url: alerts/alerts-metric.md
     - text: Analizzare i log
-      url: ./log-query/log-analytics-tutorial.md
+      url: ./logs/log-analytics-tutorial.md
     - text: Macchine virtuali di Azure in Log Analytics
-      url: learn/quick-collect-azurevm.md
+      url: ./vm/quick-collect-azurevm.md
     - text: Macchine virtuali di Linux in Log Analytics
-      url: learn/quick-collect-linux-computer.md
+      url: ./vm/quick-collect-linux-computer.md
     - text: Macchine virtuali di Windows in Log Analytics
-      url: learn/quick-collect-windows-computer.md
+      url: ./vm/quick-collect-windows-computer.md
     - text: Avviso per eventi della sottoscrizione
-      url: platform/alerts-activity-log.md
+      url: ./alerts/alerts-activity-log.md
 - title: Monitorare le applicazioni
   linkLists:
   - linkListType: get-started
@@ -60,9 +60,9 @@ landingContent:
     - text: .NET Core
       url: app/asp-net-core.md
     - text: Node.js
-      url: learn/nodejs-quick-start.md
+      url: ./app/nodejs-quick-start.md
     - text: Mobile
-      url: learn/mobile-center-quickstart.md
+      url: ./app/mobile-center-quickstart.md
     - text: Website
       url: app/website-monitoring.md
 - title: Formazione

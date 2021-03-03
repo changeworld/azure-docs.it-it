@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 8fa2a06b1310e7cd825c918e92ea7af9b9b488de
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6130572cedaaabb9d63758a2bc25f6ebd0396562
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596157"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729862"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Provisioning automatico di agenti ed estensioni del Centro sicurezza di Azure
 
@@ -85,7 +85,7 @@ Per abilitare il provisioning automatico dell'agente di Log Analytics:
 
         Se è già disponibile un'area di lavoro Log Analytics, si può scegliere di usare la stessa (sono necessari autorizzazioni di lettura e scrittura per l'area di lavoro). Questa opzione è utile se nell'organizzazione è disponibile un'area di lavoro centralizzata che si vuole usare per la raccolta dati sulla sicurezza. Per altre informazioni, vedere [Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure](../azure-monitor/logs/manage-access.md).
 
-        Se l'area di lavoro selezionata include già una soluzione Security o SecurityCenterFree abilitata, il piano tariffario verrà impostato automaticamente. In caso contrario, installare una soluzione del Centro sicurezza nell'area di lavoro:
+        Se per l'area di lavoro selezionata è già abilitata una soluzione "Security" o "SecurityCenterFree", i prezzi verranno impostati automaticamente. In caso contrario, installare una soluzione del Centro sicurezza nell'area di lavoro:
 
         1. Scegliere **Prezzi e impostazioni** nel menu del Centro sicurezza.
         1. Selezionare l'area di lavoro a cui connettere gli agenti.
@@ -235,7 +235,7 @@ I casi d'uso seguenti specificano il funzionamento del provisioning automatico n
 
 - **L'agente di Log Analytics è installato nel computer, ma non come estensione (agente diretto)** : se l'agente di Log Analytics viene installato direttamente nella VM e non come estensione di Azure, il Centro sicurezza installerà l'estensione dell'agente di Log Analytics e potrebbe aggiornare l'agente all'ultima versione.
 L'agente installato continuerà a generare report per le aree di lavoro già configurate e in più genererà report per l'area di lavoro configurata nel Centro sicurezza (il multihoming è supportato nei computer Windows).
-Se l'area di lavoro configurata è un'area di lavoro utente e non l'area di lavoro predefinita del Centro sicurezza, sarà necessario installare la soluzione "security" o "securityFree" su di essa in modo che il Centro sicurezza avvii l'elaborazione degli eventi provenienti dalle macchine virtuali e dai computer che inviano report a tale area di lavoro.
+Se l'area di lavoro configurata è un'area di lavoro dell'utente (non l'area di lavoro predefinita del Centro sicurezza), è necessario installare la soluzione "Security" o "SecurityCenterFree" in modo che il Centro sicurezza avvii l'elaborazione degli eventi dalle macchine virtuali e dai computer che inviano report a tale area di lavoro.
 
     Per i computer Linux, il multihoming dell'agente non è ancora supportato. Di conseguenza, se viene rilevata un'installazione di un agente esistente, il provisioning automatico non verrà eseguito e la configurazione del computer non verrà modificata.
 
@@ -244,8 +244,8 @@ Se l'area di lavoro configurata è un'area di lavoro utente e non l'area di lavo
 - **L'agente di System Center Operations Manager è installato nel computer**: il Centro sicurezza installerà l'estensione dell'agente di Log Analytics in modalità affiancata con l'istanza esistente di Operations Manager. L'agente di Operations Manager esistente continuerà a inviare report normalmente al server Operations Manager. L'agente di Operations Manager e l'agente di Log Analytics condividono librerie di runtime comuni, che durante questo processo verranno aggiornate all'ultima versione. Se è installato l'agente Operations Manager versione 2012, **non** abilitare il provisioning automatico.
 
 - **È presente un'estensione di VM preesistente**:
-    - Quando l'agente di monitoraggio viene installato come estensione, la configurazione dell'estensione consente il reporting a una sola area di lavoro. Il Centro sicurezza non esegue l'override delle connessioni esistenti alle aree di lavoro degli utenti. Il Centro sicurezza archivierà i dati di sicurezza dalla macchina virtuale nell'area di lavoro già connessa, a condizione che vi sia installata la soluzione "security" o "securityFree". Durante questo processo, il Centro sicurezza può aggiornare l'estensione all'ultima versione.  
-    - Per vedere a quale area di lavoro l'estensione esistente invia i dati, eseguire il test per [convalidare la connettività con il Centro sicurezza di Azure](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). In alternativa, è possibile aprire le aree di lavoro Log Analytics, selezionare un'area di lavoro, selezionare la macchina virtuale ed esaminare la connessione dell'agente di Log Analytics. 
+    - Quando l'agente di monitoraggio viene installato come estensione, la configurazione dell'estensione consente il reporting a una sola area di lavoro. Il Centro sicurezza non esegue l'override delle connessioni esistenti alle aree di lavoro degli utenti. Il Centro sicurezza archivia i dati di sicurezza dalla macchina virtuale nell'area di lavoro già connessa, a condizione che sia stata installata la soluzione "Security" o "SecurityCenterFree". Durante questo processo, il Centro sicurezza può aggiornare l'estensione all'ultima versione.
+    - Per vedere a quale area di lavoro l'estensione esistente invia i dati, eseguire il test per [convalidare la connettività con il Centro sicurezza di Azure](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). In alternativa, è possibile aprire le aree di lavoro Log Analytics, selezionare un'area di lavoro, selezionare la macchina virtuale ed esaminare la connessione dell'agente di Log Analytics.
     - Se si dispone di un ambiente in cui l'agente di Log Analytics è installato in workstation client e invia report a un'area di lavoro Log Analytics esistente, esaminare l'elenco di [sistemi operativi supportati dal Centro sicurezza di Azure](security-center-os-coverage.md) per assicurarsi che il sistema operativo in uso sia supportato. Per altre informazioni, vedere [Clienti di Log Analytics esistenti](./faq-azure-monitor-logs.md).
  
 

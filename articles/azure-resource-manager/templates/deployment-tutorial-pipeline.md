@@ -1,15 +1,15 @@
 ---
 title: Integrazione continua con Azure Pipelines
 description: Informazioni su come creare, testare e distribuire modelli di Azure Resource Manager in modo continuo (modelli di ARM).
-ms.date: 02/16/2021
+ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d367da33d6b9997d77606e9a77a961808d66ff99
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3ff98c1c033c6da4b6bdf40c3b8ecb3347601741
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560892"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722821"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Esercitazione: Integrazione continua dei modelli di ARM con Azure Pipelines
 
@@ -83,8 +83,8 @@ La cartella _CreateWebApp_ è la cartella in cui viene archiviato il modello. Il
 
 Anziché creare i modelli, è possibile scaricare i modelli e salvarli nella cartella _CreateWebApp_.
 
-* Modello principale: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/azuredeploy.json
-* Modello collegato: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/linkedStorageAccount.json
+* Modello principale: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+* Modello collegato: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 Sia il nome della cartella sia i nomi file vengono usati così come sono nella pipeline. Se si modificano questi nomi, sarà necessario aggiornare i nomi usati nella pipeline.
 
@@ -106,7 +106,7 @@ Il file _azuredeploy.json_ è stato aggiunto al repository locale. È quindi nec
     È possibile che venga visualizzato un avviso relativo all'avanzamento riga. Tale avviso può essere ignorato. **main** è il ramo principale.  In genere si crea un ramo per ogni aggiornamento. Per semplificare l'esercitazione, viene usato direttamente il ramo principale.
 
 1. Accedere al repository GitHub da un browser. L'URL è `https://github.com/[YourAccountName]/[YourGitHubRepository]`. Verranno visualizzati la cartella _CreateWebApp_ e i due file all'interno della cartella.
-1. Selezionare _linkedStorageAccount.json_ per aprire il modello.
+1. Selezionare _azuredeploy.json_ per aprire il modello.
 1. Selezionare il pulsante **Non elaborato**. L'URL inizia con `https://raw.githubusercontent.com`.
 1. Copiare l'URL. È necessario fornire questo valore quando si configura la pipeline più avanti nell'esercitazione.
 
@@ -174,10 +174,10 @@ Per creare una pipeline con un passaggio per distribuire un modello:
     * **Azione**: selezionare l'azione **Create Or Update Resource Group** esegue due azioni. 1. Crea un gruppo di risorse se viene specificato un nuovo nome di gruppo di risorse. 2. Distribuisce il modello specificato.
     * **Gruppo di risorse**: Immettere un nuovo nome del gruppo di risorse. Ad esempio, **AzureRmPipeline-rg**.
     * **Località**: Selezionare una posizione per il gruppo di risorse, ad esempio **Stati Uniti centrali**.
-    * **Posizione del modello**: selezionare **Linked artifact**, che indica che l'attività cerca il file del modello direttamente dal repository connesso.
-    * **Modello**: immettere _CreateWebApp/azuredeploy.json_. Se è stato modificato il nome della cartella e il nome del file, è necessario modificare questo valore.
-    * **Parametri del modello**: lasciare vuoto questo campo. I valori dei parametri verranno specificati in **Esegui override dei parametri del modello**.
-    * **Esegui override dei parametri del modello**: immettere `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]` . Sostituire il nome del progetto e l'URL del modello collegato. L'URL del modello collegato è quello annotato al termine del passaggio [Creare un repository GitHub](#create-a-github-repository). Inizia con `https://raw.githubusercontent.com` .
+    * **Percorso del modello**: selezionare l' **URL del file**, il che significa che l'attività Cerca il file modello usando l'URL. Poiché _relativePath_ viene usato nel modello principale e _relativePath_ è supportato solo nelle distribuzioni basate su URI, è necessario usare l'URL qui.
+    * **Collegamento al modello**: immettere l'URL ottenuto alla fine della sezione [preparare un repository GitHub](#prepare-a-github-repository) . Inizia con `https://raw.githubusercontent.com` .
+    * **Collegamento parametri modello**: lasciare vuoto questo campo. I valori dei parametri verranno specificati in **Esegui override dei parametri del modello**.
+    * **Esegui override dei parametri del modello**: immettere `-projectName [EnterAProjectName]` .
     * **Modalità di distribuzione**: selezionare **Incrementale**.
     * **Nome distribuzione**: immettere **DeployPipelineTemplate**. Selezionare **Avanzate** per poter visualizzare **Nome distribuzione**.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: ab26ad08947a4a9929ae0d41b669160b3d159224
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 813160ee19c8447fdfcb705e7a9162a41a0c308c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150225"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739509"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementazione di un'architettura di sicurezza su più livelli con ambienti del servizio app
 Dato che gli ambienti del servizio app forniscono un ambiente di runtime isolato distribuito in una rete virtuale, gli sviluppatori possono creare un'architettura di sicurezza su più livelli offrendo livelli diversi di accesso alla rete per ogni livello applicazione fisico.
@@ -66,7 +66,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 ```
 
-Cancellare e ripetere per il secondo e il terzo ambiente del servizio app upstream ("fe2ase"e "fe3ase").
+Risciacquare e ripetere per il secondo e il terzo ambiente del servizio app upstream ("fe2ase" e "fe3ase").
 
 ```azurepowershell-interactive
 #Grant access to requests from the second upstream web front-end

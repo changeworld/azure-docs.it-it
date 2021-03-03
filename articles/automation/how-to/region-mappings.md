@@ -1,20 +1,24 @@
 ---
 title: Aree supportate per l'area di lavoro Log Analytics collegata
 description: Questo articolo descrive i mapping dell'area supportati tra un account di automazione e un'area di lavoro di Log Analytics in relazione a determinate funzionalità di automazione di Azure.
-ms.date: 01/21/2021
+ms.date: 02/17/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 3b744127b51b0e0db63c158feaf463af4cd0bdcf
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0599dcb57b46d1e48b4035acac8b64edbbe06912
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704322"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720172"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Aree supportate per l'area di lavoro Log Analytics collegata
 
 In automazione di Azure è possibile abilitare le funzionalità di Gestione aggiornamenti, Rilevamento modifiche e inventario e Avvio/Arresto di macchine virtuali durante gli orari di minore attività per i server e le macchine virtuali. Queste funzionalità hanno una dipendenza da un'area di lavoro Log Analytics e pertanto richiedono il collegamento dell'area di lavoro con un account di automazione. Tuttavia, solo determinate aree sono supportate per collegarle insieme. In generale, il mapping *non* è applicabile se si prevede di collegare un account di automazione a un'area di lavoro in cui non sono abilitate queste funzionalità.
+
+I mapping illustrati di seguito si applicano solo al collegamento dell'area di lavoro Log Analytics a un account di automazione. Non si applicano alle macchine virtuali (VM) connesse all'area di lavoro collegata all'account di automazione. Le macchine virtuali non sono limitate alle aree supportate da una determinata area di lavoro Log Analytics. Possono trovarsi in qualsiasi area. Tenere presente che la presenza di macchine virtuali in un'area diversa può influire sui requisiti normativi relativi a stato, locale e paese o ai requisiti di conformità dell'azienda. Le macchine virtuali in un'area diversa possono anche introdurre addebiti per la larghezza di banda dei dati.
+
+Prima di connettere le macchine virtuali a un'area di lavoro in un'area diversa, è necessario esaminare i requisiti e i costi potenziali per confermare e comprendere le implicazioni legali e dei costi.
 
 Questo articolo fornisce i mapping supportati per abilitare e usare correttamente queste funzionalità nell'account di automazione.
 

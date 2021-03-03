@@ -31,6 +31,8 @@
       items:
         - name: Panoramica dell'agente Connected Machine
           href: agent-overview.md
+        - name: Pianificare la distribuzione su larga scala
+          href: plan-at-scale-deployment.md
         - name: Connettere i computer ad Azure Arc dal portale di Azure
           href: onboard-portal.md
         - name: Connettere i computer su larga scala usando un'entità servizio

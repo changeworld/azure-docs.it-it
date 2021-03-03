@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/22/2020
-ms.openlocfilehash: b877cba794f97dd4736e30a72d91695774c8e688
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9352b27002162e08d53bc8166ceddd010be3c8d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614497"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738651"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Risolvere gli avvisi del log in monitoraggio di Azure  
 
 Questo articolo illustra come risolvere i problemi comuni con gli avvisi del log in monitoraggio di Azure. Fornisce anche soluzioni ai problemi comuni relativi alla funzionalità e alla configurazione degli avvisi del log.
 
-Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](../platform/action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](alerts-unified-log.md).
+Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../logs/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](./action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](alerts-unified-log.md).
 
 > [!NOTE]
 > Questo articolo non considera i casi in cui il portale di Azure Mostra una regola di avviso attivata e una notifica non viene eseguita da un gruppo di azione associato. Per questi casi, vedere i dettagli sulla risoluzione dei problemi [qui](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -26,7 +26,7 @@ Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../
 
 ### <a name="data-ingestion-time-for-logs"></a>Tempo di inserimento dati per i log
 
-Monitoraggio di Azure elabora i terabyte dei log dei clienti in tutto il mondo, che possono causare [latenza](../platform/data-ingestion-time.md)di inserimento dei log.
+Monitoraggio di Azure elabora i terabyte dei log dei clienti in tutto il mondo, che possono causare [latenza](../logs/data-ingestion-time.md)di inserimento dei log.
 
 I log sono dati semi-strutturati e intrinsecamente più latenti rispetto alle metriche. Se si verificano più di 4 minuti di ritardo negli avvisi generati, è consigliabile usare gli [avvisi delle metriche](alerts-metric-overview.md). È possibile inviare i dati all'archivio delle metriche dai log usando gli [avvisi delle metriche per i log](alerts-metric-logs.md).
 
@@ -60,7 +60,7 @@ Una [regola di avviso del log configurata in monitoraggio di Azure](./alerts-log
 
 ### <a name="alert-triggered-by-partial-data"></a>Avviso attivato da dati parziali
 
-Monitoraggio di Azure elabora i terabyte dei log dei clienti in tutto il mondo, che possono causare [latenza](../platform/data-ingestion-time.md)di inserimento dei log.
+Monitoraggio di Azure elabora i terabyte dei log dei clienti in tutto il mondo, che possono causare [latenza](../logs/data-ingestion-time.md)di inserimento dei log.
 
 I log sono dati semi-strutturati e intrinsecamente più latenti rispetto alle metriche. Se si verificano molti incendi negli avvisi attivati, è consigliabile usare gli [avvisi delle metriche](alerts-metric-overview.md). È possibile inviare i dati all'archivio delle metriche dai log usando gli [avvisi delle metriche per i log](alerts-metric-logs.md).
 
@@ -87,7 +87,7 @@ SecurityEvent
 
 Non è necessario aggiungere la logica di avviso alla query e questa operazione potrebbe causare problemi. Nell'esempio precedente, se si include `count` nella query, il valore risultante sarà sempre 1, dal momento che il servizio Alert esegue `count` `count` .
 
-La query ottimizzata è il servizio di avviso del log eseguito. È possibile eseguire la query modificata nel [portale](../log-query/log-query-overview.md) log Analytics o nell' [API](/rest/api/loganalytics/).
+La query ottimizzata è il servizio di avviso del log eseguito. È possibile eseguire la query modificata nel [portale](../logs/log-query-overview.md) log Analytics o nell' [API](/rest/api/loganalytics/).
 
 Per le aree di lavoro e Application Insights, viene chiamato **query da eseguire** nel riquadro condizione. In tutti gli altri tipi di risorse selezionare **Visualizza query di avviso finale** nella scheda condizione.
 
@@ -108,7 +108,7 @@ Monitoraggio di Azure Disabilita l'avviso del log dopo una settimana in caso di 
 Quando viene creata una regola di avviso del log, la query viene convalidata per la sintassi corretta. In alcuni casi, tuttavia, la query fornita nella regola di avviso del log può iniziare a non riuscire. Di seguito sono riportati alcuni motivi comuni:
 
 - Le regole sono state create tramite l'API e la convalida è stata ignorata dall'utente.
-- La query [viene eseguita su più risorse](../log-query/cross-workspace-query.md) e una o più risorse sono state eliminate o spostate.
+- La query [viene eseguita su più risorse](../logs/cross-workspace-query.md) e una o più risorse sono state eliminate o spostate.
 - La [query ha esito negativo](https://dev.loganalytics.io/documentation/Using-the-API/Errors) perché:
     - La soluzione di registrazione non è stata [distribuita nell'area di lavoro](../insights/solutions.md#install-a-monitoring-solution), quindi le tabelle non vengono create.
     - I dati sono stati interrotti a una tabella nella query per più di 30 giorni.
@@ -219,5 +219,5 @@ Se la query ha esito negativo per sette giorni in modo continuo, monitoraggio di
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni, fare riferimento agli [avvisi di log in Azure](./alerts-unified-log.md).
-- Altre informazioni sulla [configurazione degli avvisi del log](../log-query/log-query-overview.md).
-- Altre informazioni sulle [query di log](../log-query/log-query-overview.md).
+- Altre informazioni sulla [configurazione degli avvisi del log](../logs/log-query-overview.md).
+- Altre informazioni sulle [query di log](../logs/log-query-overview.md).

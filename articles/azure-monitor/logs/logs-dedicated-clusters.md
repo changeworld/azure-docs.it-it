@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 818cf97a640952de79e84184c52c20575a0cc92b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fe7bd4b9f800b59d2c16d4aa3dadd3626c55b7e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614046"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707643"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Il monitoraggio di Azure registra i cluster dedicati
 
@@ -34,7 +34,7 @@ Una volta creato, il cluster può essere configurato e le aree di lavoro collega
 
 I dati inseriti in cluster dedicati vengono crittografati due volte, una volta a livello di servizio usando chiavi gestite da Microsoft o chiavi [gestite dal cliente](../logs/customer-managed-keys.md)e una volta a livello di infrastruttura usando due algoritmi di crittografia diversi e due chiavi diverse. La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protegge da uno scenario in cui uno degli algoritmi o delle chiavi di crittografia può essere compromesso. In questo caso, il livello di crittografia aggiuntivo continua a proteggere i dati. Il cluster dedicato consente inoltre di proteggere i dati con il controllo dell' [archivio protetto](../logs/customer-managed-keys.md#customer-lockbox-preview) .
 
-Per tutte le operazioni a livello di cluster è necessaria l' `Microsoft.OperationalInsights/clusters/write` autorizzazione azione per il cluster. Questa autorizzazione può essere concessa tramite il proprietario o il collaboratore che contiene l' `*/write` azione o tramite il ruolo di collaboratore log Analytics che contiene l' `Microsoft.OperationalInsights/*` azione. Per altre informazioni sulle autorizzazioni di Log Analytics, vedere [gestire l'accesso ai dati e alle aree di lavoro di log in monitoraggio di Azure](../platform/manage-access.md). 
+Per tutte le operazioni a livello di cluster è necessaria l' `Microsoft.OperationalInsights/clusters/write` autorizzazione azione per il cluster. Questa autorizzazione può essere concessa tramite il proprietario o il collaboratore che contiene l' `*/write` azione o tramite il ruolo di collaboratore log Analytics che contiene l' `Microsoft.OperationalInsights/*` azione. Per altre informazioni sulle autorizzazioni di Log Analytics, vedere [gestire l'accesso ai dati e alle aree di lavoro di log in monitoraggio di Azure](./manage-access.md). 
 
 
 ## <a name="cluster-pricing-model"></a>Modello di determinazione prezzi cluster
@@ -77,7 +77,7 @@ Creare innanzitutto risorse cluster per iniziare a creare un cluster dedicato.
 - **Clustername**: usato a scopo amministrativo. Gli utenti non sono esposti a questo nome.
 - **ResourceGroupName**: come per qualsiasi risorsa di Azure, i cluster appartengono a un gruppo di risorse. Si consiglia di usare un gruppo di risorse IT centrale perché i cluster sono in genere condivisi da molti team dell'organizzazione. Per altre considerazioni sulla progettazione, vedere [progettazione della distribuzione dei log di monitoraggio di Azure](../logs/design-logs-deployment.md)
 - **Località**: un cluster si trova in una determinata area di Azure. Solo le aree di lavoro situate in questa area possono essere collegate a questo cluster.
-- **SkuCapacity**: è necessario specificare il livello di *prenotazione della capacità* (SKU) quando si crea una risorsa *cluster* . Il livello di *prenotazione della capacità* può essere compreso tra 1.000 gb e 3.000 GB al giorno. Se necessario, è possibile aggiornarlo nei passaggi 100 in un secondo momento. Se è necessario un livello di prenotazione di capacità superiore a 3.000 GB al giorno, contattare Microsoft all'indirizzo LAIngestionRate@microsoft.com . Per altre informazioni sui costi del cluster, vedere [gestire i costi per i cluster log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- **SkuCapacity**: è necessario specificare il livello di *prenotazione della capacità* (SKU) quando si crea una risorsa *cluster* . Il livello di *prenotazione della capacità* può essere compreso tra 1.000 gb e 3.000 GB al giorno. Se necessario, è possibile aggiornarlo nei passaggi 100 in un secondo momento. Se è necessario un livello di prenotazione di capacità superiore a 3.000 GB al giorno, contattare Microsoft all'indirizzo LAIngestionRate@microsoft.com . Per altre informazioni sui costi del cluster, vedere [gestire i costi per i cluster log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 Dopo aver creato la risorsa *cluster* , è possibile modificare proprietà aggiuntive, ad esempio *SKU*, * keyVaultProperties o *billingType*. Per altri dettagli, vedere di seguito.
 
@@ -300,7 +300,7 @@ Dopo aver creato la risorsa *cluster* ed è stato effettuato il provisioning com
 - **keyVaultProperties** : aggiorna la chiave in Azure Key Vault. Vedere [Aggiorna cluster con i dettagli dell'identificatore di chiave](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). Contiene i parametri seguenti: *KeyVaultUri*, *nome di codice*, *versione della versione*. 
 - **billingType** : la proprietà *billingType* determina l'attribuzione della fatturazione per la risorsa *cluster* e i relativi dati:
   - **Cluster** (impostazione predefinita): i costi di prenotazione della capacità per il cluster sono attribuiti alla risorsa *cluster* .
-  - **Aree di lavoro** : i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, con la fatturazione della risorsa *cluster* di parte dell'utilizzo se il totale dei dati inseriti per la giornata è inferiore alla prenotazione della capacità. Per ulteriori informazioni sul modello di determinazione prezzi del cluster, vedere [log Analytics cluster dedicati](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) . 
+  - **Aree di lavoro** : i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, con la fatturazione della risorsa *cluster* di parte dell'utilizzo se il totale dei dati inseriti per la giornata è inferiore alla prenotazione della capacità. Per ulteriori informazioni sul modello di determinazione prezzi del cluster, vedere [log Analytics cluster dedicati](./manage-cost-storage.md#log-analytics-dedicated-clusters) . 
 
 > [!NOTE]
 > La proprietà *billingType* non è supportata in PowerShell.
@@ -573,5 +573,5 @@ Usare la chiamata REST seguente per eliminare un cluster:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su [log Analytics la fatturazione del cluster dedicato](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Informazioni su [log Analytics la fatturazione del cluster dedicato](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 - Informazioni sulla [progettazione corretta delle aree di lavoro log Analytics](../logs/design-logs-deployment.md)

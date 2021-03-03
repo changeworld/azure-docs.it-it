@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 756337ce20c827d0c6549181c20fd843fa60c020
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539485"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720954"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametri del server nel database di Azure per MySQL
 
@@ -21,7 +21,7 @@ Questo articolo fornisce considerazioni e linee guida per la configurazione dei 
 
 Il motore MySQL fornisce diverse variabili/parametri del server che possono essere usati per configurare e ottimizzare il comportamento del motore. Alcuni parametri possono essere impostati dinamicamente in fase di esecuzione mentre altri sono "statici", richiedendo un riavvio del server per poter essere applicati.
 
-Database di Azure per MySQL offre la possibilità di modificare il valore dei vari parametri del server MySQL usando il [portale di Azure](./howto-server-parameters.md), l'interfaccia della riga di comando di [Azure](./howto-configure-server-parameters-using-cli.md)e [PowerShell](./howto-configure-server-parameters-using-powershell.md) per soddisfare le esigenze del carico di lavoro.
+Database di Azure per MySQL offre la possibilità di modificare il valore di diversi parametri del server MySQL tramite il [portale di Azure](./howto-server-parameters.md), l'[interfaccia della riga di comando di Azure](./howto-configure-server-parameters-using-cli.md)e [PowerShell](./howto-configure-server-parameters-using-powershell.md), per soddisfare le esigenze del carico di lavoro.
 
 ## <a name="configurable-server-parameters"></a>Parametri del server configurabili
 
@@ -272,7 +272,7 @@ Dopo aver riavviato il database di Azure per il server MySQL, le pagine di dati 
 Per salvare lo stato del pool di buffer al parametro Server Shutdown set server `innodb_buffer_pool_dump_at_shutdown` in `ON` . In modo analogo, impostare il parametro Server `innodb_buffer_pool_load_at_startup` su `ON` per ripristinare lo stato del pool di buffer all'avvio del server. È possibile controllare l'effetto di avvio o riavvio diminuendo e ottimizzando il valore del parametro Server `innodb_buffer_pool_dump_pct` , per impostazione predefinita, questo parametro è impostato su `25` .
 
 > [!Note]
-> I parametri di riscaldamento del pool di buffer InnoDB sono supportati solo nei server di archiviazione per utilizzo generico con archiviazione fino a 16 TB. Per altre informazioni sulle [Opzioni di archiviazione per database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), vedere qui.
+> I parametri di riscaldamento del pool di buffer InnoDB sono supportati solo nei server di archiviazione per utilizzo generico con archiviazione fino a 16 TB. Per altre informazioni sulle [Opzioni di archiviazione per database di Azure per MySQL](./concepts-pricing-tiers.md#storage), vedere qui.
 
 ### <a name="time_zone"></a>time_zone
 

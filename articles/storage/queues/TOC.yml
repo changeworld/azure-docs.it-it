@@ -236,7 +236,7 @@
         - name: Monitoraggio (versione classica)
           items:
             - name: Monitoraggio nel portale di Azure (versione classica)
-              href: ../common/storage-monitor-storage-account.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+              href: ../common/manage-storage-analytics-logs.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Risolvere problemi
       items:
         - name: Problemi di latenza

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 0374c7d304a40031919bae8816d31477e742b9c8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 688adcf0012f8871c4034cbba6ce2ddcacdbcc43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618297"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717146"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 
@@ -26,7 +26,7 @@ Questo articolo fornisce i dettagli sull'onboarding e su come usare Mapping dei 
 * [Dependency Agent](vminsights-enable-overview.md#agents) installato nel computer Windows o nel server Linux.
 
 >[!NOTE]
->Se il Mapping dei servizi è già stato distribuito, è possibile visualizzare il mapping anche in Monitoraggio di Azure per le macchine virtuali, che include le funzionalità aggiuntive per monitorare le prestazioni e l'integrità delle VM. Per altre informazioni, vedere [Descrizione di Monitoraggio di Azure per le macchine virtuali](../vm/vminsights-overview.md). Per informazioni sulle differenze tra la soluzione Mapping dei servizi e la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali, vedere le [domande frequenti](../faq.md#azure-monitor-for-vms)riportate di seguito.
+>Se è già stata eseguita la distribuzione di Mapping dei servizi, è ora possibile visualizzare anche le mappe in VM Insights, che include funzionalità aggiuntive per monitorare l'integrità e le prestazioni delle macchine virtuali. Per altre informazioni, vedere [Panoramica di VM Insights](../vm/vminsights-overview.md). Per informazioni sulle differenze tra la funzionalità di mapping della soluzione Mapping dei servizi e di VM Insights, vedere le [domande frequenti](../faq.md#azure-monitor-for-vms)riportate di seguito.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -241,7 +241,7 @@ Mapping dei servizi si integra con ricerca di log per visualizzare un conteggio 
 
 ## <a name="service-desk-integration"></a>Integrazione di Service Desk
 
-L'integrazione di Mapping dei servizi con il connettore di gestione dei servizi IT è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Log Analytics. L'integrazione in Mapping dei servizi è indicata come "Service Desk". Per informazioni vedere [Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector](../platform/itsmc-overview.md).
+L'integrazione di Mapping dei servizi con il connettore di gestione dei servizi IT è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Log Analytics. L'integrazione in Mapping dei servizi è indicata come "Service Desk". Per informazioni vedere [Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector](../alerts/itsmc-overview.md).
 
 Il riquadro del **Service Desk del computer** elenca tutti gli eventi di gestione dei servizi IT per il server selezionato nell'intervallo di tempo selezionato. Se ci sono elementi correnti, viene visualizzata un'icona per il server e il riquadro del Service Desk del computer elenca gli elementi.
 
@@ -304,7 +304,7 @@ Il pannello relativo agli **aggiornamenti del computer** mostra i dati provenien
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
 
-I dati di inventario di computer e processi di Mapping dei servizi sono disponibili per la [ricerca](../log-query/log-query-overview.md) in Log Analytics. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
+I dati di inventario di computer e processi di Mapping dei servizi sono disponibili per la [ricerca](../logs/log-query-overview.md) in Log Analytics. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
 
 Ogni ora viene generato un record per ogni computer e processo univoco che si aggiunge ai record generati quando un processo o computer viene avviato o caricato in Mapping dei servizi. I record hanno le proprietà descritte nelle tabelle seguenti. I campi e i valori negli eventi ServiceMapComputer_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. I campi e i valori negli eventi ServiceMapProcess_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. Il campo ResourceName_s coincide con il campo del nome nella risorsa di Resource Manager corrispondente. 
 
@@ -550,7 +550,7 @@ Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativ
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle [ricerche nei log](../log-query/log-query-overview.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
+Altre informazioni sulle [ricerche nei log](../logs/log-query-overview.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

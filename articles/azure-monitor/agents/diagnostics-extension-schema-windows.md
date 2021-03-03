@@ -1,17 +1,16 @@
 ---
 title: Schema dell'estensione di diagnostica Windows
 description: Informazioni di riferimento sullo schema di configurazione per l'estensione di diagnostica Windows (WAD) in monitoraggio di Azure.
-ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: eccd4010d796e541e4a0a2c0b0c485b5f18f0366
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4b4b893b222a62619a36d59c2cf042f1aa5590bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618167"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708629"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schema dell'estensione di diagnostica Windows
 Diagnostica di Azure estensione è un agente di monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle risorse di calcolo di Azure. Questo articolo descrive in dettaglio lo schema usato per la configurazione dell'estensione di diagnostica nelle macchine virtuali Windows e in altre risorse di calcolo.

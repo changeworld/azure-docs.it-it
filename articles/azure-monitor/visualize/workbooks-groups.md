@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 2614117d153b1db50d4487bf4045a63af430f3ac
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b36dec79e5d60d97c11b9f8c74790527e1bd19fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615597"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731358"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Come usare i gruppi nelle cartelle di lavoro
 
@@ -143,5 +143,5 @@ Per trasformare un modello più grande in più modelli secondari:
 6. È quindi possibile modificare il passaggio del gruppo per caricare il modello e impostare il campo ID modello sulla cartella di lavoro o sul modello creato nel passaggio 5. Per lavorare con gli ID delle cartelle di lavoro, l'origine deve essere un ID di risorsa cartella di lavoro condivisa. Premere *carica* e il contenuto del gruppo verrà caricato da tale sottomodello anziché salvato nella cartella di lavoro esterna.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Cenni preliminari sulle cartelle di lavoro](../platform/workbooks-overview.md)
+- [Cenni preliminari sulle cartelle di lavoro](./workbooks-overview.md)
 - [Utilizzo di JSONPath con cartelle di lavoro](workbooks-jsonpath.md)

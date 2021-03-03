@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa96845a2bd2f4659da1155c4f75281268dce76d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87490575"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737716"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Pianificare la capacità per il ripristino di emergenza di macchine virtuali Hyper-V 
 
@@ -43,7 +43,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
 
 ## <a name="run-the-quick-planner"></a>Eseguire lo strumento di pianificazione rapida
-1. Scaricare e aprire [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). È necessario eseguire le macro. Quando richiesto, selezionare le opzioni necessarie per abilitare la modifica e il contenuto.
+1. Scaricare e aprire [Site Recovery Capacity Planner](/samples/browse/?redirectedfrom=TechNet-Gallery). È necessario eseguire le macro. Quando richiesto, selezionare le opzioni necessarie per abilitare la modifica e il contenuto.
 
 2. Nella casella di riepilogo **Select a planner type** (Selezionare un tipo di strumento di pianificazione) selezionare **Quick Planner** (Strumento di pianificazione rapida).
 
@@ -81,7 +81,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
 ## <a name="run-the-detailed-planner"></a>Eseguire lo strumento di pianificazione dettagliata
 
-1. Scaricare e aprire [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). È necessario eseguire le macro. Quando richiesto, selezionare le opzioni necessarie per abilitare la modifica e il contenuto.
+1. Scaricare e aprire [Site Recovery Capacity Planner](/samples/browse/?redirectedfrom=TechNet-Gallery). È necessario eseguire le macro. Quando richiesto, selezionare le opzioni necessarie per abilitare la modifica e il contenuto.
 
 2. Nella casella di riepilogo **Select a planner type** (Selezionare un tipo di strumento di pianificazione) selezionare **Detailed Planner** (Strumento di pianificazione dettagliata).
 
@@ -89,7 +89,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
 3. Nel foglio di lavoro **Workload Qualification** (Qualifica carico di lavoro) immettere le informazioni necessarie. È necessario compilare tutti i campi contrassegnati.
 
-   a. In **Core processore**specificare il numero totale di core in un server di origine.
+   a. In **Core processore** specificare il numero totale di core in un server di origine.
 
    b. In **Memory allocation (in MBs)** (Allocazione memoria in MB) specificare le dimensioni della RAM di un server di origine.
 

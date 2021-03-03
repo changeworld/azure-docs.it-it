@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e783e5dd3b0f1952928d1c36c682c5be1cba2599
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 924397c9c81d2a38ae74b95a8f7133ced8bde0d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044391"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736543"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gestire automaticamente i dispositivi nei dispositivi gemelli digitali di Azure usando il servizio Device provisioning (DPS)
 
@@ -174,7 +174,7 @@ Eseguire i passaggi descritti nella Guida introduttiva per [*creare un hub event
 
 ### <a name="create-an-azure-function"></a>Creare una funzione di Azure
 
-Successivamente, verrà creata una funzione attivata da Hub eventi all'interno di un'app per le funzioni. È possibile usare l'app per le funzioni creata nell'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)) o personalizzata. 
+Successivamente, si vedrà come creare una funzione attivata da Hub eventi all'interno di un'app per le funzioni. È possibile usare l'app per le funzioni creata nell'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)) o personalizzata. 
 
 Denominare il trigger dell'hub eventi *lifecycleevents* e connettere il trigger dell'hub eventi all'hub eventi creato nel passaggio precedente. Se è stato usato un nome di hub eventi diverso, modificarlo in modo che corrisponda al nome del trigger riportato di seguito.
 
@@ -223,7 +223,7 @@ Per attivare il processo di ritiro, è necessario eliminare manualmente il dispo
 
 Nella [prima metà di questo articolo](#auto-provision-device-using-device-provisioning-service)è stato creato un dispositivo nell'hub Internet e un dispositivo gemello digitale corrispondente. 
 
-A questo punto, passare all'hub Internet e quindi eliminare il dispositivo. è possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) o nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs). 
+A questo punto, passare all'hub Internet e quindi eliminare il dispositivo. è possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) o nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs). 
 
 Il dispositivo verrà rimosso automaticamente dai dispositivi gemelli digitali di Azure. 
 

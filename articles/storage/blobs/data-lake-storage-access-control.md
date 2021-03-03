@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: c1e2b6abe378df1450967ee0e1df6021ca0d5744
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: d8ef616ef059424846d5c42a91262881b8f6d30b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650372"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701808"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Elenchi di controllo di accesso (ACL) in Azure Data Lake Storage Gen2
 
@@ -285,7 +285,7 @@ Le assegnazioni di ruolo di Azure ereditano. Le assegnazioni scorrono dalle riso
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 supporta l'ereditarietà degli elenchi di controllo di accesso?
 
-Gli ACL predefiniti possono essere usati per impostare gli ACL per le nuove sottodirectory figlio e i file creati nella directory padre. Per aggiornare gli ACL per gli elementi figlio esistenti, è necessario aggiungere, aggiornare o rimuovere gli ACL in modo ricorsivo per la gerarchia di directory desiderata. Per altre informazioni, vedere [impostare elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake storage Gen2](recursive-access-control-lists.md). 
+Gli ACL predefiniti possono essere usati per impostare gli ACL per le nuove sottodirectory figlio e i file creati nella directory padre. Per aggiornare gli ACL per gli elementi figlio esistenti, è necessario aggiungere, aggiornare o rimuovere gli ACL in modo ricorsivo per la gerarchia di directory desiderata. Per altre informazioni, vedere [impostare elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake storage Gen2](#set-access-control-lists). 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quali autorizzazioni sono necessarie per eliminare in modo ricorsivo una directory e il relativo contenuto?
 

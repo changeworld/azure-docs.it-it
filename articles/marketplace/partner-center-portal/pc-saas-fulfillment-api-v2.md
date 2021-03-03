@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 0d7259972693b9ca12e0801007cbd3c0af45ca1c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2acf5178e7d1cfdf907146d733150a48e9696a5e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937332"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712352"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API di evasione SaaS versione 2 nel Marketplace commerciale
 
@@ -972,4 +972,4 @@ Vedere [il supporto per il programma Commercial Marketplace nel centro per i par
 
 Per altre opzioni per le offerte SaaS nel Marketplace commerciale, vedere le [API del servizio di misurazione del Marketplace commerciale](marketplace-metering-service-apis.md) .
 
-Esaminare e usare l' [SDK Saas](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) basato sulle API descritte in questo documento.
+Esaminare e utilizzare i [client per diversi linguaggi di programmazione ed esempi](https://github.com/microsoft/commercial-marketplace-samples).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: 9a7a8868497433ea0de8f2f8b32f8e8fbaa497eb
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 3a0b645acd7c21ff0416c748cdd2caf7041be508
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537185"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730814"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Linee guida per la distribuzione responsabile della tecnologia Voice sintetica
 
@@ -64,6 +64,6 @@ Gli utenti con problemi di riconoscimento vocale desiderano apportare aggiorname
 
 ## <a name="see-also"></a>Vedi anche
 
-* [Divulgazione per il talento vocale](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [Come divulgare](concepts-disclosure-guidelines.md)
 * [Schemi di progettazione della divulgazione](concepts-disclosure-patterns.md)

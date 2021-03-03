@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 6b1403b12c05420c6296cbafd0d4ee0bc02f8dd4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 665137688a000433a9101a77342fa6f9350d7141
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618117"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714324"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Creare un avviso del log con un modello di Resource Manager
 
-Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare l'esecuzione di una o più azioni mediante i [gruppi di azioni](../platform/action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](../platform/alerts-unified-log.md).
+Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../logs/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare l'esecuzione di una o più azioni mediante i [gruppi di azioni](./action-groups.md). [Altre informazioni sulla funzionalità e la terminologia degli avvisi del log](./alerts-unified-log.md).
 
-Questo articolo illustra come usare un modello di [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per configurare gli [avvisi del log](../platform/alerts-unified-log.md) in monitoraggio di Azure. I modelli di Resource Manager consentono di configurare gli avvisi a livello di codice in modo coerente e riproducibile tra gli ambienti. Gli avvisi del log vengono creati nel `Microsoft.Insights/scheduledQueryRules` provider di risorse. Vedere le informazioni di riferimento sulle API per [le regole di query pianificate API](/rest/api/monitor/scheduledqueryrules/).
+Questo articolo illustra come usare un modello di [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per configurare gli [avvisi del log](./alerts-unified-log.md) in monitoraggio di Azure. I modelli di Resource Manager consentono di configurare gli avvisi a livello di codice in modo coerente e riproducibile tra gli ambienti. Gli avvisi del log vengono creati nel `Microsoft.Insights/scheduledQueryRules` provider di risorse. Vedere le informazioni di riferimento sulle API per [le regole di query pianificate API](/rest/api/monitor/scheduledqueryrules/).
 
 I passaggi di base sono i seguenti:
 
@@ -26,15 +26,15 @@ I passaggi di base sono i seguenti:
 4. Distribuire il modello usando un metodo di distribuzione qualsiasi.
 
 > [!NOTE]
-> I dati di log da un' [area di lavoro log Analytics](../log-query/log-analytics-tutorial.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](../platform/alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](../platform/alerts-metric-logs.md).
+> I dati di log da un' [area di lavoro log Analytics](../logs/log-analytics-tutorial.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](./alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](./alerts-metric-logs.md).
 
 > [!NOTE]
-> Avvisi di log per Log Analytics usati per essere gestiti tramite l' [API log Analytics Alert](../platform/api-alerts.md) legacy e i modelli legacy di [log Analytics le ricerche salvate e gli avvisi](../insights/solutions.md). [Altre informazioni sul trasferimento all'API ScheduledQueryRules corrente](alerts-log-api-switch.md).
+> Avvisi di log per Log Analytics usati per essere gestiti tramite l' [API log Analytics Alert](./api-alerts.md) legacy e i modelli legacy di [log Analytics le ricerche salvate e gli avvisi](../insights/solutions.md). [Altre informazioni sul trasferimento all'API ScheduledQueryRules corrente](alerts-log-api-switch.md).
 
 
 ## <a name="simple-template-up-to-api-version-2018-04-16"></a>Modello semplice (fino all'API versione 2018-04-16)
 
-Modello di [creazione di regole di query pianificate](/rest/api/monitor/scheduledqueryrules/createorupdate) in base al [numero di avvisi del log di risultati](../platform/alerts-unified-log.md#count-of-the-results-table-rows) (set di dati di esempio come variabili):
+Modello di [creazione di regole di query pianificate](/rest/api/monitor/scheduledqueryrules/createorupdate) in base al [numero di avvisi del log di risultati](./alerts-unified-log.md#count-of-the-results-table-rows) (set di dati di esempio come variabili):
 
 ```json
 {
@@ -109,7 +109,7 @@ Questo JSON può essere salvato e distribuito usando [Azure Resource Manager in 
 
 ## <a name="template-with-cross-resource-query-up-to-api-version-2018-04-16"></a>Modello con query tra risorse (fino all'API versione 2018-04-16)
 
-Modello di [creazione di regole di query pianificate](/rest/api/monitor/scheduledqueryrules/createorupdate) in base alla [misurazione delle metriche](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) che esegue query [tra risorse](../log-query/cross-workspace-query.md) (set di dati di esempio come variabili):
+Modello di [creazione di regole di query pianificate](/rest/api/monitor/scheduledqueryrules/createorupdate) in base alla [misurazione delle metriche](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) che esegue query [tra risorse](../logs/cross-workspace-query.md) (set di dati di esempio come variabili):
 
 ```json
 {
@@ -432,7 +432,7 @@ Questo JSON può essere salvato e distribuito usando [Azure Resource Manager in 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sugli [avvisi del log](../platform/alerts-unified-log.md)
-* Informazioni sulla [gestione degli avvisi di log](../platform/alerts-log.md)
-* Informazioni sulle [azioni webhook per gli avvisi del log](../platform/alerts-log-webhook.md)
-* Altre informazioni sulle [query di log](../log-query/log-query-overview.md).
+* Informazioni sugli [avvisi del log](./alerts-unified-log.md)
+* Informazioni sulla [gestione degli avvisi di log](./alerts-log.md)
+* Informazioni sulle [azioni webhook per gli avvisi del log](./alerts-log-webhook.md)
+* Altre informazioni sulle [query di log](../logs/log-query-overview.md).

@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 16bb173bdbe390da46f2dc105baa9bc73d25a3dc
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: fee000009be90a083406725fe7f1e8c4382af3e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557032"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701451"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servizi di Azure che supportano le zone di disponibilità
 
@@ -106,6 +106,8 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 |     Macchine virtuali: Dv3-Series                              | : large_blue_diamond:  |
 |     Macchine virtuali: ESv3-Series                             | : large_blue_diamond:  |
 |     Macchine virtuali: Ev3-Series                              | : large_blue_diamond:  |
+|     Macchine virtuali: serie F                                | : large_blue_diamond:  |
+|     Macchine virtuali: FS-Series                               | : large_blue_diamond:  |
 |     Rete virtuale                                           | : large_blue_diamond:  |
 |     Gateway VPN                                                 | : large_blue_diamond:  |
 
@@ -129,11 +131,18 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | Collegamento privato di Azure                              |      : large_blue_diamond:  |
 | Azure Red Hat OpenShift                         |      : large_blue_diamond:  |
 | Azure Site Recovery                             |      : large_blue_diamond:  |
+| Azure SQL: macchina virtuale                      |      : large_blue_diamond:  |
+| Ricerca di Azure                                    |      : large_blue_diamond:  |
+| Web application firewall di Azure                  |      : large_blue_diamond:  |
+| Servizi cognitivi: Analisi del testo              |      : large_blue_diamond:  |
 | Registro contenitori                              |      : large_blue_diamond:  |
 | Griglia di eventi                                      |      : large_blue_diamond:  |
 | Network Watcher                                 |      : large_blue_diamond:  |
+| Network Watcher: Analisi del traffico              |      : large_blue_diamond:  |
 | Power BI Embedded                               |      : large_blue_diamond:  |
 | Archiviazione BLOB Premium                            |      : large_blue_diamond:  |
+| Archiviazione: file Premium di Azure                    |      : large_blue_diamond:  |
+| Macchine virtuali: host dedicato di Azure          |      : large_blue_diamond:  |
 | Macchine virtuali: Ddsv4-Series                  |      : large_blue_diamond:  |
 | Macchine virtuali: Ddv4-Series                   |      : large_blue_diamond:  |
 | Macchine virtuali: Dsv4-Series                   |      : large_blue_diamond:  |
@@ -145,6 +154,9 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | Macchine virtuali: Fsv2-Series                   |      : large_blue_diamond:  |
 | Macchine virtuali: serie M                      |      : large_blue_diamond:  |
 | Rete WAN virtuale                                     |      : large_blue_diamond:  |
+| Rete WAN virtuale: ExpressRoute                       |      : large_blue_diamond:  |
+| Rete WAN virtuale: gateway VPN da punto a sito          |      : large_blue_diamond:  |
+| Rete WAN virtuale: gateway VPN da sito a sito           |      : large_blue_diamond:  |
 
 
 **Non a livello di area**
@@ -153,21 +165,30 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 |-----------------------------------------------|:-------------------:|
 |     DNS di Azure                                 |     : globe_with_meridians:             |
 |     Azure Active Directory                  |     : globe_with_meridians:             |
+|     Azure Advanced Threat Protection          |     : globe_with_meridians:             |
 |     Azure Advisor                             |     : globe_with_meridians:             |
+|     Azure Blueprints                          |     : globe_with_meridians:             |
 |     Servizi Azure Bot                        |     : globe_with_meridians:             |
 |     Azure Defender per l'it                  |     : globe_with_meridians:             |
+|     Frontdoor di Azure                           |     : globe_with_meridians:             |
 |     Azure Information Protection            |     : globe_with_meridians:             |
 |     Faro di Azure                        |     : globe_with_meridians:             |
 |     Applicazioni gestite di Azure              |     : globe_with_meridians:             |
 |     Mappe di Azure                                |     : globe_with_meridians:             |
 |     Criteri di Azure                              |     : globe_with_meridians:             |
 |     Grafico delle risorse di Azure                    |     : globe_with_meridians:             |
+|     Azure Sentinel                            |     : globe_with_meridians:             |
 |     Azure Stack                               |     : globe_with_meridians:             |
 |     Azure Stack Edge                        |     : globe_with_meridians:             |
 |     Cloud Shell                               |     : globe_with_meridians:             |
+|     Rete CDN                  |     : globe_with_meridians:             |
+|     Gestione costi                           |     : globe_with_meridians:             |
 |     Customer Lockbox per Microsoft Azure    |     : globe_with_meridians:             |
+|     Intune                                    |     : globe_with_meridians:             |
 |     Servizio di peering Microsoft Azure         |     : globe_with_meridians:             |
 |     portale di Microsoft Azure                  |     : globe_with_meridians:             |
+|     Microsoft Cloud App Security              |     : globe_with_meridians:             |
+|     Microsoft Graph                           |     : globe_with_meridians:             |
 |     Centro sicurezza                         |     : globe_with_meridians:             |
 |     Gestione traffico                         |     : globe_with_meridians:             |
 

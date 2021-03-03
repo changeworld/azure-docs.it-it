@@ -3,12 +3,12 @@ title: Creare un cloud privato della soluzione Azure VMware
 description: Procedura per creare un cloud privato della soluzione VMware di Azure usando il portale di Azure.
 ms.topic: include
 ms.date: 02/17/2021
-ms.openlocfilehash: 983dccfaa9ea43955bfecc68bbbe432c579d51d1
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653135"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725405"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -26,8 +26,6 @@ ms.locfileid: "100653135"
    | **Nome risorsa** | Nome del cloud privato della soluzione Azure VMware. |
    | **SKU** | Selezionare il valore di SKU seguente: AV36 |
    | **Host** | Numero di host da aggiungere al cluster del cloud privato. Il valore predefinito è 3 e può essere aumentato o ridotto dopo la distribuzione.  |
-   | **Password dell'amministratore di vCenter** | Immettere la password dell'amministratore del cloud. |
-   | **Password di NSX-T Manager** | Immettere la password amministratore di NSX-T. |
    | **Blocco di indirizzi** | Immettere un blocco di indirizzi IP per la rete CIDR per il cloud privato, ad esempio 10.175.0.0/22. |
    | **Rete virtuale** | Selezionare una rete virtuale o crearne una nuova per il cloud privato della soluzione Azure VMware.  |
 

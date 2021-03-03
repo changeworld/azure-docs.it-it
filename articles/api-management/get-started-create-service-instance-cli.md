@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido - Creare un'istanza di Gestione API di Azure tramite l'interfaccia della riga di comando (anteprima)
+title: "Guida introduttiva: creare un'istanza di gestione API di Azure con CLI"
 description: Creare una nuova istanza del servizio Gestione API di Azure usando l'interfaccia della riga di comando di Azure.
 author: dlepow
 ms.service: api-management
@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 863cb6cd10664e14966898045cb2b1861ef75b9f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
-ms.translationtype: HT
+ms.openlocfilehash: 72d1faac02a21f23d46eb992af1d501bca89e71f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887451"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688077"
 ---
-# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>Avvio rapido: Creare una nuova istanza del servizio Gestione API di Azure usando l'interfaccia della riga di comando di Azure (anteprima)
+# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>Guida introduttiva: creare una nuova istanza del servizio gestione API di Azure usando l'interfaccia della riga di comando di Azure
 
 Gestione API di Azure consente alle organizzazioni di pubblicare API per permettere a sviluppatori esterni, partner e interni di sfruttare tutte le potenzialità dei dati e dei servizi. Gestione API fornisce le competenze fondamentali per assicurare un programma API di successo attraverso il coinvolgimento degli sviluppatori, informazioni aziendali approfondite, strumenti di analisi, sicurezza e protezione. Gestione API consente di creare e gestire gateway API moderni per servizi back-end esistenti ospitati ovunque. Per altre informazioni, vedere la [panoramica](api-management-key-concepts.md).
 
-Questo argomento di avvio rapido descrive i passaggi per la creazione di una nuova istanza di Gestione API tramite i comandi [az apim](/cli/azure/apim) dell'interfaccia della riga di comando di Azure. I comandi nel gruppo di comandi `az apim` sono attualmente disponibili in anteprima ed è possibile che vengano modificati o rimossi in una versione futura.
+Questo argomento di avvio rapido descrive i passaggi per la creazione di una nuova istanza di Gestione API tramite i comandi [az apim](/cli/azure/apim) dell'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

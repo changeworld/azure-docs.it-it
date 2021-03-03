@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3701d9dde569432d8bf1910f04395df0b916b75a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1e20ed632ee5b100098f7f35bcca16d157668cad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721362"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Baseline della sicurezza di Azure per Azure Load Balancer
 
@@ -296,7 +296,7 @@ Abilitare e caricare i dati in Sentinel di Azure o in una SIEM di terze parti in
 
 - [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

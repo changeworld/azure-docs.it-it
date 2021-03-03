@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518080"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695746"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare e analizzare un tenant di Power BI (anteprima)
 
@@ -98,11 +98,13 @@ Aggiungere prima di tutto un flag di funzionalità speciale all'URL di competenz
     > Per Power BI, la registrazione e l'analisi dell'origine dati sono consentite solo per un'istanza.
 
 
-4. Assegnare un nome all'analisi. Si noti che l'unico metodo di autenticazione supportato è **Identity gestito**.
+4. Assegnare un nome all'analisi. Selezionare quindi l'opzione per includere o escludere le aree di lavoro personali. Si noti che l'unico metodo di autenticazione supportato è **Identity gestito**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Immagine che mostra la configurazione dell'analisi Power BI":::
 
-    Il nome dell'analisi deve avere una lunghezza compresa tra 3-63 caratteri e deve contenere solo lettere, numeri, caratteri di sottolineatura e trattini.  Gli spazi non sono consentiti.
+    > [!Note]
+    > * Il cambio della configurazione di un'analisi per includere o escludere un'area di lavoro personale attiverà un'analisi completa dell'origine Power bi
+    > * Il nome dell'analisi deve avere una lunghezza compresa tra 3-63 caratteri e deve contenere solo lettere, numeri, caratteri di sottolineatura e trattini. Gli spazi non sono consentiti.
 
 5. Configurare un trigger di analisi. Le opzioni disponibili sono **una sola volta**, **ogni 7 giorni** e **ogni 30 giorni**.
 

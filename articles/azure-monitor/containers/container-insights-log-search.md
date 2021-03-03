@@ -1,22 +1,22 @@
 ---
-title: Come eseguire query sui log da monitoraggio di Azure per i contenitori | Microsoft Docs
-description: Il monitoraggio di Azure per i contenitori raccoglie le metriche e i dati di log e in questo articolo vengono descritti i record e sono incluse le query di esempio.
+title: Come eseguire query sui log da informazioni dettagliate sul contenitore | Microsoft Docs
+description: Il contenitore Insights raccoglie le metriche e i dati di log e in questo articolo vengono descritti i record e sono incluse le query di esempio.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 8f02d900ba931768c7f8acebc1b124aff777da18
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79efa714548adbde67774cab741bf953a4ff1e83
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620036"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711111"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Come eseguire query sui log da monitoraggio di Azure per i contenitori
+# <a name="how-to-query-logs-from-container-insights"></a>Come eseguire query sui log da informazioni dettagliate sul contenitore
 
-Monitoraggio di Azure per i contenitori raccoglie le metriche delle prestazioni, i dati di inventario e le informazioni sullo stato di integrità dagli host e dai contenitori del contenitore. I dati vengono raccolti ogni tre minuti e trasmessi all'area di lavoro Log Analytics in monitoraggio di Azure. Questi dati sono disponibili per le [query](../log-query/log-query-overview.md) in monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
+Il contenitore Insights raccoglie le metriche delle prestazioni, i dati di inventario e le informazioni sullo stato di integrità dagli host e dai contenitori del contenitore. I dati vengono raccolti ogni tre minuti e trasmessi all'area di lavoro Log Analytics in monitoraggio di Azure. Questi dati sono disponibili per le [query](../logs/log-query-overview.md) in monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
 
 ## <a name="container-records"></a>Record dei contenitori
 
-Nella tabella seguente vengono forniti i dettagli dei record raccolti da monitoraggio di Azure per i contenitori. Per un elenco delle descrizioni delle colonne, vedere il riferimento per le tabelle [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) e [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) .
+Nella tabella seguente vengono forniti i dettagli dei record raccolti dalle informazioni dettagliate sul contenitore. Per un elenco delle descrizioni delle colonne, vedere il riferimento per le tabelle [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) e [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) .
 
 | Data | Origine dati | Tipo di dati | Campi |
 |------|-------------|-----------|--------|
@@ -110,4 +110,4 @@ L'output Mostra risultati simili a quelli dell'esempio seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il monitoraggio di Azure per i contenitori non include un set predefinito di avvisi. Per informazioni su come creare avvisi consigliati per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi, vedere la pagina [relativa alla creazione di avvisi di prestazioni con monitoraggio di Azure per i contenitori](./container-insights-log-alerts.md) .
+Il contenitore Insights non include un set predefinito di avvisi. Per informazioni su come creare avvisi consigliati per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi, vedere la pagina relativa alla [creazione di avvisi sulle prestazioni con informazioni dettagliate sul contenitore](./container-insights-log-alerts.md) .

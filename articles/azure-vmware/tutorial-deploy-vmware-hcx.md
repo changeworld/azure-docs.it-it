@@ -3,12 +3,12 @@ title: Esercitazione - Distribuire e configurare VMware HCX
 description: Informazioni su come distribuire e configurare una soluzione VMware HCX per il cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.openlocfilehash: a792f8dbc646f61377cf0a88e1a6e386340f23e8
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
-ms.translationtype: HT
+ms.openlocfilehash: e1df53a7aea0b7642828bba80cd7237e26a7182f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357892"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728230"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Distribuire e configurare VMware HCX
 
@@ -76,12 +76,15 @@ Prima di distribuire l'appliance virtuale nell'istanza locale di vCenter, occorr
 
    :::image type="content" source="media/tutorial-vmware-hcx/find-hcx-ip-address.png" alt-text="Screenshot dell'indirizzo IP di VMware HCX." lightbox="media/tutorial-vmware-hcx/find-hcx-ip-address.png":::
 
-1. Selezionare **Gestisci** > **Identità** e quindi **Password amministratore di vCenter** per identificare la password.
+1. Selezionare **Gestisci**  >  **identità**. 
+
+   Vengono visualizzati gli URL e le credenziali dell'utente per vCenter e NSX-T Manager del cloud privato.
 
    > [!TIP]
-   > La password di vCenter è stata definita durante la configurazione del cloud privato. Si tratta della stessa password che si userà per accedere a HCX Manager della soluzione Azure VMware.
+   > La password di vCenter è stata definita durante la configurazione del cloud privato. Si tratta della stessa password che si userà per accedere a HCX Manager della soluzione Azure VMware. È possibile selezionare **genera una nuova password** per generare nuove password vCenter e NSX-T.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="Trovare la password di HCX." lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Visualizzazione di URL e credenziali di vCenter e NSX Manager del cloud privato." border="true":::
+
 
 1. Aprire una finestra del browser, accedere a HCX Manager della soluzione Azure VMware sulla porta 443 di `https://x.x.x.9` con le credenziali utente **cloudadmin\@vsphere.local**
 

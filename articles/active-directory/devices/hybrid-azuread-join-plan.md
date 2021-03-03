@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4ed5dfee80c33009874361ae6b4d23ec00bc26
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 419823086fd7ba05ba5023216be302576350e30a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573331"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687286"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -95,6 +95,7 @@ Come primo passaggio della pianificazione, è consigliabile esaminare l'ambiente
 Se i dispositivi Windows 10 aggiunti a un dominio sono [Azure ad registrati](overview.md#getting-devices-in-azure-ad) nel tenant, è possibile che si verifichi il doppio stato del dispositivo Azure ad ibrido aggiunto e Azure ad registrato. È consigliabile eseguire l'aggiornamento a Windows 10 1803 (con KB4489894 applicato) o versione successiva per risolvere automaticamente questo scenario. Nelle versioni precedenti alla 1803 sarà necessario rimuovere manualmente lo stato Azure AD registrato prima di abilitare Azure AD ibrido join. Nelle versioni 1803 e successive sono state apportate le modifiche seguenti per evitare questo doppio stato:
 
 - Gli eventuali stati Azure AD registrati per un utente vengono rimossi automaticamente <i>dopo che il dispositivo è stato Azure ad ibrido aggiunto e lo stesso utente ha eseguito l'accesso</i>. Se, ad esempio, l'utente A dispone di un Azure AD stato registrato sul dispositivo, lo stato doppio per l'utente A viene pulito solo quando l'utente A accede al dispositivo. Se sono presenti più utenti nello stesso dispositivo, lo stato doppio viene pulito singolarmente quando tali utenti eseguono l'accesso. Oltre a rimuovere lo stato Azure AD registrato, Windows 10 Annulla la registrazione del dispositivo da Intune o da un'altra soluzione MDM, se la registrazione è avvenuta durante la registrazione del Azure AD tramite la registrazione automatica.
+- Questa modifica non ha alcun effetto sulla Azure AD stato registrato in tutti gli account locali del dispositivo. È applicabile solo agli account di dominio. Quindi Azure AD stato registrato sugli account locali non viene rimosso automaticamente anche dopo l'accesso dell'utente, poiché l'utente non è un utente di dominio. 
 - È possibile impedire che il dispositivo aggiunto al dominio venga registrato Azure AD aggiungendo il seguente valore del registro di sistema a HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - In Windows 10 1803, se è configurato Windows Hello for business, l'utente deve reinstallare Windows Hello for business dopo la pulizia dello stato doppio. Questo problema è stato risolto con KB4512509
 

@@ -3,23 +3,23 @@ title: Usare Azure Image Builder con una raccolta immagini per macchine virtuali
 description: Creare versioni di immagini della raccolta condivisa di Azure usando Azure Image Builder e Azure PowerShell.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/05/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: fd30c2bf4e2c0bc04850704e412aad1db2b10143
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e8caf9f742217161c60ce90351989999f18adabb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677246"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694088"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: Creare un'immagine Windows e distribuirla in una raccolta immagini condivise 
 
 Questo articolo illustra come usare Azure Image Builder e Azure PowerShell per creare una versione dell'immagine di una [raccolta immagini condivise](../shared-image-galleries.md) e quindi distribuirla a livello globale. Questa operazione può essere eseguita anche con l'[interfaccia della riga di comando di Azure](../linux/image-builder-gallery.md).
 
-Per configurare l'immagine, si userà un modello con estensione json. Il file con estensione json usato è [helloImageTemplateforSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Si eseguiranno il download e la modifica di una versione locale del modello, per cui questo articolo è stato scritto usando una sessione locale di PowerShell.
+Per configurare l'immagine, si userà un modello con estensione json. Il file con estensione json usato è [helloImageTemplateforSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Si eseguiranno il download e la modifica di una versione locale del modello, per cui questo articolo è stato scritto usando una sessione locale di PowerShell.
 
 Per distribuire l'immagine in una raccolta immagini condivise, il modello usa [sharedImage](../linux/image-builder-json.md#distribute-sharedimage) come valore per la sezione `distribute`.
 
@@ -53,6 +53,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Forma
 Get-AzResourceProvider -ProviderNamespace Microsoft.Storage | Format-table -Property ResourceTypes,RegistrationState 
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
+Get-AzResourceProvider -ProviderNamespace Microsoft.Network | Format-table -Property ResourceTypes,RegistrationState
 ```
 
 Se non restituiscono `Registered`, usare il comando seguente per registrare i provider:
@@ -62,6 +63,12 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+Installare i moduli di PowerShell:
+```powerShell
+'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
 ```
 
 ## <a name="create-variables"></a>Creare le variabili
@@ -123,7 +130,7 @@ $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageR
 Questo comando Scarica un modello di definizione di ruolo di Azure e aggiorna il modello con i parametri specificati in precedenza.
 
 ```powershell
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
 # download config
@@ -190,7 +197,7 @@ Scaricare il modello con estensione json e configurarlo con le variabili.
 $templateFilePath = "armTemplateWinSIG.json"
 
 Invoke-WebRequest `
-   -Uri "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json" `
+   -Uri "https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json" `
    -OutFile $templateFilePath `
    -UseBasicParsing
 
@@ -220,7 +227,7 @@ Il modello deve essere inviato al servizio, in modo da scaricare eventuali artef
 New-AzResourceGroupDeployment `
    -ResourceGroupName $imageResourceGroup `
    -TemplateFile $templateFilePath `
-   -apiversion "2019-05-01-preview" `
+   -apiversion "2020-02-14" `
    -imageTemplateName $imageTemplateName `
    -svclocation $location
 ```
@@ -232,14 +239,17 @@ Invoke-AzResourceAction `
    -ResourceName $imageTemplateName `
    -ResourceGroupName $imageResourceGroup `
    -ResourceType Microsoft.VirtualMachineImages/imageTemplates `
-   -ApiVersion "2019-05-01-preview" `
+   -ApiVersion "2020-02-14" `
    -Action Run
 ```
 
 La creazione dell'immagine e la sua replica in entrambe le aree possono richiedere del tempo. Attendere il completamento di questa parte prima di procedere alla creazione di una macchina virtuale.
 
-Per informazioni sulle opzioni disponibili per automatizzare il recupero dello stato di compilazione dell'immagine, vedere il file [Readme](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) per questo modello in GitHub.
-
+Per informazioni sulle opzioni per l'automazione del recupero dello stato di compilazione dell'immagine, vedere [Readme]
+```powershell
+Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup |
+  Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, ProvisioningState
+```
 
 ## <a name="create-the-vm"></a>Creare la VM
 
@@ -310,7 +320,7 @@ Eliminare prima il modello di gruppo di risorse; in caso contrario, il gruppo di
 Ottenere il valore ResourceID del modello di immagine. 
 
 ```powerShell
-$resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview"
+$resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14"
 ```
 
 Eliminare il modello di immagine.

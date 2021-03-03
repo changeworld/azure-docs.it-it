@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: b73fa9702a95897afbca53e2de70dcabc04a4665
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: abcd95a0c433b59df6e7a564e5db948ea2a9eaf5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613897"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717214"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guida di riferimento per visualizzare i riquadri di progettazione in monitoraggio di Azure
 Utilizzando Progettazione viste in monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nell'portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
@@ -36,7 +36,7 @@ I riquadri di Progettazione viste disponibili sono descritti nella tabella segue
 Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative proprietà.
 
 > [!NOTE]
-> I riquadri nelle viste sono basati sulle [query di log](../log-query/log-query-overview.md) nell'area di lavoro log Analytics. Attualmente non supportano [query tra risorse](../log-query/cross-workspace-query.md) per recuperare dati da Application Insights.
+> I riquadri nelle viste sono basati sulle [query di log](../logs/log-query-overview.md) nell'area di lavoro log Analytics. Attualmente non supportano [query tra risorse](../logs/cross-workspace-query.md) per recuperare dati da Application Insights.
 
 ## <a name="number-tile"></a>Riquadro Numero
 Il riquadro **Numero** visualizza il numero di record restituiti da una query di log e un'etichetta.
@@ -173,5 +173,5 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [query di log](../log-query/log-query-overview.md) per supportare le query nei riquadri.
+* Informazioni sulle [query di log](../logs/log-query-overview.md) per supportare le query nei riquadri.
 * Aggiungere [parti della visualizzazione](view-designer-parts.md) alla vista personalizzata.

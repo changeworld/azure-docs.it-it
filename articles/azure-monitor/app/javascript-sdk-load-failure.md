@@ -6,12 +6,12 @@ author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6295a56abbf3466c68b968c935936dbc10e22fb5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333257"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711417"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Risoluzione degli errori di caricamento SDK per app Web JavaScript
 
@@ -68,7 +68,7 @@ Per ridurre al minimo gli errori di connettività di rete intermittenti, sono st
  
 ## <a name="application-insights-cdn-outage"></a>Interruzione Application Insights rete CDN
 
-È possibile verificare se esiste un Application Insights interruzione della rete CDN tentando di accedere all'endpoint della rete CDN direttamente dal browser, ad esempio https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js) da una posizione diversa da quella degli utenti finali, probabilmente dal computer di sviluppo (presupponendo che l'organizzazione non abbia bloccato questo dominio).
+È possibile verificare se si verifica un'interruzione della rete CDN Application Insights tentando di accedere all'endpoint della rete CDN direttamente dal browser (ad esempio, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js o https://js.monitor.azure.com/scripts/b/ai.2.min.js) da una posizione diversa rispetto a quella degli utenti finali probabilmente dal computer di sviluppo (presupponendo che l'organizzazione non abbia bloccato questo dominio).
 
 Se si conferma che si verifica un'interruzione, è possibile [creare un nuovo ticket di supporto](https://azure.microsoft.com/support/create-ticket/) oppure provare a modificare l'URL usato per scaricare l'SDK.
 
@@ -106,7 +106,7 @@ Se sono presenti eccezioni segnalate nello script SDK (ad esempio ai.2.min.js), 
 
 Per verificare la presenza di errori di configurazione, modificare la configurazione passata al frammento (se non è già presente) in modo che includa solo la chiave di strumentazione come valore stringa.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js ",<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > cfg: {<br />
 > instrumentationKey: "INSTRUMENTATION_KEY"<br />
 > }});<br />
@@ -134,7 +134,7 @@ Se l'inizializzazione non riesce ancora, provare ad abilitare l' ```enableDebug`
 > [!WARNING]
 > Si tratta di un'impostazione solo per gli sviluppatori e non deve mai essere abilitata in un ambiente di produzione completo perché i dati di telemetria andranno persi.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.js ",<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > cfg: {<br />
 > instrumentationKey: "INSTRUMENTATION_KEY",<br />
 > enableDebug: true<br />

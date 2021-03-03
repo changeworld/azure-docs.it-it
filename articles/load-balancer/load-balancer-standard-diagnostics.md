@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: fbde2b95b7aca205f164dc45c1f0170cc4da74fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29584a9453fa052745f417cba0bbe940766c30e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581892"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699080"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse
 
@@ -72,18 +72,7 @@ Per visualizzare le metriche delle risorse di Load Balancer Standard:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperare le metriche multidimensionali a livello di codice tramite le API
 
-Per informazioni sull'API per il recupero dei valori e delle definizioni delle metriche multidimensionali, vedere la [Procedura dettagliata di API REST di Azure Monitoring](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Queste metriche possono essere scritte in un account di archiviazione aggiungendo un' [impostazione di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) per la categoria ' tutte le metriche '. 
-
-### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurare gli avvisi per le metriche multidimensionali ###
-
-Azure Load Balancer Standard supporta gli avvisi facilmente configurabili per le metriche multidimensionali. Configurare soglie personalizzate per metriche specifiche per attivare avvisi con livelli di gravità diversi per offrire un'esperienza di monitoraggio delle risorse senza problemi.
-
-Per configurare gli avvisi:
-1. Passare al Sottopannello avviso per il servizio di bilanciamento del carico
-1. Creare una nuova regola di avviso
-    1.  Configurare la condizione di avviso
-    1.  Opzionale Aggiungi gruppo di azione per il ripristino automatico
-    1.  Assegnare la gravità, il nome e la descrizione dell'avviso che consente la reazione intuitiva
+Per informazioni sull'API per il recupero dei valori e delle definizioni delle metriche multidimensionali, vedere la [Procedura dettagliata di API REST di Azure Monitoring](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Queste metriche possono essere scritte in un account di archiviazione aggiungendo un' [impostazione di diagnostica](../azure-monitor/essentials/diagnostic-settings.md) per la categoria ' tutte le metriche '. 
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Scenari di diagnostica comuni e visualizzazioni consigliate
 
@@ -228,6 +217,32 @@ In questo grafico vengono visualizzate le informazioni seguenti:
 Il grafico consente al cliente di risolvere i problemi della distribuzione in modo autonomo senza dover fare supposizioni o contattare il supporto per sapere se si stanno verificando altri problemi. Il servizio non era disponibile perché i probe di integrità hanno avuto esito negativo a causa di una configurazione errata o di un'applicazione non riuscita.
 </details>
 
+## <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurare gli avvisi per le metriche multidimensionali ###
+
+Azure Load Balancer Standard supporta gli avvisi facilmente configurabili per le metriche multidimensionali. Configurare soglie personalizzate per metriche specifiche per attivare avvisi con livelli di gravità diversi per offrire un'esperienza di monitoraggio delle risorse senza problemi.
+
+Per configurare gli avvisi:
+1. Passare al Sottopannello avviso per il servizio di bilanciamento del carico
+1. Creare una nuova regola di avviso
+    1.  Configurare la condizione di avviso
+    1.  Opzionale Aggiungi gruppo di azione per il ripristino automatico
+    1.  Assegnare la gravità, il nome e la descrizione dell'avviso che consente la reazione intuitiva
+
+### <a name="inbound-availability-alerting"></a>Avvisi di disponibilità in ingresso
+Per generare un avviso per la disponibilità in ingresso, è possibile creare due avvisi distinti usando le metriche di disponibilità del percorso dati e dello stato del probe di integrità. I clienti possono avere scenari diversi che richiedono una logica di avviso specifica, ma gli esempi seguenti saranno utili per la maggior parte delle configurazioni.
+
+Con la disponibilità del percorso dati è possibile generare avvisi ogni volta che una specifica regola di bilanciamento del carico diventa non disponibile. È possibile configurare questo avviso impostando una condizione di avviso per la disponibilità del percorso dati e la suddivisione in base a tutti i valori correnti e ai valori futuri sia per la porta front-end che per l'indirizzo IP front-end. Se si imposta la logica di avviso su un valore minore o uguale a 0, l'avviso verrà generato ogni volta che una regola di bilanciamento del carico smette di rispondere. Consente di impostare la granularità e la frequenza di valutazione dell'aggregazione in base alla valutazione desiderata. 
+
+Con lo stato del probe di integrità è possibile inviare un avviso quando una determinata istanza di back-end non riesce a rispondere al Probe di integrità per un periodo di tempo significativo. Configurare la condizione di avviso per usare la metrica dello stato del probe di integrità e dividere per indirizzo IP back-end e porta back-end. In questo modo è possibile inviare un avviso separatamente per la capacità di ogni singola istanza di back-end di gestire il traffico su una porta specifica. Usare il tipo di aggregazione **media** e impostare il valore di soglia in base alla frequenza con cui viene eseguita l'analisi dell'istanza di back-end e a quanto si considera la soglia di integrità. 
+
+È anche possibile inviare un avviso a livello di pool back-end non suddividendo le dimensioni in base alle dimensioni e usando il tipo di aggregazione **medio** . Questo consentirà di configurare regole di avviso, ad esempio un avviso quando il 50% dei membri del pool back-end non è integro.
+
+### <a name="outbound-availability-alerting"></a>Avvisi sulla disponibilità in uscita
+Per configurare la disponibilità in uscita, è possibile configurare due avvisi distinti usando il numero di connessioni SNAT e le metriche delle porte SNAT usate.
+
+Per rilevare gli errori di connessione in uscita, configurare un avviso utilizzando il numero di connessioni SNAT e filtrando lo stato di connessione = operazione non riuscita. Utilizzare l'aggregazione **totale** . È quindi possibile suddividere questo valore in base all'indirizzo IP del back-end impostato su tutti i valori correnti e futuri per l'avviso separatamente per ogni istanza di back-end che si verificano connessioni Impostare la soglia su un valore maggiore di zero o un numero maggiore se si prevede di visualizzare alcuni errori di connessione in uscita.
+
+Tramite le porte SNAT utilizzate è possibile segnalare un rischio maggiore di esaurimento di SNAT e di errori di connessione in uscita. Assicurarsi di eseguire la suddivisione in base all'indirizzo IP e al protocollo back-end quando si usa questo avviso e usare l'aggregazione **media** . Impostare la soglia su un valore maggiore di una o più percentuali del numero di porte allocate per ogni istanza ritenute non sicure. Ad esempio, è possibile configurare un avviso con livello di gravità basso quando un'istanza back-end usa il 75% delle porte allocate e un livello di gravità elevato quando USA 90% o 100% delle porte allocate.  
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Stato di integrità delle risorse
 
 Lo stato di integrità per le risorse di Load Balancer Standard viene esposto tramite **Integrità risorse** in **Monitoraggio > Integrità dei servizi**. Viene valutato ogni **due minuti** misurando la disponibilità del percorso dati che determina se gli endpoint di bilanciamento del carico front-end sono disponibili.
@@ -235,8 +250,8 @@ Lo stato di integrità per le risorse di Load Balancer Standard viene esposto tr
 | Stato di integrità delle risorse | Descrizione |
 | --- | --- |
 | Disponibile | Il servizio di bilanciamento del carico standard è integro e disponibile. |
-| Degraded | Il servizio di bilanciamento del carico standard dispone di eventi avviati dalla piattaforma o dagli utenti che influiscano sulle prestazioni. La metrica di disponibilità del percorso dati ha restituito un valore di integrità inferiore al 90% ma maggiore del 25% per almeno due minuti. Si verificheranno un notevole effetto sulle prestazioni. [Seguire la guida alla risoluzione dei problemi di RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) per determinare se sono presenti eventi avviati dall'utente che potrebbero compromettere la disponibilità.
-| Non disponibile | La risorsa di Load Balancer standard non è integra. La metrica di disponibilità del percorso di DataPath ha segnalato meno il 25% di integrità per almeno due minuti. Si verificherà un impatto significativo sulle prestazioni o la mancanza di disponibilità per la connettività in ingresso. Potrebbero verificarsi eventi di utenti o piattaforme che provocano l'indisponibilità. [Seguire la guida alla risoluzione dei problemi di RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) per determinare se sono presenti eventi avviati dall'utente che incidono sulla disponibilità. |
+| Degraded | Il servizio di bilanciamento del carico standard dispone di eventi avviati dalla piattaforma o dagli utenti che influiscano sulle prestazioni. La metrica di disponibilità del percorso dati ha restituito un valore di integrità inferiore al 90% ma maggiore del 25% per almeno due minuti. Si verificheranno un notevole effetto sulle prestazioni. [Seguire la guida alla risoluzione dei problemi di RHC](./troubleshoot-rhc.md) per determinare se sono presenti eventi avviati dall'utente che potrebbero compromettere la disponibilità.
+| Non disponibile | La risorsa di Load Balancer standard non è integra. La metrica di disponibilità del percorso di DataPath ha segnalato meno il 25% di integrità per almeno due minuti. Si verificherà un impatto significativo sulle prestazioni o la mancanza di disponibilità per la connettività in ingresso. Potrebbero verificarsi eventi di utenti o piattaforme che provocano l'indisponibilità. [Seguire la guida alla risoluzione dei problemi di RHC](./troubleshoot-rhc.md) per determinare se sono presenti eventi avviati dall'utente che incidono sulla disponibilità. |
 | Sconosciuto | Lo stato di integrità delle risorse per la risorsa Load Balancer standard non è stato ancora aggiornato o non ha ricevuto informazioni sulla disponibilità del percorso dati per gli ultimi 10 minuti. Questo stato deve essere temporaneo e rifletterà lo stato corretto non appena vengono ricevuti i dati. |
 
 Per visualizzare l'integrità delle risorse della configurazione pubblica di Load Balancer Standard:
@@ -263,7 +278,7 @@ La descrizione dello stato di integrità delle risorse generiche è disponibile 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sull'uso di [Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) per visualizzare le metriche preconfigurate per la Load Balancer
+- Informazioni sull'uso di [Insights](./load-balancer-insights.md) per visualizzare le metriche preconfigurate per la Load Balancer
 - Altre informazioni su [Load Balancer Standard](./load-balancer-overview.md).
 - Altre informazioni sulla [connettività in uscita di Load Balancer](./load-balancer-outbound-connections.md).
 - Informazioni su [Monitoraggio di Azure](../azure-monitor/overview.md).

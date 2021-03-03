@@ -1,14 +1,14 @@
 ---
 title: Come arrestare il monitoraggio del cluster di Azure Red Hat OpenShift V3 | Microsoft Docs
-description: Questo articolo descrive come arrestare il monitoraggio del cluster Azure Red Hat OpenShift con monitoraggio di Azure per i contenitori.
+description: Questo articolo descrive come arrestare il monitoraggio del cluster OpenShift di Azure Red Hat con informazioni dettagliate sul contenitore.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7e6ab46940ed29a98b3988c00c92d6c691d6e0f0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6a278898942e40d3347791d31a3c38341df01f7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621207"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731817"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Come arrestare il monitoraggio del cluster Azure Red Hat OpenShift V3
 
@@ -21,7 +21,7 @@ ms.locfileid: "100621207"
 > Seguire questa guida per [creare un cluster Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
 > Per domande specifiche, [Contattaci](mailto:aro-feedback@microsoft.com).
 
-Dopo aver abilitato il monitoraggio del cluster Azure Red Hat OpenShift versione 3. x, è possibile arrestare il monitoraggio del cluster con monitoraggio di Azure per i contenitori se si decide di non monitorarlo più. Questo articolo illustra come eseguire questa operazione usando il modello di Azure Resource Manager fornito.  
+Dopo aver abilitato il monitoraggio del cluster Azure Red Hat OpenShift versione 3. x, è possibile arrestare il monitoraggio del cluster con informazioni dettagliate sul contenitore se si decide di non monitorarlo più. Questo articolo illustra come eseguire questa operazione usando il modello di Azure Resource Manager fornito.  
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
@@ -137,4 +137,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con la modalità di eliminazione di un'area di lavoro, vedere [eliminare un'area di lavoro di Azure log Analytics](../platform/delete-workspace.md).
+Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con la modalità di eliminazione di un'area di lavoro, vedere [eliminare un'area di lavoro di Azure log Analytics](../logs/delete-workspace.md).

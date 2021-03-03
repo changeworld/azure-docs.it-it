@@ -4,12 +4,12 @@ description: Questo articolo illustra le funzionalità di monitoraggio e notific
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550345"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713372"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di backup di Azure
 
@@ -119,6 +119,18 @@ Se la frequenza è stata impostata su un digest orario e un avviso viene generat
 Per disattivare o risolvere un avviso attivo, è possibile selezionare l'elemento di elenco corrispondente all'avviso che si desidera disattivare. Verrà visualizzata una schermata in cui sono visualizzate informazioni dettagliate sull'avviso, con un pulsante di **disattivazione** nella parte superiore. Se si seleziona questo pulsante, lo stato dell'avviso verrà modificato su **inattivo**. È anche possibile disattivare un avviso facendo clic con il pulsante destro del mouse sull'elemento dell'elenco corrispondente a tale avviso e selezionando **Disattiva**.
 
 ![Inattivazione avviso di insieme di credenziali RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+## <a name="azure-monitor-alerts-for-azure-backup-preview"></a>Avvisi di monitoraggio di Azure per backup di Azure (anteprima)
+
+Backup di Azure fornisce anche avvisi tramite monitoraggio di Azure, per consentire agli utenti di avere un'esperienza coerente per la gestione degli avvisi in diversi servizi di Azure, incluso il backup. Con gli avvisi di monitoraggio di Azure è possibile indirizzare gli avvisi a qualsiasi canale di notifica supportato da backup di Azure, ad esempio posta elettronica, ITSM, webhook, app per la logica e così via.
+
+Questa funzionalità è attualmente disponibile per i database di Azure per il server PostgreSQL, i BLOB di Azure e Azure Managed Disks. Gli avvisi vengono generati per gli scenari seguenti ed è possibile accedervi passando a un insieme di credenziali per il backup e facendo clic sulla voce di menu **Alerts** :
+
+- Elimina dati di backup
+- Errore di backup (per ottenere avvisi per un errore di backup, è necessario registrare il flag AFEC denominato **EnableAzureBackupJobFailureAlertsToAzureMonitor** tramite il portale di anteprima)
+- Ripristino non riuscito (per ottenere avvisi per un errore di ripristino, è necessario registrare il flag AFEC denominato **EnableAzureBackupJobFailureAlertsToAzureMonitor** tramite il portale di anteprima)
+
+Per altre informazioni sugli avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

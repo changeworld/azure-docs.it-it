@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 02/26/2021
 ms.author: justinha
-ms.openlocfilehash: 059f711269fd5f1eea9675f238a6003eaf1a0534
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
-ms.translationtype: HT
+ms.openlocfilehash: e8887cc39b48f090ff223e5e83c13d65b921dc0b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618111"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687499"
 ---
-# <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Esercitazione: Creare e usare set di repliche per la resilienza o la georilevazione in Azure Active Directory Domain Services (anteprima)
+# <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services"></a>Esercitazione: creare e usare set di repliche per la resilienza o la georilevazione in Azure Active Directory Domain Services
 
 Per migliorare la resilienza di un dominio gestito di Azure Active Directory Domain Services (Azure AD DS) o eseguire la distribuzione in località geografiche aggiuntive vicine alle applicazioni, è possibile usare *set di repliche*. Ogni spazio dei nomi di dominio gestito di Azure AD DS, ad esempio *aaddscontoso.com*, contiene un set di repliche iniziale. La possibilità di creare set di repliche aggiuntivi in altre aree di Azure supporta la resilienza geografica di un dominio gestito.
 
 È possibile aggiungere un set di repliche a qualsiasi rete virtuale con peering in qualsiasi area di Azure che supporti Azure AD DS.
-
-I set di repliche sono una funzionalità in anteprima pubblica di Azure AD Domain Services. Tenere presenti le differenze esistenti a livello di supporto per le funzionalità ancora in anteprima. Per altre informazioni sulle anteprime, vedere il [contratto di servizio per le anteprime di Azure Active Directory](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -78,7 +76,7 @@ Per creare un set di repliche aggiuntivo, seguire questa procedura:
 
 1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**.
 1. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
-1. Sul lato sinistro selezionare **Replica sets (preview)** (Set di repliche - anteprima). Ogni dominio gestito include un set di repliche iniziale nell'area selezionata, come illustrato nello screenshot di esempio seguente:
+1. Sul lato sinistro selezionare **set di repliche**. Ogni dominio gestito include un set di repliche iniziale nell'area selezionata, come illustrato nello screenshot di esempio seguente:
 
     ![Screenshot di esempio per la visualizzazione e l'aggiunta di un set di repliche nel portale di Azure](./media/tutorial-create-replica-set/replica-set-list.png)
 
@@ -113,7 +111,7 @@ Per eliminare un set di repliche, seguire questa procedura:
 
 1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**.
 1. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
-1. Sul lato sinistro selezionare **Replica sets (preview)** (Set di repliche - anteprima). Nell'elenco dei set di repliche selezionare il menu di scelta rapida **...** accanto al set di repliche da eliminare.
+1. Sul lato sinistro selezionare **set di repliche**. Nell'elenco dei set di repliche selezionare il menu di scelta rapida **...** accanto al set di repliche da eliminare.
 1. Scegliere **Elimina** dal menu di scelta rapida e quindi confermare che si vuole eliminare il set di repliche.
 
 > [!NOTE]

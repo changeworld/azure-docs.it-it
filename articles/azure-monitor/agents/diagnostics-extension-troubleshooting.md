@@ -1,17 +1,16 @@
 ---
 title: Risoluzione dei problemi dell'estensione Diagnostica di Azure
 description: Risoluzione dei problemi per l'uso di Diagnostica di Azure nelle macchine virtuali di Azure, in Service Fabric o in Servizi cloud.
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 431b19595fbe2f5bc1f989e712c9c104af8e839b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617326"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711519"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).

@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 72e00306563e8cccdd476cf0ae5bfb4ddaa63ecf
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b402dec76f88bfdb0bc4758f94cc6e8e279d8040
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661648"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749932"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -66,7 +66,7 @@ Per l'autenticazione, il client deve fare riferimento al pacchetto `azure-commun
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version> 
+    <version>1.0.0-beta.4</version> 
 </dependency>
 ```
 
@@ -141,11 +141,11 @@ La risposta `chatThreadClient` viene utilizzata per eseguire operazioni sul thre
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(firstUser)
+    .setCommunicationIdentifier(firstUser)
     .setDisplayName("Participant Display Name 1");
     
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(secondUser)
+    .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -207,13 +207,15 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 `listMessages` restituisce tipi diversi di messaggi che possono essere identificati da `chatMessage.getType()`. Questi tipi sono:
 
-- `Text`: Messaggio di chat normale inviato da un partecipante del thread.
+- `text`: Messaggio di chat normale inviato da un partecipante del thread.
 
-- `ThreadActivity/TopicUpdate`: messaggio di sistema che indica che l'argomento è stato aggiornato.
+- `html`: Messaggio di chat HTML inviato da un partecipante del thread.
 
-- `ThreadActivity/AddMember`: messaggio di sistema che indica che uno o più membri sono stati aggiunti al thread di chat.
+- `topicUpdated`: messaggio di sistema che indica che l'argomento è stato aggiornato.
 
-- `ThreadActivity/DeleteMember`: messaggio di sistema che indica che un membro è stato rimosso dal thread di chat.
+- `participantAdded`: Messaggio di sistema che indica che uno o più partecipanti sono stati aggiunti al thread di chat.
+
+- `participantRemoved`: Messaggio di sistema che indica che un partecipante è stato rimosso dal thread di chat.
 
 Per altri dettagli, vedere [Tipi di messaggi](../../../concepts/chat/concepts.md#message-types).
 
@@ -224,7 +226,7 @@ Dopo aver creato un thread di chat, è possibile aggiungere e rimuovere utenti. 
 Usare `addParticipants` il metodo per aggiungere partecipanti al thread identificato da ThreadId.
 
 - Consente `listParticipants` di elencare i partecipanti da aggiungere al thread di chat.
-- `user`, obbligatorio, è il CommunicationUserIdentifier creato da CommunicationIdentityClient nella Guida introduttiva del [token di accesso utente](../../access-tokens.md) .
+- `communicationIdentifier`, obbligatorio, è il CommunicationIdentifier creato da CommunicationIdentityClient nella Guida introduttiva del [token di accesso utente](../../access-tokens.md) .
 - `display_name`, facoltativo, è il nome visualizzato per il partecipante del thread.
 - `share_history_time`, facoltativo, è l'ora da cui la cronologia delle chat viene condivisa con il partecipante. Per condividere la cronologia dall'inizio del thread di chat, impostare questa proprietà su qualsiasi data uguale o precedente all'ora di creazione del thread. Per non condividere alcuna cronologia precedente a quando il partecipante è stato aggiunto, impostarlo sulla data corrente. Per condividere una cronologia parziale, impostarla sulla data richiesta.
 
@@ -232,11 +234,11 @@ Usare `addParticipants` il metodo per aggiungere partecipanti al thread identifi
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(user1)
+    .setCommunicationIdentifier(identity1)
     .setDisplayName("Display Name 1");
 
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(user2)
+    .setCommunicationIdentifier(identity2)
     .setDisplayName("Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -247,14 +249,14 @@ AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsO
 chatThreadClient.addParticipants(addChatParticipantsOptions);
 ```
 
-## <a name="remove-user-from-a-chat-thread"></a>Rimuovere un utente da un thread di chat
+## <a name="remove-participant-from-a-chat-thread"></a>Rimuovi partecipante da un thread di chat
 
-Analogamente all'aggiunta di un utente a un thread, è possibile rimuovere utenti da un thread di chat. A tale scopo, è necessario tenere traccia delle identità utente dei partecipanti aggiunti.
+Analogamente all'aggiunta di un partecipante a un thread, è possibile rimuovere i partecipanti da un thread di chat. A tale scopo, è necessario tenere traccia delle identità dei partecipanti aggiunti.
 
-Usare `removeParticipant` , dove `user` è il CommunicationUserIdentifier creato.
+Usare `removeParticipant` , dove `identifier` è il CommunicationIdentifier creato.
 
 ```Java
-chatThreadClient.removeParticipant(user);
+chatThreadClient.removeParticipant(identity);
 ```
 
 ## <a name="run-the-code"></a>Eseguire il codice

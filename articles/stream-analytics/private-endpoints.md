@@ -1,5 +1,5 @@
 ---
-title: Creare ed eliminare gli endpoint privati in un cluster di Analisi di flusso di Azure
+title: Creare ed eliminare endpoint privati gestiti in un cluster di analisi di flusso di Azure
 description: Informazioni su come gestire gli endpoint privati in un cluster di Analisi di flusso di Azure.
 author: sidramadoss
 ms.author: sidram
@@ -7,28 +7,28 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: cff02bb4b7d0f7e969589a9977a89f89e2674ffc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: 9939130782594c03a497d98ce6cd9b33b28eadec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019415"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718404"
 ---
-# <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Creare ed eliminare gli endpoint privati in un cluster di Analisi di flusso di Azure
+# <a name="create-and-delete-managed-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Creare ed eliminare endpoint privati gestiti in un cluster di analisi di flusso di Azure
 
-È possibile connettere i processi di Analisi di flusso di Azure in esecuzione in un cluster alle risorse di input e output protette da un firewall o da una rete virtuale di Azure. In primo luogo, è necessario creare un endpoint privato per una risorsa, ad esempio Hub eventi di Azure o Database SQL di Azure, nel cluster di Analisi di flusso. Approvare quindi la connessione all'endpoint privato dall'input o dall'output.
+È possibile connettere i processi di Analisi di flusso di Azure in esecuzione in un cluster alle risorse di input e output protette da un firewall o da una rete virtuale di Azure. In primo luogo, si crea un endpoint privato gestito per una risorsa, ad esempio hub eventi di Azure o database SQL di Azure, nel cluster di analisi di flusso. Approvare quindi la connessione all'endpoint privato dall'input o dall'output.
 
 Dopo l'approvazione della connessione, qualsiasi processo in esecuzione nel cluster di Analisi di flusso può accedere alla risorsa tramite l'endpoint privato. Questo articolo illustra come creare ed eliminare gli endpoint privati in un cluster di Analisi di flusso. È possibile creare endpoint privati per Database SQL di Azure, Archiviazione di Azure, Azure Data Lake Storage Gen2, hub eventi di Azure e bus di servizio di Azure. Gli endpoint privati per alti servizi verranno aggiunti prossimamente. 
 
-## <a name="create-private-endpoint-in-stream-analytics-cluster"></a>Creare un endpoint privato nel cluster di Analisi di flusso
+## <a name="create-managed-private-endpoint-in-stream-analytics-cluster"></a>Creare un endpoint privato gestito nel cluster di analisi di flusso
 
 Questa sezione illustra come creare un endpoint privato in un cluster di Analisi di flusso.
 
 1. Nel portale di Azure individuare e selezionare il cluster di Analisi di flusso.
 
-1. In **Impostazioni** selezionare **Endpoint privati**.
+1. In **Impostazioni** selezionare **endpoint privati gestiti**.
 
-1. Selezionare **Aggiungi endpoint privato** e immettere le informazioni seguenti per scegliere la risorsa a cui si vuole accedere in modo sicuro tramite un endpoint privato.
+1. Selezionare **nuovo** e immettere le informazioni seguenti per scegliere la risorsa a cui si vuole accedere in modo sicuro tramite un endpoint privato.
 
    |Impostazione|Valore|
    |---|---|
@@ -47,11 +47,11 @@ Questa sezione illustra come creare un endpoint privato in un cluster di Analisi
 
 1. È possibile tornare al cluster di Analisi di flusso per vedere il cambiamento di stato da **Approvazione cliente in sospeso** a **In attesa di configurazione DNS** e quindi a **Configurazione completata** nel giro di un paio di minuti.
 
-## <a name="delete-a-private-endpoint-in-a-stream-analytics-cluster"></a>Eliminare un endpoint privato in un cluster di Analisi di flusso
+## <a name="delete-a-managed-private-endpoint-in-a-stream-analytics-cluster"></a>Eliminare un endpoint privato gestito in un cluster di analisi di flusso
 
 1. Nel portale di Azure individuare e selezionare il cluster di Analisi di flusso.
 
-1. In **Impostazioni** selezionare **Endpoint privati**.
+1. In **Impostazioni** selezionare **endpoint privati gestiti**.
 
 1. Selezionare l'endpoint privato che si vuole eliminare e scegliere **Elimina**.
 

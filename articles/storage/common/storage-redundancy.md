@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556439"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726837"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -87,10 +87,11 @@ L'area primaria viene selezionata durante la creazione di un account di archivia
 
 Archiviazione di Azure offre due opzioni per la copia dei dati in un'area secondaria:
 
-- L'**archiviazione con ridondanza geografica (GRS)** copia i dati in modo sincrono tre volte all'interno di un'unica posizione fisica nell'area primaria usando l'archiviazione con ridondanza locale. Copia quindi i dati in modo asincrono in un'unica posizione fisica nell'area secondaria.
-- L'**archiviazione con ridondanza geografica della zona (GZRS)** copia i dati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria usando l'archiviazione con ridondanza della zona. Copia quindi i dati in modo asincrono in un'unica posizione fisica nell'area secondaria.
+- L'**archiviazione con ridondanza geografica (GRS)** copia i dati in modo sincrono tre volte all'interno di un'unica posizione fisica nell'area primaria usando l'archiviazione con ridondanza locale. Copia quindi i dati in modo asincrono in un'unica posizione fisica nell'area secondaria. All'interno dell'area secondaria i dati vengono copiati in modo sincrono tre volte usando con ridondanza locale.
+- L'**archiviazione con ridondanza geografica della zona (GZRS)** copia i dati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria usando l'archiviazione con ridondanza della zona. Copia quindi i dati in modo asincrono in un'unica posizione fisica nell'area secondaria. All'interno dell'area secondaria i dati vengono copiati in modo sincrono tre volte usando con ridondanza locale.
 
-La differenza principale tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica della zona è il modo in cui i dati vengono replicati nell'area primaria. All'interno dell'area secondaria, i dati vengono sempre replicati in modo sincrono tre volte usando con ridondanza locale. CON ridondanza locale nell'area secondaria protegge i dati da errori hardware.
+> [!NOTE]
+> La differenza principale tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica della zona è il modo in cui i dati vengono replicati nell'area primaria. All'interno dell'area secondaria, i dati vengono sempre replicati in modo sincrono tre volte usando con ridondanza locale. CON ridondanza locale nell'area secondaria protegge i dati da errori hardware.
 
 Con GRS o GZRS, i dati nell'area secondaria non sono disponibili per l'accesso in lettura o in scrittura, a meno che non esista un failover nell'area secondaria. Per l'accesso in lettura all'area secondaria, configurare l'account di archiviazione in modo che usi l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) o l'archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS). Per altre informazioni, vedere [Accesso in lettura ai dati nell'area secondaria](#read-access-to-data-in-the-secondary-region).
 

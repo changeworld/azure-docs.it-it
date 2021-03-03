@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c00205e2931400caa64f35db962d94a732f2524
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827454"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714494"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
 La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile configurare i backup in modo che vengano conservati per un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
@@ -44,10 +44,10 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 * Per usufruire della funzionalità di backup e ripristino è necessario che il piano del Servizio app si trovi al livello **Standard**, **Premium** o **Isolated**. Per altre informazioni sul ridimensionamento del piano di servizio app per usare un livello superiore, vedere [Scalare un'app Web in Servizio app di Azure](manage-scale-up.md). I livelli **Premium** e **Isolated** consentono un maggior numero di backup giornalieri rispetto al livello **Standard**.
 * Sono necessari un account di archiviazione e un contenitore di Azure nella stessa sottoscrizione dell'applicazione di cui si desidera eseguire il backup. Per altre informazioni sugli account di archiviazione di Azure, vedere [Panoramica dell'account di archiviazione di Azure](../storage/common/storage-account-overview.md).
 * È possibile eseguire il backup di un massimo di 10 GB di contenuto del database e dell'app. Se la dimensione del backup supera questo limite, verrà visualizzato un messaggio di errore.
-* Il backup di Database di Azure per MySQL abilitato per TLS non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
-* Il backup di Database di Azure per PostgreSQL abilitato per TLS non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
+* Il backup di Database di Azure per MySQL abilitato per TLS non è supportato. Se è configurato un backup, si verificheranno errori di backup.
+* Il backup di Database di Azure per PostgreSQL abilitato per TLS non è supportato. Se è configurato un backup, si verificheranno errori di backup.
 * Per i database MySQL in-app viene automaticamente eseguito un backup senza alcuna configurazione. Se si modificano manualmente le impostazioni per i database MySQL in-app, ad esempio si aggiungono stringhe di connessione, è possibile che i backup non vengano eseguiti correttamente.
-* L'uso di un account di archiviazione abilitato per un firewall come destinazione per i backup non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
+* L'uso di un account di archiviazione abilitato per un firewall come destinazione per i backup non è supportato. Se è configurato un backup, si verificheranno errori di backup.
 
 
 <a name="manualbackup"></a>
@@ -70,18 +70,18 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 
 3. Nella pagina **Configurazione backup** fare clic su **Archiviazione non configurata** per configurare un account di archiviazione.
 
-    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Screenshot di un banner con un messaggio per aggiornare il piano di servizio app per accedere alla funzionalità di backup e ripristino.":::
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Screenshot della sezione archiviazione di backup con l'impostazione di archiviazione non configurata selezionata.":::
 
 4. Scegliere la destinazione del backup selezionando un **Account di archiviazione** e un **Contenitore**. L'account di archiviazione deve appartenere alla stessa sottoscrizione dell'app da sottoporre a backup. Se si vuole, è possibile creare un nuovo account di archiviazione o un nuovo contenitore nelle rispettive pagine. Al termine, fare clic su **Seleziona**.
 
 5. Nella pagina **configurazione backup** rimane aperta, è possibile configurare **backup database**, quindi selezionare i database da includere nei backup (database SQL o MySQL), quindi fare clic su **OK**.
 
-    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Screenshot di un banner con un messaggio per aggiornare il piano di servizio app per accedere alla funzionalità di backup e ripristino.":::
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Screenshot della sezione backup database che mostra la selezione Includi in backup.":::
 
     > [!NOTE]
     > Per visualizzare un database nell'elenco, è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** della pagina **Impostazioni applicazione** per l'app. 
     >
-    > Per i database MySQL in-app viene automaticamente eseguito un backup senza alcuna configurazione. Se si modificano manualmente le impostazioni per i database MySQL in-app, ad esempio si aggiungono stringhe di connessione, è possibile che i backup non vengano eseguiti correttamente.
+    > Per i database MySQL in-app viene automaticamente eseguito un backup senza alcuna configurazione. Se si apportano manualmente le impostazioni per i database MySQL in-app, ad esempio aggiungendo stringhe di connessione, i backup potrebbero non funzionare correttamente.
     > 
     > 
 

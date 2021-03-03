@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: bc80b7dfd433911ef13906db38f59a76827db258
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e527cf5fa6a7caaeaf56ea19d684dd0830d5ca8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905282"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708680"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Usare il modulo Piante di interni di Mappe di Azure
 
 > [!IMPORTANT]
-> I servizi Azure Maps Creator sono attualmente in anteprima pubblica.
+> I servizi Creator di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L'SDK Web di Mappe di Azure include il modulo *Interni di Mappe di Azure*. Il modulo  *Azure Maps indoor* consente di eseguire il rendering delle mappe interne create in Azure Maps Creators Services (anteprima) 
@@ -67,7 +67,7 @@ const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
 
 const map = new atlas.Map("map-id", {
   //use your facility's location
-  center: [-122.13315, 47.63637],
+  center: [-122.13203, 47.63645],
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
@@ -84,24 +84,24 @@ const map = new atlas.Map("map-id", {
 Per caricare il set di tessere per gli interni e lo stile della mappa delle tessere, è necessario creare un'istanza di *Indoor Manager*. Creare un'istanza di *Indoor Manager* fornendo l'*oggetto Map* e l'oggetto `tilesetId` corrispondente. Se si vuole supportare l'[applicazioni di stili dinamici alla mappa](indoor-map-dynamic-styling.md), è necessario passare l'oggetto `statesetId`. Il nome della variabile `statesetId` fa distinzione tra maiuscole e minuscole. Il codice dovrebbe essere simile al codice JavaScript riportato di seguito.
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 ```
 
 Per abilitare il polling dei dati di stato forniti, è necessario fornire `statesetId` e chiamare `indoorManager.setDynamicStyling(true)`. Il polling dei dati di stato consentono di aggiornare dinamicamente lo stato delle proprietà o degli *stati* dinamici. Ad esempio, una funzionalità come stanza può avere una proprietà dinamica (*stato*) denominata `occupancy`. L'applicazione potrebbe voler eseguire il polling di qualsiasi modifica allo *stato* per riflettere la modifica all'interno della mappa visiva. Il codice seguente illustra come abilitare il polling dello stato:
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 
 if (statesetId.length > 0) {
@@ -218,9 +218,9 @@ Il file dovrebbe avere ora un aspetto simile al codice HTML riportato di seguito
         });
 
         const indoorManager = new atlas.indoor.IndoorManager(map, {
-          levelControl, //level picker
-          tilesetId,
-          statesetId, //optional
+          levelControl: levelControl, //level picker
+          tilesetId: tilesetId,
+          statesetId: statesetId // Optional
         });
 
         if (statesetId.length > 0) {
@@ -244,6 +244,8 @@ Il file dovrebbe avere ora un aspetto simile al codice HTML riportato di seguito
 Per visualizzare la pianta di interni, caricarla in un Web browser. Dovrebbe essere simile all'immagine seguente. Se si fa clic sulla funzionalità scale, la *selezione del livello* verrà visualizzata nell'angolo superiore destro.
 
   ![immagine della pianta di interni](media/how-to-use-indoor-module/indoor-map-graphic.png)
+
+[Vedi la demo live](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

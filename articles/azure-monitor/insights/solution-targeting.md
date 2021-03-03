@@ -1,17 +1,16 @@
 ---
 title: Targeting delle soluzioni di monitoraggio in Monitoraggio di Azure | Microsoft Docs
 description: Il targeting delle soluzioni di monitoraggio consente di limitare le soluzioni di monitoraggio a un set specifico di agenti.  Questo articolo descrive come creare una configurazione di ambito e applicarla a una soluzione.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 338dc22c7a4f9fbca9f007ae76c092a3fe5f6762
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cb030456eb3b9e3c81fadd8451b5b0526920ba33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587241"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728570"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Targeting delle soluzioni di monitoraggio in Monitoraggio di Azure (Anteprima)
 Quando viene aggiunta una soluzione di monitoraggio alla sottoscrizione, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro Log Analytics.  Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti.  Questo articolo descrive come usare il **targeting della soluzione**, una funzionalità che consente di applicare un ambito alle soluzioni.

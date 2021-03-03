@@ -1,25 +1,25 @@
 ---
-title: Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali
-description: Monitoraggio di Azure per le macchine virtuali soluzione raccoglie le metriche e i dati di log in e in questo articolo vengono descritti i record e sono incluse le query di esempio.
+title: Come eseguire query sui log da VM Insights
+description: La soluzione VM Insights raccoglie le metriche e i dati di log in e in questo articolo vengono descritti i record e sono incluse le query di esempio.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: ae0bc6ea35d5c6e3ebe0cd7f232e5c8b1e637d9d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bbecb15173c929aee46e7d1eeb5e83aab86430f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619777"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713525"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali
+# <a name="how-to-query-logs-from-vm-insights"></a>Come eseguire query sui log da VM Insights
 
-Monitoraggio di Azure per le macchine virtuali raccoglie le metriche delle prestazioni e della connessione, i dati di inventario del computer e del processo e le informazioni sullo stato di integrità e le invia all'area di lavoro Log Analytics in monitoraggio di Azure.  Questi dati sono disponibili per le [query](../log-query/log-query-overview.md) in monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
+VM Insights raccoglie le metriche delle prestazioni e della connessione, i dati di inventario del computer e del processo e le informazioni sullo stato di integrità e le invia all'area di lavoro Log Analytics in monitoraggio di Azure.  Questi dati sono disponibili per le [query](../logs/log-query-overview.md) in monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
 
 ## <a name="map-records"></a>Record della mappa
 
-Ogni ora viene generato un record per ogni computer e processo univoco, in aggiunta ai record generati all'avvio di un processo o computer o quando ne viene eseguito l'onboarding nella funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali. I record hanno le proprietà descritte nelle tabelle seguenti. I campi e i valori negli eventi ServiceMapComputer_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. I campi e i valori negli eventi ServiceMapProcess_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. Il campo ResourceName_s coincide con il campo del nome nella risorsa di Resource Manager corrispondente. 
+Ogni ora viene generato un record per ogni computer e processo univoco, oltre ai record generati quando un processo o computer viene avviato o caricato nella funzionalità mappa di VM Insights. I record hanno le proprietà descritte nelle tabelle seguenti. I campi e i valori negli eventi ServiceMapComputer_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. I campi e i valori negli eventi ServiceMapProcess_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. Il campo ResourceName_s coincide con il campo del nome nella risorsa di Resource Manager corrispondente. 
 
 Sono disponibili proprietà generate internamente che è possibile usare per identificare processi e computer univoci:
 
@@ -473,6 +473,6 @@ Nella tabella seguente sono elencati i contatori delle prestazioni attualmente r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Se non si ha familiarità con la scrittura di query di log in monitoraggio di Azure, vedere [come usare log Analytics](../log-query/log-analytics-tutorial.md) nel portale di Azure per scrivere query di log.
+* Se non si ha familiarità con la scrittura di query di log in monitoraggio di Azure, vedere [come usare log Analytics](../logs/log-analytics-tutorial.md) nel portale di Azure per scrivere query di log.
 
-* Informazioni sulla [scrittura di query di ricerca](../log-query/get-started-queries.md).
+* Informazioni sulla [scrittura di query di ricerca](../logs/get-started-queries.md).

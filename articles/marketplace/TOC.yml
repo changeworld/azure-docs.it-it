@@ -47,12 +47,19 @@
       items:
         - name: Vantaggi del Marketplace
           href: gtm-your-marketplace-benefits.md
-        - name: Programma di co-selling per i partner
-          href: marketplace-co-sell.md
-        - name: Opzione di co-selling nel Centro per i partner
-          href: commercial-marketplace-co-sell.md
-        - name: Eseguire la migrazione di soluzioni di co-selling da OCP GTM
-          href: co-sell-solution-migration.md
+          items: null
+        - name: Co-selling con Microsoft
+          items:
+            - name: Panoramica di co-selling
+              href: marketplace-co-sell.md
+            - name: Requisiti di co-selling
+              href: co-sell-requirements.md
+            - name: Configurare la co-selling
+              href: commercial-marketplace-co-sell.md
+            - name: Verificare lo stato di co-selling
+              href: co-sell-status.md
+            - name: Eseguire la migrazione di soluzioni di co-selling da OCP GTM
+              href: co-sell-solution-migration.md
         - name: Rivendere tramite partner CSP
           href: cloud-solution-providers.md
         - name: Guida all'onboarding del programma Connect
@@ -203,6 +210,8 @@
           href: partner-center-portal/azure-iot-edge-module-creation.md
         - name: Preparare gli asset tecnici dei moduli IoT Edge
           href: partner-center-portal/create-iot-edge-module-asset.md
+        - name: Elenco di controllo pre-certificazione
+          href: iot-edge-checklist.md
     - name: Offerte di servizi gestiti
       items:
         - name: Pianificare un'offerta di servizi gestiti
@@ -395,6 +404,8 @@
       href: commercial-marketplace-co-sell-countries.md
     - name: Codici di stato per il co-selling
       href: commercial-marketplace-co-sell-states.md
+    - name: Diagramma dell'architettura di riferimento
+      href: reference-architecture-diagram.md
     - name: Categorie e sottocategorie
       href: categories.md
     - name: Tag HTML supportati

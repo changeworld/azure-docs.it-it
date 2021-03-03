@@ -2,16 +2,20 @@
 title: Esportazione continua dei dati di telemetria da Application Insights | Microsoft Docs
 description: Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì.
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: 23405faeb7d2151ce0f6492c0d522e0a7f9b84a8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/19/2021
+ms.custom: references_regions
+ms.openlocfilehash: e7831123834df9186310453106c50261373160ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584230"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737036"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  
+
+> [!IMPORTANT]
+> L'esportazione continua è stata deprecata. [Eseguire la migrazione a una risorsa Application Insights basata sull'area di lavoro](convert-classic-resource.md) per usare [le impostazioni di diagnostica](#diagnostic-settings-based-export) per l'esportazione della telemetria.
 
 > [!NOTE]
 > L'esportazione continua è supportata solo per le risorse classiche di Application Insights. Le [risorse di Application Insights basate sull'area di lavoro](./create-workspace-resource.md) devono usare [impostazioni di diagnostica](./create-workspace-resource.md#export-telemetry).
@@ -27,6 +31,44 @@ Prima di configurare l'esportazione continua, è necessario prendere in consider
 * È anche possibile accedere [all'esportazione continua](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)del programma di installazione tramite PowerShell.
 
 Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazione, in cui possono rimanere fino a quando si desidera, ma sono ancora disponibili in Application Insights per il [periodo di conservazione](./data-retention-privacy.md) usuale.
+
+## <a name="supported-regions"></a>Aree supportate
+
+L'esportazione continua è supportata nelle aree seguenti:
+
+* Asia sud-orientale
+* Canada centrale
+* India centrale
+* Europa settentrionale
+* Regno Unito meridionale
+* Australia orientale
+* Giappone orientale
+* Corea centrale
+* Francia centrale
+* Asia orientale
+* Stati Uniti occidentali
+* Stati Uniti centrali
+* Stati Uniti orientali 2
+* Stati Uniti centro-meridionali
+* Stati Uniti occidentali 2
+* Sudafrica settentrionale
+* Stati Uniti centro-settentrionali
+* Brasile meridionale
+* Svizzera settentrionale
+* Australia sud-orientale
+* Regno Unito occidentale
+* Germania centro-occidentale
+* Svizzera occidentale
+* Australia centrale 2
+* Emirati Arabi Uniti centrali
+* Brasile sudorientale
+* Australia centrale
+* Emirati Arabi Uniti settentrionali
+* Norvegia orientale
+* Giappone occidentale
+
+> [!NOTE]
+> Sono supportate le applicazioni già configurate nell'area **Europa occidentale** e **Stati Uniti orientali** , ma il caricamento di nuove applicazioni in tali aree non è supportato.
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>Configurazione dell'archiviazione avanzata per l'esportazione continua
 

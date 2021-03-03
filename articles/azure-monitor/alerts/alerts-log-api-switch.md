@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 55f433786ed9dd40b08bb64395a6bbc50800add4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e07abdda805205701a10ca3bf295b7b0d2e71766
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616287"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718030"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Eseguire l'aggiornamento all'API per gli avvisi del log corrente dall'API Log Analytics Alert legacy
 
@@ -19,23 +19,23 @@ ms.locfileid: "100616287"
 > Questo articolo è pertinente solo per Azure Public (**non** per Azure Government o Azure China cloud).
 
 > [!NOTE]
-> Quando un utente sceglie di modificare la preferenza per l' [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) corrente, non è possibile ripristinare l' [API legacy log Analytics Alert](../platform/api-alerts.md)precedente.
+> Quando un utente sceglie di modificare la preferenza per l' [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) corrente, non è possibile ripristinare l' [API legacy log Analytics Alert](./api-alerts.md)precedente.
 
-In passato, gli utenti usavano l' [API log Analytics Alert legacy](../platform/api-alerts.md) per gestire le regole di avviso del log. Le aree di lavoro correnti usano l' [API ScheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Questo articolo descrive i vantaggi e il processo di trasferimento dall'API legacy all'API corrente.
+In passato, gli utenti usavano l' [API log Analytics Alert legacy](./api-alerts.md) per gestire le regole di avviso del log. Le aree di lavoro correnti usano l' [API ScheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Questo articolo descrive i vantaggi e il processo di trasferimento dall'API legacy all'API corrente.
 
 ## <a name="benefits"></a>Vantaggi
 
 - Modello singolo per la creazione di regole di avviso (in precedenza erano necessari tre modelli distinti).
 - API singola per le aree di lavoro Log Analytics o Application Insights risorse.
-- [Supporto](../platform/alerts-log.md#managing-log-alerts-using-powershell)per i cmdlet di PowerShell.
+- [Supporto](./alerts-log.md#managing-log-alerts-using-powershell)per i cmdlet di PowerShell.
 - Allineamento dei livelli di gravità con tutti gli altri tipi di avviso.
-- Possibilità di creare un [Avviso del log tra aree di lavoro](../log-query/cross-workspace-query.md) che si estende su più risorse esterne, ad esempio log Analytics aree di lavoro o risorse Application Insights.
+- Possibilità di creare un [Avviso del log tra aree di lavoro](../logs/cross-workspace-query.md) che si estende su più risorse esterne, ad esempio log Analytics aree di lavoro o risorse Application Insights.
 - Gli utenti possono specificare le dimensioni per suddividere gli avvisi utilizzando il parametro ' aggregate on '.
 - Gli avvisi del log hanno un periodo di tempo prolungato di un massimo di due giorni di dati (in precedenza limitato a un giorno).
 
 ## <a name="impact"></a>Impatto
 
-- Tutte le nuove regole devono essere create o modificate con l'API corrente. Vedere l' [esempio di utilizzo tramite il modello di risorsa di Azure](alerts-log-create-templates.md) e l'uso di [esempio tramite PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- Tutte le nuove regole devono essere create o modificate con l'API corrente. Vedere l' [esempio di utilizzo tramite il modello di risorsa di Azure](alerts-log-create-templates.md) e l'uso di [esempio tramite PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - Poiché le regole diventano Azure Resource Manager risorse rilevate nell'API corrente e devono essere univoche, l'ID risorsa regole verrà modificato in questa struttura: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . I nomi visualizzati della regola di avviso rimarranno invariati.
 
 ## <a name="process"></a>Processo
@@ -104,7 +104,7 @@ Se l'area di lavoro Log Analytics non è stata cambiata, la risposta è:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sugli [Avvisi del log - Monitoraggio di Azure](../platform/alerts-unified-log.md).
+- Informazioni sugli [Avvisi del log - Monitoraggio di Azure](./alerts-unified-log.md).
 - Informazioni su come [gestire gli avvisi del log usando l'API](alerts-log-create-templates.md).
-- Informazioni su come [gestire gli avvisi del log tramite PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
-- Altre informazioni sull'[esperienza di Avvisi di Azure](../platform/alerts-overview.md).
+- Informazioni su come [gestire gli avvisi del log tramite PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
+- Altre informazioni sull'[esperienza di Avvisi di Azure](./alerts-overview.md).

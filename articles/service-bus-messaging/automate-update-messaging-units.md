@@ -3,12 +3,12 @@ title: Bus di servizio di Azure - Aggiornare automaticamente le unità di messag
 description: Questo articolo illustra come è possibile usare l'aggiornamento automatico delle unità di messaggistica di uno spazio dei nomi del bus di servizio.
 ms.topic: how-to
 ms.date: 09/15/2020
-ms.openlocfilehash: 932c7bb1235cb54aefe67253e38e1683187f4d2c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581642"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720597"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Aggiornare automaticamente le unità di messaggistica di uno spazio dei nomi del bus di servizio di Azure 
 Il ridimensionamento automatico offre la possibilità di avere la quantità corretta di risorse in esecuzione per gestire il carico dell'applicazione. Consente di aggiungere risorse per gestire gli incrementi di carico nonché di risparmiare denaro rimuovendo le risorse inattive. Per ulteriori informazioni sulla funzionalità di scalabilità automatica di monitoraggio di Azure, vedere [Panoramica della scalabilità automatica in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) . 
@@ -57,7 +57,7 @@ Questa impostazione consente di impostare un numero fisso di unità di messaggis
 Non è possibile impostare una pianificazione per la scalabilità automatica in base a giorni specifici o a un intervallo di date per una condizione predefinita. Questa condizione di ridimensionamento viene eseguita quando nessuna delle altre condizioni di ridimensionamento con pianificazioni corrisponde. 
 
 ### <a name="scale-based-on-a-metric"></a>Ridimensionare in base a una metrica
-La procedura seguente illustra come aggiungere una condizione per aumentare automaticamente le unità di messaggistica (scalabilità orizzontale) quando l'utilizzo della CPU è superiore al 75% e ridurre le unità di messaggistica (scalabilità orizzontale) quando l'utilizzo della CPU è inferiore al 25%. Gli incrementi vengono eseguiti da 1 a 2, da 2 a 4 e da 4 a 8. Analogamente, i decrementi vengono eseguiti da 8 a 4, da 4 a 2 e da 2 a 1. 
+La procedura seguente illustra come aggiungere una condizione per aumentare automaticamente le unità di messaggistica (scalabilità orizzontale) quando l'utilizzo della CPU è superiore al 75% e ridurre le unità di messaggistica (scalabilità orizzontale) quando l'utilizzo della CPU è inferiore al 25%. Gli incrementi vengono eseguiti da 1 a 2, da 2 a 4, da 4 a 8 e da 8 a 16. Analogamente, i decrementi vengono eseguiti da 16 a 8, da 8 a 4, da 4 a 2 e da 2 a 1. 
 
 1. Nella pagina **impostazione di scalabilità** automatica selezionare **scalabilità automatica personalizzata** per l'opzione **scegliere la modalità di ridimensionamento della risorsa** . 
 1. Nella sezione **predefinita** della pagina specificare un **nome** per la condizione predefinita. Selezionare l'icona a **matita** per modificare il testo. 
@@ -74,7 +74,7 @@ La procedura seguente illustra come aggiungere una condizione per aumentare auto
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Impostazione predefinita: scalabilità orizzontale se l'utilizzo della CPU è superiore al 75%":::       
 
         > [!NOTE]
-        > La funzionalità di scalabilità automatica aumenta le unità di messaggistica per lo spazio dei nomi se l'utilizzo complessivo della CPU supera il 75% in questo esempio. Gli incrementi vengono eseguiti da 1 a 2, da 2 a 4 e da 4 a 8. 
+        > La funzionalità di scalabilità automatica aumenta le unità di messaggistica per lo spazio dei nomi se l'utilizzo complessivo della CPU supera il 75% in questo esempio. Gli incrementi vengono eseguiti da 1 a 2, da 2 a 4, da 4 a 8 e da 8 a 16. 
 1. Selezionare **+ Aggiungi nuovamente una regola** e attenersi alla seguente procedura nella pagina **regola di scalabilità** :
     1. Selezionare una metrica dall'elenco a discesa **nome metrica** . In questo esempio, si tratta di una **CPU**. 
     1. Selezionare un operatore e i valori di soglia. In questo esempio sono **minori di** e **25** per la **soglia della metrica per attivare un'azione di ridimensionamento**. 
@@ -84,7 +84,7 @@ La procedura seguente illustra come aggiungere una condizione per aumentare auto
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Impostazione predefinita: ridimensionamento se l'utilizzo della CPU è inferiore al 25%":::       
 
         > [!NOTE]
-        > La funzionalità di scalabilità automatica riduce le unità di messaggistica per lo spazio dei nomi se l'utilizzo complessivo della CPU scende al di sotto del 25% in questo esempio. I decrementi vengono eseguiti da 8 a 4, da 4 a 2 e da 2 a 1. 
+        > La funzionalità di scalabilità automatica riduce le unità di messaggistica per lo spazio dei nomi se l'utilizzo complessivo della CPU scende al di sotto del 25% in questo esempio. I decrementi vengono eseguiti da 16 a 8, da 8 a 4, da 4 a 2 e da 2 a 1. 
 1. Impostare il numero **minimo** e **massimo** e il numero **predefinito** di unità di messaggistica.
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Regola predefinita in base a una metrica":::

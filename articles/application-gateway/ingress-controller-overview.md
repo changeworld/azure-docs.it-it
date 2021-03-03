@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 26f53a8f93d4d51ec8f8fd91051496a46670f432
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2564fd38056241fd48f58f5f6039bf64f92b6741
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397349"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714409"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Che cos'è il controller di ingresso del gateway applicazione?
 Il controller di ingresso del gateway applicazione (AGIC) è un'applicazione Kubernetes, che consente ai clienti di [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) di sfruttare il servizio di bilanciamento del carico L7 del [gateway applicazione](https://azure.microsoft.com/services/application-gateway/) nativo di Azure per esporre il software cloud a Internet. AGIC monitora il cluster Kubernetes in cui è ospitato e aggiorna continuamente un gateway applicazione, in modo che i servizi selezionati siano esposti a Internet.
@@ -37,7 +37,7 @@ AGIC viene configurato tramite la [risorsa di ingresso](https://kubernetes.io/do
   - web application firewall integrata
 
 ## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Differenza tra la distribuzione Helm e la Add-On AKS
-Esistono due modi per distribuire AGIC per il cluster AKS. Il primo modo consiste nell'usare Helm; il secondo avviene tramite AKS come componente aggiuntivo. Il vantaggio principale della distribuzione di AGIC come componente aggiuntivo AKS è che è molto più semplice rispetto alla distribuzione tramite Helm. Per una nuova configurazione, è possibile distribuire un nuovo gateway applicazione e un nuovo cluster AKS con AGIC abilitato come componente aggiuntivo in una sola riga nell'interfaccia della riga di comando di Azure. Il componente aggiuntivo è anche un servizio completamente gestito, che offre vantaggi aggiuntivi come gli aggiornamenti automatici e un maggiore supporto. AGIC distribuito tramite Helm non è supportato da AKS, tuttavia il AGIC distribuito come componente aggiuntivo AKS è supportato da AKS. 
+Esistono due modi per distribuire AGIC per il cluster AKS. Il primo modo consiste nell'usare Helm; il secondo avviene tramite AKS come componente aggiuntivo. Il vantaggio principale della distribuzione di AGIC come componente aggiuntivo AKS è che è molto più semplice rispetto alla distribuzione tramite Helm. Per una nuova configurazione, è possibile distribuire un nuovo gateway applicazione e un nuovo cluster AKS con AGIC abilitato come componente aggiuntivo in una sola riga nell'interfaccia della riga di comando di Azure. Il componente aggiuntivo è anche un servizio completamente gestito, che offre vantaggi aggiuntivi come gli aggiornamenti automatici e un maggiore supporto. Entrambi i modi di distribuire AGIC (componente aggiuntivo Helm e AKS) sono completamente supportati da Microsoft. Il componente aggiuntivo consente inoltre una migliore integrazione con AKS come componente aggiuntivo di prima classe.
 
 Il componente aggiuntivo AGIC è ancora distribuito come Pod nel cluster AKS del cliente. Tuttavia, esistono alcune differenze tra la versione della distribuzione Helm e la versione del componente aggiuntivo di AGIC. Di seguito è riportato un elenco delle differenze tra le due versioni: 
   - Non è possibile modificare i valori di distribuzione Helm nel componente aggiuntivo AKS:
@@ -50,27 +50,7 @@ Il componente aggiuntivo AGIC è ancora distribuito come Pod nel cluster AKS del
   - Poiché il componente aggiuntivo AGIC è un servizio gestito, i clienti verranno aggiornati automaticamente alla versione più recente del componente aggiuntivo AGIC, a differenza di AGIC distribuiti tramite Helm dove il cliente deve aggiornare manualmente AGIC. 
 
 > [!NOTE]
-> Il metodo di distribuzione del componente aggiuntivo AGIC AKS è attualmente in fase di anteprima. Non è consigliabile eseguire i carichi di lavoro di produzione sulle funzionalità ancora in fase di anteprima, pertanto se si è curiosi di provare, è consigliabile configurare un nuovo cluster per testarlo con. 
-
-Le tabelle seguenti ordinano gli scenari attualmente supportati con la versione di distribuzione Helm e la versione del componente aggiuntivo AKS di AGIC. 
-
-### <a name="aks-add-on-agic-single-aks-cluster"></a>Componente aggiuntivo AKS AGIC (singolo cluster AKS)
-|                  |1 gateway applicazione |2 + gateway applicazione |
-|------------------|---------|--------|
-|**1 AGIC**|Sì, questa operazione è supportata |No, questo è nel backlog |
-|**2 + AGICs**|No, solo 1 AGIC supportato/cluster |No, solo 1 AGIC supportato/cluster |
-
-### <a name="helm-deployed-agic-single-aks-cluster"></a>AGIC distribuito da Helm (singolo cluster AKS)
-|                  |1 gateway applicazione |2 + gateway applicazione |
-|------------------|---------|--------|
-|**1 AGIC**|Sì, questa operazione è supportata |No, questo è nel backlog |
-|**2 + AGICs**|È necessario usare la funzionalità Shared ProhibitedTarget e controllare gli spazi dei nomi separati |Sì, questa operazione è supportata |
-
-### <a name="helm-deployed-agic-2-aks-clusters"></a>AGIC distribuito da Helm (2 + cluster AKS)
-|                  |1 gateway applicazione |2 + gateway applicazione |
-|------------------|---------|--------|
-|**1 AGIC**|N/D |N/D |
-|**2 + AGICs**|È necessario usare la funzionalità Shared ProhibitedTarget |N/D |
+> I clienti possono distribuire un solo componente aggiuntivo AGIC per ogni cluster AKS e ogni componente aggiuntivo AGIC attualmente può essere destinato a un solo gateway applicazione. Per le distribuzioni che richiedono più di un AGIC per cluster o più AGICs destinati a un gateway applicazione, continuare a usare AGIC distribuito tramite Helm. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [**Aks Add-On la distribuzione Greenfield**](tutorial-ingress-controller-add-on-new.md): istruzioni sull'installazione del componente aggiuntivo AGIC, AKS e del gateway applicazione in un'infrastruttura Slate vuota.

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 5d8c5eb385baff4aac450c470fb6103e2fb315f3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 21f07ed76ef0b900a723677acc2bf576649fe861
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590410"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702012"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introduzione ad Azure Defender per SQL
 
@@ -43,7 +43,7 @@ Azure Defender per SQL include due piani di Azure Defender che estendono il [pac
 - **Azure Defender per server SQL nei computer** estende le protezioni per i server SQL nativi di Azure in modo da supportare completamente gli ambienti ibridi e proteggere i server SQL (tutte le versioni supportate) ospitati in Azure, in altri ambienti cloud e anche in computer locali:
     - [SQL Server in macchine virtuali](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - SQL Server locali:
-        - [SQL Server con abilitazione di Azure Arc (anteprima)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [SQL Server con abilitazione di Azure Arc (anteprima)](/sql/sql-server/azure-arc/overview)
         - [SQL Server in esecuzione in computer Windows senza Azure Arc](../azure-monitor/agents/agent-windows.md)
 
 

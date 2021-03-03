@@ -3,12 +3,12 @@ title: Rilevamento di messaggi duplicati nel bus di servizio di Azure | Microsof
 description: Questo articolo illustra come è possibile rilevare i duplicati nei messaggi del bus di servizio di Azure. Il messaggio duplicato può essere ignorato e eliminato.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 527c2dea34b02733907372b6e75a40a5ef5fc289
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684809"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711926"
 ---
 # <a name="duplicate-detection"></a>Rilevamento duplicati
 
@@ -48,7 +48,7 @@ Nel portale la funzionalità si attiva durante la creazione di entità tramite l
 
 A livello di codice, si imposta il flag con la proprietà [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) sull'intera API .NET Framework. Con l'API di Azure Resource Manager, il valore viene impostato con la proprietà [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
 
-Il valore predefinito per l'intervallo di tempo della cronologia di rilevamento duplicati è di 30 secondi per le code e gli argomenti, con un valore massimo di 7 giorni. È possibile modificare questa impostazione nella finestra delle proprietà di code e argomenti nel portale di Azure.
+Per le code e gli argomenti per la cronologia del tempo di rilevamento duplicato, il valore predefinito è 10 minuti, con un valore minimo di 20 secondi per il valore massimo di 7 giorni. È possibile modificare questa impostazione nella finestra delle proprietà di code e argomenti nel portale di Azure.
 
 ![Screenshot della funzionalità del bus di servizio con l'impostazione delle proprietà evidenziata e l'opzione per la cronologia dei duplicati di rilevamento descritta in rosso.][2]
 

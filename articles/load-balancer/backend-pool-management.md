@@ -6,14 +6,14 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 65a00cd898ef63dd3194e48ad6dd3fb73a211d6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429603"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709870"
 ---
 # <a name="backend-pool-management"></a>Gestione del pool back-end
 Il pool back-end è un componente cruciale del servizio di bilanciamento del carico. Definisce il gruppo di risorse che gestirà il traffico per una specifica regola di bilanciamento del carico.
@@ -255,8 +255,16 @@ Negli scenari con pool back-end già popolati, usare l'indirizzo IP e la rete vi
 
 Tutte le operazioni di gestione dei pool back-end vengono eseguite direttamente nell'oggetto pool back-end, come evidenziato negli esempi seguenti.
 
-  >[!IMPORTANT] 
-  >Questa funzionalità è attualmente in anteprima. Per informazioni sui limiti correnti di questa funzionalità, vedere la [sezione Limitazioni](#limitations).
+### <a name="limitations"></a>Limitazioni
+Un pool back-end configurato in base all'indirizzo IP presenta le limitazioni seguenti:
+  * Può essere usato solo per i bilanciamenti del carico standard
+  * Limite di 100 indirizzi IP nel pool back-end
+  * Le risorse back-end devono trovarsi nella stessa rete virtuale del servizio di bilanciamento del carico
+  * Un'istanza di Load Balancer con pool back-end non può funzionare come servizio di collegamento privato
+  * Questa funzionalità non è attualmente supportata nel portale di Azure
+  * I contenitori dell'istanza di Istanze di contenitore di Azure non sono attualmente supportati da questa funzionalità
+  * I servizi di bilanciamento del carico o i servizi gestiti da servizi di bilanciamento del carico non possono essere inseriti nel pool back-end del servizio di bilanciamento del carico
+  * Le regole NAT in ingresso non possono essere specificate in base all'indirizzo IP
 
 ### <a name="powershell"></a>PowerShell
 Creare un nuovo pool back-end:
@@ -517,17 +525,6 @@ Corpo della richiesta JSON:
   }
 }
 ```
-
-## <a name="limitations"></a>Limitazioni
-Un pool back-end configurato in base all'indirizzo IP presenta le limitazioni seguenti:
-  * Si applica solo a Load Balancer Standard
-  * Limite di 100 indirizzi IP nel pool back-end
-  * Le risorse back-end devono trovarsi nella stessa rete virtuale del servizio di bilanciamento del carico
-  * Un'istanza di Load Balancer con pool back-end non può funzionare come servizio di collegamento privato
-  * Questa funzionalità non è attualmente supportata nel portale di Azure
-  * I contenitori dell'istanza di Istanze di contenitore di Azure non sono attualmente supportati da questa funzionalità
-  * I servizi di bilanciamento del carico o i servizi gestiti da servizi di bilanciamento del carico non possono essere inseriti nel pool back-end del servizio di bilanciamento del carico
-  * Le regole NAT in ingresso non possono essere specificate in base all'indirizzo IP
   
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo sono state fornite informazioni sulla gestione del pool back-end di Azure Load Balancer e su come configurare il pool back-end tramite indirizzo IP e rete virtuale.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 2/11/2020
 ms.author: amgowda
 ms.service: container-service
-ms.openlocfilehash: bf92e7f28d6a5804886d093671f4b7e33878f1ec
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: a5db93f096c73679c1b6b6ae464897db843f2e8b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652675"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706266"
 ---
 # <a name="confidential-containers"></a>Contenitori riservati
 
@@ -90,7 +90,7 @@ Occlum supporta le distribuzioni AKS. Seguire le istruzioni per la distribuzione
 
 
 ## <a name="confidential-containers-demo"></a>Demo sui contenitori riservati
-Visualizza la demo riservata sul settore sanitario con i contenitori riservati. Esempio è disponibile [qui](https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference). 
+Visualizza la demo riservata sul settore sanitario con i contenitori riservati. Esempio è disponibile [qui](/azure/architecture/example-scenario/confidential/healthcare-inference). 
 
 > [!VIDEO https://www.youtube.com/embed/PiYCQmOh0EI]
 

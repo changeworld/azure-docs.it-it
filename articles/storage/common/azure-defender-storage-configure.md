@@ -1,5 +1,5 @@
 ---
-title: Configurare Azure Defender per l'archiviazione
+title: Configurare Azure Defender per Archiviazione
 titleSuffix: Azure Storage
 description: Configurare Azure Defender per l'archiviazione per rilevare le anomalie nell'attività dell'account e ricevere notifiche relative a tentativi potenzialmente dannosi di accesso all'account.
 services: storage
@@ -10,26 +10,26 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cdfc54b1eca3b07202148b7099884a04f35939ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789013"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698145"
 ---
-# <a name="configure-azure-defender-for-storage"></a>Configurare Azure Defender per l'archiviazione
+# <a name="configure-azure-defender-for-storage"></a>Configurare Azure Defender per Archiviazione
 
-Azure Defender per l'archiviazione offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accesso o exploit degli account di archiviazione. Questo livello di protezione consente di risolvere le minacce senza essere un esperto della sicurezza o gestire sistemi di monitoraggio della sicurezza.
+Azure Defender per Archiviazione offre un livello aggiuntivo di intelligence di sicurezza in grado di rilevare tentativi insoliti e potenzialmente dannosi di accesso o exploit degli account di archiviazione. Questo livello di protezione consente di affrontare le minacce senza dover essere esperti di sicurezza o dover gestire sistemi di monitoraggio della sicurezza.
 
 Gli avvisi di sicurezza vengono attivati quando si verifica un'anomalia nell'attività. Questi avvisi di sicurezza sono integrati con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/)e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con informazioni dettagliate sulle attività sospette e consigli su come analizzare e correggere le minacce.
 
-Il servizio inserisce i log delle risorse di richieste di lettura, scrittura ed eliminazione nell'archivio BLOB e in File di Azure per il rilevamento delle minacce. Per esaminare gli avvisi di Azure Defender, è possibile visualizzare le attività di archiviazione correlate usando Analisi archiviazione registrazione. Per altre informazioni, vedere **configurare la registrazione** in [monitorare un account di archiviazione nell'portale di Azure](storage-monitor-storage-account.md#configure-logging).
+Il servizio inserisce i log delle risorse di richieste di lettura, scrittura ed eliminazione nell'archivio BLOB e in File di Azure per il rilevamento delle minacce. Per esaminare gli avvisi di Azure Defender, è possibile visualizzare le attività di archiviazione correlate usando Analisi archiviazione registrazione. Per altre informazioni, vedere **configurare la registrazione** in [monitorare un account di archiviazione nell'portale di Azure](./manage-storage-analytics-logs.md#configure-logging).
 
 ## <a name="availability"></a>Disponibilità
 
-Azure Defender per l'archiviazione è attualmente disponibile per l'archiviazione BLOB, File di Azure e Azure Data Lake Storage Gen2. I tipi di account che supportano Azure Defender includono gli account per utilizzo generico V2, BLOB in blocchi e archiviazione BLOB. Azure Defender per l'archiviazione è disponibile in tutti i cloud pubblici e negli Stati Uniti, ma non in altre aree del cloud di Azure per enti pubblici o sovrani.
+Azure Defender per Archiviazione è attualmente disponibile per Archiviazione BLOB, File di Azure e Azure Data Lake Storage Gen2. I tipi di account che supportano Azure Defender includono account per utilizzo generico v2, BLOB in blocchi e account di archiviazione BLOB. Azure Defender per Archiviazione è disponibile in tutti i cloud pubblici e nei cloud US Government, ma non in altre aree del cloud Azure per enti pubblici o sovrano.
 
-Gli account con spazi dei nomi gerarchici abilitati per Data Lake Storage supportano le transazioni usando le API di archiviazione BLOB di Azure e le API di Data Lake Storage. Le condivisioni file di Azure supportano le transazioni tramite SMB.
+Gli account con spazi dei nomi gerarchici abilitati per Data Lake Storage supportano le transazioni usando sia le API di archiviazione BLOB di Azure che le API di Data Lake Storage. Le condivisioni file di Azure supportano le transazioni tramite SMB.
 
 Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la [pagina dei prezzi del Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -53,7 +53,7 @@ Nell'elenco seguente viene riepilogata la disponibilità di Azure Defender per l
 Quando si sottoscrive il livello standard nel centro sicurezza di Azure, Azure Defender viene impostato automaticamente su tutti gli account di archiviazione. È possibile abilitare o disabilitare Azure Defender per gli account di archiviazione in una sottoscrizione specifica, come indicato di seguito:
 
 1. Avviare il **Centro sicurezza di Azure** nella [portale di Azure](https://portal.azure.com).
-1. Dal menu principale, in **gestione** , selezionare **prezzi & impostazioni** .
+1. Dal menu principale, in **gestione**, selezionare **prezzi & impostazioni**.
 1. Selezionare la sottoscrizione per cui si vuole abilitare o disabilitare Azure Defender.
 1. Selezionare **Azure Defender in** per abilitare Azure Defender per la sottoscrizione.
 1. In **selezione piano di Azure Defender per tipo di risorsa** individuare la riga di **archiviazione** e selezionare **abilitata** nella colonna **piano** .
@@ -66,10 +66,10 @@ Azure Defender è ora abilitato per tutti gli account di archiviazione in questa
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Avviare il [portale di Azure](https://portal.azure.com/).
-1. Passare all'account di archiviazione. In **Impostazioni** selezionare **sicurezza avanzata** .
-1. Selezionare **Abilita Azure Defender per l'archiviazione** .
+1. Passare all'account di archiviazione. In **Impostazioni** selezionare **Sicurezza avanzata**.
+1. Selezionare **Abilita Azure Defender per l'archiviazione**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot che illustra come abilitare Azure Defender per l'archiviazione nel centro sicurezza":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot che illustra come abilitare Azure Defender per un account di archiviazione di Azure":::
 
 Azure Defender è ora abilitato per questo account di archiviazione.
 
@@ -84,15 +84,15 @@ Usare un criterio di Azure per abilitare Azure Defender tra gli account di archi
 1. Avviare la pagina **criteri di Azure-definizioni** .
 1. Cercare i criteri **deploy Azure Defender on Storage Accounts** .
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Screenshot che illustra come abilitare Azure Defender per l'archiviazione nel centro sicurezza":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Applicare i criteri per abilitare Azure Defender per gli account di archiviazione":::
 
 1. Selezionare una sottoscrizione o un gruppo di risorse di Azure.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Screenshot che illustra come abilitare Azure Defender per l'archiviazione nel centro sicurezza":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Selezionare una sottoscrizione o un gruppo di risorse per l'ambito dei criteri ":::
 
 1. Assegnare i criteri.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Screenshot che illustra come abilitare Azure Defender per l'archiviazione nel centro sicurezza":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Assegnare i criteri per abilitare Azure Defender per l'archiviazione":::
 
 ### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
@@ -111,7 +111,7 @@ Usare i cmdlet di PowerShell seguenti:
 
 ---
 
-## <a name="explore-security-anomalies"></a>Esplorare le anomalie di sicurezza
+## <a name="explore-security-anomalies"></a>Esplorare le anomalie della sicurezza
 
 Quando si verificano anomalie nelle attività di archiviazione, si riceve una e-mail di notifica con le informazioni sull'evento sospetto di sicurezza. I dettagli sull'evento comprendono:
 
@@ -120,16 +120,16 @@ Quando si verificano anomalie nelle attività di archiviazione, si riceve una e-
 - Ora dell'evento
 - Tipo di archiviazione
 - Possibili cause
-- Passaggi dell'indagine
-- Procedura di correzione
+- Passaggi per l'indagine
+- Passaggi per la correzione
 
 L'e-mail fornisce inoltre informazioni sulle possibili cause e le azioni consigliate per analizzare e ridurre il rischio di una potenziale minaccia.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Screenshot che illustra come abilitare Azure Defender per l'archiviazione nel centro sicurezza":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Posta elettronica di avviso di Azure Defender per archiviazione":::
 
 È possibile esaminare e gestire gli avvisi di sicurezza correnti dal [riquadro avvisi di sicurezza](../../security-center/security-center-managing-and-responding-alerts.md)del Centro sicurezza di Azure. Facendo clic su un avviso specifico vengono visualizzati altri dettagli e azioni per analizzare la minaccia e risolvere eventuali minacce future.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Screenshot che illustra come abilitare Azure Defender per l'archiviazione nel centro sicurezza":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Avviso di Azure Defender per archiviazione":::
 
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 

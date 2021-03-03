@@ -1,17 +1,20 @@
 ---
 title: Sviluppo e debug iterativi in Azure Data Factory
 description: Informazioni su come sviluppare ed eseguire il debug di pipeline di Data Factory in modo iterativo nell'UX di ADF
-ms.date: 10/29/2020
+ms.date: 02/23/2021
 ms.topic: conceptual
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
-ms.openlocfilehash: 90f3f57fa527c8aaeb32a7dcf41f461ff5f0bf77
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+services: data-factory
+documentationcenter: ''
+ms.workload: data-services
+author: kromerm
+ms.author: makromer
+ms.openlocfilehash: ef47d311f5f096db962ea27792e7871dbf0ef81a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392528"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712964"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Sviluppo e debug iterativi con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -73,6 +76,8 @@ I flussi di dati di mapping consentono di compilare la logica di trasformazione 
 È possibile monitorare le sessioni di debug del flusso di dati attivo attraverso una factory nell'esperienza di **monitoraggio** .
 
 ![Visualizzare le sessioni di debug del flusso di dati](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+L'anteprima dei dati nella finestra di progettazione del flusso di dati e il debug di pipeline di flussi di dati sono progettati per funzionare al meglio con piccoli esempi di dati. Tuttavia, se è necessario testare la logica in una pipeline o in un flusso di dati con grandi quantità di dati, aumentare le dimensioni del Azure Integration Runtime usato nella sessione di debug con più core e almeno un calcolo per utilizzo generico.
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Debug di una pipeline con un'attività flusso di dati
 
@@ -83,7 +88,7 @@ L'uso di una sessione di debug esistente ridurrà notevolmente il tempo di avvio
 L'uso del runtime di attività creerà un nuovo cluster usando le impostazioni specificate in ogni runtime di integrazione dell'attività flusso di dati. In questo modo è possibile isolare ogni processo e usarlo per carichi di lavoro complessi o test delle prestazioni. È inoltre possibile controllare la durata (TTL) nell'Azure IR in modo che le risorse del cluster utilizzate per il debug siano ancora disponibili per tale periodo di tempo per gestire richieste di processi aggiuntive.
 
 > [!NOTE]
-> Se si dispone di una pipeline con flussi di dati in esecuzione in parallelo, scegliere "utilizza Runtime attività" in modo che Data Factory possibile utilizzare il Integration Runtime selezionato nell'attività flusso di dati. In questo modo i flussi di dati possono essere eseguiti in più cluster e possono contenere le esecuzioni del flusso di dati parallele.
+> Se si dispone di una pipeline con flussi di dati in esecuzione in parallelo o flussi di dati che devono essere testati con set di dati di grandi dimensioni, scegliere "utilizza Runtime attività" in modo che Data Factory possibile utilizzare il Integration Runtime selezionato nell'attività flusso di dati. In questo modo i flussi di dati possono essere eseguiti in più cluster e possono contenere le esecuzioni del flusso di dati parallele.
 
 ![Esecuzione di una pipeline con un flusso di data](media/iterative-development-debugging/iterative-development-dataflow.png)
 

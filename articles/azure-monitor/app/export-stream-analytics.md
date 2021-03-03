@@ -3,22 +3,21 @@ title: Esportare da Azure Application Insights usando l'analisi di flusso | Docu
 description: L'analisi di flusso può trasformare, filtrare e instradare continuativamente i dati esportati da Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: c8486d7e5656a7770aec4a50739d3a9160e123e3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a517bddd8981554b7fb5044d33b6c6777df51e36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584333"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719798"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
+
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.
 
 In questo esempio verrà creato un adattatore che recupera dati da Application Insights, rinomina ed elabora alcuni dei campi e invia tramite pipe i dati in Power BI.
 
 > [!WARNING]
 > Esistono [modi consigliati migliori e più semplici per visualizzare dati di Application Insights in Power BI](./export-power-bi.md). Il percorso descritto qui è solo un esempio per mostrare come elaborare dati esportati.
-> 
-> 
 
 ![Diagramma a blocchi per l'esportazione tramite SA in PBI](./media/export-stream-analytics/020.png)
 
@@ -38,6 +37,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
     ![Nella risorsa di archiviazione aprire Impostazioni, Chiavi ed eseguire una copia della chiave di accesso primaria](./media/export-stream-analytics/045.png)
 
 ## <a name="start-continuous-export-to-azure-storage"></a>Avviare l'esportazione continua nell'archiviazione di Azure
+
 [Esportazione continua](export-telemetry.md) sposta i dati da Application Insights nell'archiviazione di Azure.
 
 1. Nel portale di Azure passare alla risorsa di Application Insights creata per la propria applicazione.
@@ -55,18 +55,19 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 
     ![Scegliere i tipi di eventi](./media/export-stream-analytics/080.png)
 
-1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../essentials/metrics-charts.md) e i singoli eventi in [Ricerca diagnostica](./diagnostic-search.md). 
+1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../essentials/metrics-charts.md) e i singoli eventi in [Ricerca diagnostica](./diagnostic-search.md).
    
     I dati verranno inoltre esportati nell'archivio. 
 2. Esaminare i dati esportati. In Visual Studio, scegliere **Visualizza/Cloud Explorer** e aprire Azure/Archiviazione. Se questa opzione di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo Nuovo progetto e aprire Visual C#/Cloud/Get Microsoft Azure SDK for .NET (Ottieni Microsoft Azure SDK per .NET).
    
     ![Screenshot che illustra come impostare i tipi di evento che si desidera visualizzare.](./media/export-stream-analytics/04-data.png)
    
-    Prendere nota della parte comune del nome del percorso, derivata dal nome dell’applicazione e dalla chiave di strumentazione. 
+    Prendere nota della parte comune del nome del percorso, derivata dal nome dell’applicazione e dalla chiave di strumentazione.
 
 Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è usare l'analisi di flusso per spostare i dati in un Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Creare un'istanza di analisi di flusso di Azure
+
 Nel [portale di Azure](https://portal.azure.com/) selezionare il servizio Analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
 
 ![Screenshot che mostra la pagina principale per la creazione di un processo di analisi di flusso nel portale di Azure.](./media/export-stream-analytics/SA001.png)
@@ -104,9 +105,9 @@ Esempio:
 
 > [!NOTE]
 > Controllare lo spazio di archiviazione per assicurarsi di ottenere il percorso corretto.
-> 
 
 ## <a name="add-new-output"></a>Aggiungere un nuovo output
+
 Selezionare il processo > **Output** > **Aggiungi**.
 
 ![Screenshot che mostra la selezione del processo di analisi di flusso per aggiungere un nuovo output.](./media/export-stream-analytics/SA006.png)
@@ -117,11 +118,13 @@ Selezionare il processo > **Output** > **Aggiungi**.
 Fornire l’ **account aziendale o dell’istituto di istruzione** per autorizzare l'analisi di flusso per l’accesso alla risorsa di Power BI. Creare quindi un nome per l'output e per il set di dati Power BI e la tabella di destinazione.
 
 ## <a name="set-the-query"></a>Impostare la query
+
 La query gestisce la conversione dall'input all'output.
 
-Utilizzare la funzione Test per verificare di ottenere l'output corretto. Assegnare i dati di esempio presenti nella pagina di input. 
+Utilizzare la funzione Test per verificare di ottenere l'output corretto. Assegnare i dati di esempio presenti nella pagina di input.
 
 ### <a name="query-to-display-counts-of-events"></a>Query per visualizzare i conteggi degli eventi
+
 Incollare questa query:
 
 ```SQL
@@ -154,7 +157,7 @@ OUTER APPLY GetElements(A.context.custom.metrics) as flat
 GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
 ```
 
-* Questa query entra nella telemetria delle metriche per ottenere l'ora dell'evento e il valore della metrica. I valori delle metriche sono all'interno di una matrice, pertanto si utilizza il modello OUTER APPLY GetElements per estrarre le righe. "myMetric" è il nome della metrica in questo caso. 
+* Questa query entra nella telemetria delle metriche per ottenere l'ora dell'evento e il valore della metrica. I valori delle metriche sono all'interno di una matrice, pertanto si utilizza il modello OUTER APPLY GetElements per estrarre le righe. "myMetric" è il nome della metrica in questo caso.
 
 ### <a name="query-to-include-values-of-dimension-properties"></a>Query per includere i valori delle proprietà delle dimensioni
 
@@ -178,17 +181,18 @@ FROM flat
 * Questa query include i valori delle proprietà delle dimensioni senza dipendere da una dimensione specifica in un indice fissato nella matrice di dimensioni.
 
 ## <a name="run-the-job"></a>Eseguire il processo
-Per la data di inizio del processo, è possibile selezionare una data nel passato. 
+
+Per la data di inizio del processo, è possibile selezionare una data nel passato.
 
 ![Selezionare il processo e fare clic su Query. Incollare l'esempio.](./media/export-stream-analytics/SA008.png)
 
 Attendere fino al termine dell'esecuzione del processo.
 
 ## <a name="see-results-in-power-bi"></a>Visualizzare i risultati in Power BI
+
 > [!WARNING]
 > Esistono [modi consigliati migliori e più semplici per visualizzare dati di Application Insights in Power BI](./export-power-bi.md). Il percorso descritto qui è solo un esempio per mostrare come elaborare dati esportati.
-> 
-> 
+
 
 Aprire Power BI con l’account aziendale o dell’istituto di istruzione e selezionare il set di dati e la tabella definiti come output del processo di Analisi di flusso.
 
@@ -199,17 +203,10 @@ Aprire Power BI con l’account aziendale o dell’istituto di istruzione e sele
 ![Screenshot mostra un esempio di report creato da un set di dati in Power BI.](./media/export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>Dati non visualizzati
+
 * Verificare di aver [impostato il formato di data](#set-path-prefix-pattern) correttamente su AAAA-MM-GG (con i trattini).
-
-## <a name="video"></a>Video
-Noam Ben Zeev mostra come elaborare dati esportati usando l'analisi di flusso.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Esportazione continua](export-telemetry.md)
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](export-data-model.md)
 * [Application Insights](./app-insights-overview.md)
-

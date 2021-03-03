@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: dcd0ccdc42a820f1e264b739cb0063516a0cb53e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675747"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688553"
 ---
 # <a name="user-profile-attributes"></a>Attributi del profilo utente
 
@@ -39,7 +39,7 @@ La tabella seguente illustra gli attributi del [tipo di risorsa utente](/graph/a
 - Se l'attributo può essere usato in un flusso utente
 - Se l'attributo può essere usato in un [profilo tecnico di Azure AD](active-directory-technical-profile.md) di un criterio personalizzato e in quale sezione (&lt;InputClaims&gt;, &lt;OutputClaims&gt;o &lt;PersistedClaims&gt;)
 
-|Nome     |Type     |Descrizione|Portale di Azure|Flussi degli utenti|Criteri personalizzati|
+|Nome     |Tipo     |Descrizione|Portale di Azure|Flussi degli utenti|Criteri personalizzati|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Boolean|Indica se l'account utente è abilitato o disabilitato: **true** se l'account è abilitato, **false** in caso contrario.|Sì|No|Persisted, Output|
 |ageGroup        |string|Gruppo di età dell'utente. Valori possibili: null, Undefined, Minor, Adult, NotAdult.|Sì|No|Persisted, Output|
@@ -105,7 +105,7 @@ Un utente con un account cliente può accedere con più identità. Ad esempio no
 
 Nell'API Microsoft Graph, sia le identità locali che quelle federate vengono archiviate nell' `identities` attributo User, che è di tipo [objectIdentity] [Graph-objectIdentity]. La `identities` raccolta rappresenta un set di identità usate per accedere a un account utente. Questa raccolta consente all'utente di accedere all'account utente con qualsiasi identità associata.
 
-| Nome   | Type |Descrizione|
+| Nome   | Tipo |Descrizione|
 |:---------------|:--------|:----------|
 |signInType|string| Specifica i tipi di accesso utente nella directory. Per l'account locale:  `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3` ,  `userName` o qualsiasi altro tipo. L'account di social networking deve essere impostato su  `federated` .|
 |autorità di certificazione|string|Specifica l'emittente dell'identità. Per gli account locali (dove **signInType** non è `federated` ), questa proprietà corrisponde al nome di dominio predefinito del tenant B2C locale, ad esempio `contoso.onmicrosoft.com` . Per l'identità sociale (dove **signInType** è  `federated` ), il valore è il nome dell'autorità emittente, ad esempio `facebook.com`|
@@ -137,7 +137,7 @@ Per le identità federate, a seconda del provider di identità, **issuerAssigned
 
 ## <a name="password-profile-property"></a>Proprietà profilo password
 
-Per un'identità locale, l'attributo **passwordProfile** è obbligatorio e contiene la password dell'utente. L' `forceChangePasswordNextSignIn` attributo deve essere impostato su `false` .
+Per un'identità locale, l'attributo **passwordProfile** è obbligatorio e contiene la password dell'utente. L' `forceChangePasswordNextSignIn` attributo indica se un utente deve reimpostare la password al successivo accesso. Per gestire una reimpostazione della password forzata, [configurare il flusso di reimpostazione della password forzata](force-password-reset.md).
 
 Per un'identità federata (social), l'attributo **passwordProfile** non è obbligatorio.
 
@@ -183,7 +183,7 @@ Gli attributi di estensione nel API Graph vengono denominati usando la convenzio
 
 Quando si definisce un attributo in un'estensione dello schema sono supportati i tipi di dati seguenti:
 
-|Type |Osservazioni  |
+|Tipo |Osservazioni  |
 |--------------|---------|
 |Boolean    | Valori possibili: **true** o **false**. |
 |Datetime   | Deve essere specificato nel formato ISO 8601. Verrà archiviato in formato UTC.   |

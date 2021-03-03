@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c84d8129e1d0d88601495dec41883077784bb71
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993670"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728196"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure
 La compressione dei file è un metodo semplice ed efficace per aumentare la velocità di trasferimento dei file e migliorare le prestazioni di caricamento delle pagine mediante la riduzione delle dimensioni del file prima che venga inviato dal server. Riduce i costi della larghezza di banda e offre un'esperienza più reattiva per gli utenti.
@@ -153,10 +153,10 @@ Le tabelle seguenti descrivono il comportamento della compressione della rete CD
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>Compressione abilitata e file idoneo per la compressione
 | Formato richiesto del client tramite l'intestazione Accept-Encoding | Formato del file memorizzato nella cache non valido | Risposta della rete CDN al client | Note |
 | --- | --- | --- | --- |
-| Compresso |Compresso |Compresso |Transcodifica della rete CDN tra formati supportati |
+| Compresso |Compresso |Compresso |Transcodifica della rete CDN tra formati supportati <br/>La rete **CDN di Azure di Microsoft** non supporta la transcodifica tra formati, ma recupera i dati dall'origine, comprime e memorizza nella cache separatamente per il formato. |
 | Compresso |Non compresso |Compresso |Compressione da parte della rete CDN |
 | Compresso |Non memorizzato nella cache |Compresso |La rete CDN esegue la compressione se l'origine restituisce un file non compresso. <br/>**La rete CDN di Azure fornita da Verizon** effettua il passaggio del file non compresso per la prima richiesta, per poi eseguire la compressione e la memorizzazione nella cache del file per le richieste successive. <br/>I file con l'intestazione `Cache-Control: no-cache` non vengono mai compressi. |
-| Non compresso |Compresso |Non compresso |Decompressione da parte della rete CDN. |
+| Non compresso |Compresso |Non compresso |Decompressione da parte della rete CDN. <br/>La rete **CDN di Azure di Microsoft** non supporta la decompressione e invece recupera i dati dall'origine e dalle cache separatamente per i client non compressi. |
 | Non compresso |Non compresso |Non compresso | |
 | Non compresso |Non memorizzato nella cache |Non compresso | |
 

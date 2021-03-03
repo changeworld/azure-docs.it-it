@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 3a2854f4124a570de4fb467eb6a5d49a3214742e
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1a52b2fec6155959a570f2438a59c14d9f79f368
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341822"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701961"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Domande frequenti per i clienti che usano già i log di monitoraggio di Azure<a name="existingloganalyticscust"></a>
 
@@ -34,7 +34,7 @@ Una soluzione del Centro sicurezza viene installata nell'area di lavoro selezion
 ## <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Il Centro sicurezza installa soluzioni nelle aree di lavoro di Log Analytics esistenti? Quali solo le implicazioni relative alla fatturazione?
 Quando il Centro sicurezza rileva che una macchina virtuale è già connessa a un'area di lavoro creata, il Centro sicurezza Abilita le soluzioni in questa area di lavoro in base alla configurazione dei prezzi. Le soluzioni vengono applicate solo alle macchine virtuali rilevanti di Azure tramite il [targeting della soluzione](../azure-monitor/insights/solution-targeting.md), quindi la fatturazione rimane invariata.
 
-- **Azure Defender off** : il Centro sicurezza installa la soluzione ' SecurityCenterFree ' nell'area di lavoro. Non verrà addebitato alcun costo.
+- **Azure Defender off** : il Centro sicurezza installa la soluzione "SecurityCenterFree" nell'area di lavoro. Non verrà addebitato alcun costo.
 - **Azure Defender on** : il Centro sicurezza installa la soluzione ' Security ' nell'area di lavoro.
 
    ![Soluzioni nell'area di lavoro predefinita](./media/security-center-platform-migration-faq/solutions.png)

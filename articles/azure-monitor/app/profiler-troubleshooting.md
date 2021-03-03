@@ -6,17 +6,14 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 05a2eaeb3b716988a8ae1eddcaa5a5a58cc3776a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2ab719b47245f3adc2fba610f9c0473868889a7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675697"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711451"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Risolvere i problemi di abilitazione o visualizzazione di Application Insights Profiler
-
-> [!CAUTION]
-> È presente un bug che esegue Profiler per le app ASP.NET Core in app Azure servizio. È stata rilevata una correzione, ma la distribuzione a livello mondiale sarà necessaria alcune settimane. Per risolvere il problema, è possibile aggiungere l'SDK Application Insights all'applicazione con le istruzioni riportate [qui](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Risoluzione dei problemi generali
 
@@ -67,6 +64,7 @@ Un thread che passa rapidamente in uno stato di attesa è in genere in attesa di
 Inviare un ticket di supporto nel portale. Verificare di includere l'ID di correlazione dal messaggio di errore.
 
 ## <a name="troubleshoot-profiler-on-azure-app-service"></a>Risolvere i problemi di Profiler nel Servizio app di Azure
+
 Per il corretto funzionamento di Profiler:
 * Il piano di servizio dell'app Web deve essere di livello Basic o superiore.
 * Application Insights deve essere abilitato per l'app Web.
@@ -95,6 +93,10 @@ Se Profiler non funziona, è possibile scaricare il log e inviarlo al team per a
 
 ### <a name="check-the-diagnostic-services-site-extension-status-page"></a>Controllare la pagina di stato dell'estensione del sito dei servizi di diagnostica
 Se Profiler è stato abilitato tramite il [riquadro Application Insights](profiler.md) nel portale, è stato abilitato dall'estensione del sito dei servizi di diagnostica.
+
+> [!NOTE]
+> L'installazione di Application Insights Profiler non codificata segue i criteri di supporto di .NET Core.
+> Per altre informazioni sui Runtime supportati, vedere [criteri di supporto di .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Per controllare la pagina stato di questa estensione, passare all'URL seguente: `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
 
@@ -140,7 +142,7 @@ Se si sta ridistribuendo l'app Web a una risorsa di App Web con Profiler abilita
 
 *Directory non vuota ' d: \\ Home \\ site \\ wwwroot \\ App_Data \\ Jobs '*
 
-Questo errore si verifica se si esegue Distribuzione Web da script o dalla Azure Pipelines. Per risolvere questo problema, aggiungere i parametri di distribuzione seguenti all'attività Distribuzione Web:
+Questo errore si verifica se si esegue Distribuzione Web da script o dalla Azure Pipelines. La soluzione consiste nell'aggiungere i parametri di distribuzione seguenti all'attività Distribuzione Web:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

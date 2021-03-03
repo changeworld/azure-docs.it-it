@@ -6,18 +6,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 02/23/2021
 ms.author: victorh
-ms.openlocfilehash: 16f55dc88ed2d2d019a2fed355a14741263c20af
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
-ms.translationtype: HT
+ms.openlocfilehash: 208bd0fe7f3869cbe15dd27e0b883c467e41c765
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397604"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735072"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Esercitazione: Creare e configurare un gateway applicazione per ospitare più siti Web usando il portale di Azure
 
-È possibile usare il portale di Azure per configurare l'[hosting di più siti Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questa esercitazione si definiranno pool di indirizzi back-end usando macchine virtuali. e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questa esercitazione presuppone che l'utente sia proprietario di più domini e che usi gli esempi di *www.contoso.com* e *www.fabrikam.com*.
+È possibile usare il portale di Azure per configurare l'[hosting di più siti Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questa esercitazione si definiranno pool di indirizzi back-end usando macchine virtuali. Si configurano quindi i listener e le regole in base a due domini per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questa esercitazione usa esempi di *www.contoso.com* e *www.fabrikam.com*.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -47,8 +47,8 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 1. Nella scheda **Informazioni di base** immettere questi valori per le impostazioni del gateway applicazione seguenti:
 
-   - **Gruppo di risorse** : selezionare **myResourceGroupAG** come gruppo di risorse. Se non esiste, selezionare **Crea nuovo** per crearlo.
-   - **Nome del gateway applicazione** : immettere *myAppGateway* come nome del gateway applicazione.
+   - **Gruppo di risorse**: selezionare **myResourceGroupAG** come gruppo di risorse. Se non esiste, selezionare **Crea nuovo** per crearlo.
+   - **Nome del gateway applicazione**: immettere *myAppGateway* come nome del gateway applicazione.
 
      :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Creare un gateway applicazione":::
 
@@ -56,7 +56,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
     In **Configura rete virtuale** selezionare **Crea nuovo** per creare una nuova rete virtuale. Nella finestra **Crea rete virtuale** visualizzata immettere i valori seguenti per creare la rete virtuale e due subnet:
 
-    - **Name** : immettere *myVnet* come nome della rete virtuale.
+    - **Name**: immettere *myVnet* come nome della rete virtuale.
 
     - **Nome subnet** (subnet del gateway applicazione): Nella griglia **Subnet** verrà visualizzata una subnet denominata *Predefinita*. Modificare il nome della subnet in *myAGSubnet*.<br>La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.
 
@@ -76,7 +76,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
    > [!NOTE]
    > Per lo SKU v2 del gateway applicazione, è possibile scegliere solo la configurazione **pubblica** dell'IP front-end. La configurazione di indirizzi IP front-end privati non è attualmente abilitata per questo SKU v2.
 
-2. Scegliere **Crea nuovo** per **Indirizzo IP pubblico** e immettere *myAGPublicIPAddress* per il nome dell'indirizzo IP pubblico, quindi selezionare **OK**. 
+2. Selezionare **Aggiungi nuovo** per l' **indirizzo IP pubblico** e immettere *myAGPublicIPAddress* per il nome dell'indirizzo IP pubblico e quindi fare clic su **OK**. 
 
      :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Creare un'altra rete virtuale":::
 
@@ -86,15 +86,16 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 Il pool back-end viene usato per instradare le richieste ai server back-end che gestiscono la richiesta. I pool back-end possono essere costituiti da schede di interfaccia di rete, set di scalabilità di macchine virtuali, indirizzi IP pubblici, indirizzi IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come Servizio app di Azure. In questo esempio verrà creato un pool back-end vuoto con il gateway applicazione a cui verranno aggiunte le destinazioni back-end.
 
-1. Nella scheda **Back- end** selezionare **Aggiungi un pool back-end**.
+1. Nella scheda Back- **end** selezionare **Aggiungi un pool back-end**.
 
 2. Nella finestra **Aggiungi un pool back-end** visualizzata immettere i valori seguenti per creare un pool back-end vuoto:
 
-    - **Name** : immettere *contosoPool* come nome del pool back-end.
-    - **Aggiungi pool back-end senza destinazioni** : selezionare **Sì** per creare un pool back-end senza destinazioni. Le destinazioni back-end verranno aggiunte dopo la creazione del gateway applicazione.
+    - **Name**: immettere *contosoPool* come nome del pool back-end.
+    - **Aggiungi pool back-end senza destinazioni**: selezionare **Sì** per creare un pool back-end senza destinazioni. Le destinazioni back-end verranno aggiunte dopo la creazione del gateway applicazione.
 
 3. Nella finestra **Aggiungi un pool back-end** selezionare **Aggiungi** per salvare la configurazione del pool back-end e tornare alla scheda **Back-end**.
-4. Aggiungere ora un altro pool back-end denominato *fabrikamPool*.
+4. Aggiungere ora un altro pool back-end denominato *fabrikamPool* nello stesso modo in cui è stato aggiunto il pool precedente.
+1. Selezionare **Aggiungi**.
 
     :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Creare back-end":::
 
@@ -104,29 +105,30 @@ Il pool back-end viene usato per instradare le richieste ai server back-end che 
 
 Nella scheda **Configurazione** verranno connessi i pool front-end e back-end creati tramite una regola di routing.
 
-1. Selezionare **Aggiungi una regola** nella colonna **Regole di routing**.
+1. Selezionare **Aggiungi una regola di routing** nella colonna **regole di routing** .
 
 2. Nella finestra **Aggiungi una regola di routing** visualizzata immettere *contosoRule* per **Nome regola**.
 
 3. Una regola di routing richiede un listener. Nella scheda **Listener** nella finestra **Aggiungi una regola di routing** immettere i valori seguenti per il listener:
 
-    - **Nome listener** : immettere *contosoListener* come nome del listener.
-    - **IP front-end** : selezionare **Pubblico** per scegliere l'indirizzo IP pubblico creato per il front-end.
+    - **Nome regola**: *contosoRule*.
+    - **Nome del listener**: *contosoListener*.
+    - **IP front-end**: selezionare **Pubblico** per scegliere l'indirizzo IP pubblico creato per il front-end.
 
-   In **Impostazioni aggiuntive** :
-   - **Tipo di listener** : Più siti
-   - **Nome host** : **www.contoso.com**
+   In **Impostazioni aggiuntive**:
+   - **Tipo di listener**: Più siti
+   - **Nome host**: **www.contoso.com**
 
-   Accettare i valori predefiniti per le altre impostazioni nella scheda **Listener** , quindi selezionare la scheda **Destinazioni back-end** per configurare il resto della regola di routing.
+   Accettare i valori predefiniti per le altre impostazioni nella scheda **Listener**, quindi selezionare la scheda **Destinazioni back-end** per configurare il resto della regola di routing.
 
    :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Creare una regola di routing":::
 
 4. Nella scheda **Destinazioni back-end** selezionare **contosoPool** per **Destinazione back-end**.
 
-5. Per **Impostazione HTTP** selezionare **Crea nuovo** per creare una nuova impostazione HTTP. L'impostazione HTTP determinerà il comportamento della regola di routing. Nella finestra **Aggiungi un'impostazione HTTP** visualizzata immettere *contosoHTTPSetting* per **Nome impostazione HTTP**. Accettare i valori predefiniti per le altre impostazioni nella finestra **Aggiungi un'impostazione HTTP** e quindi selezionare **Aggiungi** per tornare alla finestra **Aggiungi una regola di routing**. 
+5. Per l' **impostazione http**, selezionare **Aggiungi nuovo** per creare una nuova impostazione http. L'impostazione HTTP determinerà il comportamento della regola di routing. Nella finestra **Aggiungi un'impostazione HTTP** visualizzata immettere *contosoHTTPSetting* per **Nome impostazione HTTP**. Accettare i valori predefiniti per le altre impostazioni nella finestra **Aggiungi un'impostazione HTTP** e quindi selezionare **Aggiungi** per tornare alla finestra **Aggiungi una regola di routing**. 
 
 6. Nella finestra **Aggiungi una regola di routing** selezionare **Aggiungi** per salvare la regola di routing e tornare alla scheda **Configurazione**.
-7. Selezionare **Aggiungi una regola** e aggiungere una regola, un listener, una destinazione back-end e un'impostazione HTTP simili per Fabrikam.
+7. Selezionare **Aggiungi una regola di routing** e aggiungere una regola, un listener, una destinazione back-end e un'impostazione http simili per fabrikam.
 
      :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Regola per Fabrikam":::
 
@@ -144,24 +146,26 @@ In questo esempio vengono usate macchine virtuali come back-end di destinazione.
 
 Per aggiungere destinazioni back-end:
 
-1. Creare due nuove macchine virtuali, *contosoVM* e *fabrikamVM* , da usare come server back-end.
+1. Creare due nuove macchine virtuali, *contosoVM* e *fabrikamVM*, da usare come server back-end.
 2. Installare IIS nelle macchine virtuali per verificare che il gateway applicazione sia stato creato correttamente.
 3. Aggiungere i server back-end ai pool back-end.
 
 ### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
 1. Nel portale di Azure fare clic su **Crea una risorsa**. Verrà visualizzata la finestra **Nuovo**.
-2. Selezionare **Calcolo** e quindi selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**. Viene visualizzata la pagina **Creare una macchina virtuale**.<br>Il gateway applicazione può indirizzare il traffico a qualsiasi tipo di macchina virtuale usato nel pool back-end. In questo esempio si usa Windows Server 2016 Datacenter.
+2. Selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**. Viene visualizzata la pagina **Creare una macchina virtuale**.<br>Il gateway applicazione può indirizzare il traffico a qualsiasi tipo di macchina virtuale usato nel pool back-end. In questo esempio si usa Windows Server 2016 Datacenter.
 3. Immettere questi valori nella scheda **Informazioni di base** per le seguenti impostazioni della macchina virtuale:
 
-    - **Gruppo di risorse** : selezionare **myResourceGroupAG** come nome del gruppo di risorse.
-    - **Nome macchina virtuale** : immettere *contosoVM* come nome della macchina virtuale.
-    - **Nome utente** : Immettere un nome per il nome utente amministratore.
-    - **Password** : Immettere la password dell'amministratore.
+    - **Sottoscrizione**: selezionare la propria sottoscrizione.
+    - **Gruppo di risorse**: selezionare **myResourceGroupAG** come nome del gruppo di risorse.
+    - **Nome macchina virtuale**: immettere *contosoVM* come nome della macchina virtuale.
+    - **Region**: selezionare la stessa area usata in precedenza.
+    - **Nome utente**: Immettere un nome per il nome utente amministratore.
+    - **Password**: Immettere la password dell'amministratore.
 1. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Dischi**.  
 2. Accettare le impostazioni predefinite della scheda **Dischi** e quindi selezionare **Avanti: Rete**.
 3. Nella scheda **Rete** verificare che **myVNet** sia selezionato per la **Rete virtuale** e che la **Subnet** sia **myBackendSubnet**. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Gestione**.<br>Il gateway applicazione può comunicare con le istanze all'esterno della rete virtuale in cui si trova, ma è necessario verificare che ci sia la connettività IP.
-4. Nella scheda **Gestione** impostare **Diagnostica di avvio** su **Off**. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Rivedi e crea**.
+4. Nella scheda **Gestione** impostare **Diagnostica di avvio** su **Disabilita**. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Rivedi e crea**.
 5. Nella scheda **Rivedi e crea** rivedere le impostazioni, correggere eventuali errori di convalida e quindi selezionare **Crea**.
 6. Attendere il termine della creazione della macchina virtuale prima di continuare.
 
@@ -197,9 +201,9 @@ In questo esempio viene installato IIS nelle macchine virtuali solo per verifica
 
 3. Selezionare **contosoPool**.
 
-4. In **Destinazioni** selezionare **Macchina virtuale** dall'elenco a discesa.
+4. In **tipo di destinazione** selezionare **macchina virtuale** dall'elenco a discesa.
 
-5. In **MACCHINA VIRTUALE** e **INTERFACCE DI RETE** selezionare la macchina virtuale **contosoVM** e le relative interfacce di rete associate negli elenchi a discesa.
+5. In **destinazione** selezionare l'interfaccia di rete della macchina virtuale **contosoVM** dall'elenco a discesa.
 
     ![Aggiungere i server back-end](./media/create-multiple-sites-portal/edit-backend-pool.png)
 
@@ -208,23 +212,57 @@ In questo esempio viene installato IIS nelle macchine virtuali solo per verifica
 
 Attendere il completamento della distribuzione prima di procedere al passaggio successivo.
 
-## <a name="create-a-www-a-record-in-your-domains"></a>Creare un record A www nei domini
+## <a name="edit-your-hosts-file"></a>Modificare il file degli host
 
-Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibile ottenere l'indirizzo IP e usarlo per creare un record A nei domini. 
+Dopo aver creato il gateway applicazione con il relativo indirizzo IP pubblico, è possibile ottenere l'indirizzo IP e usarlo per modificare il file degli host per risolvere `www.contoso.com` e `www.fabrikam.com` 
 
 1. Fare clic su **Tutte le risorse** e quindi su **myAGPublicIPAddress**.
 
     ![Registrare l'indirizzo DNS del gateway applicazione](./media/create-multiple-sites-portal/public-ip.png)
 
-2. Copiare l'indirizzo IP e usarlo come valore per un nuovo record A *www* nei domini.
+2. Copiare l'indirizzo IP e usarlo come valore per le nuove voci del `hosts` file.
+1. Nel computer locale aprire un prompt dei comandi amministrativo e passare a `c:\Windows\System32\drivers\etc` .
+1. Aprire il `hosts` file e aggiungere le voci seguenti, dove `x.x.x.x` è l'indirizzo IP pubblico del gateway applicazione:
+   ```dos
+   # Copyright (c) 1993-2009 Microsoft Corp.
+   #
+   # This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+   #
+   # This file contains the mappings of IP addresses to host names. Each
+   # entry should be kept on an individual line. The IP address should
+   # be placed in the first column followed by the corresponding host name.
+   # The IP address and the host name should be separated by at least one
+   # space.
+   #
+   # Additionally, comments (such as these) may be inserted on individual
+   # lines or following the machine name denoted by a '#' symbol.
+   #
+   # For example:
+   #
+   #      102.54.94.97     rhino.acme.com          # source server
+   #       38.25.63.10     x.acme.com              # x client host
+   
+   # localhost name resolution is handled within DNS itself.
+   #    127.0.0.1       localhost
+   #    ::1             localhost
+   x.x.x.x www.contoso.com
+   x.x.x.x www.fabrikam.com
 
+   ```
+1. Salvare il file.
+1. Eseguire i comandi seguenti per caricare e visualizzare le modifiche apportate al file hosts:
+   ```dos
+    ipconfig/registerdns
+    ipconfig/displaydns
+   ```
+   
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-1. Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, `http://www.contoso.com`.
+1. Digitare un nome di dominio nella barra degli indirizzi del browser. Ad esempio: `http://www.contoso.com`.
 
     ![Testare il sito contoso nel gateway applicazione](./media/create-multiple-sites-portal/application-gateway-iistest.png)
 
-2. Sostituire l'indirizzo con l'altro dominio come nell'esempio seguente:
+2. Modificare l'indirizzo nell'altro dominio. verrà visualizzato un esempio simile al seguente:
 
     ![Testare il sito fabrikam nel gateway applicazione](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
@@ -238,6 +276,9 @@ Per rimuovere il gruppo di risorse:
 2. Nella pagina **Gruppo di risorse** cercare **myResourceGroupAG** nell'elenco e selezionarlo.
 3. Nella pagina **Gruppo di risorse** selezionare **Elimina gruppo di risorse**.
 4. Immettere *myResourceGroupAG* in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e quindi selezionare **Elimina**.
+
+Per ripristinare il file hosts:
+1. Eliminare le `www.contoso.com` `www.fabrikam.com` righe e dal file host ed eseguire `ipconfig/registerdns` e `ipconfig/flushdns` dal prompt dei comandi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

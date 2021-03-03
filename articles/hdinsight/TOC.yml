@@ -40,8 +40,18 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Concetti
       items:
-        - name: Componenti Apache in HDInsight
-          href: ./hdinsight-component-versioning.md
+        - name: Controllo delle versioni
+          items:
+            - name: Introduzione al controllo delle versioni
+              href: ./hdinsight-overview-versioning.md
+            - name: Versioni di HDInsight
+              href: ./hdinsight-component-versioning.md
+            - name: 'HDInsight versione 4,0'
+              href: ./hdinsight-40-component-versioning.md
+            - name: HDInsight versione 3.6
+              href: ./hdinsight-36-component-versioning.md
+            - name: Versioni HDInsight ritirate
+              href: ./hdinsight-retired-versions.md
         - name: Enterprise Security Package
           href: ./enterprise-security-package.md
         - name: Note sulla versione di Hortonworks
@@ -650,7 +660,7 @@
             - name: Usare Apache Kafka con l'hub IoT
               href: ./kafka/apache-kafka-connector-iot-hub.md
             - name: Registro schemi Confluent
-              href: ./kafka/schema-registry.md
+              href: ./kafka/apache-kafka-producer-consumer-api.md
             - name: Creare pipeline di flusso
               items:
                 - name: 'Apache Spark, Apache Kafka e Azure Cosmos DB'
@@ -817,6 +827,10 @@
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
         - name: Gestione
           items:
+            - name: Copiare le tabelle hive tra gli account di archiviazione
+              href: ./interactive-query/hive-migration-across-storage-accounts.md
+            - name: Eseguire la migrazione del metastore Hive predefinito al Metastore esterno in Azure HDInsight
+              href: ./interactive-query/hive-default-metastore-export-import.md
             - name: Eseguire la migrazione di carichi di lavoro Hive ad HDInsight 4.0
               href: ./interactive-query/apache-hive-migrate-workloads.md
             - name: Ottimizzare le query Apache Hive

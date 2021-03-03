@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 01/13/2021
-ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/18/2021
+ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507249"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702488"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate
 
@@ -282,7 +282,7 @@ Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabe
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Restituisce il corpo per una parte specifica dell'output di un'azione con più parti. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Restituisce l'output di un'azione in fase di esecuzione. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Restituisce il valore per un parametro descritto nella definizione del flusso di lavoro. |
-| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Restituisce gli input e gli output di tutte le azioni all'interno dell'azione con ambito specificata, ad esempio `For_each`, `Until` e `Scope`. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Restituisce gli input e gli output delle azioni di primo livello all'interno dell'azione con ambito specificata, ad esempio `For_each` , `Until` e `Scope` . |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Restituisce l'output di un trigger in fase di esecuzione o i valori di altre coppie di nomi e valori JSON. Vedere anche [triggerOutputs](#triggerOutputs) e [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Restituisce l'oggetto `body` di output di un trigger in fase di esecuzione. Vedere [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Restituisce un singolo valore corrispondente a un nome di chiave negli output *form-data* o *form-encoded* del trigger. |
@@ -685,7 +685,7 @@ addProperty(<object>, '<property>', <value>)
 | <*value*> | Sì | Qualsiasi | Valore per la proprietà |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | <*updated-object*> | Oggetto | Oggetto JSON aggiornato con la proprietà specificata |
 ||||
@@ -1243,7 +1243,7 @@ In particolare, questa funzione può essere usata con questi tipi di raccolta:
 | <*value*> | Sì | String, array o dictionary, rispettivamente | Elemento da trovare |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | true o false | Boolean | Restituisce true se l'elemento viene trovato. Restituisce false se l'elemento non viene trovato. |
 ||||
@@ -1437,7 +1437,7 @@ dataUri('<value>')
 | <*value*> | Sì | string | Stringa da convertire |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | <*data-uri*> | string | URI di dati per la stringa di input |
 ||||
@@ -1772,7 +1772,7 @@ empty([<collection>])
 | <*collection*> | Sì | String, array o object | Raccolta da verificare |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | true o false | Boolean | Restituisce true se la raccolta è vuota. Restituisce false se non è vuota. |
 ||||
@@ -1809,7 +1809,7 @@ endsWith('<text>', '<searchText>')
 | <*searchText*> | Sì | string | Sottostringa finale da trovare |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | true o false  | Boolean | Restituisce true se la sottostringa finale viene trovata. Restituisce false se l'elemento non viene trovato. |
 ||||
@@ -2039,7 +2039,7 @@ Restituisce un numero come stringa in base al formato specificato.
 formatNumber(<number>, <format>, <locale>?)
 ```
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*number*> | Sì | Intero o doppio | Valore che si desidera per il formato. |
 | <*format*> | Sì | string | Stringa in formato composto che specifica il formato che si desidera usare. Per le stringhe in formato numerico supportate, vedere [Stringhe in formato numerico standard](/dotnet/standard/base-types/standard-numeric-format-strings), che sono supportate da `number.ToString(<format>, <locale>)`. |
@@ -2100,7 +2100,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | string | Timestamp corrente con l'aggiunta del numero di unità di tempo specificato |
 ||||
@@ -2742,7 +2742,7 @@ Restituire la posizione iniziale o il valore di indice per l'ultima occorrenza d
 lastIndexOf('<text>', '<searchText>')
 ```
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sì | string | Stringa che contiene la sottostringa da trovare |
 | <*searchText*> | Sì | string | Sottostringa da trovare |
@@ -3046,7 +3046,7 @@ Restituisce il corpo per una parte specifica dell'output di un'azione con più p
 multipartBody('<actionName>', <index>)
 ```
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sì | string | Nome per l'azione che ha un output con più parti |
 | <*index*> | Sì | Integer | Valore di indice per la parte desiderata |
@@ -3068,12 +3068,12 @@ Restituisce true se l'espressione è false o false se è true.
 not(<expression>)
 ```
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*expression*> | Sì | Boolean | Espressione da verificare |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | true o false | Boolean | Restituisce true se l'espressione è false. Restituisce false se l'espressione è true. |
 ||||
@@ -3303,7 +3303,7 @@ range(<startIndex>, <count>)
 | <*count*> | Sì | Integer | Numero di valori interi nella matrice |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | [<*range-result*>] | Array | Matrice di valori interi a partire dall'indice specificato |
 ||||
@@ -3451,7 +3451,12 @@ Ecco l'oggetto JSON aggiornato:
 
 ### <a name="result"></a>result
 
-Restituisce gli input e gli output di tutte le azioni all'interno dell'azione con ambito specificata, ad esempio un'azione `For_each`, `Until` e `Scope`. Questa funzione è utile per restituire i risultati di un'azione non riuscita, in modo da poter diagnosticare e gestire le eccezioni. Per altre informazioni, vedere [Ottenere il contesto e i risultati per gli errori](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+Restituisce i risultati dalle azioni di primo livello nell'azione con ambito specificata, ad esempio un' `For_each` `Until` azione, o `Scope` . La `result()` funzione accetta un solo parametro, che è il nome dell'ambito, e restituisce una matrice che contiene informazioni dalle azioni di primo livello in tale ambito. Questi oggetti azione includono gli stessi attributi restituiti dalla `actions()` funzione, ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID di correlazione e gli output dell'azione.
+
+> [!NOTE]
+> Questa funzione restituisce informazioni *solo* dalle azioni di primo livello nell'ambito dell'azione e non dalle azioni nidificate più approfondite, ad esempio le azioni switch o Condition.
+
+Ad esempio, è possibile usare questa funzione per ottenere i risultati dalle azioni non riuscite, in modo da poter diagnosticare e gestire le eccezioni. Per altre informazioni, vedere [Ottenere il contesto e i risultati per gli errori](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
@@ -3459,17 +3464,17 @@ result('<scopedActionName>')
 
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*scopedActionName*> | Sì | string | Nome dell'azione con ambito da cui restituire gli input e gli output di tutte le azioni interne |
+| <*scopedActionName*> | Sì | string | Nome dell'azione con ambito in cui si desidera ottenere gli input e gli output dalle azioni di primo livello all'interno di tale ambito |
 ||||
 
 | Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
-| <*array-object*> | Oggetto matrice | Matrice che contiene le matrici di input e output di ogni azione visualizzata all'interno dell'azione con ambito specificata |
+| <*array-object*> | Oggetto matrice | Matrice che contiene matrici di input e output di ogni azione di primo livello all'interno dell'ambito specificato. |
 ||||
 
 *Esempio*
 
-Questo esempio restituisce gli input e gli output di ogni iterazione di un'azione HTTP all'interno di un ciclo `For_each` tramite la funzione `result()` nell'azione `Compose`:
+In questo esempio vengono restituiti gli input e gli output di ogni iterazione di un'azione HTTP all'interno di un `For_each` ciclo utilizzando la `result()` funzione nell' `Compose` azione:
 
 ```json
 {
@@ -3800,7 +3805,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | <*updated-timestamp*> | string | Timestamp specificato, che inizia il primo giorno del mese in corrispondenza della mezzanotte esatta |
 ||||
@@ -3990,7 +3995,7 @@ Vedere anche [getPastTime](#getPastTime).
 subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
 | <*interval*> | Sì | Integer | Numero di unità di tempo specificate da sottrarre |
@@ -4094,7 +4099,7 @@ toLower('<text>')
 | <*text*> | Sì | string | Stringa da restituire in formato minuscolo |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | <*lowercase-text*> | string | Stringa originale in formato minuscolo |
 ||||
@@ -4291,7 +4296,7 @@ trim('<text>')
 | <*text*> | Sì | string | Stringa da cui rimuovere gli spazi iniziali e finali |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | <*updatedText*> | string | Versione aggiornata della stringa originale senza spazi iniziali o finali |
 ||||

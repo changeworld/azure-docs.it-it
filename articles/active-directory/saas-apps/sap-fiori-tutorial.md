@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ab21c6dc95ef39e6273dac405ba58e748890fc1a
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
-ms.translationtype: HT
+ms.openlocfilehash: 547d96a9591b99318a74977106e99511c9c80507
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968433"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687108"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SAP Fiori
 
@@ -146,7 +146,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Scegliere file di metadati](common/browse-upload-metadata.png)
 
-    c. Dopo il caricamento del file di metadati, i valori di **Identificatore** e **URL di risposta** vengono inseriti automaticamente nel riquadro **Configurazione SAML di base**. Nella casella **URL di accesso** immettere un URL con il formato seguente: `https:\//\<your company instance of SAP Fiori\>`.
+    c. Dopo il caricamento del file di metadati, i valori di **Identificatore** e **URL di risposta** vengono inseriti automaticamente nel riquadro **Configurazione SAML di base**. Nella casella **URL di accesso** immettere un URL con il formato seguente: `https://<your company instance of SAP Fiori>`.
 
     > [!NOTE]
     > Alcuni clienti segnalano errori di configurazione dei valori in **URL di risposta**. In tal caso, è possibile usare il seguente script di PowerShell per impostare l'URL di risposta corretto per l'istanza:

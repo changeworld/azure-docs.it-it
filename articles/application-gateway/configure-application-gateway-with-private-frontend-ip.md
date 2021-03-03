@@ -6,20 +6,24 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 04/16/2020
+ms.date: 02/23/2021
 ms.author: victorh
-ms.openlocfilehash: 64dfe284772faf2a345b7959f1a1bd6f474cd1bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 224cbe1e34e5915a7fa5fc1cf415c35f86c3abe4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562486"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711655"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurare un gateway applicazione con un endpoint del servizio di bilanciamento del carico interno (ILB)
 
 Applicazione Azure gateway può essere configurato con un indirizzo VIP con connessione Internet o con un endpoint interno non esposto a Internet. Un endpoint interno usa un indirizzo IP privato per il front-end, noto anche come endpoint del servizio di *bilanciamento del carico interno (ILB)*.
 
-La configurazione del gateway tramite un indirizzo IP privato front-end è utile per le applicazioni line-of-business interne che non sono esposte a Internet. Questa funzionalità è utile anche per i servizi e i livelli all'interno di un'applicazione multilivello che si trovano in un limite di sicurezza non esposto a Internet, ma che richiedono comunque la distribuzione del carico Round Robin, la viscosità della sessione o la Transport Layer Security (TLS), precedentemente nota come Secure Sockets Layer (SSL), terminazione.
+La configurazione del gateway tramite un indirizzo IP privato front-end è utile per le applicazioni line-of-business interne che non sono esposte a Internet. È utile anche per i servizi e i livelli all'interno di un'applicazione multilivello che si trovano in un limite di sicurezza non esposto a Internet, ma:
+
+- Richiedi comunque la distribuzione del carico Round Robin
+- appiccicosità della sessione
+- o Transport Layer Security terminazione (TLS) (precedentemente nota come Secure Sockets Layer (SSL)).
 
 Questo articolo illustra i passaggi per configurare un gateway applicazione con un indirizzo IP privato front-end usando il portale di Azure.
 
@@ -31,14 +35,16 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com>.
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
-Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale. È possibile creare una nuova rete virtuale oppure usarne una esistente. In questo esempio si creerà una nuova rete virtuale. È possibile creare una rete virtuale durante la creazione del gateway applicazione. Le istanze del gateway applicazione vengono create in subnet separate. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end.
+Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale. Creare una nuova rete virtuale o utilizzarne una esistente. 
+
+In questo esempio si creerà una nuova rete virtuale. È possibile creare una rete virtuale durante la creazione del gateway applicazione. Le istanze del gateway applicazione vengono create in subnet separate. In questo esempio sono presenti due subnet: una per il gateway applicazione e un'altra per i server back-end.
 
 1. Espandere il menu del portale e selezionare **Crea una risorsa**.
 2. Selezionare **Rete** e quindi **Gateway applicazione** nell'elenco In primo piano.
 3. Immettere *myAppGateway* come nome del gateway applicazione e *myResourceGroupAG* come nuovo gruppo di risorse.
-4. Per **area**selezionare **(Stati Uniti) Stati Uniti centrali**.
-5. Per **livello**selezionare **standard**.
-6. In **Configura rete virtuale** selezionare **Crea nuovo**e quindi immettere i valori seguenti per la rete virtuale:
+4. Per **area** selezionare **Stati Uniti centrali**.
+5. Per **livello** selezionare **standard**.
+6. In **Configura rete virtuale** selezionare **Crea nuovo** e quindi immettere i valori seguenti per la rete virtuale:
    - *myVNet* come nome della rete virtuale.
    - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
    - *myAGSubnet* come nome della subnet.
@@ -48,29 +54,29 @@ Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtu
 
     ![Creare una rete virtuale](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-1.png)
 
-6. Selezionare **OK** per creare la rete virtuale e la subnet.
+6. Selezionare **OK** per creare la rete virtuale e le subnet.
 7. Selezionare **Avanti: front-end**.
-8. In **tipo di indirizzo IP**front-end selezionare **privato**.
+8. In **tipo di indirizzo IP** front-end selezionare **privato**.
 
    Per impostazione predefinita, si tratta di un'assegnazione di indirizzi IP dinamici. Il primo indirizzo disponibile della subnet configurata viene assegnato come indirizzo IP front-end.
    > [!NOTE]
    > Una volta allocato, il tipo di indirizzo IP (statico o dinamico) non può essere modificato in un secondo momento.
 9. Selezionare **Avanti: backend**.
 10. Selezionare **Aggiungi un pool back-end**.
-11. Per **nome**digitare *appGatewayBackendPool*.
+11. Per **nome** digitare *appGatewayBackendPool*.
 12. Per **Aggiungi pool back-end senza destinazioni**, selezionare **Sì**. Le destinazioni verranno aggiunte in un secondo momento.
 13. Selezionare **Aggiungi**.
 14. Selezionare **Avanti: configurazione**.
-15. In **regole di routing**selezionare **Aggiungi una regola**.
-16. Per **Nome regola**digitare *RRULE-01*.
-17. Per **nome listener**digitare *listener-01*.
-18. Per **IP**front-end selezionare **privato**.
+15. In **regole di routing** selezionare **Aggiungi una regola di routing**.
+16. Per **Nome regola** digitare *RRULE-01*.
+17. Per **nome listener** digitare *listener-01*.
+18. Per **IP** front-end selezionare **privato**.
 19. Accettare i valori predefiniti rimanenti e selezionare la scheda **destinazioni back-end** .
-20. In **tipo di destinazione**selezionare **pool back-end**e quindi selezionare **appGatewayBackendPool**.
-21. Per **impostazione http**selezionare **Crea nuovo**.
-22. Per **Nome impostazione http**Digitare *http-setting-01*.
-23. Per **protocollo backend**selezionare **http**.
-24. Per la **porta back-end**Digitare *80*.
+20. In **tipo di destinazione** selezionare **pool back-end** e quindi selezionare **appGatewayBackendPool**.
+21. Per **impostazione http**, selezionare **Aggiungi nuovo**.
+22. Per **Nome impostazione http** Digitare *http-setting-01*.
+23. Per **protocollo backend** selezionare **http**.
+24. Per la **porta back-end** Digitare *80*.
 25. Accettare le impostazioni predefinite rimanenti e selezionare **Aggiungi**.
 26. Nella pagina **Aggiungi una regola di routing** selezionare **Aggiungi**.
 27. Selezionare **Avanti: Tag**.
@@ -89,23 +95,23 @@ A tale scopo, eseguire l'operazione seguente:
 
 ### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
+
 1. Selezionare **Crea una risorsa**.
 2. Selezionare **Calcolo** e quindi **Macchina virtuale**.
 4. Immettere i valori seguenti per la macchina virtuale:
+   - Selezionare la propria sottoscrizione.
    - Selezionare *myResourceGroupAG* per **gruppo di risorse**.
-   - *myVM* -per **nome macchina virtuale**.
+   - Digitare *myVM* per **nome macchina virtuale**.
    - Selezionare **Windows Server 2019 datacenter** per l' **immagine**.
-   - **nome utente**valido.
-   - **password**valida.
-5. Accettare i valori predefiniti rimanenti e fare clic su **Avanti: dischi**.
-6. Accettare le impostazioni predefinite e selezionare **Avanti: rete**.
-7. Assicurarsi che **myVNet** sia selezionato per la rete virtuale e che la subnet sia **myBackendSubnet**.
-8. Accettare i valori predefiniti rimanenti e fare clic su **Avanti: gestione**.
-9. Selezionare **Disattivato** per disabilitare la diagnostica di avvio.
-10. Accettare le impostazioni predefinite rimanenti e selezionare **Avanti: avanzate**.
-11. Selezionare **Avanti: Tag**.
-12. Selezionare **Avanti: verifica + crea**.
-13. Verificare le impostazioni nella pagina di riepilogo e quindi selezionare **Crea**. La creazione della macchina virtuale può richiedere diversi minuti. Attendere fino al termine della distribuzione prima di passare alla sezione successiva.
+   - Digitare un **nome utente** valido.
+   - Digitare una **password** valida.
+1. Accettare i valori predefiniti rimanenti e fare clic su **Avanti: dischi**.
+1. Accettare le impostazioni predefinite e selezionare **Avanti: rete**.
+1. Verificare che **myVNet** sia selezionato per la rete virtuale e che la subnet sia **myBackendSubnet**.
+1. Accettare i valori predefiniti rimanenti e fare clic su **Avanti: gestione**.
+1. Selezionare **Disabilita** per disabilitare la diagnostica di avvio.
+1. Selezionare **Rivedi e crea**.
+1. Verificare le impostazioni nella pagina di riepilogo e quindi selezionare **Crea**. La creazione della macchina virtuale può richiedere diversi minuti. Attendere fino al termine della distribuzione prima di passare alla sezione successiva.
 
 ### <a name="install-iis"></a>Installare IIS
 
@@ -115,44 +121,40 @@ A tale scopo, eseguire l'operazione seguente:
 
    ```azurepowershell
    Set-AzVMExtension `
-   
-     -ResourceGroupName myResourceGroupAG `
-   
-     -ExtensionName IIS `
-   
-     -VMName myVM `
-   
-     -Publisher Microsoft.Compute `
-   
-     -ExtensionType CustomScriptExtension `
-   
-     -TypeHandlerVersion 1.4 `
-
-     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-
-     -Location CentralUS `
+        -ResourceGroupName myResourceGroupAG `
+        -ExtensionName IIS `
+        -VMName myVM `
+        -Publisher Microsoft.Compute `
+        -ExtensionType CustomScriptExtension `
+        -TypeHandlerVersion 1.4 `
+        -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+         -Location CentralUS 
 
    ```
 
-
-
-3. Creare una seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere myVM2 per il nome e per VMName in Set-AzVMExtension.
+3. Creare una seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Usare myVM2 per il nome della macchina virtuale e per `VMName` in `Set-AzVMExtension` .
 
 ### <a name="add-backend-servers-to-backend-pool"></a>Aggiungere i server back-end al pool back-end
 
 1. Fare clic su **Tutte le risorse** e quindi selezionare **myAppGateway**.
-2. Selezionare **Pool back-end**. Selezionare **appGatewayBackendPool**.
-3. In **tipo di destinazione** selezionare **macchina virtuale**  e in **destinazione**selezionare il vNIC associato a myVM.
+2. Selezionare **pool back-end** e quindi selezionare **appGatewayBackendPool**.
+3. In **tipo di destinazione** selezionare **macchina virtuale**  e in **destinazione** selezionare il vNIC associato a myVM.
 4. Ripetere l'aggiunta per aggiungere MyVM2.
-   ![Screenshot mostra il riquadro Modifica pool back-end con tipi di destinazione e destinazioni evidenziati.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
-5. Selezionare **Salva.**
+   ![Modificare il riquadro pool back-end con i tipi di destinazione e le destinazioni evidenziati.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
+5. Selezionare **Salva**.
+
+## <a name="create-a-client-virtual-machine"></a>Creare una macchina virtuale client
+
+La macchina virtuale client viene usata per connettersi al pool back-end del gateway applicazione.
+
+- Creare una terza macchina virtuale usando i passaggi precedenti. Usare myVM3 per il nome della macchina virtuale.
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-1. Controllare l'IP front-end assegnato facendo clic sulla pagina **configurazioni IP** front-end nel portale.
-    ![Screenshot mostra il riquadro configurazioni IP front-end con il tipo privato evidenziato.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
-2. Copiare l'indirizzo IP privato e quindi incollarlo nella barra degli indirizzi del browser in una macchina virtuale nella stessa VNet o in locale che disponga della connettività a questo VNet e provare ad accedere al gateway applicazione.
+1. Nella pagina myAppGateway selezionare **configurazioni IP** front-end per prendere nota dell'indirizzo IP privato front-end.
+    ![Riquadro configurazioni IP front-end con il tipo privato evidenziato.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+2. Copiare l'indirizzo IP privato e quindi incollarlo nella barra degli indirizzi del browser in myVM3 per accedere al pool back-end del gateway applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si vuole monitorare l'integrità del back-end, vedere [log di diagnostica e integrità back-end per il gateway applicazione](application-gateway-diagnostics.md).
+Se si vuole monitorare l'integrità del pool back-end, vedere [log di diagnostica e integrità back-end per il gateway applicazione](application-gateway-diagnostics.md).

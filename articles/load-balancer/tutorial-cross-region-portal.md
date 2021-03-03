@@ -6,13 +6,13 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/24/2020
-ms.openlocfilehash: d94736656f691da9e893e4619a2299a061acd8e8
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.date: 02/24/2021
+ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611203"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712513"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Esercitazione: Creare un servizio di Azure Load Balancer tra più aree usando il portale di Azure
 
@@ -41,28 +41,29 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="sign-in-to-azure-portal"></a>Accedere al portale di Azure
 
-[Accedere](https://portal.azure.com) al portale di anteprima di Azure.
+[Accedere](https://preview.portal.azure.com) al portale di anteprima di Azure.
 
 ## <a name="create-cross-region-load-balancer"></a>Creare un servizio di bilanciamento del carico tra aree
 
 In questa sezione verranno creati un servizio di bilanciamento del carico tra più aree e un indirizzo IP pubblico.
 
-1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Load Balancer** o cercare **Load Balancer** nella casella di ricerca.
+1. Selezionare **Crea una risorsa**. 
+2. Nella casella di ricerca immettere **Load Balancer**. Selezionare **Load Balancer** nei risultati della ricerca.
+3. Nella pagina **bilanciamento del carico** selezionare **Crea**.
+4. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
 
-2. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
-
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e immettere **CreateCRLBTutorial-rg** nella casella di testo.|
     | Nome                   | Immettere **myLoadBalancer-CR**                                   |
-    | Region         | selezionare **Stati Uniti occidentali**.                                        |
+    | Region         | Select **(Stati Uniti) Stati Uniti occidentali**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
-    | SKU           | selezionare **Standard** |
+    | SKU           | Lasciare il valore predefinito **standard**. |
     | Livello           | Selezionare **Globale** |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**.|
     | Nome dell'indirizzo IP pubblico | Digitare **myPublicIP-CR** nella casella di testo.|
-    | Preferenza di routing| Selezionare **Rete Microsoft** |
+    | Preferenza di routing| Selezionare **rete Microsoft**. </br> Per ulteriori informazioni sulle preferenze di routing, vedere informazioni sulle preferenze di [routing (anteprima)](../virtual-network/routing-preference-overview.md). |
 
     > [!NOTE]
     > Il servizio di bilanciamento del carico tra più aree può essere distribuito solo nelle aree seguenti: **Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Stati Uniti centrali, Europa settentrionale, Asia orientale**. Per altre informazioni, vedere **https://aka.ms/homeregionforglb**.
@@ -120,7 +121,7 @@ In questa sezione verrà creato un probe di integrità per creare la regola di b
 
 3. Usare questi valori per configurare il probe di integrità:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHealthProbe**. |
     | Protocollo | selezionare **TCP**. |
@@ -151,7 +152,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
 
 3. Usare questi valori per configurare la regola di bilanciamento del carico:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHTTPRule**. |
     | Versione indirizzo IP | Selezionare **IPv4** |

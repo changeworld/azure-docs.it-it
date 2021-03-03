@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 074c5dda8ff8d5f837e8ea2a85c183c69421bedb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613946"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710873"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in monitoraggio di Azure
 Utilizzando Progettazione viste in monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nell'portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
@@ -39,7 +39,7 @@ I tipi di riquadro di Progettazione viste disponibili sono descritti nella tabel
 Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative proprietà.
 
 > [!NOTE]
-> Le parti nelle viste sono basate su [query di log](../log-query/log-query-overview.md) nell'area di lavoro log Analytics. Attualmente non supportano [query tra risorse](../log-query/cross-workspace-query.md) per recuperare dati da Application Insights.
+> Le parti nelle viste sono basate su [query di log](../logs/log-query-overview.md) nell'area di lavoro log Analytics. Attualmente non supportano [query tra risorse](../logs/cross-workspace-query.md) per recuperare dati da Application Insights.
 
 ## <a name="list-of-queries-part"></a>Parte relativa all'elenco delle query
 Nella parte elenco di query viene visualizzato un elenco di query di log. È possibile selezionare ogni query per visualizzarne i risultati. Per impostazione predefinita, la vista include una singola query ed è possibile aggiungerne altre facendo clic su **+ Query**.
@@ -318,7 +318,7 @@ Il separatore di nome e valore è il delimitatore dei singoli caratteri da usare
 Si consideri, ad esempio, una proprietà denominata *Sede* nella quale vengono inclusi valori come *Redmond-Building 41* e *Bellevue-Building12*. È possibile specificare un trattino (-) come separatore di nome e valore e *City-Building* come nome. Ciò comporta l'analisi di ciascun valore in due proprietà chiamate *City* e *Building*.
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navigazione click-through
-Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Verrà aperta una query nel [log Analytics](../log-query/log-query-overview.md) o verrà avviata un'altra visualizzazione.
+Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Verrà aperta una query nel [log Analytics](../logs/log-query-overview.md) o verrà avviata un'altra visualizzazione.
 
 La tabella seguente illustra le impostazioni relative alla navigazione click-through.
 
@@ -357,4 +357,4 @@ La tabella seguente illustra le impostazioni relative alle soglie:
 | Colore |Colore che indica il valore di soglia. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [query di log](../log-query/log-query-overview.md) per supportare le query nelle parti di visualizzazione.
+* Informazioni sulle [query di log](../logs/log-query-overview.md) per supportare le query nelle parti di visualizzazione.

@@ -11,23 +11,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: e95495e48725a68ab1fe3f37d235e5765b2c8015
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3be8682b3a12f06aa83db1791cb0ed125bbcee7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806240"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719237"
 ---
 # <a name="test-through-simulations"></a>Testare con le simulazioni
 
 È consigliabile testare le ipotesi su come i servizi risponderanno a un attacco effettuando simulazioni periodiche. Durante il test, verificare che i servizi o le applicazioni continuino a funzionare come previsto e che non ci siano interruzioni nell'esperienza dell'utente finale. Identificare le lacune sia dal punto di vista tecnologico che da quello dei processi e integrarle nella strategia di risposta DDoS. È consigliabile eseguire tali test in ambienti di staging o in ore non di punta per ridurre al minimo l'impatto sull'ambiente di produzione.
 
-Abbiamo collaborato con [BreakingPoint cloud](https://www.ixiacom.com/products/breakingpoint-cloud), un generatore di traffico self-service, per creare un'interfaccia in cui i clienti di Azure possono generare traffico da endpoint pubblici abilitati per la protezione DDoS per simulazioni. È possibile usare la simulazione per:
+Microsoft ha collaborato con [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud), un generatore di traffico self-service, per creare un'interfaccia in cui i clienti di Azure possano generare traffico sugli endpoint pubblici con Protezione DDoS abilitata per le simulazioni. La simulazione può essere usata per:
 
 - Convalidare il modo in cui Protezione DDoS di Azure contribuisce a proteggere le risorse di Azure dagli attacchi DDoS.
 - Ottimizzare il processo di risposta agli eventi imprevisti durante un attacco DDoS.
 - Documentare la conformità DDoS.
 - Eseguire il training dei team di sicurezza di rete.
+
+> [!NOTE]
+> BreakingPoint cloud è disponibile solo per il cloud pubblico.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

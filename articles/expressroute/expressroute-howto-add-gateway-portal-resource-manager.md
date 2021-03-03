@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
-ms.translationtype: HT
+ms.openlocfilehash: 56e35c23eacdf98db283ba5d8c2e32687cbe0ea8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "91761802"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740903"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Esercitazione: Configurare un gateway di rete virtuale per ExpressRoute usando il portale di Azure
 > [!div class="op_single_selector"]
@@ -50,6 +50,11 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 
 È possibile visualizzare un [video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) relativo a questi passaggi prima di avviare la configurazione.
 
+> [!IMPORTANT]
+> Il supporto IPv6 per il peering privato è attualmente disponibile in **anteprima pubblica**. Se si vuole connettere la rete virtuale a un circuito ExpressRoute con peering privato basato su IPv6 configurato, assicurarsi che la rete virtuale sia a doppio stack e che segua le linee guida per [IPv6 per Azure VNet](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ## <a name="create-the-gateway-subnet"></a>Creare la subnet del gateway
 
 1. Nel [portale](https://portal.azure.com) passare alla rete virtuale di Resource Manager per cui si vuole creare un gateway di rete virtuale.
@@ -58,9 +63,13 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Aggiungere la subnet del gateway":::
 
-1. Il **nome** della subnet verrà compilato automaticamente con il valore 'GatewaySubnet'. Questo valore è obbligatorio per consentire ad Azure di riconoscere la subnet come subnet del gateway. Modificare i valori di **Intervallo di indirizzi** in modo che corrispondano ai requisiti di configurazione. È consigliabile creare una subnet del gateway con un valore /27 o superiore (/26, /25 e così via). Quindi selezionare **OK** per salvare i valori e creare la subnet del gateway.
+1. Il **nome** della subnet verrà compilato automaticamente con il valore 'GatewaySubnet'. Questo valore è obbligatorio per consentire ad Azure di riconoscere la subnet come subnet del gateway. Modificare i valori di **Intervallo di indirizzi** in modo che corrispondano ai requisiti di configurazione. È consigliabile creare una subnet del gateway con un valore /27 o superiore (/26, /25 e così via).
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Aggiunta della subnet":::
+    Se si usa una rete virtuale a doppio stack e si prevede di usare il peering privato basato su IPv6 su ExpressRoute, fare clic su **Aggiungi spazio di indirizzi IP6** e valori di **intervallo di indirizzi IPv6** di input.
+
+Quindi selezionare **OK** per salvare i valori e creare la subnet del gateway.
+
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adding the subnet":::
 
 ## <a name="create-the-virtual-network-gateway"></a>Creare il gateway di rete virtuale
 
@@ -78,6 +87,11 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
     | Rete virtuale | Selezionare *TestVNet*. |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**.|
     | Nome dell'indirizzo IP pubblico | Specificare un nome per l'indirizzo IP pubblico. |
+
+    > [!IMPORTANT]
+    > Se si prevede di usare il peering privato basato su IPv6 su ExpressRoute, assicurarsi di selezionare uno SKU AZ (ErGw1AZ, ErGw2AZ, ErGw3AZ) per **SKU**.
+    > 
+    > 
 
 1. Selezionare **Rivedi e crea** e quindi **Crea** per avviare la creazione del gateway. Le impostazioni vengono convalidate e il gateway viene distribuito. La creazione di un gateway di rete virtuale può richiedere fino a 45 minuti.
 

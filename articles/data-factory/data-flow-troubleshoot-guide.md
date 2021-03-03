@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: a95cacafc5b1d00b1e4d04fd84cdda2de72b6a59
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4545c3529baf92e2f90d9289ec6828ad9a720e3a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523006"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738005"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Risolvere i problemi relativi al mapping dei flussi di dati in Azure Data Factory
 
@@ -132,7 +132,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativ
  
 - **Messaggio**: si è verificata un problema di memoria insufficiente durante l'esecuzione. riprovare a usare un runtime di integrazione con un numero di core maggiore e/o un tipo di calcolo con ottimizzazione per la memoria
 - **Cause**: memoria insufficiente per il cluster.
-- **Raccomandazione**: i cluster di debug sono destinati a scopi di sviluppo. Utilizzare il tipo di calcolo e le dimensioni appropriati per il campionamento dei dati per eseguire il payload. Per ottimizzare le prestazioni, vedere la [Guida alle prestazioni del flusso di risultati](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance) per ottimizzare i flussi di data.
+- **Raccomandazione**: i cluster di debug sono destinati a scopi di sviluppo. Utilizzare il tipo di calcolo e le dimensioni appropriati per il campionamento dei dati per eseguire il payload. Per ottimizzare le prestazioni, vedere la [Guida alle prestazioni del flusso di risultati](./concepts-data-flow-performance.md) per ottimizzare i flussi di data.
 
 ### <a name="error-code-df-executor-illegalargument"></a>Codice di errore: DF-Executor-illegalArgument
 - **Messaggio**: assicurarsi che la chiave di accesso nel servizio collegato sia corretta.
@@ -182,7 +182,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativ
 
 - **Message**: è stato specificato un intervallo non valido.
 - **Cause**: non determinato
-- **Raccomandazione**: controllare il valore del parametro e specificare un intervallo valido per riferimento: [proprietà di Excel](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Raccomandazione**: controllare il valore del parametro e specificare un intervallo valido per riferimento: [proprietà di Excel](./format-excel.md#dataset-properties).
 
 - **Messaggio**: viene fornito un file di Excel non valido mentre sono supportati solo i file con estensione xlsx e xls
 - **Cause**: non determinato
@@ -204,7 +204,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativ
 
 ### <a name="error-code-4502"></a>Codice di errore: 4502
 - **Message**: sono presenti sostanziali esecuzioni di MappingDataflow simultanee che causano errori a causa della limitazione delle richieste in Integration Runtime.
-- **Cause**: una grande quantità di esecuzioni di attività del flusso di lavoro avviene simultaneamente sul Integration Runtime. Ulteriori informazioni sui [limiti Azure Data Factory](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits).
+- **Cause**: una grande quantità di esecuzioni di attività del flusso di lavoro avviene simultaneamente sul Integration Runtime. Ulteriori informazioni sui [limiti Azure Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 - **Raccomandazione**: nel caso in cui si voglia eseguire più attività del flusso di dati in parallelo, distribuirle in più runtime di integrazione.
 
 

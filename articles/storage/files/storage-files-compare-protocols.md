@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e914bcece9a30270d12d5c2cc09d3fd1014783c6
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 482e6c9f2e25b867574090a1f34e95f466916ba9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916508"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711842"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolli di condivisione file di Azure
 
@@ -26,17 +26,18 @@ File di Azure offre due protocolli per la connessione e il montaggio delle condi
 |Protocolli di accesso     |NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Sistema operativo consigliato     |Kernel Linux versione 4.3 +         |Windows 2008 R2 +, versione kernel Linux 4.11 +         |
 |[Livelli disponibili](storage-files-planning.md#storage-tiers)     |Archiviazione Premium         |Archiviazione Premium, ottimizzato per le transazioni, accesso frequente, ad accesso sporadico         |
+|Modello di fatturazione         |[Pagamento per la capacità sottoposta a provisioning](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)         |[Pagamento per la capacità con provisioning per il livello Premium](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model), con [pagamento in base al consumo per il livello standard](https://docs.microsoft.com/azure/storage/files/understanding-billing#pay-as-you-go-model)         |
 |[Ridondanza](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Authentication     |Solo autenticazione basata su host        |Autenticazione basata sull'identità, autenticazione basata sull'utente         |
 |Autorizzazioni     |Autorizzazioni di tipo UNIX         |Autorizzazioni di tipo NTFS         |
 |Semantica del file System     |Conforme a POSIX         |Non conforme a POSIX         |
 |Maiuscole/minuscole     |Fa distinzione tra maiuscole e minuscole.         |Senza distinzione maiuscole/minuscole         |
-|Supporto per collegamenti reali     |Funzionalità supportata         |Non supportate         |
-|Supporto di collegamenti simbolici     |Funzionalità supportata         |Non supportate         |
-|Eliminazione o modifica di file aperti     |Funzionalità supportata         |Non supportate         |
-|Blocco     |Gestione blocco di rete consultivo per l'intervallo di byte         |Funzionalità supportata         |
-|Elenco sicuro IP pubblico | Non supportate | Funzionalità supportata|
-|Interoperabilità del protocollo| Non supportate | Filerest|
+|Supporto per collegamenti reali     |Supportato         |Non supportato         |
+|Supporto di collegamenti simbolici     |Supportato         |Non supportato         |
+|Eliminazione o modifica di file aperti     |Supportato         |Non supportato         |
+|Blocco     |Gestione blocco di rete consultivo per l'intervallo di byte         |Supportato         |
+|Elenco sicuro IP pubblico | Non supportato | Supportato|
+|Interoperabilità del protocollo| Non supportato | Filerest|
 
 ## <a name="nfs-shares-preview"></a>Condivisioni NFS (anteprima)
 

@@ -7,27 +7,27 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 3560152ce5e3185e79c7a7ff34e5360f10236980
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcd6522c46b6ca35031092c634803267a8486647
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616457"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731460"
 ---
 # <a name="azure-resource-logs"></a>Log delle risorse di Azure
-I log delle risorse di Azure sono [log di piattaforma](../essentials/platform-logs-overview.md) che forniscono informazioni dettagliate sulle operazioni eseguite all'interno di una risorsa di Azure. Il contenuto dei log delle risorse varia in base al servizio di Azure e al tipo di risorsa. I log delle risorse non vengono raccolti per impostazione predefinita. È necessario creare un'impostazione di diagnostica per ogni risorsa di Azure per inviare i log delle risorse a un'area di lavoro Log Analytics da usare con i [log di monitoraggio di Azure](../platform/data-platform-logs.md), Hub eventi di Azure da inoltrare all'esterno di Azure o ad archiviazione di Azure per l'archiviazione.
+I log delle risorse di Azure sono [log di piattaforma](../essentials/platform-logs-overview.md) che forniscono informazioni dettagliate sulle operazioni eseguite all'interno di una risorsa di Azure. Il contenuto dei log delle risorse varia in base al servizio di Azure e al tipo di risorsa. I log delle risorse non vengono raccolti per impostazione predefinita. È necessario creare un'impostazione di diagnostica per ogni risorsa di Azure per inviare i log delle risorse a un'area di lavoro Log Analytics da usare con i [log di monitoraggio di Azure](../logs/data-platform-logs.md), Hub eventi di Azure da inoltrare all'esterno di Azure o ad archiviazione di Azure per l'archiviazione.
 
 Vedere [creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](../essentials/diagnostic-settings.md) per informazioni dettagliate sulla creazione di un'impostazione di diagnostica e sulla [distribuzione di monitoraggio di Azure su larga scala usando criteri](../deploy-scale.md) di Azure per informazioni dettagliate sull'uso di criteri di Azure per creare automaticamente un'impostazione di diagnostica per ogni risorsa di Azure creata.
 
 ## <a name="send-to-log-analytics-workspace"></a>Inviare all'area di lavoro Log Analytics
- Inviare i log delle risorse a un'area di lavoro di Log Analytics per abilitare le funzionalità dei [log di monitoraggio di Azure](../platform/data-platform-logs.md) , inclusi i seguenti:
+ Inviare i log delle risorse a un'area di lavoro di Log Analytics per abilitare le funzionalità dei [log di monitoraggio di Azure](../logs/data-platform-logs.md) , inclusi i seguenti:
 
 - Correlare i dati del log delle risorse con altri dati di monitoraggio raccolti da monitoraggio di Azure.
 - Consolidare le voci di log da più risorse, sottoscrizioni e tenant di Azure in un'unica posizione per l'analisi insieme.
 - Usare query di log per eseguire analisi complesse e ottenere informazioni approfondite sui dati del log.
 - Usare gli avvisi del log con una logica di avviso complessa.
 
-[Creare un'impostazione di diagnostica](../essentials/diagnostic-settings.md) per inviare i log delle risorse a un'area di lavoro log Analytics. Questi dati vengono archiviati in tabelle come descritto in [struttura dei log di monitoraggio di Azure](../platform/data-platform-logs.md). Le tabelle utilizzate dai log delle risorse dipendono dal tipo di raccolta utilizzata dalla risorsa:
+[Creare un'impostazione di diagnostica](../essentials/diagnostic-settings.md) per inviare i log delle risorse a un'area di lavoro log Analytics. Questi dati vengono archiviati in tabelle come descritto in [struttura dei log di monitoraggio di Azure](../logs/data-platform-logs.md). Le tabelle utilizzate dai log delle risorse dipendono dal tipo di raccolta utilizzata dalla risorsa:
 
 - Diagnostica di Azure: tutti i dati scritti sono nella tabella _AzureDiagnostics_ .
 - Specifica della risorsa: i dati vengono scritti in una singola tabella per ogni categoria della risorsa.
@@ -90,7 +90,7 @@ La maggior parte delle risorse di Azure scriverà i dati nell'area di lavoro in 
    ![Selettore modalità impostazioni di diagnostica](media/resource-logs/diagnostic-settings-mode-selector.png)
 
 > [!NOTE]
-> Per un esempio di impostazione della modalità di raccolta usando un modello di Resource Manager, vedere [Gestione risorse esempi di modelli per le impostazioni di diagnostica in monitoraggio di Azure](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
+> Per un esempio di impostazione della modalità di raccolta usando un modello di Resource Manager, vedere [Gestione risorse esempi di modelli per le impostazioni di diagnostica in monitoraggio di Azure](./resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
 
 
 È possibile modificare un'impostazione di diagnostica esistente in modalità specifica della risorsa. In questo caso, i dati già raccolti rimarranno nella tabella _AzureDiagnostics_ fino a quando non vengono rimossi in base all'impostazione di conservazione per l'area di lavoro. I nuovi dati verranno raccolti nella tabella dedicata. Utilizzare l'operatore [Union](/azure/kusto/query/unionoperator) per eseguire query sui dati in entrambe le tabelle.

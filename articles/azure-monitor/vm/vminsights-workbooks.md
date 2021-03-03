@@ -1,19 +1,19 @@
 ---
-title: Creare report interattivi con cartelle di lavoro in Monitoraggio di Azure per le macchine virtuali
-description: Semplifica la creazione di report complessi con cartelle di lavoro predefinite e personalizzate con parametri per Monitoraggio di Azure per le macchine virtuali.
+title: Creazione di report interattivi VM Insights con cartelle di lavoro
+description: Semplifica la creazione di report complessi con cartelle di lavoro predefinite e personalizzate con parametri per informazioni dettagliate sulle macchine virtuali.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1e2f6c7a6b4a36eb1aa4230f62ee4b0c2a1c57c3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619597"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731290"
 ---
-# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Creare report interattivi con cartelle di lavoro in Monitoraggio di Azure per le macchine virtuali
+# <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Creazione di report interattivi VM Insights con cartelle di lavoro
 
 Le cartelle di lavoro combinano testo, [query di log](/azure/data-explorer/kusto/query/), metriche e parametri in report interattivi avanzati. Le cartelle di lavoro possono essere modificate da tutti gli altri membri del team che possono accedere alla stessa risorsa di Azure.
 
@@ -24,7 +24,7 @@ Le cartelle di lavoro sono utili per scenari come:
 * Condivisione dei risultati di un esperimento di ridimensionamento della macchina virtuale con altri membri del team. È possibile illustrare gli obiettivi dell'esperimento con il testo, quindi mostrare ogni metrica di utilizzo e le query di analisi usate per valutare l'esperimento, oltre a deselezionare le chiamate per determinare se ogni metrica era superiore o inferiore alla destinazione.
 * Segnalazione dell'effetto di un'interruzione sull'utilizzo della VM, combinazione di dati, spiegazione del testo e descrizione dei passaggi successivi per evitare interruzioni in futuro.
 
-Nella tabella seguente sono riepilogate le cartelle di lavoro che Monitoraggio di Azure per le macchine virtuali include per iniziare.
+La tabella seguente riepiloga le cartelle di lavoro incluse in VM Insights per iniziare.
 
 | Cartella di lavoro | Descrizione | Ambito |
 |----------|-------------|-------|
@@ -96,7 +96,7 @@ Le sezioni di query, estremamente flessibili, possono essere usate per risponder
 
 Non è inoltre possibile eseguire query solo dal contesto della macchina virtuale dalla quale è stata avviata la cartella di lavoro. È possibile eseguire query su più macchine virtuali, nonché Log Analytics aree di lavoro, purché si disponga delle autorizzazioni di accesso a tali risorse.
 
-Per includere dati da altre aree di lavoro Log Analytics o da un'app Application Insights specifica usando l'identificatore dell' **area di lavoro** . Per altre informazioni sulle query tra risorse, vedere la [Guida ufficiale](../log-query/cross-workspace-query.md).
+Per includere dati da altre aree di lavoro Log Analytics o da un'app Application Insights specifica usando l'identificatore dell' **area di lavoro** . Per altre informazioni sulle query tra risorse, vedere la [Guida ufficiale](../logs/cross-workspace-query.md).
 
 ### <a name="advanced-analytic-query-settings"></a>Impostazioni avanzate per le query di analisi
 
@@ -137,7 +137,7 @@ VMConnection
 
 ## <a name="adding-metrics-sections"></a>Aggiunta di sezioni di metriche
 
-Le sezioni di metriche consentono l'accesso completo ai dati delle metriche di Monitoraggio di Azure perché sia possibile incorporarli nei report interattivi. In Monitoraggio di Azure per le macchine virtuali le cartelle di lavoro predefinite contengono in genere dati di query analitici anziché dati di metrica.  È possibile scegliere di creare cartelle di lavoro con dati di metrica, consentendo di sfruttare al meglio tutte le funzionalità disponibili in un'unica posizione. È anche possibile eseguire il pull di dati delle metriche dalle risorse di una qualsiasi delle sottoscrizioni a cui è possibile accedere.
+Le sezioni di metriche consentono l'accesso completo ai dati delle metriche di Monitoraggio di Azure perché sia possibile incorporarli nei report interattivi. In VM Insights le cartelle di lavoro predefinite contengono in genere dati di query analitici anziché dati di metrica.  È possibile scegliere di creare cartelle di lavoro con dati di metrica, consentendo di sfruttare al meglio tutte le funzionalità disponibili in un'unica posizione. È anche possibile eseguire il pull di dati delle metriche dalle risorse di una qualsiasi delle sottoscrizioni a cui è possibile accedere.
 
 Di seguito è riportato un esempio di dati della macchina virtuale di cui è stato eseguito il pull in una cartella di lavoro per fornire una visualizzazione griglia delle prestazioni della CPU:
 
@@ -244,4 +244,4 @@ Per aggiungere un collegamento in una cartella di lavoro in un dashboard di Azur
 
 - Per identificare le limitazioni e le prestazioni complessive della macchina virtuale, vedere [visualizzare le prestazioni delle macchine virtuali di Azure](vminsights-performance.md).
 
-- Per informazioni sulle dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](vminsights-maps.md).
+- Per informazioni sulle dipendenze dell'applicazione individuate, vedere [visualizzare la mappa di VM Insights](vminsights-maps.md).

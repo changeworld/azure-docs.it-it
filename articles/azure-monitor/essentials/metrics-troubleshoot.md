@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d62c4b79fcb86080649c542e34b81d3213978604
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2a3bf022d178fbd0de3ca800e0a560235c3f33b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616577"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731494"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi dei grafici delle metriche
 
@@ -62,7 +62,7 @@ La raccolta delle metriche del **sistema operativo guest** richiede la configura
 
 Questo problema può verificarsi quando il dashboard è stato creato con una metrica deprecata e rimossa da Azure in un secondo momento. Per verificarne il caso, aprire la scheda **metriche** della risorsa e controllare le metriche disponibili nella selezione metrica. Se la metrica non viene visualizzata, allora è stata rimossa da Azure. In genere, quando una metrica è deprecata, è disponibile una nuova metrica migliore che offre una prospettiva simile sull'integrità delle risorse.
 
-**Soluzione:** Aggiornare il riquadro con errore selezionando una metrica alternativa per il grafico nel dashboard. È possibile [consultare un elenco di metriche disponibili per i servizi di Azure](../platform/metrics-supported.md).
+**Soluzione:** Aggiornare il riquadro con errore selezionando una metrica alternativa per il grafico nel dashboard. È possibile [consultare un elenco di metriche disponibili per i servizi di Azure](./metrics-supported.md).
 
 ## <a name="chart-shows-dashed-line"></a>Il grafico mostra una linea tratteggiata
 
@@ -104,5 +104,5 @@ Per impostazione predefinita, le metriche del sistema operativo Guest vengono ar
 
 * [Informazioni su come iniziare a usare Esplora metriche](metrics-getting-started.md)
 * [Informazioni sulle funzionalità avanzate di Esplora metriche](../essentials/metrics-charts.md)
-* [Elenco di metriche disponibili per i servizi di Azure](../platform/metrics-supported.md)
+* [Elenco di metriche disponibili per i servizi di Azure](./metrics-supported.md)
 * [Esempi di grafici configurati](../essentials/metric-chart-samples.md)

@@ -1,6 +1,6 @@
 ---
 title: Notifiche avanzate (anteprima) per gli eventi di manutenzione pianificata
-description: Ricevere una notifica prima della manutenzione pianificata per il database SQL di Azure o Azure SQL Istanza gestita.
+description: Ricevere una notifica prima della manutenzione pianificata per il database SQL di Azure.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
@@ -11,24 +11,26 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: 3f63a8d2f75a58a771d837128c2b2498c28948ef
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 07f6267a14a4604e1a43dd1a1a9930d63a419336
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663621"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690890"
 ---
 # <a name="advance-notifications-for-planned-maintenance-events-preview"></a>Notifiche anticipate per gli eventi di manutenzione pianificata (anteprima)
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Notifiche avanzate (anteprima) è disponibile per i database configurati per la [finestra di manutenzione (anteprima)](maintenance-window.md). Le notifiche di avanzamento consentono ai clienti di configurare le notifiche da inviare fino a 24 ore prima di qualsiasi evento pianificato.
 
 Le notifiche possono essere configurate in modo da poter ricevere testi, messaggi di posta elettronica, notifiche push di Azure e messaggi vocali quando la manutenzione pianificata è prevista per l'inizio nelle prossime 24 ore. Le notifiche aggiuntive vengono inviate all'inizio della manutenzione e al termine della manutenzione.
 
+> [!Note]
+> Sebbene la possibilità di scegliere una finestra di manutenzione sia disponibile per le istanze gestite di SQL Azure, le notifiche anticipate non sono attualmente disponibili per le istanze gestite di SQL Azure.
 
 ## <a name="create-an-advance-notification"></a>Creare una notifica avanzata
 
-Sono disponibili notifiche avanzate per i database SQL di Azure e le istanze gestite per le quali è configurata la finestra di manutenzione. 
+Sono disponibili notifiche avanzate per i database SQL di Azure in cui è configurata la finestra di manutenzione. 
 
 Completare i passaggi seguenti per abilitare una notifica.  
 

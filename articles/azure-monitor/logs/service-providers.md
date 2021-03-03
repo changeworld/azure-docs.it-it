@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 5f69de583dea14be3c7ce3ab6779af549e95de75
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09b5a6bd11db1a8faa29e7b3871156f9c28d1140
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717384"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Log di monitoraggio di Azure per i provider di servizi
 
@@ -48,7 +48,7 @@ I vantaggi dell'architettura distribuita sono:
 
 Gli svantaggi dell'architettura distribuita sono:
 
-* La visualizzazione e l'analisi centralizzata dei dati nei tenant dei clienti con strumenti come le cartelle di lavoro di monitoraggio di Azure possono comportare esperienze più lente, specialmente quando si analizzano i dati tra più di 50 aree di lavoro.
+* La visualizzazione e l'analisi centralizzata dei dati [nei tenant dei clienti](cross-workspace-query.md) con strumenti come le cartelle di lavoro di monitoraggio di Azure possono comportare esperienze più lente, specialmente quando si analizzano i dati tra più di 50 aree di lavoro.
 * Se i clienti non vengono caricati per la gestione delle risorse delegata di Azure, è necessario eseguire il provisioning degli amministratori del provider di servizi nella directory del cliente ed è più difficile per il provider di servizi gestire contemporaneamente un numero elevato di tenant del cliente.
 
 ### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. i log centrali vengono archiviati in un'area di lavoro situata nel tenant del provider di servizi
@@ -85,7 +85,7 @@ Sono disponibili due opzioni per implementare i log in una posizione centrale:
 
 * Automatizzare la creazione delle aree di lavoro usando [PowerShell](../logs/powershell-workspace-configuration.md)
 
-* Usare la funzione [Avvisi](../platform/alerts-overview.md) per l'integrazione con i sistemi esistenti
+* Usare la funzione [Avvisi](../alerts/alerts-overview.md) per l'integrazione con i sistemi esistenti
 
 * Generare report di riepilogo usando [Power BI](../visualize/powerbi.md)
 

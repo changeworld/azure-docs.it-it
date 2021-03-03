@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: ff5dbc8e643137008aa7819b455adcf97c05bfc9
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491791"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718931"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -23,7 +23,7 @@ Questo articolo elenca i passaggi che consentono di distribuire analisi video in
 * Un dispositivo x86-64 o ARM64 che esegue uno dei [sistemi operativi Linux supportati](../../iot-edge/support.md#operating-systems)
 * Sottoscrizione di Azure a cui si dispone dei [privilegi di proprietario](../../role-based-access-control/built-in-roles.md#owner)
 * [Creare e configurare l'hub Internet](../../iot-hub/iot-hub-create-through-portal.md)
-* [Registrare IoT Edge dispositivo](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Registrare IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
 * [Installare il runtime di Azure IoT Edge nei sistemi Linux basati su Debian](../../iot-edge/how-to-install-iot-edge.md)
 * [Creare un account di Servizi multimediali di Azure](../latest/create-account-howto.md)
 
@@ -61,8 +61,8 @@ Eseguire la procedura descritta in questo articolo per ottenere le credenziali p
 Per eseguire l'analisi video in tempo reale sul modulo IoT Edge creare un account utente locale con il minor numero di privilegi possibile. Eseguire ad esempio i comandi seguenti nel computer Linux:
 
 ```
-sudo groupadd -g 1010 localuser
-sudo adduser --home /home/edgeuser --uid 1010 -gid 1010 edgeuser
+sudo groupadd -g 1010 localusergroup
+sudo useradd --home-dir /home/edgeuser --uid 1010 --gid 1010 lvaedgeuser
 ```
 
 ## <a name="granting-permissions-to-device-storage"></a>Concessione di autorizzazioni per l'archiviazione del dispositivo
@@ -72,15 +72,15 @@ Ora che è stato creato un account utente locale,
 * Sarà necessaria una cartella locale per archiviare i dati di configurazione dell'applicazione. Creare una cartella e concedere le autorizzazioni all'account LocalUser scrivere in tale cartella usando i comandi seguenti:
 
 ```
-sudo mkdir /var/lib/azuremediaservices
-sudo chown -R edgeuser /var/lib/azuremediaservices
+sudo mkdir -p /var/lib/azuremediaservices
+sudo chown -R lvaedgeuser /var/lib/azuremediaservices
 ```
 
 * Sarà necessaria anche una cartella per [registrare i video in un file locale](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources). Usare i comandi seguenti per creare una cartella locale per la stessa:
 
 ```
-sudo mkdir /var/media
-sudo chown -R edgeuser /var/media
+sudo mkdir -p /var/media
+sudo chown -R lvaedgeuser /var/media
 ```
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>Distribuire il modulo Edge di analisi video in tempo reale

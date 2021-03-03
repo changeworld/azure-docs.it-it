@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e37171fce5dd7fe625550c5f554f211cf148ea07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6e6ad96da5f5c7901fda1f041c55075552edecde
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591436"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720342"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Baseline della sicurezza di Azure per analisi di flusso
 
@@ -168,7 +168,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 * [Analisi di flusso di Azure fornisce i log di diagnostica e i dati delle attività da rivedere](./stream-analytics-job-diagnostic-logs.md)
 
-* [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+* [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 * [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 

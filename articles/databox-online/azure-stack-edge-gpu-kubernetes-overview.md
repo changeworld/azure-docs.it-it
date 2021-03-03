@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6e9ae9b8d9d1154d55991d078af0faef65ff654b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448656"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699573"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes sul dispositivo GPU Pro Azure Stack Edge
 
@@ -107,6 +107,16 @@ Per altre informazioni sulla distribuzione di applicazioni nel cluster Kubernete
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes e Azure Arc
 
 Azure Arc è uno strumento di gestione ibrido che consente di distribuire applicazioni nei cluster Kubernetes. Azure ARC consente anche di usare monitoraggio di Azure per i contenitori per visualizzare e monitorare i cluster. Per altre informazioni, vedere [che cos'è Azure-Arc abilitato Kubernetes?](../azure-arc/kubernetes/overview.md). Per informazioni sui prezzi di Azure Arc, vedere [prezzi di Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
+
+A partire dal 2021 marzo, Azure Arc abilitato Kubernetes sarà disponibile a livello generale per gli utenti e gli addebiti per l'utilizzo standard. In qualità di cliente di anteprima, Azure Arc Enabled Kubernetes sarà disponibile gratuitamente per i dispositivi Azure Stack Edge. Per usufruire dell'offerta di anteprima, creare un [richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+
+1. In **Tipo di problema** selezionare **Fatturazione**.
+2. In **Sottoscrizione** selezionare la propria sottoscrizione.
+3. In **servizio** selezionare **servizi personali**, quindi selezionare **Azure stack Edge**.
+4. In **risorsa** selezionare la risorsa.
+5. In **Riepilogo** Digitare una descrizione del problema.
+6. In **tipo di problema** selezionare **addebiti imprevisti**.
+7. In **sottotipo di problema** selezionare **aiuta a comprendere gli addebiti per la versione di valutazione gratuita**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

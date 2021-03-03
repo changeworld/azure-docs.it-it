@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 89ce214ef9686d2704878304b8b324871ad9473f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ca6185d829e5941145905e1bc63cc2fb9ac781e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579491"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731647"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoraggio continuo con Monitoraggio di Azure
 
@@ -36,7 +36,7 @@ Per ottenere l'osservabilità nell'intero ambiente, è necessario abilitare il m
 Le applicazioni sono solo affidabili come la relativa infrastruttura sottostante. Il monitoraggio abilitato per l'intera infrastruttura consente di ottenere l'osservabilità completa e rende più semplice individuare una potenziale causa radice quando qualcosa non funziona. Il Monitoraggio di Azure consente di tenere traccia dell'integrità e delle prestazioni dell'intera infrastruttura ibrida, comprese le risorse quali ad esempio macchine virtuali, contenitori, archiviazione e rete.
 
 - Si ottengono automaticamente [piattaforme metriche, log attività e log di diagnostica](agents/data-sources.md) dalla maggior parte delle risorse di Azure senza alcuna configurazione.
-- Abilitare il monitoraggio più profondo per le macchine virtuali con [Monitoraggio di Azure per le macchine virtuali](vm/vminsights-overview.md).
+- Abilitare il monitoraggio più approfondito per le macchine virtuali con le [informazioni dettagliate di VM](vm/vminsights-overview.md).
 -  Abilitare il monitoraggio più profondo per i cluster del servizio Azure Kubernetes con [Monitoraggio di Azure per contenitori](containers/container-insights-overview.md).
 - Aggiungere [soluzioni di monitoraggio](./monitor-reference.md) per applicazioni e servizi diversi nell'ambiente in uso.
 

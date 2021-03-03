@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 68f3b9f9cfa8ea74a8240fab6e47bf737788081f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4793216a12b17c4e4ea03f62d5a0ba512febc232
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094325"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735727"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedure consigliate di Azure per la sicurezza di rete
 Questo articolo illustra un insieme di procedure consigliate di Azure per migliorare la sicurezza della rete, derivate dalla nostra esperienza con la rete di Azure e dalle esperienze di altri clienti.
@@ -206,7 +206,7 @@ Il collegamento privato di Azure offre i vantaggi seguenti:
 - **Copertura globale**: è possibile connettersi privatamente a servizi in esecuzione in altre aree. La rete virtuale del consumer potrebbe trovarsi nell'area A ed è in grado di connettersi ai servizi nell'area B.
 - **Semplicità di configurazione e gestione**: non sono più necessari indirizzi IP pubblici riservati nelle reti virtuali per proteggere le risorse di Azure tramite un firewall IP. Non sono necessari dispositivi NAT o gateway per configurare gli endpoint privati. Gli endpoint privati vengono configurati tramite un semplice flusso di lavoro. Sul lato del servizio è anche possibile gestire facilmente le richieste di connessione nella risorsa del servizio di Azure. Il collegamento privato di Azure funziona anche per gli utenti e i servizi appartenenti a diversi tenant di Azure Active Directory. 
     
-Per altre informazioni sugli endpoint privati e i servizi e le aree di Azure per i quali sono disponibili endpoint privati, vedere il [collegamento privato di Azure](https://docs.microsoft.com/azure/private-link/private-link-overview).
+Per altre informazioni sugli endpoint privati e i servizi e le aree di Azure per i quali sono disponibili endpoint privati, vedere il [collegamento privato di Azure](../../private-link/private-link-overview.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

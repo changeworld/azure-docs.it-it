@@ -4,12 +4,12 @@ description: Panoramica del controllo degli accessi del bus di servizio con firm
 ms.topic: article
 ms.date: 01/19/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6bdc167c437a79d609db25a2e3c48b71e0a748b2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d210da4b653a20dd273dfce723f0bf9d5dbf743b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598825"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737818"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -130,9 +130,9 @@ Se è noto o si sospetta che una chiave è compromessa ed è necessario revocare
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticazione della firma di accesso condiviso con il bus di servizio
 
-Gli scenari illustrati di seguito includono la configurazione delle regole di autorizzazione, la generazione di token di firma di accesso condiviso e l'autorizzazione dei client.
+Lo scenario descritto di seguito include la configurazione delle regole di autorizzazione, la generazione di token di firma di accesso condiviso e l'autorizzazione client.
 
-Per un esempio pratico completo di un'applicazione del bus di servizio che illustra la configurazione e usa l'autorizzazione con firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Un esempio correlato che illustra l'uso delle regole di autorizzazione con firma di accesso condiviso configurate negli spazi dei nomi o negli argomenti per proteggere le sottoscrizioni del bus di servizio è disponibile nella pagina relativa all' [uso dell'autenticazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Per un esempio di un'applicazione del bus di servizio che illustra la configurazione e usa l'autorizzazione SAS, vedere [autenticazione della firma di accesso condiviso con il bus di servizio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Accedere alle regole di autorizzazione per l'accesso condiviso in un'entità
 

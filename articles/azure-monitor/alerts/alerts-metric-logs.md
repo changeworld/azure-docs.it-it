@@ -4,22 +4,20 @@ description: Esercitazione sulla creazione di avvisi delle metriche near real ti
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 7c7bb9df281a37ded51e3a35b90064d875cfd729
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b24f982996ff930f384aeb5803a3ced6e3cb81dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614697"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714239"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creare avvisi delle metriche per i log in Monitoraggio di Azure
 
 ## <a name="overview"></a>Panoramica
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Monitoraggio di Azure un [tipo di avviso delle metriche](./alerts-metric-near-real-time.md) che presenta vantaggi rispetto agli [avvisi classici](./alerts-classic-portal.md). Sono disponibili metriche per un [lungo elenco di servizi di Azure](../platform/metrics-supported.md). Questo articolo illustra l'uso di un subset per la risorsa - `Microsoft.OperationalInsights/workspaces`.
 
 È possibile usare gli avvisi delle metriche sui log di Log Analytics più diffusi estratte come metriche come parte delle metriche dei log, incluse le risorse in Azure o in locale. Le soluzioni di Log Analytics supportate sono elencate di seguito:
 
@@ -39,10 +37,10 @@ Esistono diversi vantaggi per l'uso di **avvisi delle metriche per i log** rispe
 
 ## <a name="metrics-and-dimensions-supported-for-logs"></a>Metriche e dimensioni supportate per i log
 
- Gli avvisi delle metriche supportano le metriche con dimensioni. Le dimensioni possono essere usate per filtrare le metriche al livello corretto. Viene indicato l'elenco completo delle metriche supportate per i log in [aree di lavoro di Log Analytics](../platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) tra le soluzioni supportate.
+ Gli avvisi delle metriche supportano le metriche con dimensioni. Le dimensioni possono essere usate per filtrare le metriche al livello corretto. Viene indicato l'elenco completo delle metriche supportate per i log in [aree di lavoro di Log Analytics](../essentials/metrics-supported.md#microsoftoperationalinsightsworkspaces) tra le soluzioni supportate.
 
 > [!NOTE]
-> Per visualizzare una metrica supportata estratta da un'area di lavoro di Log Analytics tramite [monitoraggio di Azure-metriche](../platform/metrics-charts.md), è necessario creare un avviso di metrica per il log sulla metrica specifica. Le dimensioni scelte nell'avviso della metrica per i log vengono visualizzate solo per l'esplorazione tramite monitoraggio di Azure-metriche.
+> Per visualizzare una metrica supportata estratta da un'area di lavoro di Log Analytics tramite [monitoraggio di Azure-metriche](../essentials/metrics-charts.md), è necessario creare un avviso di metrica per il log sulla metrica specifica. Le dimensioni scelte nell'avviso della metrica per i log vengono visualizzate solo per l'esplorazione tramite monitoraggio di Azure-metriche.
 
 ## <a name="creating-metric-alert-for-log-analytics"></a>Creazione di avvisi delle metriche per Log Analytics
 
@@ -53,10 +51,10 @@ Di seguito sono elencati i modi in cui creare un avviso delle metriche per i log
 
 Prima che sia possibile usare la metrica per i log raccolta sui dati di Log Analytics, è necessario che siano configurati e disponibili gli elementi seguenti:
 
-1. **area di lavoro Log Analytics attiva**: è necessario che sia presente un'area di lavoro Log Analytics valida e attiva. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../learn/quick-create-workspace.md).
+1. **area di lavoro Log Analytics attiva**: è necessario che sia presente un'area di lavoro Log Analytics valida e attiva. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../logs/quick-create-workspace.md).
 2. **Agent è configurato per log Analytics area di lavoro**: l'agente deve essere configurato per le macchine virtuali di Azure e/o le VM locali per inviare i dati nell'area di lavoro log Analytics usata nel passaggio precedente. Per altre informazioni, vedere [Panoramica degli agenti di Azure per monitorare macchine virtuali di Azure](./../agents/agents-overview.md).
 3. Sono **installate soluzioni log Analytics supportate**: log Analytics soluzione deve essere configurata e l'invio di dati nelle soluzioni log Analytics supportate per l'area di lavoro sono [contatori delle prestazioni per Windows & Linux](./../agents/data-sources-performance-counters.md), [record heartbeat per integrità agente](../insights/solution-agenthealth.md), [Gestione aggiornamenti](../../automation/update-management/overview.md)e [dati evento](./../agents/data-sources-windows-events.md).
-4. **Soluzioni di Log Analytics configurate per inviare log**: per la soluzione Log Analytics è necessario che siano abilitati i log e i dati necessari corrispondenti alle [metriche supportate per le aree di lavoro di Log Analytics](../platform/metrics-supported.md#microsoftoperationalinsightsworkspaces). Ad esempio, per il valore relativo alla *percentuale di memoria disponibile* il contatore relativo deve essere prima configurato nella soluzione [contatori delle prestazioni](./../agents/data-sources-performance-counters.md).
+4. **Soluzioni di Log Analytics configurate per inviare log**: per la soluzione Log Analytics è necessario che siano abilitati i log e i dati necessari corrispondenti alle [metriche supportate per le aree di lavoro di Log Analytics](../essentials/metrics-supported.md#microsoftoperationalinsightsworkspaces). Ad esempio, per il valore relativo alla *percentuale di memoria disponibile* il contatore relativo deve essere prima configurato nella soluzione [contatori delle prestazioni](./../agents/data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configurazione degli avvisi delle metriche per i log
 
@@ -357,7 +355,7 @@ Se il codice JSON precedente viene salvato come metricfromLogsAlertStatic.json, 
 
 Se il file dei parametri precedente viene salvato come metricfromLogsAlertStatic.parameters.json, è possibile creare l'avviso delle metriche per i log usando il [modello di risorse per la creazione nel portale di Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
-In alternativa, è possibile usare anche il comando di Azure Powershell seguente:
+In alternativa, è possibile usare anche il comando Azure PowerShell seguente:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
@@ -673,7 +671,7 @@ Se il codice JSON precedente viene salvato come metricfromLogsAlertDynamic.json,
 
 Se il file dei parametri precedente viene salvato come metricfromLogsAlertDynamic.parameters.json, è possibile creare l'avviso delle metriche per i log usando il [modello di risorse per la creazione nel portale di Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
-In alternativa, è possibile usare anche il comando di Azure Powershell seguente:
+In alternativa, è possibile usare anche il comando Azure PowerShell seguente:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
@@ -689,4 +687,4 @@ az deployment group create --resource-group myRG --template-file metricfromLogsA
 
 - Altre informazioni sugli [avvisi delle metriche](../alerts/alerts-metric.md).
 - Per altre informazioni, fare riferimento agli [avvisi di log in Azure](./alerts-unified-log.md).
-- Informazioni sugli [avvisi in Azure](../platform/alerts-overview.md).
+- Informazioni sugli [avvisi in Azure](./alerts-overview.md).

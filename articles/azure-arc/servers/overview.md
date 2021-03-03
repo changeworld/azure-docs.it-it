@@ -4,12 +4,12 @@ description: Informazioni su come usare i server con abilitazione di Azure Arc p
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico, ibrido
 ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: 615835e5a11fac0b09a56e10084249ea493d794d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5692dfaceb15086b04ee951b8ecdf88f73c7d122
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651111"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686224"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Che cosa sono i server con abilitazione di Azure Arc?
 
@@ -57,7 +57,7 @@ Se ad esempio il computer è registrato con Azure Arc nell'area Stati Uniti orie
 
 ### <a name="supported-environments"></a>Ambienti supportati
 
-I server abilitati per Arc supportano la gestione di server fisici e macchine virtuali ospitati *all'esterno* di Azure. Per dettagli specifici sugli ambienti cloud ibridi che ospitano macchine virtuali, vedere [Agent-Overview. MD # supported-environments].
+I server abilitati per Arc supportano la gestione di server fisici e macchine virtuali ospitati *all'esterno* di Azure. Per dettagli specifici sugli ambienti cloud ibridi che ospitano macchine virtuali, vedere [prerequisiti di agente computer connesso](agent-overview.md#supported-environments).
 
 > [!NOTE]
 > I server abilitati per Arc non sono progettati o supportati per consentire la gestione delle macchine virtuali in esecuzione in Azure.

@@ -4,12 +4,12 @@ description: Monitorare le applicazioni Web ASP.NET Core per identificare dispon
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 93f72b7e2f709f32942564dc7322a4c5d1064cfc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: be4cbe5f95fa6901ae4299662750c232d4700a8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589903"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711502"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -30,9 +30,6 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 
 > [!NOTE]
 > ASP.NET Core 3,1 richiede [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o versione successiva.
-
-> [!IMPORTANT]
-> Sono supportate le seguenti versioni di ASP.NET Core: ASP.NET Core 2,1 e 3,1. Le versioni 2,0, 2,2 e 3,0 sono state ritirate e non sono più supportate.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

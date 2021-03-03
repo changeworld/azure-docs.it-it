@@ -3,12 +3,12 @@ title: Restrizioni di denominazione per le risorse
 description: Illustra le regole e le restrizioni di denominazione per le risorse di Azure.
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: dbe19dae4509e1dd6aa95763e4d034c339bb0531
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 40e17e518baec40d31918d24ab5b61da741f540a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220854"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700474"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regole di denominazione e restrizioni per le risorse di Azure
 
@@ -397,6 +397,9 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | --- | --- | --- | --- |
 > | actionGroups | gruppo di risorse | 1-260 | Non è possibile usare:<br>`/&%\?` <br><br>Non può terminare con uno spazio o un punto.  |
 > | components | gruppo di risorse | 1-260 | Non è possibile usare:<br>`%&\?/` <br><br>Non può terminare con uno spazio o un punto.  |
+> | scheduledQueryRules | gruppo di risorse | 1-260 | Non è possibile usare:<br>`*<>%{}&:\\?/#` <br><br>Non può terminare con uno spazio o un punto.  |
+> | metricAlerts | gruppo di risorse | 1-260 | Non è possibile usare:<br>`*#&+:<>?@%{}\/` <br><br>Non può terminare con uno spazio o un punto.  |
+> | activityLogAlerts | gruppo di risorse | 1-260 | Non è possibile usare:<br>`<>*%{}&:\\?+/#` <br><br>Non può terminare con uno spazio o un punto.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 

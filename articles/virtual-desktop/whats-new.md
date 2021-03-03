@@ -3,17 +3,17 @@ title: Novità di Desktop virtuale Windows - Azure
 description: Nuove funzionalità e aggiornamenti del prodotto per Desktop virtuale Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 02/23/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 1deec49cfeca65628485ed105e0919f2c2b18b17
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: a2afd47db01725c56f4fe571f1b464818653081d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575314"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737495"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novità di Desktop virtuale Windows
 
@@ -40,6 +40,26 @@ Servizi Desktop remoto, vedere questi articoli:
 ## <a name="fslogix-updates"></a>Aggiornamenti FSLogix
 
 Sei curioso degli aggiornamenti più recenti per FSLogix? Scopri le [novità di FSLogix](/fslogix/whats-new).
+
+## <a name="february-2021"></a>2021 febbraio
+
+Ecco le modifiche apportate a febbraio 2021.
+
+### <a name="portal-experience"></a>Funzionalità del portale
+
+L'esperienza portale di Azure è stata migliorata nei modi seguenti:
+
+- Modalità di svuotamento bulk negli host nella scheda griglia host sessione. 
+- La connessione all'app MSIX è ora disponibile per l'anteprima pubblica.
+- Informazioni generali sul pool host fisso per la modalità scura.
+
+### <a name="eu-metadata-storage-now-in-public-preview"></a>Archiviazione dei metadati UE ora disponibile in versione di anteprima pubblica
+
+Stiamo ora ospitando un'anteprima pubblica dell'Europa (EU) Geography come opzione di archiviazione per i metadati del servizio nel desktop virtuale di Windows. Quando creano oggetti servizio, i clienti possono scegliere tra Europa occidentale o settentrionale. Gli oggetti e i metadati del servizio per i pool host verranno archiviati nella geografia di Azure associata a ogni area. Per altre informazioni, leggi [il post di Blog che annuncia l'anteprima pubblica](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939).
+
+### <a name="teams-on-windows-virtual-desktop-plugin-updates"></a>Aggiornamenti del plug-in per desktop virtuali di Windows
+
+È stata migliorata la qualità della chiamata del video nel plug-in per desktop virtuali di Windows, risolvendo i problemi segnalati più di frequente, ad esempio quando la schermata diventa improvvisamente scura o il video e il suono vengono desincronizzati. Questi miglioramenti dovrebbero migliorare le prestazioni della visualizzazione a video singolo con cambio di altoparlante attivo. È stato risolto anche un problema per cui i dispositivi hardware con caratteri speciali non erano disponibili in team.
 
 ## <a name="january-2021"></a>Gennaio 2021
 

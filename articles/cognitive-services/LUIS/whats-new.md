@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 02/16/2021
-ms.openlocfilehash: f4ac384a9b1bce944397369cb93392f179643f96
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: bd70bb1a031b61e77fa84ff5567d95dc6d1e8788
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706742"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novità di Language Understanding
 
@@ -56,7 +56,7 @@ Ecco cosa c'è di nuovo nel servizio. Le novità riguardano note sulla versione,
 * Nuove risorse per sviluppatori
     * [Strumenti di integrazione continua](developer-reference-resource.md#continuous-integration-tools)
     * Workshop: informazioni sulle procedure consigliate per [_Natural Language Understanding_ (NLU) con LUIS](developer-reference-resource.md#workshops)
-* [Chiavi gestite dal cliente](luis-encryption-of-data-at-rest.md): crittografare tutti i dati usati in LUIS usando le proprie chiavi
+* [Chiavi gestite dal cliente](./encrypt-data-at-rest.md): crittografare tutti i dati usati in LUIS usando le proprie chiavi
 * [Presentazione di IA](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (video): vedere le nuove funzionalità di LUIS
 
 

@@ -1,20 +1,20 @@
 ---
-title: Configurare il monitoraggio dell'integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
-description: Viene descritto come modificare il monitoraggio predefinito per Monitoraggio di Azure per le macchine virtuali l'integrità Guest (anteprima) utilizzando l'portale di Azure.
+title: Configurare il monitoraggio in integrità Guest di VM Insights (anteprima)
+description: Viene descritto come modificare il monitoraggio predefinito per l'integrità Guest di VM Insights (anteprima) usando il portale di Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8c15a44fc086c9c686e75879b3086436ea327560
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620606"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719594"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Configurare il monitoraggio dell'integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
-Monitoraggio di Azure per le macchine virtuali integrità Guest consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come è possibile modificare il monitoraggio predefinito usando il portale di Azure. Vengono inoltre descritti i concetti fondamentali dei monitoraggi necessari per [la configurazione del monitoraggio tramite una regola di raccolta dati](vminsights-health-configure-dcr.md).
+# <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Configurare il monitoraggio in integrità Guest di VM Insights (anteprima)
+L'integrità Guest di VM Insights consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come è possibile modificare il monitoraggio predefinito usando il portale di Azure. Vengono inoltre descritti i concetti fondamentali dei monitoraggi necessari per [la configurazione del monitoraggio tramite una regola di raccolta dati](vminsights-health-configure-dcr.md).
 
 ## <a name="open-monitor-configuration"></a>Apri configurazione monitoraggio
 Aprire Monitoraggio configurazione bin il portale di Azure selezionando il monitoraggio e quindi la scheda **configurazione** .

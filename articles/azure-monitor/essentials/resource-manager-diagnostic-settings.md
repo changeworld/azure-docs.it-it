@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 87951c0366090c1ea4eba490d114771e47bf452c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 304c359296c4fbff79dd367facd8bbb98c8903b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627530"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731443"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le impostazioni di diagnostica in Monitoraggio di Azure
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per creare impostazioni di diagnostica per una risorsa di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.
@@ -349,7 +349,7 @@ L'esempio seguente crea un'impostazione di diagnostica per un database SQL di Az
 ```
 
 ## <a name="diagnostic-setting-for-recovery-services-vault"></a>Impostazione di diagnostica per l'insieme di credenziali di Servizi di ripristino
-L'esempio seguente crea un'impostazione di diagnostica per un insieme di credenziali di Servizi di ripristino aggiungendo una risorsa di tipo `microsoft.recoveryservices/vaults/providers/diagnosticSettings` al modello. Questo esempio specifica la modalità di raccolta descritta in [Log delle risorse di Azure](../platform/resource-logs.md#send-to-log-analytics-workspace). Specificare `Dedicated` o `AzureDiagnostics` per la proprietà `logAnalyticsDestinationType`.
+L'esempio seguente crea un'impostazione di diagnostica per un insieme di credenziali di Servizi di ripristino aggiungendo una risorsa di tipo `microsoft.recoveryservices/vaults/providers/diagnosticSettings` al modello. Questo esempio specifica la modalità di raccolta descritta in [Log delle risorse di Azure](./resource-logs.md#send-to-log-analytics-workspace). Specificare `Dedicated` o `AzureDiagnostics` per la proprietà `logAnalyticsDestinationType`.
 
 ### <a name="template-file"></a>File modello
 
@@ -812,5 +812,5 @@ L'esempio seguente crea un'impostazione di diagnostica per ogni endpoint del ser
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Passare ad altri esempi per Monitoraggio di Azure](../samples/resource-manager-samples.md).
+* [Passare ad altri esempi per Monitoraggio di Azure](../resource-manager-samples.md).
 * [Altre informazioni sulle impostazioni di diagnostica](../essentials/diagnostic-settings.md).

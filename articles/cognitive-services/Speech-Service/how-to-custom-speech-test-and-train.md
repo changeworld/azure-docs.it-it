@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 2e6f79643493457a587f907f2649c7ab50b963f4
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: f7e29fab542db79b22a9ace7371bc22d3526ac33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634737"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710499"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -64,6 +64,8 @@ I file devono essere raggruppati per tipo in un set di dati e caricati come file
 > Nei casi in cui si modifica il modello di base utilizzato per il training e si dispone di audio nel set di dati di training, verificare *sempre* se il nuovo modello di base selezionato [supporta il training con dati audio](language-support.md#speech-to-text). Se il modello di base usato in precedenza non supporta il training con dati audio e il set di dati di training contiene audio, i tempi di training con il nuovo modello di base aumenteranno **drasticamente** e potranno passare da diverse ore a diversi giorni. Ciò vale soprattutto se la sottoscrizione al servizio vocale **non** si trova in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
 >
 > Se si affronta il problema descritto nel paragrafo precedente, è possibile ridurre rapidamente il tempo di training riducendo la quantità di audio nel set di dati o rimuovendo completamente il testo e lasciando solo il testo. La seconda opzione è consigliata se la sottoscrizione al servizio vocale **non** si trova in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
+>
+> In aree con hardware dedicato per il training, il servizio di riconoscimento vocale utilizzerà fino a 20 ore di audio per il training. In altre aree, utilizzerà solo fino a 8 ore di audio.
 
 ## <a name="upload-data"></a>Caricare i dati
 
@@ -127,7 +129,7 @@ I file audio possono avere un silenzio all'inizio e alla fine della registrazion
 > [!NOTE]
 > Quando si caricano i dati di training e di test, le dimensioni del file zip non possono superare i 2 GB. È possibile eseguire il test solo da un *singolo* set di dati, assicurarsi di mantenerlo all'interno delle dimensioni del file appropriate. Inoltre, ogni file di training non può superare 60 secondi in caso contrario, si otterrà un errore.
 
-Per risolvere problemi come l'eliminazione o la sostituzione di parole, per migliorare il riconoscimento è necessaria una quantità significativa di dati. In genere, è consigliabile fornire trascrizioni Word per parola per circa 10 o 20 ore di audio. Le trascrizioni di tutti i file WAV devono essere contenute in un unico file di testo normale. Ogni riga del file delle trascrizioni deve contenere il nome di uno dei file audio ed essere seguita dalla trascrizione corrispondente. Il nome del file deve essere separato dalla trascrizione mediante un carattere di tabulazione (\t).
+Per risolvere problemi come l'eliminazione o la sostituzione di parole, per migliorare il riconoscimento è necessaria una quantità significativa di dati. In genere, è consigliabile fornire trascrizioni Word per parola da 1 a 20 ore di audio. Tuttavia, anche un minimo di 30 minuti può contribuire a migliorare i risultati del riconoscimento. Le trascrizioni di tutti i file WAV devono essere contenute in un unico file di testo normale. Ogni riga del file delle trascrizioni deve contenere il nome di uno dei file audio ed essere seguita dalla trascrizione corrispondente. Il nome del file deve essere separato dalla trascrizione mediante un carattere di tabulazione (\t).
 
 Ad esempio:
 

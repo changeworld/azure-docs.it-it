@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 0faa7a6f5a3d2efc8bbef11308b308e3305a00d5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 416ef4ceddbb43e9f1606d44a66ffd5295cee4e6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096322"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699896"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Eseguire la migrazione alla versione 3. x del API Analisi del testo
 
@@ -104,7 +104,7 @@ Nella tabella seguente sono elencate le categorie di entità restituite per NER 
 
 ### <a name="feature-changes"></a>Modifiche apportate alle funzionalità 
 
-La funzionalità di rilevamento della lingua non è stata modificata in V3 al di fuori della versione dell'endpoint, ma la risposta JSON conterrà `ConfidenceScore` invece di `score` . V3 restituisce anche una sola lingua nell'output. 
+L'output della funzionalità di rilevamento della lingua è stato modificato in V3. La risposta JSON conterrà `ConfidenceScore` invece di `score` . V3 restituisce anche una sola lingua in un  `detectedLanguage` attributo per ogni documento.
 
 ### <a name="steps-to-migrate"></a>Passaggi per la migrazione
 

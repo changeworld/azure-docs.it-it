@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: 64bdbf1005f0283438777b3bb2ba1d3312b6e140
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8dac947aea95dc79118032eb0996b6ba14f16363
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627452"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714112"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le regole di avviso dei log in Monitoraggio di Azure
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per creare e configurare avvisi delle query su log in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.
@@ -479,4 +479,4 @@ L'esempio seguente crea una regola che può essere usata con qualsiasi risorsa.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Passare ad altri esempi per Monitoraggio di Azure](../resource-manager-samples.md).
-* [Altre informazioni sulle regole di avviso](../platform/alerts-overview.md).
+* [Altre informazioni sulle regole di avviso](./alerts-overview.md).

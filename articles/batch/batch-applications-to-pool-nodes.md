@@ -2,13 +2,13 @@
 title: Copiare applicazioni e dati nei nodi del pool
 description: Informazioni su come copiare applicazioni e dati nei nodi del pool.
 ms.topic: how-to
-ms.date: 02/10/2021
-ms.openlocfilehash: a5933a1c52e2848b6b414f1750bb24515fb9f28a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 0109171fd78dc11058daa30bf4604bebc1eeb857
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378503"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703648"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copiare applicazioni e dati nei nodi del pool
 
@@ -33,10 +33,6 @@ Se ogni processo in esecuzione nel pool esegue un'applicazione (con estensione e
 Per le applicazioni o i dati che devono essere installati in ogni nodo del pool, provare a usare i [pacchetti dell'applicazione](batch-application-packages.md). Sebbene non sia presente alcun comando di installazione associato a un pacchetto dell'applicazione, è possibile usare un'attività iniziale per eseguire qualsiasi comando di installazione. Se l'applicazione non richiede l'installazione o è costituita da un numero elevato di file, è possibile usare questo metodo.
 
 I pacchetti dell'applicazione sono utili quando si dispone di un numero elevato di file, perché possono combinare molti riferimenti a file in un payload ridotto. Se si tenta di includere più di 100 file di risorse separati in un'unica attività, il servizio Batch potrebbe riscontrare limitazioni di sistema interne per una singola attività. I pacchetti dell'applicazione sono utili anche quando si dispone di molte versioni diverse della stessa applicazione ed è necessario sceglierle tra loro.
-
-## <a name="extensions"></a>Estensioni
-
-Le [estensioni](create-pool-extensions.md) sono piccole applicazioni che facilitano la configurazione e la configurazione post-provisioning nei nodi di calcolo di batch. Quando si crea un pool, è possibile selezionare un'estensione supportata da installare nei nodi di calcolo quando ne viene eseguito il provisioning. Successivamente, l'estensione può eseguire l'operazione desiderata.
 
 ## <a name="job-preparation-task-resource-files"></a>File di risorse dell'attività di preparazione dei processi
 

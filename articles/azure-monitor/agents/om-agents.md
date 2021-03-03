@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: f9418b9a4bac9c458c530b246f7400ac067f5623
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9c20994c27680aaccb68db2ff78deb6b6bf9f8cf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618146"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718132"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connetti Operations Manager a monitoraggio di Azure
 
@@ -40,8 +40,8 @@ Prima di iniziare, esaminare i requisiti seguenti.
 * Monitoraggio di Azure supporta solo System Center Operations Manager 2016 o versioni successive, Operations Manager 2012 SP1 UR6 o versione successiva e Operations Manager 2012 R2 UR2 o versione successiva. Il supporto per il proxy è stato aggiunto in Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
 * L'integrazione di System Center Operations Manager 2016 con il cloud del governo degli Stati Uniti richiede un Advisor aggiornato Management Pack incluso con l'aggiornamento cumulativo 2 o versione successiva. System Center Operations Manager 2012 R2 richiede un Advisor aggiornato Management Pack incluso con l'aggiornamento cumulativo 3 o versione successiva.
 * Tutti gli agenti di Operations Manager devono soddisfare i requisiti di supporto minimo. Verificare che gli agenti dispongano dell'aggiornamento minimo richiesto, altrimenti le comunicazioni degli agenti di Windows possono avere esito negativo e generare errori nel log eventi di Operations Manager.
-* Un'area di lavoro Log Analytics. Per altre informazioni, vedere [Panoramica delle aree di lavoro Log Analytics](../platform/design-logs-deployment.md).
-* Autenticazione in Azure con un account membro del [ruolo di collaboratore di Log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions).
+* Un'area di lavoro Log Analytics. Per altre informazioni, vedere [Panoramica delle aree di lavoro Log Analytics](../logs/design-logs-deployment.md).
+* Autenticazione in Azure con un account membro del [ruolo di collaboratore di Log Analytics](../logs/manage-access.md#manage-access-using-azure-permissions).
 
 * Aree supportate: solo le aree di Azure seguenti sono supportate da System Center Operations Manager per connettersi a un'area di lavoro Log Analytics:
     - Stati Uniti centro-occidentali
@@ -95,7 +95,7 @@ Nelle informazioni riportate di seguito sono elencate le informazioni di configu
 
 ### <a name="tls-12-protocol"></a>Protocollo TLS 1.2
 
-Per garantire la sicurezza dei dati in transito verso monitoraggio di Azure, si consiglia di configurare l'agente e il gruppo di gestione per l'uso di almeno Transport Layer Security (TLS) 1,2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**. Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12).
+Per garantire la sicurezza dei dati in transito verso monitoraggio di Azure, si consiglia di configurare l'agente e il gruppo di gestione per l'uso di almeno Transport Layer Security (TLS) 1,2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**. Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12).
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Connessione di Operations Manager a monitoraggio di Azure
 
@@ -345,4 +345,3 @@ Se in futuro si prevede di riconnettere il gruppo di gestione a un'area di lavor
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per aggiungere funzionalità e raccogliere dati, vedere [aggiungere soluzioni di monitoraggio di Azure dalla raccolta di soluzioni](../insights/solutions.md).
-

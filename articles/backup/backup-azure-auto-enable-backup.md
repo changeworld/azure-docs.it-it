@@ -3,18 +3,18 @@ title: Abilitare automaticamente il backup durante la creazione di macchine virt
 description: Articolo che descrive come usare i criteri di Azure per abilitare automaticamente il backup per tutte le macchine virtuali create in un determinato ambito
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 7e8195d22f54f29b36549b966322623ed0987d72
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dfa4364eeaa9f5b60af3f5d6a19aaeb188d4f65e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896868"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707303"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Abilitare automaticamente il backup durante la creazione di macchine virtuali con Criteri di Azure
 
 Una delle responsabilità principali di un amministratore di backup o di conformità in un'organizzazione è garantire che tutti i computer cruciali per l'azienda vengano sottoposti a backup con il periodo di conservazione appropriato.
 
-Attualmente, backup di Azure offre un'ampia gamma di criteri predefiniti, usando [criteri di Azure](https://docs.microsoft.com/azure/governance/policy/overview), che consentono di verificare automaticamente che le macchine virtuali di Azure siano configurate per il backup. A seconda di come sono organizzati i team e le risorse di backup, è possibile usare uno dei criteri seguenti:
+Attualmente, backup di Azure offre un'ampia gamma di criteri predefiniti, usando [criteri di Azure](../governance/policy/overview.md), che consentono di verificare automaticamente che le macchine virtuali di Azure siano configurate per il backup. A seconda di come sono organizzati i team e le risorse di backup, è possibile usare uno dei criteri seguenti:
 
 ## <a name="policy-1---configure-backup-on-vms-without-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>Criteri 1: configurare il backup nelle VM senza un determinato tag in un insieme di credenziali di servizi di ripristino esistente nello stesso percorso
 
@@ -29,7 +29,7 @@ Se si organizzano applicazioni in gruppi di risorse dedicati e si vuole eseguirn
 ## <a name="policy-4---preview-configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Criteri 4-[Anteprima] configurare il backup nelle VM con un determinato tag in un nuovo insieme di credenziali di servizi di ripristino con un criterio predefinito
 Questo criterio funziona allo stesso modo del criterio 3, con la sola differenza che è possibile usare questo criterio per **includere** le macchine virtuali contenenti un determinato tag nell'ambito di questi criteri. 
 
-Oltre a quanto sopra, backup di Azure fornisce anche un criterio di [solo controllo](https://docs.microsoft.com/azure/governance/policy/concepts/effects#audit) : **backup di Azure deve essere abilitato per le macchine virtuali**. Questo criterio identifica le macchine virtuali in cui non è abilitato il backup, ma non configura automaticamente i backup per queste macchine virtuali. Questa operazione è utile quando si desidera valutare la conformità complessiva delle macchine virtuali, ma non si desidera eseguire immediatamente un'azione.
+Oltre a quanto sopra, backup di Azure fornisce anche un criterio di [solo controllo](../governance/policy/concepts/effects.md#audit) : **backup di Azure deve essere abilitato per le macchine virtuali**. Questo criterio identifica le macchine virtuali in cui non è abilitato il backup, ma non configura automaticamente i backup per queste macchine virtuali. Questa operazione è utile quando si desidera valutare la conformità complessiva delle macchine virtuali, ma non si desidera eseguire immediatamente un'azione.
 
 ## <a name="supported-scenarios"></a>Scenari Supportati
 

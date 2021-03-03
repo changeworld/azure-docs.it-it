@@ -12,12 +12,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
 ms.date: 02/21/2021
-ms.openlocfilehash: 7acb891cc887fb118a338cc837c5c5c4c98a63d8
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 75fc4166614862c5ac48a72bacb6b7b19019d003
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655939"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691910"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Confronto tra le funzionalità: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -48,7 +48,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server e fornisce 
 | [BULK INSERT - istruzione](/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Sì, ma solo dall'archiviazione BLOB di Azure come origine. | Sì, ma solo dall'archiviazione BLOB di Azure come origine, vedere [differenze](../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset). |
 | [Certificati e chiavi asimmetriche](/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Sì, senza l'accesso alla file system `BACKUP` per `CREATE` le operazioni e. | Sì, senza l'accesso alla file system `BACKUP` per `CREATE` le operazioni e, vedere [differenze tra i certificati](../managed-instance/transact-sql-tsql-differences-sql-server.md#certificates). |
 | [Change Data Capture-CDC](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No | Sì |
-| [Regole di confronto - server/istanza](/sql/relational-databases/collations/set-or-change-the-server-collation) | No, le regole di confronto del server predefinite `SQL_Latin1_General_CP1_CI_AS` vengono sempre usate. | Sì, può essere impostato al momento della [creazione dell'istanza](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md) e non può essere aggiornato in un secondo momento. |
+| [Regole di confronto - server/istanza](/sql/relational-databases/collations/set-or-change-the-server-collation) | No, le regole di confronto del server predefinite `SQL_Latin1_General_CP1_CI_AS` vengono sempre usate. | Sì, può essere impostato al momento della [creazione dell'istanza](../managed-instance/create-template-quickstart.md) e non può essere aggiornato in un secondo momento. |
 | [Indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview) | Sì, livello [Premium, livello Standard-S3 e versioni successive, livello per utilizzo generico, business critical e livelli Iperscalabili](/sql/relational-databases/indexes/columnstore-indexes-overview) |Sì |
 | [Common Language Runtime-CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Sì, ma senza accesso a file system nell' `CREATE ASSEMBLY` istruzione, vedere [differenze CLR](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
 | [Credenziali](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Sì, ma solo le [credenziali con ambito database](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Sì, ma solo **Azure Key Vault** e `SHARED ACCESS SIGNATURE` sono supportati. vedere [i dettagli](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |

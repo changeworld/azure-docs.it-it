@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: 623230b59d4f479b20b9b8532135bb2b70885ecb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7ce73fc69ac0ff88c6048aad39fd07ae802b978d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615877"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704226"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Query di log in Monitoraggio di Azure
 I log di monitoraggio di Azure si basano su Esplora dati di Azure e le query di log vengono scritte usando lo stesso linguaggio di query kusto (KQL). Si tratta di un linguaggio avanzato progettato per essere facile da leggere e creare, quindi è possibile iniziare a scrivere query con alcune linee guida di base.
@@ -19,9 +19,9 @@ I log di monitoraggio di Azure si basano su Esplora dati di Azure e le query di 
 Le aree di monitoraggio di Azure in cui si utilizzeranno le query sono le seguenti:
 
 - [Log Analytics](../logs/log-analytics-overview.md). Lo strumento principale nella portale di Azure per la modifica delle query di log e l'analisi interattiva dei risultati. Anche se si prevede di usare una query di log in un altro punto del monitoraggio di Azure, in genere si scrive e si testa il file in Log Analytics prima di copiarlo nel percorso finale.
-- [Regole di avviso del log](../platform/alerts-overview.md). Identificare in modo proattivo i problemi dai dati nell'area di lavoro.  Ogni regola di avviso si basa su una query di log che viene eseguita automaticamente a intervalli regolari.  I risultati vengono esaminati per determinare se è necessario creare un avviso.
+- [Regole di avviso del log](../alerts/alerts-overview.md). Identificare in modo proattivo i problemi dai dati nell'area di lavoro.  Ogni regola di avviso si basa su una query di log che viene eseguita automaticamente a intervalli regolari.  I risultati vengono esaminati per determinare se è necessario creare un avviso.
 - [Cartelle di lavoro](../visualize/workbooks-overview.md)di. Includere i risultati delle query di log usando visualizzazioni diverse nei report visivi interattivi nel portale di Azure.
-- [Dashboard di Azure](../learn/tutorial-logs-dashboards.md). Aggiungere i risultati di una query in un dashboard di Azure che consente di visualizzare i dati di log e metriche insieme e, facoltativamente, di condividerli con altri utenti di Azure.
+- [Dashboard di Azure](../visualize/tutorial-logs-dashboards.md). Aggiungere i risultati di una query in un dashboard di Azure che consente di visualizzare i dati di log e metriche insieme e, facoltativamente, di condividerli con altri utenti di Azure.
 - [App](../logs/logicapp-flow-connector.md)per la logica.  Usare i risultati di una query di log in un flusso di lavoro automatizzato usando app per la logica.
 - [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult). Usare i risultati di una query di log in uno script di PowerShell da una riga di comando o da un Runbook di automazione di Azure che usa Get-AzOperationalInsightsSearchResults.
 - [API dei log di monitoraggio di Azure](https://dev.loganalytics.io). Recuperare i dati di log dall'area di lavoro da qualsiasi client dell'API REST.  La richiesta dell'API include una query eseguita su Monitoraggio di Azure per determinare i dati da recuperare.
@@ -29,7 +29,7 @@ Le aree di monitoraggio di Azure in cui si utilizzeranno le query sono le seguen
 ## <a name="getting-started"></a>Guida introduttiva
 Il modo migliore per iniziare a imparare a scrivere query di log con KQL è usare le esercitazioni e gli esempi disponibili.
 
-- [Log Analytics esercitazione](../log-query/log-analytics-tutorial.md) : esercitazione sull'uso delle funzionalità di log Analytics, che è lo strumento che verrà usato nella portale di Azure per modificare ed eseguire le query. Consente inoltre di scrivere semplici query senza utilizzare direttamente il linguaggio di query. Se non si è mai usato Log Analytics prima, iniziare da qui per comprendere lo strumento da usare con le altre esercitazioni ed esempi.
+- [Log Analytics esercitazione](./log-analytics-tutorial.md) : esercitazione sull'uso delle funzionalità di log Analytics, che è lo strumento che verrà usato nella portale di Azure per modificare ed eseguire le query. Consente inoltre di scrivere semplici query senza utilizzare direttamente il linguaggio di query. Se non si è mai usato Log Analytics prima, iniziare da qui per comprendere lo strumento da usare con le altre esercitazioni ed esempi.
 - [Esercitazione di KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor) -Guida dettagliata sui concetti di base di KQL e sugli operatori comuni. Questo è il posto migliore in cui iniziare ad accelerare il linguaggio e la struttura delle query di log. 
 - [Query di esempio](../logs/example-queries.md) : Descrizione delle query di esempio disponibili in log Analytics. È possibile usare le query senza modifiche o usarle come esempi per apprendere i KQL.
 - [Esempi di query](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor) : query di esempio che illustrano una varietà di concetti diversi.
@@ -73,10 +73,9 @@ Mentre monitoraggio di Azure usa lo stesso KQL di Azure Esplora dati, esistono a
 Gli operatori seguenti supportano specifiche funzionalità di Monitoraggio di Azure e non sono disponibili all'esterno di Monitoraggio di Azure.
 
 * [app ()](../logs/app-expression.md)
-* [risorsa ()](../log-query/resource-expression.md)
+* [risorsa ()](./resource-expression.md)
 * [area di lavoro ()](../logs/workspace-expression.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Seguire un'[esercitazione sulla scrittura di query](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
 - Accedere alla [documentazione di riferimento completa per il linguaggio di query Kusto](/azure/kusto/query/).
-

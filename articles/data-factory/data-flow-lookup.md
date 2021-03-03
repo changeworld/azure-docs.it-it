@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/19/2021
+ms.openlocfilehash: b8754742c572a8dbc1f55c64e47bec640d757d65
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147267"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739369"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Trasformazione della ricerca nel flusso di dati per mapping
 
@@ -39,13 +39,11 @@ Una trasformazione della ricerca è simile a una left outer join. Tutte le righe
 
 **Condizioni di ricerca:** Scegliere le colonne su cui eseguire la corrispondenza. Se viene soddisfatta la condizione di uguaglianza, le righe verranno considerate corrispondenti. Passare il puntatore del mouse e selezionare "Colonna calcolata" per estrarre un valore usando il [linguaggio delle espressioni del flusso di dati](data-flow-expression-functions.md).
 
-La trasformazione della ricerca supporta solo corrispondenze di uguaglianza. Per personalizzare l'espressione di ricerca in modo da includere altri operatori come maggiore di, è consigliabile usare un [cross join nella trasformazione join](data-flow-join.md#custom-cross-join). Un cross join eviterà tutti i possibili errori di prodotto cartesiano durante l'esecuzione.
-
 Tutte le colonne di entrambi i flussi sono incluse nei dati di output. Per rilasciare colonne duplicate o indesiderate, aggiungere una [trasformazione della selezione](data-flow-select.md) dopo la trasformazione della ricerca. Le colonne possono anche essere rilasciate o rinominate in una trasformazione sink.
 
 ### <a name="non-equi-joins"></a>Join non uguali
 
-Per usare un operatore condizionale come non uguale (! =) o maggiore di (>) nelle condizioni di ricerca, modificare l'elenco a discesa operatore tra le due colonne. Per i join non uguali è necessario che almeno uno dei due flussi venga trasmesso usando la broadcast **fissa** nella scheda **Ottimizza** .
+Per usare un operatore condizionale come non uguale (! =) o maggiore di (>) nelle condizioni di ricerca, modificare l'elenco a discesa operatore tra le due colonne. Per i join non uguali è necessario che almeno uno dei due flussi venga trasmesso usando la broadcast **fissa** nella scheda **Ottimizza**.
 
 ![Ricerca non uguali](media/data-flow/non-equi-lookup.png "Ricerca non uguali")
 
@@ -65,11 +63,11 @@ Quando si testa la trasformazione della ricerca con anteprima dati in modalità 
 
 ![Join di trasmissione](media/data-flow/broadcast.png "Join di trasmissione")
 
-Nella trasformazione di join, ricerche ed exists, se uno o entrambi i flussi di dati rientrano nella memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione** . Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato. Per scegliere manualmente il lato da trasmettere, selezionare **Fisso** .
+Nella trasformazione di join, ricerche ed exists, se uno o entrambi i flussi di dati rientrano nella memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione**. Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato. Per scegliere manualmente il lato da trasmettere, selezionare **Fisso**.
 
 Non è consigliabile disabilitare la trasmissione tramite l'opzione **Off** a meno che i join non siano in errore di timeout.
 
-## <a name="cached-lookup"></a>Ricerca nella cache
+## <a name="cached-lookup"></a>Ricerca memorizzata nella cache
 
 Se si stanno eseguendo più ricerche più piccole sulla stessa origine, un sink memorizzato nella cache e una ricerca potrebbero essere un caso d'uso migliore rispetto alla trasformazione ricerca. Esempi comuni in cui un sink della cache può risultare migliore è la ricerca di un valore massimo in un archivio dati e la corrispondenza dei codici di errore con un database di messaggi di errore. Per ulteriori informazioni, vedere la pagina relativa ai [sink della cache](data-flow-sink.md#cache-sink) e alle [ricerche memorizzate nella cache](concepts-data-flow-expression-builder.md#cached-lookup).
 

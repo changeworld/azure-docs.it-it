@@ -8,12 +8,12 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 13fe83710c94c1ca37f05d59cb91f31aa8ca1bae
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 2650da2579f13ec1588af7a25e5b28908209bc82
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744635"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700185"
 ---
 # <a name="azure-cloud-services-extended-support-config-networkconfiguration-schema"></a>Schema networkConfiguration di configurazione di servizi cloud di Azure (supporto esteso)
 
@@ -23,7 +23,7 @@ Per altre informazioni sulle reti virtuali e sugli schemi associati, è possibil
 
 - [Schema di configurazione del servizio cloud (supporto esteso)](schema-cscfg-file.md).
 - [Schema di definizione del servizio cloud (supporto esteso)](schema-csdef-file.md).
-- [Creare una rete virtuale](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network).
+- [Creare una rete virtuale](../virtual-network/manage-virtual-network.md).
 
 ## <a name="networkconfiguration-element"></a>Elemento NetworkConfiguration
 L'esempio seguente illustra l'elemento `NetworkConfiguration` e i relativi elementi figlio.
@@ -72,5 +72,5 @@ La tabella seguente descrive gli elementi figlio dell'elemento `NetworkConfigura
 | Subnet | facoltativo. Specifica la subnet che corrisponde al nome della subnet nel file di configurazione di rete. Il nome della subnet è definito da una stringa per l'attributo `name`.|
 | ReservedIP | facoltativo. Specifica l'indirizzo IP riservato che deve essere associato alla distribuzione. È necessario usare Crea indirizzo IP riservato per creare l'indirizzo IP riservato. Ogni distribuzione in un servizio cloud può essere associata a un indirizzo IP riservato. Il nome dell'indirizzo IP riservato è definito da una stringa per l'attributo `name`.|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Schema di configurazione del servizio cloud (supporto esteso)](schema-cscfg-file.md).

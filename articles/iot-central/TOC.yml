@@ -66,10 +66,8 @@
     - name: Soluzioni specifiche del settore
       items:
         - name: Retail
-          href: retail/overview-iot-central-retail.md
           items:
             - name: Analisi punti vendita - Pagamento
-              href: retail/store-analytics-architecture.md
               items:
                 - name: 1 - Creare un'applicazione per la vendita al dettaglio
                   href: retail/tutorial-in-store-analytics-create-app.md
@@ -77,28 +75,15 @@
                   href: retail/tutorial-in-store-analytics-customize-dashboard.md
                 - name: 3 - Esportare i dati e visualizzare informazioni dettagliate
                   href: retail/tutorial-in-store-analytics-export-data-visualize-insights.md
-            - name: Gestione inventario intelligente
-              href: retail/architecture-smart-inventory-management.md
-              items:
-                - name: Creare un'applicazione per la gestione inventario intelligente
-                  href: retail/tutorial-iot-central-smart-inventory-management.md
-            - name: Logistica connessa
-              href: retail/architecture-connected-logistics.md
-              items:
-                - name: Creare un'applicazione per la logistica connessa
-                  href: retail/tutorial-iot-central-connected-logistics.md
-            - name: Centro di distribuzione digitale
-              href: retail/architecture-digital-distribution-center.md
-              items:
-                - name: Creare un'applicazione per il centro distribuzione digitale
-                  href: retail/tutorial-iot-central-digital-distribution-center.md
-            - name: Centro di micro-adempimenti
-              href: retail/architecture-micro-fulfillment-center.md
-              items:
-                - name: Creare un'applicazione per il centro di micro-adempimenti
-                  href: retail/tutorial-micro-fulfillment-center.md
+            - name: Creare un'applicazione per la gestione inventario intelligente
+              href: retail/tutorial-iot-central-smart-inventory-management.md
+            - name: Creare un'applicazione per la logistica connessa
+              href: retail/tutorial-iot-central-connected-logistics.md
+            - name: Creare un'applicazione per il centro distribuzione digitale
+              href: retail/tutorial-iot-central-digital-distribution-center.md
+            - name: Creare un'applicazione per il centro di micro-adempimenti
+              href: retail/tutorial-micro-fulfillment-center.md
             - name: Analisi video - rilevamento movimento e oggetti
-              href: retail/architecture-video-analytics.md
               items:
                 - name: 0 - Distribuire un'applicazione di rilevamento movimento e oggetti
                   href: retail/tutorial-video-analytics-deploy.md
@@ -119,38 +104,21 @@
                 - name: 4 - Modificare e creare i moduli del gateway di analisi video live
                   href: retail/tutorial-video-analytics-build-module.md
         - name: Energia
-          href: energy/overview-iot-central-energy.md
           items:
-            - name: Architettura dell'app per contatori intelligenti
-              href: energy/concept-iot-central-smart-meter-app.md
             - name: Creare un'app per il monitoraggio contatori intelligente
               href: energy/tutorial-smart-meter-app.md
-            - name: Architettura dell'app per pannelli solari
-              href: energy/concept-iot-central-solar-panel-app.md
             - name: Creare un'app per il monitoraggio pannelli solari
               href: energy/tutorial-solar-panel-app.md
         - name: Enti governativi
-          href: government/overview-iot-central-government.md
           items:
-            - name: Architettura di riferimento per la gestione rifiuti connessa
-              href: government/concepts-connectedwastemanagement-architecture.md
             - name: Creare un'app di gestione rifiuti connessa
               href: government/tutorial-connected-waste-management.md
-            - name: Architettura di riferimento per il monitoraggio consumo idrico
-              href: government/concepts-waterconsumptionmonitoring-architecture.md
             - name: Creare un'app di monitoraggio consumo idrico
               href: government/tutorial-water-consumption-monitoring.md
-            - name: Architettura di riferimento per il monitoraggio qualità acqua
-              href: government/concepts-waterqualitymonitoring-architecture.md
             - name: Creare un'app di monitoraggio qualità acqua
               href: government/tutorial-water-quality-monitoring.md
-            - name: Connettere l'applicazione IoT Central di Azure con i servizi Field di Dynamics 365
-              href: government/how-to-configure-connected-field-services.md
         - name: Servizi sanitari
-          href: healthcare/overview-iot-central-healthcare.md
           items:
-            - name: Architettura del monitoraggio pazienti continuo
-              href: healthcare/concept-continuous-patient-monitoring-architecture.md
             - name: Creare un'app di monitoraggio pazienti continuo
               href: healthcare/tutorial-continuous-patient-monitoring.md
             - name: Creare un dashboard di valutazione dei dati sanitari
@@ -162,9 +130,51 @@
     - name: Guida per sviluppatori di dispositivi
       href: core/overview-iot-central-developer.md
     - name: Guida al generatore di soluzioni
-      href: core/overview-iot-central-developer.md
+      href: core/overview-iot-central-solution-builder.md
     - name: Che cosa i modelli di applicazione?
       href: core/concepts-app-templates.md
+    - name: Modelli di applicazione specifici del settore
+      items:
+        - name: Retail
+          items:
+            - name: Panoramica
+              href: retail/overview-iot-central-retail.md
+            - name: Architettura di estrazione dell'analisi in archivio
+              href: retail/store-analytics-architecture.md
+            - name: Architettura di gestione dell'inventario intelligente
+              href: retail/architecture-smart-inventory-management.md
+            - name: Architettura logistica connessa
+              href: retail/architecture-connected-logistics.md
+            - name: Centro di distribuzione digitale
+              href: retail/architecture-digital-distribution-center.md
+            - name: Architettura del centro di micro-adempimenti
+              href: retail/architecture-micro-fulfillment-center.md
+            - name: Analisi video - rilevamento movimento e oggetti
+              href: retail/architecture-video-analytics.md
+        - name: Energia
+          items:
+            - name: Panoramica
+              href: energy/overview-iot-central-energy.md
+            - name: Architettura dell'app per contatori intelligenti
+              href: energy/concept-iot-central-smart-meter-app.md
+            - name: Architettura dell'app per pannelli solari
+              href: energy/concept-iot-central-solar-panel-app.md
+        - name: Enti governativi
+          items:
+            - name: Panoramica
+              href: government/overview-iot-central-government.md
+            - name: Architettura di monitoraggio dello spreco connesso
+              href: government/concepts-connectedwastemanagement-architecture.md
+            - name: Architettura per il monitoraggio del consumo idrico
+              href: government/concepts-waterconsumptionmonitoring-architecture.md
+            - name: Architettura di monitoraggio della qualità acqua
+              href: government/concepts-waterqualitymonitoring-architecture.md
+        - name: Servizi sanitari
+          items:
+            - name: Panoramica
+              href: healthcare/overview-iot-central-healthcare.md
+            - name: Architettura del monitoraggio pazienti continuo
+              href: healthcare/concept-continuous-patient-monitoring-architecture.md
     - name: Che cosa sono i modelli di dispositivo?
       href: core/concepts-device-templates.md
     - name: Connettività dei dispositivi
@@ -221,6 +231,8 @@
           href: core/howto-create-custom-analytics.md
         - name: Visualizzare dati in Power BI
           href: core/howto-connect-powerbi.md
+        - name: Connettere l'applicazione con i servizi Field di Dynamics 365
+          href: government/how-to-configure-connected-field-services.md
     - name: Gestire i dispositivi
       items:
         - name: Aggiungere e rimuovere dispositivi

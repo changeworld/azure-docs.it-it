@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 03/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 77d9d20f3321aa5bb6c5ea47a3949a82bdd1ad75
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131242"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688417"
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
@@ -62,7 +62,10 @@ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policie
 - **Ambiti del criterio:** tutti gli ambiti
 
 ## <a name="cors"></a><a name="CORS"></a> CORS
-Il criterio `cors` aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.
+Il criterio `cors` aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser. 
+
+> [!NOTE]
+> Se la richiesta corrisponde a un'operazione con un metodo di opzioni definito nell'API, la logica di elaborazione delle richieste pre-flight associata ai criteri CORS non verrà eseguita. Tali operazioni possono pertanto essere utilizzate per implementare la logica di elaborazione preliminare personalizzata.
 
 CORS permette a un browser e a un server di interagire e di determinare se permettere o meno richieste specifiche con origini diverse, ad esempio chiamate XMLHttpRequests effettuate da JavaScript in una pagina Web in altri domini. Ciò offre una maggiore flessibilità rispetto a permettere solo richieste con la stessa origine e una maggiore sicurezza rispetto a permettere tutte le richieste con origini diverse.
 
@@ -71,7 +74,7 @@ CORS permette a un browser e a un server di interagire e di determinare se perme
 ### <a name="policy-statement"></a>Istruzione del criterio
 
 ```xml
-<cors allow-credentials="false|true">
+<cors allow-credentials="false|true" terminate-unmatched-request="true|false">
     <allowed-origins>
         <origin>origin uri</origin>
     </allowed-origins>
@@ -133,11 +136,12 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 |expose-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni accessibili dal client.|No|N/D|
 |header|Specifica un nome di intestazione.|È richiesto almeno un elemento `header` in `allowed-headers` se è presente la sezione `expose-headers`.|N/D|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|L' `Access-Control-Allow-Credentials` intestazione nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità del client di inviare credenziali in richieste tra domini.|No|false|
+|Terminate-richiesta senza corrispondenza|Questo attributo controlla l'elaborazione di richieste tra origini che non corrispondono alle impostazioni dei criteri di CORS. Quando la richiesta OPTIONS viene elaborata come richiesta preliminare e non corrisponde alle impostazioni dei criteri CORS: se l'attributo è impostato su `true` , terminare immediatamente la richiesta con una risposta 200 OK vuota. Se l'attributo è impostato su `false` , controllare il traffico in ingresso per altri criteri CORS nell'ambito che sono elementi figlio diretti dell'elemento in ingresso e applicarli.  Se non vengono trovati criteri CORS, terminare la richiesta con una risposta 200 OK vuota. Quando la richiesta GET o HEAD include l'intestazione Origin (e pertanto viene elaborata come richiesta tra origini) e non corrisponde alle impostazioni dei criteri CORS: se l'attributo è impostato su `true` , terminare immediatamente la richiesta con una risposta 200 OK vuota. Se l'attributo è impostato su `false` , consentire alla richiesta di procedere normalmente e non aggiungere intestazioni CORS alla risposta.|No|true|
 |preflight-result-max-age|L' `Access-Control-Max-Age` intestazione nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità dell'agente utente di memorizzare nella cache la risposta preliminare.|No|0|
 
 ### <a name="usage"></a>Utilizzo
@@ -171,7 +175,7 @@ Se si aggiunge il parametro di callback `?cb=XXX`, restituirà un risultato JSON
 |----------|-----------------|--------------|
 |jsonp|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|

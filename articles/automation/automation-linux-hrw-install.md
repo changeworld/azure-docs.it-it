@@ -3,14 +3,14 @@ title: Distribuire un ruolo di lavoro ibrido per runbook di Linux in Automazione
 description: Questo articolo descrive come installare un ruolo di lavoro ibrido per Runbook di automazione di Azure per eseguire manuali operativi in computer basati su Linux nel Data Center locale o nell'ambiente cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 02/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 58c340c97bd8e46c5a588b4bf0ba2673712ffb95
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 543ae640871699c7e1fffda46463752483ff6a4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581196"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708918"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -43,12 +43,15 @@ Il ruolo di lavoro ibrido per Runbook richiede l' [agente di log Analytics](../a
 La funzionalità Hybrid Runbook Worker supporta le distribuzioni seguenti. Si presuppone che tutti i sistemi operativi siano x64. x86 non è supportato per alcun sistema operativo.
 
 * Amazon Linux da 2012,09 a 2015,09
-* CentOS Linux 5, 6 e 7
+* CentOS Linux 5, 6, 7 e 8
 * Oracle Linux 5, 6 e 7
-* Server Red Hat Enterprise Linux 5, 6 e 7
+* Server Red Hat Enterprise Linux 5, 6, 7 e 8
 * Debian GNU/Linux 6, 7 e 8
 * Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS e 18,04 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12 e 15
+
+> [!IMPORTANT]
+> Prima di abilitare la funzionalità Gestione aggiornamenti, che dipende dal ruolo di lavoro ibrido per Runbook di sistema, confermare le distribuzioni [supportate.](update-management/overview.md#supported-operating-systems)
 
 ### <a name="minimum-requirements"></a>Requisiti minimi
 

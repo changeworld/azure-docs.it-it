@@ -1,18 +1,18 @@
 ---
-title: Registrare gli avvisi da monitoraggio di Azure per i contenitori | Microsoft Docs
-description: Questo articolo descrive come creare avvisi di log personalizzati per l'utilizzo della memoria e della CPU da monitoraggio di Azure per i contenitori.
+title: Registrare gli avvisi da informazioni sul contenitore | Microsoft Docs
+description: Questo articolo descrive come creare avvisi di log personalizzati per l'utilizzo della memoria e della CPU da informazioni dettagliate sul contenitore.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: 4239567c60afda6ca165e097562cb888c731f15a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 64d499d69194ac338d367ae094e42f4c8af23bef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614307"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711196"
 ---
-# <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Come creare avvisi dei log da Monitoraggio di Azure per i contenitori
+# <a name="how-to-create-log-alerts-from-container-insights"></a>Come creare avvisi di log da informazioni dettagliate sul contenitore
 
-Monitoraggio di Azure per i contenitori monitora le prestazioni dei carichi di lavoro del contenitore distribuiti nei cluster Kubernetes gestiti o autogestiti. Per generare un avviso sulla questione, in questo articolo viene descritto come creare avvisi basati su log per le situazioni seguenti con i cluster AKS:
+Informazioni dettagliate sul contenitore monitora le prestazioni dei carichi di lavoro del contenitore distribuiti nei cluster Kubernetes gestiti o autogestiti. Per generare un avviso sulla questione, in questo articolo viene descritto come creare avvisi basati su log per le situazioni seguenti con i cluster AKS:
 
 - Quando l'utilizzo della CPU o della memoria nei nodi del cluster supera una soglia
 - Quando l'utilizzo della CPU o della memoria in qualsiasi contenitore all'interno di un controller supera una soglia rispetto a un limite impostato sulla risorsa corrispondente
@@ -20,9 +20,9 @@ Monitoraggio di Azure per i contenitori monitora le prestazioni dei carichi di l
 - Conteggi di *fasi Pod* *non riusciti*, *in sospeso*, *sconosciuti*, *in esecuzione* o completati
 - Quando lo spazio libero su disco nei nodi del cluster supera una soglia
 
-Per segnalare un utilizzo elevato della CPU o della memoria o di spazio su disco insufficiente nei nodi del cluster, utilizzare le query fornite per creare un avviso per la metrica o un avviso di misurazione della metrica. Mentre gli avvisi delle metriche hanno una latenza inferiore rispetto agli avvisi del log, gli avvisi del log forniscono query avanzate e una maggiore complessità. Le query di avviso del log confrontano un valore DateTime con quello attuale usando l'operatore *Now* e tornando indietro di un'ora. Il monitoraggio di Azure per i contenitori archivia tutte le date nel formato UTC (Coordinated Universal Time).
+Per segnalare un utilizzo elevato della CPU o della memoria o di spazio su disco insufficiente nei nodi del cluster, utilizzare le query fornite per creare un avviso per la metrica o un avviso di misurazione della metrica. Mentre gli avvisi delle metriche hanno una latenza inferiore rispetto agli avvisi del log, gli avvisi del log forniscono query avanzate e una maggiore complessità. Le query di avviso del log confrontano un valore DateTime con quello attuale usando l'operatore *Now* e tornando indietro di un'ora. (Container Insights archivia tutte le date nel formato UTC (Coordinated Universal Time).
 
-Se non si ha familiarità con gli avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure prima di](../platform/alerts-overview.md) iniziare. Per altre informazioni sugli avvisi che usano le query di log, vedere [avvisi del log in monitoraggio di Azure](../alerts/alerts-unified-log.md). Per altre informazioni sugli avvisi delle metriche, vedere la pagina relativa agli [avvisi delle metriche in monitoraggio di Azure](../alerts/alerts-metric-overview.md).
+Se non si ha familiarità con gli avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure prima di](../alerts/alerts-overview.md) iniziare. Per altre informazioni sugli avvisi che usano le query di log, vedere [avvisi del log in monitoraggio di Azure](../alerts/alerts-unified-log.md). Per altre informazioni sugli avvisi delle metriche, vedere la pagina relativa agli [avvisi delle metriche in monitoraggio di Azure](../alerts/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Query di ricerca log di utilizzo risorse
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Creare una regola di avviso
 
-Questa sezione illustra la creazione di una regola di avviso di misurazione delle metriche usando i dati sulle prestazioni di monitoraggio di Azure per i contenitori. È possibile usare questo processo di base con una serie di query di log per inviare avvisi su contatori di prestazioni diversi. Usare una delle query di ricerca nei log fornite in precedenza per iniziare con. Per creare usando un modello ARM, vedere [esempi di creazione di un avviso di log con il modello di risorsa di Azure](../alerts/alerts-log-create-templates.md).
+Questa sezione illustra la creazione di una regola di avviso di misurazione delle metriche usando i dati sulle prestazioni da informazioni sul contenitore. È possibile usare questo processo di base con una serie di query di log per inviare avvisi su contatori di prestazioni diversi. Usare una delle query di ricerca nei log fornite in precedenza per iniziare con. Per creare usando un modello ARM, vedere [esempi di creazione di un avviso di log con il modello di risorsa di Azure](../alerts/alerts-log-create-templates.md).
 
 >[!NOTE]
 >La procedura seguente per creare una regola di avviso per l'utilizzo delle risorse del contenitore richiede di passare a una nuova API per gli avvisi del log, come descritto in [Switch API preferenza for log alerts](../alerts/alerts-log-api-switch.md).
@@ -283,7 +283,7 @@ Questa sezione illustra la creazione di una regola di avviso di misurazione dell
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nel portale di Azure cercare e selezionare **Aree di lavoro di Log Analytics**.
-3. Nell'elenco delle aree di lavoro Log Analytics selezionare l'area di lavoro che supporta monitoraggio di Azure per i contenitori. 
+3. Nell'elenco delle aree di lavoro Log Analytics selezionare l'area di lavoro che supporta informazioni dettagliate sul contenitore. 
 4. Nel riquadro sul lato sinistro selezionare **log** per aprire la pagina log di monitoraggio di Azure. Usare questa pagina per scrivere ed eseguire query di log di Azure.
 5. Nella pagina **logs** incollare una delle [query](#resource-utilization-log-search-queries) fornite in precedenza nel campo della **query di ricerca** e quindi selezionare **Run (Esegui** ) per convalidare i risultati. Se non si esegue questo passaggio, l'opzione **+ nuovo avviso** non è disponibile per la selezione.
 6. Selezionare **+ nuovo avviso** per creare un avviso del log.

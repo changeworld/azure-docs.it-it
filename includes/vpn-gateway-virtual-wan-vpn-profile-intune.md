@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8fc3ad3e1597d9b38bd095875c8a6f11260e8711
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f64bb0dd0841e89d05a4399db4373a9eaaec48a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515174"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101751075"
 ---
 È possibile distribuire i profili per i client VPN di Azure (Windows 10) usando Microsoft Intune. Questo articolo consente di creare un profilo di Intune usando le impostazioni personalizzate.
 
@@ -30,7 +30,7 @@ Nei passaggi seguenti viene usato un esempio di codice XML per un profilo URI OM
 * Connessione automatica in
 * Rilevamento della rete attendibile abilitato.
 
-Per altre opzioni supportate, vedere l'articolo relativo a [VPNV2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) .
+Per altre opzioni supportate, vedere l'articolo relativo a [VPNV2 CSP](/windows/client-management/mdm/vpnv2-csp) .
 
 1. Scaricare il profilo VPN dalla portale di Azure ed estrarre il file di *azurevpnconfig.xml* dal pacchetto.
 1. Copiare e incollare il testo seguente in un nuovo file dell'editor di testo.
@@ -82,4 +82,4 @@ In questa sezione viene creato un profilo di Microsoft Intune con impostazioni p
 1. Nella pagina **Verifica e crea** selezionare **Crea**.
 
     :::image type="content" source="./media/vpn-gateway-virtual-wan-vpn-profile-intune/create-profile.png" alt-text="Creare il profilo":::
-1. Il profilo personalizzato è ora stato creato. Per la procedura Microsoft Intune per la distribuzione di questo profilo, vedere [assegnare profili utente e dispositivo](https://docs.microsoft.com/mem/intune/configuration/device-profile-assign).
+1. Il profilo personalizzato è ora stato creato. Per la procedura Microsoft Intune per la distribuzione di questo profilo, vedere [assegnare profili utente e dispositivo](/mem/intune/configuration/device-profile-assign).

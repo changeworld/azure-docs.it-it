@@ -4,16 +4,16 @@ description: Monitoraggio delle prestazioni applicative per i servizi app di Azu
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 74b39219b3b18c8de0214367d141085f6dc5f674
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7661066bc2666070c8b3ed9263b1223c09d6c720
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573992"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734724"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
-L'abilitazione del monitoraggio nelle applicazioni Web ASP.NET e ASP.NET Core basate su [app Azure Services](../../app-service/index.yml) è ora più semplice che mai. Mentre in precedenza era necessario installare manualmente un'estensione del sito, la versione più recente dell'agente è ora incorporata nell'immagine del servizio app per impostazione predefinita. Questo articolo illustra l'abilitazione del monitoraggio Application Insights, oltre a fornire indicazioni preliminari per l'automazione del processo per le distribuzioni su larga scala.
+L'abilitazione del monitoraggio sulle applicazioni Web ASP.NET, ASP.NET Core e Node.js in esecuzione su [app Azure Services](../../app-service/index.yml) è ora più semplice che mai. Mentre in precedenza era necessario installare manualmente un'estensione del sito, la versione più recente dell'agente è ora incorporata nell'immagine del servizio app per impostazione predefinita. Questo articolo illustra l'abilitazione del monitoraggio Application Insights, oltre a fornire indicazioni preliminari per l'automazione del processo per le distribuzioni su larga scala.
 
 > [!NOTE]
 > L'aggiunta manuale di un'estensione del sito di Application Insights tramite le estensioni **degli strumenti di sviluppo**  >   è deprecata. Questo metodo di installazione dell'estensione dipende da aggiornamenti manuali per ogni nuova versione. La versione stabile più recente dell'estensione è ora  [preinstallata](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) come parte dell'immagine del servizio app. I file si trovano in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e vengono aggiornati automaticamente con ogni versione stabile. Se si seguono le istruzioni basate sull'agente per abilitare il monitoraggio di seguito, verrà automaticamente rimossa l'estensione deprecata.
@@ -97,7 +97,7 @@ La definizione del Framework completo da ASP.NET Core, la distribuzione autonoma
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Dall'interno dell'app Web del servizio app in **Impostazioni**  >  **selezionare Application Insights**  >  **Abilita**. Il monitoraggio basato su agente Node.js è attualmente in fase di anteprima.
+Il monitoraggio basato su agente Windows non è supportato per abilitare con Linux visitare la [ documentazione del servizio AppNode.js](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -170,6 +170,7 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 |XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controlla se il motore di riscrittura binaria `InstrumentationEngine` verrà attivato. Questa impostazione presenta implicazioni sulle prestazioni e influisce sul tempo di avvio/avvio a freddo. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controlla se SQL & il testo della tabella di Azure verrà acquisito insieme alle chiamate alle dipendenze. Avviso di prestazioni: il tempo di avvio a freddo dell'applicazione sarà interessato. Per questa impostazione è necessario `InstrumentationEngine` . | `~1` |
+|XDT_MicrosoftApplicationInsights_PreemptSdk | Solo per le app ASP.NET Core. Abilita l'interoperabilità (interoperabilità) con Application Insights SDK. Carica l'estensione side-by-side con l'SDK e la usa per inviare dati di telemetria (Disabilita il Application Insights SDK). |`1`|
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>Impostazioni dell'applicazione del servizio app con Azure Resource Manager
 

@@ -2,17 +2,17 @@
 title: "Gateway VPN di Azure: configurare l'acquisizione di pacchetti"
 description: Informazioni sulle funzionalità di acquisizione di pacchetti che è possibile usare nei gateway VPN per limitare la causa di un problema.
 services: vpn-gateway
-author: radwiv
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/2/2020
-ms.author: radwiv
-ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.date: 02/22/2021
+ms.author: alzam
+ms.openlocfilehash: 0983139d1c9af235eba4c9f99da7bc9dea3f231b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733807"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726615"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Configurare l'acquisizione di pacchetti per i gateway VPN
 
@@ -27,6 +27,7 @@ Sono disponibili alcuni strumenti di acquisizione pacchetti di uso comune. Otten
 È utile usare un filtro a cinque Tuple (subnet di origine, subnet di destinazione, porta di origine, porta di destinazione, protocollo) e flag TCP (SYN, ACK, pinna, URG, PSH, RST) quando si isolano i problemi nel traffico di volumi elevati.
 
 Gli esempi seguenti di JSON e di uno schema JSON forniscono spiegazioni di ogni proprietà. Di seguito sono riportate alcune limitazioni da tenere presenti quando si eseguono le acquisizioni di pacchetti:
+
 - Nello schema riportato di seguito, il filtro è una matrice, ma attualmente è possibile usare solo un filtro alla volta.
 - Non è possibile eseguire contemporaneamente più acquisizioni di pacchetti a livello di gateway.
 - Non è possibile eseguire contemporaneamente più acquisizioni di pacchetti su una singola connessione. È possibile eseguire più acquisizioni di pacchetti su connessioni diverse nello stesso momento.
@@ -317,7 +318,13 @@ Gli esempi seguenti di JSON e di uno schema JSON forniscono spiegazioni di ogni 
 }
 ```
 
-## <a name="set-up-packet-capture-by-using-powershell"></a>Configurare l'acquisizione di pacchetti tramite PowerShell
+## <a name="packet-capture---portal"></a>Acquisizione pacchetti-portale
+
+È possibile configurare l'acquisizione pacchetti nella portale di Azure.
+
+:::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Screenshot dell'acquisizione di pacchetti nel portale." lightbox="./media/packet-capture/portal.jpg":::
+
+## <a name="packet-capture---powershell"></a>Acquisizione pacchetti-PowerShell
 
 Gli esempi seguenti mostrano i comandi di PowerShell che avviano e arrestano le acquisizioni di pacchetti. Per ulteriori informazioni sulle opzioni dei parametri, vedere [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 

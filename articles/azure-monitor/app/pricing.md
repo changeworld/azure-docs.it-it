@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: db5506f1f1fcabf3a922115c24aa64e35b888fbd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573743"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726182"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -294,7 +294,7 @@ Per i prezzi correnti nella valuta e nell'area locali, vedere i [prezzi di Appli
 
 ### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Informazioni sull'utilizzo fatturato nel livello enterprise legacy (per nodo) 
 
-Come descritto di seguito in modo più dettagliato, il livello aziendale legacy (per nodo) combina l'utilizzo di tutte le risorse Application Insights in una sottoscrizione per calcolare il numero di nodi e l'eccedenza di dati. A causa di questo processo combinato, l' **utilizzo di tutte le risorse Application Insights in una sottoscrizione viene segnalato solo a una delle risorse**.  Questo consente di riconciliare l' [utilizzo fatturato](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) con l'utilizzo osservato per ogni risorsa Application Insights molto complicata. 
+Come descritto di seguito in modo più dettagliato, il livello aziendale legacy (per nodo) combina l'utilizzo di tutte le risorse Application Insights in una sottoscrizione per calcolare il numero di nodi e l'eccedenza di dati. A causa di questo processo combinato, l' **utilizzo di tutte le risorse Application Insights in una sottoscrizione viene segnalato solo a una delle risorse**.  Questo consente di riconciliare l' [utilizzo fatturato](#viewing-application-insights-usage-on-your-azure-bill) con l'utilizzo osservato per ogni risorsa Application Insights molto complicata. 
 
 > [!WARNING]
 > A causa della complessità del rilevamento e della comprensione dell'utilizzo di Application Insights risorse nel livello enterprise legacy (per nodo), è consigliabile usare il piano tariffario con pagamento in base al consumo corrente. 

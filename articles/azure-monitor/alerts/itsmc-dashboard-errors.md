@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: d1ba698cd95a074c021aa351a98eb12fc8ae0fc3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0b0dd584aee4a7647a3028ea20b517c0d74a330a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617917"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734741"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>Errori di stato del connettore nel dashboard di connettore
 
@@ -56,7 +56,9 @@ Le sezioni seguenti descrivono gli errori comuni che vengono visualizzati nella 
 
 ## <a name="invalid-refresh-token"></a>Token di aggiornamento non valido
 
-**Errore**: "AccessToken e RefreshToken non validi. L'utente deve eseguire nuovamente l'autenticazione ".
+**Errore**: 
+  * "AccessToken e RefreshToken non sono validi. L'utente deve eseguire nuovamente l'autenticazione ".
+  * "Impossibile sincronizzare la configurazione dei modelli per eventi, avvisi, eventi imprevisti. Per ulteriori informazioni, vedere il messaggio di eccezione ".
 
 **Motivo**: un token di aggiornamento è scaduto.
 

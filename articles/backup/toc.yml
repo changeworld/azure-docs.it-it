@@ -68,6 +68,8 @@
           href: azure-file-share-support-matrix.md
         - name: Matrice di supporto per il backup di dischi di Azure
           href: disk-backup-support-matrix.md
+        - name: Matrice di supporto backup BLOB di Azure
+          href: blob-backup-support-matrix.md
         - name: Controller di dominio Active Directory
           href: active-directory-backup-restore.md
         - name: SKU di macchine virtuali supportate per Criteri di Azure
@@ -132,6 +134,8 @@
           href: backup-center-govern-environment.md
         - name: Eseguire azioni
           href: backup-center-actions.md
+        - name: Risorse della community
+          href: backup-center-community.md
     - name: Backup di macchine virtuali di Azure
       items:
         - name: Panoramica
@@ -224,6 +228,14 @@
           href: backup-managed-disks.md
         - name: Restore
           href: restore-managed-disks.md
+    - name: Backup BLOB di Azure
+      items:
+        - name: Panoramica
+          href: blob-backup-overview.md
+        - name: Configurare e gestire
+          href: blob-backup-configure-manage.md
+        - name: Restore
+          href: blob-restore.md
     - name: Backup di condivisioni file di Azure
       items:
         - name: Panoramica
@@ -437,6 +449,10 @@
           href: ./security-controls-policy.md
         - name: Baseline di sicurezza
           href: security-baseline.md
+    - name: Livello di accesso
+      items:
+        - name: Livello archivio
+          href: archive-tier-support.md
     - name: Risolvere problemi
       items:
         - name: Macchina virtuale di Azure

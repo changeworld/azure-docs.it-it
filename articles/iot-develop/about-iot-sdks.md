@@ -6,12 +6,12 @@ ms.author: elhorton
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: 4935037ec0152b089c7c685b6bdd0e605d89f3f2
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 4d9546c8a912176117e42f2a6bbef3058331383b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654941"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702675"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Panoramica degli SDK per dispositivi Azure
 
@@ -70,7 +70,7 @@ Questi SDK sono specializzati per l'esecuzione su dispositivi con risorse di cal
 
 * [Repository GitHub](https://github.com/azure-rtos/threadx)
 * [Guide Introduzione](https://github.com/azure-rtos/getting-started) e [altri esempi](https://github.com/azure-rtos/samples)
-* [Documentazione di riferimento](https://docs.microsoft.com/azure/rtos/threadx/)
+* [Documentazione di riferimento](/azure/rtos/threadx/)
 
 ### <a name="unconstrained-device-sdks"></a>SDK per dispositivi non vincolati
 Questi SDK possono essere eseguiti su qualsiasi dispositivo in grado di supportare un runtime del linguaggio di ordine superiore. Sono inclusi dispositivi quali PC, Raspberry Pis e smartphone. Sono differenziate principalmente per lingua, quindi è possibile scegliere qualsiasi libreria più adatta al proprio team e allo scenario.
@@ -125,7 +125,7 @@ Azure Internet è dotato anche di SDK di servizi che consentono di creare applic
 
 Gli SDK del servizio Hub di Internet delle cose consentono di creare applicazioni che interagiscono facilmente con l'hub Internet per gestire i dispositivi e la sicurezza. È possibile usare questi SDK per inviare messaggi da cloud a dispositivo, richiamare metodi diretti nei dispositivi, aggiornare le proprietà del dispositivo e altro ancora.
 
-[**Scopri di più sull'hub**](https://azure.microsoft.com/services/iot-hub/)  |  Internet [ **Provare a controllare un dispositivo**](/azure/iot-hub/quickstart-control-device-python)
+[**Scopri di più sull'hub**](https://azure.microsoft.com/services/iot-hub/)  |  Internet [ **Provare a controllare un dispositivo**](../iot-hub/quickstart-control-device-python.md)
 
 **SDK del servizio Hub** Internet per C#: documentazione di riferimento per [](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service)  |  [](https://www.nuget.org/packages/Microsoft.Azure.Devices/)  |  [esempi](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service/samples)  |  [](/dotnet/api/microsoft.azure.devices) di pacchetti del repository GitHub
 
@@ -139,7 +139,7 @@ Gli SDK del servizio Hub di Internet delle cose consentono di creare applicazion
 
 Gemelli digitali di Azure è un'offerta PaaS che consente la creazione di grafici di conoscenze basati su modelli digitali di interi ambienti. Questi ambienti possono essere edifici, fabbriche, fattorie, reti energetiche, ferrovie, stadi e altro ancora, persino intere città. Questi modelli digitali possono essere usati per ottenere informazioni che consentono di migliorare i prodotti, ottimizzare le operazioni, ridurre i costi e rivoluzionare l'esperienza dei clienti. Azure Internet è dotato di SDK per i servizi che semplificano la creazione di applicazioni che usano la potenza dei dispositivi gemelli digitali di Azure.
 
-[**Scopri di più sui dispositivi gemelli**](https://azure.microsoft.com/services/digital-twins/)  |  digitali di Azure [ **Codificare un'applicazione ADT**](/azure/digital-twins/tutorial-code)
+[**Scopri di più sui dispositivi gemelli**](https://azure.microsoft.com/services/digital-twins/)  |  digitali di Azure [ **Codificare un'applicazione ADT**](../digital-twins/tutorial-code.md)
 
 **C# ADT Service SDK**: [](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)  |  [](https://www.nuget.org/packages/Azure.DigitalTwins.Core)  |  [](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples)  |  [documentazione di riferimento](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) per esempi di pacchetti del repository GitHub
 
@@ -153,7 +153,7 @@ Gemelli digitali di Azure è un'offerta PaaS che consente la creazione di grafic
 
 Il servizio Device Provisioning in hub IoT è un servizio helper per Hub IoT che consente di effettuare il provisioning JIT automatizzato nell'hub IoT corretto senza alcun intervento dell'utente. DPS consente il provisioning di milioni di dispositivi in modo sicuro e scalabile. Gli SDK del servizio DPS consentono di creare applicazioni in grado di gestire i dispositivi in modo sicuro creando gruppi di registrazione ed eseguendo operazioni bulk.
 
-[**Altre informazioni sul servizio**](/azure/iot-dps/)  |  Device provisioning [ **Provare a creare una registrazione di gruppo per i dispositivi X. 509**](/azure/iot-dps/quick-enroll-device-x509-csharp)
+[**Altre informazioni sul servizio**](../iot-dps/index.yml)  |  Device provisioning [ **Provare a creare una registrazione di gruppo per i dispositivi X. 509**](../iot-dps/quick-enroll-device-x509-csharp.md)
 
 **SDK del servizio Device provisioning in C#**: documentazione di [](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service)  |  [](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/)  |  [](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)  |  [riferimento](/dotnet/api/microsoft.azure.devices.provisioning.service?view=azure-dotnet&preserve-view=true) per esempi di pacchetti del repository GitHub
 

@@ -4,14 +4,14 @@ description: Questa esercitazione descrive come esporre un servizio REST WCF loc
 ms.topic: tutorial
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: bb2b9b5ed7c263762cc24b8eb2e6d66215147c4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935705"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710788"
 ---
-# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Esercitazione: Esporre un servizio REST WCF locale a client esterni tramite Inoltro WCF di Azure
+# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Esercitazione: esporre un servizio WCF REST locale al client esterno usando Azure Inoltro WCF
 
 Questa esercitazione descrive come compilare un'applicazione e un servizio client di Inoltro WCF usando Inoltro di Azure. Per un'esercitazione simile che usa la [messaggistica del bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md), vedere [Introduzione alle code del bus di servizio](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -43,7 +43,7 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 
 ## <a name="create-a-relay-namespace"></a>Creare uno spazio dei nomi di inoltro
 
-Il primo passaggio consiste nel creare uno spazio dei nomi e nell'ottenere una chiave di [firma di accesso condiviso](../service-bus-messaging/service-bus-sas.md). Uno spazio dei nomi fornisce un limite per ogni applicazione esposta tramite il servizio di inoltro. Una chiave di firma di accesso condiviso viene automaticamente generata dal sistema quando viene creato uno spazio dei nomi del servizio. La combinazione di spazio dei nomi servizio e chiave di firma di accesso condiviso fornisce le credenziali che consentono ad Azure di autenticare l'accesso a un'applicazione.
+Il primo passaggio consiste nel creare uno spazio dei nomi e ottenere una chiave di [firma di accesso condiviso (SAS)](../service-bus-messaging/service-bus-sas.md) . Uno spazio dei nomi fornisce un limite per ogni applicazione esposta tramite il servizio di inoltro. Una chiave di firma di accesso condiviso viene automaticamente generata dal sistema quando viene creato uno spazio dei nomi del servizio. La combinazione di spazio dei nomi servizio e chiave di firma di accesso condiviso fornisce le credenziali che consentono ad Azure di autenticare l'accesso a un'applicazione.
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
@@ -58,7 +58,7 @@ Il contratto di servizio specifica le operazioni supportate dal servizio. Le ope
 1. In **Crea un nuovo progetto** scegliere **App console (.NET Framework)** per C# e selezionare **Avanti**.
 1. Denominare il progetto *EchoService* e selezionare **Crea**.
 
-   ![Creare un'app console][2]
+   ![Creare un'applicazione console][2]
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. In **Gestione pacchetti NuGet** selezionare **Sfoglia**, quindi cercare e scegliere **WindowsAzure.ServiceBus**. Selezionare **Installa** e accettare le condizioni per l'utilizzo.
 
@@ -109,7 +109,7 @@ Il contratto di servizio specifica le operazioni supportate dal servizio. Le ope
 
     Un canale è l'oggetto WCF attraverso il quale l'host e il client si scambiano informazioni. Successivamente si scriverà il codice per il canale per ripetere le informazioni tra le due applicazioni.
 
-1. Selezionare **Compila** > **Compila soluzione** o premere CTRL+MAIUSC+B per verificare la correttezza del lavoro svolto.
+1. Selezionare **Compila**  >  **Compila soluzione** oppure premere CTRL + MAIUSC + B per confermare l'accuratezza del lavoro fino a questo punto.
 
 ### <a name="example-of-a-wcf-contract"></a>Esempio di contratto WCF
 
@@ -174,7 +174,7 @@ La creazione di un inoltro di Azure deve essere preceduta dalla creazione del co
     }
     ```
 
-1. Selezionare **Compila** > **Compila soluzione** oppure premere CTRL+MAIUSC+B.
+1. Selezionare **Compila**  >  **Compila soluzione** oppure premere CTRL + MAIUSC + B.
 
 ### <a name="define-the-configuration-for-the-service-host"></a>Definire la configurazione dell'host del servizio
 
@@ -185,7 +185,7 @@ Il file di configurazione è simile a un file di configurazione WCF. Il file inc
 1. All'interno dei tag `<system.serviceModel>` aggiungere un elemento `<services>`. È possibile definire più applicazioni di inoltro in un singolo file di configurazione. In questa esercitazione ne viene tuttavia definita solo una.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <services>
@@ -210,7 +210,7 @@ Il file di configurazione è simile a un file di configurazione WCF. Il file inc
 
     L'endpoint definisce la posizione in cui il client cercherà l'applicazione host. Successivamente nell'esercitazione si userà questo passaggio per creare un URI che espone completamente l'host tramite l'inoltro di Azure. L'associazione dichiara che viene usato il protocollo TCP come protocollo per le comunicazioni con il servizio di inoltro.
 
-1. Selezionare **Compila** > **Compila soluzione** o premere CTRL+MAIUSC+B per verificare la correttezza del lavoro svolto.
+1. Selezionare **Compila**  >  **Compila soluzione** oppure premere CTRL + MAIUSC + B per confermare l'accuratezza del lavoro fino a questo punto.
 
 ### <a name="example-of-implementation-of-a-service-contract"></a>Esempio di implementazione di un contratto di servizio
 
@@ -304,7 +304,7 @@ Per questa esercitazione l'URI è `sb://putServiceNamespaceHere.windows.net/Echo
 
     L'host del servizio è l'oggetto WCF che crea un'istanza del servizio. In questo caso, viene passato il tipo di servizio che si vuole creare (`EchoService`), insieme all'indirizzo in cui si vuole esporre il servizio.
 
-1. All'inizio del file *Program.cs* aggiungere riferimenti a [System.ServiceModel.Description](/dotnet/api/system.servicemodel.description) e [Microsoft.ServiceBus.Description](/dotnet/api/microsoft.servicebus.description).
+1. Nella parte superiore del file *Program.cs* aggiungere i riferimenti a [System. ServiceModel. Description](/dotnet/api/system.servicemodel.description) e a [Microsoft. ServiceBus. Description](/dotnet/api/microsoft.servicebus.description).
 
     ```csharp
     using System.ServiceModel.Description;
@@ -513,7 +513,7 @@ In questo passaggio si crea un file *App.config* per un'applicazione client di b
 1. All'interno dell'elemento `system.serviceModel` aggiungere un elemento `<client>`.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <client>
@@ -534,7 +534,7 @@ In questo passaggio si crea un file *App.config* per un'applicazione client di b
 
     Questo codice definisce il nome dell'endpoint. Specifica anche il contratto definito nel servizio e l'uso del protocollo TCP da parte dell'applicazione client per comunicare con Inoltro di Azure. Il nome dell'endpoint viene usato nel passaggio successivo per collegare questa configurazione dell'endpoint con l'URI del servizio.
 
-1. Selezionare **File** > **Salva tutto**.
+1. Selezionare **file**  >  **Salva tutto**.
 
 ### <a name="example-of-the-appconfig-file"></a>Esempio del file App.config
 

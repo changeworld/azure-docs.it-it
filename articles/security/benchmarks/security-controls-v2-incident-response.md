@@ -4,19 +4,21 @@ description: Risposta agli eventi imprevisti di benchmark di sicurezza di Azure 
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 002/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 043e365bfe27db516a42386a91bc0433e27e2068
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 40a88349040482b3325e63d7035dea35df444cdb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368835"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698587"
 ---
 # <a name="security-control-v2-incident-response"></a>Controllo di sicurezza V2: risposta agli eventi imprevisti
 
 La risposta agli eventi imprevisti riguarda i controlli nel ciclo di vita della risposta agli eventi imprevisti, ovvero preparazione, rilevamento e analisi, contenimento e attività post-evento imprevisto. Questo include l'uso di servizi di Azure, come il Centro sicurezza di Azure e Sentinel, per automatizzare il processo di risposta agli eventi imprevisti.
+
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli del benchmark di sicurezza di Azure conformità normativa: risposta agli eventi imprevisti](../../governance/policy/samples/azure-security-benchmark#incident-response)
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Preparazione: aggiornare il processo di risposta agli eventi imprevisti per Azure
 
@@ -64,7 +66,7 @@ Configurare le informazioni di contatto per gli eventi imprevisti della sicurezz
 |--|--|--|--|
 | IR-3 | 19,6 | IR-4, IR-5 |
 
-Assicurarsi di disporre di un processo per creare avvisi di alta qualità e misurare la qualità degli avvisi. Questo consente di apprendere dagli eventi imprevisti passati e di assegnare priorità agli avvisi a beneficio degli analisti, che eviteranno così di sprecare tempo su falsi positivi. 
+Assicurarsi di disporre di un processo per creare avvisi di alta qualità e misurare la qualità degli avvisi. Questo consente di apprendere le lezioni dagli eventi imprevisti passati e di assegnare la priorità agli avvisi per gli analisti, in modo da non sprecare tempo su falsi positivi. 
 
 Gli avvisi di alta qualità possono essere creati in base all'esperienza degli eventi imprevisti passati, alle origini di community convalidate e a strumenti progettati per generare e pulire gli avvisi fondendo e correlando diverse origini dei segnali. 
 
@@ -92,7 +94,7 @@ Esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando l
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
-Assicurarsi che gli analisti possano eseguire query e utilizzare origini dati diverse durante l'analisi di potenziali eventi imprevisti, per creare una panoramica completa di ciò che è successo. È necessario raccogliere vari log per tenere traccia delle attività di un possibile utente malintenzionato attraverso la kill chain per evitare punti ciechi.  Assicurarsi anche che le informazioni dettagliate e le nozioni apprese vengano acquisite per poter essere sfruttate da altri analisti e per riferimenti cronologici futuri.  
+Assicurarsi che gli analisti possano eseguire query e utilizzare origini dati diverse durante l'analisi di potenziali eventi imprevisti, per creare una panoramica completa di ciò che è successo. È necessario raccogliere vari log per tenere traccia delle attività di un possibile utente malintenzionato attraverso la kill chain per evitare punti ciechi. Assicurarsi anche che le informazioni dettagliate e le nozioni apprese vengano acquisite per poter essere sfruttate da altri analisti e per riferimenti cronologici futuri.
 
 Le origini dati per l'analisi includono le origini di registrazione centralizzate che sono già state raccolte dai servizi inclusi nell'ambito e dai sistemi in esecuzione, ma possono includere anche:
 
@@ -130,13 +132,13 @@ Azure Sentinel fornisce analisi approfondite dei dati in qualsiasi origine di lo
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
-| IR-5 | 19,8 | CA-2, IR-4 |
+| IR-5 | 19.8 | CA-2, IR-4 |
 
 Fornire il contesto agli analisti su cui si concentrano prima gli eventi imprevisti in base alla gravità dell'avviso e alla sensibilità degli asset. 
 
 il Centro sicurezza di Azure assegna un livello di gravità a ogni avviso per facilitare la classificazione in ordine di priorità in base agli avvisi che devono essere analizzati per primi. Il livello di gravità è basato sul grado di attendibilità del Centro sicurezza nell'individuazione o nell'analisi usata per emettere l'avviso, nonché sul grado di attendibilità con cui si ritiene che vi sia un intento dannoso dietro l'attività che ha generato l'avviso.
 
-Contrassegnare inoltre le risorse tramite tag e creare un sistema di denominazione per identificare e classificare le risorse di Azure, in particolare quelle che elaborano i dati sensibili.  È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
+Contrassegnare inoltre le risorse tramite tag e creare un sistema di denominazione per identificare e classificare le risorse di Azure, in particolare quelle che elaborano i dati sensibili. È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
 
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](../../security-center/security-center-alerts-overview.md)
 

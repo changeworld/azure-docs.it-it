@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: d987797c2c25f685a3c9250afeb17cec3ad3cb2e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
-ms.translationtype: HT
+ms.openlocfilehash: 8444ae08aa2c25c20723b2f8c571422af3b24bc8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369546"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736679"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Esercitazione: Integrare Power BI con il servizio cognitivo Analisi del testo
 
@@ -89,7 +89,7 @@ Nella finestra di dialogo Merge di colonne scegliere `Tab` come separatore e qui
 ## <a name="understand-the-api"></a>Informazioni sull'API
 <a name="UnderstandingAPI"></a>
 
-L'[API Frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) del servizio Analisi del testo può elaborare fino a un migliaio di documenti di testo per richiesta HTTP. Power BI preferisce gestire i record uno alla volta, quindi in questa esercitazione le chiamate all'API conterranno ognuna un solo documento. L'API Frasi chiave richiede i campi seguenti per l'elaborazione di ogni documento.
+L'[API Frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/operations/KeyPhrases) del servizio Analisi del testo può elaborare fino a un migliaio di documenti di testo per richiesta HTTP. Power BI preferisce gestire i record uno alla volta, quindi in questa esercitazione le chiamate all'API conterranno ognuna un solo documento. L'API Frasi chiave richiede i campi seguenti per l'elaborazione di ogni documento.
 
 | Campo | Descrizione |
 | - | - |
@@ -160,7 +160,7 @@ Dopo aver chiuso la finestra di dialogo Richiama funzione personalizzata, potreb
 
 ![[banner credenziali]](../media/tutorials/power-bi/credentials-banner.png)
 
-Fare clic su **Modifica credenziali** , assicurarsi che l'opzione `Anonymous` sia selezionata nella finestra di dialogo e quindi fare clic su **Connetti**. 
+Fare clic su **Modifica credenziali**, assicurarsi che l'opzione `Anonymous` sia selezionata nella finestra di dialogo e quindi fare clic su **Connetti**. 
 
 > [!NOTE]
 > Occorre selezionare `Anonymous` in quanto il servizio Analisi del testo autentica l'utente tramite la sua chiave di accesso, in modo che Power BI non debba specificare le credenziali per la richiesta HTTP stessa.

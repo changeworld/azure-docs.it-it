@@ -7,12 +7,12 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.subservice: ''
-ms.openlocfilehash: e541869d040cc1eead2d295583c42016b64d5edb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: db8f8628f77ef2a04a7e6d42d6470f254e458e01
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616437"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708085"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi o a un partner esterno
 
@@ -58,10 +58,9 @@ Il routing dei dati di monitoraggio a un hub eventi con monitoraggio di Azure co
 | LogRhythm | No| Le istruzioni per configurare LogRhythm per la raccolta di log da un hub eventi sono disponibili [qui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Sì | Per altre informazioni, vedere [Introduzione al monitoraggio e alla registrazione con LOGZ.io per app Java in esecuzione in Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
-Potrebbero essere disponibili anche altri partner. Per un elenco più completo di tutti i partner di monitoraggio di Azure e delle relative funzionalità, vedere [integrazione dei partner di monitoraggio di Azure](../platform/partners.md).
+Potrebbero essere disponibili anche altri partner. Per un elenco più completo di tutti i partner di monitoraggio di Azure e delle relative funzionalità, vedere [integrazione dei partner di monitoraggio di Azure](../partners.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Archiviare il log attività in un account di archiviazione](./activity-log.md#legacy-collection-methods)
 * [Leggere la panoramica del log attività di Azure](../essentials/platform-logs-overview.md)
 * [Configurare un avviso in base a un evento del log attività](../alerts/alerts-log-webhook.md)
-

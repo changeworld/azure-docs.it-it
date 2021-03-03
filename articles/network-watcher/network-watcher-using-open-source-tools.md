@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0503f6910186b42bf381c662c7942e37c28bfdf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738635"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709513"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualizzare i modelli di traffico di rete da e verso le macchine virtuali usando strumenti open source
 
@@ -47,7 +47,7 @@ Network Watcher consente di acquisire pacchetti per registrare il traffico da e 
 
 Quando si fornisce un collegamento a CapAnalysis, assicurarsi di aggiungere un token di firma di accesso condiviso per l'URL del BLOB di archiviazione.  A questo scopo, passare a Firma di accesso condiviso dall'account di archiviazione, definire le autorizzazioni consentite e fare clic sul pulsante Genera firma di accesso condiviso per creare un token. È quindi possibile aggiungere il token di firma di accesso condiviso all'URL del BLOB di archiviazione dell'acquisizione pacchetti.
 
-L'URL risultante sarà simile all'URL seguente: `http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
+L'URL risultante sarà simile all'URL seguente: `http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### <a name="analyzing-packet-captures"></a>Analizzare le acquisizioni pacchetti
@@ -86,7 +86,7 @@ CapAnalysis offre varie opzioni di visualizzazione dell'acquisizione pacchetti, 
 
     [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about)Per altre informazioni su tutte le funzionalità di CapAnalysis, vedere.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 La funzionalità di acquisizione pacchetti di Network Watcher permette di acquisire i dati necessari per eseguire l'analisi della rete e comprendere meglio il traffico di rete. In questo scenario è stato illustrato come integrate facilmente le acquisizioni pacchetti di Network Watcher con strumenti di visualizzazione open source. L'uso di strumenti open source come CapAnalysis per visualizzare le acquisizioni pacchetti permette di eseguire ispezioni approfondite dei pacchetti e di identificare rapidamente le tendenze all'interno del traffico di rete.
 

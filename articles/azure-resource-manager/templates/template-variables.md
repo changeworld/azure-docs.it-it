@@ -2,13 +2,13 @@
 title: Variabili nei modelli
 description: Viene descritto come definire le variabili in un modello di Azure Resource Manager (ARM template) e nel file bicipite.
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: cafd42112e5d296cb73f88e292a66ca2203f3810
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: e00a9e8e1801725707bac2abdc67512477e2cf07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364461"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700338"
 ---
 # <a name="variables-in-arm-templates"></a>Variabili nei modelli ARM
 
@@ -70,10 +70,6 @@ var concatToParam = '${inputValue}-addtoparam'
 
 È possibile utilizzare le [funzioni modello](template-functions.md) per costruire il valore della variabile.
 
-Nei modelli JSON non è possibile usare la funzione [Reference](template-functions-resource.md#reference) o una delle funzioni [elenco](template-functions-resource.md#list) nella dichiarazione di variabile. Queste funzioni ottengono lo stato di runtime di una risorsa e non possono essere eseguite prima della distribuzione quando le variabili vengono risolte.
-
-Le funzioni di riferimento e elenco sono valide quando si dichiara una variabile in un file bicipite.
-
 Nell'esempio seguente viene creato un valore stringa per un nome di account di archiviazione. USA diverse funzioni di modello per ottenere un valore di parametro e lo concatena a una stringa univoca.
 
 # <a name="json"></a>[JSON](#tab/json)
@@ -92,6 +88,10 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 
 ---
 
+Nei modelli JSON non è possibile usare la funzione [Reference](template-functions-resource.md#reference) o una delle funzioni [elenco](template-functions-resource.md#list) nella dichiarazione di variabile. Queste funzioni ottengono lo stato di runtime di una risorsa e non possono essere eseguite prima della distribuzione quando le variabili vengono risolte.
+
+Nei file Bicipit, le funzioni di riferimento e elenco sono valide quando si dichiara una variabile.
+
 ## <a name="use-variable"></a>Usare la variabile
 
 Nell'esempio seguente viene illustrato come utilizzare la variabile per una proprietà della risorsa.
@@ -101,6 +101,9 @@ Nell'esempio seguente viene illustrato come utilizzare la variabile per una prop
 In un modello JSON si fa riferimento al valore per la variabile tramite la funzione [variables](template-functions-deployment.md#variables) .
 
 ```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
@@ -115,6 +118,8 @@ In un modello JSON si fa riferimento al valore per la variabile tramite la funzi
 In un file bicipite, si fa riferimento al valore per la variabile fornendo il nome della variabile.
 
 ```bicep
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
 resource demoAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName
 ```

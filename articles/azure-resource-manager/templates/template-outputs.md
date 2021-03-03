@@ -2,13 +2,13 @@
 title: Output nei modelli
 description: Viene descritto come definire i valori di output in un modello di Azure Resource Manager (modello ARM) e un file bicipite.
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: 0371a5293b302a2eb0febb010fc16caa8355eb18
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.date: 02/19/2021
+ms.openlocfilehash: 91feb1a0b653e4b6e96e38df57f87af27e4676f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653799"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703835"
 ---
 # <a name="outputs-in-arm-templates"></a>Output nei modelli ARM
 
@@ -35,7 +35,21 @@ Per JSON, aggiungere la `outputs` sezione al modello. Il valore di output ottien
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Per bicipite, usare la `output` parola chiave.
+
+Nell'esempio seguente `publicIP` è l'identificatore di un indirizzo IP pubblico distribuito nel file bicipite. Il valore di output ottiene il nome di dominio completo per l'indirizzo IP pubblico.
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+---
+
 Se è necessario restituire una proprietà con un trattino nel nome, usare le parentesi quadre intorno al nome anziché alla notazione del punto. Ad esempio, usare  `['property-name']` anziché `.property-name` .
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -58,16 +72,6 @@ Se è necessario restituire una proprietà con un trattino nel nome, usare le pa
 ```
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Per bicipite, usare la `output` parola chiave.
-
-Nell'esempio seguente `publicIP` è il nome simbolico di un indirizzo IP pubblico distribuito nel file bicipite. Il valore di output ottiene il nome di dominio completo per l'indirizzo IP pubblico.
-
-```bicep
-output hostname string = publicIP.properties.dnsSettings.fqdn
-```
-
-Se è necessario restituire una proprietà con un trattino nel nome, usare le parentesi quadre intorno al nome anziché alla notazione del punto. Ad esempio, usare  `['property-name']` anziché `.property-name` .
 
 ```bicep
 var user = {
@@ -99,9 +103,7 @@ In JSON aggiungere l' `condition` elemento per definire se l'output viene restit
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-L'output condizionale non è attualmente disponibile per il bicipite.
-
-Tuttavia, è possibile usare l' `?` operatore per restituire uno di due valori a seconda di una condizione.
+Per specificare un output condizionale in bicipite, usare l' `?` operatore. Nell'esempio seguente viene restituito un URL dell'endpoint o una stringa vuota a seconda di una condizione.
 
 ```bicep
 param deployStorage bool = true

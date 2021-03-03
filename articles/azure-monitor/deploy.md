@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: c37693bc6c9ce1cc5fed6c06ecb7fe628c315176
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f5855d7ab1f7ba8e11334f1373fb10166f47003a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573576"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708255"
 ---
 # <a name="deploy-azure-monitor"></a>Distribuire Monitoraggio di Azure
 L'abilitazione di monitoraggio di Azure per monitorare tutte le risorse di Azure è una combinazione di configurazione dei componenti di monitoraggio di Azure e configurazione delle risorse di Azure per generare dati di monitoraggio per la raccolta di monitoraggio di Azure. Questo articolo descrive i diversi passaggi necessari per un'implementazione completa di monitoraggio di Azure con una configurazione comune per monitorare tutte le risorse nella sottoscrizione di Azure. Le descrizioni di base per ogni passaggio sono fornite con collegamenti ad altra documentazione per informazioni dettagliate sui requisiti di configurazione.
@@ -22,7 +22,7 @@ L'abilitazione di monitoraggio di Azure per monitorare tutte le risorse di Azure
 ## <a name="configuration-goals"></a>Obiettivi di configurazione
 L'obiettivo di un'implementazione completa di monitoraggio di Azure consiste nel raccogliere tutti i dati disponibili da tutte le risorse e le applicazioni cloud e abilitare il maggior numero possibile di funzionalità in monitoraggio di Azure in base a tali dati.
 
-I dati raccolti da monitoraggio di Azure vengono inviati alle [metriche di monitoraggio](essentials/data-platform-metrics.md) di Azure o ai log di monitoraggio di [Azure](logs/data-platform-logs.md). In ogni vengono archiviati tipi diversi di dati e vengono abilitati diversi tipi di analisi e di avviso. Per una descrizione dei diversi tipi di avviso, vedere [confrontare le metriche e i log di monitoraggio di Azure](/data-platform.md) per un confronto tra i due e la [Panoramica degli avvisi in Microsoft Azure](alerts/alerts-overview.md) . 
+I dati raccolti da monitoraggio di Azure vengono inviati alle [metriche di monitoraggio](essentials/data-platform-metrics.md) di Azure o ai log di monitoraggio di [Azure](logs/data-platform-logs.md). In ogni vengono archiviati tipi diversi di dati e vengono abilitati diversi tipi di analisi e di avviso. Per una descrizione dei diversi tipi di avviso, vedere [confrontare le metriche e i log di monitoraggio di Azure](data-platform.md) per un confronto tra i due e la [Panoramica degli avvisi in Microsoft Azure](alerts/alerts-overview.md) . 
 
 Alcuni dati possono essere inviati a metriche e log per poter essere usati con diverse funzionalità. In questi casi, potrebbe essere necessario configurare ognuno separatamente. I dati delle metriche, ad esempio, vengono inviati automaticamente dalle risorse di Azure alle metriche, che supportano Esplora metriche e gli avvisi delle metriche. È necessario creare un'impostazione di diagnostica per ogni risorsa per inviare gli stessi dati delle metriche ai log, consentendo di analizzare le tendenze delle prestazioni con altri dati di log con Log Analytics. Le sezioni seguenti identificano la posizione in cui vengono inviati i dati e includono ogni passaggio necessario per inviare i dati a tutte le posizioni possibili.
 
@@ -84,32 +84,32 @@ Vedere [che cosa viene monitorato da monitoraggio di Azure?](monitor-reference.m
 
 Le macchine virtuali generano dati simili come altre risorse di Azure, ma è necessario un agente per raccogliere dati dal sistema operativo guest. Per un confronto degli agenti usati da monitoraggio di Azure, vedere [Panoramica degli agenti di monitoraggio di Azure](agents/agents-overview.md) . 
 
-[Monitoraggio di Azure per le macchine virtuali](vm/vminsights-overview.md) usa l'agente di log Analytics e l'agente di dipendenza per raccogliere dati dal sistema operativo guest delle macchine virtuali, in modo che sia possibile distribuire questi agenti come parte dell'implementazione di questa analisi. Ciò consente all'agente di Log Analytics per altri servizi che lo usano, ad esempio il Centro sicurezza di Azure.
+[VM](vm/vminsights-overview.md) Insights usa l'agente di log Analytics e l'agente di dipendenza per raccogliere dati dal sistema operativo guest delle macchine virtuali, in modo che sia possibile distribuire questi agenti come parte dell'implementazione di questa analisi. Ciò consente all'agente di Log Analytics per altri servizi che lo usano, ad esempio il Centro sicurezza di Azure.
 
 
 [![Distribuire una macchina virtuale ](media/deploy/deploy-azure-vm.png) di Azure](media/deploy/deploy-azure-vm.png#lightbox)
 
 
-### <a name="configure-workspace-for-azure-monitor-for-vms"></a>Configura area di lavoro per Monitoraggio di Azure per le macchine virtuali
-Monitoraggio di Azure per le macchine virtuali richiede un'area di lavoro Log Analytics che in genere corrisponde a quella creata per raccogliere dati da altre risorse di Azure. Prima di abilitare le macchine virtuali, è necessario aggiungere la soluzione necessaria per Monitoraggio di Azure per le macchine virtuali all'area di lavoro.
+### <a name="configure-workspace-for-vm-insights"></a>Configurare l'area di lavoro per VM Insights
+VM Insights richiede un'area di lavoro Log Analytics che in genere corrisponde a quella creata per raccogliere dati da altre risorse di Azure. Prima di abilitare le macchine virtuali, è necessario aggiungere la soluzione necessaria per la VM Insights nell'area di lavoro.
 
-Per informazioni dettagliate sulla configurazione dell'area di lavoro Log Analytics per Monitoraggio di Azure per le macchine virtuali, vedere [configurare l'area di lavoro di log Analytics per monitoraggio di Azure per le macchine virtuali](vm/vminsights-configure-workspace.md) .
+Per informazioni dettagliate sulla configurazione dell'area di lavoro Log Analytics per VM Insights, vedere [configurare log Analytics area di lavoro per VM Insights](vm/vminsights-configure-workspace.md) .
 
-### <a name="enable-azure-monitor-for-vms-on-each-virtual-machine"></a>Abilita Monitoraggio di Azure per le macchine virtuali in ogni macchina virtuale
-Una volta configurata un'area di lavoro, è possibile abilitare ogni macchina virtuale installando l'agente di Log Analytics e l'agente di dipendenza. Sono disponibili diversi metodi per l'installazione di questi agenti, inclusi i criteri di Azure, che consentono di configurare automaticamente ogni macchina virtuale creata. I dati sulle prestazioni e i dettagli del processo raccolti da Monitoraggio di Azure per le macchine virtuali vengono archiviati nei log di monitoraggio di Azure.
+### <a name="enable-vm-insights-on-each-virtual-machine"></a>Abilitare VM Insights in ogni macchina virtuale
+Una volta configurata un'area di lavoro, è possibile abilitare ogni macchina virtuale installando l'agente di Log Analytics e l'agente di dipendenza. Sono disponibili diversi metodi per l'installazione di questi agenti, inclusi i criteri di Azure, che consentono di configurare automaticamente ogni macchina virtuale creata. I dati sulle prestazioni e i dettagli del processo raccolti da VM Insights vengono archiviati nei log di monitoraggio di Azure.
 
-Vedere [abilitare monitoraggio di Azure per le macchine virtuali Panoramica](vm/vminsights-enable-overview.md) per le opzioni per distribuire gli agenti nelle macchine virtuali e abilitarli per il monitoraggio.
+Per informazioni sulle opzioni per distribuire gli agenti nelle macchine virtuali e abilitarli per il monitoraggio, vedere [abilitare la Panoramica di VM Insights](vm/vminsights-enable-overview.md) .
 
 ### <a name="configure-workspace-to-collect-events"></a>Configura area di lavoro per la raccolta di eventi
-Monitoraggio di Azure per le macchine virtuali raccoglierà i dati sulle prestazioni e i dettagli e le dipendenze dei processi dal sistema operativo guest di ogni macchina virtuale. L'agente di Log Analytics può inoltre raccogliere log dal Guest, incluso il registro eventi di Windows e syslog da Linux. Recupera la configurazione per questi log dall'area di lavoro Log Analytics a cui è connessa. È sufficiente configurare l'area di lavoro una sola volta e ogni volta che un agente si connette, scaricherà tutte le modifiche apportate alla configurazione. 
+VM Insights raccoglie i dati sulle prestazioni e i dettagli e le dipendenze dei processi dal sistema operativo guest di ogni macchina virtuale. L'agente di Log Analytics può inoltre raccogliere log dal Guest, incluso il registro eventi di Windows e syslog da Linux. Recupera la configurazione per questi log dall'area di lavoro Log Analytics a cui è connessa. È sufficiente configurare l'area di lavoro una sola volta e ogni volta che un agente si connette, scaricherà tutte le modifiche apportate alla configurazione. 
 
 Per informazioni dettagliate sulla configurazione dell'area di lavoro di Log Analytics per la raccolta di dati aggiuntivi dalle macchine virtuali dell'agente, vedere [origini dati degli agenti in monitoraggio di Azure](agents/agent-data-sources.md) .
 
 > [!NOTE]
-> È inoltre possibile configurare l'area di lavoro per la raccolta dei contatori delle prestazioni, ma probabilmente sarà ridondante con i dati sulle prestazioni raccolti da Monitoraggio di Azure per le macchine virtuali. I dati sulle prestazioni raccolti dall'area di lavoro verranno archiviati nella tabella *Perf* , mentre i dati sulle prestazioni raccolti da monitoraggio di Azure per le macchine virtuali vengono archiviati nella tabella *InsightsMetrics* . Configurare la raccolta delle prestazioni nell'area di lavoro solo se sono necessari contatori che non sono già raccolti da Monitoraggio di Azure per le macchine virtuali.
+> È anche possibile configurare l'area di lavoro per la raccolta dei contatori delle prestazioni, ma probabilmente sarà ridondante con i dati sulle prestazioni raccolti da VM Insights. I dati sulle prestazioni raccolti dall'area di lavoro verranno archiviati nella tabella *Perf* , mentre i dati sulle prestazioni raccolti da VM Insights vengono archiviati nella tabella *InsightsMetrics* . Configurare la raccolta delle prestazioni nell'area di lavoro solo se sono necessari contatori che non sono già raccolti da VM Insights.
 
 ### <a name="diagnostic-extension-and-telegraf-agent"></a>Estensione di diagnostica e agente Telegraf
-Monitoraggio di Azure per le macchine virtuali usa l'agente di Log Analytics che invia i dati sulle prestazioni a un'area di lavoro Log Analytics ma non alle metriche di monitoraggio di Azure. L'invio di questi dati alle metriche consente di analizzarli con Esplora metriche e di usarli con gli avvisi delle metriche. Questa operazione richiede l'estensione di diagnostica in Windows e l'agente Telegraf in Linux.
+VM Insights usa l'agente di Log Analytics che invia i dati sulle prestazioni a un'area di lavoro Log Analytics ma non alle metriche di monitoraggio di Azure. L'invio di questi dati alle metriche consente di analizzarli con Esplora metriche e di usarli con gli avvisi delle metriche. Questa operazione richiede l'estensione di diagnostica in Windows e l'agente Telegraf in Linux.
 
 Per informazioni dettagliate sull'installazione e la configurazione di questi agenti, vedere [installare e configurare l'estensione diagnostica di Microsoft Azure (WAD)](agents/diagnostics-extension-windows-install.md) e [raccogliere metriche personalizzate per una VM Linux con l'agente Telegraf InfluxData](essentials/collect-custom-metrics-linux-telegraf.md) .
 

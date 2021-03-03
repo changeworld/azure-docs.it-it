@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: victorh
-ms.openlocfilehash: e823e1efc66592e9f48b7ff5e53a176a4e8cb514
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: ff5c6961e64deddc8e52dc92a7c34b5b369a44ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549726"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715565"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funzionalità di anteprima di Azure Firewall Premium
 
@@ -80,7 +80,20 @@ Le categorie sono organizzate in base alla gravità sotto **responsabilità**, *
 
 #### <a name="category-exceptions"></a>Eccezioni di categoria
 
-È possibile creare eccezioni alle regole di categoria Web. Creare una raccolta di regole Consenti o nega separata con una priorità più alta all'interno del gruppo di raccolta regole. Ad esempio, è possibile configurare una raccolta di regole che consente la `www.linkedin.com` priorità 100, con una raccolta di regole che nega la **rete sociale** con priorità 200. Verrà creata l'eccezione per la categoria Web di **social networking** predefinita. 
+È possibile creare eccezioni alle regole di categoria Web. Creare una raccolta di regole Consenti o nega separata con una priorità più alta all'interno del gruppo di raccolta regole. Ad esempio, è possibile configurare una raccolta di regole che consente la `www.linkedin.com` priorità 100, con una raccolta di regole che nega la **rete sociale** con priorità 200. Verrà creata l'eccezione per la categoria Web di **social networking** predefinita.
+
+#### <a name="categorization-change"></a>Modifica della categorizzazione
+
+È possibile richiedere una modifica di categorizzazione se:
+
+ - si pensi che un FQDN o un URL debba trovarsi in una categoria diversa 
+ 
+oppure 
+
+- avere una categoria consigliata per un FQDN o un URL senza categoria
+
+È possibile inviare una richiesta all'indirizzo [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
+ 
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -98,6 +111,7 @@ Certificati firmati dal cliente non attendibili|I certificati firmati dal client
 |Indirizzo IP di origine errato negli avvisi con IDP per HTTP (senza ispezione TLS).|Quando è in uso il traffico HTTP in formato testo normale e IDP emette un nuovo avviso e la destinazione è un indirizzo IP pubblico, l'indirizzo IP di origine visualizzato è errato (viene visualizzato l'indirizzo IP interno anziché l'indirizzo IP originale).|Correzione pianificata per GA.|
 |Propagazione certificati|Dopo che un certificato CA è stato applicato al firewall, potrebbero essere necessari tra 5-10 minuti affinché il certificato abbia effetto.|Correzione pianificata per GA.|
 |Bypass IDP|Il bypass IDP non funziona per il traffico con terminazione TLS e i gruppi di indirizzi IP di origine e di origine non sono supportati.|Correzione pianificata per GA.|
+|Supporto di TLS 1,3|TLS 1,3 è parzialmente supportato. Il tunnel TLS dal client al firewall si basa su TLS 1,2 e dal firewall al server Web esterno si basa su TLS 1,3.|È in corso l'analisi degli aggiornamenti.|
 
 
 

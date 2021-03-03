@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: ed8948ddeddf25272355cd1dc06d4e95c52f7f62
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 1edfbca2f2a16aeebc1244b298426dc46d72c6d5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035258"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708816"
 ---
 # <a name="create-your-first-java-function-in-azure-using-intellij"></a>Creare la prima funzione Java in Azure con IntelliJ
 
@@ -24,7 +24,7 @@ Questo articolo illustra:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>Configura l'ambiente di sviluppo
+## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
 
 Per creare e pubblicare funzioni Java in Azure usando IntelliJ, installare il software seguente:
 
@@ -56,7 +56,7 @@ Per creare e pubblicare funzioni Java in Azure usando IntelliJ, installare il so
 
    ![Accesso al dispositivo nel browser][intellij-azure-link-ms-account]
 
-6. Nella finestra di dialogo **Select Subscriptions** (Seleziona sottoscrizioni) selezionare le sottoscrizioni da usare e quindi fare clic su **OK**.
+6. Nella finestra di dialogo **Seleziona sottoscrizioni** selezionare le sottoscrizioni che si desidera utilizzare e quindi fare clic su **Seleziona**.
 
    ![Finestra di dialogo Seleziona sottoscrizioni][intellij-azure-login-select-subs]
    

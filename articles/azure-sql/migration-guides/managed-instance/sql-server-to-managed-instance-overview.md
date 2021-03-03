@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 5485d97638679651a3890e0b7578787e481437c6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1f619e1eac58f70642117dabafc266d1bc250609
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656279"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690414"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Panoramica della migrazione: SQL Server a SQL Istanza gestita
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -115,7 +115,7 @@ Nella tabella seguente vengono confrontate le opzioni di migrazione consigliate:
 
 |Opzione di migrazione  |Utilizzo  |Considerazioni  |
 |---------|---------|---------|
-|[Servizio Migrazione del database di Azure (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | -Migrare database singoli o più database su larga scala. </br> -Può supportare i tempi di inattività durante il processo di migrazione. </br> </br> Origini supportate: </br> -SQL Server (2005-2019) in locale o in una VM di Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP calcolo della macchina virtuale SQL Server |  -Le migrazioni su larga scala possono essere automatizzate tramite [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> -Il tempo necessario per completare la migrazione dipende dalle dimensioni del database e dal tempo di backup e ripristino. </br> -Può essere necessario un tempo di inattività sufficiente. |
+|[Servizio Migrazione del database di Azure (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | -Migrare database singoli o più database su larga scala. </br> -Può supportare i tempi di inattività durante il processo di migrazione. </br> </br> Origini supportate: </br> -SQL Server (2005-2019) in locale o in una VM di Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP calcolo della macchina virtuale SQL Server |  -Le migrazioni su larga scala possono essere automatizzate tramite [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). </br> -Il tempo necessario per completare la migrazione dipende dalle dimensioni del database e dal tempo di backup e ripristino. </br> -Può essere necessario un tempo di inattività sufficiente. |
 |[Backup e ripristino nativi](../../managed-instance/restore-sample-database-quickstart.md) | -Migrare i singoli database delle applicazioni line-of-business.  </br> -Migrazione rapida e semplice senza uno strumento o un servizio di migrazione separato.  </br> </br> Origini supportate: </br> -SQL Server (2005-2019) in locale o in una VM di Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP calcolo della macchina virtuale SQL Server | -Il backup del database usa più thread per ottimizzare il trasferimento dei dati nell'archiviazione BLOB di Azure, ma le dimensioni del database e la larghezza di banda ISV possono avere effetti sulla velocità </br> -Il tempo di inattività deve adattarsi al tempo necessario per eseguire un backup completo e un ripristino, ovvero un'operazione di dimensione dei dati.| 
 |[Servizio di riproduzione log (con ridondanza locale)](../../managed-instance/log-replay-service-migrate.md) | -Migrare i singoli database delle applicazioni line-of-business.  </br> -È necessario un maggiore controllo per le migrazioni di database.  </br> </br> Origini supportate: </br> -SQL Server (2008-2019) in locale o in una VM di Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP calcolo della macchina virtuale SQL Server | -La migrazione comporta l'esecuzione di backup completi del database in SQL Server e la copia dei file di backup nell'archiviazione BLOB di Azure. CON ridondanza locale viene usato per ripristinare i file di backup dall'archiviazione BLOB di Azure a SQL Istanza gestita. </br> -I database da ripristinare durante il processo di migrazione saranno in modalità di ripristino e non potranno essere utilizzati per la lettura o la scrittura fino al completamento del processo.| 
 | | | |
@@ -163,7 +163,7 @@ Oltre all'architettura a disponibilità elevata inclusa in SQL Istanza gestita, 
 
 #### <a name="sql-agent-jobs"></a>Processi di SQL Agent
 
-Usare l'opzione offline del servizio migrazione del database di Azure (DMS) per eseguire la migrazione dei [processi di SQL Agent](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md#offline-migrations). In caso contrario, creare uno script per i processi in Transact-SQL (T-SQL) utilizzando SQL Server Management Studio e quindi ricrearli manualmente sul Istanza gestita SQL di destinazione. 
+Usare l'opzione offline del servizio migrazione del database di Azure (DMS) per eseguire la migrazione dei [processi di SQL Agent](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). In caso contrario, creare uno script per i processi in Transact-SQL (T-SQL) utilizzando SQL Server Management Studio e quindi ricrearli manualmente sul Istanza gestita SQL di destinazione. 
 
 > [!IMPORTANT]
 > Attualmente, Azure DMS supporta solo i processi con i passaggi del sottosistema T-SQL. È necessario eseguire manualmente la migrazione dei processi con i passaggi del pacchetto SSIS. 

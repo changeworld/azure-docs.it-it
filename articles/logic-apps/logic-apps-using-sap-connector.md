@@ -9,16 +9,16 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e52c4acb4b59414e89e87bf5a6ee2cfae8207cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575484"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712454"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
-Questo articolo illustra come è possibile accedere alle risorse SAP dalle app per la logica usando il [connettore SAP](https://docs.microsoft.com/connectors/sap/).
+Questo articolo illustra come è possibile accedere alle risorse SAP dalle app per la logica usando il [connettore SAP](/connectors/sap/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -547,14 +547,14 @@ Per le versioni del gateway dati locale a partire dall'aprile 2020 e versioni pr
 
 Se si usa un [gateway dati locale per le app per la logica](../logic-apps/logic-apps-gateway-install.md), è possibile configurare un file di log esteso per il connettore SAP. È possibile usare il gateway dati locale per reindirizzare gli eventi di Event Tracing for Windows (ETW) in file di log rotanti inclusi nei file zip di registrazione del gateway. 
 
-È possibile [esportare tutti i log di configurazione e servizio del gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) in un file con estensione zip in dalle impostazioni dell'app gateway.
+È possibile [esportare tutti i log di configurazione e servizio del gateway](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) in un file con estensione zip in dalle impostazioni dell'app gateway.
 
 > [!NOTE]
 > La registrazione estesa potrebbe influire sulle prestazioni delle app per la logica quando è sempre abilitata. È consigliabile disattivare i file di log estesi dopo aver completato l'analisi e la risoluzione di un problema.
 
 #### <a name="capture-etw-events"></a>Acquisisci eventi ETW
 
-Facoltativamente, gli utenti avanzati possono acquisire direttamente gli eventi ETW. È quindi possibile [utilizzare i dati in diagnostica di Azure nell'hub eventi](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs) o [raccogliere i dati nei log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs). Per ulteriori informazioni, vedere le [procedure consigliate per la raccolta e l'archiviazione di dati](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#collecting-and-storing-data). È possibile usare [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) per lavorare con i file ETL risultanti oppure è possibile scrivere un programma personalizzato. Questa procedura dettagliata USA PerfView:
+Facoltativamente, gli utenti avanzati possono acquisire direttamente gli eventi ETW. È quindi possibile [utilizzare i dati in diagnostica di Azure nell'hub eventi](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) o [raccogliere i dati nei log di monitoraggio di Azure](/azure/azure-monitor/agents/diagnostics-extension-logs). Per ulteriori informazioni, vedere le [procedure consigliate per la raccolta e l'archiviazione di dati](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). È possibile usare [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) per lavorare con i file ETL risultanti oppure è possibile scrivere un programma personalizzato. Questa procedura dettagliata USA PerfView:
 
 1. Nel menu PerfView selezionare **Collect** &gt; **Collect** per acquisire gli eventi.
 
@@ -1336,7 +1336,7 @@ Per esempi dettagliati su come usare l'azione chiama Bova, vedere gli [esempi XM
 
 ### <a name="send-idoc-action"></a>Invia azione IDoc
 
-L'azione [Send IDOC ( `SendIDoc` )](https://docs.microsoft.com/connectors/sap/#send-idoc-(preview)) invia il messaggio IDOC al server SAP.
+L'azione [Send IDOC ( `SendIDoc` )](/connectors/sap/) invia il messaggio IDOC al server SAP.
 
 Con la chiamata è necessario usare i parametri seguenti: 
 

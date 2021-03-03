@@ -1,22 +1,21 @@
 ---
 title: Soluzione di monitoraggio delle prestazioni di rete in Azure Log Analytics | Microsoft Docs
 description: Usare la funzionalità Monitoraggio di ExpressRoute in Monitoraggio prestazioni rete per monitorare la connettività end-to-end e le prestazioni tra le proprie succursali e Azure tramite Azure ExpressRoute.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: 477512c0b1de8548e2aa1e2971a5d831e84d2139
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0b005e46e9f9a740fee153e063bebf108c22b303
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578378"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725697"
 ---
 # <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
 
 > [!IMPORTANT]
-> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher prima del 29 febbraio 2024.
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher prima del 29 febbraio 2024.
 
 È possibile usare la funzionalità Monitoraggio di ExpressRoute di Azure in [Monitoraggio prestazioni rete](network-performance-monitor.md) per monitorare la connettività end-to-end e le prestazioni tra le proprie succursali e Azure tramite Azure ExpressRoute. I vantaggi chiave sono: 
 
@@ -144,4 +143,3 @@ Monitoraggio prestazioni rete consente di diagnosticare diversi tipi di problemi
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Effettuare una ricerca nei log](../logs/log-query-overview.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
-

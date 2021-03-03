@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: a521ca80039b68f93bf7c9d98e51d9846e96e985
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593831"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732276"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Panoramica di Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -39,7 +39,7 @@ La funzionalità corrente presenta le limitazioni seguenti:
 
 - I runbook per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionano con un [account RunAs di Azure](./automation-security-overview.md#run-as-accounts). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che potrebbe scadere o essere modificata di frequente.
 
-- Un'area di lavoro di [monitoraggio di Azure log Analytics](../azure-monitor/platform/design-logs-deployment.md) che archivia i log del processo e i risultati del processo Runbook in un'area di lavoro per eseguire query e analisi. L'account di automazione può essere collegato a un'area di lavoro Log Analytics nuova o esistente ed entrambe le risorse devono trovarsi nello stesso gruppo di risorse.
+- Un'area di lavoro di [monitoraggio di Azure log Analytics](../azure-monitor/logs/design-logs-deployment.md) che archivia i log del processo e i risultati del processo Runbook in un'area di lavoro per eseguire query e analisi. L'account di automazione può essere collegato a un'area di lavoro Log Analytics nuova o esistente ed entrambe le risorse devono trovarsi nello stesso gruppo di risorse.
 
 È consigliabile usare un account di Automazione separato per lavorare con macchine virtuali abilitate per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività. Le versioni dei moduli di Azure vengono aggiornate di frequente ed è possibile che i rispettivi parametri subiscano modifiche. La funzionalità non viene aggiornata in base alla stessa frequenza ed è possibile che non funzioni con le versioni più recenti dei cmdlet usati. Prima di importare i moduli aggiornati negli account di automazione di produzione, è consigliabile importarli in un account di automazione di test per verificare che non vi siano problemi di compatibilità.
 

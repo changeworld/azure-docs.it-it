@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d766843f58bc2cdd0dcdddfad337b23fefb28768
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051296"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698740"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Risolvere i problemi di analisi video in tempo reale su IoT Edge
 
@@ -105,7 +105,7 @@ Potrebbero verificarsi problemi anche durante l'esecuzione dello **[script di co
 * **La distribuzione del modello non è riuscita a causa di una violazione dei criteri.**
     * Per superare questo problema, collaborare con l'amministratore IT per assicurarsi che le chiamate creino una macchina virtuale per ignorare il blocco dell'autenticazione SSH. Questa operazione non sarà necessaria perché si usa una rete Bastion sicura che richiede un nome utente e una password per comunicare con le risorse di Azure. Queste credenziali vengono archiviate nel file di **vm-edge-device-credentials.txt~/CloudDrive/LVA-Sample/** in cloud Shell, una volta che la macchina virtuale è stata creata, distribuita e collegata all'hub Internet.
 * Lo script di installazione non è in grado di creare un'entità servizio e/o risorse di Azure.
-    * Per superare questo problema, verificare che la sottoscrizione e il tenant di Azure non abbiano raggiunto i limiti di servizio massimi. Scopri di più sui [limiti e sulle restrizioni del servizio Azure ad](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) e sulla [sottoscrizione di Azure e limiti, quote e vincoli](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) dei servizi.
+    * Per superare questo problema, verificare che la sottoscrizione e il tenant di Azure non abbiano raggiunto i limiti di servizio massimi. Scopri di più sui [limiti e sulle restrizioni del servizio Azure ad](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) e sulla [sottoscrizione di Azure e limiti, quote e vincoli](../../azure-resource-manager/management/azure-subscription-service-limits.md) dei servizi.
 
 > [!TIP]
 > Se sono presenti altri problemi che potrebbero richiedere assistenza per, **[raccogliere i log e inviare un ticket di supporto](#collect-logs-for-submitting-a-support-ticket)**. È anche possibile contattarci inviando un messaggio di posta elettronica all'indirizzo **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .

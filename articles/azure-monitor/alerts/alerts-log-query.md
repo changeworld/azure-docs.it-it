@@ -6,19 +6,19 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: cfe6aa489bcc771213ec04ca9cddd1267ccf1338
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cda3af012a83342d5650c542fafdcd6bc36bd8e3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616286"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717979"
 ---
 # <a name="optimizing-log-alert-queries"></a>Ottimizzazione delle query di avviso del log
-Questo articolo descrive come scrivere e convertire le query di [Avviso del log](../platform/alerts-unified-log.md) per ottenere prestazioni ottimali. Le query ottimizzate riducono la latenza e il carico degli avvisi che vengono eseguiti di frequente.
+Questo articolo descrive come scrivere e convertire le query di [Avviso del log](./alerts-unified-log.md) per ottenere prestazioni ottimali. Le query ottimizzate riducono la latenza e il carico degli avvisi che vengono eseguiti di frequente.
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>Come iniziare a scrivere una query del log degli avvisi
 
-Le query di avviso iniziano a [eseguire query sui dati di log in log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) che indica il problema. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/example-queries.md) per comprendere cosa è possibile individuare. È anche possibile [iniziare a scrivere una query personalizzata](../log-query/log-analytics-tutorial.md). 
+Le query di avviso iniziano a [eseguire query sui dati di log in log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) che indica il problema. È possibile usare l' [argomento degli esempi di query di avviso](../logs/example-queries.md) per comprendere cosa è possibile individuare. È anche possibile [iniziare a scrivere una query personalizzata](../logs/log-analytics-tutorial.md). 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>Query che indicano il problema e non l'avviso
 
@@ -44,7 +44,7 @@ Non è necessario aggiungere la logica di avviso alla query e questa operazione 
 L'uso di `limit` e `take` nelle query può aumentare la latenza e il carico degli avvisi perché i risultati non sono coerenti nel tempo. È preferibile utilizzarlo solo se necessario.
 
 ## <a name="log-query-constraints"></a>Vincoli di query di log
-Le [query di log nel monitoraggio di Azure](../log-query/log-query-overview.md) iniziano con un [`search`](/azure/kusto/query/searchoperator) operatore Table, o [`union`](/azure/kusto/query/unionoperator) .
+Le [query di log nel monitoraggio di Azure](../logs/log-query-overview.md) iniziano con un [`search`](/azure/kusto/query/searchoperator) operatore Table, o [`union`](/azure/kusto/query/unionoperator) .
 
 Le query per le regole di avviso del log devono sempre iniziare con una tabella per definire un ambito chiaro, che consente di migliorare le prestazioni delle query e la pertinenza dei risultati. Le query nelle regole di avviso vengono eseguite di frequente, pertanto l'utilizzo `search` `union` di e può comportare un sovraccarico eccessivo nell'aggiunta di latenza all'avviso, in quanto richiede l'analisi tra più tabelle. Questi operatori riducono inoltre la capacità del servizio di avvisi di ottimizzare la query.
 
@@ -57,7 +57,7 @@ SecurityEvent
 | where EventID == 4624
 ```
 
-Le regole di avviso del log che usano [query tra risorse](../log-query/cross-workspace-query.md) non sono interessate da questa modifica, poiché le query tra risorse usano un tipo di `union` , che limita l'ambito della query a risorse specifiche. L'esempio seguente è una query di avviso del log valida:
+Le regole di avviso del log che usano [query tra risorse](../logs/cross-workspace-query.md) non sono interessate da questa modifica, poiché le query tra risorse usano un tipo di `union` , che limita l'ambito della query a risorse specifiche. L'esempio seguente è una query di avviso del log valida:
 
 ```Kusto
 union
@@ -67,7 +67,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> Le [query tra risorse](../log-query/cross-workspace-query.md) sono supportate nella nuova [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Se si usa ancora l' [API legacy log Analytics Alert](../platform/api-alerts.md) per creare gli avvisi del log, è possibile ottenere informazioni [sul cambio.](../alerts/alerts-log-api-switch.md)
+> Le [query tra risorse](../logs/cross-workspace-query.md) sono supportate nella nuova [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Se si usa ancora l' [API legacy log Analytics Alert](./api-alerts.md) per creare gli avvisi del log, è possibile ottenere informazioni [sul cambio.](../alerts/alerts-log-api-switch.md)
 
 ## <a name="examples"></a>Esempio
 Gli esempi seguenti includono query di log che usano `search` e `union` e forniscono passaggi che è possibile usare per modificare queste query da usare nelle regole di avviso.
@@ -217,4 +217,4 @@ SecurityEvent
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sugli [avvisi del log](alerts-log.md) in Monitoraggio di Azure.
-- Informazioni sulle [query nei log](../log-query/log-query-overview.md).
+- Informazioni sulle [query nei log](../logs/log-query-overview.md).

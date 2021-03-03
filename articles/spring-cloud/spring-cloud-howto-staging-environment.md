@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 82a8da9d2663b03d89ad0819ec6d918bebaf5f5e
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d610e79773dabb9942352747f1f032b17730ffca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574730"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738753"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurare un ambiente di staging nel cloud Spring di Azure
 
@@ -23,7 +23,7 @@ Questo articolo illustra come configurare una distribuzione di gestione temporan
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Istanza cloud Spring di Azure con piano **tariffario** *standard* .
-* [Estensione cloud Spring Azure](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) dell'interfaccia della riga di comando di Azure
+* [Estensione cloud Spring Azure](/cli/azure/azure-cli-extensions-overview) dell'interfaccia della riga di comando di Azure
 
 Questo articolo usa un'applicazione compilata dall'inizializzatore Spring. Se si vuole usare un'applicazione diversa per questo esempio, è necessario apportare una semplice modifica in una parte pubblica dell'applicazione per distinguere la distribuzione di gestione temporanea dalla produzione.
 

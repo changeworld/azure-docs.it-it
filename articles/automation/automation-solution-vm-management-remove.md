@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: bed9cd23abc96c51cad0a13e81ee0b64f0d433b6
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: a201274bf0c06382da790dd051bf5023337970b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012318"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723844"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Rimuovere Avvio/Arresto di macchine virtuali durante gli orari di minore attività dall'account di automazione
 
@@ -94,7 +94,7 @@ Mentre le informazioni vengono verificate e l'account viene eliminato, è possib
 
 ## <a name="delete-the-feature"></a>Elimina la funzionalità
 
-Per eliminare Avvio/Arresto di macchine virtuali durante gli orari di minore attività dall'account di automazione, seguire questa procedura. L'account di Automazione e l'area di lavoro Log Analytics non vengono eliminati come parte del processo. Se non si vuole tenere l'area di lavoro Log Analytics, è necessario eliminarla manualmente. Per altre informazioni sull'eliminazione dell'area di lavoro, vedere [eliminare e ripristinare l'area di lavoro di Azure log Analytics](../azure-monitor/platform/delete-workspace.md).
+Per eliminare Avvio/Arresto di macchine virtuali durante gli orari di minore attività dall'account di automazione, seguire questa procedura. L'account di Automazione e l'area di lavoro Log Analytics non vengono eliminati come parte del processo. Se non si vuole tenere l'area di lavoro Log Analytics, è necessario eliminarla manualmente. Per altre informazioni sull'eliminazione dell'area di lavoro, vedere [eliminare e ripristinare l'area di lavoro di Azure log Analytics](../azure-monitor/logs/delete-workspace.md).
 
 1. Passare all'account di automazione e selezionare **area di lavoro collegata** in **risorse correlate**.
 

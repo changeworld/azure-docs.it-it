@@ -2,15 +2,15 @@
 title: Creare e distribuire le specifiche dei modelli
 description: Viene descritto come creare specifiche di modello e condividerle con altri utenti nell'organizzazione.
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/02/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 762c483883d391c436065b13b54f127f1618d7f9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: e4efc63ffa49b1c8ca44fc806e37e4aa91cd76c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734916"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700389"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifiche del modello di Azure Resource Manager (anteprima)
 
@@ -246,6 +246,78 @@ az deployment group create \
 
 ---
 
+## <a name="versioning"></a>Controllo delle versioni
+
+Quando si crea una specifica del modello, si specifica il nome della versione. Quando si esegue l'iterazione del codice del modello, è possibile aggiornare una versione esistente (per gli hotfix) o pubblicare una nuova versione. La versione è una stringa di testo. È possibile scegliere di seguire qualsiasi sistema di controllo delle versioni, incluso il controllo delle versioni semantico. Gli utenti della specifica del modello possono fornire il nome della versione che desiderano usare durante la distribuzione.
+
+## <a name="use-tags"></a>Usare i tag
+
+I [tag](../management/tag-resources.md) consentono di organizzare le risorse in modo logico. È possibile aggiungere tag alle specifiche del modello usando Azure PowerShell e l'interfaccia della riga di comando di Azure:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts update \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+Quando si crea o si modifica una specifica del modello con il parametro version specificato, ma senza il parametro tag/Tags:
+
+- Se la specifica del modello esiste e contiene tag, ma la versione non esiste, la nuova versione erediterà gli stessi tag della specifica del modello esistente.
+
+Quando si crea o si modifica una specifica di modello con il parametro tag/tag e il parametro version specificato:
+
+- Se la specifica del modello e la versione non esistono, i tag vengono aggiunti sia alla nuova specifica del modello che alla nuova versione.
+- Se la specifica del modello esiste, ma la versione non esiste, i tag vengono aggiunti solo alla nuova versione.
+- Se sono presenti sia la specifica del modello che la versione, i tag sono validi solo per la versione.
+
+Quando si modifica un modello con il parametro tag/tag specificato ma senza il parametro version specificato, i tag vengono aggiunti solo alla specifica del modello.
+
 ## <a name="create-a-template-spec-with-linked-templates"></a>Creare una specifica di modello con i modelli collegati
 
 Se il modello principale per la specifica del modello fa riferimento a modelli collegati, i comandi di PowerShell e dell'interfaccia della riga di comando possono trovare e creare automaticamente il pacchetto dei modelli collegati dall'unità locale. Non è necessario configurare manualmente gli account di archiviazione o i repository per ospitare le specifiche del modello. tutto è indipendente nella risorsa specifica del modello.
@@ -331,10 +403,6 @@ L'esempio seguente è simile all'esempio precedente, ma si usa la `id` propriet�
 ```
 
 Per altre informazioni sul collegamento delle specifiche dei modelli, vedere [esercitazione: distribuire una specifica di modello come modello collegato](template-specs-deploy-linked-template.md).
-
-## <a name="versioning"></a>Controllo delle versioni
-
-Quando si crea una specifica del modello, si specifica il nome della versione. Quando si esegue l'iterazione del codice del modello, è possibile aggiornare una versione esistente (per gli hotfix) o pubblicare una nuova versione. La versione è una stringa di testo. È possibile scegliere di seguire qualsiasi sistema di controllo delle versioni, incluso il controllo delle versioni semantico. Gli utenti della specifica del modello possono fornire il nome della versione che desiderano usare durante la distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

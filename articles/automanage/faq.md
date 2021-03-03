@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 214730733780ef3492048f697b1c5e180434a527
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101654018"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688009"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Domande frequenti su Azure automanage per le macchine virtuali
 
@@ -80,7 +80,7 @@ Gestione automatica di Azure è disponibile senza costi aggiuntivi nell'anteprim
 
 **È possibile applicare la gestione tramite criteri di Azure?**
 
-Sì, abbiamo un criterio predefinito che applica automaticamente la gestione automatica a tutte le macchine virtuali all'interno dell'ambito definito. Si specificherà anche il profilo di configurazione (DevTest o Production) insieme all'account automanage. Per altre informazioni sull'abilitazione della gestione tramite criteri di Azure, vedere [qui](virtual-machines-policy-enable.md).
+Sì, abbiamo un criterio predefinito che applica automaticamente la gestione automatica a tutte le macchine virtuali all'interno dell'ambito definito. Si specificherà anche la configurazione dell'ambiente (DevTest o produzione) insieme all'account di automanage. Per altre informazioni sull'abilitazione della gestione tramite criteri di Azure, vedere [qui](virtual-machines-policy-enable.md).
 
 
 **Che cos'è un account di automanage?**
@@ -93,9 +93,9 @@ L'account di gestione automatica è un file MSI (identità del servizio gestita)
 Se la macchina virtuale è collegata a un'area di lavoro Log Analytics esistente, l'area di lavoro verrà riutilizzata per applicare le soluzioni seguenti: Rilevamento modifiche, inventario e Gestione aggiornamenti. Per tutte le macchine virtuali connesse all'area di lavoro verranno abilitate tali soluzioni.
 
 
-**È possibile modificare il profilo di configurazione della macchina virtuale?**
+**È possibile modificare l'ambiente della macchina virtuale?**
 
-A questo punto, sarà necessario disabilitare la gestione automatica per tale macchina virtuale e quindi abilitare di nuovo la gestione automatica con il profilo di configurazione e le preferenze desiderate.
+A questo punto, sarà necessario disabilitare la gestione autonoma per tale macchina virtuale e quindi abilitare nuovamente la gestione autonoma con l'ambiente e le preferenze desiderate.
 
 
 **Se la macchina virtuale è già configurata per un servizio, ad esempio Gestione aggiornamenti, gestirà automaticamente la riconfigurazione?**

@@ -4,14 +4,14 @@ description: Risolvere i problemi dei test Web in applicazione Azure Insights. O
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 11/19/2020
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 940a70de81df60f7b6c1545c992e1ee10e69fa9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583736"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728927"
 ---
 # <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -58,7 +58,7 @@ Il report per la risoluzione dei problemi consente di diagnosticare facilmente i
 
 ### <a name="i-did-not-get-an-email-when-the-alert-triggered-or-resolved-or-both"></a>Non si è ricevuto un messaggio di posta elettronica quando l'avviso è stato attivato o risolto o in entrambi i casi?
 
-Controllare la configurazione degli avvisi classici per verificare se l'indirizzo di posta elettronica è inserito direttamente nell'elenco o se per la ricezione delle notifiche è configurata una lista di distribuzione che include tale indirizzo. In quest'ultimo caso, controllare la configurazione della lista di distribuzione per verificare che possa ricevere messaggi di posta elettronica esterni. Controllare anche se l'amministratore di posta elettronica ha eventualmente configurato criteri che possono causare questo problema.
+Controllare la configurazione del gruppo di azioni degli avvisi per confermare che la posta elettronica sia elencata in modo diretto oppure che sia stata configurata una lista di distribuzione per la ricezione delle notifiche. In quest'ultimo caso, controllare la configurazione della lista di distribuzione per verificare che possa ricevere messaggi di posta elettronica esterni. Controllare anche se l'amministratore di posta elettronica ha eventualmente configurato criteri che possono causare questo problema.
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Non si è ricevuto la notifica webhook?
 
@@ -110,21 +110,6 @@ Di seguito sono riportate alcune delle possibili cause:
 ### <a name="how-can-i-run-a-test-with-client-certificates"></a>È possibile eseguire un test con certificati client?
 
 Non supportato attualmente.
-
-## <a name="who-receives-the-classic-alert-notifications"></a>Chi riceve le notifiche di avviso (classiche)?
-
-Questa sezione si applica solo agli avvisi classici e aiuterà a ottimizzare le notifiche di avviso assicurando che siano ricevute solo dai destinatari desiderati. Per capire meglio la differenza tra gli [avvisi classici](../alerts/alerts-classic.overview.md) e la nuova esperienza di avviso fare riferimento all'[articolo Panoramica avvisi](../alerts/alerts-overview.md). Per controllare la notifica di avviso nella nuova esperienza di avviso usare i [gruppi di azioni](../alerts/action-groups.md).
-
-* Consigliamo di usare destinatari specifici per le notifiche di avviso classiche.
-
-* Per gli avvisi in caso di errori dalle posizioni X da Y, l'opzione **in blocco/gruppo** della casella di controllo, se abilitata, invia notifiche agli utenti con ruoli di amministratore o coamministratore.  Essenzialmente _tutti_ gli amministratori della _sottoscrizione_ riceveranno le notifiche.
-
-* Per gli avvisi sulle metriche di disponibilità, l'opzione casella di controllo **bulk/Group** se abilitata, invia agli utenti i ruoli proprietario, collaboratore o lettore nella sottoscrizione. In effetti, _tutti_ gli utenti con accesso alla sottoscrizione della risorsa di Application Insights rientrano nell'ambito e riceveranno le notifiche. 
-
-> [!NOTE]
-> Se attualmente si usa l'opzione **in blocco/gruppo** della casella di controllo e la si disabilita, sarà impossibile annullare le modifiche.
-
-Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera inviare notifiche agli utenti in base ai ruoli. Con [gruppi di azioni](../alerts/action-groups.md), è possibile configurare notifiche tramite posta elettronica agli utenti con ruolo proprietario, collaboratore o lettore (non combinati insieme come una singola opzione).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

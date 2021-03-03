@@ -5,18 +5,18 @@ author: harelbr
 ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 06/26/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: b09c7f1ff429a3daf675b0f44cc8b64f27e79a07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 435f7b9b585b4effe6b06d78587845bf53a7d051
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714205"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Come aggiornare le regole di avviso o le regole di azione quando la risorsa di destinazione si sposta in un'altra area di Azure
 
-Questo articolo descrive il motivo per cui le regole di [avviso](../platform/alerts-overview.md) e le [regole di azione](./alerts-action-rules.md) esistenti possono essere interessate quando si spostano altre risorse di Azure tra le aree e come identificare e risolvere tali problemi. Vedere la documentazione principale sullo [spostamento delle risorse](../../azure-resource-manager/management/move-region.md) per ulteriori informazioni su quando è utile spostare le risorse tra le aree e un elenco di controllo della progettazione di un processo di spostamento.
+Questo articolo descrive il motivo per cui le regole di [avviso](./alerts-overview.md) e le [regole di azione](./alerts-action-rules.md) esistenti possono essere interessate quando si spostano altre risorse di Azure tra le aree e come identificare e risolvere tali problemi. Vedere la documentazione principale sullo [spostamento delle risorse](../../azure-resource-manager/management/move-region.md) per ulteriori informazioni su quando è utile spostare le risorse tra le aree e un elenco di controllo della progettazione di un processo di spostamento.
 
 ## <a name="why-the-problem-exists"></a>Perché il problema esiste
 
@@ -48,7 +48,6 @@ Il problema si applica a questi tipi di regole:
 
 - Regole di avviso del log attività
 - Regole di azione
-- Avvisi classici
 - Avvisi per le metriche: per altre informazioni, vedere le regole di avviso della sezione successiva [basate sulle metriche](#alert-rules-based-on-metrics).
 
 > [!NOTE]
@@ -112,4 +111,4 @@ Se **solo alcune** risorse nell'ambito sono state spostate, è necessario rimuov
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulla risoluzione di altri problemi con le [notifiche di avviso](alerts-troubleshoot.md), gli [avvisi delle metriche](alerts-troubleshoot-metric.md)e gli avvisi del [log](alerts-troubleshoot-log.md). 
+Informazioni sulla risoluzione di altri problemi con le [notifiche di avviso](alerts-troubleshoot.md), gli [avvisi delle metriche](alerts-troubleshoot-metric.md)e gli avvisi del [log](alerts-troubleshoot-log.md).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 425096bf7cb75ae3560c06cbcd32778536dc1952
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: aec553b473e0fb2688224e8a8d027f7e9f3a6025
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537341"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716619"
 ---
 # <a name="disclosure-design-patterns"></a>Schemi progettuali per le informative
 Ora che&#39;ho determinato il giusto [livello di divulgazione](concepts-disclosure-guidelines.md#disclosure-assessment) per la tua esperienza vocale sintetica,&#39;s è un momento opportuno per esplorare i modelli di progettazione potenziali.
@@ -245,6 +245,6 @@ Utilizzare la divulgazione come opportunità per eseguire correttamente l'errore
 
 ## <a name="see-also"></a>Vedi anche
 
-* [Divulgazione per il talento vocale](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [Linee guida per la distribuzione responsabile della tecnologia Voice sintetica](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Come divulgare](concepts-disclosure-guidelines.md)

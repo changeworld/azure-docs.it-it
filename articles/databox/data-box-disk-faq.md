@@ -8,12 +8,13 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: alkohli
-ms.openlocfilehash: f4f1924ce19ccb0f48aa1a7c9a0515fa89505dae
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.custom: references_regions
+ms.openlocfilehash: 7212fc4113c1de0a7aee4c6c02e8fa65f9828680
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652310"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724830"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Domande frequenti
 
@@ -48,7 +49,7 @@ R. Per informazioni sul prezzo dei dischi di Data Box Disk, vedere la [pagina de
 R.  Per ottenere gli Azure Data Box Disk, accedere al portale di Azure e creare un ordine di Data Box per i dischi. Fornire le informazioni di contatto e i dettagli per le notifiche. Quando si effettua un ordine, in base alla disponibilità, i dischi vengono spediti all'utente entro 10 giorni.
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>Q. Qual è la quantità massima di dati che è possibile trasferire con i dischi di Data Box in una sola volta?
-R. Per 5 dischi, ognuno con capacità di 8 TB (7 TB di capacità utilizzabile), la capacità massima utilizzabile è 35 TB. È quindi possibile trasferire 35 TB di dati in un'istanza. Per trasferire più dati, è necessario ordinare altri dischi.
+R. Per cinque dischi, ognuno con capacità di 8 TB (7 TB di capacità utilizzabile), la capacità massima utilizzabile è 35 TB. È quindi possibile trasferire 35 TB di dati in un'istanza. Per trasferire più dati, è necessario ordinare altri dischi.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>Q. Come è possibile verificare se i dischi di Data Box sono disponibili nella propria area? 
 R.  Per visualizzare dove sono attualmente disponibili i dischi di Data Box, vedere le [Aree di disponibilità](data-box-disk-overview.md#region-availability).  
@@ -72,6 +73,18 @@ Spedire un [disco supportato](../import-export/storage-import-export-requirement
 2. Dopo aver copiato i dati dal server locale nei dischi, restituirli al Data Center di Azure in Canada usando le etichette restituite fornite da Microsoft. I dati presenti nel Data Box Disk vengono quindi caricati nell'account di archiviazione di destinazione nell'area di Azure del Canada selezionata durante la creazione dell'ordine.
 
 3. È quindi possibile usare uno strumento come AzCopy per copiare i dati in un account di archiviazione negli Stati Uniti occidentali. Questo passaggio comporta costi di archiviazione e [larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/) [standard](https://azure.microsoft.com/pricing/details/storage/) che non sono inclusi nel data box disk la fatturazione.
+
+#### <a name="q-does-data-box-disk-store-any-customer-data-outside-of-the-service-region"></a>Q. Data Box Disk archivia i dati dei clienti al di fuori dell'area del servizio?
+
+R. No. Data Box Disk non archivia i dati del cliente all'esterno dell'area del servizio. Il cliente ha la proprietà completa dei propri dati e può salvare i dati in una posizione specificata in base all'account di archiviazione selezionato durante la creazione dell'ordine.  
+
+Oltre ai dati dei clienti, sono disponibili Data Box Disk dati che includono i metadati e i log di monitoraggio. In tutte le aree, ad eccezione del Brasile meridionale e sud-orientale, Data Box Disk dati vengono archiviati e replicati in un' [area abbinata](../best-practices-availability-paired-regions.md) tramite un account di archiviazione con ridondanza geografica per proteggersi dalla perdita di dati.  
+
+A causa [dei requisiti di residenza dei dati](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brasile meridionale e Asia sudorientale, i dati Data Box disk vengono archiviati in un account di archiviazione con ridondanza della zona (ZRS) in modo che sia contenuto in una singola area. Per l'Asia sudorientale, tutti i dati Data Box Disk vengono archiviati a Singapore e per il Brasile meridionale, i dati vengono archiviati in Brasile. 
+
+Se si verifica un'interruzione del servizio in Brasile meridionale e Asia sudorientale, i clienti possono creare nuovi ordini da un'altra area. I nuovi ordini verranno serviti dall'area in cui vengono creati e i clienti saranno responsabili delle spedizioni da e verso il Data Box Disk.
+
+
 
 ### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>Q. Come è possibile ripristinare i dati in caso di errore di un'intera area?
 
@@ -110,7 +123,7 @@ Questi lead time sono *stime*. Il tempo per ogni fase di elaborazione degli ordi
 ## <a name="configure-and-connect"></a>Configurazione e connessione
  
 ### <a name="q-can-i-specify-the-number-of-data-box-disks-in-the-order"></a>Q. È possibile specificare il numero di dischi di Data Box nell'ordine?
-R.  No. Si ottengono dischi da 8 TB (un massimo di 5 dischi), a seconda delle dimensioni e della disponibilità dei dati dei dischi.  
+R.  No. Si ottengono dischi da 8 TB (un massimo di cinque dischi), a seconda delle dimensioni e della disponibilità dei dati dei dischi.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>Q. Come si sbloccano i dischi di Data Box? 
 R.  Nel portale di Azure accedere all'ordine di dischi di Data Box e passare a **Dettagli dispositivo**. Copiare la passkey. Scaricare ed estrarre lo strumento di sblocco di Data Box Disk dal portale di Azure per il sistema operativo in uso. Eseguire lo strumento nel computer che contiene i dati che si vuole copiare nei dischi. Fornire la passkey per sbloccare i dischi. La stessa passkey sblocca tutti i dischi. 

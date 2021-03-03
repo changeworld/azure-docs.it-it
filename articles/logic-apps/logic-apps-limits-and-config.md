@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/05/2021
-ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: b80c5cb469f881ee0950d618c3bae5fa1fc1e026
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388533"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699046"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -139,7 +139,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
-| Azione: esecuzioni per 5 minuti | 100.000 è il limite predefinito, ma 300.000 è il limite massimo. | Per aumentare il limite predefinito al valore massimo per l'app per la logica, vedere [eseguire in modalità a velocità effettiva elevata](#run-high-throughput-mode), disponibile in anteprima. In alternativa, è possibile [distribuire il carico di lavoro tra più app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) per la logica, se necessario. |
+| Azione: esecuzioni per intervallo in sequenza di 5 minuti | -100.000 esecuzioni (impostazione predefinita) <p><p>-300.000 esecuzioni (massime in modalità velocità effettiva elevata)  | Per aumentare il limite predefinito al limite massimo per l'app per la logica, vedere [eseguire in modalità a velocità effettiva elevata](#run-high-throughput-mode), disponibile in anteprima. In alternativa, è possibile [distribuire il carico di lavoro tra più app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) per la logica, se necessario. |
 | Azione: chiamate in uscita simultanee | ~2.500 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
 | Endpoint di runtime: chiamate in ingresso simultanee | ~1,000 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
 | Endpoint di runtime: leggere le chiamate per 5 minuti  | 60.000 | Questo limite si applica alle chiamate che ottengono gli input e gli output non elaborati dalla cronologia di esecuzione di un'app per la logica. È possibile distribuire il carico di lavoro tra più app, se necessario. |
@@ -151,7 +151,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 #### <a name="run-in-high-throughput-mode"></a>Esecuzione in modalità velocità effettiva elevata
 
-Per una singola definizione di app per la logica, il numero di azioni eseguite ogni 5 minuti ha un [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Per aumentare il limite predefinito al massimo per l'app per la logica, è possibile abilitare la modalità a velocità effettiva elevata, disponibile in anteprima. In alternativa, è possibile [distribuire il carico di lavoro tra più app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) per la logica, se necessario.
+Per una singola definizione di app per la logica, il numero di azioni eseguite ogni 5 minuti ha un [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Per aumentare il limite predefinito al [limite massimo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) per l'app per la logica, ovvero tre volte il limite predefinito, è possibile abilitare la modalità a velocità effettiva elevata, disponibile in anteprima. In alternativa, è possibile [distribuire il carico di lavoro tra più app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) per la logica, se necessario.
 
 1. Nel menu dell'app per la logica del portale di Azure scegliere **Impostazioni flusso di lavoro** in **Impostazioni**.
 

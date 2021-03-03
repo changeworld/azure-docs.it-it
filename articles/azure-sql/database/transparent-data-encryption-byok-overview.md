@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: 62bdafd2dba31d875b0befccca0fb4a0e94f4e79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582813"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691247"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption con chiave gestita dal cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -187,7 +187,7 @@ Considerazione aggiuntiva per i file di log: i file di log di cui è stato esegu
 
 Anche nei casi in cui non è stata configurata alcuna ridondanza geografica per il server, si consiglia di configurare il server per l'uso di due diversi Key Vault in due aree diverse con lo stesso materiale della chiave. La chiave nell'insieme di credenziali delle chiavi secondario nell'altra area non deve essere contrassegnata come protezione Transparent Data Encryption e non è consentita. Se si verifica un'interruzione che interessano l'insieme di credenziali delle chiavi primarie e solo successivamente, il sistema passa automaticamente all'altra chiave collegata con la stessa identificazione personale nell'insieme di credenziali delle chiavi secondario, se esistente. Si noti che questa opzione non si verifica se la protezione Transparent Data Encryption è inaccessibile a causa di diritti di accesso revocati o perché la chiave o l'insieme di credenziali delle chiavi è stato eliminato, in quanto può indicare che il cliente ha intenzionalmente voluto limitare l'accesso alla chiave da parte del server. Per fornire lo stesso materiale della chiave a due insiemi di credenziali delle chiavi in aree diverse è possibile creare la chiave al di fuori dell'insieme di credenziali delle chiavi e importarli in entrambi gli insiemi di credenziali delle chiavi. 
 
-In alternativa, può essere eseguita generando la chiave usando l'insieme di credenziali delle chiavi primarie nella stessa area del server e clonando la chiave in un insieme di credenziali delle chiavi in un'area di Azure diversa. Usare il cmdlet [backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) per recuperare la chiave in formato crittografato dall'insieme di credenziali delle chiavi primarie e quindi usare il cmdlet [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) e specificare un insieme di credenziali delle chiavi nella seconda area per clonare la chiave. In alternativa, usare la portale di Azure per eseguire il backup e il ripristino della chiave. L'operazione di backup/ripristino delle chiavi è consentita solo tra insiemi di credenziali delle chiavi nella stessa sottoscrizione di Azure e in [geografia di Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
+In alternativa, può essere eseguita generando la chiave usando l'insieme di credenziali delle chiavi primarie nella stessa area del server e clonando la chiave in un insieme di credenziali delle chiavi in un'area di Azure diversa. Usare il cmdlet [backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) per recuperare la chiave in formato crittografato dall'insieme di credenziali delle chiavi primarie e quindi usare il cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) e specificare un insieme di credenziali delle chiavi nella seconda area per clonare la chiave. In alternativa, usare la portale di Azure per eseguire il backup e il ripristino della chiave. L'operazione di backup/ripristino delle chiavi è consentita solo tra insiemi di credenziali delle chiavi nella stessa sottoscrizione di Azure e in [geografia di Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Disponibilità elevata con server singolo](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

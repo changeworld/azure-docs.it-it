@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 30b8cb2b5c8b1ccd0c927a6ff8a3a282d3d43c69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f19f8fb3811435e9bbc207d2d130c0655a6dee02
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386544"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706071"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON in Azure Data Factory
 
@@ -218,7 +218,7 @@ La tabella seguente elenca le proprietà supportate da un'origine JSON. È possi
 
 ### <a name="source-format-options"></a>Opzioni del formato di origine
 
-L'uso di un set di dati JSON come origine nel flusso di dati consente di impostare cinque impostazioni aggiuntive. Queste impostazioni sono disponibili nella scheda **Opzioni di origine** del file **JSON Settings** Accordion.  
+L'uso di un set di dati JSON come origine nel flusso di dati consente di impostare cinque impostazioni aggiuntive. Queste impostazioni sono disponibili nella scheda **Opzioni di origine** del file **JSON Settings** Accordion. Per l'impostazione del **modulo documento** , è possibile selezionare uno dei documenti **singoli**, **documenti per riga** e **matrice di tipi di documenti** .
 
 ![Impostazioni JSON](media/data-flow/json-settings.png "Impostazioni JSON")
 

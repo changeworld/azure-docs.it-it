@@ -4,19 +4,21 @@ description: Backup e ripristino del benchmark di sicurezza di Azure V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: fd9a01868230efd9e9078171359d81302b472cd3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368886"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724422"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Controllo di sicurezza V2: backup e ripristino
 
 Il servizio di backup e ripristino copre i controlli per garantire che i backup dei dati e della configurazione nei diversi livelli di servizio vengano eseguiti, convalidati e protetti.
+
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli del benchmark di sicurezza di Azure per la conformità normativa: backup e ripristino](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery)
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: garantire backup automatici regolari
 
@@ -26,7 +28,7 @@ Il servizio di backup e ripristino copre i controlli per garantire che i backup 
 
 Assicurarsi di eseguire il backup dei sistemi e dei dati per mantenere la continuità aziendale dopo un evento imprevisto. Questo deve essere definito da tutti gli obiettivi per l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO).
 
-Abilitare backup di Azure e configurare l'origine di backup, ad esempio macchine virtuali di Azure, SQL Server, database HANA o condivisioni file, nonché la frequenza e il periodo di memorizzazione desiderati.  
+Abilitare backup di Azure e configurare l'origine di backup, ad esempio macchine virtuali di Azure, SQL Server, database HANA o condivisioni file, nonché la frequenza e il periodo di memorizzazione desiderati.
 
 Per un livello di protezione più elevato, è possibile abilitare l'opzione di archiviazione con ridondanza geografica per replicare i dati di backup in un'area secondaria e ripristinare tramite il ripristino tra aree.
 
@@ -54,9 +56,9 @@ Per un livello di protezione più elevato, è possibile abilitare l'opzione di a
 |--|--|--|--|
 | BR-2 | 10,2 | CP-9 |
 
-Assicurarsi che i backup siano protetti da attacchi. Questa operazione dovrebbe includere la crittografia dei backup per evitare la perdita di riservatezza.   
+Assicurarsi che i backup siano protetti da attacchi. Questa operazione dovrebbe includere la crittografia dei backup per evitare la perdita di riservatezza.
 
-Per i backup locali con backup di Azure, la crittografia inattiva viene fornita usando la passphrase fornita. Per i normali backup dei servizi di Azure, i dati di backup vengono crittografati automaticamente usando le chiavi gestite dalla piattaforma Azure. È possibile scegliere di crittografare i backup usando la chiave gestita dal cliente. In questo caso, verificare che la chiave gestita dal cliente nell'insieme di credenziali delle chiavi sia presente anche nell'ambito di backup. 
+Per i backup locali con backup di Azure, la crittografia inattiva viene fornita usando la passphrase fornita. Per i normali backup dei servizi di Azure, i dati di backup vengono crittografati automaticamente usando le chiavi gestite dalla piattaforma Azure. È possibile scegliere di crittografare i backup usando la chiave gestita dal cliente. In questo caso, verificare che la chiave gestita dal cliente nell'insieme di credenziali delle chiavi sia presente anche nell'ambito di backup.
 
 Usare il controllo degli accessi in base al ruolo di Azure in backup di Azure, Azure Key Vault o altre risorse per proteggere i backup e le chiavi gestite dal cliente. Inoltre, è possibile abilitare le funzionalità di sicurezza avanzate per richiedere l'autenticazione a più fattori prima che i backup possano essere modificati o eliminati.
 
@@ -104,7 +106,7 @@ Eseguire periodicamente il ripristino dei dati del backup. Assicurarsi che sia p
 |--|--|--|--|
 | BR-4 | 10.4 | CP-9 |
 
-Assicurarsi di disporre di misure per prevenire e ripristinare la perdita di chiavi. Abilitare l'eliminazione temporanea e la protezione dalla rimozione definitiva in Azure Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.  
+Assicurarsi di disporre di misure per prevenire e ripristinare la perdita di chiavi. Abilitare l'eliminazione temporanea e la protezione dalla rimozione definitiva in Azure Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
 
 - [Come abilitare l'eliminazione temporanea e la protezione dalla rimozione definitiva in Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 

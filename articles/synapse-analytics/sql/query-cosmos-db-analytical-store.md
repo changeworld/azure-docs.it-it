@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4337d8935c10ce17ad5d3747468d55b2fe6daa21
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a574cacbabf1c0d1730430153a3c0afcad6582c6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677524"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694360"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Eseguire query sui dati di Azure Cosmos DB con un pool SQL senza server nel collegamento sinapsi di Azure
 
@@ -22,10 +22,7 @@ Un pool SQL senza server consente di analizzare i dati nei contenitori Azure Cos
 
 Per eseguire query Azure Cosmos DB, la superficie di attacco di [selezione](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) completa è supportata tramite la funzione [OPENROWSET](develop-openrowset.md) , che include la maggior parte degli [operatori e delle funzioni SQL](overview-features.md). È anche possibile archiviare i risultati della query che legge i dati da Azure Cosmos DB insieme ai dati nell'archivio BLOB di Azure o Azure Data Lake Storage usando [Create external table As Select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). Attualmente non è possibile archiviare i risultati di query del pool SQL senza server per Azure Cosmos DB usando CETAS.
 
-Questo articolo illustra come scrivere una query con un pool SQL senza server che eseguirà query sui dati da contenitori di Azure Cosmos DB abilitati con il collegamento sinapsi di Azure. È quindi possibile ottenere altre informazioni sulla creazione di viste del pool SQL senza server su Azure Cosmos DB contenitori e sulla connessione ai modelli di Power BI in [questa esercitazione](./tutorial-data-analyst.md).
-
-> [!IMPORTANT]
-> Questa esercitazione usa un contenitore con uno [schema Azure Cosmos DB ben definito](../../cosmos-db/analytical-store-introduction.md#schema-representation).  Non fare affidamento sullo schema del set di risultati della `OPENROWSET` funzione senza la `WITH` clausola che legge i dati da un contenitore con uno schema di fedeltà completa perché l'esperienza di query potrebbe essere allineata con e modificare in base allo schema ben definito. È possibile inviare commenti e suggerimenti nel [Forum di commenti e suggerimenti su Azure sinapsi Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics). È anche possibile contattare il [team del prodotto di collegamento di Azure sinapsi](mailto:cosmosdbsynapselink@microsoft.com) per fornire commenti e suggerimenti.
+Questo articolo illustra come scrivere una query con un pool SQL senza server che eseguirà query sui dati da contenitori di Azure Cosmos DB abilitati con il collegamento sinapsi di Azure. È quindi possibile ottenere altre informazioni sulla creazione di viste del pool SQL senza server su Azure Cosmos DB contenitori e sulla connessione ai modelli di Power BI in [questa esercitazione](./tutorial-data-analyst.md). Questa esercitazione usa un contenitore con uno [schema Azure Cosmos DB ben definito](../../cosmos-db/analytical-store-introduction.md#schema-representation).
 
 ## <a name="overview"></a>Panoramica
 
@@ -377,7 +374,7 @@ Se è necessario eseguire una query Azure Cosmos DB account del tipo di API Mong
 
 ### <a name="query-items-with-full-fidelity-schema"></a>Eseguire query su elementi con schema con fedeltà completa
 
-Quando si esegue una query sullo schema di fedeltà completa, è necessario specificare in modo esplicito il tipo SQL e il tipo di proprietà Azure Cosmos DB previsto nella `WITH` clausola. Non utilizzare `OPENROWSET` senza una `WITH` clausola nei report poiché il formato del set di risultati può essere modificato in base ai commenti e suggerimenti.
+Quando si esegue una query sullo schema di fedeltà completa, è necessario specificare in modo esplicito il tipo SQL e il tipo di proprietà Azure Cosmos DB previsto nella `WITH` clausola.
 
 Nell'esempio seguente si presuppone che `string` sia il tipo corretto per la `geo_id` proprietà ed `int32` è il tipo corretto per la `cases` proprietà:
 
@@ -415,7 +412,6 @@ In questo esempio il numero di case viene archiviato come `int32` `int64` valori
 
 ## <a name="known-issues"></a>Problemi noti
 
-- Non fare affidamento sullo schema `OPENROWSET` fornito dalla funzione senza la `WITH` clausola perché l'esperienza di query potrebbe essere allineata con uno schema ben definito in base ai commenti dei clienti. Per inviare commenti e suggerimenti, contattare il [team del prodotto collegamento di sinapsi di Azure](mailto:cosmosdbsynapselink@microsoft.com).
 - Un pool SQL senza server restituirà un avviso in fase di compilazione se le `OPENROWSET` regole di confronto della colonna non includono la codifica UTF-8. È possibile modificare facilmente le regole di confronto predefinite per tutte le `OPENROWSET` funzioni in esecuzione nel database corrente usando l'istruzione T-SQL `alter database current collate Latin1_General_100_CI_AS_SC_UTF8` .
 
 Nella tabella seguente sono elencati i possibili errori e le azioni per la risoluzione dei problemi.

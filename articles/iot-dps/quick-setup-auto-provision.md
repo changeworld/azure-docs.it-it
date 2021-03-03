@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 644635d1ab7b0a43c8df3e10bbbd02d1ea67a94a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: HT
+ms.openlocfilehash: e1bd521e9798b09f7930b43ab95c7cd7ef9e693d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297233"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737920"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Guida introduttiva: Configurare il servizio Device Provisioning in hub IoT con il portale di Azure
 
@@ -25,8 +25,9 @@ In questa guida di avvio rapido si apprenderà come configurare il servizio Devi
 * Usare il portale di Azure per creare un servizio Device Provisioning in hub IoT e ottenere l'ambito ID
 * Collegare l'hub IoT al servizio Device Provisioning
 
+## <a name="prerequisites"></a>Prerequisiti
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Per iniziare con questo articolo, è necessaria una sottoscrizione di Azure. Se non è già stato fatto, è possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT

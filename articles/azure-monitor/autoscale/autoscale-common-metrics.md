@@ -4,12 +4,12 @@ description: Informazioni su quali metriche vengono comunemente usate per la sca
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: f358efb8f99066dc1d7a564ad36d6ed1290853e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4b763f39d3b88a7884e89dddbc2c483c1bb84d31
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617737"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717775"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Metriche comuni per la scalabilità automatica di Monitoraggio di Azure
 
@@ -33,8 +33,8 @@ Se si verificano entrambe le condizioni precedenti, vedere [Usare PowerShell per
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Metriche host per le VM Windows e Linux basate su Resource Manager
 Le metriche a livello di host seguenti vengono generate per impostazione predefinita per le VM di Azure e VMSS nelle istanze di Windows e Linux. Queste metriche descrivono la VM di Azure, ma vengono raccolte dall'host della VM di Azure anziché tramite l'agente installato nella VM guest. Queste metriche possono essere usate nelle regole di scalabilità automatica.
 
-- [Metriche host per le VM Windows e Linux basate su Resource Manager](../platform/metrics-supported.md#microsoftcomputevirtualmachines)
-- [Metriche host per i set di scalabilità di macchine virtuali Windows e Linux basati su Resource Manager](../platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
+- [Metriche host per le VM Windows e Linux basate su Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Metriche host per i set di scalabilità di macchine virtuali Windows e Linux basati su Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Metriche del sistema operativo guest per macchine virtuali Windows basate su Gestione risorse
 Quando si crea una nuova VM in Azure, la diagnostica viene abilitata con l'uso dell'estensione Diagnostica. L'estensione Diagnostica genera un set di metriche recuperate dall'interno della VM. Questo significa che è possibile gestire la scalabilità automatica con metriche non generate per impostazione predefinita.
@@ -186,4 +186,3 @@ Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impost
 > Per il bus di servizio il concetto di gruppo di risorse non esiste, ma Azure Resource Manager consente di creare un gruppo di risorse predefinito per ogni area. Il gruppo di risorse è in genere nel formato "Default-ServiceBus-[area]". Ad esempio, "Default-ServiceBus-EastUS", "Default-ServiceBus-WestUS", "Default-ServiceBus-AustraliaEast" e così via.
 >
 >
-

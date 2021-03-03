@@ -6,15 +6,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: f98e22ba28dcd05d164f40c301a2e43df66898de
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 60de25231f5fad3e7b1ddec21048d048e31f3416
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627440"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737325"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le regole di raccolta dati in Monitoraggio di Azure
-Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per distribuire e configurare l'[agente di Log Analytics](../platform/log-analytics-agent.md) e l'[estensione di diagnostica](../platform/diagnostics-extension-overview.md) per le macchine virtuali in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.
+Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per distribuire e configurare l'[agente di Log Analytics](./log-analytics-agent.md) e l'[estensione di diagnostica](./diagnostics-extension-overview.md) per le macchine virtuali in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -144,6 +144,6 @@ L'esempio seguente crea un'associazione tra un server abilitato per Azure Arc e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Passare ad altri esempi per Monitoraggio di Azure](../samples/resource-manager-samples.md).
-* [Altre informazioni sull'agente di Log Analytics](../platform/log-analytics-agent.md).
-* [Altre informazioni sull'estensione di diagnostica](../platform/diagnostics-extension-overview.md).
+* [Passare ad altri esempi per Monitoraggio di Azure](../resource-manager-samples.md).
+* [Altre informazioni sull'agente di Log Analytics](./log-analytics-agent.md).
+* [Altre informazioni sull'estensione di diagnostica](./diagnostics-extension-overview.md).

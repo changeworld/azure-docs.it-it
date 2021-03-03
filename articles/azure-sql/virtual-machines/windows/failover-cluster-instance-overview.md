@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
-ms.translationtype: HT
+ms.openlocfilehash: a7735de9763f3924cd6baae6af1258f6448c874e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358147"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690924"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Istanze del cluster di failover con SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,7 +47,7 @@ Nei tradizionali ambienti cluster locali, un cluster di failover Windows usa una
 
 SQL Server in macchine virtuali di Azure offre varie opzioni come soluzione di archiviazione condivisa per una distribuzione di istanze del cluster di failover di SQL Server: 
 
-||[Dischi condivisi di Azure](../../../virtual-machines/disks-shared.md)|[Condivisioni file Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Spazi di archiviazione diretta (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Dischi condivisi di Azure](../../../virtual-machines/disks-shared.md)|[Condivisioni file Premium](../../../storage/files/storage-how-to-create-file-share.md) |[Spazi di archiviazione diretta (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Versione minima del sistema operativo**| Tutti |Windows Server 2012|Windows Server 2016|
 |**Versione minima di SQL Server**|Tutti|SQL Server 2012|SQL Server 2016|
@@ -107,7 +107,7 @@ Per iniziare, vedere [Istanza del cluster di failover di SQL Server con Spazi di
 
 ### <a name="premium-file-share"></a>Condivisione file Premium
 
-Le [condivisioni file Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) sono una funzionalità di [File di Azure](../../../storage/files/index.yml). Sono supportate da SSD e offrono una latenza costantemente bassa. Sono pienamente supportate per l'uso con istanze del cluster di failover per SQL Server 2012 o versione successiva in Windows Server 2012 o versione successiva. Le condivisioni file Premium offrono una maggiore flessibilità, perché è possibile ridimensionarle senza tempi di inattività.
+Le [condivisioni file Premium](../../../storage/files/storage-how-to-create-file-share.md) sono una funzionalità di [File di Azure](../../../storage/files/index.yml). Sono supportate da SSD e offrono una latenza costantemente bassa. Sono pienamente supportate per l'uso con istanze del cluster di failover per SQL Server 2012 o versione successiva in Windows Server 2012 o versione successiva. Le condivisioni file Premium offrono una maggiore flessibilità, perché è possibile ridimensionarle senza tempi di inattività.
 
 **Sistemi operativi supportati**: Windows Server 2012 e versioni successive   
 **Versione di SQL supportata**: SQL Server 2012 e versioni successive   

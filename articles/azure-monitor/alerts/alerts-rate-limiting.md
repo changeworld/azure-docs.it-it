@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.subservice: alerts
-ms.openlocfilehash: fc49e923676b63e301b2d63b4274ae11b3043906
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 717f4087dabbb3286607498ab7f04bcbcce663dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614576"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737274"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitazione della frequenza per chiamata vocale, SMS, messaggi di posta elettronica, notifiche push dell'app Azure e post Webhook
 La limitazione della frequenza è una sospensione delle notifiche che si verifica quando un numero eccessivo di notifiche viene inviato a un particolare numero telefonico, indirizzo di posta elettronica o dispositivo. La limitazione assicura che gli avvisi siano gestibili ed eseguibili.
@@ -31,5 +31,5 @@ I limiti della soglia di frequenza sono:
 
 ## <a name="next-steps"></a>Passaggi successivi ##
 * Altre informazioni sul [Comportamento degli avvisi SMS](alerts-sms-behavior.md).
-* Leggere una [panoramica degli avvisi del log attività](../platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.  
+* Leggere una [panoramica degli avvisi del log attività](./alerts-overview.md) e informazioni su come ricevere gli avvisi.  
 * Informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md).

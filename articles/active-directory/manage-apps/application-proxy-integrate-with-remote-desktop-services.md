@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: b6879d4869604af5232088063a6153a01208e7d0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5e5d5370057449d1877c31b249d3fe47fd60bf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259339"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687669"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
@@ -57,7 +57,7 @@ Dopo avere configurato Servizi Desktop remoto e il proxy applicazione di Azure A
 ### <a name="publish-the-rd-host-endpoint"></a>Pubblicare l'endpoint host di Desktop remoto
 
 1. [Pubblicare un nuovo proxy applicazione](application-proxy-add-on-premises-application.md) con i valori seguenti:
-   - URL interno: `https://\<rdhost\>.com/`, dove `\<rdhost\>` è la radice comune condivisa da Web Desktop Remoto e Gateway Desktop remoto.
+   - URL interno: `https://<rdhost>.com/`, dove `<rdhost>` è la radice comune condivisa da Web Desktop Remoto e Gateway Desktop remoto.
    - URL esterno: questo campo viene popolato automaticamente in base al nome dell'applicazione, ma è possibile modificarlo. Gli utenti passeranno a questo URL quando accedono a Servizi Desktop remoto.
    - Metodo di autenticazione preliminare: Azure Active Directory
    - Tradurre le intestazioni degli URL: No
@@ -69,7 +69,7 @@ Dopo avere configurato Servizi Desktop remoto e il proxy applicazione di Azure A
 
 4. Selezionare **Azure Active Directory**, quindi registrazioni per l' **app**. Scegli l'app dall'elenco.
 5. In **Gestisci** selezionare **personalizzazione**.
-6. Aggiornare il campo **URL della Home page** in modo che punti all'endpoint Web Desktop remoto (ad esempio `https://\<rdhost\>.com/RDWeb` ).
+6. Aggiornare il campo **URL della Home page** in modo che punti all'endpoint Web Desktop remoto (ad esempio `https://<rdhost>.com/RDWeb` ).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigere il traffico di Servizi Desktop remoto verso il proxy applicazione
 

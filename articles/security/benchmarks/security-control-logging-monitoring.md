@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cfa2548abb28fa6f84178a1fb5716d0c03b163f1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d30d8cdfe6ee93f54dfd560987ac8b6a78517fd8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570731"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718693"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Controllo di sicurezza: registrazione e monitoraggio
 
@@ -82,7 +82,7 @@ In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavo
 
 - [Modificare il periodo di conservazione dei dati in Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 ## <a name="26-monitor-and-review-logs"></a>2.6: monitorare ed esaminare i log
 

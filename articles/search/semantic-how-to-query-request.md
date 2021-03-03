@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 0af868f62f9bc62ee6b4b2a10d16f8eed632b6d3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7551ef88c2251b64cf6f6db1de4fed22db2c69e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679839"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693646"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Creare una query semantica in ricerca cognitiva
 
@@ -82,7 +82,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ### <a name="formulate-the-request"></a>Formulare la richiesta
 
-1. Impostare "queryType" su "Semantic" e "queryLanguage" su "en-US. Entrambi i parametri sono obbligatori.
+1. Impostato **`"queryType"`** su "semantico" e **`"queryLanguage"`** su "en-US. Entrambi i parametri sono obbligatori.
 
    QueryLanguage deve essere coerente con tutti gli [analizzatori di linguaggio](index-add-language-analyzers.md) assegnati alle definizioni di campo nello schema dell'indice. Se queryLanguage è "en-US", qualsiasi analizzatore di linguaggio deve essere anche una variante inglese ("en. Microsoft" o "en. Lucene"). Gli analizzatori indipendenti dal linguaggio, ad esempio parole chiave o semplici, non presentano conflitti con i valori queryLanguage.
 
@@ -90,7 +90,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    Mentre il contenuto di un indice di ricerca può essere composto in più lingue, l'input della query è probabilmente in uno. Il motore di ricerca non verifica la compatibilità di queryLanguage, Language Analyzer e la lingua in cui è composto il contenuto. Assicurarsi quindi di definire l'ambito delle query in modo da evitare di produrre risultati non corretti.
 
-1. Facoltativo ma consigliato, impostare "searchFields".
+<a name="searchfields"></a>
+
+1. Set **`"searchFields"`** (facoltativo, ma consigliato).
 
    In una query semantica, l'ordine dei campi in "searchFields" riflette la priorità o l'importanza relativa del campo nelle classificazioni semantiche. Verranno utilizzati solo i campi stringa di primo livello (standalone o in una raccolta). Poiché searchFields ha altri comportamenti nelle query Lucene semplici e complete (in cui non esiste un ordine di priorità implicito), i campi e i sottocampi non di stringa non genereranno un errore, ma non verranno usati nella classificazione semantica.
 
@@ -104,9 +106,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    + Se non sono specificati campi, tutti i campi ricercabili verranno considerati per la classificazione semantica dei documenti. Tuttavia, questa operazione non è consigliata perché potrebbe non produrre i risultati più ottimali dall'indice di ricerca.
 
-1. Rimuovere le clausole "orderBy", se presenti in una richiesta esistente. Il Punteggio semantico viene usato per ordinare i risultati. Se si include la logica di ordinamento esplicita, viene restituito un errore HTTP 400.
+1. Rimuovere le **`"orderBy"`** clausole, se presenti in una richiesta esistente. Il Punteggio semantico viene usato per ordinare i risultati. Se si include la logica di ordinamento esplicita, viene restituito un errore HTTP 400.
 
-1. Facoltativamente, aggiungere "Answers" impostato su "extractal" e specificare il numero di risposte se si desidera maggiore di 1.
+1. Facoltativamente, aggiungere **`"answers"`** set a "extractal" e specificare il numero di risposte se si desidera più di 1.
 
 1. Facoltativamente, personalizzare lo stile evidenziato applicato alle didascalie. Nelle didascalie viene applicata la formattazione dell'evidenziazione sui passaggi chiave del documento che riepilogano la risposta. Il valore predefinito è `<em>`. Se si desidera specificare il tipo di formattazione, ad esempio sfondo giallo, è possibile impostare highlightPreTag e highlightPostTag.
 

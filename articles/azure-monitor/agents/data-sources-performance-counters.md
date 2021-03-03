@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: f885945dfb6910df919038106487db912d87caee
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c06123b33c7f467e12742cf6180d821e647b5115
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616336"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711553"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Raccogli origini dati per le prestazioni di Windows e Linux con Log Analytics Agent
 I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Monitoraggio di Azure è in grado di raccogliere i contatori delle prestazioni dagli agenti Log Analytics a intervalli frequenti per l'analisi di quasi in tempo reale (NRT) oltre ad aggregare i dati sulle prestazioni per l'analisi a lungo termine e la creazione di report
 
 > [!IMPORTANT]
-> Questo articolo illustra la raccolta dei dati sulle prestazioni con l' [agente di log Analytics](../platform/log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](../agents/agents-overview.md) .
+> Questo articolo illustra la raccolta dei dati sulle prestazioni con l' [agente di log Analytics](./log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](../agents/agents-overview.md) .
 
 ![Contatori delle prestazioni](media/data-sources-performance-counters/overview.png)
 
@@ -224,5 +224,5 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Raccogliere i contatori delle prestazioni da applicazioni Linux](data-sources-linux-applications.md) come il server HTTP Apache e MySQL.
-* Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
-* Esportare i dati raccolti in [Power BI](../platform/powerbi.md) per altre opzioni di visualizzazione e analisi.
+* Altre informazioni sulle [query di log](../logs/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
+* Esportare i dati raccolti in [Power BI](../visualize/powerbi.md) per altre opzioni di visualizzazione e analisi.

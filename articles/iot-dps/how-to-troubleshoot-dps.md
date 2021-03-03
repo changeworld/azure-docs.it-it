@@ -6,14 +6,14 @@ manager: nberdy
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 02/14/2021
 ms.author: xujing
-ms.openlocfilehash: 2d27c4eb1ea4586e0f2eac48930d86217052b2d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ba81be54592e591f734b05235bb3ce183a07a11c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585458"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709887"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Risoluzione dei problemi con il servizio Device provisioning in hub Azure
 
@@ -44,7 +44,7 @@ La procedura seguente descrive come visualizzare e configurare l'avviso sulla me
 
 7. Selezionare **Aggiungi condizione**, quindi selezionare la metrica e la soglia desiderate seguendo le istruzioni.
 
-Per altre informazioni, vedere [che cosa sono gli avvisi classici in Microsoft Azure?](../azure-monitor/alerts/alerts-overview.md)
+Per altre informazioni, vedere [avvisi in monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md).
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Uso di log Analytics per visualizzare e risolvere gli errori
 

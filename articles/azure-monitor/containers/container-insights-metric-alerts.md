@@ -1,22 +1,22 @@
 ---
-title: Avvisi relativi alle metriche da monitoraggio di Azure per i contenitori
-description: Questo articolo esamina gli avvisi della metrica consigliati disponibili da monitoraggio di Azure per i contenitori in anteprima pubblica.
+title: Avvisi relativi alle metriche da informazioni dettagliate sul contenitore
+description: Questo articolo esamina gli avvisi di metrica consigliati disponibili in anteprima pubblica di container Insights.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 59c8d7b58809c981130d2ce92406fb5b1ce146ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f19959c76d31422a0bdf898a6fa41e6b168e2e61
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618797"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728893"
 ---
-# <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Avvisi metrica consigliati (anteprima) da monitoraggio di Azure per i contenitori
+# <a name="recommended-metric-alerts-preview-from-container-insights"></a>Avvisi sulle metriche consigliati (anteprima) da contenitore Insights
 
-Per generare un avviso sui problemi relativi alle risorse di sistema quando si verificano picchi di domanda e in esecuzione near Capacity, con monitoraggio di Azure per i contenitori è necessario creare un avviso di log in base ai dati sulle prestazioni archiviati nei log di monitoraggio di Azure Il monitoraggio di Azure per i contenitori include ora regole di avviso delle metriche preconfigurate per il cluster Kubernetes abilitato per il servizio contenitore di Azure e il cluster di Azure Arc abilitato, disponibile in anteprima pubblica
+Per generare un avviso sui problemi relativi alle risorse di sistema quando si verificano picchi di domanda e l'esecuzione di near Capacity, con informazioni dettagliate sul contenitore è possibile creare un avviso di log in base ai dati sulle prestazioni archiviati nei log di monitoraggio di Azure. Informazioni dettagliate sul contenitore include ora le regole di avviso delle metriche preconfigurate per il cluster Kubernetes abilitato per il servizio contenitore di Azure e il cluster di Azure Arc abilitato, disponibile in anteprima pubblica.
 
 Questo articolo esamina l'esperienza e fornisce indicazioni sulla configurazione e la gestione di queste regole di avviso.
 
-Se non si ha familiarità con gli avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure prima di](../platform/alerts-overview.md) iniziare. Per altre informazioni sugli avvisi delle metriche, vedere la pagina relativa agli [avvisi delle metriche in monitoraggio di Azure](../alerts/alerts-metric-overview.md).
+Se non si ha familiarità con gli avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure prima di](../alerts/alerts-overview.md) iniziare. Per altre informazioni sugli avvisi delle metriche, vedere la pagina relativa agli [avvisi delle metriche in monitoraggio di Azure](../alerts/alerts-metric-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,13 +31,13 @@ Prima di iniziare, verificare quanto segue:
     * Eseguire il comando: `kubectl describe <omsagent-pod-name> --namespace=kube-system` . Nello stato restituito prendere nota del valore in **immagine** per omsagent nella sezione *contenitori* dell'output. 
     * Nella scheda **nodi** selezionare il nodo del cluster e nel riquadro **Proprietà** a destra, annotare il valore in **tag immagine agente**.
 
-    Il valore visualizzato per AKS deve essere **ciprod05262020** o versione successiva. Il valore visualizzato per il cluster Kubernetes abilitato per Azure ARC deve essere **ciprod09252020** o versione successiva. Se il cluster ha una versione precedente, vedere [How to upgrade the Azure Monitor for container Agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) per i passaggi da seguire per ottenere la versione più recente.
+    Il valore visualizzato per AKS deve essere **ciprod05262020** o versione successiva. Il valore visualizzato per il cluster Kubernetes abilitato per Azure ARC deve essere **ciprod09252020** o versione successiva. Se il cluster ha una versione precedente, vedere [How to upgrade the container Insights Agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) per i passaggi da seguire per ottenere la versione più recente.
 
     Per ulteriori informazioni relative alla versione dell'agente, vedere [cronologia delle versioni degli agenti](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Per verificare la raccolta delle metriche, è possibile usare Esplora metriche di monitoraggio di Azure e verificare dallo **spazio dei nomi della metrica** che sono elencate le **informazioni dettagliate** . In tal caso, è possibile iniziare a configurare gli avvisi. Se non viene visualizzata alcuna metrica, l'entità servizio cluster o l'identità del servizio gestito non dispone delle autorizzazioni necessarie. Per verificare che il nome SPN o l'identità del servizio gestito sia un membro del ruolo **server di pubblicazione metrica di monitoraggio** , seguire i passaggi descritti nella sezione [eseguire l'aggiornamento per cluster usando l'interfaccia](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) della riga di comando di Azure per confermare e impostare l'assegnazione di ruolo
 
 ## <a name="alert-rules-overview"></a>Cenni preliminari sulle regole di avviso
 
-Per ricevere un avviso sulla questione, monitoraggio di Azure per i contenitori include gli avvisi delle metriche seguenti per i cluster Kubernetes abilitati per AKS e Azure Arc:
+Per ricevere un avviso su ciò che conta, il contenitore Insights include gli avvisi delle metriche seguenti per i cluster Kubernetes abilitati per AKS e Azure Arc:
 
 |Nome| Descrizione |Soglia predefinita |
 |----|-------------|------------------|
@@ -108,15 +108,15 @@ Seguire questa procedura per abilitare gli avvisi delle metriche in monitoraggio
 
 ### <a name="from-the-azure-portal"></a>Dal portale di Azure
 
-Questa sezione illustra l'abilitazione di monitoraggio di Azure per l'avviso della metrica dei contenitori (anteprima) dal portale di Azure.
+Questa sezione illustra l'abilitazione dell'avviso della metrica di container Insights (anteprima) dal portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. L'accesso alla funzionalità di avviso delle metriche di monitoraggio di Azure per i contenitori (anteprima) è disponibile direttamente da un cluster AKS selezionando **Insights** nel riquadro a sinistra nel portale di Azure.
+2. L'accesso alla funzionalità di avviso delle metriche di container Insights (anteprima) è disponibile direttamente da un cluster AKS selezionando **Insights** nel riquadro a sinistra nel portale di Azure.
 
 3. Nella barra dei comandi selezionare **avvisi consigliati**.
 
-    ![Opzione avvisi consigliati in monitoraggio di Azure per i contenitori](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
+    ![Opzione avvisi consigliati in informazioni dettagliate sul contenitore](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
 4. Il riquadro delle proprietà **avvisi consigliati** viene visualizzato automaticamente sul lato destro della pagina. Per impostazione predefinita, tutte le regole di avviso nell'elenco sono disabilitate. Dopo aver selezionato **Abilita**, la regola di avviso viene creata e il nome della regola viene aggiornato per includere un collegamento alla risorsa avviso.
 
@@ -198,7 +198,7 @@ I passaggi di base sono i seguenti:
 
 ## <a name="edit-alert-rules"></a>Modificare le regole di avviso
 
-È possibile visualizzare e gestire le regole di avviso di monitoraggio di Azure per contenitori per modificare la soglia o configurare un [gruppo di azioni](../alerts/action-groups.md) per il cluster AKS. Sebbene sia possibile eseguire queste azioni dal portale di Azure e dall'interfaccia della riga di comando di Azure, è possibile eseguire queste azioni anche direttamente dal cluster AKS in monitoraggio di Azure per i contenitori.
+È possibile visualizzare e gestire le regole di avviso di container Insights, per modificare la soglia o configurare un [gruppo di azioni](../alerts/action-groups.md) per il cluster AKS. Anche se è possibile eseguire queste azioni dal portale di Azure e dall'interfaccia della riga di comando di Azure, è possibile farlo direttamente dal cluster AKS in informazioni dettagliate sul contenitore.
 
 1. Nella barra dei comandi selezionare **avvisi consigliati**.
 

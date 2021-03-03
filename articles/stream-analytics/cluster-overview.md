@@ -1,5 +1,5 @@
 ---
-title: Panoramica dei cluster di Analisi di flusso di Azure (anteprima)
+title: Panoramica dei cluster di analisi di flusso di Azure
 description: Informazioni sull'offerta dedicata di cluster di Analisi di flusso a tenant singolo.
 author: sidramadoss
 ms.author: sidram
@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 75a95fa4ad36b69ca920f527060644dcc5264ce8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: e5157a02f97370b20db85bf5e3e8aae98a2d8668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019534"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709292"
 ---
-# <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Panoramica del cluster di Analisi di flusso di Azure (anteprima)
+# <a name="overview-of-azure-stream-analytics-cluster"></a>Panoramica del cluster di analisi di flusso di Azure
 
 Il cluster di Analisi di flusso di Azure è una distribuzione a tenant singolo per casi d'uso di streaming complessi e impegnativi. Su scala completa, i cluster di Analisi di flusso possono elaborare più di 200 MB di dati al secondo in tempo reale. I processi di Analisi di flusso in esecuzione in cluster dedicati possono sfruttare tutte le funzionalità dell'offerta standard e includono il supporto per la connettività con collegamento privato agli input e agli output.
 

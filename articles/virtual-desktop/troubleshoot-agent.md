@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: b71c5426b6fba6f232b5a7aa42347f6b25d46299
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b0fc5bd16aaa455ce3f6d634ce35e9a389a6f13b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094960"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732582"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Risolvere i problemi comuni relativi all'agente desktop virtuale di Windows
 
@@ -21,6 +21,14 @@ L'agente desktop virtuale di Windows può causare problemi di connessione a caus
    - Problemi di installazione durante l'installazione dell'agente, che interrompe la connessione all'host sessione.
 
 In questo articolo vengono illustrate le soluzioni a questi scenari comuni e viene illustrato come risolvere i problemi di connessione.
+
+>[!NOTE]
+>Per la risoluzione dei problemi relativi alla connettività di sessione e all'agente desktop virtuale di Windows, è consigliabile esaminare i registri eventi in **Visualizzatore eventi**  >  **applicazione registri di Windows**  >  . Esaminare gli eventi che hanno una delle seguenti origini per identificare il problema:
+>
+>- WVD-Agent
+>- WVD-Agent-Updater
+>- RDAgentBootLoader
+>- MsiInstaller
 
 ## <a name="error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running"></a>Errore: l'esecuzione di RDAgentBootLoader e/o Desktop remoto Loader Agent è stata arrestata
 
@@ -63,9 +71,9 @@ Per risolvere questo problema, creare un token di registrazione valido:
    > [!div class="mx-imgBorder"]
    > ![Schermata di registrazione 1](media/isregistered-registry.png)
 
-## <a name="error-agent-cannot-connect-to-broker-with-invalid_form-or-not_found-url"></a>Errore: l'agente non è in grado di connettersi al broker con INVALID_FORM o NOT_FOUND. URL
+## <a name="error-agent-cannot-connect-to-broker-with-invalid_form"></a>Errore: l'agente non è in grado di connettersi al broker con INVALID_FORM
 
-Passare a **Visualizzatore eventi**  >  **applicazione registri di Windows**  >  . Se viene visualizzato un evento con ID 3277, **INVALID_FORM** o **NOT_FOUND. URL** nella descrizione. si è verificato un errore durante la comunicazione tra l'agente e il broker. L'agente non è in grado di connettersi al broker e non è in grado di raggiungere un particolare URL. Questo problema può essere dovuto alle impostazioni del firewall o DNS.
+Passare a **Visualizzatore eventi**  >  **applicazione registri di Windows**  >  . Se viene visualizzato un evento con ID 3277 che indica "INVALID_FORM" nella descrizione, si è verificato un errore durante la comunicazione tra l'agente e il broker. L'agente non è in grado di connettersi al broker o raggiungere un particolare URL a causa di determinate impostazioni del firewall o DNS.
 
 Per risolvere questo problema, verificare che sia possibile raggiungere BrokerURI e BrokerURIGlobal:
 1. Aprire l'editor del registro di sistema. 
@@ -100,13 +108,43 @@ Per risolvere questo problema, verificare che sia possibile raggiungere BrokerUR
 8. Se la rete sta bloccando questi URL, sarà necessario sbloccare gli URL richiesti. Per ulteriori informazioni, vedere [elenco degli URL richiesti](safe-url-list.md).
 9. Se il problema persiste, assicurarsi che non siano presenti criteri di gruppo con crittografie che impediscano la connessione dell'agente alla connessione broker. Desktop virtuale Windows usa le stesse crittografie TLS 1,2 come [sportello anteriore di Azure](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). Per ulteriori informazioni, vedere [sicurezza della connessione](network-connectivity.md#connection-security).
 
-## <a name="error-3703-or-3019"></a>Errore: 3703 o 3019
+## <a name="error-3703"></a>Errore: 3703
 
-Passare a **Visualizzatore eventi**  >  **applicazione registri di Windows**  >  . Se viene visualizzato un evento con ID 3703, che indica l' **URL del Gateway Desktop remoto: non è accessibile** o qualsiasi evento con ID 3019 nella descrizione, l'agente non è in grado di raggiungere gli URL del gateway o gli URL di trasporto del socket Web. Per connettersi all'host sessione e consentire al traffico di rete a questi endpoint di ignorare le restrizioni, è necessario sbloccare gli URL dall'elenco di [URL richiesto](safe-url-list.md). Assicurarsi inoltre che le impostazioni del firewall o del proxy non blocchino questi URL. Lo sblocco di questi URL è necessario per usare desktop virtuale di Windows.
+Passare a **Visualizzatore eventi**  >  **applicazione registri di Windows**  >  . Se viene visualizzato un evento con ID 3703 che indica che l'URL del Gateway Desktop remoto: non è accessibile nella descrizione, l'agente non è in grado di raggiungere gli URL del gateway. Per connettersi all'host sessione e consentire al traffico di rete a questi endpoint di ignorare le restrizioni, è necessario sbloccare gli URL dall'elenco di [URL richiesto](safe-url-list.md). Assicurarsi inoltre che le impostazioni del firewall o del proxy non blocchino questi URL. Lo sblocco di questi URL è necessario per usare desktop virtuale di Windows.
 
 Per risolvere questo problema, verificare che le impostazioni del firewall e/o DNS non blocchino questi URL:
 1. [Usare il firewall di Azure per proteggere le distribuzioni di desktop virtuali Windows.](../firewall/protect-windows-virtual-desktop.md)
 2. Configurare le [impostazioni DNS del firewall di Azure](../firewall/dns-settings.md).
+
+## <a name="error-3019"></a>Errore: 3019
+
+Passare a **Visualizzatore eventi**  >  **applicazione registri di Windows**  >  . Se viene visualizzato un evento con ID 3019, significa che l'agente non è in grado di raggiungere gli URL del trasporto WebSocket. Per eseguire correttamente la connessione all'host sessione e consentire al traffico di rete di ignorare tali restrizioni, è necessario sbloccare gli URL elencati nell' [elenco URL richiesto](safe-url-list.md). Collaborare con il team di rete di Azure per assicurarsi che le impostazioni del firewall, del proxy e del DNS non blocchino questi URL. È inoltre possibile controllare i log di traccia di rete per identificare la posizione in cui viene bloccato il servizio desktop virtuale di Windows. Se si apre una richiesta di supporto per questo particolare problema, assicurarsi di alleghi i log di traccia di rete alla richiesta.
+
+## <a name="error-installationhealthcheckfailedexception"></a>Errore: InstallationHealthCheckFailedException
+
+Passare a **Visualizzatore eventi**  >  **applicazione registri di Windows**  >  . Se viene visualizzato un evento con ID 3277 che indica "InstallationHealthCheckFailedException" nella descrizione, significa che il listener dello stack non funziona perché il server terminal ha attivato o disattivato la chiave del registro di sistema per il listener dello stack.
+
+Per risolvere il problema:
+1. Controllare se [il listener dello stack è funzionante](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+2. Se il listener dello stack non funziona, [disinstallare e reinstallare manualmente il componente dello stack](#error-vms-are-stuck-in-unavailable-or-upgrading-state).
+
+## <a name="error-endpoint_not_found"></a>Errore: ENDPOINT_NOT_FOUND
+
+Passare a **Visualizzatore eventi**  >  **applicazione registri di Windows**  >  . Se viene visualizzato un evento con ID 3277 che indica "ENDPOINT_NOT_FOUND" nella descrizione che indica che il broker non è riuscito a trovare un endpoint con cui stabilire una connessione. Questo problema di connessione può verificarsi per uno dei motivi seguenti:
+
+- Non sono presenti macchine virtuali nel pool host
+- Le macchine virtuali nel pool host non sono attive
+- Tutte le macchine virtuali nel pool host hanno superato il limite massimo di sessioni
+- Nessuna delle macchine virtuali nel pool host in cui è in esecuzione il servizio Agent
+
+Per risolvere il problema:
+
+1. Assicurarsi che la macchina virtuale sia accesa e non sia stata rimossa dal pool di host.
+2. Assicurarsi che la macchina virtuale non abbia superato il limite massimo di sessioni.
+3. Verificare che il [servizio Agent sia in esecuzione](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) e che il [listener dello stack funzioni](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+4. Verificare che [l'agente sia in grado di connettersi al broker](#error-agent-cannot-connect-to-broker-with-invalid_form).
+5. Assicurarsi che [la macchina virtuale disponga di un token di registrazione valido](#error-invalid_registration_token).
+6. Verificare che [il token di registrazione della macchina virtuale non sia scaduto](faq.md#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
 
 ## <a name="error-installmsiexception"></a>Errore: InstallMsiException
 
@@ -176,15 +214,21 @@ Per risolvere il problema:
 8. In **ClusterSettings** trovare **SessionDirectoryListener** e verificare che il valore dei dati sia **RDP-SxS...**.
 9. Se **SessionDirectoryListener** non è impostato su **RDP-SxS...**, è necessario seguire la procedura descritta nella sezione [disinstallare l'agente e il caricatore di avvio](#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) per disinstallare prima i componenti agente, caricatore di avvio e stack, quindi [reinstallare l'agente e il caricatore di avvio](#step-4-reinstall-the-agent-and-boot-loader). Verrà reinstallato lo stack affiancato.
 
-## <a name="error-users-keep-getting-disconnected-from-session-hosts"></a>Errore: gli utenti continuano a essere disconnessi dagli host della sessione
+## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>Errore: problema di heartbeat per cui gli utenti continuano a rimanere disconnessi dagli host della sessione
 
-Passare a **Visualizzatore eventi**  >  **applicazione registri di Windows**  >  . Se viene visualizzato un evento con ID 0, ovvero **CheckSessionHostDomainIsReachableAsync** nella descrizione e/o gli utenti continuano a essere disconnessi dagli host della sessione, il server non preleva un heartbeat dal servizio desktop virtuale di Windows.
+Se il server non preleva un heartbeat dal servizio desktop virtuale di Windows, sarà necessario modificare la soglia di heartbeat. Seguire le istruzioni riportate in questa sezione se si applicano uno o più dei seguenti scenari:
 
-Per risolvere questo problema, modificare la soglia di heartbeat:
+- Si sta ricevendo un errore **CheckSessionHostDomainIsReachableAsync**
+- Si sta ricevendo un errore **ConnectionBrokenMissedHeartbeatThresholdExceeded**
+- Si riceve un errore **ConnectionEstablished: UnexpectedNetworkDisconnect**
+- I client utente continuano a essere disconnessi
+- Gli utenti continuano a essere disconnessi dagli host della sessione
+
+Per modificare la soglia di heartbeat:
 1. Aprire il prompt dei comandi come amministratore.
 2. Immettere il comando **qwinsta** ed eseguirlo.
 3. Dovrebbero essere visualizzati due componenti dello stack: **RDP-TCP** e **RDP-SxS**. 
-   - A seconda della versione del sistema operativo in uso, **RDP-SxS** può essere seguito dal numero di Build. In caso contrario, assicurarsi di scrivere questo numero per un momento successivo.
+   - A seconda della versione del sistema operativo in uso, **RDP-SxS** può essere seguito dal numero di Build. In caso contrario, assicurarsi di annotare questo numero per un momento successivo.
 4. Aprire l'editor del Registro di sistema.
 5. Passare a **HKEY_LOCAL_MACHINE**  >  **System**  >  **CurrentControlSet**  >  **Control**  >  **Terminal Server**  >  **WinStations**.
 6. In **WinStations** è possibile visualizzare diverse cartelle per diverse versioni dello stack. Selezionare la cartella corrispondente al numero di versione del passaggio 3.
@@ -194,6 +238,9 @@ Per risolvere questo problema, modificare la soglia di heartbeat:
    - HeartbeatDropCount: 60 
 8. Riavviare la VM.
 
+>[!NOTE]
+>Se la modifica della soglia di heartbeat non risolve il problema, è possibile che si verifichi un problema di rete sottostante per cui è necessario contattare il team di rete di Azure.
+
 ## <a name="error-downloadmsiexception"></a>Errore: DownloadMsiException
 
 Passare a **Visualizzatore eventi**  >  **applicazione registri di Windows**  >  . Se viene visualizzato un evento con ID 3277, che indica **DownloadMsiException** nella descrizione, lo spazio sul disco non è sufficiente per il RDAgent.
@@ -201,6 +248,11 @@ Passare a **Visualizzatore eventi**  >  **applicazione registri di Windows**  > 
 Per risolvere questo problema, creare spazio sul disco:
    - Eliminazione di file che non sono più presenti nell'utente
    - Aumento della capacità di archiviazione della macchina virtuale
+
+## <a name="error-agent-fails-to-update-with-missingmethodexception"></a>Errore: l'agente non è in grado di eseguire l'aggiornamento con MissingMethodException
+
+Passare a **Visualizzatore eventi**  >  **applicazione registri di Windows**  >  . Se viene visualizzato un evento con ID 3389 che indica che "MissingMethodException: metodo non trovato" nella descrizione, significa che l'agente desktop virtuale di Windows non è stato aggiornato correttamente ed è stato ripristinato a una versione precedente. Questo potrebbe essere dovuto al fatto che il numero di versione di .NET Framework attualmente installato nelle VM è inferiore a 4.7.2. Per risolvere questo problema, è necessario aggiornare .NET alla versione 4.7.2 o successiva seguendo le istruzioni di installazione nella [documentazione di .NET Framework](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+
 
 ## <a name="error-vms-are-stuck-in-unavailable-or-upgrading-state"></a>Errore: le macchine virtuali sono bloccate in stato non disponibile o in stato di aggiornamento
 
@@ -210,7 +262,7 @@ Aprire una finestra di PowerShell come amministratore ed eseguire il cmdlet segu
 Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
-Se lo stato elencato per l'host della sessione o gli host nel pool di host è sempre non **disponibile** o in corso di **aggiornamento**, l'installazione dell'agente o dello stack potrebbe non riuscire
+Se lo stato elencato per l'host della sessione o gli host nel pool host è sempre "non disponibile" o "aggiornamento", l'agente o lo stack non è stato installato correttamente.
 
 Per risolvere questo problema, reinstallare lo stack affiancato:
 1. Aprire un prompt dei comandi come amministratore.
@@ -253,7 +305,7 @@ Il nome della macchina virtuale è già stato registrato ed è probabilmente un 
 Per risolvere il problema:
 1. Seguire i passaggi descritti nella sezione [rimuovere il host sessione dal pool di host](#step-2-remove-the-session-host-from-the-host-pool) .
 2. [Creare un'altra macchina virtuale](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Assicurarsi di scegliere un nome univoco per questa macchina virtuale.
-3. Passare alla portale di Azure] ( https://portal.azure.com) e aprire la pagina **Panoramica** per il pool host in cui si trovava la macchina virtuale. 
+3. Passare alla [portale di Azure](https://portal.azure.com) e aprire la pagina **Panoramica** per il pool host in cui si trovava la macchina virtuale. 
 4. Aprire la scheda **host sessione** e verificare che tutti gli host della sessione si trovino nel pool host.
 5. Attendere 5-10 minuti per indicare che lo stato dell'host sessione è **disponibile**.
 
@@ -320,12 +372,12 @@ Quando si rimuove l'host sessione dal pool host, l'host sessione non è più reg
 ### <a name="step-4-reinstall-the-agent-and-boot-loader"></a>Passaggio 4: reinstallare l'agente e il caricatore di avvio
 
 Reinstallando la versione più aggiornata dell'agente e del caricatore di avvio, viene installato automaticamente anche lo stack affiancato e l'agente di monitoraggio di Ginevra. Per reinstallare l'agente e il caricatore di avvio:
-1. Accedere alla macchina virtuale come amministratore e seguire le istruzioni in registrare le [macchine virtuali](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) per scaricare l' **agente desktop virtuale di Windows** e il **bootloader dell'agente desktop virtuale di Windows**.
+1. Accedere alla macchina virtuale come amministratore e usare la versione corretta del programma di installazione dell'agente per la distribuzione a seconda della versione di Windows in esecuzione nella macchina virtuale. Se si dispone di una VM Windows 10, seguire le istruzioni in [registrare le macchine virtuali](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) per scaricare l' **agente desktop virtuale** di Windows e il **bootloader dell'agente desktop virtuale di Windows**. Se si dispone di una macchina virtuale Windows 7, seguire i passaggi 13-14 in [registrare le macchine virtuali](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine) per scaricare l' **agente desktop virtuale** di Windows e il **desktop virtuale di Windows Agent Manager**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot della pagina di download di Agent e bootloader](media/download-agent.png)
 
-2. Fare clic con il pulsante destro del mouse sull'agente e sui programmi di installazione del caricatore di avvio appena scaricati.
+2. Fare clic con il pulsante destro del mouse sui programmi di installazione dell'agente e del caricatore di avvio scaricati.
 3. Selezionare **Proprietà**.
 4. Selezionare **Unblock** (Sblocca).
 5. Selezionare **OK**.

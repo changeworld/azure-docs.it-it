@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
-ms.translationtype: HT
+ms.openlocfilehash: 13726009e07172c9038bc8b45001e390c5b7ad70
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511842"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709799"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico pubblico per bilanciare il carico delle macchine virtuali con il portale di Azure
 
@@ -49,26 +49,29 @@ In questa sezione verrà creato un servizio di bilanciamento del carico che bila
 
 Quando si crea un servizio di bilanciamento del carico pubblico, viene creato un nuovo indirizzo IP pubblico che viene configurato come front-end (denominato **LoadBalancerFrontend** per impostazione predefinita).
 
-1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
+1. Selezionare **Crea una risorsa**. 
+2. Nella casella di ricerca immettere **Load Balancer**. Selezionare **Load Balancer** nei risultati della ricerca.
+3. Nella pagina **bilanciamento del carico** selezionare **Crea**.
+4. Nella pagina **Crea** servizio di bilanciamento del carico immettere o selezionare le informazioni seguenti: 
 
-2. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
-
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e immettere **CreatePubLBQS-rg** nella casella di testo.|
     | Nome                   | Immettere **myLoadBalancer**                                   |
-    | Region         | Selezionare **Europa occidentale**.                                        |
+    | Region         | Select **(Europe) West Europe**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
-    | SKU           | selezionare **Standard** |
+    | SKU           | Lasciare lo **standard** predefinito. |
+    | Livello          | Lasciare l'impostazione predefinita **Regional**. |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**. Se si vuole usare un indirizzo IP pubblico esistente, selezionare **Usa esistente**. |
     | Nome dell'indirizzo IP pubblico | Digitare **myPublicIP** nella casella di testo.|
     | Zona di disponibilità | Selezionare **Con ridondanza della zona** per creare un servizio di bilanciamento del carico resiliente. Per creare un servizio di bilanciamento del carico di zona, selezionare una zona specifica tra 1, 2 o 3 |
     | Aggiungi un indirizzo IPv6 pubblico | Selezionare **No**. </br> Per altre informazioni sugli indirizzi IPv6 e il servizio di bilanciamento del carico, vedere [Che cos'è IPv6 per la rete virtuale di Azure?](../virtual-network/ipv6-overview.md)  |
+    | Preferenza di routing | Lasciare l'impostazione predefinita **rete Microsoft**. </br> Per ulteriori informazioni sulle preferenze di routing, vedere informazioni sulle preferenze di [routing (anteprima)](./routing-preference-overview.md). |
 
-3. Accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**.
+5. Accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**.
 
-4. Nella scheda **Rivedi e crea** selezionare **Crea**.   
+6. Nella scheda **Rivedi e crea** selezionare **Crea**.   
     
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Creare un'istanza di Load Balancer Standard" border="true":::
  
@@ -104,7 +107,7 @@ Creare un probe di integrità denominato **myHealthProbe** per monitorare l'inte
 
 2. In **Impostazioni** selezionare **Probe integrità** e quindi selezionare **Aggiungi**.
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHealthProbe**. |
     | Protocollo | Selezionare **HTTP**. |
@@ -132,7 +135,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
 
 3. Usare questi valori per configurare la regola di bilanciamento del carico:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHTTPRule**. |
     | Versione indirizzo IP | Selezionare **IPv4** |
@@ -217,7 +220,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
    
 2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
-    | Impostazione | valore                                          |
+    | Impostazione | Valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
@@ -241,7 +244,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | **myVNet** |
@@ -260,7 +263,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 
 6. Nella scheda **Gestione** selezionare o immettere:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |-|-|
     | **Monitoring** |  |
     | Diagnostica di avvio | Selezionare **Disattivato** |
@@ -290,7 +293,7 @@ Per altre informazioni sulle connessioni in uscita, vedere [Connessioni in uscit
 
 3. Usare questi valori per configurare le regole in uscita:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Name (Nome) | Immettere **myOutboundRule**. |
     | Indirizzo IP front-end | Selezionare **Crea nuovo**. </br> In **Nome** immettere **LoadBalancerFrontEndOutbound**. </br> Selezionare **Indirizzo IP** o **Prefisso IP**. </br> Selezionare **Crea nuovo** in **Indirizzo IP pubblico**  o **Prefisso IP pubblico**. </br> In Nome immettere **myPublicIPOutbound** o **myPublicIPPrefixOutbound**. </br> Selezionare **Aggiungi**.|
@@ -334,11 +337,12 @@ In questa sezione verrà creato un servizio di bilanciamento del carico che bila
 
 Quando si crea un servizio di bilanciamento del carico pubblico, viene creato un nuovo indirizzo IP pubblico che viene configurato come front-end (denominato **LoadBalancerFrontend** per impostazione predefinita).
 
-1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
+1. Selezionare **Crea una risorsa**. 
+2. Nella casella di ricerca immettere **Load Balancer**. Selezionare **Load Balancer** nei risultati della ricerca.
+3. Nella pagina **bilanciamento del carico** selezionare **Crea**.
+4. Nella pagina **Crea** servizio di bilanciamento del carico immettere o selezionare le informazioni seguenti: 
 
-2. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
-
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e digitare **CreatePubLBQS-rg** nella casella di testo.|
@@ -351,9 +355,9 @@ Quando si crea un servizio di bilanciamento del carico pubblico, viene creato un
     | Assegnazione | Selezionare **Dinamica** |
     | Aggiungi un indirizzo IPv6 pubblico | Selezionare **No**. </br> Per altre informazioni sugli indirizzi IPv6 e il servizio di bilanciamento del carico, vedere [Che cos'è IPv6 per la rete virtuale di Azure?](../virtual-network/ipv6-overview.md)  |
 
-3. Accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**.
+5. Accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**.
 
-4. Nella scheda **Rivedi e crea** selezionare **Crea**.   
+6. Nella scheda **Rivedi e crea** selezionare **Crea**.   
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Creare un servizio di bilanciamento del carico di base" border="true":::
 
@@ -428,7 +432,7 @@ Creare il pool di indirizzi back-end **myBackendPool** per includere le macchine
 
 3. Nella pagina **Aggiungi pool back-end** immettere o selezionare:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myBackendPool**. |
     | Rete virtuale | Selezionare **myVNET**. |
@@ -446,7 +450,7 @@ Creare un probe di integrità denominato **myHealthProbe** per monitorare l'inte
 
 2. In **Impostazioni** selezionare **Probe integrità** e quindi selezionare **Aggiungi**.
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHealthProbe**. |
     | Protocollo | Selezionare **HTTP**. |
@@ -474,7 +478,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
 
 3. Usare questi valori per configurare la regola di bilanciamento del carico:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHTTPRule**. |
     | Versione indirizzo IP | Selezionare **IPv4** |
@@ -508,7 +512,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
    
 2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
-    | Impostazione | valore                                          |
+    | Impostazione | Valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
@@ -530,7 +534,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | Selezionare **myVNet** |
@@ -545,7 +549,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 
 6. Nella scheda **Gestione** selezionare o immettere:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |---|---|
     | **Monitoring** | |
     | Diagnostica di avvio | Selezionare **Disattivato** |

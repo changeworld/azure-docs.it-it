@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9e7ec5569dd0de3b0535c3b0e3b3304848a5207
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5a397c17821d16594ccfb48175a8a141cb9f390b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653321"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687822"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Aggiungere Google come provider di identità per utenti guest B2B
 
@@ -46,13 +46,7 @@ Gli utenti guest che visualizzano un errore di "intestazione troppo lungo" posso
 
 ## <a name="sign-in-endpoints"></a>Endpoint di accesso
 
-Gli utenti Guest Google possono ora accedere alle app multi-tenant o Microsoft di terze parti usando un [endpoint comune](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in altre parole, un URL dell'app generale che non include il contesto del tenant). Di seguito sono riportati alcuni esempi di endpoint comuni:
-
-- `https://teams.microsoft.com`
-- `https://myapps.microsoft.com`
-- `https://portal.azure.com`
-
-Durante il processo di accesso, l'utente Guest sceglie le **Opzioni di accesso** e quindi seleziona **Accedi a un'organizzazione**. L'utente digita quindi il nome dell'organizzazione e continua ad accedere usando le credenziali di Google.
+Gli utenti Guest Google possono ora accedere alle app multi-tenant o Microsoft di terze parti usando un [endpoint comune](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in altre parole, un URL dell'app generale che non include il contesto del tenant). Durante il processo di accesso, l'utente Guest sceglie le **Opzioni di accesso** e quindi seleziona **Accedi a un'organizzazione**. L'utente digita quindi il nome dell'organizzazione e continua ad accedere usando le credenziali di Google.
 
 Gli utenti guest di Google possono usare anche gli endpoint dell'applicazione che includono le informazioni del tenant, ad esempio:
 

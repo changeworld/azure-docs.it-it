@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44266f7a7485b44ba60a27aadd7422e8d1c3acf4
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: bb1935242790333a91b47ccecc19d934b8145085
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259407"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688332"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzamento dei collegamenti hardcoded per le app pubblicate con Azure AD proxy di applicazione
 
@@ -63,6 +63,9 @@ Con l'estensione MyApps del browser, tutti gli URL interni pubblicati con Applic
 Per usare questa funzionalità, l'utente deve scaricare l'estensione e avere effettuato l'accesso. Non è necessaria nessun'altra configurazione per gli amministratori o gli utenti. 
 
 Per altre informazioni, ad esempio su come configurare questa opzione, vedere la documentazione dell' [estensione del browser app](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) .
+
+> [!NOTE]
+> L'estensione del browser app non supporta la conversione dei collegamenti per gli URL con caratteri jolly.
 
 ### <a name="option-3-link-translation-setting"></a>Opzione 3: Impostazione di conversione dei collegamenti 
 

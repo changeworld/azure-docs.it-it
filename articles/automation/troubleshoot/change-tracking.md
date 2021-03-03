@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 02/15/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 9fe53a343a9f6675519b60d37d077886adaf8a9d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: dd027f94edad580836f0afb8c7293c81ca77605a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651162"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723827"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Risolvere i problemi relativi a Rilevamento modifiche e Inventario
 
@@ -34,7 +34,7 @@ Il computer è già stato distribuito in un'altra area di lavoro per Rilevamento
 
 ### <a name="resolution"></a>Soluzione
 
-1. Controllare che il computer invii report all'area di lavoro corretta. Per istruzioni su come verificare questo problema, vedere [verificare la connettività dell'agente a monitoraggio di Azure](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Assicurarsi anche che l'area di lavoro sia collegata all'account di Automazione di Azure. Per confermare, passare all'account di Automazione e selezionare **Area di lavoro collegata** in **Risorse correlate**.
+1. Controllare che il computer invii report all'area di lavoro corretta. Per istruzioni su come verificare questo problema, vedere [verificare la connettività dell'agente a monitoraggio di Azure](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Assicurarsi anche che l'area di lavoro sia collegata all'account di Automazione di Azure. Per confermare, passare all'account di Automazione e selezionare **Area di lavoro collegata** in **Risorse correlate**.
 
 1. Assicurarsi che i computer siano visualizzati nell'area di lavoro Log Analytics collegata all'account di Automazione. Eseguire la query seguente nell'area di lavoro Log Analytics.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 46004d81756809958e359c2a0b72c143599c2853
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019076"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706759"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendere quali sono le espressioni ottimali per l'app LUIS
 
@@ -54,7 +54,7 @@ Considerare queste espressioni di esempio:
 |Voglio ottenere un computer, come posso fare?|
 |Quando posso ottenere un computer?|
 
-Il termine principale qui, "computer", non è vario. Usare alternative quali computer desktop, portatile, workstation o anche solo macchina. LUIS può dedurre in modo intelligente i sinonimi dal contesto, ma quando crei espressioni per il training, è sempre meglio variare.
+Il termine principale qui, *computer*, non è vario. Usare alternative quali computer desktop, portatile, workstation o anche solo macchina. LUIS può dedurre in modo intelligente i sinonimi dal contesto, ma quando crei espressioni per il training, è sempre meglio variare.
 
 ## <a name="example-utterances-in-each-intent"></a>Espressioni di esempio in ogni finalità
 

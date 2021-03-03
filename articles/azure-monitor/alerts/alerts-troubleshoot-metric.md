@@ -6,25 +6,25 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: 1908232184218316a1a887f17f2fc8104529a0e7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79cc7e1e4b574533fcad4592134109c52897e9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614527"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737257"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di Monitoraggio di Azure 
 
 Questo articolo illustra i problemi comuni negli [avvisi delle metriche](alerts-metric-overview.md) di monitoraggio di Azure e come risolverli.
 
-Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. Per ulteriori informazioni sugli avvisi, vedere [Panoramica degli avvisi in Microsoft Azure](../platform/alerts-overview.md).
+Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. Per ulteriori informazioni sugli avvisi, vedere [Panoramica degli avvisi in Microsoft Azure](./alerts-overview.md).
 
 ## <a name="metric-alert-should-have-fired-but-didnt"></a>L'avviso della metrica dovrebbe essere stato attivato ma non 
 
 Se si ritiene che un avviso di metrica debba essere stato attivato ma non è stato attivato e non è stato trovato nella portale di Azure, provare a eseguire i passaggi seguenti:
 
 1. **Configurazione** : esaminare la configurazione della regola di avviso della metrica per assicurarsi che sia configurata correttamente:
-    - Verificare che il **tipo di aggregazione** e la **granularità di aggregazione (periodo)** siano configurati come previsto. Il **tipo di aggregazione** determina il modo in cui vengono aggregati i valori delle metriche [(altre informazioni](../platform/metrics-aggregation-explained.md#aggregation-types)) e la **granularità di aggregazione (periodo)** controlla la distanza con cui la valutazione aggrega i valori delle metriche ogni volta che viene eseguita la regola di avviso.
+    - Verificare che il **tipo di aggregazione** e la **granularità di aggregazione (periodo)** siano configurati come previsto. Il **tipo di aggregazione** determina il modo in cui vengono aggregati i valori delle metriche [(altre informazioni](../essentials/metrics-aggregation-explained.md#aggregation-types)) e la **granularità di aggregazione (periodo)** controlla la distanza con cui la valutazione aggrega i valori delle metriche ogni volta che viene eseguita la regola di avviso.
     -  Verificare che il **valore di soglia** o la **sensibilità** siano configurati come previsto.
     - Per una regola di avviso che utilizza soglie dinamiche, controllare se sono configurate impostazioni avanzate, in quanto il **numero di violazioni** può filtrare gli avvisi e **ignorare i dati prima** che possa influisca sulla modalità di calcolo delle soglie.
 
@@ -69,10 +69,10 @@ Se si ritiene che l'avviso della metrica non debba essere stato attivato ma è s
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>Non è possibile trovare la metrica per l'avviso sulle metriche Guest delle macchine virtuali
 
 Per inviare un avviso sulle metriche del sistema operativo guest delle macchine virtuali (ad esempio: memoria, spazio su disco), assicurarsi di avere installato l'agente richiesto per raccogliere i dati nelle metriche di monitoraggio di Azure:
-- [Per macchine virtuali Windows](../platform/collect-custom-metrics-guestos-resource-manager-vm.md)
-- [Per macchine virtuali Linux](../platform/collect-custom-metrics-linux-telegraf.md)
+- [Per macchine virtuali Windows](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md)
+- [Per macchine virtuali Linux](../essentials/collect-custom-metrics-linux-telegraf.md)
 
-Per ulteriori informazioni sulla raccolta di dati dal sistema operativo guest di una macchina virtuale, vedere [qui](../insights/monitor-vm-azure.md#guest-operating-system).
+Per ulteriori informazioni sulla raccolta di dati dal sistema operativo guest di una macchina virtuale, vedere [qui](../vm/monitor-vm-azure.md#guest-operating-system).
 
 > [!NOTE] 
 > Se sono state configurate le metriche Guest da inviare a un'area di lavoro Log Analytics, le metriche vengono visualizzate sotto la risorsa Log Analytics area di lavoro e inizieranno a visualizzare i dati **solo** dopo la creazione di una regola di avviso che li monitora. A tal proposito, seguire la procedura per [configurare un avviso delle metriche per i log](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
@@ -84,8 +84,8 @@ Per ulteriori informazioni sulla raccolta di dati dal sistema operativo guest di
 
 Se si sta cercando di generare un avviso per una metrica specifica ma non è possibile visualizzarla durante la creazione di una regola di avviso, verificare quanto segue:
 - Se non è possibile vedere le metriche per il tipo di risorsa, [verificare se tale tipo di risorsa è supportato per gli avvisi delle metriche](./alerts-metric-near-real-time.md).
-- Se è possibile visualizzare alcune metriche per la risorsa, ma non si riesce a trovare una metrica specifica, [verificare se tale metrica è disponibile](../platform/metrics-supported.md) e, in tal caso, vedere la descrizione della metrica per verificare se è disponibile solo in versioni o edizioni specifiche della risorsa.
-- Se la metrica non è disponibile per la risorsa, potrebbe essere disponibile nei log della risorsa e potrebbe essere monitorata usando gli avvisi del log. Vedere qui per altre informazioni su come [raccogliere e analizzare i log delle risorse da una risorsa di Azure](../learn/tutorial-resource-logs.md).
+- Se è possibile visualizzare alcune metriche per la risorsa, ma non si riesce a trovare una metrica specifica, [verificare se tale metrica è disponibile](../essentials/metrics-supported.md) e, in tal caso, vedere la descrizione della metrica per verificare se è disponibile solo in versioni o edizioni specifiche della risorsa.
+- Se la metrica non è disponibile per la risorsa, potrebbe essere disponibile nei log della risorsa e potrebbe essere monitorata usando gli avvisi del log. Vedere qui per altre informazioni su come [raccogliere e analizzare i log delle risorse da una risorsa di Azure](../essentials/tutorial-resource-logs.md).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Impossibile trovare la dimensione metrica su cui inviare l'avviso
 
@@ -211,7 +211,7 @@ Assicurarsi di usare i comandi dell'interfaccia della riga di comando corretti p
 
 - Se si riceve un `Metric not found` errore:
 
-   - Per una metrica della piattaforma: assicurarsi di usare il nome della **metrica** nella [pagina metrica supportata di monitoraggio di Azure](../platform/metrics-supported.md)e non il **nome visualizzato della metrica** .
+   - Per una metrica della piattaforma: assicurarsi di usare il nome della **metrica** nella [pagina metrica supportata di monitoraggio di Azure](../essentials/metrics-supported.md)e non il **nome visualizzato della metrica** .
 
    - Per una metrica personalizzata: assicurarsi che la metrica sia già emessa (non è possibile creare una regola di avviso su una metrica personalizzata che non esiste ancora) e che si fornisca lo spazio dei nomi della metrica personalizzata (vedere un esempio di modello di Gestione risorse [qui](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 

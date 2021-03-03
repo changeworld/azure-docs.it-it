@@ -4,12 +4,12 @@ description: Come usare Java Message Service (JMS) con il bus di servizio di Azu
 ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b7e4bf0ad69b6cd183296a7245ad3f720ced76c5
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 894821444f74248b73578595df943cb3a0025360
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652608"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698400"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium"></a>Usare l'API Java Message Service 2,0 con Azure Service Bus Premium
 
@@ -34,7 +34,7 @@ Per sviluppare applicazioni Java, è necessario configurare l'ambiente di svilup
    * Il pacchetto JDK o JRE viene aggiunto al percorso di compilazione e alle variabili di sistema appropriate.
    * Viene installato un IDE Java per usare JDK o JRE. Ad esempio, Eclipse o IntelliJ.
 
-Per altre informazioni su come preparare l'ambiente di sviluppo per Java in Azure, usare [questa guida](https://docs.microsoft.com/azure/developer/java/fundamentals/).
+Per altre informazioni su come preparare l'ambiente di sviluppo per Java in Azure, usare [questa guida](/azure/developer/java/fundamentals/).
 
 ## <a name="what-jms-features-are-supported"></a>Quali funzionalità JMS sono supportate?
 

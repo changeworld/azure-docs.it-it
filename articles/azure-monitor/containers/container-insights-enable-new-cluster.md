@@ -1,19 +1,19 @@
 ---
 title: Monitorare un nuovo cluster Azure Kubernetes Service (AKS) | Microsoft Docs
-description: Informazioni su come abilitare il monitoraggio per un nuovo cluster Azure Kubernetes Service (AKS) con monitoraggio di Azure per la sottoscrizione di contenitori.
+description: Informazioni su come abilitare il monitoraggio per un nuovo cluster Azure Kubernetes Service (AKS) con la sottoscrizione di container Insights.
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b6c4f8a05b8e7a350ebd5afd677e8bb2ee6e9b4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620056"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717571"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Abilitare il monitoraggio di un nuovo cluster Azure Kubernetes Service (AKS)
 
-Questo articolo descrive come configurare monitoraggio di Azure per i contenitori per monitorare il cluster Kubernetes gestito ospitato nel [servizio Kubernetes di Azure](../../aks/index.yml) che si sta preparando per la distribuzione nella sottoscrizione.
+Questo articolo descrive come configurare informazioni dettagliate sul contenitore per monitorare il cluster Kubernetes gestito ospitato nel [servizio Kubernetes di Azure](../../aks/index.yml) che si sta preparando per la distribuzione nella sottoscrizione.
 
 È possibile abilitare il monitoraggio di un cluster AKS usando uno dei metodi supportati:
 
@@ -34,14 +34,14 @@ Se si [distribuisce un cluster del servizio Azure Kubernetes con Terraform](/azu
 >[!NOTE]
 >Se si sceglie di usare Terraform, è necessario eseguire il provider per Azure RM di Terraform versione 1.17.0 o successiva.
 
-Per aggiungere Monitoraggio di Azure per i contenitori all'area di lavoro, vedere [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) e completare il profilo includendo l'argomento [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) e specificando **oms_agent**. 
+Per aggiungere informazioni dettagliate sul contenitore all'area di lavoro, vedere [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) e completare il profilo includendo il [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) e specificare **oms_agent**. 
 
 Dopo aver abilitato il monitoraggio e completato tutte le attività di configurazione, è possibile monitorare le prestazioni del cluster in uno dei due modi seguenti:
 
 * Direttamente dal cluster servizio Azure Kubernetes, selezionando **Integrità** nel riquadro sinistro.
 * Facendo clic sul riquadro delle **informazioni dettagliate di Monitora Contenitori** nella pagina relativa al cluster servizio Azure Kubernetes selezionato. In Monitoraggio di Azure selezionare **Integrità** nel riquadro sinistro. 
 
-  ![Opzioni per la selezione di Monitoraggio di Azure per contenitori in servizio Azure Kubernetes](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
+  ![Opzioni per la selezione di informazioni dettagliate sul contenitore in AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
 Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità per il cluster. 
 
@@ -117,5 +117,5 @@ Dopo alcuni minuti, il comando viene completato e vengono restituite informazion
 
 * Se si verificano problemi durante il tentativo di onboarding della soluzione, esaminare la [guida risoluzione dei problemi](container-insights-troubleshoot.md).
 
-* Con il monitoraggio abilitato per raccogliere lo stato e l'utilizzo delle risorse del cluster AKS e dei carichi di lavoro in esecuzione su di essi, informazioni su [come usare](container-insights-analyze.md) monitoraggio di Azure per i contenitori.
+* Con il monitoraggio abilitato per raccogliere lo stato e l'utilizzo delle risorse del cluster AKS e dei carichi di lavoro in esecuzione su di essi, Scopri [come usare](container-insights-analyze.md) le informazioni dettagliate sul contenitore.
 

@@ -6,33 +6,33 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 88643663c2f14cb7d8883eb1210bdee07b00eece
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5e7909725f5e390f4e42a7d62e80f90f897c840f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614427"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714154"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
 
 ## <a name="overview"></a>Panoramica
 
-Gli avvisi del log sono uno dei tipi di avviso supportati negli [avvisi di Azure](../platform/alerts-overview.md). Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](../platform/action-groups.md).
+Gli avvisi del log sono uno dei tipi di avviso supportati negli [avvisi di Azure](./alerts-overview.md). Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../logs/log-analytics-tutorial.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](./action-groups.md).
 
 > [!NOTE]
-> I dati di log da un' [area di lavoro log Analytics](../log-query/log-analytics-tutorial.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](alerts-metric-logs.md).
+> I dati di log da un' [area di lavoro log Analytics](../logs/log-analytics-tutorial.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](alerts-metric-logs.md).
 
 > [!NOTE]
 > Non sono attualmente previsti addebiti aggiuntivi per la versione dell'API `2020-05-01-preview` e gli avvisi del log incentrato sulle risorse.  I prezzi per le funzionalità in anteprima verranno annunciati in futuro e un avviso fornito prima di iniziare la fatturazione. Se si sceglie di continuare a usare la nuova versione dell'API e gli avvisi del log incentrato sulle risorse dopo il periodo di preavviso, l'addebito sarà addebitato alla tariffa applicabile.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Gli avvisi del log eseguono query sui dati Log Analytics. Innanzitutto è necessario iniziare a [raccogliere i dati di log](../platform/resource-logs.md) ed eseguire query sui dati di log per individuare eventuali problemi. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/example-queries.md) in log Analytics per comprendere cosa è possibile individuare o iniziare [a scrivere una query personalizzata](../log-query/log-analytics-tutorial.md).
+Gli avvisi del log eseguono query sui dati Log Analytics. Innanzitutto è necessario iniziare a [raccogliere i dati di log](../essentials/resource-logs.md) ed eseguire query sui dati di log per individuare eventuali problemi. È possibile usare l' [argomento degli esempi di query di avviso](../logs/example-queries.md) in log Analytics per comprendere cosa è possibile individuare o iniziare [a scrivere una query personalizzata](../logs/log-analytics-tutorial.md).
 
-Il [collaboratore di monitoraggio di Azure](../platform/roles-permissions-security.md) è un ruolo comune necessario per la creazione, la modifica e l'aggiornamento degli avvisi del log. Sono necessari anche i diritti di esecuzione delle query & di accesso per i log delle risorse. L'accesso parziale ai log delle risorse può non riuscire a eseguire query o restituire risultati parziali. [Altre informazioni sulla configurazione degli avvisi di log in Azure](./alerts-log.md).
+Il [collaboratore di monitoraggio di Azure](../roles-permissions-security.md) è un ruolo comune necessario per la creazione, la modifica e l'aggiornamento degli avvisi del log. Sono necessari anche i diritti di esecuzione delle query & di accesso per i log delle risorse. L'accesso parziale ai log delle risorse può non riuscire a eseguire query o restituire risultati parziali. [Altre informazioni sulla configurazione degli avvisi di log in Azure](./alerts-log.md).
 
 > [!NOTE]
-> Avvisi di log per Log Analytics utilizzati per la gestione tramite l' [API log Analytics Alert](../platform/api-alerts.md)legacy. [Altre informazioni sul trasferimento all'API ScheduledQueryRules corrente](../alerts/alerts-log-api-switch.md).
+> Avvisi di log per Log Analytics utilizzati per la gestione tramite l' [API log Analytics Alert](./api-alerts.md)legacy. [Altre informazioni sul trasferimento all'API ScheduledQueryRules corrente](../alerts/alerts-log-api-switch.md).
 
 ## <a name="query-evaluation-definition"></a>Definizione di valutazione della query
 
@@ -44,17 +44,17 @@ La definizione della condizione delle regole di ricerca log inizia da:
 Le sezioni seguenti descrivono i diversi parametri che è possibile usare per impostare la logica precedente.
 
 ### <a name="log-query"></a>Query di log
-Query [log Analytics](../log-query/log-analytics-tutorial.md) utilizzata per valutare la regola. I risultati restituiti da questa query vengono usati per determinare se è necessario attivare un avviso. È possibile definire l'ambito della query per:
+Query [log Analytics](../logs/log-analytics-tutorial.md) utilizzata per valutare la regola. I risultati restituiti da questa query vengono usati per determinare se è necessario attivare un avviso. È possibile definire l'ambito della query per:
 
 - Una risorsa specifica, ad esempio una macchina virtuale.
 - Una risorsa su scala, ad esempio una sottoscrizione o un gruppo di risorse.
-- Più risorse che usano [query tra risorse](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
+- Più risorse che usano [query tra risorse](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
  
 > [!IMPORTANT]
 > Le query di avviso presentano vincoli per garantire prestazioni ottimali e la pertinenza dei risultati. Fare clic [qui](./alerts-log-query.md) per altre informazioni.
 
 > [!IMPORTANT]
-> Le query incentrate sulle risorse e [tra risorse](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) sono supportate solo usando l'API scheduledQueryRules corrente. Se si usa l' [API log Analytics Alert](../platform/api-alerts.md)legacy, sarà necessario passare a. [Altre informazioni sul cambio](./alerts-log-api-switch.md)
+> Le query incentrate sulle risorse e [tra risorse](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) sono supportate solo usando l'API scheduledQueryRules corrente. Se si usa l' [API log Analytics Alert](./api-alerts.md)legacy, sarà necessario passare a. [Altre informazioni sul cambio](./alerts-log-api-switch.md)
 
 #### <a name="query-time-range"></a>Intervallo di tempo query
 
@@ -154,7 +154,7 @@ Si desidera, ad esempio, monitorare gli errori per più macchine virtuali che es
 Questa regola monitora se una macchina virtuale presenta eventi di errore negli ultimi 15 minuti. Ogni macchina virtuale viene monitorata separatamente e attiverà azioni singolarmente.
 
 > [!NOTE]
-> La divisione in base alle dimensioni di avviso è disponibile solo per l'API scheduledQueryRules corrente. Se si usa l' [API log Analytics Alert](../platform/api-alerts.md)legacy, sarà necessario passare a. [Altre informazioni sul cambio](./alerts-log-api-switch.md). Gli avvisi incentrati sulle risorse alla scala sono supportati solo nella versione dell'API `2020-05-01-preview` e versioni successive.
+> La divisione in base alle dimensioni di avviso è disponibile solo per l'API scheduledQueryRules corrente. Se si usa l' [API log Analytics Alert](./api-alerts.md)legacy, sarà necessario passare a. [Altre informazioni sul cambio](./alerts-log-api-switch.md). Gli avvisi incentrati sulle risorse alla scala sono supportati solo nella versione dell'API `2020-05-01-preview` e versioni successive.
 
 ## <a name="alert-logic-definition"></a>Definizione della logica di avviso
 
@@ -197,17 +197,17 @@ Le informazioni sui prezzi sono disponibili nella [pagina dei prezzi di monitora
 
 - Registrare gli avvisi in Application Insights visualizzati con il nome esatto della risorsa insieme alle proprietà di avviso e del gruppo di risorse.
 - Avvisi di log su Log Analytics visualizzati con il nome esatto della risorsa insieme alle proprietà di avviso e del gruppo di risorse. Quando viene creato usando l' [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules).
-- Gli avvisi del log creati dall' [API legacy log Analytics](../platform/api-alerts.md) non vengono rilevate [le risorse di Azure](../../azure-resource-manager/management/overview.md) e non hanno imposto nomi di risorse univoci. Questi avvisi vengono ancora creati `microsoft.insights/scheduledqueryrules` come risorse nascoste, che hanno questa struttura di denominazione delle risorse `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Gli avvisi del log nell'API legacy vengono visualizzati con il nome di risorsa nascosto sopra, insieme alle proprietà di avviso e del gruppo di risorse.
+- Gli avvisi del log creati dall' [API legacy log Analytics](./api-alerts.md) non vengono rilevate [le risorse di Azure](../../azure-resource-manager/management/overview.md) e non hanno imposto nomi di risorse univoci. Questi avvisi vengono ancora creati `microsoft.insights/scheduledqueryrules` come risorse nascoste, che hanno questa struttura di denominazione delle risorse `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Gli avvisi del log nell'API legacy vengono visualizzati con il nome di risorsa nascosto sopra, insieme alle proprietà di avviso e del gruppo di risorse.
 
 > [!NOTE]
 > I caratteri di risorse non supportati, ad esempio, `<, >, %, &, \, ?, /` vengono sostituiti con `_` nei nomi delle risorse nascoste, che verranno inoltre riportate nelle informazioni sulla fatturazione.
 
 > [!NOTE]
-> Avvisi di log per Log Analytics usati per essere gestiti tramite l' [API log Analytics Alert](../platform/api-alerts.md) legacy e i modelli legacy di [log Analytics le ricerche salvate e gli avvisi](../insights/solutions.md). [Altre informazioni sul trasferimento all'API ScheduledQueryRules corrente](../alerts/alerts-log-api-switch.md). Qualsiasi gestione delle regole di avviso deve essere eseguita usando l' [API log Analytics legacy](../platform/api-alerts.md) fino a quando non si decide di cambiare e non è possibile usare le risorse nascoste.
+> Avvisi di log per Log Analytics usati per essere gestiti tramite l' [API log Analytics Alert](./api-alerts.md) legacy e i modelli legacy di [log Analytics le ricerche salvate e gli avvisi](../insights/solutions.md). [Altre informazioni sul trasferimento all'API ScheduledQueryRules corrente](../alerts/alerts-log-api-switch.md). Qualsiasi gestione delle regole di avviso deve essere eseguita usando l' [API log Analytics legacy](./api-alerts.md) fino a quando non si decide di cambiare e non è possibile usare le risorse nascoste.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sulla [creazione di avvisi dei log in Azure](./alerts-log.md).
 * Acquisire familiarità con i [webhook negli avvisi dei log in Azure](../alerts/alerts-log-webhook.md).
-* Informazioni su [Avvisi di Azure](../platform/alerts-overview.md).
-* Altre informazioni su [log Analytics](../log-query/log-query-overview.md).
+* Informazioni su [Avvisi di Azure](./alerts-overview.md).
+* Altre informazioni su [log Analytics](../logs/log-query-overview.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: b0cafcbc9fa6f0fcb31f44b44dfbe4fc3e10c17d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1fe36dc7b3c04f033c1b693b657e07bcf42e3223
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656072"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715004"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Connettere i dati da Microsoft Defender per l'identità (in precedenza Azure Advanced Threat Protection)
 
@@ -27,7 +27,9 @@ ms.locfileid: "94656072"
 > Microsoft Defender for Identity Data Connector in Azure Sentinel è attualmente disponibile in anteprima pubblica.
 > Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-È possibile trasmettere i log da [Microsoft Defender per l'identità](/azure-advanced-threat-protection/what-is-atp) in Azure Sentinel con un solo clic.
+Questo articolo descrive come trasmettere avvisi di sicurezza da [Microsoft Defender per l'identità](/azure-advanced-threat-protection/what-is-atp) in Sentinel di Azure. 
+
+Per inviare gli avvisi di integrità oltre agli avvisi di sicurezza, integrare Microsoft Defender per l'identità con un server syslog. Per ulteriori informazioni, vedere la [documentazione di Microsoft Defender per l'identità](/defender-for-identity/setting-syslog). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,7 +48,7 @@ Se Microsoft Defender per l'identità è distribuito e inserisce i dati, gli avv
 
 1. È possibile scegliere se si desidera che gli avvisi di Microsoft Defender per l'identità creino automaticamente eventi imprevisti in Sentinel di Azure. In **Create incidents** (Crea eventi imprevisti) selezionare **Enable** (Abilita) per abilitare la regola di analisi predefinita che crea automaticamente gli eventi imprevisti dagli avvisi generati nel servizio di sicurezza connesso. È quindi possibile modificare questa regola in **Analisi** e quindi **Active rules** (Regole attive).
 
-1. Fare clic su **Connetti**.
+1. Fare clic su **Connect** (Connetti).
 
 1. Per usare lo schema pertinente in Log Analytics per Microsoft Defender per gli avvisi di identità, cercare **SecurityAlert**.
 

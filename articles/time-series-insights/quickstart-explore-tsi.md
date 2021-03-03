@@ -9,13 +9,13 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 01/11/2021
-ms.openlocfilehash: cb5bac06ab6eeaa00e72ba6068328a972b8ac37b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.date: 03/01/2021
+ms.openlocfilehash: 25340af243217313ce6d3f7205c102d4bcd350b4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119354"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698111"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Avvio rapido: Esplorare l'ambiente demo di Azure Time Series Insights Gen2
 
@@ -129,13 +129,6 @@ Usando Azure Time Series Insights Gen2 e i dati di telemetria dei sensori, è st
     * Cambiare la visualizzazione in modo da sovrapporre tutti i sensori di **Generator System** sulla stessa scala del grafico.
 
       [![Cambiare la visualizzazione per includere tutti i dati](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
-
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Dopo aver completato la Guida di avvio rapido, eliminare le risorse create:
-
-1. Scegliere **Tutte le risorse**  dal menu a sinistra nel [portale di Azure](https://portal.azure.com) e individuare il gruppo di risorse di Azure Time Series Insights Gen2.
-1. Per eliminare l'intero gruppo di risorse e tutte le risorse in esso contenute, selezionare **Elimina** oppure rimuovere ogni risorsa singolarmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

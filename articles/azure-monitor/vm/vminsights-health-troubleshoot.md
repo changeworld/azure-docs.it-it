@@ -1,20 +1,20 @@
 ---
-title: Risolvere i problemi relativi all'integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
-description: Vengono descritte le procedure di risoluzione dei problemi che è possibile eseguire in caso di problemi con Monitoraggio di Azure per le macchine virtuali integrità.
+title: Risolvere i problemi di integrità Guest di VM Insights (anteprima)
+description: Descrive i passaggi di risoluzione dei problemi che è possibile eseguire quando si verificano problemi con l'integrità di VM Insights.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
-ms.openlocfilehash: da8097341f8499be4e28fa37c06d963d057966ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6ae0a9e20d6aad7200729419ece333d80e652c3c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614866"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703920"
 ---
-# <a name="troubleshoot-azure-monitor-for-vms-guest-health-preview"></a>Risolvere i problemi relativi all'integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
-Questo articolo descrive le procedure di risoluzione dei problemi che è possibile eseguire in caso di problemi con Monitoraggio di Azure per le macchine virtuali integrità.
+# <a name="troubleshoot-vm-insights-guest-health-preview"></a>Risolvere i problemi di integrità Guest di VM Insights (anteprima)
+Questo articolo descrive i passaggi di risoluzione dei problemi che è possibile eseguire quando si verificano problemi con l'integrità di VM Insights.
 
 ## <a name="error-message-that-no-data-is-available"></a>Messaggio di errore che indica che non sono disponibili dati 
 
@@ -34,7 +34,7 @@ Verificare che l'estensione agente di monitoraggio di Azure e l'agente integrit�
 ![Estensioni di VM](media/vminsights-health-troubleshoot/extensions.png)
 
 ### <a name="verify-the-system-assigned-identity-is-enabled-on-the-virtual-machine"></a>Verificare che l'identità assegnata dal sistema sia abilitata nella macchina virtuale
-Verificare che l'identità assegnata dal sistema sia abilitata nella macchina virtuale. Selezionare **Identity** dal menu della macchina virtuale nel portale di Azure. 
+Verificare che l'identità assegnata dal sistema sia abilitata nella macchina virtuale. Selezionare **Identity** dal menu della macchina virtuale nel portale di Azure. Se l'identità gestita dall'utente è abilitata, indipendentemente dallo stato dell'identità gestita dal sistema, l'agente di monitoraggio di Azure non sarà in grado di comunicare con il servizio di configurazione e l'estensione per l'integrità Guest non funzionerà.
 
 ![Identità assegnata dal sistema](media/vminsights-health-troubleshoot/system-identity.png)
 
@@ -48,4 +48,4 @@ Questo errore indica che il provider di risorse **Microsoft. WorkloadMonitor** n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una panoramica della funzionalità di integrità Guest di Monitoraggio di Azure per le macchine virtuali](vminsights-health-overview.md)
+- [Ottenere una panoramica della funzionalità di integrità Guest di VM Insights](vminsights-health-overview.md)

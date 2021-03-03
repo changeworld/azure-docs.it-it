@@ -4,15 +4,15 @@ description: Panoramica sul ambiente del servizio app
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 03/02/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fbc498fcd654d16936c2548528e2600be68a2ad9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 23b23340550ded3642d19500270f06cfb6faf8cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663842"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735098"
 ---
 # <a name="app-service-environment-overview"></a>Panoramica di ambiente del servizio app 
 
@@ -53,7 +53,7 @@ Il ambiente del servizio app presenta molti casi d'uso, tra cui:
 Sono disponibili diverse funzionalità di rete che consentono alle app nel servizio app multi-tenant di raggiungere risorse isolate dalla rete o di diventare isolate in rete. Queste funzionalità sono abilitate a livello di applicazione.  Con un ambiente del servizio app non è disponibile alcuna configurazione aggiuntiva per le app in VNet. Le app vengono distribuite in un ambiente di isolamento rete già presente in una VNet. Oltre all'ambiente del servizio app che ospita app isolate dalla rete, è anche un sistema a tenant singolo. Nessun altro cliente utilizza l'ambiente del servizio app. Se è necessaria una storia di isolamento completa, è anche possibile distribuire l'ambiente del servizio app su hardware dedicato. Tra l'hosting di applicazioni con isolamento rete, il tenant singolo e la capacità 
 
 ## <a name="dedicated-environment"></a>Ambiente dedicato
-Un ambiente del servizio app è dedicato esclusivamente a una singola sottoscrizione e può ospitare 200 istanze del piano di servizio app. Può comprendere da 100 istanze contenute in un singolo piano di servizio app a 100 piani di servizio app da un'istanza singola o qualsiasi combinazione intermedia.
+Un ambiente del servizio app è dedicato esclusivamente a una singola sottoscrizione e può ospitare 200 istanze del piano di servizio app totale tra più piani di servizio app. La parola "instance" indica il ridimensionamento orizzontale del piano di servizio app. Ogni istanza è equivalente a un ruolo di lavoro. Sebbene un ambiente del servizio app possa avere 200 istanze totali, un singolo piano di servizio app isolato V2 può contenere istanze 100. L'ambiente del servizio app può ospitare due piani di servizio app con 100 di istanze in ogni, 200 piani di servizio app a istanza singola o tutti gli elementi compresi tra loro.
 
 Un ambiente del servizio app è composto da front-end e ruoli di lavoro. I front-end sono responsabili della terminazione HTTP/HTTPS e del bilanciamento del carico automatico delle richieste di app all'interno di un ambiente del servizio app. I front-end vengono aggiunti automaticamente con l'aumentare dei piani di servizio app nell'ambiente del servizio app.
 
@@ -77,7 +77,7 @@ Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi
 ## <a name="preview"></a>Anteprima
 Il ambiente del servizio app V3 è in anteprima pubblica.  Alcune funzionalità vengono aggiunte durante l'avanzamento dell'anteprima. Le limitazioni correnti di ASEv3 includono:
 
-- Impossibilità di ridimensionare un piano di servizio app oltre cinque istanze
+- Impossibilità di ridimensionare un piano di servizio app oltre 50 istanze
 - Impossibilità di ottenere un contenitore da un registro privato
 - Impossibilità per le funzionalità del servizio app attualmente non supportate di passare attraverso il cliente VNet
 - Nessun modello di distribuzione esterno con un endpoint accessibile da Internet

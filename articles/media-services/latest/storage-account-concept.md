@@ -42,7 +42,7 @@ Per proteggere gli asset inattivi, gli asset devono essere crittografati tramite
 
 ## <a name="storage-account-double-encryption"></a>Crittografia doppia dell'account di archiviazione
 
-Gli account di archiviazione supportano la crittografia doppia, ma il secondo livello deve essere abilitato in modo esplicito. Vedere [crittografia di archiviazione di Azure per dati](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption)inattivi.  
+Gli account di archiviazione supportano la crittografia doppia, ma il secondo livello deve essere abilitato in modo esplicito. Vedere [crittografia di archiviazione di Azure per dati](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)inattivi.  
 
 ## <a name="storage-account-errors"></a>Errori dell'account di archiviazione
 

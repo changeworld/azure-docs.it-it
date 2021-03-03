@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492132"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737614"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud accessibili tramite il [protocollo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard del settore e il [protocollo NFS (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (anteprima). È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -73,7 +73,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="tier-options"></a>
   **Quali livelli di archiviazione sono supportati in File di Azure?**  
-    File di Azure supporta due livelli di archiviazione, Premium e Standard. Le condivisioni Standard vengono create in account di archiviazione per utilizzo generico (GPv1 o GPv2) e le condivisioni Premium vengono create negli account di archiviazione FileStorage. Altre informazioni su come creare [condivisioni standard di file](storage-how-to-create-file-share.md) e [condivisioni Premium di file](storage-how-to-create-premium-fileshare.md). 
+    File di Azure supporta due livelli di archiviazione, Premium e Standard. Le condivisioni Standard vengono create in account di archiviazione per utilizzo generico (GPv1 o GPv2) e le condivisioni Premium vengono create negli account di archiviazione FileStorage. Altre informazioni su come creare [condivisioni standard di file](storage-how-to-create-file-share.md) e [condivisioni Premium di file](./storage-how-to-create-file-share.md). 
     
     > [!NOTE]
     > Non è possibile creare condivisioni file di Azure dagli account di archiviazione BLOB o dagli account di archiviazione per utilizzo generico (GPv1 o GPv2) *Premium*. Le condivisioni file di Azure standard devono essere create solo in account *Standard* per utilizzo generico e le condivisioni file di Azure premium devono essere create solo negli account di archiviazione FileStorage. Gli account di archiviazione *Premium* per utilizzo generico (GPv1 e GPv2) sono solo per i blob di pagine Premium. 

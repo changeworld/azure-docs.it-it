@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 46c7952247babd528b230dfa0e70b0eb47878912
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 7b5223bc08c470a0e8722b76b80473aaa235b51a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99217755"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727159"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Procedure consigliate per le prestazioni ottimali del database di Azure per MySQL-server singolo
 
@@ -65,7 +65,7 @@ Si consiglia di testare e monitorare il tempo di riavvio per garantire che le pr
 Per salvare lo stato del pool di buffer al momento dell'arresto del server, impostare il parametro Server `innodb_buffer_pool_dump_at_shutdown` su `ON` . In modo analogo, impostare il parametro Server `innodb_buffer_pool_load_at_startup` su `ON` per ripristinare lo stato del pool di buffer all'avvio del server. È possibile controllare l'effetto sul tempo di avvio/riavvio abbassando e ottimizzando il valore del parametro Server `innodb_buffer_pool_dump_pct` . Per impostazione predefinita, il parametro è impostato su `25`.
 
 > [!Note]
-> I parametri di riscaldamento del pool di buffer InnoDB sono supportati solo nei server di archiviazione per utilizzo generico con archiviazione fino a 16 TB. Per altre informazioni sulle [Opzioni di archiviazione per database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), vedere qui.
+> I parametri di riscaldamento del pool di buffer InnoDB sono supportati solo nei server di archiviazione per utilizzo generico con archiviazione fino a 16 TB. Per altre informazioni sulle [Opzioni di archiviazione per database di Azure per MySQL](./concepts-pricing-tiers.md#storage), vedere qui.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

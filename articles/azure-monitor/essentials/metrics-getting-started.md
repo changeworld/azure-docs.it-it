@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d914c9b5f96cf502247d40a913ce8ad4651a4a14
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 68a9dd5cb24dda54e867580cf7c1bc869e692833
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615097"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734418"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introduzione a Esplora metriche di Azure
 
@@ -29,7 +29,7 @@ Esplora metriche di Monitoraggio di Azure è un componente del portale di Micros
 
 Per creare un grafico delle metriche, da una risorsa, un gruppo di risorse, una sottoscrizione o una vista di monitoraggio di Azure, aprire la scheda **metriche** e seguire questa procedura:
 
-1. Fare clic sul pulsante "selezionare un ambito" per aprire la selezione dell'ambito delle risorse. In questo modo sarà possibile selezionare le risorse per cui si vogliono visualizzare le metriche. La risorsa deve essere già popolata se si apre Esplora metriche dal menu della risorsa. Per informazioni su come visualizzare le metriche in più risorse, [vedere questo articolo](../platform/metrics-dynamic-scope.md).
+1. Fare clic sul pulsante "selezionare un ambito" per aprire la selezione dell'ambito delle risorse. In questo modo sarà possibile selezionare le risorse per cui si vogliono visualizzare le metriche. La risorsa deve essere già popolata se si apre Esplora metriche dal menu della risorsa. Per informazioni su come visualizzare le metriche in più risorse, [vedere questo articolo](./metrics-dynamic-scope.md).
     > ![Selezionare una risorsa](./media/metrics-getting-started/scope-picker.png)
 
 2. Per alcune risorse, è necessario selezionare uno spazio dei nomi. Lo spazio dei nomi è semplicemente un modo per organizzare le metriche e individuarle più facilmente. Ad esempio, gli account di archiviazione hanno spazi dei nomi distinti per l'archiviazione delle metriche di file, tabelle, BLOB e code. Molti tipi di risorse hanno solo uno spazio dei nomi.
@@ -72,7 +72,7 @@ Vedere gli [esempi dei grafici](../essentials/metric-chart-samples.md) a cui son
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni sulle funzionalità avanzate di Esplora metriche](../essentials/metrics-charts.md)
-* [Visualizzazione di più risorse in Esplora metriche](../platform/metrics-dynamic-scope.md)
+* [Visualizzazione di più risorse in Esplora metriche](./metrics-dynamic-scope.md)
 * [Risoluzione dei problemi di Esplora metriche](metrics-troubleshoot.md)
-* [Elenco di metriche disponibili per i servizi di Azure](../platform/metrics-supported.md)
+* [Elenco di metriche disponibili per i servizi di Azure](./metrics-supported.md)
 * [Esempi di grafici configurati](../essentials/metric-chart-samples.md)

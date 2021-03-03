@@ -6,23 +6,23 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 255de7d6739691c479e1ae98e37bc6d3e01a6710
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: fc75bfc3b79cd6aed51a44fc47787532a9d61e8b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100643632"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713015"
 ---
 # <a name="what-is-document-translation-preview"></a>Che cos'è la traduzione di documenti (anteprima)?
 
-La traduzione dei documenti è una funzionalità basata sul cloud del servizio di [conversione di Azure](../translator-info-overview.md) ed è parte della famiglia di servizi cognitivi di Azure delle API REST. L'API traduzione documenti converte i documenti da e verso più di 70 lingue, conservando al tempo stesso il formato dei dati e la struttura del documento.
+La traduzione dei documenti è una funzionalità basata sul cloud del servizio di [conversione di Azure](../translator-info-overview.md) ed è parte della famiglia di servizi cognitivi di Azure delle API REST. L'API traduzione documenti converte i documenti da e verso 90 lingue e dialetti, conservando al tempo stesso la struttura del documento e il formato dei dati.
 
 ## <a name="document-translation-key-features"></a>Funzionalità chiave di traduzione documenti
 
 | Funzionalità | Descrizione |
 | ---------| -------------|
 | **Traduci file di grandi dimensioni**| Tradurre i documenti interi in modo asincrono.|
-|**Tradurre numerosi file**|Convertire più file da e verso più di 70 lingue.|
+|**Tradurre numerosi file**|Tradurre più file da e verso 90 lingue e dialetti.|
 |**Mantieni presentazione file di origine**| Tradurre i file conservando il layout e il formato originali.|
 |**Applicare la traduzione personalizzata**| Tradurre i documenti usando modelli di traduzione generali e [personalizzati](../customization.md#custom-translator) .|
 |**Applicare glossari personalizzati**|Tradurre i documenti usando glossari personalizzati.|

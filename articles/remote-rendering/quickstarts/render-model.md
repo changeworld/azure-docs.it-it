@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 525872ca3ad2558c327b7b856254319d3db2dc7f
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5b3e9c944aece3b3e22ee7a5a6144751725ddf67
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593994"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729964"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Avvio rapido: Eseguire il rendering di un modello con Unity
 
@@ -52,6 +52,7 @@ Eseguire i comandi seguenti:
 mkdir ARR
 cd ARR
 git clone https://github.com/Azure/azure-remote-rendering
+powershell azure-remote-rendering\Scripts\DownloadUnityPackages.ps1
 ```
 
 L'ultimo comando crea una sottodirectory nella directory ARR contenente i vari progetti di esempio per Rendering remoto di Azure.

@@ -3,12 +3,12 @@ title: Autenticazione basata su certificati X. 509 in un cluster Service Fabric
 description: Informazioni sull'autenticazione basata su certificati nei cluster Service Fabric e su come rilevare, attenuare e correggere i problemi relativi ai certificati.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 2d94e5cc78afbabde38eb38e0c4f89381bd67167
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901250"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729692"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Autenticazione basata su certificati X. 509 nei cluster Service Fabric
 
@@ -182,7 +182,7 @@ Si noti che, per le dichiarazioni di presentazione basate su nome comune, un cer
 
 Come indicato in precedenza, la convalida del certificato implica sempre la compilazione e la valutazione della catena del certificato. Per i certificati emessi dall'autorità di certificazione, questa chiamata API del sistema operativo apparentemente semplice in genere comporta diverse chiamate in uscita a diversi endpoint dell'infrastruttura PKI emittente, memorizzazione nella cache delle risposte e così via. Data la prevalenza delle chiamate di convalida dei certificati in un cluster di Service Fabric, eventuali problemi negli endpoint dell'infrastruttura a chiave pubblica possono comportare una riduzione della disponibilità del cluster o di una ripartizione di tipo Outright. Sebbene le chiamate in uscita non possano essere eliminate (vedere più avanti nella sezione Domande frequenti), è possibile usare le impostazioni seguenti per mascherare gli errori di convalida causati da chiamate CRL non riuscite.
 
-  * CrlCheckingFlag-sotto la sezione ' Security ', stringa convertita in UINT. Il valore di questa impostazione viene usato da Service Fabric per mascherare gli errori di stato della catena di certificati modificando il comportamento della compilazione della catena; viene passato alla chiamata [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) CryptoAPI Win32 come parametro ' dwFlags ' e può essere impostato su qualsiasi combinazione valida di flag accettati dalla funzione. Il valore 0 impone al runtime di Service Fabric di ignorare gli eventuali errori di stato di attendibilità. questa operazione non è consigliata, in quanto l'utilizzo costituisce un'esposizione significativa alla sicurezza. Il valore predefinito è 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
+  * CrlCheckingFlag-sotto la sezione "Security", stringa convertita in UINT. Il valore di questa impostazione viene usato da Service Fabric per mascherare gli errori di stato della catena di certificati modificando il comportamento della compilazione della catena; viene passato alla chiamata [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) CryptoAPI Win32 come parametro ' dwFlags ' e può essere impostato su qualsiasi combinazione valida di flag accettati dalla funzione. Il valore 0 impone al runtime di Service Fabric di ignorare gli eventuali errori di stato di attendibilità. questa operazione non è consigliata, in quanto l'utilizzo costituisce un'esposizione significativa alla sicurezza. Il valore predefinito è 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
 
   Quando usare: per i test locali, con certificati autofirmati o certificati per sviluppatori che non sono completamente formati/non dispongono di un'infrastruttura a chiave pubblica appropriata per supportare i certificati. Può anche usare come mitigazione negli ambienti gapped durante la transizione tra PKI.
 

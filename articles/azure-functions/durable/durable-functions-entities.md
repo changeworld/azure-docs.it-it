@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 8b1c4077c036cbb75738115437d29ffd14b160ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85341564"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723674"
 ---
 # <a name="entity-functions"></a>Funzioni di entità
 
@@ -24,7 +24,10 @@ Le entità consentono di aumentare le istanze delle applicazioni distribuendo il
 
 Il comportamento delle entità è simile a quello di servizi minuscoli che comunicano tramite messaggi. Ogni entità ha un'identità univoca e uno stato interno (se esistente). Analogamente ai servizi o agli oggetti, le entità eseguono operazioni quando viene richiesto. Quando un'operazione viene eseguita, potrebbe aggiornare lo stato interno dell'entità, nonché chiamare servizi esterni e attendere la risposta. Le entità comunicano con altre entità, orchestrazioni e client usando messaggi che vengono inviati implicitamente tramite code affidabili. 
 
-Per evitare conflitti, tutte le operazioni in una singola entità vengono eseguite in seriale, ossia una dopo l'altra. 
+Per evitare conflitti, tutte le operazioni in una singola entità vengono eseguite in seriale, ossia una dopo l'altra.
+
+> [!NOTE]
+> Quando viene richiamata, un'entità elabora il payload fino al completamento, quindi pianifica una nuova esecuzione per l'attivazione dopo l'arrivo degli input futuri. Di conseguenza, i log di esecuzione dell'entità potrebbero mostrare un'esecuzione aggiuntiva dopo ogni chiamata all'entità; si tratta di un comportamento previsto.
 
 ### <a name="entity-id"></a>ID entità
 Le entità sono accessibili tramite un identificatore univoco, l'*ID entità*. Un ID entità è semplicemente una coppia di stringhe che identifica in modo univoco un'istanza di entità. È costituita dagli elementi seguenti:
@@ -149,7 +152,48 @@ module.exports = df.entity(function(context) {
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
 
+### <a name="example-python-entity"></a>Esempio: entità Python
+
+Il codice seguente è l' `Counter` entità implementata come funzione durevole scritta in Python.
+
+**Counter/function.json**
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**Counter/__init__. py**
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableEntityContext):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    context.set_state(current_value)
+
+
+
+main = df.Entity.create(entity_function)
+```
 ---
 
 ## <a name="access-entities"></a>Accedere alle entità
@@ -201,6 +245,19 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    await client.signal_entity(entityId, "add", 1)
+```
+
 ---
 
 Il termine *segnalazione* indica che la chiamata dell'API di entità è unidirezionale e asincrona. Una funzione client non è in grado di riconoscere il momento in cui l'entità ha elaborato l'operazione. Inoltre, la funzione client non può osservare valori di risultati o eccezioni. 
@@ -235,6 +292,11 @@ module.exports = async function (context) {
     return stateResponse.entityState;
 };
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Python attualmente non supporta la lettura di Stati di entità da un client. Usare invece un agente di orchestrazione `callEntity` .
 
 ---
 
@@ -279,6 +341,21 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > JavaScript attualmente non supporta la segnalazione di un'entità da un agente di orchestrazione. Usare invece `callEntity`.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    entityId = df.EntityId("Counter", "myCounter")
+    current_value = yield context.call_entity(entityId, "get")
+    if current_value < 10:
+        context.signal_entity(entityId, "add", 1)
+    return state
+```
+
 ---
 
 Solo le orchestrazioni sono in grado di chiamare entità e ottenere una risposta, che può essere un valore restituito o un'eccezione. Le funzioni client che usano il [binding client](durable-functions-bindings.md#entity-client) possono solo segnalare entità.
@@ -318,6 +395,11 @@ Una funzione di entità può inviare segnali ad altre entità (o anche a se stes
         context.df.setState(currentValue + amount);
         break;
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Python non supporta ancora i segnali da entità a entità. Usare invece un agente di orchestrazione per la segnalazione di entità.
 
 ---
 
@@ -421,7 +503,6 @@ Esistono alcune importanti differenze da tenere in considerazione:
 * I modelli di richiesta/risposta nelle entità sono limitati alle orchestrazioni. All'interno delle entità sono consentiti solo messaggi unidirezionali ("segnalazione") come nel modello di attore originale, a differenza dei granelli di Orleans. 
 * Per le entità durevoli non si verifica alcun deadlock. In Orleans si possono verificare deadlock, che si risolvono solo dopo il timeout dei messaggi.
 * Le entità durevoli possono essere usate insieme alle orchestrazioni durevoli e supportano i meccanismi di blocco distribuito. 
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

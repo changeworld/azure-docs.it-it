@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ad0963677b9ef536deacc2122130186afe0726
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016967"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686462"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operazioni di Azure Active Directory Connect Health
 Questo argomento descrive le varie operazioni che è possibile eseguire tramite Azure Active Directory (Azure AD) Connect Health.
@@ -46,8 +46,6 @@ Questo argomento descrive le varie operazioni che è possibile eseguire tramite 
 > Quando si verificano problemi durante l'elaborazione delle richieste di sincronizzazione nel servizio back-end, questo servizio invia un messaggio di posta elettronica di notifica con i dettagli dell'errore agli indirizzi di posta elettronica dei contatti amministrativi del tenant. I clienti hanno inviato commenti e suggerimenti che, in alcuni casi, il volume di questi messaggi è eccessivamente grande, quindi si sta cambiando il modo in cui vengono inviati i messaggi. 
 >
 > Anziché inviare un messaggio per ogni errore di sincronizzazione ogni volta che si verifica, verrà inviato un digest giornaliero di tutti gli errori restituiti dal servizio back-end. Questo consente ai clienti di elaborare questi errori in modo più efficiente e di ridurre il numero di messaggi di errore duplicati.
->
-> Si prevede che questa modifica venga implementata il 15 gennaio 2020.
 
 ## <a name="delete-a-server-or-service-instance"></a>Eliminare un server o un'istanza del servizio
 
@@ -112,7 +110,7 @@ Azure AD Connect Health supporta i ruoli predefiniti seguenti:
 | Ruolo | Autorizzazioni |
 | --- | --- |
 | Proprietario |I proprietari possono *gestire l'accesso* (ad esempio assegnare ruoli a un utente o gruppo), *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. <br>Per impostazione predefinita, gli amministratori globali di Azure AD vengono assegnati a questo ruolo e questa assegnazione non è modificabile. |
-| Autore di contributi |I collaboratori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. |
+| Collaboratore |I collaboratori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. |
 | Lettore |I lettori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale all'interno di Azure AD Connect Health. |
 
 Tutti gli altri ruoli, ad esempio gli amministratori dell'accesso utente o gli utenti DevTest Labs, anche se disponibili nell'esperienza del portale, non influiscono sull'accesso all'interno di Azure AD Connect Health.
@@ -138,7 +136,7 @@ Per consentire a un utente l'accesso a livello di *tutte le istanze del servizio
    ![Screenshot del menu di Azure AD Connect Health e di configurazione di Azure RBAC](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Digitare il nome o l'identificatore dell'utente o del gruppo. È possibile selezionare uno o più utenti o gruppi contemporaneamente. Fare clic su **Seleziona**.
    ![Screenshot dell'elenco di Azure AD Connect Health e dei ruoli di Azure](./media/how-to-connect-health-operations/RBAC_select_users.png)
-5. Seleziona **OK**.<br>
+5. Selezionare **OK**.<br>
 6. Dopo avere completato l'assegnazione dei ruoli, gli utenti e i gruppi vengono visualizzati nell'elenco.<br>
    ![Screenshot del Azure AD Connect Health e del controllo degli accessi in base al ruolo di Azure](./media/how-to-connect-health-operations/RBAC_user_list.png)
 

@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 11/23/2020
-ms.openlocfilehash: b785a6b73f595072f5d723bad8c119ddc4dc0f11
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 5d69aacb6e3f25e3414aa446c4c5ae7852cabdfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636332"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720903"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Concetti di rete per Azure Red Hat OpenShift (ARO)
 
@@ -60,7 +60,7 @@ Di seguito sono elencati i componenti di rete importanti di un cluster di Azure 
 
 * **In ingresso**: i criteri di rete in ingresso sono supportati come parte di [OpenShift SDN](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html). Questi criteri di rete sono abilitati per impostazione predefinita e vengono applicati dagli utenti. Anche se i criteri di rete in ingresso sono conformi a NetworkPolicy v1, i tipi Egress e IPBlock non sono supportati.
 
-* **In uscita**: i criteri di rete in uscita sono supportati tramite la funzionalità del [firewall in uscita](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) di OpenShift. Esiste un solo criterio in ingresso per ogni spazio dei nomi/progetto. I criteri in ingresso non sono supportati nello spazio dei nomi predefinito e vengono valutati nell'ordine, dal primo all'ultimo.
+* **In uscita**: i criteri di rete in uscita sono supportati tramite la funzionalità del [firewall in uscita](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) di OpenShift. Esiste un solo criterio in ingresso per ogni spazio dei nomi/progetto. I criteri in uscita non sono supportati nello spazio dei nomi "predefinito" e vengono valutati in ordine (dal primo all'ultimo).
 
 ## <a name="networking-basics-in-openshift"></a>Nozioni fondamentali sulla rete in OpenShift
 

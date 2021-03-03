@@ -4,19 +4,21 @@ description: Accesso con privilegi di benchmark di sicurezza di Azure V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd39f5e0af34c702cddc8e08b6a94e428c7f0167
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: a4f1c6e32bbc679a7ec946384903b2bda3887d05
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092051"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720580"
 ---
 # <a name="security-control-v2-privileged-access"></a>Controllo di sicurezza V2: accesso con privilegi
 
 Accesso con privilegi copre i controlli per proteggere l'accesso con privilegi al tenant e alle risorse di Azure. Questo include una gamma di controlli che consentono di proteggere il modello amministrativo, gli account amministrativi e le workstation con accesso con privilegi da rischi intenzionali e accidentali.
+
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli del benchmark di sicurezza di Azure per la conformità alle normative Initiative: accesso con privilegi](../../governance/policy/samples/azure-security-benchmark#privileged-access)
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Proteggere e limitare gli utenti con privilegi elevati
 
@@ -30,7 +32,7 @@ Limitare il numero di account utente con privilegi elevati e proteggere questi a
 
 - Amministratore del ruolo con privilegi: gli utenti con questo ruolo possono gestire le assegnazioni di ruolo in Azure AD, oltre che all'interno di Azure AD Privileged Identity Management (PIM). Inoltre, questo ruolo consente la gestione di tutti gli aspetti di PIM e delle unità amministrative.
 
-Nota: è possibile che si disponga di altri ruoli critici che devono essere regolati se si usano ruoli personalizzati con determinate autorizzazioni con privilegi assegnati. Inoltre, è possibile che si desideri applicare controlli simili all'account Administrator degli asset aziendali critici.  
+Nota: è possibile che si disponga di altri ruoli critici che devono essere regolati se si usano ruoli personalizzati con determinate autorizzazioni con privilegi assegnati. Inoltre, è possibile che si desideri applicare controlli simili all'account Administrator degli asset aziendali critici.
 
 È possibile abilitare l'accesso con privilegi just-in-time (JIT) alle risorse di Azure e ad Azure AD usando Azure AD Privileged Identity Management (PIM). JIT concede autorizzazioni temporanee per eseguire attività con privilegi solo quando gli utenti ne hanno la necessità. PIM può inoltre generare avvisi di sicurezza in caso di attività sospette o non sicure nell'organizzazione Azure AD.
 
@@ -155,11 +157,11 @@ Usare le funzionalità di gestione dei diritti Azure AD per automatizzare i flus
 |--|--|--|--|
 | PA-6 | 4,6, 11,6, 12,12 | AC-2, SC-3, SC-7 |
 
-Le workstation protette e isolate sono di fondamentale importanza per la sicurezza dei ruoli sensibili, ad esempio amministratori, sviluppatori e operatori di servizi critici. Usare workstation utente altamente sicure e/o un bastione di Azure per le attività amministrative. Usare Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP) e/o Microsoft Intune per distribuire una workstation utente protetta e gestita per le attività amministrative. Le workstation protette possono essere gestite centralmente per applicare la configurazione protetta, tra cui l'autenticazione avanzata, le linee di base software e hardware e l'accesso logico e di rete limitato. 
+Le workstation protette e isolate sono di fondamentale importanza per la sicurezza dei ruoli sensibili, ad esempio amministratore, sviluppatore e operatore di servizio critico. Usare workstation utente altamente sicure e/o un bastione di Azure per le attività amministrative. Usare Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP) e/o Microsoft Intune per distribuire una workstation utente protetta e gestita per le attività amministrative. Le workstation protette possono essere gestite centralmente per applicare la configurazione protetta, tra cui l'autenticazione avanzata, le linee di base software e hardware e l'accesso logico e di rete limitato. 
 
-- [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+- [Informazioni sulle workstation con accesso con privilegi](/security/compass/privileged-access-deployment)
 
-- [Distribuire una workstation con accesso con privilegi](/security/compass/privileged-access-deployment)
+- [Distribuire una workstation con accesso con privilegi](../../active-directory/devices/howto-azure-managed-workstation)
 
 **Responsabilità**: Customer
 
@@ -178,7 +180,8 @@ Le workstation protette e isolate sono di fondamentale importanza per la sicurez
 | PA-7 | 14,6 | AC-2, AC-3, SC-3 |
 
 Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, entità servizio e identità gestite di gruppo. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell e la portale di Azure. I privilegi assegnati alle risorse tramite il controllo degli accessi in base al ruolo di Azure devono essere sempre limitati agli elementi richiesti dai ruoli. I privilegi limitati completano l'approccio JIT (just-in-Time) di Azure AD Privileged Identity Management (PIM) e tali privilegi devono essere esaminati periodicamente.
-Usare i ruoli predefiniti per assegnare le autorizzazioni e creare ruoli personalizzati solo quando necessario. 
+
+Usare i ruoli predefiniti per allocare le autorizzazioni e creare ruoli personalizzati solo quando necessario.
 
 - [Che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md)
 
@@ -192,9 +195,9 @@ Usare i ruoli predefiniti per assegnare le autorizzazioni e creare ruoli persona
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Gestione della conformità della sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
+- [Gestione della conformità della sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)    
+- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Gestione delle identità e delle chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 

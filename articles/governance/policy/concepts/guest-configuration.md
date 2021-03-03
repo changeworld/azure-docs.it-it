@@ -3,14 +3,15 @@ title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come i criteri di Azure usano il client di configurazione Guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 33a492eb3c8c175bfcdc6a13cb467ed2f180c1e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104808"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702879"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
+
 
 Criteri di Azure consente di controllare le impostazioni all'interno di un computer, sia per i computer in esecuzione in Azure che per i computer [connessi ad Arc](../../../azure-arc/servers/overview.md). La convalida viene eseguita dall'estensione Configurazione guest e dal client. L'estensione, tramite il client, convalida impostazioni come:
 
@@ -20,13 +21,15 @@ Criteri di Azure consente di controllare le impostazioni all'interno di un compu
 
 Al momento, la maggior parte delle definizioni dei criteri di configurazione Guest di criteri di Azure controlla solo le impostazioni all'interno del computer. Non vengono invece applicate le configurazioni. L'eccezione è rappresentata da un criterio predefinito [illustrato di seguito](#applying-configurations-using-guest-configuration).
 
+[È disponibile una procedura dettagliata video di questo documento](https://youtu.be/Y6ryD3gTHOs).
+
 ## <a name="enable-guest-configuration"></a>Abilita configurazione Guest
 
 Per controllare lo stato dei computer nell'ambiente, inclusi i computer in Azure e i computer connessi ad Arc, esaminare i dettagli seguenti.
 
 ## <a name="resource-provider"></a>Provider di risorse
 
-Prima di poter usare Configurazione guest, è necessario registrare il provider di risorse. Il provider di risorse viene registrato automaticamente se l'assegnazione dei criteri di Configurazione guest viene eseguita tramite il portale. È possibile eseguire la registrazione manuale tramite il [portale](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) o l'[interfaccia della riga di comando di Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+Prima di poter usare Configurazione guest, è necessario registrare il provider di risorse. Se l'assegnazione di un criterio di configurazione Guest viene eseguita tramite il portale o se la sottoscrizione è registrata nel centro sicurezza di Azure, il provider di risorse viene registrato automaticamente. È possibile eseguire la registrazione manuale tramite il [portale](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) o l'[interfaccia della riga di comando di Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Distribuire i requisiti per le macchine virtuali di Azure
 
@@ -62,13 +65,13 @@ Le definizioni dei criteri di configurazione Guest sono incluse nelle nuove vers
 
 |Editore|Nome|Versioni|
 |-|-|-|
-|Canonical|Ubuntu Server|14,04-18,04|
-|Credativ|Debian|8 e versioni successive|
-|Microsoft|Windows Server|2012 e versioni successive|
+|Canonical|Ubuntu Server|14,04-20,04|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012-2019|
 |Microsoft|Client Windows|Windows 10|
-|OpenLogic|CentOS|7.3 e versioni successive|
-|Red Hat|Red Hat Enterprise Linux|7,4-7,8|
-|SUSE|SLES|12 SP3-SP5|
+|OpenLogic|CentOS|7,3-8|
+|Red Hat|Red Hat Enterprise Linux|7,4-8|
+|SUSE|SLES|12 SP3-SP5, 15|
 
 Le immagini di macchine virtuali personalizzate sono supportate dalle definizioni dei criteri di configurazione Guest purché siano uno dei sistemi operativi nella tabella precedente.
 
@@ -114,9 +117,26 @@ Le definizioni dei criteri di configurazione Guest usano l'effetto **AuditIfNotE
 Le definizioni dei criteri **AuditIfNotExists** non restituiscono risultati di conformità fino a quando tutti i requisiti non vengono soddisfatti nel computer. I requisiti sono descritti nella sezione [distribuire i requisiti per le macchine virtuali di Azure](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
-> In una versione precedente della configurazione Guest, era necessaria un'iniziativa per combinare le definizioni **DeployIfNoteExists** e **AuditIfNotExists** . Le definizioni **DeployIfNotExists** non sono più necessarie. Le definizioni e intiaitives sono etichettate, `[Deprecated]` ma le assegnazioni esistenti continueranno a funzionare. Per informazioni, vedere il post di Blog [relativo alla modifica importante rilasciata per i criteri di controllo della configurazione Guest](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+> In una versione precedente della configurazione Guest, era necessaria un'iniziativa per combinare le definizioni **DeployIfNoteExists** e **AuditIfNotExists** . Le definizioni **DeployIfNotExists** non sono più necessarie. Le definizioni e le iniziative sono etichettate, `[Deprecated]` ma le assegnazioni esistenti continueranno a funzionare. Per informazioni, vedere il post di Blog [relativo alla modifica importante rilasciata per i criteri di controllo della configurazione Guest](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
-Criteri di Azure usa la proprietà **complianceStatus** del provider di risorse di configurazione Guest per segnalare la conformità nel nodo **conformità** . Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/get-compliance-data.md).
+### <a name="what-is-a-guest-assignment"></a>Che cos'è un'assegnazione Guest?
+
+Quando viene assegnato un criterio di Azure, se è presente nella categoria "Guest Configuration" (configurazione Guest) sono inclusi metadati per descrivere un'assegnazione Guest.
+È possibile considerare un'assegnazione Guest come collegamento tra un computer e uno scenario di criteri di Azure.
+Ad esempio, il frammento di codice seguente associa la configurazione di base di Windows di Azure con la versione minima `1.0.0` a qualsiasi computer nell'ambito dei criteri. Per impostazione predefinita, l'assegnazione Guest eseguirà solo un controllo del computer.
+
+```json
+"metadata": {
+    "category": "Guest Configuration",
+    "guestConfiguration": {
+        "name": "AzureWindowsBaseline",
+        "version": "1.*"
+    }
+//additional metadata properties exist
+```
+
+Le assegnazioni Guest vengono create automaticamente per ogni computer dal servizio di configurazione Guest. La risorsa è di tipo `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
+Criteri di Azure usa la proprietà **complianceStatus** della risorsa di assegnazione Guest per segnalare lo stato di conformità. Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/get-compliance-data.md).
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Controllo delle impostazioni del sistema operativo secondo le impostazioni di base del settore
 
@@ -201,6 +221,12 @@ Gli esempi di criteri predefiniti di Configurazione guest sono disponibili nelle
 - [Definizioni dei criteri predefiniti - Configurazione guest](../samples/built-in-policies.md#guest-configuration)
 - [Iniziative predefinite - Configurazione guest](../samples/built-in-initiatives.md#guest-configuration)
 - [Repository GitHub degli esempi di Criteri di Azure](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### <a name="video-overview"></a>Video introduttivo
+
+La panoramica seguente sulla configurazione Guest di criteri di Azure è di ITOps Talks 2021.
+
+[Governare le linee di base in ambienti server ibridi usando la configurazione Guest di criteri di Azure](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

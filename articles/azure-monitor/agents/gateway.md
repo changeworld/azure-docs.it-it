@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a9b93cf05141442901531e745971ee16348cdaae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d83ee4b53d4ccda9cb2af21fa0cb4c91822ec7c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615547"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732021"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
 
@@ -89,7 +89,7 @@ Il gateway Log Analytics è disponibile nelle lingue seguenti:
 
 Il gateway Log Analytics supporta solo Transport Layer Security (TLS) 1,0, 1,1 e 1,2.  Non supporta Secure Sockets Layer (SSL).  Per garantire la sicurezza dei dati in transito per Log Analytics, configurare il gateway per l'uso di almeno TLS 1,2. Le versioni precedenti di TLS o SSL sono vulnerabili. Sebbene consentano attualmente la compatibilità con le versioni precedenti, evitarne l'uso.  
 
-Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12). 
+Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Numero di connessioni dell'agente supportate
 
@@ -248,7 +248,7 @@ Per usare il gateway OMS per supportare Operations Manager, è necessario dispor
 
 Se il gruppo di gestione Operations Manager viene registrato con un'area di lavoro di Log Analytics per la prima volta, non verrà visualizzata l'opzione per specificare la configurazione proxy per il gruppo di gestione nella console operatore. Questa opzione è disponibile solo se il gruppo di gestione è stato registrato con il servizio.  
 
-Per configurare l'integrazione, aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema in cui viene eseguita la console operatore e in tutti i server di gestione del gruppo di gestione. A tale scopo, seguire questa procedura:
+Per configurare l'integrazione, aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema in cui viene eseguita la console operatore e in tutti i server di gestione del gruppo di gestione. Seguire questa procedura:
 
 1. Aprire un prompt dei comandi con privilegi elevati:
 

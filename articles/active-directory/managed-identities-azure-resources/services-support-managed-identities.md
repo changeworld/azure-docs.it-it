@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 3021e9155e229fcaf52166fd0e9dc908f9b7cfb6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7b9ae52a0d62da6a8637f63f15d8680b54aeefd1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650074"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688570"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -234,6 +234,14 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 
 Per altre informazioni, vedere [Usare le identità gestite nel servizio Azure Kubernetes](../../aks/use-managed-identity.md).
 
+### <a name="azure-log-analytics-cluster"></a>Cluster di Azure Log Analytics
+
+Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
+| --- | :-: | :-: | :-: | :-: |
+| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | ![Disponibile][check] |
+| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | ![Disponibile][check] |
+
+Per altre informazioni, vedere funzionamento [dell'identità in monitoraggio di Azure](../../azure-monitor/logs/customer-managed-keys.md)
 
 ### <a name="azure-logic-apps"></a>App per la logica di Azure
 

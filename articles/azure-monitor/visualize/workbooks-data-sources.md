@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: ee4436d2b8445f2a1d368fb6c76e04d1ec790d98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 862c6c5253c1bb4481476b67c7cfb203c2568e24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620727"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700576"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Origini dati delle cartelle di lavoro di monitoraggio di Azure
 
@@ -34,7 +34,7 @@ Gli autori delle cartelle di lavoro possono eseguire facilmente query tra più r
 
 ## <a name="metrics"></a>Metriche
 
-Le risorse di Azure emettono [metriche](../platform/data-platform-metrics.md) a cui è possibile accedere tramite le cartelle di lavoro. È possibile accedere alle metriche nelle cartelle di lavoro tramite un controllo specializzato che consente di specificare le risorse di destinazione, le metriche desiderate e la relativa aggregazione. Questi dati possono quindi essere tracciati in grafici o griglie.
+Le risorse di Azure emettono [metriche](../essentials/data-platform-metrics.md) a cui è possibile accedere tramite le cartelle di lavoro. È possibile accedere alle metriche nelle cartelle di lavoro tramite un controllo specializzato che consente di specificare le risorse di destinazione, le metriche desiderate e la relativa aggregazione. Questi dati possono quindi essere tracciati in grafici o griglie.
 
 ![Screenshot dei grafici di metriche delle cartelle di lavoro di utilizzo della CPU](./media/workbooks-data-sources/metrics-graph.png)
 
@@ -145,6 +145,6 @@ Questo provider supporta [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per [iniziare ad](../platform/workbooks-overview.md#visualizations) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
-* [Controllare](../platform/workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.
-* [Suggerimenti per l'ottimizzazione delle query Log Analytics](../log-query/query-optimization.md)
+* Per [iniziare ad](./workbooks-overview.md#visualizations) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
+* [Controllare](./workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.
+* [Suggerimenti per l'ottimizzazione delle query Log Analytics](../logs/query-optimization.md)

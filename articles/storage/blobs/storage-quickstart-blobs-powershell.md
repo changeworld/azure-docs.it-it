@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b051a4ffe4d24e1ef0e69ab7c18a8ed3388b57e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 21fc7e6de38a98e4f0853cf513f9f3441c7e2106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89078283"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735353"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con PowerShell
+# <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con PowerShell
 
 Usare il modulo di Azure PowerShell per creare e gestire le risorse di Azure. Le risorse di Azure possono essere create e gestite tramite la riga di comando di PowerShell o mediante script. Questa guida descrive l'uso di PowerShell per trasferire file tra un disco locale e l'archivio BLOB di Azure.
 
@@ -26,6 +26,8 @@ Usare il modulo di Azure PowerShell per creare e gestire le risorse di Azure. Le
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per accedere ad Archiviazione di Azure è necessaria una sottoscrizione di Azure. Se non si ha già una sottoscrizione, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+Per leggere, scrivere ed eliminare i contenitori e i BLOB di archiviazione di Azure, sarà necessario anche il ruolo di collaboratore dati BLOB di archiviazione.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -50,7 +52,7 @@ L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine
 
 Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e quindi un riferimento al BLOB in blocchi nel contenitore. Dopo aver creato il riferimento al BLOB, è possibile caricarvi i dati con [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent). Questa operazione consentirà di creare il BLOB se non esistente o di sovrascriverlo se esistente.
 
-Gli esempi seguenti caricano i file *Image001.jpg* e *Image002.png* dalla cartella *D:\\_TestImages* sul disco locale al contenitore creato.
+Gli esempi seguenti consentono di caricare *Image001.jpg* e *Image002.png* dalla cartella *D: \\ _TestImages* nel disco locale al contenitore creato.
 
 ```powershell
 # upload a file to the default account (inferred) access tier
@@ -95,7 +97,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 Scaricare i BLOB sul disco locale. Per ogni BLOB da scaricare impostare il nome e chiamare [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent).
 
-Questo esempio scarica i BLOB in *D:\\_TestImages\Downloads* sul disco locale. 
+Questo esempio consente di scaricare i BLOB in *D: \\ _TestImages \Downloads* nel disco locale. 
 
 ```powershell
 # download first blob
@@ -113,7 +115,7 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>Trasferimento dati con AzCopy
 
-L'utilità da riga di comando AzCopy offre il trasferimento dei dati di script a elevate prestazioni per Archiviazione di Azure. È possibile usare AzCopy per trasferire i dati da e verso Archiviazione BLOB e File di Azure. Per altre informazioni su AzCopy v10, la versione più recente, vedere [Introduzione ad AzCopy](../common/storage-use-azcopy-v10.md). Per informazioni sull'uso di AzCopy v10 con archiviazione BLOB, vedere [Trasferire dati con AzCopy e archiviazione BLOB](../common/storage-use-azcopy-blobs.md).
+L'utilità da riga di comando AzCopy offre il trasferimento dei dati di script a elevate prestazioni per Archiviazione di Azure. È possibile usare AzCopy per trasferire i dati da e verso Archiviazione BLOB e File di Azure. Per altre informazioni su AzCopy v10, la versione più recente, vedere [Introduzione ad AzCopy](../common/storage-use-azcopy-v10.md). Per informazioni sull'uso di AzCopy v10 con archiviazione BLOB, vedere [Trasferire dati con AzCopy e archiviazione BLOB](../common/storage-use-azcopy-v10.md#transfer-data).
 
 Gli esempi seguenti usano AzCopy per caricare un file locale in un BLOB. Ricordarsi di sostituire i valori dell'esempio con i propri valori:
 
@@ -132,7 +134,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido sono stati trasferiti file tra un file system locale e l'archivio BLOB di Azure. Per altre informazioni sull'uso dell'archiviazione BLOB con PowerShell, esplorare gli esempi di Azure PowerShell per l'archiviazione BLOB.
+In questa Guida introduttiva sono stati trasferiti i file tra un file system locale e l'archiviazione BLOB di Azure. Per ulteriori informazioni sull'utilizzo dell'archiviazione BLOB tramite PowerShell, esplorare Azure PowerShell esempi per l'archiviazione BLOB.
 
 > [!div class="nextstepaction"]
 > [Esempi di Azure PowerShell per l'archiviazione BLOB di Azure](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -150,8 +150,10 @@
           href: disable-user-sign-in-portal.md
         - name: Configurare l'assegnazione di app self-service
           href: manage-self-service-access.md
-        - name: Individuazione dell'area di autenticazione principale
+        - name: Forzare l'accelerazione automatica attraverso i criteri di individuazione dell'area di autenticazione principale
           href: configure-authentication-for-federated-users-portal.md
+        - name: Impedisci l'accelerazione automatica dell'accesso usando i criteri di individuazione dell'area di autenticazione principale
+          href: prevent-domain-hints-with-home-realm-discovery.md
     - name: Eseguire la migrazione della gestione delle identità ad Azure AD
       items:
         - name: Risorse per la migrazione

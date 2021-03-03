@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/28/2020
 ms.author: ginle
-ms.openlocfilehash: 6dff16f4a68f3db4ff841141e7d7025e794cca8f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: f810769529569309656193d41f28cca201a85c07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100105182"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719220"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>Configurare chiavi gestite dal cliente inattive
 
@@ -140,4 +140,4 @@ New-AzResourceGroupDeployment `
 In questo articolo si è appreso come configurare le chiavi gestite dal cliente inattive usando portale di Azure, PowerShell, l'interfaccia della riga di comando e Gestione risorse modello. Per altre domande possibili, vedere la sezione relativa alle domande frequenti su Azure Cosmos DB: 
  
 >[!div class="nextstepaction"]
->[Cosmos DB: come configurare CMK](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#frequently-asked-questions)
+>[Cosmos DB: come configurare CMK](../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)

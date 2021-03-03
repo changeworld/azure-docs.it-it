@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: d9624fd899649f4e54c5bd509ed5961b862632dd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 66faa2b3e6d24c264e2fe26ab42eeaffd48384f6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581583"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732837"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati per server singolo di Database di Azure per PostgreSQL con una chiave gestita dal cliente
 
@@ -60,7 +60,7 @@ Se il server è configurato per l'uso della chiave gestita dal cliente archiviat
 Di seguito sono riportati i requisiti per la configurazione di Key Vault:
 
 * Key Vault e il server singolo di Database di Azure per PostgreSQL devono appartenere allo stesso tenant di Azure Active Directory (Azure AD). Le interazioni di server e Key Vault tra più tenant non sono supportate. Per lo stato di trasferimento della risorsa Key Vault successivamente è necessario riconfigurare la crittografia dei dati.
-* È necessario impostare l'insieme di credenziali delle chiavi con 90 giorni per ' giorni per la conservazione degli insiemi di credenziali eliminati '. Se l'insieme di credenziali delle chiavi esistente è stato configurato con un numero inferiore, sarà necessario creare un nuovo insieme di credenziali delle chiavi perché non può essere modificato dopo la creazione.
+* L'insieme di credenziali delle chiavi deve essere impostato su 90 giorni per ' giorni per la conservazione degli insiemi di credenziali eliminati '. Se l'insieme di credenziali delle chiavi esistente è stato configurato con un numero inferiore, sarà necessario creare un nuovo insieme di credenziali delle chiavi perché non può essere modificato dopo la creazione.
 * Abilitare la funzionalità di eliminazione temporanea nell'insieme di credenziali delle chiavi per evitare la perdita di dati in caso di eliminazione accidentale della chiave (o di Key Vault). Le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che nel frattempo non vengano recuperate o rimosse definitivamente dall'utente. Alle azioni di recupero e rimozione definitiva sono associate autorizzazioni specifiche nei criteri di accesso di Key Vault. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita, ma è possibile abilitarla tramite PowerShell o l'interfaccia della riga di comando di Azure (si noti che non è possibile abilitarla tramite il portale di Azure). 
 * Abilitare l'eliminazione della protezione per applicare un periodo di conservazione obbligatorio per gli insiemi di credenziali e gli oggetti dell'insieme di credenziali eliminati
 * Concedere al server singolo di Database di Azure per PostgreSQL l'accesso all'insieme di credenziali delle chiavi con le autorizzazioni get, wrapKey e unwrapKey usando l'identità gestita univoca. Nel portale di Azure, l'identità' servizio ' univoca viene creata automaticamente quando la crittografia dei dati è abilitata nel server singolo PostgreSQL. Per le istruzioni dettagliate nel caso si usi il portale di Azure, vedere [Crittografia dei dati per server singolo di Database di Azure per PostgreSQL tramite il portale di Azure](howto-data-encryption-portal.md).

@@ -4,15 +4,15 @@ description: Risolvere i problemi comuni relativi al test e alla certificazione 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: iqshahmicrosoft
-ms.author: iqshah
+author: mathapli
+ms.author: mathapli
 ms.date: 01/18/2021
-ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600987"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721158"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Risolvere i problemi di certificazione della macchina virtuale
 
@@ -189,7 +189,7 @@ Inviare nuovamente la richiesta con una dimensione minore o uguale a 1023 GB.
 
 Per le limitazioni sulle dimensioni del disco del sistema operativo, fare riferimento alle regole seguenti. Quando si invia una richiesta, verificare che le dimensioni del disco del sistema operativo siano comprese nel limite per Linux o Windows.
 
-|Sistema operativo|Dimensioni del disco rigido virtuale consigliate|
+|OS|Dimensioni del disco rigido virtuale consigliate|
 |---|---|
 |Linux|da 1 GB a 1023 GB|
 |Windows|da 30 GB a 250 GB|
@@ -594,8 +594,37 @@ Quindi, ripubblicare l'offerta.
 
 Per completare il processo di pubblicazione, vedere [rivedere e pubblicare le offerte](review-publish-offer.md).
 
+### <a name="vm-images-with-limited-access-or-requiring-custom-templates"></a>Immagini di VM con accesso limitato o che richiedono modelli personalizzati
+
+#### <a name="locked-down-or-ssh-disabled-offer"></a>Offerta bloccata (o) SSH disabilitata
+
+  Le immagini pubblicate con SSH disabilitato (per Linux) o RDP disabilitate (per Windows) vengono gestite come macchine virtuali bloccate. Esistono scenari aziendali speciali, a causa dei quali i Publisher consentono solo l'accesso limitato a nessun utente. Durante i controlli di convalida, le VM bloccate potrebbero non consentire l'esecuzione di determinati comandi di certificazione.
+
+
+#### <a name="custom-templates"></a>Modelli personalizzati
+
+   In generale, tutte le immagini pubblicate in una singola macchina virtuale offriranno il modello ARM standard per la distribuzione. Tuttavia, esistono scenari in cui Publisher potrebbe richiedere la personalizzazione durante la distribuzione di macchine virtuali (ad esempio, più NIC da configurare).
+    
+   A seconda degli scenari seguenti (non completi), i Publisher utilizzeranno modelli personalizzati per la distribuzione della macchina virtuale:
+
+   * La macchina virtuale richiede subnet di rete aggiuntive.
+   * Metadati aggiuntivi da inserire nel modello ARM.
+   * Comandi che sono prerequisiti per l'esecuzione del modello ARM.
+
+### <a name="vm-extensions"></a>Estensioni di VM   
+
+   Le estensioni macchina virtuale di Azure sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione di software, la protezione antivirus o l'esecuzione di uno script al suo interno, è possibile usare un'estensione macchina virtuale. 
+
+   Le convalide dell'estensione VM Linux richiedono che quanto segue faccia parte dell'immagine:
+* 2.2.41 superiore dell'agente Linux di Azure
+* Versione di Python precedente alla 2,8 
+
+
+Per altre informazioni, vedere l' [estensione della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+     
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Configurare le proprietà dell'offerta di VM](azure-vm-create-properties.md)
 - [Vantaggi del Marketplace attivo](partner-center-portal/marketplace-rewards.md)
 - In caso di domande o commenti e suggerimenti, contattare il [supporto tecnico del centro](https://aka.ms/marketplacepublishersupport)per i partner.
+ 

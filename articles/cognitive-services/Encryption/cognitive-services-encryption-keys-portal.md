@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
-ms.openlocfilehash: fca3fc80411432f2e82a68faa3b6f297b8ca5f9c
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 88a723abc606a527232b7c1949f35c1fedfdba50
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522003"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706844"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Configurare chiavi gestite dal cliente con Azure Key Vault per servizi cognitivi
 
@@ -21,8 +21,8 @@ Il processo di abilitazione delle chiavi Customer-Managed con Azure Key Vault pe
 
 ## <a name="vision"></a>Visione
 
-* [Visione personalizzata la crittografia dei dati inattivi](../Custom-Vision-Service/encrypt-data-at-rest.md)
-* [Crittografia dei dati inattivi per i servizi facciali](../Face/encrypt-data-at-rest.md)
+* [Visione personalizzata la crittografia dei dati inattivi](../custom-vision-service/encrypt-data-at-rest.md)
+* [Crittografia dei dati inattivi per i servizi facciali](../face/encrypt-data-at-rest.md)
 * [Crittografia dei dati inattivi per il riconoscimento moduli](../form-recognizer/encrypt-data-at-rest.md)
 
 ## <a name="language"></a>Linguaggio

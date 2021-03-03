@@ -1,26 +1,26 @@
 ---
-title: Configurare la preferenza di routing di rete (anteprima)
+title: Preferenza di routing di rete
 titleSuffix: Azure Storage
-description: Configurare la preferenza di routing di rete (anteprima) per l'account di archiviazione di Azure per specificare come deve essere instradato il traffico di rete dai client all'account tramite Internet.
+description: Preferenza di routing di rete consente di specificare il modo in cui il traffico di rete viene indirizzato all'account da client su Internet.
 services: storage
 author: santoshc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 02/11/2021
 ms.author: santoshc
-ms.reviewer: tamram
+ms.reviewer: normesta
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6b6c90259c552895360281b393e15773c6e101e3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362744"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726938"
 ---
-# <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configurare la preferenza di routing di rete per Archiviazione di Azure (anteprima)
+# <a name="network-routing-preference-for-azure-storage"></a>Preferenza di routing di rete per archiviazione di Azure
 
-È possibile configurare la [preferenza di routing](../../virtual-network/routing-preference-overview.md) di rete (anteprima) per l'account di archiviazione di Azure per specificare come deve essere instradato il traffico di rete dai client all'account tramite Internet. Per impostazione predefinita, il traffico proveniente da Internet viene instradato all'endpoint pubblico dell'account di archiviazione tramite la [rete globale Microsoft](../../networking/microsoft-global-network.md). Archiviazione di Azure prevede altre opzioni per configurare il routing del traffico all'account di archiviazione.
+È possibile configurare la [preferenza di routing](../../virtual-network/routing-preference-overview.md) di rete per l'account di archiviazione di Azure per specificare il modo in cui il traffico di rete viene indirizzato all'account da client su Internet. Per impostazione predefinita, il traffico da Internet viene indirizzato all'endpoint pubblico dell'account di archiviazione tramite la [rete globale Microsoft](../../networking/microsoft-global-network.md). Archiviazione di Azure prevede altre opzioni per configurare il routing del traffico all'account di archiviazione.
 
 La configurazione della preferenza di routing offre la flessibilità necessaria per ottimizzare il traffico per prestazioni di rete elevate o per i costi. Quando si configura una preferenza di routing, si specifica come verrà indirizzato il traffico all'endpoint pubblico per l'account di archiviazione per impostazione predefinita. È anche possibile pubblicare endpoint specifici della route per l'account di archiviazione.
 
@@ -37,15 +37,17 @@ Il diagramma seguente illustra il flusso del traffico tra il client e l'account 
 
 ![Panoramica delle opzioni di routing per Archiviazione di Azure](media/network-routing-preference/routing-options-diagram.png)
 
-Per altre informazioni sulla preferenza di routing in Azure, vedere [Che cos'è la preferenza di routing (anteprima)?](../../virtual-network/routing-preference-overview.md)
+Per ulteriori informazioni sulle preferenze di routing in Azure, vedere informazioni sulle [Preferenze di routing](../../virtual-network/routing-preference-overview.md).
 
 ## <a name="routing-configuration"></a>Configurazione di routing
 
-Come preferenza di routing predefinita per l'endpoint pubblico dell'account di archiviazione, è possibile scegliere tra la rete globale Microsoft e il routing Internet. La preferenza di routing predefinita si applica a tutto il traffico proveniente dai client esterni ad Azure e influisce sugli endpoint per Azure Data Lake Storage Gen2, archiviazione BLOB, File di Azure e siti web statici. La configurazione della preferenza di routing non è supportata per le code di Azure o le tabelle di Azure.
+Per istruzioni dettagliate che illustrano come configurare la preferenza di routing e gli endpoint specifici della route, vedere [configurare la preferenza di routing di rete per archiviazione di Azure](configure-network-routing-preference.md).
+
+È possibile scegliere tra la rete globale Microsoft e il routing Internet come preferenza di routing predefinita per l'endpoint pubblico dell'account di archiviazione. La preferenza di routing predefinita si applica a tutto il traffico proveniente dai client esterni ad Azure e influisce sugli endpoint per Azure Data Lake Storage Gen2, archiviazione BLOB, File di Azure e siti web statici. La configurazione della preferenza di routing non è supportata per le code di Azure o le tabelle di Azure.
 
 È anche possibile pubblicare endpoint specifici della route per l'account di archiviazione. Quando si pubblicano endpoint specifici della route, Archiviazione di Azure crea nuovi endpoint pubblici per l'account di archiviazione che instradano il traffico sul percorso scelto. Questa flessibilità consente di indirizzare il traffico all'account di archiviazione tramite una route specifica senza cambiare la preferenza di routing predefinita.
 
-Ad esempio, la pubblicazione di un endpoint specifico della route Internet per 'StorageAccountA' influirà sugli endpoint seguenti per l'account di archiviazione:
+Ad esempio, la pubblicazione di un endpoint specifico della Route Internet per ' StorageAccountA ' pubblicherà i seguenti endpoint per l'account di archiviazione:
 
 | Servizio di archiviazione        | Endpoint specifico della route                                  |
 | :--------------------- | :------------------------------------------------------- |
@@ -65,7 +67,7 @@ Nel caso dell'archiviazione con ridondanza geografica e accesso in lettura (RA-G
 
 Le stringhe di connessione per gli endpoint specifici della route pubblicati possono essere copiate tramite il [portale di Azure](https://portal.azure.com). Queste stringhe di connessione possono essere usate per l'autorizzazione con chiave condivisa con tutti gli SDK e le API di Archiviazione di Azure esistenti.
 
-## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
+## <a name="regional-availability"></a>Disponibilità a livello di area
 
 La preferenza di routing per Archiviazione di Azure è disponibile nelle aree geografiche seguenti:
 
@@ -100,16 +102,17 @@ La preferenza di routing per Archiviazione di Azure è disponibile nelle aree ge
 - Australia orientale 
 - Australia sud-orientale 
 
-I problemi noti seguenti influiscono sull'anteprima della preferenza di routing per Archiviazione di Azure:
+I problemi noti seguenti influiscono sulla preferenza di routing per archiviazione di Azure:
 
 - Le richieste di accesso per l'endpoint specifico della route per la rete globale Microsoft non riescono con errore HTTP 404 o equivalente. Il routing sulla rete globale Microsoft funziona come previsto quando viene impostato come preferenza di routing predefinita per l'endpoint pubblico.
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
-Per informazioni su prezzi e fatturazione, vedere la sezione **Prezzi** in [Che cos'è la preferenza di routing (anteprima)?](../../virtual-network/routing-preference-overview.md#pricing)
+Per informazioni sui prezzi e sulla fatturazione, vedere la sezione relativa ai **prezzi** in informazioni sulle [Preferenze di routing](../../virtual-network/routing-preference-overview.md#pricing).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è la preferenza di routing (anteprima)?](../../virtual-network/routing-preference-overview.md)
+- [Che cos'è la preferenza di routing?](../../virtual-network/routing-preference-overview.md)
+- [Configurare la preferenza di routing di rete](configure-network-routing-preference.md)
 - [Configurare i firewall e le reti virtuali di Archiviazione di Azure](storage-network-security.md)
 - [Raccomandazioni sulla sicurezza per archiviazione BLOB](../blobs/security-recommendations.md)

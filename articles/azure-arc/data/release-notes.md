@@ -7,25 +7,44 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 02/11/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d3eb4e4b45a13872a11515dd4f53fcbbc069a954
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391457"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686683"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Note sulla versione-Azure Arc Enabled Data Services (anteprima)
 
+Questo articolo evidenzia funzionalità, funzionalità e miglioramenti rilasciati o migliorati di recente per i servizi dati abilitati per Azure Arc. 
+
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="february-2021"></a>2021 febbraio
+
+### <a name="new-capabilities-and-features"></a>Nuove funzionalità e funzionalità
+
+Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.3.1. Scarica all'indirizzo [https://aka.ms/azdata](https://aka.ms/azdata) . È possibile installare `azdata` da [Install Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+
+Altri aggiornamenti includono:
+
+- Istanza gestita di SQL con abilitazione di Azure Arc
+   - Disponibilità elevata con Gruppi di disponibilità Always On
+
+- Azure Data Studio per l'iperscalabilità di PostgreSQL abilitata per Azure Arc: 
+   - La pagina Panoramica Mostra ora lo stato del gruppo di server per nodo
+   - È ora disponibile una nuova pagina delle proprietà per visualizzare altri dettagli sul gruppo di server
+   - Configurare i parametri del motore Postgres dalla pagina **parametri nodo** =
+
+Per i problemi associati a questa versione, vedere [problemi noti-Azure Arc Enabled Data Services (anteprima)](known-issues.md)
 
 ## <a name="january-2021"></a>Gennaio 2021
 
 ### <a name="new-capabilities-and-features"></a>Nuove funzionalità e funzionalità
 
 Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.3.0. Scarica all'indirizzo [https://aka.ms/azdata](https://aka.ms/azdata) . È possibile installare `azdata` da [Install Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
-
 
 Altri aggiornamenti includono:
 - Portale localizzato disponibile per 17 nuove lingue

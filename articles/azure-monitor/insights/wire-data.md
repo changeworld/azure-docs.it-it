@@ -1,17 +1,16 @@
 ---
 title: Soluzione Wire data in monitoraggio di Azure | Microsoft Docs
 description: I dati in transito sono dati di prestazioni e di rete consolidati provenienti da computer con agenti Log Analytics. I dati di rete vengono combinati con i dati dei log per poter correlare i dati.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 563104a82da3b6b2263fce46792cf4f627c8f6ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5981a5f136d613ffcedda86797d807d2eecfab0d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572340"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713627"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Soluzione Wire Data 2.0 (anteprima) in monitoraggio di Azure
 
@@ -26,7 +25,7 @@ Oltre all'agente di Log Analytics, la soluzione Wire Data usa le istanze di Micr
 > 
 >I clienti esistenti che usano la soluzione Wire data possono continuare a usarlo. Si pubblicheranno le linee guida per una sequenza temporale di migrazione per il passaggio a Mapping dei servizi.
 >
->I nuovi clienti devono installare la [soluzione mapping dei servizi](../vm/service-map.md) o [monitoraggio di Azure per le macchine virtuali](../vm/vminsights-overview.md).  Il set di dati Mapping dei servizi è paragonabile ai dati in transito.  Monitoraggio di Azure per le macchine virtuali include il set di dati Mapping dei servizi con ulteriori dati sulle prestazioni e funzionalità per l'analisi. 
+>I nuovi clienti devono installare la [soluzione mapping dei servizi](../vm/service-map.md) o le [informazioni dettagliate sulla macchina virtuale](../vm/vminsights-overview.md).  Il set di dati Mapping dei servizi è paragonabile ai dati in transito.  VM Insights include il set di dati Mapping dei servizi con ulteriori dati sulle prestazioni e funzionalità per l'analisi. 
 
 
 Per impostazione predefinita, monitoraggio di Azure registra i dati relativi alle prestazioni della CPU, della memoria, del disco e della rete dai contatori incorporati in Windows e Linux, oltre che da altri contatori delle prestazioni che è possibile specificare. La raccolta dei dati di rete e di altro tipo viene eseguita in tempo reale per ogni agente, inclusi subnet e protocolli a livello di applicazione usati dal computer.  Wire Data esamina i dati di rete a livello di applicazione, non a livello di trasporto TCP, più basso.  La soluzione non esamina ACK e SYN singoli.  Dopo l'esecuzione dell'handshake, la connessione viene considerata attiva e viene contrassegnata come connessa. La connessione rimane attiva finché entrambe le parti acconsentono all'apertura del socket e alla trasmissione di dati nei due sensi.  Quando uno dei due lati chiude la connessione, viene contrassegnato come disconnesso.  Viene quindi contata solo la larghezza di banda dei pacchetti completati correttamente e non vengono segnalati i nuovi tentativi di invio né i pacchetti la cui trasmissione non è riuscita.

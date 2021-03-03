@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: cf3a3d3fdfcd03f068224c93643d364cd2646290
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7446b2050fdd7bbc7704953c053da0629231191c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895629"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715123"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selezionare un'opzione di migrazione VMware
 
@@ -28,7 +28,7 @@ Usare i confronti selezionati per decidere quale metodo usare. È anche possibil
 **Impostazione** | **Senza agente** | **Basata su agenti**
 --- | --- | ---
 **Autorizzazioni di Azure** | Sono necessarie le autorizzazioni per creare un progetto Azure Migrate e per registrare le app Azure AD create quando si distribuisce il dispositivo Azure Migrate. | Sono necessarie autorizzazioni di collaboratore per la sottoscrizione di Azure. 
-**Replica** | È possibile replicare simultaneamente un massimo di 300 VM da un server vCenter.<br/> Se sono presenti più di 50 VM per la migrazione, creare più batch di macchine virtuali.<br/> La replica di un maggior numero di volte avrà un effetto sulle prestazioni.<br/><br/> Nel portale è possibile selezionare un massimo di 10 computer contemporaneamente per la replica. Per replicare più computer, aggiungerli in batch di 10.| La capacità di replica aumenta scalando il dispositivo di replica.
+**Replica** | È possibile replicare simultaneamente un massimo di 500 VM da un server vCenter. Nel portale è possibile selezionare un massimo di 10 computer contemporaneamente per la replica. Per replicare più computer, aggiungerli in batch di 10.| La capacità di replica aumenta scalando il dispositivo di replica.
 **Distribuzione dell'appliance** | Il [Azure migrate Appliance](migrate-appliance.md) viene distribuito in locale. | Il [Azure migrate appliance di replica](migrate-replication-appliance.md) viene distribuito in locale.
 **Compatibilità Site Recovery** | Compatibile. | Non è possibile eseguire la replica con Azure Migrate migrazione del server se è stata configurata la replica per un computer con Site Recovery.
 **Disco di destinazione** | Dischi gestiti | Dischi gestiti

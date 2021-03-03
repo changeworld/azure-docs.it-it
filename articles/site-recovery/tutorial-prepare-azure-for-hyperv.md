@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f4f040288574a9ddfc5f7c56878c7f1e795b09a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 5ca03336fc60abbb458615e922a2556dd21a79a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653852"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739679"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Preparare le risorse di Azure per il ripristino di emergenza di Hyper-V
 
@@ -56,7 +56,7 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 2. In **Crea account di archiviazione** immettere un nome per l'account.  Il nome scelto deve essere univoco in Azure, avere una lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole. Per questa esercitazione usare **contosovmsacct1910171607**.
 3. In **Modello di distribuzione** selezionare **Resource Manager**.
 4. In **Tipologia account** selezionare **Archiviazione (utilizzo generico v1)** . Non selezionare l'archivio BLOB.
-5. In **Replica** selezionare l'opzione predefinita **Archiviazione con ridondanza geografica e accesso in lettura** per la ridondanza dell'archiviazione. Lasciare disabilitata l'impostazione "Trasferimento sicuro obbligatorio".
+5. In **Replica** selezionare l'opzione predefinita **Archiviazione con ridondanza geografica e accesso in lettura** per la ridondanza dell'archiviazione.
 6. In **Prestazioni** selezionare **Standard**. Successivamente, in **Livello di accesso**, selezionare l'opzione predefinita **Accesso frequente**.
 7. In **Sottoscrizione** scegliere la sottoscrizione in cui creare il nuovo account di archiviazione.
 8. In **Gruppo di risorse** immettere un nuovo gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Per questa esercitazione usare **ContosoRG**.

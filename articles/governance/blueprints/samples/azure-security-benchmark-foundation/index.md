@@ -3,16 +3,16 @@ title: Panoramica dell'esempio di progetto di Azure Security benchmark Foundatio
 description: Panoramica e architettura dell'esempio di progetto Azure Security benchmark Foundation.
 ms.date: 02/17/2020
 ms.topic: sample
-ms.openlocfilehash: b3b58f2fb603e23e4b188e527fa4fc60f4041a29
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ed497eff85e07b6a51939907bc751f3b40c99b30
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095267"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741872"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Panoramica dell'esempio di progetto di Azure Security benchmark Foundation
 
-L'esempio Azure Security benchmark Foundation Blueprint fornisce un set di modelli di infrastruttura di base che consentono di creare un ambiente Azure sicuro e conforme. Il progetto consente di distribuire un'architettura basata sul cloud che offre soluzioni a scenari con requisiti di certificazione o di conformità. Questo esempio di progetto di base è un'estensione del [progetto di esempio di benchmark di sicurezza di Azure](../azure-security-benchmark/index.md). Distribuisce e configura i limiti di rete, il monitoraggio e altre risorse in linea con i criteri e altri Guardrails definiti nel [benchmark di sicurezza di Azure](../../../../security/benchmarks/index.yml).
+L'esempio Azure Security benchmark Foundation Blueprint fornisce un set di modelli di infrastruttura di base che consentono di creare un ambiente Azure sicuro e conforme. Il progetto consente di distribuire un'architettura basata sul cloud che offre soluzioni a scenari con requisiti di certificazione o di conformità. Questo esempio di progetto di base è un'estensione del [progetto di esempio di benchmark di sicurezza di Azure](../azure-security-benchmark.md). Distribuisce e configura i limiti di rete, il monitoraggio e altre risorse in linea con i criteri e altri Guardrails definiti nel [benchmark di sicurezza di Azure](../../../../security/benchmarks/index.yml).
 
 ## <a name="architecture"></a>Architettura
 
@@ -23,7 +23,7 @@ Il progetto distribuisce una rete virtuale Hub che contiene risorse comuni e con
 
 Questo progetto distribuisce diversi servizi di Azure per fornire una base sicura, monitorata e pronta per l'azienda. L'ambiente è costituito da:
 
-- [Log di monitoraggio di Azure](../../../../azure-monitor/platform/data-platform-logs.md) e un account di archiviazione di Azure per assicurarsi che i log delle risorse, i log attività, le metriche e i flussi di traffico delle reti siano archiviati in una posizione centralizzata per semplificare l'esecuzione di query, analisi, archiviazione e avvisi.
+- [Log di monitoraggio di Azure](../../../../azure-monitor/logs/data-platform-logs.md) e un account di archiviazione di Azure per assicurarsi che i log delle risorse, i log attività, le metriche e i flussi di traffico delle reti siano archiviati in una posizione centralizzata per semplificare l'esecuzione di query, analisi, archiviazione e avvisi.
 - [Centro sicurezza di Azure](../../../../security-center/security-center-introduction.md) (versione standard) per fornire la protezione dalle minacce per le risorse di Azure.
 - [Rete virtuale di Azure](../../../../virtual-network/virtual-networks-overview.md) nell'hub che supporta le subnet per la connettività a una rete locale, uno stack in ingresso e in uscita a/per la connettività Internet e subnet facoltative per la distribuzione di servizi amministrativi o di gestione aggiuntivi. Rete in ingresso virtuale il spoke contiene subnet per ospitare i carichi di lavoro dell'applicazione. È possibile creare subnet aggiuntive dopo la distribuzione, in base alle esigenze, per supportare scenari applicabili.
 - [Firewall di Azure](../../../../firewall/overview.md) per instradare tutto il traffico Internet in uscita e consentire il traffico Internet in ingresso tramite jump box. Le regole del firewall predefinite bloccano tutto il traffico in ingresso e in uscita Internet e le regole devono essere configurate dopo la distribuzione, come applicabile.

@@ -6,18 +6,18 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3ee29e6c65dcd2b2226dc4dc7844b3b02a571a4f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3f8da7e985e62ce0b40c6dddcd137cce8561e59
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614486"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717860"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Risoluzione dei problemi negli avvisi di monitoraggio di Azure
 
 Questo articolo illustra i problemi comuni negli avvisi e nelle notifiche di monitoraggio di Azure.
 
-Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. Per ulteriori informazioni sugli avvisi, vedere [Panoramica degli avvisi in Microsoft Azure](../platform/alerts-overview.md).
+Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. Per ulteriori informazioni sugli avvisi, vedere [Panoramica degli avvisi in Microsoft Azure](./alerts-overview.md).
 
 Se si verifica un problema con la generazione di un avviso o se non viene attivato quando previsto, vedere gli articoli seguenti. È possibile visualizzare gli avvisi "attivato" nel portale di Azure.
 
@@ -36,7 +36,7 @@ Se un avviso attivato è visibile nel portale di Azure ma non si è ricevuto il 
 
 1. **Il messaggio di posta elettronica è stato eliminato da una [regola di azione](../alerts/alerts-action-rules.md)**?
 
-    Controllare facendo clic sull'avviso attivato nel portale ed esaminare la scheda della cronologia relativa ai [gruppi di azioni](../platform/action-groups.md) eliminati:
+    Controllare facendo clic sull'avviso attivato nel portale ed esaminare la scheda della cronologia relativa ai [gruppi di azioni](./action-groups.md) eliminati:
 
     ![Cronologia eliminazione regola azione avviso](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -92,7 +92,7 @@ Se un avviso attivato è visibile nel portale ma non si è ricevuto il relativo 
 
 1. **L'azione è stata eliminata da una [regola di azione](../alerts/alerts-action-rules.md)?**
 
-    Controllare facendo clic sull'avviso attivato nel portale ed esaminare la scheda della cronologia relativa ai [gruppi di azioni](../platform/action-groups.md) eliminati: 
+    Controllare facendo clic sull'avviso attivato nel portale ed esaminare la scheda della cronologia relativa ai [gruppi di azioni](./action-groups.md) eliminati: 
 
     ![Cronologia eliminazione regola azione avviso](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -125,7 +125,7 @@ Se un avviso attivato è visibile nel portale, ma la relativa azione configurata
 
 1. **L'azione è stata eliminata da una regola di azione?**
 
-    Controllare facendo clic sull'avviso attivato nel portale ed esaminare la scheda della cronologia relativa ai [gruppi di azioni](../platform/action-groups.md) eliminati:
+    Controllare facendo clic sull'avviso attivato nel portale ed esaminare la scheda della cronologia relativa ai [gruppi di azioni](./action-groups.md) eliminati:
 
     ![Cronologia eliminazione regola azione avviso](media/alerts-troubleshoot/history-action-rule.png)
  
@@ -135,13 +135,13 @@ Se un avviso attivato è visibile nel portale, ma la relativa azione configurata
 
     1. **Gli indirizzi IP di origine sono stati bloccati?**
     
-       Aggiungere gli [indirizzi IP](../platform/action-groups.md#action-specific-information) da cui viene chiamato il webhook all'elenco Consenti.
+       Aggiungere gli [indirizzi IP](./action-groups.md#action-specific-information) da cui viene chiamato il webhook all'elenco Consenti.
 
     1. **L'endpoint del webhook funziona correttamente?**
 
        Verificare che l'endpoint del webhook configurato sia corretto e che funzioni correttamente. Controllare i log del webhook o instrumentarne il codice in modo che sia possibile analizzarlo (ad esempio, registrare il payload in ingresso).
 
-    1. **Si sta chiamando Slack o Microsoft Teams?**  
+    1. **Si esegue una chiamata a Slack o a Microsoft Teams?**  
     Ognuno di questi endpoint prevede un formato JSON specifico. Seguire [queste istruzioni](../alerts/action-groups-logic-app.md) per configurare in alternativa un'azione dell'app per la logica.
 
     1. **Il webhook non è più attivo o ha restituito errori?** 
@@ -180,12 +180,12 @@ Se l'utente ha ricevuto l'avviso, ma ritiene che alcuni campi siano mancanti o e
 
     Verificare che il formato specificato a livello di azione sia quello previsto. Ad esempio, è possibile che sia stato sviluppato un codice che risponde agli avvisi (webhook, funzione, app per la logica e così via), in cui è previsto un formato specifico, ma in un secondo momento, nell'azione l'utente o un altra persona ha specificato un formato diverso.  
 
-    Controllare anche il formato del payload (JSON) per gli [avvisi del log attività](../alerts/activity-log-alerts-webhook.md), per gli [avvisi di ricerca log](../alerts/alerts-log-webhook.md) (sia Application Insights che Log Analytics), per gli [avvisi di metrica](alerts-metric-near-real-time.md#payload-schema), per lo [schema di avviso comune](../alerts/alerts-common-schema-definitions.md) e per gli [avvisi della metrica classica](../platform/alerts-webhooks.md) deprecati.
+    Controllare anche il formato del payload (JSON) per gli [avvisi del log attività](../alerts/activity-log-alerts-webhook.md), per gli [avvisi di ricerca log](../alerts/alerts-log-webhook.md) (sia Application Insights che Log Analytics), per gli [avvisi di metrica](alerts-metric-near-real-time.md#payload-schema), per lo [schema di avviso comune](../alerts/alerts-common-schema-definitions.md) e per gli [avvisi della metrica classica](./alerts-webhooks.md) deprecati.
 
  
 1. **Avvisi del log attività: le informazioni sono disponibili nel log attività?** 
 
-    Gli [avvisi del log attività](../platform/activity-log-alerts.md) sono avvisi basati sugli eventi scritti nel log attività di Azure, ad esempio gli eventi sulla creazione, l'aggiornamento o l'eliminazione di risorse di Azure, l'integrità del servizio e gli eventi di integrità delle risorse o i risultati di Azure Advisor e criteri di Azure. Se è stato ricevuto un avviso basato sul log attività, ma alcuni campi necessari mancano o non sono corretti, controllare innanzitutto gli eventi nel log attività. Se la risorsa di Azure non ha scritto i campi che si sta cercando nell'evento del log attività, non verranno inclusi nell'avviso corrispondente. 
+    Gli [avvisi del log attività](./activity-log-alerts.md) sono avvisi basati sugli eventi scritti nel log attività di Azure, ad esempio gli eventi sulla creazione, l'aggiornamento o l'eliminazione di risorse di Azure, l'integrità del servizio e gli eventi di integrità delle risorse o i risultati di Azure Advisor e criteri di Azure. Se è stato ricevuto un avviso basato sul log attività, ma alcuni campi necessari mancano o non sono corretti, controllare innanzitutto gli eventi nel log attività. Se la risorsa di Azure non ha scritto i campi che si sta cercando nell'evento del log attività, non verranno inclusi nell'avviso corrispondente. 
 
 ## <a name="action-rule-is-not-working-as-expected"></a>La regola di azione non funziona come previsto 
 
@@ -250,4 +250,4 @@ Se si è ricevuto un errore durante il tentativo di creare, aggiornare o elimina
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Se si usa un avviso di log, vedere anche [risoluzione dei problemi relativi agli avvisi del log](./alerts-troubleshoot-log.md).
-- Tornare alla [portale di Azure](https://portal.azure.com) per verificare se il problema è stato risolto con le linee guida precedenti 
+- Tornare alla [portale di Azure](https://portal.azure.com) per verificare se il problema è stato risolto con le linee guida precedenti

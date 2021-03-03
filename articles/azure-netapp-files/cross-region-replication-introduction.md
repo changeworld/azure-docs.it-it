@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 02/25/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 4d4cf7a0dc73070f4f48ed87f60a2458bc925b13
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220905"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707354"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replica tra aree di volumi Azure NetApp Files
 
@@ -31,7 +31,7 @@ La funzionalità di replica Azure NetApp Files garantisce la protezione dei dati
 
 ## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Coppie di replica tra aree supportate
 
-Azure NetApp Files replica del volume è supportata tra varie coppie di aree di [Azure](/azure/best-practices-availability-paired-regions#azure-regional-pairs) e non coppie. Azure NetApp Files replica del volume è attualmente disponibile tra le aree seguenti:  
+Azure NetApp Files replica del volume è supportata tra varie coppie di aree di [Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs) e non coppie. Azure NetApp Files replica del volume è attualmente disponibile tra le aree seguenti:  
 
 ### <a name="azure-regional-pairs"></a>Coppie di aree di Azure
 
@@ -52,6 +52,7 @@ Azure NetApp Files replica del volume è supportata tra varie coppie di aree di 
 *   Stati Uniti centro-meridionali e Stati Uniti orientali
 *   Stati Uniti centro-meridionali e Stati Uniti orientali 2
 *   Stati Uniti orientali e Stati Uniti orientali 2
+*   Stati Uniti orientali 2 e Stati Uniti occidentali 2
 *   Australia orientale e Asia sudorientale 
 *   Germania centro-occidentale e Regno Unito meridionale
 
@@ -125,5 +126,3 @@ Il normale costo della capacità di archiviazione Azure NetApp Files per il mese
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
 * [Eliminare repliche di volumi o volumi](cross-region-replication-delete.md)
 * [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
-
-

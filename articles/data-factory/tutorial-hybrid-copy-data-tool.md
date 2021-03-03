@@ -6,20 +6,20 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: a0b406e2937e9ea8d63a1c993f1dbdbafd1bd1dc
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.date: 02/18/2021
+ms.openlocfilehash: aa6c7dd786a90abadb43a13eaa73a78a2a61bd0a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094727"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719288"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiare dati da un database di SQL Server all'archiviazione BLOB di Azure con lo strumento Copia dati
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](tutorial-hybrid-copy-data-tool.md)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In questa esercitazione si usa il portale di Azure per creare una data factory. Si userà quindi lo strumento Copia dati per creare una pipeline che copia i dati da un database di SQL Server all'archiviazione BLOB di Azure.
 

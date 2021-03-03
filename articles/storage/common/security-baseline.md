@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5367fbcb88e19253eead58d8f99933fdadc41898
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591560"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714715"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Baseline della sicurezza di Azure per archiviazione di Azure
 
@@ -26,7 +26,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 *Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](../../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o Firewall di Azure nella rete virtuale
 
 **Linee guida**: configurare il firewall dell'account di archiviazione limitando l'accesso ai client da intervalli di indirizzi IP pubblici specifici, selezionare reti virtuali (reti virtuali) in Azure o risorse specifiche di Azure. È anche possibile configurare endpoint privati, in modo che il traffico verso il servizio di archiviazione dall'azienda viaggi esclusivamente su reti private.
 
@@ -190,7 +190,7 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 **Indicazioni**: analisi archiviazione di Azure fornisce log per BLOB, code e tabelle. È possibile usare la portale di Azure per configurare i log registrati per l'account. 
 
-- [Come configurare il monitoraggio per l'account di archiviazione di Azure](./storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account)
+- [Come configurare il monitoraggio per l'account di archiviazione di Azure](./manage-storage-analytics-logs.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -208,7 +208,7 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 **Linee guida**: quando si archiviano i registri eventi di sicurezza nell'account di archiviazione di Azure o in log Analytics area di lavoro, è possibile impostare i criteri di conservazione in base ai requisiti dell'organizzazione. 
 
-- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](./storage-monitor-storage-account.md#configure-logging)
+- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](./manage-storage-analytics-logs.md#configure-logging)
 
 - [Modificare il periodo di conservazione dei dati in Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -414,7 +414,7 @@ Un modo efficace per ridurre il rischio di accesso all'account utente non sospet
 
 - [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/anonymous-read-access-configure.md)
 
-- [Monitorare un account di archiviazione nel portale di Azure](./storage-monitor-storage-account.md)
+- [Monitorare un account di archiviazione nel portale di Azure](./manage-storage-analytics-logs.md)
 
 - [Gestisci chiavi di accesso all'account di archiviazione](./storage-account-keys-manage.md)
 
@@ -432,7 +432,7 @@ Creare le impostazioni di diagnostica per Azure Active Directory account utente,
 
 - [Come integrare i log attività di Azure in Monitoraggio di Azure](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Come configurare gli avvisi di metrica per gli account di archiviazione di Azure](./storage-monitor-storage-account.md)
+- [Come configurare gli avvisi di metrica per gli account di archiviazione di Azure](./manage-storage-analytics-logs.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -460,7 +460,7 @@ Creare le impostazioni di diagnostica per Azure Active Directory account utente,
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
 ## <a name="data-protection"></a>Protezione dei dati
 
@@ -576,7 +576,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 - [Registrazione di Analisi di archiviazione di Azure](./storage-analytics-logging.md)
 
-- [Come configurare gli avvisi di metrica per gli account di archiviazione di Azure](./storage-monitor-storage-account.md)
+- [Come configurare gli avvisi di metrica per gli account di archiviazione di Azure](./manage-storage-analytics-logs.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

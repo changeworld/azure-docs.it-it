@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92a0cc93b4d159a4ba87c1cadc2d0dedc0a28b2d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 0aea468c64f70bd7f35dd25206faa9ea33459999
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683811"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688910"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -161,7 +161,7 @@ Per gestire le identità dei dispositivi tramite il portale di Azure AD, è nece
 - **Gli utenti possono aggiungere dispositivi a Azure ad** . questa impostazione consente di selezionare gli utenti che possono registrare i propri dispositivi come Azure ad dispositivi aggiunti. Il valore predefinito è **All**.
 
 > [!NOTE]
-> **Gli utenti possono aggiungere dispositivi a Azure ad** impostazione è applicabile solo a Azure ad join in Windows 10.
+> **Gli utenti possono aggiungere dispositivi a Azure ad** impostazione è applicabile solo a Azure ad join in Windows 10. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti, [Azure ad macchine virtuali Unite in join in Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) e Azure ad dispositivi aggiunti con la [modalità di distribuzione automatica di Windows Autopilot](/mem/autopilot/self-deploying) perché funzionano in un contesto senza utente.
 
 - **Amministratori locali aggiuntivi su dispositivi aggiunti ad Azure AD**: è possibile selezionare gli utenti a cui vengono concessi i diritti di amministratore locale per un dispositivo. Questi utenti vengono aggiunti al ruolo di *amministratore del dispositivo* in Azure ad. Agli amministratori globali di Azure AD e ai proprietari dei dispositivi vengono concessi i diritti di amministratore locale per impostazione predefinita. Questa opzione è una funzionalità dell'edizione Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
 - **Gli utenti possono registrare i propri dispositivi con Azure ad** : è necessario configurare questa impostazione per consentire la registrazione dei dispositivi Windows 10 Personal, iOS, Android e macOS con Azure ad. Se si seleziona **nessuno**, i dispositivi non possono eseguire la registrazione con Azure ad. La registrazione con Microsoft Intune o la gestione di dispositivi mobili (MDM) per Microsoft 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.

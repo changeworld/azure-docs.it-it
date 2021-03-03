@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 70f64813546c66c0f9e3533e09de192315f75600
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: fb3e09cefa7f87fe2eb1e5013854c7965ea9330e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955072"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698842"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Passaggio 1: informazioni sui vantaggi della migrazione all'API di servizi multimediali V3
 
@@ -38,7 +38,7 @@ Sono stati apportati miglioramenti significativi a servizi multimediali con v3.
 | Aggiornamenti portale di Azure | Il portale di Azure è stato aggiornato in modo da includere la gestione delle entità API V3. Consente ai clienti di usare il portale per avviare lo streaming live, inviare processi di trasformazione V3, gestire i criteri di protezione del contenuto, gli endpoint di streaming, ottenere l'accesso alle API, gestire gli account di archiviazione collegati ed eseguire attività di monitoraggio. |
 | **Account e archiviazione** | |
 | Controllo degli accessi in base al ruolo di Azure (RBAC) | I clienti possono ora definire i propri ruoli e controllare l'accesso a ogni entità nell'API ARM di servizi multimediali. Questo consente di controllare l'accesso alle risorse tramite gli account AAD. |
-| Identità gestite | Le identità gestite eliminano la necessità per gli sviluppatori di gestire le credenziali fornendo un'identità per la risorsa di Azure in Azure AD. Vedere i dettagli sulle identità gestite [qui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). |
+| Identità gestite | Le identità gestite eliminano la necessità per gli sviluppatori di gestire le credenziali fornendo un'identità per la risorsa di Azure in Azure AD. Vedere i dettagli sulle identità gestite [qui](../../active-directory/managed-identities-azure-resources/overview.md). |
 | Supporto del collegamento privato | I clienti potranno accedere agli endpoint di servizi multimediali per il recapito delle chiavi, LiveEvents e le entità streamingendpoint tramite un PrivateEndpoint nei VNet. |
 | [Chiavi](concept-use-customer-managed-keys-byok.md) gestite dal cliente o supporto BYOK (Bring your own key) | I clienti possono crittografare i dati nel proprio account di servizi multimediali usando una chiave nella Azure Key Vault. |
 | **Asset** | |

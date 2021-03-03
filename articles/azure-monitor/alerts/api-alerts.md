@@ -4,12 +4,12 @@ description: L'API REST per gli avvisi di Log Analytics consente di creare e ges
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 6c347b7b8ddaac103019e15e32fb5c06219e0064
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4acb6cdcb544e8774fb60bf1ead1a4a13140024a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620916"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717809"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creare e gestire regole di avviso in Log Analytics con l'API REST 
 
@@ -21,7 +21,7 @@ L'API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in 
 L'API REST di ricerca di Log Analytics è RESTful ed è accessibile tramite l'API REST Azure Resource Manager. In questo documento vengono forniti alcuni esempi in cui si accede all'API dalla riga di comando di PowerShell tramite [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento da riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager. L'uso di ARMClient e PowerShell è una delle numerose opzioni di accesso all'API di ricerca di Log Analytics. Con questi strumenti è possibile usare l'API RESTful di Azure Resource Manager per effettuare chiamate alle aree di lavoro di Log Analytics ed eseguire i comandi di ricerca al loro interno. L'API fornirà risultati della ricerca per l'utente in formato JSON, consentendo di usare i risultati della ricerca in molti modi diversi a livello di codice.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Attualmente, gli avvisi possono essere creati solo con una ricerca salvata in Log Analytics.  Per ulteriori informazioni, fare riferimento all’ [API REST di ricerca log](../log-query/log-query-overview.md) .
+Attualmente, gli avvisi possono essere creati solo con una ricerca salvata in Log Analytics.  Per ulteriori informazioni, fare riferimento all’ [API REST di ricerca log](../logs/log-query-overview.md) .
 
 ## <a name="schedules"></a>Pianificazioni
 Una ricerca salvata può avere una o più pianificazioni. La pianificazione definisce la frequenza con cui viene eseguita la ricerca e l'intervallo di tempo in cui vengono identificati i criteri.
@@ -387,7 +387,6 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Utilizzare l’ [API REST per eseguire ricerche nei log](../log-query/log-query-overview.md) in Log Analytics.
+* Utilizzare l’ [API REST per eseguire ricerche nei log](../logs/log-query-overview.md) in Log Analytics.
 * Informazioni sugli [avvisi del log in monitoraggio di Azure](./alerts-unified-log.md)
 * Come [creare, modificare o gestire le regole di avviso del log in monitoraggio di Azure](./alerts-log.md)
-

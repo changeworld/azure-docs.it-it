@@ -176,7 +176,7 @@
     - name: Report
       items:
         - name: Attività metodi di autenticazione
-          href: howto-authentication-methods-usage-insights.md
+          href: howto-authentication-methods-activity.md
         - name: Report della reimpostazione della password self-service
           href: howto-sspr-reporting.md
         - name: Report MFA

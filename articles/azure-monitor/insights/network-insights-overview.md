@@ -1,17 +1,16 @@
 ---
 title: Monitoraggio di Azure per le reti
 description: Panoramica di monitoraggio di Azure per le reti, che offre una visualizzazione completa dell'integrità e delle metriche per tutte le risorse di rete distribuite senza alcuna configurazione.
-ms.subservice: ''
 ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 0616d14a890cfd5dd1a486dd21670c7c58dbeebc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 20f61ad92307a16515156151b816494e9aa289f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573527"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717469"
 ---
 # <a name="azure-monitor-for-networks"></a>Monitoraggio di Azure per le reti
 

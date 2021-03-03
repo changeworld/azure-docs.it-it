@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 6eec9cf199068db6b87e69dd97dd0e105f629a14
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c8435d250f95f861f2a84e91d673eb59c3a6d44b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947639"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750724"
 ---
 <a name="HOLTop"></a>
 
@@ -105,7 +105,7 @@ Nel metodo **main** dell'applicazione aggiungere le chiamate per i metodi usati 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
 
 > [!div class="nextstepaction"]
-> [Il client è stato configurato](?success=set-up-client#object-model) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [Il client è stato configurato](?success=set-up-client#object-model) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=set-up-client)
 
 ## <a name="object-model"></a>Modello a oggetti
 
@@ -132,7 +132,7 @@ In un nuovo metodo creare un'istanza di un oggetto [ComputerVisionClient](/java/
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [Il client è stato autenticato](?success=authenticate-client#analyze-an-image) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [Il client è stato autenticato](?success=authenticate-client#analyze-an-image) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analizzare un'immagine
 
@@ -215,7 +215,7 @@ Il codice seguente stampa informazioni sul tipo di immagine, sia che si tratti d
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
 > [!div class="nextstepaction"]
-> [L'immagine è stata analizzata](?success=analyze-image#read-printed-and-handwritten-text) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [L'immagine è stata analizzata](?success=analyze-image#read-printed-and-handwritten-text) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Leggere il testo stampato e scritto a mano
 
@@ -261,7 +261,7 @@ Infine, aggiungere l'altro metodo helper usato sopra, che estrae l'ID operazione
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
 > [!div class="nextstepaction"]
-> [Il testo è stato letto](?success=read-printed-handwritten-text#run-the-application) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+> [Il testo è stato letto](?success=read-printed-handwritten-text#run-the-application) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=read-printed-handwritten-text)
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
@@ -278,7 +278,7 @@ gradle run
 ```
 
 > [!div class="nextstepaction"]
-> [L'applicazione è stata eseguita](?success=run-the-application#clean-up-resources) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+> [L'applicazione è stata eseguita](?success=run-the-application#clean-up-resources) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=run-the-application)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -288,7 +288,7 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 * [Interfaccia della riga di comando di Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [Le risorse sono state pulite](?success=clean-up-resources#next-steps) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+> [Le risorse sono state pulite](?success=clean-up-resources#next-steps) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=clean-up-resources)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

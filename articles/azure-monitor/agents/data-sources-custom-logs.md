@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 73496e350a5e40a3945343271b76c6d883991b62
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9ea33c7dca55e22687bd1db873c281caa1a3c4cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616996"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719934"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Raccogliere log personalizzati con l'agente di Log Analytics in Monitoraggio di Azure
 
 L'origine dati dei log personalizzati per l'agente Log Analytics in monitoraggio di Azure consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog. Al termine della raccolta, è possibile analizzare i dati nei singoli campi nelle query o estrarli durante la raccolta in singoli campi.
 
 > [!IMPORTANT]
-> Questo articolo illustra la raccolta di log personalizzati con l' [agente di log Analytics](../platform/log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](../agents/agents-overview.md) .
+> Questo articolo illustra la raccolta di log personalizzati con l' [agente di log Analytics](./log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](../agents/agents-overview.md) .
 
 ![Raccolta di log personalizzati](media/data-sources-custom-logs/overview.png)
 
@@ -105,7 +105,7 @@ Dopo che Monitoraggio di Azure avvia la raccolta dal log personalizzato, i recor
 > Se la proprietà RawData non è presente nella query, potrebbe essere necessario chiudere e riaprire il browser.
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Passaggio 6. Analizzare le voci del log personalizzato
-L'intera voce di log viene archiviata in una singola proprietà denominata **RawData**.  È probabile che si preferisca separare le diverse parti di informazioni di ogni voce in singole proprietà per ciascun record. Fare riferimento a [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per le opzioni relative all'analisi di **RawData** in più proprietà.
+L'intera voce di log viene archiviata in una singola proprietà denominata **RawData**.  È probabile che si preferisca separare le diverse parti di informazioni di ogni voce in singole proprietà per ciascun record. Fare riferimento a [Parse text data in Azure Monitor](../logs/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per le opzioni relative all'analisi di **RawData** in più proprietà.
 
 ## <a name="removing-a-custom-log"></a>Rimozione di un log personalizzato
 Usare la procedura seguente nel portale di Azure per rimuovere un log personalizzato definito in precedenza.
@@ -116,7 +116,7 @@ Usare la procedura seguente nel portale di Azure per rimuovere un log personaliz
 ## <a name="data-collection"></a>Raccolta dati
 Monitoraggio di Azure raccoglie nuove voci da ogni log personalizzato a intervalli di circa 5 minuti.  L'agente registra la propria posizione in ogni file di log da cui esegue la raccolta.  Se l'agente risulta offline per un certo periodo di tempo, Monitoraggio di Azure raccoglie le voci dal punto in cui è stato interrotto, anche se le voci sono state create mentre l'agente era offline.
 
-L'intero contenuto della voce di log viene scritto in una singola proprietà denominata **RawData**.  Vedere [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per i metodi per analizzare ogni voce di log importata in più proprietà.
+L'intero contenuto della voce di log viene scritto in una singola proprietà denominata **RawData**.  Vedere [Parse text data in Azure Monitor](../logs/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per i metodi per analizzare ogni voce di log importata in più proprietà.
 
 ## <a name="custom-log-record-properties"></a>Proprietà dei record del log personalizzato
 Il tipo dei record del log personalizzato corrisponde al nome del log specificato e le proprietà sono indicate nella tabella seguente.
@@ -125,7 +125,7 @@ Il tipo dei record del log personalizzato corrisponde al nome del log specificat
 |:--- |:--- |
 | TimeGenerated |Data e ora di raccolta del record con Monitoraggio di Azure.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data e l'ora raccolte dalla voce. |
 | SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o System Center Operations Manager <br>  Linux – Tutti gli agenti Linux |
-| RawData |Testo completo della voce raccolta. È più probabile che si desideri [analizzare i dati in singole proprietà](../log-query/parse-text.md). |
+| RawData |Testo completo della voce raccolta. È più probabile che si desideri [analizzare i dati in singole proprietà](../logs/parse-text.md). |
 | ManagementGroupName |Nome del gruppo di gestione per gli agenti System Center Operations Manager.  Per gli altri agenti corrisponde a AOI-\<workspace ID\> |
 
 
@@ -171,8 +171,8 @@ Mentre i log personalizzati sono utili se i dati soddisfano i criteri elencati i
 Nei casi in cui non è possibile raccogliere i dati con i log personalizzati, prendere in considerazione le seguenti strategie alternative:
 
 - Usare uno script personalizzato o un altro metodo per scrivere i dati in [Eventi Windows](data-sources-windows-events.md) o [Syslog](data-sources-syslog.md), che vengono raccolti da Monitoraggio di Azure. 
-- Inviare i dati direttamente a Monitoraggio di Azure usando l'[API di raccolta dati HTTP](../platform/data-collector-api.md). 
+- Inviare i dati direttamente a Monitoraggio di Azure usando l'[API di raccolta dati HTTP](../logs/data-collector-api.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per i metodi per analizzare ogni voce di log importata in più proprietà.
-* Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
+* Vedere [Parse text data in Azure Monitor](../logs/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per i metodi per analizzare ogni voce di log importata in più proprietà.
+* Altre informazioni sulle [query di log](../logs/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.

@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentazione di Funzioni di Azure
-summary: Funzioni di Azure è un servizio cloud disponibile su richiesta che offre l'infrastruttura e tutte le risorse continuamente aggiornate necessarie per l'esecuzione di applicazioni. Ci si può concentrare sulle parti di codice che interessano di più e il resto viene gestito da Funzioni di Azure. È anche possibile usare Funzioni di Azure per creare API Web, rispondere alle modifiche di database, elaborare flussi IoT, gestire le code dei messaggi e altro ancora.
+summary: Funzioni di Azure è un servizio cloud disponibile su richiesta che offre l'infrastruttura e tutte le risorse continuamente aggiornate necessarie per l'esecuzione di applicazioni. Si incentrano sulle parti di codice più importanti e le funzioni gestiscono il resto. Funzioni fornisce un calcolo senza server per Azure. È possibile usare le funzioni per creare API Web, rispondere alle modifiche del database, elaborare flussi di dati, gestire le code di messaggi e altro ancora.
 metadata:
   title: Documentazione di Funzioni di Azure
-  description: Funzioni di Azure è un servizio cloud disponibile su richiesta che offre l'infrastruttura e tutte le risorse continuamente aggiornate necessarie per l'esecuzione di applicazioni. Ci si può concentrare sulle parti di codice che interessano di più e il resto viene gestito da Funzioni di Azure. È anche possibile usare Funzioni di Azure per creare API Web, rispondere alle modifiche di database, elaborare flussi IoT, gestire le code dei messaggi e altro ancora.
+  description: Funzioni di Azure è un servizio cloud disponibile su richiesta che offre l'infrastruttura e tutte le risorse continuamente aggiornate necessarie per l'esecuzione di applicazioni. Ci si può concentrare sulle parti di codice che interessano di più e il resto viene gestito da Funzioni di Azure. Funzioni fornisce un calcolo senza server per Azure. È anche possibile usare Funzioni di Azure per creare API Web, rispondere alle modifiche di database, elaborare flussi IoT, gestire le code dei messaggi e altro ancora.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 65b2c25bde616f8a2bbc9abf6439871d288306b9
-  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.openlocfilehash: 4d856232d2f0780852a1f369548b08012d124834
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100363033"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101729165"
 landingContent:
 - title: Informazioni su Funzioni di Azure
   linkLists:

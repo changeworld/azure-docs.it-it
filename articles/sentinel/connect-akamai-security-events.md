@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: c833d87b8d85c75c4f050f0130ddfd74342f4c52
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 8aa5a52a06713b4f00b43205a57148049a8ef8da
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566875"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711961"
 ---
 # <a name="connect-your-akamai-security-events-collector-to-azure-sentinel"></a>Connettere l'agente di raccolta degli eventi di sicurezza di Akamai ad Azure Sentinel
 
@@ -35,7 +35,7 @@ Questo articolo illustra come connettere l'agente di raccolta degli eventi di si
 
 - È necessario disporre delle autorizzazioni di lettura e scrittura per l'area di lavoro di Azure Sentinel.
 
-- È necessario disporre delle autorizzazioni di lettura per le chiavi condivise per l'area di lavoro. [Altre informazioni sulle chiavi dell'area di lavoro](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- È necessario disporre delle autorizzazioni di lettura per le chiavi condivise per l'area di lavoro. [Altre informazioni sulle chiavi dell'area di lavoro](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## <a name="send-akamai-security-events-logs-to-azure-sentinel"></a>Inviare i log degli eventi di sicurezza di Akamai ad Azure Sentinel
 

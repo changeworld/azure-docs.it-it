@@ -6,17 +6,17 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/17/2018
-ms.openlocfilehash: 2d307a279bee56440f7354ad2c92664fd2af86b9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 1e75fc65b4afea9dc895580e4711e0050cb7c64f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370768"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716415"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Caricare dati in Azure Data Lake Storage Gen1 tramite Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) (in precedenza noto come Azure Data Lake Store) è un repository su vasta scala a livello aziendale per carichi di lavoro di analisi di Big Data. Data Lake Storage Gen1 consente di acquisire dati di qualsiasi dimensione, tipo e velocità di inserimento. I dati vengono acquisiti in una singola posizione per le analisi esplorative e operative.
 

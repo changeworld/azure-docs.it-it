@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 212828493a381ca118d3bdc54428bddba9bd842a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6840abe507543c4e03448401f091b6caa0a466c6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577582"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717452"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -54,7 +54,7 @@ Per un elenco degli indirizzi IP e di porte necessari agli agenti e ad altre ris
 Monitoraggio di Azure raccoglie dati da un'ampia gamma di origini, tra cui log e metriche della piattaforma e delle risorse di Azure, applicazioni personalizzate e agenti in esecuzione su macchine virtuali. Altri servizi, quali Centro sicurezza di Azure e Network Watcher, raccolgono i dati in un’area di lavoro Log Analytics in modo che possano essere analizzati con i dati di Monitoraggio di Azure. È anche possibile inviare dati personalizzati a Monitoraggio di Azure usando l’API REST per i log o le metriche. Vedere [Origini dei dati di monitoraggio per Monitoraggio di Azure](agents/data-sources.md).
 
 ### <a name="what-data-is-collected-by-azure-monitor"></a>Che tipo di dati raccoglie Monitoraggio di Azure? 
-Monitoraggio di Azure raccoglie i dati da un'ampia gamma di origini in [log](logs/data-platform-logs.md) o [metriche](essentials/data-platform-metrics.md). Ciascun tipo di dati offre specifici vantaggi e ciascuno supporta un determinato set di funzionalità in Monitoraggio di Azure. Per ogni sottoscrizione di Azure è disponibile un singolo database di metriche. È anche possibile creare più aree di lavoro Log Analytics per raccogliere i log in base alle proprie esigenze. Vedere [Piattaforma dati di Monitoraggio di Azure](/data-platform.md).
+Monitoraggio di Azure raccoglie i dati da un'ampia gamma di origini in [log](logs/data-platform-logs.md) o [metriche](essentials/data-platform-metrics.md). Ciascun tipo di dati offre specifici vantaggi e ciascuno supporta un determinato set di funzionalità in Monitoraggio di Azure. Per ogni sottoscrizione di Azure è disponibile un singolo database di metriche. È anche possibile creare più aree di lavoro Log Analytics per raccogliere i log in base alle proprie esigenze. Vedere [Piattaforma dati di Monitoraggio di Azure](data-platform.md).
 
 ### <a name="is-there-a-maximum-amount-of-data-that-i-can-collect-in-azure-monitor"></a>Esiste una quantità massima di dati che è possibile raccogliere in Monitoraggio di Azure?
 Non esiste alcun limite alla quantità di dati di metrica che è possibile raccogliere, ma tali dati restano archiviati per un massimo di 93 giorni. Vedere [Conservazione delle metriche](essentials/data-platform-metrics.md#retention-of-metrics). Non esiste alcun limite alla quantità di dati di log che è possibile raccogliere, tuttavia potrebbe esistere un limite in base al piano tariffario che si sceglie per l'area di lavoro Log Analytics. Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/monitor/).
@@ -86,7 +86,7 @@ p
 I dati vengono rimossi da un'area di lavoro in base al [periodo di conservazione](logs/manage-cost-storage.md#change-the-data-retention-period). È possibile eliminare dati specifici per motivi di privacy o di conformità. Per ulteriori informazioni [, vedere come esportare ed eliminare dati privati](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) .
 
 ### <a name="is-log-analytics-storage-immutable"></a>Log Analytics archiviazione non è modificabile?
-I dati nell'archiviazione del database non possono essere modificati dopo essere stati inseriti ma possono essere eliminati tramite l'eliminazione [  del percorso API per l'eliminazione dei dati privati](platform/personal-data-mgmt.md#delete). Sebbene non sia possibile modificare i dati, alcune certificazioni richiedono che i dati rimangano non modificabili e non possano essere modificati o eliminati nell'archivio. L'immutabilità dei dati può essere eseguita usando l' [esportazione dei dati](platform/logs-data-export.md) in un account di archiviazione configurato come risorsa di [archiviazione non modificabile](../storage/blobs/storage-blob-immutability-policies-manage.md).
+I dati nell'archiviazione del database non possono essere modificati dopo essere stati inseriti ma possono essere eliminati tramite l'eliminazione [  del percorso API per l'eliminazione dei dati privati](./logs/personal-data-mgmt.md#delete). Sebbene non sia possibile modificare i dati, alcune certificazioni richiedono che i dati rimangano non modificabili e non possano essere modificati o eliminati nell'archivio. L'immutabilità dei dati può essere eseguita usando l' [esportazione dei dati](./logs/logs-data-export.md) in un account di archiviazione configurato come risorsa di [archiviazione non modificabile](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 ### <a name="what-is-a-log-analytics-workspace"></a>Che cos’è un'area di lavoro Log Analytics?
 Tutti i dati di log raccolti da Monitoraggio di Azure vengono archiviati in un’area di lavoro Log Analytics. Un'area di lavoro è essenzialmente un contenitore in cui i dati di log vengono raccolti da diverse origini. È possibile avere un’unica area di lavoro Log Analytics per tutti i dati di monitoraggio oppure può essere necessario dotarsi di più aree di lavoro. Vedere [Progettazione della distribuzione dei log di Monitoraggio di Azure](logs/design-logs-deployment.md).
@@ -607,7 +607,7 @@ L'agente di raccolta OpenTelemetry è descritto nel [file Leggimi di GitHub](htt
 [OpenCensus](https://opencensus.io/) è il precursore di [OpenTelemetry](https://opentelemetry.io/). Microsoft ha contribuito a riunire [OpenTracing](https://opentracing.io/) e OpenCensus per creare OpenTelemetry, un unico standard di osservabilità per il mondo. L' [SDK Python consigliato](app/opencensus-python.md) per la produzione di monitoraggio di Azure è basato su OpenCensus, ma alla fine tutti gli SDK di monitoraggio di Azure saranno basati su OpenTelemetry.
 
 
-## <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
+## <a name="container-insights"></a>Informazioni dettagliate sul contenitore
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>Che cosa rappresenta *Altri processi* nella visualizzazione Nodo?
 
@@ -676,11 +676,11 @@ Se la prima opzione non è comoda a causa delle necessarie modifiche alle query,
 
 ### <a name="can-i-view-metrics-collected-in-grafana"></a>È possibile visualizzare le metriche raccolte in Grafana?
 
-Monitoraggio di Azure per i contenitori supporta la visualizzazione delle metriche archiviate nell'area di lavoro Log Analytics nei dashboard di Grafana. È disponibile un modello che è possibile scaricare dal [repository di dashboard](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) di Grafana per iniziare e a cui fare riferimento per capire come eseguire query sui dati aggiuntivi dai cluster monitorati da visualizzare in dashboard Grafana personalizzati. 
+Il contenitore Insights supporta la visualizzazione delle metriche archiviate nell'area di lavoro Log Analytics nei dashboard di Grafana. È disponibile un modello che è possibile scaricare dal [repository di dashboard](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) di Grafana per iniziare e a cui fare riferimento per capire come eseguire query sui dati aggiuntivi dai cluster monitorati da visualizzare in dashboard Grafana personalizzati. 
 
-### <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>È possibile monitorare il proprio cluster del motore del servizio Azure Kubernetes con Monitoraggio di Azure per i contenitori?
+### <a name="can-i-monitor-my-aks-engine-cluster-with-container-insights"></a>È possibile monitorare il cluster del motore AKS con informazioni dettagliate sul contenitore?
 
-Monitoraggio di Azure per i contenitori supporta il monitoraggio di carichi di lavoro del contenitore distribuiti a cluster del motore del servizio Azure Kubernetes (precedentemente noto come motore ACS) ospitati in Azure. Per altri dettagli e una panoramica dei passaggi necessari per abilitare il monitoraggio per questo scenario, vedere [Utilizzo di Monitoraggio di Azure per i contenitori per il motore del servizio Azure Kubernetes](https://github.com/microsoft/OMS-docker/tree/aks-engine).
+Il contenitore Insights supporta il monitoraggio dei carichi di lavoro dei contenitori distribuiti nei cluster AKS-Engine (noti in precedenza come ACS-Engine) ospitati in Azure. Per altri dettagli e una panoramica dei passaggi necessari per abilitare il monitoraggio per questo scenario, vedere [uso di container Insights per il motore AKS](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
 ### <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>Perché i dati nell'area di lavoro Log Analytics non vengono visualizzati ?
 
@@ -696,11 +696,11 @@ Se viene visualizzato l'errore **Registrazione della sottoscrizione mancante per
 
 ### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>È previsto il supporto per i cluster AKS abilitati per Kubernetes RBAC?
 
-La soluzione di monitoraggio dei contenitori non supporta il controllo degli accessi in base al ruolo Kubernetes, ma è supportato con monitoraggio di Azure per contenitori Le informazioni presenti nei pannelli che visualizzano i dati relativi a tali cluster all'interno della pagina dei dettagli della soluzione possono non essere corrette.
+La soluzione di monitoraggio dei contenitori non supporta il controllo degli accessi in base al ruolo Kubernetes, ma è supportato con informazioni dettagliate sul contenitore. Le informazioni presenti nei pannelli che visualizzano i dati relativi a tali cluster all'interno della pagina dei dettagli della soluzione possono non essere corrette.
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Come si abilita la raccolta di log per i contenitori nello spazio dei nomi kube-system tramite Helm?
 
-La raccolta di log dai contenitori nello spazio dei nomi kube-system è disabilitata per impostazione predefinita. È possibile abilitare la raccolta di log impostando una variabile di ambiente in omsagent. Per altre informazioni, vedere la pagina [Monitoraggio di Azure per i contenitori](https://aka.ms/azuremonitor-containers-helm-chart) in GitHub. 
+La raccolta di log dai contenitori nello spazio dei nomi kube-system è disabilitata per impostazione predefinita. È possibile abilitare la raccolta di log impostando una variabile di ambiente in omsagent. Per altre informazioni, vedere la pagina di GitHub di [container Insights](https://aka.ms/azuremonitor-containers-helm-chart) . 
 
 ### <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>Come si aggiorna omsagent alla versione rilasciata più recente?
 
@@ -708,7 +708,7 @@ Per informazioni su come aggiornare l'agente, vedere [Gestione dell'agente](cont
 
 ### <a name="how-do-i-enable-multi-line-logging"></a>Come si abilita la registrazione su più righe?
 
-Attualmente Monitoraggio di Azure per i contenitori non supporta la registrazione su più righe, ma sono disponibili soluzioni alternative. È possibile configurare tutti i servizi per la scrittura in formato JSON. Docker/Moby eseguirà quindi la scrittura su un'unica riga.
+Attualmente il contenitore Insights non supporta la registrazione su più righe, ma sono disponibili soluzioni alternative. È possibile configurare tutti i servizi per la scrittura in formato JSON. Docker/Moby eseguirà quindi la scrittura su un'unica riga.
 
 È ad esempio possibile eseguire il wrapping del log come oggetto JSON, come illustrato nell'esempio seguente per un'applicazione node.js di esempio:
 
@@ -732,30 +732,30 @@ Per un esame dettagliato del problema, vedere il seguente [collegamento a GitHub
 
 ### <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Come si risolvono gli errori di Azure Active Directory quando si abilitano i log in tempo reale? 
 
-Può essere visualizzato l'errore seguente: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID\>'** (L’URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l’applicazione '<ID applicazione>). La risoluzione di questo errore è disponibile nell'articolo [Come visualizzare i dati dei contenitori in tempo reale con Monitoraggio di Azure per i contenitori](containers/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
+Può essere visualizzato l'errore seguente: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID\>'** (L’URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l’applicazione '<ID applicazione>). La soluzione per risolverla è disponibile nell'articolo [come visualizzare i dati del contenitore in tempo reale con informazioni dettagliate sul contenitore](containers/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ### <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Perché non si riesce ad aggiornare il cluster dopo l'onboarding?
 
-Se dopo aver abilitato Monitoraggio di Azure per i contenitori per un cluster del servizio Azure Kubernetes si elimina l'area di lavoro Log Analytics a cui il cluster stava inviando i dati, quando si tenta di aggiornare il cluster, l'operazione ha esito negativo. Per risolvere il problema, è necessario disabilitare il monitoraggio e quindi riabilitarlo facendo riferimento a un'altra area di lavoro valida nella sottoscrizione. Quando si tenta di eseguire di nuovo l'aggiornamento del cluster, il processo dovrebbe essere elaborato e completato correttamente.  
+Se dopo l'abilitazione di container Insights per un cluster AKS si elimina l'area di lavoro Log Analytics cui il cluster stava inviando i dati, quando si prova ad aggiornare il cluster si verificherà un errore. Per risolvere il problema, è necessario disabilitare il monitoraggio e quindi riabilitarlo facendo riferimento a un'altra area di lavoro valida nella sottoscrizione. Quando si tenta di eseguire di nuovo l'aggiornamento del cluster, il processo dovrebbe essere elaborato e completato correttamente.  
 
 ### <a name="which-ports-and-domains-do-i-need-to-openallow-for-the-agent"></a>Quali porte e domini sono necessari per aprire o consentire l'agente?
 
 Per informazioni sulla configurazione del proxy e del firewall necessarie per l’agente in contenitore con i cloud Azure, Azure US Government e Azure China (21Vianet), vedere [Requisiti del firewall di rete](containers/container-insights-onboard.md#network-firewall-requirements).
 
 
-## <a name="azure-monitor-for-vms"></a>Monitoraggio di Azure per le macchine virtuali
+## <a name="vm-insights"></a>Informazioni dettagliate sulle macchine virtuali
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>È possibile eseguire l'onboarding in un'area di lavoro esistente?
-Se le macchine virtuali sono già connesse a un'area di lavoro di Log Analytics, è possibile continuare a usare tale area di lavoro durante l'onboarding per Monitoraggio di Azure per le macchine virtuali, purché si trovi in una delle [aree supportate](vm/vminsights-configure-workspace.md#supported-regions).
+Se le macchine virtuali sono già connesse a un'area di lavoro di Log Analytics, è possibile continuare a usare tale area di lavoro durante l'onboarding in VM Insights, purché si trovi in una delle [aree supportate](vm/vminsights-configure-workspace.md#supported-regions).
 
 
 ### <a name="can-i-onboard-to-a-new-workspace"></a>È possibile eseguire l'onboarding in una nuova area di lavoro? 
-Se le macchine virtuali non attualmente connesse a un'area di lavoro Log Analytics esistente, è necessario crearne una nuova per archiviare i dati. La creazione di una nuova area di lavoro predefinita avviene automaticamente nel caso in cui si configuri una singola macchina virtuale di Azure per Monitoraggio di Azure per le macchine virtuali tramite il portale di Azure.
+Se le macchine virtuali non attualmente connesse a un'area di lavoro Log Analytics esistente, è necessario crearne una nuova per archiviare i dati. La creazione di una nuova area di lavoro predefinita viene eseguita automaticamente se si configura una singola VM di Azure per VM Insights tramite la portale di Azure.
 
-Se si sceglie di utilizzare il metodo basato su script, questi passaggi sono illustrati nell’articolo [Abilitare Monitoraggio di Azure per le macchine virtuali usando modelli di Azure PowerShell o Gestione risorse](./vm/vminsights-enable-powershell.md). 
+Se si sceglie di usare il metodo basato su script, questi passaggi sono illustrati nell'articolo [abilitare VM Insights con Azure PowerShell o gestione risorse modello](./vm/vminsights-enable-powershell.md) . 
 
 ### <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Cosa occorre fare se la macchina virtuale invia già informazioni a un'area di lavoro esistente?
-Se già si raccolgono dati dalle macchine virtuali, è possibile che sia già stato configurato l'invio di dati a un'area di lavoro Log Analytics esistente.  Se quest'area di lavoro è in una delle aree supportate, è possibile abilitare Monitoraggio di Azure per le macchine virtuali per tale area di lavoro preesistente.  Se l'area di lavoro già in uso non si trova in una delle aree di Azure supportate, non è attualmente possibile eseguire l'onboarding per Monitoraggio di Azure per le macchine virtuali.  Microsoft sta lavorando attivamente per supportare altre aree.
+Se già si raccolgono dati dalle macchine virtuali, è possibile che sia già stato configurato l'invio di dati a un'area di lavoro Log Analytics esistente.  Fino a quando l'area di lavoro si trova in una delle aree supportate, è possibile abilitare VM Insights nell'area di lavoro preesistente.  Se l'area di lavoro già in uso non si trova in una delle aree supportate, non sarà possibile eseguire l'onboarding in VM Insights in questo momento.  Microsoft sta lavorando attivamente per supportare altre aree.
 
 
 ### <a name="why-did-my-vm-fail-to-onboard"></a>Perché la macchina virtuale non è riuscita a eseguire l'onboarding?
@@ -763,7 +763,7 @@ Quando si esegue l'onboarding di una macchina virtuale di Azure dal portale di A
 
 * Viene creata un'area di lavoro Log Analytics predefinita, se tale opzione è stata selezionata.
 * L'agente di Log Analytics viene installato nelle macchine virtuali di Azure mediante un'estensione VM, se necessario.  
-* Dependency Agent per la mappa di Monitoraggio di Azure per le macchine virtuali viene installato nelle macchine virtuali di Azure mediante un'estensione, se necessario. 
+* L'agente di dipendenza della mappa di VM Insights è installato nelle macchine virtuali di Azure usando un'estensione, se è stato determinato che è obbligatorio. 
 
 Durante il processo di onboarding, viene controllato lo stato di ciascun passaggio, visualizzando una notifica nel portale. La configurazione dell'area di lavoro e l'installazione dell'agente richiedono in genere 5-10 minuti. La visualizzazione dei dati di monitoraggio nel portale richiede altri 5-10 minuti.  
 
@@ -776,10 +776,10 @@ I grafici delle prestazioni sono stati aggiornati per usare i dati archiviati ne
 Se i dati sulle prestazioni non compaiono nella tabella del disco o in alcuni grafici delle prestazioni, è possibile che i contatori delle prestazioni non siano stati configurati nell'area di lavoro. Per risolvere il problema, eseguire lo [script di PowerShell](./vm/vminsights-enable-powershell.md) seguente.
 
 
-### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>In cosa differisce la funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali da Mapping dei servizi?
-La funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali si basa su Mapping dei servizi, ma presenta le differenze seguenti:
+### <a name="how-is-vm-insights-map-feature-different-from-service-map"></a>In che modo la funzionalità di mapping di VM Insights è diversa da Mapping dei servizi?
+La funzionalità di mapping di VM Insights è basata su Mapping dei servizi, ma presenta le differenze seguenti:
 
-* È possibile accedere alla vista della mappa dal pannello VM e da Monitoraggio di Azure per le macchine virtuali in Monitoraggio di Azure.
+* È possibile accedere alla vista mappa dal pannello della macchina virtuale e da VM Insights in monitoraggio di Azure.
 * Le connessioni nella mappa ora sono selezionabili e mostrano i dati delle metriche di connessione nel pannello laterale relativo alla connessione selezionata.
 * È disponibile una nuova API che consente di creare le mappe in modo da supportare meglio quelle più complesse.
 * Le macchine virtuali monitorate sono ora incluse nel nodo del gruppo client e il grafico ad anello mostra la proporzione tra le macchine virtuali monitorate e non monitorate presenti nel gruppo.  Può anche essere utilizzato per filtrare l'elenco delle macchine quando il gruppo viene espanso.
@@ -787,19 +787,19 @@ La funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali si b
 * Lo stile della mappa è stato aggiornato per maggiore coerenza con la mappa delle app di Application Insights.
 * I pannelli laterali sono stati aggiornati e non dispongono del set completo di integrazioni supportate in Mapping dei servizi, ovvero Gestione aggiornamenti, Rilevamento modifiche, Sicurezza e Service Desk. 
 * L'opzione per la scelta dei gruppi e delle macchine di cui eseguire il mapping è stata aggiornata e ora supporta sottoscrizioni, gruppi di risorse, set di scalabilità delle macchine virtuali di Azure e servizi cloud.
-* Non è possibile creare nuovi gruppi di macchine di Mapping dei servizi nella funzionalità Monitoraggio di Azure per le macchine virtuali.  
+* Non è possibile creare nuovi gruppi di computer Mapping dei servizi nella funzionalità mappa di VM Insights.  
 
 ### <a name="why-do-my-performance-charts-show-dotted-lines"></a>Perché nei grafici delle prestazioni appaiono delle linee tratteggiate?
 I motivi possono essere vari.  Nei casi in cui sia presente un vuoto nella raccolta di dati, le linee si presentano tratteggiate.  Se è stata modificata la frequenza di campionamento dei dati per i contatori delle prestazioni abilitati (l'impostazione predefinita prevede la raccolta di dati ogni 60 secondi), è possibile che appaiano delle linee punteggiate nel grafico quando si sceglie un intervallo di tempo ristretto per il grafico e la frequenza di campionamento è inferiore alle dimensioni del bucket usate nel grafico (ad esempio, la frequenza di campionamento è ogni 10 minuti e ogni bucket del grafico è di 5 minuti).  Se si sceglie di visualizzare un intervallo di tempo più ampio, le linee del grafico appariranno continue e non tratteggiate.
 
-### <a name="are-groups-supported-with-azure-monitor-for-vms"></a>I gruppi sono supportati con Monitoraggio di Azure per le macchine virtuali?
+### <a name="are-groups-supported-with-vm-insights"></a>I gruppi sono supportati con VM Insights?
 Sì, dopo aver installato Dependency Agent, vengono raccolte informazioni dalle macchine virtuali per visualizzare i gruppi in base alla sottoscrizione, al gruppo di risorse, al set di scalabilità delle macchine virtuali e ai servizi cloud.  Se si usa Mapping dei servizi e sono stati creati gruppi di macchine, vengono visualizzati anch'essi.  Se per l'area di lavoro che si sta esaminando sono stati creati gruppi di computer, verranno visualizzati nel filtro dei gruppi. 
 
 ### <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Come visualizzare i dettagli alla base della linea del 95° percentile nei grafici delle prestazioni in forma aggregata?
 Per impostazione predefinita, l'elenco è ordinato in modo da mostrare le macchine virtuali con il valore più elevato per il 95° percentile in relazione alla metrica selezionata, ad eccezione del grafico della memoria disponibile, che mostra le macchine con il valore più basso per il 5° percentile.  Se si fa clic sul grafico, appare la visualizzazione **elenco delle prime N** con la metrica appropriata selezionata.
 
 ### <a name="how-does-the-map-feature-handle-duplicate-ips-across-different-vnets-and-subnets"></a>In che modo la funzionalità di mappa gestisce gli indirizzi IP duplicati su reti virtuali e subnet diverse?
-Se si duplicano gli intervalli IP con le VM o i set di scalabilità di macchine virtuali di Azure su subnet e reti virtuali, la mappa di Monitoraggio di Azure per le macchine virtuali potrebbe mostrare informazioni non corrette. Si tratta di un problema noto ed è in corso l'analisi delle opzioni per migliorare questa esperienza.
+Se si duplicano gli intervalli IP con macchine virtuali o set di scalabilità di macchine virtuali di Azure in subnet e reti virtuali, il mapping di VM Insights può causare la visualizzazione di informazioni non corrette. Si tratta di un problema noto ed è in corso l'analisi delle opzioni per migliorare questa esperienza.
 
 ### <a name="does-map-feature-support-ipv6"></a>La funzionalità di mappa supporta il protocollo IPv6?
 La funzionalità di mappa supporta attualmente solo il protocollo IPv4 ed è in corso l'analisi del supporto per IPv6. È supportato anche il protocollo IPv4 con a tunneling all'interno di IPv6.
@@ -809,7 +809,7 @@ Anche se sono stati apportati miglioramenti alla mappa per gestire le configuraz
 
 ### <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Perché il grafico di rete nella scheda Prestazioni ha un aspetto diverso rispetto al grafico di rete nella pagina di panoramica della VM di Azure?
 
-La pagina di panoramica di una VM di Azure mostra i grafici basati sulla misurazione dell'attività dell'host nella VM guest.  Per il grafico di rete nella panoramica della VM di Azure, viene visualizzato solo il traffico che verrà fatturato  e non è incluso il traffico tra reti virtuali.  I dati e i grafici visualizzati per Monitoraggio di Azure per le macchine virtuali si basano sui dati ottenuti dalla VM guest e il grafico di rete mostra tutto il traffico TCP/IP in ingresso e in uscita verso tale VM, incluso quello tra reti virtuali.
+La pagina di panoramica di una VM di Azure mostra i grafici basati sulla misurazione dell'attività dell'host nella VM guest.  Per il grafico di rete nella panoramica della VM di Azure, viene visualizzato solo il traffico che verrà fatturato  e non è incluso il traffico tra reti virtuali.  I dati e i grafici visualizzati per VM Insights sono basati sui dati della macchina virtuale guest e il grafico di rete Visualizza tutto il traffico TCP/IP in ingresso e in uscita verso tale macchina virtuale, inclusa la rete tra reti virtuali.
 
 ### <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Come viene misurato il tempo di risposta per i dati archiviati in VMConnection e visualizzati nel pannello di connessione e nelle cartelle di lavoro?
 
@@ -818,9 +818,9 @@ Il tempo di risposta è un'approssimazione. Poiché non si instrumenta il codice
 Questa approssimazione funziona adeguatamente per i protocolli basati su richiesta/risposta: una singola richiesta viene inviata sulla connessione e viene ricevuta una singola risposta. Questo calcolo è adatto per il protocollo HTTP(S) (senza pipelining), ma non è soddisfacente per altri protocolli.
 
 ### <a name="are-there-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Esistono limitazioni se si è Log Analytics piano tariffario gratuito?
-Se Monitoraggio di Azure è stato configurato con un'area di lavoro Log Analytics che usa il piano tariffario *Gratuito*, la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali supporterà solo cinque computer connessi all'area di lavoro. Se si hanno cinque macchine virtuali connesse a un'area di lavoro gratuita, si disconnette una delle macchine virtuali e in un secondo momento si connette una nuova macchina virtuale, la nuova macchina virtuale non viene monitorata e riflessa nella pagina della mappa.  
+Se monitoraggio di Azure è stato configurato con un'area di lavoro Log Analytics usando il piano tariffario *gratuito* , la funzionalità mappa di VM Insights supporterà solo cinque computer connessi all'area di lavoro. Se si hanno cinque macchine virtuali connesse a un'area di lavoro gratuita, si disconnette una delle macchine virtuali e in un secondo momento si connette una nuova macchina virtuale, la nuova macchina virtuale non viene monitorata e riflessa nella pagina della mappa.  
 
-In questo caso, verrà visualizzata l'opzione **Prova adesso** quando si apre la macchina virtuale e si seleziona **Informazioni dettagliate** nel riquadro a sinistra, anche dopo che è già stato installato nella macchina virtuale.  Non vengono tuttavia visualizzate le normali opzioni come avverrebbe normalmente se non fosse stato eseguito l'onboarding di questa macchina virtuale in Monitoraggio di Azure per le macchine virtuali. 
+In questo caso, verrà visualizzata l'opzione **Prova adesso** quando si apre la macchina virtuale e si seleziona **Informazioni dettagliate** nel riquadro a sinistra, anche dopo che è già stato installato nella macchina virtuale.  Tuttavia, non vengono richieste le opzioni come normalmente accade se questa macchina virtuale non è stata caricata in VM Insights. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

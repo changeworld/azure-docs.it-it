@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: 3f858067d8a44b1d8c46b04b9912df9bbcf17b26
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: d0085dc1cd7afa1fd8f557db27d30fd76ca05fac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526705"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732735"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configurazione DNS dell'endpoint privato di Azure
 
@@ -65,6 +65,7 @@ Per i servizi di Azure, usare i nomi di zona consigliati come descritto nella ta
 | Registro Azure Container (Microsoft.ContainerRegistry/registries) / registro | privatelink.azurecr.io | azurecr.io |
 | Configurazione app di Azure (Microsoft.AppConfiguration/configurationStores) / configurationStore | privatelink.azconfig.io | azconfig.io |
 | Backup di Azure (Microsoft.RecoveryServices/vaults) / vault | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
+| Azure Site Recovery (Microsoft. RecoveryServices/Vaults)/Vault | {Region}. privatelink. siterecovery. WindowsAzure. com | {Region}. hypervrecoverymanager. WindowsAzure. com |
 | Hub eventi di Azure (Microsoft. EventHub/namespaces)/spazio dei nomi | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Bus di servizio di Azure (Microsoft.ServiceBus/namespaces) / spazio dei nomi | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Hub Azure Internet (Microsoft. Devices/IotHubs)/iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
@@ -73,7 +74,6 @@ Per i servizi di Azure, usare i nomi di zona consigliati come descritto nella ta
 | Griglia di eventi di Azure (Microsoft.EventGrid/domains) / dominio | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | App Web di Azure (Microsoft. Web/sites)/siti | privatelink.azurewebsites.net | azurewebsites.net |
 | Azure Machine Learning (Microsoft. MachineLearningServices/Workspaces)/amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>aznbcontent.net |
-| Hub Internet (Microsoft. Devices/IotHubs)/IotHub | privatelink.azure-devices.net | azure-devices.net |
 | SignalR (Microsoft. SignalRService/SignalR)/SignalR | privatelink.service.signalr.net | service.signalr.net |
 | Monitoraggio di Azure (Microsoft. Insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Servizi cognitivi (Microsoft. CognitiveServices/accounts)/account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |

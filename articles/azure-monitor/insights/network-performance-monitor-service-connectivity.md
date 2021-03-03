@@ -1,22 +1,21 @@
 ---
 title: Connettività del servizio della soluzione Monitoraggio prestazioni rete-Azure Log Analytics
 description: Usare la funzionalità Monitoraggio connettività servizio in Monitoraggio prestazioni rete per monitorare la connettività di rete a qualsiasi endpoint con una porta TCP aperta.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: a980c0987106a80751a98c48dfc5780708e6f889
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a5b42e61af398e111b2014f3734a0011a4bee778
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573411"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734163"
 ---
 # <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 
 > [!IMPORTANT]
-> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher prima del 29 febbraio 2024.
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher prima del 29 febbraio 2024.
 
 È possibile usare la funzionalità Monitoraggio connettività servizio in [Monitoraggio prestazioni rete](network-performance-monitor.md) per monitorare la connettività di rete a qualsiasi endpoint con una porta TCP aperta. Tali endpoint includono siti Web, applicazioni SaaS, applicazioni PaaS e database SQL. 
 
@@ -137,4 +136,3 @@ Per l'area Virginia del governo degli Stati Uniti, solo gli URL DOD sono incorpo
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Effettuare una ricerca nei log](../logs/log-query-overview.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
-

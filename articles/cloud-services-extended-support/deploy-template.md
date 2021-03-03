@@ -8,38 +8,42 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 71217e6379c02191311f5d93cb439d9da20080bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548778"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706963"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Distribuire un servizio cloud (supporto esteso) usando i modelli ARM
 
-Questa esercitazione illustra come creare una distribuzione del servizio cloud (supporto esteso) usando i [modelli ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
+Questa esercitazione illustra come creare una distribuzione del servizio cloud (supporto esteso) usando i [modelli ARM](../azure-resource-manager/templates/overview.md). 
 
 > [!IMPORTANT]
 > Servizi cloud (supporto esteso) è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-1. Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i servizi cloud (supporto esteso) e creare le risorse associate. 
 
-2. Creare un nuovo gruppo di risorse usando il [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell). Questo passaggio è facoltativo se si usa un gruppo di risorse esistente. 
+1. Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i servizi cloud (supporto esteso) e creare le risorse associate.
+
+2. Creare un nuovo gruppo di risorse usando il [portale di Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal) o [PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Questo passaggio è facoltativo se si usa un gruppo di risorse esistente.
  
-3. Creare un nuovo account di archiviazione usando il [portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) o [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell). Questo passaggio è facoltativo se si usa un account di archiviazione esistente. 
+3. Creare un nuovo account di archiviazione usando il [portale di Azure](/azure/storage/common/storage-account-create?tabs=azure-portal) o [PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Questo passaggio è facoltativo se si usa un account di archiviazione esistente.
 
-4. Caricare i file di definizione del servizio (. csdef) e di configurazione del servizio (. cscfg) nell'account di archiviazione usando il [portale di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) o [PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Ottenere gli URI SAS di entrambi i file da aggiungere al modello ARM più avanti in questa esercitazione. 
+4. Caricare i file di definizione del servizio (. csdef) e di configurazione del servizio (. cscfg) nell'account di archiviazione usando il [portale di Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) o [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Ottenere gli URI SAS di entrambi i file da aggiungere al modello ARM più avanti in questa esercitazione.
 
-5. Opzionale Creare un insieme di credenziali delle chiavi e caricare i certificati. 
-    -  I certificati possono essere collegati ai servizi cloud per consentire la comunicazione sicura da e verso il servizio. Per usare i certificati, le relative identificazioni personali devono essere specificate nel file di configurazione del servizio (con estensione cscfg) e caricate in un insieme di credenziali delle chiavi. È possibile creare un Key Vault tramite [portale di Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) o [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). 
-    - Il Key Vault associato deve trovarsi nella stessa area e nella stessa sottoscrizione del servizio cloud.   
-    - Il Key Vault associato per deve essere abilitato le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato da Key Vault. Per ulteriori informazioni, vedere [certificati e Key Vault](certificates-and-key-vault.md)
-    - È necessario fare riferimento a Key Vault nella sezione OsProfile del modello ARM illustrato nei passaggi seguenti.
+5. Opzionale Creare un insieme di credenziali delle chiavi e caricare i certificati.
 
-## <a name="deploy-a-cloud-service-extended-support"></a>Distribuire un servizio cloud (supporto esteso) 
+    -  I certificati possono essere collegati ai servizi cloud per consentire la comunicazione sicura da e verso il servizio. Per usare i certificati, le relative identificazioni personali devono essere specificate nel file di configurazione del servizio (con estensione cscfg) e caricate in un insieme di credenziali delle chiavi. È possibile creare un insieme di credenziali delle chiavi tramite il [portale di Azure](/azure/key-vault/general/quick-create-portal) o [PowerShell](/azure/key-vault/general/quick-create-powershell).
+    - L'insieme di credenziali delle chiavi associato deve trovarsi nella stessa area e nella stessa sottoscrizione del servizio cloud.
+    - L'insieme di credenziali delle chiavi associato per deve essere abilitato per le autorizzazioni appropriate, in modo che la risorsa servizi cloud (supporto esteso) possa recuperare i certificati da Key Vault. Per ulteriori informazioni, vedere [certificati e Key Vault](certificates-and-key-vault.md)
+    - È necessario fare riferimento all'insieme di credenziali delle chiavi nella sezione OsProfile del modello ARM illustrato nei passaggi seguenti.
+
+## <a name="deploy-a-cloud-service-extended-support"></a>Distribuire un servizio cloud (supporto esteso)
+
 1. Creare una rete virtuale. Il nome della rete virtuale deve corrispondere ai riferimenti nel file di configurazione del servizio (con estensione cscfg). Se si usa una rete virtuale esistente, omettere questa sezione dal modello ARM.
 
     ```json
@@ -68,7 +72,7 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
     ] 
     ```
     
-     Se si crea una nuova rete virtuale, aggiungere quanto segue alla `dependsOn` sezione per assicurarsi che la piattaforma crei la rete virtuale prima di creare il servizio cloud. 
+     Se si crea una nuova rete virtuale, aggiungere quanto segue alla `dependsOn` sezione per assicurarsi che la piattaforma crei la rete virtuale prima di creare il servizio cloud.
 
     ```json
     "dependsOn": [ 
@@ -100,7 +104,7 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
     ] 
     ```
      
-     Se si crea un nuovo indirizzo IP, aggiungere quanto segue alla `dependsOn` sezione per assicurarsi che la piattaforma crei l'indirizzo IP prima di creare il servizio cloud. 
+     Se si crea un nuovo indirizzo IP, aggiungere quanto segue alla `dependsOn` sezione per assicurarsi che la piattaforma crei l'indirizzo IP prima di creare il servizio cloud.
     
     ```json
     "dependsOn": [ 
@@ -108,7 +112,7 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
           ] 
     ```
  
-3. Creare un oggetto profilo di rete e associare l'indirizzo IP pubblico al front-end del servizio di bilanciamento del carico. La piattaforma crea automaticamente un servizio di bilanciamento del carico.  
+3. Creare un oggetto profilo di rete e associare l'indirizzo IP pubblico al front-end del servizio di bilanciamento del carico. La piattaforma crea automaticamente un servizio di bilanciamento del carico.
 
     ```json
     "networkProfile": { 
@@ -134,7 +138,7 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
     ```
  
 
-4. Aggiungere il riferimento all'insieme di credenziali delle chiavi nella  `OsProfile`   sezione del modello ARM. Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio (con estensione cscfg). È anche necessario abilitare Key Vault per le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault. Il Key Vault deve trovarsi nella stessa area e nella stessa sottoscrizione del servizio cloud e avere un nome univoco. Per ulteriori informazioni, vedere [utilizzo di certificati con servizi cloud (supporto esteso)](certificates-and-key-vault.md).
+4. Aggiungere il riferimento all'insieme di credenziali delle chiavi nella  `OsProfile`   sezione del modello ARM. Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio (con estensione cscfg). È anche necessario abilitare Key Vault per le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault. L'insieme di credenziali delle chiavi deve trovarsi nella stessa area e nella stessa sottoscrizione del servizio cloud e avere un nome univoco. Per ulteriori informazioni, vedere [utilizzo di certificati con servizi cloud (supporto esteso)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -154,71 +158,70 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
     ```
   
     > [!NOTE]
-    > SourceVault è l'ID della risorsa ARM per la Key Vault. È possibile trovare queste informazioni individuando l'ID risorsa nella sezione proprietà della Key Vault. 
+    > SourceVault è l'ID della risorsa ARM per l'insieme di credenziali delle chiavi. È possibile trovare queste informazioni individuando l'ID risorsa nella sezione proprietà dell'insieme di credenziali delle chiavi.
     > - è possibile trovare certificateUrl passando al certificato nell'insieme di credenziali delle chiavi denominato **identificatore del segreto**.  
    >  - il formato di certificateUrl deve essere https:///{Vault-endpoint}/Secrets/{secretname}/{Secret-ID}
 
-5. Creare un profilo del ruolo. Verificare che il numero di ruoli, i nomi di ruolo, il numero di istanze in ogni ruolo e dimensioni siano gli stessi nella sezione configurazione del servizio (. cscfg), definizione del servizio (. csdef) e profilo ruolo nel modello ARM. 
+5. Creare un profilo del ruolo. Verificare che il numero di ruoli, i nomi di ruolo, il numero di istanze in ogni ruolo e dimensioni siano gli stessi nella sezione configurazione del servizio (. cscfg), definizione del servizio (. csdef) e profilo ruolo nel modello ARM.
     
     ```json
-    "roleProfile": { 
-          "roles": { 
-          "value": [ 
-            { 
-              "name": "WebRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
-            }, 
-            { 
-              "name": "WorkerRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
+    "roleProfile": {
+      "roles": {
+        "value": [
+          {
+            "name": "WebRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
+            }
+          },
+          {
+            "name": "WorkerRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
             } 
-        }
+          } 
+        ]
+      }
     }   
     ```
 
-6. Opzionale Creare un profilo di estensione per aggiungere estensioni al servizio cloud. Per questo esempio viene aggiunta l'estensione di diagnostica desktop remoto e Windows Azure. 
+6. Opzionale Creare un profilo di estensione per aggiungere estensioni al servizio cloud. Per questo esempio viene aggiunta l'estensione di diagnostica desktop remoto e Windows Azure.
     
     ```json
         "extensionProfile": {
-              "extensions": [
-                {
-                  "name": "RDPExtension",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Windows.Azure.Extensions",
-                    "type": "RDP",
-                    "typeHandlerVersion": "1.2.1",
-                    "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
-                    "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
-                  }
-                },
-                {
-                  "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Azure.Diagnostics",
-                    "type": "PaaSDiagnostics",
-                    "typeHandlerVersion": "1.5",
-                    "settings": "[parameters('wadPublicConfig_WebRole1')]",
-                    "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
-                    "rolesAppliedTo": [
-                      "WebRole1"
-              ]
+          "extensions": [
+            {
+              "name": "RDPExtension",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Windows.Azure.Extensions",
+                "type": "RDP",
+                "typeHandlerVersion": "1.2.1",
+                "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
+                "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
+              }
+            },
+            {
+              "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Azure.Diagnostics",
+                "type": "PaaSDiagnostics",
+                "typeHandlerVersion": "1.5",
+                "settings": "[parameters('wadPublicConfig_WebRole1')]",
+                "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
+                "rolesAppliedTo": [
+                  "WebRole1"
+                ]
+              }
             }
-          }
-        ]
-      }
+          ]
+        }
+    ```
 
-  
-    ```    
-
-7. Esaminare il modello completo. 
+7. Esaminare il modello completo.
 
     ```json
     {
@@ -266,12 +269,12 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
           "metadata": {
              "description": "Public configuration of Windows Azure Diagnostics extension"
           }
-         },
+        },
         "wadPrivateConfig_WebRole1": {
           "type": "securestring",
           "metadata": {
             "description": "Private configuration of Windows Azure Diagnostics extension"
-         }
+          }
         },
         "vnetName": {
           "type": "string",
@@ -411,7 +414,7 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
                 }
               ]
             },
-        "extensionProfile": {
+            "extensionProfile": {
               "extensions": [
                 {
                   "name": "RDPExtension",
@@ -445,14 +448,15 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
       ]
     }
     ```
- 
+
 8. Distribuire il modello e il file dei parametri (definendo i parametri nel file di modello) per creare la distribuzione del servizio cloud (supporto esteso). Fare riferimento a questi [modelli di esempio](https://github.com/Azure-Samples/cloud-services-extended-support) come richiesto.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
+    New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"
     ```
- 
+
 ## <a name="next-steps"></a>Passaggi successivi 
+
 - Esaminare le [domande frequenti](faq.md) per i servizi cloud (supporto esteso).
 - Distribuire un servizio cloud (supporto esteso) usando il [portale di Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), il [modello](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
 - Visitare il [repository di esempi di servizi cloud (supporto esteso)](https://github.com/Azure-Samples/cloud-services-extended-support)

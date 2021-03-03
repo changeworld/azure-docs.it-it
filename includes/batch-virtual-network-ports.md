@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: batch
 documentationcenter: ''
@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.date: 01/13/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 08e7463f4657b2ae5d6da1017c14226e97af7605
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
-ms.translationtype: HT
+ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165740"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101751119"
 ---
 ### <a name="general-requirements"></a>Requisiti generali
 
 * La rete virtuale deve essere nella stessa sottoscrizione e area dell'account Batch usato per creare il pool.
-
-* Il pool che usa la rete virtuale può avere un massimo di 4096 nodi.
 
 * La subnet specificata per il pool deve disporre di indirizzi IP non assegnati sufficienti per contenere il numero di macchine virtuali usate come destinazione per il pool; questo valore corrisponde alla somma delle proprietà `targetDedicatedNodes` e `targetLowPriorityNodes` del pool. Se la subnet non dispone di sufficienti indirizzi IP non assegnati, il pool alloca parzialmente i nodi di calcolo e si verifica un errore di ridimensionamento.
 
@@ -67,23 +65,29 @@ Non è necessario specificare gruppi di sicurezza di rete a livello di subnet de
 
 Configurare il traffico in ingresso sulla porta 3389 (Windows) o 22 (Linux) solo se è necessario per consentire l'accesso remoto ai nodi di calcolo da origini esterne. Se è richiesto il supporto per attività a più istanze con determinati runtime MPI, potrebbe essere necessario abilitare le regole della porta 22 in Linux. Per poter usare i nodi di calcolo del pool, non è strettamente necessario consentire il traffico su queste porte.
 
+> [!WARNING]
+> Gli indirizzi IP del servizio Batch possono cambiare nel tempo. Si consiglia pertanto di utilizzare il `BatchNodeManagement` tag di servizio (o una variante di area) per le regole NSG indicate nelle tabelle seguenti. Evitare di popolare le regole del gruppo di sicurezza di rete con indirizzi IP specifici del servizio Batch.
+
 **Regole di sicurezza in ingresso**
 
 | Indirizzi IP di origine | Tag del servizio di origine | Porte di origine | Destination | Porte di destinazione | Protocollo | Azione |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement` [Tag di servizio](../articles/virtual-network/network-security-groups-overview.md#service-tags) (se si usa una variante regionale, nella stessa area dell'account Batch) | * | Qualsiasi | 29876-29877 | TCP | Allow |
+| N/D | `BatchNodeManagement`[tag del servizio](../articles/virtual-network/network-security-groups-overview.md#service-tags) (se si usa una variante regionale, nella stessa area dell'account batch) | * | Qualsiasi | 29876-29877 | TCP | Allow |
 | Indirizzi IP di origine utente per accedere in remoto a nodi di calcolo e/o alla subnet dei nodi di calcolo per attività a più istanze di Linux, se necessario. | N/D | * | Qualsiasi | 3389 (Windows), 22 (Linux) | TCP | Allow |
-
-> [!WARNING]
-> Gli indirizzi IP del servizio Batch possono cambiare nel tempo. È pertanto consigliabile usare il tag del servizio `BatchNodeManagement` (o variante di area) per le regole del gruppo di sicurezza di rete. Evitare di popolare le regole del gruppo di sicurezza di rete con indirizzi IP specifici del servizio Batch.
 
 **Regole di sicurezza in uscita**
 
 | Source (Sorgente) | Porte di origine | Destination | Tag del servizio di destinazione | Porte di destinazione | Protocollo | Azione |
 | --- | --- | --- | --- | --- | --- | --- |
 | Qualsiasi | * | [Tag di servizio](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (se si usa una variante regionale, nella stessa area dell'account Batch) | 443 | TCP | Allow |
+| Qualsiasi | * | [Tag di servizio](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `BatchNodeManagement` (se si usa una variante regionale, nella stessa area dell'account Batch) | 443 | TCP | Allow |
+
+In uscita `BatchNodeManagement` è necessario per contattare il servizio batch dai nodi di calcolo, ad esempio per le attività del gestore di processi.
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pool nella configurazione di Servizi cloud
+
+> [!WARNING]
+> I pool di configurazione del servizio cloud sono deprecati. Usare invece i pool di configurazione delle macchine virtuali.
 
 **Reti virtuali supportate** - Solo reti virtuali classiche
 

@@ -3,12 +3,12 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: a22da7341e3ebeff29bc784cfff0cc8aeb87fb9b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362502"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728213"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -170,9 +170,9 @@ Se si usano i server DNS personalizzati, è necessario creare le zone DNS necess
     > Nel testo precedente `<geo>` si riferisce al codice dell'area, ad esempio *EUS* e *ne* per gli Stati Uniti orientali ed Europa settentrionale. Vedere gli elenchi seguenti per i codici delle aree:
     >
     > - [Tutti i cloud pubblici](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
-    > - [Cina](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-    > - [Germania](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-    > - [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+    > - [Cina](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+    > - [Germania](../germany/germany-developer-guide.md#endpoint-mapping)
+    > - [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 1. Successivamente, è necessario aggiungere i record DNS necessari. Per visualizzare i record che devono essere aggiunti alla zona DNS di backup, passare all'endpoint privato creato in precedenza e passare all'opzione di **configurazione DNS** nella barra di spostamento a sinistra.
 

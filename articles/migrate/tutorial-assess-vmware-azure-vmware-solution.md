@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: e57084dab00210802edbd46e3380313e034eb036
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c1c56edacbc777b5e8b53da588bc763201379964
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98566738"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718829"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Esercitazione: Valutare le VM VMware per la migrazione alla soluzione Azure VMware
 
@@ -50,6 +50,9 @@ Decidere se si vuole eseguire una valutazione usando criteri di dimensionamento 
 **Come in locale** | Eseguire la valutazione in base ai dati/metadati di configurazione delle macchine virtuali.  | Le dimensioni consigliate dei nodi nella soluzione Azure VMware sono basate sulle dimensioni delle macchine virtuali locali, unitamente alle impostazioni specificate nella valutazione per il tipo di nodo, il tipo di archiviazione e l'impostazione di tolleranza errori.
 **Basata sulle prestazioni** | Eseguire la valutazione in base ai dati dinamici relativi alle prestazioni. | Le dimensioni consigliate dei nodi nella soluzione Azure VMware sono basate sui dati relativi all'utilizzo della CPU e della memoria, unitamente alle impostazioni specificate nella valutazione per il tipo di nodo, il tipo di archiviazione e l'impostazione di tolleranza errori.
 
+> [!NOTE]
+> La valutazione della soluzione VMware di Azure (AVS) può essere creata solo per le macchine virtuali VMware.
+
 ## <a name="run-an-assessment"></a>Eseguire una valutazione
 
 Eseguire una valutazione nel modo seguente:
@@ -60,7 +63,7 @@ Eseguire una valutazione nel modo seguente:
 
 1. In **Azure Migrate: Valutazione server** fare clic su **Valuta**.
 
-1. In **Valuta server** > **Tipo di valutazione** selezionare **Soluzione Azure VMware (AVS) (anteprima)** .
+1. In **valuta** il  >  **tipo di valutazione** server selezionare **soluzione VMware di Azure (AVS)**.
 
 1. In **Origine individuazione**:
 
@@ -76,14 +79,14 @@ Eseguire una valutazione nel modo seguente:
 
     - In **Località di destinazione** specificare l'area di Azure in cui eseguire la migrazione.
        - Le raccomandazioni relative alle dimensioni e ai costi si basano sulla località specificata.
-       - Attualmente è possibile valutare per quattro aree (Australia orientale, Stati Uniti orientali, Europa occidentale, Stati Uniti occidentali)
    - Per impostazione predefinita, il **tipo di archiviazione** è **rete VSAN**. Questo è il tipo di archiviazione predefinito per un cloud privato della soluzione Azure VMware.
    - Le **istanze riservate** non sono attualmente supportate per i nodi della soluzione Azure VMware.
 1. In **Dimensioni macchina virtuale**:
     - Per impostazione predefinita, il **tipo di nodo** è **AV36**. Il tipo dei nodi necessari per eseguire la migrazione delle macchine virtuali alla soluzione Azure VMware viene consigliato da Azure Migrate.
     - In **impostazione di ITF, livello RAID**, selezionare la combinazione di errori da tollerare e RAID.  L'opzione FTT selezionata, combinata con il requisito del disco della macchina virtuale locale, determina il lo spazio di archiviazione totale vSAN richiesto nella soluzione Azure VMware.
     - In **Oversubscription della CPU** specificare il rapporto di core virtuali associati a un core fisico nel nodo della soluzione Azure VMware. Un'oversubscription maggiore di 4:1 potrebbe causare una riduzione del livello delle prestazioni, ma può essere usata per i carichi di lavoro di tipo server Web.
-
+    - In **fattore di overcommit della memoria** specificare il rapporto di memoria rispetto al commit sul cluster. Il valore 1 rappresenta il 100% di utilizzo di memoria, 0,5 ad esempio è 50% e 2 utilizza il 200% della memoria disponibile. È possibile aggiungere valori compresi tra 0,5 e 10 fino a una posizione decimale.
+    - In **deduplicato e fattore di compressione** specificare i deduplicati previsti e il fattore di compressione per i carichi di lavoro. Il valore effettivo può essere ottenuto dalla configurazione locale di rete VSAN o archiviazione e può variare in base al carico di lavoro. Il valore 3 significherebbe 3x, quindi per il disco 300GB verrebbero usati solo 100 GB di spazio di archiviazione. Il valore 1 non significa alcun deduplicato o compressione. È possibile aggiungere solo valori da 1 a 10 fino a una posizione decimale.
 1. In **Dimensioni nodo**: 
     - In **Criterio di dimensionamento** scegliere se si vuole basare la valutazione sui metadati statici o sui dati relativi alle prestazioni. Se si usano i dati relativi alle prestazioni:
         - In **Cronologia delle prestazioni** indicare la durata dei dati in base alla quale basare la valutazione
@@ -127,7 +130,6 @@ Una valutazione della soluzione Azure VMware descrive:
 - Numero di nodi AVS: numero stimato dei nodi della soluzione Azure VMware necessari per eseguire le macchine virtuali.
 - Utilizzo tra nodi AVS: utilizzo previsto della CPU, della memoria e delle risorse di archiviazione in tutti i nodi.
     - L'utilizzo include il fattore iniziale nel sovraccarico di gestione cluster, ad esempio server vCenter, NSX Manager (Large), NSX Edge, se HCX è distribuito anche HCX Manager e IX Appliance consumo ~ 44vCPU (11 CPU), 75 GB di RAM e 722GB di archiviazione prima della compressione e della deduplicazione. 
-    - La memoria, la deduplicazione e la compressione sono attualmente impostate per l'utilizzo del 100% per la memoria e la deduplicazione e la compressione di 1,5, che saranno un input definito dall'utente nelle versioni future consentendo all'utente di ottimizzare le dimensioni richieste.
 - Stima dei costi mensili: costi mensili stimati per tutti i nodi della soluzione Azure VMware in esecuzione nelle macchine virtuali locali.
 
 ## <a name="view-an-assessment"></a>Visualizzare una valutazione
@@ -155,7 +157,7 @@ Per visualizzare una valutazione:
 
 3. Esaminare lo strumento suggerito.
 
-    - VMware HCX o Enterprise: per i computer VMware, la soluzione VMWare Hybrid Cloud Extension (HCX) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione Azure VMware. Per ulteriori informazioni, .
+    - VMware HCX o Enterprise: per i computer VMware, la soluzione VMware Hybrid Cloud Extension (HCX) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). Per ulteriori informazioni, .
     - Sconosciuto: Per i computer importati tramite un file con estensione csv, lo strumento di migrazione predefinito è sconosciuto. Tuttavia, per i computer VMware è consigliabile usare la soluzione VMware Hybrid Cloud Extension (HCX).
 4. Fare clic su uno stato di idoneità per la soluzione Azure VMware. È possibile visualizzare i dettagli sull'idoneità delle VM ed eseguire il drill-down per visualizzare i dettagli delle VM, incluse le impostazioni di calcolo, archiviazione e rete.
 
@@ -167,7 +169,7 @@ Il riepilogo della valutazione mostra i costi di calcolo e archiviazione stimati
 
     - Le stime dei costi si basano sul numero di nodi della soluzione Azure VMware necessari considerando i requisiti delle risorse di tutte le macchine virtuali in totale.
     - Dal momento che i prezzi per la soluzione Azure VMware vengono calcolati in base ai nodi, il costo totale non prevede la distribuzione dei costi di calcolo e dei costi di archiviazione.
-    - La stima dei costi è relativa all'esecuzione delle macchine virtuali locali nella soluzione Azure VMware. Valutazione server di Azure Migrate non considera i costi per PaaS o SaaS.
+    - La stima dei costi è relativa all'esecuzione delle macchine virtuali locali nella soluzione Azure VMware. AVS Assessment non considera i costi PaaS o SaaS.
 
 2. Esaminare le stime di archiviazione mensili. La visualizzazione mostra i costi di archiviazione aggregati per il gruppo valutato, suddivisi in base ai diversi tipi di dischi di archiviazione. 
 3. È possibile eseguire il drill-down per visualizzare i dettagli dei costi per macchine virtuali specifiche.

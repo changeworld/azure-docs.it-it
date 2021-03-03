@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 328bfe57c675d49aa951388e2808fcecfe8da8b5
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ae0112292994fdcf88e80abff8ab52e5971cb0ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100096532"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731086"
 ---
 # <a name="how-to-improve-your-custom-vision-model"></a>Come migliorare il modello di Visione personalizzata
 
-In questa guida si apprenderà come migliorare la qualità del modello di Servizio visione artificiale personalizzato. La qualità del [classificatore](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) o del [rilevatore di oggetti](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) dipende dalla quantità, dalla qualità e dalla varietà dei dati con etichetta forniti e dall'equilibrio del set di dati complessivo. Un modello valido dispone di un set di dati di training bilanciato che rappresenta gli elementi che verranno inviati. Il processo di compilazione di un modello di questo tipo è iterativo; per raggiungere i risultati previsti, è comune eseguire alcuni cicli di training.
+In questa guida si apprenderà come migliorare la qualità del modello di Servizio visione artificiale personalizzato. La qualità del [classificatore](./getting-started-build-a-classifier.md) o del [rilevatore di oggetti](./get-started-build-detector.md) dipende dalla quantità, dalla qualità e dalla varietà dei dati con etichetta forniti e dall'equilibrio del set di dati complessivo. Un modello valido dispone di un set di dati di training bilanciato che rappresenta gli elementi che verranno inviati. Il processo di compilazione di un modello di questo tipo è iterativo; per raggiungere i risultati previsti, è comune eseguire alcuni cicli di training.
 
 Di seguito è riportato un modello generale che consente di eseguire il training di un modello più accurato:
 

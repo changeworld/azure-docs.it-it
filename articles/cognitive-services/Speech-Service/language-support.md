@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 502f93df8d9948a6d6682b14ea13b59e324833cb
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 4e626cb5cac29a0e5133eb77cbaff3f4131b8456
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091459"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722348"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -62,25 +62,32 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Olandese (Paesi Bassi)                | `nl-NL` | Audio (20201015)<br>Testo                                   |    Sì                       |
 | Inglese (Australia)                | `en-AU` | Audio (20201019)<br>Testo                 | Sì                          |
 | Inglese (Canada)                   | `en-CA` | Audio (20201019)<br>Testo                 | Sì                          |
+| Inglese (Ghana)                    | `en-GH` | Testo                                   |                           |
 | Inglese (Hong Kong)                | `en-HK` | Testo                                   |                           |
 | Inglese (India)                    | `en-IN` | Audio (20200923)<br>Testo                 | Sì                          |
 | Inglese (Irlanda)                  | `en-IE` | Testo                                   |                           |
+| Inglese (Kenya)                    | `en-KE` | Testo                                   |                           |
 | Inglese (Nuova Zelanda)              | `en-NZ` | Audio (20201019)<br>Testo                 |  Sì                         |
 | Inglese (Nigeria)                  | `en-NG` | Testo                                   |                           |
 | Inglese (Filippine)              | `en-PH` | Testo                                   |                           |
 | Inglese (Singapore)                | `en-SG` | Testo                                   |                           |
 | Inglese (Sudafrica)             | `en-ZA` | Testo                                   |                           |
+| Inglese (Tanzania)                 | `en-TZ` | Testo                                   |                           |
 | Inglese (Regno Unito)           | `en-GB` | Audio (20201019)<br>Testo<br>Pronuncia| Sì                          |
 | Inglese (Stati Uniti)            | `en-US` | Audio (20201019)<br>Testo<br>Pronuncia| Sì                          |
 | Estone (Estonia)                  | `et-EE` | Testo                                   |                           |
+| Filippino (Filippine)             | `fil-PH`| Testo                                   |                           |
 | Finlandese (Finlandia)                  | `fi-FI` | Testo                                   |     Sì                      |
 | Francese (Canada)                    | `fr-CA` | Audio (20201015)<br>Testo                 |     Sì                      |
 | Francese (Francia)                    | `fr-FR` | Audio (20201015)<br>Testo<br>Pronuncia|      Sì                     |
+| Francese (Svizzera)               | `fr-CH` | Testo                                   |                           |
+| Tedesco (Austria)                   | `de-AT` | Testo                                   |                           |
 | Tedesco (Germania)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Testo<br>Pronuncia|  Sì                         |
 | Greco (Grecia)                     | `el-GR` | Testo                                   |                           |
 | Gujarati (India)                  | `gu-IN` | Testo                                   |                           |
 | Hindi (India)                      | `hi-IN` | Audio (20200701)<br>Testo                 |     Sì                      |
 | Ungherese (Ungheria)                | `hu-HU` | Testo                                   |                           |
+| Indonesiano (Indonesia)             | `id-ID` | Testo                                   |                           |
 | Irlandese (Irlanda)                     | `ga-IE` | Testo                                   |                           |
 | Italiano (Italia)                    | `it-IT` | Audio (20201016)<br>Testo<br>Pronuncia|      Sì                     |
 | Giapponese (Giappone)                   | `ja-JP` | Testo                                   |      Sì                     |
@@ -124,6 +131,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Telugu (India)                     | `te-IN` | Testo                                   |                           |
 | Thai (Thailandia)                    | `th-TH` | Testo                                   |      Sì                     |
 | Turco (Turchia)                   | `tr-TR` | Testo                                   |                           |
+| Vietnamita (Vietnam)               | `vi-VN` | Testo                                   |                           |
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 

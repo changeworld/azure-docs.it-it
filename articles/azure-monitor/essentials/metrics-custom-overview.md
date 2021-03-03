@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/25/2021
 ms.subservice: metrics
-ms.openlocfilehash: 9fba5b7636bcef68b55528350ea63ce9d386bb16
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b1e61d0b8eb8312c78acabbd087208bb64a2d0d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615147"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734452"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metriche personalizzate in monitoraggio di Azure (anteprima)
 
-Quando si distribuiscono risorse e applicazioni in Azure, è opportuno iniziare a raccogliere dati di telemetria per ottenere informazioni dettagliate sulle prestazioni e sulla stato relativi. Azure rende alcune metriche predefinite disponibili all'utente. Queste metriche sono denominate [standard o Platform](../platform/metrics-supported.md). Tuttavia, esse sono intrinsecamente limitate. 
+Quando si distribuiscono risorse e applicazioni in Azure, è opportuno iniziare a raccogliere dati di telemetria per ottenere informazioni dettagliate sulle prestazioni e sulla stato relativi. Azure rende alcune metriche predefinite disponibili all'utente. Queste metriche sono denominate [standard o Platform](./metrics-supported.md). Tuttavia, esse sono intrinsecamente limitate. 
 
 È opportuno pertanto raccogliere alcuni indicatori delle prestazioni personalizzati o metriche specifiche dell'azienda per ottenere informazioni più dettagliate. Le metriche **personalizzate** possono essere raccolte tramite i dati di telemetria dell'applicazione o un agente in esecuzione sulle risorse di Azure o anche all'esterno del sistema di monitoraggio e inviate direttamente a Monitoraggio di Azure. Dopo la pubblicazione in Monitoraggio di Azure, è possibile esplorare le metriche personalizzate per le risorse e le applicazioni di Azure, nonché eseguire query e inviare avvisi in modo analogo a come si opera sulle metriche standard generate da Azure.
 
@@ -223,5 +223,3 @@ Usare le metriche personalizzate da servizi diversi:
  - [Macchina virtuale Linux con agente Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md)
  - [REST API](./metrics-store-custom-rest-api.md)
  - [Servizi cloud classici](../essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md)
- 
-

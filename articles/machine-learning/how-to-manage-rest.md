@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09a0580adbe6d51e4de811a57ee17203d65a2435
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bf1d6f5838e467c5f44a0090a4f1a15cd9d4ac77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316894"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692454"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creazione, esecuzione ed eliminazione di risorse di Azure ML con REST
 
@@ -79,7 +79,7 @@ La risposta deve fornire un token di accesso valido per un'ora:
 Prendere nota del token, che verrà usato per autenticare tutte le richieste amministrative successive. Questa operazione viene eseguita impostando un'intestazione di autorizzazione in tutte le richieste:
 
 ```bash
-curl -h "Authentication: Bearer {your-access-token}" ...more args...
+curl -h "Authorization:Bearer {your-access-token}" ...more args...
 ```
 
 Si noti che il valore inizia con la stringa "Bearer", incluso uno spazio singolo, prima di aggiungere il token.
@@ -202,7 +202,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 
 Si noti che per elencare gli esperimenti il percorso inizia con `history/v1.0` while per elencare i modelli, il percorso inizia con `modelmanagement/v1.0` . L'API REST è divisa in diversi gruppi operativi, ognuno con un percorso distinto. 
 
-|Area|Path|
+|Area|Percorso|
 |-|-|
 |Artifacts|/rest/api/azureml|
 |Archivi dati|/azure/machine-learning/how-to-access-data|

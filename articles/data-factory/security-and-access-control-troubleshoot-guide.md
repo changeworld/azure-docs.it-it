@@ -4,14 +4,14 @@ description: Informazioni su come risolvere i problemi di sicurezza e controllo 
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2021
+ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: 0dac0dcb272b602be8b921bce0ffc68c05cb9cbd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375171"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706150"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Risolvere i problemi di Azure Data Factory sicurezza e controllo di accesso
 
@@ -107,7 +107,7 @@ Per risolvere il problema, eseguire le operazioni seguenti.
 
 Non è possibile registrare la chiave di autenticazione IR nella VM self-hosted perché il collegamento privato è abilitato. Viene visualizzato il messaggio di errore seguente:
 
-"Impossibile ottenere il token del servizio dal servizio ADF con chiave * * * * * * * * * * * * * * * * * * * e costo orario: 0,1250079 secondi, il codice di errore è: InvalidGatewayKey, activityId è: XXXXXXX e il messaggio di errore dettagliato indica che l'indirizzo IP del client non è un indirizzo IP privato valido perché Data Factory non è riuscito ad accedere alla rete pubblica, quindi non è in grado di raggiungere il cloud per eseguire la connessione".
+"Impossibile ottenere il token del servizio dal servizio ADF con chiave * * * * * * * * * * * * * * * * * * * e costo orario: 0,1250079 secondo, il codice di errore è: InvalidGatewayKey, activityId è: XXXXXXX e il messaggio di errore dettagliato è che l'indirizzo IP del client non è un indirizzo IP privato valido perché Data Factory non è riuscito ad accedere alla rete pubblica, quindi non è in grado di raggiungere il cloud per eseguire la connessione".
 
 #### <a name="cause"></a>Causa
 
@@ -142,7 +142,6 @@ Per risolvere il problema, eseguire le operazioni seguenti.
 
 1. Aggiungere di nuovo la chiave di autenticazione IR in Integration Runtime.
 
-
 **Soluzione 2**
 
 Per risolvere il problema, passare al [collegamento privato di Azure per Azure Data Factory](./data-factory-private-link.md).
@@ -150,6 +149,45 @@ Per risolvere il problema, passare al [collegamento privato di Azure per Azure D
 Provare ad abilitare l'accesso alla rete pubblica nell'interfaccia utente, come illustrato nello screenshot seguente:
 
 ![Screenshot del controllo "abilitato" per "Consenti accesso alla rete pubblica" nel riquadro rete.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### <a name="adf-private-dns-zone-overrides-azure-resource-manager-dns-resolution-causing-not-found-error"></a>La zona DNS privata di ADF sostituisce Azure Resource Manager risoluzione DNS che causa l'errore ' non trovato '
+
+#### <a name="cause"></a>Causa
+Sia Azure Resource Manager che ADF utilizzano la stessa zona privata creando un potenziale conflitto nel DNS privato del cliente con uno scenario in cui i record di Azure Resource Manager non verranno trovati.
+
+#### <a name="solution"></a>Soluzione
+1. Trova DNS privato zone **privatelink.Azure.com** in portale di Azure.
+![Screenshot della ricerca di zone DNS privato.](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
+2. Controllare se è presente un record A **ADF**.
+![Screenshot di un record.](media/security-access-control-troubleshoot-guide/a-record.png)
+3.  Passare a **collegamenti di rete virtuale**, eliminare tutti i record.
+![Screenshot del collegamento alla rete virtuale.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+4.  Passare alla data factory in portale di Azure e ricreare l'endpoint privato per Azure Data Factory portale.
+![Screenshot della creazione di un endpoint privato.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+5.  Tornare a DNS privato zone e verificare se è presente una nuova zona DNS privata **privatelink.ADF.Azure.com**.
+![Screenshot del nuovo record DNS.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
+
+### <a name="connection-error-in-public-endpoint"></a>Errore di connessione nell'endpoint pubblico
+
+#### <a name="symptoms"></a>Sintomi
+
+Quando si copiano dati con l'accesso pubblico dell'account di archiviazione BLOB di Azure, le esecuzioni della pipeline hanno esito negativo con errore seguente.
+
+Ad esempio: il sink di archiviazione BLOB di Azure usa Azure IR (Public, non Managed VNet) e l'origine del database SQL di Azure usa il runtime di integrazione VNet gestito. O source/sink usare il runtime di integrazione VNet gestito solo con accesso pubblico di archiviazione.
+
+`
+<LogProperties><Text>Invoke callback url with req:
+"ErrorCode=UserErrorFailedToCreateAzureBlobContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
+`
+
+#### <a name="cause"></a>Causa
+
+ADF può continuare a usare il runtime di integrazione VNet gestito, ma è possibile che si verifichi questo errore perché l'endpoint pubblico per l'archiviazione BLOB di Azure in VNet gestiti non è affidabile in base al risultato del test e l'archiviazione BLOB di Azure e Azure Data Lake Gen2 non sono supportati per la connessione tramite un endpoint pubblico dalla rete virtuale gestita di ADF in base alla [rete virtuale gestita & endpoint privati](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network)gestiti.
+
+#### <a name="solution"></a>Soluzione
+
+- Con l'endpoint privato abilitato nell'origine e anche il lato sink quando si usa il runtime di integrazione VNet gestito.
+- Se si vuole ancora usare l'endpoint pubblico, è possibile passare solo a IR pubblico anziché usare il runtime di integrazione VNet gestito per l'origine e il sink. Anche se si passa di nuovo a IR pubblico, ADF potrebbe ancora usare il runtime di integrazione VNet gestito se il runtime di integrazione VNet gestito è ancora presente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

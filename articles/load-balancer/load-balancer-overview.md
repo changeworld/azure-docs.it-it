@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: 716acec51226e9e4ff47605c3ee2bd9a86be1933
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a514edef1ef1f67fba3efae883ceb46dee249d6e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588567"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705501"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
@@ -56,7 +56,7 @@ I principali scenari in cui è possibile usare Load Balancer Standard includono:
 
 - Abilitare il supporto per il **[bilanciamento del carico](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** di **[IPv6](../virtual-network/ipv6-overview.md)** .
 
-- Load Balancer Standard fornisce le metriche multidimensionali tramite [Monitoraggio di Azure](../azure-monitor/overview.md).  Queste metriche possono essere filtrate, raggruppate e suddivise in una determinata dimensione.  Forniscono informazioni dettagliate sulle prestazioni presenti e passate e sullo stato di integrità del servizio. [Insights for Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) offre un dashboard preconfigurato con visualizzazioni utili per queste metriche.  Integrità risorse di Azure è supportato. Per altre informazioni, vedere **[Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse](load-balancer-standard-diagnostics.md)** .
+- Load Balancer Standard fornisce le metriche multidimensionali tramite [Monitoraggio di Azure](../azure-monitor/overview.md).  Queste metriche possono essere filtrate, raggruppate e suddivise in una determinata dimensione.  Forniscono informazioni dettagliate sulle prestazioni presenti e passate e sullo stato di integrità del servizio. [Insights for Azure Load Balancer](./load-balancer-insights.md) offre un dashboard preconfigurato con visualizzazioni utili per queste metriche.  Integrità risorse di Azure è supportato. Per altre informazioni, vedere **[Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse](load-balancer-standard-diagnostics.md)** .
 
 - Bilanciare il carico dei servizi in **[più porte, più indirizzi IP o entrambi](./load-balancer-multivip-overview.md)** .
 

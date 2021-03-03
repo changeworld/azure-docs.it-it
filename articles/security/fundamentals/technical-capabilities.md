@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 6e0642a2124d58bb3af483313ac824568b6bbb39
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 00a44bd0a6176270e70eca030fcfada46effe3a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585144"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735778"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 Questo articolo fornisce un'introduzione ai servizi di sicurezza in Azure che consentono di proteggere i dati, le risorse e le applicazioni nel cloud e di soddisfare le esigenze di sicurezza dell'azienda.
 
 ## <a name="azure-platform"></a>Piattaforma Azure
 
-[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) è una piattaforma cloud costituita da servizi di infrastruttura e applicazioni, con servizi dati integrati, analisi avanzata e strumenti e servizi per sviluppatori, ospitata nei data center del cloud pubblico Microsoft. I clienti usano Azure per molti diversi scenari e capacità, dalle funzionalità di calcolo, rete e archiviazione di base a servizi app Web e per dispositivi mobili e scenari cloud completi come Internet delle cose, che possono essere usati con tecnologie open source e distribuiti come cloud ibrido oppure ospitati in un data center del cliente. Azure offre tecnologia cloud in blocchi predefiniti per consentire alle aziende di ridurre i costi, velocizzare l'innovazione e gestire i sistemi in modo proattivo. Quando si creano asset IT o se ne esegue la migrazione in un provider di servizi cloud, si dipende dalla capacità di tale organizzazione di proteggere le applicazioni e i dati con i servizi e i controlli offerti per gestire la sicurezza degli asset basati sul cloud.
+[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) è una piattaforma cloud costituita da servizi di infrastruttura e applicazioni, con servizi dati integrati, analisi avanzata e strumenti e servizi per sviluppatori, ospitata nei data center del cloud pubblico Microsoft. I clienti usano Azure per diverse capacità e scenari, da risorse di calcolo Basic, rete e archiviazione, ai servizi app Web e per dispositivi mobili, a scenari cloud completi come Internet delle cose e possono essere usati con tecnologie open source e distribuiti come cloud ibrido o ospitati nel Data Center di un cliente. Azure offre tecnologia cloud in blocchi predefiniti per consentire alle aziende di ridurre i costi, velocizzare l'innovazione e gestire i sistemi in modo proattivo. Quando si creano asset IT o se ne esegue la migrazione in un provider di servizi cloud, si dipende dalla capacità di tale organizzazione di proteggere le applicazioni e i dati con i servizi e i controlli offerti per gestire la sicurezza degli asset basati sul cloud.
 
 Microsoft Azure è l'unico provider di servizi di cloud computing che offre una piattaforma applicativa e un'infrastruttura distribuite come servizio coerenti e sicure affinché i team possano operare con diverse competenze di cloud e diversi livelli di complessità dei progetti, con servizi dati integrati e funzionalità di analisi che consentono di ottenere informazioni dai dati ovunque si trovino, in piattaforme sia Microsoft che non Microsoft e in strumenti e framework aperti, e la possibilità di integrare cloud e locale nonché distribuire i servizi cloud di Azure in data center locali. Nell'ambito di Microsoft Trusted Cloud, i clienti fanno affidamento su Azure per usufruire di livelli di sicurezza, affidabilità, conformità e riservatezza leader del settore, nonché di una vasta rete di persone, partner e processi per il supporto delle organizzazioni nel cloud.
 
@@ -37,7 +37,7 @@ Microsoft Azure consente di:
 
 - Proteggere l'azienda.
 
-## <a name="security-technical-capabilities-to-fulfil-your-responsibility"></a>Funzionalità tecniche di sicurezza per soddisfare le proprie responsabilità
+## <a name="security-technical-capabilities-to-fulfill-your-responsibility"></a>Funzionalità tecniche di sicurezza per soddisfare le proprie responsabilità
 
 Microsoft Azure offre servizi che consentono di soddisfare le esigenze di sicurezza, privacy e conformità. Nell'immagine seguente sono illustrati i vari servizi di Azure disponibili per la creazione di un'infrastruttura di applicazione sicura e conforme basata sugli standard del settore.
 
@@ -143,7 +143,7 @@ Azure AD Privileged Identity Management consente di effettuare le operazioni seg
 
 #### <a name="identity-protection"></a>Protezione dell'identità
 
-[Azure ad Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) è un servizio di sicurezza che offre una visualizzazione consolidata dei rilevamenti dei rischi e potenziali vulnerabilità che interessano le identità dell'organizzazione. Identity Protection usa le funzionalità di rilevamento anomalie di Azure Active Directory esistenti (disponibili tramite i report di attività anomale di Azure AD) e introduce nuovi tipi di rilevamento dei rischi in grado di rilevare le anomalie in tempo reale.
+[Azure ad Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) è un servizio di sicurezza che offre una visualizzazione consolidata dei rilevamenti dei rischi e potenziali vulnerabilità che interessano le identità dell'organizzazione. Identity Protection usa le funzionalità di rilevamento anomalie del Azure Active Directory esistente (disponibili tramite i report di attività anomale di Azure AD) e introduce nuovi tipi di rilevamento dei rischi in grado di rilevare le anomalie in tempo reale.
 
 ## <a name="secure-resource-access"></a>Proteggere l'accesso alle risorse
 
@@ -184,7 +184,7 @@ Per le organizzazioni che hanno bisogno di proteggere l'accesso ad Azure da una 
 
 Set di dati più grandi possono essere spostati su un collegamento WAN ad alta velocità dedicato, ad esempio [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se si decide di usare ExpressRoute, è possibile anche crittografare i dati a livello di applicazione usando [SSL/TLS](https://web.archive.org/web/20150221085231/http://support.microsoft.com:80/kb/257591) o altri protocolli per una maggiore protezione.
 
-Se si interagisce con Archiviazione di Azure tramite il portale di Azure, tutte le transazioni hanno luogo tramite HTTPS. È possibile usare anche l'[API REST di archiviazione](/rest/api/storageservices/) su HTTPS per interagire con [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) e il [database SQL di Azure](https://azure.microsoft.com/services/sql-database/).
+Se si interagisce con archiviazione di Azure tramite il portale di Azure, tutte le transazioni si verificano tramite HTTPS. È possibile usare anche l'[API REST di archiviazione](/rest/api/storageservices/) su HTTPS per interagire con [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) e il [database SQL di Azure](https://azure.microsoft.com/services/sql-database/).
 
 Le organizzazioni che non riescono a proteggere i dati in transito sono più vulnerabili agli [attacchi man-in-the-Middle](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), all' [intercettazione](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14))e al Hijack della sessione. Questi attacchi possono essere il primo passo per ottenere l'accesso ai dati riservati.
 
@@ -192,9 +192,9 @@ Per altre informazioni sull'opzione VPN di Azure, vedere l'articolo [Pianificazi
 
 ### <a name="enforce-file-level-data-encryption"></a>Applicare la crittografia dei dati a livello di file
 
-[Azure RMS](/azure/information-protection/what-is-azure-rms) usa criteri di crittografia, identità e autorizzazione per proteggere i file e la posta elettronica. Azure RMS opera su più dispositivi, tra cui telefoni, tablet e PC, applicando una protezione all'interno e all'esterno dell'organizzazione. Questa funzionalità è resa possibile dal fatto che Azure RMS aggiunge un livello di protezione che rimane insieme ai dati, anche quando fuoriescono dai confini dell'organizzazione.
+[Azure RMS](/azure/information-protection/what-is-azure-rms) usa criteri di crittografia, identità e autorizzazione per proteggere i file e la posta elettronica. Azure RMS funziona su più dispositivi: telefoni, tablet e PC proteggendo sia all'interno dell'organizzazione che all'esterno dell'organizzazione. Questa funzionalità è resa possibile dal fatto che Azure RMS aggiunge un livello di protezione che rimane insieme ai dati, anche quando fuoriescono dai confini dell'organizzazione.
 
-Quando si usa Azure RMS per proteggere i file, viene sfruttata una crittografia standard di settore con pieno supporto di [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). Quando si usa Azure RMS per proteggere i dati, la protezione rimane associata al file anche se questo viene copiato in una risorsa di archiviazione che non è sotto il controllo dell'IT, ad esempio un servizio di archiviazione cloud. Lo stesso accade per i file condivisi tramite posta elettronica: il file viene protetto come allegato di un messaggio di posta elettronica, con istruzioni su come aprire l'allegato protetto.
+Quando si usa Azure RMS per proteggere i file, viene sfruttata una crittografia standard di settore con pieno supporto di [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). Quando si usa Azure RMS per la protezione dei dati, si ha la certezza che la protezione rimane associata al file, anche se viene copiato in uno spazio di archiviazione che non è sotto il controllo, ad esempio un servizio di archiviazione cloud. Lo stesso accade per i file condivisi tramite posta elettronica: il file viene protetto come allegato di un messaggio di posta elettronica, con istruzioni su come aprire l'allegato protetto.
 Quando si pianifica l'adozione di Azure RMS, si consiglia quanto segue:
 
 - Installare l'[app RMS sharing](/azure/information-protection/rms-client/sharing-app-windows). Questa app si integra con le applicazioni Office installando un componente aggiuntivo di Office che offre agli utenti un modo semplice per proteggere direttamente i file.
@@ -278,6 +278,8 @@ Il [tunneling forzato](https://www.petri.com/azure-forced-tunneling) è un mecca
 
 Azure supporta la connettività con collegamento WAN dedicato alla rete locale e una rete virtuale di Azure con [ExpressRoute](../../expressroute/expressroute-introduction.md). Il collegamento tra Azure e il sito dell'utente si avvale di una connessione dedicata che non usa la rete Internet pubblica. Se l'applicazione Azure è in esecuzione in più data center, è possibile usare [Gestione traffico di Azure](../../traffic-manager/traffic-manager-overview.md) per indirizzare le richieste degli utenti in modo intelligente tra le istanze dell'applicazione. È anche possibile instradare il traffico ai servizi non in esecuzione in Azure, se sono accessibili da Internet.
 
+Azure supporta anche la connettività privata e sicura per le risorse di PaaS, ad esempio archiviazione di Azure e database SQL, dalla rete virtuale di Azure con [collegamento privato](https://docs.microsoft.com/azure/private-link/private-link-overview)di Azure. Viene eseguito il mapping della risorsa PaaS a un [endpoint privato](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) nella rete virtuale. Il collegamento tra endpoint privato nella rete virtuale e la risorsa PaaS usa la rete backbone Microsoft e non passa attraverso la rete Internet pubblica. L'esposizione del servizio sulla rete Internet pubblica non è più necessaria. È anche possibile usare il collegamento privato di Azure per accedere ai servizi partner e di proprietà del cliente ospitati in Azure nella rete virtuale.  Il collegamento privato di Azure consente inoltre di creare un servizio di [collegamento privato](https://docs.microsoft.com/azure/private-link/private-link-service-overview) nella rete virtuale e di distribuirlo ai clienti privatamente nelle reti virtuali. Collegamento privato di Azure offre un'esperienza coerente di configurazione e utilizzo per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner.
+
 ## <a name="virtual-machine-security"></a>Sicurezza delle macchine virtuali
 
 [Macchine virtuali di Azure](../../virtual-machines/index.yml) consente di distribuire in modo flessibile un'ampia gamma di soluzioni di elaborazione. Grazie al supporto per Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e Servizi BizTalk di Azure, è possibile distribuire qualsiasi carico di lavoro, in qualunque linguaggio, praticamente su tutti i sistemi operativi.
@@ -304,7 +306,7 @@ Inoltre, l'elenco di controllo:
 
 - Espone i principali argomenti di discussione per i decision maker all'inizio del processo di adozione del cloud.
 
-- Supporta discussioni aziendali esaustive sulle normative e sugli obiettivi specifici dell'organizzazione in materia di riservatezza, informazioni personali e sicurezza dei dati.
+- Supporta discussioni aziendali complete sulle normative e gli obiettivi dell'organizzazione per la privacy, le informazioni personali e la protezione dei dati.
 
 - Consente di identificare i potenziali problemi che potrebbero influire su un progetto cloud.
 
@@ -316,7 +318,7 @@ La [sicurezza operativa di Azure](operational-security.md) si riferisce ai servi
 
 ![Convalida della sicurezza (rilevamento)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
-La sicurezza operativa di Azure è basata su un framework che incorpora le conoscenze acquisite tramite varie funzionalità esclusive di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
+La sicurezza operativa di Azure si basa su un Framework che incorpora le conoscenze acquisite tramite le diverse funzionalità esclusive di Microsoft, tra cui il Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e la conoscenza approfondita del panorama delle minacce Cybersecurity.
 
 ### <a name="microsoft-azure-monitor"></a>Monitoraggio Microsoft Azure
 

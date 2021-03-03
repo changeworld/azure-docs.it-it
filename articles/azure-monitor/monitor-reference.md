@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 153b153399bd430b4688d4790a3dd5785c545012
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c8f1a45f46975b489690eded5b094ffee94dbf1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579397"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728400"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da Monitoraggio di Azure?
 Questo articolo descrive le applicazioni e i servizi monitorati da Monitoraggio di Azure. 
@@ -26,12 +26,12 @@ Le informazioni dettagliate forniscono un'esperienza di monitoraggio personalizz
 | Informazioni dettagliate | Descrizione |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | Servizio estendibile di gestione delle prestazioni delle applicazioni per monitorare l'applicazione Web live su qualsiasi piattaforma. |
-| [Monitoraggio di Azure per contenitori](containers/container-insights-overview.md) | Monitorizza le prestazioni dei carichi di lavoro dei contenitori distribuiti in Istanze di Azure Container o in cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes. |
+| [Informazioni dettagliate sul contenitore](containers/container-insights-overview.md) | Monitorizza le prestazioni dei carichi di lavoro dei contenitori distribuiti in Istanze di Azure Container o in cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes. |
 | [Monitoraggio di Azure per Cosmos DB](insights/cosmosdb-insights-overview.md) | Offre una visualizzazione delle prestazioni complessive, degli errori, della capacità e dell'integrità operativa di tutte le risorse Azure Cosmos DB in un'esperienza interattiva unificata. |
 | [Monitoraggio di Azure per le reti (anteprima)](insights/network-insights-overview.md) | Offre una panoramica completa dell'integrità e delle metriche di tutte le risorse di rete. La funzionalità di ricerca avanzata consente di identificare le dipendenze delle risorse, in modo da poter, ad esempio, identificare le risorse che ospitano il sito Web semplicemente cercando il nome del sito Web. |
 [Monitoraggio di Azure per gruppi di risorse (anteprima)](insights/resource-group-insights.md) |  Consente di analizzare e diagnosticare i problemi riscontrati dalle singole risorse, offrendo al contempo un contesto dell'integrità e delle prestazioni del gruppo di risorse nel suo complesso. |
 | [Monitoraggio di Azure per l'archiviazione](insights/storage-insights-overview.md) | Offre un monitoraggio completo degli account di Archiviazione di Azure offrendo una visualizzazione unificata delle prestazioni, della capacità e della disponibilità dei servizi di Archiviazione di Azure. |
-| [Monitoraggio di Azure per le macchine virtuali](vm/vminsights-overview.md) | Consente di monitorare le macchine virtuali di Azure e i set di scalabilità di macchine virtuali su larga scala. Analizza le prestazioni e l'integrità delle macchine virtuali Windows e Linux, monitorando i processi e le dipendenze da altre risorse e processi esterni. |
+| [Informazioni dettagliate sulle macchine virtuali](vm/vminsights-overview.md) | Consente di monitorare le macchine virtuali di Azure e i set di scalabilità di macchine virtuali su larga scala. Analizza le prestazioni e l'integrità delle macchine virtuali Windows e Linux, monitorando i processi e le dipendenze da altre risorse e processi esterni. |
 | [Monitoraggio di Azure per Key Vault (anteprima)](./insights/key-vault-insights-overview.md) | Fornisce un monitoraggio completo degli insiemi di credenziali delle chiavi grazie a una visualizzazione unificata delle richieste di Key Vault, delle prestazioni, degli errori e della latenza. |
 | [Monitoraggio di Azure per la cache di Azure per Redis (anteprima)](insights/redis-cache-insights-overview.md) |  Offre una vista unificata e interattiva delle prestazioni complessive, degli errori, della capacità e dell'integrità operativa. |
 
@@ -240,7 +240,7 @@ Monitoraggio di Azure può raccogliere dati da risorse esterne ad Azure usando i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni, vedere [Piattaforma dati di monitoraggio di Azure, che archivia i log e le metriche raccolti dalle informazioni dettagliate e dalle soluzioni](/data-platform.md).
+- Per altre informazioni, vedere [Piattaforma dati di monitoraggio di Azure, che archivia i log e le metriche raccolti dalle informazioni dettagliate e dalle soluzioni](data-platform.md).
 - Completare un'[esercitazione sul monitoraggio di una risorsa di Azure](essentials/tutorial-resource-logs.md).
 - Completare un'[esercitazione sulla scrittura di una query di log per analizzare i dati nei log di Monitoraggio di Azure](essentials/tutorial-resource-logs.md).
 - Completare un'[esercitazione sulla creazione di un grafico delle metriche per analizzare i dati nelle metriche di Monitoraggio di Azure](essentials/tutorial-metrics-explorer.md).

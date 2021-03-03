@@ -4,12 +4,12 @@ description: Rilevamento di problemi con la scalabilità automatica di Azure usa
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 8936d1b94082291f5c081c47f8331cc64042896b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a0fed6c2d06edcb2c9eb8d715feb0ef6c6ade46f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617597"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711400"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Risoluzione dei problemi di scalabilità automatica di Azure
  
@@ -24,14 +24,14 @@ Il servizio di scalabilità automatica fornisce le metriche e i log per comprend
   
 ## <a name="autoscale-metrics"></a>Metriche di scalabilità automatica
 
-La scalabilità automatica fornisce [quattro metriche](../platform/metrics-supported.md#microsoftinsightsautoscalesettings) per comprenderne il funzionamento. 
+La scalabilità automatica fornisce [quattro metriche](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) per comprenderne il funzionamento. 
 
 - **Valore della metrica osservato** : valore della metrica su cui si è scelto di eseguire l'azione di ridimensionamento, come visualizzato o calcolato dal motore di scalabilità automatica. Poiché una singola impostazione di scalabilità automatica può avere più regole e quindi più origini metriche, è possibile filtrare usando "metrica origine" come dimensione.
 - **Soglia metrica** : soglia impostata per eseguire l'azione di ridimensionamento. Poiché una singola impostazione di scalabilità automatica può avere più regole e quindi più origini metriche, è possibile filtrare usando la "regola metrica" come dimensione.
 - **Capacità osservata** : numero attivo di istanze della risorsa di destinazione come visualizzato dal motore di scalabilità automatica.
 - **Azioni di scalabilità avviate** - Il numero di azioni di aumento e riduzione delle istanze avviate dal motore di scalabilità automatica. È possibile filtrare in base alle azioni di scalabilità orizzontale e orizzontale.
 
-È possibile usare il [Esplora metriche](../platform/metrics-getting-started.md) per eseguire il grafico delle metriche sopra elencate in un'unica posizione. Il grafico dovrebbe mostrare:
+È possibile usare il [Esplora metriche](../essentials/metrics-getting-started.md) per eseguire il grafico delle metriche sopra elencate in un'unica posizione. Il grafico dovrebbe mostrare:
 
   - metrica effettiva
   - metrica come visualizzato/calcolato dal motore di scalabilità automatica
@@ -87,7 +87,7 @@ Il grafico nella parte inferiore mostra alcuni valori.
  - La **capacità osservata** (viola) Mostra il numero di istanze visualizzato dal motore di scalabilità automatica. 
  - La **soglia della metrica** (verde chiaro) è impostata su 10. 
 
-Se sono presenti più regole di azione di ridimensionamento, è possibile usare la suddivisione o l'opzione **Aggiungi filtro** nel grafico di Esplora metriche per esaminare la metrica in base a un'origine o una regola specifica. Per ulteriori informazioni sulla suddivisione di un grafico delle metriche, vedere [Advanced Features of Metric Charts-spliting](../platform/metrics-charts.md#apply-splitting)
+Se sono presenti più regole di azione di ridimensionamento, è possibile usare la suddivisione o l'opzione **Aggiungi filtro** nel grafico di Esplora metriche per esaminare la metrica in base a un'origine o una regola specifica. Per ulteriori informazioni sulla suddivisione di un grafico delle metriche, vedere [Advanced Features of Metric Charts-spliting](../essentials/metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Esempio 3: informazioni sugli eventi di scalabilità automatica
 
@@ -97,13 +97,13 @@ Nella schermata delle impostazioni di scalabilità automatica passare alla sched
 
 ## <a name="autoscale-resource-logs"></a>Ridimensionare automaticamente i log delle risorse
 
-Come per qualsiasi altra risorsa di Azure, il servizio di scalabilità automatica fornisce i [log delle risorse](../platform/platform-logs-overview.md). Esistono due categorie di log.
+Come per qualsiasi altra risorsa di Azure, il servizio di scalabilità automatica fornisce i [log delle risorse](../essentials/platform-logs-overview.md). Esistono due categorie di log.
 
 - **Valutazioni di scalabilità** automatica: il motore di scalabilità automatica registra le voci di log per ogni singola valutazione di condizione ogni volta che esegue un controllo.  La voce include i dettagli sui valori osservati delle metriche, le regole valutate e se la valutazione ha generato o meno un'azione di scalabilità.
 
 - **Azioni** di scalabilità automatica: il motore registra gli eventi di azione di ridimensionamento avviati dal servizio di scalabilità automatica e i risultati delle operazioni di ridimensionamento (esito positivo, esito negativo e percentuale di ridimensionamento che si sono verificati nel servizio di scalabilità automatica).
 
-Come per qualsiasi servizio supportato da monitoraggio di Azure, è possibile usare [le impostazioni di diagnostica](../platform/diagnostic-settings.md) per indirizzare questi log:
+Come per qualsiasi servizio supportato da monitoraggio di Azure, è possibile usare [le impostazioni di diagnostica](../essentials/diagnostic-settings.md) per indirizzare questi log:
 
 - per l'analisi dettagliata dell'area di lavoro Log Analytics
 - a hub eventi e quindi a strumenti non di Azure
@@ -206,4 +206,4 @@ Creare regole di avviso per ricevere notifiche sulle azioni di scalabilità auto
 Per altre informazioni, vedere [ridimensionamento automatico dei log delle risorse](autoscale-resource-log-schema.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Leggere le informazioni sulle [procedure consigliate per la scalabilità](autoscale-best-practices.md)automatica. 
+Leggere le informazioni sulle [procedure consigliate per la scalabilità](autoscale-best-practices.md)automatica.

@@ -1,22 +1,21 @@
 ---
 title: Performance Monitor in Monitoraggio prestazioni rete
 description: La funzionalità Performance Monitor in Monitoraggio prestazioni rete consente di monitorare la connettività tra vari punti della rete. È possibile monitorare distribuzioni cloud e sedi locali, diversi data center e succursali e applicazioni o microservizi multilivello di importanza cruciale.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 5335882c11ee6a1a7352ef3dc9822cfa88eda196
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 505584abbe573c94056888b07406437650b09611
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573518"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728621"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete - Monitoraggio delle prestazioni
 
 > [!IMPORTANT]
-> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher prima del 29 febbraio 2024.
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher prima del 29 febbraio 2024.
 
 La funzionalità Performance Monitor in [Monitoraggio prestazioni rete](network-performance-monitor.md) consente di monitorare la connettività tra vari punti della rete. È possibile monitorare distribuzioni cloud e sedi locali, diversi data center e succursali e applicazioni o microservizi multilivello di importanza cruciale. La funzionalità Performance Monitor consente di rilevare tempestivamente i problemi a livello di rete. I principali vantaggi offerti sono i seguenti: 
 
@@ -132,4 +131,3 @@ Nella figura seguente la causa radice delle aree problematiche relative alla sez
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Effettuare una ricerca nei log](../logs/log-query-overview.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
-

@@ -3,12 +3,12 @@ title: Usare Azure Service Bus Explorer per eseguire operazioni sui dati nel bus
 description: Questo articolo fornisce informazioni su come usare Azure Service Bus Explorer basato sul portale per accedere ai dati del bus di servizio di Azure.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 06bc2ffffc6b467aa730e16599099bc95117dac9
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 0b5274c492a1dfb2523c52d7aea2b7ebf8eae675
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092218"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738957"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Usare Service Bus Explorer per eseguire operazioni sui dati nel bus di servizio (anteprima)
 
@@ -25,7 +25,7 @@ Azure Service Bus Explorer espande le funzionalità del portale oltre le operazi
 > [!NOTE]
 > Questo articolo evidenzia le funzionalità di Azure Service Bus Explorer disponibili nel portale di Azure.
 >
-> Lo strumento di esplorazione del bus di servizio di Azure è ***non** _ lo strumento OSS di proprietà della community di [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+> Lo strumento Azure Service Bus Explorer ***non*** è lo strumento OSS [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) di proprietà della community.
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -37,18 +37,18 @@ Per usare lo strumento Service Bus Explorer, è necessario eseguire le attività
     - [Avvio rapido - Creare code](service-bus-quickstart-portal.md)
     - [Avvio rapido - Creare argomenti](service-bus-quickstart-topics-subscriptions-portal.md)
 - Assicurarsi di essere un membro di uno di questi ruoli nello spazio dei nomi: 
-    - [Proprietario dati del bus di servizio](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) 
-    - [Collaboratore](/azure/role-based-access-control/built-in-roles#contributor) 
-    - [Proprietario](/azure/role-based-access-control/built-in-roles#owner)
+    - [Proprietario dati del bus di servizio](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
+    - [Collaboratore](../role-based-access-control/built-in-roles.md#contributor) 
+    - [Proprietario](../role-based-access-control/built-in-roles.md#owner)
 
 
 ## <a name="using-the-service-bus-explorer"></a>Uso di Service Bus Explorer
 
 Per usare Azure Service Bus Explorer, è necessario passare allo spazio dei nomi del bus di servizio in cui eseguire le operazioni di invio, anteprima e ricezione.
 
-Se si sta cercando di eseguire operazioni su una coda, scegliere _ *"code"** dal menu di navigazione. Per eseguire operazioni su un argomento (e le relative sottoscrizioni), scegliere **Argomenti**. 
+Per eseguire operazioni su una coda, scegliere **Code** dal menu di spostamento. Per eseguire operazioni su un argomento (e le relative sottoscrizioni), scegliere **Argomenti**. 
 
-:::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png"alt-text="Selezione dell'entità":::
+:::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png" alt-text="Selezione dell'entità":::
 
 Dopo aver selezionato **Code** o **Argomenti**, selezionare la coda o l'argomento specifico.
 
@@ -58,11 +58,11 @@ Selezionare **Service Bus Explorer (anteprima)** dal menu di spostamento a sinis
 
 ### <a name="sending-a-message-to-a-queue-or-topic"></a>Invio di un messaggio a una coda o a un argomento
 
-Per inviare un messaggio a una **coda** o a un **argomento**, fare clic sulla scheda **_Invia_* in Service Bus Explorer.
+Per inviare un messaggio a una **coda** o a un **argomento**, fare clic sulla scheda **_Invia_** in Service Bus Explorer.
 
 Per comporre un messaggio: 
 
-1. Selezionare il *tipo di contenuto* _ * in modo che sia "text/plain", "application/xml" o "application/json".
+1. Selezionare il **tipo di contenuto**: "text/plain", "application/xml" o "application/json".
 2. Aggiungere il **contenuto** del messaggio. Assicurarsi che corrisponda al **tipo di contenuto** impostato in precedenza.
 3. Impostare le **proprietà avanzate** (facoltativo), tra cui ID correlazione, ID messaggio, etichetta, ReplyTo, durata (TTL) e ora di accodamento pianificata (per i messaggi pianificati).
 4. Impostare le **proprietà personalizzate**: può trattarsi di qualsiasi proprietà utente impostata su una chiave del dizionario.
@@ -86,23 +86,23 @@ Quando l'operazione di invio viene completata correttamente:
 La funzione di ricezione in Service Bus Explorer consente di ricevere un singolo messaggio alla volta. L'operazione di ricezione viene eseguita usando la modalità **ReceiveAndDelete**.
 
 > [!IMPORTANT]
-> Si noti che l'operazione di ricezione eseguita da Service Bus Explorer è un **_Receive distruttivo_* _, ovvero il messaggio viene rimosso dalla coda quando viene visualizzato nello strumento Service Bus Explorer.
+> Si noti che l'operazione di ricezione eseguita da Service Bus Explorer è una ***ricezione distruttiva***, ovvero il messaggio viene rimosso dalla coda quando è visualizzato nello strumento Service Bus Explorer.
 >
-> Per esplorare i messaggi senza rimuoverli dalla coda, provare a usare la funzionalità di _*_visualizzazione_*_ .
+> Per esplorare i messaggi senza rimuoverli dalla coda, valutare se usare la funzionalità ***Anteprima***.
 >
 
 Per ricevere un messaggio da una coda (o dalla relativa coda secondaria dei messaggi non recapitabili) 
 
-1. Fare clic sulla scheda _*_Receive_*_ in Service Bus Explorer.
-2. Controllare le metriche per verificare se sono presenti _ *messaggi attivi** o **messaggi non recapitabili** da ricevere.
+1. Fare clic sulla scheda ***Ricevi*** in Service Bus Explorer.
+2. Controllare le metriche per verificare se sono presenti **messaggi attivi** o **messaggi non recapitabili** per la ricezione.
 
     :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
 
-3. Scegliere tra **_queue_* _ o la coda secondaria _*_DeadLetter_*_ .
+3. Selezionare la coda **secondaria * Queue** _ o _ *_DeadLetter_**.
 
     :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
 
-4. Fare clic sul pulsante _*_Receive_*_ , seguito da _*_Yes_*_ per confermare l'operazione di ricezione ed eliminazione.
+4. Fare clic sul pulsante ***Receive** _, seguito da _ *_Yes_** per confermare l'operazione di ricezione ed eliminazione.
 
 
 Quando l'operazione di ricezione ha esito positivo, i dettagli del messaggio vengono visualizzati nella griglia come illustrato di seguito. È possibile selezionare il messaggio dalla griglia per visualizzarne i dettagli.
@@ -114,19 +114,19 @@ Quando l'operazione di ricezione ha esito positivo, i dettagli del messaggio ven
 
 Con la funzionalità Anteprima, è possibile usare Service Bus Explorer per visualizzare i primi 32 messaggi in una coda o nella coda dei messaggi non recapitabili.
 
-1. Per visualizzare il messaggio in una coda, fare clic sulla scheda _*_Visualizza_*_ in Service Bus Explorer.
+1. Per visualizzare l'anteprima del messaggio in una coda, fare clic sulla scheda ***Anteprima*** in Service Bus Explorer.
 
     :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="PeekTab":::
 
-2. Controllare le metriche per verificare se sono presenti _ *messaggi attivi** o **messaggi non recapitabili** da leggere.
+2. Controllare le metriche per verificare se sono presenti **messaggi attivi** o **messaggi non recapitabili** per l'anteprima.
 
     :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
 
-3. Quindi scegliere tra **_queue_* _ o la coda secondaria _*_DeadLetter_*_ .
+3. Quindi selezionare la coda **secondaria * Queue** _ o _ *_DeadLetter_**.
 
     :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
 
-4. Fare clic sul pulsante _*_Visualizza_*_ . 
+4. Fare clic sul pulsante ***Anteprima***. 
 
 Al termine dell'operazione di anteprima, nella griglia vengono visualizzati fino a 32 messaggi, come illustrato di seguito. Per visualizzare i dettagli di un determinato messaggio, selezionarlo nella griglia. 
 
@@ -134,28 +134,28 @@ Al termine dell'operazione di anteprima, nella griglia vengono visualizzati fino
 
 > [!NOTE]
 >
-> Poiché Peek non è un'operazione distruttiva, il messaggio _ *non verrà* rimosso dalla coda.
+> Poiché l'anteprima non è un'operazione distruttiva, il messaggio **non** verrà rimosso dalla coda.
 >
 
 ### <a name="receiving-a-message-from-a-subscription"></a>Ricezione di un messaggio da una sottoscrizione
 
-Analogamente a una coda, l'operazione **_Receive_* _ può essere eseguita su una sottoscrizione o sull'entità DeadLetter. Tuttavia, poiché una sottoscrizione è intrinseca al contesto dell'argomento, l'operazione di ricezione viene eseguita passando a Service Bus Explorer per un argomento specifico.
+Come nel caso di una coda, è possibile eseguire l'operazione di ***ricezione*** per una sottoscrizione o la relativa entità per i messaggi non recapitabili. Tuttavia, poiché una sottoscrizione è intrinseca al contesto dell'argomento, l'operazione di ricezione viene eseguita passando a Service Bus Explorer per un argomento specifico.
 
 > [!IMPORTANT]
-> Si noti che l'operazione di ricezione eseguita da Service Bus Explorer è una _*_ricezione distruttiva_*_, ovvero il messaggio viene rimosso dalla coda quando viene visualizzato nello strumento Service Bus Explorer.
+> Si noti che l'operazione di ricezione eseguita da Service Bus Explorer è una ***ricezione distruttiva***, ovvero il messaggio viene rimosso dalla coda quando è visualizzato nello strumento Service Bus Explorer.
 >
-> Per esplorare i messaggi senza rimuoverli dalla coda, provare a usare la funzionalità di _*_visualizzazione_*_ .
+> Per esplorare i messaggi senza rimuoverli dalla coda, valutare se usare la funzionalità ***Anteprima***.
 >
 
-1. Fare clic sulla scheda _*_ricezione_*_ e selezionare la _*_sottoscrizione_*_ specifica dal selettore a discesa.
+1. Fare clic sulla scheda ***Receive** _ e selezionare la *_sottoscrizione_* _ specifica * dal selettore a discesa.
 
     :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="ReceiveTabSelected":::
 
-2. Scegliere tra la _*_sottoscrizione_*_ o la sottoentità _*_DeadLetter_*_ .
+2. Scegliere tra la sottoentità ***Subscription** _ o _ *_DeadLetter_**.
 
     :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
 
-3. Fare clic sul pulsante _*_Receive_*_ , seguito da _*_Yes_*_ per confermare l'operazione di ricezione ed eliminazione.
+3. Fare clic sul pulsante ***Receive** _, seguito da _ *_Yes_** per confermare l'operazione di ricezione ed eliminazione.
 
 Quando l'operazione di ricezione ha esito positivo, il messaggio ricevuto verrà visualizzato nella griglia come illustrato di seguito. Per visualizzare i dettagli del messaggio, fare clic sul messaggio.
 
@@ -163,17 +163,17 @@ Quando l'operazione di ricezione ha esito positivo, il messaggio ricevuto verrà
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Anteprima di un messaggio da una sottoscrizione
 
-Per esplorare semplicemente i messaggi in una sottoscrizione o nella relativa sottoentità DeadLetter, è possibile usare anche la funzionalità _*_Visualizza_*_ nella sottoscrizione.
+Per esplorare semplicemente i messaggi in una sottoscrizione o nella relativa sottoentità per i messaggi non recapitabili, è anche possibile usare la funzionalità ***Anteprima*** nella sottoscrizione.
 
-1. Fare clic sulla scheda _*_Visualizza_*_ e selezionare la _*_sottoscrizione_*_ specifica dal selettore a discesa.
+1. Fare clic sulla scheda ***Visualizza** e selezionare la *_sottoscrizione_* _ specifica * dal selettore a discesa.
 
     :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="PeekTabSelected":::
 
-2. Scegliere tra la _*_sottoscrizione_*_ o la sottoentità _*_DeadLetter_*_ .
+2. Scegliere tra la sottoentità ***Subscription** _ o _ *_DeadLetter_**.
 
     :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
 
-3. Fare clic sul pulsante _*_Visualizza_*_ .
+3. Fare clic sul pulsante ***Anteprima***.
 
 Al termine dell'operazione di anteprima, nella griglia vengono visualizzati fino a 32 messaggi, come illustrato di seguito. Per visualizzare i dettagli di un determinato messaggio, selezionarlo nella griglia. 
 
@@ -181,7 +181,7 @@ Al termine dell'operazione di anteprima, nella griglia vengono visualizzati fino
 
 > [!NOTE]
 >
-> Poiché Peek non è un'operazione distruttiva, il messaggio _ *non verrà* rimosso dalla coda.
+> Poiché l'anteprima non è un'operazione distruttiva, il messaggio **non** verrà rimosso dalla coda.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

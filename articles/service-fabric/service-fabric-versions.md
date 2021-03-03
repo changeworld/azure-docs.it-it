@@ -3,12 +3,12 @@ title: Aggiornare la versione del cluster di Azure Service Fabric
 description: Informazioni sulle versioni del cluster in Azure Service Fabric, incluso un collegamento alle versioni più recenti dal Blog del team di Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 9c7e5e3778c9a38190be210ebb391bc8b0b58c76
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 7cb9a739572c667e0821a7a60f5c5d8cceb97957
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652055"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698383"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Aggiornare la versione del cluster di Azure Service Fabric
 
@@ -63,9 +63,9 @@ I cluster di Azure Service Fabric eseguiti in versioni non modificate successive
   
   - **Per i cluster che eseguono una versione di Service Fabric maggiore di 6,3 senza usare la funzionalità di rete aperta**, il cluster rimarrà attivo.
 
- - **Per i cluster che eseguono una versione di Service Fabric superiore a 6,3 e usano la [funzionalità di rete aperta per i contenitori](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , il cluster potrebbe non essere più disponibile e cesserà di funzionare, causando interruzioni del servizio per i carichi di lavoro.
+ - **Per i cluster che eseguono una versione di Service Fabric superiore a 6,3 e usano la [funzionalità di rete aperta per i contenitori](./service-fabric-networking-modes.md#set-up-open-networking-mode)** , il cluster potrebbe non essere più disponibile e cesserà di funzionare, causando interruzioni del servizio per i carichi di lavoro.
  
- -   **Per i cluster che eseguono [versioni di Windows tra 7.0.457 e 7.0.466 (entrambe le versioni incluse)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) e il sistema operativo Windows è abilitata la funzionalità contenitori di Windows. Nota: le versioni di Linux 7.0.457, 7.0.464 e 7.0.465 non sono interessate**.
+ -   **Per i cluster che eseguono [versioni di Windows tra 7.0.457 e 7.0.466 (entrambe le versioni incluse)](#supported-version-names) e il sistema operativo Windows è abilitata la funzionalità contenitori di Windows. Nota: le versioni di Linux 7.0.457, 7.0.464 e 7.0.465 non sono interessate**.
     - **Effetto**: il cluster smette di funzionare, causando interruzioni del servizio per i carichi di lavoro.
     
 #### <a name="required-action"></a>Azione obbligatoria

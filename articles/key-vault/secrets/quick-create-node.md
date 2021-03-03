@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: afb0e04d6f8a34d844df382081d53a32899e9a5c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.openlocfilehash: 70416daced2cbdebb70fb8e1defbcbcb599710f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934765"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705484"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Avvio rapido: Libreria client dei segreti di Azure Key Vault per JavaScript (versione 4)
 
@@ -56,13 +56,13 @@ Creare quindi un'applicazione Node.js che possa essere distribuita nel cloud.
 
 1. In una shell dei comandi creare una cartella denominata `key-vault-node-app`:
 
-```azurecli
+```terminal
 mkdir key-vault-node-app
 ```
 
 1. Passare alla directory *key-vault-node-app* appena creata ed eseguire il comando init per inizializzare il progetto Node:
 
-```azurecli
+```terminal
 cd key-vault-node-app
 npm init -y
 ```
@@ -71,13 +71,13 @@ npm init -y
 
 Nella finestra della console installare la [libreria dei segreti](https://www.npmjs.com/package/@azure/keyvault-secrets) di Azure Key Vault per Node.js.
 
-```azurecli
+```terminal
 npm install @azure/keyvault-secrets
 ```
 
 Installare il pacchetto [azure.identity](https://www.npmjs.com/package/@azure/identity) per eseguire l'autenticazione in un insieme di credenziali delle chiavi
 
-```azurecli
+```terminal
 npm install @azure/identity
 ```
 
@@ -154,7 +154,7 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 In questo argomento di avvio rapido viene usato l'utente connesso per eseguire l'autenticazione in Key Vault, che è il metodo preferito per lo sviluppo locale. Per le applicazioni distribuite in Azure, l'identità gestita deve essere assegnata al servizio app o alla macchina virtuale. Per altre informazioni, vedere [Informazioni sulle identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-Nell'esempio seguente, il nome dell'insieme di credenziali delle chiavi viene esteso al relativo URI, nel formato "https://\<your-key-vault-name\>.vault.azure.net". Questo esempio usa la classe ['DefaultAzureCredential()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) della [libreria di identità di Azure](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), che consente di usare lo stesso codice in ambienti diversi con opzioni diverse per specificare l'identità. Per altre informazioni sull'autenticazione nell'insieme di credenziali delle chiavi, vedere la [Guida per sviluppatori](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+Nell'esempio seguente, il nome dell'insieme di credenziali delle chiavi viene esteso al relativo URI, nel formato "https://\<your-key-vault-name\>.vault.azure.net". Questo esempio usa la classe [' DefaultAzureCredential ()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) di [Azure Identity Library](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), che consente di usare lo stesso codice in ambienti diversi con opzioni diverse per fornire l'identità. Per altre informazioni sull'autenticazione nell'insieme di credenziali delle chiavi, vedere la [Guida per sviluppatori](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 Aggiungere il codice seguente alla funzione 'main()'
 
@@ -168,7 +168,7 @@ const client = new SecretClient(KVUri, credential);
 
 ### <a name="save-a-secret"></a>Salvare un segreto
 
-Ora che l'applicazione è stata autenticata, è possibile includere un segreto nell'insieme di credenziali delle chiavi usando il [metodo setSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#setsecret-string--string--setsecretoptions-). A tale scopo è necessario un nome per il segreto e in questo esempio viene usato "mySecret".  
+Ora che l'applicazione è stata autenticata, è possibile includere un segreto nell'insieme di credenziali delle chiavi usando il [metodo setSecret](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setSecret_string__string__SetSecretOptions_). A tale scopo è necessario un nome per il segreto e in questo esempio viene usato "mySecret".  
 
 ```javascript
 await client.setSecret(secretName, secretValue);
@@ -176,7 +176,7 @@ await client.setSecret(secretName, secretValue);
 
 ### <a name="retrieve-a-secret"></a>Recuperare un segreto
 
-È ora possibile recuperare il valore impostato in precedenza con il [metodo getSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#getsecret-string--getsecretoptions-).
+È ora possibile recuperare il valore impostato in precedenza con il [metodo getSecret](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#getSecret_string__GetSecretOptions_).
 
 ```javascript
 const retrievedSecret = await client.getSecret(secretName);
@@ -258,9 +258,9 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 1. Eseguire i comandi seguenti per eseguire l'app.
 
-    ```azurecli
+    ```terminal
     npm install
-    npm index.js
+    node index.js
     ```
 
 1. Quando richiesto, immettere un valore di un segreto. Ad esempio, mySecretPassword.
@@ -287,4 +287,4 @@ In questo argomento di avvio rapido è stato creato un insieme di credenziali de
 - Leggere una [panoramica dei segreti di Azure Key Vault](about-secrets.md)
 - Come [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/secure-your-key-vault.md)
 - Vedere la [Guida per gli sviluppatori per Azure Key Vault](../general/developers-guide.md)
-- Vedere [Panoramica della sicurezza di Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)

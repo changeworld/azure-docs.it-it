@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/29/2020
-ms.openlocfilehash: 6564e7263639f0a78df6f2674ce7a4b610fb0fc1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 03e534564b4a32f112c2aaff44a187b10eb2a537
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617486"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723113"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Ritiro versione API OperationalInsights
 Microsoft fornisce notifiche per almeno 12 mesi prima del ritiro di un'API per semplificare la transizione a una versione più recente o supportata. È stata rilasciata una nuova versione (2020-08-01) per le API del provider di risorse **OperationalInsights** e le versioni precedenti dell'API vengono ritirate il 29 febbraio 2024.
 
-Si consiglia di iniziare a usare la versione 2020-08-01 ora per sfruttare i vantaggi delle nuove funzionalità, ad esempio il [cluster dedicato](../log-query/logs-dedicated-clusters.md), le [chiavi gestite dal cliente](../logs/customer-managed-keys.md), il [collegamento privato](./private-link-security.md) e l' [esportazione dei dati](./logs-data-export.md). Inoltre, le nuove funzionalità e funzionalità e le ottimizzazioni vengono aggiunte solo all'API corrente.
+Si consiglia di iniziare a usare la versione 2020-08-01 ora per sfruttare i vantaggi delle nuove funzionalità, ad esempio il [cluster dedicato](./logs-dedicated-clusters.md), le [chiavi gestite dal cliente](../logs/customer-managed-keys.md), il [collegamento privato](./private-link-security.md) e l' [esportazione dei dati](./logs-data-export.md). Inoltre, le nuove funzionalità e funzionalità e le ottimizzazioni vengono aggiunte solo all'API corrente.
 
 Dopo il 29 febbraio 2024 monitoraggio di Azure non supporterà più le versioni precedenti delle API rispetto a 2020-08-01. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalle versioni precedenti continueranno a essere gestite dal servizio monitoraggio di Azure fino al 29 febbraio 2024.
 

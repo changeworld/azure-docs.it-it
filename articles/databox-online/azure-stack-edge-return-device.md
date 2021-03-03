@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 0c35bde40cac9629f084d69d52f119651b5655f7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 6c9e8938feb3c3444d01f9d37476589776707425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784478"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703185"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Restituire il dispositivo Pro Azure Stack Edge
 
@@ -30,26 +30,16 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 ## <a name="erase-data-from-the-device"></a>Cancellare i dati dal dispositivo
 
-Per cancellare i dati dai dischi dati del dispositivo, è necessario reimpostare il dispositivo. A questo scopo è possibile usare l'interfaccia utente Web locale o l'interfaccia di PowerShell.
+Per cancellare i dati dai dischi dati del dispositivo, è necessario reimpostare il dispositivo.
 
-Prima di procedere con la reimpostazione, creare una copia dei dati locali del dispositivo, se necessario. È possibile copiare i dati del dispositivo in un contenitore di Archiviazione di Azure.
+Prima di procedere con la reimpostazione, creare una copia dei dati locali del dispositivo, se necessario. È possibile copiare i dati del dispositivo in un contenitore di Archiviazione di Azure. 
 
-È possibile avviare il ritorno del dispositivo anche prima della reimpostazione del dispositivo. 
+È possibile avviare il ritorno del dispositivo anche prima della reimpostazione del dispositivo.
 
-Per reimpostare il dispositivo tramite l'interfaccia utente Web locale, seguire questa procedura.
+È possibile reimpostare il dispositivo nell'interfaccia utente Web locale o in PowerShell. Per istruzioni su PowerShell, vedere [reimpostare il dispositivo](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-1. Nell'interfaccia utente Web locale passare a **Manutenzione > Reimpostazione del dispositivo**.
-2. Selezionare **Reimposta dispositivo**.
 
-    ![Reimpostare il dispositivo](media/azure-stack-edge-return-device/device-reset-1.png)
-
-3. Quando viene chiesta conferma, esaminare l'avviso e selezionare **Sì** per continuare.
-
-    ![Conferma della reimpostazione](media/azure-stack-edge-return-device/device-reset-2.png)  
-
-La reimpostazione cancella i dati dai dischi dati del dispositivo. A seconda della quantità di dati contenuti nel dispositivo, questo processo richiede circa 30-40 minuti.
-
-In alternativa, connettersi all'interfaccia di PowerShell del dispositivo e usare il cmdlet `Reset-HcsAppliance` per cancellare i dati dai dischi dati. Per altre informazioni, vedere [Reimpostare il dispositivo](azure-stack-edge-connect-powershell-interface.md#reset-your-device).
+[! INCLUDi] [Reimposta i dati dal dispositivo](../../includes/azure-stack-edge-device-reset.md)
 
 > [!NOTE]
 > - Se si sta facendo un cambio di dispositivo o si sta eseguendo l'aggiornamento a un nuovo dispositivo, è consigliabile reimpostare il dispositivo solo dopo aver ricevuto quello nuovo.
@@ -67,15 +57,15 @@ Per iniziare il processo di restituzione, seguire questa procedura.
 
     1. Fornire il numero di serie del dispositivo. Per ottenere il numero di serie del dispositivo, passare all'interfaccia utente Web locale del dispositivo e quindi passare a **Panoramica**.  
     
-    ![Numero di serie 1 del dispositivo](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+       ![Numero di serie 1 del dispositivo](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
-    2. Immettere il numero di tag del servizio che corrisponde a cinque o più identificatori di caratteri univoci per il dispositivo. Il tag del servizio si trova nell'angolo inferiore destro del dispositivo (quando si fa fronte al dispositivo). Estrarre il tag informazioni (si tratta di un pannello di etichette di scorrimento). Questo pannello contiene informazioni di sistema, ad esempio tag di servizio, NIC, indirizzo MAC e così via. 
+    2. Immettere il numero di tag del servizio. Il numero di tag del servizio è un identificatore con cinque o più caratteri, che è univoco per il dispositivo. Il tag del servizio si trova nell'angolo in basso a destra del dispositivo (quando si fa fronte al dispositivo). Estrarre il tag informazioni (si tratta di un pannello di etichette di scorrimento). Questo pannello contiene informazioni di sistema, ad esempio tag di servizio, NIC, indirizzo MAC e così via. 
     
-    ![Numero di tag del servizio 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+       ![Numero di tag del servizio 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
 
     3. Nell'elenco a discesa scegliere un motivo per la restituzione.
 
-    ![Restituisci dispositivo 2](media/azure-stack-edge-return-device/return-device-2.png) 
+       ![Restituisci dispositivo 2](media/azure-stack-edge-return-device/return-device-2.png) 
 
 3. In **Dettagli spedizione**:
 
@@ -84,7 +74,7 @@ Per iniziare il processo di restituzione, seguire questa procedura.
 
     ![Restituisci dispositivo 3](media/azure-stack-edge-return-device/return-device-3.png)
 
-4. Esaminare le **condizioni sulla privacy** e selezionare la casella di controllo nella nota che è stata esaminata e accettata le condizioni per la privacy.
+4. Esaminare le **condizioni** per la privacy, quindi selezionare la casella di controllo nella nota che è stata esaminata e si accettano le condizioni per la privacy.
 
 5. Selezionare **Avvia la restituzione**.
 
@@ -109,7 +99,7 @@ Per pianificare un prelievo, seguire questa procedura.
 
     1. Chiamare il servizio UPS locale (numero verde specifico del paese o area).
     2. Durante la chiamata specificare il numero di tracciabilità della spedizione di reso indicato sull'etichetta stampata.
-    3. Se non si specifica il numero di tracciabilità, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
+    3. Se il numero di tracciabilità non è racchiuso tra virgolette, UPS richiederà di pagare un addebito aggiuntivo durante il ritiro.
 
     Invece di pianificare il prelievo, è anche possibile eliminare il Azure Stack Edge Pro nel percorso di rilascio più vicino.
 
@@ -123,8 +113,8 @@ Dopo la ricezione nel data center di Azure, il dispositivo viene controllato per
 
 È possibile eliminare il dispositivo nel portale di Azure:
 
-- Dopo aver effettuato l'ordine e prima che il dispositivo venga preparato da Microsoft.
-- Dopo che il dispositivo è stato restituito a Microsoft, il controllo fisico viene passato al Data Center di Azure e il team operativo di Azure Stack Edge Pro chiama per verificare che il dispositivo sia stato restituito.
+- Dopo aver inserito un ordine e prima che il dispositivo venga preparato da Microsoft.
+- Dopo aver restituito un dispositivo a Microsoft, il team operativo di Azure Stack Edge Pro ha chiamato per confermare che il dispositivo è stato restituito. Il team operativo non chiama finché il dispositivo restituito non supera il controllo fisico nel Data Center di Azure.
 
 Se il dispositivo è stato attivato in un'altra sottoscrizione o località, Microsoft sposterà l'ordine nella nuova sottoscrizione o località entro un giorno lavorativo. Una volta spostato l'ordine, è possibile eliminare questa risorsa.
 

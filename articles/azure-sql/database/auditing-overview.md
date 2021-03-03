@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/03/2021
+ms.date: 02/28/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 0e85019c8f02b8a4a97426d50a30d047b95378a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572294"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691519"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -44,9 +44,11 @@ Inoltre, il servizio di controllo:
 
 ### <a name="auditing-limitations"></a>Limitazioni di controllo
 
-- **Archiviazione Premium** attualmente **non è supportata**.
+- **Archiviazione Premium** non è attualmente **supportata**.
 - **Lo spazio dei nomi gerarchico** per **Azure Data Lake storage Gen2 account di archiviazione** non è al momento **supportato**.
-- L'abilitazione del controllo in una **sinapsi di Azure** sospesa non è supportata. Per abilitare il controllo, riprendere la sinapsi di Azure.
+- L'abilitazione del controllo in una **sinapsi di Azure** sospesa non è supportata. Per abilitare il controllo, riprendere Azure Synapse.
+- Il controllo per i **pool SQL sinapsi di Azure** supporta **solo** gruppi di azioni di controllo predefiniti.
+
 
 #### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Definire criteri di controllo a livello di server o a livello di database
 
@@ -75,7 +77,7 @@ Inoltre, il servizio di controllo:
 - Per dettagli sul formato dei log, sulla gerarchia della cartella di archiviazione e sulle convenzioni di denominazione, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](./audit-log-format.md).
 - Il controllo sulle [repliche di sola lettura](read-scale-out.md) viene abilitato automaticamente. Per ulteriori informazioni sulla gerarchia delle cartelle di archiviazione, le convenzioni di denominazione e il formato di log, vedere il [formato del registro di controllo del database SQL](audit-log-format.md).
 - Quando si utilizza Autenticazione di Azure AD, i record degli accessi non riusciti *non* verranno visualizzati nel log di controllo SQL. Per visualizzare i record di controllo degli accessi non riusciti, è necessario visitare il [portale di Azure Active Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), che registra i dettagli di questi eventi.
-- Gli account di accesso vengono instradati dal gateway all'istanza specifica in cui si trova il database.  Nel caso degli account di accesso di AAD, le credenziali vengono verificate prima di provare a usare tale utente per accedere al database richiesto.  In caso di errore, non è possibile accedere al database richiesto, quindi non si verifica alcun controllo.  Nel caso degli account di accesso SQL, le credenziali vengono verificate sui dati richiesti, quindi in questo caso possono essere controllati.  Gli accessi riusciti, che ovviamente raggiungono il database, vengono controllati in entrambi i casi.
+- Gli accessi vengono instradati dal gateway all'istanza specifica in cui si trova il database.  Nel caso degli accessi di AAD, le credenziali vengono verificate prima di provare a usare l'utente per accedere al database richiesto.  In caso di errore, non viene mai eseguito l'accesso al database richiesto, quindi non si verifica alcun controllo.  Nel caso degli account di accesso SQL, le credenziali vengono verificate sui dati richiesti, quindi in questo caso possono essere controllati.  Gli accessi riusciti, che ovviamente raggiungono il database, vengono controllati in entrambi i casi.
 - Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](threat-detection-overview.md).
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Configurare il controllo per il server

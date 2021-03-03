@@ -4,45 +4,34 @@ description: Informazioni su come usare l'attività Ottieni metadati in una pipe
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/25/2021
 ms.author: jingwang
-ms.openlocfilehash: f860225862dcbfb79535acfbd6eeb89a217e7ae9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 91cb10d601f0a44cf9895fffe558c03fdbe06eef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385490"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710227"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ottenere l'attività dei metadati in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-È possibile utilizzare l'attività Recupera metadati per recuperare i metadati di tutti i dati in Azure Data Factory. Questa attività può essere utilizzata negli scenari seguenti:
+È possibile utilizzare l'attività Recupera metadati per recuperare i metadati di tutti i dati in Azure Data Factory. È possibile utilizzare l'output dell'attività Ottieni metadati nelle espressioni condizionali per eseguire la convalida oppure utilizzare i metadati nelle attività successive.
 
-- Convalidare i metadati di tutti i dati.
-- Attivare una pipeline quando i dati sono pronti/disponibili.
+## <a name="supported-capabilities"></a>Funzionalità supportate
 
-La funzionalità seguente è disponibile nel flusso di controllo:
-
-- Per eseguire la convalida, è possibile utilizzare l'output dell'attività Ottieni metadati nelle espressioni condizionali.
-- È possibile attivare una pipeline quando una condizione viene soddisfatta tramite do until loop.
-
-## <a name="capabilities"></a>Funzionalità
-
-L'attività Ottieni metadati accetta un set di dati come input e restituisce informazioni sui metadati come output. Attualmente sono supportati i seguenti connettori e i metadati recuperabili corrispondenti. La dimensione massima dei metadati restituiti è circa 4 MB.
-
->[!NOTE]
->Se si esegue l'attività Ottieni metadati in un runtime di integrazione self-hosted, le funzionalità più recenti sono supportate nella versione 3,6 o successive.
+L'attività Ottieni metadati accetta un set di dati come input e restituisce informazioni sui metadati come output. Attualmente sono supportati i seguenti connettori e i metadati recuperabili corrispondenti. La dimensione massima dei metadati restituiti è **4 MB**.
 
 ### <a name="supported-connectors"></a>Connettori supportati
 
 **Archiviazione file**
 
-| Connettore/Metadati | itemName<br>(file/cartella) | itemType<br>(file/cartella) | size<br>(file) | created<br>(file/cartella) | LastModified<br>(file/cartella) |childItems<br>(cartella) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | esiste<br>(file/cartella) |
+| Connettore/Metadati | itemName<br>(file/cartella) | itemType<br>(file/cartella) | size<br>(file) | created<br>(file/cartella) | lastModified<sup>1</sup><br>(file/cartella) |childItems<br>(cartella) |contentMD5<br>(file) | struttura<sup>2</sup><br/>(file) | columnCount<sup>2</sup><br>(file) | esistente<sup>3</sup><br>(file/cartella) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Archivio BLOB di Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Archivio BLOB di Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [File di Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -50,12 +39,23 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
-- Quando si usa l'attività Ottieni metadati in una cartella, assicurarsi di disporre dell'autorizzazione di elenco/esecuzione per la cartella specificata.
-- Per Amazon S3 e Google Cloud Storage, `lastModified` si applica al bucket e alla chiave ma non alla cartella virtuale e `exists` si applica al bucket e alla chiave, ma non al prefisso o alla cartella virtuale.
+<sup>1</sup> metadati `lastModified` :
+- Per Amazon S3 e Google Cloud Storage, `lastModified` si applica al bucket e alla chiave ma non alla cartella virtuale e `exists` si applica al bucket e alla chiave, ma non al prefisso o alla cartella virtuale. 
 - Per l'archiviazione BLOB di Azure, `lastModified` si applica al contenitore e al BLOB, ma non alla cartella virtuale.
-- `lastModified` Filter attualmente si applica per filtrare gli elementi figlio ma non la cartella o il file specificato.
+
+<sup>2</sup> `structure` i metadati e `columnCount` non sono supportati quando si recuperano metadati da file binari, JSON o XML.
+
+<sup>3</sup> metadati `exists` : per Amazon S3 e Google Cloud Storage, `exists` si applica al bucket e alla chiave, ma non al prefisso o alla cartella virtuale.
+
+Tenere presente quanto segue:
+
+- Quando si usa l'attività Ottieni metadati in una cartella, assicurarsi di disporre dell'autorizzazione di elenco/esecuzione per la cartella specificata.
 - Il filtro con caratteri jolly per le cartelle o i file non è supportato per l'attività Ottieni metadati.
-- `structure` e `columnCount` non sono supportati per il recupero di metadati da file binari, JSON o XML.
+- `modifiedDatetimeStart` e `modifiedDatetimeEnd` filtro impostati sul connettore:
+
+    - Queste due proprietà vengono utilizzate per filtrare gli elementi figlio durante il recupero dei metadati da una cartella. Non si applica quando si recuperano i metadati da un file.
+    - Quando si usa tale filtro, nell' `childItems` output sono inclusi solo i file modificati nell'intervallo specificato ma non nelle cartelle.
+    - Per applicare tale filtro, l'attività GetMetadata enumera tutti i file nella cartella specificata e controlla l'ora modificata. Evitare di puntare a una cartella con un numero elevato di file anche se il numero di file completo previsto è ridotto. 
 
 **Database relazionale**
 
@@ -85,9 +85,6 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 >[!TIP]
 >Quando si desidera convalidare l'esistenza di un file, una cartella o una tabella, specificare `exists` nell'elenco dei campi attività Ottieni metadati. È quindi possibile controllare il `exists: true/false` risultato nell'output dell'attività. Se `exists` non è specificato nell'elenco dei campi, l'attività Ottieni metadati avrà esito negativo se l'oggetto non viene trovato.
-
->[!NOTE]
->Quando si ottengono metadati da archivi di file e si configura `modifiedDatetimeStart` o `modifiedDatetimeEnd` , nell' `childItems` output includerà solo i file nel percorso specificato con l'ora dell'Ultima modifica nell'intervallo specificato. In non includerà gli elementi nelle sottocartelle.
 
 ## <a name="syntax"></a>Sintassi
 

@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: ab27de9274043439f790a8fecd443223e5f26b08
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c3e5ca30b7f0f00b6d647f5fdaeb772900996adc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736205"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720240"
 ---
 # <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Accedere ad archiviazione di Azure (anteprima) come condivisione di rete da un contenitore nel servizio app
 
 ::: zone pivot="container-windows"
 
-Questa guida illustra come aggiungere i file di archiviazione di Azure come condivisione di rete a un contenitore di Windows nel servizio app. Sono supportate solo le condivisioni [file di Azure](../storage/files/storage-how-to-use-files-cli.md) e [i file Premium](../storage/files/storage-how-to-create-premium-fileshare.md) . I vantaggi includono la protezione e la portabilità del contenuto, l'accesso a più app e molteplici metodi di trasferimento.
+Questa guida illustra come aggiungere i file di archiviazione di Azure come condivisione di rete a un contenitore di Windows nel servizio app. Sono supportate solo le condivisioni [file di Azure](../storage/files/storage-how-to-use-files-cli.md) e [i file Premium](../storage/files/storage-how-to-create-file-share.md) . I vantaggi includono la protezione e la portabilità del contenuto, l'accesso a più app e molteplici metodi di trasferimento.
 
 > [!NOTE]
 >Archiviazione di Azure nel servizio app è **in anteprima** e **non è supportata** per gli scenari di **produzione**.

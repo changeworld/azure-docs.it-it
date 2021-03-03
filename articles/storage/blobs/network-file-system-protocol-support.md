@@ -5,27 +5,48 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 52f7b328b013fd520787fca420a45ffdc5e9d9b1
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: a49c51d2afd464e7bea910ae0abe3dd02e939dbc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250809"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718497"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)
 
-L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto consente ai client Windows o Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale. 
+L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto fornisce la compatibilità di Linux file system alla scalabilità e ai prezzi di archiviazione degli oggetti e consente ai client Windows o Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale. 
 
 > [!NOTE]
 > Il supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure è in versione di anteprima pubblica. Supporta gli account di archiviazione GPV2 con prestazioni del livello standard nelle aree seguenti: Australia orientale, Corea centrale e Stati Uniti centro-meridionali. L'anteprima supporta anche il BLOB in blocchi con livello di prestazioni Premium in tutte le aree pubbliche.
 
+Si tratta sempre di una sfida per eseguire carichi di lavoro legacy su larga scala, ad esempio HPC (High Performance Computing) nel cloud. Un motivo è che le applicazioni spesso usano protocolli di file tradizionali, ad esempio NFS o Server Message Block (SMB) per accedere ai dati. Inoltre, i servizi di archiviazione cloud nativi si concentrano sull'archiviazione di oggetti che hanno uno spazio dei nomi flat e metadati completi anziché file System che forniscono uno spazio dei nomi gerarchico e operazioni efficienti sui metadati. 
+
+L'archiviazione BLOB supporta ora uno spazio dei nomi gerarchico e, se combinato con il supporto del protocollo NFS 3,0, Azure rende molto più semplice eseguire le applicazioni legacy oltre all'archiviazione di oggetti cloud su larga scala. 
+
+## <a name="applications-and-workloads-suited-for-this-feature"></a>Applicazioni e carichi di lavoro adatti per questa funzionalità
+
+La funzionalità del protocollo NFS 3,0 è ideale per l'elaborazione di carichi di lavoro elevati di velocità effettiva elevata, scalabilità elevata, lettura, ad esempio l'elaborazione di supporti, simulazioni di rischio e sequenziazione di genomica. È consigliabile usare questa funzionalità per qualsiasi altro tipo di carico di lavoro che usa più lettori e molti thread, che richiedono una larghezza di banda elevata. 
+
+## <a name="nfs-30-and-the-hierarchical-namespace"></a>NFS 3,0 e lo spazio dei nomi gerarchico
+
+Il supporto del protocollo NFS 3,0 richiede che i BLOB siano organizzati in uno spazio dei nomi gerarchico. Quando si crea un account di archiviazione, è possibile abilitare uno spazio dei nomi gerarchico. La possibilità di utilizzare uno spazio dei nomi gerarchico è stata introdotta da Azure Data Lake Storage Gen2. Organizza gli oggetti (file) in una gerarchia di directory e sottodirectory nello stesso modo in cui è organizzata la file system nel computer.  Lo spazio dei nomi gerarchico viene scalato in modo lineare e non degrada la capacità o le prestazioni dei dati. Protocolli diversi si estendono dallo spazio dei nomi gerarchico. Il protocollo NFS 3,0 è uno dei protocolli disponibili.   
+
+> [!div class="mx-imgBorder"]
+> ![spazio dei nomi gerarchico](./media/network-protocol-support/hierarchical-namespace-and-nfs-support.png)
+  
+## <a name="data-stored-as-block-blobs"></a>Dati archiviati come BLOB in blocchi
+
+Se si Abilita il supporto del protocollo NFS 3,0, tutti i dati nell'account di archiviazione verranno archiviati come BLOB in blocchi. I BLOB in blocchi sono ottimizzati per elaborare in modo efficiente grandi quantità di dati con intensa attività di lettura. I BLOB in blocchi sono costituiti da blocchi. Ogni blocco è identificato da un ID blocco. Un BLOB in blocchi può includere fino a 50.000 blocchi. Ogni blocco in un BLOB in blocchi può avere dimensioni diverse, fino alla dimensione massima consentita per la versione del servizio utilizzata dall'account.
+
+Quando l'applicazione effettua una richiesta utilizzando il protocollo NFS 3,0, la richiesta viene convertita in una combinazione di operazioni BLOB in blocchi. Ad esempio, le richieste di lettura RPC (Remote Procedure Call) per NFS 3,0 vengono convertite in [Get BLOB](/rest/api/storageservices/get-blob) Operation. NFS 3,0 scrivere le richieste RPC vengono convertite in una combinazione di [Get Block List](/rest/api/storageservices/get-block-list), [Put Block](/rest/api/storageservices/put-block)e [Put Block List](/rest/api/storageservices/put-block-list).
+
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Flusso di lavoro generale: montaggio di un contenitore dell'account di archiviazione
 
-Per montare un contenitore dell'account di archiviazione, è necessario eseguire queste operazioni.
+I client Windows o Linux possono montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale. Per montare un contenitore dell'account di archiviazione, è necessario eseguire queste operazioni.
 
 1. Registrare la funzionalità del protocollo NFS 3,0 con la sottoscrizione.
 
@@ -58,7 +79,7 @@ Un client può connettersi tramite un endpoint pubblico o [privato](../common/st
 
 - VNet configurato per l'account di archiviazione. 
 
-  Ai fini di questo articolo, si farà riferimento a VNet come *VNet primario*. Per altre informazioni, vedere [concedere l'accesso da una rete virtuale](../common/storage-network-security.md#grant-access-from-a-virtual-network).
+  In questo articolo si farà riferimento a VNet come *VNet primario*. Per altre informazioni, vedere [concedere l'accesso da una rete virtuale](../common/storage-network-security.md#grant-access-from-a-virtual-network).
 
 - Un VNet con peering che si trova nella stessa area del VNet primario.
 
@@ -115,4 +136,6 @@ Una transazione non viene addebitata durante l'anteprima. Il prezzo per le trans
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare, vedere [montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)](network-file-system-protocol-support-how-to.md).
+- Per iniziare, vedere [montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)](network-file-system-protocol-support-how-to.md).
+
+- Per ottimizzare le prestazioni, vedere [considerazioni sulle prestazioni di Network File System (NFS) 3,0 nell'archivio BLOB di Azure (anteprima)](network-file-system-protocol-support-performance.md).

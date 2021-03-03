@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 472261666c86b666efd09c7217d12e5a795a50d9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094889"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710584"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>Peering di VNet e Azure Bastion (anteprima)
 
@@ -40,9 +40,15 @@ Questa figura illustra l'architettura di una distribuzione Bastion di Azure in u
 **Passaggi**
 
 1. Connettersi al portale di Azure usando un browser HTML5.
-1. Selezionare la macchina virtuale a cui connettersi.
-1. Azure Bastion viene facilmente rilevato attraverso la VNet con peering.
-1. Con un solo clic, la sessione RDP/SSH viene aperta nel browser. Per i limiti della sessione simultanea RDP e SSH, vedere [sessioni RDP e SSH](bastion-faq.md#limits).
+2. Assicurarsi di avere accesso in **lettura** alla macchina virtuale di destinazione e al VNet con peering. Verificare inoltre in IAM che l'utente disponga dell'accesso in lettura alle risorse seguenti:
+   * Ruolo Lettore nella macchina virtuale.
+   * Ruolo Lettore nella scheda di interfaccia di rete con l'indirizzo IP privato della macchina virtuale.
+   * Ruolo Lettore nella risorsa Azure Bastion.
+   * Ruolo lettore sulla rete virtuale (non necessario se non è presente una rete virtuale con peering).
+3. Per visualizzare Bastion nel menu a discesa **Connetti** , è necessario selezionare le sottoscrizioni a cui si ha accesso nella sottoscrizione **> sottoscrizione globale**.
+4. Selezionare la macchina virtuale a cui connettersi.
+5. Azure Bastion viene facilmente rilevato attraverso la VNet con peering.
+6. Con un solo clic, la sessione RDP/SSH viene aperta nel browser. Per i limiti della sessione simultanea RDP e SSH, vedere [sessioni RDP e SSH](bastion-faq.md#limits).
 
   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connettere":::
 

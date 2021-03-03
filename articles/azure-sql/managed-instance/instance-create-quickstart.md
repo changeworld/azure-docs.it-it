@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 1/29/2021
-ms.openlocfilehash: 95b721f12e4818a77f18d01c99a5c6d60b881169
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d356cad1b4754875574e19be732fdf6481c61e22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089704"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691213"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance"></a>Avvio rapido: Creare un'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -113,7 +113,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ### <a name="tags"></a>Tag
 
-- Aggiungere tag alle risorse nel modello di Azure Resource Manager (modello ARM). I [tag](/azure/azure-resource-manager/management/tag-resources) consentono di organizzare le risorse in modo logico. I valori dei tag vengono visualizzati nei report sui costi e consentono altre attività di gestione in base al tag. 
+- Aggiungere tag alle risorse nel modello di Azure Resource Manager (modello ARM). I [tag](../../azure-resource-manager/management/tag-resources.md) consentono di organizzare le risorse in modo logico. I valori dei tag vengono visualizzati nei report sui costi e consentono altre attività di gestione in base al tag. 
 
 - Si consiglia di contrassegnare almeno la nuova Istanza gestita SQL con il tag Owner per identificare chi ha creato e il tag di ambiente per identificare se il sistema è di produzione, sviluppo e così via. Per altre informazioni, vedere [sviluppare la strategia di denominazione e assegnazione di tag per le risorse di Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
  

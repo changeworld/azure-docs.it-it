@@ -4,19 +4,21 @@ description: Gestione delle risorse di benchmark di sicurezza di Azure V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f0c2fe78c32357798e1f9acb43f5867df9148b38
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 32b0a7e31fc0d595eacc2bf5257f41e4ce35566b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368903"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735812"
 ---
 # <a name="security-control-v2-asset-management"></a>Controllo di sicurezza V2: gestione delle risorse
 
 Gestione asset copre i controlli per garantire la visibilità e la governance della sicurezza sulle risorse di Azure. Sono incluse le raccomandazioni sulle autorizzazioni per il personale di sicurezza, l'accesso alla sicurezza per l'inventario degli asset e la gestione delle approvazioni per servizi e risorse (inventario, traccia e corrette).
+
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli dell'iniziativa incorporata relativa alla conformità normativa per il benchmark di sicurezza di Azure: sicurezza di rete](../../governance/policy/samples/azure-security-benchmark#asset-management)
 
 ## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: assicurarsi che il team di sicurezza abbia visibilità dei rischi per gli asset
 
@@ -24,13 +26,13 @@ Gestione asset copre i controlli per garantire la visibilità e la governance de
 |--|--|--|--|
 | AM-1 | 1,1, 1,2 | CM-8, PM-5 |
 
-Assicurarsi che i team di sicurezza dispongano delle autorizzazioni di lettura per la sicurezza nel tenant e nelle sottoscrizioni di Azure in modo che possano monitorare i rischi per la sicurezza tramite il Centro sicurezza 
+Assicurarsi che i team di sicurezza dispongano delle autorizzazioni di lettura per la sicurezza nel tenant e nelle sottoscrizioni di Azure in modo che possano monitorare i rischi per la sicurezza tramite il Centro sicurezza
 
-A seconda di come sono strutturate le responsabilità del team responsabile della sicurezza, il monitoraggio dei rischi per la sicurezza può essere responsabilità di un team addetto alla sicurezza centrale o di un team locale. Fatta questa premessa, le informazioni e i rischi per la sicurezza devono sempre essere aggregati in una posizione centralizzata all'interno di un'organizzazione. 
+A seconda del modo in cui sono strutturate le responsabilità del team di sicurezza, il monitoraggio dei rischi per la sicurezza può essere responsabile di un team di sicurezza centrale o di un team locale. Fatta questa premessa, le informazioni e i rischi per la sicurezza devono sempre essere aggregati in una posizione centralizzata all'interno di un'organizzazione. 
 
 Le autorizzazioni di lettura per la sicurezza possono essere applicate su larga scala a un intero tenant (gruppo di gestione radice) oppure a gruppi di gestione o a sottoscrizioni specifiche. 
 
-Nota: potrebbero essere necessarie anche altre autorizzazioni per ottenere visibilità sui carichi di lavoro e i servizi. 
+Nota: potrebbero essere necessarie anche altre autorizzazioni per ottenere visibilità sui carichi di lavoro e i servizi.
 
 - [Panoramica del ruolo con autorizzazioni di lettura per la sicurezza](../../role-based-access-control/built-in-roles.md#security-reader)
 
@@ -52,9 +54,9 @@ Nota: potrebbero essere necessarie anche altre autorizzazioni per ottenere visib
 
 Assicurarsi che i team di sicurezza abbiano accesso a un inventario continuo aggiornato delle risorse in Azure. I team di sicurezza spesso necessitano di questo inventario per valutare la potenziale esposizione dell'organizzazione ai rischi emergenti e come input per miglioramenti continui della sicurezza. 
 
-La funzionalità di inventario del Centro sicurezza di Azure e il grafico risorse di Azure possono eseguire query e individuare tutte le risorse nelle sottoscrizioni, inclusi i servizi, le applicazioni e le risorse di rete di Azure.  
+La funzionalità di inventario del Centro sicurezza di Azure e il grafico risorse di Azure possono eseguire query e individuare tutte le risorse nelle sottoscrizioni, inclusi i servizi, le applicazioni e le risorse di rete di Azure.
 
-Organizzare logicamente gli asset in base alla tassonomia dell'organizzazione usando i tag, nonché altri metadati in Azure (nome, descrizione e categoria).  
+Organizzare logicamente gli asset in base alla tassonomia dell'organizzazione usando i tag, nonché altri metadati in Azure (nome, descrizione e categoria).
 
 - [Come creare query con Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
 
@@ -76,7 +78,7 @@ Organizzare logicamente gli asset in base alla tassonomia dell'organizzazione us
 |--|--|--|--|
 | AM-3 | 2.3, 2.4 | CM-7, CM-8 |
 
-Usare Criteri di Azure per controllare e limitare i servizi di cui gli utenti possono eseguire il provisioning nell'ambiente. Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni.  È anche possibile usare Monitoraggio di Azure per creare regole per attivare gli avvisi quando viene rilevato un servizio non approvato.
+Usare Criteri di Azure per controllare e limitare i servizi di cui gli utenti possono eseguire il provisioning nell'ambiente. Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni. È anche possibile usare Monitoraggio di Azure per creare regole per attivare gli avvisi quando viene rilevato un servizio non approvato.
 
 - [Configurare e gestire i criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -90,7 +92,7 @@ Usare Criteri di Azure per controllare e limitare i servizi di cui gli utenti po
 
 - [Gestione della conformità della sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 ## <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>4\. Garantire la sicurezza della gestione del ciclo di vita delle risorse
 
@@ -110,7 +112,7 @@ Rimuovere le risorse di Azure quando non sono più necessarie.
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Gestione della conformità della sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -128,7 +130,7 @@ Usare Azure AD accesso condizionale per limitare la capacità degli utenti di in
 
 **Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -144,7 +146,7 @@ Usare i controlli applicazione adattivi del Centro sicurezza di Azure (ASC) per 
 
 Usare Rilevamento modifiche e inventario di automazione di Azure per automatizzare la raccolta di informazioni di inventario dalle macchine virtuali Windows e Linux. Il nome del software, la versione, il server di pubblicazione e l'ora di aggiornamento sono disponibili dal portale di Azure. Per ottenere la data di installazione del software e altre informazioni, abilitare la diagnostica a livello di Guest e indirizzare i registri eventi di Windows in Log Analytics area di lavoro.
 
-A seconda del tipo di script, è possibile usare configurazioni specifiche del sistema operativo o risorse di terze parti per limitare la capacità degli utenti di eseguire script nelle risorse di calcolo di Azure. 
+A seconda del tipo di script, è possibile usare configurazioni specifiche del sistema operativo o risorse di terze parti per limitare la capacità degli utenti di eseguire script nelle risorse di calcolo di Azure.
 
 È anche possibile usare una soluzione di terze parti per individuare e identificare il software non approvato.
 
@@ -160,6 +162,6 @@ A seconda del tipo di script, è possibile usare configurazioni specifiche del s
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Gestione della conformità della sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)

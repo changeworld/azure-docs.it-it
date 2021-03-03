@@ -2,13 +2,13 @@
 title: Filtri eventi per Griglia di eventi di Azure
 description: Questo articolo illustra come filtrare gli eventi quando si crea una sottoscrizione di Griglia di eventi di Azure.
 ms.topic: conceptual
-ms.date: 12/03/2020
-ms.openlocfilehash: bc3e84037693fcd909961ba409871d947ef1de7d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 02/26/2021
+ms.openlocfilehash: 7253c4a38660b0041f27918309efae21675fdc8f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574907"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721957"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi
 
@@ -54,10 +54,494 @@ La sintassi JSON per il filtro in base al soggetto è:
 Per filtrare i valori nei campi dati e specificare l'operatore di confronto, usare l'opzione di filtro avanzato. Quando si applica un filtro avanzato si specificano gli elementi seguenti:
 
 * operator type: il tipo di confronto.
-* key: il campo nei dati dell'evento che viene usato per il filtro. Può essere un numero, un valore booleano o una stringa.
+* key: il campo nei dati dell'evento che viene usato per il filtro. Può essere un numero, un valore booleano, una stringa o una matrice.
 * values: valore o valori da confrontare con la chiave.
 
-Se si specifica un singolo filtro con più valori, viene eseguita un'operazione **o** , pertanto il valore del campo chiave deve essere uno di questi valori. Esempio:
+## <a name="key"></a>Chiave
+Key è il campo dei dati dell'evento che si sta utilizzando per filtrare. Può essere un numero, un valore booleano, una stringa o una matrice. Per gli eventi nello **schema di griglia di eventi**, usare i valori seguenti per la chiave: `ID` ,, `Topic` `Subject` , `EventType` , o i dati dell' `DataVersion` evento (ad esempio `data.key1` ).
+
+Per gli eventi nello **schema degli eventi Cloud**, usare i valori seguenti per la chiave, ovvero i `eventid` dati dell'evento,, `source` `eventtype` , `eventtypeversion` o (ad esempio `data.key1` ).
+
+Per lo **schema di input personalizzato**, usare i campi dati dell'evento (ad esempio `data.key1` ).
+
+Per accedere ai campi nella sezione dati, usare la `.` notazione (punto). Ad esempio, `data.sitename` per `data.appEventTypeDetail.action` accedere a `sitename` o `action` per l'evento di esempio seguente.
+
+```json
+    "data": {
+        "appEventTypeDetail": {
+            "action": "Started"
+        },
+        "siteName": "<site-name>",
+        "clientRequestId": "None",
+        "correlationRequestId": "None",
+        "requestId": "292f499d-04ee-4066-994d-c2df57b99198",
+        "address": "None",
+        "verb": "None"
+    },
+```
+
+
+## <a name="values"></a>Valori
+I valori possibili sono: Number, String, Boolean o Array
+
+
+## <a name="operators"></a>Operatori
+
+Gli operatori disponibili per i **numeri** sono:
+
+## <a name="numberin"></a>NumberIn
+L'operatore numberin restituisce true se il valore della **chiave** è uno dei valori di **filtro** specificati. Nell'esempio seguente viene verificato se il valore dell' `counter` attributo nella `data` sezione è 5 o 1. 
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberIn",
+    "key": "data.counter",
+    "values": [
+        5,
+        1
+    ]
+}]
+```
+
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` e il filtro: `[a, b, c]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF filter == key
+            MATCH
+```
+
+## <a name="numbernotin"></a>NumberNotIn
+NumberNotIn restituisce true se il valore della **chiave** **non** è uno dei valori di **filtro** specificati. Nell'esempio seguente controlla se il valore dell' `counter` attributo nella `data` sezione non è 41 e 0. 
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberNotIn",
+    "key": "data.counter",
+    "values": [
+        41,
+        0
+    ]
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` e il filtro: `[a, b, c]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF filter == key
+            FAIL_MATCH
+```
+
+## <a name="numberlessthan"></a>NumberLessThan
+L'operatore NumberLessThan restituisce true se il valore della **chiave** è minore del valore **di** **filtro** specificato. Nell'esempio seguente controlla se il valore dell' `counter` attributo nella `data` sezione è inferiore a 100. 
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThan",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto al valore del filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH key IN (v1, v2, v3)
+    IF key < filter
+        MATCH
+```
+
+## <a name="numbergreaterthan"></a>NumberGreaterThan
+L'operatore NumberGreaterThan restituisce true se il valore della **chiave** è maggiore del valore **di** **filtro** specificato. Nell'esempio seguente viene verificato se il valore dell' `counter` attributo nella `data` sezione è maggiore di 20. 
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThan",
+    "key": "data.counter",
+    "value": 20
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto al valore del filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH key IN (v1, v2, v3)
+    IF key > filter
+        MATCH
+```
+
+## <a name="numberlessthanorequals"></a>NumberLessThanOrEquals
+L'operatore NumberLessThanOrEquals restituisce true se il valore della **chiave** è **minore o uguale** al valore di **filtro** specificato. Nell'esempio seguente controlla se il valore dell' `counter` attributo nella `data` sezione è minore o uguale a 100. 
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThanOrEquals",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto al valore del filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH key IN (v1, v2, v3)
+    IF key <= filter
+        MATCH
+```
+
+## <a name="numbergreaterthanorequals"></a>NumberGreaterThanOrEquals
+L'operatore NumberGreaterThanOrEquals restituisce true se il valore della **chiave** è **maggiore o uguale** al valore di **filtro** specificato. Nell'esempio seguente controlla se il valore dell' `counter` attributo nella `data` sezione è maggiore o uguale a 30. 
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThanOrEquals",
+    "key": "data.counter",
+    "value": 30
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto al valore del filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH key IN (v1, v2, v3)
+    IF key >= filter
+        MATCH
+```
+
+## <a name="numberinrange"></a>NumberInRange
+L'operatore NumberInRange restituisce true se il valore della **chiave** è in uno degli **intervalli di filtro** specificati. Nell'esempio seguente viene verificato se il valore dell' `key1` attributo nella `data` sezione è uno dei due intervalli: 3,14159-999,95, 3000-4000. 
+
+```json
+{
+    "operatorType": "NumberInRange",
+    "key": "data.key1",
+    "values": [[3.14159, 999.95], [3000, 4000]]
+}
+```
+
+La `values` proprietà è una matrice di intervalli. Nell'esempio precedente si tratta di una matrice di due intervalli. Di seguito è riportato un esempio di matrice con un intervallo da verificare. 
+
+**Matrice con un intervallo:** 
+```json
+{
+    "operatorType": "NumberInRange",
+    "key": "data.key1",
+    "values": [[3000, 4000]]
+}
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Di seguito è riportato lo pseudo-codice con la chiave `[v1, v2, v3]` e il filtro, ovvero una matrice di intervalli. In questo pseudo codice, `a` e `b` sono valori bassi e alti di ogni intervallo della matrice. Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH (a,b) IN filter.Values
+    FOR_EACH key IN (v1, v2, v3)
+       IF key >= a AND key <= b
+           MATCH
+```
+
+
+## <a name="numbernotinrange"></a>NumberNotInRange
+L'operatore NumberNotInRange restituisce true se il valore della **chiave** **non** è in uno degli **intervalli di filtro** specificati. Nell'esempio seguente viene verificato se il valore dell' `key1` attributo nella `data` sezione è uno dei due intervalli: 3,14159-999,95, 3000-4000. In caso contrario, l'operatore restituirà false. 
+
+```json
+{
+    "operatorType": "NumberNotInRange",
+    "key": "data.key1",
+    "values": [[3.14159, 999.95], [3000, 4000]]
+}
+```
+La `values` proprietà è una matrice di intervalli. Nell'esempio precedente si tratta di una matrice di due intervalli. Di seguito è riportato un esempio di matrice con un intervallo da verificare.
+
+**Matrice con un intervallo:** 
+```json
+{
+    "operatorType": "NumberNotInRange",
+    "key": "data.key1",
+    "values": [[3000, 4000]]
+}
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Di seguito è riportato lo pseudo-codice con la chiave `[v1, v2, v3]` e il filtro, ovvero una matrice di intervalli. In questo pseudo codice, `a` e `b` sono valori bassi e alti di ogni intervallo della matrice. Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH (a,b) IN filter.Values
+    FOR_EACH key IN (v1, v2, v3)
+        IF key >= a AND key <= b
+            FAIL_MATCH
+```
+
+
+L'operatore disponibile per i **valori booleani** è: 
+
+## <a name="boolequals"></a>BoolEquals
+L'operatore BoolEquals restituisce true se il valore della **chiave** è il **filtro** del valore booleano specificato. Nell'esempio seguente viene verificato se il valore dell' `isEnabled` attributo nella `data` sezione è `true` . 
+
+```json
+"advancedFilters": [{
+    "operatorType": "BoolEquals",
+    "key": "data.isEnabled",
+    "value": true
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto al valore booleano del filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH key IN (v1, v2, v3)
+    IF filter == key
+        MATCH
+```
+
+Gli operatori disponibili per le **stringhe** sono:
+
+## <a name="stringcontains"></a>StringContains
+**StringContains** restituisce true se il valore della **chiave** **contiene** uno dei valori di **filtro** specificati (sotto forma di sottostringhe). Nell'esempio seguente viene verificato se il valore dell' `key1` attributo nella `data` sezione contiene una delle sottostringhe specificate: `microsoft` o `azure` . Ad esempio, `azure data factory` contiene `azure` . 
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringContains",
+    "key": "data.key1",
+    "values": [
+        "microsoft", 
+        "azure"
+    ]
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` e il filtro: `[a,b,c]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key CONTAINS filter
+            MATCH
+```
+
+## <a name="stringnotcontains"></a>StringNotContains
+L'operatore **StringNotContains** restituisce true se la **chiave** non **contiene** i valori di **filtro** specificati come sottostringhe. Se la chiave contiene uno dei valori specificati come una sottostringa, l'operatore restituisce false. Nell'esempio seguente, l'operatore restituisce true solo se il valore dell' `key1` attributo nella `data` sezione non include `contoso` e `fabrikam` come sottostringhe. 
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringNotContains",
+    "key": "data.key1",
+    "values": [
+        "contoso", 
+        "fabrikam"
+    ]
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` e il filtro: `[a,b,c]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key CONTAINS filter
+            FAIL_MATCH
+```
+
+## <a name="stringbeginswith"></a>StringBeginsWith
+L'operatore **StringBeginsWith** restituisce true se il valore della **chiave** **inizia con** uno dei valori di **filtro** specificati. Nell'esempio seguente viene verificato se il valore dell' `key1` attributo nella `data` sezione inizia con `event` o `grid` . Ad esempio, `event hubs` inizia con `event` .  
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringBeginsWith",
+    "key": "data.key1",
+    "values": [
+        "event", 
+        "message"
+    ]
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` e il filtro: `[a,b,c]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key BEGINS_WITH filter
+            MATCH
+```
+
+## <a name="stringnotbeginswith"></a>StringNotBeginsWith
+L'operatore **StringNotBeginsWith** restituisce true se il valore della **chiave** non **inizia con** uno dei valori di **filtro** specificati. Nell'esempio seguente viene verificato se il valore dell' `key1` attributo nella `data` sezione non inizia con `event` o `message` .
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringNotBeginsWith",
+    "key": "data.key1",
+    "values": [
+        "event", 
+        "message"
+    ]
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` e il filtro: `[a,b,c]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key BEGINS_WITH filter
+            FAIL_MATCH
+```
+
+## <a name="stringendswith"></a>StringEndsWith
+L'operatore **StringEndsWith** restituisce true se il valore della **chiave** **termina con** uno dei valori di **filtro** specificati. Nell'esempio seguente viene verificato se il valore dell' `key1` attributo nella `data` sezione termina con `jpg` o `jpeg` o `png` . Ad esempio, `eventgrid.png` termina con `png` .
+
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringEndsWith",
+    "key": "data.key1",
+    "values": [
+        "jpg", 
+        "jpeg", 
+        "png"
+    ]
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` e il filtro: `[a,b,c]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key ENDS_WITH filter
+            MATCH
+```
+
+## <a name="stringnotendswith"></a>StringNotEndsWith
+L'operatore **StringNotEndsWith** restituisce true se il valore della **chiave** non **termina con** uno dei valori di **filtro** specificati. Nell'esempio seguente controlla se il valore dell' `key1` attributo nella `data` sezione non termina con `jpg` o `jpeg` o `png` . 
+
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringNotEndsWith",
+    "key": "data.key1",
+    "values": [
+        "jpg", 
+        "jpeg", 
+        "png"
+    ]
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` e il filtro: `[a,b,c]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key ENDS_WITH filter
+            FAIL_MATCH
+```
+
+## <a name="stringin"></a>StringIn
+L'operatore **stringin** controlla se il valore della **chiave** **corrisponde esattamente** a uno dei valori di **filtro** specificati. Nell'esempio seguente viene verificato se il valore dell' `key1` attributo nella `data` sezione è `exact` o `string` o `matches` . 
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringIn",
+    "key": "data.key1",
+    "values": [
+        "contoso", 
+        "fabrikam", 
+        "factory"
+    ]
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` e il filtro: `[a,b,c]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF filter == key
+            MATCH
+```
+
+## <a name="stringnotin"></a>StringNotIn
+L'operatore **StringNotIn** controlla se il valore della **chiave** non **corrisponde** ad alcuno dei valori di **filtro** specificati. Nell'esempio seguente viene verificato se il valore dell' `key1` attributo nella `data` sezione non è `aws` e `bridge` . 
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringNotIn",
+    "key": "data.key1",
+    "values": [
+        "aws", 
+        "bridge"
+    ]
+}]
+```
+
+Se la chiave è una matrice, tutti i valori nella matrice vengono controllati rispetto alla matrice di valori di filtro. Ecco il codice pseudo con la chiave: `[v1, v2, v3]` e il filtro: `[a,b,c]` . Qualsiasi valore di chiave con tipi di dati che non corrispondono al tipo di dati del filtro viene ignorato.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF filter == key
+            FAIL_MATCH
+```
+
+
+Per tutti i confronti di stringhe non vengono rilevate maiuscole.
+
+> [!NOTE]
+> Se il file JSON dell'evento non contiene la chiave di filtro avanzata, Filter è evaulated come **non corrispondente** per gli operatori seguenti: NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, numberin, BoolEquals, StringContains, StringNotContains, StringBeginsWith, StringNotBeginsWith, StringEndsWith, StringNotEndsWith, stringin.
+> 
+>Il filtro è evaulated come **corrispondente** per gli operatori seguenti: NumberNotIn, StringNotIn.
+
+
+## <a name="isnullorundefined"></a>IsNullOrUndefined
+L'operatore IsNullOrUndefined restituisce true se il valore della chiave è NULL o non definito. 
+
+```json
+{
+    "operatorType": "IsNullOrUndefined",
+    "key": "data.key1"
+}
+```
+
+Nell'esempio seguente Key1 è mancante, quindi l'operatore restituisce true. 
+
+```json
+{ 
+    "data": 
+    { 
+        "key2": 5 
+    } 
+}
+```
+
+Nell'esempio seguente Key1 è impostato su null, quindi l'operatore restituisce true.
+
+```json
+{
+    "data": 
+    { 
+        "key1": null
+    }
+}
+```
+
+Se in questi esempi è presente un valore per Key1, l'operatore restituirà false. 
+
+## <a name="isnotnull"></a>IsNotNull
+L'operatore IsNotNull restituisce true se il valore della chiave non è NULL o non è definito. 
+
+```json
+{
+    "operatorType": "IsNotNull",
+    "key": "data.key1"
+}
+```
+
+## <a name="or-and-and"></a>OR e AND
+Se si specifica un singolo filtro con più valori, viene eseguita un'operazione **o** , pertanto il valore del campo chiave deve essere uno di questi valori. Ecco un esempio:
 
 ```json
 "advancedFilters": [
@@ -93,78 +577,45 @@ Se si specificano più filtri diversi, viene eseguita un'operazione and, quindi 
 ]
 ```
 
-### <a name="operators"></a>Operatori
+## <a name="cloudevents"></a>CloudEvents 
+Per gli eventi nello **schema CloudEvents**, usare i valori seguenti per la chiave, ovvero i `eventid` dati dell'evento,, `source` `eventtype` , `eventtypeversion` o (ad esempio `data.key1` ). 
 
-Gli operatori disponibili per i **numeri** sono:
+È anche possibile usare [gli attributi del contesto di estensione in CloudEvents 1,0](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#extension-context-attributes). Nell'esempio seguente `comexampleextension1` e `comexampleothervalue` sono attributi del contesto di estensione. 
 
-* NumberGreaterThan
-* NumberGreaterThanOrEquals
-* NumberLessThan
-* NumberLessThanOrEquals
-* NumberIn
-* NumberNotIn
+```json
+{
+    "specversion" : "1.0",
+    "type" : "com.example.someevent",
+    "source" : "/mycontext",
+    "id" : "C234-1234-1234",
+    "time" : "2018-04-05T17:31:00Z",
+    "subject": null,
+    "comexampleextension1" : "value",
+    "comexampleothervalue" : 5,
+    "datacontenttype" : "application/json",
+    "data" : {
+        "appinfoA" : "abc",
+        "appinfoB" : 123,
+        "appinfoC" : true
+    }
+}
+```
 
-L'operatore disponibile per i **valori booleani** è: 
-- BoolEquals
+Di seguito è riportato un esempio di utilizzo di un attributo di contesto di estensione in un filtro.
 
-Gli operatori disponibili per le **stringhe** sono:
+```json
+"advancedFilters": [{
+    "operatorType": "StringBeginsWith",
+    "key": "comexampleothervalue",
+    "values": [
+        "5", 
+        "1"
+    ]
+}]
+```
 
-* StringContains
-* StringBeginsWith
-* StringEndsWith
-* StringIn
-* StringNotIn
 
-Tutti i confronti di stringhe **non** fanno distinzione tra maiuscole e minuscole.
-
-> [!NOTE]
-> Se il file JSON dell'evento non contiene la chiave di filtro avanzata, Filter è evaulated come **non corrispondente** per gli operatori seguenti: 
-> - NumberGreaterThan
-> - NumberGreaterThanOrEquals
-> - NumberLessThan
-> - NumberLessThanOrEquals
-> - NumberIn
-> - BoolEquals
-> - StringContains
-> - StringBeginsWith
-> - StringEndsWith
-> - StringIn
-> 
->Il filtro è evaulated come **corrispondente** per gli operatori seguenti:
-> - NumberNotIn
-> - StringNotIn
-
-### <a name="key"></a>Chiave
-
-Per gli eventi nello schema di Griglia di eventi, usare i valori seguenti per l'elemento key:
-
-* ID
-* Argomento
-* Oggetto
-* EventType
-* DataVersion
-* Dati dell'evento (ad esempio, Data.key1)
-
-Per gli eventi nello schema di Eventi cloud, usare i valori seguenti per l'elemento key:
-
-* EventId
-* Source (Sorgente)
-* EventType
-* EventTypeVersion
-* Dati dell'evento (ad esempio, Data.key1)
-
-Per uno schema di input personalizzato, usare i campi dati degli eventi (ad esempio, Data.key1).
-
-### <a name="values"></a>Valori
-
-I valori possibili sono i seguenti.
-
-* Numero
-* string
-* boolean
-* array
-
-### <a name="limitations"></a>Limitazioni
+## <a name="limitations"></a>Limitazioni
 
 I filtri avanzati presentano le limitazioni seguenti:
 
@@ -175,153 +626,8 @@ I filtri avanzati presentano le limitazioni seguenti:
 
 È possibile usare l'elemento key in più filtri.
 
-### <a name="examples"></a>Esempi
 
-### <a name="stringcontains"></a>StringContains
 
-```json
-"advancedFilters": [{
-    "operatorType": "StringContains",
-    "key": "data.key1",
-    "values": [
-        "microsoft", 
-        "azure"
-    ]
-}]
-```
-
-### <a name="stringbeginswith"></a>StringBeginsWith
-
-```json
-"advancedFilters": [{
-    "operatorType": "StringBeginsWith",
-    "key": "data.key1",
-    "values": [
-        "event", 
-        "grid"
-    ]
-}]
-```
-
-### <a name="stringendswith"></a>StringEndsWith
-
-```json
-"advancedFilters": [{
-    "operatorType": "StringEndsWith",
-    "key": "data.key1",
-    "values": [
-        "jpg", 
-        "jpeg", 
-        "png"
-    ]
-}]
-```
-
-### <a name="stringin"></a>StringIn
-
-```json
-"advancedFilters": [{
-    "operatorType": "StringIn",
-    "key": "data.key1",
-    "values": [
-        "exact", 
-        "string", 
-        "matches"
-    ]
-}]
-```
-
-### <a name="stringnotin"></a>StringNotIn
-
-```json
-"advancedFilters": [{
-    "operatorType": "StringNotIn",
-    "key": "data.key1",
-    "values": [
-        "aws", 
-        "bridge"
-    ]
-}]
-```
-
-### <a name="numberin"></a>NumberIn
-
-```json
-
-"advancedFilters": [{
-    "operatorType": "NumberIn",
-    "key": "data.counter",
-    "values": [
-        5,
-        1
-    ]
-}]
-
-```
-
-### <a name="numbernotin"></a>NumberNotIn
-
-```json
-"advancedFilters": [{
-    "operatorType": "NumberNotIn",
-    "key": "data.counter",
-    "values": [
-        41,
-        0,
-        0
-    ]
-}]
-```
-
-### <a name="numberlessthan"></a>NumberLessThan
-
-```json
-"advancedFilters": [{
-    "operatorType": "NumberLessThan",
-    "key": "data.counter",
-    "value": 100
-}]
-```
-
-### <a name="numbergreaterthan"></a>NumberGreaterThan
-
-```json
-"advancedFilters": [{
-    "operatorType": "NumberGreaterThan",
-    "key": "data.counter",
-    "value": 20
-}]
-```
-
-### <a name="numberlessthanorequals"></a>NumberLessThanOrEquals
-
-```json
-"advancedFilters": [{
-    "operatorType": "NumberLessThanOrEquals",
-    "key": "data.counter",
-    "value": 100
-}]
-```
-
-### <a name="numbergreaterthanorequals"></a>NumberGreaterThanOrEquals
-
-```json
-"advancedFilters": [{
-    "operatorType": "NumberGreaterThanOrEquals",
-    "key": "data.counter",
-    "value": 30
-}]
-```
-
-### <a name="boolequals"></a>BoolEquals
-
-```json
-"advancedFilters": [{
-    "operatorType": "BoolEquals",
-    "key": "data.isEnabled",
-    "value": true
-}]
-```
 
 
 ## <a name="next-steps"></a>Passaggi successivi

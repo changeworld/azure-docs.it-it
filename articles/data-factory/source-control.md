@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 5bf1877edaa6c13cb0c645eb2d1c7ec2dc53ad00
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/26/2021
+ms.openlocfilehash: 7691c285bcc1c490878f5055468b0a57b6248679
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392443"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719375"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -61,13 +61,13 @@ Nel home page Azure Data Factory selezionare **Configura repository di codice**.
 
 ### <a name="configuration-method-2-authoring-canvas"></a>Metodo di configurazione 2: creazione dell'area di disegno
 
-Nell'area di disegno di creazione dell'esperienza utente di Azure Data Factory selezionare il menu a discesa **Data Factory**, quindi selezionare **Configura repository del codice**.
+Nell'area di disegno di creazione dell'esperienza utente Azure Data Factory selezionare il menu a discesa **Data Factory** , quindi selezionare **Configura repository di codice**.
 
 ![Configurare le impostazioni del repository di codice dalla creazione](media/author-visually/configure-repo-2.png)
 
 ### <a name="configuration-method-3-management-hub"></a>Metodo di configurazione 3: Hub di gestione
 
-Passare all'hub di gestione nell'interfaccia utente di Azure Data Factory. Selezionare **configurazione git** nella sezione **controllo del codice sorgente** . Se non si dispone di un repository connesso, fare clic su **Configura repository di codice**.
+Passare all'hub di gestione nell'interfaccia utente di Azure Data Factory. Selezionare **configurazione git** nella sezione **controllo del codice sorgente** . Se non si dispone di un repository connesso, fare clic su **Configura**.
 
 ![Configurare le impostazioni del repository di codice dall'hub di gestione](media/author-visually/configure-repo-3.png)
 

@@ -1,22 +1,10 @@
 ---
-title: Localizzazione-Azure Active Directory B2C
-description: Specificare l'elemento di localizzazione di un criterio personalizzato di Azure Active Directory B2C.
-services: active-directory-b2c
-author: msmimart
-manager: celestedg
-ms.service: active-directory
-ms.workload: identity
-ms.topic: reference
-ms.date: 10/15/2020
-ms.author: mimart
-ms.subservice: B2C
-ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: MT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108621"
+title: Localization-Azure Active Directory B2C Description: specificare l'elemento di localizzazione di un criterio personalizzato in Azure Active Directory B2C.
+Servizi: Active-Directory-B2C Author: msmimart Manager: celestedg
+
+ms. Service: ms. workload di Active Directory: identità ms. Topic: riferimento ms. Date: 10/15/2020 ms. Author: MIMAT ms. sottoservizio: B2C ms. Custom: "B2C-Support"
 ---
+
 # <a name="localization-element"></a>Elemento Localization
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -39,7 +27,7 @@ L'elemento **Localizzazione** consente di supportare più impostazioni locali o 
 
 L'elemento **Localizzazione** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Abilitato | No | I valori possibili sono: `true` o `false`. |
 
@@ -54,7 +42,7 @@ L'elemento **Localizazzione** contiene gli elementi XML seguenti
 
 L'elemento **SupportedLanguages** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Sì | La lingua predefinita da usare per le risorse localizzate. |
 | MergeBehavior | No | Un valore di enumerazione dei valori che vengono uniti a qualsiasi ClaimType presente in un criterio padre con lo stesso identificatore. Usare questo attributo quando si sovrascrive un'attestazione specificata nei criteri di base. I valori possibili sono: `Append`, `Prepend` o `ReplaceAll`. Il valore `Append` specifica che la raccolta dei dati presenti deve essere accodata alla fine della raccolta specificata nel criterio padre. Il valore `Prepend` specifica che la raccolta dei dati presenti deve essere accodata alla fine della raccolta specificata nel criterio padre. Il valore `ReplaceAll` specifica che la raccolta di dati definita nel criterio padre deve essere ignorata e di usare i dati definiti nel criterio corrente. |
@@ -71,7 +59,7 @@ L'elemento **SupportedLanguages** contiene gli attributi seguenti:
 
 L'elemento **LocalizedResources** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Identificatore usato per identificare unicamente le risorse localizzate. |
 
@@ -94,7 +82,7 @@ L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
 L'elemento **LocalizedCollection** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ElementType | Sì | Fa riferimento a un elemento ClaimType o un elemento dell'interfaccia utente nel file dei criteri. |
 | ElementId | Sì | Una stringa che contiene un riferimento a un tipo di attestazione già definito nella sezione che viene usata se **ElementType** è impostato su un ClaimType. |
@@ -108,7 +96,7 @@ L'elemento **LocalizedCollection** contiene gli elementi seguenti:
 
 L'elemento **Item** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Testo | Sì | La stringa di visualizzazione intuitiva che deve essere visualizzata dall'utente nell'interfaccia utente per questa opzione. |
 | Valore | Sì | Il valore di attestazione della stringa associato alla selezione di questa opzione. |
@@ -144,7 +132,7 @@ L'elemento **LocalizedStrings** contiene gli elementi seguenti:
 
 L'elemento **LocalizedString** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ElementType | Sì | Valori possibili: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [predicate](#predicate), [InputValidation](#inputvalidation)o [UxElement](#uxelement).   | 
 | ElementId | Sì | Se **elementType** è impostato su `ClaimType` , `Predicate` o `InputValidation` , questo elemento contiene un riferimento a un tipo di attestazione già definito nella sezione ClaimsSchema. |
@@ -165,7 +153,7 @@ Riferimento ElementType a un tipo di attestazione, a una trasformazione di attes
 |Elementi dell'interfaccia utente |`UxElement` | | ID dell'elemento dell'interfaccia utente da localizzare.|
 |[Controllo di visualizzazione](display-controls.md) |`DisplayControl` |ID del controllo di visualizzazione. | ID dell'elemento dell'interfaccia utente da localizzare.|
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="claimsprovider"></a>ClaimsProvider
 
@@ -335,7 +323,7 @@ Il valore UxElement viene usato per localizzare uno degli elementi dell'interfac
 
 ### <a name="displaycontrol"></a>DisplayControl
 
-Il valore DisplayControl viene usato per localizzare uno degli elementi dell'interfaccia utente del [controllo di visualizzazione](display-controls.md) . Nell'esempio seguente viene illustrato come localizzare i pulsanti Invia e verifica. 
+Il valore DisplayControl viene usato per localizzare uno degli elementi dell'interfaccia utente del [controllo di visualizzazione](display-controls.md) . Se abilitata, il controllo di visualizzazione localizedStrings accetta la ***precedenza** _ su alcune delle *_ UxElement** StringIDs come **ver_but_send**, **ver_but_edit**, **ver_but_resend** e **ver_but_verify**. Nell'esempio seguente viene illustrato come localizzare i pulsanti Invia e verifica. 
 
 ```xml
 <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>

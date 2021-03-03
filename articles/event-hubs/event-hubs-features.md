@@ -2,13 +2,13 @@
 title: Panoramica delle funzionalità - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni dettagliate sulle funzionalità e la terminologia di Hub eventi di Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 02/19/2021
+ms.openlocfilehash: 8bb63bfdbeb5b875b1e461fbd93fb48dcbb43054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791947"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739076"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
 
@@ -47,7 +47,12 @@ Hub eventi garantisce che tutti gli eventi che condividono un valore di chiave d
 
 ### <a name="event-retention"></a>Conservazione degli eventi
 
-Gli eventi pubblicati vengono rimossi da un hub eventi in base a un criterio di conservazione configurabile e basato su temporizzato. Il valore predefinito e il periodo di memorizzazione più breve possibile sono 1 giorno (24 ore). Per lo standard di hub eventi, il periodo di conservazione massimo è di 7 giorni. Per Hub eventi Dedicato, il periodo di conservazione massimo è di 90 giorni.
+Gli eventi pubblicati vengono rimossi da un hub eventi in base a un criterio di conservazione configurabile e basato su temporizzato. Di seguito sono riportate alcune considerazioni importanti:
+
+- Il valore **predefinito** e il periodo di memorizzazione **più breve** possibile sono **1 giorno (24 ore)**.
+- Per lo **standard** di hub eventi, il periodo di conservazione massimo è di **7 giorni**. 
+- Per gli hub eventi **dedicati**, il periodo di conservazione massimo è di **90 giorni**.
+- Se si modifica il periodo di conservazione, questo si applica a tutti i messaggi, inclusi quelli già presenti nell'hub eventi. 
 
 > [!NOTE]
 > Hub eventi è un motore di flusso di eventi in tempo reale e non è progettato per essere usato al posto di un database e/o come archivio permanente per i flussi di eventi conservati all'infinito. 
@@ -117,6 +122,9 @@ Un *offset* è la posizione di un evento all'interno di una partizione. Un offse
 *Checkpoint* è un processo mediante il quale i lettori contrassegnano o eseguono il commit della propria posizione all'interno di una sequenza di eventi di partizione. Il checkpoint è responsabilità del consumer e si verifica per partizione all'interno di un gruppo di consumer. Questa responsabilità significa che per ogni gruppo di consumer, ogni lettore di partizione deve tenere traccia della posizione corrente nel flusso di eventi e può informare il servizio quando considera completo il flusso di dati.
 
 Se un lettore si disconnette da una partizione, quando riconnette inizia a leggere in corrispondenza del checkpoint inviato in precedenza dall’ulitimo lettore di tale partizione in tale gruppo di consumer. Quando il lettore si connette, passa l'offset all'hub eventi per specificare la posizione da cui iniziare la lettura. In questo modo è possibile usare la funzionalità di checkpoint sia per contrassegnare gli eventi come "completi" dalle applicazioni a valle sia per fornire la resilienza in caso di failover tra i lettori in esecuzione in computer diversi. È possibile tornare a dati precedenti specificando un offset inferiore da questo processo di checkpoint. Tramite questo meccanismo il checkpoint consente sia la resilienza del failover che la riproduzione del flusso di eventi.
+
+> [!IMPORTANT]
+> Gli offset sono forniti dal servizio Hub eventi. È responsabilità del consumer effettuare il checkpoint durante l'elaborazione degli eventi.
 
 > [!NOTE]
 > Se si usa l'archivio BLOB di Azure come archivio di checkpoint in un ambiente che supporta una versione diversa di storage BLOB SDK rispetto a quelli generalmente disponibili in Azure, sarà necessario usare il codice per modificare la versione dell'API del servizio di archiviazione nella versione specifica supportata da tale ambiente. Ad esempio, se si esegue [Hub eventi in un hub Azure stack versione 2002](/azure-stack/user/event-hubs-overview), la versione più recente disponibile per il servizio di archiviazione è la versione 2017-11-09. In questo caso, è necessario usare il codice per fare riferimento alla versione dell'API del servizio di archiviazione a 2017-11-09. Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione, vedere questi esempi su GitHub: 

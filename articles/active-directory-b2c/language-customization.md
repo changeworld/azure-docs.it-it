@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e29ef68bb6f02e329d0406cd80dceb25beab8932
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 418f0797343a64728c4e48084b09bd0e426cec62
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645909"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686411"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalizzazione della lingua in Azure AD B2C
 
@@ -226,7 +226,7 @@ L'elemento [LocalizedResources](localization.md#localizedresources) dell'element
 Gli elementi delle risorse localizzate vengono configurati per la definizione del contenuto e per tutte le lingue che si intende supportare. Per personalizzare le pagine di iscrizione o di accesso unificate per l'inglese e lo spagnolo, aggiungere gli elementi `LocalizedResources` seguenti dopo la chiusura dell'elemento `</SupportedLanguages>`.
 
 > [!NOTE]
-> Nell'esempio seguente è stato aggiunto il simbolo di cancelletto `#` all'inizio di ogni riga, quindi è possibile individuare facilmente le etichette localizzate sullo schermo.
+> Nell'esempio seguente è stato aggiunto il simbolo di cancelletto `#` all'inizio di ogni riga, in modo che sia possibile trovare facilmente le etichette localizzate sullo schermo.
 
 ```xml
 <!--Local account sign-up or sign-in page English-->

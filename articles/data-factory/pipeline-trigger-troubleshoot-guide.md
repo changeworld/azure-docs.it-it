@@ -7,12 +7,12 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 1a5f665627da1b08ec57b04863a58f227c673af4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2950c175acfdda33394c93649a3e2c41d1264dd2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944905"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705994"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Risolvere i problemi di orchestrazione e trigger della pipeline in Azure Data Factory
 
@@ -78,13 +78,32 @@ Azure Data Factory valuta il risultato di tutte le attività a livello foglia. I
 1. Implementare i controlli a livello di attività attenendosi [alla gestione degli errori e degli errori della pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 1. Usare app per la logica di Azure per monitorare le pipeline a intervalli regolari dopo le [query in base alla Factory](/rest/api/datafactory/pipelineruns/querybyfactory).
 
-## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Monitorare gli errori della pipeline a intervalli regolari
+### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Come monitorare gli errori della pipeline a intervalli regolari
 
 Potrebbe essere necessario monitorare le pipeline di Data Factory non riuscite, ad intervalli di 5 minuti. È possibile eseguire una query e filtrare le esecuzioni della pipeline da un data factory usando l'endpoint. 
 
-Configurare un'app per la logica di Azure per eseguire una query su tutte le pipeline non riuscite ogni 5 minuti, come descritto in [query by Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Quindi, è possibile segnalare eventi imprevisti al nostro sistema di ticket.
+**Risoluzione** dei problemi È possibile configurare un'app per la logica di Azure per eseguire una query su tutte le pipeline non riuscite ogni 5 minuti, come descritto in [query by Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Quindi, è possibile segnalare eventi imprevisti al sistema di ticket.
 
 Per ulteriori informazioni, vedere [inviare notifiche da Data Factory, parte 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
+
+### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>L'aumento del grado di parallelismo non comporta una velocità effettiva più elevata
+
+**Causa** 
+
+Il grado di parallelismo in *foreach* è in realtà max degree of parallelism. Non è possibile garantire un numero specifico di esecuzioni che si verificano contemporaneamente, ma questo parametro garantisce che non si vada mai oltre il valore impostato. Questo è un limite, da sfruttare quando si controlla l'accesso simultaneo alle origini e ai sink.
+
+Fact noti su *foreach*
+ * Foreach dispone di una proprietà denominata batch Count (n) in cui il valore predefinito è 20 e il valore max è 50.
+ * Il numero di batch, n, viene usato per costruire n code. In seguito verranno illustrati alcuni dettagli sul modo in cui vengono costruite queste code.
+ * Ogni coda viene eseguita in sequenza, ma è possibile disporre di più code eseguite in parallelo.
+ * Le code vengono create in precedenza. Ciò significa che non è previsto il ribilanciamento delle code durante il Runtime.
+ * In qualsiasi momento, è possibile elaborare al massimo un elemento per ogni coda. Ciò significa che al massimo n elementi elaborati in un determinato momento.
+ * Il tempo di elaborazione totale foreach equivale al tempo di elaborazione della coda più estesa. Ciò significa che l'attività ForEach dipende dal modo in cui vengono costruite le code.
+ 
+**Risoluzione**
+
+ * Non è consigliabile usare l'attività *sevariabile* all'interno *di per ogni* esecuzione in parallelo.
+ * Tenendo in considerazione il modo in cui vengono costruite le code, il cliente può migliorare le prestazioni di foreach impostando più *foreach* , in cui ogni foreach avrà elementi con tempi di elaborazione simili. In questo modo, le esecuzioni lunghe verranno elaborate in parallelo piuttosto in sequenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

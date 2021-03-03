@@ -1,21 +1,21 @@
 ---
-title: Come aggiornare l'agente di dipendenza Monitoraggio di Azure per le macchine virtuali
-description: In questo articolo viene descritto come aggiornare il Monitoraggio di Azure per le macchine virtuali Dependency Agent utilizzando la riga di comando, l'installazione guidata e altri metodi.
+title: Come aggiornare l'agente di dipendenza di VM Insights
+description: Questo articolo descrive come aggiornare l'agente di dipendenza di VM Insights tramite la riga di comando, l'installazione guidata e altri metodi.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
-ms.openlocfilehash: 05358c560c70396d4e165abd174178378aad517b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 14ca614c1e108ce43f05f98520cff6ff215ec5cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619867"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722909"
 ---
-# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Come aggiornare l'agente di dipendenza Monitoraggio di Azure per le macchine virtuali
+# <a name="how-to-upgrade-the-vm-insights-dependency-agent"></a>Come aggiornare l'agente di dipendenza di VM Insights
 
-Dopo la distribuzione iniziale di Monitoraggio di Azure per le macchine virtuali Dependency Agent, vengono rilasciati aggiornamenti che includono correzioni di bug o il supporto di nuove funzionalità o funzionalità.  Questo articolo consente di comprendere i metodi disponibili e come eseguire l'aggiornamento manualmente o tramite l'automazione.
+Dopo la distribuzione iniziale dell'agente di dipendenza di VM Insights, vengono rilasciati aggiornamenti che includono correzioni di bug o il supporto di nuove funzionalità o funzionalità.  Questo articolo consente di comprendere i metodi disponibili e come eseguire l'aggiornamento manualmente o tramite l'automazione.
 
 ## <a name="upgrade-options"></a>Opzioni di aggiornamento 
 
@@ -70,4 +70,4 @@ Se Dependency Agent non si avvia, controllare i log per vedere le informazioni d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si vuole interrompere il monitoraggio delle macchine virtuali per un periodo di tempo o rimuovere completamente Monitoraggio di Azure per le macchine virtuali, vedere [disabilitare il monitoraggio delle macchine virtuali in monitoraggio di Azure per le macchine virtuali](../vm/vminsights-optout.md).
+Se si vuole interrompere il monitoraggio delle macchine virtuali per un determinato periodo di tempo o rimuovere completamente le informazioni dettagliate di VM, vedere [disabilitare il monitoraggio delle macchine virtuali in VM Insights](../vm/vminsights-optout.md).

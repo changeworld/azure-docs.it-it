@@ -5,14 +5,14 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: c5e0cc3eb29fb612460b16d8de9dee62949b5bd2
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 7d343e07414dd1c3f9786c1684eb6f14d5f45e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979607"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718183"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Inserire le impostazioni nella configurazione dell'app con Azure Pipelines
 
@@ -80,7 +80,7 @@ I parametri seguenti vengono usati dall'attività push di configurazione dell'ap
 
 - **Sottoscrizione di Azure**: un elenco a discesa contenente le connessioni al servizio di Azure disponibili. Per aggiornare e aggiornare l'elenco delle connessioni dei servizi di Azure disponibili, fare clic sul pulsante **Aggiorna sottoscrizione di Azure** a destra della casella di testo.
 - **Nome della configurazione dell'app**: un elenco a discesa che carica gli archivi di configurazione disponibili nella sottoscrizione selezionata. Per aggiornare e aggiornare l'elenco degli archivi di configurazione disponibili, fare clic sul pulsante **Aggiorna nome della configurazione dell'app** a destra della casella di testo.
-- **Percorso del file di configurazione**: il percorso del file di configurazione. È possibile esplorare l'artefatto di compilazione per selezionare un file di configurazione. ( `...` pulsante a destra della casella di testo).
+- **Percorso del file di configurazione**: il percorso del file di configurazione. È possibile esplorare l'artefatto di compilazione per selezionare un file di configurazione. ( `...` pulsante a destra della casella di testo). I formati di file supportati sono: YAML, JSON, Properties.
 - **Separator**: il separatore usato per appiattire i file. JSON e. yml.
 - **Depth**: la profondità con cui i file con estensione JSON e yml verranno resi bidimensionali.
 - **Prefix**: stringa aggiunta all'inizio di ogni chiave inserita nell'archivio di configurazione dell'app.

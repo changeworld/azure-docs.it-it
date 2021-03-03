@@ -4,22 +4,22 @@ description: Informazioni su come modificare i webhook, le app per la logica e m
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 1d6fc8e4b9baecf02531fc1baa617b87a9d3255c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c88d0b8595434298eb564034a44665c5375457c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614617"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701043"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare le app per la logica e manuali operativi per la migrazione delle regole di avviso classiche
 
 > [!NOTE]
-> Come [annunciato in precedenza](../platform/monitoring-classic-retirement.md), gli avvisi classici di monitoraggio di Azure sono ritirati per gli utenti del cloud pubblico, anche se sono ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. La data di ritiro per tali avvisi è stata estesa ulteriormente. Verrà presto annunciata una nuova data.
+> Come [annunciato in precedenza](monitoring-classic-retirement.md), gli avvisi classici di monitoraggio di Azure sono ritirati per gli utenti del cloud pubblico, anche se sono ancora in uso limitato fino al **31 maggio 2021**. Gli avvisi classici per il cloud di Azure per enti pubblici e Azure Cina 21Vianet si ritireranno il **29 febbraio 2024**.
 >
 
-Se si sceglie di migrare volontariamente le regole di avviso classiche alle nuove regole di avviso, tenere presente che esistono alcune differenze tra i due sistemi. In questo articolo vengono illustrate le differenze e il modo in cui è possibile prepararsi per la modifica.
+Se si sceglie di migrare volontariamente le regole di avviso classiche alle nuove regole di avviso, esistono alcune differenze tra i due sistemi. In questo articolo vengono illustrate le differenze e il modo in cui è possibile prepararsi per la modifica.
 
 ## <a name="api-changes"></a>Modifiche all'API
 
@@ -36,7 +36,7 @@ La tabella seguente è un riferimento alle interfacce programmatiche per gli avv
 
 ## <a name="notification-payload-changes"></a>Modifiche payload notifica
 
-Il formato del payload di notifica è leggermente diverso tra [le regole di avviso classiche](../platform/alerts-webhooks.md) e i [nuovi avvisi delle metriche](alerts-metric-near-real-time.md#payload-schema). Se sono presenti azioni webhook, app per la logica o Runbook attivate dalle regole di avviso classiche, è necessario aggiornare gli endpoint di notifica per accettare il formato di payload dei nuovi avvisi delle metriche.
+Il formato del payload di notifica è leggermente diverso tra [le regole di avviso classiche](alerts-webhooks.md) e i [nuovi avvisi delle metriche](alerts-metric-near-real-time.md#payload-schema). Se si dispone di regole di avviso classiche con le azioni webhook, app per la logica o Runbook, è necessario aggiornare le destinazioni in modo che accettino il nuovo formato del payload.
 
 Usare la tabella seguente per eseguire il mapping dei campi di payload del webhook dal formato classico al nuovo formato:
 
@@ -70,7 +70,7 @@ I payload sono simili, come si può vedere. La sezione seguente offre:
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modificare un'app per la logica per ricevere una notifica di avviso per la metrica
 
-Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. A tale scopo, seguire questa procedura:
+Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. Seguire questa procedura:
 
 1. Creare una nuova app per la logica.
 
@@ -153,13 +153,13 @@ Per un esempio completo di Runbook che interrompe una macchina virtuale quando v
 
 ## <a name="partner-integration-via-webhooks"></a>Integrazione di partner tramite webhook
 
-La maggior parte dei [partner che si integrano con gli avvisi classici](../platform/partners.md) supporta già avvisi di metrica più recenti tramite le loro integrazioni. Le integrazioni note che già funzionano con nuovi avvisi delle metriche sono:
+La maggior parte dei [partner che si integrano con gli avvisi classici](../partners.md) supporta già avvisi di metrica più recenti tramite le loro integrazioni. Le integrazioni note che già funzionano con nuovi avvisi delle metriche sono:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
 - [Signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-Se si usa un'integrazione partner non elencata, verificare con il provider di integrazione che l'integrazione funzioni con i nuovi avvisi delle metriche.
+Se si usa un'integrazione partner non elencata, verificare con il provider che funzionino con nuovi avvisi delle metriche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

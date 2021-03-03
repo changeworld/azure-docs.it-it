@@ -4,19 +4,21 @@ description: Sicurezza degli endpoint di benchmark di sicurezza di Azure V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 937d0b379c4f669e5b57e5053d5e3bffeb091e78
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 7672f4eb4530dbfb5d039b066fe7cf6eaf79e5a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368954"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718642"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Controllo di sicurezza V2: sicurezza degli endpoint
 
 Endpoint Security copre i controlli nel rilevamento e nella risposta degli endpoint. Questo include l'uso del servizio di rilevamento e risposta dell'endpoint e del servizio antimalware per gli endpoint negli ambienti di Azure.
+
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli dell'iniziativa incorporata relativa alla conformità normativa per il benchmark di sicurezza di Azure: sicurezza degli endpoint](../../governance/policy/samples/azure-security-benchmark#endpoint-security)
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: usare il rilevamento e la risposta degli endpoint (EDR)
 
@@ -26,13 +28,13 @@ Endpoint Security copre i controlli nel rilevamento e nella risposta degli endpo
 
 Abilitare le funzionalità di rilevamento e risposta degli endpoint per server e client ed eseguire l'integrazione con i processi SIEM e operazioni di sicurezza.
 
-Microsoft Defender Advanced Threat Protection offre la funzionalità EDR come parte di una piattaforma di sicurezza degli endpoint aziendali per prevenire, rilevare, analizzare e rispondere a minacce avanzate. 
+Microsoft Defender for endpoint fornisce la funzionalità EDR come parte di una piattaforma di sicurezza degli endpoint aziendali per prevenire, rilevare, analizzare e rispondere a minacce avanzate.
 
-- [Panoramica di Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
+- [Panoramica di Microsoft Defender per endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
 
-- [Servizio Microsoft Defender ATP per server Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
+- [Microsoft Defender per endpoint per server Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
 
-- [Servizio Microsoft Defender ATP per server non Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
+- [Microsoft Defender per endpoint per server non Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
 **Responsabilità**: Customer
 
@@ -56,7 +58,7 @@ Usare una soluzione antimalware per endpoint gestita a livello centralizzato in 
 
 Il Centro sicurezza di Azure può identificare automaticamente l'uso di una serie di soluzioni antimalware comuni per le macchine virtuali e segnalare lo stato di esecuzione di Endpoint Protection e creare raccomandazioni. 
 
-Microsoft antimalware per servizi cloud di Azure è l'anti-malware predefinito per le macchine virtuali (VM) Windows. Per le macchine virtuali Linux, usare una soluzione antimalware di terze parti.  È anche possibile usare il rilevamento delle minacce del Centro sicurezza di Azure per i servizi dati per rilevare il malware caricato negli account di archiviazione di Azure. 
+Microsoft antimalware per servizi cloud di Azure è l'anti-malware predefinito per le macchine virtuali (VM) Windows. Per le macchine virtuali Linux, usare una soluzione antimalware di terze parti. È anche possibile usare il rilevamento delle minacce del Centro sicurezza di Azure per i servizi dati per rilevare il malware caricato negli account di archiviazione di Azure. 
 
 - [Come configurare Microsoft antimalware per servizi cloud e macchine virtuali](../fundamentals/antimalware.md)
 
@@ -80,9 +82,9 @@ Microsoft antimalware per servizi cloud di Azure è l'anti-malware predefinito p
 |--|--|--|--|
 | ES-3 | 8.2 | SI-2, SI-3 |
 
-Verificare che le firme anti-malware vengano aggiornate in modo rapido e coerente. 
+Verificare che le firme anti-malware vengano aggiornate in modo rapido e coerente.
 
-Seguire le raccomandazioni nel centro sicurezza di Azure: " &amp; app di calcolo" per assicurarsi che tutti gli endpoint siano aggiornati con le firme più recenti. Per impostazione predefinita, Microsoft antimalware installerà automaticamente le firme e gli aggiornamenti del motore più recenti. Per Linux, usare una soluzione antimalware di terze parti.
+Seguire le raccomandazioni nel centro sicurezza di Azure: "calcolo & app" per assicurarsi che tutti gli endpoint siano aggiornati con le firme più recenti. Per impostazione predefinita, Microsoft antimalware installerà automaticamente le firme e gli aggiornamenti del motore più recenti. Per Linux, assicurarsi che le firme vengano aggiornate nella soluzione antimalware di terze parti.
 
 - [Come distribuire Microsoft antimalware per servizi cloud e macchine virtuali di Azure](../fundamentals/antimalware.md)
 

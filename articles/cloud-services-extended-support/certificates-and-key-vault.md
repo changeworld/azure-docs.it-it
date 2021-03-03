@@ -8,16 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9e69b4e9279f9147c2ee13d42a42aec0c5a15d96
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d9ff86eeb0e64e7edbad0eeca51b04cabbd191e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722654"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Usare i certificati con servizi cloud di Azure (supporto esteso)
 
-Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Gli insiemi di credenziali delle chiavi possono essere creati tramite [portale di Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) e [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio. È anche necessario abilitare Key Vault per le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault.  
+Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Gli insiemi di credenziali delle chiavi possono essere creati tramite [portale di Azure](../key-vault/general/quick-create-portal.md) e [PowerShell](../key-vault/general/quick-create-powershell.md). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio. È anche necessario abilitare Key Vault per le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault.  
 
 ## <a name="upload-a-certificate-to-key-vault"></a>Caricare un certificato in Key Vault 
 

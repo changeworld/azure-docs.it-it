@@ -4,19 +4,21 @@ description: Registrazione del benchmark di sicurezza di Azure V2 e rilevamento 
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a0ce52c094739ffbbce2f93a41b2533222066b8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43119a51be2359ed2ddfb4e5d5fa629badedb054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576803"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720682"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controllo di sicurezza V2: registrazione e rilevamento minacce
 
-Registrazione e rilevamento delle minacce copre i controlli per il rilevamento di minacce in Azure e l'abilitazione, la raccolta e l'archiviazione dei log di controllo per i servizi di Azure. Questo include l'abilitazione dei processi di rilevamento, analisi e correzione con i controlli per generare avvisi di alta qualità con il rilevamento delle minacce nativo nei servizi di Azure. include anche la raccolta di log con monitoraggio di Azure, la centralizzazione dell'analisi della sicurezza con Sentinel di Azure, la sincronizzazione dell'ora e la conservazione dei log. 
+Registrazione e rilevamento delle minacce copre i controlli per il rilevamento di minacce in Azure e l'abilitazione, la raccolta e l'archiviazione dei log di controllo per i servizi di Azure. Questo include l'abilitazione dei processi di rilevamento, analisi e correzione con i controlli per generare avvisi di alta qualità con il rilevamento delle minacce nativo nei servizi di Azure. include anche la raccolta di log con monitoraggio di Azure, la centralizzazione dell'analisi della sicurezza con Sentinel di Azure, la sincronizzazione dell'ora e la conservazione dei log.
+
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli dell'iniziativa incorporata relativa alla conformità normativa per il benchmark di sicurezza di Azure: registrazione e rilevamento delle minacce](../../governance/policy/samples/azure-security-benchmark#logging-and-threat-detection)
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: abilitazione del rilevamento delle minacce per le risorse di Azure
 
@@ -28,7 +30,7 @@ Assicurarsi di monitorare diversi tipi di risorse di Azure per potenziali minacc
 
 Usare la funzionalità di rilevamento delle minacce incorporata nel centro sicurezza di Azure, basata sul monitoraggio della telemetria dei servizi di Azure e sull'analisi dei log dei servizi. I dati vengono raccolti utilizzando l'agente di Log Analytics, che legge varie configurazioni correlate alla sicurezza e registri eventi dal sistema e copia i dati nell'area di lavoro per l'analisi. 
 
-Inoltre, è possibile usare Sentinel di Azure per creare regole di analisi, che cercano minacce corrispondenti a criteri specifici nell'ambiente. Le regole generano eventi imprevisti quando vengono confrontati i criteri, in modo da poter esaminare ogni evento imprevisto. Azure Sentinel può inoltre importare funzionalità di intelligence per le minacce di terze parti per migliorare la funzionalità di rilevamento delle minacce. 
+Inoltre, è possibile usare Sentinel di Azure per creare regole di analisi, che cercano minacce corrispondenti a criteri specifici nell'ambiente. Le regole generano eventi imprevisti quando vengono confrontati i criteri, in modo da poter esaminare ogni evento imprevisto. Azure Sentinel può inoltre importare Intelligence per le minacce di terze parti per migliorare la funzionalità di rilevamento delle minacce. 
 
 - [Protezione dalle minacce nel Centro sicurezza di Azure](../../security-center/azure-defender.md)
 
@@ -46,7 +48,7 @@ Inoltre, è possibile usare Sentinel di Azure per creare regole di analisi, che 
 
 - [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -83,9 +85,9 @@ Il Centro sicurezza di Azure può anche inviare avvisi su determinate attività 
 
 - [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Intelligence per le minacce](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -95,7 +97,9 @@ Il Centro sicurezza di Azure può anche inviare avvisi su determinate attività 
 |--|--|--|--|
 | LT-3 | 9,3, 12,2, 12,5, 12,8 | AU-3, AU-6, AU-12, SI-4 |
 
-Abilitare e raccogliere i log delle risorse del gruppo di sicurezza di rete (NSG), i log di flusso di NSG, i log del firewall di Azure e i log di Web Application Firewall (WAF) per l'analisi della sicurezza per supportare le indagini sugli eventi imprevisti, la ricerca di minacce e la generazione È possibile inviare i log di flusso a un'area di lavoro di monitoraggio di Azure Log Analytics e quindi usare Analisi del traffico per fornire informazioni dettagliate. Assicurarsi di raccogliere i log di query DNS per supportare la correlazione di altri dati di rete.
+Abilitare e raccogliere i log delle risorse del gruppo di sicurezza di rete (NSG), i log di flusso di NSG, i log del firewall di Azure e i log di Web Application Firewall (WAF) per l'analisi della sicurezza per supportare le indagini sugli eventi imprevisti, la ricerca di minacce e la generazione È possibile inviare i log di flusso a un'area di lavoro di monitoraggio di Azure Log Analytics e quindi usare Analisi del traffico per fornire informazioni dettagliate.
+
+Assicurarsi di raccogliere i log di query DNS per supportare la correlazione di altri dati di rete.
 
 - [Come abilitare i log dei flussi dei gruppi di sicurezza di rete](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -117,7 +121,7 @@ Abilitare e raccogliere i log delle risorse del gruppo di sicurezza di rete (NSG
 
 - [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -131,7 +135,7 @@ Abilitare e raccogliere i log delle risorse del gruppo di sicurezza di rete (NSG
 
 Abilitare la registrazione per le risorse di Azure in modo da soddisfare i requisiti di conformità, rilevamento delle minacce, caccia e analisi degli eventi imprevisti. 
 
-È possibile usare il Centro sicurezza di Azure e i criteri di Azure per abilitare i log delle risorse e la raccolta dei dati di log sulle risorse di Azure per l'accesso ai log di controllo, sicurezza e risorse. I log attività, che sono automaticamente disponibili, includono origine evento, data, utente, timestamp, indirizzi di origine, indirizzi di destinazione e altri elementi utili. 
+È possibile usare il Centro sicurezza di Azure e i criteri di Azure per abilitare i log delle risorse e la raccolta dei dati di log sulle risorse di Azure per l'accesso ai log di controllo, sicurezza e risorse. I log attività, che sono automaticamente disponibili, includono origine evento, data, utente, timestamp, indirizzi di origine, indirizzi di destinazione e altri elementi utili.
 
 - [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
@@ -145,7 +149,7 @@ Abilitare la registrazione per le risorse di Azure in modo da soddisfare i requi
 
 Sicurezza dell'infrastruttura e degli endpoint 
 
-- [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Intelligence per le minacce](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -155,13 +159,13 @@ Sicurezza dell'infrastruttura e degli endpoint
 |--|--|--|--|
 | LT-5 | 6,5, 6,6 | AU-3, SI-4 |
 
-Centralizzare l'archiviazione e l'analisi di registrazione per abilitare la correlazione. Per ogni origine di log, verificare di avere assegnato un proprietario di dati, le linee guida per l'accesso, il percorso di archiviazione, gli strumenti usati per elaborare e accedere ai dati e i requisiti di conservazione dei dati.
+Centralizzare l'archiviazione e l'analisi di registrazione per abilitare la correlazione. Per ogni origine di log, assicurarsi di avere assegnato un proprietario di dati, le linee guida per l'accesso, il percorso di archiviazione, gli strumenti usati per elaborare e accedere ai dati e i requisiti di conservazione dei dati.
 
 Assicurarsi di integrare i log attività di Azure nella registrazione centrale. Inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati dai dispositivi endpoint, le risorse di rete e altri sistemi di sicurezza. In monitoraggio di Azure usare le aree di lavoro Log Analytics per eseguire query ed eseguire analisi e usare gli account di archiviazione di Azure per l'archiviazione a lungo termine e di archiviazione.
 
 Inoltre, abilitare e caricare i dati in Sentinel di Azure o in un SIEM di terze parti.
 
-Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usati di frequente e archiviazione di Azure per dati "a freddo" usati con minore frequenza. 
+Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usati di frequente e archiviazione di Azure per dati "a freddo" usati con minore frequenza.
 
 - [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../../azure-monitor/essentials/diagnostic-settings.md)
 
@@ -189,7 +193,7 @@ In monitoraggio di Azure è possibile impostare il periodo di conservazione dell
 
 - [Modificare il periodo di conservazione dei dati in Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Esportazione avvisi e raccomandazioni del Centro sicurezza di Azure](../../security-center/continuous-export.md)
 
@@ -199,9 +203,9 @@ In monitoraggio di Azure è possibile impostare il periodo di conservazione dell
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della conformità alla sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -211,7 +215,7 @@ In monitoraggio di Azure è possibile impostare il periodo di conservazione dell
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
-Microsoft mantiene le origini temporali per la maggior parte dei servizi SaaS e PaaS di Azure. Per le macchine virtuali, usare il server NTP predefinito Microsoft per la sincronizzazione dell'ora, a meno che non si disponga di un requisito specifico.  Se è necessario configurare un server NTP (Network Time Protocol), assicurarsi di proteggere la porta del servizio UDP 123.
+Microsoft mantiene le origini temporali per la maggior parte dei servizi SaaS e PaaS di Azure. Per le macchine virtuali, usare il server NTP predefinito Microsoft per la sincronizzazione dell'ora, a meno che non si disponga di un requisito specifico. Se è necessario configurare un server NTP (Network Time Protocol), assicurarsi di proteggere la porta del servizio UDP 123.
 
 Tutti i log generati dalle risorse in Azure forniscono indicatori temporali con il fuso orario specificato per impostazione predefinita.
 

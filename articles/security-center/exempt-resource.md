@@ -7,12 +7,12 @@ ms.date: 01/22/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4012c7417345678717800f4fdede95947e00b828
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 374ddaa088fba9ae7035f170562e06b7f07eae47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709377"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Esenzione di risorse e consigli dal punteggio sicuro 
 
@@ -110,9 +110,9 @@ Come spiegato in precedenza in questa pagina, le regole di esenzione sono uno st
 
 Per tenere traccia del modo in cui gli utenti stanno esercitando questa funzionalità, è stato creato un modello di Azure Resource Manager (ARM) che distribuisce un playbook di app per la logica e tutte le connessioni API necessarie per ricevere una notifica quando è stata creata un'esenzione.
 
-- Per ulteriori informazioni sul PlayBook, vedere questo post nei Blog della [community della tecnologia](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
+- Per altre informazioni sul PlayBook, vedere il post di Blog della community tecnica [come tenere traccia delle esenzioni delle risorse nel centro sicurezza di Azure](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
 - Il modello ARM è presente nel [repository GitHub del Centro sicurezza di Azure](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
-- È possibile fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json) per distribuire tutti i componenti necessari 
+- Per distribuire tutti i componenti necessari, [usare questo processo automatizzato](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json)
 
 
 ## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Trovare raccomandazioni con esenzioni usando il grafico delle risorse di Azure

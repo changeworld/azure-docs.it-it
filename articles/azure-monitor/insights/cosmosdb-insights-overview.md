@@ -5,12 +5,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: fdf482f5afc444aff77c2ab528a4e333a0282c3d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582371"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725763"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Esplorare Monitoraggio di Azure per Azure Cosmos DB
 
@@ -87,13 +87,51 @@ Selezionare **Capacità** nella parte superiore della pagina; si apre la sezione
 
 Come per la cartella di lavoro Panoramica, selezionando l'elenco a discesa accanto a una risorsa di Azure Cosmos DB nella colonna **Sottoscrizione** viene mostrato il dettaglio in base ai singoli contenitori che costituiscono il database.
 
-### <a name="operations"></a>Operazioni 
+### <a name="operations"></a>Operazioni
 
-Selezionare **Operazioni** nella parte superiore della pagina; si apre la sezione **Operazioni** del modello della cartella di lavoro. Consente di visualizzare le richieste suddivise per tipo di richiesta effettuata. 
+Selezionare **Operazioni** nella parte superiore della pagina; si apre la sezione **Operazioni** del modello della cartella di lavoro. Consente di visualizzare le richieste suddivise per tipo di richiesta effettuata.
 
 Nell'esempio seguente è possibile notare che `eastus-billingint` riceve principalmente richieste di lettura, con un numero ridotto di richieste di upsert e creazione. Mentre `westeurope-billingint` è di sola lettura dal punto di vista della richiesta, almeno nelle ultime quattro ore in cui la cartella di lavoro è attualmente definita come ambito tramite il parametro intervallo di tempo.
 
-![Cartella di lavoro Operazioni](./media/cosmosdb-insights-overview/operation.png) 
+![Cartella di lavoro Operazioni](./media/cosmosdb-insights-overview/operation.png)
+
+## <a name="view-from-an-azure-cosmos-db-resource"></a>Visualizzare da una risorsa Azure Cosmos DB
+
+1. Cercare o selezionare uno degli account di Azure Cosmos DB esistenti.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-search.png" alt-text="Cercare Azure Cosmos DB." border="true":::
+
+2. Dopo aver navigato nell'account Azure Cosmos DB, nella sezione monitoraggio selezionare **informazioni dettagliate (anteprima)** o **cartelle di lavoro** per eseguire ulteriori analisi su velocità effettiva, richieste, archiviazione, disponibilità, latenza, sistema e gestione degli account.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Panoramica di Cosmos DB Insights." border="true":::
+
+### <a name="time-range"></a>Intervallo di ore
+
+Per impostazione predefinita, il campo **intervallo di tempo** Visualizza i dati delle **ultime 24 ore**. È possibile modificare l'intervallo di tempo per visualizzare i dati ovunque negli ultimi 5 minuti negli ultimi sette giorni. Il selettore dell'intervallo di tempo include anche una modalità **personalizzata** che consente di digitare le date di inizio/fine per visualizzare un intervallo di tempo personalizzato in base ai dati disponibili per l'account selezionato.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Cosmos DB intervallo di tempo." border="true":::
+
+### <a name="insights-overview"></a>Panoramica di Insights
+
+Nella scheda **Panoramica** sono disponibili le metriche più comuni per l'account Azure Cosmos DB selezionato, tra cui:
+
+* Totale richieste
+* Richieste non riuscite (429s)
+* Consumo ur normalizzato (max)
+* Utilizzo dell'indice & dati
+* Cosmos DB le metriche dell'account per raccolta
+
+**Totale richieste:** Questo grafico fornisce una visualizzazione delle richieste totali per l'account suddivise in base al codice di stato. Le unità nella parte inferiore del grafico sono una somma delle richieste totali per il periodo.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="Cosmos DB grafico richieste totali." border="true":::
+
+**Richieste non riuscite (429s)**: questo grafico fornisce una visualizzazione delle richieste non riuscite con codice di stato 429. Le unità nella parte inferiore del grafico sono una somma del totale delle richieste non riuscite per il periodo.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="Cosmos DB grafico richieste non riuscite." border="true":::
+
+**Consumo ur normalizzato (max)**: questo grafico fornisce la percentuale massima tra il 0-100% delle unità di consumo ur normalizzate per il periodo specificato.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="Cosmos DB consumo di ur normalizzato." border="true":::
 
 ## <a name="pin-export-and-expand"></a>Aggiungere, esportare ed espandere
 

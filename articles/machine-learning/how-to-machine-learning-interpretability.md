@@ -10,20 +10,20 @@ ms.custom: how-to, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: 6784361dde67d7dcc1423d9edbcc92ec513ff6d4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 02/25/2021
+ms.openlocfilehash: 2c61cfaf0e97f7d483239a23e5eea52b51c6a126
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222633"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690210"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretazione del modello in Azure Machine Learning (anteprima)
 
 
-## <a name="overview-of-model-interpretability"></a>Panoramica dell'interpretazione dei modelli
+## <a name="model-interpretability-overview"></a>Panoramica dell'interpretazione dei modelli
 
-L'interpretazione è essenziale per i data scientist, i revisori e i responsabili decisionali aziendali per garantire la conformità ai criteri aziendali, agli standard del settore e alle normative governative:
+L'interpretazione dei modelli è essenziale per i data scientist, i revisori e i responsabili decisionali aziendali per garantire la conformità ai criteri aziendali, agli standard del settore e alle normative governative:
 
 + I data scientist devono poter spiegare i propri modelli a dirigenti e stakeholder, in modo che possano comprendere il valore e l'accuratezza delle proprie scoperte. Richiedono anche l'interpretazione per eseguire il debug dei modelli e prendere decisioni informate su come migliorarle. 
 
@@ -31,15 +31,15 @@ L'interpretazione è essenziale per i data scientist, i revisori e i responsabil
 
 + I decisori aziendali devono avere la possibilità di garantire la trasparenza per gli utenti finali. In questo modo è possibile ottenere e mantenere l'attendibilità.
 
-
 L'abilitazione della funzionalità di spiegazione di un modello di apprendimento automatico è importante durante due fasi principali dello sviluppo di modelli:
+
 + Durante la fase di training, i progettisti e gli analizzatori di modelli possono utilizzare l'output di interpretazione di un modello per verificare le ipotesi e il trust di compilazione con le parti interessate. Usano anche le informazioni dettagliate sul modello per il debug, la convalida del comportamento del modello corrisponde ai rispettivi obiettivi e la verifica della correttezza del modello o delle funzionalità non significative.
 
 + Durante la fase di inferenza, la trasparenza dei modelli distribuiti consente ai dirigenti di comprendere in che modo il modello funziona e in che modo le sue decisioni trattano e influiscano sulle persone nella vita reale. 
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretabilità con Azure Machine Learning
 
-Le classi di interpretazione vengono rese disponibili tramite il pacchetto SDK seguente: (informazioni su come [installare i pacchetti SDK per Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
+Le classi di interpretazione del modello vengono rese disponibili tramite il pacchetto SDK seguente: (informazioni su come [installare i pacchetti SDK per Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
 * `azureml.interpret`, contiene funzionalità supportate da Microsoft.
 
@@ -52,11 +52,7 @@ Utilizzando le classi e i metodi nell'SDK, è possibile:
 + Ottieni l'interpretazione dei modelli sui set di risultati reali su larga scala, durante il training e l'inferenza.
 + Usare un dashboard di visualizzazione interattiva per individuare i modelli nei dati e le spiegazioni in fase di training
 
-
 In Machine Learning le **funzionalità** sono i campi dati usati per stimare un punto dati di destinazione. Ad esempio, per stimare il rischio di credito, è possibile che vengano usati campi dati per età, dimensioni dell'account e validità dell'account. In questo caso, l'età, le dimensioni dell'account e la validità dell'account sono **funzionalità**. L'importanza della funzionalità indica il modo in cui ogni campo dati ha interessato le stime del modello. Ad esempio, l'età può essere utilizzata molto spesso nella stima, mentre le dimensioni dell'account e l'età non influiscono significativamente sui valori di stima. Questo processo consente ai data scientist di spiegare le stime risultanti, in modo che le parti interessate abbiano visibilità sulle funzionalità più importanti del modello.
-
-Per informazioni sulle tecniche di interpretazione supportate, sui modelli di apprendimento automatico supportati e sugli ambienti di esecuzione supportati, vedere qui.
-
 
 ## <a name="supported-interpretability-techniques"></a>Tecniche di interpretazione supportate
 
@@ -70,9 +66,6 @@ Per informazioni sulle tecniche di interpretazione supportate, sui modelli di ap
 |Spiegazione del kernel SHAP| Il spiegatore kernel di SHAP usa una regressione lineare locale ponderata in modo specifico per stimare i valori di SHAP per **qualsiasi modello**.|Indipendente dal modello|
 |MIME Explainer (surrogato globale)| Mimic Explainer si basa sul concetto di training dei [modelli surrogati globali](https://christophm.github.io/interpretable-ml-book/global.html) per simulare i modelli blackbox. Un modello di surrogato globale è un modello interpretabile in modo intrinseco che viene sottoposto a training per approssimare le stime di **qualsiasi modello di Black Box** nel modo più accurato possibile. I data scientist possono interpretare il modello surrogato per trarre conclusioni sul modello di black box. È possibile usare uno dei modelli interpretabili seguenti come modello di surrogato: LightGBM (LGBMExplainableModel), regressione lineare (LinearExplainableModel), modello a discesa stocastica a gradiente (SGDExplainableModel) e albero delle decisioni (DecisionTreeExplainableModel).|Indipendente dal modello|
 |Spiegazione dell'importanza della funzionalità di permutazione (PFI)| L'importanza della funzionalità di permutazione è una tecnica usata per spiegare i modelli di classificazione e regressione ispirati dalla [carta delle foreste casuali di Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (vedere la sezione 10). A un livello elevato, il modo in cui funziona è rimescolando in modo casuale i dati una funzionalità alla volta per l'intero set di dati e calcolando la metrica di prestazioni modificata. Maggiore è la modifica, maggiore è l'importanza della funzionalità. PFI può spiegare il comportamento complessivo di **qualsiasi modello sottostante** , ma non spiega le singole stime. |Indipendente dal modello|
-
-
-
 
 Oltre alle tecniche di interpretazione descritte in precedenza, è supportato un altro Explainer basato su SHAP, denominato `TabularExplainer` . A seconda del modello, `TabularExplainer` Usa uno dei Shap Explainer supportati:
 

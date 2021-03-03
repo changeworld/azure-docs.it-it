@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 1cd90bc1906140e6e559c1557234458035e54042
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 22db0006e6abb38439a2db46584559dcd9ce3f3a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524703"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722365"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparare i dati per creare una voce personalizzata
 
@@ -27,9 +27,9 @@ Prima di poter eseguire il training di un modello vocale di sintesi vocale, sono
 > Se si vuole eseguire il training di una voce neurale, è necessario specificare un profilo di talento vocale con il file di consenso audio fornito dal talento vocale che riconosce di usare i propri dati vocali per eseguire il training di un modello vocale personalizzato. Quando si prepara lo script di registrazione, assicurarsi di includere la frase riportata di seguito. 
 
 > "I [dichiarare il nome e il cognome] sono consapevoli che le registrazioni della mia voce verranno usate da [stato nome della società] per creare e usare una versione sintetica della mia voce".
-Questa frase verrà usata per verificare se i dati di training vengono eseguiti dalla stessa persona che rilascia il consenso. Scopri di più sulla [Verifica del talento vocale](https://aka.ms/CNV-data-privacy) qui.
+Questa frase verrà usata per verificare se i dati di training vengono eseguiti dalla stessa persona che rilascia il consenso. Scopri di più sulla [Verifica del talento vocale](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) qui.
 
-> La voce neurale personalizzata è disponibile con accesso limitato. Assicurarsi di comprendere i [requisiti di intelligenza artificiale responsabili](https://aka.ms/gating-overview) e di [applicare l'accesso qui](https://aka.ms/customneural). 
+> La voce neurale personalizzata è disponibile con accesso limitato. Assicurarsi di comprendere i [requisiti di intelligenza artificiale responsabili](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) e di [applicare l'accesso qui](https://aka.ms/customneural). 
 
 ## <a name="data-types"></a>Tipi di dati
 

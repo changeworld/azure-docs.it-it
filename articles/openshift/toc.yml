@@ -55,7 +55,7 @@
             - name: Configurare Monitoraggio di Azure per i contenitori per Azure Red Hat OpenShift 4 (anteprima)
               href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: Disabilitare Monitoraggio di Azure per i contenitori per Azure Red Hat OpenShift 4 (anteprima)
-              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+              href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: Sviluppare ed eseguire applicazioni
       items:
         - name: Distribuire un'app Open Liberty/WebSphere Liberty
@@ -80,10 +80,10 @@
             - name: Monitoraggio di Azure per i contenitori in Azure Red Hat OpenShift 3.11 (anteprima)
               items:
                 - name: Configurare Monitoraggio di Azure per i contenitori in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  href: ../azure-monitor/containers/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Disabilitare Monitoraggio di Azure per i contenitori in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
+                  href: ../azure-monitor/containers/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Eseguire contenitori con privilegi in Azure Red Hat OpenShift 3.11
           href: howto-run-privileged-containers.md

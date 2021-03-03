@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: f06ed85e362f15e36e030cd11639d9d17348e938
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bcd56e464419312e74aec01cf22ae56f797991ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573607"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731766"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Distribuire monitoraggio di Azure su larga scala usando criteri di Azure
 Mentre alcune funzionalità di monitoraggio di Azure sono configurate una volta o un numero limitato di volte, altre devono essere ripetute per ogni risorsa che si vuole monitorare. Questo articolo descrive i metodi per l'uso di criteri di Azure per implementare monitoraggio di Azure su larga scala per garantire che il monitoraggio sia configurato in modo coerente e accurato per tutte le risorse di Azure.
@@ -121,34 +121,34 @@ L'iniziativa verrà applicata a ogni macchina virtuale creata. Un' [attività di
 ![Monitoraggio e aggiornamento delle iniziative](media/deploy-scale/initiative-remediation.png)
 
 
-## <a name="azure-monitor-for-vms"></a>Monitoraggio di Azure per le macchine virtuali
-[Monitoraggio di Azure per le macchine virtuali](vm/vminsights-overview.md) è lo strumento principale di monitoraggio di Azure per il monitoraggio delle macchine virtuali. L'abilitazione di Monitoraggio di Azure per le macchine virtuali installa sia l'agente Log Analytics che Dependency Agent. Anziché eseguire manualmente queste attività, usare criteri di Azure per assicurarsi che ogni macchina virtuale sia configurata durante la creazione.
+## <a name="vm-insights"></a>Informazioni dettagliate sulle macchine virtuali
+[VM Insights](vm/vminsights-overview.md) è lo strumento principale di monitoraggio di Azure per il monitoraggio delle macchine virtuali. L'abilitazione di VM Insights installa sia l'agente Log Analytics che Dependency Agent. Anziché eseguire manualmente queste attività, usare criteri di Azure per assicurarsi che ogni macchina virtuale sia configurata durante la creazione.
 
 > [!NOTE]
-> Monitoraggio di Azure per le macchine virtuali include una funzionalità denominata **monitoraggio di Azure per le macchine virtuali copertura dei criteri** che consente di individuare e correggere le macchine virtuali non conformi nell'ambiente in uso. È possibile usare questa funzionalità piuttosto che lavorare direttamente con criteri di Azure per le macchine virtuali di Azure e per le macchine virtuali ibride connesse ad Azure Arc. Per i set di scalabilità di macchine virtuali di Azure, è necessario creare l'assegnazione usando criteri di Azure.
+> VM Insights include una funzionalità denominata **copertura dei criteri di VM Insights** che consente di individuare e correggere le macchine virtuali non conformi nell'ambiente. È possibile usare questa funzionalità piuttosto che lavorare direttamente con criteri di Azure per le macchine virtuali di Azure e per le macchine virtuali ibride connesse ad Azure Arc. Per i set di scalabilità di macchine virtuali di Azure, è necessario creare l'assegnazione usando criteri di Azure.
  
 
-Monitoraggio di Azure per le macchine virtuali include le seguenti iniziative predefinite che installano entrambi gli agenti per abilitare il monitoraggio completo. 
+VM Insights include le seguenti iniziative predefinite che installano entrambi gli agenti per abilitare il monitoraggio completo. 
 
 |Nome |Descrizione |
 |:---|:---|
-|Abilita Monitoraggio di Azure per le macchine virtuali | Installa l'agente di Log Analytics e l'agente di dipendenza nelle VM di Azure e nelle macchine virtuali ibride connesse ad Azure Arc. |
+|Abilitare VM Insights | Installa l'agente di Log Analytics e l'agente di dipendenza nelle VM di Azure e nelle macchine virtuali ibride connesse ad Azure Arc. |
 |Abilitare monitoraggio di Azure per i set di scalabilità di macchine virtuali | Installa l'agente di Log Analytics e l'agente di dipendenza nel set di scalabilità di macchine virtuali di Azure. |
 
 
 ### <a name="virtual-machines"></a>Macchine virtuali
-Anziché creare assegnazioni per queste iniziative usando l'interfaccia di criteri di Azure, Monitoraggio di Azure per le macchine virtuali include una funzionalità che consente di controllare il numero di macchine virtuali in ogni ambito per determinare se l'iniziativa è stata applicata. È quindi possibile configurare l'area di lavoro e creare le assegnazioni richieste usando tale interfaccia.
+Anziché creare assegnazioni per queste iniziative usando l'interfaccia di criteri di Azure, VM Insights include una funzionalità che consente di controllare il numero di macchine virtuali in ogni ambito per determinare se l'iniziativa è stata applicata. È quindi possibile configurare l'area di lavoro e creare le assegnazioni richieste usando tale interfaccia.
 
-Per informazioni dettagliate su questo processo, vedere [abilitare monitoraggio di Azure per le macchine virtuali usando criteri di Azure](./vm/vminsights-enable-policy.md).
+Per informazioni dettagliate su questo processo, vedere [abilitare VM Insights tramite criteri di Azure](./vm/vminsights-enable-policy.md).
 
-![Criteri di Monitoraggio di Azure per le macchine virtuali](media/deploy-scale/vminsights-policy.png)
+![Criteri di VM Insights](media/deploy-scale/vminsights-policy.png)
 
 ### <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
 Per usare criteri di Azure per abilitare il monitoraggio per i set di scalabilità di macchine virtuali, assegnare l'iniziativa **Abilita monitoraggio di Azure per i set di scalabilità di macchine virtuali** a un gruppo di gestione, una sottoscrizione o un gruppo di risorse di Azure a seconda dell'ambito delle risorse da monitorare. Un [gruppo di gestione](../governance/management-groups/overview.md) è particolarmente utile per i criteri di ambito, soprattutto se l'organizzazione dispone di più sottoscrizioni.
 
 ![Screenshot della pagina Assign Initiative in portale di Azure. La definizione Initiative è impostata per abilitare monitoraggio di Azure per i set di scalabilità di macchine virtuali.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
-Selezionare l'area di lavoro a cui verranno inviati i dati. Per questa area di lavoro deve essere installata la soluzione *VMInsights* come descritto in [configurare l'area di lavoro log Analytics per monitoraggio di Azure per le macchine virtuali](vm/vminsights-configure-workspace.md).
+Selezionare l'area di lavoro a cui verranno inviati i dati. Per questa area di lavoro deve essere installata la soluzione *VMInsights* come descritto in [configurare log Analytics area di lavoro per VM Insights](vm/vminsights-configure-workspace.md).
 
 ![Selezionare l'area di lavoro](media/deploy-scale/virtual-machine-scale-set-workspace.png)
 
@@ -157,7 +157,7 @@ Creare un'attività di correzione se si dispone di un set di scalabilità di mac
 ![Attività di correzione](media/deploy-scale/virtual-machine-scale-set-remediation.png)
 
 ### <a name="log-analytics-agent"></a>Agente di Log Analytics
-Potrebbero esistere scenari in cui si vuole installare l'agente di Log Analytics ma non l'agente di dipendenza. Non esiste alcuna iniziativa predefinita solo per l'agente, ma è possibile crearne una personalizzata in base alle definizioni dei criteri predefinite fornite da Monitoraggio di Azure per le macchine virtuali.
+Potrebbero esistere scenari in cui si vuole installare l'agente di Log Analytics ma non l'agente di dipendenza. Non esiste alcuna iniziativa predefinita solo per l'agente, ma è possibile crearne una personalizzata in base alle definizioni di criteri predefinite fornite da VM Insights.
 
 > [!NOTE]
 > Non esiste alcun motivo per la distribuzione autonoma di Dependency Agent, perché richiede che l'agente Log Analytics fornisca i dati a monitoraggio di Azure.

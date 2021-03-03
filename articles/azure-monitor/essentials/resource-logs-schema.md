@@ -4,12 +4,12 @@ description: Informazioni sui servizi e sullo schema di eventi supportati per i 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: b37535b67ed1873c5a492e28e6bf4da8c67c7e5d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c426074bbeb2792f152063d938e867b86dc1f6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717537"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schema comune e specifico del servizio per i log delle risorse di Azure
 
@@ -73,14 +73,14 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Frontdoor | [Registrazione per lo sportello anteriore](../../frontdoor/front-door-diagnostics.md) |
 | Hub IoT | [Operazioni dell'hub IoT](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Registrazione dell'insieme di credenziali delle chiavi di Azure](../../key-vault/general/logging.md) |
-| Servizio Kubernetes |[Registrazione di Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
+| Servizio Kubernetes |[Registrazione di Azure Kubernetes](../../aks/view-control-plane-logs.md#log-event-schema) |
 | Load Balancer |[Analisi dei log per il servizio di bilanciamento del carico di Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | App per la logica |[Schema di rilevamento personalizzato per le app per la logica B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Gruppi di sicurezza di rete |[Analisi dei log per i gruppi di sicurezza di rete](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Protezione DDoS | [Registrazione per la protezione DDoS di Azure standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Power BI dedicato | [Registrazione per Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Servizi di ripristino | [Modello di dati per backup di Azure](../../backup/backup-azure-reports-data-model.md)|
-| Cerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
+| Ricerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
 | Bus di servizio |[Log del bus di servizio di Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Database SQL | [Registrazione del database SQL di Azure](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Analisi di flusso |[Log di processo](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |

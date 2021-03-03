@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: bd8c079e91a6765dff8ad347085c44d0aa2f8d82
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9c928040aa2ff5a6ebfb7102c03450d3d7297b59
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737304"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686479"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Creare un controller di dati di Azure Arc nell'portale di Azure
 
@@ -48,6 +48,10 @@ Attenersi alla procedura seguente per creare un controller di dati di Azure ARC 
 1. Selezionare un profilo di configurazione della distribuzione.
 1. Fare clic sul pulsante **Apri in Azure studio** .
 1. Nella schermata successiva verrà visualizzato un riepilogo delle selezioni e un notebook generato.  Per scaricare il notebook, è possibile fare clic sul pulsante **Scarica Notebook di provisioning** .
+
+   > [!IMPORTANT]
+   > In Azure Red Hat OpenShift o Red Hat OpenShift container Platform è necessario applicare il vincolo del contesto di sicurezza prima di creare il controller di dati. Seguire le istruzioni in [applicare un vincolo del contesto di sicurezza per Azure Arc Enabled Data Services in OpenShift](how-to-apply-security-context-constraint.md).
+
 1. Aprire il notebook in Azure Data Studio e fare clic sul pulsante **Esegui tutto** nella parte superiore.
 1. Seguire i prompt e le istruzioni nel notebook per completare la creazione del controller di dati.
 

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 198a5da63ed90937c53f7f12f3559f15100e8f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65da8e07c01561577fe7eff449bfc10348c7f277
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88031432"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716602"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorare, ricevere e inviare eventi con Hub eventi di Azure e App per la logica di Azure
 
@@ -37,7 +37,7 @@ Per assicurarsi che l'app per la logica possa accedere all'hub eventi, controlla
 
 1. Passare allo *spazio dei nomi* di Hub eventi, non a un hub eventi specifico. 
 
-1. Nel menu spazio dei nomi, in **Impostazioni**, selezionare **criteri di accesso condiviso**. In **attestazioni**verificare di disporre delle autorizzazioni di **gestione** per lo spazio dei nomi.
+1. Nel menu spazio dei nomi, in **Impostazioni**, selezionare **criteri di accesso condiviso**. In **attestazioni** verificare di disporre delle autorizzazioni di **gestione** per lo spazio dei nomi.
 
    ![Gestire le autorizzazioni per lo spazio dei nomi di Hub eventi](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
@@ -50,7 +50,7 @@ Per assicurarsi che l'app per la logica possa accedere all'hub eventi, controlla
       ![Copiare la stringa di connessione dello spazio dei nomi di Hub eventi](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
       > [!TIP]
-      > Per verificare se la stringa di connessione è associata allo spazio dei nomi di Hub eventi o a un hub eventi specifico, assicurarsi che nella stringa non sia presente il parametro `EntityPath` . Se questo parametro è presente, la stringa di connessione è per un'entità hub eventi specifica e non è la stringa corretta da usare con l'app per la logica.
+      > Per verificare se la stringa di connessione è associata allo spazio dei nomi di Hub eventi o a un hub eventi specifico, assicurarsi che nella stringa non sia presente il parametro `EntityPath`. Se questo parametro è presente, la stringa di connessione è per un'entità hub eventi specifica e non è la stringa corretta da usare con l'app per la logica.
 
 1. Procedere quindi ad [aggiungere un trigger per hub eventi](#add-trigger) o [aggiungere un'azione per hub eventi](#add-action).
 
@@ -67,7 +67,7 @@ Nell'esempio viene illustrato come avviare un flusso di lavoro di app per la log
 
 1. Nel portale di Azure o in Visual Studio creare un'app per la logica vuota, che apre Progettazione app per la logica. Questo esempio usa il portale di Azure.
 
-1. Nella casella di ricerca, immettere "hub eventi" come filtro. Dall'elenco trigger selezionare questo trigger: **quando sono disponibili eventi nell'hub eventi-Hub eventi**
+1. Nella casella di ricerca immettere "hub eventi" come filtro. Dall'elenco trigger selezionare questo trigger: **quando sono disponibili eventi nell'hub eventi-Hub eventi**
 
    ![Selezionare il trigger](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
@@ -117,7 +117,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
    Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. 
    Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
-1. Nella casella di ricerca, immettere "hub eventi" come filtro.
+1. Nella casella di ricerca immettere "hub eventi" come filtro.
 Dall'elenco delle azioni selezionare questa azione: **Invia evento-Hub eventi**
 
    ![Selezionare l'azione "Invia evento"](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
@@ -163,7 +163,7 @@ Dall'elenco delle azioni selezionare questa azione: **Invia evento-Hub eventi**
    Per immettere manualmente la stringa di connessione, selezionare **immettere manualmente le informazioni di connessione**. 
    Leggere [come trovare la stringa di connessione](#permissions-connection-string).
 
-2. Se del caso, selezionare i criteri di Hub eventi da usare. Scegliere **Create**.
+2. Se del caso, selezionare i criteri di Hub eventi da usare. Scegliere **Crea**.
 
    ![Creare una connessione a Hub eventi, parte 2](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
 

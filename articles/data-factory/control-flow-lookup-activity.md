@@ -5,28 +5,32 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 5f46e2871aa0017f0a4b33df04a8ae9058c59e17
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/25/2021
+ms.openlocfilehash: 4b2fb49899b6a676520fe0912dd122dd72cce023
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385473"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712913"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L'attività Lookup consente di recuperare un set di dati da qualsiasi origine dati supportata da Azure Data Factory. Usarla nel seguente scenario:
-- Determinare in modo dinamico gli oggetti su cui operare in un'attività successiva, anziché impostare come hardcoded il nome dell'oggetto. Alcuni esempi di oggetti sono file e tabelle.
+L'attività Lookup consente di recuperare un set di dati da qualsiasi origine dati supportata da Azure Data Factory. è possibile usarlo per determinare in modo dinamico gli oggetti su cui operare in un'attività successiva, anziché codificare in modo rigido il nome dell'oggetto. Alcuni esempi di oggetti sono file e tabelle.
 
-L'attività Lookup legge e restituisce il contenuto di un file di configurazione o una tabella. Restituisce anche il risultato dell'esecuzione di una query o di una stored procedure. L'output dall'attività Lookup può essere usato in un'attività di trasformazione o di copia successiva se è un valore singleton. Può essere usato in un'attività ForEach se è una matrice di attributi.
+L'attività Lookup legge e restituisce il contenuto di un file di configurazione o una tabella. Restituisce anche il risultato dell'esecuzione di una query o di una stored procedure. L'output può essere un valore singleton o una matrice di attributi, che può essere utilizzato in un'attività di copia, trasformazione o flusso di controllo successiva come l'attività ForEach.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Per l'attività Lookup attualmente sono supportate le origini dati seguenti. 
+Tenere presente quanto segue:
 
-L'attività Lookup può restituire fino a 5000 righe; Se il set di risultati contiene più record, verranno restituite le prime 5000 righe. L'output dell'attività di ricerca supporta fino a circa 4 MB di dimensioni. l'attività avrà esito negativo se le dimensioni superano il limite. Attualmente, la durata più lunga per l'attività di ricerca prima del timeout è di 24 ore.
+- L'attività Lookup può restituire fino a **5000 righe**; Se il set di risultati contiene più record, verranno restituite le prime 5000 righe.
+- L'output dell'attività di ricerca supporta fino a **4 MB** di dimensioni. l'attività avrà esito negativo se le dimensioni superano il limite. 
+- La durata più lunga per l'attività di ricerca prima del timeout è di **24 ore**.
+- Quando si utilizza query o stored procedure per la ricerca dei dati, assicurarsi di restituire uno e un set di risultati esatto. In caso contrario, l'attività di ricerca non riesce.
+
+Per l'attività Lookup attualmente sono supportate le origini dati seguenti. 
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -381,7 +385,7 @@ Di seguito vengono descritte alcune limitazioni dell'attività Lookup con le sol
 
 | Limitazione | Soluzione alternativa |
 |---|---|
-| Per l'attività Lookup sono previsti un massimo di 5.000 righe e dimensioni massime di 2 MB. | Progettare una pipeline a due livelli in cui la pipeline esterna esegue l'iterazione su una pipeline interna, che recupera i dati che non superano il numero massimo di righe o le dimensioni massime. |
+| L'attività Lookup ha un massimo di 5.000 righe e una dimensione massima di 4 MB. | Progettare una pipeline a due livelli in cui la pipeline esterna esegue l'iterazione su una pipeline interna, che recupera i dati che non superano il numero massimo di righe o le dimensioni massime. |
 | | |
 
 ## <a name="next-steps"></a>Passaggi successivi

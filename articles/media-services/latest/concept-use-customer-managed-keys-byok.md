@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 27d357279a54d7abc351370e7afda3a7961bac33
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 4564e28f76aebe7f708c2b6f68903fe67bcefe26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428555"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698859"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Bring your own key (chiavi gestite dal cliente) con servizi multimediali
 
@@ -42,7 +42,7 @@ La chiave può essere una chiave di 2048, 3072 o una chiave RSA 4096, mentre le 
 Servizi multimediali supporta automaticamente la crittografia doppia. Per i dati inattivi, il primo livello di crittografia usa una chiave gestita dal cliente o una chiave gestita da Microsoft, a seconda dell' `AccountEncryption` impostazione dell'account.  Il secondo livello di crittografia per i dati inattivi viene fornito automaticamente usando una chiave gestita Microsoft separata. Per altre informazioni sulla crittografia doppia, vedere [crittografia doppia di Azure](../../security/fundamentals/double-encryption.md).
 
 > [!NOTE]
-> La crittografia doppia viene abilitata automaticamente nell'account di servizi multimediali. Tuttavia, è necessario configurare separatamente la chiave gestita dal cliente e la doppia crittografia nell'account di archiviazione. Vedere [crittografia storege](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+> La crittografia doppia viene abilitata automaticamente nell'account di servizi multimediali. Tuttavia, è necessario configurare separatamente la chiave gestita dal cliente e la doppia crittografia nell'account di archiviazione. Vedere [crittografia storege](../../storage/common/storage-service-encryption.md).
 
 ## <a name="tutorials"></a>Esercitazioni
 

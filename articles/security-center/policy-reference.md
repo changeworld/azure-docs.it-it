@@ -7,12 +7,12 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: ab6556bc391eb3136fa8c4ba40f5a5d71da956e7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 3b5860cc4ada88e2e7c7813e3441db3ec89f31af
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093047"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729922"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definizioni predefinite di Criteri di Azure per Centro sicurezza di Azure
 
@@ -20,7 +20,7 @@ Questa pagina è un indice delle definizioni dei criteri predefiniti di [criteri
 
 - Il gruppo [iniziative](#azure-security-center-initiatives) elenca le definizioni delle iniziative di criteri di Azure nella categoria "Centro sicurezza".
 - Il gruppo [Initiative predefinito](#azure-security-center-initiatives) elenca tutte le definizioni di criteri di Azure che fanno parte dell'iniziativa predefinita del Centro sicurezza, [benchmark di sicurezza di Azure](../security/benchmarks/introduction.md). Questo benchmark creato da Microsoft, ampiamente rispettato si basa sui controlli provenienti da [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
-- Il gruppo [categoria](#azure-security-center-category) elenca tutte le definizioni di criteri di Azure nella categoria ' Centro sicurezza '.
+- Il gruppo [categoria](#azure-security-center-category) elenca tutte le definizioni di criteri di Azure nella categoria "Centro sicurezza".
 
 Per altre informazioni sui criteri di sicurezza, vedere [Utilizzo dei criteri di sicurezza](./tutorial-security-policy.md). Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
@@ -32,7 +32,7 @@ Per informazioni sulle iniziative predefinite monitorate dal centro sicurezza, v
 
 [!INCLUDE [azure-policy-reference-policyset-security-center](../../includes/policy/reference/bycat/policysets-security-center.md)]
 
-## <a name="azure-security-center-default-initiative"></a>Iniziativa predefinita del Centro sicurezza di Azure
+## <a name="security-centers-default-initiative-azure-security-benchmark"></a>Iniziativa predefinita del Centro sicurezza (benchmark di sicurezza di Azure)
 
 Per informazioni sui criteri predefiniti monitorati dal centro sicurezza, vedere la tabella seguente:
 

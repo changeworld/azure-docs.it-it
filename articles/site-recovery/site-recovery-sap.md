@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 69f0a20bdcba23d947e3d1b573c1a359da245161
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e639762cd1adb7bbbc3fb2ec31f4ce52710e46f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369421"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711944"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurare il ripristino di emergenza per una distribuzione di applicazioni SAP NetWeaver multilivello
 
@@ -167,5 +167,5 @@ Per altre informazioni, vedere [Failover di test in Azure in Site Recovery](site
 Per altre informazioni, vedere [Failover in Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulla creazione di una soluzione di ripristino di emergenza per le distribuzioni di SAP NetWeaver con Site Recovery. Vedere la pagina relativa alla [creazione di una soluzione di ripristino di emergenza con Site Recovery di white paper SAP NetWeaver](https://aka.ms/asr_sap). Il white paper illustra le raccomandazioni per diverse architetture SAP. È possibile visualizzare le applicazioni e i tipi di VM supportati per SAP in Azure. Sono inoltre disponibili opzioni di piano per il test della soluzione di ripristino di emergenza.
+* Altre informazioni sulla creazione di una soluzione di ripristino di emergenza per le distribuzioni di SAP NetWeaver con Site Recovery. Vedere la pagina relativa alla [creazione di una soluzione di ripristino di emergenza con Site Recovery di white paper SAP NetWeaver](/samples/browse/?redirectedfrom=TechNet-Gallery). Il white paper illustra le raccomandazioni per diverse architetture SAP. È possibile visualizzare le applicazioni e i tipi di VM supportati per SAP in Azure. Sono inoltre disponibili opzioni di piano per il test della soluzione di ripristino di emergenza.
 * Sono disponibili altre informazioni sulla [replica di altri carichi di lavoro](site-recovery-workload.md) con Site Recovery.

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 388a4f06d79116c42bf80cb25d0b133474c02192
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393854"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737631"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Risolvere i problemi di prestazioni delle condivisioni file di Azure
 
@@ -50,7 +50,7 @@ Per verificare se la condivisione è limitata, è possibile accedere alle metric
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
-    Per altre informazioni su ogni tipo di risposta, vedere [dimensioni metrica](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+    Per altre informazioni su ogni tipo di risposta, vedere [dimensioni metrica](./storage-files-monitoring-reference.md#metrics-dimensions).
 
     ![Screenshot delle opzioni relative alle metriche per le condivisioni file Premium che mostrano un filtro proprietà "tipo di risposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -258,13 +258,12 @@ Per confermare, è possibile usare le metriche di Azure nel portale-
    > [!NOTE]
    > Se i tipi di risposta non sono elencati nell'elenco a discesa **valori dimensione** , significa che la risorsa non è stata limitata. Per aggiungere i valori della dimensione, accanto all'elenco a discesa **valori dimensione** selezionare **Aggiungi valore personalizzato**, immettere il tipo di Response (ad esempio, **SuccessWithThrottling**), fare clic su **OK**, quindi ripetere questi passaggi per aggiungere tutti i tipi di risposta applicabili per la condivisione file.
 
-8. Fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
-9. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
-
+8. Per le **condivisioni file Premium**, fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**. Per le **condivisioni file standard**, passare al **passaggio #10**.
 
    > [!NOTE]
-   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
+   > Se la condivisione file è una condivisione file standard, nella dimensione **condivisione file** non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
 
+9. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
 10. Definire i **parametri di avviso** (valore soglia, operatore, granularità aggregazione e frequenza di valutazione) e fare clic su **fine**.
 
     > [!TIP]

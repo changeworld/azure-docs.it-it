@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 17b2e260f9a90ddda6e246058cefb1bec8b1ac5e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 346d58dbe06a29a4ba114ae788dee16e80b8f9df
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671200"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695482"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Come si applica Vantaggio Azure Hybrid per le macchine virtuali Linux
 
@@ -177,7 +177,7 @@ Per altre informazioni sulla conformità delle sottoscrizioni di Red Hat, sugli 
 
 ### <a name="suse"></a>SUSE
 
-Per usare Vantaggio Azure Hybrid per le VM SLES e per informazioni sul passaggio da SLES PAYG a BYOS o dal passaggio da SLES BYOS a PAYG, vedere [SUSE Linux Enterprise e vantaggio Azure Hybrid](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
+Per usare Vantaggio Azure Hybrid per le VM SLES e per informazioni sul passaggio da SLES PAYG a BYOS o dal passaggio da SLES BYOS a PAYG, vedere [SUSE Linux Enterprise e vantaggio Azure Hybrid](https://www.suse.com/support/kb/doc/?id=000019868). 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 *D: è possibile usare un tipo di licenza `RHEL_BYOS` con un'immagine SLES o viceversa?*

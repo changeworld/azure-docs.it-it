@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 13228ec762db195d0c460e84871b75323f6b98e5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 54c6245ea5290e2cab0efcd52f2208ba874c0848
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913709"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720444"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Driver ABFS (Azure Blob File System): un driver di Archiviazione di Azure dedicato per Hadoop
 
@@ -44,7 +44,7 @@ Internamente, il driver ABFS converte in file e directory le risorse specificate
 
 ### <a name="authentication"></a>Authentication
 
-Il driver ABFS supporta due forme di autenticazione per consentire all'applicazione Hadoop di accedere in modo sicuro alle risorse contenute nell'account con supporto di Data Lake Storage Gen2. Per informazioni sugli schemi di autenticazione disponibili, vedere la [Guida alla sicurezza di Archiviazione di Azure](security-recommendations.md). ovvero:
+Il driver ABFS supporta due forme di autenticazione per consentire all'applicazione Hadoop di accedere in modo sicuro alle risorse contenute nell'account con supporto di Data Lake Storage Gen2. Per informazioni sugli schemi di autenticazione disponibili, vedere la [Guida alla sicurezza di Archiviazione di Azure](security-recommendations.md). Ad esempio:
 
 - **Chiave condivisa:** consente agli utenti di accedere a TUTTE le risorse nell'account. La chiave viene crittografata e archiviata nella configurazione Hadoop.
 
@@ -65,5 +65,5 @@ Informazioni dettagliate sul driver ABFS sono disponibili nella [documentazione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un cluster Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
+- [Creare un cluster Azure Databricks](./data-lake-storage-use-databricks-spark.md)
 - [Usare l'URI di Azure Data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md)

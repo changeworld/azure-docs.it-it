@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/30/2020
-ms.openlocfilehash: 540ca293afdd7514793b8eec390b4751885859df
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f2d2670b974555b83ec622b22eb2dae8f3c9899b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618457"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710979"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connetti Configuration Manager a monitoraggio di Azure
 È possibile connettere l'ambiente Microsoft endpoint Configuration Manager a monitoraggio di Azure per sincronizzare i dati della raccolta dispositivi e fare riferimento a tali raccolte in monitoraggio di Azure e automazione di Azure.  
@@ -44,7 +44,7 @@ I passaggi seguenti riepilogano i passaggi per configurare Configuration Manager
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Fornire a Configuration Manager le autorizzazioni per Log Analytics
 
-Nella procedura seguente si concede il ruolo *Collaboratore* nell'area di lavoro Log Analytics all'applicazione AD e all'entità servizio creata in precedenza per Configuration Manager. Se non si ha ancora un'area di lavoro, vedere [creare un'area di lavoro in monitoraggio di Azure prima di](../learn/quick-create-workspace.md) procedere. In questo modo, si consente a Configuration Manager di eseguire l'autenticazione e connettersi all'area di lavoro Log Analytics.  
+Nella procedura seguente si concede il ruolo *Collaboratore* nell'area di lavoro Log Analytics all'applicazione AD e all'entità servizio creata in precedenza per Configuration Manager. Se non si ha ancora un'area di lavoro, vedere [creare un'area di lavoro in monitoraggio di Azure prima di](./quick-create-workspace.md) procedere. In questo modo, si consente a Configuration Manager di eseguire l'autenticazione e connettersi all'area di lavoro Log Analytics.  
 
 > [!NOTE]
 > È necessario specificare le autorizzazioni nell'area di lavoro Log Analytics per Configuration Manager. In caso contrario, viene visualizzato un messaggio di errore quando si usa la procedura guidata di configurazione in Configuration Manager.
@@ -148,9 +148,8 @@ Una volta importate le raccolte, è possibile vedere quanti computer con apparte
 
 ![Screenshot delle impostazioni avanzate dei gruppi di computer per C C M che mostra l'opzione per l'importazione Configuration Manager le appartenenze alla raccolta selezionate.](./media/collect-sccm/sccm-computer-groups02.png)
 
-Quando si fa clic su uno di essi, viene visualizzato l'editor di query di log con tutti i gruppi importati o tutti i computer appartenenti a ogni gruppo. Con la [Ricerca log](../log-query/log-query-overview.md)è possibile eseguire un'analisi approfondita dei dati di appartenenza della raccolta.
+Quando si fa clic su uno di essi, viene visualizzato l'editor di query di log con tutti i gruppi importati o tutti i computer appartenenti a ogni gruppo. Con la [Ricerca log](./log-query-overview.md)è possibile eseguire un'analisi approfondita dei dati di appartenenza della raccolta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare [Ricerca Log](../log-query/log-query-overview.md) per visualizzare le informazioni dettagliate sui dati di Configuration Manager.
-
+Usare [Ricerca Log](./log-query-overview.md) per visualizzare le informazioni dettagliate sui dati di Configuration Manager.

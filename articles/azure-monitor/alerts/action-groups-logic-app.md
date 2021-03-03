@@ -4,14 +4,14 @@ description: Informazioni su come creare un'azione dell'app per la logica per el
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 02/19/2021
 ms.subservice: alerts
-ms.openlocfilehash: d74d77abbc0d105e6772240b8a6d7f463e8d94f7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: adef1f729cbecd08b2cf99231423287bdc4c6ae0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620316"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701179"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Come attivare azioni complesse con avvisi di Monitoraggio di Azure
 
@@ -19,7 +19,7 @@ Questo articolo illustra come configurare e attivare un'app per la logica per cr
 
 ## <a name="overview"></a>Panoramica
 
-Quando si attiva un avviso di Monitoraggio di Azure, viene chiamato un [gruppo di azioni](../platform/action-groups.md). I gruppi di azioni consentono di attivare una o più azioni per notificare un avviso agli utenti e correggere il problema.
+Quando si attiva un avviso di Monitoraggio di Azure, viene chiamato un [gruppo di azioni](./action-groups.md). I gruppi di azioni consentono di attivare una o più azioni per notificare un avviso agli utenti e correggere il problema.
 
 Il processo generale è il seguente:
 
@@ -35,29 +35,15 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
 ## <a name="create-an-activity-log-alert-administrative"></a>Creare un avviso del log attività: amministrativo
 
-1.  Nel portale di Azure selezionare **Crea una risorsa** nell'angolo superiore sinistro.
+1. [Creare un'app per la logica](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-2.  Cercare e selezionare **App per la logica** e quindi selezionare **Crea**.
+2.  Selezionare il trigger **Alla ricezione di una richiesta HTTP**.
 
-3.  Assegnare un **Nome** all'app per la logica, scegliere un **Gruppo di risorse** e così via.
+1. Nella finestra di dialogo **Alla ricezione di una richiesta HTTP**, selezionare **Usare il payload di esempio per generare lo schema**.
 
-    ![Creare un'app per la logica](media/action-groups-logic-app/create-logic-app-dialog.png "Creare un'app per la logica")
+    ![Screenshot che mostra la finestra di dialogo Alla ricezione di una richiesta HTTP con l'opzione Usare il payload di esempio per generare lo schema selezionata. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-4.  Fare clic su **Crea** per creare l'app per la logica. Un messaggio popup indica che l'app per la logica è stata creata. Selezionare **Launch Resource** (Avvia risorsa) per aprire **Progettazione app per la logica**.
-
-5.  Selezionare il trigger **Alla ricezione di una richiesta HTTP**.
-
-    ![Trigger dell'app per la logica](media/action-groups-logic-app/logic-app-triggers.png "Trigger dell'app per la logica")
-
-6.  Selezionare **Modifica** per modificare il trigger di richiesta HTTP.
-
-    ![Trigger di richiesta HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "Trigger di richiesta HTTP")
-
-7.  Selezionare **Usare il payload di esempio per generare lo schema**.
-
-    ![Usare un payload di esempio](media/action-groups-logic-app/use-sample-payload-button.png "Usare un payload di esempio")
-
-8.  Copiare e incollare il payload di esempio seguente nella finestra di dialogo:
+3.  Copiare e incollare il payload di esempio seguente nella finestra di dialogo:
 
     ```json
         {
@@ -128,7 +114,7 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
 14. Nella parte superiore di **Progettazione app per la logica**, selezionare **Salva** per salvare l'app per la logica.
 
-15. Aprire il gruppo di azioni esistente e aggiungere un'azione per fare riferimento all'app per la logica. Se non si dispone di un gruppo di azione esistente, vedere [creare e gestire gruppi di azioni nel portale di Azure](../platform/action-groups.md) per crearne uno. Non dimenticare di salvare le modifiche.
+15. Aprire il gruppo di azioni esistente e aggiungere un'azione per fare riferimento all'app per la logica. Se non si dispone di un gruppo di azione esistente, vedere [creare e gestire gruppi di azioni nel portale di Azure](./action-groups.md) per crearne uno. Non dimenticare di salvare le modifiche.
 
     ![Aggiornare il gruppo di azioni](media/action-groups-logic-app/update-action-group.png "Aggiornare il gruppo di azioni")
 
@@ -138,8 +124,8 @@ Quando un avviso richiama successivamente il gruppo di azioni, viene chiamata l'
 
 Le voci di integrità dei servizi di Azure fanno parte del log attività. Il processo di creazione dell'avviso è simile alla [creazione di un avviso del log attività](#create-an-activity-log-alert-administrative), ma con alcune differenze:
 
-- I passaggi da 1 a 7 sono gli stessi.
-- Per il passaggio 8, usare il payload di esempio seguente per il trigger di richiesta HTTP:
+- I passaggi da 1 a 3 sono gli stessi.
+- Per il passaggio 4, usare il payload di esempio seguente per il trigger di richiesta HTTP:
 
     ```json
     {
@@ -183,8 +169,8 @@ Le voci di integrità dei servizi di Azure fanno parte del log attività. Il pro
     }
     ```
 
--  I passaggi 9 e 10 sono gli stessi.
--  Per i passaggi da 11 a 14, eseguire le operazioni seguenti:
+-  I passaggi 5 e 6 sono gli stessi.
+-  Per i passaggi da 7 a 11, seguire questa procedura:
 
    1. Selezionare **+** **nuovo passaggio** , quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti in modo che l'app per la logica venga eseguita solo quando i dati di input corrispondono ai valori seguenti.  Quando si immette il valore di versione nella casella di testo, racchiuderlo tra virgolette ("0.1.1") per assicurarsi che venga valutato come stringa e non come tipo numerico.  Il sistema non visualizza le virgolette se si torna alla pagina ma il codice sottostante mantiene il tipo di stringa.   
        - `schemaId == Microsoft.Insights/activityLogs`
@@ -226,8 +212,8 @@ Le voci di integrità dei servizi di Azure fanno parte del log attività. Il pro
 
 Il processo di creazione di un avviso per la metrica è simile alla [creazione di un avviso del log attività](#create-an-activity-log-alert-administrative), ma con alcune differenze:
 
-- I passaggi da 1 a 7 sono gli stessi.
-- Per il passaggio 8, usare il payload di esempio seguente per il trigger di richiesta HTTP:
+- I passaggi da 1 a 3 sono gli stessi.
+- Per il passaggio 4, usare il payload di esempio seguente per il trigger di richiesta HTTP:
 
     ```json
     {
@@ -271,8 +257,8 @@ Il processo di creazione di un avviso per la metrica è simile alla [creazione d
     }
     ```
 
-- I passaggi 9 e 10 sono gli stessi.
-- Per i passaggi da 11 a 14, eseguire le operazioni seguenti:
+- I passaggi 5 e 6 sono gli stessi.
+- Per i passaggi da 7 a 11, seguire questa procedura:
 
   1. Selezionare **+** **nuovo passaggio** , quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti in modo che l'app per la logica venga eseguita solo quando i dati di input corrispondono ai valori seguenti. Quando si immette il valore di versione nella casella di testo, racchiuderlo tra virgolette ("2.0") per assicurarsi che venga valutato come stringa e non come tipo numerico.  Il sistema non visualizza le virgolette se si torna alla pagina ma il codice sottostante mantiene il tipo di stringa. 
      - `schemaId == AzureMonitorMetricAlert`
@@ -294,7 +280,6 @@ Il processo di creazione di un avviso per la metrica è simile alla [creazione d
 App per la logica dispone di una serie di connettori diversi che consentono di attivare azioni in un'ampia gamma di applicazioni e database. Slack, SQL Server, Oracle e Salesforce sono solo alcuni esempi. Per altre informazioni sui connettori, vedere [Connettori di App per la logica](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Leggere una [panoramica degli avvisi del log attività](../platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.  
+* Leggere una [panoramica degli avvisi del log attività](./alerts-overview.md) e informazioni su come ricevere gli avvisi.  
 * Informazioni su come [configurare gli avvisi quando viene inviata una notifica sull'integrità dei servizi di Azure](../../service-health/alerts-activity-log-service-notifications-portal.md).
-* Altre informazioni sui [gruppi di azione](../platform/action-groups.md).
-
+* Altre informazioni sui [gruppi di azione](./action-groups.md).

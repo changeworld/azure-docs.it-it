@@ -2,13 +2,14 @@
 title: Registro con ridondanza della zona per la disponibilità elevata
 description: Informazioni sull'abilitazione della ridondanza della zona in Azure Container Registry. Creare un registro contenitori o una replica in una zona di disponibilità di Azure. La ridondanza della zona è una funzionalità del livello di servizio Premium.
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: 7de8ed101d2df9e491c475f522a56580798c49a9
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 02/23/2021
+ms.custom: references_regions
+ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696279"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738107"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Abilitare la ridondanza della zona in Azure Container Registry per la resilienza e la disponibilità elevata
 
@@ -20,7 +21,7 @@ La ridondanza della zona è una funzionalità di **Anteprima** del livello di se
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
-* Attualmente supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2 e Stati Uniti occidentali 2.
+* Attualmente supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale, Giappone orientale.
 * Le conversioni dell'area nelle zone di disponibilità non sono attualmente supportate. Per abilitare il supporto per la zona di disponibilità in un'area, è necessario che il registro di sistema venga creato nell'area desiderata, che il supporto per la zona di disponibilità sia abilitato oppure che sia necessario aggiungere un'area replicata con il supporto della zona di disponibilità abilitato.
 * La ridondanza della zona non può essere disabilitata in un'area.
 * Le [attività ACR](container-registry-tasks-overview.md) non supportano ancora le zone di disponibilità.

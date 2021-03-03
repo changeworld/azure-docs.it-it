@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a23c492d4a81703c0dc6612928a56b5b31d52cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903446"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726317"
 ---
 # <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implementare lo stile dinamico per le mappe indoor Creator (Preview)
 
 > [!IMPORTANT]
-> I servizi Azure Maps Creator sono attualmente in anteprima pubblica.
+> I servizi Creator di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il [servizio di stato della funzionalità](/rest/api/maps/featurestate) di Creator per Mappe di Azure consente di applicare stili in base alle proprietà dinamiche delle funzionalità di dati di piante di interni.  È, ad esempio, possibile eseguire il rendering delle sale riunioni con un colore specifico in modo che indichino se sono o meno occupate. Questo articolo illustra come eseguire dinamicamente il rendering delle funzionalità di piante di interni con il [servizio di stato della funzionalità](/rest/api/maps/featurestate) e il [modulo Web per piante di interni](how-to-use-indoor-module.md).
@@ -26,7 +26,7 @@ Il [servizio di stato della funzionalità](/rest/api/maps/featurestate) di Creat
 ## <a name="prerequisites"></a>Prerequisiti
 
 1. [Creare un account di Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione.
+2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione
 3. [Creare una risorsa Creator (anteprima)](how-to-manage-creator.md)
 4. Scaricare il [pacchetto di disegno di esempio](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Creare una pianta di interni](tutorial-creator-indoor-maps.md) per ottenere i valori di `tilesetId` e `statesetId`.
@@ -54,11 +54,11 @@ map.events.add("click", function(e){
 
     var features = map.layers.getRenderedShapes(e.position, "indoor");
 
-    var result = features.reduce(function (ids, feature) {
-        if (feature.layer.id == "indoor_unit_office") {
+    features.forEach(function (feature) {
+        if (feature.layer.id == 'indoor_unit_office') {
             console.log(feature);
         }
-    }, []);
+    });
 });
 ```
 
@@ -78,7 +78,7 @@ Nella sezione successiva lo *stato* di occupazione dell'ufficio `UNIT26` verrà 
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. In **Headers** (Intestazioni) della richiesta **POST** impostare `Content-Type` su `application/json`. In **BODY** della richiesta **POST** scrivere il codice JSON con gli aggiornamenti delle funzionalità. L'aggiornamento verrà salvato solo se il timestamp pubblicato è successivo a quello usato nelle richieste di aggiornamento dello stato della funzionalità precedente per lo stesso valore `ID` della funzionalità. Passare il valore "occupied" a `keyName` per aggiornarne il valore.
+3. In **Headers** (Intestazioni) della richiesta **POST** impostare `Content-Type` su `application/json`. Nel **corpo** della richiesta **post** scrivere il codice JSON non elaborato seguente con gli aggiornamenti delle funzionalità. L'aggiornamento verrà salvato solo se il timestamp pubblicato è successivo a quello usato nelle richieste di aggiornamento dello stato della funzionalità precedente per lo stesso valore `ID` della funzionalità. Passare il valore "occupied" a `keyName` per aggiornarne il valore.
 
     ```json
     {
@@ -108,9 +108,11 @@ Nella sezione successiva lo *stato* di occupazione dell'ufficio `UNIT26` verrà 
 
 ### <a name="visualize-dynamic-styles-on-a-map"></a>Visualizzare gli stili dinamici in una mappa
 
-L'applicazione Web aperta in precedenza in un browser rispecchia ora lo stato aggiornato delle funzionalità della mappa. `UNIT27`(151) dovrebbe essere visualizzata in verde e `UNIT26`(157) dovrebbe essere visualizzata in rosso.
+L'applicazione Web aperta in precedenza in un browser rispecchia ora lo stato aggiornato delle funzionalità della mappa. `UNIT27`(142) dovrebbe apparire verde e `UNIT26` (143) dovrebbe apparire rosso.
 
 ![Sala disponibile in verde e sala occupata in rosso](./media/indoor-map-dynamic-styling/room-state.png)
+
+[Vedi la demo live](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

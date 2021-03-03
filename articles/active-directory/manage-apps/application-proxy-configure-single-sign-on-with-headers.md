@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d4cd69a90c4af2f996bd965ffaa145dce761018f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 512316b78a0d6422daf5e268ef30db72ccbcfaeb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688315"
 ---
-# <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Single Sign-On basata su intestazione per le app locali con App Azure AD proxy (anteprima)
+# <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy"></a>Single Sign-On basata su intestazione per le app locali con App Azure AD proxy
 
 Il proxy dell'applicazione Azure Active Directory (Azure AD) supporta in modo nativo Single Sign-On l'accesso alle applicazioni che usano intestazioni per l'autenticazione. È possibile configurare i valori di intestazione richiesti dall'applicazione in Azure AD. I valori dell'intestazione verranno inviati all'applicazione tramite il proxy di applicazione. Alcuni vantaggi dell'utilizzo del supporto nativo per l'autenticazione basata su intestazione con il proxy di applicazione includono:  
 

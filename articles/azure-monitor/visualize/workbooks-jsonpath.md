@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: e0be5523cb3846760644d0c81b06d5caa5a35378
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 142853f0d5ed787d0b7aaee1bb118a001f144227
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616767"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722926"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Come usare JSONPath per trasformare i dati JSON nelle cartelle di lavoro
 
@@ -22,7 +22,7 @@ Le cartelle di lavoro di sono in grado di eseguire query sui dati da molte origi
 
 JSONPath è un linguaggio di query per JSON simile a XPath for XML. Analogamente a XPath, JSONPath consente l'estrazione e la filtraggio dei dati fuori dalla struttura JSON.
 
-Utilizzando la trasformazione JSONPath, gli autori di cartelle di lavoro sono in grado di convertire JSON in una struttura di tabella. La tabella può quindi essere usata per tracciare le [visualizzazioni delle cartelle di lavoro](../platform/workbooks-overview.md#visualizations).
+Utilizzando la trasformazione JSONPath, gli autori di cartelle di lavoro sono in grado di convertire JSON in una struttura di tabella. La tabella può quindi essere usata per tracciare le [visualizzazioni delle cartelle di lavoro](./workbooks-overview.md#visualizations).
 
 ## <a name="using-jsonpath"></a>Uso di JSONPath
 
@@ -84,5 +84,5 @@ Si supponga che l'oggetto JSON riportato sopra venga considerato come una rappre
 ![ Modifica dell'elemento di query con origine dati JSON e formato del risultato del percorso JSON](./media/workbooks-jsonpath/query-jsonpath.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Cenni preliminari sulle cartelle di lavoro](../platform/workbooks-overview.md)
+- [Cenni preliminari sulle cartelle di lavoro](./workbooks-overview.md)
 - [Gruppi in cartelle di lavoro di monitoraggio di Azure](workbooks-groups.md)

@@ -3,12 +3,12 @@ title: Funzioni di modello
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per recuperare i valori, usare stringhe e numeri e recuperare le informazioni di distribuzione.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931708"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707320"
 ---
 # <a name="arm-template-functions"></a>Funzioni modello ARM
 
@@ -33,6 +33,10 @@ La maggior parte delle funzioni funziona allo stesso modo quando viene distribui
 <a id="skip" aria-hidden="true"></a>
 <a id="take" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
+
+## <a name="any-function"></a>Qualsiasi funzione
+
+La [funzione any](template-functions-any.md) è disponibile nel bicipite per facilitare la risoluzione dei problemi relativi agli avvisi relativi ai tipi di dati.
 
 ## <a name="array-functions"></a>Funzioni di matrice
 

@@ -4,12 +4,12 @@ description: Questo articolo descrive come usare lo schema CloudEvents per gli e
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 93e514e0eac40cfaa51d410a446608deca3cbd6d
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 484f118791d57c082a9f4383b1af4a22c04849c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901403"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737903"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usare lo schema CloudEvents v1.0 con Griglia di eventi
 Oltre allo [schema di eventi predefinito](event-schema.md), Griglia di eventi di Azure supporta in modo nativo gli eventi nell'[implementazione JSON di CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e nel [binding del protocollo HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) è una [specifica aperta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) per la descrizione dei dati degli eventi.
@@ -60,11 +60,11 @@ I valori delle intestazioni per gli eventi recapitati nello schema CloudEvents e
 
  Risorsa griglia di eventi | Schema di input       | Schema di recapito
 |---------------------|-------------------|---------------------
-| Argomenti di sistema       | Schema di Griglia di eventi | Schema di griglia di eventi o schema CloudEvent
-| Argomenti/domini utente | Schema di Griglia di eventi | Schema di Griglia di eventi
-| Argomenti/domini utente | Schema CloudEvent | Schema CloudEvent
-| Argomenti/domini utente | Schema personalizzato     | Schema personalizzato, schema di griglia di eventi o schema CloudEvent
-| PartnerTopics       | Schema CloudEvent | Schema CloudEvent
+| Argomenti di sistema       | Schema di Griglia di eventi | Schema di griglia di eventi o schema CloudEvents
+| Argomenti/domini utente | Schema di Griglia di eventi | Schema di griglia di eventi o schema CloudEvents
+| Argomenti/domini utente | Schema di CloudEvents | Schema di CloudEvents
+| Argomenti/domini utente | Schema personalizzato     | Schema personalizzato, schema di griglia di eventi o schema CloudEvents
+| PartnerTopics       | Schema di CloudEvents | Schema di CloudEvents
 
 Per tutti gli schemi di eventi, griglia di eventi richiede la convalida quando si esegue la pubblicazione in un argomento di griglia di eventi e quando si crea una sottoscrizione di eventi.
 

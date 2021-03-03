@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 53f189921a44d63d7e344fb733519661f5b17dc6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e7ab83b2b16a1340b354b9333d00c8166b5cfdf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619577"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722960"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
 Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche offrano un notevole incremento, in alcuni casi è possibile migliorare notevolmente le prestazioni delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
@@ -322,7 +322,7 @@ Tutti i log nei log di monitoraggio di Azure vengono partizionati in base alla c
 
 La query con intervallo di tempo superiore a 15 giorni è considerata una query che utilizza un numero eccessivo di risorse. La query con intervallo di tempo superiore a 90 giorni è considerata una query abusiva e potrebbe essere limitata.
 
-L'intervallo di tempo può essere impostato usando il selettore dell'intervallo di tempo nella schermata Log Analytics come descritto nell' [ambito della query di log e nell'intervallo di tempo in monitoraggio di Azure log Analytics](../log-query/scope.md#time-range). Si tratta del metodo consigliato perché l'intervallo di tempo selezionato viene passato al back-end usando i metadati della query. 
+L'intervallo di tempo può essere impostato usando il selettore dell'intervallo di tempo nella schermata Log Analytics come descritto nell' [ambito della query di log e nell'intervallo di tempo in monitoraggio di Azure log Analytics](./scope.md#time-range). Si tratta del metodo consigliato perché l'intervallo di tempo selezionato viene passato al back-end usando i metadati della query. 
 
 Un metodo alternativo consiste nel includere in modo esplicito una condizione [where](/azure/kusto/query/whereoperator) in **TimeGenerated** nella query. È consigliabile utilizzare questo metodo per garantire che l'intervallo di tempo sia fisso, anche quando la query viene utilizzata da un'interfaccia diversa.
 È necessario assicurarsi che tutte le parti della query dispongano di filtri **TimeGenerated** . Quando in una query sono presenti sottoquery che recuperano dati da diverse tabelle o dalla stessa tabella, ciascuna di esse deve includere la relativa condizione [where](/azure/kusto/query/whereoperator) .

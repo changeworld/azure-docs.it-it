@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
-ms.date: 01/11/2020
+ms.reviewer: estfan, logicappspm, azla
+ms.date: 02/18/2021
 ms.topic: article
-ms.openlocfilehash: a0c8286b2fb36642723ae28b8bc88e9e49f8a8fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577957"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702505"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
 
@@ -263,13 +263,14 @@ Per i limiti degli ambiti, vedere [Limiti e configurazione](../logic-apps/logic-
 
 ### <a name="get-context-and-results-for-failures"></a>Ottenere il contesto e i risultati per gli errori
 
-Rilevare gli errori è molto utile, ma può essere opportuno anche il contesto per comprendere esattamente quali azioni hanno avuto esito negativo e tutti gli errori o i codici di stato restituiti.
+Rilevare gli errori è molto utile, ma può essere opportuno anche il contesto per comprendere esattamente quali azioni hanno avuto esito negativo e tutti gli errori o i codici di stato restituiti. La [ `result()` funzione](../logic-apps/workflow-definition-language-functions-reference.md#result) restituisce i risultati dalle azioni di primo livello in un'azione con ambito accettando un singolo parametro, ovvero il nome dell'ambito, e restituendo una matrice che contiene i risultati di tali azioni di primo livello. Questi oggetti azione includono gli stessi attributi restituiti dalla `actions()` funzione, ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID di correlazione e gli output dell'azione. 
 
-La [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) funzione fornisce il contesto sui risultati di tutte le azioni in un ambito. La `result()` funzione accetta un solo parametro, ovvero il nome dell'ambito, e restituisce una matrice che contiene tutti i risultati dell'azione all'interno di tale ambito. Questi oggetti azione includono gli stessi attributi dell' `actions()` oggetto, ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID di correlazione e gli output dell'azione. Per inviare il contesto per qualsiasi azione non riuscita all'interno di un ambito, è possibile associare facilmente un' `@result()` espressione alla `runAfter` Proprietà.
+> [!NOTE]
+> La `result()` funzione restituisce i risultati *solo* dalle azioni di primo livello e non dalle azioni nidificate più approfondite, ad esempio le azioni switch o Condition.
 
-Per eseguire un'azione per ogni azione in un ambito `Failed` con un risultato e per filtrare la matrice dei risultati fino alle azioni non riuscite, è possibile associare un'espressione a un' `@result()` azione di matrice di [**filtro**](logic-apps-perform-data-operations.md#filter-array-action) e a un ciclo [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . È possibile utilizzare la matrice dei risultati filtrata ed eseguire un'azione per ogni errore utilizzando il `For_each` ciclo.
+Per ottenere il contesto per le azioni non riuscite in un ambito, è possibile usare l' `@result()` espressione con il nome dell'ambito e la `runAfter` Proprietà. Per filtrare la matrice restituita in azioni con `Failed` stato, è possibile aggiungere l'azione [ **Filtra matrice**](logic-apps-perform-data-operations.md#filter-array-action). Per eseguire un'azione per un'azione non riuscita restituita, prendere la matrice filtrata restituita e usare un [ciclo **for each**](../logic-apps/logic-apps-control-flow-loops.md).
 
-Di seguito è riportato un esempio, con una spiegazione dettagliata, che invia una richiesta HTTP POST con il corpo della risposta di qualsiasi azione non riuscita all'interno dell'ambito "My_Scope":
+Di seguito è riportato un esempio, seguito da una spiegazione dettagliata, che invia una richiesta HTTP POST con il corpo della risposta per tutte le azioni non riuscite nell'ambito dell'azione denominata "My_Scope":
 
 ```json
 "Filter_array": {

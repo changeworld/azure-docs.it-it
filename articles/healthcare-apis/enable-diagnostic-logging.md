@@ -7,23 +7,30 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
-author: CaitlinV39
-ms.date: 02/03/2021
-ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+author: zxue
+ms.date: 02/24/2021
+ms.openlocfilehash: 73e1db2754749e1fb1142231e7179771bcce8e76
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581968"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712777"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Abilitare la registrazione diagnostica nell'API di Azure per FHIR
 
 In questo articolo si apprenderà come abilitare la registrazione diagnostica nell'API di Azure per FHIR ed essere in grado di esaminare alcune query di esempio per questi log. L'accesso ai log di diagnostica è essenziale per qualsiasi servizio sanitario in cui la conformità ai requisiti normativi (ad esempio HIPAA) è una necessità. La funzionalità dell'API di Azure per FHIR che Abilita i log di diagnostica è rappresentata dalle [**impostazioni di diagnostica**](../azure-monitor/essentials/diagnostic-settings.md) del portale di Azure. 
 
+## <a name="view-and-download-fhir-metrics-data"></a>Visualizza e Scarica i dati di metrica FHIR
+
+È possibile visualizzare le metriche in monitoraggio | Metriche del portale. Le metriche includono il numero di richieste, la latenza media, il numero di errori, le dimensioni dei dati, le UR usate, il numero di richieste che hanno superato la capacità e la disponibilità (in%). La schermata seguente mostra le UR usate per un ambiente di esempio con pochissime attività negli ultimi 7 giorni. È possibile scaricare i dati in formato JSON.
+
+   :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="Metriche dell'API di Azure per FHIR dal portale" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
+
 ## <a name="enable-audit-logs"></a>Abilitare i log di controllo
 1. Per abilitare la registrazione diagnostica nell'API di Azure per FHIR, selezionare l'API di Azure per il servizio FHIR nel portale di Azure 
-2. Passa a **impostazioni di diagnostica impostazioni**  
- di diagnostica ![](media/diagnostic-logging/diagnostic-settings-screen.png) 
+2. Passa a **impostazioni di diagnostica** 
+
+   :::image type="content" source="media/diagnostic-logging/diagnostic-settings-screen.png" alt-text="Aggiungere le impostazioni di diagnostica di Azure FHIR." lightbox="media/diagnostic-logging/diagnostic-settings-screen.png":::
 
 3. Selezionare **+ Aggiungi impostazione di diagnostica**
 
@@ -35,7 +42,7 @@ In questo articolo si apprenderà come abilitare la registrazione diagnostica ne
     2. **Trasmettere a hub eventi** per l'inserimento da parte di un servizio di terze parti o di una soluzione analitica personalizzata. Prima di poter configurare questo passaggio, è necessario creare uno spazio dei nomi dell'hub eventi e un criterio dell'hub eventi.
     3. **Trasmettere all'area di lavoro log Analytics** in monitoraggio di Azure. Prima di poter selezionare questa opzione, è necessario creare l'area di lavoro log Analytics.
 
-6. Selezionare **AuditLogs** e/o **AllMetrics**. Le metriche includono il nome del servizio, la disponibilità, le dimensioni dei dati, la latenza totale, le richieste totali, gli errori totali e il timestamp.
+6. Selezionare **AuditLogs** e/o **AllMetrics**. Le metriche includono il nome del servizio, la disponibilità, le dimensioni dei dati, la latenza totale, le richieste totali, gli errori totali e il timestamp. È possibile trovare altre informazioni sulle [metriche supportate](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices). 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Impostazioni di diagnostica di Azure FHIR. Selezionare AuditLogs e/o AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 

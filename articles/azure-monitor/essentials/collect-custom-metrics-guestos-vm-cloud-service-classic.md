@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 971a3063ff86e2a6b7d1b11f72ff0a257f459da0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d6866361b78656d99888c4df70cc0c92ed096425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613285"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737070"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Inviare le metriche del sistema operativo guest ai Servizi cloud classici dell'archivio delle metriche di Monitoraggio di Azure 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-L'[estensione Diagnostica](../agents/diagnostics-extension-overview.md) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di un cluster di Service Fabric. L'estensione può inviare dati di telemetria a [molte posizioni diverse](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json).
+L'[estensione Diagnostica](../agents/diagnostics-extension-overview.md) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di un cluster di Service Fabric. L'estensione può inviare dati di telemetria a [molte posizioni diverse](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 Questo articolo descrive il processo di invio delle metriche sulle prestazioni del sistema operativo guest per i Servizi cloud classici di Azure all'archivio delle metriche di Monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. 
 
@@ -34,7 +34,7 @@ Il processo illustrato in questo articolo funziona solo per i contatori delle pr
 
 - È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- Il servizio cloud deve trovarsi in un' [area che supporta le metriche personalizzate](../platform/metrics-custom-overview.md#supported-regions).
+- Il servizio cloud deve trovarsi in un' [area che supporta le metriche personalizzate](./metrics-custom-overview.md#supported-regions).
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Eseguire il provisioning del servizio cloud e dell'account di archiviazione 
 
@@ -191,4 +191,4 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulle [metriche personalizzate](../platform/metrics-custom-overview.md).
+- Altre informazioni sulle [metriche personalizzate](./metrics-custom-overview.md).

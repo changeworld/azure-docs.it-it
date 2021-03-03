@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 6938ad55915286af397fee6d72a333e3bb39a1e6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 29ca3aff7d75c7a14bf7b325719924936762d191
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397916"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711689"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Riscrivere le intestazioni di richiesta e risposta HTTP con applicazione Azure gateway-Azure PowerShell
 
@@ -31,23 +31,23 @@ Per configurare la riscrittura dell'intestazione HTTP, è necessario completare 
 
 1. Creare gli oggetti necessari per la riscrittura dell'intestazione HTTP:
 
-   - **RequestHeaderConfiguration** : utilizzato per specificare i campi di intestazione della richiesta che si desidera riscrivere e il nuovo valore per le intestazioni.
+   - **RequestHeaderConfiguration**: utilizzato per specificare i campi di intestazione della richiesta che si desidera riscrivere e il nuovo valore per le intestazioni.
 
-   - **ResponseHeaderConfiguration** : consente di specificare i campi di intestazione della risposta che si intende riscrivere e il nuovo valore per le intestazioni.
+   - **ResponseHeaderConfiguration**: consente di specificare i campi di intestazione della risposta che si intende riscrivere e il nuovo valore per le intestazioni.
 
-   - **Actiont** : contiene le configurazioni delle intestazioni di richiesta e risposta specificate in precedenza.
+   - **Actiont**: contiene le configurazioni delle intestazioni di richiesta e risposta specificate in precedenza.
 
-   - **Condizione** : una configurazione facoltativa. Le condizioni di riscrittura valutano il contenuto delle richieste e delle risposte HTTP (S). L'azione di riscrittura si verificherà se la richiesta o la risposta HTTP (S) corrisponde alla condizione di riscrittura.
+   - **Condizione**: una configurazione facoltativa. Le condizioni di riscrittura valutano il contenuto delle richieste e delle risposte HTTP (S). L'azione di riscrittura si verificherà se la richiesta o la risposta HTTP (S) corrisponde alla condizione di riscrittura.
 
      Se si associa più di una condizione a un'azione, l'azione si verifica solo quando vengono soddisfatte tutte le condizioni. In altre parole, l'operazione è un'operazione AND logica.
 
-   - **RewriteRule** : contiene più combinazioni di operazioni di riscrittura/riscrittura delle condizioni.
+   - **RewriteRule**: contiene più combinazioni di operazioni di riscrittura/riscrittura delle condizioni.
 
-   - **RuleSequence** : configurazione facoltativa che consente di determinare l'ordine in cui vengono eseguite le regole di riscrittura. Questa configurazione è utile quando si dispone di più regole di riscrittura in un set di riscrittura. Viene eseguita prima una regola di riscrittura con un valore di sequenza di regole inferiore. Se si assegna lo stesso valore di sequenza della regola a due regole di riscrittura, l'ordine di esecuzione è non deterministico.
+   - **RuleSequence**: configurazione facoltativa che consente di determinare l'ordine in cui vengono eseguite le regole di riscrittura. Questa configurazione è utile quando si dispone di più regole di riscrittura in un set di riscrittura. Viene eseguita prima una regola di riscrittura con un valore di sequenza di regole inferiore. Se si assegna lo stesso valore di sequenza della regola a due regole di riscrittura, l'ordine di esecuzione è non deterministico.
 
      Se RuleSequence non viene specificato in modo esplicito, viene impostato un valore predefinito di 100.
 
-   - **RewriteRuleSet** : contiene più regole di riscrittura che saranno associate a una regola di routing delle richieste.
+   - **RewriteRuleSet**: contiene più regole di riscrittura che saranno associate a una regola di routing delle richieste.
 
 2. Aggiungere RewriteRuleSet a una regola di routing. La configurazione di riscrittura è collegata al listener di origine tramite la regola di routing. Quando si usa una regola di routing di base, la configurazione dell'intestazione di riscrittura è associata a un listener di origine ed è una riscrittura dell'intestazione globale. Quando si usa una regola di routing basata sul percorso, la configurazione dell'intestazione di riscrittura è definita nella mappa del percorso URL. In tal caso, si applica solo all'area del percorso specifica di un sito.
 
@@ -62,7 +62,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## <a name="specify-the-http-header-rewrite-rule-configuration"></a>Specificare la configurazione della regola di riscrittura dell'intestazione HTTP
 
-In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'intestazione Location nella risposta HTTP ogni volta che l'intestazione Location contiene un riferimento a azurewebsites.net. A tale scopo, verrà aggiunta una condizione per valutare se l'intestazione Location nella risposta contiene azurewebsites.net. Verrà usato il modello `(https?):\/\/.*azurewebsites\.net(.*)$` . E utilizzeremo `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` come valore di intestazione. Questo valore sostituirà *azurewebsites.NET* con *contoso.com* nell'intestazione Location.
+In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'intestazione Location nella risposta HTTP ogni volta che l'intestazione Location contiene un riferimento a azurewebsites.net. A tale scopo, verrà aggiunta una condizione per valutare se l'intestazione Location nella risposta contiene azurewebsites.net. Verrà usato il modello `(https?)://.*azurewebsites.net(.*)$` . E utilizzeremo `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` come valore di intestazione. Questo valore sostituirà *azurewebsites.NET* con *contoso.com* nell'intestazione Location.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"

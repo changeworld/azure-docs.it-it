@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 46d8fe6427b2a3e7811719792ac4bf67ddbcc3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746f15d2d712f4b571d3f27e3535c69f5f4f9732
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940383"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732769"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Creare e gestire reti virtuali per database di Azure per PostgreSQL-server flessibile usando il portale di Azure
 
@@ -34,6 +34,13 @@ Per creare un server flessibile in una rete virtuale, è necessario quanto segue
     > La rete virtuale e la subnet devono trovarsi nella stessa area e nella stessa sottoscrizione del server flessibile.
 
 -  Per [delegare una subnet](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) a **Microsoft. DBforPostgreSQL/flexibleServers**. Questa delega indica che solo i server flessibili di database di Azure per PostgreSQL possono usare tale subnet. Gli altri tipi di risorsa di Azure non possono trovarsi nella subnet delegata.
+-  Aggiungere `Microsoft.Storage` all'endpoint servizio per la subnet delegata a server flessibili. Per eseguire questa operazione, seguire questa procedura:
+     1. Passare alla pagina della rete virtuale.
+     2. Selezionare il VNET in cui si prevede di distribuire il server flessibile.
+     3. Scegliere la subnet delegata per il server flessibile.
+     4. Nella schermata di pull, in **endpoint servizio**, scegliere `Microsoft.storage` dall'elenco a discesa.
+     5. Salvare le modifiche.
+
 
 ## <a name="create-azure-database-for-postgresql---flexible-server-in-an-already-existing-virtual-network"></a>Creare database di Azure per PostgreSQL-server flessibile in una rete virtuale già esistente
 
@@ -42,7 +49,7 @@ Per creare un server flessibile in una rete virtuale, è necessario quanto segue
 3. Selezionare **Flexible server** (Server flessibile) come opzione di distribuzione.
 4. Compilare il modulo **nozioni di base** .
 5. Passare alla scheda **rete** per configurare il modo in cui si desidera connettersi al server.
-6. Nel **metodo di connettività**selezionare **accesso privato (integrazione VNet)**. Passare a **rete virtuale** e selezionare la *rete virtuale* e la *subnet* già esistenti create come parte dei prerequisiti precedenti.
+6. Nel **metodo di connettività** selezionare **accesso privato (integrazione VNet)**. Passare a **rete virtuale** e selezionare la *rete virtuale* e la *subnet* già esistenti create come parte dei prerequisiti precedenti.
 7. Selezionare **Rivedi e crea** per rivedere la configurazione del server flessibile.
 8. Selezionare **Crea** per effettuare il provisioning del server. Il provisioning può richiedere alcuni minuti.
 

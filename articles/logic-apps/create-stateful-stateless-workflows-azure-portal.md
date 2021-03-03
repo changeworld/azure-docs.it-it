@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: a7e19894a4688fe270422e93f7081f98e0b699a3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/02/2021
+ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936533"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736356"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Creare flussi di lavoro con stato e senza stato nel portale di Azure con app per la logica di Azure Preview
 
@@ -34,7 +34,7 @@ Questo articolo illustra come compilare l'app per la logica e il flusso di lavor
 
 * Attiva un'esecuzione del flusso di lavoro.
 
-* Visualizzare la cronologia di esecuzione del flusso di lavoro.
+* Visualizzare la cronologia di esecuzione e trigger del flusso di lavoro.
 
 * Abilitare o aprire il Application Insights dopo la distribuzione.
 
@@ -51,6 +51,8 @@ Questo articolo illustra come compilare l'app per la logica e il flusso di lavor
 
   > [!NOTE]
   > Le app per la [logica con stato](logic-apps-overview-preview.md#stateful-stateless) eseguono transazioni di archiviazione, ad esempio l'uso di code per la pianificazione e l'archiviazione degli Stati del flusso di lavoro in tabelle e BLOB. Queste transazioni comportano [costi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altre informazioni su come le app per la logica con stato archiviano i dati in un archivio esterno, vedere con stato e senza [stato](logic-apps-overview-preview.md#stateful-stateless).
+
+* Per eseguire la distribuzione in un contenitore Docker, è necessaria un'immagine del contenitore Docker esistente. Ad esempio, è possibile creare questa immagine tramite [container Registry di Azure](../container-registry/container-registry-intro.md), il [servizio app](../app-service/overview.md)o l' [istanza di contenitore di Azure](../container-instances/container-instances-overview.md). 
 
 * Per compilare la stessa app per la logica di esempio in questo articolo, è necessario un account di posta elettronica di Office 365 Outlook che usa un account Microsoft aziendale o dell'Istituto di istruzione per accedere.
 
@@ -77,7 +79,7 @@ Questo articolo illustra come compilare l'app per la logica e il flusso di lavor
    | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'app per la logica. |
    | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Il gruppo di risorse di Azure in cui creare l'app per la logica e le risorse correlate. Il nome della risorsa deve essere univoco in tutte le aree e può contenere solo lettere, numeri, trattini ( **-** ), caratteri di sottolineatura (**_**), parentesi (**()**) e punti (**.**). <p><p>Questo esempio crea un gruppo di risorse denominato `Fabrikam-Workflows-RG` . |
    | **Nome dell'app per la logica** | Sì | <*logic-app-name*> | Nome da usare per l'app per la logica. Il nome della risorsa deve essere univoco in tutte le aree e può contenere solo lettere, numeri, trattini ( **-** ), caratteri di sottolineatura (**_**), parentesi (**()**) e punti (**.**). <p><p>Questo esempio Mostra come creare un'app per la logica denominata `Fabrikam-Workflows` . <p><p>**Nota**: il nome dell'app per la logica ottiene automaticamente il suffisso, `.azurewebsites.net` , perché la risorsa app per la **logica (anteprima)** è basata su funzioni di Azure, che usa la stessa convenzione di denominazione delle app. |
-   | **Pubblica** | Sì | <*distribuzione-ambiente*> | Destinazione della distribuzione per l'app per la logica. È possibile eseguire la distribuzione in Azure selezionando **flusso di lavoro** o un contenitore docker. <p><p>Questo esempio usa il **flusso di lavoro**, ovvero la risorsa app per la **logica (anteprima)** in Azure. <p><p>Se si seleziona **contenitore Docker**, [specificare il contenitore da usare nelle impostazioni dell'app per la logica](#set-docker-container). |
+   | **Pubblica** | Sì | <*distribuzione-ambiente*> | Destinazione della distribuzione per l'app per la logica. È possibile eseguire la distribuzione in Azure selezionando **Workflow** o **contenitore Docker**. <p><p>Questo esempio usa il **flusso di lavoro**, che consente di distribuire la risorsa app per la **logica (anteprima)** nel portale di Azure. <p><p>**Nota**: prima di selezionare **contenitore Docker**, assicurarsi di creare l'immagine del contenitore docker. Ad esempio, è possibile creare questa immagine tramite [container Registry di Azure](../container-registry/container-registry-intro.md), il [servizio app](../app-service/overview.md)o l' [istanza di contenitore di Azure](../container-instances/container-instances-overview.md). In questo modo, dopo aver selezionato il **contenitore Docker**, è possibile [specificare il contenitore che si vuole usare nelle impostazioni dell'app per la logica](#set-docker-container). |
    | **Area** | Sì | <*Area di Azure*> | Area di Azure da usare durante la creazione del gruppo di risorse e delle risorse. <p><p>Questo esempio usa **Stati Uniti occidentali**. |
    |||||
 
@@ -90,7 +92,7 @@ Questo articolo illustra come compilare l'app per la logica e il flusso di lavor
    | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Account di archiviazione** | Sì | <*Azure-storage-account-name*> | L' [account di archiviazione di Azure](../storage/common/storage-account-overview.md) da usare per le transazioni di archiviazione. Il nome della risorsa deve essere univoco in tutte le aree e contenere 3-24 caratteri con solo numeri e lettere minuscole. Selezionare un account esistente o creare un nuovo account. <p><p>Questo esempio crea un account di archiviazione denominato `fabrikamstorageacct` . |
-   | **Tipo di piano** | Sì | <*Azure-hosting-piano*> | [Piano di hosting](../app-service/overview-hosting-plans.md) da usare per la distribuzione dell'app per la logica, che può essere [**Premium**](../azure-functions/functions-premium-plan.md) o [**piano di servizio app**](../azure-functions/dedicated-plan.md). La scelta riguarda i piani tariffari che è possibile scegliere in un secondo momento. <p><p>Questo esempio usa il **piano di servizio app**. <p><p>**Nota**: Analogamente alle funzioni di Azure, il tipo di risorsa app per la **logica (anteprima)** richiede un piano di hosting e un piano tariffario. I piani di hosting a consumo non sono supportati né disponibili per questo tipo di risorsa. Per ulteriori informazioni, vedere gli argomenti seguenti: <p><p>- [Scalabilità e hosting di funzioni di Azure](../azure-functions/functions-scale.md) <br>- [Dettagli prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
+   | **Tipo di piano** | Sì | <*Azure-hosting-piano*> | [Piano di hosting](../app-service/overview-hosting-plans.md) da usare per la distribuzione dell'app per la logica, che è una [**funzione Premium**](../azure-functions/functions-premium-plan.md) o un [ **piano di servizio app** (dedicato)](../azure-functions/dedicated-plan.md). La scelta riguarda le funzionalità e i piani tariffari disponibili in un secondo momento. <p><p>Questo esempio usa il **piano di servizio app**. <p><p>**Nota**: Analogamente alle funzioni di Azure, il tipo di risorsa app per la **logica (anteprima)** richiede un piano di hosting e un piano tariffario. I piani a consumo non sono supportati né disponibili per questo tipo di risorsa. Per ulteriori informazioni, vedere gli argomenti seguenti: <p><p>- [Scalabilità e hosting di funzioni di Azure](../azure-functions/functions-scale.md) <br>- [Dettagli prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/) <p><p>Il piano di funzioni Premium, ad esempio, consente di accedere alle funzionalità di rete, ad esempio la connessione e l'integrazione privata con le reti virtuali di Azure, in modo analogo alle funzioni di Azure quando si creano e distribuiscono le app per la logica. Per ulteriori informazioni, vedere gli argomenti seguenti: <p><p>- [Opzioni di rete di funzioni di Azure](../azure-functions/functions-networking-options.md) <br>- [App per la logica di Azure in esecuzione ovunque e possibilità di rete con app per la logica di Azure Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
    | **Piano Windows** | Sì | <*Nome piano*> | Nome del piano da utilizzare. Selezionare un piano esistente o specificare il nome per un nuovo piano. <p><p>Questo esempio usa il nome `Fabrikam-Service-Plan`. |
    | **SKU e dimensioni** | Sì | <*piano tariffario*> | Piano [tariffario](../app-service/overview-hosting-plans.md) da usare per l'hosting dell'app per la logica. Le scelte sono influenzate dal tipo di piano scelto in precedenza. Per modificare il livello predefinito, selezionare **modifica dimensioni**. È quindi possibile selezionare altri piani tariffari, in base al carico di lavoro necessario. <p><p>Questo esempio usa il piano **tariffario F1** gratuito per i carichi di lavoro di **sviluppo/test** . Per altre informazioni, vedere [Dettagli prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/). |
    |||||
@@ -103,13 +105,16 @@ Questo articolo illustra come compilare l'app per la logica e il flusso di lavor
 
 1. Dopo che Azure ha convalidato le impostazioni dell'app per la logica, nella scheda **Verifica + crea** selezionare **Crea**.
 
-   Esempio:
+   Ad esempio:
 
    ![Screenshot che mostra il portale di Azure e le nuove impostazioni delle risorse dell'app per la logica.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
+   > [!TIP]
+   > Se viene visualizzato un errore di convalida dopo aver selezionato **Crea**, aprire ed esaminare i dettagli dell'errore. Ad esempio, se l'area selezionata raggiunge una quota per le risorse che si sta tentando di creare, potrebbe essere necessario provare un'area diversa.
+
    Al termine della distribuzione di Azure, l'app per la logica è automaticamente in esecuzione, ma non esegue alcuna operazione perché non esistono flussi di lavoro.
 
-1. Nella pagina completamento distribuzione selezionare **Vai alla risorsa** per poter iniziare a compilare il flusso di lavoro.
+1. Nella pagina completamento distribuzione selezionare **Vai alla risorsa** per poter iniziare a compilare il flusso di lavoro. Se è stato selezionato **contenitore Docker** per la distribuzione dell'app per la logica, continuare con i [passaggi per fornire informazioni su tale contenitore Docker](#set-docker-container).
 
    ![Screenshot che mostra il portale di Azure e la distribuzione completata.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
 
@@ -117,15 +122,13 @@ Questo articolo illustra come compilare l'app per la logica e il flusso di lavor
 
 ## <a name="specify-docker-container-for-deployment"></a>Specificare il contenitore Docker per la distribuzione
 
-Se è stato selezionato **contenitore Docker** durante la creazione dell'app per la logica, assicurarsi di fornire informazioni sul contenitore che si vuole usare per la distribuzione dopo che la portale di Azure crea la risorsa dell'app per la **logica (anteprima)** .
+Prima di iniziare questa procedura, è necessaria un'immagine del contenitore docker. Ad esempio, è possibile creare questa immagine tramite [container Registry di Azure](../container-registry/container-registry-intro.md), il [servizio app](../app-service/overview.md)o l' [istanza di contenitore di Azure](../container-instances/container-instances-overview.md). È quindi possibile fornire informazioni sul contenitore Docker dopo aver creato l'app per la logica.
 
 1. Nella portale di Azure passare alla risorsa dell'app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **impostazioni del contenitore**. Specificare i dettagli e il percorso per l'immagine del contenitore docker.
+1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **centro distribuzione**.
 
-   ![Screenshot che mostra il menu dell'app per la logica con "impostazioni del contenitore" selezionato.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-deploy-container-settings.png)
-
-1. Al termine, salvare le impostazioni.
+1. Nel riquadro **centro distribuzione** , seguire le istruzioni per la fornitura e la gestione dei dettagli per il contenitore docker.
 
 <a name="add-workflow"></a>
 
@@ -286,9 +289,11 @@ In questo esempio, il flusso di lavoro viene eseguito quando il trigger di richi
 
       ![Screenshot che mostra la posta elettronica di Outlook come descritto nell'esempio](./media/create-stateful-stateless-workflows-azure-portal/workflow-app-result-email.png)
 
+<a name="view-run-history"></a>
+
 ## <a name="review-run-history"></a>Esaminare la cronologia di esecuzione
 
-Per un flusso di lavoro con stato, dopo l'esecuzione di ogni flusso di lavoro, è possibile visualizzare la cronologia di esecuzione, incluso lo stato dell'esecuzione complessiva, per il trigger e per ogni azione insieme ai rispettivi input e output.
+Per un flusso di lavoro con stato, dopo l'esecuzione di ogni flusso di lavoro, è possibile visualizzare la cronologia di esecuzione, incluso lo stato dell'esecuzione complessiva, per il trigger e per ogni azione insieme ai rispettivi input e output. Nel portale di Azure, le cronologie di esecuzione e dei trigger vengono visualizzate a livello di flusso di lavoro, non a livello di app per la logica. Per esaminare le cronologie dei trigger al di fuori del contesto della cronologia di esecuzione, vedere [esaminare le cronologie dei trigger](#view-trigger-histories).
 
 1. Nella portale di Azure scegliere **monitoraggio** dal menu del flusso di lavoro.
 
@@ -320,15 +325,15 @@ Per un flusso di lavoro con stato, dopo l'esecuzione di ogni flusso di lavoro, �
 
    | Stato azione | Icona | Descrizione |
    |---------------|------|-------------|
-   | Aborted | ![Icona per lo stato dell'azione "interrotto"][aborted-icon] | L'azione è stata interrotta o non è stata completata a causa di problemi esterni, ad esempio un'interruzione del sistema o una sottoscrizione di Azure scaduta. |
-   | Operazione annullata | ![Icona per lo stato dell'azione "annullato"][cancelled-icon] | L'azione è stata eseguita ma è stata ricevuta una richiesta di annullamento. |
-   | Non riuscito | ![Icona per lo stato dell'azione "non riuscito"][failed-icon] | L'azione non è riuscita. |
-   | In esecuzione | ![Icona per lo stato dell'azione "in esecuzione"][running-icon] | L'azione è attualmente in esecuzione. |
-   | Operazione ignorata | ![Icona per lo stato dell'azione "ignorato"][skipped-icon] | L'azione è stata ignorata perché l'azione immediatamente precedente non è riuscita. Un'azione ha una `runAfter` condizione che richiede che l'azione precedente venga completata correttamente prima di poter eseguire l'azione corrente. |
-   | Completato | ![Icona per lo stato dell'azione "succeeded"][succeeded-icon] | L'azione è riuscita. |
-   | Operazione completata con nuovi tentativi | ![Icona per lo stato dell'azione "riuscito con ripetizione dei tentativi"][succeeded-with-retries-icon] | L'azione è stata completata ma solo dopo uno o più tentativi. Per esaminare la cronologia dei tentativi, nella visualizzazione dei dettagli della cronologia di esecuzione selezionare l'azione in modo che sia possibile visualizzare gli input e gli output. |
-   | Timeout | ![Icona per lo stato dell'azione "timeout"][timed-out-icon] | L'azione è stata interrotta a causa del limite di timeout specificato dalle impostazioni di tale azione. |
-   | Attesa | ![Icona per lo stato dell'azione "in attesa"][waiting-icon] | Si applica a un'azione webhook che è in attesa di una richiesta in ingresso da un chiamante. |
+   | **Aborted** | ![Icona per lo stato dell'azione "interrotto"][aborted-icon] | L'azione è stata interrotta o non è stata completata a causa di problemi esterni, ad esempio un'interruzione del sistema o una sottoscrizione di Azure scaduta. |
+   | **Annullato** | ![Icona per lo stato dell'azione "annullato"][cancelled-icon] | L'azione è stata eseguita ma è stata ricevuta una richiesta di annullamento. |
+   | **Operazione non riuscita** | ![Icona per lo stato dell'azione "non riuscito"][failed-icon] | L'azione non è riuscita. |
+   | **Running** | ![Icona per lo stato dell'azione "in esecuzione"][running-icon] | L'azione è attualmente in esecuzione. |
+   | **Ignorato** | ![Icona per lo stato dell'azione "ignorato"][skipped-icon] | L'azione è stata ignorata perché l'azione immediatamente precedente non è riuscita. Un'azione ha una `runAfter` condizione che richiede che l'azione precedente venga completata correttamente prima di poter eseguire l'azione corrente. |
+   | **Completato** | ![Icona per lo stato dell'azione "succeeded"][succeeded-icon] | L'azione è riuscita. |
+   | **Operazione completata con nuovi tentativi** | ![Icona per lo stato dell'azione "riuscito con ripetizione dei tentativi"][succeeded-with-retries-icon] | L'azione è stata completata ma solo dopo uno o più tentativi. Per esaminare la cronologia dei tentativi, nella visualizzazione dei dettagli della cronologia di esecuzione selezionare l'azione in modo che sia possibile visualizzare gli input e gli output. |
+   | **Timeout** | ![Icona per lo stato dell'azione "timeout"][timed-out-icon] | L'azione è stata interrotta a causa del limite di timeout specificato dalle impostazioni di tale azione. |
+   | **Attesa** | ![Icona per lo stato dell'azione "in attesa"][waiting-icon] | Si applica a un'azione webhook che è in attesa di una richiesta in ingresso da un chiamante. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-azure-portal/aborted.png
@@ -346,6 +351,18 @@ Per un flusso di lavoro con stato, dopo l'esecuzione di ogni flusso di lavoro, �
    ![Screenshot che Mostra gli input e gli output dell'azione "Invia un messaggio di posta elettronica" selezionato.](./media/create-stateful-stateless-workflows-azure-portal/review-step-inputs-outputs.png)
 
 1. Per esaminare ulteriormente gli input e gli output non elaborati per tale passaggio, selezionare **Mostra input non elaborati** o **Mostra output** non elaborati.
+
+<a name="view-trigger-histories"></a>
+
+## <a name="review-trigger-histories"></a>Esaminare le cronologie del trigger
+
+Per un flusso di lavoro con stato, è possibile esaminare la cronologia dei trigger per ogni esecuzione, incluso lo stato del trigger insieme agli input e agli output, separatamente dal [contesto della cronologia di esecuzione](#view-run-history). Nel portale di Azure, la cronologia dei trigger e la cronologia di esecuzione vengono visualizzate a livello di flusso di lavoro, non a livello di app per la logica. Per trovare i dati cronologici, attenersi alla procedura seguente:
+
+1. Nel portale di Azure, nel menu del flusso di lavoro, in **Developer** selezionare **cronologia trigger**.
+
+   Il riquadro **cronologia trigger** Mostra le cronologie dei trigger per le esecuzioni del flusso di lavoro.
+
+1. Per esaminare la cronologia di un trigger specifico, selezionare l'ID per l'esecuzione.
 
 <a name="enable-open-application-insights"></a>
 
@@ -365,7 +382,10 @@ Per abilitare Application Insights in un'app per la logica distribuita o aprire 
 
    Se Application Insights è abilitato, nel riquadro **Application Insights** selezionare **Visualizza dati Application Insights**.
 
-Dopo l'apertura di Application Insights, è possibile esaminare varie metriche per l'app per la logica.
+Dopo l'apertura di Application Insights, è possibile esaminare varie metriche per l'app per la logica. Per ulteriori informazioni, vedere gli argomenti seguenti:
+
+* [App per la logica di Azure in esecuzione ovunque-monitoraggio con Application Insights-parte 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
+* [App per la logica di Azure in esecuzione ovunque-monitoraggio con Application Insights-parte 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
 
 <a name="enable-run-history-stateless"></a>
 
@@ -385,7 +405,7 @@ Per eseguire il debug di un flusso di lavoro senza stato in modo più semplice, 
 
 1. Nella casella **valore** immettere il valore seguente: `WithStatelessRunHistory`
 
-   Esempio:
+   Ad esempio:
 
    ![Screenshot che mostra la risorsa portale di Azure e app per la logica (anteprima) con il riquadro "configurazione" > "nuova impostazione applicazione" < "Aggiungi/modifica impostazione applicazione" e i flussi di lavoro. {yourWorkflowName}. OperationOptions "opzione impostata su" WithStatelessRunHistory ".](./media/create-stateful-stateless-workflows-azure-portal/stateless-operation-options-run-history.png)
 

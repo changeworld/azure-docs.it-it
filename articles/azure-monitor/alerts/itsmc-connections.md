@@ -6,26 +6,26 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 7ac842df17e80b49990d89d1623330c4e31ab566
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a372cdcd05267f3bdb093f676948a79c473ad955
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617936"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734775"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
-Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](../platform/itsmc-overview.md).
+Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](./itsmc-overview.md).
 
 Sono supportati i prodotti/servizi ITSM seguenti. Selezionare il prodotto per visualizzare informazioni dettagliate su come connettere il prodotto a ITSMC.
 
-- [ServiceNow](../platform/itsmc-connections-servicenow.md)
-- [System Center Service Manager](../platform/itsmc-connections-scsm.md)
-- [Cherwell](../platform/itsmc-connections-cherwell.md)
-- [Provance](../platform/itsmc-connections-provance.md)
+- [ServiceNow](./itsmc-connections-servicenow.md)
+- [System Center Service Manager](./itsmc-connections-scsm.md)
+- [Cherwell](./itsmc-connections-cherwell.md)
+- [Provance](./itsmc-connections-provance.md)
 
 > [!NOTE]
-> Microsoft propone ai clienti Cherwell e Provance di usare l' [azione webhook](../platform/action-groups.md#webhook) per Cherwell e l'endpoint di Provance come altra soluzione per l'integrazione.
+> Microsoft propone ai clienti Cherwell e Provance di usare l' [azione webhook](./action-groups.md#webhook) per Cherwell e l'endpoint di Provance come altra soluzione per l'integrazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risolvere i problemi di Connettore di Gestione dei servizi IT](../platform/itsmc-resync-servicenow.md)
+* [Risolvere i problemi di Connettore di Gestione dei servizi IT](./itsmc-resync-servicenow.md)

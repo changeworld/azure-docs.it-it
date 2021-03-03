@@ -1,22 +1,22 @@
 ---
-title: Costi di monitoraggio per il monitoraggio di Azure per i contenitori | Microsoft Docs
-description: Questo articolo descrive il costo di monitoraggio per le metriche & i dati di inventario raccolti da monitoraggio di Azure per i contenitori per consentire ai clienti di gestire l'utilizzo e i costi associati.
+title: Costo del monitoraggio per informazioni dettagliate sul contenitore | Microsoft Docs
+description: Questo articolo descrive il costo di monitoraggio per le metriche & i dati di inventario raccolti da informazioni dettagliate sul contenitore per aiutare i clienti a gestire l'utilizzo e i costi associati.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 0a3118e1dd839eced5e1f15d28feff4bbb58014f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 78387e950d476126d7c2065a530844e44fd59b4f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620096"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728910"
 ---
-# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Informazioni sui costi di monitoraggio dei contenitori per Monitoraggio di Azure
+# <a name="understand-monitoring-costs-for-container-insights"></a>Informazioni sui costi di monitoraggio per informazioni dettagliate sul contenitore
 
-Questo articolo fornisce indicazioni sui prezzi di monitoraggio di Azure per i contenitori che consentono di comprendere quanto segue:
+Questo articolo fornisce indicazioni sui prezzi per informazioni dettagliate sul contenitore per comprendere quanto segue:
 
 * Come stimare i costi in anticipo prima di abilitare questa analisi
 
-* Come misurare i costi dopo l'abilitazione di monitoraggio di Azure per i contenitori per uno o più contenitori
+* Come misurare i costi dopo l'abilitazione di container Insights per uno o più contenitori
 
 * Come controllare la raccolta di dati e ridurre i costi
 
@@ -27,7 +27,7 @@ Il modello di determinazione dei prezzi di monitoraggio di Azure si basa princip
 >[!NOTE]
 >Tutte le dimensioni e i prezzi sono solo per la stima di esempio. Vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/monitor/) di monitoraggio di Azure per i prezzi più recenti in base al modello di prezzi log Analytics di monitoraggio di Azure e all'area di Azure.
 
-Di seguito è riportato un riepilogo dei tipi di dati raccolti da un cluster Kubernetes con monitoraggio di Azure per i contenitori che influenzano i costi e possono essere personalizzati in base all'utilizzo:
+Di seguito è riportato un riepilogo dei tipi di dati raccolti da un cluster Kubernetes con informazioni dettagliate sul contenitore che influenzano i costi e possono essere personalizzate in base all'utilizzo:
 
 - Stdout, log del contenitore stderr da ogni contenitore monitorato in ogni spazio dei nomi Kubernetes nel cluster
 
@@ -37,11 +37,11 @@ Di seguito è riportato un riepilogo dei tipi di dati raccolti da un cluster Kub
 
 - Scraping attivo della metrica Prometheus
 
-- [Raccolta dei log di diagnostica](../../aks/view-master-logs.md) dei log del nodo master Kubernetes nel cluster AKS per analizzare i dati di log generati dai componenti Master, ad esempio *Kube-apiserver* e *Kube-Controller-Manager*.
+- [Raccolta dei log di diagnostica](../../aks/view-control-plane-logs.md) dei log del nodo master Kubernetes nel cluster AKS per analizzare i dati di log generati dai componenti Master, ad esempio *Kube-apiserver* e *Kube-Controller-Manager*.
 
 ## <a name="what-is-collected-from-kubernetes-clusters"></a>Cosa viene raccolto dai cluster Kubernetes
 
-Il monitoraggio di Azure per i contenitori include un set predefinito di metriche e di elementi di inventario raccolti che vengono scritti come dati di log nell'area di lavoro Log Analytics. Tutte le metriche elencate di seguito vengono raccolte per impostazione predefinita ogni minuto.
+Il contenitore Insights include un set predefinito di metriche e di elementi di inventario raccolti che vengono scritti come dati di log nell'area di lavoro Log Analytics. Tutte le metriche elencate di seguito vengono raccolte per impostazione predefinita ogni minuto.
 
 ### <a name="node-metrics-collected"></a>Metriche del nodo raccolte
 
@@ -194,10 +194,10 @@ Se si usa il [raschietto della metrica Prometheus](container-insights-prometheus
 
 - Verificare che la frequenza di scarto sia impostata in modo ottimale (il valore predefinito è 60 secondi). Sebbene sia possibile aumentare la frequenza a 15 secondi, è necessario assicurarsi che le metriche da eliminare vengano pubblicate con tale frequenza. In caso contrario, verranno ricavate molte metriche duplicate e inviate all'area di lavoro Log Analytics a intervalli che si aggiungono ai costi di inserimento e conservazione dei dati, ma sono meno di valore. 
 
-- Il monitoraggio di Azure per i contenitori supporta l'esclusione & gli elenchi di inclusione per nome della metrica. Se, ad esempio, si eliminano le metriche **kubedns** nel cluster, potrebbero essere presenti centinaia di elementi che vengono ripartiti per impostazione predefinita, ma è molto probabile che si interessi solo a un subset. Confermare di aver specificato un elenco di metriche da ritirare oppure escluderne altre tranne alcune per salvare il volume di inserimento dati. È facile abilitare la raschiatura e non usare molte di queste metriche, che aggiungono costi aggiuntivi alla fattura del Log Analytics.
+- Il contenitore Insights supporta l'esclusione & gli elenchi di inclusione in base al nome della metrica. Se, ad esempio, si eliminano le metriche **kubedns** nel cluster, potrebbero essere presenti centinaia di elementi che vengono ripartiti per impostazione predefinita, ma è molto probabile che si interessi solo a un subset. Confermare di aver specificato un elenco di metriche da ritirare oppure escluderne altre tranne alcune per salvare il volume di inserimento dati. È facile abilitare la raschiatura e non usare molte di queste metriche, che aggiungono costi aggiuntivi alla fattura del Log Analytics.
 
 - Quando si esegue il frammento delle annotazioni Pod, assicurarsi di filtrare in base allo spazio dei nomi in modo da escludere il frammento di metriche Pod dagli spazi dei nomi che non vengono usati, ad esempio lo spazio dei nomi **dev-test** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su come comprendere i costi che potrebbero essere basati sui modelli di utilizzo recenti dei dati raccolti con monitoraggio di Azure per i contenitori, vedere [gestire l'utilizzo e stimare i costi](../platform/manage-cost-storage.md).
+Per altre informazioni su come comprendere i costi che potrebbero essere basati sui modelli di utilizzo recenti dei dati raccolti con informazioni dettagliate sul contenitore, vedere [gestire l'utilizzo e stimare i costi](../logs/manage-cost-storage.md).

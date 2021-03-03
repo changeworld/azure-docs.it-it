@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 0fc57b87e5ec1d7f47d9f9d74698af56172246ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab7d4bf0b8d8ca32dafe6f19b46047eca89a7734
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617496"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733976"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portale di che si sposta in Azure
 
@@ -59,12 +59,12 @@ In entrambi i casi, l'amministratore deve assegnare manualmente il ruolo appropr
 | Autorizzazione del portale di OMS | Ruolo di Azure |
 |:---|:---|
 | ReadOnly | Lettore di Log Analytics |
-| Autore di contributi | Collaboratore di Log Analytics |
+| Collaboratore | Collaboratore di Log Analytics |
 | Amministratore | Proprietario | 
  
 
 ## <a name="new-workspaces"></a>Nuove aree di lavoro
-Non è più possibile creare nuove aree di lavoro usando il portale di OMS. Per creare una nuova area di lavoro nel portale di Azure, seguire le indicazioni riportate nell'articolo [Creare un'area di lavoro Log Analytics nel portale di Azure](../learn/quick-create-workspace.md).
+Non è più possibile creare nuove aree di lavoro usando il portale di OMS. Per creare una nuova area di lavoro nel portale di Azure, seguire le indicazioni riportate nell'articolo [Creare un'area di lavoro Log Analytics nel portale di Azure](./quick-create-workspace.md).
 
 ## <a name="changes-to-alerts"></a>Modifiche apportate agli avvisi
 
@@ -73,9 +73,9 @@ Non è più possibile creare nuove aree di lavoro usando il portale di OMS. Per 
 Gli avvisi sono stati [estesi nel portale di Azure gli](../alerts/alerts-unified-log.md) avvisi esistenti continueranno a essere elencati nel portale di OMS, ma è possibile gestirli solo in portale di Azure. Se si accede agli avvisi a livello di codice tramite l'API REST per gli avvisi di Log Analytics o il modello risorse degli avvisi di Log Analytics sarà necessario usare i gruppi di azioni invece delle azioni nelle chiamate API, dei modelli di Azure Resource Manager e dei comandi di PowerShell.
 
 ### <a name="alert-management-solution"></a>soluzione Alert Management
-Diversamente da quanto annunciato in precedenza, la [soluzione Gestione avvisi](../platform/alert-management-solution.md) continuerà a essere disponibile e completamente supportata nel portale di Azure. È possibile continuare a installare la soluzione da Azure Marketplace.
+Diversamente da quanto annunciato in precedenza, la [soluzione Gestione avvisi](../insights/alert-management-solution.md) continuerà a essere disponibile e completamente supportata nel portale di Azure. È possibile continuare a installare la soluzione da Azure Marketplace.
 
-Anche se la soluzione Gestione avvisi rimane disponibile, si consiglia di usare l'[interfaccia di gestione degli avvisi unificata di Monitoraggio di Azure](../platform/alerts-overview.md) per visualizzare e gestire tutti gli avvisi in Azure. Questa nuova esperienza aggrega in modo nativo gli avvisi provenienti da più origini all'interno di Azure, inclusi gli avvisi per i log da Log Analytics. Se si usa l'interfaccia di gestione degli avvisi unificata di Monitoraggio di Azure, la soluzione Gestione avvisi è necessaria solo per abilitare l'integrazione degli avvisi da System Center Operation Manager in Azure. Nell'interfaccia di gestione degli avvisi unificata di Monitoraggio di Azure è possibile vedere le distribuzioni degli avvisi, sfruttare i vantaggi del raggruppamento automatizzato degli avvisi correlati tramite gruppi intelligenti e visualizzare gli avvisi da più sottoscrizioni grazie all'applicazione di filtri avanzati. I miglioramenti futuri per la gestione degli avvisi saranno principalmente disponibili da questa nuova esperienza. 
+Anche se la soluzione Gestione avvisi rimane disponibile, si consiglia di usare l'[interfaccia di gestione degli avvisi unificata di Monitoraggio di Azure](../alerts/alerts-overview.md) per visualizzare e gestire tutti gli avvisi in Azure. Questa nuova esperienza aggrega in modo nativo gli avvisi provenienti da più origini all'interno di Azure, inclusi gli avvisi per i log da Log Analytics. Se si usa l'interfaccia di gestione degli avvisi unificata di Monitoraggio di Azure, la soluzione Gestione avvisi è necessaria solo per abilitare l'integrazione degli avvisi da System Center Operation Manager in Azure. Nell'interfaccia di gestione degli avvisi unificata di Monitoraggio di Azure è possibile vedere le distribuzioni degli avvisi, sfruttare i vantaggi del raggruppamento automatizzato degli avvisi correlati tramite gruppi intelligenti e visualizzare gli avvisi da più sottoscrizioni grazie all'applicazione di filtri avanzati. I miglioramenti futuri per la gestione degli avvisi saranno principalmente disponibili da questa nuova esperienza. 
 
 I dati raccolti dalla soluzione Gestione avvisi (record con tipo Avviso) continuano a essere disponibili in Log Analytics fino a quando la soluzione è installata per l'area di lavoro. 
 
@@ -83,7 +83,7 @@ I dati raccolti dalla soluzione Gestione avvisi (record con tipo Avviso) continu
 L'app per dispositivi mobili OMS subirà la terminazione del servizio insieme al portale di OMS. Anziché l'app per dispositivi mobili OMS, per accedere alle informazioni sull'infrastruttura IT, sui dashboard e sulle query salvate, è possibile accedere al portale di Azure direttamente dal browser nel dispositivo mobile. Per ottenere avvisi, è necessario configurare i [Gruppi di azioni di Azure](../alerts/action-groups.md) per ricevere le notifiche sotto forma di SMS o di chiamata vocale
 
 ## <a name="application-insights-connector-and-solution"></a>Connettore di Application Insights e soluzione
-[Connettore di Application Insights](../logs/app-insights-connector.md) fornisce un modo per includere i dati di Application Insights in un'area di lavoro Log Analytics. Questa duplicazione dei dati è stata necessaria per abilitare la visibilità tra i dati dell'infrastruttura e dell'applicazione. Con il supporto della conservazione dei dati di Application Insights esteso fino a marzo 2019 e la possibilità di eseguire [query tra risorse](../logs/cross-workspace-query.md) oltre ad aggiungere [visualizzazione multipla di risorse di Application Insights di monitoraggio di Azure](../log-query/unify-app-resource-data.md), non è necessario duplicare i dati dalle risorse di Application Insights e inviarli a Log Analytics. Inoltre, il connettore invia un subset delle proprietà delle applicazioni a Log Analytics, mentre le query tra risorse offrono maggiore flessibilità.  
+[Connettore di Application Insights](../logs/app-insights-connector.md) fornisce un modo per includere i dati di Application Insights in un'area di lavoro Log Analytics. Questa duplicazione dei dati è stata necessaria per abilitare la visibilità tra i dati dell'infrastruttura e dell'applicazione. Con il supporto della conservazione dei dati di Application Insights esteso fino a marzo 2019 e la possibilità di eseguire [query tra risorse](../logs/cross-workspace-query.md) oltre ad aggiungere [visualizzazione multipla di risorse di Application Insights di monitoraggio di Azure](./unify-app-resource-data.md), non è necessario duplicare i dati dalle risorse di Application Insights e inviarli a Log Analytics. Inoltre, il connettore invia un subset delle proprietà delle applicazioni a Log Analytics, mentre le query tra risorse offrono maggiore flessibilità.  
 
 Di conseguenza, Connettore di Application Insights è stato deprecato e rimosso da Azure Marketplace insieme alla deprecazione del portale di OMS il 30 marzo 2019. Le connessioni esistenti continueranno a funzionare fino al 30 giugno 2019. Con la deprecazione del portale OMS, non è disponibile alcun modo per configurare e rimuovere le connessioni esistenti dal portale. Questa operazione sarà supportata tramite l'API REST che verrà resa disponibile a gennaio 2019, con pubblicazione di una notifica negli [aggiornamenti di Azure](https://azure.microsoft.com/updates/). 
 

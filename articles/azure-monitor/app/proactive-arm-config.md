@@ -4,14 +4,14 @@ description: Automatizzare la gestione e configurazione delle regole di rilevame
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 06/26/2019
+ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 169ad40e32f688ae20a9d02f61db161844b1254a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e3a7b71cd8975957754ba014ecc700484c27a6d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890514"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726122"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gestire le regole di rilevamento intelligente di Application Insights usando modelli di Azure Resource Manager
 
@@ -21,18 +21,18 @@ Questo metodo può essere usato durante la distribuzione di nuove risorse di App
 ## <a name="smart-detection-rule-configuration"></a>Configurazione delle regole di rilevamento intelligente
 
 Per una regola di rilevamento intelligente è possibile configurare le impostazioni seguenti:
-- Se la regola è abilitata (il valore predefinito è **true** ).
-- Se i messaggi di posta elettronica devono essere inviati agli utenti associati ai ruoli di [lettore monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader) e [collaboratore monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor) della sottoscrizione quando viene individuato un rilevamento (il valore predefinito è **true** ).
+- Se la regola è abilitata (il valore predefinito è **true**).
+- Se i messaggi di posta elettronica devono essere inviati agli utenti associati ai ruoli di [lettore monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader) e [collaboratore monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor) della sottoscrizione quando viene individuato un rilevamento (il valore predefinito è **true**).
 - Eventuali destinatari di posta elettronica aggiuntivi che devono ricevere una notifica quando si ha un rilevamento.
-    -  La configurazione della posta elettronica non è disponibile per le regole di rilevamento intelligente contrassegnate come _Anteprima_ .
+    -  La configurazione della posta elettronica non è disponibile per le regole di rilevamento intelligente contrassegnate come _Anteprima_.
 
-Per consentire la configurazione delle impostazioni delle regole tramite Azure Resource Manager, la configurazione delle regole di rilevamento intelligente è ora disponibile come risorsa interna alla risorsa di Application Insights denominata **ProactiveDetectionConfigs** .
+Per consentire la configurazione delle impostazioni delle regole tramite Azure Resource Manager, la configurazione delle regole di rilevamento intelligente è ora disponibile come risorsa interna alla risorsa di Application Insights denominata **ProactiveDetectionConfigs**.
 Per la massima flessibilità, ogni regola di rilevamento intelligente può essere configurata con impostazioni di notifica univoche.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Di seguito sono indicati alcuni esempi che illustrano come configurare le impostazioni delle regole di rilevamento intelligente tramite modelli di Azure Resource Manager.
-Tutti gli esempi fanno riferimento a una risorsa di Application Insights denominata _"myApplication"_ e alla "regola di rilevamento intelligente dipendenze con durata lunga", che è denominata internamente _"longdependencyduration"_ .
+Tutti gli esempi fanno riferimento a una risorsa di Application Insights denominata _"myApplication"_ e alla "regola di rilevamento intelligente dipendenze con durata lunga", che è denominata internamente _"longdependencyduration"_.
 Assicurarsi di sostituire il nome della risorsa di Application Insights e di specificare il nome interno della regola di rilevamento intelligente interessata. Consultare la tabella seguente per l'elenco dei nomi interni di Azure Resource Manager corrispondenti per ogni regola di rilevamento intelligente.
 
 ### <a name="disable-a-smart-detection-rule"></a>Disabilitare una regola di rilevamento intelligente
@@ -152,7 +152,7 @@ Di seguito è riportata una tabella dei nomi delle regole di rilevamento intelli
 
 ### <a name="failure-anomalies-alert-rule"></a>Regola di avviso anomalie errori
 
-Questo modello di Azure Resource Manager illustra la configurazione di una regola di avviso di anomalie di errore con gravità 2. Questa nuova versione della regola di avviso per le anomalie degli errori fa parte della nuova piattaforma di avvisi di Azure e sostituisce la versione classica che verrà ritirata come parte del [processo di ritiro degli avvisi classici](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+Questo modello di Azure Resource Manager illustra la configurazione di una regola di avviso di anomalie di errore con gravità 2.
 
 > [!NOTE]
 > Le anomalie degli errori sono un servizio globale, quindi la posizione delle regole viene creata nel percorso globale.

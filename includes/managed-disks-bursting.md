@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 634deb655620f99c7b7b2b55819c58308eaa5a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f85f2770b98507618d5cbfdec1b55f397c7f514
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275159"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750797"
 ---
-In Azure è possibile aumentare le prestazioni di IOPS di archiviazione su disco e le prestazioni di MB/s a cui si fa riferimento come il potenziamento delle macchine virtuali e dei dischi. L'espansione è utile in molti scenari, ad esempio la gestione del traffico del disco imprevisto o l'elaborazione dei processi batch. È possibile sfruttare in modo efficace le macchine virtuali e l'espansione a livello di disco per ottenere una linea di base e prestazioni eccezionali sia nella macchina virtuale che nel disco. In questo modo è possibile ottenere prestazioni ottimali di base e migliorare le prestazioni sia nella macchina virtuale che nel disco. 
+Azure offre la possibilità di aumentare le prestazioni di IOPS e MB/s di archiviazione su disco. questa operazione è detta espansione per le macchine virtuali (VM) e i dischi. È possibile sfruttare in modo efficace le macchine virtuali e il potenziamento del disco per ottenere prestazioni migliori per le macchine virtuali e i dischi.
 
-Si noti che l'espansione su dischi e VM è indipendente l'una dall'altra. Se si dispone di un disco di espansione, non è necessaria una macchina virtuale con picchi per consentire il promemoria del disco. Se si dispone di una macchina virtuale di espansione, non è necessario un disco di espansione per consentire l'espansione della macchina virtuale. 
+I picchi per le macchine virtuali di Azure e le risorse disco non dipendono tra loro. Non è necessario disporre di una macchina virtuale con supporto di espansione per un disco in grado di supportare la funzionalità di espansione. Analogamente, non è necessario avere un disco con supporto di espansione collegato alla VM con supporto di espansione per la macchina virtuale.

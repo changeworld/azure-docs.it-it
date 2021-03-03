@@ -11,16 +11,37 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 11f32d893ccc26dd30d9997d4348661d45f84eb8
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 56e6d859293b91a56252372574f59c8dcc2cd80e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225480"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687329"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentazione della piattaforma Microsoft Identity: novità
 
 Ecco le novità della documentazione della piattaforma Microsoft Identity. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi.
+
+## <a name="february-2021"></a>2021 febbraio
+
+### <a name="new-articles"></a>Nuovi articoli
+
+- [Guida introduttiva: acquisire un token di accesso e chiamare l'API Microsoft Graph da un'app desktop Electron](quickstart-v2-nodejs-desktop.md)
+- [Esercitazione: accedere agli utenti e chiamare l'API Microsoft Graph in un'app desktop Electron](tutorial-v2-nodejs-desktop.md)
+- [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app console Node.js usando l'identità dell'app](quickstart-v2-nodejs-console.md)
+- [Esercitazione: chiamare l'API Microsoft Graph in un'app console Node.js](tutorial-v2-nodejs-console.md)
+- [Esercitazione: utenti di accesso in un'app Web Node.js & Express](tutorial-v2-nodejs-webapp-msal.md)
+- [Supporto dell'autenticazione senza password con chiavi di FIDO2 nelle app sviluppate](support-fido2-authentication.md)
+
+### <a name="updated-articles"></a>Articoli aggiornati
+
+- [Novità per l'autenticazione](reference-breaking-changes.md)
+- [Usare MSAL.NET per l'accesso degli utenti con identità di social networking](msal-net-aad-b2c-considerations.md)
+- [Esempi di codice per Microsoft Identity Platform (endpoint versione 2.0)](sample-v2-code.md)
+- [Video su Microsoft Identity Platform](identity-videos.md)
+- [Avvio rapido: Configurare un tenant](quickstart-create-new-tenant.md)
+- [Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md)
+- [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app console Java usando l'identità dell'app](quickstart-v2-java-daemon.md)
 
 ## <a name="january-2021"></a>Gennaio 2021
 
@@ -66,17 +87,3 @@ Ecco le novità della documentazione della piattaforma Microsoft Identity. Quest
 - [Token di accesso di Microsoft Identity Platform](access-tokens.md)
 - [API Web che chiama le API Web: acquisire un token per l'app](scenario-web-api-call-api-acquire-token.md)
 
-
-## <a name="november-2020"></a>Novembre 2020
-
-### <a name="new-articles"></a>Nuovi articoli
-
-- [Come usare le API abilitate per la valutazione dell'accesso continuo nelle applicazioni](app-resilience-continuous-access-evaluation.md)
-
-### <a name="updated-articles"></a>Articoli aggiornati
-
-- [Token di accesso di Microsoft Identity Platform](access-tokens.md)
-- [Opzioni di configurazione dell'applicazione (MSAL)](msal-client-application-configuration.md)
-- [Procedura: fornire attestazioni facoltative all'app](active-directory-optional-claims.md)
-- [Pubblicare l'app nella raccolta di app Azure AD](v2-howto-app-gallery-listing.md)
-- [Procedura: aggiungere i ruoli dell'app all'applicazione e riceverli nel token](howto-add-app-roles-in-azure-ad-apps.md)

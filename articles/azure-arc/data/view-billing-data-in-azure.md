@@ -7,19 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 16546432c8c0a23d5c9dc471fe8c62ced5eca993
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206453"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687533"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Caricare i dati di fatturazione in Azure e visualizzarli nel portale di Azure
 
 > [!IMPORTANT] 
->  Non è previsto alcun costo per l'uso di Azure Arc Enabled Data Services durante il periodo di anteprima. Sebbene il sistema di fatturazione funzioni end-to-end, il contatore della fatturazione è impostato su $0.  Se si segue questo scenario, vengono visualizzate le voci della fatturazione per un servizio attualmente denominato **Hybrid Data Services** e per le risorse di un tipo denominato **Microsoft. AzureData/ `<resource type>` **. Sarà possibile visualizzare un record per ogni servizio dati-Azure Arc creato, ma ogni record verrà fatturato per $0.
+>  Non è previsto alcun costo per l'uso di Azure Arc Enabled Data Services durante il periodo di anteprima. Sebbene il sistema di fatturazione funzioni end-to-end, il contatore della fatturazione è impostato su $0.  Se si segue questo scenario, vengono visualizzate le voci della fatturazione per un servizio attualmente denominato **Hybrid Data Services** e per le risorse di un tipo denominato **Microsoft. AzureData/ `<resource type>`**. Sarà possibile visualizzare un record per ogni servizio dati-Azure Arc creato, ma ogni record verrà fatturato per $0.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -111,8 +111,9 @@ azdata arc dc upload -p usage.json
 
 Per visualizzare i dati di fatturazione nel portale di Azure, attenersi alla procedura seguente:
 
-1. Aprire il portale di Azure usando l'URL speciale:  [https://aka.ms/arcdata](https://aka.ms/arcdata) .
+1. Aprire il [portale di Azure](https://portal.azure.com).
 1. Nella casella di ricerca nella parte superiore della schermata digitare **Gestione costi** , quindi fare clic sul servizio gestione costi.
+1. In **Panoramica di gestione costi** fare clic sulla scheda **Gestione costi** .
 1. Fare clic sulla scheda **analisi costi** a sinistra.
 1. Fare clic sul pulsante **costo per risorsa** nella parte superiore della visualizzazione.
 1. Verificare che l'ambito sia impostato sulla sottoscrizione in cui sono state create le risorse del servizio dati.
@@ -136,10 +137,10 @@ Per visualizzare i dati di fatturazione nel portale di Azure, attenersi alla pro
 Per configurare un processo di esportazione fatturazione, attenersi alla procedura seguente:
 
 1. Fare clic su **exports (Esporta** ) a sinistra.
-1. Scegliere **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 1. Immettere un nome e una frequenza di esportazione, quindi fare clic su Avanti.
 1. Scegliere di creare un nuovo account di archiviazione o utilizzarne uno esistente e compilare il modulo per specificare l'account di archiviazione, il contenitore e il percorso della directory in cui esportare i file di dati di fatturazione, quindi fare clic su Avanti.
-1. Scegliere **Crea**.
+1. Fare clic su **Crea**.
 
 I file di esportazione dei dati di fatturazione saranno disponibili in circa 4 ore e verranno esportati nella pianificazione specificata durante la creazione del processo di esportazione della fatturazione.
 

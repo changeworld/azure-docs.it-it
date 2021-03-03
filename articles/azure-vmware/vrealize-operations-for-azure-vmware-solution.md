@@ -3,12 +3,12 @@ title: Configurare operazioni vRealize per la soluzione VMware di Azure
 description: Informazioni su come configurare le operazioni vRealize per il cloud privato della soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: c2470ecde0874b46da1236ca6e99e6b0b3eb990d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3d2617f893c34fde6a154f9f93b5bda520c5a91a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880692"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738430"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurare operazioni vRealize per la soluzione VMware di Azure
 
@@ -37,7 +37,7 @@ Prima di [iniziare](#before-you-begin) e prima dei [prerequisiti](#prerequisites
 ## <a name="on-premises-vrealize-operations-managing-azure-vmware-solution-deployment"></a>Operazioni vRealize locali che gestiscono la distribuzione della soluzione VMware di Azure
 La maggior parte dei clienti dispone di una distribuzione locale esistente di operazioni vRealize per gestire uno o più domini vCenter locali. Quando effettuano il provisioning di una soluzione VMware di Azure, il cloud privato connette il proprio ambiente locale al proprio cloud privato usando una soluzione VPN ExpressRoute di Azure o di livello 3.  
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="Operazioni vRealize locali che gestiscono la distribuzione della soluzione VMware di Azure"  border="false":::
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="Operazioni vRealize locali che gestiscono la distribuzione della soluzione VMware di Azure" border="false":::
 
 Per estendere le funzionalità delle operazioni di vRealize al cloud privato della soluzione VMware di Azure, è possibile creare un' [istanza di adapter per le risorse del cloud privato](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.config.doc/GUID-640AD750-301E-4D36-8293-1BFEB67E2600.html). Raccoglie i dati dal cloud privato della soluzione VMware di Azure e li trasferisce in operazioni vRealize locali. L'istanza di vRealize Operations Manager locale può connettersi direttamente al gestore vCenter e NSX-T nella soluzione VMware di Azure. Facoltativamente, è possibile distribuire un agente di raccolta remota operazioni vRealize nel cloud privato della soluzione VMware di Azure. L'agente di raccolta comprime e crittografa i dati raccolti dal cloud privato prima che vengano inviati tramite la rete VPN o ExpressRoute al vRealize Operations Manager in esecuzione in locale. 
 

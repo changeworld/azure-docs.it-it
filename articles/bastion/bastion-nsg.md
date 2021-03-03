@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4fe22e0dae73df7af4fc24ba508ecbecf72dfd05
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: b6a0dee4c3fef1be4f4b9f910b4c6256b4924a2d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795377"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700219"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Uso di NSG Access e Azure Bastion
 
@@ -32,11 +32,15 @@ In questo diagramma:
 
 Questa sezione illustra il traffico di rete tra l'utente e il Bastione di Azure e per le macchine virtuali di destinazione nella rete virtuale:
 
+> [!IMPORTANT]
+> Se si sceglie di usare un NSG con la risorsa Bastion di Azure, è **necessario** creare tutte le seguenti regole di traffico in ingresso e in uscita. Se si omette una qualsiasi delle regole seguenti nel NSG, la risorsa di Azure Bastion non riceverà gli aggiornamenti necessari in futuro e quindi aprirà la risorsa alle vulnerabilità di sicurezza future.
+> 
+
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Azure Bastion viene distribuito in modo specifico a ***AzureBastionSubnet** _.
+Azure Bastion viene distribuito in modo specifico a ***AzureBastionSubnet***.
 
-_ **Traffico in ingresso:**
+* **Traffico in ingresso:**
 
    * **Traffico in ingresso da Internet pubblico:** Azure Bastion creerà un IP pubblico che richiede la porta 443 abilitata nell'indirizzo IP pubblico per il traffico in ingresso. NON è necessario aprire la porta 3389/22 nella AzureBastionSubnet.
    * **Traffico in ingresso dal piano di controllo Bastion di Azure:** Per la connettività del piano di controllo, abilitare la porta 443 in ingresso dal tag del servizio **GatewayManager** . In questo modo, il piano di controllo, ovvero Gestione Gateway, sarà in grado di comunicare con Azure Bastion.

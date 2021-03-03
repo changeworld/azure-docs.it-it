@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
-ms.openlocfilehash: ea2dc877c7bc6db387985e7b5cd1153e195ab4f1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 471ccd6176bd8821ce7e40fde6d961bd9bcf7f0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509571"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702148"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>Aggiornamento della versione principale nel server singolo database di Azure per MySQL
 
@@ -59,7 +59,7 @@ Seguire questa procedura per eseguire l'aggiornamento principale della versione 
  
    Questo aggiornamento richiede la versione 2.16.0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata. Eseguire az version per trovare la versione e le librerie dipendenti installate. Per eseguire l'aggiornamento alla versione più recente, eseguire az upgrade.
 
-2. Dopo l'accesso, eseguire il comando [AZ MySQL Server Upgrade](https://docs.microsoft.com/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_upgrade&preserve-view=true) :
+2. Dopo l'accesso, eseguire il comando [AZ MySQL Server Upgrade](/cli/azure/mysql/server?preserve-view=true&view=azure-cli-latest#az_mysql_server_upgrade) :
 
    ```azurecli
    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --target-server-version 5.7"
@@ -89,7 +89,7 @@ Seguire questa procedura per eseguire l'aggiornamento principale della versione 
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per MySQL 5,6 esistente.
 
-2. Creare una [replica di lettura](https://docs.microsoft.com/azure/mysql/concepts-read-replicas#create-a-replica) dal server primario.
+2. Creare una [replica di lettura](./concepts-read-replicas.md#create-a-replica) dal server primario.
 
 3. [Aggiornare la replica di lettura](#perform-major-version-upgrade-from-mysql-56-to-mysql-57-on-read-replica-using-azure-portal) alla versione 5,7.
 
@@ -105,7 +105,7 @@ Seguire questa procedura per eseguire l'aggiornamento principale della versione 
 
    Se lo stato di `Slave_IO_Running` e è `Slave_SQL_Running` "Yes" e il valore di `Seconds_Behind_Master` è "0", la replica funziona correttamente. `Seconds_Behind_Master` indica il ritardo della replica. Se il valore non è "0", significa che la replica sta elaborando gli aggiornamenti. Quando si conferma `Seconds_Behind_Master` è "0", è possibile arrestare la replica.
 
-6. Alzare di livello la replica di lettura al database primario [arrestando la replica](https://docs.microsoft.com/azure/mysql/howto-read-replicas-portal#stop-replication-to-a-replica-server).
+6. Alzare di livello la replica di lettura al database primario [arrestando la replica](./howto-read-replicas-portal.md#stop-replication-to-a-replica-server).
 
 7. Puntare l'applicazione al nuovo database primario (replica precedente) che esegue il server 5,7. Ogni server dispone di una stringa di connessione univoca. Aggiornare l'applicazione in modo che punti alla replica (precedente) invece che all'origine.
 

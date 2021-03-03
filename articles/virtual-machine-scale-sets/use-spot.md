@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675012"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694989"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Macchine virtuali Azure spot per i set di scalabilità di macchine virtuali 
 
@@ -68,13 +68,56 @@ Questa nuova funzionalità a livello di piattaforma userà l'intelligenza artifi
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Prova & ripristinare i vantaggi:
-- Abilitata per impostazione predefinita quando si distribuisce una macchina virtuale Azure spot in un set di scalabilità.
 - Tenta di ripristinare le macchine virtuali di Azure spot eliminate a causa della capacità.
 - Le macchine virtuali di Azure spot ripristinate dovrebbero essere eseguite per un periodo di tempo più lungo con una minore probabilità di una capacità attivata per la rimozione.
 - Migliora la durata di una macchina virtuale Azure spot, quindi i carichi di lavoro vengono eseguiti per un periodo di tempo più lungo.
 - Consente ai set di scalabilità di macchine virtuali di gestire il numero di destinazioni per le macchine virtuali Azure spot, in modo analogo alla funzionalità di conteggio destinazione già esistente per le VM con pagamento in base al consumo.
 
 Provare & il ripristino è disabilitato nei set di scalabilità che usano la [scalabilità](virtual-machine-scale-sets-autoscale-overview.md)automatica. Il numero di macchine virtuali nel set di scalabilità è determinato dalle regole di scalabilità automatica.
+
+### <a name="register-for-try--restore"></a>Eseguire la registrazione per try & Restore
+
+Prima di poter usare la funzionalità Try & Restore, è necessario registrare la sottoscrizione per l'anteprima. Il completamento della registrazione potrebbe richiedere diversi minuti. Per completare la registrazione delle funzionalità, è possibile usare l'interfaccia della riga di comando di Azure o PowerShell.
+
+
+**Usare l'interfaccia della riga di comando**
+
+Usare [AZ feature Register](/cli/azure/feature#az-feature-register) per abilitare l'anteprima per la sottoscrizione. 
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+La registrazione delle funzionalità può richiedere fino a 15 minuti. Per verificare lo stato della registrazione: 
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+Una volta registrata la funzionalità per la sottoscrizione, completare il processo di consenso esplicito propagando la modifica nel provider di risorse di calcolo. 
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute 
+```
+**Usare PowerShell** 
+
+Usare il cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) per abilitare l'anteprima per la sottoscrizione. 
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+La registrazione delle funzionalità può richiedere fino a 15 minuti. Per verificare lo stato della registrazione: 
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+Una volta registrata la funzionalità per la sottoscrizione, completare il processo di consenso esplicito propagando la modifica nel provider di risorse di calcolo. 
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute 
+```
 
 ## <a name="placement-groups"></a>Gruppi di posizionamento
 

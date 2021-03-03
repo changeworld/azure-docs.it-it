@@ -3,12 +3,12 @@ title: Bus di servizio di Azure-scadenza messaggio
 description: Questo articolo illustra la scadenza e l'ora di vita dei messaggi del bus di servizio di Azure. Dopo tale scadenza, il messaggio non viene più recapitato.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: a2a568f04c2607832a1fa2a8e32bc6ce8331da4d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 505a041d2f6129b159166e9f99ce7fef779e1e66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652072"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698366"
 ---
 # <a name="message-expiration-time-to-live"></a>Scadenza dei messaggi (durata)
 Il payload all'interno di un messaggio, oppure di un comando o di una richiesta che un messaggio trasmette a un ricevitore, è quasi sempre soggetto a un qualche tipo di scadenza a livello di applicazione. Dopo tale scadenza, il contenuto non viene più recapitato oppure l'operazione richiesta non viene più eseguita.
@@ -20,6 +20,8 @@ La scadenza di ogni singolo messaggio può essere controllata impostando la prop
 Oltre la **scadenza** immediata, i messaggi diventano non idonei per il recupero. La scadenza non influisce sui messaggi attualmente bloccati per il recapito. Questi messaggi vengono comunque gestiti normalmente. Se il blocco scade o il messaggio viene abbandonato, la scadenza ha effetto immediato.
 
 Quando il messaggio è bloccato, l'applicazione potrebbe essere in possesso di un messaggio che è scaduto. Il fatto che l'applicazione proceda con l'elaborazione o scelga di abbandonare il messaggio dipende dall'implementatore.
+
+È consigliabile impostare il valore di **durata (TTL** ) su un messaggio in ore o giorni. Se si imposta un valore basso in secondi o millisecondi, il messaggio potrebbe scadere prima che i consumer possano utilizzarlo. 
 
 ## <a name="entity-level-expiration"></a>Scadenza a livello di entità
 Tutti i messaggi inviati a una coda o a un argomento sono soggetti a una scadenza predefinita impostata a livello di entità. Può anche essere impostato nel portale durante la creazione e modificato in un secondo momento. La scadenza predefinita viene usata per tutti i messaggi inviati all'entità in cui la durata (TTL) non è impostata in modo esplicito. La scadenza predefinita funziona anche come limite per il valore di durata (TTL). I messaggi con una scadenza più lunga della durata (TTL) rispetto al valore predefinito vengono regolati automaticamente sul valore di durata (TTL) del messaggio predefinito prima dell'accodamento.

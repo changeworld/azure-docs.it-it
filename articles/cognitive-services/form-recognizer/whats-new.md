@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: c7b6586f02d14d4e49ce9a5024b19ea15c8d2267
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f194f0bc7ec8d0bf2265c0863f93bfd11337b5f4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364690"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703389"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -91,7 +91,7 @@ I **nuovi esempi** sono disponibili in GitHub.
 * **Supporto della valuta** : rilevamento ed estrazione dei simboli di valuta globali.
 * Il sistema di riconoscimento del modulo **gov di Azure** è ora disponibile anche in Azure gov.
 * **Funzionalità di sicurezza avanzate**: 
-   * Il riconoscitore di form **chiave di Bring** consente di crittografare automaticamente i dati quando vengono salvati in modo permanente nel cloud per proteggerli e aiutarti a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. È ora possibile gestire la sottoscrizione anche con le proprie chiavi di crittografia. Le [chiavi gestite dal cliente, note anche come Bring your own key (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.  
+   * Il riconoscitore di form **chiave di Bring** consente di crittografare automaticamente i dati quando vengono salvati in modo permanente nel cloud per proteggerli e aiutarti a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. È ora possibile gestire la sottoscrizione anche con le proprie chiavi di crittografia. Le [chiavi gestite dal cliente, note anche come Bring your own key (BYOK)](./encrypt-data-at-rest.md), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.  
    * **Endpoint privati** : consente di accedere in modo [sicuro ai dati tramite un collegamento privato](../../private-link/private-link-overview.md) in una rete virtuale (VNet).
 
 
@@ -123,7 +123,7 @@ I **nuovi esempi** sono disponibili in GitHub.
 
 ### <a name="security-improvements"></a>Miglioramenti della sicurezza
 
-* Customer-Managed chiavi sono ora disponibili per FormRecognizer. Per altre informazioni, vedere [crittografia dei dati inattivi per il riconoscimento del modulo](./form-recognizer-encryption-of-data-at-rest.md).
+* Customer-Managed chiavi sono ora disponibili per FormRecognizer. Per altre informazioni, vedere [crittografia dei dati inattivi per il riconoscimento del modulo](./encrypt-data-at-rest.md).
 * Usare le identità gestite per accedere alle risorse di Azure con Azure Active Directory. Per altre informazioni, vedere [autorizzare l'accesso alle identità gestite](../authentication.md#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Marzo 2020 

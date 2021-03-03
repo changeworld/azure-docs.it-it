@@ -1,22 +1,22 @@
 ---
-title: Metriche di distribuzione & HPA con monitoraggio di Azure per contenitori | Microsoft Docs
-description: Questo articolo descrive le metriche relative alla distribuzione & la metrica di scalabilità automatica di Pod orizzontali con monitoraggio di Azure per i contenitori.
+title: Metriche di distribuzione & HPA con informazioni dettagliate sul contenitore | Microsoft Docs
+description: Questo articolo descrive le metriche relative alla distribuzione & la funzionalità di scalabilità automatica di Pod orizzontali che vengono raccolte con informazioni dettagliate sul contenitore.
 ms.topic: conceptual
 ms.date: 08/09/2020
-ms.openlocfilehash: ee1f0d4849a8382a898aaca84956ff78166e138f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c8bb100b756ea92d73e1c3a698f119b4f8157930
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620087"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717707"
 ---
-# <a name="deployment--hpa-metrics-with-azure-monitor-for-containers"></a>Metriche di distribuzione & HPA con monitoraggio di Azure per i contenitori
+# <a name="deployment--hpa-metrics-with-container-insights"></a>Metriche di distribuzione & HPA con informazioni dettagliate sul contenitore
 
-A partire dalla versione dell'agente *ciprod08072020*, monitoraggio di Azure per i contenitori-Integrated Agent ora raccoglie le metriche per le distribuzioni & attributi.
+A partire dalla versione dell'agente *ciprod08072020*, container Insights-Agent integrato ora raccoglie le metriche per le distribuzioni & attributi.
 
 ## <a name="deployment-metrics"></a>Metriche di distribuzione
 
-Monitoraggio di Azure per i contenitori avvia automaticamente le distribuzioni di monitoraggio, raccogliendo le metriche seguenti a intervalli di 60 secondi e archiviarle nella tabella **InsightMetrics** :
+Il contenitore Insights avvia automaticamente le distribuzioni di monitoraggio, raccogliendo le metriche seguenti a intervalli di 60 secondi e archiviarle nella tabella **InsightMetrics** :
 
 |Nome metrica |Dimensione metrica (tag) |Descrizione |
 |------------|------------------------|------------|
@@ -24,7 +24,7 @@ Monitoraggio di Azure per i contenitori avvia automaticamente le distribuzioni d
 
 ## <a name="hpa-metrics"></a>Metriche HPA
 
-Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio di attributi, raccogliendo le metriche seguenti a intervalli di 60 secondi e archiviando questi ultimi nella tabella **InsightMetrics** :
+Il contenitore Insights avvia automaticamente il monitoraggio attributi, raccogliendo le metriche seguenti a intervalli di 60 secondi e archiviando tali metriche nella tabella **InsightMetrics** :
 
 |Nome metrica |Dimensione metrica (tag) |Descrizione |
 |------------|------------------------|------------|
@@ -32,7 +32,7 @@ Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio di
 
 ## <a name="deployment--hpa-charts"></a>Grafici di distribuzione & HPA 
 
-Il monitoraggio di Azure per i contenitori include grafici preconfigurati per le metriche elencate in precedenza nella tabella come cartella di lavoro per ogni cluster. È possibile trovare le distribuzioni & le distribuzioni di cartelle di lavoro HPA **& hPa** direttamente da un cluster AKS selezionando **cartelle di lavoro** nel riquadro a sinistra e nell'elenco a discesa **Visualizza cartelle di lavoro** in informazioni dettagliate.
+Il contenitore Insights include grafici preconfigurati per le metriche elencate in precedenza nella tabella come cartella di lavoro per ogni cluster. È possibile trovare le distribuzioni & le distribuzioni di cartelle di lavoro HPA **& hPa** direttamente da un cluster AKS selezionando **cartelle di lavoro** nel riquadro a sinistra e nell'elenco a discesa **Visualizza cartelle di lavoro** in informazioni dettagliate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

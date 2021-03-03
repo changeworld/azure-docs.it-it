@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare e configurare insiemi di crede
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4022838575ca53608a802a6be95e150778db6ac7
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 1a20cd2b1245febea5fd18a9f6fe6e7a7bb6f04b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525975"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716755"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creare e configurare un insieme di credenziali di servizi di ripristino
 
@@ -71,7 +71,7 @@ Poiché questo processo è a livello di archiviazione, esistono [implicazioni](h
 >- Dopo aver acconsentito, potrebbero essere necessarie fino a 48 ore affinché gli elementi di backup siano disponibili nelle aree secondarie.
 >- Attualmente CRR per le macchine virtuali di Azure è supportato solo per le macchine virtuali di Azure Resource Manager di Azure. Le macchine virtuali di Azure classiche non saranno supportate.  Quando i tipi di gestione aggiuntivi supportano CRR, verranno registrati **automaticamente** .
 >- Il ripristino tra aree **attualmente non può essere ripristinato** in GRS o con ridondanza locale una volta avviata la protezione per la prima volta.
->- Attualmente, l'area secondaria [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) è fino a 12 ore dall'area primaria, anche se la replica con [ridondanza geografica e accesso in lettura (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) è 15 minuti.
+>- Attualmente, l'area secondaria [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) è fino a 12 ore dall'area primaria, anche se la replica con [ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) è 15 minuti.
 
 ### <a name="configure-cross-region-restore"></a>Configurare il ripristino tra aree
 

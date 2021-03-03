@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 47883c742d77a88adb662e8dded0723f0e105385
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3a5c98b3fad76d2206d1fcba79663063e22ecdbc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737971"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
@@ -21,7 +21,7 @@ Questo articolo offre esempi di query e istruzioni più dettagliate per l'uso de
 
 Questo articolo inizia con query di esempio che illustrano la struttura del linguaggio di query e le operazioni di query comuni per i dispositivi gemelli digitali. Viene quindi descritto come eseguire le query dopo averli scritte, usando l' [API di query](/rest/api/digital-twins/dataplane/query) dei dispositivi gemelli digitali di Azure o un [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
-> [!TIP]
+> [!NOTE]
 > Se si eseguono le query di esempio seguenti con una chiamata API o SDK, sarà necessario condensare il testo della query in una singola riga.
 
 ## <a name="show-all-digital-twins"></a>Mostra tutti i dispositivi gemelli digitali
@@ -36,8 +36,8 @@ Ottenere i gemelli digitali per **Proprietà** (inclusi ID e metadati):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!TIP]
-> Viene eseguita una query sull'ID di un dispositivo gemello digitale usando il campo dei metadati `$dtId` .
+> [!NOTE]
+> Una query sull'ID di un gemello digitale viene eseguita usando il campo dei metadati `$dtId`.
 
 È anche possibile ottenere i gemelli a seconda **che sia definita una determinata proprietà**. Ecco una query che ottiene i gemelli che hanno una proprietà *location* definita:
 
@@ -50,6 +50,10 @@ Ciò consente di ottenere i dispositivi gemelli in base alle proprietà dei *tag
 È anche possibile ottenere i gemelli in base al **tipo di una proprietà**. Ecco una query che ottiene i gemelli la cui proprietà *temperature* è un numero:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty3":::
+
+>[!TIP]
+> Se una proprietà è di tipo `Map` , è possibile usare le chiavi e i valori della mappa direttamente nella query, come indicato di seguito:
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty4":::
 
 ## <a name="query-by-model"></a>Query per modello
 
@@ -88,10 +92,10 @@ Di seguito è riportato un esempio di query che specifica un valore per tutti e 
 
 Quando si esegue una query in base alle **relazioni** dei gemelli digitali, il linguaggio di query di Azure Digital Twins presenta una sintassi speciale.
 
-Le relazioni vengono estratte nell'ambito della query nella `FROM` clausola. Una differenza importante rispetto ai linguaggi di tipo SQL "classici" è che ogni espressione in questa `FROM` clausola non è una tabella, bensì che la `FROM` clausola esprime un'attraversamento di relazioni tra entità e viene scritta con una versione di dispositivi gemelli digitali di Azure di `JOIN` .
+Il pull delle relazioni viene eseguito nell'ambito della query nella clausola `FROM`. Una differenza importante rispetto ai linguaggi di tipo SQL "classici" è che ogni espressione in questa `FROM` clausola non è una tabella, bensì che la `FROM` clausola esprime un'attraversamento di relazioni tra entità e viene scritta con una versione di dispositivi gemelli digitali di Azure di `JOIN` .
 
-Tenere presente che con le funzionalità del [modello](concepts-models.md) di Azure Digital Twins, le relazioni non esistono indipendentemente dai dispositivi gemelli. Ciò significa che il linguaggio di query di Azure Digital Twins `JOIN` è leggermente diverso da SQL generale `JOIN` , perché non è possibile eseguire query in modo indipendente e le relazioni devono essere collegate a un dispositivo gemello.
-Per incorporare questa differenza, la parola chiave `RELATED` viene utilizzata nella `JOIN` clausola per fare riferimento a un set di relazioni del gemello.
+Tenere presente che con le funzionalità del [modello](concepts-models.md) di Azure Digital Twins, le relazioni non esistono indipendentemente dai dispositivi gemelli. Il `JOIN` del linguaggio di query di Gemelli digitali di Azure è quindi leggermente diverso dal `JOIN` di SQL generale, perché in questo caso non è possibile eseguire in modo indipendente una query delle relazioni, che devono essere collegate a un gemello.
+Per integrare questa differenza, viene usata la parola chiave `RELATED` nella clausola `JOIN` per fare riferimento al set di relazioni di un gemello.
 
 Nella sezione seguente vengono forniti alcuni esempi di questo aspetto.
 
@@ -107,11 +111,11 @@ Ecco una query di esempio basata sulle relazioni. Questo frammento di codice sel
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship1":::
 
 > [!NOTE]
-> Lo sviluppatore non deve correlare questo `JOIN` oggetto con un valore di chiave nella `WHERE` clausola o specificare un valore di chiave inline con la `JOIN` definizione. Questa correlazione viene calcolata automaticamente dal sistema, in quanto le proprietà della relazione identificano l'entità di destinazione.
+> Lo sviluppatore non deve correlare questo `JOIN` oggetto con un valore di chiave nella `WHERE` clausola o specificare un valore di chiave inline con la `JOIN` definizione. Questa correlazione viene calcolata automaticamente dal sistema, perché le proprietà della relazione identificano l'entità di destinazione.
 
-### <a name="query-the-properties-of-a-relationship"></a>Eseguire query sulle proprietà di una relazione
+### <a name="query-the-properties-of-a-relationship"></a>Eseguire una query sulle proprietà di una relazione
 
-Analogamente al modo in cui i dispositivi gemelli digitali hanno le proprietà descritte tramite DTDL, le relazioni possono avere anche proprietà. È possibile eseguire una query sui dispositivi gemelli **in base alle proprietà delle relazioni**.
+Così come i gemelli digitali hanno proprietà descritte tramite DTDL, anche le relazioni possono avere proprietà. È possibile eseguire una query sui dispositivi gemelli **in base alle proprietà delle relazioni**.
 Il linguaggio di query di Azure Digital gemelli consente di filtrare e proiettare le relazioni, assegnando un alias alla relazione all'interno della `JOIN` clausola.
 
 Si consideri ad esempio una relazione di *servicedBy* con una proprietà *reportedCondition* . Nella query seguente, a questa relazione viene assegnato un alias ' R ' per fare riferimento alla relativa proprietà.
@@ -220,7 +224,12 @@ Il frammento di codice seguente illustra la chiamata [SDK .NET (C#)](/dotnet/api
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-Questa chiamata restituisce i risultati della query sotto forma di oggetto [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) .
+La query usata in questa chiamata restituisce un elenco di gemelli digitali, che l'esempio precedente rappresenta con gli oggetti [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) . Il tipo restituito dei dati per ogni query dipenderà dai termini specificati con l' `SELECT` istruzione:
+* Le query che iniziano con restituiranno `SELECT * FROM ...` un elenco di gemelli digitali, che possono essere serializzati come `BasicDigitalTwin` oggetti o altri tipi di dispositivi gemelli digitali personalizzati che è possibile creare.
+* Le query che iniziano nel formato restituiranno `SELECT <A>, <B>, <C> FROM ...` un dizionario con chiavi `<A>` , `<B>` e `<C>` .
+* `SELECT`È possibile creare altri formati di istruzioni per restituire dati personalizzati. È possibile creare classi personalizzate per gestire set di risultati molto personalizzati. 
+
+### <a name="query-with-paging"></a>Query con paging
 
 Le chiamate di query supportano il paging. Di seguito è riportato un esempio completo di utilizzo `BasicDigitalTwin` di come tipo di risultato della query con gestione e paging degli errori:
 

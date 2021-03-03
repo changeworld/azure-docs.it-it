@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: 213437e68efb27c483c8013d209261408ab9d4ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e2050784d03b1f01e743df9b00916ec286a3e7ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620807"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736951"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Esempi di query di log in Monitoraggio di Azure
-Questo articolo include vari esempi di [query](../log-query/log-query-overview.md) che usano il [linguaggio di query Kusto](/azure/kusto/query/) per recuperare tipi diversi di dati da Monitoraggio di Azure. Poiché vengono usati metodi diversi per consolidare e analizzare i dati, è possibile usare questi esempi per identificare strategie diverse che si possono applicare in base alle necessità.  
+Questo articolo include vari esempi di [query](./log-query-overview.md) che usano il [linguaggio di query Kusto](/azure/kusto/query/) per recuperare tipi diversi di dati da Monitoraggio di Azure. Poiché vengono usati metodi diversi per consolidare e analizzare i dati, è possibile usare questi esempi per identificare strategie diverse che si possono applicare in base alle necessità.  
 
-Per informazioni dettagliate sulle diverse parole chiave usate in questi esempi, vedere il [materiale di riferimento per il linguaggio Kusto](/azure/kusto/query/). Se non si ha familiarità con Monitoraggio di Azure, seguire una [lezione sulla creazione di query](../log-query/get-started-queries.md).
+Per informazioni dettagliate sulle diverse parole chiave usate in questi esempi, vedere il [materiale di riferimento per il linguaggio Kusto](/azure/kusto/query/). Se non si ha familiarità con Monitoraggio di Azure, seguire una [lezione sulla creazione di query](./get-started-queries.md).
 
 ## <a name="events"></a>Eventi
 
@@ -375,7 +375,7 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Utilizzo
 
-Il `Usage` tipo di dati può essere utilizzato per tenere traccia del volume di dati inserito per soluzione o tipo di dati. Sono disponibili altre tecniche per studiare i volumi di dati inseriti in base al [computer](../platform/manage-cost-storage.md#data-volume-by-computer) o alla [sottoscrizione di Azure, al gruppo di risorse o alla risorsa](../platform/manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
+Il `Usage` tipo di dati può essere utilizzato per tenere traccia del volume di dati inserito per soluzione o tipo di dati. Sono disponibili altre tecniche per studiare i volumi di dati inseriti in base al [computer](./manage-cost-storage.md#data-volume-by-computer) o alla [sottoscrizione di Azure, al gruppo di risorse o alla risorsa](./manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Volume dati per soluzione
 
@@ -438,4 +438,4 @@ Update
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere il [materiale di riferimento per il linguaggio Kusto](/azure/kusto/query) per informazioni dettagliate sul linguaggio.
-- Seguire una [lezione sulla scrittura di query di log in Monitoraggio di Azure](../log-query/get-started-queries.md).
+- Seguire una [lezione sulla scrittura di query di log in Monitoraggio di Azure](./get-started-queries.md).

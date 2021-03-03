@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980576"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691825"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 
@@ -71,7 +71,7 @@ Usare la procedura seguente per proteggere l'area di lavoro e le risorse associa
 1. Creare un' [area di lavoro privata abilitata](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) per il collegamento per abilitare la comunicazione tra VNet e l'area di lavoro.
 1. Aggiungere Azure Key Vault alla rete virtuale con un [endpoint del servizio](../key-vault/general/overview-vnet-service-endpoints.md) o un [endpoint privato](../key-vault/general/private-link-service.md). Impostare Key Vault su ["Consenti ai servizi Microsoft attendibili di ignorare questo firewall"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
 1. Aggiungere l'account di archiviazione di Azure alla rete virtuale con un [endpoint del servizio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [endpoint privato](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
-1. [Configurare container Registry di Azure per l'uso di un endpoint privato](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) e [abilitare la delega della subnet nelle istanze di contenitore di Azure](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
+1. [Configurare container Registry di Azure per l'uso di un endpoint privato](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 ![Diagramma dell'architettura che mostra il modo in cui l'area di lavoro e le risorse associate comunicano tra di loro sugli endpoint di servizio o privati all'interno di un VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

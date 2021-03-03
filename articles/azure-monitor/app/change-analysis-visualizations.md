@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 643645eb3b361cd68def1177ba7e8af89f1963bc
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100521089"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734622"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Visualizzazioni per l'analisi delle modifiche dell'applicazione (anteprima)
 
@@ -80,13 +80,13 @@ Passare allo strumento diagnostica e risoluzione dei problemi per una macchina v
 
 ## <a name="activity-log-change-history"></a>Cronologia modifiche log attività
 
-La funzionalità [Visualizza cronologia modifiche](../platform/activity-log.md#view-change-history) nel log attività chiama il back-end del servizio di analisi delle modifiche dell'applicazione per ottenere le modifiche associate a un'operazione. **Cronologia delle modifiche** usata per chiamare direttamente il [grafo delle risorse di Azure](../../governance/resource-graph/overview.md) , ma lo scambio del back-end per chiamare l'analisi delle modifiche dell'applicazione in modo che le modifiche restituite includano le modifiche a livello di risorsa da [Azure Resource Graph](../../governance/resource-graph/overview.md), le proprietà delle risorse da [Azure Resource Manager](../../azure-resource-manager/management/overview.md)e le modifiche in-Guest dai servizi di PaaS, ad esempio app Web Affinché il servizio di analisi delle modifiche dell'applicazione sia in grado di analizzare le modifiche apportate alle sottoscrizioni degli utenti, è necessario registrare un provider di risorse. La prima volta che si immette la scheda **cronologia modifiche** , lo strumento inizierà automaticamente a registrare il provider di risorse **Microsoft. ChangeAnalysis** . Dopo la registrazione, le modifiche da **Azure Resource Graph** saranno disponibili immediatamente e copriranno gli ultimi 14 giorni. Le modifiche apportate da altre origini saranno disponibili dopo circa 4 ore dopo l'onboarding della sottoscrizione.
+La funzionalità [Visualizza cronologia modifiche](../essentials/activity-log.md#view-change-history) nel log attività chiama il back-end del servizio di analisi delle modifiche dell'applicazione per ottenere le modifiche associate a un'operazione. **Cronologia delle modifiche** usata per chiamare direttamente il [grafo delle risorse di Azure](../../governance/resource-graph/overview.md) , ma lo scambio del back-end per chiamare l'analisi delle modifiche dell'applicazione in modo che le modifiche restituite includano le modifiche a livello di risorsa da [Azure Resource Graph](../../governance/resource-graph/overview.md), le proprietà delle risorse da [Azure Resource Manager](../../azure-resource-manager/management/overview.md)e le modifiche in-Guest dai servizi di PaaS, ad esempio app Web Affinché il servizio di analisi delle modifiche dell'applicazione sia in grado di analizzare le modifiche apportate alle sottoscrizioni degli utenti, è necessario registrare un provider di risorse. La prima volta che si immette la scheda **cronologia modifiche** , lo strumento inizierà automaticamente a registrare il provider di risorse **Microsoft. ChangeAnalysis** . Dopo la registrazione, le modifiche da **Azure Resource Graph** saranno disponibili immediatamente e copriranno gli ultimi 14 giorni. Le modifiche apportate da altre origini saranno disponibili dopo circa 4 ore dopo l'onboarding della sottoscrizione.
 
 ![Integrazione cronologia modifiche log attività](./media/change-analysis/activity-log-change-history.png)
 
 ## <a name="vm-insights-integration"></a>Integrazione di VM Insights
 
-Gli utenti che hanno abilitato [VM Insights](../insights/vminsights-overview.md) possono visualizzare le modifiche apportate alle macchine virtuali che potrebbero causare picchi in un grafico delle metriche, ad esempio CPU o memoria. I dati delle modifiche sono integrati nella barra di spostamento sul lato di VM Insights. L'utente può visualizzare se sono state apportate modifiche nella macchina virtuale e selezionare Verifica modifiche per visualizzare i dettagli delle modifiche nell'interfaccia utente autonoma di analisi **delle** modifiche dell'applicazione.
+Gli utenti che hanno abilitato [VM Insights](../vm/vminsights-overview.md) possono visualizzare le modifiche apportate alle macchine virtuali che potrebbero causare picchi in un grafico delle metriche, ad esempio CPU o memoria. I dati delle modifiche sono integrati nella barra di spostamento sul lato di VM Insights. L'utente può visualizzare se sono state apportate modifiche nella macchina virtuale e selezionare Verifica modifiche per visualizzare i dettagli delle modifiche nell'interfaccia utente autonoma di analisi **delle** modifiche dell'applicazione.
 
 [![Integrazione di VM Insights](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
 

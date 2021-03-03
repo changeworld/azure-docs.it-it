@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 02/26/2021
 ms.author: justinha
-ms.openlocfilehash: 5359a955ea97b559b7e3d244bfb6c4fb09e8681b
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 8eb1560887c08c3f64fa599c39e5577242d2a1e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620036"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689063"
 ---
-# <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>La replica imposta i concetti e le funzionalità per Azure Active Directory Domain Services (anteprima)
+# <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services"></a>La replica imposta i concetti e le funzionalità per Azure Active Directory Domain Services
 
 Quando si crea un dominio gestito Azure Active Directory Domain Services (Azure AD DS), si definisce uno spazio dei nomi univoco. Questo spazio dei nomi è il nome di dominio, ad esempio *aaddscontoso.com* e quindi nell'area di Azure selezionata vengono distribuiti due controller di dominio. Questa distribuzione di controller di dominio è nota come set di repliche.
 
 È possibile espandere un dominio gestito in modo che ogni tenant di Azure AD contenga più di un set di repliche. È possibile aggiungere i set di repliche a qualsiasi rete virtuale con peering in qualsiasi area di Azure che supporti Azure AD DS. I set di replica aggiuntivi in aree di Azure diverse forniscono il ripristino di emergenza geografico per le applicazioni legacy se un'area di Azure passa offline.
-
-I set di repliche sono attualmente disponibili in anteprima.
 
 > [!NOTE]
 > I set di repliche non consentono di distribuire più domini gestiti univoci in un singolo tenant di Azure. Ogni set di repliche contiene gli stessi dati.
@@ -56,15 +54,11 @@ Nell'esempio seguente viene illustrato un dominio gestito con tre set di replich
 
 Lo SKU predefinito per un dominio gestito è lo SKU *Enterprise* , che supporta più set di repliche. Per creare set di repliche aggiuntivi se è stato modificato lo SKU *standard* , [aggiornare il dominio gestito](change-sku.md) a *Enterprise* o *Premium*.
 
-Il numero massimo di set di repliche supportati durante l'anteprima è quattro, inclusa la prima replica creata al momento della creazione del dominio gestito.
+Il numero massimo supportato di set di repliche è quattro, inclusa la prima replica creata al momento della creazione del dominio gestito.
 
 La fatturazione per ogni set di repliche è basata sullo SKU di configurazione del dominio. Se, ad esempio, si dispone di un dominio gestito che usa lo SKU *Enterprise* e si hanno tre set di repliche, la sottoscrizione verrà fatturata ogni ora per ognuno dei tre set di repliche.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
-
-### <a name="can-i-use-my-production-managed-domain-with-this-preview"></a>È possibile usare il dominio gestito di produzione con questa anteprima?
-
-I set di repliche sono una funzionalità in anteprima pubblica di Azure AD Domain Services. È possibile usare un dominio gestito di produzione, ma tenere presente le differenze di supporto esistenti per le funzionalità ancora in anteprima. Per altre informazioni sulle anteprime, vedere il [contratto di servizio per le anteprime di Azure Active Directory](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="can-i-create-a-replica-set-in-subscription-different-from-my-managed-domain"></a>È possibile creare un set di repliche in una sottoscrizione diversa dal dominio gestito?
 
@@ -72,7 +66,7 @@ No. I set di repliche devono trovarsi nella stessa sottoscrizione del dominio ge
 
 ### <a name="how-many-replica-sets-can-i-create"></a>Quanti set di repliche è possibile creare?
 
-L'anteprima è limitata a un massimo di quattro set di repliche, ovvero il set di repliche iniziale per il dominio gestito, più tre set di repliche aggiuntive.
+È possibile creare un massimo di quattro set di repliche, ovvero il set di repliche iniziale per il dominio gestito, più tre set di repliche aggiuntive.
 
 ### <a name="how-does-user-and-group-information-get-synchronized-to-my-replica-sets"></a>Come vengono sincronizzate le informazioni di utenti e gruppi con i set di repliche?
 

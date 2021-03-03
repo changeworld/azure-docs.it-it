@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: tyao
 ms.custom: references_regions
-ms.openlocfilehash: dead60b9d8e0872f3d46b1f223ccf5e6697cbd90
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6a1ec6e0b8862c6ad2b884b019e908e7d2a59a1e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101100058"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715514"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Proteggi la tua origine con un collegamento privato in Azure front door standard/Premium (anteprima)
 
@@ -30,7 +30,7 @@ Il [collegamento privato di Azure](../../private-link/private-link-overview.md) 
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Lo SKU di Azure front door Premium può connettersi all'origine usando il servizio di collegamento privato. Le applicazioni possono essere ospitate nella rete virtuale privata o dietro un servizio PaaS, non accessibili da Internet pubblico.
+Lo SKU di Azure front door Premium può connettersi all'origine dietro l'app Web e l'account di archiviazione usando il servizio di collegamento privato, eliminando la necessità che l'origine sia accessibile pubblicamente.
 
 :::image type="content" source="../media/concept-private-link/front-door-private-endpoint-architecture.png" alt-text="Architettura degli endpoint privati di front door":::
 
@@ -38,7 +38,8 @@ Quando si Abilita il collegamento privato alla propria origine nella configurazi
 
 :::image type="content" source="../media/concept-private-link/enable-private-endpoint.png" alt-text="Abilita Endpoint privato":::
 
-Azure front door Premium supporta vari tipi di origine. Se l'origine è ospitata in un set di macchine virtuali nella rete privata, è necessario creare prima un servizio di bilanciamento del carico standard interno, abilitare il servizio di collegamento privato al servizio di bilanciamento del carico standard e quindi selezionare tipo di origine personalizzato. Per configurazione collegamento privato selezionare "Microsoft. Network/PrivateLinkServices come tipo di risorsa. Per i servizi PaaS, ad esempio app Web di Azure e account di archiviazione, è possibile abilitare il servizio di collegamento privato dai servizi corrispondenti e selezionare Microsoft. Web/Sites per l'app Web e Microsoft. storage/StorageAccounts per i tipi di servizio di collegamento privato dell'account di archiviazione.
+> [!NOTE]
+> Una volta abilitata l'origine del collegamento privato e approvare l'endpoint privato conenction, è necessario attendere alcuni minuti prima che venga stabilita la connessione. Durante questo periodo di tempo, le richieste all'origine riceveranno un messaggio di errore di sportello anteriore. Quando viene stabilita la connessione, il messaggio di errore scomparirà.
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -50,6 +51,5 @@ Gli endpoint privati di Azure front door vengono gestiti dalla piattaforma e sot
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per connettere Azure front door Premium alle macchine virtuali usando il servizio di collegamento privato, vedere [creare un endpoint privato](../../private-link/create-private-endpoint-portal.md).
 * Per connettere Azure front door Premium all'app Web tramite il servizio di collegamento privato, vedere [connettersi a un'app Web con un endpoint privato](../../private-link/tutorial-private-endpoint-webapp-portal.md).
 * Per connettere Azure front door Premium all'account di archiviazione tramite il servizio di collegamento privato, vedere [connettersi a un account di archiviazione usando un endpoint privato](../../private-link/tutorial-private-endpoint-storage-portal.md).

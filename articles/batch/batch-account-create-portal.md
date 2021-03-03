@@ -2,14 +2,14 @@
 title: Creare un account nel portale di Azure
 description: Informazioni su come creare un account Azure Batch nel portale di Azure per eseguire carichi di lavoro paralleli su larga scala nel cloud
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 02/23/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 36759a0caef41af9307bf621a1b6b634ddf586cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368507"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703665"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
 
@@ -101,7 +101,7 @@ In modalità di sottoscrizione utente è necessario un [Azure Key Vault](../key-
 
 Quando si crea l'account batch in modalità sottoscrizione utente, specificare **sottoscrizione utente** come modalità di allocazione pool, selezionare il Key Vault creato e selezionare la casella per concedere l'accesso Azure Batch al Key Vault.
 
-Se si preferisce concedere l'accesso alla Key Vault manualmente, passare alla sezione **criteri di accesso** del Key Vault e selezionare **Aggiungi criteri di accesso**. Selezionare il collegamento accanto a **Seleziona entità** e cercare **Microsoft Azure batch** (ID applicazione **ddbf3205-c6bd-46AE-8127-60eb93363864**). Selezionare tale entità, quindi configurare le **autorizzazioni segrete** usando il menu a discesa. In Azure Batch deve essere specificato un numero minimo di autorizzazioni **Get**, **List**, **Set** e **Delete**.
+Se si preferisce concedere l'accesso alla Key Vault manualmente, passare alla sezione **criteri di accesso** del Key Vault e selezionare **Aggiungi criteri di accesso**. Selezionare il collegamento accanto a **Seleziona entità** e cercare **Microsoft Azure batch** (ID applicazione **ddbf3205-c6bd-46AE-8127-60eb93363864**). Selezionare tale entità, quindi configurare le **autorizzazioni segrete** usando il menu a discesa. In Azure Batch deve essere specificato un numero minimo di autorizzazioni **Get**, **List**, **Set** e **Delete**. Per gli insiemi di credenziali delle [chiavi con l'eliminazione temporanea abilitata](../key-vault/general/soft-delete-overview.md), è necessario assegnare all'Azure batch anche l'autorizzazione di **ripristino** .
 
 :::image type="content" source="media/batch-account-create-portal/secret-permissions.png" alt-text="Screenshot delle selezioni delle autorizzazioni segrete per Azure Batch":::
 

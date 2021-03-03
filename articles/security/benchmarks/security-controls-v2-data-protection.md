@@ -4,19 +4,21 @@ description: Protezione dei dati del benchmark di sicurezza di Azure V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 687c344aefc70729c85fb37d615ec0a272ff4fde
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c8d907062835f18393946b04f1f1e9d5ec345411
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368869"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735761"
 ---
 # <a name="security-control-v2-data-protection"></a>Controllo di sicurezza V2: protezione dei dati
 
 La protezione dei dati copre il controllo della protezione dei dati inattivi, in transito e tramite meccanismi di accesso autorizzati. Sono inclusi l'individuazione, la classificazione, la protezione e il monitoraggio di asset di dati sensibili tramite il controllo di accesso, la crittografia e la registrazione in Azure.
+
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli dell'iniziativa incorporata relativa alla conformità normativa per il benchmark di sicurezza di Azure: protezione dei dati](../../governance/policy/samples/azure-security-benchmark#data-protection)
 
 ## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: Individuare, classificare e assegnare un'etichetta ai dati sensibili
 
@@ -24,9 +26,9 @@ La protezione dei dati copre il controllo della protezione dei dati inattivi, in
 |--|--|--|--|
 | DP-1 | 13,1, 14,5, 14,7 | SC-28 |
 
-Individuare, classificare e assegnare etichette ai dati sensibili per poter progettare i controlli appropriati per garantire che le informazioni riservate vengano archiviate, elaborate e trasmesse in modo sicuro dai sistemi tecnologici dell'organizzazione. 
+Individuare, classificare e assegnare etichette ai dati sensibili per poter progettare i controlli appropriati per garantire che le informazioni riservate vengano archiviate, elaborate e trasmesse in modo sicuro dai sistemi tecnologici dell'organizzazione.
 
-Usare Azure Information Protection (e lo strumento di analisi associato) per le informazioni riservate contenute in documenti di Office archiviati in Azure, in locale, in Office 365 e in altre posizioni. 
+Usare Azure Information Protection (e lo strumento di analisi associato) per le informazioni riservate contenute in documenti di Office archiviati in Azure, in locale, in Office 365 e in altre posizioni.
 
 È possibile usare Azure SQL Information Protection per semplificare la classificazione e l'assegnazione di etichette alle informazioni archiviate nei database SQL di Azure.
 
@@ -38,7 +40,7 @@ Usare Azure Information Protection (e lo strumento di analisi associato) per le 
 
 **Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
+- [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Sicurezza dei dati](/azure/cloud-adoption-framework/organize/cloud-security-data-security) 
 
@@ -84,9 +86,9 @@ Azure Information Protection (AIP) fornisce funzionalità di monitoraggio delle 
 
 Se necessario per garantire la conformità della prevenzione della perdita dei dati (DLP), è possibile usare una soluzione DLP basata su host per applicare controlli di rilevamento e/o preventivi per impedire l'esfiltrazione di dati.
 
-- [Abilitare Advanced Threat Protection di Azure SQL](../../azure-sql/database/threat-detection-overview.md)
+- [Azure Defender per SQL](../../azure-sql/database/azure-defender-for-sql.md)
 
-- [Abilitare Advanced Threat Protection di Archiviazione di Azure](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
+- [Azure Defender per Archiviazione](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Responsabilità**: Condiviso
 
@@ -102,13 +104,13 @@ Se necessario per garantire la conformità della prevenzione della perdita dei d
 
 | ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
-| DP-4 | 14,4 | SC-8 |
+| DP-4 | 14.4 | SC-8 |
 
-Per completare i controlli di accesso, i dati in transito devono essere protetti da attacchi fuori banda (ad esempio, l'acquisizione del traffico) usando la crittografia per assicurarsi che gli utenti malintenzionati non possano leggere o modificare facilmente i dati. 
+Per completare i controlli di accesso, i dati in transito devono essere protetti da attacchi fuori banda (ad esempio, l'acquisizione del traffico) usando la crittografia per assicurarsi che gli utenti malintenzionati non possano leggere o modificare facilmente i dati.
 
-Sebbene sia facoltativo per il traffico su reti private, questo è fondamentale per il traffico su reti esterne e pubbliche. Per il traffico HTTP, assicurarsi che tutti i client che si connettono alle risorse di Azure possano negoziare TLS v 1.2 o versione successiva. Per la gestione remota, usare SSH (per Linux) o RDP/TLS (per Windows) invece di un protocollo non crittografato. Le versioni e i protocolli SSL, TLS e SSH obsoleti e le crittografie vulnerabili dovrebbero essere disabilitati.  
+Sebbene sia facoltativo per il traffico su reti private, questo è fondamentale per il traffico su reti esterne e pubbliche. Per il traffico HTTP, assicurarsi che tutti i client che si connettono alle risorse di Azure possano negoziare TLS v 1.2 o versione successiva. Per la gestione remota, usare SSH (per Linux) o RDP/TLS (per Windows) invece di un protocollo non crittografato. Le versioni e i protocolli SSL, TLS e SSH obsoleti e le crittografie vulnerabili dovrebbero essere disabilitati.
 
-Per impostazione predefinita, Azure fornisce la crittografia per i dati in transito tra i Data Center di Azure. 
+Per impostazione predefinita, Azure fornisce la crittografia per i dati in transito tra i Data Center di Azure.
 
 - [Informazioni sulla crittografia in transito con Azure](../fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 

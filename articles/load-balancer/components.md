@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6ddfe581bb3f2f584fdec0229981321297c9a77f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
-ms.translationtype: HT
+ms.openlocfilehash: 6bf090cde7262fdae9c98ef55227bf2925937dbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399198"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739832"
 ---
 # <a name="azure-load-balancer-components"></a>Componenti di Azure Load Balancer
 
@@ -131,6 +131,7 @@ Il servizio Load Balancer Basic non supporta le regole in uscita.
 - Il flusso in uscita da una macchina virtuale back-end a un front-end di un servizio Load Balancer interno non verrà eseguito.
 - Una regola di bilanciamento del carico non può estendersi a due reti virtuali.  I front-end e le relative istanze di back-end devono trovarsi nella stessa rete virtuale.  
 - L'inoltro di frammenti IP non è supportato nelle regole di bilanciamento del carico. né lo è frammentazione IP dei pacchetti UDP e TCP. È possibile usare le regole di bilanciamento del carico per le porte a disponibilità elevata per l'inoltro di frammenti IP esistenti. Per altre informazioni, vedere [Panoramica delle porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
+- È possibile avere solo 1 Load Balancer pubblico e 1 Load Balancer interna per set di disponibilità
 
 ## <a name="next-steps"></a>Passaggi successivi
 

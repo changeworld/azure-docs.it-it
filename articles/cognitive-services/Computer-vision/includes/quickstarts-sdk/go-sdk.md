@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: df171b74014179c36466a2683a8d0d7c0c3b5e90
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 37c1b81f2396eff1613a6af604b2490b18b93ea8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560883"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750605"
 ---
 <a name="HOLTop"></a>
 
@@ -89,7 +89,7 @@ Dichiarare inoltre un contesto nella radice dello script. Questo oggetto sarà n
 Successivamente, si inizierà ad aggiungere il codice per eseguire diverse operazioni di Visione artificiale.
 
 > [!div class="nextstepaction"]
-> [Il client è stato configurato](?success=set-up-client#object-model) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [Il client è stato configurato](?success=set-up-client#object-model) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client)
 
 ## <a name="object-model"></a>Modello a oggetti
 
@@ -120,7 +120,7 @@ Creare una funzione `main` e aggiungervi il codice seguente per creare un'istanz
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
 
 > [!div class="nextstepaction"]
-> [Il client è stato autenticato](?success=authenticate-client#analyze-an-image) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [Il client è stato autenticato](?success=authenticate-client#analyze-an-image) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analizzare un'immagine
 
@@ -214,7 +214,7 @@ La funzione seguente stampa informazioni sul tipo di immagine,&mdash;ad esempio 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
 > [!div class="nextstepaction"]
-> [L'immagine è stata analizzata](?success=analyze-image#read-printed-and-handwritten-text) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [L'immagine è stata analizzata](?success=analyze-image#read-printed-and-handwritten-text) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Leggere il testo stampato e scritto a mano
 
@@ -246,7 +246,7 @@ Aggiungere il codice seguente per analizzare e visualizzare i dati di testo recu
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
 > [!div class="nextstepaction"]
-> [Il testo è stato letto](?success=read-printed-handwritten-text#run-the-application) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+> [Il testo è stato letto](?success=read-printed-handwritten-text#run-the-application) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=read-printed-handwritten-text)
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
@@ -257,7 +257,7 @@ go run sample-app.go
 ```
 
 > [!div class="nextstepaction"]
-> [L'applicazione è stata eseguita](?success=run-the-application#clean-up-resources) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+> [L'applicazione è stata eseguita](?success=run-the-application#clean-up-resources) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=run-the-application)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -267,7 +267,7 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 * [Interfaccia della riga di comando di Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [Le risorse sono state pulite](?success=clean-up-resources#next-steps) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+> [Le risorse sono state pulite](?success=clean-up-resources#next-steps) [Si è verificato un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=clean-up-resources)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

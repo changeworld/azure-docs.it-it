@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2d83b114487f882b7ee38d3d71c84b6abec04a2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f0c4d4ea7c32e2b58807204ef45b75feae7132
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266919"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727329"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtri e manifesti dinamici
 
@@ -29,7 +29,7 @@ ms.locfileid: "89266919"
 > * [Versione 2](media-services-dynamic-manifest-overview.md)
 > * [Versione 3](../latest/filters-dynamic-manifest-overview.md)
 
-A partire dalla versione 2.17, Servizi multimediali consente di definire filtri per gli asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene eseguito attraverso **manifesti dinamici**creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
+A partire dalla versione 2.17, Servizi multimediali consente di definire filtri per gli asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene eseguito attraverso **manifesti dinamici** creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
 
 Questo argomento illustra alcuni scenari comuni in cui l'uso dei filtri può essere vantaggioso e contiene collegamenti ad altri argomenti che illustrano come creare filtri a livello di codice.
 
@@ -88,11 +88,11 @@ Per ottenere questa flessibilità, Servizi multimediali offre **manifesti dinami
 
 URL MPEG DASH con filtro
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
 
 URL Smooth Streaming con filtro
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
 
 
 Per altre informazioni su come distribuire i contenuti e gli URL di streaming di compilazione, vedere [Informazioni generali sulla distribuzione di contenuti](media-services-deliver-content-overview.md).

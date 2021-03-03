@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: 040c487df83c117e177b8a8b0e8fddde8682c67f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ae95580a8c192f0815623461fb21ec9ecf52ae26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614026"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700644"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archiviare dati da un'area di lavoro Log Analytics ad archiviazione di Azure tramite l'app per la logica
 Questo articolo descrive un metodo per usare [app](../../logic-apps/index.yml) per la logica di Azure per eseguire query sui dati da un'area di lavoro log Analytics in monitoraggio di Azure e inviarli ad archiviazione di Azure. Usare questo processo quando è necessario esportare i dati di log di monitoraggio di Azure per gli scenari di controllo e conformità o per consentire a un altro servizio di recuperare questi dati.  
@@ -118,7 +118,7 @@ AzureActivity
     ResourceId = _ResourceId 
 ```
 
-L' **intervallo di tempo** specifica i record che verranno inclusi nella query in base alla colonna **TimeGenerated** . Deve essere impostato su un valore uguale o superiore all'intervallo di tempo selezionato nella query. Poiché questa query non usa la colonna **TimeGenerated** , l'opzione **set in query** non è disponibile. Per ulteriori informazioni sull'intervallo di tempo, vedere [ambito della query](../log-query/scope.md) . 
+L' **intervallo di tempo** specifica i record che verranno inclusi nella query in base alla colonna **TimeGenerated** . Deve essere impostato su un valore uguale o superiore all'intervallo di tempo selezionato nella query. Poiché questa query non usa la colonna **TimeGenerated** , l'opzione **set in query** non è disponibile. Per ulteriori informazioni sull'intervallo di tempo, vedere [ambito della query](./scope.md) . 
 
 Selezionare le **ultime 4 ore** per l' **intervallo di tempo**. In questo modo, tutti i record con tempi di inserimento maggiori di **TimeGenerated** verranno inclusi nei risultati.
    
@@ -210,6 +210,6 @@ Passare al menu **account di archiviazione** nel portale di Azure e selezionare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere altre informazioni sulle [query di log in Monitoraggio di Azure](../log-query/log-query-overview.md).
+- Vedere altre informazioni sulle [query di log in Monitoraggio di Azure](./log-query-overview.md).
 - Altre informazioni sulle [app](../../logic-apps/index.yml) per la logica
 - Altre informazioni su [Power automatizzate](https://flow.microsoft.com).

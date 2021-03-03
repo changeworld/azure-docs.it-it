@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 02/17/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 93cbc693e340174cf92aa2515d5e09f1ff3c1b31
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0c5ff52e5d3769124cd101b2483f18aea6963d25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656140"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750571"
 ---
 ## <a name="joining-the-meeting-chat"></a>Partecipare alla chat meeting 
 
@@ -304,6 +304,7 @@ Aprire il browser e passare a http://localhost:8080/. Dovrebbe essere visualizza
 
 :::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Screenshot dell'applicazione JavaScript completata.":::
 
-Inserire il collegamento riunione team e l'ID thread nelle caselle di testo. Premere *join teams meeting* per partecipare alla riunione e alla chat dei team dall'interno dell'applicazione di servizi di comunicazione. Passare alla parte inferiore della pagina per avviare la chat.
+Inserire il collegamento riunione team e l'ID thread nelle caselle di testo. Premere *join teams meeting* per partecipare alla riunione dei team. Una volta che l'utente ACS è stato ammesso alla riunione, è possibile chattare dall'applicazione Servizi di comunicazione. Passare alla casella nella parte inferiore della pagina per avviare la chat.
 
-**Nota** : attualmente è supportato solo l'invio, la ricezione e la modifica di messaggi per gli scenari di interoperabilità con i team. Altre funzionalità, come gli indicatori di digitazione e la possibilità per gli utenti di Servizi di comunicazione di aggiungere o rimuovere altri utenti dalla riunione di Teams, non sono ancora supportate.  
+> [!NOTE] 
+> Attualmente, solo gli scenari di interoperabilità con i team supportano solo l'invio, la ricezione e la modifica dei messaggi. Altre funzionalità, come gli indicatori di digitazione e la possibilità per gli utenti di Servizi di comunicazione di aggiungere o rimuovere altri utenti dalla riunione di Teams, non sono ancora supportate.  

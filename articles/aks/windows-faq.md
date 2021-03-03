@@ -5,12 +5,12 @@ description: Vedere le domande frequenti quando si eseguono i pool di nodi di Wi
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: b20ebe82556bb4db6844511ec0953f4d4e75f383
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cc5a5ec2bbfb64a1e787277bf67579bad0543cd6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574731"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739577"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Domande frequenti sui pool di nodi di Windows Server in AKS
 
@@ -54,6 +54,8 @@ Per ottenere le patch più recenti per i nodi di Windows, è possibile [aggiorna
 
 I cluster AKS con pool di nodi di Windows devono usare il modello di rete Azure CNI (Advanced). La rete Kubenet (Basic) non è supportata. Per altre informazioni sulle differenze nei modelli di rete, vedere [concetti di rete per le applicazioni in AKS][azure-network-models]. Il modello di rete CNI di Azure richiede una pianificazione e considerazioni aggiuntive per la gestione degli indirizzi IP. Per altre informazioni su come pianificare e implementare Azure CNI, vedere [configurare la rete di Azure CNI in AKS][configure-azure-cni].
 
+I nodi di Windows nei cluster AKS hanno anche il servizio [Direct Server Return (DSR)][dsr] abilitato per impostazione predefinita quando è abilitato il calice.
+
 ## <a name="is-preserving-the-client-source-ip-supported"></a>Si conserva l'IP di origine del client supportato?
 
 A questo punto, la [conservazione dell'indirizzo IP di origine client][client-source-ip] non è supportata con i nodi di Windows.
@@ -91,7 +93,7 @@ Il cluster del servizio Azure Kubernetes può avere un massimo di 10 pool di nod
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>Tutte le funzionalità sono supportate con i nodi di Windows?
 
-I criteri di rete e kubenet non sono attualmente supportati con i nodi di Windows.
+Kubenet non è attualmente supportato con i nodi Windows.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>È possibile eseguire controller di ingresso nei nodi di Windows?
 
@@ -197,3 +199,4 @@ Per iniziare a usare i contenitori di Windows Server in AKS, [creare un pool di 
 [managed-identity]: use-managed-identity.md
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
+[dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

@@ -97,9 +97,9 @@
           href: logs/resource-manager-log-queries.md
         - name: Workbooks
           href: visualize/resource-manager-workbooks.md
-        - name: Monitoraggio di Azure per contenitori
+        - name: Informazioni dettagliate sul contenitore
           href: containers/resource-manager-container-insights.md
-        - name: Monitoraggio di Azure per le macchine virtuali
+        - name: Informazioni dettagliate sulle macchine virtuali
           href: vm/resource-manager-vminsights.md
     - name: Interfaccia della riga di comando di Azure
       href: cli-samples.md
@@ -879,8 +879,6 @@
             - name: Panoramica
               displayname: 'user behavior analytics, user behavior, usage, behavioral analytics'
               href: app/usage-overview.md
-            - name: Inviare il contesto utente
-              href: app/usage-send-user-context.md
             - name: 'Utenti, sessioni ed eventi'
               href: app/usage-segmentation.md
             - name: Grafici a imbuto
@@ -988,7 +986,7 @@
           href: app/change-analysis-visualizations.md
         - name: Risolvere problemi
           href: app/change-analysis-troubleshoot.md
-    - name: Monitoraggio di Azure per le macchine virtuali
+    - name: Informazioni dettagliate sulle macchine virtuali
       items:
         - name: Panoramica
           href: vm/vminsights-overview.md
@@ -1042,7 +1040,7 @@
           href: vm/vminsights-workbooks.md
         - name: Disabilitare il monitoraggio
           href: vm/vminsights-optout.md
-    - name: Monitoraggio di Azure per contenitori
+    - name: Informazioni dettagliate sul contenitore
       items:
         - name: Panoramica
           href: containers/container-insights-overview.md

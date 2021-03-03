@@ -4,35 +4,26 @@ description: Informazioni su come usare lo strumento di migrazione volontaria pe
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 02/14/2020
 ms.subservice: alerts
-ms.openlocfilehash: 28ccdde85f2873839fbe977c3c991177ac8bb3bb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 644346c7355df581843fa8a838eea50cfeccefd6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614416"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729097"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Usare lo strumento di migrazione volontaria per eseguire la migrazione delle regole di avviso classiche
 
-Come [annunciato in precedenza](../platform/monitoring-classic-retirement.md), gli avvisi classici di monitoraggio di Azure sono ritirati per gli utenti del cloud pubblico, anche se sono ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. Uno strumento di migrazione è disponibile nel portale di Azure ai clienti che hanno utilizzato le regole di avviso classiche e che desiderano attivare la migrazione. Questo articolo illustra come usare lo strumento di migrazione, che verrà usato anche per gli avvisi restanti in attesa di un ulteriore annuncio.
+Come [annunciato in precedenza](monitoring-classic-retirement.md), gli avvisi classici di monitoraggio di Azure sono ritirati per gli utenti del cloud pubblico, anche se sono ancora in uso limitato fino al **31 maggio 2021**. Gli avvisi classici per il cloud di Azure per enti pubblici e Azure Cina 21Vianet si ritireranno il **29 febbraio 2024**.
 
-## <a name="benefits-of-new-alerts"></a>Vantaggi dei nuovi avvisi
-
-Gli avvisi classici vengono sostituiti da nuovi avvisi unificati in monitoraggio di Azure. La nuova piattaforma avvisi presenta i vantaggi seguenti:
-
-- È possibile inviare un avviso su un'ampia gamma di metriche multidimensionali per [molti altri servizi di Azure](alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
-- I nuovi avvisi delle metriche supportano le [regole di avviso](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) di più risorse che consentono di ridurre notevolmente il sovraccarico della gestione di molte regole.
-- Meccanismo di notifica unificato, che supporta:
-  - [Gruppi di azioni](../platform/action-groups.md), un meccanismo di notifica modulare che funziona con tutti i nuovi tipi di avviso (metrica, log e log attività).
-  - Nuovi meccanismi di notifica come SMS, Voice e ITSM Connector.
-- L' [esperienza di avviso unificata](../platform/alerts-overview.md) riporta tutti gli avvisi su segnali diversi (metrica, log e log attività) in un'unica posizione.
+Uno strumento di migrazione è disponibile nel portale di Azure ai clienti che hanno utilizzato le regole di avviso classiche e che desiderano attivare la migrazione autonomamente. Questo articolo illustra come usare lo strumento di migrazione.
 
 ## <a name="before-you-migrate"></a>Prima della migrazione
 
 Il processo di migrazione converte le regole di avviso classiche in nuove regole di avviso equivalenti e crea gruppi di azioni. In preparazione, tenere presenti i punti seguenti:
 
-- Il formato del payload delle notifiche e le API per creare e gestire le nuove regole di avviso sono diverse da quelle delle regole di avviso classiche perché supportano più funzionalità. [Informazioni su come prepararsi per la migrazione](alerts-prepare-migration.md).
+- Il formato del payload delle notifiche e le API per creare e gestire le nuove regole di avviso sono diverse dalle regole di avviso classiche perché supportano più funzionalità. [Informazioni su come prepararsi per la migrazione](alerts-prepare-migration.md).
 
 - Non è possibile eseguire la migrazione di alcune regole di avviso classiche utilizzando lo strumento. [Informazioni sulle regole di cui non è possibile eseguire la migrazione e sulle operazioni da eseguire con esse](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 

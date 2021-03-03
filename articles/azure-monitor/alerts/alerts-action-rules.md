@@ -4,12 +4,12 @@ description: Informazioni sulle regole di azione in monitoraggio di Azure e su c
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 5fc9b1f75faec7f2be8f9e6126fdacf9697413f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1a837ac9aa94effa021d5395fb4856d1d5df2e90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620527"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718149"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -209,7 +209,7 @@ Contoso desidera disattivare le notifiche per tutti gli avvisi del log generati 
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenario 3: gruppo di azioni definito in un gruppo di risorse
 
-Contoso ha definito [un avviso di metrica a livello di sottoscrizione](../platform/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Ma desidera definire le azioni che vengono attivate in modo specifico per gli avvisi generati dal gruppo di risorse **ContosoRG**.
+Contoso ha definito [un avviso di metrica a livello di sottoscrizione](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Ma desidera definire le azioni che vengono attivate in modo specifico per gli avvisi generati dal gruppo di risorse **ContosoRG**.
 
 **Soluzione:** Creare una regola di azione con:
 * Ambito = **ContosoRG**
@@ -253,11 +253,11 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Gli avvisi del log creati con l'opzione [numero di risultati](../platform/alerts-unified-log.md) generano una singola istanza di avviso utilizzando l'intero risultato della ricerca, che può estendersi su più computer. In questo scenario, se una regola di azione usa il filtro del **contesto dell'avviso (payload)** , agisce sull'istanza di avviso purché esista una corrispondenza. Nello scenario 2, descritto in precedenza, se i risultati della ricerca per l'avviso del log generato contengono sia **computer-01** che **computer-02**, viene eliminato l'intera notifica. Non viene generata alcuna notifica per **computer-02** .
+Gli avvisi del log creati con l'opzione [numero di risultati](./alerts-unified-log.md) generano una singola istanza di avviso utilizzando l'intero risultato della ricerca, che può estendersi su più computer. In questo scenario, se una regola di azione usa il filtro del **contesto dell'avviso (payload)** , agisce sull'istanza di avviso purché esista una corrispondenza. Nello scenario 2, descritto in precedenza, se i risultati della ricerca per l'avviso del log generato contengono sia **computer-01** che **computer-02**, viene eliminato l'intera notifica. Non viene generata alcuna notifica per **computer-02** .
 
 ![Il diagramma mostra le regole di azione e gli avvisi del log con una singola istanza di avviso evidenziata.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Per usare al meglio gli avvisi del log con le regole di azione, creare gli avvisi del log con l'opzione [misurazione metrica](../platform/alerts-unified-log.md) . Le istanze di avviso separate vengono generate da questa opzione, in base al campo gruppo definito. Quindi, nello scenario 2 vengono generate istanze di avviso separate per **computer-01** e **computer-02**. A causa della regola di azione descritta nello scenario, viene eliminata solo la notifica per **computer-01** . La notifica per **computer-02** continua a essere attivata normalmente.
+Per usare al meglio gli avvisi del log con le regole di azione, creare gli avvisi del log con l'opzione [misurazione metrica](./alerts-unified-log.md) . Le istanze di avviso separate vengono generate da questa opzione, in base al campo gruppo definito. Quindi, nello scenario 2 vengono generate istanze di avviso separate per **computer-01** e **computer-02**. A causa della regola di azione descritta nello scenario, viene eliminata solo la notifica per **computer-01** . La notifica per **computer-02** continua a essere attivata normalmente.
 
 ![Regole di azione e avvisi del log (numero di risultati)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
@@ -287,7 +287,7 @@ Dopo aver definito la risorsa di destinazione per la regola di avviso, è possib
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>È possibile visualizzare gli avvisi che sono stati eliminati da una regola di azione?
 
-Nella [pagina elenco avvisi](../platform/alerts-managing-alert-instances.md)è possibile scegliere una colonna aggiuntiva denominata **stato di eliminazione**. Se la notifica relativa a un'istanza di avviso è stata eliminata, questo stato verrà visualizzato nell'elenco.
+Nella [pagina elenco avvisi](./alerts-managing-alert-instances.md)è possibile scegliere una colonna aggiuntiva denominata **stato di eliminazione**. Se la notifica relativa a un'istanza di avviso è stata eliminata, questo stato verrà visualizzato nell'elenco.
 
 ![Istanze di avvisi eliminati](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -321,4 +321,4 @@ Per ogni avviso in VM1, il gruppo di azioni AG1 verrebbe attivato una sola volta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Altre informazioni sugli avvisi in Azure](../platform/alerts-overview.md)
+- [Altre informazioni sugli avvisi in Azure](./alerts-overview.md)

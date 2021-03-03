@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: c8d0ea43410b8d191d3d0b08c2f232bd72c80b20
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669628"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693527"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etichettare automaticamente i dati in ambito Azure
 
@@ -102,7 +102,10 @@ Estendendo le etichette di riservatezza di MIP con Azure, le organizzazioni poss
 
 **Per estendere le etichette di riservatezza alle competenze:**
 
-In Microsoft 365 passare alla pagina **Information Protection** . Nella finestra di dialogo **Estendi etichetta per asset in Azure**, selezionare il pulsante **attiva** , quindi selezionare **Sì** nella finestra di conferma visualizzata.
+La procedura seguente consente di rendere disponibili le etichette di riservatezza per l'uso in Azure, in cui è possibile applicare le etichette di riservatezza ad asset come le colonne SQL, i file nell'archivio BLOB di Azure e altro ancora.
+
+1. In Microsoft 365 passare alla pagina **Information Protection** . 
+1. Nella finestra di dialogo **Estendi etichetta per asset in Azure**, selezionare il pulsante **attiva** , quindi selezionare **Sì** nella finestra di conferma visualizzata.
 
 Ad esempio:
 

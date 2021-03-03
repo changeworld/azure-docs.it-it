@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: e4d4b7e01eb5799bee604c05e1660a7a45188763
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 2910ea3f896ba3920126737965ca9c9dbabcfeb3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223341"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709105"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurare un nome di dominio personalizzato in app Azure servizio con l'integrazione di gestione traffico
 
@@ -75,7 +75,7 @@ Dopo aver completato l'aggiunta o la modifica di record DNS presso il provider d
 
 ### <a name="what-about-root-domains"></a>Per quanto riguarda i domini radice?
 
-Poiché Gestione traffico supporta solo il mapping del dominio personalizzato con record CNAME e poiché gli standard DNS non supportano i record CNAME per il mapping dei domini radice (ad esempio, **contoso.com**), gestione traffico non supporta il mapping ai domini radice. Per risolvere questo problema, usare un reindirizzamento URL da a livello di app. In ASP.NET Core, ad esempio, è possibile usare la [riscrittura degli URL](/aspnet/core/fundamentals/url-rewriting). Usare quindi Gestione traffico per bilanciare il carico del sottodominio (**www.contoso.com**). Un altro approccio consiste [nel creare un record alias per il nome di dominio Apex per fare riferimento a un profilo di gestione traffico di Azure](https://docs.microsoft.com/azure/dns/tutorial-alias-tm). ad esempio contoso.com. Anziché usare un servizio di reindirizzamento, è possibile configurare DNS di Azure in modo che faccia riferimento a un profilo di gestione traffico direttamente dalla zona. 
+Poiché Gestione traffico supporta solo il mapping del dominio personalizzato con record CNAME e poiché gli standard DNS non supportano i record CNAME per il mapping dei domini radice (ad esempio, **contoso.com**), gestione traffico non supporta il mapping ai domini radice. Per risolvere questo problema, usare un reindirizzamento URL da a livello di app. In ASP.NET Core, ad esempio, è possibile usare la [riscrittura degli URL](/aspnet/core/fundamentals/url-rewriting). Usare quindi Gestione traffico per bilanciare il carico del sottodominio (**www.contoso.com**). Un altro approccio consiste [nel creare un record alias per il nome di dominio Apex per fare riferimento a un profilo di gestione traffico di Azure](../dns/tutorial-alias-tm.md). ad esempio contoso.com. Anziché usare un servizio di reindirizzamento, è possibile configurare DNS di Azure in modo che faccia riferimento a un profilo di gestione traffico direttamente dalla zona. 
 
 Per gli scenari di disponibilità elevata, è possibile implementare una configurazione DNS di bilanciamento del carico senza gestione traffico creando più *record a* che puntano dal dominio radice a ogni indirizzo IP della copia dell'app. Eseguire quindi [il mapping dello stesso dominio radice a tutte le copie dell'app](app-service-web-tutorial-custom-domain.md#map-an-a-record). Poiché non è possibile eseguire il mapping dello stesso nome di dominio a due diverse app nella stessa area, questa configurazione funziona solo quando le copie dell'app si trovano in aree diverse.
 

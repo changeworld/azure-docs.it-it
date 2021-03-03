@@ -3,18 +3,18 @@ title: Struttura e sintassi del modello
 description: Descrive la struttura e le proprietà dei modelli di Azure Resource Manager (modelli ARM) usando la sintassi dichiarativa JSON.
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 4c08612325d2776f8f1a7fe4486e6f592ca474a0
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 31576c72fb845677f132fd9cd6ee776db922d436
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934697"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722705"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendere la struttura e la sintassi dei modelli di Resource Manager
 
 Questo articolo descrive la struttura di un modello di Azure Resource Manager (modello ARM). Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni.
 
-Questo articolo è destinato agli utenti che hanno familiarità con i modelli ARM. Fornisce informazioni dettagliate sulla struttura del modello. Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere [Esercitazione: Creare e distribuire il primo modello di Resource Manager](template-tutorial-create-first-template.md). Per informazioni sui modelli ARM tramite un set guidato di moduli in Microsoft Learn, vedere [distribuire e gestire le risorse in Azure usando i modelli ARM](/learn/paths/deploy-manage-resource-manager-templates/).
+Questo articolo è destinato agli utenti che hanno familiarità con i modelli ARM. Fornisce informazioni dettagliate sulla struttura del modello. Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere [Esercitazione: Creare e distribuire il primo modello di Resource Manager](template-tutorial-create-first-template.md). Per informazioni sui modelli di ARM tramite un set guidato di moduli in Microsoft Learn, vedere [Distribuire e gestire le risorse in Azure usando i modelli di ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 
 ## <a name="template-format"></a>Formato del modello
 
@@ -33,7 +33,7 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 }
 ```
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | $schema |Sì |Percorso del file di schema JavaScript Object Notation (JSON) che descrive la versione del linguaggio del modello. Il numero di versione usato dipende dall'ambito della distribuzione e dall'editor JSON.<br><br>Se si usa [Visual Studio Code con l'estensione strumenti di Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), usare la versione più recente per le distribuzioni di gruppi di risorse:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Altri editor (incluso Visual Studio) potrebbero non essere in grado di elaborare questo schema. Per gli editor, usare:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Per le distribuzioni della sottoscrizione, usare: <br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Per le distribuzioni di gruppi di gestione, usare:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Per le distribuzioni tenant, usare:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |Sì |Versione del modello (ad esempio 1.0.0.0). Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto. |
@@ -74,8 +74,8 @@ Nel modello seguente viene illustrato il formato per i tipi di dati di. Ogni tip
       "defaultValue": 1
     },
     "boolParameter": {
-        "type": "bool",
-        "defaultValue": true
+      "type": "bool",
+      "defaultValue": true
     },
     "objectParameter": {
       "type": "object",
@@ -125,7 +125,7 @@ Le proprietà disponibili per un parametro sono:
 }
 ```
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | Nome parametro |Sì |Nome del parametro. Deve essere un identificatore JavaScript valido. |
 | tipo |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. Vedere [tipi di dati](#data-types). |
@@ -139,7 +139,7 @@ Le proprietà disponibili per un parametro sono:
 
 Per esempi relativi all'uso dei parametri, vedere [parametri nei modelli ARM](template-parameters.md).
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>Variabili
 
 Nella `variables` sezione si costruiscono i valori che possono essere usati in tutto il modello. Non è obbligatorio definire le variabili. Queste tuttavia consentono spesso di semplificare il modello, riducendo le espressioni complesse. Il formato di ogni variabile corrisponde a uno dei [tipi di dati](#data-types).
 
@@ -208,7 +208,7 @@ Quando si crea una funzione definita dall'utente, è necessario tenere presente 
 ],
 ```
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | namespace |Sì |Spazio dei nomi per le funzioni personalizzate. Usare per evitare conflitti di denominazione con le funzioni di modello. |
 | Nome funzione |Sì |Nome della funzione personalizzata. Quando si chiama la funzione, combinare il nome della funzione con lo spazio dei nomi. Ad esempio, per chiamare una funzione denominata `uniqueName` nello spazio dei nomi contoso, usare `"[contoso.uniqueName()]"` . |
@@ -279,14 +279,14 @@ Le risorse vengono definite con la struttura seguente:
 ]
 ```
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | condizione | No | Valore booleano che indica se verrà eseguito il provisioning della risorsa durante questa distribuzione. Se `true`, la risorsa viene creata durante la distribuzione. Se `false`, la risorsa viene ignorata per questa distribuzione. Vedere [Condition](conditional-resource-deployment.md). |
 | tipo |Sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio `Microsoft.Storage/storageAccounts` . Per determinare i valori disponibili, vedere [riferimento ai modelli](/azure/templates/). Per una risorsa figlio, il formato del tipo dipende dal fatto che sia annidato all'interno della risorsa padre o definito all'esterno della risorsa padre. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
 | apiVersion |Sì |Versione dell'API REST da utilizzare per la creazione della risorsa. Quando si crea un nuovo modello, impostare questo valore sulla versione più recente della risorsa che si sta distribuendo. Fino a quando il modello funziona in base alle esigenze, continua a usare la stessa versione API. Continuando a usare la stessa versione dell'API, è possibile ridurre al minimo il rischio che una nuova versione dell'API cambi la modalità di funzionamento del modello. Provare ad aggiornare la versione dell'API solo quando si vuole usare una nuova funzionalità introdotta in una versione successiva. Per determinare i valori disponibili, vedere [riferimento ai modelli](/azure/templates/). |
 | name |Sì |Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi di Azure che espongono il nome della risorsa alle parti esterne convalidano il nome per assicurarsi che non sia un tentativo di falsificare un'altra identità. Per una risorsa figlio, il formato del nome dipende dal fatto che sia annidato all'interno della risorsa padre o definito all'esterno della risorsa padre. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
 | comments |No |Le note per documentare le risorse nel modello. Per altre informazioni, consultare la sezione [Comments in templates](template-syntax.md#comments) (Commenti nel modello). |
-| location |Varia |Aree geografiche supportate della risorsa specificata. È possibile selezionare qualsiasi località disponibile, ma è in genere opportuno sceglierne una vicina agli utenti. Di solito è anche opportuno inserire le risorse che interagiscono tra loro nella stessa area. La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono. Vedere [set Resource Location](resource-location.md). |
+| posizione |Varia |Aree geografiche supportate della risorsa specificata. È possibile selezionare qualsiasi località disponibile, ma è in genere opportuno sceglierne una vicina agli utenti. Di solito è anche opportuno inserire le risorse che interagiscono tra loro nella stessa area. La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono. Vedere [set Resource Location](resource-location.md). |
 | dependsOn |No |Risorse da distribuire prima della distribuzione di questa risorsa. Resource Manager valuta le dipendenze tra le risorse e le distribuisce nell'ordine corretto. Quando le risorse non sono interdipendenti, vengono distribuite in parallelo. Il valore può essere un elenco delimitato da virgole di nomi o identificatori univoci di risorse. Elencare solo le risorse distribuite in questo modello. Le risorse non definite in questo modello devono essere già esistenti. Evitare di aggiungere dipendenze non necessarie perché possono rallentare la distribuzione e creare dipendenze circolari. Per informazioni sull'impostazione delle dipendenze, vedere [definire l'ordine per la distribuzione delle risorse nei modelli ARM](define-resource-dependency.md). |
 | tags |No |Tag associati alla risorsa. Applicare i tag per organizzare in modo logico le risorse nella sottoscrizione. |
 | sku | No | Alcune risorse consentono valori che definiscono lo SKU da distribuire. Ad esempio, è possibile specificare il tipo di ridondanza per un account di archiviazione. |
@@ -316,7 +316,7 @@ L'esempio seguente illustra la struttura di una definizione di output:
 }
 ```
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | nome di output |Sì |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
 | condizione |No | Valore booleano che indica se questo valore di output viene restituito. Quando è `true`, il valore è incluso nell'output per la distribuzione. Quando è `false`, il valore dell'output viene ignorato per questa distribuzione. Quando non è specificato, il valore predefinito è `true`. |

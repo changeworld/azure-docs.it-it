@@ -1,31 +1,31 @@
 ---
-title: Configurare il monitoraggio dell'integrità VM guest di Monitoraggio di Azure per le macchine virtuali tramite regole di raccolta dati (anteprima)
-description: Viene descritto come modificare il monitoraggio predefinito in Monitoraggio di Azure per le macchine virtuali integrità Guest su larga scala usando modelli Gestione risorse.
+title: Configurare il monitoraggio in integrità Guest di VM Insights usando le regole di raccolta dati (anteprima)
+description: Viene descritto come modificare il monitoraggio predefinito nell'integrità Guest di VM Insights su larga scala usando modelli Gestione risorse.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 2001fece40267ca2e3256e699d2dc253ceb10f0c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 907aea16b018fb5dd3846db546787d132f8f5a9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620617"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731222"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Configurare il monitoraggio dell'integrità VM guest di Monitoraggio di Azure per le macchine virtuali tramite regole di raccolta dati (anteprima)
-[Monitoraggio di Azure per le macchine virtuali integrità Guest](vminsights-health-overview.md) consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come è possibile modificare il monitoraggio predefinito tra più macchine virtuali usando le regole di raccolta dati.
+# <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configurare il monitoraggio in integrità Guest di VM Insights usando le regole di raccolta dati (anteprima)
+L' [integrità Guest di VM Insights](vminsights-health-overview.md) consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come è possibile modificare il monitoraggio predefinito tra più macchine virtuali usando le regole di raccolta dati.
 
 
 ## <a name="monitors"></a>Monitoraggi
-Lo stato di integrità di una macchina virtuale è determinato dal [rollup dello](vminsights-health-overview.md#health-rollup-policy) stato da ciascuno dei monitoraggi. Esistono due tipi di monitoraggi in Monitoraggio di Azure per le macchine virtuali integrità Guest, come illustrato nella tabella seguente.
+Lo stato di integrità di una macchina virtuale è determinato dal [rollup dello](vminsights-health-overview.md#health-rollup-policy) stato da ciascuno dei monitoraggi. Esistono due tipi di monitoraggi in integrità Guest di VM Insights, come illustrato nella tabella seguente.
 
 | Monitoraggio | Descrizione |
 |:---|:---|
 | Monitoraggio unità | Misura alcuni aspetti di una risorsa o di un'applicazione. Potrebbe controllare un contatore delle prestazioni per determinarne le prestazioni o la disponibilità. |
 | Monitoraggio aggregato | Raggruppa più monitoraggi per generare un unico stato di integrità aggregato. Un monitoraggio aggregato può contenere uno o più monitoraggi unità e altri monitoraggi aggregati. |
 
-Il set di monitoraggi utilizzati da Monitoraggio di Azure per le macchine virtuali integrità Guest e la relativa configurazione non possono essere modificati direttamente. È tuttavia possibile creare [sostituzioni](#overrides) che modificano il comportamento della configurazione predefinita. Le sostituzioni sono definite in regole di raccolta dati. È possibile creare più regole di raccolta dati ognuna contenente più sostituzioni per ottenere la configurazione di monitoraggio richiesta.
+Il set di monitoraggi usati dall'integrità Guest di VM Insights e la relativa configurazione non possono essere modificati direttamente. È tuttavia possibile creare [sostituzioni](#overrides) che modificano il comportamento della configurazione predefinita. Le sostituzioni sono definite in regole di raccolta dati. È possibile creare più regole di raccolta dati ognuna contenente più sostituzioni per ottenere la configurazione di monitoraggio richiesta.
 
 ## <a name="monitor-properties"></a>Proprietà monitoraggio
 Nella tabella seguente vengono descritte le proprietà che possono essere configurate in ogni monitoraggio.

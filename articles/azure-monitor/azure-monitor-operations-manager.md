@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: b1262533c3398a774b85e4143289a9b7c342aeab
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e9f0a285df6013334970b971e46079b9e78b19cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593571"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728961"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Monitoraggio di Azure per i clienti esistenti di Operations Manager
 Questo articolo fornisce indicazioni per i clienti che attualmente usano [System Center Operations Manager](/system-center/scom/welcome) e pianificano una transizione a [monitoraggio di Azure](overview.md) durante la migrazione di applicazioni aziendali e altre risorse in Azure. Si presuppone che l'obiettivo finale sia una transizione completa nel cloud, sostituendo il maggior Operations Manager possibile le funzionalità con monitoraggio di Azure, senza compromettere i requisiti operativi aziendali e IT. 
@@ -56,7 +56,7 @@ L'ambiente prima di trasferire i componenti in Azure si basa su macchine virtual
 
 La migrazione ad Azure inizia con IaaS, spostando le macchine virtuali che supportano le applicazioni aziendali in Azure. I requisiti di monitoraggio per queste applicazioni e il software server da cui dipendono non cambiano e si continua a utilizzare Operations Manager su questi server con i Management Pack esistenti. 
 
-Monitoraggio di Azure è abilitato per i servizi di Azure non appena si crea una sottoscrizione di Azure. Raccoglie automaticamente le metriche della piattaforma e il log attività e configura i log delle risorse da raccogliere per poter analizzare in modo interattivo tutti i dati di telemetria disponibili usando le query di log. È possibile abilitare Monitoraggio di Azure per le macchine virtuali sulle macchine virtuali per analizzare i dati di monitoraggio nell'intero ambiente insieme e per individuare le relazioni tra computer e processi. È possibile estendere l'uso di monitoraggio di Azure alle macchine virtuali e fisiche locali abilitando i server abilitati per Azure Arc. 
+Monitoraggio di Azure è abilitato per i servizi di Azure non appena si crea una sottoscrizione di Azure. Raccoglie automaticamente le metriche della piattaforma e il log attività e configura i log delle risorse da raccogliere per poter analizzare in modo interattivo tutti i dati di telemetria disponibili usando le query di log. Si abilitano le informazioni dettagliate sulle macchine virtuali per analizzare i dati di monitoraggio nell'intero ambiente insieme e per individuare le relazioni tra computer e processi. È possibile estendere l'uso di monitoraggio di Azure alle macchine virtuali e fisiche locali abilitando i server abilitati per Azure Arc. 
 
 Per ogni applicazione aziendale si Abilita Application Insights. Identifica i diversi componenti di ogni applicazione, inizia a raccogliere i dati di utilizzo e delle prestazioni e identifica gli eventuali errori che si verificano nel codice. È possibile creare test di disponibilità per testare in modo proattivo le applicazioni esterne e segnalare eventuali problemi di prestazioni o disponibilità. Sebbene Application Insights disponga di potenti funzionalità che non sono disponibili in Operations Manager, è possibile continuare a utilizzare i Management Pack personalizzati sviluppati per le applicazioni aziendali poiché includono scenari di monitoraggio non ancora coperti da monitoraggio di Azure. 
 
@@ -89,21 +89,21 @@ Il [Management Pack di Azure](https://www.microsoft.com/download/details.aspx?id
 ## <a name="monitor-server-software-and-local-infrastructure"></a>Monitorare il software server e l'infrastruttura locale
 Quando si spostano i computer nel cloud, i requisiti di monitoraggio per il software non cambiano. Non è più necessario monitorare i componenti fisici perché sono virtualizzati, ma il sistema operativo guest e i relativi carichi di lavoro hanno gli stessi requisiti indipendentemente dall'ambiente.
 
-[Monitoraggio di Azure per le macchine virtuali](vm/vminsights-overview.md) è la funzionalità principale di monitoraggio di Azure per il monitoraggio delle macchine virtuali e dei relativi carichi di lavoro e del sistema operativo guest. Analogamente a Operations Manager, Monitoraggio di Azure per le macchine virtuali utilizza un agente per raccogliere dati dal sistema operativo guest delle macchine virtuali. Si tratta degli stessi dati delle prestazioni e degli eventi utilizzati in genere dai Management Pack per l'analisi e l'invio di avvisi. Tuttavia, non esistono regole preesistenti per identificare e segnalare i problemi per le applicazioni aziendali e il software server in esecuzione in tali computer. È necessario creare regole di avviso personalizzate per ricevere notifiche proattive di eventuali problemi rilevati.
+[VM Insights](vm/vminsights-overview.md) è la funzionalità principale di monitoraggio di Azure per il monitoraggio delle macchine virtuali e del sistema operativo guest e dei relativi carichi di lavoro. Analogamente a Operations Manager, VM Insights usa un agente per raccogliere dati dal sistema operativo guest delle macchine virtuali. Si tratta degli stessi dati delle prestazioni e degli eventi utilizzati in genere dai Management Pack per l'analisi e l'invio di avvisi. Tuttavia, non esistono regole preesistenti per identificare e segnalare i problemi per le applicazioni aziendali e il software server in esecuzione in tali computer. È necessario creare regole di avviso personalizzate per ricevere notifiche proattive di eventuali problemi rilevati.
 
-[![Prestazioni Monitoraggio di Azure per le macchine virtuali](media/azure-monitor-operations-manager/vm-insights-performance.png)](media/azure-monitor-operations-manager/vm-insights-performance.png#lightbox)
+[![Prestazioni di VM Insights](media/azure-monitor-operations-manager/vm-insights-performance.png)](media/azure-monitor-operations-manager/vm-insights-performance.png#lightbox)
 
 Monitoraggio di Azure non misura inoltre lo stato di integrità di applicazioni e servizi diversi in esecuzione su una macchina virtuale. Gli avvisi delle metriche possono essere risolti automaticamente quando un valore scende al di sotto di una soglia, ma monitoraggio di Azure non è attualmente in grado di definire criteri di integrità per le applicazioni e i servizi in esecuzione nel computer, né il rollup dello stato per raggruppare l'integrità dei componenti correlati.
 
 > [!NOTE]
-> Una nuova [funzionalità di integrità Guest per monitoraggio di Azure per le macchine virtuali](vm/vminsights-health-overview.md) è ora disponibile in anteprima pubblica e invia un avviso in base allo stato di integrità di un set di metriche delle prestazioni. Inizialmente è limitato a un set specifico di contatori delle prestazioni correlati al sistema operativo guest e non alle applicazioni o ad altri carichi di lavoro in esecuzione nella macchina virtuale.
+> Una nuova [funzionalità di integrità Guest per VM Insights](vm/vminsights-health-overview.md) è ora disponibile in anteprima pubblica e invia un avviso in base allo stato di integrità di un set di metriche delle prestazioni. Inizialmente è limitato a un set specifico di contatori delle prestazioni correlati al sistema operativo guest e non alle applicazioni o ad altri carichi di lavoro in esecuzione nella macchina virtuale.
 > 
-> [![Monitoraggio di Azure per le macchine virtuali integrità Guest](media/azure-monitor-operations-manager/vm-insights-guest-health.png)](media/azure-monitor-operations-manager/vm-insights-guest-health.png#lightbox)
+> [![Integrità Guest di VM Insights](media/azure-monitor-operations-manager/vm-insights-guest-health.png)](media/azure-monitor-operations-manager/vm-insights-guest-health.png#lightbox)
 
-Il monitoraggio del software nei computer in un ambiente ibrido utilizzerà in genere una combinazione di Monitoraggio di Azure per le macchine virtuali e Operations Manager, in base ai requisiti di ogni computer e alla maturità che sviluppa processi operativi in monitoraggio di Azure. Microsoft Management Agent (noto come agente di Log Analytics in monitoraggio di Azure) viene usato da entrambe le piattaforme, in modo che sia possibile monitorare contemporaneamente un singolo computer.
+Il monitoraggio del software nei computer in un ambiente ibrido userà in genere una combinazione di informazioni dettagliate sulle VM e Operations Manager, a seconda dei requisiti di ogni computer e della maturità che sviluppa i processi operativi in monitoraggio di Azure. Microsoft Management Agent (noto come agente di Log Analytics in monitoraggio di Azure) viene usato da entrambe le piattaforme, in modo che sia possibile monitorare contemporaneamente un singolo computer.
 
 > [!NOTE]
-> In futuro, Monitoraggio di Azure per le macchine virtuali eseguirà la transizione all' [agente di monitoraggio di Azure](agents/azure-monitor-agent-overview.md), attualmente disponibile in anteprima pubblica. Sarà compatibile con il Microsoft Monitoring Agent in modo che la stessa macchina virtuale continui a essere monitorata da entrambe le piattaforme.
+> In futuro, VM Insights passerà all' [agente di monitoraggio di Azure](agents/azure-monitor-agent-overview.md), attualmente disponibile in anteprima pubblica. Sarà compatibile con il Microsoft Monitoring Agent in modo che la stessa macchina virtuale continui a essere monitorata da entrambe le piattaforme.
 
 Continuare a usare Operations Manager per le funzionalità che non possono essere ancora fornite da monitoraggio di Azure. Sono inclusi i Management Pack per software server critico come IIS, SQL Server o Exchange. È anche possibile avere Management Pack personalizzati sviluppati per l'infrastruttura locale che non possono essere raggiunti con monitoraggio di Azure. Continuare anche a usare Operations Manager se è strettamente integrato nei processi operativi fino a quando non è possibile passare alla modernizzazione delle operazioni di servizio in cui monitoraggio di Azure e altri servizi di Azure possono aumentare o sostituire. 
 
@@ -114,9 +114,9 @@ USA monitoraggio di Azure per le macchine virtuali per migliorare il monitoraggi
 - Usare le [query di log](logs/log-query-overview.md) per analizzare in modo interattivo i dati di telemetria dalle macchine virtuali con i dati delle altre risorse di Azure.
 - Creare [regole di avviso del log](alerts/alerts-log-query.md) in base a una logica complessa tra più macchine virtuali.
 
-[![Mappa Monitoraggio di Azure per le macchine virtuali](media/azure-monitor-operations-manager/vm-insights-map.png)](media/azure-monitor-operations-manager/vm-insights-map.png#lightbox)
+[![Mappa di VM Insights](media/azure-monitor-operations-manager/vm-insights-map.png)](media/azure-monitor-operations-manager/vm-insights-map.png#lightbox)
 
-Oltre alle macchine virtuali di Azure, Monitoraggio di Azure per le macchine virtuali possibile monitorare i computer in locale e in altri cloud usando i [server abilitati per Azure Arc](../azure-arc/servers/overview.md). I server abilitati per Arc consentono di gestire i computer Windows e Linux ospitati all'esterno di Azure, nella rete aziendale o in un altro provider di servizi cloud coerente con la modalità di gestione delle macchine virtuali di Azure native.
+Oltre alle macchine virtuali di Azure, VM Insights è in grado di monitorare i computer in locale e in altri cloud usando i [server abilitati per Azure Arc](../azure-arc/servers/overview.md). I server abilitati per Arc consentono di gestire i computer Windows e Linux ospitati all'esterno di Azure, nella rete aziendale o in un altro provider di servizi cloud coerente con la modalità di gestione delle macchine virtuali di Azure native.
 
 
 
@@ -131,7 +131,7 @@ Se il monitoraggio di un'applicazione aziendale è limitato alle funzionalità f
 - Rilevare le eccezioni ed esaminare l'analisi dello stack e le richieste correlate.
 - Eseguire analisi avanzate utilizzando funzionalità quali la [traccia distribuita](app/distributed-tracing.md) e il [rilevamento intelligente](app/proactive-diagnostics.md).
 - Usare [Esplora metriche](essentials/metrics-getting-started.md) per analizzare in modo interattivo i dati sulle prestazioni.
-- Usare [query di log](logs/log-query-overview.md) per analizzare in modo interattivo i dati di telemetria raccolti insieme ai dati raccolti per i servizi di Azure e monitoraggio di Azure per le macchine virtuali.
+- Usare [query di log](logs/log-query-overview.md) per analizzare in modo interattivo i dati di telemetria raccolti insieme ai dati raccolti per i servizi di Azure e le informazioni dettagliate su VM.
 
 [![Application Insights](media/azure-monitor-operations-manager/application-insights.png)](media/azure-monitor-operations-manager/application-insights.png#lightbox)
 
@@ -150,5 +150,5 @@ Seguendo la strategia di base nelle altre sezioni di questa guida, continuare a 
 - Per un confronto dettagliato tra monitoraggio di Azure e System Center Operations Manager e altre informazioni sulla progettazione e l'implementazione di un ambiente di monitoraggio ibrido, vedere la [Guida al monitoraggio del cloud](/azure/cloud-adoption-framework/manage/monitor/) .
 - Scopri di più sul [monitoraggio delle risorse di Azure in monitoraggio di Azure](essentials/monitor-azure-resource.md).
 - Scopri di più sul [monitoraggio di macchine virtuali di Azure in monitoraggio di Azure](vm/monitor-vm-azure.md).
-- Scopri di più su [monitoraggio di Azure per le macchine virtuali](vm/vminsights-overview.md).
+- Scopri di più su [VM Insights](vm/vminsights-overview.md).
 - Scopri di più su [Application Insights](app/app-insights-overview.md).

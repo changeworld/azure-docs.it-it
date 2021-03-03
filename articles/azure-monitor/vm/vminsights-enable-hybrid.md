@@ -1,28 +1,28 @@
 ---
 title: Abilitare Monitoraggio di Azure per un ambiente ibrido
-description: Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per un ambiente cloud ibrido che contiene una o più macchine virtuali.
+description: Questo articolo descrive come abilitare VM Insights per un ambiente cloud ibrido che contiene una o più macchine virtuali.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: d56b1ed7b4923b054ad6864b713fc2a26d95f7e2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6518906f264077ac88a90513a237840f7f814247
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619866"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731273"
 ---
-# <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale ibrida
-Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale all'esterno di Azure, inclusi ambienti locali e altri ambienti cloud.
+# <a name="enable-vm-insights-for-a-hybrid-virtual-machine"></a>Abilitare VM Insights per una macchina virtuale ibrida
+Questo articolo descrive come abilitare VM Insights per una macchina virtuale all'esterno di Azure, inclusi ambienti locali e altri ambienti cloud.
 
 > [!IMPORTANT]
-> Il metodo consigliato per abilitare le VM ibride è la prima volta che si abilita [Azure Arc per i server](../../azure-arc/servers/overview.md) , in modo che le macchine virtuali possano essere abilitate per monitoraggio di Azure per le macchine virtuali usando processi simili alle macchine virtuali di Azure. Questo articolo descrive come eseguire l'onboarding di macchine virtuali ibride se si sceglie di non usare Azure Arc.
+> Il metodo consigliato per abilitare le VM ibride è la prima volta che si abilita [Azure Arc per i server](../../azure-arc/servers/overview.md) , in modo che le macchine virtuali possano essere abilitate per le informazioni sulle VM usando processi simili alle macchine virtuali di Azure. Questo articolo descrive come eseguire l'onboarding di macchine virtuali ibride se si sceglie di non usare Azure Arc.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare e configurare un'area di lavoro log Analytics](../insights/vminsights-configure-workspace.md).
-- Vedere [sistemi operativi supportati](../insights/vminsights-enable-overview.md#supported-operating-systems) per assicurarsi che il sistema operativo della macchina virtuale o del set di scalabilità di macchine virtuali che si sta abilitando sia supportato. 
+- [Creare e configurare un'area di lavoro log Analytics](./vminsights-configure-workspace.md).
+- Vedere [sistemi operativi supportati](./vminsights-enable-overview.md#supported-operating-systems) per assicurarsi che il sistema operativo della macchina virtuale o del set di scalabilità di macchine virtuali che si sta abilitando sia supportato. 
 
 
 ## <a name="overview"></a>Panoramica
@@ -31,13 +31,13 @@ Le macchine virtuali esterne ad Azure richiedono lo stesso agente di Log Analyti
 Vedere [connettere computer Windows a monitoraggio di Azure](../agents/agent-windows.md) o [connettere computer Linux a monitoraggio di Azure](../agents/agent-linux.md) per informazioni dettagliate sulla distribuzione dell'agente di log Analytics. In questo articolo vengono forniti i dettagli di Dependency Agent. 
 
 ## <a name="firewall-requirements"></a>Requisiti del firewall
-I requisiti del firewall per l'agente Log Analytics sono disponibili nella [Panoramica di log Analytics Agent](../agents/log-analytics-agent.md#network-requirements). Dependency Agent per la mappa di Monitoraggio di Azure per le macchine virtuali non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati della mappa vengono sempre trasmessi dall'agente Log Analytics al servizio monitoraggio di Azure, direttamente o tramite il [gateway di Operations Management Suite](../../azure-monitor/agents/gateway.md) se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet.
+I requisiti del firewall per l'agente Log Analytics sono disponibili nella [Panoramica di log Analytics Agent](../agents/log-analytics-agent.md#network-requirements). L'agente di dipendenza della mappa di VM Insights non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati della mappa vengono sempre trasmessi dall'agente Log Analytics al servizio monitoraggio di Azure, direttamente o tramite il [gateway di Operations Management Suite](../../azure-monitor/agents/gateway.md) se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet.
 
 
 ## <a name="dependency-agent"></a>Dependency Agent
 
 >[!NOTE]
->Le seguenti informazioni descritte in questa sezione sono applicabili anche alla [soluzione mapping dei servizi](../insights/service-map.md).  
+>Le seguenti informazioni descritte in questa sezione sono applicabili anche alla [soluzione mapping dei servizi](./service-map.md).  
 
 È possibile scaricare Dependency Agent da questi percorsi:
 
@@ -177,8 +177,8 @@ Controllare il file C:\Programmi\Microsoft Dependency Agent\logs\wrapper.log per
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che il monitoraggio è abilitato per le macchine virtuali, queste informazioni sono disponibili per l'analisi con Monitoraggio di Azure per le macchine virtuali.
+Ora che il monitoraggio è abilitato per le macchine virtuali, queste informazioni sono disponibili per l'analisi con VM Insights.
 
-- Per visualizzare le dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](vminsights-maps.md).
+- Per visualizzare le dipendenze dell'applicazione individuate, vedere [visualizzare la mappa di VM Insights](vminsights-maps.md).
 
 - Per identificare i colli di bottiglia e l'utilizzo complessivo delle prestazioni della VM, vedere [visualizzare le prestazioni delle VM di Azure](vminsights-performance.md).

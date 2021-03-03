@@ -4,12 +4,12 @@ description: Informazioni su come usare la replica hive nei cluster HDInsight pe
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 3dd894a46b666703f64e44336c0bf022da8a063a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2e57b7d8121ac0bd6fc9cb693750c41a0ef6a5bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941336"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733058"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Come usare la replica Apache Hive nei cluster HDInsight di Azure
 
@@ -17,9 +17,9 @@ Nel contesto di database e warehouse, la replica è il processo di duplicazione 
 
 La replica di hive si è evoluta nel corso degli anni con versioni più recenti che forniscono funzionalità migliori e sono più veloci e meno intensivo di risorse. In questo articolo viene illustrata la replica hive (Replv2) supportata nei tipi di cluster HDInsight 3,6 e HDInsight 4,0.
 
-## <a name="advantages-of-replv2"></a>Vantaggi di Replv2
+## <a name="advantages-of-replv2"></a>Vantaggi di replv2
 
-[Hive ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) o (Replv2) presenta i vantaggi seguenti rispetto alla prima versione della replica di hive che usa l' [importazione/esportazione](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport)hive:
+[Hive ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) (noto anche come Replv2) presenta i vantaggi seguenti rispetto alla prima versione della replica di hive che usa l' [importazione/esportazione](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport)hive:
 
 - Replica incrementale basata su eventi
 - Replica temporizzata  

@@ -1,17 +1,16 @@
 ---
 title: Ottimizzare l'ambiente di SQL Server con monitoraggio di Azure | Microsoft Docs
 description: Con monitoraggio di Azure è possibile usare la soluzione controllo integrità SQL per valutare i rischi e l'integrità degli ambienti a intervalli regolari.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: e0a7a5b9e19436deaed45382fe23063fa61edadf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0f2319ea6ba314c08a67651667837f05df5765a1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587259"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723232"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente SQL con la soluzione controllo integrità SQL Server in monitoraggio di Azure
 

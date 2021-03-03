@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 701fe4ffc6147086dde740bfdb2dc7db92508e28
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380237"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726428"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Esercitazione: Usare i flag di funzionalità in un'app ASP.NET Core
 
@@ -74,7 +74,7 @@ public class Startup
 ```
 
 
-Se si usano i filtri nei flag di funzionalità, è necessario includere lo spazio dei nomi [Microsoft. FeatureManagement. FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) e aggiungere una chiamata a [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) specificando il nome del tipo di filtro che si vuole usare come tipo generico del metodo. Per ulteriori informazioni sull'utilizzo di filtri funzionalità per abilitare e disabilitare in modo dinamico le funzionalità, vedere [abilitare la distribuzione temporanea delle funzionalità per destinatari specifici](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core).
+Se si usano i filtri nei flag di funzionalità, è necessario includere lo spazio dei nomi [Microsoft. FeatureManagement. FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) e aggiungere una chiamata a [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) specificando il nome del tipo di filtro che si vuole usare come tipo generico del metodo. Per ulteriori informazioni sull'utilizzo di filtri funzionalità per abilitare e disabilitare in modo dinamico le funzionalità, vedere [abilitare la distribuzione temporanea delle funzionalità per destinatari specifici](./howto-targetingfilter-aspnet-core.md).
 
 L'esempio seguente illustra come usare un filtro di funzionalità incorporato denominato `PercentageFilter`:
 
@@ -211,14 +211,14 @@ Per convenzione, la sezione `FeatureManagement` di questo documento JSON viene u
 
 * `FeatureA` è *attivo*.
 * `FeatureB` è *disattivato*.
-* `FeatureC` specifica un filtro denominato `Percentage` con una proprietà `Parameters`. `Percentage` è un filtro configurabile. In questo esempio `Percentage` specifica una probabilità del 50% che il flag `FeatureC` sia *attivo*. Per istruzioni su come usare i filtri delle funzionalità, vedere usare i filtri delle funzionalità [per abilitare i flag delle funzionalità condizionali](/azure/azure-app-configuration/howto-feature-filters-aspnet-core).
+* `FeatureC` specifica un filtro denominato `Percentage` con una proprietà `Parameters`. `Percentage` è un filtro configurabile. In questo esempio `Percentage` specifica una probabilità del 50% che il flag `FeatureC` sia *attivo*. Per istruzioni su come usare i filtri delle funzionalità, vedere usare i filtri delle funzionalità [per abilitare i flag delle funzionalità condizionali](./howto-feature-filters-aspnet-core.md).
 
 
 
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Usare l'inserimento di dipendenze per accedere a IFeatureManager 
 
-Per alcune operazioni, ad esempio il controllo manuale dei valori dei flag di funzionalità, è necessario ottenere un'istanza di [IFeatureManager](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). In ASP.NET Core MVC è possibile accedere a gestione funzionalità `IFeatureManager` tramite l'inserimento di dipendenze. Nell'esempio seguente viene aggiunto un argomento di tipo `IFeatureManager` alla firma del costruttore per un controller. Il runtime risolve automaticamente il riferimento e fornisce un dell'interfaccia quando viene chiamato il costruttore. Se si usa un modello di applicazione in cui il controller dispone già di uno o più argomenti di inserimento delle dipendenze nel costruttore, ad esempio `ILogger` , è possibile aggiungere solo `IFeatureManager` come argomento aggiuntivo:
+Per alcune operazioni, ad esempio il controllo manuale dei valori dei flag di funzionalità, è necessario ottenere un'istanza di [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). In ASP.NET Core MVC è possibile accedere a gestione funzionalità `IFeatureManager` tramite l'inserimento di dipendenze. Nell'esempio seguente viene aggiunto un argomento di tipo `IFeatureManager` alla firma del costruttore per un controller. Il runtime risolve automaticamente il riferimento e fornisce un dell'interfaccia quando viene chiamato il costruttore. Se si usa un modello di applicazione in cui il controller dispone già di uno o più argomenti di inserimento delle dipendenze nel costruttore, ad esempio `ILogger` , è possibile aggiungere solo `IFeatureManager` come argomento aggiuntivo:
 
 ### <a name="net-5x"></a>[.NET 5. x](#tab/core5x)
     

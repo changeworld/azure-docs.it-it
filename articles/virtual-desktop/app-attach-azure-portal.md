@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c775d81b88c891d6d8ea0a4597b4fa4fee29c86a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373471"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737546"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurare la connessione all'app MSIX con il portale di Azure
 
@@ -36,6 +36,7 @@ Ecco cosa occorre per configurare la connessione all'app MSIX:
 - Un'applicazione in pacchetto MSIX è stata espansa in un'immagine MSIX che viene caricata in una condivisione file.
 - Una condivisione file nella distribuzione di desktop virtuale di Windows in cui verrà archiviato il pacchetto MSIX.
 - La condivisione file in cui è stata caricata l'immagine di MSIX deve essere accessibile anche a tutte le macchine virtuali (VM) nel pool host. Per accedere all'immagine, gli utenti dovranno disporre di autorizzazioni di sola lettura.
+- Se il certificato non è attendibile pubblicamente, seguire le istruzioni riportate in [installare i certificati](app-attach.md#install-certificates).
 
 ## <a name="turn-off-automatic-updates-for-msix-app-attach-applications"></a>Disattivare gli aggiornamenti automatici per le applicazioni di alconnessione app MSIX
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: victorh
-ms.openlocfilehash: 9f89d84fc7033645b2b094e9f40a1d85b076623b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: b01a856c71375af507e2bf29297e64a6ce9412e5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100544834"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741430"
 ---
 # <a name="azure-firewall-features"></a>Funzionalità di Firewall di Azure
 
@@ -123,6 +123,18 @@ Ad esempio, se il firewall di Azure intercetta una richiesta HTTPS per `www.goog
 - Firewall Premium: verrà esaminato l'URL completo, quindi `www.google.com/news` verranno categorizzate come *notizie*.
 
 Le categorie sono organizzate in base alla gravità sotto **responsabilità**, **larghezza di banda elevata**, **uso aziendale**, **perdita di produttività**, **navigazione generale** e senza **categoria**.
+
+### <a name="categorization-change"></a>Modifica della categorizzazione
+
+È possibile richiedere una modifica di categorizzazione se:
+
+ - si pensi che un FQDN o un URL debba trovarsi in una categoria diversa 
+ 
+oppure 
+
+- avere una categoria consigliata per un FQDN o un URL senza categoria
+
+È possibile inviare una richiesta all'indirizzo [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
 
 ### <a name="category-exceptions"></a>Eccezioni di categoria
 

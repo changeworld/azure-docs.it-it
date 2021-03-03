@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 96d1c4c0ad210352be94255609a3a373b408ed23
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d8ef3efcda55868abec188c10ef904ae40a56722
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593300"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728145"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Baseline della sicurezza di Azure per batch
 
@@ -140,7 +140,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate ai pool di Azure batch. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
 - [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -516,7 +516,7 @@ Configurare le impostazioni di diagnostica per gli account di archiviazione asso
 
 - [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [Come abilitare la registrazione o il controllo aggiuntivo per un account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md)
+- [Come abilitare la registrazione o il controllo aggiuntivo per un account di archiviazione di Azure](../storage/common/manage-storage-analytics-logs.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

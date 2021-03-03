@@ -3,12 +3,12 @@ title: Integrazione di elementi di lavoro (anteprima)-Application Insights
 description: Informazioni su come creare elementi di lavoro in GitHub o Azure DevOps con Application Insights dati incorporati.
 ms.topic: conceptual
 ms.date: 02/9/2021
-ms.openlocfilehash: 0c1d6ffd6a5a39fa49eadc558aa80f365f856df2
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ba0a67bad3ba47191414d6b406ab6cb4e6b7da78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101489"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731919"
 ---
 # <a name="work-item-integration-preview"></a>Integrazione degli elementi di lavoro (anteprima)
 
@@ -53,7 +53,7 @@ Per modificare il modello, passare alla scheda **elementi di lavoro** in *Config
 
 :::image type="content" source="./media/work-item-integration/edit-template.png" alt-text=" Screenshot della scheda elemento di lavoro con l'icona modifica matita selezionata.":::
 
-Selezionare modifica ![ icona modifica ](./media/work-item-integration/edit-icon.png) nella parte superiore per iniziare a modificare il modello. I modelli di elemento di lavoro sono basati sulle cartelle di lavoro di [monitoraggio di Azure](../platform/workbooks-overview.md). Le informazioni sugli elementi di lavoro vengono generate utilizzando il linguaggio di query delle parole chiave. È possibile modificare le query per aggiungere altro contesto essenziale al team. Al termine della modifica, salvare la cartella di lavoro selezionando l'icona Salva icona ![ Salva ](./media/work-item-integration/save-icon.png) sulla barra degli strumenti superiore.
+Selezionare modifica ![ icona modifica ](./media/work-item-integration/edit-icon.png) nella parte superiore per iniziare a modificare il modello. I modelli di elemento di lavoro sono basati sulle cartelle di lavoro di [monitoraggio di Azure](../visualize/workbooks-overview.md). Le informazioni sugli elementi di lavoro vengono generate utilizzando il linguaggio di query delle parole chiave. È possibile modificare le query per aggiungere altro contesto essenziale al team. Al termine della modifica, salvare la cartella di lavoro selezionando l'icona Salva icona ![ Salva ](./media/work-item-integration/save-icon.png) sulla barra degli strumenti superiore.
 
 :::image type="content" source="./media/work-item-integration/edit-workbook.png" alt-text=" Screenshot della cartella di lavoro del modello di elemento di lavoro in modalità di modifica." lightbox="./media/work-item-integration/edit-workbook.png":::
 

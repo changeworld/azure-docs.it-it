@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 116fb10956b02b5f6fe578565b9049d9fad54837
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1ee631e3e4a13a18bb61ee6237ff67a49f663179
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674203"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693901"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless in Azure Synapse Analytics
 
@@ -122,7 +122,7 @@ Seguire questa procedura per configurare il firewall dell'account di archiviazio
     Connect-AzAccount
     ```
 4. Definire le variabili in PowerShell: 
-    - Nome del gruppo di risorse: è possibile trovarlo nel portale di Azure nella panoramica dell'area di lavoro di Synapse.
+    - Nome del gruppo di risorse: è possibile trovarlo in portale di Azure nella panoramica dell'account di archiviazione.
     - Nome dell'account: nome dell'account di archiviazione protetto dalle regole del firewall.
     - ID tenant: è possibile trovarlo nel portale di Azure in Azure Active Directory nelle informazioni sul tenant.
     - Nome area di lavoro: nome dell'area di lavoro sinapsi.

@@ -4,15 +4,15 @@ description: Informazioni sulle impostazioni di proxy e firewall locali Sincroni
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 01ac42cce29f941a90631936ece025f02afedeaf
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f0dbe7f32f14eb4da3d591811d619eb2e9bea397
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673621"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729641"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Impostazioni di proxy e firewall di Sincronizzazione file di Azure
 Sincronizzazione file di Azure connette i server locali a File di Azure abilitando la sincronizzazione tra più siti e funzionalità di suddivisione in livelli cloud. È necessario quindi che un server locale sia connesso a Internet e che un amministratore IT scelga il percorso migliore per consentire al server di accedere ai servizi cloud di Azure.
@@ -50,6 +50,30 @@ Comandi di PowerShell per configurare le impostazioni proxy specifiche dell'app:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
+```
+Ad esempio, se il server proxy richiede l'autenticazione con un nome utente e una password, eseguire i comandi di PowerShell seguenti:
+
+```powershell
+# IP address or name of the proxy server.
+$Address="127.0.0.1"  
+
+# The port to use for the connection to the proxy.
+$Port=8080
+
+# The user name for a proxy.
+$UserName="user_name" 
+
+# Please type or paste a string with a password for the proxy.
+$SecurePassword = Read-Host -AsSecureString
+
+$Creds = New-Object System.Management.Automation.PSCredential ($UserName, $SecurePassword)
+
+# Please verify that you have entered the password correctly.
+Write-Host $Creds.GetNetworkCredential().Password
+
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+
+Set-StorageSyncProxyConfiguration -Address $Address -Port $Port -ProxyCredential $Creds
 ```
 Le **impostazioni proxy a livello di computer** sono trasparenti per l'agente sincronizzazione file di Azure perché l'intero traffico del server viene instradato attraverso il proxy.
 
@@ -99,8 +123,8 @@ La tabella seguente illustra i domini necessari per la comunicazione:
 | **Azure Active Directory** | https://secure.aadcdn.microsoftonline-p.com | Usare l'URL dell'endpoint pubblico. | Questo URL è accessibile dalla libreria di autenticazione Active Directory utilizzata dall'interfaccia utente di registrazione Sincronizzazione file di Azure server per accedere all'amministratore. |
 | **Archiviazione di Azure** | &ast;.core.windows.net | &ast;. core.usgovcloudapi.net | Quando il server scarica un file, esegue lo spostamento dati in modo più efficiente se comunica direttamente con la condivisione file di Azure nell'account di archiviazione. Il server ha una chiave di firma di accesso condiviso che consente l'accesso solo a specifiche condivisioni file. |
 | **Sincronizzazione file di Azure** | &ast;.one.microsoft.com<br>&ast;. afs.azure.net | &ast;. afs.azure.us | Dopo la registrazione iniziale, il server riceve un URL regionale relativo all'istanza del servizio Sincronizzazione file di Azure disponibile in quell'area. Il server può usare l'URL per comunicare direttamente e in modo efficiente con l'istanza che gestisce la sincronizzazione. |
-| **Infrastruttura a chiave pubblica Microsoft** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Dopo l'installazione dell'agente di Sincronizzazione file di Azure, l'URL dell'infrastruttura a chiave pubblica viene usato per scaricare i certificati intermedi necessari per comunicare con il servizio Sincronizzazione file di Azure e la condivisione file di Azure. L'URL OCSP viene usato per controllare lo stato di un certificato. |
-| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Una volta installato l'agente di Sincronizzazione file di Azure, gli URL Microsoft Update vengono utilizzati per scaricare gli aggiornamenti dell'agente di Sincronizzazione file di Azure. |
+| **Infrastruttura a chiave pubblica Microsoft** |  https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | Dopo l'installazione dell'agente di Sincronizzazione file di Azure, l'URL dell'infrastruttura a chiave pubblica viene usato per scaricare i certificati intermedi necessari per comunicare con il servizio Sincronizzazione file di Azure e la condivisione file di Azure. L'URL OCSP viene usato per controllare lo stato di un certificato. |
+| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;. ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;. ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Una volta installato l'agente di Sincronizzazione file di Azure, gli URL Microsoft Update vengono utilizzati per scaricare gli aggiornamenti dell'agente di Sincronizzazione file di Azure. |
 
 > [!Important]
 > Quando si consente il traffico a &ast; . AFS.Azure.NET, il traffico è possibile solo per il servizio di sincronizzazione. Non sono presenti altri servizi Microsoft che usano questo dominio.
@@ -137,10 +161,10 @@ Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibi
 | Pubblico | Svizzera occidentale | https: \/ /switzerlandwest01.AFS.Azure.NET<br>https: \/ /TM-switzerlandwest01.AFS.Azure.NET | Svizzera settentrionale | https: \/ /switzerlandnorth01.AFS.Azure.NET<br>https: \/ /TM-switzerlandnorth01.AFS.Azure.NET |
 | Pubblico | Regno Unito meridionale | https: \/ /uksouth01.AFS.Azure.NET<br>https: \/ /Kailani-UKS.One.Microsoft.com | Regno Unito occidentale | https: \/ /TM-uksouth01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKS.One.Microsoft.com |
 | Pubblico | Regno Unito occidentale | https: \/ /ukwest01.AFS.Azure.NET<br>https: \/ /Kailani-UKW.One.Microsoft.com | Regno Unito meridionale | https: \/ /TM-ukwest01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKW.One.Microsoft.com |
-| Pubblico | Stati Uniti centro-occidentali | https: \/ /westcentralus01.AFS.Azure.NET | West US 2 | https: \/ /TM-westcentralus01.AFS.Azure.NET |
+| Pubblico | Stati Uniti centro-occidentali | https: \/ /westcentralus01.AFS.Azure.NET | Stati Uniti occidentali 2 | https: \/ /TM-westcentralus01.AFS.Azure.NET |
 | Pubblico | Europa occidentale | https: \/ /westeurope01.AFS.Azure.NET<br>https: \/ /kailani6.One.Microsoft.com | Europa settentrionale | https: \/ /TM-westeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani6.One.Microsoft.com |
 | Pubblico | Stati Uniti occidentali | https: \/ /westus01.AFS.Azure.NET<br>https: \/ /Kailani.One.Microsoft.com | Stati Uniti orientali | https: \/ /TM-westus01.AFS.Azure.NET<br>https: \/ /TM-Kailani.One.Microsoft.com |
-| Pubblico | West US 2 | https: \/ /westus201.AFS.Azure.NET | Stati Uniti centro-occidentali | https: \/ /TM-westus201.AFS.Azure.NET |
+| Pubblico | Stati Uniti occidentali 2 | https: \/ /westus201.AFS.Azure.NET | Stati Uniti centro-occidentali | https: \/ /TM-westus201.AFS.Azure.NET |
 | Enti governativi | US Gov Arizona | https: \/ /usgovarizona01.AFS.Azure.US | US Gov Texas | https: \/ /TM-usgovarizona01.AFS.Azure.US |
 | Enti governativi | US Gov Texas | https: \/ /usgovtexas01.AFS.Azure.US | US Gov Arizona | https: \/ /TM-usgovtexas01.AFS.Azure.US |
 

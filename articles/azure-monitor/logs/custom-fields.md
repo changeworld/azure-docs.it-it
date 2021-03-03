@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 685c54131e4a82950ea64e5374d9e1d260ffabc7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f35100d703e56d1fda731aab5e6a96c791c8f0d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619337"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713678"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creare campi personalizzati in un'area di lavoro Log Analytics in monitoraggio di Azure (anteprima)
 
 > [!NOTE]
-> Questo articolo descrive come analizzare i dati di testo in un'area di lavoro di Log Analytics mentre vengono raccolti. Si consiglia di analizzare i dati di testo in un filtro di query dopo che sono stati raccolti seguendo le linee guida descritte in [analizzare i dati di testo in monitoraggio di Azure](../log-query/parse-text.md). Offre diversi vantaggi rispetto all'utilizzo di campi personalizzati.
+> Questo articolo descrive come analizzare i dati di testo in un'area di lavoro di Log Analytics mentre vengono raccolti. Si consiglia di analizzare i dati di testo in un filtro di query dopo che sono stati raccolti seguendo le linee guida descritte in [analizzare i dati di testo in monitoraggio di Azure](./parse-text.md). Offre diversi vantaggi rispetto all'utilizzo di campi personalizzati.
 
 > [!IMPORTANT]
-> I campi personalizzati aumentano la quantità di dati raccolti nell'area di lavoro Log Analytics, che può aumentare i costi. Per informazioni dettagliate, vedere [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](../platform/manage-cost-storage.md#pricing-model).
+> I campi personalizzati aumentano la quantità di dati raccolti nell'area di lavoro Log Analytics, che può aumentare i costi. Per informazioni dettagliate, vedere [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](./manage-cost-storage.md#pricing-model).
 
 La funzionalità **campi personalizzati** di monitoraggio di Azure consente di estendere i record esistenti nell'area di lavoro log Analytics aggiungendo i propri campi ricercabili.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
 
@@ -42,9 +42,9 @@ Le sezioni seguenti illustrano la procedura per la creazione di un campo persona
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Passaggio 1: Identificare i record che conterranno il campo personalizzato
-Il primo passaggio consiste nell'identificare i record che conterranno il campo personalizzato.  Si inizia con una [query di log standard](../log-query/log-query-overview.md) e quindi si seleziona un record che funga da modello da cui il monitoraggio di Azure apprenderà.  Quando si specifica l'intenzione di estrarre i dati in un campo personalizzato, viene aperta l' **estrazione guidata campi** che permette di convalidare e affinare i criteri.
+Il primo passaggio consiste nell'identificare i record che conterranno il campo personalizzato.  Si inizia con una [query di log standard](./log-query-overview.md) e quindi si seleziona un record che funga da modello da cui il monitoraggio di Azure apprenderà.  Quando si specifica l'intenzione di estrarre i dati in un campo personalizzato, viene aperta l' **estrazione guidata campi** che permette di convalidare e affinare i criteri.
 
-1. Passare a **log** e usare una [query per recuperare i record](../log-query/log-query-overview.md) che avranno il campo personalizzato.
+1. Passare a **log** e usare una [query per recuperare i record](./log-query-overview.md) che avranno il campo personalizzato.
 2. Selezionare un record che Log Analytics possa usare come modello per l'estrazione dei dati con cui popolare il campo personalizzato.  Identificare i dati da estrarre da questo record. Log Analytics userà queste informazioni per determinare la logica in base alla quale popolare il campo personalizzato per tutti i record simili.
 3. Espandere le proprietà del record, fare clic sui puntini di sospensione a sinistra della proprietà Top del record e selezionare **Estrai campi da**.
 4. Viene aperta l' **estrazione guidata campi** e il record selezionato viene visualizzato nella colonna **esempio principale** .  Viene definito il campo personalizzato per i record con gli stessi valori delle proprietà selezionate.  
@@ -128,6 +128,5 @@ Ora il campo personalizzato può essere usato come le altre proprietà del recor
 ![Raggruppa per query](media/custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [query di log](../log-query/log-query-overview.md) per compilare query usando campi personalizzati per i criteri.
+* Informazioni sulle [query di log](./log-query-overview.md) per compilare query usando campi personalizzati per i criteri.
 * Monitorare i [file di log personalizzati](../agents/data-sources-custom-logs.md) analizzati usando campi personalizzati.
-

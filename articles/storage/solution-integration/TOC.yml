@@ -1,0 +1,31 @@
+- name: Soluzioni partner convalidate per archiviazione di Azure
+  href: /azure/storage/solution-integration
+- name: Partner Analisi archiviazione di Azure e Big Data
+  items:
+    - name: Panoramica dei partner convalidati
+      href: .\validated-partners\analytics\partner-overview.md
+  expanded: false
+- name: 'Partner di archivio, backup e BCDR di archiviazione di Azure'
+  items:
+    - name: Panoramica dei partner convalidati
+      href: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
+    - name: Guida introduttiva di CommVault
+      href: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
+    - name: Guida introduttiva a Veeam
+      href: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+  expanded: false
+- name: Partner della soluzione contenitore di archiviazione di Azure
+  items:
+    - name: Panoramica dei partner convalidati
+      href: .\validated-partners\container-solutions\partner-overview.md
+  expanded: false
+- name: Partner di migrazione e gestione dati di archiviazione di Azure
+  items:
+    - name: Panoramica dei partner convalidati
+      href: .\validated-partners\data-management\partner-overview.md
+  expanded: false
+- name: Partner di archiviazione primari e secondari di archiviazione di Azure
+  items:
+    - name: Panoramica dei partner convalidati
+      href: .\validated-partners\primary-secondary-storage\partner-overview.md
+  expanded: false

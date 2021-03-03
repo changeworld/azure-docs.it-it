@@ -1,96 +1,87 @@
 ---
-title: Programma di co-selling per i partner - Marketplace commerciale Microsoft
+title: Panoramica della co-selling con i team di vendita Microsoft e i partner
 description: Il programma di co-selling del centro per partner Microsoft per i partner può aiutarti a raggiungere una vasta clientela e a generare nuove vendite.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/05/2021
-ms.openlocfilehash: abd47a17392e53770802b61e4ee6561252cc4c1e
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.date: 2/24/2021
+ms.openlocfilehash: 5d6b05b9656879f174d92d75ca8b188f7e74e5a1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581568"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721141"
 ---
-# <a name="co-sell-partner-engagement"></a>Programma di co-selling per i partner
+# <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Panoramica della co-selling con i team di vendita Microsoft e i partner
 
-È possibile usare il programma di co-selling per collaborare direttamente con i venditori Microsoft per opportunità di vendita congiunte e per sbloccare vantaggi commerciali e di merchandising aggiuntivi significativi che vendono attraverso il Marketplace commerciale.
+La co-selling con Microsoft è definita come un impegno di collaborazione tra Microsoft e l'ecosistema di partner. Questo processo include la compilazione di richieste, la pianificazione delle vendite, la condivisione di lead di vendita, l'accelerazione della vendita con successo da partner a partner e la distribuzione di un commercio basato sul Marketplace.
 
-Il programma di co-selling è disponibile per il **software compilato con la proprietà intellettuale (IP) come ripetibile, offerte in pacchetto** e per **servizi con la tecnologia Microsoft Embedded**. La maggior parte dei tipi di offerta nel programma di co-selling è disponibile anche nel Marketplace commerciale. Le offerte che soddisfano i requisiti aggiuntivi diventano **co-selling pronto** o **co-selling di incentivate**.
+Quando si sceglie di co-vendere un'offerta, è possibile collaborare direttamente con i team di vendita Microsoft e i partner Microsoft in occasione di vendite congiunte. Questo consente di sbloccare i vantaggi quando si vendono tramite i negozi online del Marketplace commerciale: Azure Marketplace e Microsoft AppSource.
 
-- Le offerte di **co-selling pronte** sono esposte ai venditori di campo Microsoft. Quando si lavora con i venditori Microsoft, il programma di co-selling consente di raggiungere una vasta community di clienti gestiti da Microsoft per collaborare alle opportunità di vendita che accelerano la crescita aziendale.
+Le opportunità di co-selling sono il risultato dell' [esecuzione di un lead](./partner-center-portal/commercial-marketplace-get-customer-leads.md), collaborando con i team di vendita Microsoft o con i partner Microsoft per offrire una soluzione per le esigenze dei clienti.
 
-    :::image type="content" source="./media/marketplace-publishers-guide/marketplace-co-sell-v2.png" alt-text="Diagramma che illustra il modo in cui la co-selling si verifica quando i lead di vendita vengono condivisi, accettati e vinti dai clienti gestiti da Microsoft.":::
+[![Diagramma che illustra il modo in cui la co-selling si verifica quando i lead di vendita vengono condivisi, accettati e vinti dai clienti gestiti da Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png#lightbox)
 
-- **Co-selling incentivate** Le offerte IP possono ottenere incentivi per i venditori di settore Microsoft quando vengono venduti in collaborazione con i team di vendita Microsoft, oltre ai vantaggi del Marketplace elencati di seguito.</li></ul>
+Queste soluzioni, dette anche offerte, possono includere software compilato con la proprietà intellettuale (IP) e i servizi che supportano le tecnologie Microsoft.
 
-## <a name="marketplace-benefits-for-incentivized-offers"></a>Vantaggi del Marketplace per le offerte incentivate
+## <a name="co-sell-opportunities"></a>Opportunità di co-selling
 
-Le offerte che raggiungono lo stato **incentivate di co-selling IP di Azure** ottengono questi vantaggi aggiuntivi per il Marketplace:
+Un'opportunità di co-selling è qualsiasi tipo di collaborazione con i team di vendita Microsoft, i partner Microsoft o entrambi per vendere prodotti e soluzioni in grado di soddisfare le esigenze dei clienti. Di seguito sono riportate alcune delle principali categorie di co-selling:
 
-- Il costo del servizio Marketplace è ridotto dal 20% al 10%. Questo sconto si applica all'offerta IaaS o SaaS venduta attraverso il Marketplace commerciale. Per ulteriori informazioni, vedere la pagina relativa alle [tariffe del servizio Marketplace commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
-- I partner Cloud Solution Provider (CSP) ricevono un incentivo del 10% per la vendita dell'offerta IaaS o SaaS. Altre informazioni sul programma CSP sono disponibili nel [programma Cloud Solution Provider](cloud-solution-providers.md).
-- Le vendite dell'offerta tramite il Marketplace commerciale contribuiranno al consumo di Azure per i clienti. I clienti idonei vedranno l'offerta contrassegnata come **"benefici di Azure idonei"** in portale di Azure. Per altri dettagli, vedere il vantaggio relativo all'impegno per il [consumo di Azure](azure-consumption-commitment-benefit.md).
-- Le offerte che raggiungono lo stato di **co-selling IP di Azure incentivate** o **Business Applications incentivate di co-selling** riceveranno una notifica di **"soluzioni preferite"** nelle vetrine. Il badge promuove la qualità, le prestazioni e la capacità di un'offerta di soddisfare le esigenze dei clienti in una determinata area verticale o della soluzione. Scopri di più [sulle soluzioni preferite in Microsoft AppSource e in Azure Marketplace](preferred-solutions.md).
+- **Co-selling con i team di vendita Microsoft** : collaborare con uno o più team di vendita Microsoft per soddisfare in modo attivo le esigenze dei clienti. Questo può includere la vendita delle offerte, delle offerte di Microsoft o di entrambe. L'utente e i team di vendita Microsoft possono identificare e condividere le opportunità dei clienti in base alle quali le soluzioni potrebbero essere adatte.
+- **Partner per partner (P2P)** : collaborare con un altro partner Microsoft per risolvere attivamente un problema del cliente.
+- **Deal privato** : Condividi gli elementi che stai collaborando in modo indipendente con Microsoft, in modo che vengano riflesse nel sistema di report Microsoft per l'analisi e la previsione.
+- **Solution Assessment (SA)** : collaborare con i partner che sono controllati dal team aziendale di valutazione della soluzione per accedere alle esigenze tecnologiche dei clienti che usano o pianificano di usare le tecnologie Microsoft.
 
-## <a name="co-sell-publishing-steps-and-requirements"></a>Co-selling di passaggi e requisiti di pubblicazione
+## <a name="co-sell-statuses"></a>Stato di co-selling
 
-Questa tabella elenca i passaggi e i requisiti per l'offerta del Marketplace co-selling Ready o co-selling incentivate. Non tutti i tipi di offerta del Marketplace commerciale sono configurabili per la co-selling ancora nel centro per i partner. Per l'elenco più recente dei tipi di offerta che supportano la co-selling, vedere [opzione di co-selling nel Marketplace commerciale](commercial-marketplace-co-sell.md). 
+Sono disponibili quattro livelli di stato di co-selling che possono essere applicati a un'offerta:
 
-|Passaggio    |Tipo di offerta    |Requisiti    |Stato di co-selling    |
-|----    |-------------    |------------    |---------------   |
-|<ol start=1><li>Creare un account nel centro per i partner e pubblicare l'offerta nel Marketplace commerciale.</li>|Tutti|<ul><li>L'offerta soddisfa i requisiti di pubblicazione del Marketplace commerciale.</li><li>Si dispone di un profilo business completo nel centro per i partner.</li></ul>| Nel mercato |
-|<ol start=2><li>Inviare i materiali di co-selling necessari.</li>|Offerte IP *con* [opzione di co-selling nel Marketplace commerciale](commercial-marketplace-co-sell.md)|[Caricare i materiali necessari nel centro per i partner](#how-to-submit-co-sell-materials-in-partner-center)|Co-selling pronto|
-||Offerte IP *senza* [opzione di co-selling nel Marketplace commerciale](commercial-marketplace-co-sell.md)|<ul><li>Richiedere [l'uso di uno specialista del cloud](https://partner.microsoft.com/campaigns/ced-nomination-form/) per fornire la documentazione di co-selling richiesta.</li></ul>|Co-selling pronto|
-||Servizi di consulenza|<ul><li>Richiedere [l'uso di uno specialista del cloud](https://partner.microsoft.com/campaigns/ced-nomination-form/) per fornire la documentazione di co-selling richiesta.</li><li>Competenza Gold attiva.</li></ul>|Co-selling pronto|
-|<ol start=3><li>Qualifica per gli incentivi di co-selling IP</li>|Applicazioni Azure, contenitori di Azure, moduli di IoT Edge, SaaS, VM|Una volta ottenuta la co-selling, sono necessari due requisiti aggiuntivi: <ul> Requisito 1: ottenere uno degli obiettivi seguenti:<ul><li>*A livello di organizzazione:* raggiungere o superare $100.000 USD di ricavi usati da Azure per i 12 mesi finali.</li><li>*A livello di offerta:* ricavi fatturati in Marketplace cumulativi di $100.000 USD.</li></ul><br>Requisito 2: più del 50% dell'infrastruttura dell'offerta deve essere eseguito in Azure:<ul><li>Offerte IP *con* [l'opzione di co-selling nel Marketplace commerciale](commercial-marketplace-co-sell.md): caricare un diagramma dell'architettura con i documenti di co-selling nel centro per i partner per la revisione.</li><li>Offerte IP *senza* [opzione di co-selling nel Marketplace commerciale](commercial-marketplace-co-sell.md): caricare un diagramma dell'architettura in OCP GTM.|Co-selling IP di Azure incentivate|
-||Dynamics|<ul><li>Si dispone di una registrazione attiva nel livello Premium di connessione ISV.</li></ul>|Business Applications co-selling incentivate|
-|||
+- Non co-selling pronto
+- Co-selling pronto
+- Co-selling IP di Azure incentivate
+- App biz ISV Connect Premium  
 
-Per ulteriori informazioni sui requisiti per le offerte di co-selling della soluzione, vedere [requisiti per lo stato di co-selling](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
+Per informazioni dettagliate sui requisiti per ottenere questi stati di co-selling, vedere [requisiti di co-selling](co-sell-requirements.md).
 
-## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Come inviare i materiali di co-selling nel centro per i partner
+## <a name="benefits-of-co-sell-ready-status"></a>Vantaggi dello stato di co-selling pronto
 
-Avviare il percorso di co-selling direttamente nel centro per i partner seguendo questa procedura. Per altri dettagli, vedere [opzione di co-selling nel Marketplace commerciale](commercial-marketplace-co-sell.md).
+Lo stato di co-selling pronto espone le soluzioni ai team di vendita Microsoft. La co-selling con i team di vendita Microsoft e i partner Microsoft ti aiuta a raggiungere una vasta community di clienti gestiti da Microsoft per collaborare alle opportunità di vendita che accelerano la crescita aziendale.
 
-1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-1. Nel riquadro sinistro selezionare Panoramica sul **Marketplace commerciale**  >  , quindi selezionare l'offerta che si vuole co-vendere.
+Per informazioni su come ottenere lo stato di co-selling pronto e di co-selling IP di Azure, vedere la pagina relativa ai requisiti di co-selling [pronti e co-sell incentivate](co-sell-requirements.md).
 
-    > [!NOTE]
-    > È possibile partecipare al programma di co-selling con una nuova offerta non ancora pubblicata o con un'offerta già pubblicata.
+## <a name="benefits-of-co-sell-incentivized-status"></a>Vantaggi dello stato di co-selling incentivate
 
-1. Nel menu a sinistra selezionare **co-selling con Microsoft**.
+_Co-selling incentivate_ status, include la _co-selling IP di Azure incentivate_ e le _app biz ISV Connect Premium Incentive_. Questi stati incentivare partner per vendere l'offerta. Per ottenere questo stato, è necessario ottenere anche lo stato pronto per il co-selling. Lo stato di co-selling incentivate guadagna tutti i vantaggi delle soluzioni di co-selling pronte e può ottenere ulteriori incentivi per i team di vendita Microsoft ed essere idoneo per maggiori vantaggi a livello commerciale.
 
-    [![Questa immagine mostra la località della co-selling con la scheda Microsoft.](media/co-sell/co-sell-with-microsoft-tab.png)](media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+Lo stato di incentivate di co-sell IP di Azure può essere applicato a questi tipi di offerta:
 
-1. Fornire i dettagli di base per elencare i venditori Microsoft e individuare rapidamente l'offerta nella sezione **Listato** . (*Obbligatorio: tutti i campi).*
+- Applicazione di Azure
+- Contenitore di Azure
+- Macchina virtuale di Azure
+- Modulo IoT Edge
+- Software come un servizio (SaaS, Software as a Service)
 
-    :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Questa immagine mostra la sezione relativa all'elenco della scheda co-selling.":::  
+Per questi tipi di offerta è possibile applicare lo stato di incentivo Premium per le app biz ISV Connect.
 
-1. Fornire dettagli sull'offerta e caricare i dati collaterali nella sezione relativa ai **documenti** . I venditori Microsoft utilizzeranno queste informazioni per consigliare e vendere l'offerta. *(Obbligatorio: soluzione/offerta un solo cercapersone e soluzione/piattaforma pitch. Obbligatorio per ottenere lo stato di incentivate di co-selling IP di Azure: diagramma dell'architettura di riferimento.*
+- Dynamics 365 business Central
+- Dynamics 365 per Customer Engagement & PowerApps
+- Dynamics 365 per le operazioni
 
-    [![Questa immagine mostra la sezione documenti nella scheda co-selling.](media/co-sell/co-sell-documents-section.png)](media/co-sell/co-sell-documents-section.png#lightbox)
+Le offerte che raggiungono lo stato di _incentivo Premium_ per le app di _Azure con co-selling di Azure incentivate_ o biz ottengono questi vantaggi per il Marketplace commerciale:
 
-1. Caricare le informazioni di contatto sulle vendite nella sezione **contatti** . I venditori Microsoft possono rivolgersi a questi contatti per richiedere informazioni aggiuntive sull'offerta. (*Obbligatorio: un contatto per ogni area geografica in cui l'offerta è resa disponibile).*
+- Il costo del servizio Marketplace è ridotto dal 20% al 10%. Questo sconto si applica alla soluzione di infrastruttura distribuita come servizio (IaaS) o alla soluzione SaaS (Software as a Service) venduta attraverso il Marketplace commerciale. Per ulteriori informazioni, vedere la pagina relativa alle [tariffe del servizio Marketplace commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
+- I partner Cloud Solution Provider (CSP) ricevono un incentivo del 10% per la vendita della soluzione IaaS o dell'offerta SaaS. Per ulteriori informazioni sul programma CSP, vedere il [programma Cloud Solution Provider](cloud-solution-providers.md).
+- Le vendite dell'offerta tramite il Marketplace commerciale contribuiranno al consumo di Azure per i clienti. I clienti idonei vedranno l'offerta contrassegnata come **vantaggio Azure idoneo** per portale di Azure. Per altre informazioni, vedere il vantaggio relativo all'impegno per il [consumo di Azure](azure-consumption-commitment-benefit.md).
+- Le offerte che raggiungono lo stato dell' _incentivo Premium_ per le app di _Azure con co-selling IP di Azure incentivate_ o biz riceveranno una notifica di **soluzione preferita** nella pagina di presentazione dell'offerta negli archivi online. Il badge promuove la qualità, le prestazioni e la capacità di un'offerta di soddisfare le esigenze dei clienti in una determinata area verticale o della soluzione. Per altre informazioni, vedere [soluzioni preferite in Microsoft AppSource e Azure Marketplace](preferred-solutions.md).
 
-    [![Questa immagine mostra la sezione contatti nella scheda co-selling.](media/co-sell/co-sell-contacts-section.png)](media/co-sell/co-sell-contacts-section.png#lightbox)
-
-1. Salvare la bozza prima di continuare.
-1. Dopo aver completato tutte le sezioni obbligatorie dell'offerta, è possibile inviarla per la revisione e la pubblicazione. In alto a destra selezionare **revisione e pubblica**. Esaminare i dettagli dell'offerta e quindi selezionare **pubblica**.
-
-> [!NOTE]
-> Non è più necessario contattarci per candidare l'offerta per la co-selling. Dopo aver completato tutti i campi obbligatori nella pagina di co-selling con Microsoft e aver ripubblicato l'offerta, l'offerta verrà esaminata per determinare se soddisfi i requisiti per lo stato di co-selling.
-
-## <a name="see-your-offers-co-sell-status"></a>Visualizza lo stato di co-selling dell'offerta
-
-Per le offerte con l' [opzione di co-selling nel Marketplace commerciale](commercial-marketplace-co-sell.md), è possibile visualizzare lo stato di co-selling attuale dell'offerta nella pagina Panoramica dell'offerta:
-
-[![Questa immagine mostra lo stato di co-selling corrente delle offerte.](media/co-sell/co-sell-status.png)](media/co-sell/co-sell-status.png#lightbox)
+Per informazioni su come ottenere lo stato di incentivate di co-selling pronto e co-selling, vedere [co-selling Ready and Co-sell incentivate requirements](co-sell-requirements.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere altre informazioni su come [vendere con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-- Scopri di più sull' [opzione di co-selling nel Marketplace commerciale](commercial-marketplace-co-sell.md).
-- Leggi il [PlayBook di co-selling](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).
+- Per informazioni sui requisiti, vedere [co-selling Ready and Co-sell incentivate requirements](co-sell-requirements.md)
+- Per configurare un'offerta per la co-selling, vedere [configurare la co-selling per un'offerta di Marketplace commerciale](commercial-marketplace-co-sell.md)
+- Per verificare lo stato di co-selling, vedere [verificare lo stato di co-selling per un'offerta](co-sell-status.md).
+- Scopri di più sulla [co-selling con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).

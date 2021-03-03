@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 3c5a528ada9e7239f5c53da1cae6df7ceffac918
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4161f2f4ced848eb02d395dfb2da35d64f0c0fb6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723062"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso di account di archiviazione gestiti dal cliente in Log Analytics di Monitoraggio di Azure
 
@@ -51,6 +51,7 @@ Perché l'account di archiviazione si connetta correttamente al collegamento pri
 * Consentire a monitoraggio di Azure di accedere all'account di archiviazione. Se si sceglie di consentire solo la selezione di reti per l'accesso all'account di archiviazione, è necessario selezionare l'eccezione: "Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione".
 ![Immagine dei servizi MS di attendibilità dell'account di archiviazione](./media/private-storage/storage-trust.png)
 * Se l'area di lavoro gestisce anche il traffico da altre reti, è necessario configurare l'account di archiviazione per consentire il traffico in ingresso proveniente dalle reti/Internet pertinenti.
+* Coordinare la versione di TLS tra gli agenti e l'account di archiviazione: è consigliabile inviare i dati a Log Analytics usando TLS 1,2 o versione successiva. Esaminare le [linee guida specifiche della piattaforma](https://docs.microsoft.com/azure/azure-monitor/logs/data-security#sending-data-securely-using-tls-12)e, se necessario, [configurare gli agenti per l'uso di TLS 1,2](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12). Se per qualche motivo non è possibile, configurare l'account di archiviazione in modo che accetti TLS 1,0.
 
 ### <a name="using-a-customer-managed-storage-account-for-cmk-data-encryption"></a>Uso di un account di archiviazione gestito dal cliente per la crittografia dei dati CMK
 Archiviazione di Azure crittografa tutti i dati inattivi in un account di archiviazione. Per impostazione predefinita, USA chiavi gestite da Microsoft (MMK) per crittografare i dati. Tuttavia, archiviazione di Azure consente anche di usare CMK da Azure Key Vault per crittografare i dati di archiviazione. È possibile importare le proprie chiavi in Azure Key Vault oppure è possibile usare le API Azure Key Vault per generare chiavi.

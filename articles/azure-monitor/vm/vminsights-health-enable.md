@@ -1,24 +1,24 @@
 ---
-title: Abilitare l'integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
-description: Viene descritto come abilitare l'integrità Guest di Monitoraggio di Azure per le macchine virtuali nella sottoscrizione e come eseguire l'onboarding delle macchine virtuali.
+title: Abilitare l'integrità Guest di VM Insights (anteprima)
+description: Viene descritto come abilitare l'integrità Guest di VM Insights nella sottoscrizione e come eseguire l'onboarding delle macchine virtuali.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5a65a986e95f333b6179c71a46edc69ca61acdea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3747e9190010bd3c0b88dfdbe9da01009316c275
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617076"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733721"
 ---
-# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Abilitare l'integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
-Monitoraggio di Azure per le macchine virtuali integrità Guest consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come abilitare questa funzionalità nella sottoscrizione e come abilitare il monitoraggio Guest per ogni macchina virtuale.
+# <a name="enable-vm-insights-guest-health-preview"></a>Abilitare l'integrità Guest di VM Insights (anteprima)
+L'integrità Guest di VM Insights consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come abilitare questa funzionalità nella sottoscrizione e come abilitare il monitoraggio Guest per ogni macchina virtuale.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
-Monitoraggio di Azure per le macchine virtuali integrità Guest presenta le limitazioni seguenti nell'anteprima pubblica:
+L'integrità Guest di VM Insights presenta le limitazioni seguenti nell'anteprima pubblica:
 
 - Attualmente sono supportate solo macchine virtuali di Azure. Azure Arc per server non è attualmente supportato.
 
@@ -36,19 +36,25 @@ La macchina virtuale deve trovarsi in una delle aree seguenti:
 - Australia centrale
 - Australia orientale
 - Australia sud-orientale
+- Canada centrale
 - India centrale
 - Stati Uniti centrali
 - Asia orientale
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti orientali 2 EUAP
+- Francia centrale
 - Germania centro-occidentale
 - Giappone orientale
+- Corea centrale
 - Stati Uniti centro-settentrionali
 - Europa settentrionale
 - Stati Uniti centro-meridionali
+- Sudafrica settentrionale
 - Asia sud-orientale
+- Svizzera settentrionale
 - Regno Unito meridionale
+- Regno Unito occidentale
 - Stati Uniti centro-occidentali
 - Europa occidentale
 - Stati Uniti occidentali
@@ -57,24 +63,36 @@ La macchina virtuale deve trovarsi in una delle aree seguenti:
 
 Log Analytics area di lavoro deve trovarsi in una delle aree seguenti:
 
+- Australia centrale
+- Australia orientale
+- Australia sud-orientale
+- Canada centrale
+- India del Canada
 - Stati Uniti centrali
+- Asia orientale
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti orientali 2 EUAP
+- Francia centrale
+- Giappone orientale
+- Stati Uniti centro-settentrionali
 - Europa settentrionale
+- Stati Uniti centro-meridionali
 - Asia sud-orientale
+- Svizzera settentrionale
 - Regno Unito meridionale
 - Area Europa occidentale
+- Stati Uniti occidentali
 - Stati Uniti occidentali 2
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- La macchina virtuale deve essere caricata in Monitoraggio di Azure per le macchine virtuali.
+- La macchina virtuale deve essere caricata in VM Insights.
 - L'utente che esegue i passaggi di caricamento deve avere un accesso minimo a livello di collaboratore alla sottoscrizione in cui si trovano la regola di raccolta dati e macchina virtuale.
 - I provider di risorse di Azure necessari devono essere registrati come descritto nella sezione seguente.
 
 ## <a name="register-required-azure-resource-providers"></a>Registrare i provider di risorse di Azure necessari
-I provider di risorse di Azure seguenti devono essere registrati per la sottoscrizione per abilitare l'integrità Guest di Monitoraggio di Azure per le macchine virtuali. 
+Per abilitare l'integrità Guest di VM Insights, è necessario che i provider di risorse di Azure seguenti siano registrati per la sottoscrizione. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights
@@ -90,7 +108,7 @@ POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Micro
 ## <a name="enable-a-virtual-machine-using-the-azure-portal"></a>Abilitare una macchina virtuale usando il portale di Azure
 Quando si abilita l'integrità guest per una macchina virtuale nel portale di Azure, vengono eseguite tutte le configurazioni necessarie. Ciò include la creazione della regola di raccolta dati richiesta, l'installazione dell'estensione per l'integrità Guest nella macchina virtuale e la creazione di un'associazione con la regola di raccolta dati.
 
-Dalla visualizzazione **iniziale** in monitoraggio di Azure per le macchine virtuali fare clic sul collegamento accanto al messaggio di aggiornamento per una macchina virtuale, quindi fare clic sul pulsante **Aggiorna** . È anche possibile selezionare varie macchine virtuali da aggiornare insieme.
+Dalla visualizzazione **Introduzione** in VM Insights, fare clic sul collegamento accanto al messaggio di aggiornamento per una macchina virtuale, quindi fare clic sul pulsante **Aggiorna** . È anche possibile selezionare varie macchine virtuali da aggiornare insieme.
 
 ![Abilitare la funzionalità integrità nella macchina virtuale](media/vminsights-health-enable/enable-agent.png)
 
@@ -107,10 +125,10 @@ Sono necessari tre passaggi per abilitare le macchine virtuali con Azure Resourc
 > [!NOTE]
 > Se si abilita una macchina virtuale usando il portale di Azure, viene creata automaticamente la regola di raccolta dati descritta di seguito. In questo caso, non è necessario eseguire questo passaggio.
 
-La configurazione per i monitoraggi in Monitoraggio di Azure per le macchine virtuali integrità Guest è archiviata in [Data Collection Rules (DCR)](../agents/data-collection-rule-overview.md). Ogni macchina virtuale con l'estensione per l'integrità Guest dovrà avere un'associazione con questa regola.
+La configurazione per i monitoraggi in integrità Guest di VM Insights è archiviata in [Data Collection Rules (DCR)](../agents/data-collection-rule-overview.md). Ogni macchina virtuale con l'estensione per l'integrità Guest dovrà avere un'associazione con questa regola.
 
 > [!NOTE]
-> È possibile creare regole di raccolta dati aggiuntive per modificare la configurazione predefinita dei monitoraggi, come descritto in [configurare il monitoraggio in monitoraggio di Azure per le macchine virtuali integrità Guest (anteprima)](vminsights-health-configure.md).
+> È possibile creare regole di raccolta dati aggiuntive per modificare la configurazione predefinita dei monitoraggi, come descritto in [configurare il monitoraggio in integrità Guest di VM Insights (anteprima)](vminsights-health-configure.md).
 
 Il modello richiede i valori per i parametri seguenti:
 
@@ -414,4 +432,4 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Personalizzare i monitoraggi abilitati da Monitoraggio di Azure per le macchine virtuali](vminsights-health-configure.md)
+- [Personalizzare i monitoraggi abilitati da VM Insights](vminsights-health-configure.md)

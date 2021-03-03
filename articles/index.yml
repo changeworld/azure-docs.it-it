@@ -13,12 +13,12 @@ metadata:
   ms.date: 01/29/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 58b5b8917aeeefb918914a598655da962019de34
-  ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+  ms.openlocfilehash: 2503d6f54efaa32ab76a9321543815e36f37cdcb
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/10/2021
-  ms.locfileid: "100102972"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101709971"
 highlightedContent:
   items:
   - title: Guida introduttiva per gli sviluppatori in Azure
@@ -36,6 +36,12 @@ highlightedContent:
 productDirectory:
   title: Esplorare i prodotti di Azure
   items:
+  - title: Azure Percept
+    summary: Intelligence perimetrale dal silicio al servizio
+    imageSrc: ./media/index/azure-percept.svg
+    azureCategories:
+    - iot
+    url: azure-percept/index.yml
   - title: Rilevamento anomalie
     summary: Aggiungere funzionalità di rilevamento anomalie alle app
     imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
@@ -174,7 +180,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/custom-vision.svg
     azureCategories:
     - ai-machine-learning
-    url: cognitive-services/Custom-Vision-Service/index.yml
+    url: cognitive-services/custom-vision-service/index.yml
   - title: Data Science Virtual Machine
     summary: Ambiente completo e preconfigurato per lo sviluppo di intelligenza artificiale
     imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
@@ -204,7 +210,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
-    url: cognitive-services/ink-recognizer/index.yml
+    url: /previous-versions/azure/cognitive-services/Ink-Recognizer/
   - title: Kinect DK
     summary: Creare modelli di visione artificiale e conversione voce/testo tramite un kit per sviluppatori con sensori avanzati di intelligenza artificiale
     imageSrc: ./media/index/kinect-viewer.svg
@@ -408,6 +414,12 @@ productDirectory:
     - databases
     - iot
     url: cosmos-db/index.yml
+  - title: Azure Istanza gestita per Apache Cassandra
+    summary: Automatizzare la distribuzione e la scalabilità per i data center open source di Apache Cassandra gestiti
+    imageSrc: ./media/index/managed-instance-apache-cassandra.svg
+    azureCategories:
+    - databases
+    url: managed-instance-apache-cassandra/index.yml
   - title: App per la logica
     summary: Automatizzare l'accesso e l'uso dei dati tra cloud senza scrivere codice
     imageSrc: https://static.docs.com/ui/media/product/azure/logic-apps.svg
@@ -507,7 +519,7 @@ productDirectory:
     azureCategories:
     - featured
     - compute
-    url: virtual-machines/linux/index.yml
+    url: ./virtual-machines/index.yml
   - title: Service Fabric
     summary: Sviluppare microservizi e orchestrare contenitori in Windows o Linux
     imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
@@ -557,7 +569,7 @@ productDirectory:
     azureCategories:
     - featured
     - compute
-    url: virtual-machines/windows/index.yml
+    url: ./virtual-machines/index.yml
   - title: Azure Dev Spaces
     summary: Testare e sviluppare in modo iterativo le app di microservizi nel servizio Azure Kubernetes
     imageSrc: ./media/index/AzureDevSpaceController_50x.svg
@@ -1192,6 +1204,12 @@ productDirectory:
     azureCategories:
     - networking
     url: load-balancer/index.yml
+  - title: Server di route di Azure (anteprima)
+    summary: Semplificare la gestione delle appliance di rete
+    imageSrc: ./media/index/azure-route-server.svg
+    azureCategories:
+    - networking
+    url: route-server/index.yml
   - title: Rete virtuale
     summary: Effettuare il provisioning di reti private, con connessione facoltativa a data center locali
     imageSrc: https://static.docs.com/ui/media/product/azure/virtual-networks.svg

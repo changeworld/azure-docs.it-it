@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b69e701177c6f017388521ed05c37de1271c7e60
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650159"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689335"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Esercitazione: sviluppare un endpoint SCIM di esempio
 
@@ -57,6 +57,8 @@ I passaggi qui illustrano come distribuire l'endpoint SCIM a un servizio usando 
     ![Screenshot che illustra la creazione di un nuovo servizio app.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-3.png)
 
 1. Selezionare il gruppo di risorse da usare e selezionare **pubblica**.
+
+    ![Screenshot che mostra la pubblicazione di un nuovo servizio app.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-4.png)
 
 1. Passare all'applicazione in **app Azure**  >  **configurazione** del servizio e selezionare **nuova impostazione applicazione** per aggiungere l'impostazione *Token__TokenIssuer* con il valore `https://sts.windows.net/<tenant_id>/` . Sostituire `<tenant_id>` con l'ID tenant del Azure ad. Se si vuole testare l'endpoint SCIM usando il [post](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint), aggiungere un'impostazione di *ASPNETCORE_ENVIRONMENT* con il valore `Development` .
 

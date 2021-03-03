@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: mnayak
-ms.custom: references_regions
-ms.openlocfilehash: b0235286260910a45523e3236e7ed3a114eaf57f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 56fd9898065dd55b9a56547a775f7f2aa4a56156
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672943"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693731"
 ---
 # <a name="what-is-routing-preference"></a>Che cos'è la preferenza di routing?
 
@@ -71,7 +70,7 @@ La differenza di prezzo tra le due opzioni si riflette nei prezzi del trasferime
 
 ## <a name="limitations"></a>Limitazioni
 
-* La preferenza di routing non è attualmente supportata in Australia centrale, Australia Central2, Canada orientale, Brasile meridionale, Corea centrale e Corea meridionale.
+
 * La preferenza di routing è compatibile solo con lo SKU standard con ridondanza della zona dell'indirizzo IP pubblico. Lo SKU Basic dell'indirizzo IP pubblico non è supportato.
 * Attualmente, la preferenza di routing supporta solo indirizzi IP pubblici IPv4. Gli indirizzi IP pubblici IPv6 non sono supportati.
 

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 07/15/2020
+ms.date: 02/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 40e4a3d3a819280255ee931e5e12206f99ef28fe
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: 54900b7b9089d4a4c6cbc742ecf09aa19ff2a550
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051514"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741957"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -62,30 +62,32 @@ Il gruppo di risorse contiene tutte le risorse per l'esercitazione.
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Nel menu del portale di Azure selezionare **Gruppi di risorse** oppure cercare e selezionare *Gruppi di risorse* da qualsiasi pagina. Quindi selezionare **Aggiungi**.
-3. In **Nome del gruppo di risorse** immettere *Test-FW-RG*.
 4. In **Sottoscrizione** selezionare la propria sottoscrizione.
-5. In **Località del gruppo di risorse** selezionare una località. Tutte le altre risorse create devono risiedere nella stessa località.
-6. Selezionare **Crea**.
+1. In **Nome del gruppo di risorse** immettere *Test-FW-RG*.
+1. In **Località del gruppo di risorse** selezionare una località. Tutte le altre risorse create devono risiedere nella stessa località.
+1. Selezionare **Rivedi e crea**.
+1. Selezionare **Crea**.
 
 ### <a name="create-a-vnet"></a>Creare una rete virtuale
 
-Questa rete virtuale conterrà tre subnet.
+Questa VNet avrà tre subnet.
 
 > [!NOTE]
 > La dimensione della subnet AzureFirewallSubnet è /26. Per altre informazioni sulle dimensioni delle subnet, vedere le [domande frequenti su Firewall di Azure](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
 1. Selezionare **Rete** > **Rete virtuale**.
-2. In **Sottoscrizione** selezionare la propria sottoscrizione.
-3. Per **Gruppo di risorse** selezionare **Test-FW-RG**.
-4. In **Nome** immettere **Test-FW-VN**.
-5. In **Area** selezionare la stessa località usata in precedenza.
-6. Selezionare **Avanti: Indirizzi IP**.
-7. Per **Spazio indirizzi IPv4**, digitare **10.0.0.0/16**.
-8. In **Subnet** selezionare **predefinito**.
-9. Per **Nome subnet** immettere **AzureFirewallSubnet**. Il firewall si troverà in questa subnet e il nome della subnet **deve** essere AzureFirewallSubnet.
-10. In **Intervallo indirizzi** digitare **10.0.1.0/26**.
-11. Selezionare **Salva**.
+1. Selezionare **Crea**.
+1. In **Sottoscrizione** selezionare la propria sottoscrizione.
+1. Per **Gruppo di risorse** selezionare **Test-FW-RG**.
+1. In **Nome** immettere **Test-FW-VN**.
+1. In **Area** selezionare la stessa località usata in precedenza.
+1. Selezionare **Avanti: Indirizzi IP**.
+1. Per **Spazio indirizzi IPv4**, digitare **10.0.0.0/16**.
+1. In **Subnet** selezionare **predefinito**.
+1. Per **Nome subnet** immettere **AzureFirewallSubnet**. Il firewall si troverà in questa subnet e il nome della subnet **deve** essere AzureFirewallSubnet.
+1. In **Intervallo indirizzi** digitare **10.0.1.0/26**.
+1. Selezionare **Salva**.
 
    Creare quindi una subnet per un server del carico di lavoro.
 
@@ -101,8 +103,7 @@ Questa rete virtuale conterrà tre subnet.
 Creare ora la macchina virtuale del carico di lavoro e inserirla nella subnet **Workload-SN**.
 
 1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
-2. Selezionare **Calcolo** e quindi **Macchina virtuale**.
-3. Selezionare **Windows Server 2016 Datacenter** nell'elenco In primo piano.
+2. Selezionare **Windows Server 2016 datacenter**.
 4. Immettere i valori seguenti per la macchina virtuale:
 
    |Impostazione  |Valore  |
@@ -120,7 +121,7 @@ Creare ora la macchina virtuale del carico di lavoro e inserirla nella subnet **
 8. Assicurarsi che per la rete virtuale sia selezionata l'opzione **Test-FW-VN** e che la subnet sia **Workload-SN**.
 9. In **IP pubblico** selezionare **Nessuno**.
 11. Accettare tutte le altre impostazioni predefinite e selezionare **Avanti: Gestione**.
-12. Selezionare **Disattivato** per disabilitare la diagnostica di avvio. Accettare tutte le altre impostazioni predefinite e selezionare **Rivedi e crea**.
+12. Selezionare **Disabilita** per disabilitare la diagnostica di avvio. Accettare tutte le altre impostazioni predefinite e selezionare **Rivedi e crea**.
 13. Verificare le impostazioni nella pagina di riepilogo e quindi selezionare **Crea**.
 
 ## <a name="deploy-the-firewall"></a>Distribuire il firewall
@@ -137,11 +138,12 @@ Distribuire il firewall nella rete virtuale.
    |Subscription     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Nome     |**Test-FW01**|
-   |Location     |Selezionare la stessa località usata in precedenza|
+   |Region     |Selezionare la stessa località usata in precedenza|
+   |Gestione del firewall|**Usare le regole del firewall (classiche) per gestire questo firewall**|
    |Scegliere una rete virtuale     |**Use existing** (Usa esistente): **Test-FW-VN**|
    |Indirizzo IP pubblico     |**Aggiungi nuovo**<br>**Nome**: **fw-pip**|
 
-5. Selezionare **Rivedi e crea**.
+5. Accettare gli altri valori predefiniti, quindi selezionare **Verifica + crea**.
 6. Controllare il riepilogo e quindi selezionare **Crea** per creare il firewall.
 
    La distribuzione richiederà qualche minuto.
@@ -155,15 +157,18 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 1. Nel menu del portale di Azure selezionare **Tutti servizi** oppure cercare e selezionare *Tutti i servizi* in qualsiasi pagina.
 2. In **Rete** selezionare **Tabelle route**.
 3. Selezionare **Aggiungi**.
-4. In **Nome** immettere **Firewall-route**.
 5. In **Sottoscrizione** selezionare la propria sottoscrizione.
 6. Per **Gruppo di risorse** selezionare **Test-FW-RG**.
-7. In **Località** selezionare la stessa località usata in precedenza.
-8. Selezionare **Crea**.
-9. Selezionare **Aggiorna** e quindi selezionare la tabella di route **Firewall-route**.
-10. Selezionare **Subnet** e quindi **Associa**.
-11. Selezionare **Rete virtuale** > **Test-FW-VN**.
-12. In **Subnet** selezionare **Workload-SN**. Assicurarsi di selezionare solo la subnet **Workload-SN** per questa route; in caso contrario, il firewall non funzionerà correttamente.
+7. In **Area** selezionare la stessa località usata in precedenza.
+4. In **Nome** immettere **Firewall-route**.
+1. Selezionare **Rivedi e crea**.
+1. Selezionare **Crea**.
+
+Al termine della distribuzione, selezionare **Vai alla risorsa**.
+
+1. Nella pagina Firewall-Route selezionare **subnet** e quindi fare clic su **associa**.
+1. Selezionare **Rete virtuale** > **Test-FW-VN**.
+1. In **Subnet** selezionare **Workload-SN**. Assicurarsi di selezionare solo la subnet **Workload-SN** per questa route; in caso contrario, il firewall non funzionerà correttamente.
 
 13. Selezionare **OK**.
 14. Selezionare **Route**, quindi **Aggiungi**.
@@ -180,7 +185,7 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 Questa è la regola dell'applicazione che consente l'accesso in uscita a `www.google.com`.
 
 1. Aprire **Test-FW-RG** e selezionare il firewall **Test-FW01**.
-2. Nella pagina **Test-FW01** selezionare **Regole** in **Impostazioni**.
+2. Nella pagina **test-FW01** , in **Impostazioni**, selezionare **regole (classico)**.
 3. Selezionare la scheda **Raccolta regole dell'applicazione**.
 4. Selezionare **Aggiungi raccolta regole dell'applicazione**.
 5. In **Nome** immettere **App-Coll01**.
@@ -226,8 +231,8 @@ Questa regola consente di connettere un desktop remoto alla macchina virtuale Sr
 5. In **Regole**, per **Nome**, digitare **rdp-nat**.
 6. In **Protocollo** selezionare **TCP**.
 7. In **Tipo di origine** selezionare **Indirizzo IP**.
-8. Per **Origine**, digitare * *\** _.
-9. Per _*Indirizzo di destinazione**, digitare l'indirizzo IP pubblico del firewall.
+8. Per **Origine**, digitare **\*** .
+9. Per **Indirizzo di destinazione**, digitare l'indirizzo IP pubblico del firewall.
 10. In **Porte di destinazione** digitare **3389**.
 11. Per **Indirizzo convertito** digitare l'indirizzo IP privato di **Srv-work**.
 12. Per **Porta tradotta** digitare **3389**.

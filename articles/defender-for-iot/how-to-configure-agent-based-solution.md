@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 53fc01839ef522afaffe52cd8a3126e40ba94a05
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: e32b9c690db70baeda7dec2f9f1270f82c6881bd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809842"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733296"
 ---
 # <a name="configure-azure-defender-for-iot-agent-based-solution"></a>Configurare Azure Defender per la soluzione basata su agenti it  
 
@@ -87,7 +87,7 @@ Per accedere agli avvisi nell'area di lavoro Log Analytics dopo la configurazion
 
 1. Selezionare **analisi consigli nell'area di lavoro log Analytics**. 
  
-Per ulteriori informazioni sull'esecuzione di query sui dati di Log Analytics, vedere [Introduzione alle query in log Analytics](../azure-monitor/log-query/get-started-queries.md). 
+Per ulteriori informazioni sull'esecuzione di query sui dati di Log Analytics, vedere [Introduzione alle query in log Analytics](../azure-monitor/logs/get-started-queries.md). 
 
 ## <a name="turn-off-defender-for-iot"></a>Disattiva Defender per le cose 
 
@@ -99,4 +99,4 @@ Per attivare o disattivare un Defender per il servizio Internet in uno specifico
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-Passare all'articolo successivo per [configurare la soluzione](quickstart-configure-your-solution.md). 
+Passare all'articolo successivo per [configurare la soluzione](quickstart-configure-your-solution.md).

@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 6b273b864c8329547ef91eb7063a064e0f5cb77d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b1295904f25d38c97578fa6fd6ede4ecd50c0456
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620876"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728978"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Connettere Azure agli strumenti ITSM usando l'esportazione sicura
 
 Questo articolo illustra come configurare la connessione tra il prodotto o il servizio di gestione dei servizi IT (ITSM) usando l'esportazione sicura.
 
-L'esportazione protetta è una versione aggiornata di [IT Service Management Connector (connettore)](../platform/itsmc-overview.md). Entrambe le versioni consentono di creare elementi di lavoro in uno strumento ITSM quando monitoraggio di Azure invia avvisi. La funzionalità include gli avvisi relativi a metriche, log e log attività.
+L'esportazione protetta è una versione aggiornata di [IT Service Management Connector (connettore)](./itsmc-overview.md). Entrambe le versioni consentono di creare elementi di lavoro in uno strumento ITSM quando monitoraggio di Azure invia avvisi. La funzionalità include gli avvisi relativi a metriche, log e log attività.
 
 CONNETTORE usa le credenziali di nome utente e password. L'esportazione protetta ha un'autenticazione più avanzata perché usa Azure Active Directory (Azure AD). Azure AD è il servizio Microsoft basato sul cloud per la gestione delle identità e dell'accesso. Consente agli utenti di accedere alle risorse interne o esterne. L'uso di Azure AD con ITSM consente di identificare gli avvisi di Azure (tramite l'ID dell'applicazione Azure AD) inviati al sistema esterno.
 
@@ -55,4 +55,4 @@ I principali vantaggi dell'integrazione sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](../platform/itsmc-overview.md)
+* [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](./itsmc-overview.md)

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b1158a614da9ba32f628aba5dd2ed2cc71b4b455
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b743b5be195f44c03adbee75c3108f4908d8d4e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947039"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717758"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilare le app di Servizio app di Azure attive con Application Insights
 
@@ -25,8 +25,12 @@ Per abilitare Profiler per un'app, seguire queste istruzioni. Se si esegue un ti
 
 Application Insights Profiler è preinstallato come parte del runtime di Servizi app. La procedura seguente illustra come abilitarlo per il servizio app. Seguire questa procedura anche se App Insights SDK è stato incluso nell'applicazione in fase di compilazione.
 
+> [!NOTE]
+> L'installazione di Application Insights Profiler non codificata segue i criteri di supporto di .NET Core.
+> Per altre informazioni sui Runtime supportati, vedere [criteri di supporto di .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
 1. Passare al pannello di controllo di Azure per il servizio app.
-1. Abilitare l'impostazione "Always On" per il servizio app. È possibile trovare questa impostazione nella pagina **Impostazioni**, **configurazione** (vedere screenshot nel passaggio successivo) e fare clic sulla scheda **Impostazioni generali** .
+1. Abilitare l'impostazione "Always On" per il servizio app. È possibile trovare questa impostazione nella pagina **Impostazioni**, **configurazione** (vedere screenshot nel passaggio successivo) e selezionare la scheda **Impostazioni generali** .
 1. Passare a **impostazioni > pagina Application Insights** .
 
    ![Abilitare Application Insights nel portale dei servizi app](./media/profiler/AppInsights-AppServices.png)
@@ -43,7 +47,7 @@ Application Insights Profiler è preinstallato come parte del runtime di Servizi
 È possibile abilitare Application Insights Profiler creando impostazioni dell'app per Servizio app di Azure. Queste impostazioni dell'app vengono create automaticamente nella pagina specificando le opzioni illustrate in precedenza. È tuttavia possibile automatizzare la creazione di queste impostazioni usando un modello o altri metodi. Queste impostazioni funzioneranno anche se la risorsa di Application Insights si trova in una sottoscrizione diversa dal Servizio app di Azure.
 Ecco le impostazioni necessarie per abilitare Profiler:
 
-|Impostazione app    | valore    |
+|Impostazione app    | Valore    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey della risorsa di Application Insights    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -63,7 +67,7 @@ Se si vuole abilitare Profiler per altri cloud, è possibile usare le impostazio
 
 ## <a name="disable-profiler"></a>Disabilitare Profiler
 
-Per arrestare o riavviare Profiler per un'istanza dell'app singola, in **Processi Web** arrestare il processo Web denominato ApplicationInsightsProfiler3. Anche se il Profiler è disabilitato usando l'opzione nella pagina Application Insights come descritto in precedenza, il processo del Profiler continuerà l'esecuzione. Il profiler verificherà se è abilitato. Se è disabilitato, verrà sospeso per un certo periodo di tempo prima di effettuare un nuovo controllo. Se disabilitato, non esegue alcuna profilatura. Se si disabilita questo processo Web, il processo del profiler non viene eseguito, neanche per verificare se è abilitato.
+Per arrestare o riavviare Profiler per un'istanza di un'app singola, nella barra laterale sinistra selezionare **processi** Web e arrestare il processo Web denominato `ApplicationInsightsProfiler3` .
 
   ![Disabilitare Profiler per un processo Web][disable-profiler-webjob]
 

@@ -3,78 +3,277 @@ title: Azure IoT Edge e IoT Central di Azure | Microsoft Docs
 description: Informazioni su come usare Azure IoT Edge con un'applicazione IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/19/2020
+ms.date: 02/19/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 9a7c886ba4dd6e7ab4bd62700f5437855a16a5ad
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 91869614aef03b819a5f7fbb355004f6e802d673
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796568"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733015"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connettere un dispositivo Azure IoT Edge a un'applicazione Azure IoT Central
 
 *Le informazioni di questo articolo sono destinate a generatori di soluzioni e sviluppatori di dispositivi.*
 
+Azure IoT Edge sposta le analisi del cloud e la logica di business personalizzata nei dispositivi, in modo che l'organizzazione possa concentrarsi sulle informazioni aziendali invece che sulla gestione dei dati. Ridimensionare la soluzione Internet delle cose con la creazione di pacchetti di logica di business in contenitori standard, distribuire i contenitori nei dispositivi e monitorarli dal cloud.
+
+L'articolo illustra:
+
+* Il modo in cui i dispositivi IoT Edge si connettono a un'applicazione IoT Central.
+* Come usare IoT Central per gestire i dispositivi di IoT Edge.
+
+Per ulteriori informazioni su IoT Edge, vedere [che cos'è Azure IOT Edge?](../../iot-edge/about-iot-edge.md)
+
+## <a name="iot-edge"></a>IoT Edge
+
 IoT Edge è costituito da tra componenti:
 
-* I **moduli di IoT Edge** sono contenitori che eseguono servizi di Azure, servizi partner o il codice dell'utente. Vengono distribuiti nei dispositivi IoT Edge ed eseguiti in locale in tali dispositivi.
-* Il **runtime di IOT Edge** viene eseguito in ogni dispositivo IOT Edge e gestisce i moduli distribuiti in ogni dispositivo.
-* Un'**interfaccia basata sul cloud** consente di monitorare e gestire in remoto i dispositivi IoT Edge. IoT Central è l'interfaccia cloud.
+* I *moduli di IoT Edge* sono contenitori che eseguono servizi di Azure, servizi partner o il codice dell'utente. Vengono distribuiti nei dispositivi IoT Edge ed eseguiti in locale in tali dispositivi. Per altre informazioni, vedere informazioni sui [moduli Azure IOT Edge](../../iot-edge/iot-edge-modules.md).
+* Il *runtime di IOT Edge* viene eseguito in ogni dispositivo IOT Edge e gestisce i moduli distribuiti in ogni dispositivo. Il runtime è costituito da due moduli IoT Edge: *IOT Edge Agent* e *IOT Edge Hub*. Per altre informazioni, vedere [comprendere il runtime di Azure IOT Edge e la relativa architettura](../../iot-edge/iot-edge-runtime.md).
+* Un'*interfaccia basata sul cloud* consente di monitorare e gestire in remoto i dispositivi IoT Edge. IoT Central è un esempio di un'interfaccia cloud.
 
-Un dispositivo **Azure IoT Edge** può essere un dispositivo gateway con dispositivi downstream che si connettono al dispositivo IoT Edge. Questo articolo condivide altre informazioni sui modelli di connettività dei dispositivi downstream.
+Un dispositivo IoT Edge può essere:
 
-Un **modello di dispositivo** definisce le funzionalità del dispositivo e dei moduli IoT Edge. Le funzionalità includono i dati di telemetria inviati dal modulo, le proprietà del modulo e i comandi a cui un modulo risponde.
+* Un dispositivo autonomo composto da moduli.
+* Un *dispositivo gateway*, con i dispositivi downstream connessi.
 
-## <a name="downstream-device-relationships-with-a-gateway-and-modules"></a>Relazioni dei dispositivi downstream con il gateway e i moduli
+## <a name="iot-edge-as-a-gateway"></a>IoT Edge come gateway
 
-I dispositivi downstream possono connettersi al dispositivo gateway IoT Edge tramite il modulo `$edgeHub`. Questo dispositivo IoT Edge diventa un gateway trasparente in questo scenario.
+Un dispositivo IoT Edge può funzionare come gateway che fornisce una connessione tra altri dispositivi downstream sulla rete e l'applicazione IoT Central.
 
-![Diagramma del gateway trasparente](./media/concepts-iot-edge/gateway-transparent.png)
+Esistono due modelli di gateway:
 
-I dispositivi downstream possono anche connettersi al dispositivo gateway IoT Edge tramite un modulo personalizzato. Nello scenario seguente i dispositivi downstream si connettono tramite un modulo personalizzato Modbus.
+* Nel modello di *gateway trasparente* , il modulo dell'hub IOT Edge si comporta come IOT Central e gestisce le connessioni dai dispositivi registrati in IOT Central. I messaggi passano da dispositivi downstream a IoT Central come se non vi fosse alcun gateway tra di essi.
 
-![Diagramma della connessione del modulo personalizzato](./media/concepts-iot-edge/gateway-module.png)
+* Nel modello del *gateway di traduzione* , i dispositivi che non possono connettersi a IOT Central autonomamente, si connettono a un modulo di IOT Edge personalizzato. Il modulo nel dispositivo IoT Edge elabora i messaggi di dispositivo downstream in arrivo e li invia al IoT Central.
 
-Il diagramma seguente mostra la connessione a un dispositivo gateway IoT Edge tramite entrambi i tipi di moduli (personalizzato e `$edgeHub`).  
+I modelli del gateway trasparente e di conversione non si escludono a vicenda. Un singolo dispositivo IoT Edge può funzionare sia come gateway trasparente che come gateway di conversione.
 
-![Diagramma della connessione tramite entrambi i moduli di connessione](./media/concepts-iot-edge/gateway-module-transparent.png)
+Per altre informazioni sui modelli di gateway IoT Edge, vedere [come un dispositivo IOT Edge può essere usato come gateway](../../iot-edge/iot-edge-as-gateway.md).
 
-Infine, i dispositivi downstream possono connettersi al dispositivo gateway IoT Edge tramite più moduli personalizzati. Il diagramma seguente mostra i dispositivi downstream che si connettono tramite un modulo personalizzato Modbus, un modulo personalizzato BLE (Bluetooth a basso consumo) e il modulo `$edgeHub`. 
+### <a name="downstream-device-relationships-with-a-gateway-and-modules"></a>Relazioni dei dispositivi downstream con il gateway e i moduli
 
-![Diagramma della connessione tramite più moduli personalizzati](./media/concepts-iot-edge/gateway-module2-transparent.png)
+I dispositivi downstream possono connettersi a un dispositivo gateway IoT Edge tramite il modulo *hub IOT Edge*  . In questo scenario, il dispositivo IoT Edge è un gateway trasparente:
 
-## <a name="deployment-manifests-and-device-templates"></a>Manifesti di distribuzione e modelli di dispositivo
+:::image type="content" source="media/concepts-iot-edge/gateway-transparent.png" alt-text="Diagramma del gateway trasparente" border="false":::
 
-IoT Edge consente di distribuire e gestire la logica di business sotto forma di moduli. I moduli di IoT Edge sono l'unità di calcolo più piccola gestita da IoT Edge e possono contenere i servizi di Azure, ad esempio Analisi di flusso di Azure, o il codice specifico della soluzione. Per comprendere come vengono sviluppati, distribuiti e gestiti i moduli, vedere [Moduli di IoT Edge](../../iot-edge/iot-edge-modules.md).
+I dispositivi downstream possono anche connettersi al dispositivo gateway IoT Edge tramite un modulo personalizzato. Nello scenario seguente i dispositivi downstream si connettono tramite un modulo *Modbus* personalizzato. In questo scenario, il dispositivo IoT Edge è un gateway di traduzione:
 
-A livello generale, un manifesto della distribuzione è un elenco di moduli gemelli configurati con le relative proprietà desiderate. Un manifesto della distribuzione indica a un dispositivo IoT Edge (o a un gruppo di dispositivi) quali moduli installare e come configurarli. I manifesti della distribuzione includono le proprietà desiderate per ogni modulo gemello. I dispositivi IoT Edge riportano le proprietà segnalate per ogni modulo.
+:::image type="content" source="media/concepts-iot-edge/gateway-module.png" alt-text="Diagramma della connessione del modulo personalizzato" border="false":::
 
-Usare Visual Studio Code per creare un manifesto della distribuzione. Per altre informazioni, vedere [Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+Il diagramma seguente mostra le connessioni a un dispositivo gateway IoT Edge tramite entrambi i tipi di moduli. In questo scenario, il dispositivo IoT Edge è sia un gateway trasparente che un gateway di traduzione:
 
-In IoT Central di Azure è possibile importare un manifesto di distribuzione per creare un modello di dispositivo. Il diagramma di flusso seguente mostra il ciclo di vita del manifesto della distribuzione in IoT Central.
+:::image type="content" source="media/concepts-iot-edge/gateway-module-transparent.png" alt-text="Diagramma della connessione tramite entrambi i moduli di connessione" border="false":::
 
-![Diagramma di flusso del ciclo di vita del manifesto della distribuzione](./media/concepts-iot-edge/dmflow.png)
+I dispositivi downstream possono connettersi a un dispositivo gateway IoT Edge tramite più moduli personalizzati. Il diagramma seguente illustra i dispositivi downstream che si connettono tramite un modulo personalizzato Modbus, un modulo personalizzato BLE e il modulo *hub IOT Edge*  :
 
-IoT Central modella un dispositivo IoT Edge come segue:
+:::image type="content" source="media/concepts-iot-edge/gateway-two-modules-transparent.png" alt-text="Diagramma della connessione tramite più moduli personalizzati" border="false":::
 
-* Ogni modello di dispositivo IoT Edge dispone di un modello di dispositivo.
-* Per ogni modulo personalizzato elencato nel manifesto della distribuzione viene generato un modello di funzionalità del modulo.
-* Viene stabilita una relazione tra ogni modello di capacità del modulo e un modello di dispositivo.
-* Il modello di funzionalità del modulo implementa le interfacce del modulo.
-* Ogni interfaccia del modulo contiene i dati di telemetria, le proprietà e i comandi.
+<!-- To do: add link to how to configure gateway article? -->
 
-![Diagramma della creazione del modello IoT Edge](./media/concepts-iot-edge/edgemodelling.png)
+## <a name="iot-edge-devices-and-iot-central"></a>Dispositivi IoT Edge e IoT Central
+
+I dispositivi IoT Edge possono usare token di *firma di accesso condiviso* o certificati X. 509 per l'autenticazione con IOT Central. È possibile registrare manualmente i dispositivi IoT Edge in IoT Central prima che si connettano per la prima volta o usare il servizio Device provisioning per gestire la registrazione. Per altre informazioni, vedere [Connettersi ad Azure IoT Central](concepts-get-connected.md).
+
+IoT Central USA i [modelli di dispositivo](concepts-device-templates.md) per definire il modo in cui IOT Central interagisce con un dispositivo. Ad esempio, un modello di dispositivo specifica:
+
+* Tipi di dati di telemetria e proprietà inviati da un dispositivo in modo che IoT Central possano interpretarli e creare visualizzazioni.
+* I comandi a cui un dispositivo risponde, in modo che IoT Central possibile visualizzare un'interfaccia utente per un operatore da usare per chiamare i comandi.
+
+Un dispositivo IoT Edge può inviare dati di telemetria, sincronizzare i valori delle proprietà e rispondere ai comandi in modo analogo a un dispositivo standard. Quindi, un dispositivo IoT Edge necessita di un modello di dispositivo IoT Central.
+
+### <a name="iot-edge-deployment-manifests-and-iot-central-device-templates"></a>Manifesti della distribuzione IoT Edge e modelli di dispositivo IoT Central
+
+In IoT Edge si distribuisce e si gestisce la logica di business sotto forma di moduli. I moduli IoT Edge sono la più piccola unità di calcolo gestita da IoT Edge e possono contenere servizi di Azure, ad esempio analisi di flusso di Azure, o codice specifico della soluzione.
+
+Un *manifesto di distribuzione* IOT Edge elenca i moduli IOT Edge da distribuire nel dispositivo e come configurarli. Per altre informazioni, vedere [informazioni su come distribuire moduli e definire route in IOT Edge](../../iot-edge/module-composition.md).
+
+In IoT Central di Azure è possibile importare un manifesto di distribuzione per creare un modello di dispositivo per il dispositivo IoT Edge.
+
+Il frammento di codice seguente mostra un esempio IoT Edge manifesto di distribuzione:
+
+```json
+{
+  "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {}
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.0.9",
+              "createOptions": "{}"
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.0.9",
+              "createOptions": "{}"
+            }
+          }
+        },
+        "modules": {
+          "SimulatedTemperatureSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": "{}"
+            }
+          }
+        }
+      }
+    },
+    "$edgeHub": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+            "route": "FROM /* INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 7200
+        }
+      }
+    },
+    "SimulatedTemperatureSensor": {
+      "properties.desired": {
+           "SendData": true,
+           "SendInterval": 10
+      }
+    }
+  }
+}
+```
+
+Nel frammento di codice precedente è possibile vedere:
+
+* Sono disponibili tre moduli. I moduli di sistema *IOT Edge Agent* e *IOT Edge Hub* presenti in ogni manifesto della distribuzione. Il modulo **SimulatedTemperatureSensor** personalizzato.
+* Le immagini del modulo pubblico vengono recuperate da un repository di Azure Container Registry che non richiede credenziali per la connessione. Per le immagini del modulo privato, impostare le credenziali del registro contenitori da usare nell' `registryCredentials` impostazione del modulo *agente IOT Edge* .
+* Il modulo **SimulatedTemperatureSensor** personalizzato ha due proprietà `"SendData": true` e `"SendInterval": 10` .
+
+Quando si importa questo manifesto di distribuzione in un'applicazione IoT Central, viene generato il modello di dispositivo seguente:
+
+:::image type="content" source="media/concepts-iot-edge/device-template.png" alt-text="Screenshot che mostra il modello di dispositivo creato dal manifesto della distribuzione.":::
+
+Nella schermata precedente è possibile vedere:
+
+* Un modulo denominato **SimulatedTemperatureSensor**. I moduli dell' *agente IOT Edge* e del sistema *Hub IOT Edge* non vengono visualizzati nel modello.
+* Interfaccia denominata **gestione** che include due proprietà scrivibili denominate **SendData** e **SendInterval**.
+
+Il manifesto di distribuzione non include informazioni sui dati di telemetria inviati dal modulo **SimulatedTemperatureSensor** o sui comandi a cui risponde. Aggiungere queste definizioni al modello di dispositivo manualmente prima di pubblicarlo.
+
+Per altre informazioni, vedere [esercitazione: aggiungere un dispositivo Azure IOT Edge all'applicazione Azure IOT Central](tutorial-add-edge-as-leaf-device.md).
+
+### <a name="update-a-deployment-manifest"></a>Aggiornare un manifesto di distribuzione
+
+Se si crea una nuova [versione](howto-version-device-template.md) del modello di dispositivo, è possibile sostituire il manifesto di distribuzione con una nuova versione:
+
+Quando si sostituisce il manifesto di distribuzione, tutti i dispositivi IoT Edge connessi scaricano il nuovo manifesto e ne aggiornano i moduli. Tuttavia, IoT Central non aggiorna le interfacce nel modello di dispositivo con le modifiche apportate alla configurazione del modulo. Se ad esempio si sostituisce il manifesto mostrato nel frammento di codice precedente con il manifesto seguente, la proprietà **SendUnits** non viene visualizzata automaticamente nell'interfaccia di **gestione** del modello di dispositivo. Aggiungere manualmente la nuova proprietà all'interfaccia di **gestione** per IOT Central per riconoscerla:
+
+```json
+{
+  "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {}
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.0.9",
+              "createOptions": "{}"
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.0.9",
+              "createOptions": "{}"
+            }
+          }
+        },
+        "modules": {
+          "SimulatedTemperatureSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": "{}"
+            }
+          }
+        }
+      }
+    },
+    "$edgeHub": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+            "route": "FROM /* INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 7200
+        }
+      }
+    },
+    "SimulatedTemperatureSensor": {
+      "properties.desired": {
+           "SendData": true,
+           "SendInterval": 10,
+           "SendUnits": "Celsius"
+      }
+    }
+  }
+}
+```
+
+## <a name="deploy-the-iot-edge-runtime"></a>Distribuire il runtime di IoT Edge
+
+Per informazioni su dove è possibile eseguire il runtime di IoT Edge, vedere [Azure IOT Edge sistemi supportati](../../iot-edge/support.md).
+
+È anche possibile installare il runtime di IoT Edge negli ambienti seguenti:
+
+* [Installare o disinstallare Azure IoT Edge per Linux](../../iot-edge/how-to-install-iot-edge.md)
+* [Installare Azure IoT Edge per Linux in un dispositivo Windows ed effettuare il provisioning (anteprima)](../../iot-edge/how-to-install-iot-edge-on-windows.md)
+* [Eseguire Azure IoT Edge in macchine virtuali Ubuntu in Azure](../../iot-edge/how-to-install-iot-edge-ubuntuvm.md)
 
 ## <a name="iot-edge-gateway-devices"></a>Dispositivi IoT Edge Gateway
 
 Se è stato selezionato un dispositivo IoT Edge come dispositivo gateway, è possibile aggiungere relazioni downstream ai modelli di dispositivo per i dispositivi che si desidera connettere al dispositivo gateway.
 
+<!-- TODO - add link to Edge Gateway how-to -->
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si è uno sviluppatore di dispositivi, un passaggio successivo suggerito consiste nell'apprendere i [tipi di dispositivi gateway in IOT Central](./tutorial-define-gateway-device-type.md).
+Per gli sviluppatori di dispositivi, un passaggio successivo suggerito consiste nell'apprendere come [sviluppare moduli IOT Edge personalizzati](../../iot-edge/module-development.md).

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 400f239f3e7b736196bf950e81148fa2e39aca96
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ca19fdfa617b71b1465e4710d8ca52b18c9ebff5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613366"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731681"
 ---
 # <a name="application-insights-log-based-metrics"></a>Metriche basate su log Application Insights
 
@@ -21,13 +21,13 @@ Application Insights metriche basate su log consentono di analizzare l'integrit�
 * Le [metriche basate su log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) dietro la scena vengono convertite in [query kusto](/azure/kusto/query/) da eventi archiviati.
 * Le [metriche standard](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) vengono archiviate come serie temporali pre-aggregate.
 
-Poiché le *metriche standard* sono pre-aggregate durante la raccolta, hanno prestazioni migliori in fase di query. Questo li rende una scelta migliore per i dashboard e per gli avvisi in tempo reale. Le *metriche basate su log* hanno più dimensioni, in modo da renderle l'opzione superiore per l'analisi dei dati e la diagnostica ad hoc. Usare il [selettore dello spazio dei nomi](../platform/metrics-getting-started.md#create-your-first-metric-chart) per passare tra la metrica basata su log e la metrica standard in [Esplora metriche](../platform/metrics-getting-started.md).
+Poiché le *metriche standard* sono pre-aggregate durante la raccolta, hanno prestazioni migliori in fase di query. Questo li rende una scelta migliore per i dashboard e per gli avvisi in tempo reale. Le *metriche basate su log* hanno più dimensioni, in modo da renderle l'opzione superiore per l'analisi dei dati e la diagnostica ad hoc. Usare il [selettore dello spazio dei nomi](./metrics-getting-started.md#create-your-first-metric-chart) per passare tra la metrica basata su log e la metrica standard in [Esplora metriche](./metrics-getting-started.md).
 
 ## <a name="interpret-and-use-queries-from-this-article"></a>Interpretare e usare le query di questo articolo
 
 Questo articolo elenca le metriche con le aggregazioni e le dimensioni supportate. Le informazioni dettagliate sulle metriche basate su log includono le istruzioni di query kusto sottostanti. Per praticità, ogni query utilizza le impostazioni predefinite per la granularità temporale, il tipo di grafico e talvolta la suddivisione della dimensione che semplifica l'utilizzo della query in Log Analytics senza alcuna necessità di modifica.
 
-Quando si traccia la stessa metrica in [Esplora metriche](../platform/metrics-getting-started.md), non sono disponibili valori predefiniti. la query viene modificata in modo dinamico in base alle impostazioni del grafico:
+Quando si traccia la stessa metrica in [Esplora metriche](./metrics-getting-started.md), non sono disponibili valori predefiniti. la query viene modificata in modo dinamico in base alle impostazioni del grafico:
 
 - L' **intervallo di tempo** selezionato viene convertito in un'altra clausola *where timestamp...* per selezionare solo gli eventi dall'intervallo di tempo selezionato. Ad esempio, un grafico che mostra i dati per le ultime 24 ore, la query include *| where timestamp > ago (24 h)*.
 
@@ -38,7 +38,7 @@ Quando si traccia la stessa metrica in [Esplora metriche](../platform/metrics-ge
 - La dimensione selezionata del **grafico suddiviso** viene convertita in una proprietà riepilogativa aggiuntiva. Se, ad esempio, si suddivide il grafico in base alla *posizione* e si esegue il tracciato utilizzando una granularità di 5 minuti, la clausola *riepilogativa* viene riepilogata *... per bin (timestamp, 5 m), location*.
 
 > [!NOTE]
-> Se non si ha familiarità con il linguaggio di query kusto, si inizia copiando e incollando istruzioni kusto nel riquadro Query Log Analytics senza apportare alcuna modifica. Fare clic su **Esegui** per visualizzare il grafico di base. Quando si inizia a comprendere la sintassi del linguaggio di query, è possibile iniziare a apportare piccole modifiche e vedere l'effetto della modifica. L'esplorazione dei propri dati è un ottimo modo per iniziare a realizzare tutta la potenza di [log Analytics](../log-query/log-analytics-tutorial.md) e [monitoraggio di Azure](../overview.md).
+> Se non si ha familiarità con il linguaggio di query kusto, si inizia copiando e incollando istruzioni kusto nel riquadro Query Log Analytics senza apportare alcuna modifica. Fare clic su **Esegui** per visualizzare il grafico di base. Quando si inizia a comprendere la sintassi del linguaggio di query, è possibile iniziare a apportare piccole modifiche e vedere l'effetto della modifica. L'esplorazione dei propri dati è un ottimo modo per iniziare a realizzare tutta la potenza di [log Analytics](../logs/log-analytics-tutorial.md) e [monitoraggio di Azure](../overview.md).
 
 ## <a name="availability-metrics"></a>Metriche di disponibilità
 

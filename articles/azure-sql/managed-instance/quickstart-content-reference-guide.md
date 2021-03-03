@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
-ms.translationtype: HT
+ms.openlocfilehash: c84c81fa81cf4ba9be454eea5782927a09c3252a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325117"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690961"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Introduzione all'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,7 @@ Come primo passaggio, è necessario creare la prima istanza gestita di SQL con l
   > - È anche possibile usare ExpressRoute o una connessione da sito a sito dalla rete locale, ma questi approcci esulano dall'ambito di queste guide introduttive.
   > - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, tenere presente che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo l'abilitazione della conservazione).
 
-In alternativa alla creazione manuale dell'istanza gestita di SQL, è possibile usare [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell con modello di Resource Manager](scripts/create-powershell-azure-resource-manager-template.md) o l'[interfaccia della riga di comando di Azure](/cli/azure/sql/mi#az-sql-mi-create) per creare script e automatizzare questo processo.
+In alternativa alla creazione manuale dell'istanza gestita di SQL, è possibile usare [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell con modello di Resource Manager](./create-template-quickstart.md) o l'[interfaccia della riga di comando di Azure](/cli/azure/sql/mi#az-sql-mi-create) per creare script e automatizzare questo processo.
 
 ### <a name="migrate-your-databases"></a>Eseguire la migrazione dei database
 

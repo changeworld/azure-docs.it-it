@@ -4,12 +4,12 @@ description: Informazioni su come ridimensionare l'app Web Resource, il servizio
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6ac3ebb4cf007141967786f51243c741a6045c83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617657"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726054"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -125,10 +125,10 @@ Questa sezione descrive come spostare la scalabilità automatica di Azure in un'
 1. Assicurarsi che la sottoscrizione e il gruppo di risorse siano disponibili e che i dettagli in entrambe le aree di origine e di destinazione siano identici.
 1. Verificare che la scalabilità automatica di Azure sia disponibile nell' [area di Azure in cui si vuole eseguire lo spostamento](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
 
-### <a name="move"></a>Spostamento
+### <a name="move"></a>Sposta
 Usare l' [API REST](/rest/api/monitor/autoscalesettings/createorupdate) per creare un'impostazione di scalabilità automatica nel nuovo ambiente. L'impostazione di scalabilità automatica creata nell'area di destinazione sarà una copia dell'impostazione di scalabilità automatica nell'area di origine.
 
-Non è possibile spostare [le impostazioni di diagnostica](../platform/diagnostic-settings.md) create in associazione all'impostazione di scalabilità automatica nell'area di origine. Sarà necessario ricreare le impostazioni di diagnostica nell'area di destinazione, dopo il completamento della creazione delle impostazioni di autoVendita. 
+Non è possibile spostare [le impostazioni di diagnostica](../essentials/diagnostic-settings.md) create in associazione all'impostazione di scalabilità automatica nell'area di origine. Sarà necessario ricreare le impostazioni di diagnostica nell'area di destinazione, dopo il completamento della creazione delle impostazioni di autoVendita. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Altre informazioni sullo stato di trasferimento delle risorse tra le aree di Azure
 Per altre informazioni sullo spostamento di risorse tra aree e ripristino di emergenza in Azure, vedere [spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione](../../azure-resource-manager/management/move-resource-group-and-subscription.md)

@@ -1,19 +1,19 @@
 ---
-title: Monitoraggio di Azure per i mapping delle aree dei contenitori
-description: Descrive i mapping di area supportati tra monitoraggio di Azure per contenitori, Log Analytics area di lavoro e metriche personalizzate.
+title: Mapping delle aree di Insights di container
+description: Descrive i mapping dell'area supportati tra il contenitore Insights, Log Analytics area di lavoro e le metriche personalizzate.
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9b77242de3e7845a97874b663266103bf00a8e66
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f9e910b1352109608becb82609e85e26d27d2cd1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619417"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728876"
 ---
-# <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Mapping dell'area supportati da monitoraggio di Azure per i contenitori
+# <a name="region-mappings-supported-by-container-insights"></a>Mapping dell'area supportati da informazioni dettagliate sul contenitore
 
- Quando si Abilita monitoraggio di Azure per i contenitori, sono supportate solo alcune aree per il collegamento di un'area di lavoro Log Analytics e un cluster AKS e la raccolta di metriche personalizzate inviate a monitoraggio di Azure.
+ Quando si Abilita il contenitore Insights, sono supportate solo alcune aree per il collegamento di un'area di lavoro Log Analytics e un cluster AKS e la raccolta di metriche personalizzate inviate a monitoraggio di Azure.
 
 ## <a name="log-analytics-workspace-supported-mappings"></a>Mapping supportati dall'area di lavoro Log Analytics
 
@@ -53,4 +53,4 @@ Per la pubblicazione come metrica personalizzata solo nelle [aree di Azure](../e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare il monitoraggio del cluster AKS, vedere [come abilitare il monitoraggio di Azure per i contenitori](container-insights-onboard.md) per comprendere i requisiti e i metodi disponibili per abilitare il monitoraggio.  
+Per iniziare a monitorare il cluster AKS, vedere [come abilitare il contenitore Insights](container-insights-onboard.md) per comprendere i requisiti e i metodi disponibili per abilitare il monitoraggio.  

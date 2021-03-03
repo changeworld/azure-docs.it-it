@@ -1,17 +1,16 @@
 ---
 title: Soluzione di gestione di Office 365 in Azure
 description: In questo articolo vengono fornite informazioni dettagliate sulla configurazione e l'uso della soluzione Office 365 in Azure.  Include una descrizione dettagliata dei record di Office 365 creati in Monitoraggio di Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: d031b64b36bd7ff91c64960642cfbf00fb1682ab
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: be5409f7130f0e79b77871a2657609e8ddb76e36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587308"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728638"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 

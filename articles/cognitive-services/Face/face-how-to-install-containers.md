@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 02/23/2021
 ms.author: aahi
 keywords: locale, Docker, contenitore, identificazione
-ms.openlocfilehash: 64169069bc0a1ccd126d1b79ee89a5666e1caeb1
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 36cbd7bd24304871593b107f9b8ed9be02ce46de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861051"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706793"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Installare ed eseguire i contenitori viso (anteprima)
 
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 È necessario soddisfare i prerequisiti seguenti prima di usare i contenitori del servizio Face.
 
-|Obbligatorio|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| Il motore Docker deve essere installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È necessaria una conoscenza di base dei concetti di Docker, ad esempio registri, repository, contenitori e immagini del contenitore. È anche necessario conoscere i comandi di base `docker` .| 
@@ -61,7 +61,7 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 Sono disponibili le immagini del contenitore per il servizio Face. 
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Viso | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 

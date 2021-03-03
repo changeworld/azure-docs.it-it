@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: a784127cfd6019629f1c2714d0f36850406c3b9d
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 3f8e23fdeb0a05d2c19f131cf79a079426a9b494
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99548773"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726496"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gestire i moduli in Automazione di Azure
 
@@ -142,6 +142,7 @@ L'importazione di un modulo Az nell'account di Automazione non comporta automati
 
 * Quando un runbook richiama un cmdlet da un modulo.
 * Quando un runbook importa il modulo in modo esplicito con il cmdlet [Import-Module](/powershell/module/microsoft.powershell.core/import-module).
+* Quando un Runbook importa il modulo in modo esplicito con l'istruzione [using Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using?view=powershell-7.1#module-syntax) . L'istruzione using è supportata a partire da Windows PowerShell 5,0 e supporta le classi e l'importazione di tipi enum.
 * Quando un runbook importa un altro modulo dipendente.
 
 È possibile importare i moduli Az nel portale di Azure. Ricordarsi di importare solo i moduli Az necessari, non l'intero modulo Az.Automation. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) è una dipendenza per gli altri moduli Az, quindi assicurarsi di importare questo modulo prima di qualsiasi altro.

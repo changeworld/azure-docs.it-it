@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 661af89ad223978abbefd71dd8008577475c5875
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: db99fa5caff27a24aa04e4780b25ade3f7c25496
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221380"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699930"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Pianificare e gestire i costi per servizi cognitivi di Azure
 
@@ -68,7 +68,7 @@ Dopo aver eliminato QnA Maker risorse, le risorse seguenti potrebbero continuare
 
 <!-- Note to Azure service writer: Modify the following as needed for your service. Replace example screenshots with ones taken for your service. If you need assistance capturing screenshots, ask banders for help. -->
 
-Quando si usano le risorse di Azure con servizi cognitivi, i costi vengono addebitati. I costi delle unità di utilizzo delle risorse di Azure variano in base a intervalli di tempo (secondi, minuti, ore e giorni) o all'utilizzo di unità (byte, megabyte e così via). Non appena viene avviato l'uso di un servizio cognitivo (o di servizi cognitivi), i costi sono sostenuti ed è possibile visualizzare i costi nell' [analisi](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)dei costi.
+Quando si usano le risorse di Azure con servizi cognitivi, i costi vengono addebitati. I costi delle unità di utilizzo delle risorse di Azure variano in base a intervalli di tempo (secondi, minuti, ore e giorni) o all'utilizzo di unità (byte, megabyte e così via). Non appena viene avviato l'uso di un servizio cognitivo (o di servizi cognitivi), i costi sono sostenuti ed è possibile visualizzare i costi nell' [analisi](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)dei costi.
 
 Quando si usa l'analisi dei costi, è possibile visualizzare i costi dei servizi cognitivi in grafici e tabelle per intervalli di tempo diversi. Alcuni esempi sono il giorno, il mese corrente e quello precedente e l'anno. Puoi anche visualizzare i costi rispetto ai budget e ai costi previsti. Il passare a visualizzazioni più lunghe nel tempo può aiutare a identificare le tendenze di spesa. Viene visualizzato il punto in cui potrebbe essersi verificata la sovraspesa. Se sono stati creati budget, è anche possibile vedere dove sono stati superati.
 

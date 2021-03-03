@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 518baa47fd16d69bf935cd3253f5bebeb413b513
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c24d88e47569da430153dedfd1ff68a584083775
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680617"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695244"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Guida introduttiva: creare e configurare un server di route usando l'interfaccia della riga 
 
@@ -33,7 +33,23 @@ Questo articolo illustra come configurare il server di route di Azure in peer co
 
 ###  <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Accedere al proprio account Azure e selezionare la sottoscrizione. 
 
-[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)] 
+Per iniziare la configurazione, accedere al proprio account Azure. Se si usa l'opzione "Prova" di Cloud Shell, l'accesso viene effettuato automaticamente. Per eseguire la connessione, usare gli esempi che seguono:
+
+```azurecli-interactive
+az login
+```
+
+Controllare le sottoscrizioni per l'account.
+
+```azurecli-interactive
+az account list
+```
+
+Selezionare la sottoscrizione per la quale si vuole creare un circuito ExpressRoute.
+
+```azurecli-interactive
+az account set --subscription "<subscription ID>"
+```
 
 ### <a name="create-a-resource-group-and-virtual-network"></a>Creare un gruppo di risorse e una rete virtuale 
 

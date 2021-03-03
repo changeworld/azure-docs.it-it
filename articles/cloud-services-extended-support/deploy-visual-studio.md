@@ -9,12 +9,12 @@ ms.workload: azure-vs
 ms.topic: tutorial
 ms.date: 10/5/2020
 ms.author: ghogen
-ms.openlocfilehash: b12f8beeee054e547a6b58750d8482d32ee14453
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 80aa160c53b278137467dba2afa41384c7c4f378
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747258"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722671"
 ---
 # <a name="create-and-deploy-a-azure-cloud-service-extended-support-using-visual-studio"></a>Creare e distribuire un servizio cloud di Azure (supporto esteso) con Visual Studio
 
@@ -63,7 +63,7 @@ Il progetto Azure in Visual Studio contiene le associazioni ai progetti di ruolo
 - **File di definizione del servizio** : definisce le impostazioni della fase di esecuzione per l'applicazione, inclusi i ruoli necessari, gli endpoint e le dimensioni della macchina virtuale.
 - Il **file di configurazione del servizio** configura il numero delle istanze di un ruolo eseguite e i valori delle impostazioni definiti per un ruolo.
 
-Per altre informazioni su questi file, vedere [configurare i ruoli per un servizio cloud di Azure con Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
+Per altre informazioni su questi file, vedere [configurare i ruoli per un servizio cloud di Azure con Visual Studio](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
 
 ## <a name="publish-a-cloud-service"></a>Pubblicare un servizio cloud
 
@@ -75,7 +75,7 @@ Per altre informazioni su questi file, vedere [configurare i ruoli per un serviz
 
 1. **Account** - Selezionare un account o fare clic su **Aggiungi un account** nell'elenco a discesa degli account.
 
-1. **Scegliere la sottoscrizione** - Scegliere la sottoscrizione da usare per la distribuzione. La sottoscrizione usata per la distribuzione di servizi cloud (supporto esteso) deve avere ruoli di proprietario o collaboratore assegnati tramite il controllo degli accessi in base al ruolo (RBAC). Se la sottoscrizione non ha uno di questi ruoli, vedere la [procedura per aggiungere un'assegnazione di ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps) per aggiungerla prima di procedere.
+1. **Scegliere la sottoscrizione** - Scegliere la sottoscrizione da usare per la distribuzione. La sottoscrizione usata per la distribuzione di servizi cloud (supporto esteso) deve avere ruoli di proprietario o collaboratore assegnati tramite il controllo degli accessi in base al ruolo (RBAC). Se la sottoscrizione non ha uno di questi ruoli, vedere la [procedura per aggiungere un'assegnazione di ruolo](../role-based-access-control/role-assignments-steps.md) per aggiungerla prima di procedere.
 
 1. Scegliere **Avanti** per passare alla pagina **Impostazioni** .
 
@@ -105,7 +105,7 @@ Per altre informazioni su questi file, vedere [configurare i ruoli per un serviz
 
    ![Impostazioni di diagnostica](./media/diagnostics-settings.png)
 
-   La diagnostica consente di risolvere i problemi relativi a un servizio cloud di Azure o a una macchina virtuale di Azure. Per informazioni sulla diagnostica, vedere [Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines). Per informazioni su Application Insights, vedere [Informazioni su Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview).
+   La diagnostica consente di risolvere i problemi relativi a un servizio cloud di Azure o a una macchina virtuale di Azure. Per informazioni sulla diagnostica, vedere [Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines). Per informazioni su Application Insights, vedere [Informazioni su Azure Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 1. Scegliere **Avanti** per passare alla pagina **Riepilogo** .
 
@@ -126,4 +126,4 @@ Per pulire le risorse di Azure create seguendo questa esercitazione, passare all
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Configurare l'integrazione continua (CI) usando il pulsante **Configura** della schermata di **pubblicazione** . Per ulteriori informazioni, vedere [Azure Pipelines documentazione](https://docs.microsoft.com/azure/devops/pipelines).
+Configurare l'integrazione continua (CI) usando il pulsante **Configura** della schermata di **pubblicazione** . Per ulteriori informazioni, vedere [Azure Pipelines documentazione](/azure/devops/pipelines).

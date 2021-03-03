@@ -10,12 +10,12 @@ ms.date: 2/11/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: d006168de89a2709ed607568f36cacf5f924efcb
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5c79ea68e648cd3d78f94eb2272b6f32e3c4806f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653504"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750625"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di:
@@ -53,9 +53,11 @@ pod 'AzureCommunicationChat', '~> 1.0.0-beta.8'
 
 Installare le dipendenze. verrà inoltre creata un'area di lavoro Xcode: `pod install`
 
+**Dopo l'esecuzione di Pod install, riaprire il progetto in Xcode selezionando il appena creato `.xcworkspace` .**
+
 ### <a name="setup-the-placeholders"></a>Configurare i segnaposto
 
-Aprire il file dell'area `ChatQuickstart.xcworkspace` di lavoro in Xcode, quindi aprire `ViewController.swift` .
+Aprire l'area `ChatQuickstart.xcworkspace` di lavoro in Xcode e quindi aprire `ViewController.swift` .
 
 In questa Guida introduttiva si aggiungerà il codice a `viewController` e si visualizza l'output nella console di Xcode. Questa Guida introduttiva non risolve la compilazione di un'interfaccia utente in iOS. 
 

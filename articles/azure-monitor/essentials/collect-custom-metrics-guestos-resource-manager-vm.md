@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: 0ab7d8548494e96b4a7570ef26ccde39456bf690
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0051ec15cafc60af6a0523631f77a9b52294e69c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613354"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731715"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Azure Resource Manager per una macchina virtuale Windows
-I dati sulle prestazioni del sistema operativo guest delle macchine virtuali di Azure non vengono raccolti automaticamente come altre [metriche della piattaforma](../insights/monitor-azure-resource.md#monitoring-data). Installare l'[estensione di diagnostica](../agents/diagnostics-extension-overview.md) di Monitoraggio di Azure per raccogliere le metriche del sistema operativo guest nel database di metriche, in modo che possa essere usato con tutte le funzionalità delle metriche di Monitoraggio di Azure, inclusi gli avvisi quasi in tempo reale, la creazione di grafici, il routing e l'accesso da un'API REST. Questo articolo illustra il processo da eseguire per inviare le metriche delle prestazioni del sistema operativo guest per una macchina virtuale Windows al database di metriche usando un modello di Resource Manager. 
+I dati sulle prestazioni del sistema operativo guest delle macchine virtuali di Azure non vengono raccolti automaticamente come altre [metriche della piattaforma](./monitor-azure-resource.md#monitoring-data). Installare l'[estensione di diagnostica](../agents/diagnostics-extension-overview.md) di Monitoraggio di Azure per raccogliere le metriche del sistema operativo guest nel database di metriche, in modo che possa essere usato con tutte le funzionalità delle metriche di Monitoraggio di Azure, inclusi gli avvisi quasi in tempo reale, la creazione di grafici, il routing e l'accesso da un'API REST. Questo articolo illustra il processo da eseguire per inviare le metriche delle prestazioni del sistema operativo guest per una macchina virtuale Windows al database di metriche usando un modello di Resource Manager. 
 
 > [!NOTE]
 > Per informazioni dettagliate sulla configurazione dell'estensione di diagnostica per raccogliere le metriche del sistema operativo guest usando il portale di Azure, vedere [Installare e configurare l'estensione di Diagnostica di Microsoft Azure (WAD)](../agents/diagnostics-extension-windows-install.md).
@@ -29,7 +29,7 @@ Se non si ha familiarità con i modelli di Resource Manager, vedere le [distribu
 
 - È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- La risorsa della macchina virtuale deve trovarsi in un'[area che supporta le metriche personalizzate](../platform/metrics-custom-overview.md#supported-regions). 
+- La risorsa della macchina virtuale deve trovarsi in un'[area che supporta le metriche personalizzate](./metrics-custom-overview.md#supported-regions). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurare Monitoraggio di Azure come sink dei dati
@@ -250,7 +250,7 @@ Per la distribuzione del modello di Resource Manager verrà usato Azure PowerShe
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > Ricordarsi di [usare un'area di Azure abilitata per le metriche personalizzate](../platform/metrics-custom-overview.md).
+   > Ricordarsi di [usare un'area di Azure abilitata per le metriche personalizzate](./metrics-custom-overview.md).
 
 1. Eseguire i comandi seguenti per distribuire la VM usando il modello di Resource Manager.
    > [!NOTE]
@@ -285,4 +285,4 @@ Per la distribuzione del modello di Resource Manager verrà usato Azure PowerShe
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sulle [metriche personalizzate](../platform/metrics-custom-overview.md).
+- Altre informazioni sulle [metriche personalizzate](./metrics-custom-overview.md).

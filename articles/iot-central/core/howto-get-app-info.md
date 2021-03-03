@@ -2,17 +2,17 @@
 title: Ottenere informazioni sulla versione dell'applicazione IoT Central di Azure | Microsoft Docs
 description: Come ottenere informazioni sull'applicazione IoT Central in uso
 services: iot-central
-author: dominicbetts
-ms.author: dobett
-ms.date: 06/26/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/26/2021
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 5118fa22a198ee6871a4cfb455e88d345d6a44e0
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: b4a44433a9761bd387b24164653c8ed1538713ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760848"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721591"
 ---
 # <a name="about-your-application"></a>Informazioni sull'applicazione
 
@@ -25,7 +25,7 @@ Questo articolo illustra come ottenere informazioni sull'applicazione IoT Centra
 
 ## <a name="get-information-about-your-application"></a>Ottenere informazioni sull'applicazione
 
-Per ottenere informazioni sull'applicazione IoT Central:
+Per ottenere informazioni sull'applicazione IoT Central: 
 
 1. Selezionare il collegamento **Guida** nel menu in alto.
 

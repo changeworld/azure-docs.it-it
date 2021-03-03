@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 02/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2da2ae01e92ae2751f9f26e005579bad9911330a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379115"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738736"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
@@ -257,6 +257,9 @@ La funzionalità di ripristino dello snapshot consente di ripristinare rapidamen
 ## <a name="delete-snapshots"></a>Eliminare gli snapshot  
 
 È possibile eliminare gli snapshot che non è più necessario gestire. 
+
+> [!IMPORTANT]
+> L'operazione di eliminazione dello snapshot non può essere annullata. Impossibile recuperare uno snapshot eliminato. 
 
 1. Passare al menu **snapshot** di un volume. Fare clic con il pulsante destro del mouse sullo snapshot che si desidera eliminare. Selezionare **Elimina**.
 

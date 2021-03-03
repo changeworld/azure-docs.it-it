@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 038663a6b8fe015f36f70b7bf13d25accb470903
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a7a6ba395769677fe46ddfff675640f6e15060a0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627872"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723181"
 ---
 # <a name="log-analytics-tutorial"></a>Esercitazione su Log Analytics
 Log Analytics è uno strumento disponibile nel portale di Azure che consente di modificare ed eseguire query su log dai dati raccolti dai log di Monitoraggio di Azure e analizzarne i risultati in modo interattivo. È possibile usare le query di Log Analytics per recuperare i record che corrispondono a determinati criteri, identificare le tendenze, analizzare i modelli e fornire un'ampia varietà di informazioni dettagliate sui dati. 
@@ -33,7 +33,7 @@ Questa esercitazione descrive l'interfaccia di Log Analytics, illustra come iniz
 Questa esercitazione usa l'[ambiente demo di Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), che include numerosi dati di esempio che supportano le query di esempio. È anche possibile usare la propria sottoscrizione di Azure, ma in questo caso i dati potrebbero non trovarsi nelle stesse tabelle.
 
 ## <a name="open-log-analytics"></a>Aprire Log Analytics
-Aprire l'[ambiente demo di Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) oppure selezionare **Log** dal menu di Monitoraggio di Azure nella sottoscrizione. L'ambito iniziale verrà impostato su un'area di lavoro Log Analytics e quindi la query effettuerà la selezione da tutti i dati nell'area di lavoro. Se si seleziona **Log** dal menu di una risorsa di Azure, l'ambito viene impostato solo sui record di tale risorsa. Per informazioni dettagliate sull'ambito, vedere [Ambito della query su log](../log-query/scope.md).
+Aprire l'[ambiente demo di Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) oppure selezionare **Log** dal menu di Monitoraggio di Azure nella sottoscrizione. L'ambito iniziale verrà impostato su un'area di lavoro Log Analytics e quindi la query effettuerà la selezione da tutti i dati nell'area di lavoro. Se si seleziona **Log** dal menu di una risorsa di Azure, l'ambito viene impostato solo sui record di tale risorsa. Per informazioni dettagliate sull'ambito, vedere [Ambito della query su log](./scope.md).
 
 È possibile visualizzare l'ambito nell'angolo in alto a sinistra della schermata. Se si usa un ambiente personalizzato, viene visualizzata un'opzione per selezionare un ambito diverso, ma questa opzione non è disponibile nell'ambiente demo.
 

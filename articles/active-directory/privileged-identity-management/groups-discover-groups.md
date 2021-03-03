@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ef27475509c59b3c0caf194fd85530f3fdd6c7c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c9e2580d2a88fbbab755f0c3df2f923bdc45548
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367840"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688349"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>Portare i gruppi di accesso con privilegi (anteprima) in Privileged Identity Management
 
@@ -44,6 +44,12 @@ In Azure Active Directory (Azure AD), è possibile assegnare Azure AD ruoli pred
 
 > [!NOTE]
 > Una volta gestito, un gruppo di accesso con privilegi non può essere escluso dalla gestione. In questo modo si impedisce a un altro amministratore di risorse di rimuovere Privileged Identity Management impostazioni.
+>
+
+> [!IMPORTANT]
+> Se un gruppo di accesso con privilegi viene eliminato da Azure Active Directory, potrebbero essere necessarie fino a 24 ore prima che il gruppo venga rimosso dal pannello gruppi di accesso con privilegi (anteprima). 
+>
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

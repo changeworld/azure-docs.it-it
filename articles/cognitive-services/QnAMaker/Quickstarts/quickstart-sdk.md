@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: qnamaker-quickstart
-ms.openlocfilehash: de237c1bba699165e63fc0b2e4bfb58d25518bd9
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 5fd200fcd1d48b533e629fe4429f5bafb5fde817
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701288"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730962"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Avvio rapido: Libreria client di QnA Maker
 
@@ -56,7 +56,7 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
->[Esercitazione: Testare la knowledge base con un file batch](../index.yml)
+>[Esercitazione: Testare la knowledge base con un file batch](../how-to/test-knowledge-base.md#batch-test-with-tool)
 
 * [Informazioni sull'API QnA Maker](../Overview/overview.md)
 * [Modificare una knowledge base](../how-to/edit-knowledge-base.md)

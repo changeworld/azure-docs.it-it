@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f5566276f4555e2480434e385bf2129f5b8cdd24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699981"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quote e limiti di servizi vocali
 
@@ -71,7 +71,7 @@ Nella tabella seguente i parametri senza riga "regolabile" **non** sono regolabi
 | Numero massimo di `<voice>` tag DISTINCT in SSML | 50 | 50 |
 | **Quote specifiche di WebSocket** |  |  |
 |Lunghezza massima audio prodotta per turno | 10 min | 10 min |
-|Dimensioni massime del messaggio SSML per turno |64 KB |64 KB |
+|Dimensioni massime del messaggio SSML per turno |64 kB |64 kB |
 | **Limite API REST** | 20 richieste al minuto | 25 richieste per 5 secondi |
 
 
@@ -104,14 +104,14 @@ I limiti delle richieste simultanee per i modelli di **base** e **personalizzati
 Il valore esistente del parametro del limite della richiesta simultanea **non** è visibile tramite portale di Azure, strumenti Command-Line o richieste API. Per verificare il valore esistente, creare una richiesta di supporto di Azure.
 
 >[!NOTE]
->I [contenitori di sintesi vocale](speech-container-howto.md) non richiedono aumenti di limite di richieste simultanee, in quanto i contenitori sono limitati solo dalle CPU dell'hardware in cui sono ospitati. Tuttavia, i contenitori di sintesi vocale presentano limitazioni di capacità che devono essere prese in considerazione. Vedere la domanda *"è possibile aiutare la pianificazione della capacità e la stima dei costi di contenitori di sintesi vocale locali?"* dalle [domande frequenti sui contenitori di riconoscimento vocale](speech-container-faq.md).
+>I [contenitori di sintesi vocale](speech-container-howto.md) non richiedono aumenti di limite di richieste simultanee, in quanto i contenitori sono limitati solo dalle CPU dell'hardware in cui sono ospitati. Tuttavia, i contenitori di sintesi vocale presentano limitazioni di capacità che devono essere prese in considerazione. Vedere la domanda *"è possibile aiutare la pianificazione della capacità e la stima dei costi di contenitori di sintesi vocale locali?"* dalle [domande frequenti sui contenitori di riconoscimento vocale](./speech-container-howto.md).
 
 #### <a name="have-the-required-information-ready"></a>Preparare le informazioni necessarie:
 - Per il **modello di base**:
   - ID risorsa vocale
-  - Area
+  - Region
 - Per il **modello personalizzato**: 
-  - Area
+  - Region
   - ID endpoint personalizzato
 
 - **Come ottenere informazioni (modello di base)**:  
@@ -205,4 +205,3 @@ Avviare l'aumento del limite di richieste simultanee per la risorsa o, se necess
   - Informazioni sulle risorse di Azure [raccolte prima](#prepare-the-required-information) 
   - Completare l'immissione delle informazioni necessarie e fare clic sul pulsante *Crea* nella scheda *Verifica + crea*
   - Prendere nota del numero di richiesta di supporto nelle notifiche portale di Azure. Si verrà contattati a breve per un'ulteriore elaborazione
-

@@ -4,18 +4,18 @@ description: Ricevere una notifica tramite SMS, webhook, posta elettronica e alt
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: cfe44fb5220b217b73c17280d5c8aaf87c57ebaf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a8ab9520527a0d5ebc1de698f84e9f64e28b869a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616736"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718115"
 ---
 # <a name="alerts-on-activity-log"></a>Avvisi sul log attività
 
 ## <a name="overview"></a>Panoramica
 
-Gli avvisi del log attività sono avvisi che vengono attivati quando si verifica un nuovo [evento del log attività](../essentials/activity-log-schema.md) che corrisponde alle condizioni specificate nell'avviso. In base all'ordine e al volume degli eventi registrati nel [log attività di Azure](../platform/platform-logs-overview.md), viene attivata la regola di avviso. Le regole di avviso del log attività sono risorse di Azure, pertanto è possibile crearle usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In questo articolo vengono presentati i concetti alla base degli avvisi del log attività. Per altre informazioni sulla creazione o l'uso di regole di avviso del log attività, vedere [creare e gestire gli avvisi del log attività](alerts-activity-log.md).
+Gli avvisi del log attività sono avvisi che vengono attivati quando si verifica un nuovo [evento del log attività](../essentials/activity-log-schema.md) che corrisponde alle condizioni specificate nell'avviso. In base all'ordine e al volume degli eventi registrati nel [log attività di Azure](../essentials/platform-logs-overview.md), viene attivata la regola di avviso. Le regole di avviso del log attività sono risorse di Azure, pertanto è possibile crearle usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In questo articolo vengono presentati i concetti alla base degli avvisi del log attività. Per altre informazioni sulla creazione o l'uso di regole di avviso del log attività, vedere [creare e gestire gli avvisi del log attività](alerts-activity-log.md).
 
 > [!NOTE]
 > * **Non è possibile** creare avvisi per gli eventi nella categoria avvisi del log attività.
@@ -54,12 +54,12 @@ Quando un avviso del log di attività viene attivato, usa un gruppo di azione pe
 * Usare un gruppo di azione esistente nell'avviso del log attività.
 * Creare un nuovo gruppo di azione.
 
-Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di azione nel portale di Azure](../platform/action-groups.md).
+Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di azione nel portale di Azure](./action-groups.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Ottenere una [Panoramica degli avvisi](../platform/alerts-overview.md).
+- Ottenere una [Panoramica degli avvisi](./alerts-overview.md).
 - Altre informazioni sulla [creazione e modifica degli avvisi del log attività](alerts-activity-log.md).
 - Esaminare lo [schema webhook degli avvisi del log attività](../alerts/activity-log-alerts-webhook.md).
 - Informazioni sulle [notifiche per l'integrità del servizio](../../service-health/service-notifications.md).

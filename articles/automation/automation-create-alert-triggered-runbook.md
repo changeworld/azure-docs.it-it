@@ -3,18 +3,18 @@ title: Usare un avviso per attivare un runbook di Automazione di Azure
 description: Questo articolo descrive come attivare un runbook da eseguire quando viene generato un avviso di Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/29/2019
+ms.date: 02/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: add2bbb7b8f9eeb72c8c58b8c54b070a6b14d8e6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0483b171ee65ac55d65261140738bc5c1838873f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586066"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732293"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usare un avviso per attivare un runbook di Automazione di Azure
 
-È possibile usare [Monitoraggio di Azure](../azure-monitor/overview.md) per monitorare metriche e log di livello base per la maggior parte dei servizi in Azure. È possibile chiamare i runbook di Automazione di Azure tramite [gruppi di azioni](../azure-monitor/alerts/action-groups.md) o avvisi classici per automatizzare le attività in base agli avvisi. Questo articolo illustra come configurare ed eseguire un runbook usando gli avvisi.
+È possibile usare [Monitoraggio di Azure](../azure-monitor/overview.md) per monitorare metriche e log di livello base per la maggior parte dei servizi in Azure. È possibile chiamare manuali operativi di automazione di Azure usando i [gruppi di azioni](../azure-monitor/platform/action-groups.md) per automatizzare le attività in base agli avvisi. Questo articolo illustra come configurare ed eseguire un runbook usando gli avvisi.
 
 ## <a name="alert-types"></a>Tipi di avviso
 

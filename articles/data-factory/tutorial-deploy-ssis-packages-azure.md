@@ -4,15 +4,15 @@ description: Informazioni su come eseguire il provisioning del runtime di integr
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
+ms.date: 02/22/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: e0b84bb65e71b023121a5deae8295ddaf8879311
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7c439d71806d2deba508ce35131f21ebfbd7a3ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391355"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740410"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Effettuare il provisioning di Azure-SSIS Integration Runtime in Azure Data Factory
 
@@ -149,6 +149,12 @@ Se si seleziona la casella di controllo, sarà necessario completare la procedur
    1. Per **Nome utente amministratore**, immettere il nome utente di autenticazione SQL per il server di database in cui ospitare SSISDB. 
 
    1. Per **Password amministratore**, immettere la password di autenticazione SQL per il server di database in cui ospitare SSISDB. 
+
+   1. Selezionare la casella di controllo **USA coppia di Azure-SSIS Integration Runtime a doppio standby con failover SSISDB** per configurare una coppia di runtime di integrazione SSIS di Azure con due standby che funziona in sincronizzazione con il database SQL di azure/istanza gestita gruppo di failover per la continuità aziendale e il ripristino di emergenza (BCdR).
+   
+      Se si seleziona la casella di controllo, immettere un nome per identificare la coppia di Azure-SSIS primaria e secondaria di Azure-SSIS nella casella di testo **nome coppia di doppio standby** . È necessario immettere lo stesso nome della coppia quando si crea l'IRs di Azure-SSIS primario e secondario.
+
+      Per altre informazioni, vedere [configurare la Azure-SSIS IR per BCdR](./configure-bcdr-azure-ssis-integration-runtime.md).
 
    1. Per **Catalog Database Service Tier** (Livello di servizio del database di catalogo) selezionare il livello di servizio per il server di database in cui ospitare SSISDB. Selezionare il livello Basic, Standard o Premium oppure il nome di un pool elastico.
 

@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: HT
+ms.openlocfilehash: 7e022822f1306a5351cef43498f00a0ac0f2ef63
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107125"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707286"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Esercitazione: Aggiungere output al modello di Azure Resource Manager
 
@@ -41,11 +41,11 @@ L'esempio seguente evidenzia la modifica apportata al modello per aggiungere un 
 
 Ecco alcune importanti aspetti da considerare sul valore di output aggiunto.
 
-Il tipo di valore restituito è impostato su `object`, per indicare che restituisce un oggetto JSON.
+Il tipo di valore restituito è impostato su `object` , il che significa che restituisce un oggetto JSON.
 
 Usa la funzione [reference](template-functions-resource.md#reference) per ottenere lo stato di runtime dell'account di archiviazione. Per ottenere lo stato di runtime di una risorsa, si deve passare il nome o l'ID di una risorsa. In questo caso si usa la stessa variabile usata per creare il nome dell'account di archiviazione.
 
-Infine, restituisce la proprietà `primaryEndpoints` dell'account di archiviazione.
+Infine, restituisce la `primaryEndpoints` proprietà dall'account di archiviazione.
 
 ## <a name="deploy-template"></a>Distribuire il modello
 

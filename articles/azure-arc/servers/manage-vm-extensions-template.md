@@ -1,14 +1,14 @@
 ---
 title: Abilitare l'estensione della macchina virtuale usando il modello di Azure Resource Manager
 description: Questo articolo descrive come distribuire le estensioni delle macchine virtuali nei server abilitati per Azure Arc in esecuzione in ambienti cloud ibridi usando un modello di Azure Resource Manager.
-ms.date: 02/10/2021
+ms.date: 03/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: b84f9d4d13de3ce2d661e254528e1f0a304001f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 88296cd4f410defcaf7db15507ddac42e80cba2d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580916"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688264"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Abilitare le estensioni di VM di Azure usando il modello ARM
 
@@ -132,7 +132,7 @@ Per distribuire facilmente l'agente di Log Analytics, viene fornito l'esempio se
 Salvare il modello e i file dei parametri su disco e modificare il file dei parametri con i valori appropriati per la distribuzione. È quindi possibile installare l'estensione in tutti i computer connessi in un gruppo di risorse con il comando seguente. Il comando usa il parametro *TemplateFile* per specificare il modello e il parametro *TemplateParameterFile* per specificare un file che contiene parametri e valori di parametri.
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\LogAnalyticsAgentWin.json" -TemplateParameterFile "D:\Azure\Templates\LogAnalyticsAgentWinParms.json"
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\LogAnalyticsAgent.json" -TemplateParameterFile "D:\Azure\Templates\LogAnalyticsAgentParms.json"
 ```
 
 ## <a name="deploy-the-custom-script-extension"></a>Distribuire l'estensione script personalizzato
@@ -291,258 +291,6 @@ La configurazione dell'estensione script personalizzata specifica elementi come 
 }
 ```
 
-## <a name="deploy-the-powershell-dsc-extension"></a>Distribuire l'estensione DSC di PowerShell
-
-Per usare l'estensione DSC di PowerShell, viene fornito l'esempio seguente per l'esecuzione in Windows e Linux. Se non si ha familiarità con l'estensione DSC di PowerShell, vedere [Panoramica del gestore dell'estensione DSC](../../virtual-machines/extensions/dsc-overview.md). Quando si usa questa estensione con macchine ibride, è necessario comprendere un paio di caratteristiche diverse:
-
-* L'elenco dei sistemi operativi supportati con l'estensione DSC PowerShell per macchine virtuali di Azure non è applicabile ai server abilitati per Azure Arc. L'elenco di sistemi operativi supportati per i server abilitati per Arc è disponibile [qui](agent-overview.md#supported-operating-systems).
-
-* Se i computer devono scaricare uno script esternamente e possono comunicare solo tramite un server proxy, è necessario [configurare l'agente del computer connesso](manage-agent.md#update-or-remove-proxy-settings) per impostare la variabile di ambiente del server proxy.
-
-### <a name="template-file-for-linux"></a>File modello per Linux
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vmName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the vm, will be used as DNS Name for the Public IP used to access the Virtual Machine."
-            }
-        },
-        "location": {
-            "type": "string",
-            "metadata": {
-                "description": "Location for all resources."
-            }
-        },
-        "mode": {
-            "type": "string",
-            "defaultValue": "Push",
-            "metadata": {
-                "description": "The functional mode, push MOF configuration (Push), distribute MOF configuration (Pull), install custom DSC module (Install)"
-            },
-            "allowedValues": [
-                "Push",
-                "Pull",
-                "Install",
-                "Register"
-            ]
-        },
-        "fileUri": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The uri of the MOF file/Meta MOF file/resource ZIP file"
-            }
-        },
-        "registrationUrl": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The URL of the Azure Automation account"
-            }
-        },
-        "registrationKey": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The access key of the Azure Automation account"
-            }
-        }
-    },
-    "resources": [
-        {
-            "name": "[concat(parameters('vmName'),'/DSCForLinux')]",
-            "type": "Microsoft.HybridCompute/machines/extensions",
-            "location": "[parameters('location')]",
-            "apiVersion": "2019-08-02-preview",
-            "properties": {
-                "publisher": "Microsoft.OSTCExtensions",
-                "type": "DSCForLinux",
-                "settings": {
-                    "Mode": "[parameters('mode')]",
-                    "FileUri": "[parameters('fileUri')]"
-                },
-                "protectedSettings": {
-                    "RegistrationUrl": "[parameters('registrationUrl')]",
-                    "RegistrationKey": "[parameters('registrationKey')]"
-                }
-            }
-        }
-    ]
-}
-```
-
-### <a name="template-file-for-windows"></a>File modello per Windows
-
-```json
-{
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vmName": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string"
-        },
-        "modulesUrl": {
-            "type": "string"
-        },
-        "configurationFunction": {
-            "type": "string"
-        },
-        "properties": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "dataBlobUri": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "wmfVersion": {
-            "type": "string",
-            "defaultValue": "latest",
-            "allowedValues": [
-                "4.0",
-                "5.0",
-                "5.1",
-                "latest"
-            ]
-        },
-        "privacy": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "autoUpdate": {
-            "type": "bool",
-            "defaultValue": false
-        }
-    },
-    "resources": [
-        {
-            "name": "[concat(parameters('vmName'),'/Microsoft.Powershell.DSC')]",
-            "type": "Microsoft.HybridCompute/machines/extensions",
-            "location": "[parameters('location')]",
-            "apiVersion": "2019-08-02-preview",
-            "properties": {
-                "publisher": "Microsoft.Powershell",
-                "type": "DSC",
-                "autoUpgradeMinorVersion": "[parameters('autoUpdate')]",
-                "settings": {
-                    "ModulesUrl": "[parameters('modulesUrl')]",
-                    "ConfigurationFunction": "[parameters('configurationFunction')]",
-                    "Properties": "[parameters('properties')]",
-                    "WmfVersion": "[parameters('wmfVersion')]",
-                    "Privacy": {
-                        "DataCollection": "[parameters('privacy')]"
-                    }
-                },
-                "protectedSettings": {
-                    "DataBlobUri": "[parameters('dataBlobUri')]"
-                }
-            }
-        }
-    ]
-}
-```
-
-### <a name="parameter-file"></a>File di parametri
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-  "handler": "Microsoft.Azure.CreateUIDef",
-  "version": "0.1.2-preview",
-  "parameters": {
-    "basics": [
-      {}
-    ],
-    "steps": [
-      {
-        "name": "dscExtension",
-        "label": "Add DSC Extension",
-        "elements": [
-          {
-            "name": "Mode",
-            "type": "Microsoft.Common.OptionsGroup",
-            "label": "Mode",
-            "defaultValue": 0,
-            "toolTip": "The functional mode, push MOF configuration (Push), distribute MOF configuration (Pull), install custom DSC module (Install)",
-            "constraints": {
-              "allowedValues": [
-                {
-                  "label": "Push",
-                  "value": "Push"
-                },
-                {
-                  "label": "Pull",
-                  "value": "Pull"
-                },
-                {
-                  "label": "Install",
-                  "value": "Install"
-                },
-                {
-                  "label": "Register",
-                  "value": "Register"
-                }
-              ]
-            },
-            "visible": true
-          },
-          {
-            "name": "FileUri",
-            "type": "Microsoft.Common.FileUpload",
-            "label": "File URI",
-            "toolTip": "The uri of the MOF file/Meta MOF file/resource ZIP file",
-            "constraints": {
-              "required": false,
-              "accept": ".psd1"
-            },
-            "options": {
-              "multiple": false,
-              "uploadMode": "url",
-              "openMode": "binary",
-              "encoding": "UTF-8"
-            }
-          },
-          {
-            "name": "RegistrationUrl",
-            "type": "Microsoft.Common.TextBox",
-            "label": "Registration URL",
-            "toolTip": "The URL of the Azure Automation account",
-            "constraints": {
-              "required": false
-            }
-          },
-          {
-            "name": "RegistrationKey",
-            "type": "Microsoft.Common.TextBox",
-            "label": "Registration key",
-            "toolTip": "The access key of the Azure Automation account",
-            "constraints": {
-              "required": false
-            }
-          }
-        ]
-      }
-    ],
-    "outputs": {
-      "vmName": "[vmName()]",
-      "location": "[location()]",
-      "mode": "[steps('dscExtension').Mode]",
-      "fileUri": "[steps('dscExtension').FileUri]",
-      "registrationUrl": "[steps('dscExtension').RegistrationUrl]",
-      "registrationKey": "[steps('dscExtension').RegistrationKey]"
-    }
-  }
-}
-```
-
 ## <a name="deploy-the-dependency-agent-extension"></a>Distribuire l'estensione di Dependency Agent
 
 Per usare l'estensione dell'agente di dipendenza di monitoraggio di Azure, viene fornito l'esempio seguente per l'esecuzione in Windows e Linux. Se non si ha familiarità con Dependency Agent, vedere [Panoramica degli agenti di monitoraggio di Azure](../../azure-monitor/agents/agents-overview.md#dependency-agent).
@@ -621,6 +369,14 @@ Per usare l'estensione dell'agente di dipendenza di monitoraggio di Azure, viene
     "outputs": {
     }
 }
+```
+
+### <a name="template-deployment"></a>Distribuzione del modello
+
+Salvare il file modello su disco. È quindi possibile distribuire l'estensione nel computer connesso con il comando seguente.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\DependencyAgent.json"
 ```
 
 ## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Distribuire Azure Key Vault estensione VM (anteprima)

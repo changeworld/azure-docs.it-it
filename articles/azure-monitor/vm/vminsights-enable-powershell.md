@@ -1,33 +1,33 @@
 ---
-title: Abilitare Monitoraggio di Azure per le macchine virtuali con PowerShell
-description: Viene descritto come abilitare Monitoraggio di Azure per le macchine virtuali per le macchine virtuali di Azure o i set di scalabilità di macchine virtuali usando Azure PowerShell.
+title: Abilitare VM Insights con PowerShell
+description: Viene descritto come abilitare VM Insights per macchine virtuali di Azure o set di scalabilità di macchine virtuali usando Azure PowerShell.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 83b17e021ce8003b5dbd279886edfdc199f58ce3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47ac71797684f82dfd94acff2d18bca11b2f50d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619787"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717078"
 ---
-# <a name="enable-azure-monitor-for-vms-using-powershell"></a>Abilitare Monitoraggio di Azure per le macchine virtuali con PowerShell
-Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali in macchine virtuali di Azure con PowerShell. Questa procedura può essere utilizzata per gli elementi seguenti:
+# <a name="enable-vm-insights-using-powershell"></a>Abilitare VM Insights con PowerShell
+Questo articolo descrive come abilitare VM Insights in macchine virtuali di Azure con PowerShell. Questa procedura può essere utilizzata per gli elementi seguenti:
 
 - Macchina virtuale di Azure
 - Set di scalabilità di macchine virtuali di Azure
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare e configurare un'area di lavoro log Analytics](../insights/vminsights-configure-workspace.md).
-- Vedere [sistemi operativi supportati](../insights/vminsights-enable-overview.md#supported-operating-systems) per assicurarsi che il sistema operativo della macchina virtuale o del set di scalabilità di macchine virtuali che si sta abilitando sia supportato. 
+- [Creare e configurare un'area di lavoro log Analytics](./vminsights-configure-workspace.md).
+- Vedere [sistemi operativi supportati](./vminsights-enable-overview.md#supported-operating-systems) per assicurarsi che il sistema operativo della macchina virtuale o del set di scalabilità di macchine virtuali che si sta abilitando sia supportato. 
 
 
 ## <a name="powershell-script"></a>Script PowerShell
 
-Per abilitare Monitoraggio di Azure per le macchine virtuali per più macchine virtuali o set di scalabilità di macchine virtuali, usare lo script di PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights), disponibile dalla raccolta di Azure PowerShell. Questo script scorre:
+Per abilitare VM Insights per più macchine virtuali o set di scalabilità di macchine virtuali, usare lo script di PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights), disponibile nella raccolta di Azure PowerShell. Questo script scorre:
 
 - Ogni macchina virtuale e set di scalabilità di macchine virtuali nella sottoscrizione.
 - Il gruppo di risorse con ambito specificato da *ResourceGroup*.
@@ -139,7 +139,7 @@ PARAMETERS
     Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)
 ```
 
-L'esempio seguente illustra l'uso dei comandi di PowerShell nella cartella per abilitare Monitoraggio di Azure per le macchine virtuali e comprendere l'output previsto:
+L'esempio seguente illustra l'uso dei comandi di PowerShell nella cartella per abilitare VM Insights e comprendere l'output previsto:
 
 ```powershell
 $WorkspaceId = "<GUID>"
@@ -190,5 +190,5 @@ Failed: (0)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere [usare monitoraggio di Azure per le macchine virtuali mappa](vminsights-maps.md) per visualizzare le dipendenze dell'applicazione individuate. 
+* Vedere [usare il mapping di VM Insights](vminsights-maps.md) per visualizzare le dipendenze dell'applicazione individuate. 
 * Vedere [visualizzare le prestazioni delle macchine virtuali di Azure](vminsights-performance.md) per identificare colli di bottiglia, utilizzo complessivo e prestazioni della VM.

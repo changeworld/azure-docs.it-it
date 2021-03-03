@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 17d89414a762dd6bf68176b5044787179eb80250
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 501e395cf91630789824cc111614e7150dddaa7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614067"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700610"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo di inserimento dei dati di log in Monitoraggio di Azure
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati di log diventino disponibili dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.
@@ -57,7 +57,7 @@ Alcune soluzioni non raccolgono i dati da un agente e possono usare un metodo di
 Per determinare la frequenza di raccolta specifica, consultare la documentazione relativa a ciascuna soluzione.
 
 ### <a name="pipeline-process-time"></a>Tempo di elaborazione della pipeline
-Una volta che i record di log vengono inseriti nella pipeline di monitoraggio di Azure (come indicato nella proprietà [_TimeReceived](../platform/log-standard-columns.md#_timereceived) ), vengono scritti nell'archiviazione temporanea per garantire l'isolamento dei tenant e per assicurarsi che i dati non vadano perduti. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti. Un altro processo che aggiunge latenza è il processo che gestisce i log personalizzati. In alcuni casi, questo processo potrebbe aggiungere alcuni minuti di latenza ai log che vengono raccolti dai file dall'agente.
+Una volta che i record di log vengono inseriti nella pipeline di monitoraggio di Azure (come indicato nella proprietà [_TimeReceived](./log-standard-columns.md#_timereceived) ), vengono scritti nell'archiviazione temporanea per garantire l'isolamento dei tenant e per assicurarsi che i dati non vadano perduti. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti. Un altro processo che aggiunge latenza è il processo che gestisce i log personalizzati. In alcuni casi, questo processo potrebbe aggiungere alcuni minuti di latenza ai log che vengono raccolti dai file dall'agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisioning di nuovi tipi di dati personalizzati
 Quando viene creato un nuovo tipo di dati personalizzati da un [log personalizzato](../agents/data-sources-custom-logs.md) o dall' [API dell'agente di raccolta dati](../logs/data-collector-api.md), il sistema crea un contenitore di archiviazione dedicato. Questo sovraccarico è occasionale poiché si verifica solo alla prima occorrenza di questo tipo di dati.
@@ -77,8 +77,8 @@ Il tempo di inserimento può variare a seconda delle risorse e delle circostanze
 
 | Passaggio | Proprietà o funzione | Commenti |
 |:---|:---|:---|
-| Record creato nell'origine dati | [TimeGenerated](../platform/log-standard-columns.md#timegenerated-and-timestamp) <br>Se l'origine dati non imposta questo valore, verrà impostato sulla stessa ora _TimeReceived. |
-| Record ricevuto dall'endpoint di inserimento di monitoraggio di Azure | [_TimeReceived](../platform/log-standard-columns.md#_timereceived) | |
+| Record creato nell'origine dati | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Se l'origine dati non imposta questo valore, verrà impostato sulla stessa ora _TimeReceived. |
+| Record ricevuto dall'endpoint di inserimento di monitoraggio di Azure | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
 | Record archiviato nell'area di lavoro e disponibile per le query | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Valori della latenza di inserimento

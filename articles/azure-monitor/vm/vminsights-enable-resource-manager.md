@@ -1,20 +1,20 @@
 ---
-title: Abilitare Monitoraggio di Azure per le macchine virtuali con i modelli di Resource Manager
-description: Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per una o più macchine virtuali di Azure o set di scalabilità di macchine virtuali usando Azure PowerShell o Azure Resource Manager modelli.
+title: Abilitare VM Insights usando modelli di Gestione risorse
+description: Questo articolo descrive come abilitare VM Insights per una o più macchine virtuali di Azure o set di scalabilità di macchine virtuali usando Azure PowerShell o modelli Azure Resource Manager.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: a719be730c76d8e334195fdc9b35bbcad0d06b13
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 57e2649dfe651bfa1e2ef18ff52ca611c122d696
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619786"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707490"
 ---
-# <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Abilitare Monitoraggio di Azure per le macchine virtuali con i modelli di Resource Manager
-Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale o un set di scalabilità di macchine virtuali usando i modelli Gestione risorse. Questa procedura può essere utilizzata per gli elementi seguenti:
+# <a name="enable-vm-insights-using-resource-manager-templates"></a>Abilitare VM Insights usando modelli di Gestione risorse
+Questo articolo descrive come abilitare VM Insights per una macchina virtuale o un set di scalabilità di macchine virtuali usando modelli di Gestione risorse. Questa procedura può essere utilizzata per gli elementi seguenti:
 
 - Macchina virtuale di Azure
 - Set di scalabilità di macchine virtuali di Azure
@@ -22,8 +22,8 @@ Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine vi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare e configurare un'area di lavoro log Analytics](../insights/vminsights-configure-workspace.md). 
-- Vedere [sistemi operativi supportati](../insights/vminsights-enable-overview.md#supported-operating-systems) per assicurarsi che il sistema operativo della macchina virtuale o del set di scalabilità di macchine virtuali che si sta abilitando sia supportato. 
+- [Creare e configurare un'area di lavoro log Analytics](./vminsights-configure-workspace.md). 
+- Vedere [sistemi operativi supportati](./vminsights-enable-overview.md#supported-operating-systems) per assicurarsi che il sistema operativo della macchina virtuale o del set di scalabilità di macchine virtuali che si sta abilitando sia supportato. 
 
 ## <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 
@@ -37,14 +37,14 @@ I modelli di Azure Resource Manager sono disponibili in un file di archivio (con
 
 Il file di download contiene i modelli seguenti per diversi scenari:
 
-- Il modello **ExistingVmOnboarding** Abilita monitoraggio di Azure per le macchine virtuali se la macchina virtuale esiste già.
-- Il modello **NewVmOnboarding** crea una macchina virtuale e Abilita monitoraggio di Azure per le macchine virtuali per monitorarla.
-- Il modello **ExistingVmssOnboarding** Abilita monitoraggio di Azure per le macchine virtuali se il set di scalabilità di macchine virtuali esiste già.
-- Il modello **NewVmssOnboarding** Crea set di scalabilità di macchine virtuali e consente monitoraggio di Azure per le macchine virtuali di monitorarli.
-- Il modello **ConfigureWorkspace** configura l'area di lavoro di log Analytics per supportare monitoraggio di Azure per le macchine virtuali abilitando le soluzioni e la raccolta dei contatori delle prestazioni del sistema operativo Linux e Windows.
+- Il modello **ExistingVmOnboarding** Abilita VM Insights se la macchina virtuale esiste già.
+- Il modello **NewVmOnboarding** crea una macchina virtuale e consente a VM Insights di monitorarla.
+- Il modello **ExistingVmssOnboarding** Abilita VM Insights se il set di scalabilità di macchine virtuali esiste già.
+- Il modello **NewVmssOnboarding** Crea set di scalabilità di macchine virtuali e consente a VM Insights di monitorarli.
+- Il modello **ConfigureWorkspace** configura l'area di lavoro di log Analytics per supportare VM Insights abilitando le soluzioni e la raccolta dei contatori delle prestazioni del sistema operativo Linux e Windows.
 
 >[!NOTE]
->Se i set di scalabilità di macchine virtuali sono già presenti e i criteri di aggiornamento sono impostati su **manuale**, per impostazione predefinita monitoraggio di Azure per le macchine virtuali non verrà abilitato per le istanze dopo l'esecuzione del modello di Azure Resource Manager **ExistingVmssOnboarding** . È necessario aggiornare manualmente le istanze.
+>Se i set di scalabilità di macchine virtuali sono già presenti e i criteri di aggiornamento sono impostati su **manuale**, VM Insights non verrà abilitato per impostazione predefinita dopo l'esecuzione del modello di Azure Resource Manager **ExistingVmssOnboarding** . È necessario aggiornare manualmente le istanze.
 
 ## <a name="deploy-templates"></a>Distribuire modelli
 I modelli possono essere distribuiti usando [qualsiasi metodo di distribuzione per i modelli di gestione risorse](../../azure-resource-manager/templates/deploy-powershell.md) inclusi gli esempi seguenti con PowerShell e l'interfaccia della riga di comando.
@@ -62,8 +62,8 @@ az deployment group create --resource-group <ResourceGroupName> --template-file 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che il monitoraggio è abilitato per le macchine virtuali, queste informazioni sono disponibili per l'analisi con Monitoraggio di Azure per le macchine virtuali.
+Ora che il monitoraggio è abilitato per le macchine virtuali, queste informazioni sono disponibili per l'analisi con VM Insights.
 
-- Per visualizzare le dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](vminsights-maps.md).
+- Per visualizzare le dipendenze dell'applicazione individuate, vedere [visualizzare la mappa di VM Insights](vminsights-maps.md).
 
 - Per identificare i colli di bottiglia e l'utilizzo complessivo delle prestazioni della VM, vedere [visualizzare le prestazioni delle VM di Azure](vminsights-performance.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2cb0e3829011ca9bd0f2b6f36ebf3e6744a180ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881419"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713406"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -110,7 +110,7 @@ Azure NetApp Files fornisce le metriche delle prestazioni del volume. È anche p
 
 ### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>Qual è l'effetto sulle prestazioni di Kerberos in NFSv 4.1?
 
-Vedere l' [effetto sulle prestazioni di Kerberos in NFSv 4.1](configure-kerberos-encryption.md#kerberos_performance) per informazioni sulle opzioni di sicurezza per NFSv 4.1, i vettori di prestazioni testati e l'effetto sulle prestazioni previsto. 
+Vedere l' [effetto sulle prestazioni di Kerberos nei volumi NFSv 4.1](performance-impact-kerberos.md) per informazioni sulle opzioni di sicurezza per NFSv 4.1, i vettori di prestazioni testati e l'effetto sulle prestazioni previsto. 
 
 ## <a name="nfs-faqs"></a>Domande frequenti su NFS
 

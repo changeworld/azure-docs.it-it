@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5c216661e45e5ed34a95e8a56002f3ad175b089a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1211cd306f10fb349bd42568697443ff103a171c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545913"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703091"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Abilitare un'identità gestita per il routing degli eventi di Azure Digital gemelli (anteprima): portale di Azure
 
@@ -89,8 +89,7 @@ Per altre informazioni sugli endpoint, le route e i tipi di destinazioni support
 
 ### <a name="assign-the-role"></a>Assegnare il ruolo
 
->[!NOTE]
-> Questa sezione deve essere completata da un utente di Azure con le autorizzazioni per gestire l'accesso degli utenti alle risorse di Azure (incluse le autorizzazioni di concessione e delega). I ruoli comuni che soddisfano questo requisito sono *proprietario*, *amministratore account* o la combinazione di *amministratore accesso utenti* e *collaboratore*. Per altre informazioni sui requisiti di autorizzazione per i ruoli di Azure Digital gemelli, vedere [*How-to: set up instance and Authentication*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Per assegnare un ruolo all'identità, iniziare aprendo il [portale di Azure](https://portal.azure.com).
 
@@ -116,7 +115,7 @@ Per assegnare un ruolo all'identità, iniziare aprendo il [portale di Azure](htt
 
 Al termine dell'immissione dei dettagli, selezionare **Salva**.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Creazione di un endpoint con autorizzazione basata sull'identità
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Creare un endpoint con l'autenticazione basata su identità
 
 Dopo aver configurato un'identità gestita dal sistema per l'istanza di Azure Digital Twins e averla assegnata ai ruoli appropriati, è possibile creare [endpoint](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) di Azure Digital gemelli in grado di usare l'identità per l'autenticazione. Questa opzione è disponibile solo per gli endpoint di tipo hub eventi e bus di servizio (non è supportata per griglia di eventi).
 

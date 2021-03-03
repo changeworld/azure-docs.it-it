@@ -1,19 +1,19 @@
 ---
-title: Configurare monitoraggio di Azure per i dati dinamici dei contenitori (anteprima) | Microsoft Docs
-description: Questo articolo descrive come configurare la visualizzazione in tempo reale dei log del contenitore (stdout/stderr) ed eventi senza usare kubectl con monitoraggio di Azure per i contenitori.
+title: Configurare i dati in tempo reale di container Insights (anteprima) | Microsoft Docs
+description: Questo articolo descrive come configurare la visualizzazione in tempo reale dei log del contenitore (stdout/stderr) ed eventi senza usare kubectl con le informazioni dettagliate sul contenitore.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3c176b2db659577d585ac077eebe0484203eb9cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4302bdbb3d71c890f7fb0cfb82ab5f8d5aecbd43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614317"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713780"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Come configurare la funzionalità dati in tempo reale (anteprima)
 
-Per visualizzare i dati in tempo reale (anteprima) con monitoraggio di Azure per i contenitori dai cluster di Azure Kubernetes Service (AKS), è necessario configurare l'autenticazione per concedere l'autorizzazione per l'accesso ai dati di Kubernetes. Questa configurazione di sicurezza consente l'accesso in tempo reale ai dati tramite l'API Kubernetes direttamente nel portale di Azure.
+Per visualizzare i dati in tempo reale (anteprima) con informazioni dettagliate sul contenitore dai cluster di Azure Kubernetes Service (AKS), è necessario configurare l'autenticazione per concedere l'autorizzazione per l'accesso ai dati di Kubernetes. Questa configurazione di sicurezza consente l'accesso in tempo reale ai dati tramite l'API Kubernetes direttamente nel portale di Azure.
 
 Questa funzionalità supporta i metodi seguenti per controllare l'accesso ai log, agli eventi e alle metriche:
 
@@ -46,7 +46,7 @@ Il portale di Azure richiede di convalidare le credenziali di accesso per un clu
 
 Per eliminare la necessità di applicare modifiche di configurazione aggiuntive per consentire l'associazione del ruolo utente Kubernetes **clusterUser** l'accesso alla funzionalità dati in tempo reale (anteprima) dopo l' [Abilitazione dell'autorizzazione KUBERNETES RBAC](#configure-kubernetes-rbac-authorization) , AKS ha aggiunto una nuova associazione di ruoli del cluster Kubernetes denominata **clusterMonitoringUser**. Questa associazione di ruoli del cluster dispone di tutte le autorizzazioni necessarie predefinite per accedere all'API Kubernetes e agli endpoint per l'utilizzo della funzionalità dati in tempo reale (anteprima).
 
-Per usare la funzionalità dati in tempo reale (anteprima) con questo nuovo utente, è necessario essere un membro del ruolo utente o [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) del [cluster di servizi Kubernetes di Azure](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) nella risorsa del cluster AKS. Il monitoraggio di Azure per i contenitori, se abilitato, è configurato per l'autenticazione con clusterMonitoringUser per impostazione predefinita. Se l'associazione di ruolo clusterMonitoringUser non esiste in un cluster, per l'autenticazione viene usato **clusterUser** . Collaboratore consente di accedere a clusterMonitoringUser (se esiste) e l'utente del cluster di servizi di Azure Kuberenetes fornisce l'accesso a clusterUser. Uno di questi due ruoli concede un accesso sufficiente per usare questa funzionalità.
+Per usare la funzionalità dati in tempo reale (anteprima) con questo nuovo utente, è necessario essere un membro del ruolo utente o [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) del [cluster di servizi Kubernetes di Azure](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) nella risorsa del cluster AKS. Il contenitore Insights, se abilitato, è configurato per l'autenticazione con clusterMonitoringUser per impostazione predefinita. Se l'associazione di ruolo clusterMonitoringUser non esiste in un cluster, per l'autenticazione viene usato **clusterUser** . Collaboratore consente di accedere a clusterMonitoringUser (se esiste) e l'utente del cluster di servizi di Azure Kuberenetes fornisce l'accesso a clusterUser. Uno di questi due ruoli concede un accesso sufficiente per usare questa funzionalità.
 
 AKS ha rilasciato questa nuova associazione di ruolo nel 2020 gennaio, quindi i cluster creati prima di gennaio 2020 non lo hanno. Se si dispone di un cluster creato prima del 2020 gennaio, è possibile aggiungere il nuovo **clusterMonitoringUser** a un cluster esistente eseguendo un'operazione Put nel cluster o eseguendo qualsiasi altra operazione nel cluster che esegue un'operazione Put nel cluster, ad esempio l'aggiornamento della versione del cluster.
 
@@ -106,7 +106,7 @@ Azure AD la registrazione client deve essere riconfigurata per consentire al por
 Per altre informazioni sulla configurazione della sicurezza avanzata in Kubernetes, vedere la [documentazione di Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->Se si sta creando un nuovo cluster Kubernetes abilitato per il controllo degli accessi in base al ruolo, vedere [integrare Azure Active Directory con il servizio Kubernetes di Azure](../../aks/azure-ad-integration-cli.md) e seguire la procedura per configurare l'autenticazione Azure ad. Durante i passaggi per creare l'applicazione client, una nota nella sezione evidenzia i due URL di reindirizzamento che è necessario creare per il monitoraggio di Azure per i contenitori corrispondenti a quelli specificati nel passaggio 3 riportato di seguito.
+>Se si sta creando un nuovo cluster Kubernetes abilitato per il controllo degli accessi in base al ruolo, vedere [integrare Azure Active Directory con il servizio Kubernetes di Azure](../../aks/azure-ad-integration-cli.md) e seguire la procedura per configurare l'autenticazione Azure ad. Durante i passaggi per creare l'applicazione client, una nota in questa sezione evidenzia i due URL di reindirizzamento che è necessario creare per informazioni dettagliate sui contenitori corrispondenti a quelli specificati nel passaggio 3 riportato di seguito.
 
 ### <a name="client-registration-reconfiguration"></a>Riconfigurazione della registrazione client
 

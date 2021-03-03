@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: 26dd3f7df5a71c687bfb4935f290e7a54b4e01fe
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 3061329ad9dcb368dab586acc2146e6fb4e23028
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610268"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708714"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
 
@@ -154,7 +154,7 @@ L'esecuzione in un computer con una maggiore quantità di memoria non implica se
 
 Ad esempio, un'app per le funzioni JavaScript è vincolata dal limite di memoria predefinito in Node.js. Per aumentare il limite di memoria fisso, aggiungere l'impostazione dell'app `languageWorkers:node:arguments` con un valore di `--max-old-space-size=<max memory in MB>` .
 
-Per i piani con più di 4 GB di memoria, assicurarsi che l'impostazione della piattaforma bit sia impostata su `64 Bit` in [Impostazioni generali](/azure/app-service/configure-common#configure-general-settings).
+Per i piani con più di 4 GB di memoria, assicurarsi che l'impostazione della piattaforma bit sia impostata su `64 Bit` in [Impostazioni generali](../app-service/configure-common.md#configure-general-settings).
 
 ## <a name="region-max-scale-out"></a>Scale Out area massima
 
@@ -200,7 +200,7 @@ Vedere l'intera disponibilità a livello di area delle funzioni nel [sito Web di
 |India occidentale| 100 | 20 |
 |Stati Uniti centro-occidentali| 100 | 20 |
 |Stati Uniti occidentali| 100 | 20 |
-|West US 2| 100 | 20 |
+|Stati Uniti occidentali 2| 100 | 20 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

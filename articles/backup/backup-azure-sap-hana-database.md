@@ -3,12 +3,12 @@ title: Eseguire il backup di un database SAP HANA in Azure con Backup di Azure
 description: Questo articolo illustra come eseguire il backup di un database SAP HANA in macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: e7735c4240529cc6fc9bb6470934dd335d22aa77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831636"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719611"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -172,7 +172,7 @@ Specificare le impostazioni del criterio come segue:
     ![Criteri di backup differenziale](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > I backup incrementali sono ora supportati nell'anteprima pubblica. È possibile scegliere un backup quotidiano differenziale o incrementale, ma non entrambi.
+    > È possibile scegliere un backup quotidiano differenziale o incrementale, ma non entrambi.
 1. In **Criteri di backup incrementale** selezionare **Abilita** per aprire i controlli relativi a frequenza e conservazione.
     * È possibile attivare al massimo un backup differenziale al giorno.
     * I backup incrementali possono essere conservati per un massimo di 180 giorni. Se è necessario conservarli più a lungo, usare i backup completi.
@@ -199,7 +199,7 @@ I backup vengono eseguiti in base alla pianificazione dei criteri. È possibile 
 
 1. Nel menu dell'insieme di credenziali selezionare **elementi di backup**.
 2. In **elementi di backup** selezionare la macchina virtuale che esegue il database di SAP Hana, quindi selezionare **Esegui backup ora**.
-3. In **backup ora** scegliere il tipo di backup che si desidera eseguire. Quindi scegliere **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
+3. In **backup ora** scegliere il tipo di backup che si desidera eseguire. Selezionare **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
 4. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni del database, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 Per impostazione predefinita, la conservazione dei backup su richiesta è di 45 giorni.

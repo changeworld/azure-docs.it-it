@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 4e81ccb541b188fedfefd150233082e9cb1f8c22
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a04d976ed3d9be253425b4c8a5a5c0effb6f80b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945544"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741838"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 
@@ -40,7 +40,7 @@ La tabella seguente illustra i diversi metodi che è possibile usare per configu
 
 Questo articolo illustra la configurazione nel [portale di Azure](https://portal.azure.com), in cui è possibile creare un cluster HDInsight.
 
-## <a name="basics"></a>Operazioni di base
+## <a name="basics"></a>Nozioni di base
 
 ![HDInsight creare opzioni personalizzate Quick](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
 
@@ -216,7 +216,7 @@ Ogni tipo di cluster ha il proprio numero di nodi, una terminologia specifica pe
 | Storm |Nodo Nimbus (2), server supervisore (1+), nodo ZooKeeper (3) |![Configurazione del tipo di cluster HDInsight Storm](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |Nodo Head (2), nodo Worker (1 +), nodo ZooKeeper (3) (gratuito per le dimensioni della macchina virtuale ZooKeeper a1) |![Installazione del tipo di cluster HDInsight Spark](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
-Per altre informazioni, vedere [Configurazione del nodo predefinito e dimensioni della macchina virtuale per i cluster](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) in "Componenti e versioni di Hadoop in HDInsight"
+Per altre informazioni, vedere [Configurazione del nodo predefinito e dimensioni della macchina virtuale per i cluster](hdinsight-supported-node-configuration.md) in "Componenti e versioni di Hadoop in HDInsight"
 
 Il costo del cluster HDInsight è determinato dal numero di nodi e dalle dimensioni delle macchine virtuali per i nodi.
 

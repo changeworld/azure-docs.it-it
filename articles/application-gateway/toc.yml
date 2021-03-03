@@ -158,6 +158,8 @@
           href: ingress-controller-install-existing.md
         - name: In ingresso per il servizio Azure Kubernetes tramite Helm (Greenfield)
           href: ingress-controller-install-new.md
+        - name: Eseguire la migrazione dalla distribuzione Helm al componente aggiuntivo AKS
+          href: ingress-controller-migration.md
         - name: Disabilitare e riabilitare il componente aggiuntivo del controller in ingresso per il servizio Azure Kubernetes
           href: ingress-controller-disable-addon.md
         - name: Abilitare l'affinità basata su cookie

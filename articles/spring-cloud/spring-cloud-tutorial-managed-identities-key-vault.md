@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fc44dd6cf91d687f47afadf1c3378956d838bc9d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
-ms.translationtype: HT
+ms.openlocfilehash: c091241a4928b3f498be7944559aa5b91c6fecf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579505"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705059"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Esercitazione: Usare un'identità gestita per connettere Key Vault all'app di Azure Spring Cloud
 
@@ -69,7 +69,7 @@ az spring-cloud app create -n "springapp" -s "myspringcloud" -g "myResourceGroup
 export SERVICE_IDENTITY=$(az spring-cloud app show --name "springapp" -s "myspringcloud" -g "myResourceGroup" | jq -r '.identity.principalId')
 ```
 
-Prendere nota del valore di `url` restituito, che avrà il formato "https://<your-app-name>.azuremicroservices.io". Verrà usato nel passaggio successivo.
+Prendere nota dell'oggetto restituito `url` , che sarà nel formato `https://<your-app-name>.azuremicroservices.io` . Verrà usato nel passaggio successivo.
 
 
 ## <a name="grant-your-app-access-to-key-vault"></a>Concedere all'app l'accesso a Key Vault

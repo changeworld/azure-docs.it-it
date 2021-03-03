@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 40de216a9bcb173d9dfebf39d05fb9cb12579301
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ceda5015770ad0b9898def181fa7199f119920db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937342"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706096"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Gateway
 
@@ -65,7 +65,7 @@ Prima di distribuire un dispositivo virtuale, è necessario:
 - Il sistema host sia in grado di dedicare le risorse seguenti al provisioning del dispositivo virtuale Data Box:
   
   - Almeno 4 processori virtuali.
-  - Almeno 8 GB di RAM.
+  - Almeno 8 GB di RAM. È consigliabile disporre di almeno 16 GB di RAM.
   - Un'interfaccia di rete.
   - Un disco del sistema operativo da 250 GB.
   - Un disco virtuale da 2 TB per i dati di sistema.
@@ -112,14 +112,14 @@ Per creare una risorsa Data Box Gateway, seguire questa procedura nel portale di
 
     Immettere o selezionare i **dettagli del progetto** seguenti.
     
-    |Impostazione  |valore  |
+    |Impostazione  |Valore  |
     |---------|---------|
     |Subscription    |Selezionare la sottoscrizione da usare per il dispositivo Data Box Gateway. La sottoscrizione viene collegata all'account di fatturazione.|
     |Resource group  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/management/overview.md).|
 
    Immettere o selezionare quanto segue in **Dettagli istanza**.
 
-    |Impostazione  |valore  |
+    |Impostazione  |Valore  |
     |---------|---------|
     |Nome   |Nome descrittivo per identificare la risorsa.<br>Il nome deve contenere da 2 a 50 caratteri tra lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero. |
     |Region  |Selezionare l'area in cui si vuole distribuire la risorsa. Scegliere la località vicina all'area geografica in cui si vuole distribuire il dispositivo. <br> Per un elenco di tutte le aree in cui le risorse Data Box Gateway/Azure Stack Edge sono disponibili, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). <br> Per Azure per enti pubblici sono disponibili tutte le aree per enti pubblici elencate in [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).|

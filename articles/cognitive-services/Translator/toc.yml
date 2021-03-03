@@ -101,7 +101,7 @@
     - name: Riferimento
       items:
         - name: Informazioni di riferimento sulle API di traduzione documenti
-          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/translator/translation'
+          href: /rest/api/cognitiveservices/translator/documenttranslation
 - name: Custom Translator
   items:
     - name: Panoramica

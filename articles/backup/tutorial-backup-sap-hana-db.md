@@ -3,12 +3,12 @@ title: 'Esercitazione: Eseguire il backup di database SAP HANA nelle VM di Azure
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: ede8ebab205e814de3988a2b5c432a21f965eb55
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987790"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703682"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Esercitazione: Eseguire il backup di database SAP HANA in una VM di Azure
 
@@ -105,7 +105,7 @@ I backup (log e non log) in SAP HANA macchine virtuali di Azure fornite tramite 
 
 Il componente Backint di HANA fornisce le "pipe" (una pipe da cui leggere e una pipe per la scrittura), connesse a dischi sottostanti in cui risiedono i file di database, che vengono quindi letti dal servizio backup di Azure e trasportati nell'insieme di credenziali di servizi di ripristino di Azure. Il servizio backup di Azure esegue anche un checksum per convalidare i flussi, oltre ai controlli di convalida nativi di backint. Queste convalide assicurano che i dati presenti nell'insieme di credenziali di servizi di ripristino di Azure siano effettivamente affidabili e recuperabili.
 
-Poiché i flussi riguardano principalmente i dischi, è necessario comprendere le prestazioni del disco per misurare le prestazioni di backup e ripristino. Vedere [questo articolo](https://docs.microsoft.com/azure/virtual-machines/disks-performance) per una conoscenza approfondita della velocità effettiva e delle prestazioni dei dischi nelle macchine virtuali di Azure. Queste sono valide anche per le prestazioni di backup e ripristino.
+Poiché i flussi riguardano principalmente i dischi, è necessario comprendere le prestazioni del disco per misurare le prestazioni di backup e ripristino. Vedere [questo articolo](../virtual-machines/disks-performance.md) per una conoscenza approfondita della velocità effettiva e delle prestazioni dei dischi nelle macchine virtuali di Azure. Queste sono valide anche per le prestazioni di backup e ripristino.
 
 **Il servizio backup di Azure tenta di ottenere fino a ~ 420 Mbps per i backup non di log (ad esempio, completo, differenziale e incrementale) e fino a 100 Mbps per i backup del log per Hana**. Come indicato in precedenza, le velocità non sono garantite e dipendono dai fattori seguenti:
 
@@ -267,8 +267,8 @@ Specificare le impostazioni del criterio come segue:
    ![Criteri di backup differenziale](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >I backup incrementali sono ora disponibili in anteprima pubblica. È possibile scegliere un backup quotidiano differenziale o incrementale, ma non entrambi.
-   >
+   >È possibile scegliere un backup quotidiano differenziale o incrementale, ma non entrambi.
+
 7. In **Criteri di backup incrementale** selezionare **Abilita** per aprire i controlli relativi a frequenza e conservazione.
     * È possibile attivare al massimo un backup differenziale al giorno.
     * I backup incrementali possono essere conservati per un massimo di 180 giorni. Se è necessario conservarli più a lungo, usare i backup completi.

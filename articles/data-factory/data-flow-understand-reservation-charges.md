@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: makromer
-ms.openlocfilehash: 3b97f09c2b6f4c5f5352bbaa081e0bcae900ebd5
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 12b640fd97f48e293320593b33ab2fdc54980c0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808311"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716296"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-data-factory-data-flows"></a>Come viene applicato uno sconto di prenotazione per Azure Data Factory flussi di dati
 
@@ -32,7 +32,7 @@ Gli esempi seguenti illustrano il modo in cui viene applicato lo sconto relativo
 - Scenario 1: si acquista una prenotazione del flusso di dati ADF per 1 ora di 80 core di calcolo con ottimizzazione per la memoria immettendo 80 come quantità per il tipo di calcolo con ottimizzazione per la memoria. Si esegue un flusso di dati con un runtime di integrazione di Azure impostato su 144 Core di memoria con ottimizzazione per un'ora. Viene addebitato il prezzo con pagamento in base al consumo per 64 core di utilizzo del flusso di dati per un'ora. Si ottiene lo sconto di prenotazione per un'ora di 80 core di utilizzo con ottimizzazione per la memoria.
 - Scenario 2: si acquista una prenotazione del flusso di dati ADF per 1 ora di 32 core di calcolo per utilizzo generico immettendo 32 come quantità per il tipo di calcolo per utilizzo generico. È possibile eseguire il debug dei flussi di dati per 1 ora usando i core 32 del runtime di integrazione di calcolo di Azure generale. Si ottiene lo sconto relativo alla prenotazione per l'intera ora di utilizzo.
 
-Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
+Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md).
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
@@ -42,4 +42,4 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 
 Per altre informazioni sulle prenotazioni di Azure, vedere l'articolo seguente:
 
-- [Informazioni sulle prenotazioni di Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+- [Informazioni sulle prenotazioni di Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md)

@@ -8,27 +8,27 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 32654f743301f9f2f6c010947d73d957c96dceac
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: bcfff1a2c8490a05f4b96a8e2ff68186348f596f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101100891"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742365"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview"></a>Che cos'è Azure front door standard/Premium (anteprima)?
 
 > [!IMPORTANT]
 > Questa documentazione è destinata a Azure front door standard/Premium (Preview). Stai cercando informazioni su Azure front door? Visualizzare i [documenti di Azure front door](../front-door-overview.md).
 
-Azure front door standard/Premium è una rete CDN moderna, affidabile e sicura, che usa la rete Microsoft globale perimetrale e si integra con Intelligent Threat Protection. Combina le funzionalità della rete CDN standard di Azure da Microsoft, Azure front door, Azure Web Application Firewall (WAF) in un'unica piattaforma di rete CDN cloud sicura.
+Azure front door standard/Premium è una rete CDN moderna, affidabile e sicura, che usa la rete Microsoft globale perimetrale e si integra con Intelligent Threat Protection. Combina le funzionalità di Azure front door, lo standard della rete per la distribuzione di contenuti (CDN) di Azure e il Web Application Firewall (WAF) di Azure in una singola piattaforma di rete CDN cloud sicura.
 
-Con Azure front door standard/Premium è possibile trasformare le applicazioni consumer e aziendali globali in applicazioni moderne personalizzate e sicure, con contenuti che raggiungono un pubblico globale con bassa latenza.
+Con Azure front door standard/Premium è possibile trasformare le applicazioni consumer e aziendali globali in applicazioni moderne personalizzate e sicure e ad alte prestazioni con contenuti che raggiungono un pubblico globale presso la rete perimetrale vicino all'utente. Consente inoltre all'applicazione di aumentare il livello di scalabilità orizzontale senza riscaldamento, beneficiando del bilanciamento del carico HTTP globale con failover immediato.
 
    :::image type="content" source="../media/overview/front-door-overview.png" alt-text="Architettura standard/Premium di Azure front door" lightbox="../media/overview/front-door-overview-expanded.png":::
 
-Azure front door standard/Premium funziona a livello 7 (livello HTTP/HTTPS) usando il protocollo anycast con Split TCP e la rete globale Microsoft per migliorare la connettività globale. In base al metodo di routing, è possibile garantire che il front-end di Azure instraderà le richieste del client all'origine più veloce e più disponibile. Il backend di un'applicazione può essere qualsiasi servizio internet ospitato all'interno o all'esterno di Azure. AzureFront door standard/Premium offre una gamma di metodi di routing del traffico e opzioni di monitoraggio dell'integrità delle origini per soddisfare diverse esigenze dell'applicazione e scenari di failover automatico. Simile a Gestione traffico, Frontdoor è resiliente agli errori, compreso gli errori di un'intera area di Azure.
+Azure front door standard/Premium funziona a livello 7 (livello HTTP/HTTPS) usando il protocollo anycast con Split TCP e la rete globale Microsoft per migliorare la connettività globale. In base al metodo di routing personalizzato che usa le regole impostate, è possibile assicurarsi che il front-end di Azure instraderà le richieste del client all'origine più veloce e più disponibile. Un'origine applicazione è un servizio con connessione Internet ospitato all'interno o all'esterno di Azure. Azure front door standard/Premium offre una gamma di metodi di routing del traffico e opzioni di monitoraggio dell'integrità delle origini per soddisfare diverse esigenze dell'applicazione e scenari di failover automatico. Simile a Gestione traffico, Frontdoor è resiliente agli errori, compreso gli errori di un'intera area di Azure.
 
-Il front-end di Azure protegge anche la tua app sui bordi con il Web Application Firewall, la protezione da bot e la protezione DDoS Lay 3/Layer 4 incorporata. Protegge inoltre i back-end privati con il servizio di collegamento privato. Il front-end di Azure ti offre la sicurezza migliore in pratica di Microsoft su scala globale.  
+Il front-end di Azure protegge anche la tua app sui bordi con la protezione del firewall applicazione Web integrata, la protezione da bot e la protezione integrata Lay 3/Layer 4 Distributed Denial of Service (DDoS). Protegge inoltre i back-end privati con il servizio di collegamento privato. Il front-end di Azure ti offre la sicurezza migliore in pratica di Microsoft su scala globale.  
 
 >[!NOTE]
 > Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari.
@@ -47,19 +47,19 @@ Il front-end di Azure protegge anche la tua app sui bordi con il Web Application
 
 ## <a name="why-use-azure-front-door-standardpremium-preview"></a>Perché usare Azure front door standard/Premium (anteprima)?
 
-Azure front door standard/Premium offre un'unica piattaforma unificata per il contenuto statico e l'accelerazione dinamica delle applicazioni, con funzionalità di sicurezza avanzate. La porta anteriore consente inoltre di definire, gestire e monitorare il routing globale per l'app.
+Azure front door standard/Premium offre un'unica piattaforma unificata che si adatta all'accelerazione dinamica e statica grazie all'integrazione di sicurezza chiavi in mano integrata e a un modello di determinazione prezzi semplice e prevedibile. La porta anteriore consente inoltre di definire, gestire e monitorare il routing globale per l'app.
 
 Funzionalità principali incluse in Azure front door standard/Premium (anteprima):
 
-- Prestazioni delle applicazioni accelerate mediante il protocollo anycast basato su TCP diviso .
+- Prestazioni delle applicazioni accelerate tramite il protocollo anycast **[Split basato su TCP](../front-door-routing-architecture#splittcp.md)** .
 
 - Monitoraggio intelligente del **[Probe di integrità](concept-health-probes.md)** e bilanciamento del carico tra le **[origini](concept-origin.md)**.
 
-- Definire un dominio personalizzato con la convalida del dominio flessibile.
+- Definire un **[dominio personalizzato](how-to-add-custom-domain.md)** con la convalida del dominio flessibile.
 
-- Sicurezza delle applicazioni con il [Web Application Firewall integrato (WAF)](../../web-application-firewall/afds/afds-overview.md).
+- Sicurezza delle applicazioni con il **[Web Application Firewall integrato (WAF)](../../web-application-firewall/afds/afds-overview.md)**.
 
-- Offload SSL e gestione certificati integrata.
+- Offload SSL e **[Gestione certificati](how-to-configure-https-custom-domain.md)** integrata.
 
 - Proteggi le tue origini con **[collegamento privato](concept-private-link.md)**.  
 

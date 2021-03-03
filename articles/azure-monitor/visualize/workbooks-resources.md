@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: b607cdd462becdcb37f88d35d934a10efd0bfe9b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d4a6d04f88544b3a4f9f9c0c0b290d17f5ef148d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613678"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725578"
 ---
 # <a name="workbook-resource-parameters"></a>Parametri delle risorse della cartella di lavoro
 
@@ -111,5 +111,5 @@ I valori dei selezionatori di risorse possono provenire dal contesto della carte
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per [iniziare ad](../platform/workbooks-overview.md#visualizations) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
-* [Controllare](../platform/workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.
+* Per [iniziare ad](./workbooks-overview.md#visualizations) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
+* [Controllare](./workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.

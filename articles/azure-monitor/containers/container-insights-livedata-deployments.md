@@ -1,19 +1,19 @@
 ---
-title: Visualizzare monitoraggio di Azure per le distribuzioni di contenitori (anteprima) | Microsoft Docs
-description: Questo articolo descrive la visualizzazione in tempo reale delle distribuzioni Kubernetes senza usare kubectl in monitoraggio di Azure per i contenitori.
+title: Visualizzare le distribuzioni di container Insights (anteprima) | Microsoft Docs
+description: Questo articolo descrive la visualizzazione in tempo reale delle distribuzioni Kubernetes senza usare kubectl in informazioni sul contenitore.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2f1eac82ce67818c7bf86ce3ca8924155d8ee2aa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c6eaac209234f7352395502c6761312cf258108f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616266"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713916"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Come visualizzare le distribuzioni (anteprima) in tempo reale
 
-Con monitoraggio di Azure per i contenitori, la funzionalità Visualizza distribuzioni (anteprima) emula l'accesso diretto agli oggetti di distribuzione Kubernetes in tempo reale esponendo i `kubeclt get deployments` `kubectl describe deployment {your deployment}` comandi e.
+Con informazioni dettagliate sul contenitore, la funzionalità Visualizza distribuzioni (anteprima) emula l'accesso diretto agli oggetti di distribuzione Kubernetes in tempo reale esponendo `kubeclt get deployments` i `kubectl describe deployment {your deployment}` comandi e.
 
 >[!NOTE]
 >I cluster AKS abilitati come [cluster privati](https://azure.microsoft.com/updates/aks-private-cluster/) non sono supportati con questa funzionalità. Questa funzionalità si basa sull'accesso diretto all'API di Kubernetes tramite un server proxy dal browser. L'abilitazione della sicurezza di rete per bloccare l'API di Kubernetes da questo proxy bloccherà il traffico.
@@ -56,7 +56,7 @@ Quando si seleziona una distribuzione dall'elenco, un riquadro delle proprietà 
 
 Mentre si esaminano i dettagli di distribuzione, è possibile visualizzare in tempo reale i log e gli eventi del contenitore. Selezionare la **console attiva e il** riquadro della console dati in tempo reale (anteprima) verranno visualizzati sotto la griglia dati distribuzioni in cui è possibile visualizzare i dati del log in tempo reale in un flusso continuo. Se l'indicatore di stato di recupero Mostra un segno di spunta verde, che si trova all'estrema destra del riquadro, significa che i dati possono essere recuperati e inizia lo streaming alla console.
 
-È anche possibile filtrare in base agli eventi a livello di spazio dei nomi o cluster. Per altre informazioni sulla visualizzazione dei dati in tempo reale nella console, vedere [visualizzare i dati dinamici (anteprima) con monitoraggio di Azure per i contenitori](container-insights-livedata-overview.md).
+È anche possibile filtrare in base agli eventi a livello di spazio dei nomi o cluster. Per altre informazioni sulla visualizzazione dei dati in tempo reale nella console, vedere [visualizzare i dati dinamici (anteprima) con](container-insights-livedata-overview.md)informazioni dettagliate sul contenitore.
 
 ![Le distribuzioni visualizzano i dati dinamici nella console](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 

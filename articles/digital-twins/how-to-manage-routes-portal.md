@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f705aa61f1fe627dc0c8227242538e01ffce1d5
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: e61d2ff3807b65022d72414615af9fa729359358
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070833"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715718"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (portale)
 
@@ -76,7 +76,7 @@ Dopo aver creato le risorse dell'endpoint, è possibile usarle per un endpoint d
 1. Per completare la creazione dell'endpoint, selezionare _Salva_.
 
 >[!IMPORTANT]
-> Per usare correttamente l'autenticazione basata su identità per l'endpoint, è necessario creare un'identità gestita per l'istanza attenendosi alla procedura illustrata in [*procedura: abilitare un'identità gestita per il routing degli eventi (anteprima)*](how-to-enable-managed-identities.md).
+> Per usare correttamente l'autenticazione basata su identità per l'endpoint, è necessario creare un'identità gestita per l'istanza attenendosi alla procedura illustrata in [*procedura: abilitare un'identità gestita per il routing degli eventi (anteprima)*](./how-to-enable-managed-identities-portal.md).
 
 Dopo aver creato l'endpoint, è possibile verificare che l'endpoint sia stato creato correttamente selezionando l'icona di notifica nella barra portale di Azure superiore: 
 

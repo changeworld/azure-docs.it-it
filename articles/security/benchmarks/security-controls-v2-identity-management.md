@@ -4,19 +4,21 @@ description: Azure Security benchmark V2 Identity Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 33f5dff65fa7ad8274051f784f2e61dc8366d389
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: f76ebf8609b5f4ac587800359a5cbb0c6f967f3c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368852"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698604"
 ---
 # <a name="security-control-v2-identity-management"></a>Controllo di sicurezza V2: gestione delle identità
 
 Gestione delle identità riguarda i controlli per stabilire un'identità sicura e i controlli di accesso usando Azure Active Directory. Sono inclusi l'uso di Single Sign-On, le autenticazioni complesse, le identità gestite (e i principi di servizio) per le applicazioni, l'accesso condizionale e il monitoraggio delle anomalie dell'account.
+
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli dell'iniziativa incorporata relativa alla conformità normativa per il benchmark di sicurezza di Azure: gestione delle identità](../../governance/policy/samples/azure-security-benchmark#identity-management)
 
 ## <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Standardizzare Azure Active Directory come sistema di identità e autenticazione centrale
 
@@ -24,12 +26,12 @@ Gestione delle identità riguarda i controlli per stabilire un'identità sicura 
 |--|--|--|--|
 | IM-1 | 16,1, 16,2, 16,4, 16,5 | IA-2, IA-8, AC-2, AC-3 |
 
-Azure Active Directory (Azure AD) è il servizio di gestione delle identità e degli accessi predefinito di Azure. Usare Azure AD come standard per regolamentare la gestione delle identità e degli accessi dell'organizzazione in:
+Azure Active Directory (Azure AD) è il servizio di gestione delle identità e degli accessi predefinito di Azure. È necessario standardizzare i Azure AD per gestire la gestione delle identità e degli accessi dell'organizzazione in:
 - Risorse cloud Microsoft, come il portale di Azure, Archiviazione di Azure, Macchine virtuali di Azure (Linux e Windows), Azure Key Vault, PaaS e applicazioni SaaS.
 
 - Risorse dell'organizzazione, come le applicazioni in Azure o le risorse della rete aziendale.
 
-La protezione di Azure AD dovrebbe avere la massima priorità nelle procedure di sicurezza del cloud dell'organizzazione. Azure AD fornisce un punteggio di sicurezza delle identità che consente di valutare il comportamento di sicurezza delle identità rispetto alle procedure consigliate Microsoft. Usare il punteggio per misurare la precisione con cui la configurazione aderisce alle raccomandazioni delle procedure consigliate e per migliorare il comportamento di sicurezza.
+La protezione di Azure AD deve essere una priorità elevata nella procedura di sicurezza del cloud dell'organizzazione. Azure AD fornisce un punteggio sicuro per l'identità che consente di valutare la postura di sicurezza delle identità rispetto alle procedure consigliate di Microsoft. Usare il punteggio per misurare la precisione con cui la configurazione aderisce alle raccomandazioni delle procedure consigliate e per migliorare il comportamento di sicurezza.
 
 Nota: Azure AD supporta provider di identità esterni, che consentono agli utenti che non hanno un account Microsoft di accedere alle proprie applicazioni e risorse con l'identità esterna.
 
@@ -37,7 +39,7 @@ Nota: Azure AD supporta provider di identità esterni, che consentono agli utent
 
 - [Come creare e configurare un'istanza di Azure AD](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Definire i tenant di Azure AD](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
+- [Definire i tenant di Azure AD](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)
 
 - [Usare provider di identità esterni per un'applicazione](../../active-directory/external-identities/identity-providers.md)
 
@@ -63,7 +65,7 @@ Nota: Azure AD supporta provider di identità esterni, che consentono agli utent
 
 Per gli account non umani, ad esempio servizi o automazione, è possibile usare le identità gestite di Azure, anziché creare un account umano più potente per accedere alle risorse o eseguire codice. Le identità gestite di Azure possono eseguire l'autenticazione ai servizi e alle risorse di Azure che supportano l'autenticazione Azure AD. L'autenticazione viene abilitata tramite regole di concessione dell'accesso predefinite, evitando le credenziali hardcoded nel codice sorgente o nei file di configurazione. 
 
-Per i servizi che non supportano le identità gestite, usare Azure AD per creare un'entità servizio con autorizzazioni limitate a livello di risorsa.  Si consiglia di configurare le entità servizio con le credenziali del certificato e di eseguire il fallback ai segreti client. In entrambi i casi, è possibile usare Azure Key Vault insieme alle identità gestite di Azure, in modo che l'ambiente di runtime, ad esempio una funzione di Azure, possa recuperare le credenziali dall'insieme di credenziali delle chiavi.
+Per i servizi che non supportano le identità gestite, usare Azure AD per creare un'entità servizio con autorizzazioni limitate a livello di risorsa. Si consiglia di configurare le entità servizio con le credenziali del certificato e di eseguire il fallback ai segreti client. In entrambi i casi, è possibile usare Azure Key Vault insieme alle identità gestite di Azure, in modo che l'ambiente di runtime, ad esempio una funzione di Azure, possa recuperare le credenziali dall'insieme di credenziali delle chiavi.
 
 - [Identità gestite di Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -111,16 +113,17 @@ Usare Azure AD Single Sign-On (SSO) per gestire e proteggere l'accesso ai dati e
 |--|--|--|--|
 | IM-4 | 4,2, 4,4 4,5, 11,5, 12,11, 16,3 | AC-2, AC-3, IA-2, IA-4 |
 
-Azure AD supporta i controlli di autenticazione avanzata tramite l'autenticazione a più fattori e metodi avanzati con password.  
-- Multi-factor authentication: abilitare l'autenticazione a più fattori di Azure AD e seguire le indicazioni di gestione delle identità e degli accessi del Centro sicurezza di Azure per la configurazione L'autenticazione a più fattori può essere applicata a tutti gli utenti, selezionare gli utenti o a livello di utente, in base alle condizioni di accesso e ai fattori di rischio. 
+Azure AD supporta i controlli di autenticazione avanzata tramite l'autenticazione a più fattori e metodi avanzati con password.
 
-- Autenticazione con password: sono disponibili tre opzioni di autenticazione con password: Windows Hello for business, app Microsoft Authenticator e metodi di autenticazione locali come le smart card. 
+- Multi-factor authentication: abilitare l'autenticazione a più fattori di Azure AD e seguire le indicazioni di gestione delle identità e degli accessi del Centro sicurezza di Azure per la configurazione L'autenticazione a più fattori può essere applicata a tutti gli utenti, selezionare gli utenti o a livello di utente, in base alle condizioni di accesso e ai fattori di rischio.
+
+- Autenticazione con password: sono disponibili tre opzioni di autenticazione con password: Windows Hello for business, app Microsoft Authenticator e metodi di autenticazione locali come le smart card.
 
 Per gli amministratori e gli utenti con privilegi, assicurarsi che venga usato il livello più alto del metodo di autenticazione avanzata, seguito dall'implementazione dei criteri di autenticazione avanzata appropriati ad altri utenti.
 
-Se l'autenticazione basata su password legacy viene ancora usata per l'autenticazione Azure AD, tenere presente che gli account solo cloud (account utente creati direttamente in Azure) hanno un criterio predefinito per le password di base. E gli account ibridi, ovvero gli account utente che provengono da Active Directory locali, seguono i criteri di password locali. Quando si usa l'autenticazione basata su password, Azure AD fornisce una funzionalità di protezione delle password che impedisce agli utenti di impostare password facili da indovinare. Microsoft fornisce un elenco globale delle password escluse che vengono aggiornate in base ai dati di telemetria e i clienti possono ampliare l'elenco in base alle esigenze, ad esempio personalizzazione, riferimenti culturali e così via. Questa protezione con password può essere usata solo per gli account cloud e ibridi. 
+Se l'autenticazione basata su password legacy viene ancora usata per l'autenticazione Azure AD, tenere presente che gli account solo cloud (account utente creati direttamente in Azure) hanno un criterio predefinito per le password di base. E gli account ibridi, ovvero gli account utente che provengono da Active Directory locali, seguono i criteri di password locali. Quando si usa l'autenticazione basata su password, Azure AD fornisce una funzionalità di protezione delle password che impedisce agli utenti di impostare password facili da indovinare. Microsoft fornisce un elenco globale delle password escluse che vengono aggiornate in base ai dati di telemetria e i clienti possono ampliare l'elenco in base alle esigenze, ad esempio personalizzazione, riferimenti culturali e così via. Questa protezione con password può essere usata solo per gli account cloud e ibridi.
 
-Nota: l'autenticazione basata solo sulle credenziali password è soggetta ai metodi di attacco più diffusi. Per una maggiore sicurezza, usare l'autenticazione avanzata, ad esempio l'autenticazione a più fattori e un criterio di password complessa. Per le applicazioni di terze parti e i servizi del Marketplace che possono avere password predefinite, è necessario modificarli durante la configurazione iniziale del servizio. 
+Nota: l'autenticazione basata solo sulle credenziali password è soggetta ai metodi di attacco più diffusi. Per una maggiore sicurezza, usare l'autenticazione avanzata, ad esempio l'autenticazione a più fattori e un criterio di password complessa. Per le applicazioni di terze parti e i servizi del Marketplace che possono avere password predefinite, è necessario modificarli durante la configurazione iniziale del servizio.
 
 - [Come abilitare MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -155,7 +158,7 @@ Azure AD fornisce le origini dati seguenti:
 
 -   Utenti contrassegnati per il rischio. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso.
 
-Queste origini dati possono essere integrate con Monitoraggio di Azure, Azure Sentinel o sistemi SIEM di terze parti.
+Queste origini dati possono essere integrate con monitoraggio di Azure, Azure Sentinel o sistemi SIEM di terze parti.
 
 Il Centro sicurezza di Azure può anche inviare avvisi su determinate attività sospette, ad esempio un numero eccessivo di tentativi di autenticazione non riusciti e gli account deprecati nella sottoscrizione. 
 
@@ -175,7 +178,7 @@ Azure Advanced Threat Protection (ATP) è una soluzione di sicurezza che può us
 
 - [Connettere i dati da Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md)
 
-- [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
+- [Microsoft Defender per identità](/azure-advanced-threat-protection/what-is-atp)
 
 **Responsabilità**: Customer
 
@@ -219,7 +222,7 @@ Usare Azure AD accesso condizionale per un controllo di accesso più granulare i
 
 Implementare Azure DevOps Credential scanner per identificare le credenziali all'interno del codice. Credential scanner consiglia inoltre di trasferire le credenziali individuate a posizioni più sicure, ad esempio Azure Key Vault.
 
-Per GitHub, è possibile usare la funzionalità di analisi dei segreti nativa per identificare le credenziali o altre forme di segreti all'interno del codice.
+Per GitHub, è possibile usare la funzionalità di analisi dei segreti nativi per identificare le credenziali o altre forme di segreti all'interno del codice.
 
 - [Come impostare Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -241,9 +244,9 @@ Per GitHub, è possibile usare la funzionalità di analisi dei segreti nativa pe
 
 Assicurarsi di disporre di controlli di accesso e monitoraggio della sessione moderni per le applicazioni legacy e i dati archiviati ed elaborati. Mentre le VPN sono comunemente usate per accedere alle applicazioni legacy, spesso hanno solo il controllo di accesso di base e il monitoraggio limitato della sessione.
 
-Azure AD proxy di applicazione consente di pubblicare applicazioni locali legacy per gli utenti remoti con Single Sign-On (SSO) e di convalidare in modo esplicito l'attendibilità di utenti e dispositivi remoti con Azure AD l'accesso condizionale. 
+Azure AD proxy di applicazione consente di pubblicare applicazioni locali legacy per gli utenti remoti con Single Sign-On (SSO) e di convalidare in modo esplicito l'attendibilità di utenti e dispositivi remoti con Azure AD l'accesso condizionale.
 
-In alternativa, Microsoft Cloud App Security è un servizio CASB (cloud Access Security Broker) che può fornire controlli per il monitoraggio delle sessioni dell'applicazione di un utente e delle azioni di blocco (per le applicazioni locali legacy e le applicazioni SaaS (cloud Software as a Service). 
+In alternativa, Microsoft Cloud App Security è un servizio CASB (cloud Access Security Broker) che può fornire controlli per il monitoraggio delle sessioni dell'applicazione di un utente e delle azioni di blocco (per le applicazioni locali legacy e le applicazioni SaaS (cloud Software as a Service).
 
 - [Proxy applicazione Azure AD](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
 

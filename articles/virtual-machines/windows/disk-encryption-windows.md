@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: df74a15a84ba04addb75b021d3b77b06cfe2ea48
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 29a63d598ada8c413316fbf18bb87597afdf62de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781114"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693833"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenari di crittografia dischi di Azure per macchine virtuali Windows
 
@@ -151,7 +151,7 @@ Per abilitare la crittografia nei dischi NVMe:
 
 La crittografia viene mantenute nei dischi NVMe negli scenari seguenti:
 - Riavvio VM
-- Ricreazione dell'immagine di VMSS
+- Ricreazione dell'immagine del set di scalabilità di macchine virtuali
 - Scambia sistema operativo
 
 I dischi NVMe verranno non inizializzati negli scenari seguenti:
@@ -260,12 +260,11 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e le
 - Contenitori di Windows Server, che creano volumi dinamici per ogni contenitore.
 - Dischi del sistema operativo temporanei.
 - Crittografia di file system condivisi/distribuiti come, ma non limitati, DFS, GFS, DRDB e CephFS.
-- Trasferimento di macchine virtuali crittografate in un'altra sottoscrizione o in un'altra area.
+- Trasferimento di una macchina virtuale crittografata in un'altra sottoscrizione o in un'altra area.
 - Creare un'immagine o uno snapshot di una macchina virtuale crittografata e usarla per distribuire altre macchine virtuali.
-- Macchine virtuali Gen2 (vedere: [supporto per le macchine virtuali di seconda generazione in Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - VM serie M con dischi acceleratore di scrittura.
 - Applicazione di ADE a una macchina virtuale con dischi crittografati con la [crittografia lato server con chiavi gestite dal cliente](../disk-encryption.md) (SSE + CMK). Applicare anche SSE + CMK a un disco dati in una macchina virtuale crittografata con ADE è uno scenario non supportato.
-- Migrazione di una macchina virtuale crittografata con ADE oppure crittografata con ADE, per la [crittografia lato server con chiavi gestite dal cliente](../disk-encryption.md). **ever**
+- Migrazione di una macchina virtuale crittografata con ADE oppure crittografata con ADE, per la [crittografia lato server con chiavi gestite dal cliente](../disk-encryption.md). 
 - [Dimensioni delle macchine virtuali di Azure senza disco temporaneo locale](../azure-vms-no-temp-disk.md); in particolare, dv4, Dsv4, Ev4 e Esv4.
 - Crittografia delle macchine virtuali nei cluster di failover.
 

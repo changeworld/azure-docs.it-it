@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021
-ms.openlocfilehash: b1a249bac4a1a46e52bf52eccd56649153eefe8e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88e400cea764be84521c003a681aa74885dc29ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100360925"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721345"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-powershell"></a>Esercitazione: creare una Azure Load Balancer tra aree usando Azure PowerShell
 
@@ -195,7 +195,7 @@ Set-AzLoadBalancerBackendAddressPool @bepoolcr
 
 In questa sezione verrà testato il servizio di bilanciamento del carico tra più aree. Ci si connetterà all'indirizzo IP pubblico in un Web browser.  Si arresteranno le macchine virtuali in uno dei pool back-end del servizio di bilanciamento del carico a livello di area e si osserverà il failover.
 
-1. Usare [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) per ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico:
+1. Usare [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) per ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico:
 
 ```azurepowershell-interactive
 $ip = @{

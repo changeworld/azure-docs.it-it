@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 103855748c4b5d998dfc81eeb4044f5f53dae9e5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2b37308bcbcd489876c21dce56878de7e0daf545
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372009"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699029"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modelli di prezzi e fatturazione per app per la logica di Azure
 
@@ -94,7 +94,9 @@ Per informazioni sui limiti, vedere [limiti di ISE in app per la logica di Azure
 
 ## <a name="integration-accounts"></a>Account di integrazione
 
-Un [account di integrazione](../logic-apps/logic-apps-pricing.md#integration-accounts) è una risorsa separata che è possibile creare e collegare alle app per la logica in modo da esplorare, compilare e testare soluzioni di integrazione B2B che usano le funzionalità di elaborazione [EDI](logic-apps-enterprise-integration-b2b.md) e [XML](logic-apps-enterprise-integration-xml.md) . App per la logica di Azure offre i livelli o i livelli di account di integrazione seguenti:
+Un [account di integrazione](../logic-apps/logic-apps-pricing.md#integration-accounts) è una risorsa separata che è possibile creare e collegare alle app per la logica in modo da esplorare, compilare e testare soluzioni di integrazione B2B che usano le funzionalità di elaborazione [EDI](logic-apps-enterprise-integration-b2b.md) e [XML](logic-apps-enterprise-integration-xml.md) .
+
+App per la logica di Azure offre i livelli o i livelli di account di integrazione che variano in base al modello [di prezzi](https://azure.microsoft.com/pricing/details/logic-apps/) e [fatturazione](logic-apps-pricing.md#integration-accounts), a seconda che le app per la logica siano basate sul consumo o su ISE:
 
 | Livello | Descrizione |
 |------|-------------|

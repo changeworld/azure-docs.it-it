@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 5508ffc758b08642b05b1f77b66c9f29be1c85a2
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 886889ef9a42e358fca22a9d86955a23c5419dfa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650780"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738158"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Introduzione alla conversione di documenti (anteprima)
 
@@ -26,6 +26,8 @@ Per iniziare, è necessario:
 * Una risorsa del servizio di [**conversione**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**non** una risorsa Servizi cognitivi). 
 
 * Un [**account di archiviazione BLOB di Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). L'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione.
+
+* Un [**modulo di traduzione documenti completato (anteprima)**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) per consentire alla sottoscrizione di Azure di usare la nuova funzionalità di traduzione dei documenti.
 
 > [!NOTE]
 > La traduzione dei documenti è attualmente supportata solo nella risorsa di conversione (a servizio singolo), **non** nella risorsa Servizi cognitivi (multiservizio).
@@ -64,7 +66,7 @@ Le richieste al servizio di conversione richiedono una chiave di sola lettura pe
 
 ## <a name="create-your-azure-blob-storage-containers"></a>Creare i contenitori di archiviazione BLOB di Azure
 
-È necessario  [**creare contenitori**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) nell' [**account di archiviazione BLOB di Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) per i file di origine, di destinazione e di glossario facoltativo.
+È necessario  [**creare contenitori**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) nell' [**account di archiviazione BLOB di Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) per i file di origine, di destinazione e di glossario facoltativo.
 
 * **Contenitore di origine**. Questo contenitore consente di caricare i file per la conversione (obbligatorio).
 * **Contenitore di destinazione**. Questo è il contenitore in cui verranno archiviati i file tradotti (obbligatorio).  
@@ -201,26 +203,7 @@ Le intestazioni seguenti sono incluse in ogni richiesta dell'API di conversione 
 >[!NOTE]
 > Se nella destinazione esiste già un file con lo stesso nome, verrà sovrascritto.
 
-### <a name="post-a-translation-request"></a>Invia una richiesta di traduzione
-
-> [!IMPORTANT]
->
-> * Per gli esempi di codice riportati di seguito, potrebbe essere necessario aggiornare i campi seguenti, a seconda dell'operazione:
-
->> [!div class="checklist"]
->>
->> * `endpoint`
->> * `subscriptionKey`
->> * `sourceURL`
->> * `targetURL`
->> * `glossaryURL`
->> * `id`  (ID processo)
->>
-> * È possibile trovare il processo `id`  nel valore dell'URL dell'intestazione della risposta del metodo Post `Operation-Location`  . L'ultimo parametro dell'URL è il processo dell'operazione **`id`** .  
-> * È anche possibile usare una richiesta GET Jobs per recuperare il processo `id`  per un'operazione di conversione di documenti.
-> * Per gli esempi riportati di seguito, è necessario impostare come hardcoded la chiave e l'endpoint indicati; Ricordarsi di rimuovere la chiave dal codice al termine dell'operazione senza pubblicarla.  
->
-> Vedere [sicurezza dei servizi cognitivi di Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) per informazioni su come archiviare in modo sicuro le credenziali e accedervi.
+## <a name="post-a-translation-request"></a>Invia una richiesta di traduzione
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="post-request-body-without-optional-glossaryurl"></a>Invia il corpo della richiesta senza glossaryURL facoltativo
@@ -286,7 +269,26 @@ Le intestazioni seguenti sono incluse in ogni richiesta dell'API di conversione 
 }
 ```
 
-## <a name="_post-document-translation_-request-code-samples"></a>Esempi di codice di richiesta di _traduzione di documenti post_
+> [!IMPORTANT]
+>
+> Per gli esempi di codice riportati di seguito, potrebbe essere necessario aggiornare i campi seguenti, a seconda dell'operazione:
+>>>
+>> * `endpoint`
+>> * `subscriptionKey`
+>> * `sourceURL`
+>> * `targetURL`
+>> * `glossaryURL`
+>> * `id`  (ID processo)
+>>
+> Posizione in cui trovare il `id` valore:
+> * È possibile trovare il processo `id`  nel valore dell'URL dell'intestazione della risposta del metodo Post `Operation-Location`  . L'ultimo parametro dell'URL è il processo dell'operazione **`id`** .  
+> * È anche possibile usare una richiesta GET Jobs per recuperare il processo `id`  per un'operazione di conversione di documenti.
+>
+> Per gli esempi di codice riportati di seguito, è necessario impostare come hardcoded la chiave e l'endpoint, se indicati; Ricordarsi di rimuovere la chiave dal codice al termine dell'operazione senza pubblicarla.  
+>
+> Vedere [sicurezza dei servizi cognitivi di Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) per informazioni su come archiviare in modo sicuro le credenziali e accedervi.
+
+## <a name="_post-document-translation_-request"></a>_Invia richiesta di traduzione documento_
 
 Inviare una richiesta di traduzione di documenti batch al servizio di traduzione.
 
@@ -519,7 +521,7 @@ if err != nil {
 
 ---
 
-## <a name="_get-file-formats_-code-samples"></a>Esempi di codice per _ottenere formati di file_
+## <a name="_get-file-formats_"></a>_Ottieni formati di file_ 
 
 Recuperare un elenco di formati di file supportati. Se ha esito positivo, questo metodo restituisce un `200 OK` codice di risposta.
 
@@ -696,7 +698,7 @@ func main() {
 
 ---
 
-## <a name="_get-job-status_-code-samples"></a>Esempi di codice di _stato del processo di ottenimento_
+## <a name="_get-job-status_"></a>_OTTENERE lo stato del processo_ 
 
 Ottenere lo stato corrente per un singolo processo e un riepilogo di tutti i processi in una richiesta di traduzione del documento. Se ha esito positivo, questo metodo restituisce un `200 OK` codice di risposta.
 <!-- markdownlint-disable MD024 -->
@@ -875,7 +877,7 @@ func main() {
 
 ---
 
-## <a name="_get-document-status_-code-samples"></a>Esempi di codice di _stato del documento_
+## <a name="_get-document-status_"></a>_OTTENERE lo stato del documento_
 
 ### <a name="brief-overview"></a>Breve panoramica
 
@@ -1055,7 +1057,7 @@ func main() {
 
 ---
 
-## <a name="_delete-job_-code-samples"></a>_Eliminare_ gli esempi di codice del processo
+## <a name="_delete-job_"></a>_Elimina processo_ 
 
 ### <a name="brief-overview"></a>Breve panoramica
 
@@ -1254,7 +1256,7 @@ La tabella seguente elenca i limiti per i dati inviati alla traduzione del docum
 
 * [Informazioni di riferimento sull'API Translator v3](../reference/v3-0-reference.md)
 * [Lingue supportate](../language-support.md)
-* [Sottoscrizioni in gestione API di Azure](/azure/api-management/api-management-subscriptions).
+* [Sottoscrizioni in gestione API di Azure](../../../api-management/api-management-subscriptions.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: e8ad1cda8f80b1dbbdd56fb47bbf6c22aff82729
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 128a82fdc9b5a37258b5ca245a63bf52c050db26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615027"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713610"
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
 Scopo di questo documento è fornire informazioni specifiche per Log Analytics, una funzionalità di Monitoraggio di Azure, che integrino le informazioni disponibili nel [Centro protezione di Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -183,12 +183,12 @@ Per accedere all'area di lavoro Log Analytics, accedere al portale di Azure usan
 ## <a name="additional-security-features"></a>Funzionalità di sicurezza aggiuntive
 È possibile usare queste funzionalità di sicurezza aggiuntive per proteggere ulteriormente l'ambiente di monitoraggio/Log Analytics di Azure. Queste funzionalità richiedono una maggiore gestione degli amministratori. 
 - [Chiavi gestite dal cliente (sicurezza)](../logs/customer-managed-keys.md) : è possibile usare chiavi gestite dal cliente per crittografare i dati inviati alle aree di lavoro log Analytics. Richiede l'uso di Azure Key Vault. 
-- [Archiviazione privata/gestita dal cliente](../platform/private-storage.md) -gestire l'account di archiviazione con crittografia personale e indicare a log Analytics di usarlo per archiviare i dati di monitoraggio 
-- [Rete a collegamento privato](../platform/private-link-security.md) -collegamento privato di Azure consente di collegare in modo sicuro i servizi PaaS di Azure (incluso monitoraggio di Azure) alla rete virtuale usando endpoint privati. 
+- [Archiviazione privata/gestita dal cliente](./private-storage.md) -gestire l'account di archiviazione con crittografia personale e indicare a log Analytics di usarlo per archiviare i dati di monitoraggio 
+- [Rete a collegamento privato](./private-link-security.md) -collegamento privato di Azure consente di collegare in modo sicuro i servizi PaaS di Azure (incluso monitoraggio di Azure) alla rete virtuale usando endpoint privati. 
 - [Archivio clienti di Azure](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) : Customer Lockbox per Microsoft Azure fornisce un'interfaccia per consentire ai clienti di esaminare e approvare o rifiutare le richieste di accesso ai dati del cliente. Viene usato nei casi in cui un tecnico Microsoft deve accedere ai dati dei clienti durante una richiesta di supporto.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* È possibile ottenere informazioni su come raccogliere i dati con Log Analytics per le macchine virtuali di Azure seguendo la [guida introduttiva alle macchine virtuali di Azure](../learn/quick-collect-azurevm.md).  
+* È possibile ottenere informazioni su come raccogliere i dati con Log Analytics per le macchine virtuali di Azure seguendo la [guida introduttiva alle macchine virtuali di Azure](../vm/quick-collect-azurevm.md).  
 
-*  Se si desidera raccogliere dati da computer Windows o Linux fisici o virtuali nell'ambiente in uso, vedere [Avvio rapido per i computer Linux](../vm/quick-collect-linux-computer.md) o la [Avvio rapido per i computer Windows](../learn/quick-collect-windows-computer.md)
+*  Se si desidera raccogliere dati da computer Windows o Linux fisici o virtuali nell'ambiente in uso, vedere [Avvio rapido per i computer Linux](../vm/quick-collect-linux-computer.md) o la [Avvio rapido per i computer Windows](../vm/quick-collect-windows-computer.md)

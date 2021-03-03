@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 3bcbd2a58764003c174c02ec637050b57632048a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a02299853174192c6963cbb382ceb1aa06ac088
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618876"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728604"
 ---
 # <a name="composite-bar-renderer"></a>Renderer della barra composita
 
@@ -193,4 +193,4 @@ La visualizzazione a barre composite per Graph con le impostazioni precedenti sa
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Distribuire](../visualize/workbooks-automate.md) cartelle di lavoro con Azure Resource Manager.
-* [Controllare](../platform/workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.
+* [Controllare](./workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.

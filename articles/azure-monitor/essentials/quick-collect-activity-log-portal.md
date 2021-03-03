@@ -6,15 +6,15 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 2e6dc55b54bc3abaea22544d457f98307596c5dd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1316512badd69b545e39a47ea5da3ca6a0902482
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628906"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734282"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Inviare il log attività di Azure all'area di lavoro Log Analytics con il portale di Azure
-Il log attività è un log della piattaforma presente in Azure che fornisce dati analitici sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Questo argomento di avvio rapido illustra come usare il portale di Azure per creare un'area di lavoro Log Analytics e un'impostazione di diagnostica per inviare il log attività ai log di Monitoraggio di Azure, in cui è possibile analizzarlo usando [query di log](../log-query/log-query-overview.md) e abilitare altre funzionalità, ad esempio [avvisi del log](../alerts/alerts-log-query.md) e [cartelle di lavoro](../visualize/workbooks-overview.md). 
+Il log attività è un log della piattaforma presente in Azure che fornisce dati analitici sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Questo argomento di avvio rapido illustra come usare il portale di Azure per creare un'area di lavoro Log Analytics e un'impostazione di diagnostica per inviare il log attività ai log di Monitoraggio di Azure, in cui è possibile analizzarlo usando [query di log](../logs/log-query-overview.md) e abilitare altre funzionalità, ad esempio [avvisi del log](../alerts/alerts-log-query.md) e [cartelle di lavoro](../visualize/workbooks-overview.md). 
 
 ## <a name="sign-in-to-azure-portal"></a>Accedere al portale di Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
@@ -73,7 +73,7 @@ Provare a eseguire una query più complessa, ad esempio `AzureActivity | summari
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo argomento di avvio rapido è stato configurato il log attività da inviare a un'area di lavoro Log Analytics. È ora possibile configurare altri dati da raccogliere nell'area di lavoro e analizzarli insieme usando [query di log](../log-query/log-query-overview.md) in Monitoraggio di Azure e sfruttare funzionalità come gli [avvisi di log](../alerts/alerts-log-query.md) e le [cartelle di lavoro](../visualize/workbooks-overview.md). In seguito è necessario raccogliere i [log delle risorse](../essentials/resource-logs.md) dalle risorse di Azure, che completano i dati nel log attività, fornendo dati analitici sulle operazioni eseguite all'interno delle singole risorse.
+In questo argomento di avvio rapido è stato configurato il log attività da inviare a un'area di lavoro Log Analytics. È ora possibile configurare altri dati da raccogliere nell'area di lavoro e analizzarli insieme usando [query di log](../logs/log-query-overview.md) in Monitoraggio di Azure e sfruttare funzionalità come gli [avvisi di log](../alerts/alerts-log-query.md) e le [cartelle di lavoro](../visualize/workbooks-overview.md). In seguito è necessario raccogliere i [log delle risorse](../essentials/resource-logs.md) dalle risorse di Azure, che completano i dati nel log attività, fornendo dati analitici sulle operazioni eseguite all'interno delle singole risorse.
 
 
 > [!div class="nextstepaction"]

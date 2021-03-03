@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: ff4882f2146a8b978047df2fcf6c52734534979f
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: d4ab5361d245ad1ee10d43184cc0a2d65fed2054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833984"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730032"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Esegui migrazione a monitoraggio connessione da monitoraggio connessione (versione classica)
 
@@ -32,7 +32,7 @@ La migrazione contribuisce a produrre i risultati seguenti:
 
 * Gli agenti e le impostazioni del firewall funzionano così come sono. Non sono necessarie modifiche. 
 * I monitoraggi connessioni esistenti vengono mappati a monitoraggio connessione > gruppo di test > formato di test. Se si seleziona **modifica**, è possibile visualizzare e modificare le proprietà del nuovo monitoraggio della connessione, scaricare un modello per apportare modifiche al monitoraggio della connessione e inviarlo tramite Azure Resource Manager. 
-* Le macchine virtuali di Azure con l'estensione Network Watcher inviano i dati all'area di lavoro e alle metriche. Il monitoraggio della connessione rende disponibili i dati tramite le nuove metriche (ChecksFailedPercent e RoundTripTimeMs) anziché le metriche precedenti (ProbesFailedPercent e AverageRoundtripMs). 
+* Le macchine virtuali di Azure con l'estensione Network Watcher inviano i dati all'area di lavoro e alle metriche. Il monitoraggio della connessione rende disponibili i dati tramite le nuove metriche (ChecksFailedPercent e RoundTripTimeMs) anziché le metriche precedenti (ProbesFailedPercent e AverageRoundtripMs). Le metriche precedenti vengono migrate a nuove metriche come ProbesFailedPercent-> ChecksFailedPercent e AverageRoundtripMs-> RoundTripTimeMs.
 * Monitoraggio dei dati:
    * **Avvisi**: la migrazione viene eseguita automaticamente nelle nuove metriche.
    * **Dashboard e integrazioni**: è necessario modificare manualmente il set di metriche. 
@@ -49,7 +49,7 @@ Se si usa un'area di lavoro personalizzata, assicurarsi che Network Watcher sia 
     
 1. Selezionare la sottoscrizione e i monitoraggi di connessione di cui si vuole eseguire la migrazione, quindi selezionare **migrate selected**. 
 
-Con pochi clic, è stata eseguita la migrazione dei monitoraggi connessione esistenti a monitoraggio connessione. 
+Con pochi clic, è stata eseguita la migrazione dei monitoraggi connessione esistenti a monitoraggio connessione. Una volta eseguita la migrazione da CM (classico) a CM, non sarà possibile visualizzare il monitor in CM (classico)
 
 È ora possibile personalizzare le proprietà di monitoraggio della connessione, modificare l'area di lavoro predefinita, scaricare i modelli e verificare lo stato della migrazione. 
 

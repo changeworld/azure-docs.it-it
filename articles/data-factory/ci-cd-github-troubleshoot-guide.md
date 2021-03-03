@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 091c0cb20877090453f38ab922cc2bd277e90093
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727958"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Risolvere i problemi relativi a CI-CD, Azure DevOps e GitHub in ADF 
 
@@ -162,7 +162,7 @@ Fino a poco tempo fa, solo un modo per pubblicare la pipeline di ADF per le dist
 
 #### <a name="resolution"></a>Soluzione
 
-Il processo CI/CD è stato migliorato. La funzionalità di **pubblicazione automatica** accetta, convalida ed Esporta tutte le funzionalità del modello di Azure Resource Manager (ARM) dall'UX di ADF. Rende la logica utilizzabile tramite un pacchetto NPM disponibile pubblicamente [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . In questo modo è possibile attivare le azioni a livello di codice anziché passare all'interfaccia utente di ADF e fare clic su un pulsante. Ciò offre alle pipeline di integrazione continua/recapito continuo una **vera** e propria esperienza di integrazione continua. Per informazioni dettagliate, seguire i [miglioramenti alla pubblicazione ci/CD di ADF](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) . 
+Il processo CI/CD è stato migliorato. La funzionalità di **pubblicazione automatica** accetta, convalida ed Esporta tutte le funzionalità del modello di Azure Resource Manager (ARM) dall'UX di ADF. Rende la logica utilizzabile tramite un pacchetto NPM disponibile pubblicamente [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . In questo modo è possibile attivare le azioni a livello di codice anziché passare all'interfaccia utente di ADF e fare clic su un pulsante. Ciò offre alle pipeline di integrazione continua/recapito continuo una **vera** e propria esperienza di integrazione continua. Per informazioni dettagliate, seguire i [miglioramenti alla pubblicazione ci/CD di ADF](./continuous-integration-deployment-improvements.md) . 
 
 ###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>Impossibile pubblicare a causa del limite del modello ARM da 4 MB  
 
@@ -176,7 +176,45 @@ Azure Resource Manager limita le dimensioni del modello a 4 MB. Limitare le dime
 
 #### <a name="resolution"></a>Soluzione
 
-Per le piccole e medie soluzioni, un modello singolo è più facile da comprendere e gestire. È possibile vedere tutti i valori e le risorse in un unico file. Per gli scenari avanzati, i modelli collegati consentono di suddividere la soluzione in componenti di destinazione. Seguire le procedure consigliate per l' [uso di modelli collegati e annidati](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
+Per le piccole e medie soluzioni, un modello singolo è più facile da comprendere e gestire. È possibile vedere tutti i valori e le risorse in un unico file. Per gli scenari avanzati, i modelli collegati consentono di suddividere la soluzione in componenti di destinazione. Seguire le procedure consigliate per l' [uso di modelli collegati e annidati](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
+
+### <a name="cannot-connect-to-git-enterprise"></a>Non è possibile connettersi a GIT Enterprise 
+
+##### <a name="issue"></a>Problema
+
+Non è possibile connettersi a GIT Enterprise a causa di problemi di autorizzazione. È possibile visualizzare un errore simile a **422-entità non elaborabile.**
+
+#### <a name="cause"></a>Causa
+
+OAuth non è stato configurato per ADF. L'URL non è configurato correttamente.
+
+##### <a name="resolution"></a>Soluzione
+
+Per prima cosa si concede l'accesso OAuth ad ADF. Quindi, è necessario usare l'URL corretto per connettersi a GIT Enterprise. La configurazione deve essere impostata sulle organizzazioni dei clienti perché il servizio ADF tenterà prima https://hostname/api/v3/search/repositories?q=user%3 <customer credential> .... e hanno esito negativo. Quindi, il tentativo avrà https://hostname/api/v3/orgs/ <vaorg> / <repo> esito positivo. 
+ 
+### <a name="recover-from-a-deleted-data-factory"></a>Ripristino da un data factory eliminato
+
+#### <a name="issue"></a>Problema
+Data Factory eliminata dal cliente o il gruppo di risorse che contiene il Data Factory. Desidera ottenere informazioni su come ripristinare un data factory eliminato.
+
+#### <a name="cause"></a>Causa
+
+È possibile ripristinare il Data Factory solo se il cliente dispone del controllo del codice sorgente configurato (DevOps o Git). Verrà riportata tutta la risorsa pubblicata più recente e **non verrà** ripristinata la pipeline non pubblicata, il set di dati e il servizio collegato.
+
+Se non è presente alcun controllo del codice sorgente, il recupero di un Data Factory eliminato dal back-end non è possibile perché quando il servizio riceve il comando Deleted, l'istanza viene eliminata e non è stato archiviato alcun backup.
+
+#### <a name="resoloution"></a>Resoloution
+Per ripristinare il Data Factory eliminato con controllo del codice sorgente, vedere i passaggi seguenti:
+
+ * Creare una nuova Azure Data Factory.
+
+ * Riconfigurare git con le stesse impostazioni, ma assicurarsi di importare le risorse di Data Factory esistenti nel repository selezionato e scegliere nuovo ramo.
+
+ * Creare una richiesta pull per unire le modifiche al ramo di collaborazione e pubblicare.
+
+ * Se il cliente avesse un Integration Runtime self-hosted in ADF eliminato, dovrà creare una nuova istanza in un nuovo ADF, disinstallare e reinstallare l'istanza nel computer locale o nella macchina virtuale con la nuova chiave ottenuta. Al termine dell'installazione del runtime di integrazione, il cliente dovrà modificare il servizio collegato in modo che punti al nuovo runtime di integrazione e testare la connessione oppure avrà esito negativo con errore di **riferimento non valido.**
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

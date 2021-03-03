@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 4174e63ed12faf5d10029db5b4eb9bf9a40b9b5b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: fe6be5778997f0ef4a3f53ae45d17352eca60d8e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576279"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727261"
 ---
 # <a name="create-a-video-indexer-account"></a>Creazione di un account Video Indexer
 
@@ -201,7 +201,7 @@ Per automatizzare la creazione dell'account è necessario procedere in due passa
 
 ### <a name="prerequisites-for-connecting-to-azure-government"></a>Prerequisiti per la connessione ad Azure per enti pubblici
 
--   Una sottoscrizione di Azure in [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/).
+-   Una sottoscrizione di Azure in [Azure per enti pubblici](../../azure-government/index.yml).
 - Un account Azure AD in Azure per enti pubblici.
 - Tutti i prerequisiti per le autorizzazioni e le risorse descritte in precedenza in [prerequisiti per la connessione ad Azure](#prerequisites-for-connecting-to-azure).
 
@@ -222,7 +222,7 @@ Per creare un account a pagamento tramite il portale di Video Indexer:
     
 ### <a name="create-new-account-via-the-api-on-azure-government"></a>Creare un nuovo account tramite l'API in Azure per enti pubblici
 
-Per creare un account a pagamento in Azure per enti pubblici, seguire le istruzioni riportate in [creare un account a pagamento](/azure/media-services/video-indexer/connect-to-azure). Questo endpoint API include solo le aree del cloud per enti pubblici.
+Per creare un account a pagamento in Azure per enti pubblici, seguire le istruzioni riportate in [creare un account a pagamento](). Questo endpoint API include solo le aree del cloud per enti pubblici.
 
 ### <a name="limitations-of-video-indexer-on-azure-government"></a>Limitazioni dei Video Indexer in Azure per enti pubblici
 

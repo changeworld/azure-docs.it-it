@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: a2ab63febbb4439e50ef0f7bcc0f9797dc50c62c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a9dfd185af012314ddc481b598f181b6760640ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99260029"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690941"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guida alla migrazione: SQL Server al database SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -157,8 +157,8 @@ Per velocizzare la migrazione al database SQL di Azure, è necessario considerar
 |  | Contesa di risorse | Recommendation |
 |--|--|--|
 | **Origine (in genere in locale)** |Il collo di bottiglia principale durante la migrazione nell'origine è l'I/O dei dati e la latenza su un file di dati che deve essere monitorato attentamente.  |In base all'i/o di dati e alla latenza dei file di dati e a seconda che si tratti di una macchina virtuale o di un server fisico, sarà necessario coinvolgere l'amministratore di archiviazione ed esplorare le opzioni per attenuare il collo di bottiglia. |
-|**Target (database SQL di Azure)**|Il fattore di limitazione principale è la velocità e la latenza di generazione del log nel file di log. Con il database SQL di Azure è possibile ottenere un massimo di 96 MB/s di velocità di generazione del log. | Per velocizzare la migrazione, aumentare il numero di istanze del database SQL di destinazione per business critical quinta generazione 8 Vcore per ottenere la velocità massima di generazione dei log di 96 MB/s e ottenere una bassa latenza per il file di log. Il livello di servizio di [iperscalabilità](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) offre una velocità di log di 100 MB/s indipendentemente dal livello di servizio scelto |
-|**Network** |La larghezza di banda di rete necessaria è uguale alla velocità massima di inserimento log 96 MB/s (768 MB/s) |A seconda della connettività di rete dal data center locale ad Azure, controllare la larghezza di banda di rete (in genere [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction#bandwidth-options)) per soddisfare la velocità massima di inserimento dei log. |
+|**Target (database SQL di Azure)**|Il fattore di limitazione principale è la velocità e la latenza di generazione del log nel file di log. Con il database SQL di Azure è possibile ottenere un massimo di 96 MB/s di velocità di generazione del log. | Per velocizzare la migrazione, aumentare il numero di istanze del database SQL di destinazione per business critical quinta generazione 8 Vcore per ottenere la velocità massima di generazione dei log di 96 MB/s e ottenere una bassa latenza per il file di log. Il livello di servizio di [iperscalabilità](../../database/service-tier-hyperscale.md) offre una velocità di log di 100 MB/s indipendentemente dal livello di servizio scelto |
+|**Network** |La larghezza di banda di rete necessaria è uguale alla velocità massima di inserimento log 96 MB/s (768 MB/s) |A seconda della connettività di rete dal data center locale ad Azure, controllare la larghezza di banda di rete (in genere [Azure ExpressRoute](../../../expressroute/expressroute-introduction.md#bandwidth-options)) per soddisfare la velocità massima di inserimento dei log. |
 |**Macchina virtuale usata per Data Migration Assistant (DMA)** |CPU è il collo di bottiglia principale per la macchina virtuale che esegue DMA |Aspetti da considerare per velocizzare la migrazione dei dati tramite </br>-Macchine virtuali con utilizzo intensivo di calcolo di Azure </br>-Usare almeno F8s_v2 (8 VCore) VM per l'esecuzione di DMA </br>-Assicurarsi che la macchina virtuale sia in esecuzione nella stessa area di Azure della destinazione |
 |**Servizio Migrazione del database di Azure (DMS)** |Calcolo della contesa di risorse e degli oggetti di database per DMS |Usare Premium 4 vCore. DMS gestisce automaticamente oggetti di database come chiavi esterne, trigger, vincoli e indici non cluster e non richiede alcun intervento manuale.  |
 

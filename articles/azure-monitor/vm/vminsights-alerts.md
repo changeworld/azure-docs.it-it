@@ -1,36 +1,36 @@
 ---
-title: Avvisi da Monitoraggio di Azure per le macchine virtuali
-description: Viene descritto come creare regole di avviso da dati sulle prestazioni raccolti da Monitoraggio di Azure per le macchine virtuali.
+title: Avvisi da VM Insights
+description: Viene descritto come creare regole di avviso da dati sulle prestazioni raccolti da VM Insights.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 4ae5b12f22b0cbcef7577c2eb9d4f3e3ae737590
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e3b5f49d9a4ed7af40afba5b267ba0c7bb9cd73a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618257"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704056"
 ---
-# <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Come creare avvisi da Monitoraggio di Azure per le macchine virtuali
-Gli [avvisi in monitoraggio di Azure](../platform/alerts-overview.md) notificano in modo proattivo i dati e i modelli interessanti nei dati di monitoraggio. Monitoraggio di Azure per le macchine virtuali non include regole di avviso preconfigurate, ma è possibile crearne di personalizzate in base ai dati raccolti. Questo articolo fornisce indicazioni sulla creazione di regole di avviso, incluso un set di query di esempio.
+# <a name="how-to-create-alerts-from-vm-insights"></a>Come creare avvisi da VM Insights
+Gli [avvisi in monitoraggio di Azure](../alerts/alerts-overview.md) notificano in modo proattivo i dati e i modelli interessanti nei dati di monitoraggio. VM Insights non include regole di avviso preconfigurate, ma è possibile crearne di personalizzate in base ai dati raccolti. Questo articolo fornisce indicazioni sulla creazione di regole di avviso, incluso un set di query di esempio.
 
 > [!IMPORTANT]
-> Gli avvisi descritti in questo articolo si basano sulle query di log dei dati raccolti Monitoraggio di Azure per le macchine virtuali. Questa operazione è diversa rispetto agli avvisi creati da [monitoraggio di Azure per l'integrità Guest della VM](vminsights-health-overview.md) , una funzionalità attualmente disponibile in anteprima pubblica. Poiché questa funzionalità è vicina alla disponibilità generale, verranno consolidate le linee guida per gli avvisi.
+> Gli avvisi descritti in questo articolo si basano sulle query di log dei dati raccolti da VM Insights. Questa operazione è diversa rispetto agli avvisi creati da [monitoraggio di Azure per l'integrità Guest della VM](vminsights-health-overview.md) , una funzionalità attualmente disponibile in anteprima pubblica. Poiché questa funzionalità è vicina alla disponibilità generale, verranno consolidate le linee guida per gli avvisi.
 
 
 ## <a name="alert-rule-types"></a>Tipi di regole di avviso
-Monitoraggio di Azure dispone [di diversi tipi di regole di avviso](../platform/alerts-overview.md#what-you-can-alert-on) in base ai dati usati per creare l'avviso. Tutti i dati raccolti da Monitoraggio di Azure per le macchine virtuali vengono archiviati nei log di monitoraggio di Azure che supportano gli [avvisi del log](../alerts/alerts-log.md). Attualmente non è possibile usare gli [avvisi delle metriche](../alerts/alerts-log.md) con i dati sulle prestazioni raccolti da monitoraggio di Azure per le macchine virtuali perché i dati non vengono raccolti nelle metriche di monitoraggio di Azure. Per raccogliere dati per gli avvisi delle metriche, installare l' [estensione di diagnostica](../agents/diagnostics-extension-overview.md) per le macchine virtuali Windows o l' [agente Telegraf](../platform/collect-custom-metrics-linux-telegraf.md) per le macchine virtuali Linux per raccogliere dati sulle prestazioni in metriche.
+Monitoraggio di Azure dispone [di diversi tipi di regole di avviso](../alerts/alerts-overview.md#what-you-can-alert-on) in base ai dati usati per creare l'avviso. Tutti i dati raccolti da VM Insights vengono archiviati nei log di monitoraggio di Azure che supportano gli [avvisi del log](../alerts/alerts-log.md). Attualmente non è possibile usare gli [avvisi delle metriche](../alerts/alerts-log.md) con i dati sulle prestazioni raccolti da VM Insights, perché i dati non vengono raccolti nelle metriche di monitoraggio di Azure. Per raccogliere dati per gli avvisi delle metriche, installare l' [estensione di diagnostica](../agents/diagnostics-extension-overview.md) per le macchine virtuali Windows o l' [agente Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md) per le macchine virtuali Linux per raccogliere dati sulle prestazioni in metriche.
 
 Sono disponibili due tipi di avvisi del log in monitoraggio di Azure:
 
 - Il [numero di avvisi di risultati](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) crea un singolo avviso quando una query restituisce almeno un numero specificato di record. Questi sono ideali per i dati non numerici, ad esempio gli eventi Windows e syslog raccolti dall' [agente log Analytics](../agents/log-analytics-agent.md) o per l'analisi delle tendenze delle prestazioni in più computer.
-- Gli [avvisi di misurazione delle metriche](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) creano un avviso separato per ogni record in una query con un valore che supera una soglia definita nella regola di avviso. Queste regole di avviso sono ideali per i dati sulle prestazioni raccolti da Monitoraggio di Azure per le macchine virtuali, perché possono creare singoli avvisi per ogni computer.
+- Gli [avvisi di misurazione delle metriche](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) creano un avviso separato per ogni record in una query con un valore che supera una soglia definita nella regola di avviso. Queste regole di avviso sono ideali per i dati sulle prestazioni raccolti da VM Insights, in quanto consentono di creare singoli avvisi per ogni computer.
 
 
 ## <a name="alert-rule-walkthrough"></a>Procedura dettagliata della regola di avviso
-Questa sezione illustra la creazione di una regola di avviso di misurazione delle metriche usando i dati sulle prestazioni da Monitoraggio di Azure per le macchine virtuali. È possibile usare questo processo di base con una serie di query di log per inviare avvisi su contatori di prestazioni diversi.
+Questa sezione illustra la creazione di una regola di avviso di misurazione delle metriche usando i dati sulle prestazioni di VM Insights. È possibile usare questo processo di base con una serie di query di log per inviare avvisi su contatori di prestazioni diversi.
 
 Per iniziare, creare una nuova regola di avviso seguendo la procedura descritta in [creare, visualizzare e gestire gli avvisi del log mediante monitoraggio di Azure](../alerts/alerts-log.md). Per la **risorsa** selezionare l'area di lavoro log Analytics utilizzata dalle macchine virtuali di monitoraggio di Azure nella sottoscrizione. Poiché la risorsa di destinazione per le regole di avviso del log è sempre un'area di lavoro Log Analytics, la query di log deve includere qualsiasi filtro per determinate macchine virtuali o set di scalabilità di macchine virtuali. 
 
@@ -44,7 +44,7 @@ La sezione **valutata in base a** definisce la frequenza con cui viene eseguita 
 ![Regola di avviso di misurazione delle metriche](media/vminsights-alerts/metric-measurement-alert.png)
 
 ## <a name="sample-alert-queries"></a>Query di avviso di esempio
-Le query seguenti possono essere utilizzate con una regola di avviso di misurazione delle metriche utilizzando i dati sulle prestazioni raccolti da Monitoraggio di Azure per le macchine virtuali. Ognuno riepiloga i dati in base al computer, in modo che venga creato un avviso per ogni computer con un valore che supera la soglia.
+È possibile usare le query seguenti con una regola di avviso di misurazione della metrica usando i dati sulle prestazioni raccolti da VM Insights. Ognuno riepiloga i dati in base al computer, in modo che venga creato un avviso per ogni computer con un valore che supera la soglia.
 
 ### <a name="cpu-utilization"></a>Uso della CPU
 
@@ -200,5 +200,5 @@ or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sugli [avvisi in monitoraggio di Azure](../platform/alerts-overview.md).
-- Altre informazioni sulle [query di log con i dati di monitoraggio di Azure per le macchine virtuali](vminsights-log-search.md).
+- Altre informazioni sugli [avvisi in monitoraggio di Azure](../alerts/alerts-overview.md).
+- Altre informazioni sulle [query di log con i dati di VM Insights](vminsights-log-search.md).

@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 2a5bc5b6f9e2cb9a3f6895847dd8f03bc2540e18
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e95c25121d0e8a7e7fb469c0473c35797e4519b9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100514947"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750465"
 ---
 <a name="HOLTop"></a>
 
@@ -28,10 +28,6 @@ ms.locfileid: "100514947"
 
 [Documentazione di riferimento v3](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Codice sorgente della libreria v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Pacchetto (NPM) v3](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Esempi v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
-
-# <a name="version-21"></a>[Versione 2.1](#tab/version-2)
-
-[Documentazione di riferimento v2](/javascript/api/@azure/cognitiveservices-textanalytics) | [Codice sorgente della libreria v2](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Pacchetto (NPM) v2](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) | [Esempi v2](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ---
 
@@ -86,17 +82,6 @@ npm install --save @azure/ai-text-analytics@5.0.0
 > [!TIP]
 > Si vuole visualizzare l'intero file di codice dell'argomento di avvio rapido? È possibile trovarlo [in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/TextAnalytics/text-analytics-v3-client-library.js), che contiene gli esempi di codice di questo argomento. 
 
-# <a name="version-21"></a>[Versione 2.1](#tab/version-2)
-
-Installare i pacchetti NPM `@azure/cognitiveservices-textanalytics`:
-
-```console
-npm install --save @azure/cognitiveservices-textanalytics @azure/ms-rest-js
-```
-
-> [!TIP]
-> Si vuole visualizzare l'intero file di codice dell'argomento di avvio rapido? È possibile trovarlo [in GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js), che contiene gli esempi di codice di questo argomento. 
-
 ---
 
 Il file `package.json` dell'app viene aggiornato con le dipendenze.
@@ -118,15 +103,6 @@ const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-anal
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 ```
 
-# <a name="version-21"></a>[Versione 2.1](#tab/version-2)
-
-```javascript
-"use strict";
-
-const os = require("os");
-const CognitiveServicesCredentials = require("@azure/ms-rest-js");
-const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
-```
 ---
 
 Creare le variabili per l'endpoint e la chiave di Azure della risorsa.
@@ -174,12 +150,6 @@ Creare un nuovo oggetto `TextAnalyticsClient` con la chiave e l'endpoint come pa
 ```javascript
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 ```
-
-# <a name="version-21"></a>[Versione 2.1](#tab/version-2)
-
-Creare un nuovo oggetto [TextAnalyticsClient](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) con `credentials` e `endpoint` come parametri.
-
-[!code-javascript[Authentication and client creation](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=authentication)]
 
 ---
 
@@ -358,23 +328,6 @@ ID: 0
                 Positive: 0.21  Negative: 0.02  Neutral: 0.77
 ```
 
-# <a name="version-21"></a>[Versione 2.1](#tab/version-2)
-
-Creare un elenco di oggetti dizionario contenenti i documenti da analizzare. Chiamare il metodo [sentiment()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) del client e ottenere l'oggetto [SentimentBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult) restituito. Eseguire l'iterazione attraverso l'elenco dei risultati e stampare l'ID di ogni documento e il punteggio del sentiment. I punteggi più vicini a 0 indicano un sentiment negativo, mentre quelli più vicini a 1 indicano un sentiment positivo.
-
-[!code-javascript[Sentiment analysis](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=sentimentAnalysis)]
-
-Eseguire il codice con `node index.js` nella finestra della console.
-
-### <a name="output"></a>Output
-
-```console
-[ { id: '1', score: 0.87 } ]
-[ { id: '2', score: 0.11 } ]
-[ { id: '3', score: 0.44 } ]
-[ { id: '4', score: 1.00 } ]
-```
-
 ---
 
 ## <a name="language-detection"></a>Rilevamento della lingua
@@ -435,22 +388,6 @@ Eseguire il codice con `node index.js` nella finestra della console.
 ```console
 ID: 0
         Primary Language French
-```
-
-# <a name="version-21"></a>[Versione 2.1](#tab/version-2)
-
-Creare un elenco di oggetti dizionario contenenti i documenti. Chiamare il metodo [detectLanguage()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) del client e ottenere l'oggetto [LanguageBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult) restituito. Quindi eseguire l'iterazione attraverso i risultati e stampare l'ID di ogni documento e la lingua.
-
-[!code-javascript[Language detection](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=languageDetection)]
-
-Eseguire il codice con `node index.js` nella finestra della console.
-
-### <a name="output"></a>Output
-
-```console
-Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
 ```
 
 ---
@@ -704,46 +641,6 @@ Document ID: 0
                 Text: BASIC     Score: 0.33
 ```
 
-# <a name="version-21"></a>[Versione 2.1](#tab/version-2)
-
-> [!NOTE]
-> Nella versione 2.1 il collegamento di entità è incluso nella risposta del riconoscimento di entità denominate.
-
-Creare un elenco di oggetti contenenti i documenti. Chiamare il metodo [entities()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) del client e ottenere l'oggetto [EntitiesBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult). Eseguire l'iterazione attraverso l'elenco de risultati e stampare l'ID di ogni documento. Per ogni entità rilevata, stampare il relativo nome di wikipedia, il tipo e i sottotipi (se presenti), nonché le posizioni nel testo originale.
-
-[!code-javascript[Entity recognition](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=entityRecognition)]
-
-Eseguire il codice con `node index.js` nella finestra della console.
-
-### <a name="output"></a>Output
-
-```console
-Document ID: 1
-    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-    Offset: 0, Length: 9,   Score: 1.0
-    Name: Bill Gates,       Type: Person,   Sub-Type: N/A
-    Offset: 25, Length: 10, Score: 0.999847412109375
-    Name: Paul Allen,       Type: Person,   Sub-Type: N/A
-    Offset: 40, Length: 10, Score: 0.9988409876823425
-    Name: April 4,  Type: Other,    Sub-Type: N/A
-    Offset: 54, Length: 7,  Score: 0.8
-    Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
-    Offset: 54, Length: 13, Score: 0.8
-    Name: BASIC,    Type: Other,    Sub-Type: N/A
-    Offset: 89, Length: 5,  Score: 0.8
-    Name: Altair 8800,      Type: Other,    Sub-Type: N/A
-    Offset: 116, Length: 11,        Score: 0.8
-
-Document ID: 2
-    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-    Offset: 21, Length: 9,  Score: 0.999755859375
-    Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-    Offset: 60, Length: 7,  Score: 0.9911284446716309
-    Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-    Offset: 71, Length: 13, Score: 0.8
-    Name: Seattle,  Type: Location, Sub-Type: N/A
-    Offset: 88, Length: 7,  Score: 0.9998779296875
-```
 
 ---
 
@@ -807,24 +704,6 @@ ID: 0
         Document Key Phrases: cat,veterinarian
 ```
 
-# <a name="version-21"></a>[Versione 2.1](#tab/version-2)
-
-Creare un elenco di oggetti contenenti i documenti. Chiamare il metodo [keyPhrases()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) del client e ottenere l'oggetto [KeyPhraseBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) restituito. Eseguire l'iterazione attraverso i risultati e stampare l'ID di ogni documento e le frasi chiave rilevate.
-
-[!code-javascript[Key phrase extraction](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=keyPhraseExtraction)]
-
-Eseguire il codice con `node index.js` nella finestra della console.
-
-### <a name="output"></a>Output
-
-```console
-[
-    { id: '1', keyPhrases: [ '幸せ' ] }
-    { id: '2', keyPhrases: [ 'Stuttgart', "hotel", "Fahrt", "Fu" ] }
-    { id: '3', keyPhrases: [ 'cat', 'veterinarian' ] }
-    { id: '3', keyPhrases: [ 'fútbol' ] }
-]
-```
 
 ---
 
@@ -886,10 +765,6 @@ analyze_example(textAnalyticsClient);
 # <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
 Questa funzionalità non è disponibile nella versione 3.0.
-
-# <a name="version-21"></a>[Versione 2.1](#tab/version-2)
-
-Questa funzionalità non è disponibile nella versione 2.1.
 
 ---
 

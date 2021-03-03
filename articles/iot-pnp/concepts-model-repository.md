@@ -1,26 +1,26 @@
 ---
-title: Informazioni sui concetti del repository del modello di dispositivo | Microsoft Docs
-description: In qualità di sviluppatore di soluzioni o professionisti IT, informazioni sui concetti di base del repository del modello di dispositivo.
+title: Informazioni sui concetti del repository dei modelli di dispositivo | Microsoft Docs
+description: In qualità di sviluppatore di soluzioni o professionisti IT, informazioni sui concetti di base del repository dei modelli di dispositivo.
 author: rido-min
 ms.author: rmpablos
 ms.date: 11/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b567efe2541bb33c905def73bb78398799b4ed69
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 1a58a2f69b9c6c6742c4b9daf32dd0e13341aac1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920543"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742144"
 ---
-# <a name="device-model-repository"></a>Repository del modello di dispositivo
+# <a name="device-models-repository"></a>Repository di modelli di dispositivo
 
-Il repository del modello di dispositivo (ricevitore) consente ai generatori di dispositivi di gestire e condividere la Plug and Play dei modelli di dispositivo. I modelli di dispositivo sono documenti JSON LD definiti con il [linguaggio di modellazione digitale gemello (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Il repository dei modelli di dispositivo (ricevitore) consente ai generatori di dispositivi di gestire e condividere i modelli di dispositivi Plug and Play. I modelli di dispositivo sono documenti JSON LD definiti con il [linguaggio di modellazione digitale gemello (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 RICEVITORE definisce un modello per archiviare le interfacce DTDL in una struttura di cartelle basata sull'identificatore del modello del dispositivo gemello (DTMI). È possibile individuare un'interfaccia in ricevitore convertendo DTMI in un percorso relativo. Il DTMI, ad esempio, viene `dtmi:com:example:Thermostat;1` convertito in `/dtmi/com/example/thermostat-1.json` .
 
-## <a name="public-device-model-repository"></a>Repository del modello di dispositivo pubblico
+## <a name="public-device-models-repository"></a>Repository di modelli di dispositivi pubblici
 
 Microsoft ospita una ricevitore pubblica con queste caratteristiche:
 
@@ -28,7 +28,7 @@ Microsoft ospita una ricevitore pubblica con queste caratteristiche:
 - Immutabilità.  Dopo la pubblicazione, non è possibile aggiornare un'interfaccia.
 - Hyper-scale. Microsoft fornisce l'infrastruttura necessaria per creare un endpoint sicuro e scalabile in cui è possibile pubblicare e utilizzare i modelli di dispositivo.
 
-## <a name="custom-device-model-repository"></a>Repository del modello di dispositivo personalizzato
+## <a name="custom-device-models-repository"></a>Repository di modelli di dispositivo personalizzati
 
 Usare lo stesso modello ricevitore per creare un ricevitore personalizzato in qualsiasi supporto di archiviazione, ad esempio file system locali o server Web HTTP personalizzati. È possibile recuperare i modelli di dispositivo dal ricevitore personalizzato in modo analogo a quello del ricevitore pubblico modificando l'URL di base usato per accedere a ricevitore.
 
@@ -37,9 +37,9 @@ Usare lo stesso modello ricevitore per creare un ricevitore personalizzato in qu
 
 ## <a name="public-models"></a>Modelli pubblici
 
-I modelli di dispositivo pubblico archiviati nel repository del modello sono disponibili per l'utilizzo e l'integrazione da parte di tutti gli utenti nelle proprie applicazioni. I modelli di dispositivo pubblico consentono a un eco-sistema aperto per i generatori di dispositivi e gli sviluppatori di soluzioni di condividere e riutilizzare i propri dispositivi Plug and Play modelli di dispositivo.
+I modelli di dispositivo pubblico archiviati nel repository dei modelli sono disponibili per l'utilizzo e l'integrazione da parte di tutti gli utenti nelle proprie applicazioni. I modelli di dispositivo pubblico consentono a un eco-sistema aperto per i generatori di dispositivi e gli sviluppatori di soluzioni di condividere e riutilizzare i propri dispositivi Plug and Play modelli di dispositivo.
 
-Vedere la sezione [pubblicare un modello](#publish-a-model) per istruzioni su come pubblicare un modello nel repository del modello per renderlo pubblico.
+Vedere la sezione [pubblicare un modello](#publish-a-model) per istruzioni su come pubblicare un modello nel repository di modelli per renderlo pubblico.
 
 Gli utenti possono sfogliare, cercare e visualizzare le interfacce pubbliche dal [repository GitHub](https://github.com/Azure/iot-plugandplay-models)ufficiale.
 

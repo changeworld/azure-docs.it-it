@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0665dcbc8de518c5759c52a8fc3aec26859566d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728009"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Esercitazione: Creare un'app di traduzione con WPF
 
@@ -41,7 +41,7 @@ Questo elenco include i Servizi cognitivi usati nell'esercitazione. Seguire il c
 | Service | Funzionalità | Descrizione |
 |---------|---------|-------------|
 | Funzione di conversione | [Recupera lingue](./reference/v3-0-languages.md) | Recupera un elenco completo di lingue supportate per la traduzione testuale. |
-| Funzione di conversione | [Translate](./reference/v3-0-translate.md) | Traduce il testo in più di 70 lingue. |
+| Funzione di conversione | [Translate](./reference/v3-0-translate.md) | Tradurre il testo in linguaggi e dialetti 90. |
 | Funzione di conversione | [Detect](./reference/v3-0-detect.md) | Rileva la lingua del testo di input. Include il punteggio di attendibilità per il rilevamento. |
 | Controllo ortografico Bing | [Controllo ortografico](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corregge gli errori di ortografia per migliorare l'accuratezza della traduzione. |
 
@@ -115,7 +115,7 @@ Ecco il modulo da creare.
 
 L'interfaccia utente include questi componenti:
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox | Visualizza un elenco delle lingue supportate da Microsoft Translator per la traduzione testuale. L'utente seleziona la lingua da cui eseguire la traduzione. |
 | `ToLanguageComboBox` | ComboBox | Visualizza lo stesso elenco di lingue di `FromComboBox`, ma viene usata per selezionare la lingua verso cui l'utente esegue la traduzione. |
@@ -264,7 +264,7 @@ Infine, è stato aggiunto il codice per chiamare i metodi per recuperare le ling
 
 ## <a name="get-supported-languages"></a>Ottenere le lingue supportate
 
-Translator attualmente supporta più di 70 lingue. Nel corso del tempo verranno aggiunte altre lingue supportate, quindi è consigliabile chiamare la risorsa Languages esposta da Translator invece di impostare come hardcoded l'elenco di lingue nell'app.
+Attualmente il traduttore supporta lingue e dialetti 90. Nel corso del tempo verranno aggiunte altre lingue supportate, quindi è consigliabile chiamare la risorsa Languages esposta da Translator invece di impostare come hardcoded l'elenco di lingue nell'app.
 
 In questa sezione verrà creata una richiesta `GET` per la risorsa Languages, specificando che è necessario un elenco di lingue disponibili per la traduzione.
 

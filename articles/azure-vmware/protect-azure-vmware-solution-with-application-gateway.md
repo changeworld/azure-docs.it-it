@@ -3,12 +3,12 @@ title: Usare applicazione Azure gateway per proteggere le app Web in una soluzio
 description: Configurare applicazione Azure gateway per esporre in modo sicuro le app Web in esecuzione in una soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 9b10c206114ca922cc11bd8cb0321941b8ba672c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ad615efe0de86a49714914507227b7cc1dca4cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384198"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733585"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Usare applicazione Azure gateway per proteggere le app Web in una soluzione VMware di Azure
 
@@ -35,7 +35,7 @@ Il diagramma mostra lo scenario di test usato per convalidare il gateway applica
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagramma che illustra lo scenario di test usato per convalidare il gateway applicazione con le applicazioni Web della soluzione VMware di Azure." border="false":::
 
-L'istanza del gateway applicazione viene distribuita nell'hub in una subnet dedicata. Ha un indirizzo IP pubblico di Azure. È consigliabile attivare la protezione DDoS standard per la rete virtuale. Il server Web è ospitato in una soluzione VMware di Azure cloud privato dietro i gateway NSX T0 e T1. La soluzione VMware di Azure usa [ExpressRoute copertura globale](../expressroute/expressroute-global-reach.md) per abilitare la comunicazione con l'hub e i sistemi locali.
+L'istanza del gateway applicazione viene distribuita nell'hub in una subnet dedicata. Ha un indirizzo IP pubblico di Azure. È consigliabile attivare la [protezione DDoS di Azure standard](../ddos-protection/ddos-protection-overview.md) per la rete virtuale. Il server Web è ospitato in una soluzione VMware di Azure cloud privato dietro i gateway NSX T0 e T1. La soluzione VMware di Azure usa [ExpressRoute copertura globale](../expressroute/expressroute-global-reach.md) per abilitare la comunicazione con l'hub e i sistemi locali.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -193,3 +193,4 @@ Ora che è stato illustrato l'uso del gateway applicazione per proteggere un'app
 - [Configurazione di applicazione Azure gateway per diversi scenari](../application-gateway/configuration-overview.md).
 - [Distribuzione di gestione traffico per il bilanciamento dei carichi di lavoro della soluzione VMware di Azure](deploy-traffic-manager-balance-workloads.md).
 - [Integrazione di Azure NetApp files con carichi di lavoro basati su soluzioni VMware di Azure](netapp-files-with-azure-vmware-solution.md).
+- [Protezione delle risorse di Azure nelle reti virtuali](../ddos-protection/ddos-protection-overview.md)

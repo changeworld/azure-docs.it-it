@@ -2,14 +2,14 @@
 title: Monitorare la disponibilità e la velocità di risposta dei siti Web | Microsoft Docs
 description: Configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 41338760034918dce30ffb45c738588a2aa29786
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ea44aad43a3dd6f11656a45dc7d0e619187fc22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585945"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729029"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorare la disponibilità di qualsiasi sito Web
 
@@ -72,7 +72,6 @@ Per creare la prima richiesta di disponibilità, aprire il riquadro di disponibi
 |Impostazione| Spiegazione
 |----|----|----|
 |**Near real-time (anteprima)** | Si consiglia di usare gli avvisi near real-time. La configurazione di questo tipo di avviso viene eseguita dopo la creazione del test di disponibilità.  |
-|**Classico** | Non è più consigliabile usare gli avvisi classici per i nuovi test di disponibilità.|
 |**Soglia località di avviso**|Si consiglia un minimo di 3-5 posizioni. Il rapporto ottimale tra la soglia località di avviso e il numero di località di test è dato da **soglia località di avviso** = **numero di località di test - 2, con un numero minimo pari a cinque località di test.**|
 
 ### <a name="location-population-tags"></a>Tag popolamento località

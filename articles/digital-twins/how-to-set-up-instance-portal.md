@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5e0c2541c398f2e135b8763cc753ec8c20c3967d
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a6355a08a936c74ae6a05f163a93a991ba82ab4d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953751"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702913"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (portale)
 
@@ -56,8 +56,8 @@ Se si desidera configurare altri dettagli per l'istanza, nella sezione successiv
 
 Ecco le opzioni aggiuntive che è possibile configurare durante l'installazione, usando le altre schede del processo di **creazione delle risorse** .
 
-* **Rete**: in questa scheda è possibile abilitare endpoint privati con il [collegamento privato di Azure](../private-link/private-link-overview.md) per eliminare l'esposizione della rete pubblica all'istanza. Per istruzioni, vedere [*procedura: abilitare l'accesso privato con collegamento privato (anteprima)*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
-* **Avanzate**: in questa scheda è possibile abilitare un' [identità gestita dal sistema](../active-directory/managed-identities-azure-resources/overview.md) per l'istanza che può essere utilizzata per l'invio di eventi agli [endpoint](concepts-route-events.md). Per istruzioni, vedere [*procedura: abilitare le identità gestite per il routing degli eventi (anteprima)*](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation).
+* **Rete**: in questa scheda è possibile abilitare endpoint privati con il [collegamento privato di Azure](../private-link/private-link-overview.md) per eliminare l'esposizione della rete pubblica all'istanza. Per istruzioni, vedere [*procedura: abilitare l'accesso privato con collegamento privato (anteprima)*](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
+* **Avanzate**: in questa scheda è possibile abilitare un' [identità gestita dal sistema](../active-directory/managed-identities-azure-resources/overview.md) per l'istanza che può essere utilizzata per l'invio di eventi agli [endpoint](concepts-route-events.md). Per istruzioni, vedere [*procedura: abilitare le identità gestite per il routing degli eventi (anteprima)*](./how-to-enable-managed-identities-portal.md#add-a-system-managed-identity-during-instance-creation).
 * **Tags**: in questa scheda è possibile aggiungere tag all'istanza per facilitarne l'organizzazione tra le risorse di Azure. Per altre informazioni sui tag delle risorse di Azure, vedere [*risorse dei tag, gruppi di risorse e sottoscrizioni per l'organizzazione logica*](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Verificare l'esito positivo e raccogliere i valori importanti

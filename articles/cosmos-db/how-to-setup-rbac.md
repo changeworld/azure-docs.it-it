@@ -4,14 +4,14 @@ description: Informazioni su come configurare il controllo degli accessi in base
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/02/2021
 ms.author: thweiss
-ms.openlocfilehash: 49bf67a6703147ed31279e7af8145192d996c1cb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d83109f380a3044073cf2dd8d10f29027ebb9f41
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663164"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690907"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurare il controllo degli accessi in base al ruolo con Azure Active Directory per l'account Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -101,6 +101,11 @@ Quando si crea una definizione di ruolo, è necessario fornire:
     - `/` (a livello di account),
     - `/dbs/<database-name>` (a livello di database),
     - `/dbs/<database-name>/colls/<container-name>` (a livello di contenitore).
+
+> [!NOTE]
+> Le operazioni descritte di seguito sono attualmente disponibili in:
+> - Azure PowerShell: [AZ. CosmosDB versione 2.0.1-Preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - INTERFACCIA della riga [di comando di Azure: versione dell'estensione ' cosmosdb-Preview ' 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
 
@@ -279,6 +284,11 @@ Dopo aver creato le definizioni di ruolo, è possibile associarle alle identità
 > [!NOTE]
 > Se si vuole creare un'assegnazione di ruolo per un'entità servizio, assicurarsi di usare il relativo **ID oggetto** come disponibile nella sezione **applicazioni aziendali** del pannello del portale di **Azure Active Directory** .
 
+> [!NOTE]
+> Le operazioni descritte di seguito sono attualmente disponibili in:
+> - Azure PowerShell: [AZ. CosmosDB versione 2.0.1-Preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - INTERFACCIA della riga [di comando di Azure: versione dell'estensione ' cosmosdb-Preview ' 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+
 ### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
 
 Assegnare un ruolo a un'identità:
@@ -354,6 +364,12 @@ Queste informazioni aggiuntive passano nella categoria di log **DataPlaneRequest
 
 - `aadPrincipalId_g` Mostra l'ID entità dell'identità AAD usato per autenticare la richiesta.
 - `aadAppliedRoleAssignmentId_g` Mostra l' [assegnazione di ruolo](#role-assignments) che è stata rispettata quando si autorizza la richiesta.
+
+## <a name="limits"></a>Limiti
+
+- È possibile creare fino a 100 definizioni di ruolo e 2.000 assegnazioni di ruolo per ogni account Azure Cosmos DB.
+- La risoluzione del gruppo di Azure AD non è attualmente supportata per le identità che appartengono a più di 200 gruppi.
+- Il token Azure AD viene attualmente passato come intestazione a ogni singola richiesta inviata al servizio Azure Cosmos DB, aumentando la dimensione complessiva del payload.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

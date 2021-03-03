@@ -4,12 +4,12 @@ description: Informazioni su come creare un'app per la logica che sfrutta lo sch
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 4553ecc8d2df20ffdf9b76d381ecf3b88d84ef38
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4824c5ab1826260ee1eb3639712d7138c7c85bfe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614786"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738668"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Come integrare lo schema di avviso comune con le app per la logica
 
@@ -23,8 +23,8 @@ Lo [schema di avviso comune](./alerts-common-schema.md) fornisce uno schema JSON
 ## <a name="prerequisites"></a>Prerequisiti 
 
 In questo articolo si presuppone che il lettore abbia familiarità con 
-* Impostazione delle regole di avviso ([metrica](../alerts/alerts-metric.md), [log](../platform/alerts-log.md), [log attività](../platform/alerts-activity-log.md))
-* Configurazione di [gruppi di azioni](../platform/action-groups.md)
+* Impostazione delle regole di avviso ([metrica](../alerts/alerts-metric.md), [log](./alerts-log.md), [log attività](./alerts-activity-log.md))
+* Configurazione di [gruppi di azioni](./action-groups.md)
 * Abilitazione dello [schema di avviso comune](./alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) dall'interno di gruppi di azioni
 
 ## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>Creare un'app per la logica usando lo schema di avviso comune
@@ -137,5 +137,5 @@ In questo articolo si presuppone che il lettore abbia familiarità con
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni sui gruppi di azioni](../platform/action-groups.md).
+* [Altre informazioni sui gruppi di azioni](./action-groups.md).
 * [Altre informazioni sullo schema di avviso comune](./alerts-common-schema.md).

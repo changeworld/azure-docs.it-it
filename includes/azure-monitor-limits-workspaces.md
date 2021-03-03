@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere file
 description: File di inclusione
 services: azure-monitor
 author: rboucher
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 56afc81794bb18bfb7c9146eeb4ed61a0a75ea0f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c55314764f973a5a015a2bfc02815a58ce659901
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586999"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734062"
 ---
 **Conservazione e volume della raccolta dati** 
 
@@ -72,11 +72,11 @@ ms.locfileid: "100586999"
 
 **<a name="data-ingestion-volume-rate">Velocità del volume di inserimento dati</a>**
 
-Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite per la velocità del volume ha lo scopo di isolare i clienti di Monitoraggio di Azure da picchi di inserimento improvvisi nell'ambiente multi-tenant. Nelle aree di lavoro viene definita una soglia per la velocità del volume di inserimento predefinita di 500 MB (dati compressi), che equivale a circa **6 GB/min** di dati non compressi. Le dimensioni effettive possono variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Il limite di velocità del volume si applica ai dati inseriti da risorse di Azure tramite [Impostazioni di diagnostica](../articles/azure-monitor/platform/diagnostic-settings.md). Quando viene raggiunto il limite di velocità del volume, un meccanismo di ripetizione dei tentativi prova a inserire i dati 4 volte in un periodo di 30 minuti e, se l'operazione non riesce, li rimuove. Ciò non si applica ai dati inseriti da [agenti](../articles/azure-monitor/agents/agents-overview.md) o dall'[API dell'agente di raccolta dati](../articles/azure-monitor/platform/data-collector-api.md).
+Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite per la velocità del volume ha lo scopo di isolare i clienti di Monitoraggio di Azure da picchi di inserimento improvvisi nell'ambiente multi-tenant. Nelle aree di lavoro viene definita una soglia per la velocità del volume di inserimento predefinita di 500 MB (dati compressi), che equivale a circa **6 GB/min** di dati non compressi. Le dimensioni effettive possono variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Il limite di velocità del volume si applica ai dati inseriti da risorse di Azure tramite [Impostazioni di diagnostica](../articles/azure-monitor/essentials/diagnostic-settings.md). Quando viene raggiunto il limite di velocità del volume, un meccanismo di ripetizione dei tentativi prova a inserire i dati 4 volte in un periodo di 30 minuti e, se l'operazione non riesce, li rimuove. Ciò non si applica ai dati inseriti da [agenti](../articles/azure-monitor/agents/agents-overview.md) o dall'[API dell'agente di raccolta dati](../articles/azure-monitor/logs/data-collector-api.md).
 
 Quando si inviano dati a un'area di lavoro a una velocità del volume superiore all'80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore fintanto che la soglia continua a essere superata. Quando la velocità del volume è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Se il volume di inserimento continua a superare la soglia o se si prevede di raggiungerlo presto, è possibile richiedere un aumento aprendo una richiesta di supporto. 
 
-Per creare regole di avviso in modo da ricevere notifiche proattive quando si raggiungono i limiti di inserimento dati, vedere [Monitorare l'integrità dell'area di lavoro Log Analytics in Monitoraggio di Azure](../articles/azure-monitor/platform/monitor-workspace.md).
+Per creare regole di avviso in modo da ricevere notifiche proattive quando si raggiungono i limiti di inserimento dati, vedere [Monitorare l'integrità dell'area di lavoro Log Analytics in Monitoraggio di Azure](../articles/azure-monitor/logs/monitor-workspace.md).
 
 >[!NOTE]
->A seconda di quando si è iniziato a usare Log Analytics, è possibile che si disponga dell'accesso ai piani tariffari legacy. Altre informazioni sui [piani tariffari legacy di Log Analytics](../articles/azure-monitor/platform/manage-cost-storage.md#legacy-pricing-tiers).
+>A seconda di quando si è iniziato a usare Log Analytics, è possibile che si disponga dell'accesso ai piani tariffari legacy. Altre informazioni sui [piani tariffari legacy di Log Analytics](../articles/azure-monitor/logs/manage-cost-storage.md#legacy-pricing-tiers).

@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 02/24/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: cc9431d08823bd3bfba423fcc5e9dc14d2a37faa
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 2acc3d104786be330e3e799ad7bd96d703587581
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652956"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738991"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -68,7 +68,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
 6. Per ottenere la chiave BitLocker dell'unità, eseguire il comando seguente:
 
     `manage-bde -protectors -get <DriveLetter>:`
-7. Per preparare il disco, eseguire il comando seguente. **A seconda delle dimensioni dei dati, l'operazione può richiedere da diverse ore a più giorni.**
+7. Per preparare il disco, eseguire il comando seguente. **A seconda delle dimensioni dei dati, la preparazione del disco può richiedere diverse ore.**
 
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
@@ -86,13 +86,14 @@ Per preparare le unità, eseguire le operazioni seguenti.
     |/bk:     |Chiave di BitLocker per l'unità. La sua password numerica dall'output di `manage-bde -protectors -get D:`      |
     |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio: `D:\`.         |
     |/dstdir:     |Nome del contenitore di destinazione in Archiviazione di Azure.         |
-    |/BlobType     |Questa opzione specifica il tipo di BLOB in cui si vogliono importare i dati. Per i BLOB in blocchi, è `BlockBlob` e per i BLOB di pagine è `PageBlob` .         |
-    |/skipwrite:     |Opzione che specifica che non sono presenti nuovi dati da copiare e che è necessario preparare i dati esistenti nel disco.          |
+    |/BlobType     |Questa opzione specifica il tipo di BLOB in cui si vogliono importare i dati. Per i BLOB in blocchi, il tipo di BLOB è `BlockBlob` e per i BLOB di pagine è `PageBlob` .         |
+    |/skipwrite:     | Specifica che non sono necessari nuovi dati da copiare e che i dati esistenti sul disco devono essere preparati.          |
     |/enablecontentmd5:     |Se abilitata, l'opzione garantisce che MD5 venga calcolato e impostato come `Content-md5` Proprietà in ogni BLOB. Usare questa opzione solo se si vuole usare il `Content-md5` campo dopo che i dati sono stati caricati in Azure. <br> Questa opzione non influisce sul controllo di integrità dei dati (che si verifica per impostazione predefinita). L'impostazione aumenta il tempo impiegato per caricare i dati nel cloud.          |
 8. Ripetere il passaggio precedente per ogni disco che deve essere spedito. Viene creato un file journal con il nome specificato per ogni esecuzione della riga di comando.
 
     > [!IMPORTANT]
-    > * Insieme al file journal, viene creato anche un file `<Journal file name>_DriveInfo_<Drive serial ID>.xml` nella stessa cartella in cui si trova lo strumento. Il file XML viene usato al posto del file journal durante la creazione di un processo se il file journal è troppo grande.
+    > * Insieme al file journal, viene creato anche un file `<Journal file name>_DriveInfo_<Drive serial ID>.xml` nella stessa cartella in cui si trova lo strumento. Il file con estensione XML viene usato al posto del file Journal durante la creazione di un processo se il file journal è troppo grande.
+   > * Le dimensioni massime del file journal consentito dal portale sono pari a 2 MB. Se il file journal supera tale limite, viene restituito un errore.
 
 ## <a name="step-2-create-an-import-job"></a>Passaggio 2: Creare un processo di importazione
 
@@ -132,7 +133,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 
    * Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo in `adbops@microsoft.com`  con le informazioni relative al vettore che si intende usare.
    * Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. In assenza di un numero di account, creare un account di vettore [FedEx](https://www.fedex.com/us/oadr/) o [DHL](https://www.dhl.com/).
-   * Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area.
+   * Fornire un nome di contatto completo e valido, un telefono, un indirizzo di posta elettronica, via, città, CAP, stato/provincia e paese/area geografica.
 
        > [!TIP]
        > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
@@ -323,7 +324,7 @@ Install-Module -Name Az.ImportExport
 
 ## <a name="step-3-optional-configure-customer-managed-key"></a>Passaggio 3 (facoltativo): configurare la chiave gestita dal cliente
 
-Ignorare questo passaggio e andare al passaggio successivo se si desidera utilizzare la chiave gestita da Microsoft per proteggere le chiavi BitLocker per le unità. Per configurare una chiave personalizzata per proteggere la chiave di BitLocker, seguire le istruzioni in [configurare chiavi gestite dal cliente con Azure Key Vault per importazione/esportazione di Azure nella portale di Azure](storage-import-export-encryption-key-portal.md)
+Ignorare questo passaggio e andare al passaggio successivo se si desidera utilizzare la chiave gestita da Microsoft per proteggere le chiavi BitLocker per le unità. Per configurare una chiave personalizzata per proteggere la chiave di BitLocker, seguire le istruzioni in [configurare chiavi gestite dal cliente con Azure Key Vault per importazione/esportazione di Azure nel portale di Azure](storage-import-export-encryption-key-portal.md).
 
 ## <a name="step-4-ship-the-drives"></a>Passaggio 4: spedire le unità
 

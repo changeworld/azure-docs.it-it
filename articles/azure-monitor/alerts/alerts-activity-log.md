@@ -4,12 +4,12 @@ description: Creare avvisi del log attività usando il portale di Azure, un mode
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 83023cca6b034ee0e9acddfa081f09eb47b9fb1e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bb4c1410d046389ae9e82986c6b0ed3d133fcf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621026"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704464"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure  
 
@@ -26,7 +26,9 @@ Quando si creano le regole di avviso, verificare quanto segue:
 
 - La sottoscrizione nell'ambito non deve essere diversa dalla sottoscrizione in cui viene creato l'avviso.
 - I criteri devono essere livello, stato, chiamante, gruppo di risorse, ID risorsa, tipo di risorsa o categoria di eventi in cui è stato configurato l'avviso.
-- Nel codice JSON della configurazione dell'avviso non sono presenti condizioni "anyOf" o condizioni nidificate. In pratica, è consentito un solo "allOf" senza ulteriori condizioni "allOf" o "anyOf".
+- È consentita una sola condizione "allOf".
+- ' AnyOf ' può essere usato per consentire più condizioni su più campi, ad esempio se i campi "status" o "SubStatus" sono uguali a un determinato valore. Si noti che l'uso di ' AnyOf ' è attualmente limitato alla creazione della regola di avviso mediante una distribuzione di modelli ARM.
+- È possibile utilizzare ' ContainsAny ' per consentire più valori dello stesso campo, ad esempio se "Operation" è uguale a "Delete" o "Modify". Si noti che l'uso di ' ContainsAny ' è attualmente limitato alla creazione della regola di avviso mediante una distribuzione di modelli ARM.
 - Se la categoria è impostata su "Administrative", nell'avviso è necessario specificare almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
 - Non è possibile creare avvisi per gli eventi nella categoria avvisi del log attività.
 
@@ -92,7 +94,7 @@ Seguire la procedura indicata di seguito.
     - **Descrizione**: descrizione della nuova regola di avviso.
     - **Salva avviso nel gruppo di risorse**: selezionare il gruppo di risorse in cui salvare la nuova regola.
 
-5. In **Gruppo di azioni**, specificare il gruppo di azioni da assegnare a questa nuova regola di avviso dal menu a discesa. In alternativa, [creare un nuovo gruppo di azioni](../platform/action-groups.md) e assegnarlo alla nuova regola. Per creare un nuovo gruppo, selezionare **+ Nuovo gruppo**.
+5. In **Gruppo di azioni**, specificare il gruppo di azioni da assegnare a questa nuova regola di avviso dal menu a discesa. In alternativa, [creare un nuovo gruppo di azioni](./action-groups.md) e assegnarlo alla nuova regola. Per creare un nuovo gruppo, selezionare **+ Nuovo gruppo**.
 
 6. Per abilitare le regole dopo averle create, selezionare **Sì** per l'opzione **Abilita regola alla creazione**.
 7. Selezionare **Crea regola di avviso**.
@@ -287,6 +289,5 @@ Le risorse di regola di avviso del log attività possono essere rimosse usando i
 
 - Altre informazioni sullo [schema dei webhook per i log attività](./activity-log-alerts-webhook.md).
 - Leggere una [panoramica dei log attività](./activity-log-alerts.md).
-- Altre informazioni sui [gruppi di azione](../platform/action-groups.md).  
+- Altre informazioni sui [gruppi di azione](./action-groups.md).  
 - Informazioni sulle [notifiche per l'integrità del servizio](../../service-health/service-notifications.md).
-

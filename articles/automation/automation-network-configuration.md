@@ -4,12 +4,12 @@ description: Questo articolo fornisce informazioni dettagliate sulle informazion
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 0add7eed6abbe6c137d423ee4a7ef5f0f60072e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 36331e9c07926d4d3ffff136aefa2f9a77d47cb4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900326"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708884"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Dettagli della configurazione di rete di automazione di Azure
 
@@ -26,7 +26,7 @@ La porta e gli URL seguenti sono necessari per il ruolo di lavoro ibrido per Run
 
 ### <a name="network-planning-for-hybrid-runbook-worker"></a>Pianificazione di rete per il ruolo di lavoro ibrido per Runbook
 
-Per la connessione e la registrazione di un ruolo di lavoro ibrido per Runbook di sistema o utente in automazione di Azure, deve avere accesso al numero di porta e agli URL descritti in questa sezione. Il ruolo di lavoro deve inoltre avere accesso alle [porte e agli URL necessari per la connessione dell'agente di log Analytics](../azure-monitor/platform/agent-windows.md) all'area di lavoro log Analytics di monitoraggio di Azure.
+Per la connessione e la registrazione di un ruolo di lavoro ibrido per Runbook di sistema o utente in automazione di Azure, deve avere accesso al numero di porta e agli URL descritti in questa sezione. Il ruolo di lavoro deve inoltre avere accesso alle [porte e agli URL necessari per la connessione dell'agente di log Analytics](../azure-monitor/agents/agent-windows.md) all'area di lavoro log Analytics di monitoraggio di Azure.
 
 Se di dispone di un account di Automazione di Azure definito per un'area specifica, è possibile limitare la comunicazione del ruolo di lavoro ibrido per runbook a tale data center regionale. Esaminare i [record DNS usati da automazione di Azure](how-to/automation-region-dns-records.md) per i record DNS necessari.
 

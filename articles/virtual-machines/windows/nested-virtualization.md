@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e85ac58c80e1fd695938bf09b6435dba1f4ee083
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 924ee745804ef31e42dc21437dbb0459f6d37701
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091347"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693748"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Come abilitare la virtualizzazione annidata in una macchina virtuale di Azure
 
@@ -22,11 +22,9 @@ Questo articolo illustra come abilitare Hyper-V in una macchina virtuale di Azur
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Creare una VM di Azure in grado di supportare l'annidamento
 
-Creare una nuova VM Azure di Windows Server 2016. Per un elenco completo delle dimensioni delle macchine virtuali che supportano l'annidamento, consultare l'[articolo sulle unità di calcolo di Azure](../acu.md).
+Creare una nuova macchina virtuale Windows Server 2016 o Windows Server 2019 Azure per l'host. Assicurarsi di scegliere una dimensione per la macchina virtuale che supporta la nidificazione ed è sufficientemente grande da soddisfare le esigenze delle macchine virtuali guest. Per un elenco delle dimensioni delle macchine virtuali che supportano l'annidamento, vedere l'articolo relativo alle [unità di calcolo di Azure](../acu.md) .
 
-Ricordarsi di scegliere dimensioni di macchina virtuale sufficienti a supportare le richieste di una macchina virtuale guest. In questo esempio viene usata una macchina virtuale di Azure D4_v3 dimensioni. 
-
-Per informazioni sulla disponibilità delle macchine virtuali della serie Dv3 o Ev3 nelle diverse aree geografiche, vedere [qui](https://azure.microsoft.com/regions/services/).
+È possibile visualizzare la disponibilità a livello di area delle dimensioni delle VM nella pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/) .
 
 >[!NOTE]
 >
@@ -94,7 +92,7 @@ Creare una nuova scheda di rete virtuale per la macchina virtuale guest e config
 4. Creare un indirizzo IP per il gateway NAT.
     
 Per poter configurare il gateway, sono necessarie alcune informazioni sulla rete:    
-  * IPAddress: l'IP del gateway NAT specifica l'indirizzo IPv4 o IPv6 da usare come indirizzo predefinito del gateway per la subnet di rete virtuale. Il formato generico è a.b.c.1, ad esempio "192.168.0.1". Mentre la posizione finale non deve essere 1, in genere è (basata sulla lunghezza del prefisso). In genere è consigliabile usare uno spazio degli indirizzi di rete privata conforme al documento RFC 1918. 
+  * Indirizzo IP: l'IP del gateway NAT specifica l'indirizzo IPv4 o IPv6 da usare come indirizzo gateway predefinito per la subnet della rete virtuale. Il formato generico è a.b.c.1, ad esempio "192.168.0.1". Mentre la posizione finale non deve essere 1, in genere è (basata sulla lunghezza del prefisso). In genere è consigliabile usare uno spazio degli indirizzi di rete privata conforme al documento RFC 1918. 
   * PrefixLength: la lunghezza del prefisso della subnet definisce le dimensioni della subnet locale (subnet mask). La lunghezza del prefisso della subnet è un valore intero compreso tra 0 e 32. Con 0 viene eseguito il mapping all'intera rete Internet, mentre con 32 si consente il mapping di un solo IP. I valori comuni sono compresi tra 24 e 12 a seconda del numero di IP che è necessario collegare al NAT. Un valore comune di PrefixLength è 24, che corrisponde a una subnet mask 255.255.255.0.
   * InterfaceIndex: il valore **ifIndex** corrisponde all'indice dell'interfaccia del commutatore virtuale creato nel passaggio precedente. 
 

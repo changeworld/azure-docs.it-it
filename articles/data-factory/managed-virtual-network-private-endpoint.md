@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379574"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699633"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Rete virtuale gestita Azure Data Factory (anteprima)
 
@@ -108,11 +108,13 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicazioni in uscita tramite endpoint pubblico da rete virtuale gestita da ADF
 - Solo la porta 443 è aperta per le comunicazioni in uscita.
-- Archiviazione di Azure e Azure Data Lake Gen2 non sono supportati per la connessione tramite un endpoint pubblico dalla rete virtuale gestita di ADF.
+- Archiviazione di Azure e Azure Data Lake Gen2 non supportano la connessione tramite un endpoint pubblico dalla rete virtuale gestita di Azure Data Factory.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Creazione del servizio collegato di Azure Key Vault 
 - Quando si crea un servizio collegato per Azure Key Vault, non esiste alcun riferimento ad Azure Integration Runtime. Non è quindi possibile creare un endpoint privato durante la creazione del servizio collegato di Azure Key Vault. Tuttavia, quando si crea un servizio collegato per gli archivi dati che fa riferimento Azure Key Vault servizio collegato e questo servizio collegato fa riferimento Azure Integration Runtime con la rete virtuale gestita abilitata, è possibile creare un endpoint privato per il servizio collegato Azure Key Vault durante la creazione. 
 - L'operazione di **test della connessione** per il servizio collegato di Azure Key Vault convalida solo il formato dell'URL, ma non esegue alcuna operazione di rete.
+- La colonna **con endpoint privato** viene sempre visualizzata come vuota anche se si crea un endpoint privato per Azure Key Vault.
+![Endpoint privato per AKV](./media/managed-vnet/akv-pe.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

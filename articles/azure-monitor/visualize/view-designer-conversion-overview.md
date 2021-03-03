@@ -6,19 +6,19 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: d6731673c2b9918b3b19d14f45d51a6424ef86f3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c43d1e4dda10cca6b868ef814ec8298d6e21fd0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619427"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736968"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guida alla transizione da Progettazione viste di monitoraggio di Azure a cartelle di lavoro
 [Progettazione](view-designer.md) viste è una funzionalità di monitoraggio di Azure che consente di creare visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro log Analytics, con grafici, elenchi e sequenze temporali. Sono state passate a cartelle di lavoro per fornire un'area di disegno flessibile per l'analisi dei dati e la creazione di report visivi avanzati all'interno del portale di Azure. Questo articolo consente di passare da Progettazione viste a cartelle di lavoro di. 
 
 
 ## <a name="workbooks-overview"></a>Cenni preliminari sulle cartelle di lavoro
-Le [cartelle di lavoro](../insights/vminsights-workbooks.md) combinano testo, query di [log](/azure/data-explorer/kusto/query/), metriche e parametri in report interattivi avanzati. I membri del team con lo stesso accesso alle risorse di Azure possono anche modificare le cartelle di lavoro.
+Le [cartelle di lavoro](../vm/vminsights-workbooks.md) combinano testo, query di [log](/azure/data-explorer/kusto/query/), metriche e parametri in report interattivi avanzati. I membri del team con lo stesso accesso alle risorse di Azure possono anche modificare le cartelle di lavoro.
 
 Le cartelle di lavoro sono utili per scenari come:
 

@@ -7,15 +7,15 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.subservice: logs
-ms.openlocfilehash: c7e18250a6f11504aa29d8df190da974499470ab
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dde18460862eb2ac61ed7e9bbf95d70ecf61496b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613204"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726020"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse
-I [log della piattaforma](../platform/platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Le [metriche della piattaforma](../platform/data-platform-metrics.md) vengono raccolte per impostazione predefinita e vengono in genere archiviate nel database di metriche di monitoraggio di Azure. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare le metriche della piattaforma e i log della piattaforma a destinazioni diverse.
+I [log della piattaforma](./platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Le [metriche della piattaforma](./data-platform-metrics.md) vengono raccolte per impostazione predefinita e vengono in genere archiviate nel database di metriche di monitoraggio di Azure. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare le metriche della piattaforma e i log della piattaforma a destinazioni diverse.
 
 > [!IMPORTANT]
 > Prima di creare un'impostazione di diagnostica per il log attività, è necessario disabilitare prima di tutto la configurazione legacy. Per informazioni dettagliate, vedere [metodi di raccolta legacy](../essentials/activity-log.md#legacy-collection-methods) .
@@ -31,13 +31,13 @@ Il video seguente illustra i log della piattaforma di routing con le impostazion
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
 
 > [!NOTE]
-> Le [metriche della piattaforma](../platform/metrics-supported.md) vengono inviate automaticamente alle metriche di monitoraggio di [Azure](../platform/data-platform-metrics.md). È possibile usare le impostazioni di diagnostica per inviare le metriche per determinati servizi di Azure nei log di monitoraggio di Azure per l'analisi con altri dati di monitoraggio usando le [query di log](../log-query/log-query-overview.md) con alcune limitazioni. 
+> Le [metriche della piattaforma](./metrics-supported.md) vengono inviate automaticamente alle metriche di monitoraggio di [Azure](./data-platform-metrics.md). È possibile usare le impostazioni di diagnostica per inviare le metriche per determinati servizi di Azure nei log di monitoraggio di Azure per l'analisi con altri dati di monitoraggio usando le [query di log](../logs/log-query-overview.md) con alcune limitazioni. 
 >  
 >  
-> L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione. *Ad esempio*: la metrica ' IOReadBytes ' in un blockchain può essere esplorata e mappata in base a un livello per nodo. Tuttavia, quando viene esportato tramite le impostazioni di diagnostica, la metrica esportata rappresenta come tutti i byte letti per tutti i nodi. Inoltre, a causa delle limitazioni interne non tutte le metriche sono esportabili nei log/Log Analytics di monitoraggio di Azure. Per altre informazioni, vedere l' [elenco delle metriche esportabili](../platform/metrics-supported-export-diagnostic-settings.md). 
+> L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione. *Ad esempio*: la metrica ' IOReadBytes ' in un blockchain può essere esplorata e mappata in base a un livello per nodo. Tuttavia, quando viene esportato tramite le impostazioni di diagnostica, la metrica esportata rappresenta come tutti i byte letti per tutti i nodi. Inoltre, a causa delle limitazioni interne non tutte le metriche sono esportabili nei log/Log Analytics di monitoraggio di Azure. Per altre informazioni, vedere l' [elenco delle metriche esportabili](./metrics-supported-export-diagnostic-settings.md). 
 >  
 >  
-> Per aggirare queste limitazioni per metriche specifiche, è consigliabile estrarle manualmente usando l' [API REST delle metriche](/rest/api/monitor/metrics/list) e importarle nei log di monitoraggio di Azure usando l' [API dell'agente di raccolta dati di monitoraggio di Azure](../platform/data-collector-api.md).  
+> Per aggirare queste limitazioni per metriche specifiche, è consigliabile estrarle manualmente usando l' [API REST delle metriche](/rest/api/monitor/metrics/list) e importarle nei log di monitoraggio di Azure usando l' [API dell'agente di raccolta dati di monitoraggio di Azure](../logs/data-collector-api.md).  
 
 
 ## <a name="destinations"></a>Destinazioni
@@ -45,7 +45,7 @@ Le metriche e i log della piattaforma possono essere inviati alle destinazioni n
 
 | Destination | Descrizione |
 |:---|:---|
-| [area di lavoro Log Analytics](../platform/design-logs-deployment.md) | L'invio di log e metriche a un'area di lavoro di Log Analytics consente di analizzarli con altri dati di monitoraggio raccolti da monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio avvisi e visualizzazioni. |
+| [area di lavoro Log Analytics](../logs/design-logs-deployment.md) | L'invio di log e metriche a un'area di lavoro di Log Analytics consente di analizzarli con altri dati di monitoraggio raccolti da monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio avvisi e visualizzazioni. |
 | [Hub eventi](../../event-hubs/index.yml) | L'invio di log e metriche a hub eventi consente di trasmettere i dati a sistemi esterni, ad esempio SIEM di terze parti e altre soluzioni di log Analytics.  |
 | [Account di archiviazione di Azure](../../storage/blobs/index.yml) | L'archiviazione di log e metriche in un account di archiviazione di Azure è utile per il controllo, l'analisi statica o il backup. Rispetto ai log di monitoraggio di Azure e a un'area di lavoro Log Analytics, archiviazione di Azure è meno costosa e i log possono essere conservati per un periodo illimitato.  |
 
@@ -99,7 +99,7 @@ Prima di creare le impostazioni di diagnostica, è necessario creare tutte le de
 
 4. **Dettagli categoria (cosa da indirizzare)** : selezionare la casella per ogni categoria di dati che si vuole inviare alle destinazioni specificate in un secondo momento. L'elenco di categorie varia per ogni servizio di Azure.
 
-     - **AllMetrics** instrada le metriche della piattaforma di una risorsa nell'archivio dei log di Azure, ma in forma di log. Queste metriche vengono in genere inviate solo al database di serie temporali delle metriche di monitoraggio di Azure. Inviarli all'archivio dei log di monitoraggio di Azure (ricercabile tramite Log Analytics) consente di integrarli in query che effettuano ricerche negli altri log. Questa opzione potrebbe non essere disponibile per tutti i tipi di risorsa. Quando è supportato, le [metriche supportate da monitoraggio di Azure](../platform/metrics-supported.md) elencano le metriche raccolte per i tipi di risorse.
+     - **AllMetrics** instrada le metriche della piattaforma di una risorsa nell'archivio dei log di Azure, ma in forma di log. Queste metriche vengono in genere inviate solo al database di serie temporali delle metriche di monitoraggio di Azure. Inviarli all'archivio dei log di monitoraggio di Azure (ricercabile tramite Log Analytics) consente di integrarli in query che effettuano ricerche negli altri log. Questa opzione potrebbe non essere disponibile per tutti i tipi di risorsa. Quando è supportato, le [metriche supportate da monitoraggio di Azure](./metrics-supported.md) elencano le metriche raccolte per i tipi di risorse.
 
        > [!NOTE]
        > Vedere limitazioni per il routing delle metriche ai log di monitoraggio di Azure più indietro in questo articolo.  
@@ -111,7 +111,7 @@ Prima di creare le impostazioni di diagnostica, è necessario creare tutte le de
 
       ![Invia a Log Analytics o hub eventi](media/diagnostic-settings/send-to-log-analytics-event-hubs.png)
 
-    1. **Log Analytics** : immettere la sottoscrizione e l'area di lavoro.  Se non si dispone di un'area di lavoro, è necessario [crearne una prima di procedere](../learn/quick-create-workspace.md).
+    1. **Log Analytics** : immettere la sottoscrizione e l'area di lavoro.  Se non si dispone di un'area di lavoro, è necessario [crearne una prima di procedere](../logs/quick-create-workspace.md).
 
     1. **Hub eventi** : specificare i criteri seguenti:
        - Sottoscrizione di cui fa parte l'hub eventi
@@ -132,14 +132,14 @@ Prima di creare le impostazioni di diagnostica, è necessario creare tutte le de
 
 6. Fare clic su **Salva**.
 
-Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log vengono trasmessi alle destinazioni specificate quando vengono generati nuovi dati degli eventi. Potrebbero essere necessari fino a 15 minuti tra il momento in cui viene generato un evento e quando questo viene [visualizzato in un'area di lavoro log Analytics](../platform/data-ingestion-time.md).
+Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log vengono trasmessi alle destinazioni specificate quando vengono generati nuovi dati degli eventi. Potrebbero essere necessari fino a 15 minuti tra il momento in cui viene generato un evento e quando questo viene [visualizzato in un'area di lavoro log Analytics](../logs/data-ingestion-time.md).
 
 ## <a name="create-using-powershell"></a>Creare usando PowerShell
 
-Usare il cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) per creare un'impostazione di diagnostica con [Azure PowerShell](../samples/powershell-samples.md). Per una descrizione dei parametri, vedere la documentazione relativa a questo cmdlet.
+Usare il cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) per creare un'impostazione di diagnostica con [Azure PowerShell](../powershell-samples.md). Per una descrizione dei parametri, vedere la documentazione relativa a questo cmdlet.
 
 > [!IMPORTANT]
-> Non è possibile usare questo metodo per il log attività di Azure. Usare invece [Crea impostazione diagnostica in monitoraggio di Azure usando un modello di gestione risorse](../samples/resource-manager-diagnostic-settings.md) per creare un modello di gestione risorse e distribuirlo con PowerShell.
+> Non è possibile usare questo metodo per il log attività di Azure. Usare invece [Crea impostazione diagnostica in monitoraggio di Azure usando un modello di gestione risorse](./resource-manager-diagnostic-settings.md) per creare un modello di gestione risorse e distribuirlo con PowerShell.
 
 Di seguito è riportato un esempio di cmdlet di PowerShell per la creazione di un'impostazione di diagnostica con le tre destinazioni.
 
@@ -152,7 +152,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 Usare il comando [AZ monitor Diagnostic-Settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) per creare un'impostazione di diagnostica con l'interfaccia della riga di comando di [Azure](/cli/azure/monitor). Per una descrizione dei parametri, vedere la documentazione relativa a questo comando.
 
 > [!IMPORTANT]
-> Non è possibile usare questo metodo per il log attività di Azure. Usare invece [Crea impostazione diagnostica in monitoraggio di Azure usando un modello di gestione risorse](../samples/resource-manager-diagnostic-settings.md) per creare un modello di gestione risorse e distribuirlo con l'interfaccia della riga di comando.
+> Non è possibile usare questo metodo per il log attività di Azure. Usare invece [Crea impostazione diagnostica in monitoraggio di Azure usando un modello di gestione risorse](./resource-manager-diagnostic-settings.md) per creare un modello di gestione risorse e distribuirlo con l'interfaccia della riga di comando.
 
 Di seguito è riportato un esempio di comando dell'interfaccia della riga di comando per creare un'impostazione di diagnostica con le tre destinazioni
 
@@ -168,7 +168,7 @@ az monitor diagnostic-settings create  \
 ```
 
 ## <a name="create-using-resource-manager-template"></a>Crea usando Gestione risorse modello
-Per la creazione o l'aggiornamento delle impostazioni di diagnostica con un modello di Gestione risorse, vedere [esempi di gestione risorse modello per le impostazioni di diagnostica in monitoraggio di Azure](../samples/resource-manager-diagnostic-settings.md) .
+Per la creazione o l'aggiornamento delle impostazioni di diagnostica con un modello di Gestione risorse, vedere [esempi di gestione risorse modello per le impostazioni di diagnostica in monitoraggio di Azure](./resource-manager-diagnostic-settings.md) .
 
 ## <a name="create-using-rest-api"></a>Creare usando l'API REST
 Vedere [impostazioni di diagnostica](/rest/api/monitor/diagnosticsettings) per creare o aggiornare le impostazioni di diagnostica usando l' [API REST di monitoraggio di Azure](/rest/api/monitor/).
@@ -197,4 +197,4 @@ Se viene visualizzato questo errore, aggiornare le distribuzioni per sostituire 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scopri di più sui log della piattaforma Azure](../platform/platform-logs-overview.md)
+- [Scopri di più sui log della piattaforma Azure](./platform-logs-overview.md)

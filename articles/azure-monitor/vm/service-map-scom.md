@@ -1,29 +1,29 @@
 ---
-title: Integrare Monitoraggio di Azure per le macchine virtuali map con Operations Manager | Microsoft Docs
-description: Monitoraggio di Azure per le macchine virtuali individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping delle comunicazioni tra i servizi. Questo articolo illustra l'uso della funzionalità mappa per creare automaticamente diagrammi applicazioni distribuite in Operations Manager.
+title: Integrare il mapping di VM Insights con Operations Manager | Microsoft Docs
+description: VM Insights individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping delle comunicazioni tra i servizi. Questo articolo illustra l'uso della funzionalità mappa per creare automaticamente diagrammi applicazioni distribuite in Operations Manager.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 0722a1806cc94102f92045c78850d96ed9890d02
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a39f40c2a284a743db258a49f36cb4f13c2a4d1c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613065"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725493"
 ---
-# <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrare System Center Operations Manager con la funzionalità mappa Monitoraggio di Azure per le macchine virtuali
+# <a name="integrate-system-center-operations-manager-with-vm-insights-map-feature"></a>Integrare System Center Operations Manager con la funzionalità di mapping di VM Insights
 
-In Monitoraggio di Azure per le macchine virtuali, è possibile visualizzare i componenti dell'applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure o nell'ambiente in uso. Grazie a questa integrazione tra la funzionalità map e System Center Operations Manager, è possibile creare automaticamente diagrammi applicazioni distribuite in Operations Manager basati sulle mappe delle dipendenze dinamiche in Monitoraggio di Azure per le macchine virtuali. Questo articolo descrive come configurare il gruppo di gestione di System Center Operations Manager per supportare questa funzionalità.
+In VM Insights è possibile visualizzare i componenti dell'applicazione individuati in macchine virtuali (VM) Windows e Linux in esecuzione in Azure o nell'ambiente in uso. Con questa integrazione tra la funzionalità map e System Center Operations Manager, è possibile creare automaticamente diagrammi applicazioni distribuite in Operations Manager basati sulle mappe delle dipendenze dinamiche in VM Insights. Questo articolo descrive come configurare il gruppo di gestione di System Center Operations Manager per supportare questa funzionalità.
 
 >[!NOTE]
->Se è già stata eseguita la distribuzione di Mapping dei servizi, è possibile visualizzare le mappe in Monitoraggio di Azure per le macchine virtuali, che include funzionalità aggiuntive per monitorare l'integrità e le prestazioni delle macchine virtuali. La funzionalità di mapping di Monitoraggio di Azure per le macchine virtuali è progettata per sostituire la soluzione Mapping dei servizi autonoma. Per altre informazioni, vedere [Descrizione di Monitoraggio di Azure per le macchine virtuali](../vm/vminsights-overview.md).
+>Se è già stata eseguita la distribuzione di Mapping dei servizi, è possibile visualizzare le mappe in VM Insights, che include funzionalità aggiuntive per monitorare l'integrità e le prestazioni delle macchine virtuali. La funzionalità di mapping di VM Insights è destinata alla sostituzione della soluzione Mapping dei servizi autonoma. Per altre informazioni, vedere [Panoramica di VM Insights](../vm/vminsights-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un gruppo di gestione di System Center Operations Manager (2012 R2 o versione successiva).
-* Area di lavoro Log Analytics configurata per supportare Monitoraggio di Azure per le macchine virtuali.
+* Un'area di lavoro Log Analytics configurata per supportare VM Insights.
 * Una o più macchine virtuali Windows e Linux o computer fisici monitorati da Operations Manager e che inviano dati all'area di lavoro di Log Analytics. I server Linux che inviano report a un gruppo di gestione di Operations Manager devono essere configurati per la connessione diretta a monitoraggio di Azure. Per altre informazioni, vedere la panoramica in [raccogliere dati di log con l'agente di log Analytics](../agents/log-analytics-agent.md).
 * Un'entità servizio con accesso alla sottoscrizione di Azure associata all'area di lavoro Log Analytics. Per altre informazioni, vedere [Creare un'entità servizio](#create-a-service-principal).
 
@@ -43,7 +43,7 @@ Dopo aver installato il Management Pack di Mapping dei servizi, viene visualizza
 >[!NOTE]
 >[Operations Management Suite è una raccolta di servizi](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) che includono log Analytics, fa ora parte di [monitoraggio di Azure](../overview.md).
 
-Per configurare l'integrazione della mappa Monitoraggio di Azure per le macchine virtuali, procedere come segue:
+Per configurare l'integrazione della mappa di VM Insights, seguire questa procedura:
 
 1. Per aprire la configurazione guidata, fare clic su **Add workspace** (Aggiungi area di lavoro) nel riquadro **Service Map Overview** (Panoramica di Elenco dei servizi) .  
 
@@ -66,7 +66,7 @@ Per configurare l'integrazione della mappa Monitoraggio di Azure per le macchine
     Perché l'integrazione crei un diagramma applicazioni distribuite per un server, quest'ultimo deve essere:
 
    * Monitorato da Operations Manager
-   * Configurato per la segnalazione all'area di lavoro Log Analytics configurata con Monitoraggio di Azure per le macchine virtuali
+   * Configurato per la segnalazione all'area di lavoro Log Analytics configurata con le informazioni dettagliate di VM
    * Elencato nel gruppo di server di Mapping dei servizi
 
      ![Gruppo di configurazione di Operations Manager](media/service-map-scom/scom-config-group.png)
@@ -92,7 +92,7 @@ La cartella Mapping dei servizi ha quattro nodi:
   >[!NOTE]
   >Questi avvisi non sono Log Analytics gli avvisi sincronizzati con Operations Manager, vengono generati nel gruppo di gestione basato sui flussi di lavoro definiti nella Management Pack di Mapping dei servizi.
 
-* **Server**: elenca i server monitorati configurati per la sincronizzazione da monitoraggio di Azure per le macchine virtuali funzionalità mappa.
+* **Server**: elenca i server monitorati configurati per la sincronizzazione dalla funzionalità mappa di VM Insights.
 
     ![Riquadro Monitoraggio server di Operations Manager](media/service-map-scom/scom-monitoring-servers.png)
 
@@ -117,7 +117,7 @@ Nella versione corrente è possibile configurare una sola area di lavoro Log Ana
 
 ## <a name="configure-rules-and-overrides"></a>Configurare regole e override
 
-Una regola, *Microsoft.SystemCenter. ServiceMapImport. Rule*, recupera periodicamente le informazioni dalla funzionalità della mappa monitoraggio di Azure per le macchine virtuali. Per modificare l'intervallo di sincronizzazione, è possibile eseguire l'override della regola e modificare il valore per il parametro **IntervalMinutes**.
+Una regola, *Microsoft.SystemCenter. ServiceMapImport. Rule*, recupera periodicamente le informazioni dalla funzionalità mappa di VM Insights. Per modificare l'intervallo di sincronizzazione, è possibile eseguire l'override della regola e modificare il valore per il parametro **IntervalMinutes**.
 
 ![Finestra delle proprietà di override di Operations Manager](media/service-map-scom/scom-overrides.png)
 
@@ -131,8 +131,8 @@ Una regola, *Microsoft.SystemCenter. ServiceMapImport. Rule*, recupera periodica
 La progettazione attuale presenta i problemi e le limitazioni seguenti:
 
 * È possibile connettersi a una sola area di lavoro Log Analytics.
-* Anche se è possibile aggiungere manualmente server al gruppo di server di Mapping dei servizi tramite il riquadro **Creazione e modifica**, le mappe di tali server non vengono sincronizzate immediatamente. Verranno sincronizzati dalla funzionalità di Monitoraggio di Azure per le macchine virtuali mappa durante il ciclo di sincronizzazione successivo.
-* Se si apportano modifiche ai diagrammi applicazione distribuiti creati dal Management Pack, tali modifiche verranno probabilmente sovrascritte alla successiva sincronizzazione con Monitoraggio di Azure per le macchine virtuali.
+* Anche se è possibile aggiungere manualmente server al gruppo di server di Mapping dei servizi tramite il riquadro **Creazione e modifica**, le mappe di tali server non vengono sincronizzate immediatamente. Verranno sincronizzati dalla funzionalità mappa di VM Insights durante il ciclo di sincronizzazione successivo.
+* Se si apportano modifiche ai diagrammi delle applicazioni distribuite create dal Management Pack, tali modifiche verranno probabilmente sovrascritte alla successiva sincronizzazione con VM Insights.
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
@@ -144,5 +144,5 @@ Per la documentazione ufficiale di Azure sulla creazione di un'entità servizio,
 
 ### <a name="suggestions"></a>Suggerimenti
 
-Ci sono commenti e suggerimenti per l'integrazione con Monitoraggio di Azure per le macchine virtuali funzionalità mappa o questa documentazione? Vedere la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
+Per informazioni sull'integrazione con la funzionalità di mapping di VM Insights o sulla documentazione, sono disponibili commenti e suggerimenti? Vedere la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
 

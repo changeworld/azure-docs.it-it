@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: ad8a9f7af9ddabe969d090f80378ba5ff891d7f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691944"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning
 
@@ -186,6 +186,30 @@ Mentre si aspetta il completamento di tutti i modelli dell'esperimento, selezion
 Di seguito vengono esaminate le schede **Dettagli** e **Metriche** per visualizzare le proprietà, le metriche e i grafici delle prestazioni del modello selezionato. 
 
 ![Dettagli sull'esecuzione delle iterazioni](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
+
+## <a name="model-explanations"></a>Spiegazioni del modello
+
+Durante l'attesa del completamento dei modelli, è anche possibile esaminare le spiegazioni del modello e vedere quali funzionalità dei dati (RAW o ingegnerizzate) hanno influenzato le stime di un determinato modello. 
+
+Queste spiegazioni del modello possono essere generate su richiesta e sono riepilogate nel dashboard spiegazione modello che fa parte della scheda **spiegazioni (anteprima)** .
+
+Per generare spiegazioni del modello, 
+ 
+1. Selezionare **Esegui 1** nella parte superiore per tornare alla schermata **Models (modelli** ). 
+1. Selezionare la scheda **modelli** .
+1. Per questa esercitazione, selezionare il primo modello **MaxAbsScaler, LightGBM** .
+1. Selezionare il pulsante **spiega modello** nella parte superiore. A destra viene visualizzato il riquadro **spiega modello** . 
+1. Selezionare il **automl-Compute** creato in precedenza. Questo cluster di calcolo avvia un'esecuzione figlio per generare le spiegazioni del modello.
+1. Selezionare **Crea** nella parte inferiore. Nella parte superiore dello schermo viene visualizzato un messaggio di operazione riuscita verde. 
+    >[!NOTE]
+    > Il completamento dell'esecuzione della spiegazione richiede circa 2-5 minuti.
+1. Selezionare il pulsante **spiegazioni (anteprima)** . Questa scheda viene popolata al termine dell'esecuzione della spiegazione.
+1. Sul lato sinistro espandere il riquadro e selezionare la riga che indica **RAW** in **funzionalità**. 
+1. Selezionare la scheda **importanza della funzionalità di aggregazione** a destra. Questo grafico mostra le funzionalità dei dati che hanno influenzato le stime del modello selezionato. 
+
+    In questo esempio, la *durata* sembra influenzare maggiormente le stime di questo modello.
+    
+    ![Dashboard spiegazione modello](media/tutorial-first-experiment-automated-ml/model-explanation-dashboard.png)
 
 ## <a name="deploy-the-best-model"></a>Distribuire il modello migliore
 

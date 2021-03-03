@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: 04a9776ca2686aebbb7668c86f5afcd61f5f9238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b0271edbbd119e1d60f30cc149ba7772fd0cfa9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530183"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730219"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali di Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "90530183"
 > 
 > 
 
-A partire dalla versione 2.17, Servizi multimediali consente di definire filtri per gli asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene archiviato attraverso **manifesti dinamici**creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
+A partire dalla versione 2.17, Servizi multimediali consente di definire filtri per gli asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene archiviato attraverso **manifesti dinamici** creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
 
 Per altre informazioni sui filtri e sul manifesto dinamico, vedere [Filtri e manifesti dinamici](media-services-dynamic-manifest-overview.md).
 
@@ -74,7 +74,7 @@ x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 Host:media.windows.net 
 ```
 
-Corpo della richiesta 
+Testo della richiesta 
 
 ```console
 {  
@@ -133,7 +133,7 @@ x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 Host: media.windows.net  
 ```
 
-Corpo della richiesta 
+Testo della richiesta 
 
 ```console
 {   
@@ -174,7 +174,7 @@ HTTP/1.1 201 Created
 ```
 
 ## <a name="list-filters"></a>Elencare i filtri
-### <a name="get-all-global-filters-in-the-ams-account"></a>Ottenere tutti i **Filter**globali nell'account di Servizi multimediali di Azure
+### <a name="get-all-global-filters-in-the-ams-account"></a>Ottenere tutti i **Filter** globali nell'account di Servizi multimediali di Azure
 Per elencare i filtri, usare le richieste HTTP seguenti: 
 
 #### <a name="http-request"></a>Richiesta HTTP
@@ -190,7 +190,7 @@ x-ms-version: 2.19
 Host: media.windows.net 
 ```
 
-### <a name="get-assetfilters-associated-with-an-asset"></a>Ottenere gli **AssetFilter**associati a un asset
+### <a name="get-assetfilters-associated-with-an-asset"></a>Ottenere gli **AssetFilter** associati a un asset
 #### <a name="http-request"></a>Richiesta HTTP
 
 ```console
@@ -363,7 +363,7 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 
 **Smooth Streaming**
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)`
 
     
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali

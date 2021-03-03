@@ -1,0 +1,54 @@
+### YamlMime:Landing
+title: Documentazione di Azure Istanza gestita per Apache Cassandra
+summary: Azure Istanza gestita per Apache Cassandra fornisce operazioni automatiche di distribuzione e scalabilità per i Data Center di Apache Cassandra Open Source gestiti. Accelera gli scenari ibridi e riduce la manutenzione continuativa.
+metadata:
+  title: Azure Istanza gestita per Apache Cassandra
+  description: Azure Istanza gestita per Apache Cassandra fornisce operazioni automatiche di distribuzione e scalabilità per i Data Center di Apache Cassandra Open Source gestiti. Accelera gli scenari ibridi e riduce la manutenzione continuativa.
+  services: service
+  ms.service: managed-instance-apache-cassandra
+  ms.topic: landing-page
+  ms.collection: collection
+  author: TheovanKraay
+  ms.author: thvankra
+  ms.date: 01/18/2021
+  ms.openlocfilehash: 8300012954756f1083c93745299ca57e4c4db0d3
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101749129"
+landingContent:
+- title: Informazioni su Azure Istanza gestita per Apache Cassandra
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Azure Istanza gestita per Apache Cassandra?
+      url: introduction.md
+  - linkListType: get-started
+    links:
+    - text: Azure Istanza gestita per Apache Cassandra rispetto a Azure Cosmos DB API Cassandra
+      url: compare-cosmosdb-managed-instance.md
+  - linkListType: quickstart
+    links:
+    - text: Creare un cluster-portale
+      url: create-cluster-portal.md
+    - text: Creare un cluster-interfaccia della riga di comando
+      url: create-cluster-cli.md
+    - text: Distribuire un cluster Spark con Azure Databricks
+      url: deploy-cluster-databricks.md
+  - linkListType: concept
+    links:
+    - text: Domande frequenti
+      url: faq.md
+- title: Configurare e gestire le risorse del cluster
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Configurare un cluster ibrido
+      url: configure-hybrid-cluster.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire risorse con l'interfaccia della riga di comando di Azure
+      url: manage-resources-cli.md
+    - text: Visualizzare le metriche in Prometheus con Grafana
+      url: visualize-prometheus-grafana.md

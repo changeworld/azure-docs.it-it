@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: bccd1f001cca67a5be3d14c50e6a6db96cb6584c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7356b9bb814f8bca5465fe74d48409b9dbca6d3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615286"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731698"
 ---
 # <a name="azure-monitor-data-platform"></a>Piattaforma dati Monitoraggio di Azure
 
@@ -28,7 +28,7 @@ Per abilitare l'osservabilità nei complessi ambienti di elaborazione odierni, s
 ## <a name="observability-data-in-azure-monitor"></a>Dati di osservabilità in Monitoraggio di Azure
 Le metriche, i log e le tracce distribuite sono comunemente definiti come i tre pilastri dell'osservabilità. Si tratta di diversi tipi di dati che gli strumenti di monitoraggio devono raccogliere e analizzare per fornire un livello di osservabilità sufficiente di un sistema monitorato. L'osservabilità può essere ottenuta mettendo in correlazione i dati di più pilastri e aggregandoli nell'intero set di risorse monitorate. Dal momento che Monitoraggio di Azure archivia i dati di più origini, questi ultimi possono essere correlati e analizzati tramite un set di strumenti comune. Inoltre, il servizio mette in correlazione i dati di più sottoscrizioni e tenant di Azure, oltre a ospitare i dati di altri servizi.
 
-Le risorse di Azure generano una quantità significativa di dati di monitoraggio. Monitoraggio di Azure consolida questi dati con quelli di monitoraggio provenienti da altre origini in una piattaforma di metriche o log. Ognuna è ottimizzata per scenari di monitoraggio specifici e supporta funzionalità diverse in Monitoraggio di Azure. Per usare funzionalità come l'analisi dei dati, le visualizzazioni o la creazione di avvisi, è necessario conoscere le differenze per essere in grado di implementare lo scenario più adatto nel modo più efficiente ed economicamente conveniente. Le informazioni cognitive dettagliate in Monitoraggio di Azure, come [Application Insights](app/app-insights-overview.md) o [Monitoraggio di Azure per le macchine virtuali](vm/vminsights-overview.md), dispongono di strumenti di analisi che consentono agli utenti di concentrarsi su uno scenario di monitoraggio specifico senza la necessità di conoscere le differenze tra i due tipi di dati. 
+Le risorse di Azure generano una quantità significativa di dati di monitoraggio. Monitoraggio di Azure consolida questi dati con quelli di monitoraggio provenienti da altre origini in una piattaforma di metriche o log. Ognuna è ottimizzata per scenari di monitoraggio specifici e supporta funzionalità diverse in Monitoraggio di Azure. Per usare funzionalità come l'analisi dei dati, le visualizzazioni o la creazione di avvisi, è necessario conoscere le differenze per essere in grado di implementare lo scenario più adatto nel modo più efficiente ed economicamente conveniente. Informazioni dettagliate in monitoraggio di Azure, ad esempio [Application Insights](app/app-insights-overview.md) o [VM Insights](vm/vminsights-overview.md) , includono strumenti di analisi che consentono di concentrarsi sullo scenario di monitoraggio specifico senza dover comprendere le differenze tra i due tipi di dati. 
 
 
 ### <a name="metrics"></a>Metriche

@@ -552,6 +552,10 @@
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
         - name: Inviare definizioni di processi Spark
           href: ./spark/apache-spark-job-definitions.md
+        - name: Connetti e monitora le metriche a livello di applicazione di Azure sinapsi Spark
+          href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
+        - name: Monitorare Apache Spark metrica a livello di applicazione con Prometheus e Grafana
+          href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
     - name: Concetti
       items:
         - name: Apache Spark
@@ -566,17 +570,21 @@
           href: ./spark/apache-spark-machine-learning-concept.md
         - name: Notebook
           href: ./spark/apache-spark-notebook-concept.md
+        - name: Gestione dei pacchetti
+          href: ./spark/apache-spark-azure-portal-add-libraries.md
         - name: Strumenti di monitoraggio
           href: monitoring/how-to-monitor-spark-applications.md
     - name: Guide pratiche
       items:
         - name: Usare Delta Lake
           href: ./spark/apache-spark-delta-lake-overview.md
-        - name: Gestire le librerie
+        - name: Gestisci pacchetti
           items:
-            - name: Aggiungere e gestire le librerie
-              href: ./spark/apache-spark-azure-portal-add-libraries.md
-            - name: Risolvere gli errori di installazione della libreria
+            - name: Gestire pacchetti Python
+              href: ./spark/apache-spark-manage-python-packages.md
+            - name: Gestisci pacchetti scala
+              href: ./spark/apache-spark-manage-scala-packages.md
+            - name: Risolvere gli errori di installazione dei pacchetti Python
               href: ./spark/apache-spark-troubleshoot-library-errors.md
         - name: Usare notebook e strumenti IDE
           items:

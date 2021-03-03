@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: a2f57fd6a369fba4a78799f768eb3fd2f3d27050
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 6f4e43efeb1882f52bd335d83a3660a94040ab8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071477"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729216"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Trigger Azure Cosmos DB per funzioni di Azure 2. x e versioni successive
 
@@ -163,7 +163,7 @@ Nel file di _run.ps1_ , è possibile accedere al documento che attiva la funzion
 ```powershell
 param($Documents, $TriggerMetadata) 
 
-Write-Host "First document Id modified : $($Documents[0].id)" 
+Write-Host "First document Id modified : $($Documents[0].id)" 
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -270,7 +270,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 Il trigger richiede una seconda raccolta usata per archiviare i _lease_ nelle partizioni. Sia la raccolta monitorata che la raccolta che contiene i lease deve essere disponibile affinché il trigger funzioni.
 

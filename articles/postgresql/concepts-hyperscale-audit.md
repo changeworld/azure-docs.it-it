@@ -6,12 +6,12 @@ ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: d8a21a5583ec4655a2ee8593e50be5c7b5f702b7
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 8a36062a2d29bcec10279d73211526a0dcba619e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227606"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702114"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Registrazione di controllo nel database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -20,7 +20,7 @@ Registrazione di controllo delle attività di database in database di Azure per 
 > [!IMPORTANT]
 > pgAudit è in anteprima su database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
-Se si vuole che i log a livello di risorsa di Azure per operazioni come il ridimensionamento di calcolo e archiviazione, vedere [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md).
+Se si vuole che i log a livello di risorsa di Azure per operazioni come il ridimensionamento di calcolo e archiviazione, vedere [log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="usage-considerations"></a>Considerazioni sull'utilizzo
 Per impostazione predefinita, le istruzioni di log di pgAudit vengono emesse insieme alle istruzioni di log regolari usando la funzionalità di registrazione standard di Postgres. In database di Azure per PostgreSQL-iperscalabilità (CITUS) è possibile configurare tutti i log da inviare all'archivio dei log di monitoraggio di Azure per l'analisi successiva in Log Analytics. Se si Abilita la registrazione delle risorse di monitoraggio di Azure, i log verranno inviati automaticamente (in formato JSON) ad archiviazione di Azure, Hub eventi e/o log di monitoraggio di Azure, a seconda della scelta effettuata.
@@ -54,9 +54,9 @@ Ogni voce di controllo è indicata da `AUDIT:` vicino all'inizio della riga del 
 Per iniziare rapidamente, impostare `pgaudit.log` su `WRITE` e aprire i log del server per esaminare l'output. 
 
 ## <a name="viewing-audit-logs"></a>Visualizzazione dei log di controllo
-Il modo in cui si accede ai log dipende dall'endpoint scelto. Per archiviazione di Azure, vedere l'articolo relativo all' [account di archiviazione dei log](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Per gli hub eventi, vedere l'articolo [flusso di log di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
+Il modo in cui si accede ai log dipende dall'endpoint scelto. Per archiviazione di Azure, vedere l'articolo relativo all' [account di archiviazione dei log](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) . Per gli hub eventi, vedere l'articolo [flusso di log di Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) .
 
-Per i log di monitoraggio di Azure, i log vengono inviati all'area di lavoro selezionata. I log Postgres usano la modalità di raccolta **AzureDiagnostics** , in modo che possano essere sottoposti a query dalla tabella AzureDiagnostics. I campi della tabella sono descritti di seguito. Per altre informazioni sull'esecuzione di query e avvisi, vedere Panoramica delle [query dei log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) .
+Per i log di monitoraggio di Azure, i log vengono inviati all'area di lavoro selezionata. I log Postgres usano la modalità di raccolta **AzureDiagnostics** , in modo che possano essere sottoposti a query dalla tabella AzureDiagnostics. I campi della tabella sono descritti di seguito. Per altre informazioni sull'esecuzione di query e avvisi, vedere Panoramica delle [query dei log di monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md) .
 
 È possibile utilizzare questa query per iniziare. È possibile configurare gli avvisi in base alle query.
 

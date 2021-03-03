@@ -1,146 +1,68 @@
 ---
-title: Gestione delle librerie per Apache Spark
+title: Gestione delle librerie
 description: Informazioni su come aggiungere e gestire le librerie usate da Apache Spark in Azure sinapsi Analytics.
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 0458fb8b140166b7bdf0fc0df41dbb207fdce3c9
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 955d7f8c2d2ce5ea126d4cce67b0e4e55152ac72
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518522"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695091"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gestire le librerie per Apache Spark in Azure sinapsi Analytics
+Le librerie forniscono codice riutilizzabile che può essere utile includere nei programmi o nei progetti. 
 
-Le librerie forniscono codice riutilizzabile che può essere utile includere nei programmi o nei progetti. Per rendere disponibile per le applicazioni di terze parti o codice compilato localmente, è possibile installare una libreria in uno dei pool di Apache Spark senza server. Quando una libreria è installata per un pool Spark, è disponibile per tutte le sessioni che usano lo stesso pool. 
+Potrebbe essere necessario aggiornare l'ambiente del pool di Apache Spark senza server per vari motivi. Ad esempio, è possibile trovare quanto segue:
+- una delle dipendenze principali ha rilasciato una nuova versione.
+- è necessario un pacchetto aggiuntivo per il training del modello di Machine Learning o la preparazione dei dati.
+- è stato trovato un pacchetto migliore e non è più necessario il pacchetto meno recente.
+- il team ha creato un pacchetto personalizzato che è necessario disponibile nel pool di Apache Spark.
 
-## <a name="before-you-begin"></a>Prima di iniziare
-- Per installare e aggiornare le librerie, è necessario disporre delle autorizzazioni di **collaboratore dati BLOB di archiviazione** o di **proprietario dati BLOB di archiviazione** per l'account di archiviazione Gen2 primario collegato all'area di lavoro di Azure sinapsi Analytics.
+Per rendere disponibile per le applicazioni di terze parti o codice compilato localmente, è possibile installare una libreria in uno dei pool di Apache Spark senza server o nella sessione del notebook.
   
 ## <a name="default-installation"></a>Installazione predefinita
 Apache Spark in Azure sinapsi Analytics ha un'installazione completa di Anaconda e librerie aggiuntive. L'elenco completo delle librerie è disponibile nel [Apache Spark supporto della versione](apache-spark-version-support.md). 
 
-Quando viene avviata un'istanza di Spark, queste librerie verranno incluse automaticamente. È possibile aggiungere pacchetti Python aggiuntivi e personalizzati a livello di pool Spark.
+Quando viene avviata un'istanza di Spark, queste librerie verranno incluse automaticamente. È possibile aggiungere pacchetti aggiuntivi a livello di pool o di sessione di Spark.
 
+## <a name="workspace-packages"></a>Pacchetti dell'area di lavoro
+Quando si sviluppano modelli o applicazioni personalizzate, il team può sviluppare diversi artefatti di codice, ad esempio file della rotellina o jar, per comprimere il codice. 
 
-## <a name="manage-python-packages"></a>Gestire pacchetti Python
-Una volta identificate le librerie che si vuole usare per l'applicazione Spark, è possibile installarle in un pool Spark. 
+In sinapsi i pacchetti dell'area di lavoro possono essere file di rotellina o file jar personalizzati o privati. È possibile caricare i pacchetti nell'area di lavoro e successivamente assegnarli a un pool Spark specifico. Una volta assegnati, i pacchetti dell'area di lavoro vengono installati automaticamente in tutte le sessioni del pool Spark.
 
- È possibile utilizzare un file di *requirements.txt* (output del `pip freeze` comando) per aggiornare l'ambiente virtuale. I pacchetti elencati in questo file per l'installazione o l'aggiornamento vengono scaricati da PyPI al momento dell'avvio del pool. Questo file dei requisiti viene usato ogni volta che viene creata un'istanza Spark dal pool Spark.
+Per altre informazioni su come gestire le librerie dell'area di lavoro, vedere le guide alle procedure seguenti:
+- [Pacchetti dell'area di lavoro Python: ](./apache-spark-manage-python-packages.md#Install-wheel-files) Caricare i file della rotellina Python come pacchetto dell'area di lavoro e successivamente aggiungerli a specifici pool di Apache Spark senza server.
+- [Pacchetti dell'area di lavoro scala/Java (anteprima): ](./apache-spark-manage-scala-packages.md#Workspace-packages) Caricare i file jar scala e Java come pacchetto dell'area di lavoro e aggiungerli in seguito a pool di Apache Spark senza server specifici.
+
+## <a name="pool-management"></a>Gestione pool
+In alcuni casi, è possibile standardizzare il set di pacchetti usati in un pool di Apache Spark specificato. Questa standardizzazione può essere utile se gli stessi pacchetti sono comunemente installati da più utenti del team. 
+
+Usando le funzionalità di gestione del pool di analisi delle sinapsi di Azure, è possibile configurare il set predefinito di librerie che si vuole installare in un determinato pool di Apache Spark senza server. Queste librerie vengono installate sul [runtime di base](./apache-spark-version-support.md). 
+
+Attualmente la gestione del pool è supportata solo per Python. Per Python, i pool Spark di sinapsi usano conda per installare e gestire le dipendenze dei pacchetti Python. Quando si specificano le librerie a livello di pool, è ora possibile specificare un requirements.txt o un ambiente. yml. Questo file di configurazione dell'ambiente viene usato ogni volta che viene creata un'istanza Spark dal pool Spark. 
+
+Per ulteriori informazioni su queste funzionalità, vedere la documentazione relativa alla [gestione del pool di Python](./apache-spark-manage-python-packages.md#Pool-libraries).
 
 > [!IMPORTANT]
 > - Se il pacchetto che si sta installando è di grandi dimensioni o richiede molto tempo per l'installazione, questo influirà sul tempo di avvio dell'istanza di Spark.
-> - I pacchetti che richiedono il supporto del compilatore in fase di installazione, ad esempio GCC, non sono supportati.
-> - Non è possibile effettuare il downgrade dei pacchetti, solo aggiunti o aggiornati.
 > - La modifica della versione di PySpark, Python, scala/Java, .NET o Spark non è supportata.
 > - L'installazione di pacchetti da PyPI non è supportata nelle aree di lavoro abilitate per DEP.
 
+## <a name="session-scoped-packages"></a>Pacchetti con ambito sessione
+Spesso, quando si esegue l'analisi interattiva dei dati o l'apprendimento automatico, è possibile che si desideri provare i pacchetti più recenti o che siano necessari pacchetti non ancora disponibili nel pool di Apache Spark. Anziché aggiornare la configurazione del pool, gli utenti possono ora usare pacchetti con ambito sessione per aggiungere, gestire e aggiornare le dipendenze della sessione.
 
-### <a name="requirements-format"></a>Formato requisiti
+I pacchetti con ambito sessione consentono agli utenti di definire le dipendenze dei pacchetti all'inizio della sessione. Quando si installa un pacchetto con ambito sessione, solo la sessione corrente può accedere ai pacchetti specificati. Di conseguenza, questi pacchetti con ambito sessione non influiscano su altre sessioni o processi che usano lo stesso pool di Apache Spark. Inoltre, queste librerie vengono installate sopra i pacchetti di runtime di base e a livello di pool. 
 
-Il frammento di codice seguente mostra il formato per il file dei requisiti. Il nome del pacchetto PyPi è elencato insieme a una versione esatta. Questo file segue il formato descritto nella documentazione di riferimento per il [blocco PIP](https://pip.pypa.io/en/stable/reference/pip_freeze/) . In questo esempio viene pin una versione specifica. 
-
-```
-absl-py==0.7.0
-adal==1.2.1
-alabaster==0.7.10
-```
-
-### <a name="install-python-packages"></a>Installare i pacchetti Python
-Durante lo sviluppo dell'applicazione Spark, potrebbe essere necessario aggiornare le librerie esistenti o installarne di nuove. È possibile aggiornare le librerie durante o dopo la creazione del pool.
-
-> [!IMPORTANT]
-> Per installare le librerie, è necessario disporre delle autorizzazioni di collaboratore dati BLOB di archiviazione o di proprietario dati BLOB di archiviazione per l'account di archiviazione Gen2 primario collegato all'area di lavoro sinapsi.
-
-#### <a name="install-packages-during-pool-creation"></a>Installare i pacchetti durante la creazione del pool
-Per installare le librerie in un pool Spark durante la creazione del pool:
-   
-1. Passare all'area di lavoro di Azure sinapsi Analytics dal portale di Azure.
-   
-2. Selezionare **Crea pool di Apache Spark** , quindi selezionare la scheda **Impostazioni aggiuntive** . 
-   
-3. Caricare il file di configurazione dell'ambiente utilizzando il selettore file nella sezione **pacchetti** della pagina. 
-   
-    ![Aggiungere librerie Python durante la creazione del pool](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Aggiungere librerie Python")
- 
-
-#### <a name="install-packages-from-the-synapse-workspace"></a>Installare i pacchetti dall'area di lavoro sinapsi
-Per aggiornare o aggiungere altre librerie a un pool Spark dal portale di analisi delle sinapsi di Azure:
-
-1.  Passare all'area di lavoro di Azure sinapsi Analytics dal portale di Azure.
-   
-2.  Avviare l'area di lavoro di Azure sinapsi Analytics dalla portale di Azure.
-
-3.  Selezionare **Gestisci** dal pannello di navigazione principale, quindi selezionare **Apache Spark pool**.
-   
-4. Selezionare un singolo pool Spark e caricare il file di configurazione dell'ambiente usando il selettore file nella sezione  **pacchetti** della pagina.
-
-    ![Aggiungere librerie Python in sinapsi](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
-   
-#### <a name="install-packages-from-the-azure-portal"></a>Installare i pacchetti dal portale di Azure
-Per installare una libreria in un pool Spark direttamente dalla portale di Azure:
-   
- 1. Passare all'area di lavoro di Azure sinapsi Analytics dal portale di Azure.
-   
- 2. Nella sezione **risorse sinapsi** selezionare la scheda **pool di Apache Spark** e selezionare un pool Spark nell'elenco.
-   
- 3. Selezionare **pacchetti** dalla sezione **Impostazioni** del pool Spark. 
-
- 4. Caricare il file di configurazione dell'ambiente utilizzando il selettore file.
-
-    ![Schermata che evidenzia il pulsante Carica file di configurazione dell'ambiente.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Aggiungere librerie Python")
-
-### <a name="verify-installed-libraries"></a>Verificare le librerie installate
-
-Per verificare se sono installate le versioni corrette delle librerie corrette, eseguire il codice seguente
-
-```python
-import pkg_resources
-for d in pkg_resources.working_set:
-     print(d)
-```
-### <a name="update-python-packages"></a>Aggiornare i pacchetti Python
-I pacchetti possono essere aggiunti o modificati in qualsiasi momento tra le sessioni. Un nuovo file di configurazione del pacchetto sovrascriverà i pacchetti e le versioni esistenti.  
-
-Per aggiornare o disinstallare una libreria:
-1. Passare all'area di lavoro di Azure sinapsi Analytics. 
-
-2. Usando l'area di lavoro portale di Azure o la sinapsi di Azure, selezionare il **pool di Apache Spark** che si vuole aggiornare.
-
-3. Passare alla sezione **pacchetti** e caricare un nuovo file di configurazione dell'ambiente
-   
-4. Dopo aver salvato le modifiche, sarà necessario terminare le sessioni attive e consentire il riavvio del pool. Facoltativamente, è possibile forzare la chiusura delle sessioni attive selezionando la casella di controllo per **forzare nuove impostazioni**.
-
-    ![Aggiungere librerie Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Aggiungere librerie Python")
-   
-
-> [!IMPORTANT]
-> Selezionando l'opzione per **forzare nuove impostazioni**, si terminano tutte le sessioni correnti per il pool Spark selezionato. Una volta terminate le sessioni, sarà necessario attendere il riavvio del pool. 
->
-> Se questa impostazione è deselezionata, sarà necessario attendere la fine della sessione Spark corrente o arrestarla manualmente. Al termine della sessione, sarà necessario consentire il riavvio del pool. 
-
-
-## <a name="manage-a-python-wheel"></a>Gestire una rotellina Python
-
-### <a name="install-a-custom-wheel-file"></a>Installare un file della rotellina personalizzato
-I pacchetti Wheel personalizzati possono essere installati nel pool di Apache Spark caricando tutti i file della rotellina nell'account Azure Data Lake Storage (Gen2) collegato con l'area di lavoro sinapsi. 
-
-I file devono essere caricati nel percorso seguente nel contenitore predefinito dell'account di archiviazione: 
-
-```
-abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
-```
-
-Potrebbe essere necessario aggiungere la ```python``` cartella all'interno della ```libraries``` cartella, se non esiste già.
-
->[!IMPORTANT]
->Custom-i pacchetti possono essere aggiunti o modificati tra le sessioni. Tuttavia, sarà necessario attendere il riavvio del pool e della sessione per visualizzare il pacchetto aggiornato.
+Per altre informazioni su come gestire i pacchetti con ambito sessione, vedere le guide alle procedure seguenti:
+- [Pacchetti della sessione Python (anteprima):](./apache-spark-manage-python-packages.md#Session-scoped-libraries-(preview)) All'inizio di una sessione, fornire un oggetto conda *Environment. yml* per installare pacchetti Python aggiuntivi da repository comuni. 
+- [Pacchetti di sessione scala/Java: ](./apache-spark-manage-scala-packages.md#Workspace-packages) All'inizio della sessione, fornire un elenco di file jar da installare usando ```%%configure``` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Visualizzare le librerie predefinite: [supporto della versione Apache Spark](apache-spark-version-support.md)

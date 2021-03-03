@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5e84831798ec1c5f42facb04a25da9d8631b9d04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593419"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690584"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Disponibilità elevata per database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ La configurazione con ridondanza della zona per il livello di servizio per utili
 
 La configurazione con ridondanza della zona per il livello utilizzo generico è costituita da due livelli:  
 
-- Livello dati con stato con i file di database (con estensione MDF/ldf) archiviati in ZRS PFS ( [condivisione file Premium di archiviazione](../../storage/files/storage-how-to-create-premium-fileshare.md)con ridondanza della zona. Usando l' [archiviazione con ridondanza della zona](../../storage/common/storage-redundancy.md) i dati e i file di log vengono copiati in modo sincrono in tre zone di disponibilità di Azure isolate fisicamente.
+- Livello dati con stato con i file di database (con estensione MDF/ldf) archiviati in ZRS PFS ( [condivisione file Premium di archiviazione](../../storage/files/storage-how-to-create-file-share.md)con ridondanza della zona. Usando l' [archiviazione con ridondanza della zona](../../storage/common/storage-redundancy.md) i dati e i file di log vengono copiati in modo sincrono in tre zone di disponibilità di Azure isolate fisicamente.
 - Livello di calcolo senza stato che esegue il processo di sqlservr.exe e contiene solo dati temporanei e memorizzati nella cache, ad esempio TempDB, i database modello nell'unità SSD collegata e la cache dei piani, il pool di buffer e il pool columnstore in memoria. Questo nodo senza stato viene gestito da Azure Service Fabric che Inizializza sqlservr.exe, controlla l'integrità del nodo ed esegue il failover in un altro nodo, se necessario. Per i database per utilizzo generico con ridondanza della zona, i nodi con capacità di riserva sono immediatamente disponibili in altri zone di disponibilità per il failover.
 
 La versione con ridondanza della zona dell'architettura a disponibilità elevata per il livello di servizio utilizzo generico è illustrata nel diagramma seguente:

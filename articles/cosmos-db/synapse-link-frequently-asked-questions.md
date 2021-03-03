@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 885aab68c769c0705994bad34bee6aaa4fdc3f3d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658470"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692267"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -73,6 +73,10 @@ Azure Cosmos DB garantisce l'isolamento delle prestazioni tra carichi di lavoro 
 Sì, è possibile configurare un [endpoint privato gestito](analytical-store-private-endpoints.md) e limitare l'accesso di rete dell'archivio analitico alla rete virtuale gestita da sinapsi di Azure. Gli endpoint privati gestiti stabiliscono un collegamento privato all'archivio analitico. Questo endpoint privato limiterà anche l'accesso in scrittura all'archivio transazionale, tra gli altri servizi dati di Azure.
 
 È possibile aggiungere endpoint privati sia per l'archivio transazionale che per quelli analitici allo stesso account Azure Cosmos DB in un'area di lavoro di Azure sinapsi Analytics. Se si vuole solo eseguire query analitiche, è possibile eseguire solo il mapping dell'endpoint privato analitico.
+
+### <a name="can-i-use-customer-managed-keys-with-the-azure-cosmos-db-analytical-store"></a>È possibile usare chiavi gestite dal cliente con l'archivio analitico Azure Cosmos DB?
+
+È possibile crittografare facilmente i dati tra archivi transazionali e analitici usando le stesse chiavi gestite dal cliente in modo automatico e trasparente. L'uso delle chiavi gestite dal cliente con l'archivio analitico Azure Cosmos DB attualmente richiede una configurazione aggiuntiva per l'account. Per informazioni dettagliate, contattare il [team di Azure Cosmos DB](mailto:azurecosmosdbcmk@service.microsoft.com)  .
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>Le operazioni di eliminazione e aggiornamento eseguite nell'archivio transazionale si riflettono nell'archivio analitico?
 

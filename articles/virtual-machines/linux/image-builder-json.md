@@ -3,22 +3,22 @@ title: Creare un modello di Image Builder di Azure (anteprima)
 description: Informazioni su come creare un modello da usare con Image Builder di Azure.
 author: danielsollondon
 ms.author: danis
-ms.date: 02/18/2021
+ms.date: 03/02/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: c2e4a2c2700af99a074dfd640177a6baefe763e2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: eb02bff77ffedc0a1f2fee0a186d544c39374dbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670429"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693867"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di Image Builder di Azure 
 
-Image Builder di Azure usa un file con estensione JSON per passare le informazioni nel servizio Image Builder. In questo articolo verranno esaminate le sezioni del file JSON così da poterne creare uno personalizzato. Per vedere gli esempi di file con estensione JSON completi, fare riferimento al [GitHub per Image Builder di Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+Image Builder di Azure usa un file con estensione JSON per passare le informazioni nel servizio Image Builder. In questo articolo verranno esaminate le sezioni del file JSON così da poterne creare uno personalizzato. Per vedere gli esempi di file con estensione JSON completi, fare riferimento al [GitHub per Image Builder di Azure](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 Questo è il formato del modello di base:
 
@@ -249,7 +249,7 @@ Quando si usa `customize`:
 - Se una funzione di personalizzazione ha esito negativo, l'intero componente di personalizzazione avrà esito negativo e segnalerà un errore.
 - Si consiglia vivamente di testare accuratamente lo script prima di usarlo in un modello. Il debug dello script nella propria macchina virtuale sarà più semplice.
 - Non inserire dati sensibili negli script. 
-- I percorsi degli script devono essere pubblicamente accessibili, a meno che non si usi [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+- I percorsi degli script devono essere pubblicamente accessibili, a meno che non si usi [MSI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity).
 
 ```json
         "customize": [
@@ -697,4 +697,4 @@ az resource invoke-action \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nel [GitHub di Image Builder di Azure](https://github.com/danielsollondon/azvmimagebuilder) sono disponibili file JSON di esempio per diversi scenari.
+Nel [GitHub di Image Builder di Azure](https://github.com/azure/azvmimagebuilder) sono disponibili file JSON di esempio per diversi scenari.

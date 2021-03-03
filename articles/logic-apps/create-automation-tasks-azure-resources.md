@@ -3,15 +3,15 @@ title: Creare attività di automazione per gestire e monitorare le risorse di Az
 description: Configurare attività automatiche che consentono di gestire le risorse di Azure e monitorare i costi creando flussi di lavoro eseguiti in app per la logica di Azure.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.date: 02/19/2021
+ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201121"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719050"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gestire le risorse di Azure e monitorare i costi creando attività di automazione (anteprima)
 
@@ -71,13 +71,15 @@ Per confronto, automazione di Azure è un servizio di automazione e configurazio
 
    ![Screenshot che mostra il riquadro "attività" dell'account di archiviazione in cui è selezionata la barra degli strumenti "Aggiungi"](./media/create-automation-tasks-azure-resources/add-automation-task.png)
 
-1. In **Seleziona un modello**nel riquadro **Aggiungi un'attività** selezionare il modello per l'attività che si desidera creare e selezionare **Avanti: autenticazione**.
+1. In **Seleziona un modello** nel riquadro **Aggiungi un'attività** selezionare il modello per l'attività che si desidera creare. Se la pagina successiva non viene visualizzata, selezionare **Avanti: autenticazione**.
 
    Questo esempio continua selezionando il modello di attività **Invia costo mensile per le risorse** .
 
    ![Screenshot che mostra le selezioni, "Invia il costo mensile per la risorsa" e "Avanti: autenticazione"](./media/create-automation-tasks-azure-resources/select-task-template.png)
 
-1. In **autenticazione**, nella sezione **connessioni** Selezionare **Crea** per ogni connessione, in modo da poter fornire le credenziali di autenticazione per la connessione. I tipi di connessioni in ogni attività variano in base all'attività.
+1. In **autenticazione**, nella sezione **connessioni** Selezionare **Crea** per tutte le connessioni visualizzate nell'attività in modo da poter fornire le credenziali di autenticazione per tutte le connessioni. I tipi di connessioni in ogni attività variano in base all'attività.
+
+   Questo esempio Mostra solo una delle connessioni richieste da questa attività.
 
    ![Screenshot che mostra l'opzione "Crea" selezionata per la connessione Azure Resource Manager](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
 
@@ -89,9 +91,9 @@ Per confronto, automazione di Azure è un servizio di automazione e configurazio
 
    ![Screenshot che mostra la connessione creata correttamente](./media/create-automation-tasks-azure-resources/create-connection-success.png)
 
-1. Dopo aver autenticato tutte le connessioni necessarie, selezionare **Avanti: configurazione**.
+1. Dopo aver autenticato tutte le connessioni, selezionare **Avanti: configurazione** se la pagina successiva non viene visualizzata.
 
-1. In **configurazione**specificare un nome per l'attività e qualsiasi altra informazione necessaria per l'attività. Al termine, selezionare **Crea**.
+1. In **configurazione** specificare un nome per l'attività e qualsiasi altra informazione necessaria per l'attività. Al termine, selezionare **Crea**.
 
    > [!NOTE]
    > Non è possibile modificare il nome dell'attività dopo la creazione, quindi considerare un nome che si applica ancora se si [modifica il flusso di lavoro sottostante](#edit-task-workflow). Le modifiche apportate al flusso di lavoro sottostante si applicano solo all'attività creata, non al modello di attività.
@@ -136,7 +138,7 @@ Per visualizzare la cronologia di un'attività delle esecuzioni insieme ai relat
    | Stato | Descrizione |
    |--------|-------------|
    | **Annullato** | L'attività è stata annullata durante l'esecuzione. |
-   | **Non riuscito** | Nell'attività è presente almeno un'azione non riuscita, ma non è stata eseguita alcuna azione successiva per gestire l'errore. |
+   | **Operazione non riuscita** | Nell'attività è presente almeno un'azione non riuscita, ma non è stata eseguita alcuna azione successiva per gestire l'errore. |
    | **Running** | L'attività è attualmente in esecuzione. |
    | **Completato** | Tutte le azioni hanno avuto esito positivo. Un'attività può comunque terminare correttamente se un'azione non è riuscita, ma esisteva un'azione successiva per gestire l'errore. |
    | **Attesa** | L'esecuzione non è stata ancora avviata e viene sospesa perché un'istanza precedente dell'attività è ancora in esecuzione. |
@@ -148,7 +150,7 @@ Per visualizzare la cronologia di un'attività delle esecuzioni insieme ai relat
 
    Viene aperto il riquadro **esecuzione App** per la logica che mostra il flusso di lavoro sottostante che è stato eseguito.
 
-   * Un flusso di lavoro inizia sempre con un [*trigger*](../connectors/apis-list.md#triggers-actions). Per questa attività, il flusso di lavoro inizia con il trigger di [ **ricorrenza** ](../connectors/connectors-native-recurrence.md).
+   * Un flusso di lavoro inizia sempre con un [*trigger*](../connectors/apis-list.md#triggers-actions). Per questa attività, il flusso di lavoro inizia con il trigger di [ **ricorrenza**](../connectors/connectors-native-recurrence.md).
 
    * Ogni passaggio Mostra lo stato e la durata dell'esecuzione. Per l'esecuzione di passaggi con durate di 0 secondi sono necessari meno di un secondo.
 
@@ -182,7 +184,7 @@ Per modificare un'attività, sono disponibili le opzioni seguenti:
 
 1. Nella [portale di Azure](https://portal.azure.com)individuare la risorsa che contiene l'attività che si desidera aggiornare.
 
-1. In **automazione**selezionare **attività**dal menu della risorsa.
+1. In **automazione** selezionare **attività** dal menu della risorsa.
 
 1. Nell'elenco attività trovare l'attività che si desidera aggiornare. Aprire il menu puntini di sospensione (**..**.) dell'attività e selezionare **modifica inline**.
 
@@ -213,7 +215,7 @@ Quando si modifica il flusso di lavoro sottostante per un'attività di automazio
 
 1. Nella [portale di Azure](https://portal.azure.com)individuare la risorsa che contiene l'attività che si desidera aggiornare.
 
-1. In **automazione**selezionare **attività**dal menu della risorsa.
+1. In **automazione** selezionare **attività** dal menu della risorsa.
 
 1. Nell'elenco attività trovare l'attività che si desidera aggiornare. Aprire il menu puntini di sospensione (**..**.) dell'attività e selezionare **Apri in app per la logica**.
 
@@ -223,7 +225,7 @@ Quando si modifica il flusso di lavoro sottostante per un'attività di automazio
 
    ![Screenshot che mostra l'attività nella visualizzazione app per la logica di Azure con il riquadro Panoramica selezionato](./media/create-automation-tasks-azure-resources/task-logic-apps-view.png)
 
-1. Per aprire il flusso di lavoro sottostante nella finestra di progettazione dell'app per la logica, scegliere **progettazione app**per la logica dal menu dell'app per la logica.
+1. Per aprire il flusso di lavoro sottostante nella finestra di progettazione dell'app per la logica, scegliere **progettazione app** per la logica dal menu dell'app per la logica.
 
    ![Screenshot che mostra l'opzione di menu "progettazione app per la logica" selezionata e l'area di progettazione con il flusso di lavoro sottostante](./media/create-automation-tasks-azure-resources/view-task-workflow-logic-app-designer.png)
 
@@ -237,9 +239,9 @@ Quando si modifica il flusso di lavoro sottostante per un'attività di automazio
 
    1. Nel riquadro di creazione dell'app per la logica, in **nome**, immettere un nuovo nome per il flusso di lavoro dell'app per la logica copiato.
 
-      Ad eccezione **dello stato dell'app**per la logica, le altre proprietà non sono disponibili per la modifica. 
+      Ad eccezione **dello stato dell'app** per la logica, le altre proprietà non sono disponibili per la modifica. 
       
-   1. In **stato app**per la logica selezionare **disabilitato** in modo che il flusso di lavoro clonato non venga eseguito mentre si apportano le modifiche. È possibile abilitare il flusso di lavoro quando si è pronti per testare le modifiche.
+   1. In **stato app** per la logica selezionare **disabilitato** in modo che il flusso di lavoro clonato non venga eseguito mentre si apportano le modifiche. È possibile abilitare il flusso di lavoro quando si è pronti per testare le modifiche.
 
    1. Al termine del provisioning del flusso di lavoro clonato, il flusso di lavoro viene individuato e aperto nella finestra di progettazione dell'app per la logica.
 
@@ -263,9 +265,9 @@ Quando si modifica il flusso di lavoro sottostante per un'attività di automazio
 
 1. Per disabilitare il flusso di lavoro in modo che l'attività non continui l'esecuzione, vedere [gestire le app per la logica nella portale di Azure](../logic-apps/manage-logic-apps-with-azure-portal.md).
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire il feedback
 
-Ci piacerebbe sapere. Per segnalare bug, fornire commenti e suggerimenti o porre domande su questa funzionalità di anteprima, [contattare il team di app per la logica di Azure](mailto:logicapps@microsoft.com).
+Ci piacerebbe sapere. Per segnalare bug, fornire commenti e suggerimenti o porre domande su questa funzionalità di anteprima, [contattare il team di app per la logica di Azure](mailto:logicappspm@microsoft.com).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

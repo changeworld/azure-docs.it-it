@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 31a034a7f52efd915b7a07e1abb953a14839892e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9cf4caf77d14dd1296276ca48827c170ef265e9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614707"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718064"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Avvisi relativi alle metriche con soglie dinamiche in monitoraggio di Azure
 
@@ -22,7 +22,7 @@ Il feedback degli utenti è bene accetto ed è possibile inviarlo all'indirizzo 
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Perché e quando è consigliabile usare condizioni di tipo dinamico?
 
-1. **Avviso scalabile** : le regole di avviso della soglia dinamica possono creare soglie personalizzate per centinaia di serie di metriche alla volta, offrendo allo stesso tempo la stessa facilità di definizione di una regola di avviso su una singola metrica. Forniscono un minor numero di avvisi per la creazione e la gestione. È possibile usare portale di Azure o l'API Azure Resource Manager per crearli. L'approccio scalabile è particolarmente utile quando si gestiscono le dimensioni della metrica o quando si applicano a più risorse, ad esempio a tutte le risorse di sottoscrizione.  [Altre informazioni su come configurare gli avvisi delle metriche con soglie dinamiche usando modelli](../platform/alerts-metric-create-templates.md).
+1. **Avviso scalabile** : le regole di avviso della soglia dinamica possono creare soglie personalizzate per centinaia di serie di metriche alla volta, offrendo allo stesso tempo la stessa facilità di definizione di una regola di avviso su una singola metrica. Forniscono un minor numero di avvisi per la creazione e la gestione. È possibile usare portale di Azure o l'API Azure Resource Manager per crearli. L'approccio scalabile è particolarmente utile quando si gestiscono le dimensioni della metrica o quando si applicano a più risorse, ad esempio a tutte le risorse di sottoscrizione.  [Altre informazioni su come configurare gli avvisi delle metriche con soglie dinamiche usando modelli](./alerts-metric-create-templates.md).
 
 1. **Riconoscimento intelligente** dei modelli di metrica: grazie alla tecnologia ml, è possibile rilevare automaticamente i modelli di metrica e adattarsi alle modifiche delle metriche nel tempo, che possono spesso includere la stagionalità (oraria/giornaliera/settimanale). L'adattamento al comportamento delle metriche nel tempo e l'invio di avvisi in base a deviazioni dal suo modello Elimina il carico di conoscere la soglia "destra" per ogni metrica. L'algoritmo di Machine Learning usato per le soglie dinamiche è stato progettato in modo da impedire valori soglia non significativi (bassa precisione) o troppo ampi (basso richiamo) che non seguono un modello previsto.
 
@@ -75,7 +75,7 @@ Per attivare un avviso quando si è verificata una violazione di una soglia dina
 
 ## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Come è possibile individuare il motivo per cui è stato attivato un avviso per le soglie dinamiche?
 
-È possibile esplorare le istanze di avviso attivate nella visualizzazione avvisi facendo clic sul collegamento nel messaggio di posta elettronica o nel messaggio di testo o nel browser per visualizzare la visualizzazione avvisi nell'portale di Azure. [Altre informazioni sulla visualizzazione avvisi](../platform/alerts-overview.md#alerts-experience).
+È possibile esplorare le istanze di avviso attivate nella visualizzazione avvisi facendo clic sul collegamento nel messaggio di posta elettronica o nel messaggio di testo o nel browser per visualizzare la visualizzazione avvisi nell'portale di Azure. [Altre informazioni sulla visualizzazione avvisi](./alerts-overview.md#alerts-experience).
 
 La vista avvisi Visualizza:
 
@@ -188,4 +188,4 @@ Utilizzare le seguenti informazioni per interpretare il grafico precedente.
 - **Punto rosso con un cerchio nero** : Mostra il primo valore della metrica non compreso nell'intervallo consentito. Si tratta del valore che genera un avviso di metrica e lo inserisce in uno stato attivo.
 - **Punti rossi**: indica valori misurati aggiuntivi al di fuori dell'intervallo consentito. Non verranno generati avvisi di metrica aggiuntivi, ma l'avviso resterà attivo.
 - **Area rossa** : indica l'ora in cui il valore della metrica non è compreso nell'intervallo consentito. L'avviso rimane nello stato attivo fino a quando i valori misurati successivi non rientrano nell'intervallo consentito, ma non vengono generati nuovi avvisi.
-- **Fine dell'area rossa** : quando la linea blu è di nuovo all'interno dei valori consentiti, l'area rossa si interrompe e la riga del valore misurato risulta blu. Lo stato dell'avviso della metrica generato al momento del punto rosso con contorno nero è impostato su risolto. 
+- **Fine dell'area rossa** : quando la linea blu è di nuovo all'interno dei valori consentiti, l'area rossa si interrompe e la riga del valore misurato risulta blu. Lo stato dell'avviso della metrica generato al momento del punto rosso con contorno nero è impostato su risolto.

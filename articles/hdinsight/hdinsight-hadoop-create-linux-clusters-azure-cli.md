@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 02/03/2020
-ms.openlocfilehash: a2b39f25aa2a8847697df8a5097f5ffdc9cbd212
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9028d85346611341afec0d0598f27a77e4f37fdf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945880"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715497"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
 
@@ -42,7 +42,7 @@ La procedura illustrata in questo documento illustra come creare un cluster HDIn
     |`--workernode-count`| Numero di nodi del ruolo di lavoro nel cluster. Questo articolo usa la variabile `clusterSizeInNodes` come valore passato a `--workernode-count` . |
     |`--version`| versione del cluster HDInsight. Questo articolo usa la variabile `clusterVersion` come valore passato a `--version` . Vedere anche: [versioni supportate di HDInsight](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
     |`--type`| Tipo di cluster HDInsight, ad esempio: Hadoop, interactivehive, HBase, Kafka, Storm, Spark, RServer, mlservices.  Questo articolo usa la variabile `clusterType` come valore passato a `--type` . Vedere anche: [tipi e configurazione di cluster](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
-    |`--component-version`|Versioni di vari componenti di Hadoop, in versioni separate da spazi nel formato ' Component = version '. Questo articolo usa la variabile `componentVersion` come valore passato a `--component-version` . Vedere anche: [componenti di Hadoop](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).|
+    |`--component-version`|Versioni di vari componenti di Hadoop, in versioni separate da spazi nel formato ' Component = version '. Questo articolo usa la variabile `componentVersion` come valore passato a `--component-version` . Vedere anche: [componenti di Hadoop](./hdinsight-component-versioning.md).|
 
     Sostituire `RESOURCEGROUPNAME` ,,, `LOCATION` `CLUSTERNAME` `STORAGEACCOUNTNAME` e `PASSWORD` con i valori desiderati. Modificare i valori per le altre variabili nel modo desiderato. Quindi, immettere i comandi dell'interfaccia della riga di comando.
 

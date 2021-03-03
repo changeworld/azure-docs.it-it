@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 03/03/2021
+ms.openlocfilehash: b2f2c8497d5365104a5ffc361b791450925d0c19
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701586"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694785"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Ricerca fuzzy per correggere errori di ortografia e digitazioni
 
@@ -132,7 +132,7 @@ Si noti che viene restituita la stessa risposta, ma ora invece della corrisponde
 
 Il punto di questo esempio espanso è illustrare la chiarezza che l'evidenziazione dei riscontri può portare a risultati ambigui. In tutti i casi, viene restituito lo stesso documento. Se si è fatto affidamento sugli ID documento per verificare una corrispondenza, è possibile che si sia perso il passaggio da "speciale" a "SQL".
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Funzionamento della ricerca full-text in Azure ricerca cognitiva (architettura di analisi delle query)](search-lucene-query-architecture.md)
 + [Esplora ricerche](search-explorer.md)

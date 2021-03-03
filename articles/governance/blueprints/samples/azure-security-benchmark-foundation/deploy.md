@@ -1,14 +1,14 @@
 ---
 title: Distribuire l'esempio di progetto Azure Security benchmark Foundation
 description: Procedura di distribuzione per l'esempio di progetto di benchmark Foundation di Azure, inclusi i dettagli del parametro dell'artefatto Blueprint.
-ms.date: 02/17/2020
+ms.date: 02/18/2020
 ms.topic: sample
-ms.openlocfilehash: aaaabc8767c6d80548a26d64d8557587180fb6f3
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: e48f3da383bdb6d5c9960595f3c0fdcabc27dc75
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095287"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740682"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Distribuire l'esempio di progetto Azure Security benchmark Foundation
 
@@ -136,7 +136,7 @@ La tabella seguente fornisce un elenco dei parametri del progetto:
 |Modello spoke della rete virtuale di Azure|Modello di Resource Manager|Prefissi di indirizzo della subnet (facoltativo)|Matrice di prefissi di indirizzo IP per subnet facoltative per la rete virtuale spoke; ad esempio, "10.0.7.0/24", "10.0.8.0/24"|
 |Modello spoke della rete virtuale di Azure|Modello di Resource Manager|Distribuzione spoke|Immettere ' true ' o ' false ' per specificare se l'assegnazione distribuisce i componenti spoke dell'architettura|
 |Modello di Network Watcher di Azure|Modello di Resource Manager|Località Network Watcher|Percorso per la risorsa Network Watcher|
-|Modello di Network Watcher di Azure|Modello di Resource Manager|Località del gruppo di risorse Network Watcher|Se Network Watcher è già abilitato, il valore di questo parametro **deve** corrispondere al nome del gruppo di risorse Network Watcher esistente.|
+|Modello di Network Watcher di Azure|Modello di Resource Manager|Località del gruppo di risorse Network Watcher|Se Network Watcher è già abilitato, il valore di questo parametro **deve** corrispondere al percorso del gruppo di risorse Network Watcher esistente.|
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

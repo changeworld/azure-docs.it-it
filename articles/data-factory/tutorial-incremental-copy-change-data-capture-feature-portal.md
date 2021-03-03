@@ -5,15 +5,17 @@ ms.author: nihurt
 author: hurtn
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/04/2020
-ms.openlocfilehash: ba4e5c3998c7c6218d2f0232e3c05930ca82e378
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: a00ec8698b188b8fa87935e498e8cfab3aeab5aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391270"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724983"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Caricare dati in modo incrementale dall'istanza gestita di SQL di Azure in Archiviazione di Azure tramite la tecnologia Change Data Capture
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questa esercitazione illustra come creare una data factory di Azure con una pipeline che carica dati differenziali basati su informazioni di **Change Data Capture** nel database dell'istanza gestita di SQL di Azure di origine in una risorsa di archiviazione BLOB di Azure.  
 

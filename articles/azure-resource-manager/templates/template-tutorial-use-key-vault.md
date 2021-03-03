@@ -2,16 +2,16 @@
 title: Usare Azure Key Vault nei modelli
 description: Informazioni su come usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione di modelli di Azure Resource Manager (modello di ARM).
 author: mumian
-ms.date: 04/23/2020
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 44a5131a7ad90feeeeff56e95b64e65f3f18855c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.openlocfilehash: 388996dc0054192f6d9f3c87e11ca1d15e8a85e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674158"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703886"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Azure Resource Manager
 
@@ -93,7 +93,14 @@ Quando si copia e si incolla l'ID, questo potrebbe venire suddiviso in più righ
 Per convalidare la distribuzione, eseguire il comando di PowerShell seguente nello stesso riquadro della shell per recuperare il segreto come testo non crittografato. Il comando funziona solo nella stessa sessione della shell, perché usa la variabile `$keyVaultName` definita nello script di PowerShell precedente.
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
+$secret = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword"
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 A questo punto sono stati preparati un insieme di credenziali delle chiavi e un segreto. Le sezioni seguenti illustrano come personalizzare un modello esistente per recuperare il segreto durante la distribuzione.
@@ -141,7 +148,7 @@ Con l'approccio basato sull'ID statico non è necessario apportare modifiche al 
     "adminPassword": {
         "reference": {
             "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+                "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
             },
             "secretName": "vmAdminPassword"
         }

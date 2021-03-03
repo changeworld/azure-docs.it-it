@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475540"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719016"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperare i log da distribuzioni IoT Edge
 
@@ -33,7 +33,18 @@ Sebbene non sia necessario, per una migliore compatibilità con questa funzional
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` deve seguire il [formato del livello di gravità syslog](https://wikipedia.org/wiki/Syslog#Severity_level) e `{Timestamp}` deve essere formattato come `yyyy-MM-dd hh:mm:ss.fff zzz` .
+`{Timestamp}` deve essere formattato come `yyyy-MM-dd hh:mm:ss.fff zzz` e `{Log Level}` deve seguire la tabella riportata di seguito, che deriva i livelli di gravità dal [codice di gravità nello standard syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
+
+| Valore | Severity |
+|-|-|
+| 0 | Emergenza |
+| 1 | Avviso |
+| 2 | Critico |
+| 3 | Errore |
+| 4 | Avviso |
+| 5 | Notifica |
+| 6 | Informativo |
+| 7 | Debug |
 
 La [classe logger in IOT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) funge da implementazione canonica.
 

@@ -6,24 +6,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: 485c2cc6c95f5922025fe887f7c25131e849a01d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ef8be3d1fd815362971d5ae2beb27edf47766c94
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620796"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723164"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Panoramica di Log Analytics in Monitoraggio di Azure
 Log Analytics è uno strumento della portale di Azure usato per modificare ed eseguire query di log con dati nei log di monitoraggio di Azure. È possibile scrivere una query semplice che restituisce un set di record e quindi usare le funzionalità di Log Analytics per ordinarle, filtrarle e analizzarle. In alternativa, è possibile scrivere una query più avanzata per eseguire un'analisi statistica e visualizzare i risultati in un grafico per identificare una determinata tendenza. Se si lavora con i risultati delle query in modo interattivo o si usano le altre funzionalità di monitoraggio di Azure, ad esempio gli avvisi o le cartelle di lavoro di query di log, Log Analytics è lo strumento che verrà usato per la scrittura e il test. 
 
 
 > [!TIP]
-> In questo articolo viene fornita una descrizione di Log Analytics e di ognuna delle relative funzionalità. Se si vuole passare direttamente a un'esercitazione, vedere [log Analytics esercitazione](../log-query/log-analytics-tutorial.md).
+> In questo articolo viene fornita una descrizione di Log Analytics e di ognuna delle relative funzionalità. Se si vuole passare direttamente a un'esercitazione, vedere [log Analytics esercitazione](./log-analytics-tutorial.md).
 
 
 
 ## <a name="starting-log-analytics"></a>Avvio Log Analytics
-Avviare Log Analytics dai **log** nel menu **monitoraggio di Azure** nel portale di Azure. Questa opzione sarà visualizzata anche nel menu per la maggior parte delle risorse di Azure. Indipendentemente dalla posizione in cui viene avviata, sarà lo stesso strumento Log Analytics. Il menu utilizzato per avviare Log Analytics determina i dati che saranno disponibili. Se lo si avvia dal menu **monitoraggio di Azure** o dal menu **aree di lavoro log Analytics** , sarà possibile accedere a tutti i record in un'area di lavoro. Se si selezionano i **log** da un altro tipo di risorsa, i dati saranno limitati ai dati di log per tale risorsa. Per i dettagli, vedere [Ambito e intervallo di tempo delle query su log in Log Analytics di Monitoraggio di Azure](../log-query/scope.md).
+Avviare Log Analytics dai **log** nel menu **monitoraggio di Azure** nel portale di Azure. Questa opzione sarà visualizzata anche nel menu per la maggior parte delle risorse di Azure. Indipendentemente dalla posizione in cui viene avviata, sarà lo stesso strumento Log Analytics. Il menu utilizzato per avviare Log Analytics determina i dati che saranno disponibili. Se lo si avvia dal menu **monitoraggio di Azure** o dal menu **aree di lavoro log Analytics** , sarà possibile accedere a tutti i record in un'area di lavoro. Se si selezionano i **log** da un altro tipo di risorsa, i dati saranno limitati ai dati di log per tale risorsa. Per i dettagli, vedere [Ambito e intervallo di tempo delle query su log in Log Analytics di Monitoraggio di Azure](./scope.md).
 
 [![Avvia Log Analytics](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
 
@@ -39,9 +39,9 @@ Controlli per l'utilizzo della query nella finestra query.
 
 | Opzione | Descrizione |
 |:---|:---|
-| Ambito | Specifica l'ambito dei dati utilizzati per la query. Potrebbe trattarsi di tutti i dati in un'area di lavoro Log Analytics o dati per una determinata risorsa in più aree di lavoro. Vedere [ambito della query](../log-query/scope.md). |
+| Ambito | Specifica l'ambito dei dati utilizzati per la query. Potrebbe trattarsi di tutti i dati in un'area di lavoro Log Analytics o dati per una determinata risorsa in più aree di lavoro. Vedere [ambito della query](./scope.md). |
 | Pulsante Esegui | Fare clic su questo pulsante per eseguire la query selezionata nella finestra query. Per eseguire una query, è anche possibile premere MAIUSC + INVIO. |
-| Selezione ora | Consente di selezionare l'intervallo di tempo per i dati disponibili per la query. Questa operazione viene sottoposta a override se si include un filtro temporale nella query. Vedere l' [ambito della query di log e l'intervallo di tempo in monitoraggio di Azure log Analytics](../log-query/scope.md). |
+| Selezione ora | Consente di selezionare l'intervallo di tempo per i dati disponibili per la query. Questa operazione viene sottoposta a override se si include un filtro temporale nella query. Vedere l' [ambito della query di log e l'intervallo di tempo in monitoraggio di Azure log Analytics](./scope.md). |
 | Pulsante per il salvataggio | Salvare la query in Esplora query per l'area di lavoro. |
  Pulsante Copia | Copiare un collegamento alla query, il testo della query o i risultati della query negli Appunti. |
 | Pulsante nuova regola di avviso | Crea una nuova scheda con una query vuota. |
@@ -91,5 +91,5 @@ Consente di visualizzare i risultati in uno dei più tipi di grafico disponibili
 Se si ha già familiarità con l'interfaccia utente Web di Azure Esplora dati, Log Analytics dovrebbe avere un aspetto familiare. Questo perché si basa su Azure Esplora dati e usa lo stesso linguaggio di query kusto (KQL). Log Analytics aggiunge funzionalità specifiche di monitoraggio di Azure, ad esempio l'applicazione di filtri in base all'intervallo di tempo e la possibilità di creare una regola di avviso da una query. Entrambi gli strumenti includono un visualizzatore che consente di analizzare la struttura delle tabelle disponibili, ma l'interfaccia utente Web di Azure Esplora dati funziona principalmente con le tabelle nei database Esplora dati di Azure, mentre Log Analytics funziona con le tabelle in un'area di lavoro Log Analytics. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Seguire un'[esercitazione sull'uso di Log Analytics nel portale di Azure](../log-query/log-analytics-tutorial.md).
-- Seguire un'[esercitazione sulla scrittura di query](../log-query/get-started-queries.md).
+- Seguire un'[esercitazione sull'uso di Log Analytics nel portale di Azure](./log-analytics-tutorial.md).
+- Seguire un'[esercitazione sulla scrittura di query](./get-started-queries.md).

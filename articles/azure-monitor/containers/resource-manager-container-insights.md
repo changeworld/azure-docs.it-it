@@ -1,26 +1,26 @@
 ---
-title: Esempi di modelli di Resource Manager per Monitoraggio di Azure per i contenitori
-description: Modelli di Azure Resource Manager di esempio per distribuire e configurare Monitoraggio di Azure per i contenitori.
+title: Esempi di modelli di Gestione risorse per informazioni dettagliate sul contenitore
+description: Esempi di Azure Resource Manager modelli per distribuire e configureContainer informazioni dettagliate.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: e33bb6ae04f0b11a25a7ab87362bc243ee19c79c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f75278663abde8d4b0f47c8df1dbbdbc298bcafb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627434"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723334"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-containers"></a>Esempi di modelli di Resource Manager per Monitoraggio di Azure per i contenitori
+# <a name="resource-manager-template-samples-for-container-insights"></a>Esempi di modelli di Gestione risorse per informazioni dettagliate sul contenitore
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per distribuire e configurare l'agente di Log Analytics per macchine virtuali in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="enable-for-aks-cluster"></a>Abilitazione per un cluster del servizio Azure Kubernetes
-L'esempio seguente abilita Monitoraggio di Azure per i contenitori in un cluster del servizio Azure Kubernetes.
+L'esempio seguente abilita il contenitore Insights in un cluster AKS.
 
 
 ### <a name="template-file"></a>File modello
@@ -357,4 +357,4 @@ L'esempio seguente abilita Monitoraggio di Azure per i contenitori in un cluster
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Passare ad altri esempi per Monitoraggio di Azure](../resource-manager-samples.md).
-* [Altre informazioni su Monitoraggio di Azure per i contenitori](../containers/container-insights-overview.md).
+* [Altre informazioni su container Insights](../containers/container-insights-overview.md).

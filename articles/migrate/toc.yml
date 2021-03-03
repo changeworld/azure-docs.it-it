@@ -68,6 +68,12 @@
           href: tutorial-migrate-aws-virtual-machines.md
         - name: Eseguire la migrazione di istanze GCP
           href: tutorial-migrate-gcp-virtual-machines.md
+    - name: Distribuire
+      items:
+        - name: App ASP.NET di distribuire e migrazione ad AKS
+          href: tutorial-containerize-aspnet-kubernetes.md
+        - name: App Web Java distribuire e migrazione ad AKS
+          href: tutorial-containerize-java-kubernetes.md
 - name: Concetti
   items:
     - name: Generale
@@ -180,6 +186,8 @@
               href: how-to-migrate-vmware-vms-with-cmk-disks.md
         - name: Dimensioni di una migrazione
           items:
+            - name: Come eseguire la migrazione di macchine virtuali VMware su larga scala usando il metodo di replica senza agenti
+              href: how-to-scale-out-for-migration.md
             - name: Automatizzare la migrazione di un numero elevato di macchine virtuali
               href: how-to-migrate-at-scale.md
             - name: Come automatizzare la migrazione di VMware

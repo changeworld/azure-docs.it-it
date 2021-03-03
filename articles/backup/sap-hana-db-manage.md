@@ -3,12 +3,12 @@ title: Gestire i backup dei database SAP HANA su macchine virtuali di Azure
 description: Questo articolo illustra alcune attività comuni per la gestione e il monitoraggio di database SAP HANA in esecuzione su macchine virtuali di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4c8dc80c7b48217e40d5325b75752e21174ecaae
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 54d3341a83873ad3cc50815f04a0b252bb44438e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811957"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703767"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gestire e monitorare i database SAP HANA di cui è stato eseguito il backup
 
@@ -149,8 +149,6 @@ Se si desidera modificare o pulire il catalogo di backup, eseguire le operazioni
 
 >[!NOTE]
 > Eventuali modifiche apportate al periodo di conservazione verranno applicate in modo retrospettivo a tutti i punti di ripristino meno recenti oltre a quelli nuovi.
->
-> Non è possibile usare i criteri di backup incrementali per i database SAP HANA. Il backup incrementale non è attualmente supportato per questi database.
 
 ### <a name="modify-policy"></a>Modifica criterio
 

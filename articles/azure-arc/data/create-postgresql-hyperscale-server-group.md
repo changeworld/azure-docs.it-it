@@ -1,6 +1,6 @@
 ---
-title: Creare un gruppo di server di scalabilità di database di Azure per PostgreSQL in Azure Arc
-description: Creare un gruppo di server di scalabilità di database di Azure per PostgreSQL in Azure Arc
+title: Creare un gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
+description: Creare un gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 4ff45eea8e07a282d8529c745344c11706bc27bb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 046f9d80c034e1ac1f2e7ffe144b4f389861b043
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387989"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687941"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creare un gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
 
@@ -32,7 +32,7 @@ Se si ha già familiarità con gli argomenti riportati di seguito, è possibile 
 - [Concetti relativi alla configurazione dell'archiviazione e all'archiviazione Kubernetes](storage-configuration.md)
 - [Modello di risorsa Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
-Se si preferisce provare senza eseguire il provisioning di un ambiente completo, iniziare rapidamente con [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) in Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o in una VM di Azure.
+Se si preferisce provare gli elementi senza eseguire il provisioning di un ambiente completo, iniziare rapidamente con [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) in Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o in una VM di Azure.
 
 
 ## <a name="login-to-the-azure-arc-data-controller"></a>Accedere al controller dati di Azure Arc
@@ -55,51 +55,95 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 ```
 
 ## <a name="preliminary-and-temporary-step-for-openshift-users-only"></a>Passaggio preliminare e temporaneo per solo gli utenti OpenShift
+Implementare questo passaggio prima di passare al passaggio successivo. Per distribuire il gruppo di server con iperscalabilità PostgreSQL in Red Hat OpenShift in un progetto diverso da quello predefinito, è necessario eseguire i comandi seguenti sul cluster per aggiornare i vincoli di sicurezza. Questo comando concede i privilegi necessari agli account del servizio che eseguiranno il gruppo di server di iperscala PostgreSQL. Il vincolo del contesto di sicurezza (SCC) Arc-data-SCC è quello aggiunto al momento della distribuzione del controller di dati di Azure Arc.
 
-Implementare questo passaggio prima di passare al passaggio successivo. Per distribuire il gruppo di server con iperscalabilità PostgreSQL in Red Hat OpenShift in un progetto diverso da quello predefinito, è necessario eseguire i comandi seguenti sul cluster per aggiornare i vincoli di sicurezza. Questo comando concede i privilegi necessari agli account del servizio che eseguiranno il gruppo di server di iperscala PostgreSQL. Il vincolo del contesto di sicurezza (SCC) **_Arc-data-SCC_** è quello aggiunto al momento della distribuzione del controller di dati di Azure Arc.
-
-```console
+```Console
 oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
 ```
 
-_**Nome-gruppo-Server** è il nome del gruppo di server che verrà creato nel passaggio successivo._
-   
-Per ulteriori informazioni su SCCs in OpenShift, consultare la documentazione di [OpenShift](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
-È ora possibile implementare il passaggio successivo.
+**Nome-gruppo-Server è il nome del gruppo di server che verrà creato nel passaggio successivo.**
 
-## <a name="create-an-azure-database-for-postgresql-hyperscale-server-group"></a>Creare un gruppo di server di scalabilità di database di Azure per PostgreSQL
+Per ulteriori informazioni su SCCs in OpenShift, consultare la documentazione di [OpenShift](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html). È ora possibile implementare il passaggio successivo.
 
-Per creare un gruppo di server con iperscalabilità di database di Azure per PostgreSQL in Azure Arc, usare il comando seguente:
+
+## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creare un gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
+
+Per creare un gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc sul controller dati Arc, si userà il comando `azdata arc postgres server create` al quale si passeranno diversi parametri.
+
+Per informazioni dettagliate su tutti i parametri che è possibile impostare al momento della creazione, esaminare l'output del comando:
+```console
+azdata arc postgres server create --help
+```
+
+I parametri principali da considerare sono:
+- **nome del gruppo di server** che si desidera distribuire. Indicare `--name` o `-n` seguito da un nome la cui lunghezza non deve superare i 11 caratteri.
+
+- **versione del motore PostgreSQL** che si vuole distribuire: per impostazione predefinita è la versione 12. Per distribuire la versione 12, è possibile omettere questo parametro o passare uno dei parametri seguenti: `--engine-version 12` o `-ev 12` . Per distribuire la versione 11, indicare `--engine-version 11` o `-ev 11` .
+
+- **il numero di nodi del** ruolo di lavoro che si desidera distribuire per la scalabilità orizzontale e potenzialmente prestazioni migliori. Prima di procedere, leggere i [concetti relativi a iperscalabilità Postgres](concepts-distributed-postgres-hyperscale.md). Per indicare il numero di nodi del ruolo di lavoro da distribuire, usare il parametro `--workers` o `-w` seguito da un numero intero maggiore o uguale a 2. Ad esempio, se si desidera distribuire un gruppo di server con 2 nodi di lavoro, indicare `--workers 2` o `-w 2` . Vengono creati tre Pod, uno per l'istanza o il nodo coordinatore e due per i nodi/istanze del ruolo di lavoro (uno per ogni ruolo di lavoro).
+
+- **classi di archiviazione** che si desidera utilizzare per il gruppo di server. È importante impostare la classe di archiviazione nel momento in cui si distribuisce un gruppo di server, perché non può essere modificato dopo la distribuzione di. Se si modifica la classe di archiviazione dopo la distribuzione, è necessario estrarre i dati, eliminare il gruppo di server, creare un nuovo gruppo di server e importare i dati. È possibile specificare le classi di archiviazione da usare per i dati, i log e i backup. Per impostazione predefinita, se non si indicano classi di archiviazione, verranno utilizzate le classi di archiviazione del controller di dati.
+    - per impostare la classe di archiviazione per i dati, indicare il parametro `--storage-class-data` o `-scd` seguito dal nome della classe di archiviazione.
+    - per impostare la classe di archiviazione per i log, indicare il parametro `--storage-class-logs` o `-scl` seguito dal nome della classe di archiviazione.
+    - per impostare la classe di archiviazione per i backup: in questa versione di anteprima di Azure Arc abilitata per l'iperscalabilità di PostgreSQL sono disponibili due modi per impostare le classi di archiviazione a seconda dei tipi di operazioni di backup/ripristino che si desidera eseguire. Stiamo lavorando per semplificare questa esperienza. Si indicherà una classe di archiviazione o un montaggio di volume Claim. Un montaggio di attestazioni volume è una coppia di un'attestazione di volume permanente esistente (nello stesso spazio dei nomi) e di un tipo di volume (e metadati facoltativi a seconda del tipo di volume) separati da due punti. Il volume permanente verrà montato in ogni pod per il gruppo di server PostgreSQL.
+        - Se si desidera pianificare l'esecuzione di ripristini di database completi, impostare il parametro `--storage-class-backups` o `-scb` seguito dal nome della classe di archiviazione.
+        - Se si prevede di eseguire ripristini completi del database e ripristini temporizzati, impostare il parametro `--volume-claim-mounts` o `-vcm` seguito dal nome di un'attestazione volume e di un tipo di volume.
+
+Si noti che quando si esegue il comando create, verrà richiesto di immettere la password dell' `postgres` utente amministratore predefinito. Il nome dell'utente non può essere modificato in questa versione di anteprima. È possibile ignorare il prompt interattivo impostando la `AZDATA_PASSWORD` variabile di ambiente della sessione prima di eseguire il comando create.
+
+### <a name="examples"></a>Esempio
+
+**Per distribuire un gruppo di server di Postgres versione 12 denominata postgres01 con 2 nodi di lavoro che usano le stesse classi di archiviazione del controller dati, eseguire il comando seguente:**
+```console
+azdata arc postgres server create -n postgres01 --workers 2
+```
+
+**Per distribuire un gruppo di server di Postgres versione 12 denominata postgres01 con 2 nodi di lavoro che usano le stesse classi di archiviazione del controller dati per i dati e i log, ma la classe di archiviazione specifica per eseguire il ripristino completo e il ripristino temporizzato, seguire questa procedura:**
+
+ Questo esempio presuppone che il gruppo di server sia ospitato in un cluster Azure Kubernetes Service (AKS). Questo esempio USA azurefile-Premium come nome della classe di archiviazione. È possibile modificare l'esempio seguente in modo che corrisponda all'ambiente in uso. Si noti che per questa configurazione **è necessario AccessModes ReadWriteMany** .  
+
+Per prima cosa, creare un file YAML contenente la descrizione seguente del PVC di backup e denominarlo CreateBackupPVC. yml, ad esempio:
+```console
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: backup-pvc
+  namespace: arc
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 100Gi
+  storageClassName: azurefile-premium
+```
+
+Successivamente, creare un PVC usando la definizione archiviata nel file YAML:
 
 ```console
-azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2> --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
+kubectl create -f e:\CreateBackupPVC.yml -n arc
+``` 
 
-#Example
-#azdata arc postgres server create -n postgres01 --workers 2
+Successivamente, creare il gruppo di server:
+
+```console
+azdata arc postgres server create -n postgres01 --workers 2 -vcm backup-pvc:backup
 ```
 
 > [!IMPORTANT]
-> - La classe di archiviazione usata per i backup (_--Storage-Class-backups-SCB_) viene impostata per impostazione predefinita sulla classe di archiviazione dati del controller dati, se non è specificata.
-> - Per ripristinare un gruppo di server in un gruppo di server separato, ad esempio ripristino temporizzato, è necessario configurare il gruppo di server per l'uso di PVC con la modalità di accesso ReadWriteMany. Questa operazione è necessaria per la creazione del gruppo di server. Non può essere modificato dopo la creazione. Per ulteriori informazioni, vedere:
->    - [Creazione di un gruppo di server pronto per il backup e il ripristino](backup-restore-postgresql-hyperscale.md#create-a-server-group-that-is-ready-for-backups-and-restores)
->    - [Limitazioni dell'iperscalabilità di PostgreSQL abilitata per Azure Arc](limitations-postgresql-hyperscale.md)
+> - Leggere le [limitazioni correnti correlate a backup/ripristino](limitations-postgresql-hyperscale.md#backup-and-restore).
 
 
-> [!NOTE]
-> - **Sono disponibili altri parametri della riga di comando.  Vedere l'elenco completo delle opzioni eseguendo `azdata arc postgres server create --help` .**
->
-> - L'unità accettata dai parametri--Volume-Size-* è una quantità di risorse Kubernetes (un numero intero seguito da uno di questi è sufficiente (T, G, M, K, m) o dai rispettivi equivalenti di Power-of-Two (ti, Gi, mi, ki)).
-> - I nomi devono avere una lunghezza inferiore a 12 caratteri e devono essere conformi alle convenzioni di denominazione DNS.
-> - Verrà richiesto di immettere la password per l'utente amministratore standard _Postgres_ .  È possibile ignorare il prompt interattivo impostando la `AZDATA_PASSWORD` variabile di ambiente della sessione prima di eseguire il comando create.
-> - Se il controller dati è stato distribuito usando AZDATA_USERNAME e AZDATA_PASSWORD variabili di ambiente della sessione nella stessa sessione terminal, i valori per AZDATA_PASSWORD verranno usati anche per distribuire il gruppo di server di iperscala PostgreSQL. Se si preferisce usare un'altra password, (1) aggiornare il valore per AZDATA_PASSWORD o (2) eliminare la variabile di ambiente AZDATA_PASSWORD o eliminarne il valore verrà richiesto di immettere una password in modo interattivo quando si crea un gruppo di server.
-> - Il nome dell'utente amministratore predefinito per il motore di database di PostgreSQL iperscale è _Postgres_ e non può essere modificato in questo punto.
+> [!NOTE]  
+> - Se il controller dati è stato distribuito usando le `AZDATA_USERNAME` `AZDATA_PASSWORD` variabili di ambiente della sessione e nella stessa sessione terminal, i valori per `AZDATA_PASSWORD` verranno usati anche per distribuire il gruppo di server di scalabilità di PostgreSQL. Se si preferisce usare un'altra password, (1) aggiornare il valore per `AZDATA_PASSWORD` o (2) eliminare la `AZDATA_PASSWORD` variabile di ambiente o (3) eliminare il valore in modo che venga richiesto di immettere una password in modo interattivo quando si crea un gruppo di server.
 > - La creazione di un gruppo di server di iperscala PostgreSQL non registrerà immediatamente le risorse in Azure. Come parte del processo di caricamento di [inventario delle risorse](upload-metrics-and-logs-to-azure-monitor.md)  o [dei dati di utilizzo](view-billing-data-in-azure.md) in Azure, le risorse verranno create in Azure e sarà possibile visualizzare le risorse nella portale di Azure.
 
 
 
-## <a name="list-your-azure-database-for-postgresql-server-groups-created-in-your-arc-setup"></a>Elencare i gruppi di server di database di Azure per PostgreSQL creati nell'installazione di Arc
+## <a name="list-the-postgresql-hyperscale-server-groups-deployed-in-your-arc-data-controller"></a>Elencare i gruppi di server di iperscala PostgreSQL distribuiti nel controller di dati Arc
 
-Per visualizzare i gruppi di server con iperscalabilità PostgreSQL in Azure Arc, usare il comando seguente:
+Per elencare i gruppi di server con iperscalabilità PostgreSQL distribuiti nel controller Arc data, eseguire il comando seguente:
 
 ```console
 azdata arc postgres server list
@@ -112,9 +156,9 @@ Name        State     Workers
 postgres01  Ready     2
 ```
 
-## <a name="get-the-endpoints-to-connect-to-your-azure-database-for-postgresql-server-groups"></a>Ottenere gli endpoint per la connessione ai gruppi di server del database di Azure per PostgreSQL
+## <a name="get-the-endpoints-to-connect-to-your-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Ottenere gli endpoint per la connessione ai gruppi di server di scalabilità di PostgreSQL abilitati per Azure Arc
 
-Per visualizzare gli endpoint per un'istanza di PostgreSQL, eseguire il comando seguente:
+Per visualizzare gli endpoint per un gruppo di server PostgreSQL, eseguire il comando seguente:
 
 ```console
 azdata arc postgres endpoint list -n <server group name>
@@ -137,9 +181,7 @@ Ad esempio:
 ]
 ```
 
-È possibile usare l'endpoint dell'istanza di PostgreSQL per connettersi al gruppo di server con iperscalabilità PostgreSQL dallo strumento preferito:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [Pgcli](https://www.pgcli.com/) PSQL, pgAdmin e così via.
-
-Se si usa una macchina virtuale di Azure da testare, seguire le istruzioni seguenti:
+È possibile usare l'endpoint dell'istanza di PostgreSQL per connettersi al gruppo di server con iperscalabilità PostgreSQL dallo strumento preferito:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [Pgcli](https://www.pgcli.com/) PSQL, pgAdmin e così via. Quando si esegue questa operazione, si esegue la connessione al nodo o all'istanza del coordinatore che si occupa di indirizzare la query ai nodi/istanze del ruolo di lavoro appropriati se sono state create tabelle distribuite. Per informazioni dettagliate, leggere i [concetti relativi all'iperscalabilità di PostgreSQL abilitata per Azure Arc](concepts-distributed-postgres-hyperscale.md).
 
 ## <a name="special-note-about-azure-virtual-machine-deployments"></a>Nota speciale sulle distribuzioni delle macchine virtuali di Azure
 
@@ -192,7 +234,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggi i concetti e le guide alle procedure per la scalabilità di database di Azure per PostgreSQL per distribuire i dati tra più nodi con scalabilità multipla PostgreSQL e sfruttare tutte le potenzialità dell'iperscalabilità di database di Azure per PostgreSQL. :
+- Leggi i concetti e le guide alle procedure per la scalabilità di database di Azure per PostgreSQL per distribuire i dati tra più nodi di scalabilità PostgreSQL e per trarre vantaggio da prestazioni migliori, potenzialmente:
     * [Nodi e tabelle](../../postgresql/concepts-hyperscale-nodes.md)
     * [Determinare il tipo di applicazione](../../postgresql/concepts-hyperscale-app-type.md)
     * [Scegliere una colonna di distribuzione](../../postgresql/concepts-hyperscale-choose-distribution-column.md)
@@ -203,7 +245,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
     > \* Nei documenti precedenti ignorare le sezioni accedere al **portale di Azure**& **creare un database di Azure per PostgreSQL-iperscalabilità (CITUS)**. Implementare i passaggi rimanenti nella distribuzione di Azure Arc. Queste sezioni sono specifiche dell'iperscalabilità di database di Azure per PostgreSQL (CITUS) offerta come servizio PaaS nel cloud di Azure, ma le altre parti dei documenti sono direttamente applicabili all'iperscalabilità di PostgreSQL abilitata per Azure Arc.
 
-- [Aumentare le istanze in Database di Azure per il gruppo di server PostgreSQL Hyperscale](scale-out-postgresql-hyperscale-server-group.md)
+- [Scalabilità orizzontale del gruppo di server con iperscalabilità di Azure Arc abilitato per PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
 - [Concetti relativi alla configurazione dell'archiviazione e all'archiviazione Kubernetes](storage-configuration.md)
 - [Espansione di attestazioni di volume permanenti](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modello di risorsa Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 727b0ee1d16528df3becbda10206d85a9b10e59c
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: f977585a16e1ad3f8eba0a589c603f0125d46fd5
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94918231"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101721107"
 ---
 # <a name="create-a-copyallbitratenoninterleaved-transform"></a>Creare una trasformazione CopyAllBitrateNonInterleaved
 
@@ -33,11 +33,10 @@ Seguire la procedura disponibile in [Creare un account di Servizi multimediali](
 
 ## <a name="methods"></a>Metodi
 
-### <a name="using-the-rest-api"></a>Utilizzo dell'API REST
+### <a name="using-the-rest-api"></a>Uso dell'API REST
 
 [!INCLUDE [task-create-copyallbitratenoninterleaved.md](./includes/task-create-copyallbitratenoninterleaved.md)]
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica di servizi multimediali](media-services-overview.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

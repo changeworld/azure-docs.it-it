@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0fc291403997cdccbfa190fcd5739e97c47eab6a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636981"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729437"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Usare i driver CSI (container Storage Interface) di File di Azure in Azure Kubernetes Service (AKS) (anteprima)
 
@@ -33,13 +33,13 @@ Per altre informazioni sui volumi Kubernetes, vedere [Opzioni di archiviazione p
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Creare in modo dinamico File di Azure PVs usando le classi di archiviazione predefinite
 
-Una classe di archiviazione viene usata per definire la modalità di creazione di una condivisione di File di Azure. Viene creato automaticamente un account di archiviazione nel [gruppo di risorse nodo][node-resource-group] da usare con la classe di archiviazione per conservare le condivisioni di file di Azure. Scegliere uno degli SKU di [ridondanza di archiviazione di Azure][storage-skus] seguenti per *SKUName* :
+Una classe di archiviazione viene usata per definire la modalità di creazione di una condivisione di File di Azure. Viene creato automaticamente un account di archiviazione nel [gruppo di risorse nodo][node-resource-group] da usare con la classe di archiviazione per conservare le condivisioni di file di Azure. Scegliere uno degli SKU di [ridondanza di archiviazione di Azure][storage-skus] seguenti per *SKUName*:
 
-* **Standard_LRS** : archiviazione con ridondanza locale standard
-* **Standard_GRS** : archiviazione con ridondanza geografica standard
-* **Standard_ZRS** : archiviazione con ridondanza della zona standard
-* **Standard_RAGRS** : archiviazione con ridondanza geografica e accesso in lettura standard
-* **Premium_LRS** : archiviazione con ridondanza locale Premium
+* **Standard_LRS**: archiviazione con ridondanza locale standard
+* **Standard_GRS**: archiviazione con ridondanza geografica standard
+* **Standard_ZRS**: archiviazione con ridondanza della zona standard
+* **Standard_RAGRS**: archiviazione con ridondanza geografica e accesso in lettura standard
+* **Premium_LRS**: archiviazione con ridondanza locale Premium
 
 > [!NOTE]
 > File di Azure supporta archiviazione Premium di Azure. La condivisione file Premium minima è di 100 GB.
@@ -226,7 +226,7 @@ az provider register --namespace Microsoft.Storage
 
 ### <a name="create-a-storage-account-for-the-nfs-file-share"></a>Creare un account di archiviazione per la condivisione file NFS
 
-[Creazione di un `Premium_LRS` Account di archiviazione di Azure](../storage/files/storage-how-to-create-premium-fileshare.md) con le configurazioni seguenti per supportare le condivisioni NFS:
+[Creazione di un `Premium_LRS` Account di archiviazione di Azure](../storage/files/storage-how-to-create-file-share.md) con le configurazioni seguenti per supportare le condivisioni NFS:
 - tipo di account: filestorage
 - trasferimento sicuro obbligatorio (Abilita solo traffico HTTPS): false
 - Selezionare la rete virtuale dei nodi agente in firewall e reti virtuali, in modo che sia preferibile creare l'account di archiviazione nel gruppo di risorse MC_.

@@ -4,15 +4,15 @@ description: Governance e strategia di benchmark di sicurezza di Azure V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 935a6b41152ff914889e299b6455fbb30b2f0447
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 277033e41ec7e02b89eca8cf74fe6854acb51cc1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369056"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727023"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Controllo di sicurezza V2: governance e strategia
 
@@ -24,15 +24,15 @@ Governance e strategia fornisce linee guida per garantire una strategia di sicur
 |--|--|--|--|
 | GS-1 | 2, 13 | SC, AC |
 
-Assicurarsi di documentare e comunicare una strategia chiara per il monitoraggio e la protezione continui dei sistemi e dei dati. Definire la priorità di individuazione, valutazione, protezione e monitoraggio dei dati e dei sistemi business-critical. 
+Assicurarsi di documentare e comunicare una strategia chiara per il monitoraggio e la protezione continui dei sistemi e dei dati. Definire la priorità di individuazione, valutazione, protezione e monitoraggio dei dati e dei sistemi business-critical.
 
 La strategia deve includere linee guida documentate, criteri e standard per gli elementi seguenti: 
 
 - Standard di classificazione dei dati in base ai rischi aziendali
 
-- Visibilità dei rischi e dell'inventario degli asset dell'organizzazione della sicurezza 
+- Visibilità dei rischi e dell'inventario degli asset dell'organizzazione della sicurezza
 
-- Approvazione dell'organizzazione della sicurezza dei servizi di Azure da usare 
+- Approvazione dell'organizzazione della sicurezza dei servizi di Azure da usare
 
 - Sicurezza degli asset attraverso il ciclo di vita
 
@@ -107,7 +107,7 @@ Misura e attenua continuamente i rischi per le singole risorse e per l'ambiente 
 |--|--|--|--|
 | GS-4 | N/D | PL, PM |
 
-Assicurarsi di documentare e comunicare una strategia chiara per i ruoli e le responsabilità dell'organizzazione di sicurezza. Definire le priorità specificando una chiara responsabilità per le decisioni relative alla sicurezza, informare tutti gli utenti sul modello di responsabilità condivisa e informare i team tecnici sulla tecnologia per la protezione del cloud.
+Assicurarsi di documentare e comunicare una strategia chiara per i ruoli e le responsabilità nell'organizzazione della sicurezza. Definire le priorità specificando una chiara responsabilità per le decisioni relative alla sicurezza, informare tutti gli utenti sul modello di responsabilità condivisa e informare i team tecnici sulla tecnologia per la protezione del cloud.
 
 - [Procedura di sicurezza consigliata di Azure 1 - Utenti: informare i team sul percorso di sicurezza del cloud](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
@@ -127,9 +127,9 @@ Assicurarsi di documentare e comunicare una strategia chiara per i ruoli e le re
 |--|--|--|--|
 | GS-5 | 9 | CA, SC |
 
-Definire un approccio di sicurezza di rete di Azure come parte della strategia globale di controllo degli accessi di sicurezza dell'organizzazione.  
+Definire un approccio di sicurezza di rete di Azure come parte della strategia globale di controllo degli accessi di sicurezza dell'organizzazione.
 
-La strategia deve includere linee guida documentate, criteri e standard per gli elementi seguenti: 
+La strategia deve includere linee guida documentate, criteri e standard per gli elementi seguenti:
 
 - Gestione centralizzata della rete e responsabilità della sicurezza
 
@@ -141,7 +141,7 @@ La strategia deve includere linee guida documentate, criteri e standard per gli 
 
 - Cloud ibrido e strategia di interconnettività locale
 
-- Artefatti di rete aggiornati, ad esempio diagrammi di rete, architettura di rete di riferimento
+- Elementi di sicurezza di rete aggiornati, ad esempio diagrammi di rete, architettura di rete di riferimento
 
 Per altre informazioni, vedere i riferimenti seguenti:
 
@@ -165,9 +165,9 @@ Per altre informazioni, vedere i riferimenti seguenti:
 |--|--|--|--|
 | GS-6 | 16, 4 | AC, AU, SC |
 
-Definire un approccio di identità e accesso con privilegi di Azure come parte della strategia globale di controllo degli accessi di sicurezza dell'organizzazione.  
+Definire un approccio di identità e accesso con privilegi di Azure come parte della strategia globale di controllo degli accessi di sicurezza dell'organizzazione.
 
-La strategia deve includere linee guida documentate, criteri e standard per gli elementi seguenti: 
+La strategia deve includere linee guida documentate, criteri e standard per gli elementi seguenti:
 
 - Sistema di identità e autenticazione centralizzato e interconnettività con altri sistemi di identità interni ed esterni
 
@@ -175,7 +175,7 @@ La strategia deve includere linee guida documentate, criteri e standard per gli 
 
 - Protezione degli utenti con privilegi elevati
 
-- Monitoraggio e gestione delle attività utente anomale  
+- Monitoraggio e gestione delle attività utente anomale
 
 - Verifica dell'identità e dell'accesso utente e processo di riconciliazione
 
@@ -205,7 +205,7 @@ Definire una strategia di registrazione e risposta alle minacce per rilevare e c
 
 Questa strategia deve includere indicazioni, criteri e standard documentati per gli elementi seguenti: 
 
-- Il ruolo e le responsabilità dell'organizzazione per le operazioni di sicurezza (SecOps) 
+- Il ruolo e le responsabilità dell'organizzazione per le operazioni di sicurezza (secops) 
 
 - Un processo di risposta agli eventi imprevisti ben definito allineato a NIST o a un altro framework di settore 
 

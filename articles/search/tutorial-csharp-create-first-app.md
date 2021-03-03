@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 02/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 961e30cf17bf385647f4482c6f767641c6b891af
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0a57e45b264badffd0305eb6ac5b3c8f7c42adf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791679"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695125"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Esercitazione: Creare la prima app di ricerca con .NET SDK
 
@@ -49,9 +49,11 @@ Una sola chiamata esegue una query sull'indice e restituisce i risultati.
 
 ## <a name="overview"></a>Panoramica
 
-Questa esercitazione usa un indice di esempio ospitato esistente per illustrare la creazione di una pagina di ricerca che raccoglie una stringa di query per la richiesta e restituisce i risultati. L'indice contiene dati di hotel fittizi. Dopo aver creato una pagina di base, è possibile migliorarla nelle lezioni successive e includere l'impaginazione, i facet e un'esperienza di completamento automatico.
+Questa esercitazione usa gli hotel-sample-index, che è possibile creare rapidamente nel servizio di ricerca eseguendo la [Guida introduttiva all'importazione di dati](search-get-started-portal.md). L'indice contiene dati di Hotel fittizi, disponibili come origine dati incorporata in ogni servizio di ricerca.
 
-Una versione completa del codice di questa esercitazione si trova nel progetto seguente:
+La prima lezione di questa esercitazione consente di creare una struttura di query e una pagina di ricerca di base, che verranno migliorate nelle lezioni successive per includere paging, facet e un'esperienza di tipo "Ahead".
+
+È possibile trovare una versione completa del codice nel progetto seguente:
 
 * [1-basic-search-page (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page)
 
@@ -59,7 +61,9 @@ L'esercitazione è stata aggiornata per usare il pacchetto Azure.Search.Document
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Poiché si usa un indice di ricerca di esempio pubblico ospitato da Microsoft, non è necessario un servizio di ricerca o un account Azure per questa esercitazione.
+* [Crea](search-create-service-portal.md) o [trova un servizio di ricerca esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+
+* Creare gli hotel-sample-index usando le istruzioni disponibili in [Guida introduttiva: creare un indice di ricerca](search-get-started-portal.md).
 
 * [Visual Studio](https://visualstudio.microsoft.com/)
 
@@ -103,12 +107,12 @@ Per creare il progetto da zero e quindi approfondire i concetti relativi a Ricer
 
 Per questo esempio, verranno usati dati di hotel disponibili pubblicamente. Questi dati costituiscono una raccolta arbitraria di 50 nomi di hotel fittizi con relative descrizioni, creati esclusivamente allo scopo di fornire i dati per la demo. Per accedere a questi dati, specificare un nome e una chiave API.
 
-1. Aprire il file **appsettings.json** e sostituire le righe predefinite con il nome e la chiave seguenti. La chiave API mostrata qui non è un esempio di chiave, è *esattamente* la chiave necessaria per accedere ai dati dell'hotel. Il file dovrà risultare simile al seguente.
+1. Aprire **appsettings.js** e sostituire le righe predefinite con l'URL del servizio di ricerca (nel formato `https://<service-name>.search.windows.net` ) e una [chiave API di amministrazione o di query](search-security-api-keys.md) del servizio di ricerca. Poiché non è necessario creare o aggiornare un indice, è possibile usare la chiave di query per questa esercitazione.
 
     ```csharp
     {
-        "SearchServiceName": "azs-playground",
-        "SearchServiceQueryApiKey": "EA4510A6219E14888741FCFC19BFBB82"
+        "SearchServiceName": "<YOUR-SEARCH-SERVICE-URI>",
+        "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-API-KEY>"
     }
     ```
 

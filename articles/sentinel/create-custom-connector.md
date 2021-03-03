@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: 90646339ef41d0629a4d1ce8efed4b50427d3b2b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 25f83088bdc55dbafe7ccf0ff06b0c6595c9ea71
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417903"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724354"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Risorse per la creazione di connettori personalizzati di Azure Sentinel
 
@@ -55,9 +55,9 @@ Nella tabella seguente vengono confrontati i dettagli essenziali su ciascun meto
 
 Se l'origine dati recapita eventi nei file, è consigliabile usare l'agente di monitoraggio di Azure Log Analytics per creare il connettore personalizzato.
 
-- Per altre informazioni, vedere [raccolta di log personalizzati in monitoraggio di Azure](/azure/azure-monitor/platform/data-sources-custom-logs).
+- Per altre informazioni, vedere [raccolta di log personalizzati in monitoraggio di Azure](../azure-monitor/agents/data-sources-custom-logs.md).
 
-- Per un esempio di questo metodo, vedere [raccolta di origini dati JSON personalizzate con l'agente di log Analytics per Linux in monitoraggio di Azure](/azure/azure-monitor/platform/data-sources-json).
+- Per un esempio di questo metodo, vedere [raccolta di origini dati JSON personalizzate con l'agente di log Analytics per Linux in monitoraggio di Azure](../azure-monitor/agents/data-sources-json.md).
 
 ## <a name="connect-with-logstash"></a>Connettersi con logstash
 
@@ -83,7 +83,7 @@ Per esempi di plug-in di logstash utili, vedere:
 
 ## <a name="connect-with-logic-apps"></a>Connettersi con app per la logica
 
-Usare un' [app](/azure/logic-apps/) per la logica di Azure per creare un connettore personalizzato senza server per Sentinel di Azure.
+Usare un' [app](../logic-apps/index.yml) per la logica di Azure per creare un connettore personalizzato senza server per Sentinel di Azure.
 
 > [!NOTE]
 > Durante la creazione di connettori senza server con app per la logica può essere utile usare app per la logica per i connettori potrebbe essere costoso per grandi volumi di dati.
@@ -95,9 +95,9 @@ Usare un' [app](/azure/logic-apps/) per la logica di Azure per creare un connett
 
     |Trigger  |Descrizione  |
     |---------|---------|
-    |**Attività ricorrente**     |   Ad esempio, pianificare l'app per la logica per recuperare regolarmente i dati da file, database o API esterne specifici. <br>Per altre informazioni, vedere [creare, pianificare ed eseguire attività e flussi di lavoro ricorrenti in app per la logica di Azure](/azure/connectors/connectors-native-recurrence).      |
-    |**Attivazione su richiesta**     | Eseguire l'app per la logica su richiesta per la raccolta e il test manuali dei dati. <br>Per altre informazioni, vedere  [chiamare, attivare o annidare app per la logica usando endpoint HTTPS](/azure/logic-apps/logic-apps-http-endpoint).        |
-    |**Endpoint HTTP/S**     |  Consigliato per lo streaming e se il sistema di origine può avviare il trasferimento dei dati. <br>Per altre informazioni, vedere [chiamare gli endpoint di servizio su http o HTTPS](/azure/connectors/connectors-native-http).       |
+    |**Attività ricorrente**     |   Ad esempio, pianificare l'app per la logica per recuperare regolarmente i dati da file, database o API esterne specifici. <br>Per altre informazioni, vedere [creare, pianificare ed eseguire attività e flussi di lavoro ricorrenti in app per la logica di Azure](../connectors/connectors-native-recurrence.md).      |
+    |**Attivazione su richiesta**     | Eseguire l'app per la logica su richiesta per la raccolta e il test manuali dei dati. <br>Per altre informazioni, vedere  [chiamare, attivare o annidare app per la logica usando endpoint HTTPS](../logic-apps/logic-apps-http-endpoint.md).        |
+    |**Endpoint HTTP/S**     |  Consigliato per lo streaming e se il sistema di origine può avviare il trasferimento dei dati. <br>Per altre informazioni, vedere [chiamare gli endpoint di servizio su http o HTTPS](../connectors/connectors-native-http.md).       |
     |     |         |
 
 1. **Usare qualsiasi connettore di app per la logica che legga le informazioni per ottenere gli eventi**. Ad esempio:
@@ -112,9 +112,9 @@ Usare un' [app](/azure/logic-apps/) per la logica di Azure per creare un connett
 
 1. **Preparare le informazioni che si desidera recuperare**.
 
-    Ad esempio, usare l' [azione analizza JSON](/azure/logic-apps/logic-apps-perform-data-operations#parse-json-action) per accedere alle proprietà nel contenuto JSON, consentendo di selezionare tali proprietà dall'elenco di contenuto dinamico quando si specificano gli input per l'app per la logica.
+    Ad esempio, usare l' [azione analizza JSON](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) per accedere alle proprietà nel contenuto JSON, consentendo di selezionare tali proprietà dall'elenco di contenuto dinamico quando si specificano gli input per l'app per la logica.
 
-    Per altre informazioni, vedere [eseguire operazioni sui dati in app per la logica di Azure](/azure/logic-apps/logic-apps-perform-data-operations).
+    Per altre informazioni, vedere [eseguire operazioni sui dati in app per la logica di Azure](../logic-apps/logic-apps-perform-data-operations.md).
 
 1. **Scrivere i dati in log Analytics**.
 
@@ -174,14 +174,14 @@ Trovare i dettagli per i parametri **WorkspaceID** e **WorkspaceKey** in Sentine
 
 Quando si chiama un endpoint RESTful direttamente richiede più programmazione, offre anche maggiore flessibilità.
 
-Per ulteriori informazioni, vedere l' [API dell'agente di raccolta dati log Analytics](/azure/azure-monitor/platform/data-collector-api), in particolare gli esempi seguenti:
+Per ulteriori informazioni, vedere l' [API dell'agente di raccolta dati log Analytics](../azure-monitor/logs/data-collector-api.md), in particolare gli esempi seguenti:
 
-- [C#](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#c-sample)
-- [Python 2](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#python-2-sample)
+- [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
+- [Python 2](../azure-monitor/logs/data-collector-api.md#python-2-sample)
 
 ## <a name="connect-with-azure-functions"></a>Connettersi con funzioni di Azure
 
-Usare funzioni di Azure insieme a un'API RESTful e a diversi linguaggi di codifica, ad esempio [PowerShell](/azure/azure-functions/functions-reference-powershell), per creare un connettore personalizzato senza server.
+Usare funzioni di Azure insieme a un'API RESTful e a diversi linguaggi di codifica, ad esempio [PowerShell](../azure-functions/functions-reference-powershell.md), per creare un connettore personalizzato senza server.
 
 Per esempi di questo metodo, vedere:
 
@@ -189,7 +189,7 @@ Per esempi di questo metodo, vedere:
 - [Connettere il Sign-On Single Okta ad Azure Sentinel con la funzione di Azure](connect-okta-single-sign-on.md)
 - [Connettere il Proofpoint TAP ad Azure Sentinel con la funzione di Azure](connect-proofpoint-tap.md)
 - [Connettere la macchina virtuale Qualys ad Azure Sentinel con la funzione di Azure](connect-qualys-vm.md)
-- [Inserimento di XML, CSV o altri formati di dati](/azure/azure-monitor/platform/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
+- [Inserimento di XML, CSV o altri formati di dati](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
 - [Monitoraggio dello zoom con Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (Blog)
 - [Distribuire un app per le funzioni per ottenere i dati dell'API di gestione di Office 365 in Sentinel di Azure](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (community di GitHub di Azure Sentinel)
 

@@ -6,14 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 46a60642e177a2bfb9e8fb996427ea45f6777468
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.custom: references_regions
+ms.openlocfilehash: a692aeba312b6fcad580eac901f4b7bc65f059fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652786"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730576"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -68,6 +69,16 @@ Ad esempio, nello scenario di importazione, se si dispone dei dati di origine in
 2. Una volta eseguita la copia dei dati locale nella Data Box, ripristinare il dispositivo nel Data Center di Azure in Canada. I dati presenti nel Data Box vengono quindi caricati nell'account di archiviazione di destinazione nell'area di Azure del Canada scelto durante la creazione dell'ordine.
 
 3. È quindi possibile usare uno strumento come AzCopy per copiare i dati in un account di archiviazione negli Stati Uniti occidentali. Questo passaggio comporta costi di archiviazione e [larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/) [standard](https://azure.microsoft.com/pricing/details/storage/) che non sono inclusi nel data box la fatturazione.
+
+#### <a name="q-does-data-box-store-any-customer-data-outside-of-the-service-region"></a>Q. Data Box archivia i dati dei clienti al di fuori dell'area del servizio?
+
+R. No. Data Box non archivia i dati del cliente all'esterno dell'area del servizio. Il cliente ha la proprietà completa dei propri dati e può salvare i dati in una posizione specificata in base all'account di archiviazione selezionato durante la creazione dell'ordine.  
+
+Oltre ai dati del cliente, sono disponibili Data Box dati che includono gli elementi di sicurezza correlati al dispositivo, i log di monitoraggio per il dispositivo e il servizio e i metadati relativi al servizio. In tutte le aree, ad eccezione del Brasile meridionale e sud-orientale, Data Box dati vengono archiviati e replicati nell'area abbinata tramite un account di archiviazione con ridondanza geografica per proteggersi dalla perdita di dati.  
+
+A causa [dei requisiti di residenza dei dati](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brasile meridionale e Asia sudorientale, i dati data box vengono archiviati in un account di archiviazione con ridondanza della zona (ZRS) in modo che sia contenuto in una singola area. Per l'Asia sudorientale, tutti i dati Data Box vengono archiviati a Singapore e per il Brasile meridionale, i dati vengono archiviati in Brasile. 
+
+Se si verifica un'interruzione del servizio in Brasile meridionale e Asia sudorientale, i clienti possono creare nuovi ordini da un'altra area. I nuovi ordini verranno serviti dall'area in cui vengono creati e i clienti saranno responsabili delle spedizioni da e verso il dispositivo Data Box.
 
 ### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>Q. Come è possibile ripristinare i dati in caso di errore di un'intera area?
 

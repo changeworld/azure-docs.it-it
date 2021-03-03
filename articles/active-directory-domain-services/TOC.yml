@@ -21,7 +21,7 @@
       href: tutorial-configure-ldaps.md
     - name: Configurare la sincronizzazione dell'hash delle password
       href: tutorial-configure-password-hash-sync.md
-    - name: Creare un set di repliche (anteprima)
+    - name: Creare un set di repliche
       href: tutorial-create-replica-set.md
     - name: Creare un dominio gestito personalizzato
       href: tutorial-create-instance-advanced.md
@@ -43,7 +43,7 @@
       href: administration-concepts.md
     - name: Scenari comuni di distribuzione
       href: scenarios.md
-    - name: Set di repliche (anteprima)
+    - name: Set di repliche
       href: concepts-replica-sets.md
     - name: Foreste e trust
       items:

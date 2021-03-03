@@ -5,12 +5,12 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 41c2432c3c80be7d28e8f33372dea44ba108c5d3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b22387272ebeae7a7db8f0e0940841415e345279
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616446"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734214"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procedura dettagliata sull'API REST di monitoraggio di Azure
 
@@ -462,9 +462,9 @@ Una volta che le definizioni delle metriche disponibili sono note, è possibile 
 >
 >
 
-**Metodo**: GET
+**Metodo**: `GET`
 
-**URI della richiesta**: `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**URI della richiesta**: `https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?$filter={filter}&api-version={apiVersion}`
 
 Ad esempio, per recuperare i dati della metrica RunsSucceeded per la finestra temporale specificata e per un intervallo di tempo di 1 ora, la richiesta sarà come mostrato di seguito:
 
@@ -734,7 +734,6 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Esaminare la [panoramica sul monitoraggio](../overview.md).
-* Visualizzare le [metriche supportate con il monitoraggio di Azure](../platform/metrics-supported.md).
+* Visualizzare le [metriche supportate con il monitoraggio di Azure](./metrics-supported.md).
 * Esaminare le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](/rest/api/monitor/).
 * Esaminare [Azure Management Library](/previous-versions/azure/reference/mt417623(v=azure.100)).
-

@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: c42eb8cac283ce096c42c9e5d4b7eac9a3e12625
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 44f093f96d0f4653a6fcca94aaa97264c93e3c7d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364376"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727941"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Connetti Data Factory ad Azure (anteprima)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -40,10 +40,10 @@ Se viene visualizzato un messaggio di avviso nel portale di Azure Data Factory d
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-tag.png" alt-text="Screenshot per i tag di registrazione di un account di competenza.":::
 
-2. Controllare se l'autorizzazione viene concessa per la registrazione di un account di Azure per la Data Factory. Scopri [come connettere Azure Data Factory e Azure](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory#create-new-data-factory-connection) .
+2. Controllare se l'autorizzazione viene concessa per la registrazione di un account di Azure per la Data Factory. Scopri [come connettere Azure Data Factory e Azure](../purview/how-to-link-azure-data-factory.md#create-new-data-factory-connection) .
 
 ### <a name="register-data-factory-in-azure-purview"></a>Registra Data Factory in Azure
-Per informazioni su come registrare Data Factory in Azure, vedere [come connettersi Azure Data Factory e Azure](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory). 
+Per informazioni su come registrare Data Factory in Azure, vedere [come connettersi Azure Data Factory e Azure](../purview/how-to-link-azure-data-factory.md). 
 
 ## <a name="report-lineage-data-to-azure-purview"></a>Segnala i dati di derivazione ad Azure competenza
 Quando i clienti eseguono la copia, il flusso di dati o l'attività Esegui pacchetto SSIS in Azure Data Factory, i clienti possono ottenere la relazione di dipendenza e ottenere una panoramica di alto livello dell'intero processo del flusso di lavoro tra origini dati e destinazione.

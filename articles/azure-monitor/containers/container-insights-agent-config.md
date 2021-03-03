@@ -1,18 +1,18 @@
 ---
-title: Configurare monitoraggio di Azure per la raccolta dati degli agenti di contenitori | Microsoft Docs
-description: Questo articolo descrive come configurare l'agente di monitoraggio di Azure per i contenitori per controllare la raccolta di log delle variabili di ambiente e stdout/stderr.
+title: Configurare la raccolta dati degli agenti di container Insights | Microsoft Docs
+description: Questo articolo descrive come configurare l'agente di container Insights per controllare la raccolta di log delle variabili di ambiente e stdout/stderr.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: f21b841bc129012b684d2a1c59eb72989fe9e0e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d866fec2013daf9b8edfdbfd703c7b1098ae91bd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620197"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708391"
 ---
-# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per Monitoraggio di Azure per i contenitori
+# <a name="configure-agent-data-collection-for-container-insights"></a>Configurare la raccolta dei dati dell'agente per informazioni dettagliate sul contenitore
 
-Monitoraggio di Azure per contenitori raccoglie le variabili stdout, stderr e Environment dai carichi di lavoro dei contenitori distribuiti nei cluster Kubernetes gestiti dall'agente in contenitori. Per configurare le impostazioni di raccolta dati di Agent, è possibile creare un ConfigMaps Kubernetes personalizzato per controllare questa esperienza. 
+Il contenitore Insights raccoglie le variabili stdout, stderr e Environment dai carichi di lavoro dei contenitori distribuiti nei cluster Kubernetes gestiti dall'agente in contenitori. Per configurare le impostazioni di raccolta dati di Agent, è possibile creare un ConfigMaps Kubernetes personalizzato per controllare questa esperienza. 
 
 Questo articolo illustra come creare ConfigMap e configurare la raccolta dei dati in base alle esigenze.
 
@@ -142,8 +142,8 @@ L'output sarà simile al seguente con le versioni dello schema di annotazione:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Il monitoraggio di Azure per i contenitori non include un set predefinito di avvisi. Per informazioni su come creare avvisi consigliati per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi, vedere la pagina [relativa alla creazione di avvisi di prestazioni con monitoraggio di Azure per i contenitori](./container-insights-log-alerts.md) .
+- Il contenitore Insights non include un set predefinito di avvisi. Per informazioni su come creare avvisi consigliati per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi, vedere la pagina relativa alla [creazione di avvisi sulle prestazioni con informazioni dettagliate sul contenitore](./container-insights-log-alerts.md) .
 
-- Con il monitoraggio abilitato per raccogliere lo stato e l'utilizzo delle risorse del servizio contenitore di Azure o del cluster ibrido e dei carichi di lavoro in esecuzione su di essi, informazioni su [come usare](container-insights-analyze.md) monitoraggio di Azure per i contenitori.
+- Con il monitoraggio abilitato per raccogliere lo stato e l'utilizzo delle risorse del servizio contenitore di gestione e del cluster ibrido e dei carichi di lavoro in esecuzione su di essi, vedere l'articolo relativo [all'uso](container-insights-analyze.md) di Application Insights.
 
 - Visualizzare gli [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query e esempi predefiniti per valutare o personalizzare gli avvisi, la visualizzazione o l'analisi dei cluster.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: e06a388f2391f4ed94370dd072a66a162ba5240f
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 331a7b1bef3621a080fe2fa891cf83565a1e55ac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526664"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702573"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
@@ -102,6 +102,6 @@ In generale, quando un oggetto (un insieme di credenziali delle chiavi o una chi
 
 Le due guide seguenti descrivono gli scenari principali di utilizzo dell'eliminazione temporanea.
 
-- [Come usare Key Vault l'eliminazione temporanea con il portale](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal)
+- [Come usare Key Vault l'eliminazione temporanea con il portale](./key-vault-recovery.md?tabs=azure-portal)
 - [Come usare l'eliminazione temporanea di Key Vault con PowerShell](./key-vault-recovery.md) 
 - [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](./key-vault-recovery.md)

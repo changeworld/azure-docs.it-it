@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 125431e6630ccfdd9e0e5d6b2a4ec5fa9b9e58fd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926190"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736186"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Scegliere l'opzione del server MySQL corretta in Azure
 
@@ -19,7 +19,7 @@ Con Azure, i carichi di lavoro del server MySQL possono essere eseguiti in un'in
 
 Quando si decide di prendere in considerazione le due opzioni seguenti:
 
-- **Database di Azure per MySQL** . Questa opzione è un motore di database MySQL completamente gestito basato sulla versione stabile di MySQL Community Edition. Questo database relazionale come servizio (DBaaS), ospitato nella piattaforma cloud di Azure, rientra nella categoria Industry di PaaS.
+- **Database di Azure per MySQL**. Questa opzione è un motore di database MySQL completamente gestito basato sulla versione stabile di MySQL Community Edition. Questo database relazionale come servizio (DBaaS), ospitato nella piattaforma cloud di Azure, rientra nella categoria Industry di PaaS.
 
   Con un'istanza gestita di MySQL in Azure è possibile usare funzionalità predefinite, ovvero l'applicazione automatica di patch, la disponibilità elevata, i backup automatici, la scalabilità elastica, la sicurezza di livello aziendale, la conformità e la governance, il monitoraggio e gli avvisi che altrimenti richiedono una configurazione completa quando MySQL server è in locale o in una VM di Azure. Quando si usa MySQL come servizio, si paga in base al consumo, con le opzioni di scalabilità verticale o orizzontale per un maggiore controllo senza interruzioni.
   
@@ -35,7 +35,7 @@ Quando si decide di prendere in considerazione le due opzioni seguenti:
   - Disponibilità elevata di ridondanza della zona
   - Finestre di manutenzione gestite
 
-- **MySQL in macchine virtuali di Azure** . Questa opzione rientra nella categoria Industry di IaaS. Con questo servizio è possibile eseguire MySQL server all'interno di una macchina virtuale gestita nella piattaforma cloud di Azure. Tutte le versioni e le edizioni recenti di MySQL possono essere installate nella macchina virtuale.
+- **MySQL in macchine virtuali di Azure**. Questa opzione rientra nella categoria Industry di IaaS. Con questo servizio è possibile eseguire MySQL server all'interno di una macchina virtuale gestita nella piattaforma cloud di Azure. Tutte le versioni e le edizioni recenti di MySQL possono essere installate nella macchina virtuale.
 
 ## <a name="comparing-the-mysql-deployment-options-in-azure"></a>Confronto tra le opzioni di distribuzione di MySQL in Azure
 
@@ -43,17 +43,19 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 
 | Attributo          | Database di Azure per MySQL<br/>Server unico |Database di Azure per MySQL<br/>Server flessibile  |MySQL in macchine virtuali di Azure                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
-| Supporto della versione di MySQL | 5,6, 5,7 & 8,0| 5.7 | Qualsiasi versione|
+| Supporto della versione di MySQL | 5,6, 5,7 & 8,0| 5,7 & 8,0 | Qualsiasi versione|
 | Ridimensionamento delle risorse di calcolo | Supportato (il ridimensionamento da e verso il livello Basic non è supportato)| Supportato | Supportato|
 | Dimensioni dello spazio di archiviazione | da 5 GiB a 16 TiB| da 5 GiB a 16 TiB | 32 GiB a 32.767 GiB|
-| Scalabilità dell'archiviazione online | Supportato| Supportato| Non supportate|
-| Ridimensionamento automatico dell'archiviazione | Supportato| Non supportato nella versione di anteprima| Non supportate|
+| Scalabilità dell'archiviazione online | Supportato| Supportato| Non supportato|
+| Ridimensionamento automatico dell'archiviazione | Supportato| Non supportato nella versione di anteprima| Non supportato|
+| Scalabilità IOPs aggiuntiva | Non supportato| Supportato| Non supportato|
 | Connettività di rete | -Endpoint pubblici con firewall del server.<br/> -Accesso privato con supporto del collegamento privato.|-Endpoint pubblici con firewall del server.<br/> -Accesso privato con l'integrazione della rete virtuale.| -Endpoint pubblici con firewall del server.<br/> -Accesso privato con supporto del collegamento privato.|
 | Contratto di servizio | CONTRATTO di disponibilità del 99,99% |Nessun contratto di contratto in anteprima| 99,99% con zone di disponibilità|
 | Applicazione di patch al sistema operativo| Automatico  | Automatico con controllo finestra di manutenzione personalizzata | Gestito dagli utenti finali |
 | Patch di MySQL     | Automatico  | Automatico con controllo finestra di manutenzione personalizzata | Gestito dagli utenti finali |
 | Disponibilità elevata | Disponibilità elevata incorporata all'interno di una singola zona di disponibilità| Disponibilità elevata incorporata all'interno e tra le zone di disponibilità | Gestione personalizzata mediante clustering, replica e così via.|
-| Ridondanza della zona | Non supportate | Supportato | Supportato|
+| Ridondanza della zona | Non supportato | Supportato | Supportato|
+| Posizione della zona | Non supportato | Supportato | Supportato|
 | Scenari ibridi | Supportato con [replica dei dati in ingresso](./concepts-data-in-replication.md)| Non disponibile in anteprima | Gestito dagli utenti finali |
 | Repliche in lettura | Supportato (fino a 5 repliche)| Supportato (fino a 10 repliche)| Gestito dagli utenti finali |
 | Backup | Automatizzato con conservazione di 7-35 giorni | Automatizzato con conservazione di 1-35 giorni | Gestito dagli utenti finali |
@@ -70,7 +72,7 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 
 Esistono diversi fattori che possono influenzare la decisione di scegliere PaaS o IaaS per ospitare i database MySQL.
 
-### <a name="cost"></a>Costi
+### <a name="cost"></a>Costo
 
 La riduzione dei costi è spesso la considerazione principale che determina la soluzione migliore per ospitare i database. Ciò vale sia per le startup con scarse disponibilità economiche, sia per team di una società consolidata che operano con vincoli di budget limitati. Questa sezione descrive le nozioni di base relative a fatturazione e licenze in Azure che si applicano a database di Azure per MySQL e MySQL in macchine virtuali di Azure.
 

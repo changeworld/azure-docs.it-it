@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
-ms.openlocfilehash: 678a6f0dc19d966f3d15e713008c19c8fbb96f5e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5eaa2d686ecd38c006a720e9ffb97a4604f18ba8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620816"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708867"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Uso delle funzioni nelle query di log di Monitoraggio di Azure
 
@@ -35,7 +35,7 @@ Creare una funzione con Log Analytics nel portale di Azure facendo clic su **Sal
 Per usare una funzione, includere il relativo alias in un'altra query. Può essere usata come qualsiasi altra tabella.
 
 ## <a name="function-parameters"></a>Parametri di funzione 
-È possibile aggiungere parametri a una funzione in modo da poter fornire valori per determinate variabili quando viene chiamata. L'unico modo per creare una funzione con parametri è l'uso di un modello di Gestione risorse. Per un esempio, vedere [Gestione risorse esempi di modelli per le query di log in monitoraggio di Azure](../samples/resource-manager-log-queries.md#parameterized-function) .
+È possibile aggiungere parametri a una funzione in modo da poter fornire valori per determinate variabili quando viene chiamata. L'unico modo per creare una funzione con parametri è l'uso di un modello di Gestione risorse. Per un esempio, vedere [Gestione risorse esempi di modelli per le query di log in monitoraggio di Azure](./resource-manager-log-queries.md#parameterized-function) .
 
 ## <a name="example"></a>Esempio
 La query di esempio seguente restituisce tutti gli aggiornamenti della sicurezza mancanti segnalati nell'ultimo giorno. Salvare questa query come funzione con l'alias _security_updates_last_day_. 

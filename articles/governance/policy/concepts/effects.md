@@ -1,14 +1,14 @@
 ---
 title: Comprendere il funzionamento degli effetti
 description: Le definizioni di Criteri di Azure hanno diversi effetti che determinano in che modo viene gestita e segnalata la conformità.
-ms.date: 10/05/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 67445b3d0d63b3827f82822de00412bdab67c5ab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883079"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741821"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -266,8 +266,7 @@ Analogamente ad AuditIfNotExists, una definizione dei criteri DeployIfNotExists 
 
 ### <a name="deployifnotexists-evaluation"></a>Valutazione di DeployIfNotExists
 
-DeployIfNotExists viene eseguito per circa 15 minuti dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. Una distribuzione di modello si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true.
-La durata della distribuzione dipende dalla complessità delle risorse incluse nel modello.
+DeployIfNotExists viene eseguito circa 15 minuti dopo che un provider di risorse ha gestito una sottoscrizione di creazione o aggiornamento o una richiesta di risorsa e ha restituito un codice di stato di esito positivo. Una distribuzione di modello si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. La durata della distribuzione dipende dalla complessità delle risorse incluse nel modello.
 
 Durante un ciclo di valutazione, le definizioni dei criteri con un effetto DeployIfNotExists che corrispondono alle risorse vengono contrassegnate come non conformi, ma non vengono eseguite azioni sulla risorsa stessa. È possibile correggere le risorse non conformi esistenti con un'[attività di correzione](../how-to/remediate-resources.md).
 
@@ -482,8 +481,7 @@ Esempio: Regola di controllo di ammissione Gatekeeper V2 per consentire solo le 
 
 ## <a name="modify"></a>Modifica
 
-Per aggiungere, aggiornare o rimuovere tag o proprietà in una risorsa durante la creazione o l'aggiornamento viene utilizzata la modifica.
-Un esempio comune è l'aggiornamento di tag per le risorse come costCenter. È possibile correggere le risorse non conformi esistenti con un'[attività di correzione](../how-to/remediate-resources.md). Una regola Modify singola può avere un numero qualsiasi di operazioni.
+La modifica viene utilizzata per aggiungere, aggiornare o rimuovere proprietà o tag in una sottoscrizione o in una risorsa durante la creazione o l'aggiornamento. Un esempio comune è l'aggiornamento di tag per le risorse come costCenter. È possibile correggere le risorse non conformi esistenti con un'[attività di correzione](../how-to/remediate-resources.md). Una regola Modify singola può avere un numero qualsiasi di operazioni.
 
 Le operazioni seguenti sono supportate da modifica:
 
@@ -575,7 +573,7 @@ Nella proprietà **operation** sono disponibili le opzioni seguenti:
 |-|-|
 |addOrReplace |Aggiunge la proprietà definita o il tag e il valore alla risorsa, anche se la proprietà o il tag esiste già con un valore diverso. |
 |Add |Aggiunge la proprietà, il tag e il valore definiti alla risorsa. |
-|Rimuovere |Rimuove la proprietà o il tag definito dalla risorsa. |
+|Rimuovi |Rimuove la proprietà o il tag definito dalla risorsa. |
 
 ### <a name="modify-examples"></a>Esempi di Modify
 

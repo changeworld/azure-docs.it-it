@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: a7ad5f661d4eca07deb0942c7684b89ac59931a2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: b18b498f250e9ff62180ba21c3bcbda562b13b8c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834392"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735863"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -219,7 +219,7 @@ Quando si sposta un computer da un gruppo a un altro, il criterio di controllo d
 
 Per gestire i controlli applicazione adattivi a livello, usare l'API REST. 
 
-La documentazione completa dell'API è disponibile [qui](/rest/api/securitycenter/adaptiveapplicationcontrols).
+La documentazione dell'API pertinente è disponibile nella [sezione controlli applicazione adattivi della documentazione API del Centro sicurezza](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Di seguito sono riportate alcune delle funzioni disponibili nell'API REST:
 

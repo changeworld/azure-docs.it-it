@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: fe684d15e2ce9b8d302db4eb6bd31dd1416abf21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd8686cc396d5fcee20590fbac8bccaf187b024d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83196538"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735948"
 ---
 # <a name="network-requirements"></a>Requisiti di rete
 
@@ -20,11 +20,13 @@ Una connessione di rete stabile e a bassa latenza a una data center di Azure è 
 
 I requisiti di rete esatti dipendono dal caso d'uso specifico, ad esempio il numero e la frequenza delle modifiche apportate al grafo della scena remota, oltre alla complessità della visualizzazione di cui è stato eseguito il rendering. Sono però disponibili alcune linee guida per garantire un'esperienza soddisfacente:
 
-* La connettività Internet disponibile deve supportare regolarmente almeno **40 Mbps in downstream** e **5 Mbps in upstream** per una singola sessione utente di Rendering remoto di Azure, presupponendo che non vi sia traffico concorrente nella rete. Per esperienze ottimali è consigliabile usare velocità più elevate. Con l'aumentare del numero di utenti nella stessa rete, questi requisiti aumentano di conseguenza.
+* La connettività Internet disponibile deve supportare regolarmente almeno **40 Mbps in downstream** e **5 Mbps in upstream** per una singola sessione utente di Rendering remoto di Azure, presupponendo che non vi sia traffico concorrente nella rete. Per esperienze ottimali è consigliabile usare velocità più elevate. 
+* Il **Wi-Fi** è il tipo di rete consigliato perché supporta una connessione stabile e a bassa latenza, ad alta larghezza di banda. Alcune reti mobili introducono un jitter che può causare un'esperienza negativa. 
 * Con una **banda Wi-Fi a 5 GHz** si ottengono in genere risultati migliori rispetto a una a 2,4 GHz, sebbene siano entrambe valide.
 * Se sono presenti altre reti Wi-Fi nelle vicinanze, evitare di usare i canali Wi-Fi usati da queste altre reti. È possibile usare strumenti di analisi della rete come [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) per verificare se i canali usati dalla rete Wi-Fi non presentino condizioni di traffico concorrente.
 * **Evitare assolutamente l'uso di ripetitori Wi-Fi** o l'inoltre tramite LAN-over-powerline.
 * **Evitare il traffico concorrente che usa una notevole quantità di larghezza di banda** nella stessa rete Wi-Fi, ad esempio per streaming video o giochi.
+* Se si dispone di più dispositivi nello stesso punto di accesso, i requisiti aumentano di conseguenza. Se si dispone di più punti di accesso in un ambiente, bilanciare il carico dei dispositivi tra i punti di accesso, in modo che vengano distribuiti uniformemente.
 * Un **segnale Wi-Fi di intensità adeguata** è di fondamentale importanza. Se possibile, non allontanarsi dal punto di accesso Wi-Fi ed evitare ostacoli tra il dispositivo client e i punti di accesso.
 * Assicurarsi di connettersi sempre al **data center di Azure** più vicino per la propria [area](regions.md). Maggiore è la vicinanza al data center, minore è la latenza di rete, che ha un effetto enorme sulla stabilità degli ologrammi.
 
@@ -43,8 +45,8 @@ Selezionare il server più vicino ed eseguire il test. Anche se il server non è
    * **Scelta consigliata** per Rendering remoto di Azure: all'incirca 100 Mbps in downstream e 10 Mbps in upstream.
 È consigliabile eseguire il test più volte e prendere in considerazione i risultati peggiori.
 1. **Usare uno strumento come www.azurespeed.com per misurare la latenza nei data center di Azure**. Selezionare il data center di Azure supportato da Rendering remoto di Azure più vicino (vedere le [aree supportate](regions.md)) ed eseguire un **test di latenza**. Se i valori visualizzati sono variabili, attendere qualche istante per consentire la stabilizzazione dei risultati.
-   * **Requisito minimo** per Rendering remoto di Azure: la latenza deve essere costantemente inferiore a 100 ms.
-   * **Scelta consigliata** per Rendering remoto di Azure: la latenza deve essere costantemente inferiore a 70 ms.
+   * **Requisito minimo** per il rendering remoto di Azure: la latenza deve essere inferiore a 80 ms.
+   * **Consigliato** per il rendering remoto di Azure: la latenza deve essere in modo coerente inferiore a 40 ms.
 
 Anche se una bassa latenza non garantisce il corretto funzionamento di Rendering remoto di Azure nella rete, in genere è stato riscontrato un funzionamento adeguato in situazioni in cui questi test erano stati superati.
 Se si rilevano artefatti, come ologrammi instabili, salti o discontinuità durante l'esecuzione di Rendering remoto di Azure, vedere la [guida alla risoluzione dei problemi](../resources/troubleshoot.md).

@@ -3,14 +3,14 @@ title: Panoramica di Centro backup
 description: Questo articolo fornisce una panoramica di backup Center per Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 93f9e5dc064d264e0cc111d8ddb093639307c55b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0acf3a17e41b89b462a7fb07c5d3ebd55d4052af
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592027"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725374"
 ---
-# <a name="overview-of-backup-center-preview"></a>Panoramica di Centro backup (anteprima)
+# <a name="overview-of-backup-center"></a>Panoramica di Centro backup
 
 Il centro di backup offre una **singola esperienza di gestione unificata** in Azure per le aziende che governano, monitorano, operano e analizzano i backup su larga scala. Di conseguenza, è coerente con le esperienze di gestione native di Azure.
 
@@ -18,11 +18,11 @@ Di seguito sono riportati alcuni dei principali vantaggi offerti da backup Cente
 
 * **Singolo riquadro di vetro per la gestione dei backup** : il centro di backup è progettato per funzionare correttamente in un ambiente di Azure di grandi dimensioni e distribuito. È possibile usare il centro di backup per gestire in modo efficiente i backup che si estendono su più tipi di carico di lavoro, insiemi di credenziali, sottoscrizioni, aree e tenant del [Faro di Azure](../lighthouse/overview.md) .
 * **Gestione incentrata** sull'origine dati: il centro di backup offre visualizzazioni e filtri centrati sulle origini dati di cui si sta eseguendo il backup, ad esempio macchine virtuali e database. Questo consente a un proprietario di risorse o a un amministratore di backup di monitorare e gestire i backup degli elementi senza dover concentrarsi sull'insieme di credenziali in cui viene eseguito il backup di un elemento. Una funzionalità chiave di questa progettazione è la possibilità di filtrare le visualizzazioni in base alle proprietà specifiche dell'origine dati, ad esempio la sottoscrizione DataSource, il gruppo di risorse DataSource e i tag DataSource. Ad esempio, se l'organizzazione segue una procedura per l'assegnazione di tag diversi alle macchine virtuali appartenenti a reparti diversi, è possibile usare il centro di backup per filtrare le informazioni di backup in base ai tag delle macchine virtuali sottostanti di cui viene eseguito il backup senza dover concentrarsi sul tag dell'insieme di credenziali.
-* **Esperienze connesse** : il centro di backup offre integrazioni native per i servizi di Azure esistenti che consentono la gestione su larga scala. Ad esempio, Backup Center USA l'esperienza dei [criteri di Azure](../governance/policy/overview.md) per gestire i backup. Sfrutta anche le [cartelle di lavoro di Azure](../azure-monitor/visualize/workbooks-overview.md) e i log di monitoraggio di [Azure](../azure-monitor/logs/data-platform-logs.md) per semplificare la visualizzazione di report dettagliati sui backup. Non è quindi necessario apprendere i nuovi principi per usare le varie funzionalità offerte dal centro di backup.
+* **Esperienze connesse** : il centro di backup offre integrazioni native per i servizi di Azure esistenti che consentono la gestione su larga scala. Ad esempio, Backup Center USA l'esperienza dei [criteri di Azure](../governance/policy/overview.md) per gestire i backup. Sfrutta anche le [cartelle di lavoro di Azure](../azure-monitor/visualize/workbooks-overview.md) e i log di monitoraggio di [Azure](../azure-monitor/logs/data-platform-logs.md) per semplificare la visualizzazione di report dettagliati sui backup. Non è quindi necessario apprendere i nuovi principi per usare le varie funzionalità offerte dal centro di backup. È anche possibile individuare le risorse della community dal centro di backup.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
-* Il centro di backup è attualmente supportato per il backup di macchine virtuali di Azure, SQL nel backup di VM di Azure, SAP HANA nel backup di macchine virtuali di Azure, Backup File di Azure e backup del server di database di Azure per PostgreSQL.
+* Il centro di backup è attualmente supportato per il backup di macchine virtuali di Azure, SQL nel backup di VM di Azure, SAP HANA nel backup di macchine virtuali di Azure, Backup File di Azure, backup BLOB di Azure, backup di Azure Managed Disks e backup del server di database di Azure per PostgreSQL.
 * Per un elenco dettagliato degli scenari supportati e non supportati, vedere la [matrice di supporto](backup-center-support-matrix.md) .
 
 ## <a name="get-started"></a>Introduzione

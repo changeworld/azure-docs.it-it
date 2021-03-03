@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 303a919cc0afc9b5db49918233f3e5718a896646
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 4461fb6904d51ee8d740b633a2d0028658ac2ced
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148058"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687550"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Aumentare e ridurre il gruppo di server di database di Azure per PostgreSQL usando l'interfaccia della riga di comando (azdata o kubectl)
 
@@ -180,6 +180,21 @@ Verrà visualizzata la nuova definizione del gruppo di server:
 ## <a name="scale-down-the-server-group"></a>Ridimensionare il gruppo di server
 
 Per ridurre il numero di server, è necessario eseguire lo stesso comando, ma impostare valori minori per le impostazioni che si desidera ridimensionare. Per rimuovere le richieste e/o i limiti, specificarne il valore come stringa vuota.
+
+## <a name="reset-to-default-values"></a>Reimposta valori predefiniti
+Per reimpostare i parametri core/memory/richieste sui valori predefiniti, modificarli e passare una stringa vuota anziché un valore effettivo. Se ad esempio si vuole reimpostare il parametro Core Limit (cl), eseguire i comandi seguenti:
+- in un client Linux:
+
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl ""
+```
+
+- in un client Windows: 
+ 
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl '""'
+```
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

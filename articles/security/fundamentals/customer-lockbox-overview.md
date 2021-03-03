@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/15/2020
-ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/19/2021
+ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489889"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720614"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox per Microsoft Azure
 
@@ -22,18 +22,16 @@ ms.locfileid: "96489889"
 
 Customer Lockbox per Microsoft Azure fornisce un'interfaccia che consente ai clienti di esaminare e approvare oppure rifiutare le richieste di accesso ai loro dati. Viene usato nei casi in cui un tecnico Microsoft deve accedere ai dati dei clienti durante una richiesta di supporto.
 
-Questo articolo illustra il modo in cui le richieste Customer Lockbox vengono avviate, rilevate e archiviate per verifiche e controlli successivi.
+Questo articolo illustra come abilitare Customer Lockbox e come vengono avviate, rilevate e archiviate le richieste dell'archivio degli archivi per verifiche e controlli successivi.
 
-Customer Lockbox è ora disponibile a livello generale e abilitato per l'accesso da desktop remoto alle macchine virtuali.
+<a id='supported-services-and-scenarios-in-preview'># # Servizi e scenari supportati (disponibilità generale)
 
-## <a name="supported-services-and-scenarios-in-preview"></a>Servizi e scenari supportati in anteprima
+I servizi seguenti sono ora disponibili a livello generale per Customer Lockbox:
 
-I servizi seguenti sono attualmente disponibili in anteprima per Customer Lockbox:
-
-- Gestione API
+- Gestione API di Azure
 - Servizio app di Azure
-- Servizi cognitivi
-- Registro Container
+- Servizi cognitivi di Azure
+- Registro Azure Container
 - Database di Azure per MySQL
 - Azure Databricks
 - Azure Data Box
@@ -41,34 +39,21 @@ I servizi seguenti sono attualmente disponibili in anteprima per Customer Lockbo
 - Azure Data Factory
 - Database di Azure per PostgreSQL
 - Funzioni di Azure
-- HDInsight
+- Azure HDInsight
 - Servizio Azure Kubernetes
 - Monitoraggio di Azure
 - Archiviazione di Azure
 - Database SQL di Azure
 - Trasferimenti di sottoscrizioni di Azure
 - Azure Synapse Analytics
-- Macchine virtuali (ora copre anche l'accesso ai dump della memoria e ai dischi gestiti)
+- Macchine virtuali in Azure (che riguardano l'accesso desktop remoto, l'accesso ai dump della memoria e i dischi gestiti)
 
-Per abilitare Customer Lockbox per queste offerte di anteprima per l'organizzazione, iscriversi per [Customer Lockbox per l'anteprima pubblica di Azure](https://aka.ms/customerlockbox/insiderprogram).
+## <a name="enable-customer-lockbox"></a>Abilita Customer Lockbox
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>Servizi e scenari supportati in disponibilità generale
-
-I servizi e gli scenari seguenti sono attualmente disponibili a livello generale per Customer Lockbox.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>Accesso da desktop remoto alle macchine virtuali
-
-Customer Lockbox è attualmente abilitato per l'accesso da desktop remoto alle macchine virtuali. Sono supportati i carichi di lavoro seguenti:
-- Piattaforma distribuita come servizio (PaaS) - Servizi cloud di Azure (ruolo Web e ruolo di lavoro)
-- Infrastruttura distribuita come servizio (IaaS) - Windows e Linux (solo Azure Resource Manager)
-- Set di scalabilità di macchine virtuali - Windows e Linux
+È ora possibile abilitare Customer Lockbox dal [modulo di amministrazione](https://aka.ms/customerlockbox/administration) nel pannello Customer Lockbox.  
 
 > [!NOTE]
-> Le istanze classiche di IaaS non sono supportate da Customer Lockbox. Se si dispone di carichi di lavoro in esecuzione in istanze IaaS classiche, è consigliabile eseguire la migrazione da modelli di distribuzione classica a Gestione risorse. Per istruzioni, vedere [Migrazione supportata dalla piattaforma di risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
-
-#### <a name="detailed-audit-logs"></a>Log di controllo dettagliati
-
-Per gli scenari che prevedono l'accesso da desktop remoto, è possibile usare i registri eventi di Windows per esaminare le azioni eseguite dal tecnico Microsoft. Considerare la possibilità di usare il Centro sicurezza di Azure per raccogliere i registri eventi e copiare i dati nell'area di lavoro per l'analisi. Per altre informazioni, vedere [Raccolta dati nel Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md).
+> Per abilitare Customer Lockbox, l'account utente deve avere il [ruolo di amministratore globale assegnato](../../active-directory/roles/manage-roles-portal.md).
 
 ## <a name="workflow"></a>Flusso di lavoro
 
@@ -80,7 +65,7 @@ La procedura seguente illustra un flusso di lavoro tipico per una richiesta di C
 
 3. Un tecnico del supporto di Azure esamina la richiesta di servizio e determina i passaggi successivi per risolvere il problema.
 
-4. Se il tecnico del supporto non riesce a risolvere il problema usando gli strumenti e la telemetria standard, il passaggio successivo consiste nel richiedere autorizzazioni elevate tramite un servizio di accesso JIT (just-in-Time). Questa richiesta può provenire dal tecnico del supporto originale. In alternativa, può provenire da un altro tecnico perché il problema viene inoltrato al team di Azure DevOps.
+4. Se il tecnico del supporto non riesce a risolvere il problema usando gli strumenti e la telemetria standard, il passaggio successivo consiste nel richiedere autorizzazioni elevate tramite un servizio di accesso JIT (just-in-Time). Questa richiesta può provenire dal tecnico del supporto originale o da un altro tecnico perché il problema viene inoltrato al team di Azure DevOps.
 
 5. Una volta inviata la richiesta di accesso da parte del tecnico di Azure, il servizio JIT valuta la richiesta tenendo conto dei fattori seguenti:
     - Ambito della risorsa
@@ -99,7 +84,7 @@ La procedura seguente illustra un flusso di lavoro tipico per una richiesta di C
 
     ![Azure Customer Lockbox-notifica tramite posta elettronica](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
-8. La notifica tramite posta elettronica contiene un collegamento al pannello **Customer Lockbox** nel portale di Azure. Con questo collegamento, il responsabile approvazione designato accede al portale di Azure per visualizzare le richieste in sospeso che la propria organizzazione ha per Customer Lockbox:
+8. La notifica tramite posta elettronica contiene un collegamento al pannello **Customer Lockbox** nel modulo di amministrazione. Con questo collegamento, il responsabile approvazione designato accede al portale di Azure per visualizzare le richieste in sospeso che la propria organizzazione ha per Customer Lockbox:
 
     ![Azure Customer Lockbox-pagina di destinazione](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
 
@@ -141,14 +126,13 @@ Ad esempio:
 
 ## <a name="exclusions"></a>Esclusioni
 
-Le richieste di Customer Lockbox non vengono attivate negli scenari di supporto tecnico seguenti:
+Customer Lockbox richieste non vengono attivate negli scenari di supporto tecnico seguenti:
 
 - Un tecnico Microsoft deve eseguire un'attività che esula dalle procedure operative standard. Ad esempio, per recuperare o ripristinare i servizi in scenari imprevisti o imprevedibili.
-
-- Un tecnico Microsoft accede alla piattaforma Azure nell'ambito della risoluzione dei problemi e accede inavvertitamente ai dati dei clienti. Ad esempio, il team di rete di Azure esegue la risoluzione dei problemi che genera un'acquisizione di pacchetti in un dispositivo di rete. Tuttavia, se il cliente ha crittografato i dati durante il transito, il tecnico non può leggere i dati.
+- Un tecnico Microsoft accede alla piattaforma Azure nell'ambito della risoluzione dei problemi e accede inavvertitamente ai dati dei clienti. Ad esempio, il team di rete di Azure esegue la risoluzione dei problemi che genera un'acquisizione di pacchetti in un dispositivo di rete. In questo scenario, se il cliente crittografa i dati mentre è in transito, il tecnico non potrà leggere i dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Customer Lockbox è automaticamente disponibile per tutti i clienti che dispongono di un [piano di supporto di Azure](https://azure.microsoft.com/support/plans/) con un livello minimo di **sviluppatore**.
+Customer Lockbox è disponibile per tutti i clienti che dispongono di un [piano di supporto di Azure](https://azure.microsoft.com/support/plans/) con un livello minimo di **sviluppatore**. È possibile abilitare Customer Lockbox dal [modulo di amministrazione](https://aka.ms/customerlockbox/administration) nel pannello Customer Lockbox.
 
-Quando si dispone di un piano di supporto idoneo, non è necessario eseguire alcuna azione per abilitare Customer Lockbox. Customer Lockbox richieste vengono avviate da un tecnico Microsoft se questa azione è necessaria per avanzare un ticket di supporto archiviato da un utente nell'organizzazione.
+Customer Lockbox richieste vengono avviate da un tecnico Microsoft se questa azione è necessaria per l'avanzamento di un caso di supporto.

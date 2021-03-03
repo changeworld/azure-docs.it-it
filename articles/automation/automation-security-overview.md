@@ -4,14 +4,14 @@ description: Questo articolo offre una panoramica dell'autenticazione di account
 keywords: sicurezza in Automazione, proteggere Automazione; autenticazione in Automazione
 services: automation
 ms.subservice: process-automation
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: e3ed14a0845d90a1b9b951dd5175acf6233f8718
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255000"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708901"
 ---
 # <a name="automation-account-authentication-overview"></a>Panoramica dell'autenticazione di account di Automazione
 
@@ -44,6 +44,8 @@ Per ulteriori informazioni sui modelli di distribuzione Azure Resource Manager e
 >Le sottoscrizioni Azure Cloud Solution Provider (CSP) supportano solo il modello di Azure Resource Manager. I servi diversi da Azure Resource Manager non sono disponibili nel programma. Quando si usa una sottoscrizione CSP, non viene creato l'account RunAs classico di Azure, ma l'account RunAs di Azure. Per altre informazioni sulle sottoscrizioni CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
 Quando si crea un account di automazione, l'account RunAs viene creato per impostazione predefinita nello stesso momento. Se si sceglie di non crearla insieme all'account di automazione, è possibile crearla singolarmente in un secondo momento. Un account RunAs classico di Azure è facoltativo e viene creato separatamente se è necessario gestire le risorse classiche.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
 ### <a name="run-as-account"></a>account RunAs
 

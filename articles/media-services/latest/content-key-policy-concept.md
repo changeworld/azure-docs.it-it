@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 29907a12f7edf7439f9bcfae0a1ad46b395d9ecf
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1333bbcc7e2ea9219d28fcc1e63f21a833c2bc6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897208"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709564"
 ---
 # <a name="content-key-policies"></a>Criteri di chiave simmetrica
 
@@ -64,4 +64,4 @@ Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle 
 
 * [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](protect-with-aes128.md)
 * [Usare la crittografia dinamica DRM e il servizio di distribuzione delle licenze](protect-with-drm.md)
-* [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)
+* [Codice di esempio di streaming e crittografia chiave Clear AES Basic](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/BasicAESClearKey)

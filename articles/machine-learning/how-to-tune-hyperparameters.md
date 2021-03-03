@@ -8,15 +8,15 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 01/29/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 0212ed1378dbb1d2165e9333a38fa911598c4c6d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430368"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691485"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Ottimizzazione iperparametri di un modello con Azure Machine Learning
 
@@ -25,7 +25,7 @@ Automatizzare l'ottimizzazione efficiente degli iperparametri usando Azure Machi
 1. Definire lo spazio di ricerca dei parametri
 1. Specificare una metrica primaria da ottimizzare  
 1. Specificare i criteri di terminazione anticipata per le esecuzioni con prestazioni ridotte
-1. Allocare le risorse
+1. Creazione e assegnazione di risorse
 1. Avviare un esperimento con la configurazione definita
 1. Visualizzare le esecuzioni di training
 1. Selezionare la configurazione migliore per il modello
@@ -119,7 +119,7 @@ param_sampling = RandomParameterSampling( {
 
 Il [campionamento della griglia](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?preserve-view=true&view=azure-ml-py) supporta iperparametri discreti. Usare il campionamento della griglia se è possibile eseguire una ricerca completa sullo spazio di ricerca. Supporta la terminazione anticipata delle esecuzioni a prestazioni ridotte.
 
-Esegue una semplice ricerca nella griglia su tutti i valori possibili. Il campionamento della griglia può essere usato solo con gli `choice` iperparametri. Lo spazio seguente, ad esempio, include sei esempi:
+Il campionamento della griglia esegue una semplice ricerca su tutti i valori possibili. Il campionamento della griglia può essere usato solo con gli `choice` iperparametri. Lo spazio seguente, ad esempio, include sei esempi:
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -133,7 +133,7 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Campionamento bayesiano
 
-Il [campionamento bayesiano](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) è basato sull'algoritmo di ottimizzazione Bayes. Preleva esempi in base al modo in cui sono stati eseguiti gli esempi precedenti, in modo che i nuovi campioni migliorino la metrica primaria.
+Il [campionamento bayesiano](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) è basato sull'algoritmo di ottimizzazione Bayes. Vengono scelti esempi in base al modo in cui sono stati rilevati gli esempi precedenti, in modo che i nuovi esempi migliorano la metrica primaria.
 
 Il campionamento Bayes è consigliato se si dispone di un budget sufficiente per esplorare lo spazio degli iperparametri. Per ottenere risultati ottimali, è consigliabile un numero massimo di esecuzioni maggiore o uguale a 20 volte il numero di iperparametri da ottimizzare. 
 
@@ -187,7 +187,7 @@ Per altre informazioni sulla registrazione dei valori nelle esecuzioni di traini
 
 ## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> Specificare i criteri di terminazione anticipata
 
-Termina automaticamente le esecuzioni con prestazioni scarse con criteri di terminazione anticipati. La terminazione anticipata migliora l'efficienza computazionale.
+Termina automaticamente le esecuzioni con prestazioni non ottimali con criteri di terminazione anticipata. La terminazione anticipata migliora l'efficienza computazionale.
 
 È possibile configurare i seguenti parametri che controllano quando viene applicato un criterio:
 
@@ -203,7 +203,7 @@ Azure Machine Learning supporta i seguenti criteri di terminazione anticipati:
 
 ### <a name="bandit-policy"></a>Criteri Bandit
 
-I [criteri Bandit](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) sono basati sulla quantità di Slack/slack e sull'intervallo di valutazione. Il Bandit termina le esecuzioni in cui la metrica primaria non rientra nell'importo del fattore Slack/Slack specificato rispetto all'esecuzione migliore.
+I [criteri Bandit](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) sono basati sulla quantità di Slack/slack e sull'intervallo di valutazione. L'estremità Bandit viene eseguita quando la metrica primaria non rientra nel fattore Slack/Slack specificato dell'esecuzione più riuscita.
 
 > [!NOTE]
 > Il campionamento Bayes non supporta la terminazione anticipata. Quando si usa il campionamento Bayes, impostare `early_termination_policy = None` .
@@ -226,7 +226,7 @@ In questo esempio, i criteri di terminazione anticipata vengono applicati a ogni
 
 ### <a name="median-stopping-policy"></a>Criteri di arresto con valore mediano
 
-L' [arresto mediano](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) è un criterio di terminazione anticipato basato su medie in esecuzione di metriche primarie segnalate dalle esecuzioni. Questo criterio calcola le medie di esecuzione in tutte le esecuzioni di training e termina le esecuzioni con valori di metrica primari peggiori della mediana delle medie.
+L' [arresto mediano](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) è un criterio di terminazione anticipato basato su medie in esecuzione di metriche primarie segnalate dalle esecuzioni. Questo criterio calcola le medie di esecuzione in tutte le esecuzioni di training e arresta le esecuzioni il cui valore di metrica primario è peggiore rispetto alla mediana delle medie.
 
 I parametri di configurazione accettati da questi criteri sono i seguenti:
 * `evaluation_interval`: frequenza per l'applicazione del criterio (parametro facoltativo).
@@ -238,7 +238,7 @@ from azureml.train.hyperdrive import MedianStoppingPolicy
 early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_evaluation=5)
 ```
 
-In questo esempio, i criteri di terminazione anticipata vengono applicati a ogni intervallo, a partire dall'intervallo di valutazione 5. Un'esecuzione viene terminata in corrispondenza dell'intervallo 5 se la metrica primaria migliore è peggiore della mediana delle medie in esecuzione rispetto agli intervalli 1:5 per tutte le esecuzioni di training.
+In questo esempio, i criteri di terminazione anticipata vengono applicati a ogni intervallo, a partire dall'intervallo di valutazione 5. Un'esecuzione viene arrestata in corrispondenza dell'intervallo 5 se la metrica primaria migliore è peggiore della mediana delle medie in esecuzione rispetto agli intervalli 1:5 in tutte le esecuzioni di training.
 
 ### <a name="truncation-selection-policy"></a>Criteri di selezione con troncamento
 
@@ -271,7 +271,7 @@ policy=None
 * Per i criteri conservativi che consentono di risparmiare senza terminare processi promettenti, prendere in considerazione un criterio di arresto mediano con `evaluation_interval` 1 e `delay_evaluation` 5. Queste sono impostazioni conservative, che possono garantire circa il 25-35% di risparmio senza alcuna perdita sulla metrica primaria (in base ai dati di valutazione).
 * Per un risparmio più aggressivo, usare i criteri Bandit con un criterio di selezione Slack o troncamento più piccolo consentito con una percentuale di troncamento più grande.
 
-## <a name="allocate-resources"></a>Allocare le risorse
+## <a name="create-and-assign-resources"></a>Creazione e assegnazione di risorse
 
 Controllare il budget delle risorse specificando il numero massimo di esecuzioni di training.
 
@@ -302,18 +302,28 @@ Per configurare l'esperimento di [ottimizzazione iperparametri](/python/api/azur
 * Criteri di terminazione anticipati
 * Metrica primaria
 * Impostazioni di allocazione risorse
-* ScriptRunConfig `src`
+* ScriptRunConfig `script_run_config`
 
 ScriptRunConfig è lo script di training che verrà eseguito con gli iperparametri campionati. Definisce le risorse per ogni processo (singolo o multinodo) e la destinazione di calcolo da usare.
 
 > [!NOTE]
->La destinazione di calcolo specificata in `src` deve disporre di risorse sufficienti per soddisfare il livello di concorrenza. Per altre informazioni su ScriptRunConfig, vedere [configurare le esecuzioni di training](how-to-set-up-training-targets.md).
+>La destinazione di calcolo usata in `script_run_config` deve disporre di risorse sufficienti per soddisfare il livello di concorrenza. Per altre informazioni su ScriptRunConfig, vedere [configurare le esecuzioni di training](how-to-set-up-training-targets.md).
 
 Configurare l'esperimento di ottimizzazione degli iperparametri:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
-hd_config = HyperDriveConfig(run_config=src,
+from azureml.train.hyperdrive import RandomParameterSampling, BanditPolicy, uniform, PrimaryMetricGoal
+
+param_sampling = RandomParameterSampling( {
+        'learning_rate': uniform(0.0005, 0.005),
+        'momentum': uniform(0.9, 0.99)
+    }
+)
+
+early_termination_policy = BanditPolicy(slack_factor=0.15, evaluation_interval=1, delay_evaluation=10)
+
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              primary_metric_name="accuracy",
@@ -321,6 +331,36 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_total_runs=100,
                              max_concurrent_runs=4)
 ```
+
+`HyperDriveConfig`Imposta i parametri passati a `ScriptRunConfig script_run_config` . `script_run_config`, A sua volta, passa i parametri allo script di training. Il frammento di codice precedente viene tratto dal training del notebook di esempio [, dall'ottimizzazione iperparametri e dalla distribuzione con PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). In questo esempio, i `learning_rate` `momentum` parametri e verranno ottimizzati. L'arresto anticipato delle esecuzioni verrà determinato da un `BanditPolicy` , che interrompe un'esecuzione la cui metrica primaria è esterna a `slack_factor` (vedere il [riferimento alla classe BanditPolicy](python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py)). 
+
+Il codice seguente dell'esempio Mostra come vengono ricevuti, analizzati e passati i valori ottimizzati alla funzione dello script di training `fine_tune_model` :
+
+```python
+# from pytorch_train.py
+def main():
+    print("Torch version:", torch.__version__)
+
+    # get command-line arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--num_epochs', type=int, default=25,
+                        help='number of epochs to train')
+    parser.add_argument('--output_dir', type=str, help='output directory')
+    parser.add_argument('--learning_rate', type=float,
+                        default=0.001, help='learning rate')
+    parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
+    args = parser.parse_args()
+
+    data_dir = download_data()
+    print("data directory is: " + data_dir)
+    model = fine_tune_model(args.num_epochs, data_dir,
+                            args.learning_rate, args.momentum)
+    os.makedirs(args.output_dir, exist_ok=True)
+    torch.save(model, os.path.join(args.output_dir, 'model.pt'))
+```
+
+> [!Important]
+> Ogni esecuzione di iperparametri riavvia il training da zero, inclusa la ricompilazione del modello e di _tutti i caricatori di dati_. È possibile ridurre al minimo questo costo utilizzando una pipeline Azure Machine Learning o un processo manuale per eseguire il maggior quantità possibile di preparazione dei dati prima dell'esecuzione del training. 
 
 ## <a name="submit-hyperparameter-tuning-experiment"></a>Invia esperimento di ottimizzazione iperparametri
 
@@ -335,7 +375,6 @@ hyperdrive_run = experiment.submit(hd_config)
 ## <a name="warm-start-hyperparameter-tuning-optional"></a>Regolazione iperparametri di avvio a caldo (facoltativo)
 
 La ricerca dei migliori valori di iperparametri per il modello può essere un processo iterativo. È possibile riutilizzare le informazioni dalle cinque esecuzioni precedenti per accelerare l'ottimizzazione degli iperparametri.
-
 
 L'avvio a caldo viene gestito in modo diverso a seconda del metodo di campionamento:
 - **Campionamento Bayes**: le versioni di valutazione dell'esecuzione precedente vengono usate come informazioni precedenti per selezionare nuovi esempi e per migliorare la metrica primaria.
@@ -368,7 +407,7 @@ child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
 
-hd_config = HyperDriveConfig(run_config=src,
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              resume_from=warmstart_parents_to_resume_from,

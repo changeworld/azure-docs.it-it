@@ -49,14 +49,16 @@
       href: how-to-configure-https-custom-domain.md
     - name: Associazione Route
       href: how-to-configure-route.md
+    - name: Configurare un set di regole
+      href: how-to-configure-rule-set.md
     - name: Configurare le intestazioni di sicurezza con il set di regole
       href: how-to-add-security-headers.md
     - name: Ripulire la cache
       href: how-to-cache-purge.md
     - name: Compressione
       href: how-to-compression.md
-    - name: Abilita collegamento privato
-      href: how-to-enable-private-link.md
+    - name: Abilita collegamento privato ad app Web
+      href: how-to-enable-private-link-web-app.md
     - name: Registrazione
       href: how-to-logs.md
     - name: Monitoraggio e avvisi

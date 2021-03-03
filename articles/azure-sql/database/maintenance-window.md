@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/02/2021
-ms.openlocfilehash: 4006cedf5f24ab2fc08e41b58f8acf90c404f668
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9dc4d17ea95362dd915bd1dfdfd82f4cdec611b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679614"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692811"
 ---
 # <a name="maintenance-window-preview"></a>Finestra di manutenzione (anteprima)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ Per altre informazioni sugli eventi di manutenzione, vedere [pianificare gli eve
 
 Azure esegue periodicamente aggiornamenti di manutenzione pianificata sul database SQL di Azure e sulle risorse di SQL Istanza gestita che includono spesso aggiornamenti per hardware sottostante, software che include sistema operativo sottostante e il motore SQL. Durante un aggiornamento di manutenzione, le risorse sono completamente disponibili e accessibili, ma alcuni aggiornamenti di manutenzione richiedono un failover Poiché Azure porta le istanze offline per un breve periodo di tempo per l'applicazione degli aggiornamenti di manutenzione, in media di otto secondi.  Gli aggiornamenti di manutenzione pianificata si verificano una volta ogni 35 giorni in media, il che significa che il cliente può prevedere circa un evento di manutenzione pianificata al mese per ogni database SQL di Azure o istanza gestita di SQL e solo durante gli slot della finestra di manutenzione selezionati dal cliente.   
 
-La finestra di manutenzione è destinata ai carichi di lavoro aziendali sensibili alle potenziali interruzioni della connettività che possono derivare da eventi di manutenzione pianificata durante la finestra predefinita.  
+La finestra di manutenzione è destinata ai carichi di lavoro aziendali che non sono resilienti a problemi di connettività intermittenti che possono derivare da eventi di manutenzione pianificata.
 
 La finestra di manutenzione può essere configurata usando il portale di Azure, PowerShell, l'interfaccia della riga di comando o l'API di Azure. Può essere configurato durante la creazione o per i database SQL esistenti e per le istanze gestite di SQL.
 
@@ -37,15 +37,15 @@ La finestra di manutenzione può essere configurata usando il portale di Azure, 
 Per impostazione predefinita, tutti i database SQL di Azure e i database delle istanze gestite vengono aggiornati al giorno dalle 17.00 alle 8.00 locali per evitare interruzioni massime dell'orario di ufficio. L'ora locale è determinata dall' [area di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) che ospita la risorsa. È possibile modificare ulteriormente gli aggiornamenti di manutenzione in un momento appropriato per il database scegliendo tra due slot della finestra di manutenzione aggiuntiva:
 
 * Finestra **predefinita** , da 17.00 a 8 ora locale lunedì-domenica 
-* Finestra del giorno della settimana, dal 10 al 6 orario locale lunedì-giovedì: **richiede il consenso esplicito** per il cliente 
-* Finestra del fine settimana, da 10:00 a 6 ora locale venerdì-domenica: **richiede il consenso esplicito** per il cliente  
+* Finestra del giorno della settimana, dalle 22:00 alle 6.00 ora locale lunedì-giovedì
+* Finestra del fine settimana, da 10:00 a 6 ora locale venerdì-domenica
 
 Una volta effettuata la selezione della finestra di manutenzione, tutti gli aggiornamenti pianificati per la manutenzione saranno eseguiti solo durante la finestra scelta.   
 
 > [!Note]
 > Oltre agli aggiornamenti pianificati per la manutenzione, in rari casi gli eventi di manutenzione non pianificata possono causare indisponibilità. 
 
-### <a name="cost"></a>Costo
+### <a name="cost-and-eligibility"></a>Costo e idoneità
 
 La scelta di una finestra di manutenzione è gratuita per i [tipi di offerta](https://azure.microsoft.com/support/legal/offer-details/)di sottoscrizione seguenti: con pagamento in base al consumo, provider di soluzioni cloud (CSP), Microsoft Enterprise o contratto per i clienti Microsoft.
 

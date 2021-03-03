@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b4f828c675df9625d6d4889dbc31bbc4b9f887ed
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9b18b24686908ac92f97ea0cae892369919ae4d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386715"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721021"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
@@ -29,7 +29,7 @@ I plug-in per le password, ad esempio "validate_password" e "caching_sha2_passwo
 
 ## <a name="storage-engines"></a>Motori di archiviazione
 
-MySQL supporta molti motori di archiviazione. Nel database di Azure per MySQL server flessibile, i motori di archiviazione seguenti sono supportati e non supportati:
+MySQL supporta molti motori di archiviazione. Nel database di Azure per MySQL i motori di archiviazione seguenti sono supportati e non supportati:
 
 ### <a name="supported"></a>Supportato
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 02/01/2021
-ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.date: 03/02/2021
+ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430798"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715208"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Panoramica: anteprima di app per la logica di Azure
 
@@ -38,7 +38,7 @@ In questa panoramica vengono illustrate le aree seguenti:
 
 * [Limiti nell'anteprima delle app per la logica di Azure](#limits).
 
-Per ulteriori informazioni, vedere i seguenti articoli:
+Per ulteriori informazioni, vedere gli argomenti seguenti:
 
 * [App per la logica di Azure in esecuzione da qualsiasi luogo-esecuzione approfondita](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
 
@@ -50,7 +50,7 @@ Per ulteriori informazioni, vedere i seguenti articoli:
 
 Il runtime di anteprima di app per la logica di Azure usa l'estendibilità di [funzioni di Azure](../azure-functions/functions-overview.md) ed è ospitato come estensione nel runtime di funzioni di Azure. Questa architettura significa che è possibile eseguire il nuovo tipo di app per la logica ovunque sia in esecuzione funzioni di Azure. È possibile ospitare il runtime di anteprima di app per la logica di Azure in quasi tutte le topologie di rete desiderate e scegliere le dimensioni di calcolo disponibili per gestire il carico di lavoro necessario per il flusso di lavoro. Per altre informazioni sull'estendibilità di funzioni di Azure, vedere [Webjobs SDK: creazione di binding di input e output personalizzati](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
-Con questo nuovo approccio, il runtime di anteprima di app per la logica di Azure e i flussi di lavoro sono entrambi parte dell'app che è possibile raggruppare. Questa funzionalità consente di distribuire ed eseguire i flussi di lavoro semplicemente copiando gli artefatti nell'ambiente host e avviando l'app. Questo approccio offre inoltre un'esperienza più standardizzata per la creazione di pipeline DevOps per i progetti di flusso di lavoro per l'esecuzione di test e convalide necessari prima di distribuire le modifiche in ambienti di produzione. Per altre informazioni, vedere [app per la logica di Azure in esecuzione in un ambiente di esecuzione approfondita](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
+Con questo nuovo approccio, il runtime di anteprima di app per la logica di Azure e i flussi di lavoro sono entrambi parte dell'app che è possibile raggruppare. Questa funzionalità consente di distribuire ed eseguire i flussi di lavoro semplicemente copiando gli artefatti nell'ambiente host e avviando l'app. Questo approccio offre inoltre un'esperienza più standardizzata per la creazione di pipeline di distribuzione per i progetti di flusso di lavoro per l'esecuzione di test e convalide necessari prima di distribuire le modifiche negli ambienti di produzione. Per altre informazioni, vedere [app per la logica di Azure in esecuzione in un ambiente di esecuzione approfondita](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
 Nella tabella seguente vengono brevemente riepilogate le differenze nel modo in cui i flussi di lavoro condividono le risorse, in base all'ambiente in cui vengono eseguiti. Per le differenze nei limiti, vedere [limiti nell'anteprima di app per la logica di Azure](#limits).
 
@@ -139,10 +139,17 @@ L'anteprima di app per la logica di Azure include molte funzionalità correnti e
 
 * Abilitare la registrazione diagnostica e le funzionalità di traccia per l'app per la logica usando [Application Insights](../azure-monitor/app/app-insights-overview.md) quando supportato dalla sottoscrizione di Azure e dalle impostazioni dell'app per la logica.
 
+* È possibile accedere alle funzionalità di rete, ad esempio la connessione e l'integrazione privata con le reti virtuali di Azure, in modo analogo alle funzioni di Azure quando si creano e si distribuiscono app per la logica usando il [piano Premium di funzioni](../azure-functions/functions-premium-plan.md) Per ulteriori informazioni, vedere gli argomenti seguenti:
+
+  * [Opzioni di rete di Funzioni di Azure](../azure-functions/functions-networking-options.md)
+
+  * [App per la logica di Azure in esecuzione ovunque e possibilità di rete con app per la logica di Azure Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+
 * Rigenerare le chiavi di accesso per le connessioni gestite usate da singoli flussi di lavoro in una risorsa di app per la **logica (anteprima)** . Per questa attività, [seguire la stessa procedura per la risorsa app per la **logica** , ma a livello di singolo flusso di lavoro](logic-apps-securing-a-logic-app.md#regenerate-access-keys), non a livello di risorsa dell'app per la logica.
 
-> [!NOTE]
-> Per informazioni sui problemi noti correnti, vedere la pagina relativa alle app per la [logica Public Preview problemi noti in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+* Aggiungere i rami paralleli nella nuova finestra di progettazione attenendosi alla stessa procedura della finestra di progettazione non di anteprima.
+ 
+Per altre informazioni, vedere la pagina relativa alle [funzionalità modificate, limitate, non disponibili e non supportate](#limited-unavailable-unsupported) e alla [pagina problemi noti dell'anteprima pubblica di app per la logica in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
 
@@ -171,7 +178,9 @@ Nell'anteprima di app per la logica di Azure queste funzionalità sono state mod
 
 * **Supporto del sistema operativo**: attualmente, la finestra di progettazione in Visual Studio Code non funziona in un sistema operativo Linux, ma è comunque possibile distribuire app per la logica che usano il runtime di anteprima delle app per la logica in macchine virtuali basate su Linux. Per il momento è possibile compilare le app per la logica in Visual Studio Code in Windows o macOS e quindi distribuirle in una macchina virtuale basata su Linux.
 
-* **Trigger e azioni**: alcuni trigger predefiniti non sono disponibili, ad esempio finestra temporale scorrevole e batch. Per avviare il flusso di lavoro, usare la [ricorrenza, la richiesta, il http, il webhook http, l'hub eventi o il trigger del bus di servizio predefiniti](../connectors/apis-list.md). I trigger e le azioni predefiniti vengono eseguiti in modo nativo nel runtime di anteprima di app per la logica di Azure, mentre i connettori gestiti vengono distribuiti in Azure. Nella finestra di progettazione, i trigger e le azioni predefiniti vengono visualizzati nella scheda **incorporata** , mentre i trigger e le azioni del connettore gestito vengono visualizzati nella scheda **Azure** .
+* **Trigger e azioni**: i trigger e le azioni predefiniti vengono eseguiti in modo nativo nel runtime di anteprima di app per la logica di Azure, mentre i connettori gestiti vengono distribuiti in Azure. Alcuni trigger predefiniti non sono disponibili, ad esempio finestra temporale scorrevole e batch.
+
+  Per avviare il flusso di lavoro, usare la [ricorrenza, la richiesta, il http, il webhook http, l'hub eventi o il trigger del bus di servizio predefiniti](../connectors/apis-list.md). Nella finestra di progettazione, i trigger e le azioni predefiniti vengono visualizzati nella scheda **incorporata** , mentre i trigger e le azioni del connettore gestito vengono visualizzati nella scheda **Azure** .
 
   > [!NOTE]
   > Per eseguire localmente in Visual Studio Code, i trigger e le azioni basati su webhook richiedono una configurazione aggiuntiva. Per altre informazioni, vedere [creare flussi di lavoro con stato e senza stato in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
@@ -199,11 +208,11 @@ Nell'anteprima di app per la logica di Azure queste funzionalità sono state mod
 
       * Le azioni per operazioni di codice inline non richiedono più un account di integrazione.
 
-      * Se si usa macOS o Linux, **le operazioni di codice inline** non sono al momento disponibili quando si usa l'estensione app per la logica di Azure (anteprima) in Visual Studio Code.
+      * Per macOS e Linux, **le operazioni di codice inline** sono ora supportate quando si usa l'estensione app per la logica di Azure (anteprima) in Visual Studio Code.
 
-      * Se si apportano modifiche in un'azione per operazioni di codice inline, è necessario riavviare l'app per la logica.
+      * Non è più necessario riavviare l'app per la logica se si apportano modifiche in un'azione per **operazioni di codice inline** .
 
-      * Le azioni per le operazioni di codice inline hanno [limiti aggiornati](logic-apps-overview-preview.md#inline-code-limits).
+      * **Le azioni per le operazioni di codice inline** hanno [limiti aggiornati](logic-apps-overview-preview.md#inline-code-limits).
 
     * Alcuni [trigger e azioni B2B predefiniti per gli account di integrazione](../connectors/apis-list.md#integration-account-connectors) non sono disponibili, ad esempio, le azioni di codifica e decodifica di **file flat** .
 
@@ -211,17 +220,15 @@ Nell'anteprima di app per la logica di Azure queste funzionalità sono state mod
 
 * **Disponibilità del piano di hosting**: se si crea un nuovo tipo di risorsa app per la **logica (anteprima)** nell'portale di Azure o si esegue la distribuzione da Visual Studio Code, è possibile usare solo il piano di hosting del servizio app o Premium in Azure. I piani di hosting a consumo non sono disponibili e non sono supportati per la distribuzione di questo tipo di risorsa. È possibile eseguire la distribuzione da Visual Studio Code a un contenitore Docker, ma non a un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-* **Rami paralleli**: attualmente non è possibile aggiungere rami paralleli attraverso la nuova esperienza di progettazione. Tuttavia, è comunque possibile aggiungere questi rami tramite l'esperienza di progettazione originale e visualizzarli nella nuova finestra di progettazione.
-
-  1. Nella parte inferiore della finestra di progettazione disabilitare la nuova esperienza selezionando il **nuovo controllo Canvas** .
-
-  1. Aggiungere i rami paralleli al flusso di lavoro.
-
-  1. Abilitare la nuova esperienza selezionando nuovamente il **nuovo controllo Canvas** .
+* **Debug dei punti di interruzione in Visual Studio Code**: Sebbene sia possibile aggiungere e utilizzare i punti di interruzione all'interno del **workflow.jssu** file per un flusso di lavoro, i punti di interruzione sono supportati solo per le azioni in questo momento, non per i trigger. Per altre informazioni, vedere [creare flussi di lavoro con stato e senza stato in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
 
 * **Controllo zoom**: il controllo zoom non è attualmente disponibile nella finestra di progettazione.
 
-* **Debug dei punti di interruzione in Visual Studio Code**: Sebbene sia possibile aggiungere e utilizzare i punti di interruzione all'interno del **workflow.jssu** file per un flusso di lavoro, i punti di interruzione sono supportati solo per le azioni in questo momento, non per i trigger. Per altre informazioni, vedere [creare flussi di lavoro con stato e senza stato in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
+* Cronologia di **attivazione e cronologia di esecuzione**: per il tipo di risorsa app per la **logica (anteprima)** , la cronologia dei trigger e la cronologia di esecuzione nel portale di Azure vengono visualizzati a livello di flusso di lavoro, non a livello di app per la logica Per trovare i dati cronologici, attenersi alla procedura seguente:
+
+   * Per visualizzare la cronologia di esecuzione, aprire il flusso di lavoro nell'app per la logica. Nel menu flusso di lavoro, in **sviluppatore** selezionare **monitoraggio**.
+
+   * Per esaminare la cronologia dei trigger, aprire il flusso di lavoro nell'app per la logica. Nel menu flusso di lavoro, in **sviluppatore** selezionare **cronologia trigger**.
 
 <a name="limits"></a>
 

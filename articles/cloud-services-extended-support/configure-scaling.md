@@ -8,20 +8,20 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 482c11395ff5dbbf2dd5bb8100451c3442f2f333
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: cfa5be01a0d36764086c6c9adf97e6cb166d2bb6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744516"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728162"
 ---
 # <a name="configure-scaling-options-with-azure-cloud-services-extended-support"></a>Configurare le opzioni di scalabilità con i servizi cloud di Azure (supporto esteso) 
 
 È possibile configurare le condizioni per abilitare le distribuzioni di servizi cloud (supporto esteso) per la scalabilità orizzontale e orizzontale. Queste condizioni possono essere basate sull'utilizzo della CPU, sul carico del disco e sul carico di rete. 
 
 Quando si configura la scalabilità delle distribuzioni di servizi cloud, tenere presenti le seguenti informazioni:
-- La scalabilità influisca sull'utilizzo di base. Le istanze del ruolo più grandi utilizzano più core ed è possibile scalare solo entro il limite di core della sottoscrizione. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-- La scalabilità basata sulla soglia di messaggistica della coda è supportata. Per altre informazioni, vedere [Introduzione all'archiviazione code di Azure](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues).
+- La scalabilità influisca sull'utilizzo di base. Le istanze del ruolo più grandi utilizzano più core ed è possibile scalare solo entro il limite di core della sottoscrizione. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- La scalabilità basata sulla soglia di messaggistica della coda è supportata. Per altre informazioni, vedere [Introduzione all'archiviazione code di Azure](../storage/queues/storage-dotnet-how-to-use-queues.md).
 - Per garantire la disponibilità elevata delle applicazioni del servizio cloud (supporto esteso), assicurarsi di eseguire la distribuzione con due o più istanze del ruolo.
 - La scalabilità automatica personalizzata può verificarsi solo quando tutti i ruoli sono in uno stato **pronto** .
 

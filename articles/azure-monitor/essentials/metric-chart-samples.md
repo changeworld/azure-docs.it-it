@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 0430f8efedbcefba551ce3ee81d0db8a654f5b13
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 882c9e50c344b792d70d09017aeca3a2874cb106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617127"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700746"
 ---
 # <a name="metric-chart-examples"></a>Esempi di grafici delle metriche 
 
-La piattaforma di Azure offre [più di mille metriche](../platform/metrics-supported.md), molte delle quali con dimensioni. Usando i [filtri di dimensione](./metrics-charts.md), applicando [suddivisioni](./metrics-charts.md), controllando il tipo di grafico e modificando le impostazioni del grafico, è possibile creare visualizzazioni diagnostiche avanzate e dashboard che forniscono informazioni dettagliate sull'integrità dell'infrastruttura e delle applicazioni. Questo articolo mostra alcuni esempi dei grafici che è possibile creare usando [Esplora metriche](./metrics-charts.md) e illustra i passaggi necessari per configurare ciascuno di essi.
+La piattaforma di Azure offre [più di mille metriche](./metrics-supported.md), molte delle quali con dimensioni. Usando i [filtri di dimensione](./metrics-charts.md), applicando [suddivisioni](./metrics-charts.md), controllando il tipo di grafico e modificando le impostazioni del grafico, è possibile creare visualizzazioni diagnostiche avanzate e dashboard che forniscono informazioni dettagliate sull'integrità dell'infrastruttura e delle applicazioni. Questo articolo mostra alcuni esempi dei grafici che è possibile creare usando [Esplora metriche](./metrics-charts.md) e illustra i passaggi necessari per configurare ciascuno di essi.
 
 Come condividere ottimi esempi di grafici? Contribuendo a questa pagina su GitHub, condividendo qui i propri esempi di grafico.
 
@@ -54,4 +54,3 @@ Nel selettore metrica, selezionare l'account di archiviazione e la metrica **Tra
 
 * Informazioni sulle [Cartelle di lavoro](../visualize/workbooks-overview.md) di Monitoraggio di Azure
 * Informazioni su [Esplora metriche](metrics-charts.md)
-

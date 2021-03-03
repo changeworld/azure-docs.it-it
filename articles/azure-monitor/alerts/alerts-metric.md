@@ -6,18 +6,18 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: e3a9810aef356b7acf5ae2522645c14ee445812b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bf55d66f7099717079190a538bad8bf777581825
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614596"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723555"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure
 
-Gli avvisi delle metriche in monitoraggio di Azure consentono di ricevere una notifica quando una metrica supera una soglia. Gli avvisi delle metriche funzionano su una gamma di metriche di piattaforme multidimensionali, personalizzate, standard e personalizzate di Application Insights. In questo articolo verrà descritto come creare, visualizzare e gestire le regole di avviso delle metriche tramite portale di Azure e l'interfaccia della riga di comando di Azure. È anche possibile creare regole di avviso per la metrica usando modelli di Azure Resource Manager, descritti in [un articolo separato](../platform/alerts-metric-create-templates.md).
+Gli avvisi delle metriche in monitoraggio di Azure consentono di ricevere una notifica quando una metrica supera una soglia. Gli avvisi delle metriche funzionano su una gamma di metriche di piattaforme multidimensionali, personalizzate, standard e personalizzate di Application Insights. In questo articolo verrà descritto come creare, visualizzare e gestire le regole di avviso delle metriche tramite portale di Azure e l'interfaccia della riga di comando di Azure. È anche possibile creare regole di avviso per la metrica usando modelli di Azure Resource Manager, descritti in [un articolo separato](./alerts-metric-create-templates.md).
 
-Altre informazioni sul funzionamento degli avvisi delle metriche sono disponibili nella [panoramica degli avvisi delle metriche](../platform/alerts-metric-overview.md).
+Altre informazioni sul funzionamento degli avvisi delle metriche sono disponibili nella [panoramica degli avvisi delle metriche](./alerts-metric-overview.md).
 
 ## <a name="create-with-azure-portal"></a>Creare con il portale di Azure
 
@@ -32,7 +32,7 @@ La procedura seguente descrive come creare una regola di avviso per la metrica n
 
 3. Fare clic su **Selezionare la destinazione** e, nel riquadro del contesto caricato, selezionare una risorsa di destinazione su cui si vuole impostare una regola di avviso. Usare gli elenchi a discesa **Sottoscrizione** e **Tipo di risorsa** per trovare la risorsa da monitorare. È anche possibile usare la barra di ricerca per trovare la risorsa.
 
-4. Se la risorsa selezionata include metriche su cui creare avvisi, **Segnali disponibili** nella parte inferiore destra includerà le metriche. L'elenco completo dei tipi di risorse supportati per gli avvisi delle metriche è disponibile in questo [articolo](../platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+4. Se la risorsa selezionata include metriche su cui creare avvisi, **Segnali disponibili** nella parte inferiore destra includerà le metriche. L'elenco completo dei tipi di risorse supportati per gli avvisi delle metriche è disponibile in questo [articolo](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 5. Dopo aver selezionato una risorsa di destinazione, fare clic su **Aggiungi condizione**.
 
@@ -45,7 +45,7 @@ La procedura seguente descrive come creare una regola di avviso per la metrica n
     - Se il valore della dimensione che si sta cercando non è visualizzato, fare clic su "Aggiungi valore personalizzato" per aggiungere un valore di dimensione personalizzato.
     - È anche possibile **selezionare tutti i valori correnti e futuri** per qualsiasi dimensione. Questa operazione consente di ridimensionare in modo dinamico la selezione a tutti i valori correnti e futuri di una dimensione.
 
-    La regola di avviso metrica valuterà la condizione per tutte le combinazioni di valori selezionati. [Altre informazioni sul funzionamento degli avvisi sulle metriche multidimensionali](../platform/alerts-metric-overview.md).
+    La regola di avviso metrica valuterà la condizione per tutte le combinazioni di valori selezionati. [Altre informazioni sul funzionamento degli avvisi sulle metriche multidimensionali](./alerts-metric-overview.md).
 
 9. Selezionare il tipo di **soglia** , l' **operatore** e il **tipo di aggregazione**. In questo modo verrà determinata la logica che verrà valutata dalla regola di avviso della metrica.
     - Se si usa una soglia **statica** , continuare a definire un **valore soglia**. Il grafico delle metriche può essere utile per determinare quale sia una soglia ragionevole.
@@ -154,8 +154,8 @@ Per le regole di avviso delle metriche sono disponibili cmdlet di PowerShell ded
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare avvisi delle metriche usando modelli di Azure Resource Manager](../platform/alerts-metric-create-templates.md)
-- [Informazioni sul funzionamento degli avvisi delle metriche](../platform/alerts-metric-overview.md)
+- [Creare avvisi delle metriche usando modelli di Azure Resource Manager](./alerts-metric-create-templates.md)
+- [Informazioni sul funzionamento degli avvisi delle metriche](./alerts-metric-overview.md)
 - [Informazioni sul funzionamento della metrica avvisi con soglie dinamiche](../alerts/alerts-dynamic-thresholds.md)
-- [Understand the web hook schema for metric alerts](../platform/alerts-metric-near-real-time.md#payload-schema) (Comprendere lo schema webhook per gli avvisi delle metriche)
-- [Risoluzione dei problemi negli avvisi delle metriche](../platform/alerts-troubleshoot-metric.md)
+- [Understand the web hook schema for metric alerts](./alerts-metric-near-real-time.md#payload-schema) (Comprendere lo schema webhook per gli avvisi delle metriche)
+- [Risoluzione dei problemi negli avvisi delle metriche](./alerts-troubleshoot-metric.md)

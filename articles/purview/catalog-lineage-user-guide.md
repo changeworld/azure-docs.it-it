@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: a319dbce2502f35272cf9b70da2022f581d64275
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6af183c16238c6630b194b112f0c09fd4399d443
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554825"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694071"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guida dell'utente di Azure per Data Catalog Lineage
 
 Questo articolo fornisce una panoramica delle funzionalità di derivazione dei dati in Azure competenze Data Catalog.
 
-## <a name="background"></a>Background
+## <a name="background"></a>Sfondo
 
 Una delle funzionalità della piattaforma Azure è la possibilità di visualizzare la derivazione tra i set di dati creati dai processi di dati. Sistemi come Data Factory, condivisione dati e Power BI acquisiscono la derivazione dei dati durante lo spostamento. La creazione di report di derivazione personalizzati è supportata anche tramite hook Atlas e l'API REST.
 
@@ -74,39 +74,47 @@ Azure competenza supporta la derivazione a livello di asset per i set di imposta
 
    :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage.png" alt-text="Screenshot che illustra come selezionare le colonne della visualizzazione nella pagina di derivazione" border="true":::
 
-## <a name="column-level-lineage"></a>Derivazione a livello di colonna
+## <a name="dataset-column-lineage"></a>Derivazione colonna DataSet
 
-Azure competenza supporta la derivazione a livello di colonna per i set di impostazioni. Per visualizzare la derivazione a livello di colonna, passare **alla scheda** derivazione dell'asset corrente nel catalogo e attenersi alla procedura seguente:
+Per visualizzare la derivazione a livello di colonna di un set di dati, passare **alla scheda** derivazione dell'asset corrente nel catalogo e attenersi alla procedura seguente:
 
 1. Nella scheda derivazione, nel riquadro sinistro, selezionare la casella di controllo accanto a ogni colonna che si desidera visualizzare nella derivazione dei dati.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png" alt-text="Screenshot che illustra come selezionare le colonne da visualizzare nella pagina di derivazione." lightbox="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png":::
 
-1. Passare il mouse su una colonna selezionata nel riquadro sinistro o nel set di dati dell'area di disegno della derivazione per visualizzare il mapping delle colonne. Vengono evidenziate tutte le istanze della colonna.
+2. Passare il mouse su una colonna selezionata nel riquadro sinistro o nel set di dati dell'area di disegno della derivazione per visualizzare il mapping delle colonne. Vengono evidenziate tutte le istanze della colonna.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png" alt-text="Screenshot che illustra come passare il puntatore del mouse su un nome di colonna per evidenziare il flusso di colonna in un percorso di derivazione dei dati." lightbox="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png":::
 
-1. Se il numero di colonne è maggiore di quello che è possibile visualizzare nel riquadro sinistro, utilizzare l'opzione filtro per selezionare una colonna specifica in base al nome. In alternativa, è possibile utilizzare il mouse per scorrere l'elenco.
+3. Se il numero di colonne è maggiore di quello che è possibile visualizzare nel riquadro sinistro, utilizzare l'opzione filtro per selezionare una colonna specifica in base al nome. In alternativa, è possibile utilizzare il mouse per scorrere l'elenco.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-columns-by-name.png" alt-text="Screenshot che illustra come filtrare le colonne in base al nome della colonna nella pagina di derivazione." lightbox="./media/catalog-lineage-user-guide/filter-columns-by-name.png":::
 
-1. Se l'area di disegno della derivazione contiene più nodi e bordi, usare il filtro per selezionare l'asset di dati o elaborare i nodi in base al nome. In alternativa, è possibile usare il mouse per scorrere la finestra di derivazione.
+4. Se l'area di disegno della derivazione contiene più nodi e bordi, usare il filtro per selezionare l'asset di dati o elaborare i nodi in base al nome. In alternativa, è possibile usare il mouse per scorrere la finestra di derivazione.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-assets-by-name.png" alt-text="Screenshot che mostra i nodi asset di dati in base al nome nella pagina di derivazione." lightbox="./media/catalog-lineage-user-guide/filter-assets-by-name.png":::
 
-1. Usare l'interruttore nel riquadro a sinistra per evidenziare l'elenco di set di elementi nell'area di disegno della derivazione. Se si disattiva l'interruttore, vengono visualizzati tutti gli asset che contengono almeno una delle colonne selezionate. Se si attiva l'interruttore, verranno visualizzati solo i set di elementi che contengono tutte le colonne.
+5. Usare l'interruttore nel riquadro a sinistra per evidenziare l'elenco di set di elementi nell'area di disegno della derivazione. Se si disattiva l'interruttore, vengono visualizzati tutti gli asset che contengono almeno una delle colonne selezionate. Se si attiva l'interruttore, verranno visualizzati solo i set di elementi che contengono tutte le colonne.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png" alt-text="Screenshot che illustra come usare l'interruttore per filtrare l'elenco di nodi nella pagina di derivazione." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png":::
 
+## <a name="process-column-lineage"></a>Derivazione colonna processo
+Il processo dati può richiedere uno o più set di dati di input per produrre uno o più output. In ambito, la derivazione a livello di colonna è disponibile per i nodi di processo. 
+1. Passare tra i set di dati di input e di output da un elenco a discesa nel pannello colonne.
+2. Selezionare le colonne da una o più tabelle per visualizzare il flusso di derivazione dal set di dati di input al set di dati di output corrispondente.
+
+   :::image type="content" source="./media/catalog-lineage-user-guide/process-column-lineage.png" alt-text="Screenshot che mostra la derivazione delle colonne di un nodo di processo." lightbox="./media/catalog-lineage-user-guide/process-column-lineage.png":::
+
+## <a name="browse-assets-in-lineage"></a>Sfogliare gli asset in derivazione
 1. Selezionare **passa a Asset** in qualsiasi asset per visualizzare i metadati corrispondenti dalla visualizzazione di derivazione. Questa operazione è un modo efficace per passare a un altro asset nel catalogo dalla visualizzazione di derivazione.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Schermata come selezionare passa a asset in un asset di dati di derivazione." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-1. L'area di disegno della derivazione potrebbe diventare complessa per i set di impostazioni più diffusi Per evitare confusione, nella visualizzazione predefinita vengono visualizzati solo cinque livelli di derivazione per l'asset nello stato attivo. Il resto della derivazione può essere espanso facendo clic sulle bolle nell'area di disegno della derivazione. I consumer di dati possono anche nascondere gli asset nell'area di disegno che non sono di alcun interesse. Per ridurre ulteriormente il disordine, disattivare l'opzione attiva/disattiva **più** derivazione nella parte superiore dell'area di disegno della derivazione. Questa azione nasconderà tutte le bolle nell'area di disegno della derivazione.
+2. L'area di disegno della derivazione potrebbe diventare complessa per i set di impostazioni più diffusi Per evitare confusione, nella visualizzazione predefinita vengono visualizzati solo cinque livelli di derivazione per l'asset nello stato attivo. Il resto della derivazione può essere espanso facendo clic sulle bolle nell'area di disegno della derivazione. I consumer di dati possono anche nascondere gli asset nell'area di disegno che non sono di alcun interesse. Per ridurre ulteriormente il disordine, disattivare l'opzione attiva/disattiva **più** derivazione nella parte superiore dell'area di disegno della derivazione. Questa azione nasconderà tutte le bolle nell'area di disegno della derivazione.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="Screenshot che illustra come abilitare o disabilitare più derivazione." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 
-1. Usare i pulsanti smart nell'area di disegno della derivazione per ottenere una visualizzazione ottimale della derivazione. Layout automatico, zoom avanti e indietro, zoom avanti/indietro, schermo intero e mappa di navigazione sono disponibili per un'esperienza di derivazione immersiva nel catalogo.
+3. Usare i pulsanti smart nell'area di disegno della derivazione per ottenere una visualizzazione ottimale della derivazione. Layout automatico, zoom avanti e indietro, zoom avanti/indietro, schermo intero e mappa di navigazione sono disponibili per un'esperienza di derivazione immersiva nel catalogo.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png" alt-text="Screenshot che illustra come selezionare i pulsanti smart derivazione." lightbox="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png":::
 

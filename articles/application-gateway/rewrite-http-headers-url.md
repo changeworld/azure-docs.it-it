@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 81eaf95a4918590c6eaa2c17a45e6925a1a67992
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216675"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726513"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Riscrivere le intestazioni HTTP e l'URL con il gateway applicazione
 
@@ -60,9 +60,9 @@ Per informazioni su come riscrivere l'URL con il gateway applicazione usando por
 Per specificare l'URL, le intestazioni della richiesta o le intestazioni di risposta da riscrivere e il nuovo valore in cui si intende riscriverli, è possibile usare le azioni di riscrittura. Il valore di un URL o di un'intestazione nuova o esistente può essere impostato su questi tipi di valori:
 
 * Testo
-* Intestazione della richiesta. Per specificare un'intestazione di richiesta, è necessario usare la sintassi {http_req_*headerName*}
-* Intestazione della risposta. Per specificare un'intestazione della risposta, è necessario usare la sintassi {http_resp_*headerName*}
-* Variabile server. Per specificare una variabile del server, è necessario usare la sintassi {var_*serverVariable*}. Vedere l'elenco delle variabili server supportate
+* Intestazione della richiesta. Per specificare un'intestazione di richiesta, è necessario usare la sintassi {http_req_ *headerName*}
+* Intestazione della risposta. Per specificare un'intestazione della risposta, è necessario usare la sintassi {http_resp_ *headerName*}
+* Variabile server. Per specificare una variabile del server, è necessario usare la sintassi {var_ *serverVariable*}. Vedere l'elenco delle variabili server supportate
 * Una combinazione di testo, un'intestazione di richiesta, un'intestazione di risposta e una variabile server. 
 
 ## <a name="rewrite-conditions"></a>Condizioni di riscrittura
@@ -100,7 +100,7 @@ Se si vuole usare l'intero valore, non è necessario menzionare il numero. Usare
 
 ## <a name="server-variables"></a>Variabili del server
 
-Il gateway applicazione usa variabili server per archiviare informazioni utili sul server, sulla connessione con il client e sulla richiesta corrente sulla connessione. Esempi di informazioni archiviate includono l'indirizzo IP del client e il tipo di Web browser. Le variabili del server cambiano in modo dinamico, ad esempio quando viene caricata una nuova pagina o quando viene pubblicato un modulo. È possibile utilizzare queste variabili per valutare le condizioni di riscrittura e riscrivere le intestazioni. Per usare il valore delle variabili server per riscrivere le intestazioni, è necessario specificare queste variabili nella sintassi {var_*NomeVariabileServer*}
+Il gateway applicazione usa variabili server per archiviare informazioni utili sul server, sulla connessione con il client e sulla richiesta corrente sulla connessione. Esempi di informazioni archiviate includono l'indirizzo IP del client e il tipo di Web browser. Le variabili del server cambiano in modo dinamico, ad esempio quando viene caricata una nuova pagina o quando viene pubblicato un modulo. È possibile utilizzare queste variabili per valutare le condizioni di riscrittura e riscrivere le intestazioni. Per usare il valore delle variabili server per riscrivere le intestazioni, è necessario specificare queste variabili nella sintassi {var_ *NomeVariabileServer*}
 
 Il gateway applicazione supporta le variabili server seguenti:
 
@@ -164,7 +164,7 @@ Quando un'applicazione back-end invia una risposta di reindirizzamento, potrebbe
 
 Poiché il servizio app è un servizio multi-tenant, usa l'intestazione host nella richiesta per instradare la richiesta all'endpoint corretto. I servizi app hanno un nome di dominio predefinito *. azurewebsites.net (Say contoso.azurewebsites.net) diverso dal nome di dominio del gateway applicazione (ad indicare contoso.com). Poiché la richiesta originale del client ha il nome di dominio del gateway applicazione (contoso.com) come nome host, il gateway applicazione modifica il nome host in contoso.azurewebsites.net. Questa modifica viene eseguita in modo che il servizio app possa instradare la richiesta all'endpoint corretto.
 
-Quando il servizio app invia una risposta di reindirizzamento, USA lo stesso nome host nell'intestazione Location della risposta come quello nella richiesta ricevuta dal gateway applicazione. Quindi, il client effettuerà la richiesta direttamente a contoso.azurewebsites.net/path2 anziché passare attraverso il gateway applicazione (contoso.com/path2). Non è consigliabile ignorare il gateway applicazione.
+Quando il servizio app invia una risposta di reindirizzamento, USA lo stesso nome host nell'intestazione Location della risposta come quello nella richiesta ricevuta dal gateway applicazione. Quindi, il client effettuerà la richiesta direttamente a `contoso.azurewebsites.net/path2` invece di passare attraverso il gateway applicazione ( `contoso.com/path2` ). Non è consigliabile ignorare il gateway applicazione.
 
 È possibile risolvere questo problema impostando il nome host nell'intestazione Location sul nome di dominio del gateway applicazione.
 
@@ -211,13 +211,13 @@ Per eseguire scenari in cui si vuole scegliere il pool back-end in base al valor
 
 * La terza regola presenta una condizione che controlla la variabile di *QUERY_STRING* per *Category = Accessories* e ha un'azione che riscrive il percorso URL in/*listing3* ed è abilitata la mappa di **percorso di nuova valutazione.**
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scenario di riscrittura URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scenario di riscrittura URL 1-2.":::
 
  
 
 **Passaggio 2 (b):** Associa questo set di riscrittura al percorso predefinito della regola basata sul percorso precedente
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scenario di riscrittura URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scenario di riscrittura URL 1-3.":::
 
 A questo punto, se l'utente richiede *contoso.com/Listing?Category=any*, viene confrontato con il percorso predefinito, perché nessuno dei modelli di percorso nella mappa di percorso (/listing1,/listing2,/listing3) corrisponderà. Poiché il set di riscrittura precedente è stato associato a questo percorso, questo set di riscrittura verrà valutato. Poiché la stringa di query non corrisponderà alla condizione in nessuna delle 3 regole di riscrittura in questo set di riscrittura, non verrà eseguita alcuna azione di riscrittura e, di conseguenza, la richiesta verrà instradata senza modifiche al back-end associato al percorso predefinito (ovvero *generics*).
 
@@ -234,11 +234,11 @@ In tal caso, il gateway applicazione può acquisire parametri dall'URL e aggiung
 
 **Condition** -se la variabile server `uri_path` è uguale al modello `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scenario di riscrittura URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scenario di riscrittura URL 2-1.":::
 
 **Azione** : impostare il percorso dell'URL su `buy.aspx` e la stringa di query su `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scenario di riscrittura URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scenario di riscrittura URL 2-2.":::
 
 Per una guida dettagliata per ottenere lo scenario descritto in precedenza, vedere [riscrivere l'URL con il gateway applicazione usando portale di Azure](rewrite-url-portal.md)
 
@@ -248,7 +248,7 @@ In caso di riscrittura URL, il gateway applicazione riscrive l'URL prima che la 
 
 In caso di reindirizzamento URL, il gateway applicazione invia una risposta di reindirizzamento al client con il nuovo URL. Che, a sua volta, richiede al client di inviare nuovamente la richiesta al nuovo URL fornito nel reindirizzamento. L'URL visualizzato dall'utente nel browser viene aggiornato al nuovo URL
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Scenario di riscrittura URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Riscrivere il reindirizzamento di Visual Studio.":::
 
 ## <a name="limitations"></a>Limitazioni
 

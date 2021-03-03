@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aac4278c6ce03c43418e99978cd039e24dc01194
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448541"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719271"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gestione del carico di lavoro Kubernetes sul dispositivo Azure Stack Edge Pro
 
@@ -54,6 +54,17 @@ Esistono tre modi principali per distribuire i carichi di lavoro. Ognuna di ques
 - **Distribuzione Kubernetes abilitata per Azure Arc**: Azure Arc Enabled Kubernetes è uno strumento di gestione ibrido che consente di distribuire applicazioni nei cluster Kubernetes. Connettersi al cluster Kubernetes nel dispositivo Azure Stack Edge Pro tramite il `azure-arc namespace` . Gli agenti distribuiti in questo spazio dei nomi sono responsabili della connettività ad Azure. La configurazione della distribuzione viene applicata tramite la gestione della configurazione basata su GitOps. 
     
     Azure Arc Enabled Kubernetes consente anche di usare monitoraggio di Azure per i contenitori per visualizzare e monitorare il cluster. Per altre informazioni, vedere [che cos'è Azure Arc Enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
+    
+    A partire dal 2021 marzo, Azure Arc abilitato Kubernetes sarà disponibile a livello generale per gli utenti e gli addebiti per l'utilizzo standard. In qualità di cliente di anteprima, Azure Arc Enabled Kubernetes sarà disponibile gratuitamente per i dispositivi Azure Stack Edge. Per usufruire dell'offerta di anteprima, creare un [richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+
+    1. In **Tipo di problema** selezionare **Fatturazione**.
+    2. In **Sottoscrizione** selezionare la propria sottoscrizione.
+    3. In **servizio** selezionare **servizi personali**, quindi selezionare **Azure stack Edge**.
+    4. In **risorsa** selezionare la risorsa.
+    5. In **Riepilogo** Digitare una descrizione del problema.
+    6. In **tipo di problema** selezionare **addebiti imprevisti**.
+    7. In **sottotipo di problema** selezionare **aiuta a comprendere gli addebiti per la versione di valutazione gratuita**.
+
 
 ## <a name="choose-the-deployment-type"></a>Scegliere il tipo di distribuzione
 

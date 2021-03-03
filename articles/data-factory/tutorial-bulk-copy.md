@@ -6,17 +6,17 @@ ms.author: jingwang
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/22/2018
-ms.openlocfilehash: bbd0a98ad14aeef31232aa2557860989e39273aa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: fc539ababf4cb240fbe78de0d87b1f127807f604
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375120"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740429"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copiare più tabelle in blocco con Azure Data Factory e PowerShell
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questa esercitazione illustra come **copiare alcune tabelle dal database SQL di Azure in Azure Synapse Analytics**. È possibile applicare lo stesso modello anche in altri scenari di copia, ad esempio per la copia di tabelle da SQL Server/Oracle in database SQL di Azure/SQL Data Warehouse/archivio BLOB di Azure o la copia di percorsi diversi dall'archivio BLOB alle tabelle del database SQL di Azure.
 
@@ -30,7 +30,7 @@ A livello generale, questa esercitazione prevede la procedura seguente:
 > * Avviare un'esecuzione della pipeline.
 > * Monitorare le esecuzioni di pipeline e attività.
 
-In questa esercitazione viene usato Azure PowerShell. Per informazioni sull'uso di altri strumenti/SDK per creare una data factory, vedere [Avvii rapidi](quickstart-create-data-factory-dot-net.md). 
+In questa esercitazione viene usato Azure PowerShell. Per informazioni sull'uso di altri strumenti/SDK per creare una data factory, vedere le [Guide introduttive](quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="end-to-end-workflow"></a>Flusso di lavoro end-to-end
 In questo scenario diverse tabelle di Database SQL di Azure verranno copiate in Azure Synapse Analytics. Ecco la sequenza logica di passaggi nel flusso di lavoro che si verifica nelle pipeline:

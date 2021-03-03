@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/02/2021
 ms.author: justinha
 author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e90a6060a9c8202f7f743a0ee433f89b9dc9fdd
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662763"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689029"
 ---
 # <a name="two-way-sms-unsupported"></a>SMS bidirezionale non supportato
 
@@ -27,7 +27,7 @@ Le notifiche di posta elettronica e le notifiche di integrità del servizio port
 ## <a name="required-actions"></a>Azioni obbligatorie
 
 1. Abilitare l'app per dispositivi mobili per gli utenti, se non è già stato fatto. Per altre informazioni, vedere [abilitare l'autenticazione di app per dispositivi mobili con server](howto-mfaserver-deploy-mobileapp.md)multi-factor authentication.
-1. Inviare una notifica agli utenti finali per visitare il [portale utenti](howto-mfaserver-deploy-userportal.md) del server multi-factor authentication per attivare l'app per dispositivi mobili. L' [app Microsoft Authenticator](https://www.microsoft.com/account/authenticator) è l'opzione di verifica consigliata poiché è più sicura rispetto a SMS bidirezionali. Per ulteriori informazioni, vedere la pagina relativa [al tempo di blocco sui trasporti telefonici per l'autenticazione](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
+1. Inviare una notifica agli utenti finali per visitare il [portale utenti](howto-mfaserver-deploy-userportal.md) del server multi-factor authentication per attivare l'app per dispositivi mobili. L' [app Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator) è l'opzione di verifica consigliata poiché è più sicura rispetto a SMS bidirezionali. Per ulteriori informazioni, vedere la pagina relativa [al tempo di blocco sui trasporti telefonici per l'autenticazione](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
 1. Modificare le impostazioni utente da SMS bidirezionale a app per dispositivi mobili come metodo predefinito.
 
 ## <a name="faq"></a>Domande frequenti

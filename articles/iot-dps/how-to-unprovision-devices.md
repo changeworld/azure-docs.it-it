@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 37099b551e004ebfc702dce37c2a1499aa46ff10
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c91cd8cbb1a927a88f05fcea603c6a4ed6e1c14
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950727"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719033"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico 
 
@@ -23,7 +23,7 @@ In generale, il deprovisioning di un dispositivo si articola in due passaggi:
 1. Annullamento della registrazione al servizio di provisioning, per evitare il futuro provisioning automatico del dispositivo. In base alla necessità di revocare l'accesso temporaneamente o in modo permanente, si sceglierà se disabilitare o eliminare una voce di registrazione. Per i dispositivi che usano l'attestazione X.509, è possibile disabilitare o eliminare una voce nella gerarchia dei gruppi di registrazioni esistenti.  
  
    - Per informazioni su come annullare la registrazione di un dispositivo, vedere [Come annullare la registrazione di un dispositivo nel servizio Device Provisioning in hub IoT](how-to-revoke-device-access-portal.md).
-   - Per informazioni su come annullare la registrazione di un dispositivo a livello di programmazione tramite uno degli SDK del servizio Device Provisioning, vedere [Gestire le registrazioni dei dispositivi con SDK di servizi](how-to-manage-enrollments-sdks.md).
+   - Per informazioni su come annullare la registrazione di un dispositivo a livello di programmazione tramite uno degli SDK del servizio Device Provisioning, vedere [Gestire le registrazioni dei dispositivi con SDK di servizi](./quick-enroll-device-x509-java.md).
 
 2. Annullare la registrazione del dispositivo dall'hub IoT, per impedire comunicazioni e trasferimenti di dati futuri. Di nuovo, è possibile disabilitare temporaneamente o eliminare definitivamente la voce del dispositivo nel registro delle identità relativo all'hub IoT in cui è stato effettuato il provisioning. Per altre informazioni sulla disabilitazione, vedere [Disabilitare i dispositivi](../iot-hub/iot-hub-devguide-identity-registry.md#disable-devices). Vedere "Gestione dispositivi/Dispositivi IoT" per la propria la risorsa hub IoT nel [portale di Azure](https://portal.azure.com).
 

@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5d314331059a96388f23cd43667fca20a689f167
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2a0411e97f78104de1356d482e4e43a42701c073
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258847"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687625"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Risolvere i problemi di accesso a un'applicazione da Azure AD app personali
 
@@ -141,14 +141,15 @@ Per controllare l'appartenenza a gruppi di un utente, seguire questa procedura:
 7.  Selezionare **gruppi** per visualizzare i gruppi di cui l'utente è membro.
 
 ### <a name="check-if-a-user-has-more-than-999-app-role-assignments"></a>Controllare se un utente ha più di 999 assegnazioni di ruolo app
-Se a un utente sono state assegnate più di 999 assegnazioni di ruolo app, è possibile che non vengano visualizzate tutte le app nelle app personali.
+Se un utente ha più di 999 assegnazioni di ruolo app, potrebbe non visualizzare tutte le app nelle app personali.
 
 Questo perché le app attualmente leggono fino a 999 assegnazioni di ruolo app per determinare le app a cui gli utenti sono assegnati. Se un utente è assegnato a più di 999 app, non è possibile controllare quali di queste app verranno visualizzate nel portale app personali.
 
-Per controllare il numero di assegnazioni di ruolo app concesse a un utente, seguire questa procedura:
+Per verificare se un utente ha più di 999 assegnazioni di ruolo app, seguire questa procedura:
 1. Installare il modulo [**Microsoft. Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell.
-2. Eseguire `Connect-MgGraph -Scopes "Directory.Read.All"` e autenticare come **amministratore globale.**
-3. Eseguire `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count` per determinare il numero di assegnazioni di ruolo dell'app che l'utente ha attualmente concesso.
+2. Eseguire `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`.
+3. Eseguire `(Get-MgUserAppRoleAssignment -UserId "<userId>" -Top 999).Count` per determinare il numero di assegnazioni di ruolo dell'app che l'utente ha attualmente concesso.
+4. Se il risultato è 999, l'utente avrà probabilmente più di 999 assegnazioni di ruoli dell'app.
 
 ### <a name="check-a-users-assigned-licenses"></a>Controllare le licenze assegnate di un utente
 Per controllare le licenze assegnate a un utente, seguire questa procedura:

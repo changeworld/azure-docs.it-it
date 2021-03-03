@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53763e62e8d7aa5b77ae451ef6427c1e09bff9f0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb28f415b7d08b4c4430ed90a7ccbfe3a333416d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742698"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689046"
 ---
 # <a name="configure-mfa-server-settings"></a>Configurare le impostazioni del server multi-factor authentication
 
@@ -41,10 +41,10 @@ La funzionalità di bypass monouso consente a un utente di eseguire l'autenticaz
 Per creare un bypass monouso, completare i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-1. Cercare e selezionare **Azure Active Directory**, quindi passare a **sicurezza** autenticazione a più fattori per  >  **MFA**  >  **bypass** monouso.
+1. Cercare e selezionare **Azure Active Directory**, quindi passare a **sicurezza** autenticazione a più fattori per  >    >  **bypass** monouso.
 1. Selezionare **Aggiungi**.
 1. Se necessario, selezionare il gruppo di replica per il bypass.
-1. Immettere il nome utente come `username\@domain.com`. Immettere il numero di secondi di durata del bypass e il motivo del bypass.
+1. Immettere il nome utente come `username@domain.com`. Immettere il numero di secondi di durata del bypass e il motivo del bypass.
 1. Selezionare **Aggiungi**. Il limite di tempo diventa immediatamente effettivo. L'utente deve accedere prima della scadenza del bypass monouso.
 
 È inoltre possibile visualizzare il report bypass monouso dalla stessa finestra.

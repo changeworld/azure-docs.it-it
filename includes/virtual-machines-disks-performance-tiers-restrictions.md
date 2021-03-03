@@ -5,17 +5,26 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 02/18/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 241a2be834d7828cdb56f59313c0c1a9c478ff77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7151c110fd50f7485aa0b130832aace4f3143ad9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016524"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750788"
 ---
 - Questa funzionalità è attualmente supportata solo per le unità SSD Premium.
 - È necessario deallocare la VM o scollegare il disco da una macchina virtuale in esecuzione prima di poter modificare il livello del disco.
 - I livelli di prestazioni P60, p70 e P80 possono essere usati solo da dischi di dimensioni superiori a 4.096 GiB.
 - Il downgrade del livello di prestazioni di un disco può essere eseguito solo una volta ogni 12 ore.
+
+## <a name="change-performance-tier-without-downtime-preview"></a>Modificare il livello di prestazioni senza tempi di inattività (anteprima)
+
+In genere, è necessario deallocare la VM o scollegare il disco per modificare il livello di prestazioni. Tuttavia, se si abilita questa funzionalità di anteprima, non è necessario deallocare la VM o scollegare il disco per modificare il livello. È possibile iscriversi per l'anteprima [qui](https://aka.ms/liveperftiersignup).
+
+L'anteprima presenta le limitazioni seguenti:
+- Disponibile solo nell'area EastUS2EUAP.
+- Attualmente non disponibile per i dischi condivisi
+- `2020-12-01`Per modificare i livelli di prestazioni senza tempi di inattività, è necessario usare Azure Resource Manager modelli con l'API.

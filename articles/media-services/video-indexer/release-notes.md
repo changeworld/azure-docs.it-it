@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: c8fcd6e662a0beff61209de4b5c4331618b45ea1
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3a64bb261db39efb63b35004f1daa0452b4f0672
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653305"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715157"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -47,7 +47,7 @@ La funzionalità effetti audio appena aggiunta è disponibile quando si indicizz
 
 Il tipo di evento di **applauso** incluso nel modello degli effetti audio precedente è ora Estratto parte del tipo di evento di **reazione al pubblico** .
 
-Quando si sceglie di visualizzare gli **insiti** del video nel sito Web [video Indexer](https://www.videoindexer.ai/) , gli effetti audio vengono visualizzati nella pagina.
+Quando si sceglie di visualizzare **informazioni dettagliate** del video nel sito Web [video Indexer](https://www.videoindexer.ai/) , gli effetti audio vengono visualizzati nella pagina.
 
 :::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Rilevamento di eventi audio":::
 

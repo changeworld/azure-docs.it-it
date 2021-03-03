@@ -7,16 +7,16 @@ ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 7465127ed9c52941d6c3ccfd40446546f0795455
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 0a740b4c6c6e89c9a4990651779ea4f0b376c971
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635473"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734350"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Avvio rapido: Inviare il log attività di Azure all'area di lavoro Log Analytics con il modello di Resource Manager
 
-Il log attività è un log della piattaforma presente in Azure che fornisce dati analitici sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Questo argomento di avvio rapido illustra come usare modelli di Azure Resource Manager (modelli ARM) per creare un'area di lavoro Log Analytics e un'impostazione di diagnostica per inviare il log attività ai log di Monitoraggio di Azure, in cui è possibile analizzarlo usando [query di log](../log-query/log-query-overview.md) e abilitare altre funzionalità, ad esempio [avvisi del log](../alerts/alerts-log-query.md) e [cartelle di lavoro](../visualize/workbooks-overview.md).
+Il log attività è un log della piattaforma presente in Azure che fornisce dati analitici sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Questo argomento di avvio rapido illustra come usare modelli di Azure Resource Manager (modelli ARM) per creare un'area di lavoro Log Analytics e un'impostazione di diagnostica per inviare il log attività ai log di Monitoraggio di Azure, in cui è possibile analizzarlo usando [query di log](../logs/log-query-overview.md) e abilitare altre funzionalità, ad esempio [avvisi del log](../alerts/alerts-log-query.md) e [cartelle di lavoro](../visualize/workbooks-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -136,7 +136,7 @@ Questo modello consente di definire un'unica risorsa:
 
 Distribuire il modello usando un metodo standard per la [distribuzione di un modello di Resource Manager](../../azure-resource-manager/templates/deploy-portal.md), come gli esempi seguenti in cui si usano l'interfaccia della riga di comando e PowerShell. Sostituire i valori di esempio per **Resource Group**, **workspaceName** e **location** con quelli appropriati per l'ambiente corrente. Il nome dell'area di lavoro deve essere univoco tra tutte le sottoscrizioni di Azure.
 
-# <a name="cli"></a>[Interfaccia della riga di comando](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az login
@@ -250,7 +250,7 @@ Questo modello consente di definire un'unica risorsa:
 
 Distribuire il modello usando un metodo standard per la [distribuzione di un modello di Resource Manager](../../azure-resource-manager/templates/deploy-portal.md), come gli esempi seguenti in cui si usano l'interfaccia della riga di comando e PowerShell. Sostituire i valori di esempio per **Resource Group**, **workspaceName** e **location** con quelli appropriati per l'ambiente corrente. Il nome dell'area di lavoro deve essere univoco tra tutte le sottoscrizioni di Azure.
 
-# <a name="cli"></a>[Interfaccia della riga di comando](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az deployment sub create --name CreateDiagnosticSetting --location eastus --template-file CreateDiagnosticSetting.json --parameters settingName='Send Activity log to workspace' workspaceId='/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01'
@@ -321,7 +321,7 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stato configurato il log attività da inviare a un'area di lavoro Log Analytics. È ora possibile configurare altri dati da raccogliere nell'area di lavoro e analizzarli insieme usando [query di log](../log-query/log-query-overview.md) in Monitoraggio di Azure e sfruttare funzionalità come gli [avvisi di log](../alerts/alerts-log-query.md) e le [cartelle di lavoro](../visualize/workbooks-overview.md). In seguito è necessario raccogliere i [log delle risorse](../essentials/resource-logs.md) dalle risorse di Azure, che completano i dati nel log attività, fornendo dati analitici sulle operazioni eseguite all'interno delle singole risorse.
+In questo argomento di avvio rapido è stato configurato il log attività da inviare a un'area di lavoro Log Analytics. È ora possibile configurare altri dati da raccogliere nell'area di lavoro e analizzarli insieme usando [query di log](../logs/log-query-overview.md) in Monitoraggio di Azure e sfruttare funzionalità come gli [avvisi di log](../alerts/alerts-log-query.md) e le [cartelle di lavoro](../visualize/workbooks-overview.md). In seguito è necessario raccogliere i [log delle risorse](../essentials/resource-logs.md) dalle risorse di Azure, che completano i dati nel log attività, fornendo dati analitici sulle operazioni eseguite all'interno delle singole risorse.
 
 > [!div class="nextstepaction"]
 > [Raccogliere e analizzare i log delle risorse con Monitoraggio di Azure](../essentials/tutorial-resource-logs.md)

@@ -1,24 +1,24 @@
 ---
-title: Come risolvere i problemi di Monitoraggio di Azure per contenitori | Microsoft Docs
-description: Questo articolo illustra come individuare e risolvere i problemi con Monitoraggio di Azure per contenitori.
+title: Come risolvere i problemi relativi a informazioni dettagliate sul contenitore | Microsoft Docs
+description: Questo articolo descrive come è possibile risolvere i problemi con le informazioni dettagliate sul contenitore.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 60a6e76d43d954b27336b9631c48328aeff0b69b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615386"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708306"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers"></a>Risoluzione dei problemi di Monitoraggio di Azure per contenitori
+# <a name="troubleshooting-container-insights"></a>Risoluzione dei problemi relativi a informazioni dettagliate sul contenitore
 
-Quando si configura il monitoraggio del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori, è possibile riscontrare un problema che impedisce la raccolta di dati o la segnalazione dello stato. Questo articolo illustra alcuni problemi comuni e i passaggi per la risoluzione dei problemi.
+Quando si configura il monitoraggio del cluster di Azure Kubernetes Service (AKS) con informazioni dettagliate sul contenitore, è possibile che si verifichi un problema che impedisce lo stato della raccolta dati o della creazione di report. Questo articolo illustra alcuni problemi comuni e i passaggi per la risoluzione dei problemi.
 
 ## <a name="authorization-error-during-onboarding-or-update-operation"></a>Errore di autorizzazione durante l'operazione di onboarding o aggiornamento
 
-Quando si Abilita monitoraggio di Azure per i contenitori o si aggiorna un cluster per supportare la raccolta di metriche, è possibile che venga visualizzato un errore simile al seguente: *il client <l'identità dell'utente>' con ID oggetto ' <l'ObjectID dell'utente>' non ha l'autorizzazione per eseguire l'azione ' Microsoft. Authorization/roleAssignments/Write ' sull'ambito*
+Quando si Abilita il contenitore Insights o si aggiorna un cluster per supportare la raccolta di metriche, è possibile che venga visualizzato un errore simile al seguente: *il client <l'identità dell'utente>' con ID oggetto ' <objectId>' non dispone dell'autorizzazione per eseguire l'azione ' Microsoft. Authorization/roleAssignments/Write ' sull'ambito*
 
-Durante il processo di onboarding o di aggiornamento, viene effettuato un tentativo di concedere l'assegnazione del ruolo server di pubblicazione per la **metrica di monitoraggio** sulla risorsa cluster. L'utente che avvia il processo per abilitare il monitoraggio di Azure per i contenitori o l'aggiornamento per supportare la raccolta di metriche deve avere accesso all'autorizzazione **Microsoft. Authorization/roleAssignments/Write** per l'ambito della risorsa del cluster AKS. Solo ai membri dei ruoli predefiniti **proprietario** e **amministratore accesso utenti** viene concesso l'accesso a questa autorizzazione. Se i criteri di sicurezza richiedono l'assegnazione di autorizzazioni a livello granulare, è consigliabile visualizzare i [ruoli personalizzati](../../role-based-access-control/custom-roles.md) e assegnarli agli utenti che lo richiedono.
+Durante il processo di onboarding o di aggiornamento, viene effettuato un tentativo di concedere l'assegnazione del ruolo server di pubblicazione per la **metrica di monitoraggio** sulla risorsa cluster. L'utente che avvia il processo per abilitare il contenitore Insights o l'aggiornamento per supportare la raccolta di metriche deve avere accesso all'autorizzazione **Microsoft. Authorization/roleAssignments/Write** nell'ambito della risorsa del cluster AKS. Solo ai membri dei ruoli predefiniti **proprietario** e **amministratore accesso utenti** viene concesso l'accesso a questa autorizzazione. Se i criteri di sicurezza richiedono l'assegnazione di autorizzazioni a livello granulare, è consigliabile visualizzare i [ruoli personalizzati](../../role-based-access-control/custom-roles.md) e assegnarli agli utenti che lo richiedono.
 
 È anche possibile concedere manualmente questo ruolo dal portale di Azure attenendosi alla procedura seguente:
 
@@ -29,9 +29,9 @@ Durante il processo di onboarding o di aggiornamento, viene effettuato un tentat
 3. Selezionare **+ Aggiungi** per aggiungere un'assegnazione di ruolo e selezionare il ruolo **server di pubblicazione metriche di monitoraggio** e nella casella di **selezione** digitare **AKS** per filtrare i risultati solo nelle entità servizio del cluster definite nella sottoscrizione. Selezionare quello nell'elenco specifico del cluster.
 4. Selezionare **Salva** per completare l'assegnazione del ruolo.
 
-## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Monitoraggio di Azure per contenitori è abilitato ma non segnala alcuna informazione
+## <a name="container-insights-is-enabled-but-not-reporting-any-information"></a>Il contenitore Insights è abilitato ma non segnala informazioni
 
-Se monitoraggio di Azure per i contenitori è stato abilitato e configurato correttamente, ma non è possibile visualizzare le informazioni sullo stato o nessun risultato viene restituito da una query di log, è possibile diagnosticare il problema attenendosi alla procedura seguente:
+Se il contenitore Insights è stato abilitato e configurato correttamente, ma non è possibile visualizzare le informazioni sullo stato o nessun risultato viene restituito da una query di log, è possibile diagnosticare il problema attenendosi alla procedura seguente:
 
 1. Controllare lo stato dell'agente eseguendo il comando:
 
@@ -84,19 +84,19 @@ Se monitoraggio di Azure per i contenitori è stato abilitato e configurato corr
 
 ## <a name="error-messages"></a>messaggi di errore
 
-La tabella seguente riepiloga gli errori noti che è possibile si verifichino durante l'uso di Monitoraggio di Azure per i contenitori.
+La tabella seguente riepiloga gli errori noti che possono verificarsi durante l'uso di informazioni dettagliate sul contenitore.
 
 | messaggi di errore  | Azione |
 | ---- | --- |
 | Messaggio di errore `No data for selected filters`  | L'individuazione del flusso di dati di monitoraggio per i nuovi cluster potrebbe richiedere alcuni minuti. Consentire la visualizzazione dei dati per il cluster per almeno 10-15 minuti. |
-| Messaggio di errore `Error retrieving data` | Mentre il cluster di servizi Kubernetes di Azure è configurato per il monitoraggio dello stato e delle prestazioni, viene stabilita una connessione tra il cluster e l'area di lavoro di Azure Log Analytics. Un'area di lavoro Log Analytics viene usata per archiviare tutti i dati di monitoraggio per il cluster. Questo errore può verificarsi quando l'area di lavoro Log Analytics è stata eliminata. Controllare se l'area di lavoro è stata eliminata e, in tal caso, è necessario abilitare di nuovo il monitoraggio del cluster con monitoraggio di Azure per i contenitori e specificare un'area di lavoro esistente o crearne una nuova. Per abilitare nuovamente, è necessario [disabilitare](container-insights-optout.md) il monitoraggio per il cluster e [abilitare](container-insights-enable-new-cluster.md) di nuovo monitoraggio di Azure per i contenitori. |
-| `Error retrieving data` dopo l'aggiunta di Monitoraggio di Azure per contenitori tramite l'interfaccia della riga di comando servizio Azure Kubernetes | Quando si Abilita il monitoraggio usando `az aks cli` , monitoraggio di Azure per i contenitori potrebbe non essere distribuito correttamente. Controllare se la soluzione è stata distribuita. Per verificare, passare all'area di lavoro di Log Analytics e verificare se la soluzione è disponibile selezionando **soluzioni** dal riquadro sul lato sinistro. Per risolvere questo problema, è necessario ridistribuire la soluzione seguendo le istruzioni per la [distribuzione di Monitoraggio di Azure per i contenitori](container-insights-onboard.md) |
+| Messaggio di errore `Error retrieving data` | Mentre il cluster di servizi Kubernetes di Azure è configurato per il monitoraggio dello stato e delle prestazioni, viene stabilita una connessione tra il cluster e l'area di lavoro di Azure Log Analytics. Un'area di lavoro Log Analytics viene usata per archiviare tutti i dati di monitoraggio per il cluster. Questo errore può verificarsi quando l'area di lavoro Log Analytics è stata eliminata. Controllare se l'area di lavoro è stata eliminata e, in caso contrario, sarà necessario riabilitare il monitoraggio del cluster con informazioni dettagliate sul contenitore e specificare un'area di lavoro esistente o crearne una nuova. Per abilitare nuovamente, è necessario [disabilitare](container-insights-optout.md) il monitoraggio per il cluster e [abilitare](container-insights-enable-new-cluster.md) nuovamente le informazioni dettagliate sul contenitore. |
+| `Error retrieving data` dopo l'aggiunta di container Insights tramite AZ AKS CLI | Quando si Abilita il monitoraggio usando `az aks cli` , le informazioni dettagliate sul contenitore potrebbero non essere distribuite correttamente. Controllare se la soluzione è stata distribuita. Per verificare, passare all'area di lavoro di Log Analytics e verificare se la soluzione è disponibile selezionando **soluzioni** dal riquadro sul lato sinistro. Per risolvere questo problema, è necessario ridistribuire la soluzione seguendo le istruzioni su [come distribuire informazioni dettagliate sul contenitore](container-insights-onboard.md) |
 
-Per facilitare la diagnosi del problema, è stato fornito uno [script per la risoluzione dei problemi](https://aka.ms/troubleshooting-script).
+Per facilitare la diagnosi del problema, è stato fornito uno [script per la risoluzione dei problemi](https://github.com/microsoft/Docker-Provider/tree/ci_dev/scripts/troubleshoot).
 
-## <a name="azure-monitor-for-containers-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>Il monitoraggio di Azure per i pod ReplicaSet dell'agente contenitori non è pianificato in un cluster Kubernetes non Azure
+## <a name="container-insights-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>I pod ReplicaSet dell'agente di container Insights non sono pianificati in un cluster Kubernetes non Azure
 
-Il monitoraggio di Azure per i contenitori dell'agente ReplicaSet Pod presenta una dipendenza dai selettori di nodo seguenti nei nodi di lavoro (o agente) per la pianificazione:
+I pod ReplicaSet dell'agente di container Insights hanno una dipendenza dai selettori di nodo seguenti nei nodi di lavoro (o agente) per la pianificazione:
 
 ```
 nodeSelector:
@@ -108,12 +108,12 @@ Se ai nodi di lavoro non sono associate etichette dei nodi, i pod ReplicaSet del
 
 ## <a name="performance-charts-dont-show-cpu-or-memory-of-nodes-and-containers-on-a-non-azure-cluster"></a>I grafici delle prestazioni non mostrano la CPU o la memoria dei nodi e dei contenitori in un cluster non di Azure
 
-I pod dell'agente di Monitoraggio di Azure per contenitori usano l'endpoint cAdvisor nell'agente del nodo per raccogliere le metriche delle prestazioni. Verificare che l'agente in contenitori nel nodo sia configurato in modo da consentire l' `cAdvisor port: 10255` apertura in tutti i nodi del cluster per raccogliere le metriche delle prestazioni.
+Container Insights Agent Pod usa l'endpoint cAdvisor nell'agente del nodo per raccogliere le metriche delle prestazioni. Verificare che l'agente in contenitori nel nodo sia configurato in modo da consentire l' `cAdvisor port: 10255` apertura in tutti i nodi del cluster per raccogliere le metriche delle prestazioni.
 
-## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>Il cluster Kubernetes non Azure non viene visualizzato in monitoraggio di Azure per i contenitori
+## <a name="non-azure-kubernetes-cluster-are-not-showing-in-container-insights"></a>Il cluster Kubernetes non Azure non viene visualizzato in informazioni dettagliate sul contenitore
 
-Per visualizzare il cluster non Azure Kubernetes in monitoraggio di Azure per i contenitori, è necessario l'accesso in lettura nell'area di lavoro Log Analytics che supporta questa informazione e nella risorsa della soluzione contenitore Insights **ContainerInsights (*area di lavoro*)**.
+Per visualizzare il cluster non Azure Kubernetes in informazioni dettagliate sul contenitore, è necessario l'accesso in lettura nell'area di lavoro Log Analytics che supporta questa informazione e nella risorsa della soluzione contenitore Insights **ContainerInsights (*area di lavoro*)**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Con il monitoraggio abilitato per acquisire le metriche di integrità sia per i nodi del cluster servizio Azure Kubernetes che per i pod, queste metriche di integrità sono disponibili nel portale di Azure. Per informazioni su come usare Monitoraggio di Azure per contenitori, vedere [Visualizzare l'integrità del servizio Azure Kubernetes](container-insights-analyze.md).
+Con il monitoraggio abilitato per acquisire le metriche di integrità sia per i nodi del cluster servizio Azure Kubernetes che per i pod, queste metriche di integrità sono disponibili nel portale di Azure. Per informazioni su come usare il contenitore Insights, vedere [visualizzare l'integrità del servizio Azure Kubernetes](container-insights-analyze.md).

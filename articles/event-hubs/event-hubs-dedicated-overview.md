@@ -3,18 +3,18 @@ title: Panoramica di Hub eventi dedicato - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica dell'hub eventi di Azure dedicato, che offre distribuzioni a tenant singolo di hub eventi.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 1a15206fc35f0d536c7105aa73dfdcfc9967124d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 721acf354c7d14c1362b4f760982af37d59115f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358865"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715616"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Panoramica di Hub eventi dedicato
 
 I *cluster di hub eventi* offrono distribuzioni a tenant singolo per i clienti con le esigenze di streaming più complesse. Questa offerta a tenant singolo dispone di un contratto di contratto di 99,99% garantito ed è disponibile solo nel piano tariffario dedicato. Un cluster Hub eventi può gestire l'ingresso di milioni di eventi al secondo con una capacità garantita e una latenza dell'ordine di frazioni di secondo. Gli spazi dei nomi e gli hub eventi creati nel cluster dedicato includono tutte le funzionalità dell'offerta standard e altro ancora, ma senza limiti di ingresso. Include anche la nota funzionalità di [acquisizione di hub eventi](event-hubs-capture-overview.md) senza costi aggiuntivi. Questa funzionalità consente di raggruppare e registrare automaticamente i flussi di dati in archiviazione di Azure o in Azure Data Lake. 
 
-Il provisioning dei cluster viene effettuato e fatturato da **unità di capacità** , una quantità preallocata di risorse di CPU e memoria. È possibile acquistare 1, 2, 4, 8, 12, 16 o 20 unità di capacità per ogni cluster. Quanto è possibile inserire e trasmettere in streaming per CU dipende da diversi fattori, ad esempio quelli riportati di seguito: 
+Il provisioning dei cluster viene effettuato e fatturato da **unità di capacità**, una quantità preallocata di risorse di CPU e memoria. È possibile acquistare 1, 2, 4, 8, 12, 16 o 20 unità di capacità per ogni cluster. Quanto è possibile inserire e trasmettere in streaming per CU dipende da diversi fattori, ad esempio quelli riportati di seguito: 
 
 - Numero di Producer e consumer
 - Forma del payload
@@ -44,15 +44,15 @@ L'offerta Hub eventi Dedicato viene fatturata a un prezzo mensile fisso, con un 
 
 | Funzionalità | Standard | Dedicato |
 | --- |:---|:---|
-| Larghezza di banda | 20 TUs (fino a 40 TUs) | 20 unità di capacità |
+| Larghezza di banda | 20 unità elaborate (fino a 40 unità elaborate) | 20 unità di capacità |
 | Spazi dei nomi |  1 | 50 per unità di capacità |
 | Hub eventi |  10 per spazio dei nomi | 1\.000 per spazio dei nomi |
 | Eventi in ingresso | Pagamento per ogni milione di eventi | Incluso |
-| Dimensioni del messaggio | 1 milione byte | 1 milione byte |
+| Dimensioni del messaggio | 1 milione di byte | 1 milione di byte |
 | Partizioni | 32 per hub eventi | 1024 per hub eventi<br/>2\.000 per unità di capacità |
 | Gruppi di consumer | 20 per hub eventi | Nessun limite per unità di capacità, 1.000 per hub eventi |
-| Connessioni negoziate | 1.000 incluso, 5.000 max | 100 K inclusi e Max |
-| Conservazione dei messaggi | 7 giorni, 84 GB inclusi per TU | 90 giorni, 10 TB inclusi per unità di capacità |
+| Connessioni negoziate | 1\.000 incluse, massimo 5.000 | 100.000 incluse massimo |
+| [Conservazione degli eventi](event-hubs-features.md#event-retention) | 7 giorni, 84 TB inclusi per unità elaborata | 90 giorni, 10 TB inclusi per unità di capacità |
 | Acquisizione | Pagamento per ogni ora | Incluso |
 
 Per altre quote e limiti, vedere [quote e limiti di hub eventi](event-hubs-quotas.md)

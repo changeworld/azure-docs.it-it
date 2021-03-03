@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8d0f1e711b325b1b9ce4e431c1438e511384e8a0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b042049c803ad04b54bb6c2a242ca1008bc17dd3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615197"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734520"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
 > [!NOTE]
-> Questo articolo presuppone che l'utente abbia familiarità con le funzionalità di base della funzionalità Esplora metriche di Azure di monitoraggio di Azure. Se si è un nuovo utente e si vuole imparare a creare il primo grafico delle metriche, vedere [Introduzione a Esplora metriche](../platform/metrics-getting-started.md).
+> Questo articolo presuppone che l'utente abbia familiarità con le funzionalità di base della funzionalità Esplora metriche di Azure di monitoraggio di Azure. Se si è un nuovo utente e si vuole imparare a creare il primo grafico delle metriche, vedere [Introduzione a Esplora metriche](./metrics-getting-started.md).
 
 In monitoraggio di Azure le [metriche](data-platform-metrics.md) sono una serie di valori misurati e conteggi raccolti e archiviati nel corso del tempo. Le metriche possono essere standard (detta anche "piattaforma") o personalizzate. 
 
@@ -49,11 +49,11 @@ Quando si è soddisfatti della selezione, selezionare **applica**.
 ### <a name="view-metrics-across-multiple-resources"></a>Visualizzare le metriche tra più risorse
 Alcuni tipi di risorse possono eseguire query per le metriche su più risorse. Le risorse devono trovarsi nella stessa sottoscrizione e nella stessa località. Trovare questi tipi di risorse nella parte superiore del menu **tipi di risorse** . 
 
-Per altre informazioni, vedere [selezionare più risorse](../platform/metrics-dynamic-scope.md#select-multiple-resources).
+Per altre informazioni, vedere [selezionare più risorse](./metrics-dynamic-scope.md#select-multiple-resources).
 
 ![Screenshot che mostra i tipi di risorse incrociate.](./media/metrics-charts/multi-resource-scope.png)
 
-Per i tipi compatibili con più risorse, è possibile eseguire una query per le metriche in una sottoscrizione o in più gruppi di risorse. Per altre informazioni, vedere [selezionare un gruppo di risorse o una sottoscrizione](../platform/metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
+Per i tipi compatibili con più risorse, è possibile eseguire una query per le metriche in una sottoscrizione o in più gruppi di risorse. Per altre informazioni, vedere [selezionare un gruppo di risorse o una sottoscrizione](./metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
 
 ## <a name="multiple-metric-lines-and-charts"></a>Più linee e grafici di metriche
 
@@ -67,7 +67,7 @@ Si supponga, ad esempio, di avere cinque account di archiviazione e di voler con
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Più metriche nello stesso grafico
 
-Per visualizzare più metriche nello stesso grafico, [creare innanzitutto un nuovo grafico](../platform/metrics-getting-started.md#create-your-first-metric-chart). Quindi selezionare **Aggiungi metrica**. Ripetere questo passaggio per aggiungere un'altra metrica nello stesso grafico.
+Per visualizzare più metriche nello stesso grafico, [creare innanzitutto un nuovo grafico](./metrics-getting-started.md#create-your-first-metric-chart). Quindi selezionare **Aggiungi metrica**. Ripetere questo passaggio per aggiungere un'altra metrica nello stesso grafico.
 
 > [!NOTE]
 > In genere, i grafici non devono combinare metriche che usano unità di misura diverse. Ad esempio, evitare di combinare una metrica che usa i millisecondi con un altro che usa kilobyte. Evitare anche di combinare le metriche le cui scale differiscono significativamente. 
@@ -86,7 +86,7 @@ Quando si aggiunge una metrica a un grafico, Esplora metriche applica automatica
 
 Prima di utilizzare aggregazioni diverse in un grafico, è necessario comprendere il modo in cui vengono gestite da Esplora metriche. Le metriche sono una serie di misurazioni (o "valori metrici") acquisite in un periodo di tempo. Quando si traccia un grafico, i valori della metrica selezionata vengono aggregati separatamente nell'intervallo di *tempo*. 
 
-Per selezionare le dimensioni dell'intervallo di tempo, usare il pannello di selezione dell' [ora](../platform/metrics-getting-started.md#select-a-time-range)di Esplora metriche. Se non si seleziona esplicitamente la granularità temporale, per impostazione predefinita viene usato l'intervallo di tempo attualmente selezionato. Dopo aver determinato l'intervallo di tempo, i valori delle metriche acquisiti durante ogni intervallo di tempo vengono aggregati nel grafico, un punto dati per ogni intervallo di tempo.
+Per selezionare le dimensioni dell'intervallo di tempo, usare il pannello di selezione dell' [ora](./metrics-getting-started.md#select-a-time-range)di Esplora metriche. Se non si seleziona esplicitamente la granularità temporale, per impostazione predefinita viene usato l'intervallo di tempo attualmente selezionato. Dopo aver determinato l'intervallo di tempo, i valori delle metriche acquisiti durante ogni intervallo di tempo vengono aggregati nel grafico, un punto dati per ogni intervallo di tempo.
 
 Si supponga, ad esempio, che un grafico mostri la metrica del *tempo di risposta del server* . Viene utilizzata l'aggregazione *media* nell'intervallo di tempo delle *ultime 24 ore*. In questo esempio:
 
@@ -230,6 +230,42 @@ Si apre il riquadro di creazione della regola di avviso. Nel riquadro vengono vi
 
 Per altre informazioni, vedere [creare, visualizzare e gestire gli avvisi delle metriche](../alerts/alerts-metric.md).
 
+## <a name="correlate-metrics-to-logs"></a>Correlare le metriche ai log
+Per consentire ai clienti di diagnosticare la causa radice delle anomalie nel grafico delle metriche, sono stati creati log di drill-through. Il drill-through dei log consente ai clienti di correlare i picchi nel grafico delle metriche ai log e alle query. 
+
+Prima di approfondire l'esperienza, è opportuno introdurre prima i diversi tipi di log e query forniti. 
+
+| Termine             | Definizione  | 
+|------------------|-------------|
+| Log attività    | Fornisce informazioni approfondite sulle operazioni su ogni risorsa di Azure nella sottoscrizione dall'esterno (il piano di gestione) oltre agli aggiornamenti sugli eventi di integrità del servizio. Usare il log attività per determinare l'elemento, chi e quando per qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. È disponibile un singolo log attività per ogni sottoscrizione di Azure.  |   
+| Log di diagnostica   | Fornire informazioni approfondite sulle operazioni eseguite all'interno di una risorsa di Azure (il piano dati), ad esempio il recupero di un segreto da un Key Vault o l'esecuzione di una richiesta a un database. Il contenuto dei log delle risorse varia in base al servizio di Azure e al tipo di risorsa. **Nota:** Deve essere fornito dal servizio e abilitato dal cliente  | 
+| Log consigliato | Query basate su scenari che possono essere utilizzate dal cliente per analizzare le anomalie nella Esplora metriche.  |
+
+Attualmente, i log di drill-through sono disponibili per i provider di risorse selezionati. I provider di risorse che hanno l'esperienza di drill-through completa nei log sono: 
+
+* Application Insights 
+* Autoscale 
+* Servizi app  
+* Archiviazione  
+
+Di seguito sono riportate alcune esperienze di esempio per il provider di risorse Application Insights.
+
+![Picco degli errori nel pannello delle metriche di App Insights](./media/metrics-charts/drill-into-log-ai.png)
+
+Per diagnosticare il picco nelle richieste non riuscite, fare clic su "drill into log".
+
+![Screenshot dell'elenco a discesa dei log drill-through](./media/metrics-charts/drill-into-logs-dropdown.png)
+
+Facendo clic sull'opzione errore, si verrà portati a un pannello di errore personalizzato che fornisce le operazioni di operazione non riuscite, i tipi di eccezioni principali e le dipendenze. 
+
+![Screenshot del pannello degli errori di Application Insights](./media/metrics-charts/ai-failure-blade.png)
+
+### <a name="common-problems-with-drill-into-logs"></a>Problemi comuni relativi ai log di drill-through
+
+* Log e query sono disabilitati. per visualizzare i log e le query consigliati, è necessario indirizzare i log di diagnostica a Log Analytics. Leggere [questo documento](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) per informazioni su come eseguire questa operazione. 
+* Sono disponibili solo i log attività. la funzionalità drill-in log è disponibile solo per i provider di risorse selezionati. Per impostazione predefinita, vengono forniti i log attività. 
+
+ 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se non vengono visualizzati dati nel grafico, esaminare le seguenti informazioni per la risoluzione dei problemi:
@@ -242,6 +278,5 @@ Se non vengono visualizzati dati nel grafico, esaminare le seguenti informazioni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per creare dashboard di utilità pratica usando le metriche, vedere [creazione di dashboard KPI personalizzati](../learn/tutorial-app-dashboards.md).
+Per creare dashboard di utilità pratica usando le metriche, vedere [creazione di dashboard KPI personalizzati](../app/tutorial-app-dashboards.md).
 
- 

@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c0d3ba8d9bea9fade58ed4a65c6d3ae43ef6acb3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 2fd8911ca11ee6dfcf795347e1fe7f2c36a2b636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383603"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716526"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -199,7 +199,7 @@ Il team della data factory ha fornito uno [script pre-distribuzione e post-distr
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usare i parametri personalizzati con il modello di Resource Manager
 
-Se la factory di sviluppo dispone di un repository Git associato, è possibile eseguire l'override dei parametri predefiniti del modello di Resource Manager generato pubblicando o esportando il modello. In questi scenari potrebbe essere necessario eseguire l'override del modello di parametrizzazione predefinito:
+Se la factory di sviluppo dispone di un repository Git associato, è possibile eseguire l'override dei parametri predefiniti del modello di Resource Manager generato pubblicando o esportando il modello. In questi scenari potrebbe essere necessario eseguire l'override della configurazione predefinita dei parametri di Gestione risorse:
 
 * Si usano CI/CD automatizzati e si desidera modificare alcune proprietà durante la distribuzione di Resource Manager, ma le proprietà non sono parametrizzate per impostazione predefinita.
 * La factory è talmente grande che il modello di Resource Manager predefinito non è valido perché contiene più del numero massimo di parametri consentito (256).
@@ -210,11 +210,14 @@ Se la factory di sviluppo dispone di un repository Git associato, è possibile e
     * Eseguire il refactoring della logica nel flusso di elementi per ridurre i parametri, ad esempio i parametri della pipeline hanno lo stesso valore, ma è possibile usare solo parametri globali.
     * Suddividere un data factory in più flussi di dati.
 
-Per sostituire il modello di parametrizzazione predefinito, passare all'hub di gestione e selezionare **modello di parametrizzazione** nella sezione controllo del codice sorgente. Selezionare **modifica modello** per aprire l'editor del codice del modello di parametrizzazione. 
+Per eseguire l'override della configurazione predefinita del parametro Gestione risorse, passare all'hub **Gestisci** e selezionare il **modello ARM** nella sezione "controllo del codice sorgente". Nella sezione **configurazione del parametro ARM** fare clic sull'icona **modifica** in "modifica configurazione parametri" per aprire l'editor del codice di configurazione del parametro gestione risorse.
 
 ![Gestire parametri personalizzati](media/author-management-hub/management-hub-custom-parameters.png)
 
-La creazione di un modello di parametrizzazione personalizzato consente di creare un file denominato **arm-template-parameters-definition.js** nella cartella radice del ramo git. È necessario usare il nome file esatto.
+> [!NOTE]
+> La **configurazione del parametro ARM** è abilitata solo in "modalità git". Attualmente è disabilitato in modalità "Live Mode" o "Data Factory".
+
+La creazione di una configurazione personalizzata dei parametri di Gestione risorse crea un file denominato **arm-template-parameters-definition.js** nella cartella radice del ramo git. È necessario usare il nome file esatto.
 
 ![File dei parametri personalizzati](media/continuous-integration-deployment/custom-parameters.png)
 
@@ -223,7 +226,7 @@ Quando si esegue la pubblicazione dal ramo di collaborazione, Data Factory legge
 Quando si esporta un modello di Gestione risorse, Data Factory legge questo file da qualsiasi ramo attualmente in uso, non dal ramo di collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche selezionando **Esporta modello ARM** nell'interfaccia utente. È quindi possibile unire il file nel ramo di collaborazione.
 
 > [!NOTE]
-> Un modello di parametrizzazione personalizzato non modifica il limite di parametri del modello ARM di 256. Consente di scegliere e diminuire il numero di proprietà con parametri.
+> Una configurazione di parametro di Gestione risorse personalizzata non modifica il limite del parametro di modello ARM di 256. Consente di scegliere e diminuire il numero di proprietà con parametri.
 
 ### <a name="custom-parameter-syntax"></a>Sintassi dei parametri personalizzata
 
@@ -244,7 +247,7 @@ Di seguito sono riportate alcune linee guida da seguire quando si crea il file d
  
 ### <a name="sample-parameterization-template"></a>Modello di parametrizzazione di esempio
 
-Di seguito è riportato un esempio dell'aspetto che potrebbe avere un modello di parametrizzazione:
+Di seguito è riportato un esempio dell'aspetto di una configurazione di parametro di Gestione risorse:
 
 ```json
 {

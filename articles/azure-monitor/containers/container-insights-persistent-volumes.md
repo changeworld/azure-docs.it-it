@@ -1,22 +1,22 @@
 ---
-title: Configurare il monitoraggio PV con monitoraggio di Azure per i contenitori | Microsoft Docs
-description: Questo articolo descrive come configurare il monitoraggio dei cluster Kubernetes con volumi permanenti con monitoraggio di Azure per i contenitori.
+title: Configurare il monitoraggio PV con informazioni dettagliate sul contenitore | Microsoft Docs
+description: Questo articolo descrive come configurare il monitoraggio dei cluster Kubernetes con volumi permanenti con informazioni dettagliate sul contenitore.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: d7da6bc88e7c8526e3940714502d3c92d2f37dd8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0afbeab49a6909a0011cd75a0419f7325ca68132
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621177"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713729"
 ---
-# <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Configurare il monitoraggio PV con monitoraggio di Azure per i contenitori
+# <a name="configure-pv-monitoring-with-container-insights"></a>Configurare il monitoraggio PV con informazioni dettagliate sul contenitore
 
-A partire dalla versione dell'agente *ciprod10052020*, monitoraggio di Azure per i contenitori Integrated Agent supporta ora il monitoraggio dell'utilizzo di PV (volume permanente).
+A partire dalla versione dell'agente *ciprod10052020*, l'agente integrato di container Insights ora supporta il monitoraggio dell'utilizzo di PV (volume permanente).
 
 ## <a name="pv-metrics"></a>Metriche PV
 
-Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio PV raccogliendo le metriche seguenti a intervalli 60sec e archiviando tali metriche nella tabella **InsightMetrics** .
+Il contenitore Insights avvia automaticamente il monitoraggio PV raccogliendo le metriche seguenti a intervalli 60sec e archiviando tali metriche nella tabella **InsightMetrics** .
 
 |Nome metrica |Dimensione metrica (tag) |Descrizione |
 |------------|------------------------|------------|
@@ -24,7 +24,7 @@ Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio PV
 
 ## <a name="monitor-persistent-volumes"></a>Monitorare i volumi permanenti
 
-Il monitoraggio di Azure per i contenitori include grafici preconfigurati per questa metrica in una cartella di lavoro per ogni cluster. È possibile trovare i grafici nella scheda volume permanente della cartella di lavoro **Dettagli carico** di lavoro direttamente da un cluster AKS selezionando cartelle di lavoro nel riquadro a sinistra e nell'elenco a discesa **Visualizza cartelle di lavoro** di Insight. È anche possibile abilitare un avviso consigliato per l'utilizzo PV, nonché eseguire query su queste metriche in Log Analytics.  
+Il contenitore Insights include grafici preconfigurati per questa metrica in una cartella di lavoro per ogni cluster. È possibile trovare i grafici nella scheda volume permanente della cartella di lavoro **Dettagli carico** di lavoro direttamente da un cluster AKS selezionando cartelle di lavoro nel riquadro a sinistra e nell'elenco a discesa **Visualizza cartelle di lavoro** di Insight. È anche possibile abilitare un avviso consigliato per l'utilizzo PV, nonché eseguire query su queste metriche in Log Analytics.  
 
 ![Esempio di cartella di lavoro PV del monitoraggio di Azure](./media/container-insights-persistent-volumes/pv-workload-example.PNG)
 

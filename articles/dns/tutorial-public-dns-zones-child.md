@@ -10,12 +10,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 1e2eddd821bb7a9d2050913efef3d73b406e32f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183380"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733211"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Esercitazione: Creazione di una nuova zona DNS figlio
 
@@ -81,7 +81,8 @@ La creazione della zona può richiedere alcuni minuti.
 1.  Selezionare **Avanti: Tag** e quindi **Passaggio successivo: Rivedi e crea**.
 1.  Nella scheda **Rivedi e crea** controllare il riepilogo, correggere eventuali errori di convalida e quindi selezionare **Crea**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Screenshot della zona figlio selezionata" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Screenshot della zona figlio selezionata" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+
 ## <a name="verify-child-dns-zone"></a>Verificare la zona DNS figlio
 Ora che è stata creata una nuova zona DNS figlio *sottodominio.contoso.com*, per verificare che la delega sia stata eseguita correttamente, è necessario controllare che i record del server dei nomi (NS) per la zona figlio siano inclusi nella zona padre, come descritto di seguito.  
 

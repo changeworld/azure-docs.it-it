@@ -7,24 +7,19 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: e2fe475b171a99ec27ed162511db289891066e00
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6863c492059ccee152ecf3d03a09e61793576bcb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099451"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715599"
 ---
-# <a name="configure-a-rule-set"></a>Configurare un set di regole
+# <a name="configure-a-rule-set-with-azure-front-door-standardpremium-preview"></a>Configurare un set di regole con Azure front door standard/Premium (anteprima)
 
 > [!Note]
 > Questa documentazione è destinata a Azure front door standard/Premium (Preview). Stai cercando informazioni su Azure front door? Visualizza [qui](../front-door-overview.md).
 
-Questa esercitazione illustra come creare un set di regole e il primo set di regole nel portale di Azure. 
-
-In questa esercitazione verranno illustrate le procedure per:
-> [!div class="checklist"]
-> - Configurare il set di regole usando il portale.
-> - Eliminare il set di regole dal profilo AFD usando il portale
+Questo articolo illustra come creare un set di regole e il primo set di regole nel portale di Azure. Si apprenderà quindi come associare il set di regole a una route dalla pagina del set di regole o da Gestione endpoint.
 
 > [!IMPORTANT]
 > Azure front door standard/Premium (anteprima) è attualmente disponibile in anteprima pubblica.
@@ -33,7 +28,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Prima di eseguire la procedura descritta in questa esercitazione, è necessario creare prima di tutto uno standard/Premium di Azure front door. Per altre informazioni, vedere [Guida introduttiva: creare un profilo standard o Premium di Azure front door](create-front-door-portal.md).
+* Prima di poter configurare un set di regole, è necessario creare prima di tutto uno standard/Premium di Azure front door. Per altre informazioni, vedere [Guida introduttiva: creare un profilo standard o Premium di Azure front door](create-front-door-portal.md).
 
 ## <a name="configure-rule-set-in-azure-portal"></a>Configurare il set di regole in portale di Azure
 
@@ -65,11 +60,11 @@ In questa esercitazione verranno illustrate le procedure per:
     1. Selezionare il collegamento non *associato* .
      
 
-    1. Nel pannello **associa una route** selezionare quindi l'endpoint e la route da associare al set di regole. 
+    1. Nella pagina **associa una route** selezionare quindi l'endpoint e la route che si desidera associare al set di regole. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set.png" alt-text="Screenshot della pagina creare una route.":::    
         
-    1. Se sono presenti più set di regole in Route selezionate, fare clic su *Avanti* per modificare gli ordini del set di regole. Il set di regole verrà eseguito dall'alto verso il basso. È possibile modificare gli ordini selezionando il set di regole e spostarlo verso l'alto o verso il basso. Quindi selezionare *associa*.
+    1. Selezionare *Avanti* per modificare gli ordini del set di regole se sono presenti più set di regole nella route selezionata. Il set di regole verrà eseguito dall'alto verso il basso. È possibile modificare gli ordini selezionando il set di regole e spostarlo verso l'alto o verso il basso. Quindi selezionare *associa*.
     
         > [!Note]
         > In questa pagina è possibile associare solo un set di regole a una singola route. Per associare un set di regole a più route, utilizzare Gestione endpoint.
@@ -86,15 +81,15 @@ In questa esercitazione verranno illustrate le procedure per:
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1.png" alt-text="Screenshot della selezione dell'endpoint in Gestione endpoint." lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1-expanded.png":::
 
-    1. Fare clic su *Modifica endpoint*  
+    1. Selezionare *Modifica endpoint*.  
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2.png" alt-text="Screenshot della selezione di modifica endpoint in Gestione endpoint." lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2-expanded.png":::
 
-    1. Fare clic sulla route. 
+    1. Selezionare la route. 
     
          :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-3.png" alt-text="Screenshot della selezione di una route.":::
     
-    1. Nel pannello *Route di aggiornamento* , in *Rules*, selezionare i set di regole che si desidera associare alla route dall'elenco a discesa. È quindi possibile modificare gli ordini spostando set di regole verso l'alto e verso il basso. 
+    1. Nella pagina *Aggiorna route* , in *regole*, selezionare i set di regole che si desidera associare alla route dall'elenco a discesa. È quindi possibile modificare gli ordini spostando set di regole verso l'alto e verso il basso. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-4.png" alt-text="Screenshot della pagina Aggiorna una route.":::
     
@@ -106,7 +101,7 @@ Nei passaggi precedenti è stato configurato e associato un set di regole alla r
 
 1. Passare alla **pagina set di regole** in **Impostazioni** per annullare l'associazione del set di regole da tutte le route associate.
 
-1. Espandi fino alla route, fai clic sui tre puntini seleziona *modifica la route*.
+1. Espandere la route e selezionare i tre puntini di sospensione. Selezionare quindi *modifica Route*.
 
    :::image type="content" source="../media/how-to-configure-rule-set/front-door-disassociate-rule-set-1.png" alt-text="Screenshot della route espansa nel set di regole.":::
 
@@ -126,13 +121,4 @@ Nei passaggi precedenti è stato configurato e associato un set di regole alla r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per:
-
-* Creare un set di regole
-* Associare un set di regole alla route AFD.
-* Eliminare un set di regole dal profilo AFD
-
-Per informazioni su come aggiungere intestazioni di sicurezza con il set di regole, continuare con l'esercitazione successiva.
-
-> [!div class="nextstepaction"]
-> [Intestazioni di sicurezza con set di regole]()
+Informazioni su come aggiungere [intestazioni di sicurezza con regole impostate](how-to-add-security-headers.md).

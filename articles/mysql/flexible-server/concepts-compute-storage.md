@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9b5a2c5d004e63c602a30f7808586e97a0e436e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581449"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720937"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opzioni di calcolo e archiviazione nel database di Azure per MySQL-server flessibile (anteprima)
 
@@ -72,7 +72,7 @@ Le specifiche dettagliate dei tipi di server disponibili sono le seguenti:
 Per ottenere altri dettagli sulle serie di calcolo disponibili, vedere la documentazione relativa alle macchine virtuali [di Azure per utilizzo generico per la](../../virtual-machines/sizes-b-series-burstable.md)serie [Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)e con ottimizzazione per la [memoria (serie Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
->Per il [livello di calcolo (serie B) a scaricamento](../../virtual-machines/sizes-b-series-burstable.md) se la macchina virtuale viene avviata, arrestata o riavviata, è possibile che i crediti vadano persi. Per ulteriori informazioni, vedere la pagina relativa alle [domande frequenti sulla serie B](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>Per il [livello di calcolo (serie B) a scaricamento](../../virtual-machines/sizes-b-series-burstable.md) se la macchina virtuale viene avviata, arrestata o riavviata, è possibile che i crediti vadano persi. Per ulteriori informazioni, vedere la pagina relativa alle [domande frequenti sulla serie B](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## <a name="storage"></a>Archiviazione
 

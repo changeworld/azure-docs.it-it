@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2021
-ms.openlocfilehash: ffdafbe991d3cd78e45c4804fd6cc5377099acbc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29164bbb205e9f3ad59ac28200b5c6cd1e47bf39
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589405"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707575"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -138,7 +138,7 @@ Le [visualizzazioni di Monitoraggio di Azure](visualize/view-designer.md) consen
 - Le dimensioni della risposta delle query sono limitate a 8 MB e il tempo di esecuzione è 110 secondi.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni sui [dati raccolti da Monitoraggio di Azure](/data-platform.md).
+- Informazioni sui [dati raccolti da Monitoraggio di Azure](data-platform.md).
 - Informazioni sui [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).
 - Informazioni sulle [Esplora metriche](essentials/metrics-getting-started.md)
 - Informazioni sulle [cartelle di lavoro](./visualize/workbooks-overview.md).

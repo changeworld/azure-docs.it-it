@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 1caab392af1dab4f2e706d7372b0a1d9b5e62db6
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 12b90bf709cb20bed844940570663a76052a540d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091209"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738940"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -63,7 +63,7 @@ Il servizio app, progettato su misura per DevOps, Supporta diversi strumenti per
 
 Ai provider IaaS Azure permette di eseguire la distribuzione o la migrazione dell'applicazione in macchine virtuali Windows o Linux. Insieme a Rete virtuale di Azure, Macchine virtuali di Azure supporta la distribuzione di VM (Virtual Machine, macchina virtuale) di Windows o Linux in Azure. Con le VM è possibile avere il controllo totale sulla configurazione delle macchine stesse. Quando si usano le macchine virtuali, l'utente è responsabile di tutte le patch per l'installazione, la configurazione, la manutenzione e il sistema operativo del software server.
 
-A causa del livello di controllo disponibile con le macchine virtuali, è possibile eseguire un'ampia gamma di carichi di lavoro del server in Azure che non rientrano in un modello PaaS. ad esempio server di database, Windows Server Active Directory e Microsoft SharePoint. Per altre informazioni, vedere la documentazione relativa alle macchine virtuali [Linux](../../virtual-machines/linux/index.yml) o [Windows](../../virtual-machines/windows/index.yml).
+A causa del livello di controllo disponibile con le macchine virtuali, è possibile eseguire un'ampia gamma di carichi di lavoro del server in Azure che non rientrano in un modello PaaS. ad esempio server di database, Windows Server Active Directory e Microsoft SharePoint. Per altre informazioni, vedere la documentazione relativa alle macchine virtuali [Linux](../../virtual-machines/index.yml) o [Windows](../../virtual-machines/index.yml).
 
 > **Uso consigliato**: usare macchine virtuali se si vuole il controllo completo sull'infrastruttura dell'applicazione o se è necessario eseguire la migrazione in Azure di carichi di lavoro delle applicazioni locali senza dover apportare modifiche.
 >

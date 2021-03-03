@@ -3,12 +3,12 @@ title: Risolvere i problemi relativi agli errori di backup dei database SAP HANA
 description: Viene descritto come risolvere i problemi relativi agli errori comuni che possono verificarsi quando si usa Backup di Azure per eseguire il backup di database SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 22800adc323bda8a60278160f24bc559103fb57e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411326"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713338"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Risolvere i problemi relativi al backup di database SAP HANA in Azure
 
@@ -46,13 +46,6 @@ Fare riferimento alle sezioni [Prerequisiti](tutorial-backup-sap-hana-db.md#prer
 | Messaggio di errore      | <span style="font-weight:normal">L'operazione SAP HANA specificata non è supportata</span>              |
 | ------------------ | ------------------------------------------------------------ |
 | **Possibili cause**    | Backup di Azure per SAP HANA non supporta il backup incrementale e le azioni eseguite sui client SAP HANA nativi (studio/pozzetto/DBA) |
-| **Azione consigliata** | Per altre informazioni, vedere [qui](./sap-hana-backup-support-matrix.md#scenario-support). |
-
-### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
-
-| Messaggio di errore      | <span style="font-weight:normal">Questo database SAP HANA non supporta il tipo di backup richiesto</span>  |
-| ------------------ | ------------------------------------------------------------ |
-| **Possibili cause**    | Backup di Azure non supporta il backup incrementale e il backup tramite snapshot |
 | **Azione consigliata** | Per altre informazioni, vedere [qui](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure

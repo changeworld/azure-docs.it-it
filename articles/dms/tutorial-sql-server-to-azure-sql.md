@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 6c5d758f94a4ad4e70a8b02a02c7c61097725f63
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b02572f8f6f6531afba9e24af1d2eab53f5cb6ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094828"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742110"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Esercitazione: Eseguire la migrazione di SQL Server al database SQL di Azure offline con il Servizio Migrazione del database
 
@@ -33,10 +33,6 @@ Si apprenderà come:
 > - Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
 > - Eseguire la migrazione.
 > - Monitorare la migrazione.
-
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
-
-Questo articolo descrive una migrazione offline da SQL Server a un database di Database SQL di Azure. Per una migrazione online, vedere [Eseguire la migrazione di SQL Server al database SQL di Azure online con Servizio Migrazione del database](tutorial-sql-server-azure-sql-online.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -275,7 +271,5 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 ### <a name="additional-resources"></a>Risorse aggiuntive
 
-- Esercitazione pratica sulla [Migrazione SQL con il Servizio Migrazione del database di Azure](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587).
-- Per informazioni sulle limitazioni e i problemi noti, vedere l'articolo relativo a [problemi noti e soluzioni alternative per le migrazioni online al database SQL di Azure](known-issues-azure-sql-online.md).
 - Per informazioni su Servizio Migrazione del database di Azure, vedere l'articolo [Definizione del Servizio Migrazione del database di Azure](./dms-overview.md).
 - Per informazioni sul database SQL di Azure, vedere l'articolo [Servizio database SQL di Azure](../azure-sql/database/sql-database-paas-overview.md).

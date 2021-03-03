@@ -160,10 +160,10 @@
               href: create-data-source-web-sdk.md
             - name: Aggiungere un livello per i simboli
               href: map-add-pin.md
-            - name: Aggiungere un popup
-              href: map-add-popup.md
             - name: Aggiungere un livello per le bolle
               href: map-add-bubble-layer.md
+            - name: Aggiungere un popup
+              href: map-add-popup.md
             - name: Aggiungere i marcatori HTML
               href: map-add-custom-html.md
             - name: Aggiungere un livello per le linee
@@ -250,14 +250,14 @@
           href: how-to-add-symbol-to-android-map.md
         - name: Aggiungere un livello per le bolle
           href: map-add-bubble-layer-android.md
-        - name: Aggiungi forme
+        - name: Visualizzare informazioni sulle funzionalità
+          href: display-feature-information-android.md
+        - name: Aggiungere un livello per le linee
+          href: android-map-add-line-layer.md
+        - name: Aggiungere un livello per i poligoni
           href: how-to-add-shapes-to-android-map.md
         - name: Aggiungere il livello mappa termica
           href: map-add-heat-map-layer-android.md
-        - name: Aggiungere un livello per le linee
-          href: android-map-add-line-layer.md
-        - name: Visualizzare informazioni sulle funzionalità
-          href: display-feature-information-android.md
         - name: Aggiungere un livello per i riquadri
           href: how-to-add-tile-layer-android-map.md
         - name: Visualizzare i dati sul traffico

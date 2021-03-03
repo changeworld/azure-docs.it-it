@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 436e866969d620389818bcebca3c5c37b8805309
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 0dc2b48d02eb8a69afc947891c263ef1510257a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629035"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721838"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -30,13 +30,22 @@ Per configurare il routing tra la propria rete e i router perimetrali Enterprise
 ### <a name="ip-addresses-used-for-azure-private-peering"></a>Indirizzi IP usati per il peering privato di Azure
 Per configurare i peering, è possibile usare sia indirizzi IP privati sia indirizzi IP pubblici. L'intervallo di indirizzi usato per configurare le route non deve sovrapporsi agli intervalli di indirizzi usati per creare le reti virtuali in Azure. 
 
-* È necessario riservare una subnet /29 o due subnet /30 per le interfacce di routing.
-* Le subnet usate per il routing possono essere costituite sia da indirizzi IP privati sia da indirizzi IP pubblici.
-* Le subnet non devono essere in conflitto con l'intervallo riservato dal cliente per l'uso in Microsoft Cloud.
-* Se viene usata una subnet /29, questa viene divisa in due subnet /30. 
-  * La prima subnet /30 viene usata per il collegamento primario e la seconda per il collegamento secondario.
-  * Per ogni subnet /30, è necessario usare il primo indirizzo IP della subnet /30 nel router. Microsoft usa il secondo indirizzo IP della subnet /30 per configurare una sessione BGP.
-  * È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](https://azure.microsoft.com/support/legal/sla/) sia valido.  
+* IPv4:
+    * È necessario riservare una subnet /29 o due subnet /30 per le interfacce di routing.
+    * Le subnet usate per il routing possono essere costituite sia da indirizzi IP privati sia da indirizzi IP pubblici.
+    * Le subnet non devono essere in conflitto con l'intervallo riservato dal cliente per l'uso in Microsoft Cloud.
+    * Se viene usata una subnet /29, questa viene divisa in due subnet /30. 
+      * La prima subnet /30 viene usata per il collegamento primario e la seconda per il collegamento secondario.
+      * Per ogni subnet /30, è necessario usare il primo indirizzo IP della subnet /30 nel router. Microsoft usa il secondo indirizzo IP della subnet /30 per configurare una sessione BGP.
+      * È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](https://azure.microsoft.com/support/legal/sla/) sia valido.
+* IPv6:
+    * È necessario riservare una subnet/125 o due subnet/126 per le interfacce di routing.
+    * Le subnet usate per il routing possono essere costituite sia da indirizzi IP privati sia da indirizzi IP pubblici.
+    * Le subnet non devono essere in conflitto con l'intervallo riservato dal cliente per l'uso in Microsoft Cloud.
+    * Se viene usata una subnet /125, questa viene divisa in due subnet /126. 
+      * La prima subnet/126 viene usata per il collegamento primario e la seconda subnet/30 viene usata per il collegamento secondario.
+      * Per ogni subnet /126, è necessario usare il primo indirizzo IP della subnet /126 nel router. Microsoft usa il secondo indirizzo IP della subnet /126 per configurare una sessione BGP.
+      * È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](https://azure.microsoft.com/support/legal/sla/) sia valido.
 
 #### <a name="example-for-private-peering"></a>Esempio per il peering privato
 Se si sceglie di usare la subnet a.b.c.d/29 per configurare il peering, viene divisa in due subnet /30. Nell'esempio seguente si noti come viene usata la subnet a.b.c.d/29:
@@ -122,7 +131,7 @@ Microsoft usa il numero AS 12076 per il peering pubblico di Azure, il peering pr
 Non sono previsti requisiti per la simmetria del trasferimento dei dati. I percorsi di andata e ritorno possono transitare attraverso coppie di router diverse. Le route identiche devono essere annunciate da entrambi i lati in più coppie di circuiti appartenenti all'utente. Non è necessario che le metriche delle route siano identiche.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Limiti per i prefissi e l'aggregazione di route
-Sono supportati fino a 4000 prefissi annunciati a Microsoft tramite il peering privato di Azure. Questo numero può essere aumentato fino a 10.000 prefissi se è abilitato il componente aggiuntivo ExpressRoute Premium. Per il peering pubblico di Azure e il peering Microsoft sono accettati fino a 200 prefissi per sessione BGP. 
+Sono supportati fino a 4000 prefissi IPv4 e 100 prefissi IPv6 annunciati tramite il peering privato di Azure. Questa operazione può essere aumentata fino a 10.000 prefissi IPv4 se è abilitato il componente aggiuntivo ExpressRoute Premium. Per il peering pubblico di Azure e il peering Microsoft sono accettati fino a 200 prefissi per sessione BGP. 
 
 La sessione BGP viene eliminata se il numero di prefissi supera il limite. Verranno accettate route predefinite solo sul collegamento del peering privato. Il provider deve filtrare le route predefinite e gli indirizzi IP privati (RFC 1918) dai percorsi per il peering pubblico di Azure e il peering Microsoft. 
 
@@ -159,7 +168,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | Stati Uniti orientali | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 | 12076:55004 |
 | Stati Uniti orientali 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 | 12076:55005 |
 | Stati Uniti occidentali | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 | 12076:55006 |
-| West US 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
+| Stati Uniti occidentali 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
 | Stati Uniti centro-occidentali | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 | 12076:55027 |
 | Stati Uniti centro-settentrionali | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 | 12076:55007 |
 | Stati Uniti centro-meridionali | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 | 12076:55008 |

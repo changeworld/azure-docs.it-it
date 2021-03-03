@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: db410133bab530db731eee58048d1f9d26a1a3fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 65f18a21be48b6f78605b10950a2b38709b66f2d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613344"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713661"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Azure Resource Manager per un set di scalabilità di macchine virtuali Windows
 
@@ -30,7 +30,7 @@ Se non si ha familiarità con i modelli di Resource Manager, vedere le [distribu
 
 - È necessario avere installato [Azure PowerShell](/powershell/azure) oppure è possibile usare [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-- La risorsa della macchina virtuale deve trovarsi in un'[area che supporta le metriche personalizzate](../platform/metrics-custom-overview.md#supported-regions).
+- La risorsa della macchina virtuale deve trovarsi in un'[area che supporta le metriche personalizzate](./metrics-custom-overview.md#supported-regions).
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurare Monitoraggio di Azure come sink dei dati 
 L'estensione Diagnostica di Azure usa una funzionalità denominata **sink di dati** per indirizzare le metriche e i log in posizioni diverse. Le procedure seguenti illustrano come usare un modello di Resource Manager e PowerShell per distribuire una VM usando il nuovo sink di dati Monitoraggio di Azure. 
@@ -252,7 +252,7 @@ Per distribuire il modello di Resource Manager, usare Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Ricordarsi di usare un'area di Azure abilitata per le metriche personalizzate. Ricordarsi di usare un'[area di Azure abilitata per le metriche personalizzate](../platform/metrics-custom-overview.md#supported-regions).
+   > Ricordarsi di usare un'area di Azure abilitata per le metriche personalizzate. Ricordarsi di usare un'[area di Azure abilitata per le metriche personalizzate](./metrics-custom-overview.md#supported-regions).
  
 1. Eseguire i comandi seguenti per distribuire la VM:  
 
@@ -292,4 +292,4 @@ Per distribuire il modello di Resource Manager, usare Azure PowerShell:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sulle [metriche personalizzate](../platform/metrics-custom-overview.md).
+- Altre informazioni sulle [metriche personalizzate](./metrics-custom-overview.md).

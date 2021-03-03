@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: bd777fe42dc8fa3ec4643fa9607f5ca8b7aac795
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e195c005676df27385e5e00736b04bdb689fafc5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240325"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727108"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Negare l'accesso alla rete pubblica nel server singolo database di Azure per PostgreSQL usando portale di Azure
 
@@ -21,7 +21,7 @@ Questo articolo descrive come configurare un singolo server di database di Azure
 
 Per completare questa guida, è necessario:
 
-* Un [server singolo database di Azure per PostgreSQL](quickstart-create-server-database-portal.md)
+* Un [server singolo database di Azure per PostgreSQL](quickstart-create-server-database-portal.md) con piano tariffario per utilizzo generico o con ottimizzazione per la memoria.
 
 ## <a name="set-deny-public-network-access"></a>Impostare Nega accesso alla rete pubblica
 
@@ -29,7 +29,7 @@ Seguire questa procedura per impostare PostgreSQL Single Server Deny Public Netw
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare il server singolo database di Azure per PostgreSQL.
 
-1. Nella pagina server singolo PostgreSQL, in **Impostazioni** , fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
+1. Nella pagina server singolo PostgreSQL, in **Impostazioni**, fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
 
 1. In **Nega accesso alla rete pubblica** selezionare **Sì** per abilitare Nega accesso pubblico per il server singolo PostgreSQL.
 

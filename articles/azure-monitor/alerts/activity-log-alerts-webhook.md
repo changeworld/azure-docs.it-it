@@ -4,19 +4,19 @@ description: Informazioni sullo schema del formato JSON che viene pubblicato in 
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: bdac71655ca0c517624f8aa033ee5bc7fcc9d12a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9f5fbc6b0c7ae77181c8c5afdbaffb4e62dccd12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614817"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701145"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook per gli avvisi del log attività di Azure
 Nella definizione di un gruppo di azione è possibile configurare gli endpoint webhook in modo da ricevere le notifiche per gli avvisi del log attività. Con i webhook è possibile instradare queste notifiche ad altri sistemi per la post-elaborazione o azioni personalizzate. L'articolo illustra anche il modo in cui il payload per il protocollo HTTP POST viene percepito da un webhook.
 
-Per altre informazioni sugli avvisi del log di attività, vedere come [creare gli avvisi del log attività di Azure](../platform/activity-log-alerts.md).
+Per altre informazioni sugli avvisi del log di attività, vedere come [creare gli avvisi del log attività di Azure](./activity-log-alerts.md).
 
-Per informazioni su gruppi di azioni, vedere come [creare gruppi di azioni](../platform/action-groups.md).
+Per informazioni su gruppi di azioni, vedere come [creare gruppi di azioni](./action-groups.md).
 
 > [!NOTE]
 > È anche possibile usare lo [schema di avviso comune](./alerts-common-schema.md), che offre il vantaggio di avere un singolo payload di avviso estendibile e unificato per tutti i servizi di avviso in monitoraggio di Azure, per le integrazioni del webhook. [Informazioni sulle definizioni comuni dello schema di avviso.](./alerts-common-schema-definitions.md)
@@ -298,10 +298,10 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 | status |Stringa. Stato dell'operazione. I valori comuni includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
 | subStatus |In genere include il codice di stato HTTP della chiamata REST corrispondente. Può includere anche altre stringhe che descrivono uno stato secondario. I valori di stato secondario comuni includono OK (codice di stato HTTP: 200), Created (codice di stato HTTP: 201), Accepted (codice di stato HTTP: 202), No Content (codice di stato HTTP: 204), Bad Request (codice di stato HTTP: 400), Not Found (codice di stato HTTP: 404), Conflict (codice di stato HTTP: 409), Internal Server Error (codice di stato HTTP: 500), Service Unavailable (codice di stato HTTP: 503), Gateway Timeout (codice di stato HTTP: 504). |
 
-Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log attività, vedere [Panoramica del log attività di Azure](../platform/platform-logs-overview.md).
+Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log attività, vedere [Panoramica del log attività di Azure](../essentials/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni sul log attività](../platform/platform-logs-overview.md).
+* [Altre informazioni sul log attività](../essentials/platform-logs-overview.md).
 * [Eseguire gli script di automazione di Azure (manuali operativi) negli avvisi di Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Usare un'app per la logica per inviare SMS tramite Twilio da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del log attività.
 * [Usare un'app per la logica per inviare un messaggio Slack da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del log attività.

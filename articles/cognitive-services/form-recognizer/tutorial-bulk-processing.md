@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 1780aebc113fa68a9a89cfce9fd67c9b5911fc58
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6faa612f55b4114b4242c48d43aae9aac8c56582
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98606671"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699998"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-using-azure-data-factory"></a>Esercitazione: Estrarre i dati di moduli in blocco con Azure Data Factory
 
@@ -65,7 +65,7 @@ Il notebook di Azure Databricks usa quindi i modelli sottoposti a training per e
 
 Il backlog dei moduli può trovarsi nell'ambiente locale o in un server FTP. Per questa esercitazione si usano i moduli in un account di archiviazione di Azure Data Lake Gen 2. È possibile trasferire i file con Azure Data Factory, Azure Storage Explorer o AzCopy. I set di dati di training e assegnazione dei punteggi possono trovarsi in contenitori diversi, ma i set di dati di training per tutti i tipi di modulo devono trovarsi nello stesso contenitore, anche se in cartelle diverse.
 
-Per creare un nuovo data lake, seguire le istruzioni in [Creare un account di archiviazione da usare con Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
+Per creare un nuovo data lake, seguire le istruzioni in [Creare un account di archiviazione da usare con Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md).
 
 ## <a name="create-a-parameterization-table"></a>Creare una tabella di parametrizzazione
 
@@ -89,7 +89,7 @@ Nella tabella verranno usati i campi seguenti:
 
 ### <a name="create-the-table"></a>Creare la tabella
 
-[Creare un database SQL di Azure](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase) e quindi eseguire lo script SQL seguente nell'[editor di query](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal) per creare la tabella necessaria.
+[Creare un database SQL di Azure](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase) e quindi eseguire lo script SQL seguente nell'[editor di query](../../azure-sql/database/connect-query-portal.md) per creare la tabella necessaria.
 
 ```sql
 CREATE TABLE dbo.ParamFormRecogniser(
@@ -142,7 +142,7 @@ Si userà Azure Databricks per archiviare ed eseguire il codice Python che inter
 
 ### <a name="create-a-secret-scope-backed-by-azure-key-vault"></a>Creare un ambito dei segreti con supporto di Azure Key Vault
 
-Per fare riferimento ai segreti nell'istanza di Azure Key Vault creata in precedenza, è necessario creare un ambito dei segreti in Databricks. Seguire la procedura descritta in [Creare un ambito dei segreti supportato da Azure Key Vault](https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
+Per fare riferimento ai segreti nell'istanza di Azure Key Vault creata in precedenza, è necessario creare un ambito dei segreti in Databricks. Seguire la procedura descritta in [Creare un ambito dei segreti supportato da Azure Key Vault](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
 
 ### <a name="create-a-databricks-cluster"></a>Creare un cluster di Databricks
 
@@ -461,7 +461,7 @@ A questo punto è possibile creare un notebook di assegnazione dei punteggi. Ana
 
 ## <a name="automate-training-and-scoring-with-azure-data-factory"></a>Automatizzare il training e l'assegnazione dei punteggi con Azure Data Factory
 
-L'unico passaggio rimanente consiste nel configurare il servizio Azure Data Factory per automatizzare i processi di training e assegnazione dei punteggi. Per prima cosa, seguire la procedura descritta in [Creare una data factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory). Dopo aver creato la risorsa Azure Data Factory, sarà necessario creare tre pipeline: una per il training e due per l'assegnazione dei punteggi (illustrata di seguito).
+L'unico passaggio rimanente consiste nel configurare il servizio Azure Data Factory per automatizzare i processi di training e assegnazione dei punteggi. Per prima cosa, seguire la procedura descritta in [Creare una data factory](../../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory). Dopo aver creato la risorsa Azure Data Factory, sarà necessario creare tre pipeline: una per il training e due per l'assegnazione dei punteggi (illustrata di seguito).
 
 ### <a name="training-pipeline"></a>Pipeline di training
 

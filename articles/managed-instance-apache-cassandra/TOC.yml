@@ -1,0 +1,28 @@
+- name: Documentazione di Azure Istanza gestita per Apache Cassandra
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Che cos'è Azure Istanza gestita per Apache Cassandra?
+      href: introduction.md
+- name: Concetti
+  items:
+    - name: Domande frequenti
+      href: faq.md
+    - name: Confronto tra istanza gestita e Azure Cosmos DB API Cassandra
+      href: compare-cosmosdb-managed-instance.md
+- name: Avvi rapidi
+  items:
+    - name: Creare un cluster-portale
+      href: create-cluster-portal.md
+    - name: Creare un cluster-interfaccia della riga di comando
+      href: create-cluster-cli.md
+    - name: Configurare un cluster ibrido
+      href: configure-hybrid-cluster.md
+    - name: Distribuire un cluster Spark con databricks
+      href: deploy-cluster-databricks.md
+- name: Guide pratiche
+  items:
+    - name: Gestire con l'interfaccia della riga di comando di Azure
+      href: manage-resources-cli.md
+    - name: Visualizzare le metriche in Prometheus con Grafana
+      href: visualize-prometheus-grafana.md

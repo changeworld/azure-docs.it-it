@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d129890cc63e5a0e4cbc6139e1de2df7a31f6f77
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 81a44d4d0025c841cf56e19d6afee5e95bd44a55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094557"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730508"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
@@ -92,7 +92,7 @@ Azure supporta due tipi di identità gestite: assegnato dal sistema e assegnato 
 
 Per eseguire l'autenticazione in un [endpoint personalizzato](concepts-route-events.md#create-an-endpoint), è possibile usare un'identità gestita assegnata dal sistema per l'istanza digitale di Azure. I dispositivi gemelli digitali di Azure supportano l'autenticazione basata sulle identità assegnata dal sistema agli endpoint per le destinazioni dell' [Hub eventi](../event-hubs/event-hubs-about.md) e del [bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md)   e a un endpoint del [contenitore di archiviazione di Azure](../storage/blobs/storage-blobs-introduction.md)   per [gli eventi non recapitabili](concepts-route-events.md#dead-letter-events). [Griglia](../event-grid/overview.md)   di eventi gli endpoint non sono attualmente supportati per le identità gestite.
 
-Per istruzioni su come abilitare un'identità gestita dal sistema per i dispositivi gemelli digitali di Azure e usarla per indirizzare gli eventi, vedere [*procedura: abilitare un'identità gestita per il routing degli eventi (anteprima)*](how-to-enable-managed-identities.md).
+Per istruzioni su come abilitare un'identità gestita dal sistema per i dispositivi gemelli digitali di Azure e usarla per indirizzare gli eventi, vedere [*procedura: abilitare un'identità gestita per il routing degli eventi (anteprima)*](./how-to-enable-managed-identities-portal.md).
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Accesso alla rete privata con collegamento privato di Azure (anteprima)
 
@@ -106,7 +106,7 @@ L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della VNet di A
 
 La configurazione di un endpoint privato per l'istanza di Azure Digital Twins consente di proteggere l'istanza di Azure Digital Twins ed eliminare l'esposizione pubblica, nonché di evitare i dati exfiltration dalla VNet.
 
-Per istruzioni su come configurare il collegamento privato per i dispositivi gemelli digitali di Azure, vedere [*procedura: abilitare l'accesso privato con collegamento privato (anteprima)*](how-to-enable-private-link.md).
+Per istruzioni su come configurare il collegamento privato per i dispositivi gemelli digitali di Azure, vedere [*procedura: abilitare l'accesso privato con collegamento privato (anteprima)*](./how-to-enable-private-link-portal.md).
 
 ### <a name="design-considerations"></a>Considerazioni sulla progettazione 
 

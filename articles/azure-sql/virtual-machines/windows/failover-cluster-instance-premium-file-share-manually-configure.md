@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 2fb9677f0874de1fb715082d58a0e354880e654b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 86caf39e0d31a41ca454c65311ff2fab52b56f5b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358079"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691162"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creare un'istanza FCI con una condivisione file Premium (SQL Server nelle VM di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Questo articolo illustra come creare un'istanza del cluster di failover con SQL Server in macchine virtuali (VM) di Azure usando una [condivisione file Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md).
+Questo articolo illustra come creare un'istanza del cluster di failover con SQL Server in macchine virtuali (VM) di Azure usando una [condivisione file Premium](../../../storage/files/storage-how-to-create-file-share.md).
 
 Le condivisioni file Premium sono Spazi di archiviazione diretta (SSD), condivisioni file costantemente a bassa latenza, completamente supportate per l'uso con istanze del cluster di failover per SQL Server 2012 o versioni successive in Windows Server 2012 o versioni successive. Le condivisioni file Premium offrono maggiore flessibilità, consentendo di ridimensionare una condivisione file senza tempi di inattività.
 
@@ -37,7 +37,7 @@ Prima di completare le istruzioni riportate in questo articolo, è necessario av
 - Una sottoscrizione di Azure.
 - Un account con autorizzazioni per creare oggetti sia nelle macchine virtuali di Azure che in Active Directory.
 - [Due o più macchine virtuali di Windows Azure predisposte](failover-cluster-instance-prepare-vm.md) in un [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) o in [zone di disponibilità](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)diverse.
-- Una [condivisione file Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) da usare come unità del cluster, in base alla quota di archiviazione del database per i file di dati.
+- Una [condivisione file Premium](../../../storage/files/storage-how-to-create-file-share.md) da usare come unità del cluster, in base alla quota di archiviazione del database per i file di dati.
 - La versione più recente di [PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="mount-premium-file-share"></a>Montare la condivisione file Premium

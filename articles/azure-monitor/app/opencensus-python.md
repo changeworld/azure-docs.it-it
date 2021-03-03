@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: f50628395526783face11fcb1438e2716135b640
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d22174b269ba9cea3b2c9cb9de2b5521df2786fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584028"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704413"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurare Monitoraggio di Azure per l'applicazione Python
 
@@ -221,6 +221,15 @@ Per informazioni dettagliate su come modificare la telemetria rilevata prima che
 
 ### <a name="metrics"></a>Metriche
 
+OpenCensus. stats supporta 4 metodi di aggregazione, ma fornisce supporto parziale per monitoraggio di Azure:
+
+- **Conteggio:** Conteggio del numero di punti di misura. Il valore è cumulativo, può solo aumentare e reimpostare su 0 al riavvio. 
+- **Somma:** Somma dei punti di misurazione. Il valore è cumulativo, può solo aumentare e reimpostare su 0 al riavvio. 
+- **LastValue:** Mantiene l'ultimo valore registrato, Elimina tutto il resto.
+- **Distribuzione:** Distribuzione istogramma dei punti di misurazione. Questo metodo **non è supportato dall'utilità di esportazione di Azure**.
+
+### <a name="count-aggregation-example"></a>Esempio di aggregazione Count
+
 1. Prima di tutto, generare alcuni dati di metrica locali. Verrà creata una metrica semplice per tenere traccia del numero di volte in cui l'utente seleziona il tasto **invio** .
 
     ```python
@@ -320,7 +329,7 @@ Per informazioni dettagliate su come modificare la telemetria rilevata prima che
         main()
     ```
 
-1. L'utilità di esportazione invia i dati delle metriche al monitoraggio di Azure a intervalli fissi. Il valore predefinito è ogni 15 secondi. Stiamo monitorando una singola metrica, quindi questi dati della metrica, con qualsiasi valore e timestamp in esso contenuti, vengono inviati ogni intervallo. È possibile trovare i dati in `customMetrics`.
+1. L'utilità di esportazione invia i dati delle metriche al monitoraggio di Azure a intervalli fissi. Il valore predefinito è ogni 15 secondi. Stiamo monitorando una singola metrica, quindi questi dati della metrica, con qualsiasi valore e timestamp in esso contenuti, vengono inviati ogni intervallo. Il valore è cumulativo, può solo aumentare e reimpostare su 0 al riavvio. È possibile trovare i dati in `customMetrics` , ma le `customMetrics` proprietà ValueCount, values, ValueMin, VALUEMAX e valueStdDev non vengono usate in modo efficace.
 
 #### <a name="performance-counters"></a>Contatori delle prestazioni
 

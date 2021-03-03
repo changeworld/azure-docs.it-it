@@ -4,12 +4,12 @@ description: Fornisce un riepilogo delle impostazioni di supporto e delle limita
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d6de863a45bcadd73e847cbf407c13363952151
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806105"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707218"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matrice di supporto di backup su disco di Azure (in anteprima)
 
@@ -58,7 +58,7 @@ Quando diventano disponibili, verranno annunciate altre aree.
 
 - Attualmente (durante l'anteprima), l'uso di PowerShell e dell'interfaccia della riga di comando di Azure per configurare il backup e il ripristino dei dischi non è supportato.
 
-- Quando si configura il backup, il disco selezionato per il backup e il gruppo di risorse snapshot in cui devono essere archiviati gli snapshot devono far parte della stessa sottoscrizione. Non è possibile creare uno snapshot incrementale per un disco specifico al di fuori della sottoscrizione del disco. Altre informazioni sugli [snapshot incrementali](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) per il disco gestito. Per altre informazioni su come scegliere un gruppo di risorse snapshot, vedere  [configurare il backup](backup-managed-disks.md#configure-backup).
+- Quando si configura il backup, il disco selezionato per il backup e il gruppo di risorse snapshot in cui devono essere archiviati gli snapshot devono far parte della stessa sottoscrizione. Non è possibile creare uno snapshot incrementale per un disco specifico al di fuori della sottoscrizione del disco. Altre informazioni sugli [snapshot incrementali](../virtual-machines/disks-incremental-snapshots.md#restrictions) per il disco gestito. Per altre informazioni su come scegliere un gruppo di risorse snapshot, vedere  [configurare il backup](backup-managed-disks.md#configure-backup).
 
 - Per operazioni di backup e ripristino riuscite, le assegnazioni di ruolo sono richieste dall'identità gestita dell'insieme di credenziali di backup. Utilizzare solo le definizioni di ruolo fornite nella documentazione. L'uso di altri ruoli, come proprietario, collaboratore e così via, non è supportato. È possibile che si verifichino problemi di autorizzazione, se si inizia a configurare le operazioni di backup o ripristino subito dopo l'assegnazione di ruoli. Ciò è dovuto al fatto che le assegnazioni di ruolo hanno effetto solo alcuni minuti.
 
