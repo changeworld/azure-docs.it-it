@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 97517ad3ff260806108dc22686d49b43b0fc6609
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647558"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096021"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione con password per Azure Active Directory
 
@@ -89,6 +89,8 @@ Le chiavi di sicurezza di FIDO2 sono un metodo di autenticazione senza password 
 Gli utenti possono registrarsi e quindi selezionare una chiave di sicurezza FIDO2 nell'interfaccia di accesso come mezzo di autenticazione principale. Le chiavi di sicurezza di FIDO2 sono in genere dispositivi USB, ma possono anche usare il Bluetooth o l'NFC. Grazie a un dispositivo hardware che gestisce l'autenticazione, la sicurezza di un account viene aumentata poiché non vi è una password che può essere esposta o individuata.
 
 Le chiavi di sicurezza di FIDO2 possono essere usate per accedere ai dispositivi Azure AD o ibridi Azure AD aggiunti a dispositivi Windows 10 e ottenere l'accesso Single Sign-on alle risorse cloud e locali. Gli utenti possono anche accedere ai browser supportati. Le chiavi di sicurezza di FIDO2 sono un'ottima opzione per le aziende che hanno una sicurezza molto sensibile o hanno scenari o dipendenti che non sono disposti o in grado di usare il telefono come secondo fattore.
+
+È disponibile un documento di riferimento per il quale i [browser supportano l'autenticazione FIDO2 con Azure ad](fido2-compatibility.md), nonché le procedure consigliate per gli sviluppatori che vogliono [supportare l'autenticazione FIDO2 nelle applicazioni sviluppate](../develop/support-fido2-authentication.md).
 
 ![Accedere a Microsoft Edge con una chiave di sicurezza](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 

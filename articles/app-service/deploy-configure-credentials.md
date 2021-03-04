@@ -5,17 +5,20 @@ ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 2a53ecb1b3411561da50f7dbf3be79f9d70b42bc
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: c7d3c7c8b5da40a4e9ccd9085af5a850b9ebc3dd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560417"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052348"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
 Per proteggere la distribuzione di app da un computer locale, [app Azure servizio](./overview.md) supporta due tipi di credenziali per la distribuzione [git locale](deploy-local-git.md) e la [distribuzione FTP/S](deploy-ftp.md). Queste credenziali sono diverse dalle credenziali della sottoscrizione di Azure.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
+
+> [!NOTE]
+> La pagina **centro di sviluppo (classica)** nell'portale di Azure, che è l'esperienza di distribuzione precedente, sarà deprecata a partire da marzo 2021. Questa modifica non avrà alcun effetto sulle impostazioni di distribuzione esistenti nell'app ed è possibile continuare a gestire la distribuzione delle app nella pagina **centro distribuzione** .
 
 ## <a name="configure-user-scope-credentials"></a><a name="userscope"></a>Configurare le credenziali dell'ambito utente
 

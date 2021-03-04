@@ -1,17 +1,16 @@
 ---
 title: Configurare il monitoraggio in integrità Guest di VM Insights usando le regole di raccolta dati (anteprima)
 description: Viene descritto come modificare il monitoraggio predefinito nell'integrità Guest di VM Insights su larga scala usando modelli Gestione risorse.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 907aea16b018fb5dd3846db546787d132f8f5a9f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0db6ed7566c53429f8b9798ac8cdafe76ca7bd5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731222"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052144"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configurare il monitoraggio in integrità Guest di VM Insights usando le regole di raccolta dati (anteprima)
 L' [integrità Guest di VM Insights](vminsights-health-overview.md) consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come è possibile modificare il monitoraggio predefinito tra più macchine virtuali usando le regole di raccolta dati.

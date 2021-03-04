@@ -1,17 +1,16 @@
 ---
 title: Novità della documentazione di Monitoraggio di Azure
 description: Aggiornamenti importanti alla documentazione di Monitoraggio di Azure, che viene aggiornata ogni mese.
-ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2021
-ms.openlocfilehash: b21e5ea8e25844e3e025915b0b9f15162c642f25
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dd6c44587ce3f4e2b5de940ef831a20a4079c4ef
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713440"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051923"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novità della documentazione di Monitoraggio di Azure
 
@@ -721,7 +720,7 @@ Diversi aggiornamenti con la riscrittura del contenuto sull'estensione di diagno
 
 - [Panoramica degli agenti di monitoraggio di Azure](agents/agents-overview.md) - Tabelle ristrutturate per chiarire meglio le funzionalità specifiche di ogni agente.
 - [Panoramica dell'estensione di Diagnostica di Azure](agents/diagnostics-extension-overview.md) - Riscrittura completa.
-- [Usare l'archiviazione BLOB per l'archiviazione di tabelle e IIS per gli eventi in Monitoraggio di Azure](essentials/diagnostics-extension-logs.md) - Riscrittura generale con aggiornamenti e chiarimenti.
+- [Usare l'archiviazione BLOB per l'archiviazione di tabelle e IIS per gli eventi in Monitoraggio di Azure](agents/diagnostics-extension-logs.md) - Riscrittura generale con aggiornamenti e chiarimenti.
 - [Installare e configurare l'estensione di Diagnostica di Microsoft Azure](agents/diagnostics-extension-windows-install.md) - Nuovo articolo. 
 - [Schema dell'estensione di Diagnostica Microsoft](agents/diagnostics-extension-schema-windows.md) - Riorganizzazione del contenuto.
 - [Inviare dati dall'estensione di Diagnostica di Microsoft Azure a Hub eventi di Azure](agents/diagnostics-extension-stream-event-hubs.md) - Riscrittura completa e aggiornamento.

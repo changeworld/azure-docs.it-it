@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 453042766c427b05ec1ee1090a0702f64065542d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f690f4a416e86b02de0d35fc673849c1293df577
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508051"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095766"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestione delle sessioni Single Sign-On in Azure Active Directory B2C
 
@@ -118,7 +118,7 @@ Questo provider viene usato per disattivare la schermata di selezione del provid
 
 #### <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Descrizione|
+| Attributo | Obbligatoria | Descrizione|
 | --- | --- | --- |
 | AlwaysFetchClaimsFromProvider | No | Attualmente non usato; può essere ignorato. |
 
@@ -135,7 +135,7 @@ Questo provider viene usato per gestire le sessioni di Azure AD B2C tra un relyi
 
 ### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
-Questo provider viene usato per gestire le sessioni SAML di Azure AD B2C tra un'applicazione relying party o un provider di identità SAML federato. Quando si usa il provider SSO per archiviare una sessione del provider di identità SAML, `RegisterServiceProviders` deve essere impostato su `false`. Il profilo tecnico `SM-Saml-idp` seguente viene usato dal [profilo tecnico del provider di identità SAML](saml-identity-provider-technical-profile.md).
+Questo provider viene usato per gestire le sessioni SAML di Azure AD B2C tra un'applicazione relying party o un provider di identità SAML federato. Quando si usa il provider SSO per archiviare una sessione del provider di identità SAML, `RegisterServiceProviders` deve essere impostato su `false`. Il `SM-Saml-idp` profilo tecnico seguente viene usato dal [provider di identità SAML](identity-provider-generic-saml.md).
 
 ```xml
 <TechnicalProfile Id="SM-Saml-idp">
@@ -149,7 +149,7 @@ Questo provider viene usato per gestire le sessioni SAML di Azure AD B2C tra un'
 
 Quando si usa il provider per archiviare la sessione SAML B2C, `RegisterServiceProviders` deve essere impostato su `true`. Per completare la disconnessione dalla sessione SAML sono necessari `SessionIndex` e `NameID`.
 
-Il profilo tecnico `SM-Saml-issuer` seguente viene usato dal [profilo tecnico dell'autorità di certificazione SAML](saml-issuer-technical-profile.md).
+Il profilo tecnico `SM-Saml-issuer` seguente viene usato dal [profilo tecnico dell'autorità di certificazione SAML](saml-service-provider.md).
 
 ```xml
 <TechnicalProfile Id="SM-Saml-issuer">
@@ -160,7 +160,7 @@ Il profilo tecnico `SM-Saml-issuer` seguente viene usato dal [profilo tecnico de
 
 #### <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Descrizione|
+| Attributo | Obbligatoria | Descrizione|
 | --- | --- | --- |
 | IncludeSessionIndex | No | Attualmente non usato; può essere ignorato.|
 | RegisterServiceProviders | No | Indica che il provider deve registrare tutti i provider di servizi SAML a cui sia stata rilasciata un'asserzione. I valori possibili sono: `true` (impostazione predefinita) o `false`.|

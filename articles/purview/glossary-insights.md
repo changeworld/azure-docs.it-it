@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: f61d99a61cb50886d70489b586d948bfa751e196
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: eb1d59ae41b04be60dec90aaee4b2305b6d39ca6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576775"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095851"
 ---
 # <a name="glossary-insights-on-your-data-in-azure-purview"></a>Informazioni dettagliate sul glossario sui dati in Azure
 
@@ -54,19 +54,27 @@ In Azure competenza è possibile creare termini di glossario e collegarli agli a
 
 1. Nell'area **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false"::: selezionare **Glossario** per visualizzare il report **informazioni dettagliate sul glossario** di competenza.
 
-La pagina **informazioni dettagliate sul glossario** Visualizza le aree seguenti:
-1. **Indicatori KPI di alto livello** per mostrare gli utenti del catalogo e i termini del glossario
+Informazioni **dettagliate sul glossario** ti offre un utente aziendale, informazioni utili per mantenere un glossario ben definito per la tua organizzazione.
 
-2. Il **numero massimo di termini di glossario e il numero di asset** Mostra i 5 termini di glossario con asset collegati. Tutti gli altri asset sono considerati nella categoria "altro" nel grafico.
+1. Il report inizia con **indicatori KPI di alto livello** che **mostrano i _termini totali_*_ nell'account di competenza, _*_condizioni approvate senza asset_*_ e _*_termini scaduti con asset_**. Ognuno di questi valori consentirà di identificare l'integrità del glossario.
 
-3. **Lo stato dei termini del glossario** Mostra la distribuzione dei termini di glossario in base allo stato, ad esempio "bozza", "approvato", "avviso" e "scaduto". 
+   :::image type="content" source="./media/glossary-insights/glossary-kpi.png" alt-text="Visualizza l'indicatore KPI Insights Insights"::: 
 
-1. Passare il puntatore del mouse sulla sezione del grafo con uno stato e prendere nota del numero di termini con lo stato.
 
-1. **La distribuzione dei ruoli per numero di utenti** Mostra la distribuzione dei ruoli per numero di utenti per ogni ruolo in ambito.
+2. La sezione **snapshot of terms** (visualizzata sopra) Mostra lo stato del termine come **_bozza_*_, _*_Approved_*_, _*_Alert_*_ e _*_expired_** per i termini con asset e termini senza asset.
 
-   :::image type="content" source="./media/glossary-insights/glossary-insights1.png" alt-text="Visualizza informazioni dettagliate sul glossario":::
+3. Fare clic su **Visualizza altro** per visualizzare i nomi dei termini con diversi Stati e altri dettagli sugli esperti di **_amministratori_*_ e _***. 
+
+   :::image type="content" source="./media/glossary-insights/glossary-view-more.png" alt-text="Snapshot dei termini con e senza asset":::  
+
+4. Quando si fa clic su "Visualizza altre" per ***termini approvati con asset** _, le informazioni dettagliate consentono di passare alla pagina di dettaglio _ *Glossario**, da cui è possibile passare all'elenco degli asset con i termini collegati. 
+
+   :::image type="content" source="./media/glossary-insights/navigate-to-glossary-detail.png" alt-text="Informazioni dettagliate sul glossario"::: 
+
+4. In glossario Insights pagina visualizzare una distribuzione di **termini incompleti** in base al tipo di informazioni mancanti. Il grafico mostra il numero di termini con la **_definizione mancante_*_, _*_Missing Expert_*_, _*_Missing Steward_*_ e _*_Missing più_** campi.
+
+1. Fare clic su ***Visualizza altri** _ da _ * termini incompleti * * per visualizzare i termini con informazioni mancanti. È possibile passare alla pagina dei dettagli del termine del glossario per inserire le informazioni mancanti e verificare che il termine del glossario sia completo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sui report Insights di Azure con [Asset](./asset-insights.md) Insights
+Scopri di più su come creare un termine di glossario tramite [Glossario](./how-to-create-import-export-glossary.md)

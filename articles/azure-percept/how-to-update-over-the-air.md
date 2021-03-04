@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: aa8f696b6a26e812256be4e93975844f2c721b6e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b8f9e6f4bc091abbd1bb08ecbd649c1411e5ab20
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663013"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095392"
 ---
 # <a name="update-your-azure-percept-dk-over-the-air"></a>Aggiornare l'ambiente Azure Percept DK in modalità aerea
 
@@ -92,7 +92,7 @@ Requisiti dei tag di gruppo:
 1. Verificare che il gruppo di dispositivi corretto sia selezionato come gruppo di dispositivi di destinazione. Selezionare una **Data di inizio** e un' **ora di inizio** per la distribuzione, quindi fare clic su **Crea distribuzione**. 
 
     >[!CAUTION]
-    >Impostando l'ora di inizio, il passato attiverà immediatamente la distribuzione.
+    >L'impostazione dell'ora di inizio nel passato attiverà immediatamente la distribuzione.
  
 1. Controllare il grafico di conformità. Si noterà che l'aggiornamento è in corso.
  

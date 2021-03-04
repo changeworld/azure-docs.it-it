@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0f0f3b6ffcb7ee12a692470b922cf23a3f0f40f0
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: ea23be06939d58b08516a00bbe8aba97c6ccc87d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858435"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095273"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -91,7 +91,7 @@ L'elemento **endpoints** contiene l'elemento seguente:
 
 L'elemento **endpoint** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Identificatore univoco dell'endpoint.|
 | UserJourneyReferenceId | Sì | Identificatore del percorso utente nei criteri. Per altre informazioni, consultare [Percorsi utente](userjourneys.md)  | 
@@ -129,7 +129,7 @@ Criterio *B2C_1A_signup_signin*:
 
 L'elemento **DefaultUserJourney** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Identificatore del percorso utente nei criteri. Per altre informazioni, consultare [Percorsi utente](userjourneys.md) |
 
@@ -150,9 +150,9 @@ L'elemento **UserJourneyBehaviors** contiene gli elementi seguenti:
 
 L'elemento **SingleSignOn** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Scope | Sì | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il `Suppressed` valore indica che il comportamento viene eliminato e all'utente viene sempre richiesta una selezione del provider di identità.  Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
+| Ambito | Sì | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il `Suppressed` valore indica che il comportamento viene eliminato e all'utente viene sempre richiesta una selezione del provider di identità.  Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
 | KeepAliveInDays | Sì | Controlla per quanto tempo l'utente rimane connesso. Se si imposta il valore su 0, la funzionalità KMSI viene disattivata. Per altre informazioni, vedere [Mantenere l'accesso](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
 |EnforceIdTokenHintOnLogout| No|  Forzare il passaggio di un token ID emesso in precedenza all'endpoint di disconnessione come hint per la sessione autenticata corrente dell'utente finale con il client. I valori possibili sono: `false` (impostazione predefinita) o `true`. Per altre informazioni, vedere [accesso Web con OpenID Connect](openid-connect.md).  |
 
@@ -161,7 +161,7 @@ L'elemento **SingleSignOn** contiene l'attributo seguente:
 
 L'elemento **JourneyInsights** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | TelemetryEngine | Sì | Il valore deve essere `ApplicationInsights`. |
 | InstrumentationKey | Sì | Stringa che contiene la chiave di strumentazione per l'elemento Application Insights. |
@@ -188,9 +188,9 @@ L'elemento **ContentDefinitionParameters** contiene l'elemento seguente:
 
 L'elemento **ContentDefinitionParameter** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Name | Sì | Nome della coppia chiave-valore. |
+| Nome | Sì | Nome della coppia chiave-valore. |
 
 Per altre informazioni, vedere [Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
@@ -198,7 +198,7 @@ Per altre informazioni, vedere [Configurare l'interfaccia utente con contenuto d
 
 L'elemento **TechnicalProfile** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Il valore deve essere `PolicyProfile`. |
 
@@ -215,23 +215,9 @@ L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
 L'elemento **Protocol** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. I valori possibili sono: `OpenIdConnect` o `SAML2`. Il valore `OpenIdConnect` rappresenta lo standard del protocollo OpenID Connect 1.0 in base alla specifica di OpenID Foundation. `SAML2` rappresenta lo standard del protocollo SAML 2.0 in base alla specifica di OASIS. |
-
-### <a name="metadata"></a>Metadati
-
-Quando il protocollo è `SAML` , un elemento Metadata contiene gli elementi seguenti.
-
-| Attributo | Obbligatorio | Descrizione |
-| --------- | -------- | ----------- |
-| IdpInitiatedProfileEnabled | No | Indica se il flusso avviato da IDP è supportato. Valori possibili: `true` o `false` (impostazione predefinita). | 
-| XmlSignatureAlgorithm | No | Metodo che Azure AD B2C USA per firmare la risposta SAML. I valori possibili sono: `Sha256`, `Sha384`, `Sha512` o `Sha1`. Verificare di configurare l'algoritmo di firma per entrambe le parti con lo stesso valore. Usare solo l'algoritmo supportato dal certificato. Per configurare l'asserzione SAML, vedere [metadati del profilo tecnico dell'autorità emittente SAML](saml-issuer-technical-profile.md#metadata). |
-| DataEncryptionMethod | No | Indica il metodo utilizzato da Azure AD B2C per crittografare i dati utilizzando l'algoritmo Advanced Encryption Standard (AES). I metadati controllano il valore dell' `<EncryptedData>` elemento nella risposta SAML. I valori possibili sono: `Aes256` (impostazione predefinita), `Aes192`, `Sha512` o ` Aes128`. |
-| KeyEncryptionMethod| No | Indica il metodo utilizzato da Azure AD B2C per crittografare la copia della chiave utilizzata per crittografare i dati. I metadati controllano il valore dell'  `<EncryptedKey>` elemento nella risposta SAML. Valori possibili: ` Rsa15` (impostazione predefinita)-algoritmo RSA Public Key Cryptography Standard (PKCS) versione 1,5, ` RsaOaep` algoritmo di crittografia RSA Optimal asimmetrica Encryption Padding (OAEP). |
-| UseDetachedKeys | No |  Valori possibili: `true` o `false` (impostazione predefinita). Quando il valore è impostato su `true` , Azure ad B2C modifica il formato delle asserzioni crittografate. L'uso di chiavi scollegate aggiunge l'asserzione crittografata come elemento figlio di EncrytedAssertion anziché EncryptedData. |
-| WantsSignedResponses| No | Indica se Azure AD B2C firma la `Response` sezione della risposta SAML. Valori possibili: `true` (impostazione predefinita) o `false` .  |
-| RemoveMillisecondsFromDateTime| No | Indica se il millisconds verrà rimosso dai valori DateTime all'interno della risposta SAML, tra cui IssueInstant, NotBefore, NotOnOrAfter e AuthnInstant. Valori possibili: `false` (impostazione predefinita) o `true` .  |
+| Nome | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. I valori possibili sono: `OpenIdConnect` o `SAML2`. Il valore `OpenIdConnect` rappresenta lo standard del protocollo OpenID Connect 1.0 in base alla specifica di OpenID Foundation. `SAML2` rappresenta lo standard del protocollo SAML 2.0 in base alla specifica di OASIS. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -243,7 +229,7 @@ L'elemento **OutputClaims** contiene l'elemento seguente:
 
 L'elemento **OutputClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sì | Riferimento a un **ClaimType** già definito nella sezione **ClaimsSchema** nel file dei criteri. |
 | DefaultValue | No | Valore predefinito che può essere usato se il valore dell'attestazione è vuoto. |
@@ -257,10 +243,10 @@ Con l'elemento **SubjectNameingInfo** viene controllato il valore del soggetto d
 
 L'elemento **SubjectNamingInfo** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimType | Sì | Riferimento all'elemento **PartnerClaimType** di un'attestazione di output. Le attestazioni di output devono essere definite nella raccolta **OutputClaims** di criteri della relying party. |
-| Format | No | Usato per la relying party SAML per impostare il **formato NameID** restituito nell'asserzione SAML. |
+| Formato | No | Usato per la relying party SAML per impostare il **formato NameID** restituito nell'asserzione SAML. |
 
 Nell'esempio seguente viene illustrato come definire un relying party OpenID Connect. Le informazioni sul nome del soggetto sono configurate come `objectId`:
 

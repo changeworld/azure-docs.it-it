@@ -352,13 +352,13 @@
     - name: Distribuire gli aggiornamenti
       items:
         - name: Creazione di un account di aggiornamento del dispositivo
-          href: /iot-hub-device-update/create-device-update-account.md
+          href: ../iot-hub-device-update/create-device-update-account.md
         - name: Importazione di un aggiornamento
-          href: /iot-hub-device-update/import-update.md
+          href: ../iot-hub-device-update/import-update.md
         - name: Creazione di un gruppo di aggiornamento
-          href: /iot-hub-device-update/create-update-group.md
+          href: ../iot-hub-device-update/create-update-group.md
         - name: Distribuire un aggiornamento
-          href: /iot-hub-device-update/deploy-update.md
+          href: ../iot-hub-device-update/deploy-update.md
     - name: Usare dispositivi reali
       items:
         - name: Usare un simulatore online

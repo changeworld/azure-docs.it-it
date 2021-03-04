@@ -101,9 +101,14 @@
           href: tutorial-register-applications.md
         - name: Registrare un'applicazione a pagina singola
           href: tutorial-register-spa.md
-        - name: Registrare un provider di servizi SAML
-          href: connect-with-saml-service-providers.md
-          displayName: 'SP, RP, service provider, connect'
+        - name: Applicazione SAML
+          items:
+            - name: Configurare un'applicazione SAML
+              href: saml-service-provider.md
+              displayName: 'SP, service provider'
+            - name: Configurare le opzioni dell'applicazione SAML
+              href: saml-service-provider-options.md
+              displayName: 'SP, service provider'
         - name: Registrare un'applicazione Microsoft Graph
           href: microsoft-graph-get-started.md
           displayName: 'migrate, migration, microsoft graph'
@@ -160,8 +165,14 @@
           href: identity-provider-azure-ad-b2c.md
         - name: Facebook
           href: identity-provider-facebook.md
-        - name: Provider di identità generico
+        - name: OpenId Connect generico
           href: identity-provider-generic-openid-connect.md
+        - name: Provider di identità SAML generico
+          items:
+            - name: Configurare un provider di identità SAML
+              href: identity-provider-generic-saml.md
+            - name: Configurare le opzioni del provider di identità SAML
+              href: identity-provider-generic-saml-options.md
         - name: GitHub
           href: identity-provider-github.md
         - name: Google
