@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 3c0e348e62184f839ce38e4c364fb5c6b81f1131
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 90addb74811819dec563ba072e9a6aea2cf72ca4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726224"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036538"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Panoramica dell’estensione Diagnostica di Azure
 L’estensione Diagnostica di Azure è un [agente Monitoraggio di Azure](../agents/agents-overview.md) che raccoglie i dati di monitoraggio dal sistema operativo guest delle risorse di elaborazione di Azure, comprese le macchine virtuali. Questo articolo offre una panoramica dell'estensione Diagnostica di Azure, comprese le funzionalità specifiche supportate e le opzioni di installazione e configurazione. 
@@ -78,7 +78,7 @@ Configurare uno o più *sink di dati* per inviare i dati ad altre destinazioni a
 | BLOB del servizio di archiviazione di Azure | Scrivere i dati nei BLOB in Archiviazione di Azure oltre che nelle tabelle. |
 | Application Insights | Raccogliere i dati dalle applicazioni in esecuzione nella macchina virtuale in Application Insights per integrarli con i dati di monitoraggio di altre applicazioni. Vedere [Inviare i dati di diagnostica ad Application Insights](diagnostics-extension-to-application-insights.md). |
 
-È anche possibile raccogliere dati WAD dalla risorsa di archiviazione in un'area di lavoro Log Analytics per analizzarli con i log di Monitoraggio di Azure, anche se in genere si usa l'agente di Log Analytics per questo compito. Questa soluzione può inviare i dati direttamente a un'area di lavoro Log Analytics e supporta soluzioni e informazioni dettagliate che forniscono funzionalità aggiuntive.  Vedere [Raccogliere i log di diagnostica da Archiviazione di Azure](../essentials/diagnostics-extension-logs.md). 
+È anche possibile raccogliere dati WAD dalla risorsa di archiviazione in un'area di lavoro Log Analytics per analizzarli con i log di Monitoraggio di Azure, anche se in genere si usa l'agente di Log Analytics per questo compito. Questa soluzione può inviare i dati direttamente a un'area di lavoro Log Analytics e supporta soluzioni e informazioni dettagliate che forniscono funzionalità aggiuntive.  Vedere [Raccogliere i log di diagnostica da Archiviazione di Azure](../agents/diagnostics-extension-logs.md). 
 
 
 ### <a name="linux-diagnostics-extension-lad"></a>Estensione di diagnostica Linux (LAD)

@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: d1a0a6ad5b45af2157b960f8990574e47d10eeb2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2dbb491e77f132daf7b432f27705eba9e3e3cd3c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718421"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036963"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatizzare le compilazioni, i test e le distribuzioni di un processo di analisi di flusso di Azure usando gli strumenti CI/CD
 
@@ -122,6 +122,9 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 |---|---|
 | `-project` | Il percorso del **asaproj.jsnel** file per il progetto Visual Studio Code o **[nome del progetto]. asaproj** per il progetto di Visual Studio. |
 | `-testConfigPath` | Percorso del file di configurazione di test. Se non viene specificato, il file verrà cercato in **\test** sotto la directory corrente del file **asaproj.json** , con il nome file predefinito **testConfig.json**. Se non esiste, verrà creato un nuovo file. |
+
+> [!NOTE]
+> Il `Script` valore neltestConfig.jsgenerato **su** file è solo per fornire il contesto. Non viene usato nella logica di test. 
 
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 

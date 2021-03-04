@@ -8,18 +8,18 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 742cff544886a1499bccfa575684edef708da7bd
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028360"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034677"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informazioni sul linguaggio di query per i dispositivi gemelli digitali di Azure
 
 Tenere presente che il centro dei dispositivi gemelli digitali di Azure è il [grafo gemello](concepts-twins-graph.md), costruito dai gemelli digitali e dalle relazioni. 
 
-È possibile eseguire query su questo grafico per ottenere informazioni sui gemelli digitali e sulle relazioni in esso contenute. Queste query vengono scritte in un linguaggio di query simile a SQL personalizzato, denominato linguaggio di **query di Azure Digital gemelli**. Questa operazione è simile al [linguaggio di query dell'hub](../iot-hub/iot-hub-devguide-query-language.md) Internet con molte funzionalità confrontabili.
+È possibile eseguire query su questo grafico per ottenere informazioni sui gemelli digitali e sulle relazioni in esso contenute. Queste query vengono scritte in un linguaggio di query di tipo SQL personalizzato, chiamato **linguaggio di query di Gemelli digitali di Azure**. Questa operazione è simile al [linguaggio di query dell'hub](../iot-hub/iot-hub-devguide-query-language.md) Internet con molte funzionalità confrontabili.
 
 Questo articolo descrive le nozioni di base del linguaggio di query e delle relative funzionalità. Per esempi più dettagliati della sintassi di query e per informazioni su come eseguire le richieste di query, vedere [*procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md).
 
@@ -33,12 +33,17 @@ Questo articolo descrive le nozioni di base del linguaggio di query e delle rela
 
 Per inviare una query al servizio da un'app client, si userà l' [**API di query**](/rest/api/digital-twins/dataplane/query)dei dispositivi digitali gemelli di Azure. Un modo per usare l'API è tramite uno degli [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) per i dispositivi gemelli digitali di Azure.
 
+### <a name="considerations-for-querying"></a>Considerazioni sull'esecuzione di query
+
+Quando si scrivono query per i dispositivi gemelli digitali di Azure, tenere presenti le considerazioni seguenti:
+* **Ricordare** la distinzione tra maiuscole e minuscole: tutte le operazioni di query di Azure Digital Twins fanno distinzione tra maiuscole e minuscole, quindi prestare attenzione a usare i nomi esatti definiti nei modelli. Se i nomi delle proprietà non sono stati digitati in modo errato o sono stati erroneamente configurati, il set di risultati è vuoto e non vengono restituiti errori.
+* **Virgolette singole di escape**: se il testo della query include un carattere virgoletta singola nei dati, l'offerta deve essere preceduta dal `\` carattere di escape. Di seguito è riportato un esempio in cui viene illustrato il valore di una proprietà di *Dani*:
+
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="EscapedSingleQuote":::
+
 ## <a name="reference-expressions-and-conditions"></a>Riferimento: espressioni e condizioni
 
 Questa sezione descrive gli operatori e le funzioni disponibili per la scrittura di query dei dispositivi gemelli digitali di Azure. Per le query di esempio che illustrano l'uso di queste funzionalità, vedere [*procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md).
-
-> [!NOTE]
-> Tutte le operazioni di query di Azure Digital Twins fanno distinzione tra maiuscole e minuscole, quindi prestare attenzione a usare i nomi esatti definiti nei modelli. Se i nomi delle proprietà non sono stati digitati in modo errato o sono stati erroneamente configurati, il set di risultati è vuoto e non vengono restituiti errori.
 
 ### <a name="operators"></a>Operatori
 

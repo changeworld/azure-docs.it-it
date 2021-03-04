@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d46a20079919f052ed343c9702ba02ce7f109b5c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545939"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "102036172"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
@@ -107,7 +107,7 @@ Tornare nella finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESa
 
 Prima di pubblicare l'app, è consigliabile assicurarsi che le dipendenze siano aggiornate, assicurandosi di avere la versione più recente di tutti i pacchetti inclusi.
 
-Nel riquadro *Esplora soluzioni* espandere *SampleFunctionsApp > Dipendenze*. Fare clic con il pulsante destro del mouse su *Pacchetti* e scegliere *Gestisci pacchetti NuGet...* .
+Nel riquadro *Esplora soluzioni* espandere _**SampleFunctionsApp** > dipendenze_. Fare clic con il pulsante destro del mouse su *Pacchetti* e scegliere *Gestisci pacchetti NuGet...* .
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Gestire i pacchetti NuGet per il progetto SampleFunctionsApp" border="false":::
 
@@ -131,15 +131,17 @@ In Azure Cloud Shell usare il comando seguente per configurare un'impostazione c
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
-L'output è l'elenco delle impostazioni per la funzione di Azure, che ora dovrebbe contenere una voce denominata *ADT_SERVICE_URL*.
+L'output è l'elenco delle impostazioni per la funzione di Azure, che ora dovrebbe contenere una voce denominata **ADT_SERVICE_URL**.
 
-Usare il comando seguente per creare l'identità gestita dal sistema. Prendere nota del campo *principalId* nell'output.
+Usare il comando seguente per creare l'identità gestita dal sistema. Cercare il campo **PrincipalId** nell'output.
 
 ```azurecli-interactive
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Usare il valore *principalId* dell'output nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo *Proprietario dei dati di Gemelli digitali di Azure* per l'istanza di Gemelli digitali di Azure:
+Usare il valore **PrincipalId** dell'output nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo di *proprietario dei dati di Azure Digital gemelli* per l'istanza di Azure Digital gemelli.
+
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
@@ -176,7 +178,7 @@ az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku 
 
 L'output di questo comando è costituito da informazioni sull'hub IoT creato.
 
-Salvare il nome assegnato all'hub IoT. sarà necessario più avanti.
+Salvare il **nome** assegnato all'hub Internet delle cose. sarà necessario più avanti.
 
 ### <a name="connect-the-iot-hub-to-the-azure-function"></a>Connettere l'hub IoT alla funzione di Azure
 
@@ -269,7 +271,10 @@ Nella finestra della console del progetto che viene visualizzata eseguire il com
 ObserveProperties thermostat67 Temperature
 ```
 
-Verranno visualizzate le temperature aggiornate in tempo reale *dall'istanza di Gemelli digitali di Azure* registrate nella console ogni 10 secondi.
+Verranno visualizzate le temperature aggiornate in tempo reale *dall'istanza di Azure Digital Twins da* registrare nella console ogni due secondi.
+
+>[!NOTE]
+> Potrebbero essere necessari alcuni secondi per la propagazione dei dati dal dispositivo al dispositivo gemello. Le prime letture di temperatura possono essere visualizzate come 0 prima che i dati inizino ad arrivare.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Output della console che mostra il log dei messaggi sulle temperature del gemello digitale thermostat67":::
 
@@ -327,7 +332,7 @@ Cercare il campo `provisioningState` nell'output e verificare che il valore sia 
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Risultato della query che mostra l'endpoint con provisioningState Succeeded":::
 
-Salvare i nomi assegnati all'argomento di Griglia di eventi e all'endpoint di Griglia di eventi in Gemelli digitali di Azure. Verranno usati in seguito.
+Salvare i nomi assegnati all' **argomento di griglia di eventi** e all' **endpoint** di griglia di eventi nei dispositivi gemelli digitali di Azure. Verranno usati in seguito.
 
 ### <a name="set-up-route"></a>Configurare la route
 
@@ -346,7 +351,7 @@ L'output di questo comando è costituito da alcune informazioni sulla route crea
 
 Successivamente, sottoscrivere la funzione di Azure *ProcessDTRoutedData* all'argomento di Griglia di eventi creato in precedenza, in modo che i dati di telemetria possano essere trasferiti dal gemello *thermostat67* attraverso l'argomento di Griglia di eventi alla funzione, che torna in Gemelli digitali di Azure e aggiorna il gemello *room21* di conseguenza.
 
-A tale scopo, creare una **sottoscrizione di Griglia di eventi** dall'argomento di Griglia di eventi alla funzione di Azure *ProcessDTRoutedData* come endpoint.
+A tale scopo, creare una sottoscrizione di **griglia di eventi** che invii i dati dall' **argomento di griglia di eventi** creato in precedenza alla funzione *ProcessDTRoutedData* di Azure.
 
 Nel [portale di Azure](https://portal.azure.com/) passare all'argomento di Griglia di eventi cercandone il nome nella barra di ricerca in alto. Selezionare *+ Sottoscrizione di eventi*.
 
@@ -381,7 +386,7 @@ Nella finestra della console del progetto che viene visualizzata eseguire il com
 ObserveProperties thermostat67 Temperature room21 Temperature
 ```
 
-Verranno visualizzate le temperature aggiornate in tempo reale *dall'istanza di Gemelli digitali di Azure* registrate nella console ogni 10 secondi. Si noti che la temperatura per *room21* viene aggiornata in base agli aggiornamenti di *thermostat67*.
+Verranno visualizzate le temperature aggiornate in tempo reale *dall'istanza di Azure Digital Twins da* registrare nella console ogni due secondi. Si noti che la temperatura per *room21* viene aggiornata in base agli aggiornamenti di *thermostat67*.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Output della console che mostra il log dei messaggi sulle temperature del termostato e della stanza":::
 

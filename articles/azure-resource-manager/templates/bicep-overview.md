@@ -2,21 +2,19 @@
 title: Lingua del bicipite per i modelli di Azure Resource Manager
 description: Descrive il linguaggio bicipite per la distribuzione dell'infrastruttura in Azure tramite modelli di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 6a2750dc99e82c9cf8c9b8b97d156d3a9fe30f31
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 2fb13bca9e9d456889185d512ee2fc9d4cbbe673
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746075"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036385"
 ---
 # <a name="what-is-bicep-preview"></a>Che cos'è il bicipite (anteprima)?
 
-Bicipite è un linguaggio per la distribuzione dichiarativa delle risorse di Azure. Semplifica l'esperienza di creazione fornendo sintassi concisa e un migliore supporto per la modularità e il riutilizzo del codice. Bicipite è un linguaggio specifico di dominio (DSL), ovvero è progettato per uno scenario o un dominio specifico. Il bicipite non è destinato a un linguaggio di programmazione generale per la scrittura di applicazioni.
+Bicipite è un linguaggio per la distribuzione dichiarativa delle risorse di Azure. Semplifica l'esperienza di creazione offrendo una sintassi concisa e un supporto migliore per il riutilizzo del codice. Bicipite è un linguaggio specifico di dominio (DSL), ovvero è progettato per uno scenario o un dominio specifico. Il bicipite non è destinato a un linguaggio di programmazione generale per la scrittura di applicazioni.
 
-Bicipite è un'astrazione trasparente su modelli di Azure Resource Manager (modelli ARM). Ogni file bicipite viene compilato in un modello ARM standard. I tipi di risorsa, le versioni API e le proprietà valide in un modello ARM sono validi in un file bicipite.
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+In passato, sono stati sviluppati modelli di Azure Resource Manager (modelli ARM) con JSON. La sintassi JSON per la creazione di un modello può essere dettagliata e richiedere un'espressione complessa. Il bicipite migliora questa esperienza senza perdere le funzionalità di un modello JSON. Si tratta di un'astrazione trasparente sul codice JSON per i modelli ARM. Ogni file bicipite viene compilato in un modello ARM standard. I tipi di risorsa, le versioni API e le proprietà valide in un modello ARM sono validi in un file bicipite.
 
 ## <a name="get-started"></a>Introduzione
 
@@ -30,7 +28,26 @@ Se si dispone di un modello ARM esistente che si vuole convertire in bicipite, v
 
 ## <a name="bicep-improvements"></a>Miglioramenti del bicipite
 
-Il bicipite offre una sintassi più semplice e concisa rispetto all'equivalente JSON. Le espressioni non vengono usate `[...]` . Al contrario, è possibile chiamare direttamente le funzioni, ottenere i valori da parametri e variabili e fare riferimento alle risorse. Per un confronto completo della sintassi, vedere [confronto tra JSON e bicipite per i modelli](compare-template-syntax.md).
+Il bicipite offre una sintassi più semplice e concisa rispetto all'equivalente JSON. Le espressioni non vengono usate `[...]` . Al contrario, è possibile chiamare direttamente le funzioni e ottenere i valori da parametri e variabili. Si assegna a ogni risorsa distribuita un nome simbolico, che consente di fare facilmente riferimento a tale risorsa nel modello.
+
+Ad esempio, il codice JSON seguente restituisce un valore di output da una proprietà della risorsa.
+
+```json
+"outputs": {
+  "hostname": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+    },
+}
+```
+
+L'espressione di output equivalente in bicipite è più facile da scrivere. Nell'esempio seguente viene restituita la stessa proprietà utilizzando il nome simbolico **IP pubblico** per una risorsa definita all'interno del modello:
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+Per un confronto completo della sintassi, vedere [confronto tra JSON e bicipite per i modelli](compare-template-syntax.md).
 
 Il bicipite gestisce automaticamente le dipendenze tra le risorse. È possibile evitare di impostare `dependsOn` quando il nome simbolico di una risorsa viene usato in un'altra dichiarazione di risorsa.
 

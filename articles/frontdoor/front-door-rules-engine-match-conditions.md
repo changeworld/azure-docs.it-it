@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 03/01/2020
 ms.author: duau
-ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: a352624fc802e4224aa1b60768c064c0054cdfd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569772"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035875"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole di Frontdoor di Azure
 
@@ -142,7 +142,7 @@ Operatore | URL richiesta | Trasformazione maiuscole/minuscole
 
 #### <a name="key-information"></a>Informazioni chiave
 
-- Quando si usa questa condizione della regola, assicurarsi di includere le informazioni sul protocollo. Ad esempio: *https://www.\<yourdomain\>.com*.
+- Quando si usa questa condizione della regola, assicurarsi di includere le informazioni sul protocollo. Ad esempio: `https://www.<yourdomain\>.com`.
 
 ## <a name="request-file-extension"></a>Estensione file della richiesta
 
@@ -181,6 +181,10 @@ Identifica le richieste che includono il percorso specificato nell'URL richieden
 Operatore | valore | Trasformazione maiuscole/minuscole
 ---------|-------|---------------
 [Elenco di operatori standard](#standard-operator-list) | String, Int | Minuscole, Maiuscole, Taglia, Rimuovi spazi vuoti, Codifica URL, Decodifica URL
+
+#### <a name="key-information"></a>Informazioni chiave
+
+- Quando si usa questa condizione della regola, si noti che la corrispondenza inizia dopo il primo `/` percorso. Ad esempio, `https://www.<yourdomain>.com/folder/page` Avvia la corrispondenza in `folder/page` .
 
 ## <a name="standard-operator-list"></a>Elenco di operatori standard
 

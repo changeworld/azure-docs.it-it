@@ -13,13 +13,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
-ms.date: 2/24/2021
-ms.openlocfilehash: b829d7045ac520cfe908c3c8809ae17702d6175d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 3/02/2021
+ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691434"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034898"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Comprendere e risolvere i problemi di blocco del database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -208,7 +208,7 @@ AND object_name(p.object_id) = '<table_name>';
 
 ## <a name="gather-information-from-extended-events"></a>Raccogliere informazioni da eventi estesi
 
-Oltre alle informazioni sopra riportate, è spesso necessario acquisire una traccia delle attività sul server per analizzare accuratamente un problema di blocco nel database SQL di Azure. Se, ad esempio, una sessione esegue più istruzioni all'interno di una transazione, verrà rappresentata solo l'ultima istruzione inviata. Tuttavia, è possibile che una delle istruzioni precedenti sia il motivo per cui i blocchi sono ancora in attesa. Una traccia consente di visualizzare tutti i comandi eseguiti da una sessione all'interno della transazione corrente.
+Oltre alle informazioni precedenti, è spesso necessario acquisire una traccia delle attività nel server per analizzare accuratamente un problema di blocco nel database SQL di Azure. Se, ad esempio, una sessione esegue più istruzioni all'interno di una transazione, verrà rappresentata solo l'ultima istruzione inviata. Tuttavia, è possibile che una delle istruzioni precedenti sia il motivo per cui i blocchi sono ancora in attesa. Una traccia consente di visualizzare tutti i comandi eseguiti da una sessione all'interno della transazione corrente.
 
 Esistono due modi per acquisire le tracce in SQL Server; Eventi estesi (XEvent) e tracce del profiler. Tuttavia, [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) è deprecata tecnologia di traccia non supportata per il database SQL di Azure. [Gli eventi estesi](/sql/relational-databases/extended-events/extended-events) sono la tecnologia di analisi più recente che consente una maggiore versatilità e un minore effetto sul sistema osservato e la relativa interfaccia è integrata in SQL Server Management Studio (SSMS). 
 
@@ -238,7 +238,7 @@ Vedere il documento che illustra come usare la [procedura guidata nuova sessione
 
 ## <a name="identify-and-resolve-common-blocking-scenarios"></a>Identificare e risolvere scenari di blocco comuni
 
-Esaminando le informazioni sopra riportate, è possibile determinare la causa della maggior parte dei problemi di blocco. Il resto di questo articolo descrive come usare queste informazioni per identificare e risolvere alcuni scenari di blocco comuni. In questa discussione si presuppone che siano stati utilizzati gli script di blocco (a cui si fa riferimento in precedenza) per acquisire informazioni sugli SPID di blocco e che l'attività dell'applicazione sia stata acquisita utilizzando una sessione XEvent.
+Esaminando le informazioni precedenti, è possibile determinare la causa della maggior parte dei problemi di blocco. Il resto di questo articolo descrive come usare queste informazioni per identificare e risolvere alcuni scenari di blocco comuni. In questa discussione si presuppone che siano stati utilizzati gli script di blocco (a cui si fa riferimento in precedenza) per acquisire informazioni sugli SPID di blocco e che l'attività dell'applicazione sia stata acquisita utilizzando una sessione XEvent.
 
 ## <a name="analyze-blocking-data"></a>Analizzare i dati di blocco 
 
@@ -334,7 +334,7 @@ Le `wait_type` `open_transaction_count` colonne, e si `status` riferiscono alle 
 | 5 | NULL | \>0 | rollback | Sì. | È possibile che venga visualizzato un segnale di attenzione nella sessione degli eventi estesi per questo SPID, a indicare che si è verificato un timeout della query o un'operazione di annullamento oppure è stata eseguita semplicemente un'istruzione rollback. |  
 | 6 | NULL | \>0 | in sospensione | Infine. Quando Windows NT determina che la sessione non è più attiva, la connessione al database SQL di Azure verrà interruppe. | Il `last_request_start_time` valore nel sys.dm_exec_sessions è molto precedente all'ora corrente. |
 
-Gli scenari seguenti si espanderanno in questi scenari. 
+## <a name="detailed-blocking-scenarios"></a>Scenari di blocco dettagliati
 
 1.  Blocco causato da una query in esecuzione normale con tempi di esecuzione lunghi
 
@@ -366,7 +366,7 @@ Gli scenari seguenti si espanderanno in questi scenari.
 
     L'output della seconda query indica che il livello di nidificazione della transazione è uno. Tutti i blocchi acquisiti nella transazione rimangono mantenuti fino a quando non è stato eseguito il commit o il rollback della transazione. Se le applicazioni aprono ed eseguino il commit delle transazioni in modo esplicito, una comunicazione o un altro errore potrebbe lasciare la sessione e la relativa transazione in uno stato aperto. 
 
-    Usare lo script precedente basato su sys.dm_tran_active_transactions per identificare le transazioni di cui non è stato eseguito il commit.
+    Usare lo script riportato in precedenza in questo articolo in base sys.dm_tran_active_transactions per identificare le transazioni attualmente non salvate nell'istanza.
 
     **Soluzioni**:
 
@@ -377,6 +377,7 @@ Gli scenari seguenti si espanderanno in questi scenari.
             *    Nel gestore degli errori dell'applicazione client, eseguire `IF @@TRANCOUNT > 0 ROLLBACK TRAN` dopo qualsiasi errore, anche se l'applicazione client non ritiene che una transazione sia aperta. Il controllo delle transazioni aperte è obbligatorio perché un stored procedure chiamato durante il batch potrebbe avere avviato una transazione senza la conoscenza dell'applicazione client. Determinate condizioni, ad esempio l'annullamento della query, impediscono l'esecuzione di una procedura oltre l'istruzione corrente, quindi anche se la procedura dispone della logica per verificare `IF @@ERROR <> 0` e interrompere la transazione, questo codice di rollback non verrà eseguito in tali casi.  
             *    Se il pool di connessioni viene utilizzato in un'applicazione che apre la connessione ed esegue un numero ridotto di query prima di rilasciare nuovamente la connessione al pool, ad esempio un'applicazione basata sul Web, la disabilitazione temporanea del pool di connessioni può contribuire a risolvere il problema fino a quando l'applicazione client non viene modificata per gestire gli errori in modo appropriato. Disabilitando il pool di connessioni, il rilascio della connessione provocherà una disconnessione fisica della connessione del database SQL di Azure, con conseguente rollback delle transazioni aperte da parte del server.  
             *    Utilizzare `SET XACT_ABORT ON` per la connessione o in tutte le stored procedure che avviano le transazioni e che non vengono ripulite in seguito a un errore. In caso di errore di run-time, questa impostazione interrompe tutte le transazioni aperte e restituisce il controllo al client. Per ulteriori informazioni, vedere [SET XACT_ABORT (Transact-SQL)](/sql/t-sql/statements/set-xact-abort-transact-sql).
+
     > [!NOTE]
     > La connessione non viene reimpostata finché non viene riutilizzata dal pool di connessioni, pertanto è possibile che un utente possa aprire una transazione e quindi rilasciare la connessione al pool di connessioni, ma potrebbe non essere riutilizzata per alcuni secondi, durante i quali la transazione rimarrà aperta. Se la connessione non viene riutilizzata, la transazione verrà interrotta al timeout della connessione e verrà rimossa dal pool di connessioni. Pertanto, è ottimale affinché l'applicazione client interrompa le transazioni nel proprio gestore errori o utilizzi `SET XACT_ABORT ON` per evitare questo potenziale ritardo.
 
@@ -385,14 +386,14 @@ Gli scenari seguenti si espanderanno in questi scenari.
 
 1.  Blocco causato da uno SPID la cui applicazione client corrispondente non ha recuperato tutte le righe di risultati fino al completamento
 
-    Dopo l'invio di una query al server, tutte le applicazioni devono recuperare immediatamente tutte le righe dei risultati fino al completamento. Se un'applicazione non recupera tutte le righe di risultati, i blocchi possono essere lasciati nelle tabelle, bloccando altri utenti. Se si utilizza un'applicazione che invia in modo trasparente istruzioni SQL al server, l'applicazione deve recuperare tutte le righe di risultati. In caso contrario (e se non è possibile configurarlo), potrebbe non essere possibile risolvere il problema di blocco. Per evitare il problema, è possibile limitare le applicazioni che si sono comportate in modo non corretto a un database di Reporting o di supporto decisionale.
+    Dopo l'invio di una query al server, tutte le applicazioni devono recuperare immediatamente tutte le righe dei risultati fino al completamento. Se un'applicazione non recupera tutte le righe di risultati, i blocchi possono essere lasciati nelle tabelle, bloccando altri utenti. Se si utilizza un'applicazione che invia in modo trasparente istruzioni SQL al server, l'applicazione deve recuperare tutte le righe di risultati. In caso contrario (e se non è possibile configurarlo), potrebbe non essere possibile risolvere il problema di blocco. Per evitare il problema, è possibile limitare le applicazioni che si sono comportate in modo non corretto a una creazione di report o a un database di supporto decisionale, separate dal database OLTP principale.
     
     > [!NOTE]
     > Vedere [linee guida per la logica di ripetizione dei tentativi](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) per le applicazioni che si connettono al database SQL 
     
     **Soluzione**: l'applicazione deve essere riscritta per recuperare tutte le righe del risultato fino al completamento. Questa operazione non esclude l'utilizzo di [offset e FETCH nella clausola ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) di una query per eseguire il paging lato server.
 
-1.  Blocco causato da uno SPID nello stato di rollback
+1.  Blocco causato da una sessione in stato di rollback
 
     Verrà eseguito il rollback di una query di modifica dei dati terminata o annullata all'esterno di una transazione definita dall'utente. Questo può verificarsi anche come effetto collaterale della disconnessione della sessione di rete client o quando viene selezionata una richiesta come vittima del deadlock. Questo può essere spesso identificato osservando l'output di sys.dm_exec_requests, che può indicare il **comando** rollback e la **colonna percent_complete** può mostrare lo stato di avanzamento. 
 

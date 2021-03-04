@@ -1,24 +1,24 @@
 ---
 title: 'Avvio rapido: Esplorare uno scenario di esempio'
 titleSuffix: Azure Digital Twins
-description: "Avvio rapido: Usare l'applicazione di esempio ADT Explorer per visualizzare ed esplorare uno scenario predefinito."
+description: "Guida introduttiva: usare l'esempio di Esplora risorse di Azure Digital Twins per visualizzare ed esplorare uno scenario predefinito."
 author: baanders
 ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 9d09bca246938f972a212f7ee71f03a618e16ac4
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cb501dd8e548ea2f6ce8b63fbffb1c4b2403c9a6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575687"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035960"
 ---
-# <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Avvio rapido: Esplorare uno scenario di Gemelli digitali di Azure di esempio con ADT Explorer
+# <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Guida introduttiva: esplorare uno scenario di esempio di dispositivi digitali gemelli di Azure con Esplora dispositivi digitali di Azure
 
 Con Gemelli digitali di Azure è possibile creare e interagire con modelli live degli ambienti reali. In primo luogo, è necessario singoli elementi come *gemelli digitali* e quindi connetterli in un *grafo* della conoscenza che possa rispondere agli eventi live ed essere sottoposto a query per ottenere informazioni.
 
-In questo argomento di avvio rapido si esplorerà un grafo predefinito di Gemelli digitali di Azure con l'aiuto di un'applicazione di esempio denominata [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Usare ADT Explorer per:
+In questa Guida introduttiva si esaminerà un grafo di Azure Digital gemelli predefinito, con l'aiuto di un'applicazione di esempio denominata [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Usare Azure Digital Twins Explorer per:
 
 - Caricare una rappresentazione digitale di un ambiente.
 - Visualizzare immagini visive dei gemelli e del grafo creati per rappresentare l'ambiente in Gemelli digitali di Azure.
@@ -26,7 +26,7 @@ In questo argomento di avvio rapido si esplorerà un grafo predefinito di Gemell
 
 L'avvio rapido illustra i passaggi principali seguenti:
 
-1. Configurare un'istanza di Gemelli digitali di Azure e ADT Explorer.
+1. Configurare un'istanza di dispositivi gemelli digitali di Azure e Azure Digital Twins Explorer.
 1. Caricare i modelli predefiniti e i dati del grafo per creare lo scenario di esempio.
 1. Esplorare il grafico dello scenario creato.
 1. Apportare modifiche al grafo.
@@ -41,11 +41,11 @@ Per completare questa guida di avvio rapido è necessaria una sottoscrizione di 
 
 È anche necessario **Node.js** nel computer. Per ottenere la versione più recente, vedere [Node.js](https://nodejs.org/).
 
-Infine, occorre anche scaricare l'esempio da usare durante la procedura descritta nell'argomento di avvio rapido. L'applicazione di esempio è **ADT Explorer**. Questo esempio contiene l'app usata nella guida di avvio rapido per caricare ed esplorare uno scenario di Gemelli digitali di Azure. Contiene anche i file dello scenario di esempio. Per scaricare l'esempio, vedere [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selezionare il pulsante **Scarica ZIP** per scaricare nel computer un file ZIP di questo codice di esempio nel computer. Decomprimere la cartella **Azure_Digital_Twins__ADT__explorer.zip** ed estrarre i file.
+Infine, occorre anche scaricare l'esempio da usare durante la procedura descritta nell'argomento di avvio rapido. L'applicazione di esempio è **Esplora Digital gemelli di Azure**. Questo esempio contiene l'app usata nella guida di avvio rapido per caricare ed esplorare uno scenario di Gemelli digitali di Azure. Contiene anche i file dello scenario di esempio. Per ottenere l'esempio, passare a [Azure Digital gemells Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selezionare il pulsante **Scarica ZIP** per scaricare nel computer un file ZIP di questo codice di esempio nel computer. Decomprimere la cartella **Azure_Digital_Twins__ADT__explorer.zip** ed estrarre i file.
 
-## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurare Gemelli digitali di Azure e ADT Explorer
+## <a name="set-up-azure-digital-twins-and-azure-digital-twins-explorer"></a>Configurare i dispositivi gemelli digitali di Azure e Azure Digital Twins Explorer
 
-La prima cosa da fare per usare Gemelli digitali di Azure è configurare un'istanza di Gemelli digitali di Azure. Dopo aver creato un'istanza del servizio e configurato le credenziali per l'autenticazione con ADT Explorer, sarà possibile connettersi all'istanza in ADT Explorer e popolarla con i dati di esempio più avanti nella guida di avvio rapido.
+La prima cosa da fare per usare Gemelli digitali di Azure è configurare un'istanza di Gemelli digitali di Azure. Dopo aver creato un'istanza del servizio e aver configurato le credenziali per l'autenticazione con Esplora dispositivi digitali di Azure, è possibile connettersi all'istanza in Azure Digital Twins Explorer e popolarla con i dati di esempio più avanti nella Guida introduttiva.
 
 Nella parte restante di questa sezione vengono illustrati questi passaggi.
 
@@ -55,11 +55,11 @@ Nella parte restante di questa sezione vengono illustrati questi passaggi.
 
 ### <a name="set-up-local-azure-credentials"></a>Configurare le credenziali di Azure locali
 
-L'applicazione ADT Explorer usa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (parte della libreria `Azure.Identity`) per l'autenticazione degli utenti con l'istanza di Gemelli digitali di Azure eseguita nel loro computer locale. Per altre informazioni sui diversi modi con cui un'app client può eseguire l'autenticazione con Gemelli digitali di Azure, vedere [Scrivere il codice di autenticazione dell'app](how-to-authenticate-client.md).
+L'applicazione Azure Digital Twins Explorer usa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (parte della `Azure.Identity` libreria) per autenticare gli utenti con l'istanza di Azure Digital Twins quando viene eseguita nel computer locale. Per altre informazioni sui diversi modi con cui un'app client può eseguire l'autenticazione con Gemelli digitali di Azure, vedere [Scrivere il codice di autenticazione dell'app](how-to-authenticate-client.md).
 
-Con questo tipo di autenticazione, ADT Explorer cercherà le credenziali nell'ambiente locale, ad esempio un account di accesso di Azure nell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) locale o in Visual Studio o Visual Studio Code. Per questo motivo è necessario *accedere ad Azure in locale* tramite uno di questi meccanismi per configurare le credenziali per l'app ADT Explorer.
+Con questo tipo di autenticazione, Esplora Digital gemelli di Azure cercherà le credenziali all'interno dell'ambiente locale, ad esempio un accesso di Azure in un'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) locale o in Visual Studio o Visual Studio Code. Per questo motivo, è necessario *accedere ad Azure in locale* tramite uno di questi meccanismi per configurare le credenziali per l'app di Azure Digital Twins Explorer.
 
-Se è già stato effettuato l'accesso ad Azure in uno di questi modi, è possibile passare alla [sezione successiva](#run-and-configure-adt-explorer).
+Se è già stato effettuato l'accesso ad Azure in uno di questi modi, è possibile passare alla [sezione successiva](#run-and-configure-azure-digital-twins-explorer).
 
 In caso contrario, è possibile installare l'interfaccia della riga di comando di Azure locale con questa procedura:
 
@@ -68,13 +68,13 @@ In caso contrario, è possibile installare l'interfaccia della riga di comando d
 1. Eseguire `az login` e seguire le istruzioni sull'autenticazione per accedere all'account Azure.
 1. Possibile ultimo passaggio: se si usano più sottoscrizioni di Azure in questo account, impostare il contesto di autenticazione su quella che contiene l'istanza di Gemelli digitali di Azure eseguendo `az account set --subscription "<your-subscription-name-or-ID>"` (è possibile usare il nome o il valore ID della sottoscrizione).
 
-Dopo l'accesso, ADT Explorer dovrebbe prelevare automaticamente le credenziali di Azure quando viene eseguito nella sezione successiva.
+Dopo aver eseguito l'accesso, Esplora dispositivi digitali di Azure deve selezionare automaticamente le credenziali di Azure quando viene eseguito nella sezione successiva.
 
 Facoltativamente, è possibile chiudere la finestra della console di autenticazione oppure tenerla aperta per usarla nel passaggio successivo.
 
-### <a name="run-and-configure-adt-explorer"></a>Eseguire e configurare ADT Explorer
+### <a name="run-and-configure-azure-digital-twins-explorer"></a>Eseguire e configurare Esplora dispositivi digitali gemelli di Azure
 
-Eseguire ora l'applicazione ADT Explorer e configurarla per l'istanza di Gemelli digitali di Azure.
+Eseguire quindi l'applicazione Esplora risorse digitali di Azure e configurarla per l'istanza di Azure Digital gemelli.
 
 1. Passare alla cartella scaricata e decompressa **Azure_Digital_Twins__ADT__explorer**.
 Aprire una finestra della console nel percorso della cartella **Azure_Digital_Twins__ADT__explorer/client/src**.
@@ -85,11 +85,11 @@ Aprire una finestra della console nel percorso della cartella **Azure_Digital_Tw
 
    Dopo alcuni secondi si aprirà una finestra del browser in cui verrà visualizzata l'app.
 
-   :::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
+   :::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Finestra del browser che mostra un'app in esecuzione in localhost: 3000. L'app è denominata Esplora dispositivi digitali gemelli di Azure e contiene le caselle per Esplora query, visualizzazione modello, visualizzazione grafico ed Esplora proprietà. Non sono ancora presenti dati sullo schermo." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
 
-1. Selezionare il pulsante **Sign in** (Accedi) nell'angolo in alto a destra della finestra, illustrato nell'immagine seguente, per configurare ADT Explorer in modo che funzioni con l'istanza configurata.
+1. Selezionare il pulsante **Sign in (accedi** ) nell'angolo superiore destro della finestra, come illustrato nell'immagine seguente, per configurare Azure Digital Twins Explorer in modo che funzioni con l'istanza configurata.
 
-   :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer con l'icona di accesso evidenziata nella parte superiore della finestra. L'icona mostra la semplice silhouette di una persona a cui è sovrapposta la silhouette di una chiave." lightbox="media/quickstart-adt-explorer/sign-in.png":::
+   :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="Esplora Digital gemelli di Azure che evidenzia l'icona di accesso nella parte superiore della finestra. L'icona Mostra una silhouette semplice di una persona sovrapposta a una silhouette di una chiave." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
 1. Immettere l'URL dell'istanza di Gemelli digitali di Azure ottenuto in precedenza nella sezione [Configurare un'istanza di Gemelli digitali di Azure](#set-up-an-azure-digital-twins-instance) nel formato *https://{nome host istanza}* .
 
@@ -103,7 +103,7 @@ Se viene visualizzata una finestra popup **Autorizzazioni richieste** da Microso
 
 ## <a name="add-the-sample-data"></a>Aggiungere i dati di esempio
 
-A questo punto occorre importare lo scenario e il grafo di esempio in ADT Explorer. Lo scenario di esempio si trova anche nella cartella **Azure_Digital_Twins__ADT__explorer** scaricata in precedenza.
+Si importerà quindi lo scenario di esempio e il grafico in Esplora risorse di Azure Digital gemelli. Lo scenario di esempio si trova anche nella cartella **Azure_Digital_Twins__ADT__explorer** scaricata in precedenza.
 
 ### <a name="models"></a>Modelli
 
@@ -138,7 +138,7 @@ Per caricare modelli, seguire questa procedura.
 >Se viene visualizzato il messaggio di errore seguente: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Casella popup che segnala un &quot;errore durante il recupero dei modelli: ClientAuthError: errore durante l'apertura della finestra popup. Può succedere se si usa Internet Explorer o se i popup sono bloccati nel browser&quot;. In fondo alla finestra del messaggio di errore è presente un pulsante Close." border="false"::: 
 > Provare a disabilitare il blocco dei popup o a usare un browser diverso.
 
-ADT Explorer carica ora questi file di modello nell'istanza di Gemelli digitali di Azure. Dovrebbero essere visualizzati nella casella **MODEL VIEW** (VISUALIZZAZIONE MODELLO) unitamente al rispettivo nome descrittivo e ID modello completo. È possibile selezionare le icone di informazioni **View Model** (Visualizza modello) per visualizzare il codice DTDL sottostante.
+Esplora dispositivi digitali di Azure ora carica i file del modello nell'istanza di Azure Digital gemelli. Dovrebbero essere visualizzati nella casella **MODEL VIEW** (VISUALIZZAZIONE MODELLO) unitamente al rispettivo nome descrittivo e ID modello completo. È possibile selezionare le icone di informazioni **View Model** (Visualizza modello) per visualizzare il codice DTDL sottostante.
 
 :::row:::
     :::column:::
@@ -173,7 +173,7 @@ Per importare il grafo, seguire questa procedura.
 
 2. Nella casella di selezione file passare alla cartella **Azure_Digital_Twins__ADT__explorer/client/examples** e selezionare il file di foglio di calcolo **buildingScenario.xlsx**. Questo file contiene una descrizione del grafo di esempio. Selezionare **OK**.
 
-   Dopo alcuni secondi ADT Explorer apre una visualizzazione **Import** che mostra un'anteprima del grafo che verrà caricato.
+   Dopo alcuni secondi, Azure Digital Twins Explorer apre una visualizzazione di **importazione** che mostra un'anteprima del grafo da caricare.
 
 3. Per confermare il caricamento del grafico, selezionare l'icona **Save** (Salva) nell'angolo in alto a destra del riquadro **GRAPH VIEW** (VISUALIZZAZIONE GRAFO).
 
@@ -185,7 +185,7 @@ Per importare il grafo, seguire questa procedura.
     :::column-end:::
    :::row-end:::
 
-4. ADT Explorer userà ora il file caricato per creare i gemelli richiesti e le relazioni tra di essi. Al termine, verrà visualizzata una finestra di dialogo. Selezionare **Close** (Chiudi).
+4. Esplora dispositivi digitali di Azure ora usa il file caricato per creare i gemelli richiesti e le relazioni tra di essi. Al termine, verrà visualizzata una finestra di dialogo. Selezionare **Close** (Chiudi).
 
    :::row:::
     :::column:::
@@ -197,11 +197,11 @@ Per importare il grafo, seguire questa procedura.
     :::column-end:::
    :::row-end:::
 
-5. Il grafo è stato caricato in ADT Explorer. Per visualizzarlo, selezionare il pulsante **Esegui query** nel riquadro **GRAPH EXPLORER** nella parte superiore della finestra di ADT Explorer.
+5. Il grafo ora è stato caricato in Azure Digital Twins Explorer. Per visualizzare il grafico, selezionare il pulsante **Esegui query** nella casella **Esplora grafico** , nella parte superiore della finestra di esplorazione di Azure Digital gemelli.
 
    :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Il pulsante Esegui query nell'angolo in alto a destra della finestra viene evidenziato." lightbox="media/quickstart-adt-explorer/run-query.png":::
 
-Verrà eseguita la query predefinita per selezionare e visualizzare tutti i gemelli digitali. ADT Explorer recupererà tutti i gemelli e le relazioni dal servizio e creerà il grafo definito da essi nel riquadro **GRAPH VIEW** (VISUALIZZAZIONE GRAFO).
+Verrà eseguita la query predefinita per selezionare e visualizzare tutti i gemelli digitali. Esplora Digital Twins di Azure recupera tutti i gemelli e le relazioni dal servizio. e creerà il grafo definito da essi nel riquadro **GRAPH VIEW** (VISUALIZZAZIONE GRAFO).
 
 ## <a name="explore-the-graph"></a>Esplorare il grafo
 
@@ -262,7 +262,7 @@ In base alle proprietà dei gemelli visualizzate in precedenza, tenere presente 
 
 ## <a name="edit-data-in-the-graph"></a>Modificare i dati nel grafo
 
-È possibile usare ADT Explorer per modificare le proprietà dei gemelli rappresentati nel grafo. In questa sezione si aumenterà la temperatura di Room0 a 76.
+È possibile usare Azure Digital Twins Explorer per modificare le proprietà dei dispositivi gemelli rappresentati nel grafico. In questa sezione si aumenterà la temperatura di Room0 a 76.
 
 Per iniziare, selezionare **Room0** per visualizzare il relativo elenco delle proprietà nel riquadro **PROPERTY EXPLORER** (ESPLORA PROPRIETÀ).
 
@@ -290,7 +290,7 @@ Ora che la temperatura di Room0 è stata modificata da 70 a 76, entrambi i gemel
 
 ## <a name="review-and-contextualize-learnings"></a>Rivedere e contestualizzare le nozioni apprese
 
-In questa guida di avvio rapido è stata creata un'istanza di Gemelli digitali di Azure, che è stata quindi connessa ad ADT Explorer e compilata con uno scenario di esempio.
+In questa Guida introduttiva è stata creata un'istanza di Azure Digital Twins, connessa ad Azure Digital Twins Explorer e compilata con uno scenario di esempio.
 
 Il grafo è stato quindi esplorato nei modi seguenti:
 
@@ -304,7 +304,7 @@ In questa guida di avvio rapido la temperatura è stata aggiornata manualmente. 
 
 ## <a name="clean-up-resources"></a>Pulizia delle risorse
 
-Per concludere le attività di questa guida di avvio rapido, prima di tutto terminare l'app console in esecuzione. In questo modo verrà chiusa la connessione all'app ADT Explorer nel browser e non sarà più possibile visualizzare i dati in tempo reale nel browser. È possibile chiudere la scheda del browser.
+Per concludere le attività di questa guida di avvio rapido, prima di tutto terminare l'app console in esecuzione. Questa azione arresta la connessione all'app Esplora risorse digitali di Azure nel browser. e non sarà più possibile visualizzare i dati in tempo reale nel browser. È possibile chiudere la scheda del browser.
 
 Quindi, è possibile scegliere le risorse che si desidera rimuovere, a seconda di ciò che si desidera eseguire successivamente.
 

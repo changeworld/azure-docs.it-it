@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c336c1632cf206cdf2bf7151dc191c4de5ef820d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668300"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036929"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opzioni di disponibilità per le macchine virtuali in Azure
 
@@ -55,7 +55,7 @@ I set di scalabilità di macchine virtuali semplificano la progettazione per la 
 
 **Modalità di orchestrazione per i set di scalabilità**
 
-I set di scalabilità di macchine virtuali consentono di avere un maggiore controllo sulle modalità di gestione delle istanze di macchine virtuali da parte del set di scalabilità. È possibile abilitare una modalità di orchestrazione uniforme o flessibile nel set di scalabilità. L'orchestrazione uniforme è ottimizzata per carichi di lavoro senza stato su larga scala con istanze identiche. L'orchestrazione flessibile (anteprima) è destinata alla disponibilità elevata su larga scala con tipi di macchina virtuale identici o multipli. Altre informazioni su queste [modalità di orchestrazione](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) e su come abilitarle.
+I set di scalabilità di macchine virtuali consentono di avere un maggiore controllo sulle modalità di gestione delle istanze di macchine virtuali da parte del set di scalabilità. È possibile abilitare una modalità di orchestrazione uniforme o flessibile nel set di scalabilità. L'orchestrazione uniforme è ottimizzata per carichi di lavoro senza stato su larga scala con istanze identiche. L'orchestrazione flessibile (anteprima) è destinata alla disponibilità elevata su larga scala con tipi di macchina virtuale identici o multipli. Altre informazioni su queste [modalità di orchestrazione](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) e su come abilitarle.
 
 
 ## <a name="availability-sets"></a>Set di disponibilità

@@ -2,21 +2,21 @@
 title: Domande frequenti sul modello ARM
 description: Domande frequenti sui modelli di Azure Resource Manager (modelli ARM).
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 24baa0dc7444f632040ddaf9fcc2266f9e4ccae5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561903"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036141"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Domande frequenti sui modelli ARM
 
 Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure Resource Manager (modelli ARM).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 * **Che cosa sono i modelli ARM e perché è consigliabile usarli?**
 
@@ -88,7 +88,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 * **Ho sentito dire che stai lavorando a un nuovo linguaggio del modello. Dove è possibile reperire ulteriori informazioni?**
 
-  Per visualizzare l'anteprima del nuovo linguaggio, vedere [Project bicipit repository](https://github.com/Azure/bicep). Per rimanere sempre aggiornati sulla nuova lingua, [iscriversi per le notifiche](https://aka.ms/armLangUpdates).
+  Per informazioni sul nuovo linguaggio, vedere [che cos'è il bicipite (anteprima)?](bicep-overview.md).
 
 * **È previsto un piano per supportare la creazione di modelli in YAML?**
 
@@ -100,7 +100,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 * **Si offrirà uno strumento per convertire i modelli JSON nel nuovo linguaggio del modello?**
 
-  Sì.
+  Sì. Vedere [decompilare JSON in bicipite](compare-template-syntax.md#decompile-json-to-bicep).
 
 ## <a name="template-specs"></a>Specifiche di modello
 

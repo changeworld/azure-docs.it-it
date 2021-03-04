@@ -1,17 +1,16 @@
 ---
 title: Raccolta di origini dati per le prestazioni di Windows e Linux con Log Analytics Agent in monitoraggio di Azure
 description: I contatori delle prestazioni vengono raccolti da Monitoraggio di Azure per analizzare le prestazioni degli agenti Windows e Linux.  Questo articolo descrive come configurare la raccolta di contatori delle prestazioni per gli agenti Windows e Linux, i cui dettagli vengono archiviati nell'area di lavoro, e come analizzarli nel portale di Azure.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: c06123b33c7f467e12742cf6180d821e647b5115
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: f4bddc1666d1165d6a1e4c749fdbc96ede37747a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711553"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036776"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Raccogli origini dati per le prestazioni di Windows e Linux con Log Analytics Agent
 I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Monitoraggio di Azure è in grado di raccogliere i contatori delle prestazioni dagli agenti Log Analytics a intervalli frequenti per l'analisi di quasi in tempo reale (NRT) oltre ad aggregare i dati sulle prestazioni per l'analisi a lungo termine e la creazione di report
@@ -22,7 +21,7 @@ I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagl
 ![Contatori delle prestazioni](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurazione dei contatori delle prestazioni
-Configurare i contatori delle prestazioni dal [menu dati in impostazioni avanzate](../agents/agent-data-sources.md#configuring-data-sources) per l'area di lavoro log Analytics.
+Configurare i contatori delle prestazioni dal [menu di configurazione agenti](../agents/agent-data-sources.md#configuring-data-sources) per l'area di lavoro log Analytics.
 
 Quando si configurano per la prima volta i contatori delle prestazioni di Windows o Linux per una nuova area di lavoro, è possibile creare rapidamente alcuni contatori comuni.  Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.  Assicurarsi di aver selezionato tutti i contatori da creare e quindi fare clic su **Aggiungi i contatori delle prestazioni selezionati**.
 
@@ -36,28 +35,28 @@ Per i contatori delle prestazioni di Windows è possibile scegliere un'istanza s
 
 ### <a name="windows-performance-counters"></a>Contatori delle prestazioni di Windows
 
-![Configurare i contatori delle prestazioni di Windows](media/data-sources-performance-counters/configure-windows.png)
+[![Configurare i contatori delle prestazioni di Windows](media/data-sources-performance-counters/configure-windows.png)](media/data-sources-performance-counters/configure-windows.png#lightbox)
 
 Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Windows da raccogliere. Si noti che i contatori delle prestazioni di Windows V2 non sono supportati.
 
-1. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  Per restituire tutte le istanze per un contatore specifico, specificare *oggetto\contatore*.  
+1. Fare clic su **Aggiungi contatore delle prestazioni**.
+2. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  Per restituire tutte le istanze per un contatore specifico, specificare *oggetto\contatore*.  
 
     Quando si raccolgono i contatori delle prestazioni di SQL Server da istanze denominate, tutti i contatori di tali istanze iniziano con *MSSQL$*, seguito dal nome dell'istanza.  Ad esempio, per raccogliere il contatore Percentuale riscontri cache log di tutti i database dall'oggetto delle prestazioni del database per l'istanza di SQL denominata INST2, specificare `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Fare clic **+** o premere **invio** per aggiungere il contatore all'elenco.
-3. Quando si aggiunge un contatore, per **Intervallo di campionamento** verrà usato il valore predefinito di 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
-4. Dopo aver aggiunto i contatori, fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare la configurazione.
+4. Quando si aggiunge un contatore, per **Intervallo di campionamento** verrà usato il valore predefinito di 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
+5. Al termine dell'aggiunta dei contatori, fare clic sul pulsante **applica** nella parte superiore della schermata per salvare la configurazione.
 
 ### <a name="linux-performance-counters"></a>Contatori delle prestazioni di Linux
 
-![Configurare i contatori delle prestazioni di Linux](media/data-sources-performance-counters/configure-linux-1.png)
+[![Configurare i contatori delle prestazioni di Linux](media/data-sources-performance-counters/configure-linux.png)](media/data-sources-performance-counters/configure-linux.png#lightbox)
 
 Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Linux da raccogliere.
 
+1. Fare clic su **Aggiungi contatore delle prestazioni**.
 1. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  
-1. Fare clic **+** o premere **invio** per aggiungere il contatore all'elenco di altri contatori per l'oggetto.
 1. Tutti i contatori per un oggetto usano lo stesso **intervallo di campionamento**.  Il valore predefinito è 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
-1. Dopo aver aggiunto i contatori, fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare la configurazione.
+1. Al termine dell'aggiunta dei contatori, fare clic sul pulsante **applica** nella parte superiore della schermata per salvare la configurazione.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurare i contatori delle prestazioni di Linux nel file di configurazione
 Anziché usare il portale di Azure per configurare i contatori delle prestazioni di Linux, è possibile modificare i file di configurazione direttamente nell'agente di Linux.  Le metriche delle prestazioni da raccogliere sono controllate dalla configurazione in **/etc/opt/Microsoft/omsagent/Workspace \<workspace id\> /conf/omsagent.conf**.

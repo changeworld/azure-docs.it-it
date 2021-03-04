@@ -8,12 +8,12 @@ ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7e618475d7d0160bce5aee39c267bb191a3a9f0a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: d8694a715e53f820556231ae6a549e98b2963fa1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897140"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035705"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale Linux
 
@@ -108,13 +108,10 @@ Il disco rimane nello spazio di archiviazione ma non è più collegato a una mac
 
 1. Dal menu a sinistra selezionare **Macchine virtuali**.
 1. Nel pannello delle macchine virtuali selezionare **Dischi**.
-1. Nella parte superiore del pannello **Dischi** selezionare **Modifica**.
-1. Nel pannello **Dischi**, fare clic sul pulsante per scollegare il disco ![Immagine del pulsante per scollegare il disco](./media/detach-disk/detach.png) nella parte più a destra del disc dati.
-1. Dopo aver rimosso il disco, fare clic su **Salva** nella parte superiore del pannello.
+1. Nel pannello **dischi** , all'estrema destra del disco dati che si desidera scollegare, selezionare il pulsante **X** per scollegare il disco.
+1. Dopo la rimozione del disco, selezionare **Salva** nella parte superiore del pannello.
 
-Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
-
-
+Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale. Il disco non viene eliminato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si intende usare nuovamente il disco dati, è sufficiente [collegarlo a un'altra macchina virtuale](add-disk.md).

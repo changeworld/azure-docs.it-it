@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 481a4ff21c361e4cf82a21d9e98357a4c8b7b1b4
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: cab5ac5e6a8fd900a41ff3690763746033b6200e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663673"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034813"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizzare la gestione con l'estensione SQL Server agente IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -55,9 +55,6 @@ Il SQL Server estensione dell'agente IaaS consente l'integrazione con l'portale 
    ```azurecli-interactive
    $ az sql vm list --query "[?sqlServerLicenseType=='AHUB']"
    ```
-
-
-
    ---
 
 
@@ -100,6 +97,7 @@ La tabella seguente illustra i vantaggi seguenti:
   $sqlvm = Get-AzSqlVM -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName
   $sqlvm.SqlManagementType
   ```
+
 
 ## <a name="installation"></a>Installazione
 
@@ -166,97 +164,11 @@ L'estensione SQL IaaS Agent supporta solo:
 - Macchine virtuali di SQL Server distribuite nel cloud pubblico o Azure per enti pubblici. Le distribuzioni in altri cloud privati o governativi non sono supportate. 
 
 
-## <a name="frequently-asked-questions"></a>Domande frequenti 
-
-**È necessario registrare la macchina virtuale di SQL Server sottoposta a provisioning da un'immagine di SQL Server in Azure Marketplace?**
-
-No. Microsoft registra automaticamente le macchine virtuali di cui è stato eseguito il provisioning dalle immagini di SQL Server in Azure Marketplace. La registrazione con l'estensione è necessaria solo se *non* è stato effettuato il provisioning della macchina virtuale dalla SQL Server immagini in Azure Marketplace e SQL Server è stato installato autonomamente.
-
-**L'estensione SQL IaaS Agent è disponibile per tutti i clienti?** 
-
-Sì. I clienti devono registrare le proprie macchine virtuali SQL Server con l'estensione se non usano un'immagine SQL Server da Azure Marketplace, ma SQL Server installate in modo autonomo oppure se hanno portato il disco rigido virtuale personalizzato. Le macchine virtuali di proprietà di tutti i tipi di sottoscrizioni (Direct, Contratto Enterprise e Cloud Solution Provider) possono eseguire la registrazione con l'estensione SQL IaaS Agent.
-
-**Qual è la modalità di gestione predefinita durante la registrazione con l'estensione SQL IaaS Agent?**
-
-La modalità di gestione predefinita quando si esegue la registrazione con l'estensione SQL IaaS Agent è *leggera*. Se la proprietà gestione SQL Server non è impostata quando si esegue la registrazione con l'estensione, la modalità viene impostata come Lightweight e il servizio di SQL Server non verrà riavviato. Si consiglia di eseguire prima la registrazione con l'estensione SQL IaaS Agent in modalità Lightweight, quindi eseguire l'aggiornamento a full durante una finestra di manutenzione. Analogamente, anche la gestione predefinita è leggera quando si usa la [funzionalità di registrazione automatica](sql-agent-extension-automatic-registration-all-vms.md).
-
-**Quali sono i prerequisiti per la registrazione con l'estensione SQL IaaS Agent?**
-
-Non sono previsti prerequisiti per la registrazione con l'estensione SQL IaaS Agent, ad eccezione del fatto che SQL Server installato nella macchina virtuale. Si noti che se l'estensione SQL IaaS Agent è installata in modalità completa, il servizio SQL Server verrà riavviato, pertanto è consigliabile eseguire questa operazione durante una finestra di manutenzione.
-
-**Si registrerà con l'estensione SQL IaaS Agent per installare un agente nella macchina virtuale?**
-
-Sì, la registrazione con l'estensione SQL IaaS Agent in modalità di gestibilità completa consente di installare un agente nella macchina virtuale. La registrazione in modalità lightweight o noagent non lo è. 
-
-Se si esegue la registrazione con l'estensione SQL IaaS Agent in modalità Lightweight, solo i *file binari* dell'estensione SQL IaaS Agent vengono copiati nella macchina virtuale e l'agente non viene installato. Questi file binari vengono quindi utilizzati per installare l'agente quando la modalità di gestione viene aggiornata a piena.
-
-
-**La registrazione con l'estensione SQL IaaS Agent viene riavviata SQL Server nella macchina virtuale?**
-
-Dipende dalla modalità specificata durante la registrazione. Se si specifica la modalità lightweight o noagent, il servizio SQL Server non verrà riavviato. Tuttavia, se si specifica la modalità di gestione come completa, il servizio di SQL Server verrà riavviato. La funzionalità di registrazione automatica registra le macchine virtuali SQL Server in modalità Lightweight, a meno che la versione di Windows Server non sia 2008, nel qual caso la VM SQL Server verrà registrata in modalità noagent. 
-
-**Qual è la differenza tra le modalità di gestione Lightweight e noagent durante la registrazione con l'estensione SQL IaaS Agent?** 
-
-La modalità di gestione noagent è l'unica modalità di gestione disponibile per SQL Server 2008 e SQL Server 2008 R2 in Windows Server 2008. Per tutte le versioni successive di Windows Server, le due modalità di gestione disponibili sono leggero e pieno. 
-
-Per la modalità noagent sono richieste SQL Server proprietà Version ed Edition impostate dal cliente. La modalità semplificata esegue una query sulla macchina virtuale per trovare la versione e l'edizione dell'istanza di SQL Server.
-
-**È possibile eseguire la registrazione con l'estensione SQL IaaS Agent senza specificare il tipo di licenza SQL Server?**
-
-No. Il tipo di licenza SQL Server non è una proprietà facoltativa quando si esegue la registrazione con l'estensione SQL IaaS Agent. È necessario impostare il tipo di licenza SQL Server come con pagamento in base al consumo o Vantaggio Azure Hybrid quando si esegue la registrazione con l'estensione SQL IaaS Agent in tutte le modalità di gestibilità (noagent, Lightweight e Full). Se è installata una delle versioni gratuite di SQL Server, ad esempio Developer o Evaluation Edition, è necessario registrarsi con le licenze con pagamento in base al consumo. Vantaggio Azure Hybrid è disponibile solo per le versioni a pagamento di SQL Server, ad esempio le edizioni Enterprise e standard.
-
-**È possibile aggiornare l'estensione SQL Server IaaS dalla modalità noagent alla modalità completa?**
-
-No. L'aggiornamento della modalità di gestibilità a full o Lightweight non è disponibile per la modalità noagent. Si tratta di una limitazione tecnica di Windows Server 2008. Sarà necessario aggiornare prima il sistema operativo a Windows Server 2008 R2 o una versione successiva per potere poi eseguire l'aggiornamento alla modalità di gestione completa. 
-
-**È possibile aggiornare l'estensione IaaS di SQL Server dalla modalità semplificata alla modalità completa?**
-
-Sì. L'aggiornamento della modalità di gestibilità da Lightweight a Full è supportato tramite Azure PowerShell o l'portale di Azure. Verrà attivato il riavvio del servizio SQL Server.
-
-**È possibile effettuare il downgrade del SQL Server estensione IaaS dalla modalità completa a noagent o alla modalità di gestione Lightweight?**
-
-No. Il downgrade della modalità di gestibilità dell'estensione IaaS di SQL Server non è supportato. Non è possibile effettuare il downgrade della modalità di gestibilità dalla modalità completa alla modalità lightweight o noagent e non è possibile effettuare il downgrade dalla modalità Lightweight alla modalità noagent. 
-
-Per modificare la modalità di gestibilità dalla gestione completa, [annullare la registrazione](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) della macchina virtuale SQL Server dall'estensione SQL IaaS Agent rilasciando la _risorsa_ della macchina virtuale SQL e registrare nuovamente la VM SQL Server con l'estensione SQL IaaS Agent in una modalità di gestione diversa.
-
-**È possibile eseguire la registrazione con l'estensione SQL IaaS Agent dalla portale di Azure?**
-
-No. La registrazione con l'estensione SQL IaaS Agent non è disponibile nel portale di Azure. La registrazione con l'estensione SQL IaaS Agent è supportata solo con l'interfaccia della riga di comando di Azure o con Azure PowerShell. 
-
-**È possibile registrare una macchina virtuale con l'estensione SQL IaaS Agent prima di installare SQL Server?**
-
-No. Una macchina virtuale deve avere almeno un'istanza di SQL Server (motore di database) per eseguire correttamente la registrazione con l'estensione SQL IaaS Agent. Se non è presente alcuna istanza di SQL Server nella macchina virtuale, la nuova risorsa Microsoft.SqlVirtualMachine avrà uno stato di errore.
-
-**È possibile registrare una macchina virtuale con l'estensione SQL IaaS Agent se sono presenti più istanze di SQL Server?**
-
-Sì, a condizione che sia presente un'istanza predefinita nella macchina virtuale. L'estensione SQL IaaS Agent registrerà una sola istanza di SQL Server (motore di database). L'estensione SQL IaaS Agent registrerà l'istanza predefinita di SQL Server nel caso di più istanze.
-
-**È possibile registrare un'istanza del cluster di failover di SQL Server con l'estensione SQL IaaS Agent?**
-
-Sì. SQL Server istanze del cluster di failover in una macchina virtuale di Azure possono essere registrate con l'estensione SQL IaaS Agent in modalità lightweight. Tuttavia, le istanze del cluster di failover di SQL Server non possono essere aggiornate alla modalità di gestione completa.
-
-**È possibile registrare la macchina virtuale con l'estensione SQL IaaS Agent se è configurato un gruppo di disponibilità Always On?**
-
-Sì. Non sono previste restrizioni per la registrazione di un'istanza di SQL Server in una macchina virtuale di Azure con l'estensione SQL IaaS Agent se si partecipa a una configurazione del gruppo di disponibilità Always On.
-
-**Qual è il costo per la registrazione con l'estensione SQL IaaS Agent o con l'aggiornamento alla modalità di gestibilità completa?**
-
-Nessuna. Non sono previste tariffe associate alla registrazione con l'estensione SQL IaaS Agent o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con l'estensione è completamente gratuita. 
-
-**Qual è l'effetto sulle prestazioni dell'uso delle diverse modalità di gestibilità?**
-
-Non vi è alcun effetto quando si usano le modalità di gestione *NoAgent* e *semplificata*. Quando si usa la modalità di gestione *completa* da due servizi installati nel sistema operativo, l'effetto è minimo. Questi servizi sono monitorabili tramite Gestione attività e possono essere visualizzati nella console Servizi Windows incorporata. 
-
-I due nomi di servizio sono:
-- `SqlIaaSExtensionQuery` (Nome visualizzato: `Microsoft SQL Server IaaS Query Service`)
-- `SQLIaaSExtension` (Nome visualizzato: `Microsoft SQL Server IaaS Agent`)
-
-**Ricerca per categorie rimuovere l'estensione?**
-
-Rimuovere l'estensione [annullando la registrazione](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) della macchina virtuale SQL Server dall'estensione SQL IaaS Agent. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per installare l'estensione IaaS SQL Server per SQL Server in macchine virtuali di Azure, vedere gli articoli relativi all' [installazione automatica](sql-agent-extension-automatic-registration-all-vms.md), alle [macchine virtuali singole](sql-agent-extension-manually-register-single-vm.md)o alle [VM in blocco](sql-agent-extension-manually-register-vms-bulk.md).
 
 Per altre informazioni sull'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [Cos'è SQL Server in Macchine virtuali di Azure?](sql-server-on-azure-vm-iaas-what-is-overview.md).
+
+Per altre informazioni, vedere [domande frequenti](frequently-asked-questions-faq.md). 

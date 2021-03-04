@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 277b1a46ad480be8313f6971dc600d3dd911c09d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: b108e757ed9fe9ab7038cae4240f0f749ac19675
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762348"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036045"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Pro con GPU 
 
@@ -103,6 +103,8 @@ Prima di iniziare, verificare che:
 
 Se si ha già una risorsa Azure Stack Edge per la gestione del dispositivo fisico, saltare questo passaggio e procedere con il passaggio [Ottenere la chiave di attivazione](#get-the-activation-key).
 
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
 Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di Azure.
 
 1. Usare le credenziali di Microsoft Azure per accedere al portale di Azure a questo indirizzo: [https://portal.azure.com](https://portal.azure.com).
@@ -143,7 +145,7 @@ Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di
 
         ![Creare una risorsa 6](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
 
-    - Se si sta ordinando un nuovo dispositivo, immettere il nome del contatto, la società, l'indirizzo a cui spedire il dispositivo e le informazioni di contatto.
+    - Se si tratta del nuovo dispositivo che si sta ordinando, immettere il nome del contatto, la società, l'indirizzo per spedire il dispositivo e le informazioni di contatto.
 
         ![Creare una risorsa 7](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)
 
@@ -163,7 +165,7 @@ Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di
 
     ![Andare alla risorsa Azure Stack Edge Pro](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
 
-Dopo che l'ordine è stato inviato, Microsoft lo verifica e invia quindi all'utente un messaggio di posta elettronica con i dettagli della spedizione.
+Una volta effettuato l'ordine, Microsoft esamina l'ordine e contatta l'utente (via posta elettronica) con i dettagli sulla spedizione.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
 
@@ -171,6 +173,51 @@ Dopo che l'ordine è stato inviato, Microsoft lo verifica e invia quindi all'ute
 > Per creare più ordini contemporaneamente o clonare un ordine esistente, è possibile usare gli [script negli esempi di Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Per altre informazioni, vedere il file README.
 
 Se si verificano problemi durante il processo di ordine, vedere [Risolvere i problemi relativi all'ordine](azure-stack-edge-troubleshoot-ordering.md).
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Se necessario, preparare l'ambiente per l'interfaccia della riga di comando di Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Per creare una risorsa Azure Stack Edge, eseguire i comandi seguenti nell'interfaccia della riga di comando di Azure.
+
+1. Creare un gruppo di risorse usando il comando [AZ Group create](/cli/azure/group#az_group_create) oppure usare un gruppo di risorse esistente:
+
+   ```azurecli
+   az group create --name myasepgpu1 --location eastus
+   ```
+
+1. Per creare un dispositivo, usare il comando [AZ databoxedge Device Create](/cli/azure/databoxedge/device#az_databoxedge_device_create) :
+
+   ```azurecli
+   az databoxedge device create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --location eastus --sku EdgeP_Base
+   ```
+
+   Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo. L'area archivia solo i metadati per la gestione del dispositivo. I dati effettivi possono essere archiviati in qualsiasi account di archiviazione.
+
+   Per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Se si usa Azure per enti pubblici, sono disponibili tutte le aree per enti pubblici riportate in [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+
+1. Per creare un ordine, eseguire il comando [AZ databoxedge Order create](/cli/azure/databoxedge/order#az_databoxedge_order_create) :
+
+   ```azurecli 
+   az databoxedge order create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --company-name "Contoso" \
+      --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+      --state "California" --country "United States" --postal-code 94089 \
+      --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```
+
+La creazione della risorsa richiede alcuni minuti. Eseguire il comando [AZ databoxedge Order Show](/cli/azure/databoxedge/order#az_databoxedge_order_show) per vedere l'ordine:
+
+```azurecli
+az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
+```
+
+Dopo aver effettuato un ordine, Microsoft esamina l'ordine e contatta l'utente tramite posta elettronica con i dettagli sulla spedizione.
+
+---
 
 ## <a name="get-the-activation-key"></a>Ottenere la chiave di attivazione
 

@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, Sensor, SDK, depth, RGB, Internal, External, Synchronization, Daisy Chain, offset fase
-ms.openlocfilehash: 914a29882277c11c388d3f81f0b1fe827fc2f156
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce0c72d3d708d5696a9775b3885f278f0c23cac1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85276703"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034312"
 ---
 # <a name="capture-azure-kinect-device-synchronization"></a>Acquisire la sincronizzazione dei dispositivi Kinect di Azure
 
-L'hardware Kinect di Azure può allineare il tempo di acquisizione delle immagini di colore e profondità. L'allineamento tra le fotocamere nello stesso dispositivo è la **sincronizzazione interna**. L'allineamento del tempo di acquisizione tra più dispositivi connessi è la **sincronizzazione esterna**.
+L'hardware Kinect di Azure può allineare il tempo di acquisizione delle immagini di colore e profondità. L'allineamento tra le fotocamere nello stesso dispositivo è la **sincronizzazione interna**. L'allineamento del tempo di acquisizione tra più dispositivi connessi è la **sincronizzazione esterna**. La matrice microfonica funziona indipendentemente dalle fotocamere a colori e profondità.
 
 ## <a name="device-internal-synchronization"></a>Sincronizzazione interna del dispositivo
 

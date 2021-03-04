@@ -1,18 +1,17 @@
 ---
 title: Eliminazione del connettore ITSM e dell'azione associata
 description: Questo articolo fornisce una spiegazione su come eliminare il connettore ITSM e i gruppi di azioni associati.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/29/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1fbaa48d104642984e604bc66a3aa914fbfed44c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e73510b6c61c58f6f0b2b8067a240214ee35a46c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617907"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036487"
 ---
 # <a name="deletion-of-unused-itsm-connectors"></a>Eliminazione di connettori ITSM inutilizzati
 

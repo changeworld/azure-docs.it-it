@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b664dd406a1ab90b4ea5e85005a69935f345c609
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240750"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034660"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concetti relativi ai server nel database di Azure per MySQL server flessibili (anteprima)
 
@@ -38,7 +38,7 @@ Un server flessibile per database di Azure per MySQL:
 - Fornisce un'integrazione della rete virtuale per l'accesso al server di database
 - Fornisce un modo per ridurre i costi sospendendo il server flessibile quando non è in uso
 - Fornisce l'ambito per i criteri di gestione applicati ai database: account di accesso, firewall, utenti, ruoli, configurazioni e così via.
-- È attualmente supportato con la versione MySQL 5,7. Per altre informazioni, vedere la pagina relativa alle [versioni supportate del motore di database di Azure per MySQL](./concepts-supported-versions.md).
+- Supporta la versione principale di MySQL 5,7 e MySQL 8,0. Per altre informazioni, vedere la pagina relativa alle [versioni supportate del motore di database di Azure per MySQL](./../concepts-supported-versions.md).
 
 All'interno di un server di database di Azure per MySQL flessibile, è possibile creare uno o più database. È possibile scegliere di creare un singolo database per ogni server per usare tutte le risorse o per creare più database per condividere le risorse. I prezzi sono strutturati per server, in base alla configurazione del livello di calcolo, Vcore e archiviazione (GB). Per altre informazioni, vedere [calcolo e archiviazione](./concepts-compute-storage.md).
 

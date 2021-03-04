@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 8a4a4153261b93b3b17641e8561962c274570bd0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 5dd960dde72b879515bd948c4731ead135bef4b0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104213"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035051"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
@@ -45,7 +45,7 @@ Non è possibile creare direttamente un'entità servizio usando il portale di Az
 1. Nel riquadro sinistro selezionare **impostazioni utente**.
 1. Controllare l'impostazione **Registrazioni per l'app**. Questo valore può essere impostato solo da un amministratore. Se è impostato su **Sì**, qualsiasi utente nel tenant di Azure AD può registrare un'app.
 
-Se l'impostazione relativa alle registrazioni dell'app è impostata su **No**, solo gli utenti con un ruolo di amministratore possono registrare questi tipi di applicazioni. Vedere [Ruoli disponibili](../roles/permissions-reference.md#available-roles) e [Autorizzazioni dei ruoli](../roles/permissions-reference.md#role-permissions) per informazioni sui ruoli di amministratore disponibili e le specifiche autorizzazioni di Azure AD assegnate a ogni ruolo. Se l'account è assegnato al ruolo utente, ma l'impostazione di registrazione dell'app è limitata agli utenti amministratori, richiedere all'amministratore di assegnare uno dei ruoli di amministratore che possono creare e gestire tutti gli aspetti delle registrazioni di app o consentire agli utenti di registrare le app.
+Se l'impostazione relativa alle registrazioni dell'app è impostata su **No**, solo gli utenti con un ruolo di amministratore possono registrare questi tipi di applicazioni. Per informazioni sui ruoli di amministratore disponibili e sulle autorizzazioni specifiche in Azure AD assegnati a ogni ruolo, vedere [Azure ad ruoli predefiniti](../roles/permissions-reference.md#all-roles) . Se l'account è assegnato al ruolo utente, ma l'impostazione di registrazione dell'app è limitata agli utenti amministratori, richiedere all'amministratore di assegnare uno dei ruoli di amministratore che possono creare e gestire tutti gli aspetti delle registrazioni di app o consentire agli utenti di registrare le app.
 
 ### <a name="check-azure-subscription-permissions"></a>Controllare le autorizzazioni di sottoscrizione di Azure
 
@@ -55,7 +55,7 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
 1. Cercare e selezionare le **sottoscrizioni** oppure selezionare **sottoscrizioni** nella **Home** page.
 
-   ![Cerca](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Ricerca](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selezionare la sottoscrizione in cui si desidera creare l'entità servizio.
 

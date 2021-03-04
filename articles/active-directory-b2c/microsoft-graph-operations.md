@@ -12,12 +12,12 @@ ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a7e9e523d3aae7cf1444c048c023ca1d85fde41f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98952232"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033623"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gestire Azure AD B2C con Microsoft Graph
 
@@ -41,7 +41,7 @@ Numero di telefono che può essere utilizzato da un utente per l'accesso tramite
 
 - [Aggiungere](/graph/api/authentication-post-phonemethods)
 - [Elenco](/graph/api/authentication-list-phonemethods)
-- [Ottieni](/graph/api/phoneauthenticationmethod-get)
+- [Recupero](/graph/api/phoneauthenticationmethod-get)
 - [Aggiornamento](/graph/api/phoneauthenticationmethod-update)
 - [Elimina](/graph/api/phoneauthenticationmethod-delete)
 
@@ -55,7 +55,7 @@ Un indirizzo di posta elettronica che può essere usato da un [account di access
 
 - [Aggiungere](/graph/api/emailauthenticationmethod-post)
 - [Elenco](/graph/api/emailauthenticationmethod-list)
-- [Ottieni](/graph/api/emailauthenticationmethod-get)
+- [Recupero](/graph/api/emailauthenticationmethod-get)
 - [Aggiornamento](/graph/api/emailauthenticationmethod-update)
 - [Elimina](/graph/api/emailauthenticationmethod-delete)
 
@@ -82,7 +82,7 @@ Configurare criteri predefiniti per l'iscrizione, l'accesso, l'iscrizione e l'ac
 
 Scegliere un meccanismo per consentire agli utenti di effettuare la registrazione tramite account locali. Gli account locali sono gli account in cui Azure AD esegue l'asserzione di identità. Per altre informazioni, vedere [tipo di risorsa b2cAuthenticationMethodsPolicy](/graph/api/resources/b2cauthenticationmethodspolicy).
 
-- [Ottieni](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Recupero](/graph/api/b2cauthenticationmethodspolicy-get)
 - [Aggiornamento](/graph/api/b2cauthenticationmethodspolicy-update)
 
 ## <a name="custom-policies"></a>Criteri personalizzati
@@ -137,6 +137,14 @@ Azure AD B2C fornisce una directory che può contenere 100 attributi personalizz
 - [Elencare i log di controllo](/graph/api/directoryaudit-list)
 
 Per ulteriori informazioni sull'accesso ai log di controllo di Azure AD B2C, vedere [accesso ai log di controllo di Azure ad B2C](view-audit-logs.md).
+
+## <a name="conditional-access"></a>Accesso condizionale
+
+- [Elencare tutti i criteri di accesso condizionale](/graph/api/resources/conditionalaccessroot-list-policies)
+- [Leggere le proprietà e le relazioni di un criterio di accesso condizionale](/graph/api/conditionalaccesspolicy-get)
+- [Creare nuovi criteri di accesso condizionale](/graph/api/resources/application)
+- [Aggiornare i criteri di accesso condizionale](/graph/api/conditionalaccesspolicy-update)
+- [Eliminare un criterio di accesso condizionale](/graph/api/conditionalaccesspolicy-delete)
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Esempio di codice: come gestire gli account utente a livello di codice
 

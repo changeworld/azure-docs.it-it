@@ -1,17 +1,16 @@
 ---
 title: Raccolta delle origini dati del registro eventi di Windows con Log Analytics Agent in monitoraggio di Azure
 description: Descrive come configurare la raccolta di log di Eventi Windows tramite il Monitoraggio di Azure e i dettagli dei record creati.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: b747a4b58c9c460178d415d0b45ade814723d8fe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: a3baa83e2ae306f1e43aee52e29a151bad6f85d9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719866"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036597"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Raccolta delle origini dati del registro eventi di Windows con Log Analytics Agent
 I registri eventi di Windows sono una delle [origini dati](../agents/agent-data-sources.md) più comuni per log Analytics agenti nelle macchine virtuali Windows perché molte applicazioni scrivono nel registro eventi di Windows.  È possibile raccogliere gli eventi dai log standard, ad esempio sistema e applicazioni, oltre a specificare qualsiasi log personalizzato creato dalle applicazioni da monitorare.
@@ -22,13 +21,13 @@ I registri eventi di Windows sono una delle [origini dati](../agents/agent-data-
 ![Eventi Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Configurazione dei log eventi di Windows
-Configurare i registri eventi di Windows [nel menu dati in impostazioni avanzate](../agents/agent-data-sources.md#configuring-data-sources) per l'area di lavoro log Analytics.
+Configurare i registri eventi di Windows dal [menu di configurazione agenti](../agents/agent-data-sources.md#configuring-data-sources) per l'area di lavoro log Analytics.
 
 Monitoraggio di Azure raccoglie solo gli eventi dai log eventi di Windows che vengono specificati nelle impostazioni.  È possibile aggiungere un log eventi digitando il nome del log e facendo clic su **+** .  Per ogni log vengono raccolti solo gli eventi con i livelli di gravità selezionati.  Controllare i livelli di gravità del log specifico da raccogliere.  Non è possibile specificare altri criteri per filtrare gli eventi.
 
 Mentre si digita il nome di un registro eventi, Monitoraggio di Azure fornisce suggerimenti sui nomi comunemente usati per il registro eventi. Se il registro che si desidera aggiungere non viene visualizzato nell'elenco, è possibile aggiungerlo digitandone il nome completo. È possibile trovare il nome completo del registro tramite il Visualizzatore eventi. Nel Visualizzatore eventi, aprire la pagina *Proprietà* del registro e copiare la stringa dal campo *Nome completo*.
 
-![Configurare gli eventi di Windows](media/data-sources-windows-events/configure.png)
+[![Configurare gli eventi di Windows](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!NOTE]
 > Gli eventi critici del registro eventi di Windows avranno un livello di gravità "errore" nei log di monitoraggio di Azure.

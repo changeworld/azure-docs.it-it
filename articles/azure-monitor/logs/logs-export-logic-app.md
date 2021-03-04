@@ -2,17 +2,16 @@
 title: Archiviare dati da un'area di lavoro Log Analytics ad archiviazione di Azure tramite l'app per la logica
 description: Descrive un metodo per usare app per la logica di Azure per eseguire query sui dati da un'area di lavoro Log Analytics e inviarli ad archiviazione di Azure.
 ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: ae95580a8c192f0815623461fb21ec9ecf52ae26
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fd66aa1f10a32d94d515a1f0aa25c25331796a8d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700644"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035688"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archiviare dati da un'area di lavoro Log Analytics ad archiviazione di Azure tramite l'app per la logica
 Questo articolo descrive un metodo per usare [app](../../logic-apps/index.yml) per la logica di Azure per eseguire query sui dati da un'area di lavoro log Analytics in monitoraggio di Azure e inviarli ad archiviazione di Azure. Usare questo processo quando è necessario esportare i dati di log di monitoraggio di Azure per gli scenari di controllo e conformità o per consentire a un altro servizio di recuperare questi dati.  

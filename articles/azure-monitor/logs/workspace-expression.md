@@ -1,17 +1,16 @@
 ---
 title: Espressione workspace() nelle query di log di Monitoraggio di Azure | Microsoft Docs
 description: L'espressione workspace viene usata in una query di log di Monitoraggio di Azure per recuperare dati da un'area di lavoro specifica nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 34b1f850b262a0027d3a9cb2e926bcb2c8a49665
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2f6eb3998c611cb7a72886d1c577c665d73cb5a2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710907"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035569"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Espressione workspace() nelle query di log di Monitoraggio di Azure
 

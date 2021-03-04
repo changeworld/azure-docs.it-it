@@ -3,12 +3,12 @@ title: Distribuzione sicura dei webhook con Azure AD in griglia di eventi di Azu
 description: Viene descritto come recapitare gli eventi agli endpoint HTTPS protetti da Azure Active Directory tramite griglia di eventi di Azure
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: b01f0342e185883c4d1552800ab9bdb30cea3040
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: be38edfb4edfee5b3a3b42d7b1c5a44c9d72ceef
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549153"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035446"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Pubblicare eventi per endpoint protetti di Azure Active Directory
 
@@ -26,7 +26,7 @@ Iniziare creando un'applicazione Azure AD per l'endpoint protetto. Vedere https:
 Questa sezione illustra come abilitare griglia di eventi per l'uso dell'applicazione Azure AD. 
 
 > [!NOTE]
-> Per eseguire questo script, è necessario essere un membro del [ruolo di amministratore dell'applicazione Azure AD](../active-directory/roles/permissions-reference.md#available-roles).
+> Per eseguire questo script, è necessario essere un membro del [ruolo di amministratore dell'applicazione Azure AD](../active-directory/roles/permissions-reference.md#all-roles).
 
 ### <a name="connect-to-your-azure-tenant"></a>Connettersi al tenant di Azure
 Per prima cosa, connettersi al tenant di Azure usando il `Connect-AzureAD` comando. 

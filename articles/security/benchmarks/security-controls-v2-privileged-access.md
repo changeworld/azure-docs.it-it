@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a4f1c6e32bbc679a7ec946384903b2bda3887d05
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 29d4acc50ed872c37268a0b21c3e34837249a026
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720580"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035415"
 ---
 # <a name="security-control-v2-privileged-access"></a>Controllo di sicurezza V2: accesso con privilegi
 
 Accesso con privilegi copre i controlli per proteggere l'accesso con privilegi al tenant e alle risorse di Azure. Questo include una gamma di controlli che consentono di proteggere il modello amministrativo, gli account amministrativi e le workstation con accesso con privilegi da rischi intenzionali e accidentali.
 
-Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli del benchmark di sicurezza di Azure per la conformità alle normative Initiative: accesso con privilegi](../../governance/policy/samples/azure-security-benchmark#privileged-access)
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli del benchmark di sicurezza di Azure per la conformità alle normative Initiative: accesso con privilegi](../../governance/policy/samples/azure-security-benchmark.md#privileged-access)
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Proteggere e limitare gli utenti con privilegi elevati
 
@@ -160,8 +160,6 @@ Usare le funzionalità di gestione dei diritti Azure AD per automatizzare i flus
 Le workstation protette e isolate sono di fondamentale importanza per la sicurezza dei ruoli sensibili, ad esempio amministratore, sviluppatore e operatore di servizio critico. Usare workstation utente altamente sicure e/o un bastione di Azure per le attività amministrative. Usare Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP) e/o Microsoft Intune per distribuire una workstation utente protetta e gestita per le attività amministrative. Le workstation protette possono essere gestite centralmente per applicare la configurazione protetta, tra cui l'autenticazione avanzata, le linee di base software e hardware e l'accesso logico e di rete limitato. 
 
 - [Informazioni sulle workstation con accesso con privilegi](/security/compass/privileged-access-deployment)
-
-- [Distribuire una workstation con accesso con privilegi](../../active-directory/devices/howto-azure-managed-workstation)
 
 **Responsabilità**: Customer
 

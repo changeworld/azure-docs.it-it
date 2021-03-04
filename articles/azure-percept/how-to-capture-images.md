@@ -1,20 +1,20 @@
 ---
-title: Distribuire un modello di intelligenza artificiale in Azure Percept DK
-description: Informazioni su come distribuire un modello visione artificiale in Azure Percept DK da Azure Percept Studio
+title: Acquisire immagini per una soluzione di visione senza codice in Azure Percept Studio
+description: Informazioni su come acquisire immagini con Azure Percept DK in Azure Percept Studio per una soluzione per la visione senza codice
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5ad263f5ae3b0b8e91de30b620002e33086608b4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 44bf498af52f4d8a0d880dc1f1d5874d5b444cae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662854"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035535"
 ---
-# <a name="capture-images-for-a-vision-project"></a>Acquisire immagini per un progetto di visione artificiale
+# <a name="capture-images-for-a-vision-project-in-azure-percept-studio"></a>Acquisire immagini per un progetto visione in Azure Percept Studio
 
 Seguire questa guida per acquisire immagini usando il SoM visione di Azure Percept DK per un progetto di visione esistente in Azure Percept Studio. Se non è ancora stato creato un progetto di visione, vedere l' [esercitazione relativa alla visione senza codice](./tutorial-nocode-vision.md).
 
@@ -56,7 +56,7 @@ Seguire questa guida per acquisire immagini usando il SoM visione di Azure Perce
         1. Selezionare la velocità di imaging preferita in **frequenza di acquisizione**.
         1. Selezionare il numero totale di immagini che si desidera raccogliere in **destinazione**.
 
-    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="Pagina dispositivi Percept con le azioni disponibili elencate.":::
+    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="Schermata di acquisizione dell'immagine.":::
 
 Tutte le immagini saranno accessibili in [visione personalizzata](https://www.customvision.ai/).
 

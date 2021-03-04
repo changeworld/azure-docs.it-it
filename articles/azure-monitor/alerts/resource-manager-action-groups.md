@@ -1,17 +1,16 @@
 ---
 title: Esempi di modelli di Azure Resource Manager per gruppi di azioni
 description: Modelli di Azure Resource Manager di esempio per distribuire gruppi di azioni di Monitoraggio di Azure.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 12/03/2020
-ms.openlocfilehash: 13a353ba469f0a01011b72b9c014b8f97e4d6fae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3c7982c108cf6c238c28c843e1dfbb881a6e0bb4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627839"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036402"
 ---
 # <a name="resource-manager-template-samples-for-action-groups-in-azure-monitor"></a>Esempi di modelli di Resource Manager per i gruppi di azioni in Monitoraggio di Azure
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per creare [gruppi di azioni](../alerts/action-groups.md) in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.

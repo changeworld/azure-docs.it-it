@@ -4,21 +4,21 @@ description: Risposta agli eventi imprevisti di benchmark di sicurezza di Azure 
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 002/22/2021
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 40a88349040482b3325e63d7035dea35df444cdb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b9295482c2464eb80bc49fa707744f49a2fbebfd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698587"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035378"
 ---
 # <a name="security-control-v2-incident-response"></a>Controllo di sicurezza V2: risposta agli eventi imprevisti
 
 La risposta agli eventi imprevisti riguarda i controlli nel ciclo di vita della risposta agli eventi imprevisti, ovvero preparazione, rilevamento e analisi, contenimento e attività post-evento imprevisto. Questo include l'uso di servizi di Azure, come il Centro sicurezza di Azure e Sentinel, per automatizzare il processo di risposta agli eventi imprevisti.
 
-Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli del benchmark di sicurezza di Azure conformità normativa: risposta agli eventi imprevisti](../../governance/policy/samples/azure-security-benchmark#incident-response)
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli del benchmark di sicurezza di Azure conformità normativa: risposta agli eventi imprevisti](../../governance/policy/samples/azure-security-benchmark.md#incident-response)
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Preparazione: aggiornare il processo di risposta agli eventi imprevisti per Azure
 

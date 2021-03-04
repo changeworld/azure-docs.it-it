@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c43125edab0f5ed097b99798ca22e5543e15a2d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4311d0acc7c417bf31c71f46e6c25c65312b894d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693132"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034533"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Gestione degli account del servizio Azure AD
 
@@ -51,13 +51,13 @@ Concedere all'account del servizio solo le autorizzazioni necessarie per eseguir
 
 **Autorizzazioni**
 
-* Non assegnare ruoli predefiniti agli account del servizio. Usare invece il [modello di concessione delle autorizzazioni OAuth2 per Microsoft Graph](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0)
+* Non assegnare ruoli predefiniti agli account del servizio. Usare invece il [modello di concessione delle autorizzazioni OAuth2 per Microsoft Graph](/graph/api/resources/oauth2permissiongrant)
 
 * Se all'entità servizio deve essere assegnato un ruolo con privilegi, è consigliabile assegnare un [ruolo personalizzato](https://docs.microsoft.com/azure/active-directory/roles/custom-create) con privilegi specifici, necessari, in base a un intervallo di tempo.
 
 * Non includere gli account del servizio come membri di qualsiasi gruppo con autorizzazioni elevate. 
 
-* [Usare PowerShell per enumerare i membri dei ruoli con privilegi](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0), ad esempio   
+* [Usare PowerShell per enumerare i membri dei ruoli con privilegi](/powershell/module/azuread/get-azureaddirectoryrolemember), ad esempio   
 `Get-AzureADDirectoryRoleMember`e filtro per ObjectType "entità servizio".
 
    oppure utilizzare  
@@ -117,7 +117,7 @@ Si consiglia di esportare Azure AD registri di accesso e importarli negli strume
 
 Esaminare periodicamente le autorizzazioni concesse e gli ambiti a cui si accede dagli account del servizio per verificare se possono essere ridotti eliminati.
 
-* Usare [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant?view=azureadps-2.0) per [creare l'automazione per il controllo e la documentazione degli](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) ambiti a cui viene concesso il consenso a un account del servizio.
+* Usare [PowerShell](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant) per [creare l'automazione per il controllo e la documentazione degli](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) ambiti a cui viene concesso il consenso a un account del servizio.
 
 * Usare PowerShell per [esaminare le credenziali delle entità servizio esistenti](https://github.com/AzureAD/AzureADAssessment) e verificarne la validità.
 
@@ -172,7 +172,7 @@ Stabilire un processo di revisione per assicurarsi che gli account del servizio 
 
 **I processi per il deprovisioning devono includere le seguenti attività.**
 
-1. Una volta effettuato il deprovisioning dell'applicazione o dello script associato, [monitorare](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md) gli accessi e le risorse dall'account del servizio.
+1. Una volta effettuato il deprovisioning dell'applicazione o dello script associato, [monitorare](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) gli accessi e le risorse dall'account del servizio.
 
    * Se l'account è ancora attivo, determinarne la modalità di utilizzo prima di eseguire i passaggi successivi.
  
