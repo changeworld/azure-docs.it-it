@@ -1,57 +1,22 @@
 ---
 title: Raccomandazioni di sicurezza nel Centro sicurezza di Azure
 description: Questo documento dimostra come le raccomandazioni presenti nel Centro sicurezza di Azure facilitino la protezione delle risorse di Azure e garantiscano la conformità ai criteri di sicurezza.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 3b2f111f83dbd731b69671e58d4bf9dc648a596f
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 57760443746e111750e74ef55fc18729f6ba32c4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526525"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100339"
 ---
-# <a name="security-recommendations-in-azure-security-center"></a>Raccomandazioni di sicurezza nel Centro sicurezza di Azure 
+# <a name="review-your-security-recommendations"></a>Esaminare le raccomandazioni sulla sicurezza
 
 Questo argomento illustra come visualizzare e comprendere le raccomandazioni nel centro sicurezza di Azure per proteggere le risorse di Azure.
-
-
-## <a name="what-are-security-recommendations"></a>Informazioni sulle raccomandazioni di sicurezza
-
-Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare potenziali vulnerabilità di sicurezza. Fornisce quindi raccomandazioni su come correggere tali vulnerabilità.
-
-Le raccomandazioni sono azioni da eseguire per proteggere e rafforzare le risorse. 
-
-Ogni raccomandazione fornisce:
-
-- Breve descrizione del problema
-- Procedura di correzione da eseguire per implementare la raccomandazione
-- Risorse interessate
-
-## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>In che modo Microsoft decide quali sono le esigenze di sicurezza e protezione avanzata?
-
-Le raccomandazioni del Centro sicurezza sono basate sul benchmark di sicurezza di Azure. Quasi ogni raccomandazione ha un criterio sottostante derivato da un requisito nel benchmark.
-
-Azure Security Benchmark è il set di linee guida specifiche di Azure create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. Questo benchmark ampiamente rispettato si basa sui controlli di [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud. Altre informazioni su [Azure Security Benchmark](../security/benchmarks/introduction.md).
-
-Quando si esaminano i dettagli di una raccomandazione, è spesso utile poter visualizzare i criteri sottostanti. Per ogni raccomandazione supportata da un criterio, usare il collegamento **Visualizza definizione criteri** della pagina dei dettagli della raccomandazione per passare direttamente alla voce relativa ai criteri di Azure per i criteri pertinenti:
-
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Collegamento alla pagina Criteri di Azure per i criteri specifici che supportano una raccomandazione":::
-
-Usare questo collegamento per visualizzare la definizione dei criteri ed esaminare la logica di valutazione. 
-
-Se si sta esaminando l'elenco di raccomandazioni nella Guida di [riferimento](recommendations-reference.md)per le raccomandazioni sulla sicurezza, verranno visualizzati anche i collegamenti alle pagine di definizione dei criteri:
-
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accesso alla pagina dei criteri di Azure per un criterio specifico direttamente dalla pagina di riferimento consigli del Centro sicurezza di Azure":::
 
 ## <a name="monitor-recommendations"></a>Monitorare le raccomandazioni <a name="monitor-recommendations"></a>
 

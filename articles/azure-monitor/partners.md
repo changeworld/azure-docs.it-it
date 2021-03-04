@@ -3,12 +3,12 @@ title: Partner che si integrano con monitoraggio di Azure
 description: Informazioni sui partner del monitoraggio di Azure e sulle modalità di accesso alla documentazione per l'integrazione.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: b971aa70411212e96c39e6bf824fa9e28bd8a1f1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ca58023510eb9329bc8ddf1339df4d8c27aae5e6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102052365"
+ms.locfileid: "102101019"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -291,8 +291,7 @@ Con il monitoraggio di Azure Site24x7 potrai:
 * Monitora le Ecosfera Microsoft complete, incluse le applicazioni SQL, Exchange, Active Directory, Office 365, IIS e Hyper-V.
 * Puoi integrarti senza interruzioni con servizi di terze parti come Microsoft teams, PagerDuty, Zapier e altro ancora.
 
-[Documentazione sul sito 24X7](https://www.site24x7.com/)
-
+[Documentazione di Site24X7](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)
 
 ## <a name="solarwinds"></a>SolarWinds
 

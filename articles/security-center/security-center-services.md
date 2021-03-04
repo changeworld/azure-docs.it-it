@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 0e1f669b6955d5c5b70f2f29ff39ba5aef0a9a56
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1ba030ea42d3e865021aa52c651cd72eead9f1a1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100544817"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100271"
 ---
 # <a name="feature-coverage-for-machines"></a>Copertura delle funzionalità per le macchine virtuali
 
@@ -117,8 +117,8 @@ Per informazioni sui casi in cui vengono generate raccomandazioni per ognuna di 
 |[Microsoft Defender per endpoint](harden-docker-hosts.md) (1)|✔|-|
 |[Connessione account AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Connessione account GCP](quickstart-onboard-gcp.md) (1)|-|-|
-|[Esportazione continua](continuous-export.md)|✔|✔ (2)|
-|[Automazione del flusso di lavoro](workflow-automation.md)|✔|✔ (2)|
+|[Esportazione continua](continuous-export.md)|✔|✔|
+|[Automazione del flusso di lavoro](workflow-automation.md)|✔|✔|
 |[Regole di esenzione delle raccomandazioni](exempt-resource.md)|-|-|
 |[Regole di eliminazione avvisi](alerts-suppression-rules.md)|✔|✔|
 |[Notifiche tramite posta elettronica per gli avvisi di sicurezza](security-center-provide-security-contact-details.md)|✔|✔|
@@ -131,7 +131,7 @@ Per informazioni sui casi in cui vengono generate raccomandazioni per ognuna di 
 |[Azure Defender per DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender per registri contenitori](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
 |[Azure Defender per Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
-|[Protezione del carico di lavoro Kubernetes](kubernetes-workload-protections.md)|✔ (2)|✔ (2)|
+|[Protezione del carico di lavoro Kubernetes](kubernetes-workload-protections.md)|✔|✔|
 |||
 
 (1) richiede **Azure Defender per i server**

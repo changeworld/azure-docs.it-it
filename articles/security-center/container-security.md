@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: eb70a31d0fa5f231bd0db8ca27517ce43fe1db28
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 3b5204f1d390388c2dc9a10ac2ca0234f6b0499b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007815"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101342"
 ---
 # <a name="container-security-in-security-center"></a>Sicurezza dei contenitori nel Centro sicurezza
 
@@ -42,7 +42,7 @@ Si apprenderà il contributo offerto dal Centro sicurezza a questi aspetti princ
 
 Lo screenshot seguente mostra la pagina dell'inventario delle risorse e i vari tipi di risorse contenitore protetti dal Centro sicurezza.
 
-:::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Risorse correlate ai contenitori nella pagina dell'inventario delle risorse del Centro sicurezza" lightbox="./media/container-security/container-security-tab.png":::
+:::image type="content" source="./media/container-security/inventory-container-resources.png" alt-text="Risorse correlate ai contenitori nella pagina dell'inventario delle risorse del Centro sicurezza" lightbox="./media/container-security/inventory-container-resources.png":::
 
 ## <a name="vulnerability-management---scanning-container-images"></a>Gestione delle vulnerabilità - analisi delle immagini dei contenitori
 
@@ -92,7 +92,7 @@ Per informazioni dettagliate sulle raccomandazioni pertinenti del Centro sicurez
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Procedure consigliate per la protezione dei carichi di lavoro con il controllo ammissione di Kubernetes
 
-Per ottenere una serie di raccomandazioni su come proteggere i carichi di lavoro dei contenitori Kubernetes, installare il **componente aggiuntivo Criteri di Azure per** . È anche possibile distribuire questo componente aggiuntivo come descritto in [Abilitare il provisioning automatico delle estensioni](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Con il provisioning automatico attivato per il componente aggiuntivo, l'estensione viene abilitata per impostazione predefinita in tutti i cluster esistenti e futuri che soddisfano i requisiti dell'installazione.
+Per ottenere una serie di raccomandazioni su come proteggere i carichi di lavoro dei contenitori Kubernetes, installare il **componente aggiuntivo Criteri di Azure per** . È anche possibile distribuire automaticamente questo componente aggiuntivo come descritto in [abilitare il provisioning automatico dell'agente e delle estensioni log Analytics](security-center-enable-data-collection.md#auto-provision-mma). Con il provisioning automatico attivato per il componente aggiuntivo, l'estensione viene abilitata per impostazione predefinita in tutti i cluster esistenti e futuri che soddisfano i requisiti dell'installazione.
 
 Come spiegato in questa [pagina su Criteri di Azure per Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), il componente aggiuntivo estende il webhook del controller di ammissione open source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) per [Open Policy Agent](https://www.openpolicyagent.org/). I controller di ammissione Kubernetes sono plug-in che stabiliscono la modalità di utilizzo dei cluster. Il componente aggiuntivo viene registrato come webhook nel controllo di ammissione Kubernetes e consente di applicare tutele e misure di sicurezza su larga scala per i cluster in modo centralizzato e coerente. 
 

@@ -78,6 +78,18 @@
           href: synapse-link-use-cases.md
         - name: Domande frequenti su Collegamento a Synapse
           href: synapse-link-frequently-asked-questions.md
+    - name: Backup e ripristino
+      items:
+        - name: Introduzione a backup e ripristino
+          href: online-backup-and-restore.md
+        - name: Backup continuo
+          items:
+            - name: Backup continuo-introduzione
+              href: continuous-backup-restore-introduction.md
+            - name: Backup continuo-domande frequenti
+              href: continuous-backup-restore-frequently-asked-questions.md
+            - name: Backup continuo-modello di risorse
+              href: continuous-backup-restore-resource-model.md
     - name: Ottimizzare i costi di Azure Cosmos DB
       items:
         - name: Pianificare e gestire i costi
@@ -112,34 +124,6 @@
       href: concepts-limits.md
     - name: Soluzione pronta per l'azienda
       items:
-        - name: Introduzione a backup e ripristino
-          href: online-backup-and-restore.md
-        - name: Backup continuo
-          items:
-            - name: Backup continuo-introduzione
-              href: continuous-backup-restore-introduction.md
-            - name: Backup continuo-domande frequenti
-              href: continuous-backup-restore-frequently-asked-questions.md
-            - name: Backup continuo-modello di risorse
-              items:
-                - name: Panoramica del modello di risorsa
-                  href: continuous-backup-restore-resource-model.md
-                - name: Account ripristinabili-elenco
-                  href: restorable-database-accounts-list.md
-                - name: Account ripristinabili-elenco per località
-                  href: restorable-database-accounts-list-by-location.md
-                - name: Risorse SQL ripristinabili-elenco
-                  href: restorable-sql-resources-list.md
-                - name: Database SQL ripristinabili-elenco
-                  href: restorable-sql-databases-list.md
-                - name: Contenitori SQL ripristinabili-elenco
-                  href: restorable-sql-containers-list.md
-                - name: Risorse MongoDB ripristinabili-elenco
-                  href: restorable-mongodb-resources-list.md
-                - name: Raccolte MongoDB ripristinabili-elenco
-                  href: restorable-mongodb-collections-list.md
-                - name: Database MongoDB ripristinabili-elenco
-                  href: restorable-mongodb-databases-list.md
         - name: Conformità
           href: compliance.md
     - name: Raccomandazioni automatiche
@@ -1391,7 +1375,23 @@
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Usare Power BI con Collegamento a Synapse
           href: synapse-link-power-bi.md
-    - name: Security
+    - name: Backup e ripristino
+      items:
+        - name: Gestisci backup continuo
+          items:
+            - name: 'Backup continuo: autorizzazioni e ruoli'
+              href: continuous-backup-restore-permissions.md
+            - name: Backup continuo-portale
+              href: continuous-backup-restore-portal.md
+            - name: Backup continuo-PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: Backup continuo-interfaccia della riga di comando
+              href: continuous-backup-restore-command-line.md
+            - name: Backup continuo-Gestione risorse
+              href: continuous-backup-restore-template.md
+        - name: Gestire il backup periodico
+          href: configure-periodic-backup-restore.md
+    - name: Sicurezza
       items:
         - name: Configurare il firewall IP
           href: how-to-configure-firewall.md
@@ -1410,20 +1410,6 @@
           href: how-to-setup-cmk.md
     - name: Soluzione pronta per l'azienda
       items:
-        - name: Gestisci backup continuo
-          items:
-            - name: 'Backup continuo: autorizzazioni e ruoli'
-              href: continuous-backup-restore-permissions.md
-            - name: Backup continuo-portale
-              href: continuous-backup-restore-portal.md
-            - name: Backup continuo-PowerShell
-              href: continuous-backup-restore-powershell.md
-            - name: Backup continuo-interfaccia della riga di comando
-              href: continuous-backup-restore-command-line.md
-            - name: Backup continuo-ARM
-              href: continuous-backup-restore-template.md
-        - name: Gestire il backup periodico
-          href: configure-periodic-backup-restore.md
         - name: Richiedere l'aumento della quota
           href: create-support-request-quota-increase.md
     - name: Monitorare

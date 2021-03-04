@@ -7,12 +7,12 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3b5860cc4ada88e2e7c7813e3441db3ec89f31af
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b80ceffe22c797d46b82ec33a47c726d68bf4cdb
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729922"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099829"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definizioni predefinite di Criteri di Azure per Centro sicurezza di Azure
 
@@ -44,13 +44,4 @@ Per informazioni sui criteri predefiniti monitorati dal centro sicurezza, vedere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato le definizioni dei criteri di sicurezza di criteri di Azure nel centro sicurezza. Per altre informazioni, vedere gli articoli seguenti.
-
-- Vedere i criteri predefiniti nel [repository di GitHub su Criteri di Azure](https://github.com/Azure/azure-policy).
-- Vedere la [struttura delle definizioni di Criteri di Azure](../governance/policy/concepts/definition-structure.md).
-- Leggere [Informazioni sugli effetti di Criteri](../governance/policy/concepts/effects.md).
-- [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](./security-center-planning-and-operations-guide.md): informazioni su come pianificare e comprendere le considerazioni di progettazione nel centro sicurezza di Azure.
-- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](./security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](./security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-- [Monitorare le soluzioni dei partner con il Centro sicurezza di Azure](./security-center-partner-integration.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
-- [Criteri di Azure](../governance/policy/overview.md): informazioni su come controllare e gestire le risorse di Azure.
+Questo articolo ha illustrato le definizioni dei criteri di sicurezza di criteri di Azure nel centro sicurezza. Per altre informazioni sulle iniziative, i criteri e su come sono correlati alle raccomandazioni del Centro sicurezza, vedere informazioni su [criteri di sicurezza, iniziative e consigli](security-policy-concept.md).

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 20b8e354d0c8e2e04cf22d1b8014f5b8e33a860c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c0d153ff8125a6ef16a69aec72a27dd4b234eab5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038867"
+ms.locfileid: "102100050"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Aggiungere il supporto IPv6 per il peering privato con Azure PowerShell (anteprima)
 
@@ -175,7 +175,7 @@ Sebbene il supporto per IPv6 sia disponibile per le connessioni alle distribuzio
 * Connessioni alle distribuzioni in Azure tramite uno SKU del gateway non AZ ExpressRoute
 * Connessioni alle distribuzioni in aree non AZ
 * Copertura globale le connessioni tra circuiti ExpressRoute
-* Uso di ExpressRoute con vWAN
+* Uso di ExpressRoute con la rete WAN virtuale
 
 ## <a name="next-steps"></a>Passaggi successivi
 

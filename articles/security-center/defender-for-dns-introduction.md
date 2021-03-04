@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 957e39f7629337182c3e19a1a514c42883666301
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: dffb505719e6778adfdd8e99f62790df9ebd615a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796989"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100696"
 ---
 # <a name="introduction-to-azure-defender-for-dns"></a>Introduzione ad Azure Defender per DNS
 
@@ -28,7 +28,7 @@ Azure Defender per DNS offre un livello di protezione aggiuntivo per le risorse 
 |Aspetto|Dettagli|
 |----|:----|
 |Stato della versione:|Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Prezzi:|**Azure Defender per DNS** è soggetto alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md).|
+|Prezzi:|**Azure Defender per DNS** viene fatturato come indicato nei [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
@@ -47,7 +47,7 @@ Per un elenco completo degli avvisi forniti da Azure Defender per DNS, vedere [A
 
 Azure Defender per DNS non usa agenti. 
 
-Per proteggere il livello DNS, abilitare Azure Defender per DNS per ogni sottoscrizione, come descritto in [Abilitare Azure Defender](security-center-pricing.md#enable-azure-defender).
+Per proteggere il livello DNS, abilitare Azure Defender per DNS per ogni sottoscrizione, come descritto in [Abilitare Azure Defender](enable-azure-defender.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -57,4 +57,4 @@ In questo articolo sono state fornite informazioni su Azure Defender per DNS. Pe
 - Gli avvisi di sicurezza potrebbero essere generati dal Centro sicurezza o essere ricevuti dal Centro sicurezza da prodotti di sicurezza diversi. Per esportare tutti questi avvisi in Azure Sentinel, in qualsiasi soluzione SIEM di terze parti o in qualsiasi altro strumento esterno, seguire le istruzioni riportate in [Esportazione degli avvisi in un sistema di informazioni di sicurezza e gestione degli eventi](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Abilitare Azure Defender](security-center-pricing.md#enable-azure-defender)
+    > [Abilitare Azure Defender](enable-azure-defender.md)

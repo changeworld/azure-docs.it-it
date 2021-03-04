@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 9db276425d510316c41126f8e942a1e2a362ea35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796078"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101291"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Abilitare il Centro sicurezza per tutte le sottoscrizioni in un gruppo di gestione
 
@@ -60,7 +60,7 @@ Per eseguire l'onboarding di un gruppo di gestione e di tutte le relative sottos
     La definizione fornita consente di specificare *una* delle impostazioni di 'pricing' seguenti come conforme. Questo significa che una sottoscrizione impostata su 'standard' o 'free' è conforme.
 
     > [!TIP]
-    > Quando un piano di Azure Defender è abilitato, l'impostazione usata per descriverlo è 'Standard'; quando è disabilitato, è 'Gratuito'. [Altre informazioni sui piani di Azure Defender](security-center-pricing.md)
+    > Quando un piano di Azure Defender è abilitato, viene descritto in una definizione dei criteri come nell'impostazione "standard". quando è disabilitato, è 'Gratuito'. Per informazioni sulle differenze tra questi piani, vedere la pagina relativa al [Centro sicurezza gratuita rispetto ad Azure Defender abilitata](security-center-pricing.md). 
 
     ```
     "existenceCondition": {
@@ -98,4 +98,4 @@ Per eseguire l'onboarding di un gruppo di gestione e di tutte le relative sottos
 Ora che è stato eseguito l'onboarding di un intero gruppo di gestione, abilitare le protezioni avanzate di Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Abilitare Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Abilitare Azure Defender](enable-azure-defender.md)

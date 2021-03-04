@@ -1,5 +1,5 @@
 ---
-title: Gestione delle librerie
+title: Gestione dei pacchetti
 description: Informazioni su come aggiungere e gestire le librerie usate da Apache Spark in Azure sinapsi Analytics.
 services: synapse-analytics
 author: midesa
@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 955d7f8c2d2ce5ea126d4cce67b0e4e55152ac72
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 76d3bdc8a6eb133daa2d241bdf4c3b73271f0173
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695091"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100203"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gestire le librerie per Apache Spark in Azure sinapsi Analytics
 Le librerie forniscono codice riutilizzabile che può essere utile includere nei programmi o nei progetti. 
@@ -38,17 +38,17 @@ Quando si sviluppano modelli o applicazioni personalizzate, il team può svilupp
 In sinapsi i pacchetti dell'area di lavoro possono essere file di rotellina o file jar personalizzati o privati. È possibile caricare i pacchetti nell'area di lavoro e successivamente assegnarli a un pool Spark specifico. Una volta assegnati, i pacchetti dell'area di lavoro vengono installati automaticamente in tutte le sessioni del pool Spark.
 
 Per altre informazioni su come gestire le librerie dell'area di lavoro, vedere le guide alle procedure seguenti:
-- [Pacchetti dell'area di lavoro Python: ](./apache-spark-manage-python-packages.md#Install-wheel-files) Caricare i file della rotellina Python come pacchetto dell'area di lavoro e successivamente aggiungerli a specifici pool di Apache Spark senza server.
-- [Pacchetti dell'area di lavoro scala/Java (anteprima): ](./apache-spark-manage-scala-packages.md#Workspace-packages) Caricare i file jar scala e Java come pacchetto dell'area di lavoro e aggiungerli in seguito a pool di Apache Spark senza server specifici.
+- [Pacchetti dell'area di lavoro Python (anteprima): ](./apache-spark-manage-python-packages.md#install-wheel-files) Caricare i file della rotellina Python come pacchetto dell'area di lavoro e successivamente aggiungerli a specifici pool di Apache Spark senza server.
+- [Pacchetti dell'area di lavoro scala/Java (anteprima): ](./apache-spark-manage-scala-packages.md#workspace-packages) Caricare i file jar scala e Java come pacchetto dell'area di lavoro e aggiungerli in seguito a pool di Apache Spark senza server specifici.
 
-## <a name="pool-management"></a>Gestione pool
+## <a name="pool-packages"></a>Pacchetti del pool
 In alcuni casi, è possibile standardizzare il set di pacchetti usati in un pool di Apache Spark specificato. Questa standardizzazione può essere utile se gli stessi pacchetti sono comunemente installati da più utenti del team. 
 
 Usando le funzionalità di gestione del pool di analisi delle sinapsi di Azure, è possibile configurare il set predefinito di librerie che si vuole installare in un determinato pool di Apache Spark senza server. Queste librerie vengono installate sul [runtime di base](./apache-spark-version-support.md). 
 
 Attualmente la gestione del pool è supportata solo per Python. Per Python, i pool Spark di sinapsi usano conda per installare e gestire le dipendenze dei pacchetti Python. Quando si specificano le librerie a livello di pool, è ora possibile specificare un requirements.txt o un ambiente. yml. Questo file di configurazione dell'ambiente viene usato ogni volta che viene creata un'istanza Spark dal pool Spark. 
 
-Per ulteriori informazioni su queste funzionalità, vedere la documentazione relativa alla [gestione del pool di Python](./apache-spark-manage-python-packages.md#Pool-libraries).
+Per ulteriori informazioni su queste funzionalità, vedere la documentazione relativa alla [gestione del pool di Python](./apache-spark-manage-python-packages.md#pool-libraries).
 
 > [!IMPORTANT]
 > - Se il pacchetto che si sta installando è di grandi dimensioni o richiede molto tempo per l'installazione, questo influirà sul tempo di avvio dell'istanza di Spark.
@@ -61,8 +61,8 @@ Spesso, quando si esegue l'analisi interattiva dei dati o l'apprendimento automa
 I pacchetti con ambito sessione consentono agli utenti di definire le dipendenze dei pacchetti all'inizio della sessione. Quando si installa un pacchetto con ambito sessione, solo la sessione corrente può accedere ai pacchetti specificati. Di conseguenza, questi pacchetti con ambito sessione non influiscano su altre sessioni o processi che usano lo stesso pool di Apache Spark. Inoltre, queste librerie vengono installate sopra i pacchetti di runtime di base e a livello di pool. 
 
 Per altre informazioni su come gestire i pacchetti con ambito sessione, vedere le guide alle procedure seguenti:
-- [Pacchetti della sessione Python (anteprima):](./apache-spark-manage-python-packages.md#Session-scoped-libraries-(preview)) All'inizio di una sessione, fornire un oggetto conda *Environment. yml* per installare pacchetti Python aggiuntivi da repository comuni. 
-- [Pacchetti di sessione scala/Java: ](./apache-spark-manage-scala-packages.md#Workspace-packages) All'inizio della sessione, fornire un elenco di file jar da installare usando ```%%configure``` .
+- [Pacchetti della sessione Python (anteprima):](./apache-spark-manage-python-packages.md) All'inizio di una sessione, fornire un oggetto conda *Environment. yml* per installare pacchetti Python aggiuntivi da repository comuni. 
+- [Pacchetti di sessione scala/Java: ](./apache-spark-manage-scala-packages.md) All'inizio della sessione, fornire un elenco di file jar da installare usando ```%%configure``` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Visualizzare le librerie predefinite: [supporto della versione Apache Spark](apache-spark-version-support.md)

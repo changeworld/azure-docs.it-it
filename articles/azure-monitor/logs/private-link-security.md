@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: bf9ffe3640c704fb1da51f6f9c2fe42ca5d46851
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 65af5810152034fd7b6014041edd07835eebd194
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047554"
+ms.locfileid: "102101478"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 
@@ -172,7 +172,8 @@ All'endpoint privato creato dovrebbero ora essere configurate quattro zone DNS:
 * privatelink-ODS-opinsights-Azure-com
 * privatelink-agentsvc-Azure-Automation-Net
 
-Ognuna di queste zone esegue il mapping di endpoint di monitoraggio di Azure specifici a indirizzi IP privati dal pool di indirizzi IP del VNet dell'endpoint privato.
+> [!NOTE]
+> Ognuna di queste zone esegue il mapping di endpoint di monitoraggio di Azure specifici a indirizzi IP privati dal pool di indirizzi IP di VNet. Gli indirizzi IP mostrati nelle immagini seguenti sono solo esempi. La configurazione deve invece mostrare indirizzi IP privati dalla propria rete.
 
 #### <a name="privatelink-monitor-azure-com"></a>Privatelink-monitor-Azure-com
 Questa zona riguarda gli endpoint globali usati da monitoraggio di Azure, ovvero questi endpoint gestiscono le richieste che considerano tutte le risorse, non uno specifico. Questa zona deve avere endpoint mappati per:
@@ -218,7 +219,7 @@ Le impostazioni nella parte inferiore di questa pagina controllano l'accesso dal
 
 ### <a name="exceptions"></a>Eccezioni
 La limitazione dell'accesso, come illustrato in precedenza, non si applica alla Azure Resource Manager e pertanto presenta le limitazioni seguenti:
-* L'accesso ai dati, mentre il blocco/consentire le query dalle reti pubbliche si applica alla maggior parte dei Log Analytics esperienze, alcune esperienze eseguono query sui dati tramite Azure Resource Manager e pertanto non saranno in grado di eseguire query sui dati, a meno che non vengano applicate anche le impostazioni dei collegamenti privati al Gestione risorse (funzionalità presto disponibile). Sono incluse, ad esempio, le soluzioni di monitoraggio di Azure, le cartelle di lavoro e le informazioni dettagliate e il connettore LogicApp.
+* L'accesso ai dati, mentre il blocco/consentire le query dalle reti pubbliche si applica alla maggior parte dei Log Analytics esperienze, alcune esperienze eseguono query sui dati tramite Azure Resource Manager e pertanto non saranno in grado di eseguire query sui dati, a meno che non vengano applicate anche le impostazioni dei collegamenti privati al Gestione risorse (funzionalità presto disponibile). Esempi sono le soluzioni di monitoraggio di Azure, le cartelle di lavoro e le informazioni dettagliate e il connettore LogicApp.
 * Gestione dell'area Azure Resource Manager di lavoro: le modifiche apportate alla configurazione e all'impostazione dell'area di lavoro (inclusa l'attivazione o la disattivazione delle impostazioni di accesso Limitare l'accesso alla gestione delle aree di lavoro utilizzando i ruoli, le autorizzazioni, i controlli di rete e il controllo appropriati. Per altre informazioni, vedere [Ruoli, autorizzazioni e sicurezza di Monitoraggio di Azure](../roles-permissions-security.md).
 
 > [!NOTE]
@@ -248,17 +249,17 @@ In secondo luogo, è possibile controllare il modo in cui è possibile raggiunge
 > [!NOTE]
 > Le esperienze di utilizzo non del portale devono essere eseguite anche sul VNET collegato privato che include i carichi di lavoro monitorati.
 
-Sarà necessario aggiungere le risorse che eseguono l’hosting dei carichi di lavoro monitorati al collegamento privato. La [documentazione](../../app-service/networking/private-endpoint.md) che illustra come eseguire questa operazione per Servizi app è disponibile qui.
+Sarà necessario aggiungere le risorse che eseguono l’hosting dei carichi di lavoro monitorati al collegamento privato. Vedere ad esempio [uso di endpoint privati per l'app Web di Azure](../../app-service/networking/private-endpoint.md).
 
 Questo tipo di limitazione dell'accesso si applica solo ai dati nella risorsa Application Insights. Tuttavia, le modifiche alla configurazione, inclusa l'attivazione o la disattivazione di queste impostazioni di accesso, vengono gestite da Azure Resource Manager. È quindi necessario limitare l'accesso ai Gestione risorse usando i ruoli, le autorizzazioni, i controlli di rete e il controllo appropriati. Per altre informazioni, vedere [Ruoli, autorizzazioni e sicurezza di Monitoraggio di Azure](../roles-permissions-security.md).
 
 > [!NOTE]
 > Per proteggere in modo completo Application Insights basato sull'area di lavoro, è necessario bloccare l'accesso alla risorsa Application Insights e all'area di lavoro Log Analytics sottostante.
 >
-> Per la diagnostica a livello di codice (Profiler/Debugger) è necessario fornire un proprio account di archiviazione per il supporto del collegamento privato. Ecco la [documentazione](../app/profiler-bring-your-own-storage.md) per informazioni su come eseguire questa operazione.
+> Per la diagnostica a livello di codice (Profiler/Debugger) è necessario [fornire un proprio account di archiviazione per il supporto del](../app/profiler-bring-your-own-storage.md) collegamento privato.
 
 ### <a name="handling-the-all-or-nothing-nature-of-private-links"></a>Gestione della natura dei collegamenti privati
-Come illustrato in [pianificazione della configurazione del collegamento privato](#planning-your-private-link-setup), la configurazione di un collegamento privato anche per una singola risorsa ha effetto su tutte le risorse di monitoraggio di Azure in tali reti e in altre reti che condividono lo stesso DNS. Questo può rendere difficile il processo di onboarding. Valutare le opzioni seguenti:
+Come illustrato in [pianificazione della configurazione del collegamento privato](#planning-your-private-link-setup), la configurazione di un collegamento privato anche per una singola risorsa ha effetto su tutte le risorse di monitoraggio di Azure in tali reti e in altre reti che condividono lo stesso DNS. Questo comportamento può complicare il processo di onboarding. Valutare le opzioni seguenti:
 
 * Tutto in: l'approccio più semplice e sicuro consiste nell'aggiungere tutti i componenti Application Insights al AMPLS. Per i componenti a cui si vuole ancora accedere anche da altre reti, lasciare i flag "Consenti accesso Internet pubblico per inserimento/query" impostato su Sì (impostazione predefinita).
 * Isolare le reti: se si usa o si può allinearsi con spoke reti virtuali, seguire le indicazioni nella [topologia di rete hub-spoke in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Quindi, configurare impostazioni di collegamento privato separate nella reti virtuali spoke pertinente. Assicurarsi di separare anche le zone DNS, poiché la condivisione di zone DNS con altre reti spoke provocherà [l'override DNS](#the-issue-of-dns-overrides).

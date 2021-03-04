@@ -1,44 +1,32 @@
 ---
 title: Uso dei criteri di sicurezza | Microsoft Docs
 description: Questo articolo descrive come usare i criteri di sicurezza nel centro sicurezza di Azure.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 6ecedc20cf6924a82b6b4640d3caa75bc5958de0
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986606"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101325"
 ---
 # <a name="manage-security-policies"></a>Gestire i criteri di sicurezza
 
 Questo articolo illustra come vengono configurati i criteri di sicurezza e come visualizzarli nel Centro sicurezza. 
 
-## <a name="introduction-to-security-policies"></a>Introduzione ai criteri di sicurezza
+## <a name="who-can-edit-security-policies"></a>Utenti che possono modificare i criteri di sicurezza
 
-Un criterio di sicurezza definisce la configurazione desiderata dei carichi di lavoro e contribuisce a garantire la conformità ai requisiti di sicurezza della società o dei regolatori.
+È possibile modificare i criteri di sicurezza tramite il portale Criteri di Azure, l'API REST o Windows PowerShell.
 
-Il Centro sicurezza di Azure apporta le raccomandazioni sulla sicurezza in base ai criteri scelti. I criteri del Centro sicurezza si basano sulle iniziative dei criteri create in criteri di Azure. È possibile usare i [criteri di Azure](../governance/policy/overview.md) per gestire i criteri e impostare i criteri tra i gruppi di gestione e tra più sottoscrizioni.
+Il Centro sicurezza usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), che fornisce ruoli predefiniti che è possibile assegnare a utenti, gruppi e servizi di Azure. Quando gli utenti aprono il Centro sicurezza, visualizzano solo le informazioni correlate alle risorse a cui possono accedere. Ciò significa che agli utenti viene assegnato il ruolo di *proprietario*, *collaboratore* o *lettore* alla sottoscrizione della risorsa. Sono inoltre disponibili due ruoli specifici del Centro sicurezza:
 
-Il Centro sicurezza offre le opzioni seguenti per l'uso dei criteri di sicurezza:
-
-* **Visualizzare e modificare i criteri predefiniti predefiniti** : quando si Abilita il Centro sicurezza, l'iniziativa denominata ' benchmark di sicurezza di Azure ' viene assegnata automaticamente a tutte le sottoscrizioni registrate del Centro sicurezza. Per personalizzare questa iniziativa, è possibile abilitare o disabilitare singoli criteri al suo interno. Per informazioni sulle opzioni disponibili, vedere l'elenco dei [criteri di sicurezza predefiniti](./policy-reference.md) .
-
-* **Aggiungere criteri personalizzati** : se si desidera personalizzare le iniziative di sicurezza applicate alla sottoscrizione, è possibile eseguire questa operazione nel centro sicurezza. Si riceveranno quindi consigli se i computer non seguono i criteri creati. Per istruzioni sulla creazione e l'assegnazione di criteri personalizzati, vedere [uso dei criteri di sicurezza personalizzati](custom-security-policies.md).
-
-* **Aggiungere i criteri di conformità normativi** : il dashboard di conformità normativa del Centro sicurezza Mostra lo stato di tutte le valutazioni all'interno dell'ambiente nel contesto di uno standard o di una norma particolare, ad esempio Azure CIS, NIST SP 800-53 R4, Swift CSP CSCF-V2020. Per ulteriori informazioni, vedere [migliorare la conformità alle normative](security-center-compliance-dashboard.md).
-
+- **Lettura** per la sicurezza: dispone dei diritti per visualizzare gli elementi del Centro sicurezza, ad esempio raccomandazioni, avvisi, criteri e integrità. Non è possibile apportare modifiche.
+- **Amministratore della sicurezza**: ha gli stessi diritti di visualizzazione del *lettore di sicurezza*. Può anche aggiornare i criteri di sicurezza e ignorare gli avvisi.
 
 ## <a name="manage-your-security-policies"></a>Gestire i criteri di sicurezza
 
@@ -59,14 +47,13 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
     > [!NOTE]
     > Se è presente un'etichetta "MG ereditato" insieme ai criteri predefiniti, significa che il criterio è stato assegnato a un gruppo di gestione e ereditato dalla sottoscrizione che si sta visualizzando.
 
-
 1. Scegliere tra le opzioni disponibili in questa pagina:
 
-    1. Per usare i criteri di settore, selezionare **Aggiungi altri standard**. Per altre informazioni, vedere [aggiornare i pacchetti di conformità dinamici](update-regulatory-compliance-packages.md).
+    1. Per lavorare con gli standard del settore, selezionare **Aggiungi altri standard**. Per altre informazioni, vedere [personalizzare il set di standard nel dashboard conformità normativa](update-regulatory-compliance-packages.md).
 
-    1. Per assegnare e gestire le iniziative personalizzate, selezionare **Aggiungi iniziative personalizzate**. Per ulteriori informazioni, vedere [utilizzo dei criteri di sicurezza personalizzati](custom-security-policies.md).
+    1. Per assegnare e gestire le iniziative personalizzate, selezionare **Aggiungi iniziative personalizzate**. Per altre informazioni, vedere [uso di iniziative e criteri di sicurezza personalizzati](custom-security-policies.md).
 
-    1. Per visualizzare e modificare i criteri predefiniti, selezionare **Visualizza criteri validi** e procedere come descritto di seguito. 
+    1. Per visualizzare e modificare l'iniziativa predefinita, selezionare **Visualizza criterio effettivo** e procedere come descritto di seguito. 
 
         :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Schermata dei criteri effettivi":::
 
@@ -80,16 +67,6 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
        > [!NOTE]
        > Quando si visualizzano i criteri assegnati, è possibile visualizzare più assegnazioni e anche come è configurata ogni singola assegnazione.
-
-
-## <a name="who-can-edit-security-policies"></a>Utenti che possono modificare i criteri di sicurezza
-
-È possibile modificare i criteri di sicurezza tramite il portale Criteri di Azure, l'API REST o Windows PowerShell.
-
-Il Centro sicurezza usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), che fornisce ruoli predefiniti che è possibile assegnare a utenti, gruppi e servizi di Azure. Quando gli utenti aprono il Centro sicurezza, visualizzano solo le informazioni correlate alle risorse a cui possono accedere. Ciò significa che agli utenti viene assegnato il ruolo di *proprietario*, *collaboratore* o *lettore* alla sottoscrizione della risorsa. Sono inoltre disponibili due ruoli specifici del Centro sicurezza:
-
-- **Lettura** per la sicurezza: dispone dei diritti per visualizzare gli elementi del Centro sicurezza, ad esempio raccomandazioni, avvisi, criteri e integrità. Non è possibile apportare modifiche.
-- **Amministratore della sicurezza**: ha gli stessi diritti di visualizzazione del *lettore di sicurezza*. Può anche aggiornare i criteri di sicurezza e ignorare gli avvisi.
 
 
 ## <a name="disable-security-policies-and-disable-recommendations"></a>Disabilitare i criteri di sicurezza e disabilitare le raccomandazioni
@@ -129,7 +106,7 @@ Per ulteriori informazioni sulle raccomandazioni, vedere [gestione delle raccoma
 ## <a name="next-steps"></a>Passaggi successivi
 In questa pagina sono stati illustrati i criteri di sicurezza. Per informazioni correlate, vedere le pagine seguenti:
 
-- [Informazioni su come impostare i criteri tramite PowerShell](../governance/policy/assign-policy-powershell.md) - 
-- [Informazioni su come modificare i criteri di sicurezza in criteri di Azure](../governance/policy/tutorials/create-and-manage.md) - 
-- [Informazioni su come impostare un criterio tra le sottoscrizioni o i gruppi di gestione usando criteri di Azure](../governance/policy/overview.md).
+- [Informazioni su come impostare i criteri tramite PowerShell](../governance/policy/assign-policy-powershell.md)
+- [Informazioni su come modificare i criteri di sicurezza in criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Informazioni su come impostare un criterio tra le sottoscrizioni o i gruppi di gestione usando criteri di Azure](../governance/policy/overview.md)
 - [Informazioni su come abilitare il Centro sicurezza in tutte le sottoscrizioni in un gruppo di gestione](onboard-management-group.md)

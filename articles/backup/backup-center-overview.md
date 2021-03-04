@@ -3,12 +3,12 @@ title: Panoramica di Centro backup
 description: Questo articolo fornisce una panoramica di backup Center per Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 0acf3a17e41b89b462a7fb07c5d3ebd55d4052af
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fee7bf41d0c72238231d9c4aba52a26cac9fb960
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725374"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099999"
 ---
 # <a name="overview-of-backup-center"></a>Panoramica di Centro backup
 
@@ -27,7 +27,7 @@ Di seguito sono riportati alcuni dei principali vantaggi offerti da backup Cente
 
 ## <a name="get-started"></a>Introduzione
 
-Per iniziare a usare il centro di backup, cercare **centro di backup** nella portale di Azure e passare al dashboard del **centro di backup (anteprima)** .
+Per iniziare a usare il centro di backup, cercare **centro di backup** nella portale di Azure e passare al dashboard del **centro di backup** .
 
 ![Ricerca nel centro di backup](./media/backup-center-overview/backup-center-search.png)
 
@@ -37,7 +37,7 @@ La prima schermata visualizzata è la **Panoramica**. Contiene due riquadri: **p
 
 Nel riquadro **Jobs (processi** ) si ottiene una vista riepilogativa di tutti i processi correlati al backup e al ripristino che sono stati attivati nella proprietà backup nelle ultime 24 ore. È possibile visualizzare informazioni sul numero di processi completati, non riusciti e in corso. Selezionando uno dei numeri in questo riquadro è possibile visualizzare altre informazioni sui processi per un tipo di origine dati, un tipo di operazione e uno stato specifici.
 
-Nel riquadro **istanze di backup** si ottiene una vista riepilogativa di tutte le istanze di backup nell'area di backup. Ad esempio, è possibile visualizzare il numero di istanze di backup in stato di eliminazione temporanea rispetto al numero di istanze ancora configurate per la protezione. Selezionando uno dei numeri in questo riquadro è possibile visualizzare altre informazioni sulle istanze di backup per un tipo di origine dati e uno stato di protezione specifici.
+Nel riquadro **istanze di backup** si ottiene una vista riepilogativa di tutte le istanze di backup nell'area di backup. Ad esempio, è possibile visualizzare il numero di istanze di backup in stato di eliminazione temporanea rispetto al numero di istanze ancora configurate per la protezione. Selezionando uno dei numeri in questo riquadro è possibile visualizzare altre informazioni sulle istanze di backup per un tipo di origine dati e uno stato di protezione specifici. È anche possibile visualizzare tutte le istanze di backup con origine dati sottostante non trovata (l'origine dati potrebbe essere eliminata o potrebbe non essere possibile accedere all'origine dati).
 
 Guardare il video seguente per comprendere le funzionalità di backup Center:
 

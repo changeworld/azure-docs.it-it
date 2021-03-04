@@ -8,13 +8,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/02/2021
-ms.openlocfilehash: e8f7e5451b48066f52a4c1038e58b1efa99951e6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/04/2021
+ms.openlocfilehash: f5692f2bcaaadfc56084ec8db745eae48112ecf3
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048599"
+ms.locfileid: "102101240"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configura finestra di manutenzione (anteprima)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,6 +26,8 @@ La finestra di manutenzione *predefinita del sistema* è la 17 alle 8 al giorno 
 
 La possibilità di passare a una finestra di manutenzione diversa non è disponibile per ogni livello di servizio o in ogni area. Per informazioni dettagliate sulla disponibilità, vedere [disponibilità della finestra di manutenzione](maintenance-window.md#availability).
 
+> [!Important]
+> La configurazione della finestra di manutenzione è un'operazione asincrona a esecuzione prolungata, simile alla modifica del livello di servizio della risorsa SQL di Azure. La risorsa è disponibile durante l'operazione, ad eccezione di un breve failover che si verifica alla fine dell'operazione e in genere dura fino a 8 secondi anche in caso di transazioni a esecuzione prolungata interrotte. Per ridurre al minimo l'effetto del failover, è necessario eseguire l'operazione al di fuori delle ore di punta.
 
 ## <a name="configure-maintenance-window-during-database-creation"></a>Configura finestra di manutenzione durante la creazione del database 
 

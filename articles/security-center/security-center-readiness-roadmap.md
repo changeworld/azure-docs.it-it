@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: fcaf427c2e0ab275a5a6e08306dda785bca690d6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e4f905b7a08564eadb20d65d651c137ef3741376
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784168"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100322"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Guida di orientamento alla preparazione del Centro sicurezza di Azure
 Questo documento fornisce una guida di orientamento alla preparazione utile per iniziare a usare il Centro sicurezza di Azure.
@@ -59,7 +59,6 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 Usare le risorse seguenti per semplificare la gestione degli avvisi di sicurezza e la protezione delle risorse.
 
 Articoli    
-- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](./security-center-monitoring.md)
 - [Protezione della rete nel Centro sicurezza di Azure](./security-center-network-recommendations.md)
 - [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](./security-center-remediate-recommendations.md)
 

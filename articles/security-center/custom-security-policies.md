@@ -6,22 +6,25 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 02/25/2021
 ms.author: memildin
-ms.openlocfilehash: 8d2b43ab57ea7a3b1dc1d13bcdea9932ccecb9dc
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+zone_pivot_groups: manage-asc-initiatives
+ms.openlocfilehash: a39b79c6c209c0fc66edac846d5458475ec75810
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559032"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100866"
 ---
-# <a name="using-custom-security-policies"></a>Usare criteri di sicurezza personalizzati
+# <a name="create-custom-security-initiatives-and-policies"></a>Creare iniziative e criteri di sicurezza personalizzati
 
 Per semplificare la protezione dei sistemi e dell'ambiente in uso, il Centro sicurezza di Azure genera raccomandazioni sulla sicurezza. Questi consigli si basano sulle procedure consigliate del settore, che vengono integrate nei più generici criteri di sicurezza predefiniti forniti a tutti i clienti. Possono inoltre essere generati a partire dalla conoscenza del Centro sicurezza degli standard di settore e normativi.
 
 Con questa funzionalità è possibile aggiungere iniziative *personalizzate* . Si riceverà quindi una serie di raccomandazioni nel caso in cui l'ambiente non segua i criteri creati. Eventuali iniziative personalizzate create verranno visualizzate insieme alle iniziative predefinite nel dashboard della conformità normativa, come descritto nell'esercitazione [Migliorare la conformità alle normative](security-center-compliance-dashboard.md).
 
 Come illustrato nella [documentazione sui criteri di Azure](../governance/policy/concepts/definition-structure.md#definition-location), quando si specifica una posizione per l'iniziativa personalizzata, è necessario indicare un gruppo di gestione o una sottoscrizione. 
+
+::: zone pivot="azure-portal"
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Per aggiungere un'iniziativa personalizzata alla sottoscrizione 
 
@@ -68,6 +71,113 @@ Come illustrato nella [documentazione sui criteri di Azure](../governance/policy
 1. Per visualizzare le raccomandazioni generate per i criteri specificati, fare clic su **Raccomandazioni** nella barra laterale per aprire la pagina delle raccomandazioni. Le raccomandazioni verranno contrassegnate con l'etichetta "Personalizzata" e saranno disponibili entro un'ora circa.
 
     [![Raccomandazioni personalizzate](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+## <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurare i criteri di sicurezza in criteri di Azure usando l'API REST
+
+Nell'ambito dell'integrazione nativa con Criteri di Azure, Centro sicurezza di Azure consente di sfruttare l'API REST di Criteri di Azure per creare le assegnazioni dei criteri. Le istruzioni seguenti descrivono la creazione delle assegnazioni dei criteri, nonché la personalizzazione delle assegnazioni esistenti. 
+
+Concetti importanti in Criteri di Azure 
+
+- Una **definizione dei criteri** è una regola 
+
+- Un' **iniziativa** è una raccolta di definizioni di criteri (regole) 
+
+- Un' **assegnazione** è un'applicazione di un'iniziativa o un criterio a un ambito specifico (gruppo di gestione, sottoscrizione e così via) 
+
+Il Centro sicurezza ha un'iniziativa predefinita, benchmark di sicurezza di Azure, che include tutti i criteri di sicurezza. Per valutare i criteri del Centro sicurezza per le risorse di Azure, è necessario creare un'assegnazione per il gruppo di gestione o la sottoscrizione che si vuole valutare.
+
+Nell'iniziativa integrata sono presenti tutti i criteri del Centro sicurezza abilitati per impostazione predefinita. È possibile scegliere di disabilitare determinati criteri dall'iniziativa incorporata. Ad esempio, per applicare tutti i criteri del Centro sicurezza ad eccezione di **Web Application Firewall**, modificare il valore del parametro Effect del criterio in **disabled**.
+
+## <a name="api-examples"></a>Esempi di API
+
+Negli esempi seguenti sostituire queste variabili:
+
+- **{scope}** immettere il nome del gruppo di gestione o della sottoscrizione a cui si sta applicando il criterio
+- **{policyAssignmentName}** immettere il nome dell'assegnazione dei criteri pertinente
+- **{Name}** immettere il nome o il nome dell'amministratore che ha approvato la modifica dei criteri
+
+Questo esempio illustra come assegnare l'iniziativa del Centro sicurezza integrata in una sottoscrizione oppure in un gruppo di gestione:
+ 
+ ```
+    PUT  
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+    Request Body (JSON) 
+
+    { 
+
+      "properties":{ 
+
+    "displayName":"Enable Monitoring in Azure Security Center", 
+
+    "metadata":{ 
+
+    "assignedBy":"{Name}" 
+
+    }, 
+
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+    "parameters":{}, 
+
+    } 
+
+    } 
+ ```
+
+Questo esempio illustra come assegnare l'iniziativa del Centro sicurezza integrata in una sottoscrizione, con i criteri seguenti disabilitati: 
+
+- Aggiornamenti del sistema ("systemUpdatesMonitoringEffect") 
+
+- Configurazione di sicurezza ("systemConfigurationsMonitoringEffect") 
+
+- Protezione di endpoint ("endpointProtectionMonitoringEffect") 
+
+ ```
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Request Body (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName":"Enable Monitoring in Azure Security Center", 
+    
+    "metadata":{ 
+    
+    "assignedBy":"{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters":{ 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
+ ```
+Questo esempio illustra come rimuovere un'assegnazione:
+ ```
+    DELETE   
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+ ```
+
+::: zone-end
+
 
 ## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Migliora le tue raccomandazioni personalizzate con informazioni dettagliate
 

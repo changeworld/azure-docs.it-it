@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aea51e56f2d96fa634b1ece2029c9ea5bf3f60fc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d68011afe044535783dd8a8c56ed5d950c6d06b1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011306"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099880"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurare ExpressRoute Direct usando l'interfaccia della riga di comando di Azure
 
@@ -21,12 +21,21 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Prima di usare ExpressRoute Direct, è necessario prima registrare la sottoscrizione. Per eseguire la registrazione inviare un messaggio di posta elettronica all'indirizzo <ExpressRouteDirect@microsoft.com> con l'ID della sottoscrizione, includendo i dettagli seguenti:
+Prima di usare ExpressRoute Direct, è necessario prima registrare la sottoscrizione. Prima di usare ExpressRoute Direct, è necessario prima registrare la sottoscrizione. Per eseguire la registrazione, eseguire le operazioni seguenti tramite Azure PowerShell:
+1.  Accedere ad Azure e selezionare la sottoscrizione che si vuole registrare.
 
-* Scenari che si intende realizzare con **ExpressRoute Direct**
-* Preferenze di località. Per un elenco completo di tutte le località, vedere [Partner e località peer](expressroute-locations-providers.md)
-* Sequenza temporale per l'implementazione
-* Eventuali altre domande
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Registrare la sottoscrizione per l'anteprima pubblica usando il comando seguente:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Al termine della registrazione, verificare che il provider di risorse **Microsoft. Network** sia registrato nella sottoscrizione. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse.
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Creare la risorsa
 

@@ -1,6 +1,6 @@
 ---
-title: Come usare Azure Defender per SQL
-description: Informazioni su come usare il piano facoltativo Azure Defender for SQL del Centro sicurezza di Azure
+title: Come configurare Azure Defender per SQL
+description: Informazioni su come abilitare il piano di Azure Defender facoltativo del Centro sicurezza di Azure per SQL
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 96af34b5b68fca5ab8061c8c99f03bee094dc175
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b82f0ca0624fcbd64f1c23f87f8f21f96d8e4d4c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590387"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100577"
 ---
-# <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender per SQL Server nei computer 
+# <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Abilitare Azure Defender per SQL Server nei computer 
 
 Questo piano di Azure Defender rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database.
 
@@ -31,7 +31,7 @@ Si vedranno avvisi su attività di database sospette, potenziali vulnerabilità 
 |Aspetto|Dettagli|
 |----|:----|
 |Stato della versione:|Disponibilità generale (GA)|
-|Prezzi:|**Azure Defender per SQL Server nei computer** viene fatturato come indicato nella [pagina dei prezzi](security-center-pricing.md)|
+|Prezzi:|**Azure Defender per SQL Server nei computer** viene fatturato come indicato nei [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/)|
 |Versioni di SQL protette:|Azure SQL Server (tutte le versioni coperte dal supporto tecnico Microsoft)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi|
 |||
@@ -40,11 +40,10 @@ Si vedranno avvisi su attività di database sospette, potenziali vulnerabilità 
 
 Per abilitare il piano:
 
-* Eseguire il provisioning dell'agente di Log Analytics nell'host di SQL Server. In questo modo viene fornita la connessione ad Azure.
+[Passaggio 1. Eseguire il provisioning dell'agente di Log Analytics nell'host di SQL Server:](#step-1-provision-the-log-analytics-agent-on-your-sql-servers-host)
 
-* Abilitare il piano facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza.
+[Passaggio 2. Abilitare il piano facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza:](#step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
 
-Entrambi sono descritti di seguito.
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Passaggio 1. Eseguire il provisioning dell'agente di Log Analytics nell'host di SQL Server:
 
@@ -81,31 +80,6 @@ Entrambi sono descritti di seguito.
 1. Facoltativamente, configurare la notifica tramite posta elettronica per gli avvisi di sicurezza. 
     È possibile impostare un elenco di destinatari per ricevere una notifica tramite posta elettronica quando vengono generati gli avvisi del Centro sicurezza. Il messaggio di posta elettronica contiene un collegamento diretto all'avviso nel centro sicurezza di Azure con tutti i dettagli pertinenti. Per altre informazioni, vedere [configurare le notifiche di posta elettronica per gli avvisi di sicurezza](security-center-provide-security-contact-details.md).
 
-
-
-## <a name="explore-vulnerability-assessment-reports"></a>Esplorare i report di valutazione della vulnerabilità
-
-Il servizio di valutazione della vulnerabilità esegue l'analisi dei database una volta alla settimana. Le analisi vengono eseguite nello stesso giorno della settimana in cui è stato abilitato il servizio.
-
-Il dashboard della valutazione della vulnerabilità fornisce una panoramica dei risultati della valutazione in tutti i database, insieme a un riepilogo di database integri e non integri, e un riepilogo generale dei controlli con esito negativo in base alla distribuzione dei rischi.
-
-È possibile visualizzare i risultati della valutazione della vulnerabilità direttamente dal centro sicurezza.
-
-1. Dall'intestazione laterale del Centro sicurezza, aprire la pagina **raccomandazioni** e selezionare le **vulnerabilità di raccomandazione nei server SQL sui computer da correggere (anteprima)**. Per altre informazioni, vedere [raccomandazioni del Centro sicurezza](security-center-recommendations.md). 
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png" alt-text="I risultati della valutazione della vulnerabilità nei computer SQL Server devono essere corretti (anteprima)":::
-
-    Viene visualizzata la visualizzazione dettagliata di questa raccomandazione.
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Visualizzazione dettagliata per la raccomandazione":::
-
-1. Per altri dettagli, eseguire il drill-down:
-
-    * Per una panoramica delle risorse analizzate (database) e l'elenco dei controlli di sicurezza testati, selezionare il server di interesse.
-
-    * Per una panoramica delle vulnerabilità raggruppate in base a un database SQL specifico, selezionare il database di interesse.
-
-    In ogni visualizzazione, i controlli di sicurezza sono ordinati in base alla **gravità**. Fare clic su un controllo di sicurezza specifico per visualizzare un riquadro dei dettagli con una **Descrizione**, **come risolverlo e altre** informazioni correlate, ad esempio **Impact** o **benchmark**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Avvisi di Azure Defender per SQL
 Gli avvisi vengono generati da tentativi insoliti e potenzialmente dannosi di accedere o sfruttare le macchine virtuali SQL. Questi eventi possono attivare gli avvisi visualizzati nella [pagina di riferimento](alerts-reference.md#alerts-sql-db-and-warehouse)per gli avvisi.

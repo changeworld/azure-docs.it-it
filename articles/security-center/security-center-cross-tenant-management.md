@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: d76ecc55c2e156199b2db789721946fd1f36de27
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 493a06e85ad6c8260c342cf8167386394835b1c6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922903"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099489"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestione tra tenant nel centro sicurezza
 
@@ -51,8 +51,4 @@ Le visualizzazioni e le azioni sono fondamentalmente le stesse. Ecco alcuni esem
 - **Gestisci le funzionalità avanzate di difesa del cloud e altro ancora**: Gestisci i vari servizi di protezione dalle minacce, ad esempio [l'accesso JIT (just-in-Time) alle VM](security-center-just-in-time.md), la protezione avanzata della [rete adattiva](security-center-adaptive-network-hardening.md), i [controlli delle applicazioni adattivi](security-center-adaptive-application.md)e altro ancora.
  
 ## <a name="next-steps"></a>Passaggi successivi
-Questo articolo illustra il funzionamento della gestione tra tenant nel centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
-
-* Rafforzare il comportamento di [sicurezza con il Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
-* Domande frequenti sul [Centro sicurezza di Azure](faq-general.md) : domande frequenti sull'uso del servizio.
-* Informazioni [sul faro di Azure in scenari aziendali](../lighthouse/concepts/enterprise.md) : Scopri come Azure Lighthouse può semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant Azure ad.
+Questo articolo illustra il funzionamento della gestione tra tenant nel centro sicurezza. Per scoprire come Azure Lighthouse può semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD, vedere [Azure Lighthouse in Enterprise Scenarios](../lighthouse/concepts/enterprise.md).

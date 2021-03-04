@@ -1,15 +1,16 @@
 ---
 title: Distribuire il Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
 description: Come distribuire e configurare una rete del Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
-ms.date: 01/08/2021
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: c0e7f3e7ab83f64cebd990de57d48c97891edb7f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897259"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101104"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Distribuire il Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
 
@@ -31,34 +32,6 @@ Opzione | Modello di servizio | Caso d'uso comune
 Modelli di soluzioni | IaaS | I modelli di soluzione sono Azure Resource Manager modelli che è possibile usare per eseguire il provisioning di una topologia di rete blockchain completamente configurato. I modelli distribuiscono e configurano Microsoft Azure servizi di calcolo, rete e archiviazione per un tipo di rete blockchain. I modelli di soluzione sono forniti senza un contratto di servizio. Utilizzare [Microsoft Q&una pagina per il](/answers/topics/azure-blockchain-workbench.html) supporto.
 [Servizio Azure Blockchain](../service/overview.md) | PaaS | Azure blockchain Service Preview semplifica la formazione, la gestione e la governance delle reti blockchain del Consorzio. Usa il servizio Azure blockchain per le soluzioni che richiedono PaaS, la gestione del consorzio o la privacy dei contratti e delle transazioni.
 [Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | Azure blockchain Workbench Preview è una raccolta di servizi e funzionalità di Azure che consentono di creare e distribuire applicazioni blockchain per condividere i dati e i processi aziendali con altre organizzazioni. Usare Azure blockchain Workbench per la progettazione di una soluzione blockchain o un modello di prova per un'applicazione blockchain. Azure blockchain Workbench è disponibile senza un contratto di servizio. Utilizzare [Microsoft Q&una pagina per il](/answers/topics/azure-blockchain-workbench.html) supporto.
-
-## <a name="hyperledger-fabric-consortium-architecture"></a>Architettura del Consorzio di infrastruttura iperledger
-
-Per creare una rete dell'infrastruttura iperledger in Azure, è necessario distribuire un servizio di ordinamento e un'organizzazione con nodi peer. Usando l'infrastruttura di iperledger nel modello di soluzione del servizio Kubernetes di Azure, è possibile creare nodi di ordine o nodi peer. È necessario distribuire il modello per ogni nodo che si desidera creare.
-
-I componenti fondamentali creati come parte della distribuzione del modello sono:
-
-- **Nodi di ordinamento**: nodo responsabile dell'ordinamento delle transazioni nel Ledger. Insieme ad altri nodi, i nodi ordinati formano il servizio di ordinamento della rete dell'infrastruttura dell'iperledger.
-
-- **Nodi peer**: nodo che ospita principalmente i registri e i contratti intelligenti, che sono elementi fondamentali della rete.
-
-- **CA infrastruttura**: l'autorità di certificazione (CA) per l'infrastruttura dell'iperledger. La CA infrastruttura consente di inizializzare e avviare un processo server che ospita l'autorità di certificazione. Consente di gestire le identità e i certificati. Per impostazione predefinita, ogni cluster AKS distribuito come parte del modello avrà un pod CA di infrastruttura.
-
-- **CouchDB o LevelDB**: database di stato globale per i nodi peer. LevelDB è il database di stato predefinito incorporato nel nodo peer. Archivia i dati chaincode come semplici coppie chiave/valore e supporta solo query chiave, intervallo di chiavi e chiave composta. CouchDB è un database di stato alternativo facoltativo che supporta query avanzate quando i valori dei dati chaincode sono modellati come JSON.
-
-Il modello nella distribuzione avvia varie risorse di Azure nella sottoscrizione. Le risorse di Azure distribuite sono:
-
-- **Cluster AKS**: cluster del servizio Azure Kubernetes configurato in base ai parametri di input forniti dal cliente. Il cluster AKS dispone di diversi pod configurati per l'esecuzione dei componenti di rete dell'infrastruttura iperledger. I pod creati sono:
-
-  - **Strumenti di infrastruttura**: strumenti responsabili della configurazione dei componenti dell'infrastruttura iperledger.
-  - **Orderer/Pod peer**: nodi della rete dell'infrastruttura iperledger.
-  - **Proxy**: un pod proxy ngnix tramite il quale le applicazioni client possono comunicare con il cluster AKS.
-  - **CA infrastruttura**: il pod che esegue l'autorità di certificazione dell'infrastruttura.
-- **PostgreSQL**: istanza di database che gestisce le identità della CA dell'infrastruttura.
-
-- **Key Vault**: istanza del servizio Azure Key Vault distribuito per salvare le credenziali CA dell'infrastruttura e i certificati radice forniti dal cliente. L'insieme di credenziali viene usato in caso di tentativi di distribuzione del modello, per gestire i meccanismi del modello.
-- **Disco gestito**: istanza del servizio Managed Disks di Azure che fornisce un archivio permanente per il Ledger e per il database di stato globale del nodo peer.
-- **IP pubblico**: endpoint del cluster AKS distribuito per la comunicazione con il cluster.
 
 ## <a name="deploy-the-orderer-and-peer-organization"></a>Distribuire l'ordinatore e l'organizzazione peer
 
@@ -85,10 +58,10 @@ Per iniziare a distribuire i componenti di rete dell'infrastruttura iperledger, 
     - **Nome organizzazione**: immettere il nome dell'organizzazione dell'infrastruttura dell'iperledger, che è necessario per varie operazioni del piano dati. Il nome dell'organizzazione deve essere univoco per ogni distribuzione.
     - **Infrastruttura di rete componente**: scegliere **ordinazione servizio** o **nodi peer**, in base al componente di rete blockchain che si desidera configurare.
     - **Numero di nodi**: di seguito sono riportati i due tipi di nodi:
-        - **Servizio di ordinamento**: selezionare il numero di nodi per fornire la tolleranza di errore alla rete. Il numero di nodi dell'ordine supportato è 3, 5 e 7.
-        - **Nodi peer**: è possibile scegliere tra 1 e 10 nodi in base ai requisiti.
-    - **Database di stato globale del nodo peer**: scegliere tra LevelDB e CouchDB. Questo campo viene visualizzato quando si scelgono i **nodi peer** nell'elenco a discesa **componente rete infrastruttura** .
-    - **Nome utente CA infrastruttura**: immettere il nome utente usato per l'autenticazione dell'autorità di certificazione dell'infrastruttura.
+        - **Ordering Service**: nodi responsabili dell'ordinamento delle transazioni nel Ledger. Selezionare il numero di nodi per fornire la tolleranza di errore alla rete. Il numero di nodi dell'ordine supportato è 3, 5 e 7.
+        - **Nodi peer**: nodi che ospitano Ledger e contratti Smart. È possibile scegliere tra 1 e 10 nodi in base ai requisiti.
+    - **Database di stato globale del nodo peer**: database di stato globale per i nodi peer. LevelDB è il database di stato predefinito incorporato nel nodo peer. Archivia i dati chaincode come semplici coppie chiave/valore e supporta solo query chiave, intervallo di chiavi e chiave composta. CouchDB è un database di stato alternativo facoltativo che supporta query avanzate quando i valori dei dati chaincode sono modellati come JSON. Questo campo viene visualizzato quando si scelgono i **nodi peer** nell'elenco a discesa **componente rete infrastruttura** .
+    - **Nome utente CA infrastruttura**: l'autorità di certificazione dell'infrastruttura consente di inizializzare e avviare un processo server che ospita l'autorità di certificazione. Consente di gestire le identità e i certificati. Per impostazione predefinita, ogni cluster AKS distribuito come parte del modello avrà un pod CA di infrastruttura. Immettere il nome utente usato per l'autenticazione dell'autorità di certificazione dell'infrastruttura.
     - **Password CA infrastruttura**: immettere la password per l'autenticazione dell'autorità di certificazione dell'infrastruttura.
     - **Conferma password**: confermare la password dell'infrastruttura della CA.
     - **Certificati**: se si vuole usare i propri certificati radice per inizializzare l'autorità di certificazione dell'infrastruttura, scegliere l'opzione **Carica certificato radice per la CA dell'infrastruttura** . In caso contrario, la CA dell'infrastruttura crea i certificati autofirmati per impostazione predefinita.
@@ -96,11 +69,21 @@ Per iniziare a distribuire i componenti di rete dell'infrastruttura iperledger, 
     - **Chiave privata del certificato radice**: caricare la chiave privata del certificato radice. Se si dispone di un certificato con estensione PEM, che dispone di una chiave pubblica e privata combinata, caricarla anche qui.
 
 
-6. Selezionare la scheda **Impostazioni cluster AKS** per definire la configurazione del cluster del servizio Kubernetes di Azure che rappresenta l'infrastruttura sottostante in cui verranno configurati i componenti di rete dell'infrastruttura iperledger.
+6. Selezionare la scheda **Impostazioni cluster AKS** per definire la configurazione del cluster del servizio Azure Kubernetes. Il cluster AKS dispone di diversi pod configurati per l'esecuzione dei componenti di rete dell'infrastruttura iperledger. Le risorse di Azure distribuite sono:
+
+    - **Strumenti di infrastruttura**: strumenti responsabili della configurazione dei componenti dell'infrastruttura iperledger.
+    - **Orderer/Pod peer**: nodi della rete dell'infrastruttura iperledger.
+    - **Proxy**: un pod proxy ngnix tramite il quale le applicazioni client possono comunicare con il cluster AKS.
+    - **CA infrastruttura**: il pod che esegue l'autorità di certificazione dell'infrastruttura.
+    - **PostgreSQL**: istanza di database che gestisce le identità della CA dell'infrastruttura.
+    - **Key Vault**: istanza del servizio Azure Key Vault distribuito per salvare le credenziali CA dell'infrastruttura e i certificati radice forniti dal cliente. L'insieme di credenziali viene usato in caso di tentativi di distribuzione del modello, per gestire i meccanismi del modello.
+    - **Disco gestito**: istanza del servizio Managed Disks di Azure che fornisce un archivio permanente per il Ledger e per il database di stato globale del nodo peer.
+    - **IP pubblico**: endpoint del cluster AKS distribuito per la comunicazione con il cluster.
+
+    Immettere i dettagli seguenti: 
 
     ![Screenshot che mostra la scheda Impostazioni cluster A K S.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
-7. Immettere i dettagli seguenti:
     - **Nome del cluster Kubernetes**: se necessario, modificare il nome del cluster AKS. Questo campo viene prepopolato in base al prefisso di risorsa fornito.
     - **Kubernetes Version**: scegliere la versione di Kubernetes che verrà distribuita nel cluster. In base all'area selezionata nella scheda **nozioni di base** , le versioni supportate disponibili potrebbero cambiare.
     - **Prefisso DNS**: immettere un prefisso per il nome del Domain Name System (DNS) per il cluster AKS. Si userà DNS per connettersi all'API Kubernetes quando si gestiscono i contenitori dopo aver creato il cluster.
@@ -334,7 +317,7 @@ Eseguire il comando seguente per installare chaincode nell'organizzazione peer.
 ```
 Il comando installerà chaincode su tutti i nodi peer del set di organizzazioni peer nella `ORGNAME` variabile di ambiente. Se due o più organizzazioni peer si trovano nel canale e si vuole installare chaincode su tutti, eseguire questo comando separatamente per ogni organizzazione peer.  
 
-A tale scopo, seguire questa procedura:  
+Seguire questa procedura:  
 
 1.  Impostare `ORGNAME` e `USER_IDENTITY` in base a `peerOrg1` ed eseguire il `./azhlf chaincode install` comando.  
 2.  Impostare `ORGNAME` e `USER_IDENTITY` in base a `peerOrg2` ed eseguire il `./azhlf chaincode install` comando.  

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2021
 ms.author: memildin
-ms.openlocfilehash: e34d5520e13d45d15079a5f11775d2ef930fc62a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 327103df21dd34347439a833d7ac4b8a21dc66b4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727091"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099846"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -277,7 +277,7 @@ Se un utente non dispone delle autorizzazioni per visualizzare i dati del Centro
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner che informa un utente che può richiedere autorizzazioni a livello di tenant.":::
 
-Per altre informazioni, vedere [richiedere autorizzazioni a livello di tenant quando](security-center-management-groups.md#request-tenant-wide-permissions-when-yours-are-insufficient) il proprio non è sufficiente.
+Per altre informazioni, vedere [richiedere autorizzazioni a livello di tenant quando](tenant-wide-permissions-management.md#request-tenant-wide-permissions-when-yours-are-insufficient)il proprio non è sufficiente.
 
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Aggiunte 35 raccomandazioni di anteprima per aumentare la copertura di Azure Security Benchmark
@@ -339,7 +339,7 @@ Quando si definisce un'esportazione continua, impostare la frequenza di esportaz
 - **Streaming** : le valutazioni verranno inviate in tempo reale quando lo stato di integrità di una risorsa viene aggiornato (se non si verifica alcun aggiornamento, non verrà inviato alcun dato).
 - **Snapshot** : uno snapshot dello stato corrente di tutte le valutazioni della conformità alle normative verrà inviato ogni settimana (si tratta di una funzionalità di anteprima per gli snapshot settimanali dei punteggi sicuri e dei dati di conformità alle normative).
 
-Scopri di più sulle funzionalità complete di questa funzionalità in [esportazione continua dei dati del Centro sicurezza](continuous-export.md)
+Scopri di più sulle funzionalità complete di questa funzionalità in [Esporta continuamente i dati del Centro sicurezza](continuous-export.md).
 
 ## <a name="december-2020"></a>Dicembre 2020
 
@@ -393,7 +393,7 @@ Vedere altre informazioni su [Azure Defender per SQL](defender-for-sql-introduct
 
 Un utente con il ruolo **Amministratore globale** di Azure Active Directory potrebbe avere responsabilità a livello di tenant ma non avere le autorizzazioni di Azure per visualizzare queste informazioni nell'intera organizzazione in Azure Active Directory. 
 
-Per assegnare a se stessi le autorizzazioni a livello di tenant, seguire le istruzioni riportate in [Concedere autorizzazioni a livello di tenant a se stessi](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
+Per assegnare a se stessi le autorizzazioni a livello di tenant, seguire le istruzioni riportate in [Concedere autorizzazioni a livello di tenant a se stessi](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
 
 ### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>Due nuovi piani di Azure Defender: Azure Defender per DNS e Azure Defender per Resource Manager (in anteprima)

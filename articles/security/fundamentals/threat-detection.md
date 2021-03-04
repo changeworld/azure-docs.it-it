@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 79262b85e9591ae4b41e8467abdcbccb3804d4ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 81b2227ac519de4d03bb63907d14c23b9c34dc64
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590354"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101036"
 ---
 # <a name="azure-threat-protection"></a>Azure Threat Protection
 
@@ -368,6 +368,6 @@ Per esempi di firewall di applicazioni Web disponibili su Azure Marketplace, ved
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Rispondere alle minacce attuali](../../security-center/security-center-alerts-overview.md#respond-threats): consentono di identificare le minacce attive rivolte alle risorse di Azure e forniscono le informazioni dettagliate necessarie per rispondere rapidamente a tali minacce.
+- [Rispondere alle minacce attuali](../../security-center/security-center-managing-and-responding-alerts.md): consentono di identificare le minacce attive rivolte alle risorse di Azure e forniscono le informazioni dettagliate necessarie per rispondere rapidamente a tali minacce.
 
 - [Rilevamento delle minacce per il database SQL di Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): consente di risolvere i problemi relativi a potenziali minacce per i database.
