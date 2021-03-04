@@ -4,15 +4,15 @@ description: Distribuire Azure Spring Cloud in una rete virtuale (VNet injection
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880601"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031804"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Distribuire il cloud Spring di Azure in una rete virtuale
 
@@ -50,7 +50,7 @@ La rete virtuale in cui viene distribuita l'istanza di Azure Spring Cloud deve s
     * Una per le applicazioni di microservizi Spring Boot.
     * Deve esistere una relazione uno-a-uno tra queste subnet e un'istanza di Azure Spring Cloud. Usare una nuova subnet per ogni istanza del servizio da distribuire. Ogni subnet può includere solo una singola istanza del servizio.
 * **Spazio degli indirizzi**: blocchi CIDR fino a */28* per la subnet del runtime del servizio e per la subnet delle applicazioni di microservizi Spring Boot.
-* **Tabella di route**: alle subnet non deve essere associata una tabella di route esistente.
+* **Tabella di route**: per impostazione predefinita, le subnet non necessitano delle tabelle di route esistenti associate. È possibile [importare una tabella di route personalizzata](#bring-your-own-route-table).
 
 Le procedure seguenti descrivono la configurazione della rete virtuale in cui contenere l'istanza di Azure Spring Cloud.
 
@@ -179,6 +179,26 @@ Questa tabella mostra il numero massimo di istanze dell'app che Azure Spring clo
 Per le subnet, cinque indirizzi IP sono riservati da Azure e almeno quattro indirizzi sono richiesti da Azure Spring Cloud. Sono necessari almeno nove indirizzi IP, quindi i blocchi /29 e /30 non sono operativi.
 
 Per una subnet di runtime del servizio, la dimensione minima è /28. Questa dimensione non ha alcun effetto sul numero di istanze di app.
+
+## <a name="bring-your-own-route-table"></a>Porta la tua tabella di route
+
+Il cloud Spring di Azure supporta l'uso di subnet e tabelle di route esistenti.
+
+Se le subnet personalizzate non contengono tabelle di route, Azure Spring cloud le crea per ciascuna subnet e aggiunge le relative regole nel ciclo di vita dell'istanza. Se le subnet personalizzate contengono tabelle di route, Azure Spring cloud riconosce le tabelle di route esistenti durante le operazioni di istanza e aggiunge/aggiorna e/o regole di conseguenza per le operazioni.
+
+> [!Warning] 
+> È possibile aggiungere regole personalizzate alle tabelle di route personalizzate e aggiornarle. Tuttavia, le regole vengono aggiunte dal cloud Spring di Azure e non devono essere aggiornate o rimosse. Regole come 0.0.0.0/0 devono sempre esistere in una determinata tabella di route ed eseguire il mapping alla destinazione del gateway Internet, ad esempio un appliance virtuale di rete o un altro gateway in uscita. Prestare attenzione durante l'aggiornamento delle regole quando vengono modificate solo le regole personalizzate.
+
+
+### <a name="route-table-requirements"></a>Requisiti della tabella di route
+
+Le tabelle di route a cui è associato il VNET personalizzato devono soddisfare i requisiti seguenti:
+
+* È possibile associare le tabelle di route di Azure con la VNET solo quando si crea una nuova istanza del servizio cloud di Azure Spring. Non è possibile modificare l'uso di un'altra tabella di route dopo la creazione di Azure Spring cloud.
+* Sia la subnet dell'applicazione del microservizio che la subnet di runtime del servizio devono essere associate a tabelle di route diverse o nessuna di esse.
+* Le autorizzazioni devono essere assegnate prima della creazione dell'istanza. Assicurarsi di concedere l'autorizzazione Azure *Spring cloud Owner* alle tabelle di route.
+* Non è possibile aggiornare la risorsa della tabella di route associata dopo la creazione del cluster. Anche se non è possibile aggiornare la risorsa della tabella di route, è possibile modificare le regole personalizzate nella tabella di route.
+* Non è possibile riutilizzare una tabella di route con più istanze a causa di potenziali regole di routing in conflitto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

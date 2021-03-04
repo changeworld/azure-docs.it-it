@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 50535ab9ac2a3541ade7b9abd8f355bbeaf6d4b3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 37496b9358ec72c79f8d26e32a92485f001e0e9d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365005"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031668"
 ---
 # <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Guida introduttiva: creare una cache di redis Enterprise (anteprima)
 
@@ -22,7 +22,7 @@ I livelli Enterprise della cache di Azure per Redis offrono una soluzione [Redis
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account](https://azure.microsoft.com/). Per altre informazioni, vedere i [requisiti del livello Enterprise](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements).
+Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account](https://azure.microsoft.com/). Per ulteriori informazioni, vedere [considerazioni speciali per i livelli Enterprise](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ## <a name="create-a-cache"></a>Creare una cache
 1. Per creare una cache, accedere al portale di Azure seguendo il collegamento nell'invito all'anteprima e quindi selezionare **Crea una risorsa**.
@@ -41,7 +41,7 @@ Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha un
    | **Posizione** | Nell'elenco a discesa selezionare una località. | Durante la fase di anteprima, i livelli Enterprise sono disponibili in un numero limitato di aree di Azure. |
    | **Tipo di cache** | Nell'elenco a discesa selezionare il livello *Enterprise* o *Enterprise Flash* e le dimensioni. |  Il livello determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. |
    
-   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Livello Enterprise di base":::
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Scheda nozioni di base livello Enterprise":::
 
    > [!NOTE] 
    > Prima di procedere, assicurarsi di selezionare la casella in "Condizioni".
@@ -57,17 +57,13 @@ Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha un
    
    È possibile mantenere le impostazioni predefinite o cambiarle in base alle esigenze. Se si attiva l'opzione **Allow access only via TLS** (Consenti l'accesso solo tramite TLS), è necessario usare TLS per accedere alla nuova cache dall'applicazione.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Livello Enterprise avanzato":::
+   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Scheda Avanzate livello Enterprise":::
 
-   > [!NOTE] 
-   > I moduli Redis non sono ancora supportati nel livello Enterprise Flash. Se si prevede di usare un modulo Redis, assicurarsi di scegliere una cache di livello Enterprise.
-   >
-   
 1. Selezionare **Avanti: Tag** e ignorare la pagina.
 
 1. Selezionare **Avanti: Rivedi e crea**.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Riepilogo dei livelli Enterprise":::
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Verifica livello Enterprise + scheda Crea":::
 
 1. Rivedere le impostazioni e fare clic su **Crea**.
    

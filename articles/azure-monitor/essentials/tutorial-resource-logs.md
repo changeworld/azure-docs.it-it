@@ -1,17 +1,16 @@
 ---
 title: Raccogliere i log delle risorse da una risorsa di Azure e analizzarli con Monitoraggio di Azure
 description: Questa esercitazione mostra come configurare le impostazioni di diagnostica per raccogliere i log delle risorse da una risorsa di Azure in un'area di lavoro Log Analytics in cui possono essere analizzati con una query su log.
-ms.subservice: ''
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: d3c3eff32120438fd891cb32fe98d73424f82b7f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 43a9c88bc64b688bfd1171e331232bb254b0eebe
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734146"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032875"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Esercitazione: Raccogliere e analizzare i log delle risorse da una risorsa di Azure
 

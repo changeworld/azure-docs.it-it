@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
-ms.subservice: logs
-ms.openlocfilehash: dcd6522c46b6ca35031092c634803267a8486647
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cb4f1ecdada68218c104558a85277417641906f6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731460"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033013"
 ---
 # <a name="azure-resource-logs"></a>Log delle risorse di Azure
 I log delle risorse di Azure sono [log di piattaforma](../essentials/platform-logs-overview.md) che forniscono informazioni dettagliate sulle operazioni eseguite all'interno di una risorsa di Azure. Il contenuto dei log delle risorse varia in base al servizio di Azure e al tipo di risorsa. I log delle risorse non vengono raccolti per impostazione predefinita. È necessario creare un'impostazione di diagnostica per ogni risorsa di Azure per inviare i log delle risorse a un'area di lavoro Log Analytics da usare con i [log di monitoraggio di Azure](../logs/data-platform-logs.md), Hub eventi di Azure da inoltrare all'esterno di Azure o ad archiviazione di Azure per l'archiviazione.

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: bcfff1a2c8490a05f4b96a8e2ff68186348f596f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 574340825567dcd512a5da1b311c57fe12954e34
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742365"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030546"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview"></a>Che cos'è Azure front door standard/Premium (anteprima)?
 
@@ -51,7 +51,7 @@ Azure front door standard/Premium offre un'unica piattaforma unificata che si ad
 
 Funzionalità principali incluse in Azure front door standard/Premium (anteprima):
 
-- Prestazioni delle applicazioni accelerate tramite il protocollo anycast **[Split basato su TCP](../front-door-routing-architecture#splittcp.md)** .
+- Prestazioni delle applicazioni accelerate tramite il protocollo anycast **[Split basato su TCP](../front-door-routing-architecture.md#splittcp)** .
 
 - Monitoraggio intelligente del **[Probe di integrità](concept-health-probes.md)** e bilanciamento del carico tra le **[origini](concept-origin.md)**.
 

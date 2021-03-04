@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: ed9690a750ad6e1167ba0a0ae4a87b603c4a1f15
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a889275782388781eadffb7cf0a24771bf6e9e4f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717401"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030835"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di Monitoraggio di Azure
 
@@ -87,9 +87,9 @@ Gli utenti hanno due opzioni per accedere ai dati:
 
     > [!NOTE]
     > I log sono disponibili per le query del contesto delle risorse solo se sono stati associati correttamente alla risorsa pertinente. Attualmente, le risorse seguenti presentano limitazioni:
-    > - Computer esterni ad Azure
+    > - Computer esterni ad Azure: supportati solo per il contesto delle risorse tramite [Azure Arc per i server](../../azure-arc/servers/index.yml)
     > - Service Fabric
-    > - Application Insights
+    > - Application Insights supportato solo per il contesto delle risorse quando si usa la [risorsa Application Insights basata sull'area di lavoro](../app/create-workspace-resource.md)
     >
     > È possibile verificare se i log sono associati correttamente alla propria risorsa eseguendo una query ed esaminando i record a cui si è interessati. Se l'ID di risorsa corretto si trova nella proprietà [_ResourceId](./log-standard-columns.md#_resourceid) , i dati sono disponibili per le query incentrate sulle risorse.
 

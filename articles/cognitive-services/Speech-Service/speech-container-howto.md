@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: locale, Docker, contenitore
-ms.openlocfilehash: 7bebaf7558de8ec5c1fcca3c9a4526330da1d695
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4970b33d51ed7ef54727c1c15e2482ff10d70506
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575789"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032935"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installare ed eseguire contenitori Docker per le API del servizio riconoscimento vocale 
 

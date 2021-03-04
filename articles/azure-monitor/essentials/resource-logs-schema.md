@@ -1,15 +1,14 @@
 ---
 title: Servizi e schemi supportati per i log delle risorse di Azure
 description: Informazioni sui servizi e sullo schema di eventi supportati per i log delle risorse di Azure.
-ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 7c426074bbeb2792f152063d938e867b86dc1f6f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 661cba2d78dbb176bb04e6831cf8e045a285535e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717537"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033096"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schema comune e specifico del servizio per i log delle risorse di Azure
 

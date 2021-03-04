@@ -1,17 +1,16 @@
 ---
 title: Tempo di inserimento dei dati di log in Monitoraggio di Azure | Microsoft Docs
 description: Illustra i diversi fattori che influiscono sulla latenza nella raccolta dei dati in Monitoraggio di Azure.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 501e395cf91630789824cc111614e7150dddaa7c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6037ef9c539c3c57f2ba5a19f371237159d1bf69
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700610"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030886"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo di inserimento dei dati di log in Monitoraggio di Azure
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati di log diventino disponibili dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.

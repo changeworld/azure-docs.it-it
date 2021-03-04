@@ -1,17 +1,16 @@
 ---
 title: API di raccolta dati HTTP di Monitoraggio di Azure | Microsoft Docs
 description: È possibile usare l'API di raccolta dati HTTP di Monitoraggio di Azure per aggiungere dati JSON POST a un'area di lavoro Log Analytics da qualsiasi client in grado di chiamare l'API REST. Questo articolo illustra come usare l'API e descrive esempi di come pubblicare i dati con diversi linguaggi di programmazione.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 446e375cbbfc577dfc5bdff39e151cef5ae9e4c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8c5b4eac17b4c7ae9b4081d0eb9118285dc74bd5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737002"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030954"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.

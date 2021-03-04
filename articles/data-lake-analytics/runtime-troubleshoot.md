@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 1236b83b410057e55015391772e37bd461a448d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241608"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030614"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Informazioni su come risolvere gli errori di runtime di U-SQL a causa di modifiche di runtime
 
@@ -55,7 +55,7 @@ Esistono due possibili problemi di versione di runtime che possono verificarsi:
 
 ## <a name="known-issues"></a>Problemi noti
 
-* Se si fa riferimento Newtonsoft.Jsalla versione del file 12.0.3 o in uno script USQL, si verificherà un errore di compilazione seguente:
+1. Se si fa riferimento Newtonsoft.Jsalla versione del file 12.0.3 o in uno script USQL, si verificherà un errore di compilazione seguente:
 
     *"Ci dispiace. i processi in esecuzione nell'account di Data Lake Analytics probabilmente verranno eseguiti più lentamente o non verranno completati. Un problema imprevisto impedisce il ripristino automatico di questa funzionalità nell'account Azure Data Lake Analytics. I tecnici Azure Data Lake sono stati contattati per esaminare ".*  
 
@@ -65,6 +65,10 @@ Esistono due possibili problemi di versione di runtime che possono verificarsi:
     `...`
 
     **Soluzione**: usare Newtonsoft.Jsnel file 12.0.2 o versione precedente.
+2. I clienti potrebbero visualizzare i file e le cartelle temporanei nel proprio negozio. Queste vengono generate come parte della normale esecuzione del processo, ma vengono in genere eliminate prima che vengano visualizzate dai clienti. In determinate circostanze, che sono rare e casuali, potrebbero rimanere visibili per un determinato periodo di tempo. Vengono eliminati e non vengono mai conteggiati come parte dell'archiviazione utente o generano qualsiasi tipo di addebito. A seconda della logica del processo dei clienti, potrebbero verificarsi problemi. Ad esempio, se il processo enumera tutti i file nella cartella e quindi confronta gli elenchi di file, potrebbe avere esito negativo a causa dei file temporanei imprevisti. Analogamente, se un processo downstream enumera tutti i file di una determinata cartella per un'ulteriore elaborazione, potrebbe anche enumerare i file temporanei.  
+
+    **Soluzione**: viene identificata una correzione nel runtime in cui i file temporanei verranno archiviati nella cartella temporanea a livello di account rispetto alla cartella di output corrente. I file temporanei verranno scritti in questa nuova cartella temporanea e verranno eliminati al termine dell'esecuzione del processo.  
+    Poiché questa correzione gestisce i dati del cliente, è estremamente importante che questa correzione venga convalidata entro MSFT prima del rilascio. Questa correzione dovrebbe essere disponibile come beta Runtime a metà dell'anno 2021 e come runtime predefinito nella seconda metà dell'anno 2021. 
 
 
 ## <a name="see-also"></a>Vedi anche

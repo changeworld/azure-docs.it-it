@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/17/2021
 ms.topic: troubleshooting
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 6329e93bb5e628d68afbb2700ce0b9e3a2a711ad
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3c1f60b214397b1f97e0157b5beca32d504102d6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679494"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030631"
 ---
 # <a name="device-update-for-iot-hub-troubleshooting-guide"></a>Guida alla risoluzione dei problemi dell'hub degli aggiornamenti del dispositivo
 
@@ -46,7 +46,7 @@ _Lo stato di conformità del dispositivo può richiedere fino a 5 minuti per l'a
 ### <a name="q-my-devices-deployment-status-shows-incompatible-what-should-i-do"></a>D: lo stato di distribuzione del dispositivo Mostra incompatibile, cosa devo fare?
 _È possibile che le proprietà del produttore e del modello di un dispositivo di destinazione siano state modificate dopo la connessione del dispositivo all'hub Internet, facendo in modo che il dispositivo sia ora considerato incompatibile con il contenuto dell'aggiornamento della distribuzione corrente._
 
-_Controllare l' [interfaccia Adu Core](./device-update-plug-and-play) per visualizzare il produttore e il modello che il dispositivo sta segnalando al servizio di aggiornamento del dispositivo e verificare che corrisponda al produttore e al modello specificati nel [manifesto di importazione](./import-concepts.md) del contenuto di aggiornamento da distribuire. È possibile modificare queste proprietà per un determinato dispositivo usando il [file di configurazione dell'aggiornamento del dispositivo](./device-update-cofiguration-file.md)._
+_Controllare l' [interfaccia Adu Core](./device-update-plug-and-play.md) per visualizzare il produttore e il modello che il dispositivo sta segnalando al servizio di aggiornamento del dispositivo e verificare che corrisponda al produttore e al modello specificati nel [manifesto di importazione](./import-concepts.md) del contenuto di aggiornamento da distribuire. È possibile modificare queste proprietà per un determinato dispositivo usando il [file di configurazione dell'aggiornamento del dispositivo](./device-update-configuration-file.md)._
 
 ### <a name="q-i-see-my-deployment-is-in-active-stage-but-none-of-my-devices-are-in-progress-with-the-update-what-should-i-do"></a>D: la distribuzione è in fase "attiva", ma nessuno dei miei dispositivi è "in corso" con l'aggiornamento. Cosa devo fare?
 _Assicurarsi che la data di inizio della distribuzione non sia impostata in futuro. Quando si crea una nuova distribuzione, la data di inizio della distribuzione viene impostata automaticamente sul giorno successivo come protezione, a meno che non venga modificata in modo esplicito. È possibile attendere l'arrivo della data di inizio della distribuzione o annullare la distribuzione in corso e creare una nuova distribuzione con la data di inizio desiderata._

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 2/24/2021
-ms.openlocfilehash: 5d6b05b9656879f174d92d75ca8b188f7e74e5a1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ef90a21ab8fad0e18542c1c88ee808237ff150c5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721141"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032586"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Panoramica della co-selling con i team di vendita Microsoft e i partner
 
@@ -70,7 +70,7 @@ Per questi tipi di offerta è possibile applicare lo stato di incentivo Premium 
 - Dynamics 365 per Customer Engagement & PowerApps
 - Dynamics 365 per le operazioni
 
-Le offerte che raggiungono lo stato di _incentivo Premium_ per le app di _Azure con co-selling di Azure incentivate_ o biz ottengono questi vantaggi per il Marketplace commerciale:
+Le offerte che raggiungono lo stato _incentivate di co-selling IP di Azure_ ottengono questi vantaggi per il Marketplace commerciale:
 
 - Il costo del servizio Marketplace è ridotto dal 20% al 10%. Questo sconto si applica alla soluzione di infrastruttura distribuita come servizio (IaaS) o alla soluzione SaaS (Software as a Service) venduta attraverso il Marketplace commerciale. Per ulteriori informazioni, vedere la pagina relativa alle [tariffe del servizio Marketplace commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - I partner Cloud Solution Provider (CSP) ricevono un incentivo del 10% per la vendita della soluzione IaaS o dell'offerta SaaS. Per ulteriori informazioni sul programma CSP, vedere il [programma Cloud Solution Provider](cloud-solution-providers.md).

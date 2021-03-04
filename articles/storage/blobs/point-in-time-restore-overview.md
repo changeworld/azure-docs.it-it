@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 4e6dac1ab7350caeb29e23b21eace433568b38ea
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980516"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031634"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Ripristino temporizzato per BLOB in blocchi
 
 Il ripristino temporizzato garantisce la protezione da eliminazioni accidentali o danneggiamenti consentendo di ripristinare uno stato precedente dei dati BLOB in blocchi. Il ripristino temporizzato è utile negli scenari in cui un utente o un'applicazione elimina accidentalmente i dati o quando un errore dell'applicazione danneggia i dati. Il ripristino temporizzato consente anche scenari di test che richiedono il ripristino di un set di dati a uno stato noto prima di eseguire ulteriori test.
 
-Il ripristino temporizzato è supportato solo per gli account di archiviazione per utilizzo generico V2. Con il ripristino temporizzato è possibile ripristinare solo i dati nei livelli di accesso ad accesso frequente e sporadico.
+Il ripristino temporizzato è supportato solo per gli account di archiviazione per utilizzo generico V2 nel livello di prestazioni standard. Con il ripristino temporizzato è possibile ripristinare solo i dati nei livelli di accesso ad accesso frequente e sporadico.
 
 Per informazioni su come abilitare il ripristino temporizzato per un account di archiviazione, vedere [eseguire un ripristino temporizzato sui dati BLOB in blocchi](point-in-time-restore-manage.md).
 

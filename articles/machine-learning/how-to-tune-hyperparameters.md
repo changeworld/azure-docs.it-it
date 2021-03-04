@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 0212ed1378dbb1d2165e9333a38fa911598c4c6d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 768d2011ae3f2826b42befa8f0d40f0e56b993fd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691485"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032688"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Ottimizzazione iperparametri di un modello con Azure Machine Learning
 
@@ -332,7 +332,7 @@ hd_config = HyperDriveConfig(run_config=script_run_config,
                              max_concurrent_runs=4)
 ```
 
-`HyperDriveConfig`Imposta i parametri passati a `ScriptRunConfig script_run_config` . `script_run_config`, A sua volta, passa i parametri allo script di training. Il frammento di codice precedente viene tratto dal training del notebook di esempio [, dall'ottimizzazione iperparametri e dalla distribuzione con PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). In questo esempio, i `learning_rate` `momentum` parametri e verranno ottimizzati. L'arresto anticipato delle esecuzioni verrà determinato da un `BanditPolicy` , che interrompe un'esecuzione la cui metrica primaria è esterna a `slack_factor` (vedere il [riferimento alla classe BanditPolicy](python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py)). 
+`HyperDriveConfig`Imposta i parametri passati a `ScriptRunConfig script_run_config` . `script_run_config`, A sua volta, passa i parametri allo script di training. Il frammento di codice precedente viene tratto dal training del notebook di esempio [, dall'ottimizzazione iperparametri e dalla distribuzione con PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). In questo esempio, i `learning_rate` `momentum` parametri e verranno ottimizzati. L'arresto anticipato delle esecuzioni verrà determinato da un `BanditPolicy` , che interrompe un'esecuzione la cui metrica primaria è esterna a `slack_factor` (vedere il [riferimento alla classe BanditPolicy](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy)). 
 
 Il codice seguente dell'esempio Mostra come vengono ricevuti, analizzati e passati i valori ottimizzati alla funzione dello script di training `fine_tune_model` :
 

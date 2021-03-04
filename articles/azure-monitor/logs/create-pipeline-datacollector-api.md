@@ -1,17 +1,16 @@
 ---
 title: Usare l'API dell'agente di raccolta dati per creare una pipeline di dati
 description: È possibile usare l'API dell'agente di raccolta dati HTTP di Monitoraggio di Azure per aggiungere dati JSON POST all'area di lavoro Log Analytics da qualsiasi client in grado di chiamare l'API REST. Questo articolo descrive come caricare i dati archiviati in un file in modo automatico.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: ac2b79046718fe45ad0dad0396b6f7653efbb779
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab2e9c691f17b8f0891ecbc82ff42cd3529a1328
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618337"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031192"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Creare una pipeline di dati con l'API dell'Agente di raccolta dati
 

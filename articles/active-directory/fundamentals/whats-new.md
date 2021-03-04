@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c767d114ad6a1b5cb8b9c6bf4c0fe4f2ccd1dae6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2e0315eda72681f650172117038ff5ede9f602cc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650125"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032433"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -651,7 +651,7 @@ L'esperienza di Integration Assistant (anteprima) è ora disponibile per Azure A
 
 È ora possibile visualizzare l'ID modello di ogni ruolo Azure AD nel portale di Azure. In Azure AD selezionare  **Descrizione** del ruolo selezionato. 
 
-È consigliabile che i clienti usino gli ID dei modelli di ruolo nel codice e nello script di PowerShell, anziché il nome visualizzato. L'ID del modello di ruolo è supportato per l'uso degli oggetti [directoryRoles](/graph/api/resources/directoryrole) e [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) . Per ulteriori informazioni sugli ID dei modelli di ruolo, vedere [ID dei modelli di ruolo](../roles/permissions-reference.md#role-template-ids).
+È consigliabile che i clienti usino gli ID dei modelli di ruolo nel codice e nello script di PowerShell, anziché il nome visualizzato. L'ID del modello di ruolo è supportato per l'uso degli oggetti [directoryRoles](/graph/api/resources/directoryrole) e [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) . Per ulteriori informazioni sugli ID dei modelli di ruolo, vedere [Azure ad ruoli predefiniti](../roles/permissions-reference.md).
 
 ---
 

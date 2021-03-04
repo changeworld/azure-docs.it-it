@@ -1,17 +1,16 @@
 ---
 title: Esempi di query di log in Monitoraggio di Azure | Microsoft Docs
 description: Esempi di query di log in Monitoraggio di Azure usando il linguaggio di query Kusto.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: e2050784d03b1f01e743df9b00916ec286a3e7ef
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 56866d8e255f15a93aaa9133f9cda9de4fdd9fd5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736951"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030801"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Esempi di query di log in Monitoraggio di Azure
 Questo articolo include vari esempi di [query](./log-query-overview.md) che usano il [linguaggio di query Kusto](/azure/kusto/query/) per recuperare tipi diversi di dati da Monitoraggio di Azure. Poiché vengono usati metodi diversi per consolidare e analizzare i dati, è possibile usare questi esempi per identificare strategie diverse che si possono applicare in base alle necessità.  

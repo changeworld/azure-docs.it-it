@@ -1,17 +1,17 @@
 ---
 title: Come importare un nuovo aggiornamento | Microsoft Docs
 description: Guida How-To per importare un nuovo aggiornamento nell'aggiornamento del dispositivo dell'hub Internet per gli hub Internet.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d8757f3076f784576f95bbdfc30abf578446c776
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663292"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030733"
 ---
 # <a name="import-new-update"></a>Importa nuovo aggiornamento
 Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dispositivo per l'hub Internet.
@@ -53,7 +53,7 @@ Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dis
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    Per riferimento rapido, di seguito sono riportati alcuni valori di esempio per i parametri precedenti. Per la documentazione completa, vedere lo schema completo del manifesto di importazione riportato di seguito.
+    Per riferimento rapido, di seguito sono riportati alcuni valori di esempio per i parametri precedenti. Per ulteriori informazioni, è inoltre possibile visualizzare lo [schema del manifesto dell'importazione](import-schema.md) completa.
 
     | Parametro | Descrizione |
     | --------- | ----------- |
@@ -66,19 +66,6 @@ Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dis
     | installedCriteria | <ul><li>Specificare il valore di SWVersion per il `microsoft/swupdate:1` tipo di aggiornamento</li><li>Specificare il valore consigliato per il `microsoft/apt:1` tipo di aggiornamento.
     | updateFilePath | Percorso dei file di aggiornamento nel computer
 
-    Schema manifesto di importazione completa
-
-    | Nome | Tipo | Descrizione | Restrizioni |
-    | --------- | --------- | --------- | --------- |
-    | UpdateId | Oggetto `UpdateId` | Aggiornare l'identità. |
-    | UpdateType | string | Tipo di aggiornamento: <ul><li>Specificare `microsoft/apt:1` quando si esegue un aggiornamento basato su pacchetti utilizzando l'agente di riferimento.</li><li>Specificare `microsoft/swupdate:1` quando si esegue un aggiornamento basato su immagine utilizzando l'agente di riferimento.</li><li>Specificare `microsoft/simulator:1` quando si usa il simulatore dell'agente di esempio.</li><li>Specificare un tipo personalizzato se si sviluppa un agente personalizzato.</li></ul> | <ul><li>Formato: `{provider}/{type}:{typeVersion}`</li><li>Massimo 32 caratteri totali</li></ul> |
-    | InstalledCriteria | string | Stringa interpretata dall'agente per determinare se l'aggiornamento è stato applicato correttamente:  <ul><li>Specificare il **valore** di SWVersion per tipo di aggiornamento `microsoft/swupdate:1` .</li><li>Specificare `{name}-{version}` per il tipo `microsoft/apt:1` di aggiornamento, di cui il nome e la versione vengono ottenuti dal file apt.</li><li>Specificare l'hash del file di aggiornamento per il tipo di aggiornamento `microsoft/simulator:1` .</li><li>Specificare una stringa personalizzata se si sviluppa un agente personalizzato.</li></ul> | Massimo 64 caratteri |
-    | Compatibilità | Matrice di `CompatibilityInfo` oggetti | Informazioni sulla compatibilità del dispositivo compatibile con questo aggiornamento. | Massimo 10 elementi |
-    | CreatedDateTime | Data/ora | Data e ora di creazione dell'aggiornamento. | Formato di data e ora ISO 8601 delimitato, in UTC |
-    | ManifestVersion | string | Importa la versione dello schema del manifesto. Specificare `2.0` , che sarà compatibile con l' `urn:azureiot:AzureDeviceUpdateCore:1` interfaccia e l' `urn:azureiot:AzureDeviceUpdateCore:4` interfaccia.</li></ul> | Deve essere `2.0` |
-    | File | Matrice di `File` oggetti | Aggiornare i file di payload | Massimo 5 file |
-
-Nota: tutti i campi sono obbligatori.
 
 ## <a name="review-generated-import-manifest"></a>Verifica manifesto importazione generata
 

@@ -2,19 +2,19 @@
 title: Report in informazioni dettagliate sul contenitore
 description: Vengono descritti i report disponibili per analizzare i dati raccolti da informazioni dettagliate sul contenitore.
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/02/2021
+ms.openlocfilehash: ca74521a08d4edaa498e00e6452d8f69912e4bb9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704277"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032798"
 ---
 # <a name="reports-in-container-insights"></a>Report in informazioni dettagliate sul contenitore
 I report in informazioni dettagliate sul contenitore sono le [cartelle di lavoro di Azure](../visualize/workbooks-overview.md)predefinite consigliate. Questo articolo descrive i diversi report disponibili e come accedervi.
 
 ## <a name="viewing-reports"></a>Visualizzazione dei report
-Dal menu **monitoraggio di Azure** nella portale di Azure selezionare **contenitori**. Selezionare **informazioni dettagliate** nella sezione **monitoraggio** , scegliere un cluster specifico e quindi selezionare la pagina **report (anteprima)** . 
+Dal menu **monitoraggio di Azure** nella portale di Azure selezionare **contenitori**. Selezionare **informazioni dettagliate** nella sezione **monitoraggio** , scegliere un cluster specifico e quindi selezionare la pagina **report** . 
 
 [![Pagina dei report](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 

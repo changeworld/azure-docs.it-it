@@ -7,12 +7,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 76ec99e5f892438aaa637b15bb7382843d90f334
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: da7f6fdaedd8105363cc62bf55bae2cb5f72f234
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748784"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031651"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione Python in Azure dalla riga di comando
 
@@ -62,7 +62,7 @@ Verificare i prerequisiti, che variano a seconda che si stia usando l'interfacci
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-+ In una finestra di comando o di terminale eseguire `func --version` per verificare che la versione di Azure Functions Core Tools sia 3.x.
++ In un terminale o una finestra di comando eseguire `func --version` per verificare che il <abbr title="Set di strumenti da riga di comando per l'uso di funzioni di Azure nel computer locale.">Azure Functions Core Tools</abbr> sono la versione 3. x.
 
 + Eseguire `(Get-Module -ListAvailable Az).Version` per verificare che la versione sia 5.0 o successiva. 
 
@@ -292,7 +292,7 @@ Prima di poter distribuire il codice della funzione in Azure, è necessario crea
 
     ---
 
-    Sostituire `<STORAGE_NAME>` con un nome appropriato e <abbr title="Il nome deve essere univoco in tutti gli account di archiviazione usati da tutti i clienti di Azure a livello globale. Ad esempio, è possibile usare una combinazione del nome personale o della società, il nome dell'applicazione e un identificatore numerico, come in contosobizappstorage20">univoco in archiviazione di Azure</abbr>. I nomi devono contenere da tre a 24 caratteri costituiti esclusivamente da numeri e lettere in minuscolo. `Standard_LRS` specifica un account per utilizzo generico, che è [supportato da Funzioni](storage-considerations.md#storage-account-requirements).
+    Sostituire `<STORAGE_NAME>` con un nome appropriato e <abbr title="Il nome deve essere univoco in tutti gli account di archiviazione usati da tutti i clienti di Azure a livello globale. Ad esempio, è possibile usare una combinazione del nome personale o della società, il nome dell'applicazione e un identificatore numerico, come in contosobizappstorage20.">univoco in archiviazione di Azure</abbr>. I nomi devono contenere da tre a 24 caratteri costituiti esclusivamente da numeri e lettere in minuscolo. `Standard_LRS` specifica un account per utilizzo generico, che è [supportato da Funzioni](storage-considerations.md#storage-account-requirements).
     
     Per questo argomento di avvio rapido, il costo dell'account di archiviazione è solo di pochi centesimi di dollaro USA.
 

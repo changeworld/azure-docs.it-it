@@ -3,15 +3,14 @@ title: Esercitazione - Creare un grafico delle metriche in Monitoraggio di Azure
 description: Informazioni su come creare un grafico delle metriche con Esplora metriche di Azure.
 author: bwren
 ms.author: bwren
-ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 52e44eca72040019a97ad176a01d20a54a122efa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9923bfcbd439ef5e20e44e9c397199fe06f40b43
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627512"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032909"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Esercitazione: Creare un grafico delle metriche in Monitoraggio di Azure
 Esplora metriche è una funzionalità di Monitoraggio di Azure nel portale di Azure che consente di creare grafici dai valori delle metriche, correlare le tendenze a livello visivo ed esaminare picchi e flessioni nei valori delle metriche. Usare Esplora metriche per esaminare l'integrità e l'utilizzo delle risorse di Azure o per tracciare grafici dalle metriche personalizzate. 

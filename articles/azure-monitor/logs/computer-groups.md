@@ -1,17 +1,16 @@
 ---
 title: Gruppi di computer nelle query di log in Monitoraggio di Azure | Microsoft Docs
 description: I gruppi di computer in Monitoraggio di Azure consentono di limitare l'ambito delle query di log a uno specifico set di computer.  Questo articolo descrive i diversi metodi disponibili per creare gruppi di computer e come usarli in una query di log.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 3dffab040b8ee17760e23aa8b1d8fb65aa0417e7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d8702b498e08561175aa7ee975c7b6b46fdf1687
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734129"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031090"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query log di monitoraggio di Azure
 I gruppi di computer in monitoraggio di Azure consentono di definire l'ambito delle [query di log](./log-query-overview.md) a un determinato set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una query di log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.

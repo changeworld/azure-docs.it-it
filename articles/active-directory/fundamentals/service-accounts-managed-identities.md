@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32ba630d5e2f8e3e581f394af2ee687a971d3a7a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693161"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032357"
 ---
 # <a name="securing-managed-identities"></a>Protezione delle identità gestite
 
@@ -100,7 +100,7 @@ Esistono diversi modi in cui è possibile trovare identità gestite:
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-È possibile filtrare queste richieste. Per ulteriori informazioni, vedere la documentazione relativa a Graph per [Get servicePrincipal](https://docs.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http).
+È possibile filtrare queste richieste. Per ulteriori informazioni, vedere la documentazione relativa a Graph per [Get servicePrincipal](/graph/api/serviceprincipal-get?view=).
 
 ## <a name="assess-the-security-of-managed-identities"></a>Valutare la sicurezza delle identità gestite 
 
@@ -140,7 +140,7 @@ Se si usa un'entità servizio o un account utente Azure AD, valutare se è possi
 
 [Gestione degli account del servizio di Azure](service-accounts-governing-azure.md)
 
-[Introduzione agli account del servizio locali](service-accounts-on-poremises.md)
+[Introduzione agli account del servizio locali](service-accounts-on-premises.md)
 
  
 

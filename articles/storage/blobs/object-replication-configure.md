@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 226601eadf922a9d834ab84520fd1edf964348fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 2b6855d72b644a3fe1fa46c883eb7414383a1a57
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762922"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031702"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurare la replica di oggetti per i BLOB in blocchi
 
@@ -238,10 +238,10 @@ Tenere presente che è necessario avere a disposizione il ruolo **collaboratore*
 
 La tabella seguente riepiloga i valori da usare per l'ID criterio e gli ID regola nel file JSON in ogni scenario.
 
-| Quando si crea il file JSON per l'account... | Imposta ID criterio e ID regola su questo valore... |
-|-|-|
-| Account di destinazione | Valore *predefinito* della stringa. Archiviazione di Azure creerà l'ID criterio e gli ID regola. |
-| Account di origine | I valori dell'ID criterio e degli ID regola restituiti quando si scaricano i criteri definiti nell'account di destinazione come file JSON. |
+| Quando si crea il file JSON per l'account... | Imposta l'ID criterio su questo valore | Imposta ID regola su questo valore |
+|-|-|-|
+| Account di destinazione | Valore *predefinito* della stringa. Archiviazione di Azure creerà il valore ID criterio per l'utente. | Stringa vuota. Archiviazione di Azure creerà i valori dell'ID regola. |
+| Account di origine | Valore dell'ID dei criteri restituito quando si scaricano i criteri definiti nell'account di destinazione come file JSON. | I valori degli ID regola restituiti quando si scaricano i criteri definiti nell'account di destinazione come file JSON. |
 
 Nell'esempio seguente viene definito un criterio di replica nell'account di destinazione con una singola regola che corrisponde al prefisso *b* e viene impostato il tempo di creazione minimo per i BLOB che devono essere replicati. Ricordare di sostituire i valori tra parentesi angolari con valori personalizzati:
 
@@ -253,7 +253,7 @@ Nell'esempio seguente viene definito un criterio di replica nell'account di dest
     "destinationAccount": "<dest-account>",
     "rules": [
       {
-        "ruleId": "default",
+        "ruleId": "",
         "sourceContainer": "<source-container>",
         "destinationContainer": "<destination-container>",
         "filters": {
@@ -272,7 +272,7 @@ Nell'esempio seguente viene definito un criterio di replica nell'account di dest
 
 Per configurare la replica di oggetti nell'account di destinazione con un file JSON nel portale di Azure, attenersi alla procedura seguente:
 
-1. Creare un file JSON locale che definisce i criteri di replica nell'account di destinazione. Impostare il campo **policyId** su **predefinito** in modo che archiviazione di Azure definisca l'ID criterio.
+1. Creare un file JSON locale che definisce i criteri di replica nell'account di destinazione. Impostare il campo **policyId** su *predefinito* in modo che archiviazione di Azure definisca l'ID criterio.
 
     Un modo semplice per creare un file JSON che definisce i criteri di replica è creare prima di tutto un criterio di replica di test tra due account di archiviazione nel portale di Azure. È quindi possibile scaricare le regole di replica e modificare il file JSON in base alle esigenze.
 

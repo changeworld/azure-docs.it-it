@@ -1,17 +1,16 @@
 ---
 title: Ritiro API monitoraggio di Azure
 description: Descrive il ritiro delle versioni precedenti dell'API del provider di risorse OperationalInsights.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/29/2020
-ms.openlocfilehash: 03e534564b4a32f112c2aaff44a187b10eb2a537
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7b5d105f6a93102ff1b9142fbdf690c3873d872f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723113"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032025"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Ritiro versione API OperationalInsights
 Microsoft fornisce notifiche per almeno 12 mesi prima del ritiro di un'API per semplificare la transizione a una versione più recente o supportata. È stata rilasciata una nuova versione (2020-08-01) per le API del provider di risorse **OperationalInsights** e le versioni precedenti dell'API vengono ritirate il 29 febbraio 2024.

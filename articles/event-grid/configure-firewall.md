@@ -2,13 +2,13 @@
 title: Configurare il firewall IP per gli argomenti o i domini di griglia di eventi di Azure
 description: Questo articolo descrive come configurare le impostazioni del firewall per gli argomenti o i domini della griglia di eventi.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/02/2021
+ms.openlocfilehash: 178b9d84ea8b2e0f764f7584526db8dbcf5284f3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324162"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031838"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Configurare il firewall IP per gli argomenti o i domini di griglia di eventi di Azure 
 Per impostazione predefinita, l'argomento e il dominio sono accessibili da Internet, purché la richiesta venga fornita con autenticazione e autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Gli autori che hanno origine da altri indirizzi IP verranno rifiutati e riceveranno una risposta 403 (accesso negato). Per ulteriori informazioni sulle funzionalità di sicurezza di rete supportate da griglia di eventi, vedere [sicurezza di rete per griglia di eventi](network-security.md).
@@ -34,19 +34,6 @@ In questa sezione viene illustrato come utilizzare il portale di Azure per crear
 ## <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 Questa sezione illustra come usare i comandi dell'interfaccia della riga di comando di Azure per creare argomenti con regole IP in ingresso. I passaggi illustrati in questa sezione sono disponibili per gli argomenti. È possibile utilizzare passaggi simili per creare regole IP in ingresso per i **domini**. 
 
-
-### <a name="prerequisites"></a>Prerequisiti
-Aggiornare l'estensione di griglia di eventi di Azure per l'interfaccia della riga di comando eseguendo il comando seguente: 
-
-```azurecli-interactive
-az extension update -n eventgrid
-```
-
-Se l'estensione non è installata, eseguire il comando seguente per installarla: 
-
-```azurecli-interactive
-az extension add -n eventgrid
-```
 
 ### <a name="enable-or-disable-public-network-access"></a>Abilitare o disabilitare l'accesso alla rete pubblica
 Per impostazione predefinita, l'accesso alla rete pubblica è abilitato per argomenti e domini. È anche possibile abilitarlo in modo esplicito o disabilitarlo. È possibile limitare il traffico configurando le regole del firewall per gli indirizzi IP in ingresso. 

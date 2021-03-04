@@ -1,17 +1,16 @@
 ---
 title: Esempi di modelli di Resource Manager per le impostazioni di diagnostica
 description: Esempi di modelli di Azure Resource Manager per applicare le impostazioni di diagnostica di Monitoraggio di Azure a una risorsa di Azure.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 304c359296c4fbff79dd367facd8bbb98c8903b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ec44c54a00c8532ed082b6e5f9e9cb9ce84f64b5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731443"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033028"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le impostazioni di diagnostica in Monitoraggio di Azure
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per creare impostazioni di diagnostica per una risorsa di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.

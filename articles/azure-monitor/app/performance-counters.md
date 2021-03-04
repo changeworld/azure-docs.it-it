@@ -4,12 +4,12 @@ description: Sistema di monitoraggio e contatori delle prestazioni .NET personal
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f1bd3ac4542dcce0d41f69a9c1664b747214554
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 423e17ef2b44286c28b464836075284929d8644c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583882"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031362"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contatori delle prestazioni di sistema in Application Insights
 
@@ -21,7 +21,7 @@ Il riquadro Metrica mostra un set predefinito di contatori delle prestazioni.
 
 ![Contatori delle prestazioni segnalati in Application Insights](./media/performance-counters/performance-counters.png)
 
-I contatori predefiniti attualmente configurati per essere raccolti per le applicazioni Web ASP.NET/ASP.NET Core sono:
+I contatori predefiniti correnti configurati per essere raccolti per le applicazioni Web ASP.NET sono:
 - % tempo processo\\processore
 - % tempo\\processore processo normalizzato
 - Byte disponibili\\memoria
@@ -31,6 +31,14 @@ I contatori predefiniti attualmente configurati per essere raccolti per le appli
 - Byte elaborazione\\privati
 - Byte elaborazione\\dati IO/sec
 - Applicazioni ASP.NET\\Richieste in coda applicazione
+- Processore(_Total)\\% tempo processore
+
+I contatori predefiniti correnti configurati per la raccolta per ASP.NET Core applicazioni Web sono:
+- % tempo processo\\processore
+- % tempo\\processore processo normalizzato
+- Byte disponibili\\memoria
+- Byte elaborazione\\privati
+- Byte elaborazione\\dati IO/sec
 - Processore(_Total)\\% tempo processore
 
 ## <a name="add-counters"></a>Aggiungere contatori

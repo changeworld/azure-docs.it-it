@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
-ms.author: dapine
-ms.date: 02/19/2020
+author: aahill
+ms.author: aahi
+ms.date: 03/02/2021
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 2ac93f5aba722eea78267a512999a5581a887b99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d61813e723992f4381c5ea82121da8bbb70016dc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996441"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032934"
 ---
 Le query sul contenitore vengono fatturate secondo il piano tariffario della risorsa di Azure usata per `ApiKey`.
 
@@ -17,7 +17,7 @@ I contenitori di servizi cognitivi di Azure non sono concessi in licenza per l'e
 
 ### <a name="connect-to-azure"></a>Connettersi ad Azure
 
-Per eseguire il contenitore, sono necessari i valori dell'argomento di fatturazione. Questi valori consentono al contenitore di connettersi all'endpoint di fatturazione. Il contenitore segnala l'utilizzo ogni 10-15 minuti. Se il contenitore non si connette ad Azure entro la finestra temporale consentita, continuerà a essere eseguito ma non fornirà query finché l'endpoint di fatturazione non verrà ripristinato. Il tentativo di connessione viene effettuato 10 volte nello stesso intervallo di tempo di 10-15 minuti. Se non è possibile connettersi all'endpoint di fatturazione entro 10 tentativi, il contenitore smette di soddisfare le richieste.
+Per eseguire il contenitore, sono necessari i valori dell'argomento di fatturazione. Questi valori consentono al contenitore di connettersi all'endpoint di fatturazione. Il contenitore segnala l'utilizzo ogni 10-15 minuti. Se il contenitore non si connette ad Azure entro la finestra temporale consentita, continuerà a essere eseguito ma non fornirà query finché l'endpoint di fatturazione non verrà ripristinato. Il tentativo di connessione viene effettuato 10 volte nello stesso intervallo di tempo di 10-15 minuti. Se non è possibile connettersi all'endpoint di fatturazione entro 10 tentativi, il contenitore smette di soddisfare le richieste. Per un esempio delle informazioni inviate a Microsoft per la fatturazione, vedere [domande frequenti sul contenitore di servizi cognitivi](../articles/cognitive-services/containers/container-faq.yml#how-does-billing-work) .
 
 ### <a name="billing-arguments"></a>Argomenti di fatturazione
 

@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: tyao
-ms.openlocfilehash: f3250101449971ffd985fcfcce400870e2a3d50f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 805c3ba0360fcffe2bfd4217c0ef625fe61e5d64
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745365"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030580"
 ---
 # <a name="connect-azure-front-door-premium-to-a-web-app-origin-with-private-link"></a>Connettere Azure front door Premium a un'origine app Web con collegamento privato
 
@@ -73,4 +73,4 @@ In questa sezione si eseguirà il mapping del servizio di collegamento privato a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sul [servizio di collegamento privato con app Web di Azure](../../app-service/networking/private-endpoint).
+Informazioni sul [servizio di collegamento privato con app Web di Azure](../../app-service/networking/private-endpoint.md).

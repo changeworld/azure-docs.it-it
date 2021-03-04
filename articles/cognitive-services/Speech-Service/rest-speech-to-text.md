@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70c5593f29b5e83d5d3f318179d365a9235849ca
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 24cc7773d281d98b6a0943f5e0a61b6f547991ee
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790614"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032824"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
@@ -152,7 +152,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 È consigliabile eseguire il caricamento in streaming (chunked) durante l'invio dei dati audio, che può ridurre significativamente la latenza. Vedere il [codice di esempio in diversi linguaggi di programmazione](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) per abilitare il flusso.
 
 >[!NOTE]
->La funzionalità di valutazione della pronuncia è attualmente disponibile solo nelle `westus` `eastasia` aree, e `centralindia` . Questa funzionalità è attualmente disponibile solo in `en-US` lingua.
+>La funzionalità di valutazione della pronuncia è attualmente disponibile solo in `en-US` lingua.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 

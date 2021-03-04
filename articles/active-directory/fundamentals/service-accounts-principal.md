@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c9df24a255d640c463bd62e8bdfe8a576df3b09
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: eaad4995abcf54e9ca7040d570c7a9abbdbc9cf5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693119"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032416"
 ---
 # <a name="securing-service-principals"></a>Protezione delle entità servizio
 
@@ -107,7 +107,7 @@ Non è possibile gestire l'accesso alle entità servizio con accesso condizional
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>Passare da un account utente a un'entità servizio  
 Se si usa un account utente di Azure come entità servizio, valutare se è possibile passare a un' [identità gestita](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) o a un'entità servizio. Se non è possibile usare un'identità gestita, effettuare il provisioning di un'entità servizio con autorizzazioni e ambito sufficienti per eseguire le attività necessarie. È possibile creare un'entità servizio [registrando un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)o con [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
 
-Quando si usa Microsoft Graph, controllare la documentazione dell'API specifica, [come in questo esempio](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-5.0.0), e verificare che il tipo di autorizzazione per l'applicazione venga visualizzato come supportato.
+Quando si usa Microsoft Graph, controllare la documentazione dell'API specifica, [come in questo esempio](/powershell/azure/create-azure-service-principal-azureps), e verificare che il tipo di autorizzazione per l'applicazione venga visualizzato come supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -115,7 +115,7 @@ Quando si usa Microsoft Graph, controllare la documentazione dell'API specifica,
 
 [Creare un'entità servizio](../develop/howto-create-service-principal-portal.md)
 
- [Monitorare gli accessi dell'entità servizio](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md)
+ [Monitorare gli accessi dell'entità servizio](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report)
 
 **Per ulteriori informazioni sulla protezione degli account del servizio:**
 
@@ -125,4 +125,4 @@ Quando si usa Microsoft Graph, controllare la documentazione dell'API specifica,
 
 [Gestione degli account del servizio di Azure](service-accounts-governing-azure.md)
 
-[Introduzione agli account del servizio locali](service-accounts-on-poremises.md)
+[Introduzione agli account del servizio locali](service-accounts-on-premises.md)

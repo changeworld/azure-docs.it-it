@@ -4,12 +4,12 @@ description: Informazioni su come creare una funzione in Java e quindi pubblicar
 ms.topic: quickstart
 ms.date: 11/03/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 38ed05d8bf9f7714b9cd58449f565cf94cb481e5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6c84bf4ebc73857fa0280ffbcbf46b68c2da630f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748568"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031719"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Avvio rapido: Creare una funzione in Java in Azure con Visual Studio Code
 
@@ -140,7 +140,7 @@ La prima distribuzione del codice include la creazione di una risorsa di funzion
 
     + **Selezionare la sottoscrizione**: scegliere la sottoscrizione da usare. Questa opzione non è visibile se è disponibile una sola sottoscrizione.
 
-    + **Selezionare l'app per le funzioni in Azure**: Scegliere `- Create new Function App`.
+    + **Selezionare l'app per le funzioni in Azure**: Scegliere `Create new Function App`.
 
     + **Immettere un nome univoco globale per l'app per le funzioni**: digitare un nome univoco in Azure in un percorso URL. Il nome digitato viene convalidato per garantire l'univocità globale.
 

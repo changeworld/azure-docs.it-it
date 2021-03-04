@@ -1,17 +1,16 @@
 ---
 title: Domande frequenti su VM Insights (GA) | Microsoft Docs
 description: VM Insights è una soluzione di Azure che combina il monitoraggio dello stato e delle prestazioni del sistema operativo della macchina virtuale di Azure, nonché l'individuazione automatica di componenti e dipendenze dell'applicazione con altre risorse e la mappatura della comunicazione tra di essi. Questo articolo risponde alle domande più comuni sulla versione GA.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 0c55463847e0bf55cf14db2a35de1de16526cd90
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fbef73bfe8058110277b200b8c4091fcde110c04
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710754"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031875"
 ---
 # <a name="vm-insights-generally-available-ga-frequently-asked-questions"></a>Domande frequenti su VM Insights disponibili a livello generale
 Queste domande frequenti sulla disponibilità generale riguardano le modifiche apportate in Q4 2019 e Q1 2020, come preparato per GA.
@@ -20,15 +19,15 @@ Queste domande frequenti sulla disponibilità generale riguardano le modifiche a
 È stata rilasciata una nuova versione di VM Insights nel gennaio 2020 in anticipo rispetto al nostro annuncio GA. I clienti che abilitano le informazioni dettagliate di VM riceveranno ora la versione GA, ma i clienti esistenti che usano la versione di VM Insights da Q4 2019 e versioni precedenti verrà richiesto di eseguire l'aggiornamento. Queste domande frequenti offrono indicazioni per eseguire un aggiornamento su larga scala se si dispone di distribuzioni di grandi dimensioni in più aree di lavoro.
 
 
-Con questo aggiornamento, Monitoraggio di Azure per le macchine virtuali i dati sulle prestazioni vengono archiviati nella stessa tabella *InsightsMetrics* di [container Insights](../containers/container-insights-overview.md), semplificando l'esecuzione di query sui due set di dati. Inoltre, è possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza. 
+Con questo aggiornamento, i dati sulle prestazioni di VM Insights vengono archiviati nella stessa tabella *InsightsMetrics* di [container Insights](../containers/container-insights-overview.md), semplificando la query dei due set di dati. Inoltre, è possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza. 
 
 Le visualizzazioni delle prestazioni ora usano i dati archiviati nella tabella *InsightsMetrics* .  Se non è ancora stato eseguito l'aggiornamento per usare la soluzione VMInsights più recente nell'area di lavoro, i grafici non visualizzeranno più informazioni.  È possibile eseguire l'aggiornamento dalla pagina **introduttiva** come descritto di seguito.
 
 
 ## <a name="what-is-changing"></a>Cosa cambierà
-È stata rilasciata una nuova soluzione, denominata VMInsights, che include funzionalità aggiuntive per la raccolta di dati insieme a una nuova posizione per archiviare questi dati nell'area di lavoro Log Analytics. 
+È stata rilasciata una nuova soluzione, denominata VMInsights, che include più funzionalità per la raccolta di dati insieme a una nuova posizione per archiviare questi dati nell'area di lavoro Log Analytics. 
 
-In passato, la soluzione ServiceMap è stata abilitata nell'area di lavoro e i contatori delle prestazioni sono stati impostati nell'area di lavoro Log Analytics per inviare i dati alla tabella *Perf* . Questa nuova soluzione invia i dati a una tabella denominata *InsightsMetrics* usata anche da informazioni dettagliate sul contenitore. Questo schema di tabella consente di archiviare metriche e set di dati del servizio aggiuntivi che non sono compatibili con il formato di tabella delle *prestazioni* .
+In passato, la soluzione ServiceMap è stata abilitata nell'area di lavoro e i contatori delle prestazioni sono stati impostati nell'area di lavoro Log Analytics per inviare i dati alla tabella *Perf* . Questa nuova soluzione invia i dati a una tabella denominata *InsightsMetrics* usata anche da informazioni dettagliate sul contenitore. Questo schema di tabella consente di archiviare più metriche e set di dati del servizio che non sono compatibili con il formato di tabella delle *prestazioni* .
 
 I grafici delle prestazioni sono stati aggiornati per usare i dati archiviati nella tabella *InsightsMetrics* . È possibile eseguire l'aggiornamento per usare la tabella *InsightsMetrics* dalla pagina **introduttiva** come descritto di seguito.
 
@@ -58,7 +57,7 @@ Se sono stati creati [avvisi del log](../alerts/alerts-unified-log.md) che esegu
 
 Le domande frequenti e la documentazione per includere le regole di avviso di ricerca log di esempio per i set di dati raccolti vengono aggiornate.
 
-## <a name="how-will-this-affect-my-bill"></a>Come influirà la fattura?
+## <a name="how-will-this-change-affect-my-bill"></a>In che modo questa modifica influirà sulla fattura?
 
 La fatturazione è ancora basata sui dati inseriti e conservati nell'area di lavoro Log Analytics.
 
@@ -78,7 +77,7 @@ Se si sceglie di non eseguire l'aggiornamento alla soluzione **VMInsights** , si
 
 I set di dati non verranno duplicati se si utilizzano entrambe le soluzioni. Entrambe le offerte condividono i set di dati che verranno archiviati nelle `VMComputer` tabelle (in precedenza ServiceMapComputer_CL), `VMProcess` (in precedenza ServiceMapProcess_CL), `VMConnection` e `VMBoundPort` per archiviare i set di dati della mappa raccolti.  
 
-La `InsightsMetrics` tabella memorizzerà i set di dati di VM, processi e servizi raccolti e verrà popolato solo se si usano VM Insights e la soluzione VM Insights. La soluzione Mapping dei servizi non raccoglie né o archivia i dati nella `InsightsMetrics` tabella.
+La `InsightsMetrics` tabella memorizzerà i set di dati di VM, processi e servizi raccolti e verrà popolato solo se si usano VM Insights e la soluzione VM Insights. La soluzione Mapping dei servizi non raccoglie né archivia i dati nella `InsightsMetrics` tabella.
 
 ## <a name="will-i-be-double-charged-if-i-have-the-service-map-and-vminsights-solutions-in-my-workspace"></a>Viene addebitato un costo doppio se si hanno le soluzioni Mapping dei servizi e VMInsights nell'area di lavoro?
 
@@ -90,7 +89,7 @@ No, le due soluzioni condividono i set di dati della mappa archiviati in `VMComp
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>La funzionalità di integrità è in anteprima pubblica limitata
 
-Abbiamo ricevuto numerosi commenti e suggerimenti dai clienti sul set di funzionalità per l'integrità delle macchine virtuali. Questa funzionalità è molto interessante e può essere utile per supportare i flussi di lavoro di monitoraggio. Si prevede di apportare una serie di modifiche per aggiungere funzionalità e risolvere i commenti ricevuti. 
+Abbiamo ricevuto numerosi commenti e suggerimenti dai clienti sul set di funzionalità per l'integrità delle macchine virtuali. Si tratta di un interesse asignificant per questa funzionalità e per entusiasmare il rischio di supportare flussi di lavoro di monitoraggio. Si prevede di apportare una serie di modifiche per aggiungere funzionalità e risolvere i commenti ricevuti. 
 
 Per ridurre al minimo l'effetto di queste modifiche apportate ai nuovi clienti, questa funzionalità è stata spostata in un' **anteprima pubblica limitata**. Questo aggiornamento è stato eseguito nel 2019 ottobre.
 
