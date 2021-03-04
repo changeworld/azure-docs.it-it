@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 924397c9c81d2a38ae74b95a8f7133ced8bde0d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 24dac044982d59e93da17ee75190f378d5e3cdea
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736543"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050920"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gestire automaticamente i dispositivi nei dispositivi gemelli digitali di Azure usando il servizio Device provisioning (DPS)
 
@@ -85,7 +85,7 @@ All'interno del progetto di app per le funzioni, aggiungere una nuova funzione. 
 
 Nel file di codice della funzione appena creato incollare il codice seguente.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIotHub_allocate.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
 
 Salvare il file e quindi pubblicare di nuovo l'app per le funzioni. Per istruzioni sulla pubblicazione dell'app per le funzioni, vedere la sezione [*pubblicare l'app*](tutorial-end-to-end.md#publish-the-app) dell'esercitazione end-to-end.
 
@@ -182,7 +182,7 @@ Questa funzione userà l'evento ciclo di vita del dispositivo hub Internet per r
 
 All'interno dell'app per le funzioni pubblicata aggiungere una nuova classe di funzione di tipo *trigger Hub eventi* e incollare il codice seguente.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIotHub_delete.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
 
 Salvare il progetto, quindi pubblicare di nuovo l'app per le funzioni. Per istruzioni sulla pubblicazione dell'app per le funzioni, vedere la sezione [*pubblicare l'app*](tutorial-end-to-end.md#publish-the-app) dell'esercitazione end-to-end.
 
@@ -223,7 +223,7 @@ Per attivare il processo di ritiro, è necessario eliminare manualmente il dispo
 
 Nella [prima metà di questo articolo](#auto-provision-device-using-device-provisioning-service)è stato creato un dispositivo nell'hub Internet e un dispositivo gemello digitale corrispondente. 
 
-A questo punto, passare all'hub Internet e quindi eliminare il dispositivo. è possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) o nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs). 
+A questo punto, passare all'hub Internet e quindi eliminare il dispositivo. è possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_iot_hub_module_identity_delete) o nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs). 
 
 Il dispositivo verrà rimosso automaticamente dai dispositivi gemelli digitali di Azure. 
 

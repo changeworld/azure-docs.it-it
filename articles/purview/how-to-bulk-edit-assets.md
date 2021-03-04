@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 77bfa3d22d628cf179e95cd4892ec030f22ab35f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 493d3ceb596bb29da0e60ab08518375412417a0e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693765"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049484"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Come modificare in blocco gli asset per contrassegnare i termini di glossario
 
@@ -65,13 +65,13 @@ Questo articolo descrive come contrassegnare più termini di glossario in un ele
 
 7. Ripetere le versioni precedenti per le classificazioni, i proprietari e gli esperti.
 
-    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Screenshot dei termini di rimozione.":::
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Screenshot delle classificazioni e dei contatti.":::
 
 8. Al termine, chiudere il pannello di modifica bulk selezionando **Chiudi** o **Rimuovi tutto e Chiudi**. Close non rimuoverà gli asset selezionati, mentre Remove All e Close rimuoverà tutti gli asset selezionati.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Screenshot della chiusura.":::
 
    > [!Important]
-   > Il numero consigliato di asset per la modifica bulk è 15. La selezione di più di 25 potrebbe causare problemi di prestazioni.
+   > Il numero consigliato di asset per la modifica bulk è 25. La selezione di più di 25 potrebbe causare problemi di prestazioni.
    > La casella **Visualizza selezionato** sarà visibile solo se è selezionato almeno un asset.
 
 

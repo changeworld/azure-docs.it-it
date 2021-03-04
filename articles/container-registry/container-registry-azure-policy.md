@@ -2,13 +2,13 @@
 title: Conformità con criteri di Azure
 description: Assegnare criteri predefiniti in criteri di Azure per controllare la conformità dei registri contenitori di Azure
 ms.topic: article
-ms.date: 06/11/2020
-ms.openlocfilehash: 26c56616bcc411063d0ebfda28ba1e6fdf44c7fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/01/2021
+ms.openlocfilehash: 3f6809698171950060b54257a365889242f4636e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291017"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050580"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Controllare la conformità dei registri contenitori di Azure con criteri di Azure
 
@@ -22,7 +22,7 @@ Non sono previsti addebiti per l'uso di criteri di Azure.
 
 Le definizioni dei criteri predefinite seguenti sono specifiche per Container Registry di Azure:
 
-[!INCLUDE [azure-policy-reference-policies-container-registry](../../includes/policy/reference/bycat/policies-container-registry.md)]
+[!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]
 
 Vedere anche la definizione di criteri di rete incorporata: [container Registry dovrebbe usare un endpoint del servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
@@ -43,7 +43,7 @@ Quando una risorsa non è conforme, i motivi possibili sono molti. Per determina
 
 ### <a name="policy-compliance-in-the-portal"></a>Conformità dei criteri nel portale:
 
-1. Selezionare **tutti i servizi**e cercare i **criteri**.
+1. Selezionare **tutti i servizi** e cercare i **criteri**.
 1. Selezionare **conformità**.
 1. Usare i filtri per limitare gli Stati di conformità o per cercare i criteri.
 

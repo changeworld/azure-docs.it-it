@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
-ms.subservice: metrics
-ms.openlocfilehash: 0051ec15cafc60af6a0523631f77a9b52294e69c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e510cf2e6fed9f9ffdec1dcc4dacf16a866d66b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731715"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049016"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Azure Resource Manager per una macchina virtuale Windows
 I dati sulle prestazioni del sistema operativo guest delle macchine virtuali di Azure non vengono raccolti automaticamente come altre [metriche della piattaforma](./monitor-azure-resource.md#monitoring-data). Installare l'[estensione di diagnostica](../agents/diagnostics-extension-overview.md) di Monitoraggio di Azure per raccogliere le metriche del sistema operativo guest nel database di metriche, in modo che possa essere usato con tutte le funzionalità delle metriche di Monitoraggio di Azure, inclusi gli avvisi quasi in tempo reale, la creazione di grafici, il routing e l'accesso da un'API REST. Questo articolo illustra il processo da eseguire per inviare le metriche delle prestazioni del sistema operativo guest per una macchina virtuale Windows al database di metriche usando un modello di Resource Manager. 

@@ -3,14 +3,14 @@ title: Sicurezza dei dati di automazione di Azure
 description: Questo articolo illustra in che modo automazione di Azure protegge la privacy e protegge i dati.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f2ce8d482231b4a95c322e9d495a75f89953c32a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581107"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050818"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 
@@ -41,7 +41,7 @@ Per informazioni sul supporto di TLS 1,2 con l'agente di Log Analytics per Windo
 
 ## <a name="data-retention"></a>Conservazione dei dati
 
-Quando si elimina una risorsa in Automazione di Azure, viene conservata per alcuni giorni per finalità di controllo, prima della rimozione permanente. In tale periodo non sarà possibile visualizzare o usare la risorsa. Questi criteri sono applicabili anche alle risorse appartenenti a un account di Automazione eliminato.
+Quando si elimina una risorsa in Automazione di Azure, viene conservata per alcuni giorni per finalità di controllo, prima della rimozione permanente. In tale periodo non sarà possibile visualizzare o usare la risorsa. Questi criteri sono applicabili anche alle risorse appartenenti a un account di Automazione eliminato. I criteri di conservazione sono applicabili a tutti gli utenti e non è attualmente possibile personalizzarli. Se tuttavia è necessario conservare i dati per un periodo di tempo più lungo, è possibile [inviare i dati dei processi di Automazione di Azure ai log di Monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).
 
 La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 
@@ -54,9 +54,9 @@ La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 | Moduli |Un modulo viene rimosso definitivamente 30 giorni dopo l'eliminazione da parte di un utente o 30 giorni dopo l'eliminazione di un account che possiede il modulo. |
 | Configurazioni di nodo/File MOF |Una configurazione di nodo precedente verrà rimossa definitivamente 30 giorni dopo che viene generata una nuova configurazione di nodo. |
 | Report sul nodo |Un report sul nodo viene rimosso definitivamente 90 giorni dopo la generazione di un nuovo report per quel nodo. |
-| Runbook |Un runbook viene rimosso definitivamente 30 giorni dopo l'eliminazione della risorsa da parte di un utente o 30 giorni dopo l'eliminazione dell'account che possiede la risorsa. |
+| Runbook |Una Runbook viene rimossa definitivamente 30 giorni dopo l'eliminazione della risorsa da parte di un utente o 30 giorni dopo l'eliminazione dell'account che include la risorsa<sup>1</sup>. |
 
-I criteri di conservazione sono applicabili a tutti gli utenti e non è attualmente possibile personalizzarli. Se tuttavia è necessario conservare i dati per un periodo di tempo più lungo, è possibile [inviare i dati dei processi di Automazione di Azure ai log di Monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).
+<sup>1</sup> Il Runbook può essere recuperato entro la finestra di 30 giorni inviando una richiesta di supporto tecnico di Azure con supporto Microsoft Azure. Accedere al [sito del supporto tecnico di Azure](/support/options) e selezionare **Invia una richiesta di supporto**.
 
 ## <a name="data-backup"></a>Backup dei dati
 

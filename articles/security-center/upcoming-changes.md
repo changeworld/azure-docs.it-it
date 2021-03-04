@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2021
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 375e8a748e8833e9483d92353ed04add287e90fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6bec9f0a1c22691d818566cec3f59c1ec0f3d3bb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705093"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051617"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Modifiche importanti che interesseranno il Centro sicurezza di Azure
 
@@ -31,10 +31,28 @@ Se si cercano le note sulla versione più recenti, vedere [Novità del Centro si
 
 ## <a name="planned-changes"></a>Modifiche pianificate
 
+- [Le raccomandazioni di AWS verranno rilasciate per la disponibilità a livello generale (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)
 - [Due consigli legacy non scriveranno più dati direttamente nel log attività di Azure](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Miglioramenti alla raccomandazione di classificazione dei dati SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Deprecazione di 11 avvisi di Azure Defender](#deprecation-of-11-azure-defender-alerts)
+
+
+### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>Le raccomandazioni di AWS verranno rilasciate per la disponibilità a livello generale (GA)
+
+**Data stimata per la modifica:** Aprile 2021
+
+Il Centro sicurezza di Azure protegge i carichi di lavoro in Azure, Amazon Web Services (AWS) e Google Cloud Platform (GCP).
+
+Le raccomandazioni provenienti dall'hub di sicurezza AWS sono state in anteprima dopo l'introduzione dei connettori cloud. Le raccomandazioni contrassegnate come **Anteprima** non sono incluse nei calcoli del Punteggio sicuro, ma dovrebbero comunque essere risolte laddove possibile, in modo che, al termine del periodo di anteprima, contribuiscano al punteggio.
+
+Con questa modifica, due set di raccomandazioni AWS vengono spostati in GA:
+
+- [Controlli di PCI DSS dell'hub di sicurezza](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
+- [Controlli di benchmark per le fondamenta dell'hub di sicurezza CIS AWS](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
+
+Quando si tratta di GA e le valutazioni vengono eseguite sulle risorse di AWS, i risultati influirà sul punteggio sicuro combinato per tutte le risorse cloud ibride e multipiattaforma. 
+
 
 
 ### <a name="two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log"></a>Due consigli legacy non scriveranno più dati direttamente nel log attività di Azure 
@@ -53,7 +71,7 @@ Se è stato effettuato l'accesso alle informazioni per questi due consigli nella
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti 
 
-**Data stimata per la modifica:** 2021 febbraio
+**Data stimata per la modifica:** 2021 marzo
 
 Le due raccomandazioni seguenti sono state pianificate per essere deprecate nel 2021 febbraio:
 
@@ -69,7 +87,7 @@ Per ulteriori informazioni su questi consigli, vedere la pagina di riferimento r
 
 **Data stimata per la modifica:** Q2 2021
 
-I **dati sensibili ai consigli nei database SQL devono essere classificati** nel controllo **applica sicurezza classificazione dati** verranno sostituiti con una nuova versione più allineata alla strategia di classificazione dei dati di Microsoft. Di conseguenza, anche l'ID dell'indicazione cambierà (attualmente b0df6f56-862d-4730-8597-38c0fd4ebd59).
+I **dati sensibili ai consigli nei database SQL devono essere classificati** nel controllo **applica sicurezza classificazione dati** verranno sostituiti con una nuova versione più allineata alla strategia di classificazione dei dati di Microsoft. Di conseguenza, l'ID della raccomandazione cambierà (attualmente b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
 ### <a name="deprecation-of-11-azure-defender-alerts"></a>Deprecazione di 11 avvisi di Azure Defender

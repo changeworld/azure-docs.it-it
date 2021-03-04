@@ -416,7 +416,7 @@
                 - name: Inviare dati a Hub eventi
                   href: agents/diagnostics-extension-stream-event-hubs.md
                 - name: Inviare dati ai log
-                  href: essentials/diagnostics-extension-logs.md
+                  href: agents/diagnostics-extension-logs.md
                 - name: Inviare dati ad Application Insights
                   href: agents/diagnostics-extension-to-application-insights.md
                 - name: Cronologia delle versioni
@@ -993,7 +993,7 @@
         - name: Domande frequenti sulla disponibilità generale
           href: vm/vminsights-ga-release-faq.md
         - name: Domande frequenti
-          href: faq.md#azure-monitor-for-vms
+          href: faq.md#vm-insights
         - name: Configurare l'area di lavoro
           href: vm/vminsights-configure-workspace.md
         - name: Installare gli agenti
@@ -1045,7 +1045,7 @@
         - name: Panoramica
           href: containers/container-insights-overview.md
         - name: Domande frequenti
-          href: faq.md#azure-monitor-for-containers
+          href: faq.md#container-insights
         - name: Abilitare il monitoraggio
           items:
             - name: Abilitare il monitoraggio - Panoramica

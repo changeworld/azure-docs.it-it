@@ -2,17 +2,16 @@
 title: Usare i log di monitoraggio di Azure con app per la logica di Azure e Power automatizzate
 description: Informazioni su come usare le app per la logica di Azure e l'automazione dell'energia elettrica per automatizzare rapidamente i processi ripetibili usando il connettore di monitoraggio di Azure.
 ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 9d93e3ec08ff16a1fcca0c914b9e817d4ca89d60
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4a25d7a23d486c8ce22fa433cc1ead390726facc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707949"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048863"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Connettore dei log di monitoraggio di Azure per app per la logica e automazione dell'alimentazione
 [App](../../logic-apps/index.yml) per la logica di Azure e [Power automatizzate](https://flow.microsoft.com) consentono di creare flussi di lavoro automatizzati usando centinaia di azioni per un'ampia gamma di servizi. Il connettore log di monitoraggio di Azure consente di creare flussi di lavoro che recuperano dati da un'area di lavoro Log Analytics o da un'applicazione Application Insights in monitoraggio di Azure. Questo articolo descrive le azioni incluse nel connettore e fornisce una procedura dettagliata per creare un flusso di lavoro usando questi dati.

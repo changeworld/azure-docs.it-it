@@ -1,15 +1,14 @@
 ---
 title: Ritirare le API di distribuzione per le metriche di monitoraggio di Azure e la scalabilità automatica
 description: Ritiro delle API classiche di metrica e scalabilità automatica, chiamate anche Azure Service Management (ASM) o modello di distribuzione RDFE
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: d818e06b13454633199488ca94e1ff8fbe418360
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0169de93b92de179c0ae9a36ff8dba3b7b1dc0fb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613345"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049033"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Ritiro da parte di Monitoraggio di Azure di API di modelli di distribuzione classici per metriche e scalabilità automatica
 

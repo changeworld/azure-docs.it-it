@@ -8,25 +8,28 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
+author: shkale-msft
+ms.author: shkale-msft
 ms.reviewer: mathoma, sstein
-ms.date: 05/18/2019
-ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/25/2021
+ms.openlocfilehash: cd1ba0516d8cb7fdaf3b8d4786cfe68240231303
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782621"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050971"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Conservazione a lungo termine: database SQL di Azure e Istanza gestita SQL di Azure
 
-Molte applicazioni hanno scopi normativi, di conformità o altri scopi aziendali che richiedono di conservare i backup dei database oltre i 7-35 giorni forniti dal database SQL di Azure e da Azure SQL Istanza gestita [backup automatici](automated-backups-overview.md). Grazie alla funzionalità di conservazione a lungo termine, è possibile archiviare il database SQL specificato e i backup completi di SQL Istanza gestita nell'archiviazione BLOB di Azure con [ridondanza configurata](automated-backups-overview.md#backup-storage-redundancy) per un massimo di 10 anni. È quindi possibile ripristinare qualsiasi backup come nuovo database.
+Molte applicazioni hanno scopi normativi, di conformità o altri scopi aziendali che richiedono di conservare i backup dei database oltre i 7-35 giorni forniti dal database SQL di Azure e da Azure SQL Istanza gestita [backup automatici](automated-backups-overview.md). Grazie alla funzionalità di conservazione a lungo termine, è possibile archiviare il database SQL specificato e i backup completi di SQL Istanza gestita nell'archiviazione BLOB di Azure con [ridondanza configurata](automated-backups-overview.md#backup-storage-redundancy) per un massimo di 10 anni. I backup di LTR possono quindi essere ripristinati come un nuovo database.
 
-La conservazione a lungo termine può essere abilitata per il database SQL di Azure ed è in anteprima pubblica limitata per Istanza gestita SQL di Azure. Questo articolo fornisce una panoramica concettuale della conservazione a lungo termine. Per configurare la conservazione a lungo termine, vedere [configurare il database SQL di Azure LTR](long-term-backup-retention-configure.md) e [configurare Azure SQL istanza gestita LTR](../managed-instance/long-term-backup-retention-configure.md). 
+La conservazione a lungo termine può essere abilitata per il database SQL di Azure ed è disponibile in versione di anteprima pubblica per Istanza gestita SQL di Azure. Questo articolo fornisce una panoramica concettuale della conservazione a lungo termine. Per configurare la conservazione a lungo termine, vedere [configurare il database SQL di Azure LTR](long-term-backup-retention-configure.md) e [configurare Azure SQL istanza gestita LTR](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
 > È possibile usare processi di SQL Agent per pianificare [backup dei database di sola copia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) come alternativa alla conservazione a lungo termine oltre 35 giorni.
+
+> [!IMPORTANT]
+> La conservazione a lungo termine in Istanza gestita è attualmente disponibile in anteprima pubblica solo nelle aree pubbliche di Azure. 
 
 
 ## <a name="how-long-term-retention-works"></a>Funzionamento della conservazione a lungo termine
@@ -77,25 +80,20 @@ Se si usa la replica geografica attiva o i gruppi di failover come soluzione di 
 > [!NOTE]
 > Quando viene ripristinato il database primario originale dopo l'interruzione del servizio che ha causato il failover, questo diventerà un nuovo database secondario. Pertanto, la creazione del backup non riprenderà e i criteri di conservazione a lungo termine esistenti non saranno attivi fino a quando il database diventerà nuovamente primario. 
 
-## <a name="sql-managed-instance-support"></a>Supporto per Istanza gestita di SQL
-
-L'uso della conservazione dei backup a lungo termine con Azure SQL Istanza gestita presenta le limitazioni seguenti:
-
-- **Anteprima pubblica limitata** : questa anteprima è riservata esclusivamente alle sottoscrizioni con contratto Enterprise e CSP ed è soggetta a disponibilità limitata.  
-- [**Solo PowerShell**](../managed-instance/long-term-backup-retention-configure.md) : attualmente non è disponibile alcun supporto per portale di Azure. La conservazione a lungo termine deve essere abilitata tramite PowerShell. 
-
-Per richiedere la registrazione, creare un [ticket di supporto di Azure](https://azure.microsoft.com/support/create-ticket/). Per tipo di problema selezionare problema tecnico, per servizio scegliere SQL Istanza gestita e per il tipo di problema selezionare **backup, ripristino e continuità aziendale/conservazione dei backup a lungo termine** . Nella richiesta, indicare se si desidera essere registrati in un'anteprima pubblica limitata di LTR per SQL Istanza gestita.
 
 ## <a name="configure-long-term-backup-retention"></a>Configurare la conservazione del backup a lungo termine
 
-È possibile configurare la conservazione dei backup a lungo termine usando il portale di Azure e PowerShell per il database SQL di Azure e PowerShell per Istanza gestita SQL di Azure. Per ripristinare un database dalla risorsa di archiviazione per la conservazione a lungo termine, selezionare un backup specifico in base al relativo timestamp. Il database può essere ripristinato in qualsiasi istanza gestita o server esistente nella stessa sottoscrizione del database originale.
+È possibile configurare la conservazione dei backup a lungo termine usando il portale di Azure e PowerShell per il database SQL di Azure e Istanza gestita SQL di Azure. Per ripristinare un database dalla risorsa di archiviazione per la conservazione a lungo termine, selezionare un backup specifico in base al relativo timestamp. Il database può essere ripristinato in qualsiasi istanza gestita o server esistente nella stessa sottoscrizione del database originale.
 
-Per informazioni su come configurare la conservazione a lungo termine o ripristinare un database dal backup per il database SQL usando il portale di Azure o PowerShell, vedere [gestire la conservazione dei backup a lungo termine del database SQL di Azure](long-term-backup-retention-configure.md) .
+Per informazioni su come configurare la conservazione a lungo termine o ripristinare un database dal backup per il database SQL usando il portale di Azure o PowerShell, vedere [gestire la conservazione dei backup a lungo termine del database SQL di Azure](long-term-backup-retention-configure.md).
 
 Per informazioni su come configurare la conservazione a lungo termine o ripristinare un database dal backup per SQL Istanza gestita tramite PowerShell, vedere [gestire la conservazione dei backup a lungo termine di Azure sql istanza gestita](../managed-instance/long-term-backup-retention-configure.md).
 
-Per ripristinare un database dalla risorsa di archiviazione per la conservazione a lungo termine, selezionare un backup specifico in base al relativo timestamp. Il database può essere ripristinato in qualsiasi server esistente all'interno della stessa sottoscrizione del database originale. Per informazioni su come ripristinare il database dal backup di conservazione a lungo termine, tramite il portale di Azure o PowerShell, vedere [Gestire la conservazione dei backup a lungo termine di Database SQL di Azure](long-term-backup-retention-configure.md). Nella richiesta, indicare lo stato che si vuole registrare nell'anteprima pubblica limitata di LTR per SQL Istanza gestita.
+Per ripristinare un database dalla risorsa di archiviazione per la conservazione a lungo termine, selezionare un backup specifico in base al relativo timestamp. Il database può essere ripristinato in qualsiasi server esistente all'interno della stessa sottoscrizione del database originale. Per informazioni su come ripristinare il database dal backup di conservazione a lungo termine, tramite il portale di Azure o PowerShell, vedere [Gestire la conservazione dei backup a lungo termine di Database SQL di Azure](long-term-backup-retention-configure.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Poiché i backup dei database proteggono i dati da danneggiamenti o eliminazioni accidentali, sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza. Per informazioni sulle altre soluzioni di continuità aziendale del database SQL, vedere [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+Poiché i backup dei database proteggono i dati da danneggiamenti o eliminazioni accidentali, sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza. 
+
+- Per informazioni sulle altre soluzioni di continuità aziendale del database SQL, vedere [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+- Per informazioni sui backup automatici generati dal servizio, vedere l'articolo relativo ai [backup automatici](../database/automated-backups-overview.md)

@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 02/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 644cac70ef6459a1b0be45e9ab8f2757fafddeed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 844ac637f9fcaed5d78520923e5f7184fcde0d25
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699250"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050393"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -113,9 +113,11 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 [Criteri di Azure](../../governance/policy/index.yml):
 
 - Creare e modificare le definizioni dei criteri nelle sottoscrizioni delegate
+- Distribuire le definizioni dei criteri e le assegnazioni di criteri tra più tenant
 - Assegnare le definizioni dei criteri definiti dal cliente nelle sottoscrizioni delegate
 - I clienti visualizzano i criteri creati dal provider di servizi insieme ai criteri che hanno creato personalmente
 - Consente [di correggere deployIfNotExists o di modificare le assegnazioni all'interno del tenant gestito](../how-to/deploy-policy-remediation.md)
+- Si noti che la visualizzazione dei dettagli di conformità per le risorse non conformi nei tenant del cliente non è attualmente supportata
 
 [Azure Resource Graph](../../governance/resource-graph/index.yml):
 

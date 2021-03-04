@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: fb3ba4ad49cc78b6082d347521cd87be5409cd34
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9e3144738bd259ab9be75059af00f125581bb37c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748781"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050121"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Avvio rapido: Creare la prima funzione in Azure con Visual Studio
 
@@ -27,9 +27,10 @@ Il completamento di questa Guida introduttiva comporta un costo ridotto di pochi
 
 ![Installare Visual Studio con il carico di lavoro Sviluppo di Azure](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
+<br/>
 <details>
-<summary>Usare invece un progetto di funzioni di Azure</summary>
-Se si desidera creare un <abbr title="Un contenitore logico per una o più funzioni singole che possono essere distribuite e gestite insieme. "> Progetto di funzioni di Azure</abbr> con Visual Studio 2017 è invece necessario installare gli [strumenti di funzioni di Azure più recenti](functions-develop-vs.md#check-your-tools-version).
+<summary><strong>Usare invece un progetto di funzioni di Azure</strong></summary>
+Se si desidera creare un <abbr title="Un contenitore logico per una o più funzioni singole che possono essere distribuite e gestite insieme.">Progetto di funzioni di Azure</abbr> con Visual Studio 2017 è invece necessario installare gli [strumenti di funzioni di Azure più recenti](functions-develop-vs.md#check-your-tools-version).
 </details>
 
 ## <a name="2-create-a-function-app-project"></a>2. creare un progetto di app per le funzioni
@@ -42,13 +43,13 @@ Se si desidera creare un <abbr title="Un contenitore logico per una o più funzi
 
 1. Fornire le informazioni seguenti per le impostazioni di **creazione di una nuova applicazione funzioni di Azure** :
 
-    + Selezionare **<abbr title=" questo valore per creare un progetto di funzione che usa il runtime della versione 3. x di funzioni di Azure, che supporta .NET Core 3. x. funzioni di Azure 1. x supporta il .NET Framework. Per altre informazioni, vedere [Panoramica delle versioni del runtime di funzioni di Azure](functions-versions.md). "> Funzioni di Azure V3 (.NET Core </abbr> )** dall'elenco a discesa Functions Runtime
+    + Selezionare **<abbr title=" questo valore per creare un progetto di funzione che usa il runtime della versione 3. x di funzioni di Azure, che supporta .NET Core 3. x. funzioni di Azure 1. x supporta il .NET Framework. "> Funzioni di Azure V3 (.NET Core </abbr> )** dall'elenco a discesa Functions Runtime. Per altre informazioni, vedere [Panoramica delle versioni del runtime di funzioni di Azure](functions-versions.md).
     
     + Selezionare **<abbr title=" questo valore per creare una funzione attivata da una richiesta HTTP. "> Trigger </abbr> http** come modello di funzione.
     
-    + Selezionare **<abbr = "perché una funzione di Azure richiede un account di archiviazione. ne viene assegnato o creato uno quando si pubblica il progetto in Azure. Un trigger HTTP non usa una stringa di connessione dell'account di archiviazione di Azure. tutti gli altri tipi di trigger richiedono una stringa di connessione dell'account di archiviazione di Azure valida ". >emulatore </abbr> di archiviazione** dall'elenco a discesa account di archiviazione.
+    + Selezionare **<abbr title=" perché una funzione di Azure richiede un account di archiviazione, una viene assegnata o creata quando si pubblica il progetto in Azure. Un trigger HTTP non usa una stringa di connessione dell'account di archiviazione di Azure. tutti gli altri tipi di trigger richiedono una stringa di connessione dell'account di archiviazione di Azure valida. "> Emulatore </abbr> di archiviazione** dall'elenco a discesa account di archiviazione.
         
-    + Selezionare **Anonimo** dal <abbr title="Viene creata una funzione che può essere attivata da qualsiasi client senza dover fornire una chiave. Questa impostazione di autorizzazione consente di testare più facilmente la nuova funzione. Per altre informazioni sulle chiavi e l'autorizzazione, vedere [Chiavi di autorizzazione](functions-bindings-http-webhook-trigger.md#authorization-keys) in [Associazioni di webhook e HTTP](functions-bindings-http-webhook.md).">Livello di autorizzazione</abbr> elenco a discesa
+    + Selezionare **Anonimo** dal <abbr title="Viene creata una funzione che può essere attivata da qualsiasi client senza dover fornire una chiave. Questa impostazione di autorizzazione consente di testare più facilmente la nuova funzione.">Livello di autorizzazione</abbr> elenco a discesa. Per altre informazioni sulle chiavi e sull'autorizzazione, vedere [chiavi di autorizzazione](functions-bindings-http-webhook-trigger.md#authorization-keys) e [associazioni HTTP e webhook](functions-bindings-http-webhook.md).
 
     + Selezionare **Crea**
         
@@ -77,8 +78,9 @@ L'attributo del metodo `FunctionName` imposta il nome della funzione, che per im
 
 1. Per arrestare il debug, premere <kbd>MAIUSC</kbd> + <kbd>F5</kbd> in Visual Studio.
 
+<br/>
 <details>
-<summary>Risoluzione dei problemi</summary>
+<summary><strong>Risoluzione dei problemi</strong></summary>
  Potrebbe essere necessario abilitare un'eccezione del firewall in modo che gli strumenti possano gestire le richieste HTTP. I livelli di autorizzazione non vengono mai applicati quando si esegue una funzione localmente.
 </details>
 
@@ -102,7 +104,7 @@ L'attributo del metodo `FunctionName` imposta il nome della funzione, che per im
     
     + **Selezionare** una esistente <abbr title="Un contenitore logico per le risorse di Azure correlate che è possibile gestire come unità.">gruppo di risorse</abbr> dall'elenco a discesa o scegliere **nuovo** per creare un nuovo gruppo di risorse.
     
-    + **Select** <abbr title="Quando si pubblica il progetto in un'app per le funzioni eseguita in un [piano a consumo](consumption-plan.md), vengono addebitati solo i costi relativi alle esecuzioni dell'app per le funzioni. Altri piani di hosting comportano costi più elevati.">Consumo</abbr> nell'elenco a discesa tipo di riproduzione
+    + **Select** <abbr title="Quando si pubblica il progetto in un'app per le funzioni eseguita in un piano a consumo, vengono addebitati solo i costi relativi alle esecuzioni dell'app per le funzioni. Altri piani di hosting comportano costi più elevati.">Consumo</abbr> nell'elenco a discesa tipo di riproduzione. Per ulteriori informazioni, vedere [piano a consumo](consumption-plan.md).
     
     + **Selezionare** un  <abbr title="Riferimento geografico a un Data Center di Azure specifico in cui vengono allocate le risorse. Per un elenco delle aree disponibili, vedere [aree](https://azure.microsoft.com/regions/) .">posizione</abbr> dall'elenco a discesa.
     
@@ -116,8 +118,9 @@ L'attributo del metodo `FunctionName` imposta il nome della funzione, che per im
 
     :::image type="content" source="../../includes/media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Completare la creazione del profilo":::
 
+    <br/>
     <details>
-    <summary>Che cosa fa questa impostazione?</summary>
+    <summary><strong>Che cosa fa questa impostazione?</strong></summary>
     Quando si usa l' **esecuzione dal file di pacchetto**, l'app per le funzioni viene distribuita usando la [distribuzione zip](functions-deployment-technologies.md#zip-deploy) con la modalità [di esecuzione del pacchetto](run-functions-from-deployment-package.md) abilitata. Questo è il metodo di distribuzione consigliato per il progetto di funzioni, perché offre prestazioni più elevate.    
     </details>   
 
@@ -127,14 +130,14 @@ L'attributo del metodo `FunctionName` imposta il nome della funzione, che per im
 
 1. Nella pagina pubblica esaminare l'URL radice dell'app per le funzioni.
 
-1. Nella scheda Pubblica scegliere **Gestisci in <abbr title=" Cloud Explorer consente di usare Visual Studio per visualizzare il contenuto del sito, avviare e arrestare l'app per le funzioni e passare direttamente alle risorse dell'app per le funzioni in Azure e nella portale di Azure. "> Cloud Explorer</>**.
+1. Nella scheda Pubblica scegliere **Gestisci in <abbr title=" Cloud Explorer consente di usare Visual Studio per visualizzare il contenuto del sito, avviare e arrestare l'app per le funzioni e passare direttamente alle risorse dell'app per le funzioni in Azure e nella portale di Azure. "> Cloud Explorer </abbr>**.
     
     :::image type="content" source="../../includes/media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Messaggio di esito positivo della pubblicazione":::
     
 
 ## <a name="6-test-your-function-in-azure"></a>6. testare la funzione in Azure
 
-1. In Cloud Explorer è necessario selezionare la nuova app per le funzioni. In caso contrario, espandere la sottoscrizione > **Servizi app** e selezionare la nuova app per le funzioni.
+1. In Cloud Explorer è necessario selezionare la nuova app per le funzioni. In caso contrario, espandere la sottoscrizione, espandere **Servizi app** e selezionare la nuova app per le funzioni.
 
 1. Fare clic con il pulsante destro del mouse sull'app per le funzioni e scegliere **Apri nel browser**. Verrà visualizzata la radice dell'app per le funzioni nel Web browser predefinito e verrà visualizzata la pagina che indica che l'app per le funzioni è in esecuzione. 
 
@@ -154,7 +157,7 @@ L'attributo del metodo `FunctionName` imposta il nome della funzione, che per im
 
 Eliminare l'app per le funzioni e le relative risorse per evitare di incorrere in costi aggiuntivi.
 
-1. In Cloud Explorer espandere la sottoscrizione > **Servizi app**, fare clic con il pulsante destro del mouse sull'app per le funzioni e scegliere **Apri nel portale**. 
+1. Nella Cloud Explorer espandere la sottoscrizione, espandere **Servizi app**, fare clic con il pulsante destro del mouse sull'app per le funzioni e scegliere **Apri nel portale**. 
 
 1. Nella pagina dell'app per le funzioni selezionare la scheda **Panoramica** e quindi il collegamento sotto **Gruppo di risorse**.
 

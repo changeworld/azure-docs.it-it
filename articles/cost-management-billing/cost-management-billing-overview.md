@@ -4,17 +4,17 @@ description: Le funzionalità di Gestione dei costi e fatturazione di Azure cons
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2021
+ms.date: 03/03/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 9fe658a1755ce3731f220ec656845da1f861fa9b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051094"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050537"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Che cos'è Gestione dei costi e fatturazione di Azure?
 
@@ -33,6 +33,8 @@ Con i prodotti e i servizi di Azure, si paga solo per le risorse che si usano. Q
 
 Per altre informazioni su come approcciare la gestione dei costi come organizzazione, consultare l'articolo [Procedure consigliate di Gestione costi di Azure](./costs/cost-mgt-best-practices.md).
 
+![Diagramma del processo di ottimizzazione della gestione dei costi e della fatturazione.](./media/cost-management-optimization-process.png)
+
 ## <a name="understand-azure-billing"></a>Informazioni sulla fatturazione di Azure
 
 Le funzionalità di fatturazione di Azure vengono usate per verificare i costi fatturati e per gestire l'accesso alle informazioni di fatturazione. Nelle organizzazioni più grandi, le attività di fatturazione vengono in genere gestite dai reparti acquisti e contabilità.
@@ -48,32 +50,6 @@ Il portale di Azure attualmente supporta i tipi di account di fatturazione segue
 - **Contratto Enterprise**: quando l'organizzazione firma un contratto Enterprise Agreement (EA) per l'uso di Azure, viene creato un apposito account di fatturazione.
 
 - **Contratto del cliente Microsoft**: quando l'organizzazione collabora con un rappresentante Microsoft per firmare un Contratto del cliente Microsoft, viene creato un apposito account di fatturazione. Anche alcuni clienti in specifiche aree che si iscrivono tramite il sito Web di Azure per ricevere un account con pagamento in base al consumo oppure [aggiornano](./manage/create-free-services.md) il loro account Azure gratuito possono avere un account di fatturazione per un Contratto del cliente Microsoft.
-
-### <a name="scopes-for-billing-accounts"></a>Ambiti degli account di fatturazione
-Un ambito è un nodo di un account di fatturazione che si usa per visualizzare e gestire la fatturazione. In questa area vengono gestiti i dati di fatturazione, i pagamenti e le fatture e vengono eseguite le attività generali di gestione degli account.
-
-#### <a name="microsoft-online-services-program"></a>Programma dei Microsoft Online Services
-
-|Scope  |Definizione  |
-|---------|---------|
-|Account di fatturazione     | Rappresenta un singolo proprietario (amministratore account) per una o più sottoscrizioni di Azure. Un amministratore account è autorizzato a eseguire varie attività di fatturazione, ad esempio creare sottoscrizioni, visualizzare fatture o cambiare la fatturazione per le sottoscrizioni.  |
-|Subscription     |  Rappresenta un raggruppamento di risorse di Azure. Le fatture vengono generate nell'ambito della sottoscrizione. Prevede metodi specifici di pagamento della fattura corrispondente.|
-
-#### <a name="enterprise-agreement"></a>Enterprise Agreement
-
-|Scope  |Definizione  |
-|---------|---------|
-|Account di fatturazione    | Rappresenta una registrazione del contratto Enterprise Agreement. Le fatture vengono generate nell'ambito dell'account di fatturazione. È strutturato tramite reparti e account di registrazione.  |
-|department     |  Raggruppamento facoltativo di account di registrazione.      |
-|Account di registrazione     |  Rappresenta un singolo proprietario dell'account. Le sottoscrizioni di Azure vengono create nell'ambito dell'account di registrazione.  |
-
-#### <a name="microsoft-customer-agreement"></a>Contratto del cliente Microsoft
-
-|Scope  |Attività  |
-|---------|---------|
-|Account di fatturazione     |   Rappresenta un contratto del cliente per più prodotti e servizi Microsoft. L'account di fatturazione è strutturato tramite profili di fatturazione e sezioni della fattura.   |
-|Profilo di fatturazione     |  Rappresenta una fattura e i relativi metodi di pagamento. La fattura viene generata in questo ambito. Il profilo di fatturazione può includere più sezioni della fattura.      |
-|Sezione della fattura     |   Rappresenta un gruppo di costi in una fattura. Le sottoscrizioni e altri acquisti sono associati all'ambito delle sezioni di fattura.    |
 
 ## <a name="understand-azure-cost-management"></a>Informazioni su Gestione costi di Azure
 

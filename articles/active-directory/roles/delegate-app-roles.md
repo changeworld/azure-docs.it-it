@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071265"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051192"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegare le autorizzazioni di registrazione all'app in Azure Active Directory
 
@@ -77,7 +77,7 @@ Azure AD dispone di un set di ruoli di amministratore predefiniti per la concess
 - Amministratore di applicazioni: gli utenti in questo ruolo possono creare e gestire tutti gli aspetti di applicazioni aziendali, le registrazioni delle applicazioni e le impostazioni proxy dell'applicazione. Questo ruolo consente inoltre di concedere il consenso per le autorizzazioni delegate e le autorizzazioni dell'applicazione escluse Microsoft Graph. Gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari durante la creazione di nuove registrazioni di applicazione o di applicazioni aziendali.
 - Amministratore applicazione cloud: gli utenti in questo ruolo dispongono delle stesse autorizzazioni del ruolo di amministratore di applicazioni, esclusa la possibilità di gestire il proxy dell'applicazione. Gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari durante la creazione di nuove registrazioni di applicazione o di applicazioni aziendali.
 
-Per ulteriori informazioni e per visualizzare la descrizione di questi ruoli, vedere [available Roles](permissions-reference.md#available-roles).
+Per ulteriori informazioni e per visualizzare la descrizione di questi ruoli, vedere [Azure ad ruoli predefiniti](permissions-reference.md).
 
 Seguire le istruzioni riportate nella Guida per l' [assegnazione di ruoli agli utenti con Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md) procedure per assegnare i ruoli di amministratore dell'applicazione o dell'amministratore dell'applicazione cloud.
 

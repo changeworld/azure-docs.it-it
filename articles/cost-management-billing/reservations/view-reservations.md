@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 8c69f477f363654b8bd707949f0a5b4c46a4e8df
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 477dff9db28672f8231710af34786ac387f43b71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561105"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050342"
 ---
 # <a name="view-azure-reservations"></a>Visualizzare le prenotazioni di Azure
 
@@ -47,8 +47,15 @@ Per consentire ad altre persone di gestire le prenotazioni sono disponibili due 
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>Visualizzazione o gestione delle prenotazioni da parte degli amministratori della fatturazione
 
-1. Passare a **Gestione dei costi e fatturazione** e quindi sul lato sinistro della pagina selezionare **Transazioni di prenotazione**.
-2. Se si hanno le autorizzazioni necessarie per la fatturazione, è possibile visualizzare e gestire le prenotazioni. Se non è visualizzata alcuna prenotazione, verificare di aver eseguito l'accesso con il tenant di Azure AD in cui sono state create le prenotazioni.
+Se si ha accesso a prenotazioni o ordini di prenotazione con l'accesso con controllo degli accessi in base al ruolo di Azure, è possibile visualizzare solo un subset di transazioni di prenotazione o nessuno quando si passa alle prenotazioni. Utilizzare la procedura seguente per visualizzare e gestire tutte le prenotazioni e le transazioni di prenotazione.
+
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Gestione costi e fatturazione**.
+    - Se si è un amministratore EA, nel menu a sinistra selezionare **ambiti di fatturazione** e quindi nell'elenco degli ambiti di fatturazione selezionare uno.
+    - Se si è proprietari del profilo di fatturazione del contratto clienti Microsoft, nel menu a sinistra selezionare **profili di fatturazione**. Nell'elenco dei profili di fatturazione selezionarne uno.
+1. Nel menu a sinistra selezionare **transazioni di prenotazione**. Viene visualizzato l'elenco delle transazioni di prenotazione.
+1. Un banner nella parte superiore della pagina legge *ora gli amministratori della fatturazione possono gestire le prenotazioni. Fare clic qui per gestire le prenotazioni.* Selezionare il banner.
+1. Viene visualizzato l'elenco completo delle prenotazioni per la registrazione EA o il profilo di fatturazione.
+1. Se si desidera assumere la proprietà di una prenotazione, selezionarla. Quindi, nella pagina impostazione autorizzazioni selezionare **Concedi accesso**. Al proprietario viene assegnato l'accesso all'ordine di prenotazione e prenotazione.
 
 ## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Visualizzare la prenotazione e l'utilizzo nel portale di Azure
 

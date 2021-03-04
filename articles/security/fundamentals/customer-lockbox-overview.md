@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 02/19/2021
-ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b39b1d33885de46607cd55acee9919473fab7733
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720614"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051430"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox per Microsoft Azure
 
@@ -24,7 +24,8 @@ Customer Lockbox per Microsoft Azure fornisce un'interfaccia che consente ai cli
 
 Questo articolo illustra come abilitare Customer Lockbox e come vengono avviate, rilevate e archiviate le richieste dell'archivio degli archivi per verifiche e controlli successivi.
 
-<a id='supported-services-and-scenarios-in-preview'># # Servizi e scenari supportati (disponibilità generale)
+<a name='supported-services-and-scenarios-in-general-availability'><a name='supported-services-and-scenarios-in-preview'>
+## <a name="supported-services-and-scenarios-general-availability"></a>Servizi e scenari supportati (disponibilità generale)
 
 I servizi seguenti sono ora disponibili a livello generale per Customer Lockbox:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9194f38ddea5570d94ba6c87ea6a537cb41fb98c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854615"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051379"
 ---
 # <a name="data-encryption-models"></a>Modelli di crittografia dei dati
 
@@ -199,8 +199,8 @@ I servizi di Azure che supportano ogni modello di crittografia:
 | Azure Databricks                 | Sì                | Sì                | -                  |
 | Servizio Migrazione del database di Azure | Sì                | N/D\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps Services            | Sì                | -                  | Sì                |
-| Azure Repos                      | Sì                | -                  | Sì                |
+| Azure DevOps Services            | Sì                | -                  | -                  |
+| Azure Repos                      | Sì                | -                  | -                  |
 | **Identità**                     |                    |                    |                    |
 | Azure Active Directory           | Sì                | -                  | -                  |
 | Servizi di dominio Azure Active Directory | Sì          | Sì                | -                  |

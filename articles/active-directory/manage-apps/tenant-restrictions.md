@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b545afb370b84404d3e15f885464aabf00d2eaf2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bdcdd387575faec87656430860e24fee56387775
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687074"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050903"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso delle restrizioni del tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -29,7 +29,7 @@ Con Restrizioni del tenant le organizzazioni possono specificare l'elenco dei te
 
 Questo articolo è incentrato sulle restrizioni dei tenant per Microsoft 365, ma la funzionalità protegge tutte le app che inviano l'utente a Azure AD per Single Sign-On. Se si usano app SaaS con un tenant di Azure AD diverso dal tenant usato dall'Microsoft 365, assicurarsi che tutti i tenant richiesti siano consentiti, ad esempio negli scenari di collaborazione B2B. Per ulteriori informazioni sulle app cloud SaaS, vedere il [Marketplace di Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-Inoltre, la funzionalità restrizioni tenant supporta ora [il blocco dell'utilizzo di tutte le applicazioni Microsoft Consumer](#blocking-consumer-applications) (app MSA), ad esempio OneDrive, Hotmail e Xbox.com.  Questa operazione usa un'intestazione separata per l' `login.live.com` endpoint ed è descritta in dettaglio alla fine del documento.
+Inoltre, la funzionalità restrizioni tenant supporta ora [il blocco dell'utilizzo di tutte le applicazioni Microsoft Consumer](#blocking-consumer-applications-public-preview) (app MSA), ad esempio OneDrive, Hotmail e Xbox.com.  Questa operazione usa un'intestazione separata per l' `login.live.com` endpoint ed è descritta in dettaglio alla fine del documento.
 
 ## <a name="how-it-works"></a>Funzionamento
 

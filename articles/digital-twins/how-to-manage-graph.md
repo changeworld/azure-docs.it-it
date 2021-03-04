@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b713a19cbe572998bb6e5050ab2d7721a844f07a
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: a2732c3979998ea3429833f96056b88bc2dccf75
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530451"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050937"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
@@ -30,7 +30,7 @@ Questo articolo è incentrato sulla gestione delle relazioni e del grafo nel suo
 
 [!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
-È anche possibile apportare modifiche al grafo usando l'esempio di Esplora risorse di Azure Digital Twins (ADT), che consente di visualizzare i dispositivi gemelli e il grafo e usa l'SDK dietro le quinte. Questo esempio viene descritto in dettaglio nella sezione successiva.
+È anche possibile apportare modifiche al grafo usando l'esempio Azure Digital Twins Explorer, che consente di visualizzare i dispositivi gemelli e il grafo e di usare l'SDK in background. Questo esempio viene descritto in dettaglio nella sezione successiva.
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 

@@ -2,17 +2,16 @@
 title: Raccolta di eventi di Event Tracing for Windows (ETW) per Analysis log di monitoraggio di Azure
 description: Informazioni su come raccogliere Event Tracing for Windows (ETW) per l'analisi nei log di monitoraggio di Azure.
 services: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 ms.author: jamesfit
 author: jimmyfit
 ms.date: 01/29/2021
-ms.openlocfilehash: d0ded409d76d0b26a76aebb47b8de8f6143ceba5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 096d16bb2c7249ec99f37fbee9d8ffc8f0e45db2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719900"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050767"
 ---
 # <a name="collecting-event-tracing-for-windows-etw-events-for-analysis-azure-monitor-logs"></a>Raccolta di eventi di Event Tracing for Windows (ETW) per Analysis log di monitoraggio di Azure
 
@@ -72,7 +71,7 @@ Una volta generati gli eventi di corrispondenza, è consigliabile iniziare a vis
 
 ### <a name="step-4-configure-log-analytics-storage-account-collection"></a>Passaggio 4: configurare la raccolta di account di archiviazione Log Analytics
 
-Seguire [queste istruzioni](/azure/azure-monitor/agents/diagnostics-extension-logs#collect-logs-from-azure-storage) per raccogliere i log da archiviazione di Azure. Una volta configurati, i dati degli eventi ETW dovrebbero essere visualizzati in Log Analytics nella tabella **ETWEvent** .
+Seguire [queste istruzioni](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostics-extension-logs#collect-logs-from-azure-storage) per raccogliere i log da archiviazione di Azure. Una volta configurati, i dati degli eventi ETW dovrebbero essere visualizzati in Log Analytics nella tabella **ETWEvent** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Usare [campi personalizzati](../logs/custom-fields.md) per creare la struttura negli eventi ETW
