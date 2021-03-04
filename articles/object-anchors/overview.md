@@ -4,15 +4,15 @@ description: Informazioni su come gli ancoraggi degli oggetti di Azure consenton
 author: craigktreasure
 manager: vriveras
 ms.author: crtreasu
-ms.date: 02/18/2021
+ms.date: 03/02/2021
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 099307ba1085ff6d24bc6bb4000a592aabc8f8f6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cbe52004dddbe74aa02347c026028a8ffd4cf8d7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748794"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034193"
 ---
 # <a name="azure-object-anchors-overview"></a>Panoramica degli ancoraggi degli oggetti di Azure
 
@@ -37,7 +37,7 @@ Alcuni casi d'uso di esempio abilitati dagli ancoraggi degli oggetti di Azure in
 Le sezioni seguenti forniscono informazioni su come iniziare a usare e creare app con gli ancoraggi degli oggetti di Azure.
 
 > [!div class="nextstepaction"]
-> [Inserimento di modelli](quickstarts/get-started-model-ingestion.md)
+> [Inserimento di modelli](quickstarts/get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [Unity in HoloLens](quickstarts/get-started-unity-hololens.md)

@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/22/2020
-ms.openlocfilehash: b4df91f4654f39780f81e0a27139677431926238
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
-ms.translationtype: HT
+ms.date: 03/03/2021
+ms.openlocfilehash: d36dcfccb6843947991b2548af6dd98b81adb40e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532663"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049509"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Server flessibile di Database di Azure per PostgreSQL
 
@@ -56,7 +56,7 @@ L'immagine seguente mostra la transizione per le macchine virtuali e gli errori 
 
 Se è configurata la disponibilità elevata con ridondanza della zona, il servizio effettua il provisioning e gestisce un server hot standby nella zona di disponibilità all'interno della stessa area di Azure. Le modifiche dei dati nel server di origine vengono replicate in modo sincrono nel server di standby per garantire una perdita di dati pari a zero. Con la disponibilità elevata con ridondanza della zona, dopo l'attivazione dell'evento di failover pianificato o non pianificato, il server di standby viene portato online immediatamente ed è disponibile per l'elaborazione delle transazioni in ingresso. Ciò consente la resilienza del servizio dall'errore della zona di disponibilità all'interno di un'area di Azure che supporta più zone di disponibilità, come illustrato nell'immagine seguente.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Server flessibili: errori di archiviazione e di macchine virtuali":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Disponibilità elevata di ridondanza della zona":::
 
  Per ulteriori informazioni, vedere il [documento relativo alla disponibilità elevata](./concepts-high-availability.md).
 
@@ -86,12 +86,30 @@ I server flessibili consentono l'accesso privato completo ai server tramite la r
 
 Il servizio server flessibile è dotato di funzionalità predefinite di monitoraggio delle prestazioni e di avviso. Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronologia di 30 giorni. È possibile configurare avvisi in base alle metriche. Il servizio espone le metriche del server host per monitorare l'utilizzo delle risorse e consente la configurazione di log di query lente. Grazie a questi strumenti è possibile ottimizzare rapidamente i carichi di lavoro e configurare il server per ottenere prestazioni ottimali.
 
+## <a name="azure-regions"></a>Aree di Azure
+
+Uno dei vantaggi offerti dall'esecuzione del carico di lavoro in Azure è la copertura globale. Il server flessibile è attualmente disponibile nelle aree di Azure seguenti:
+
+| Region | Disponibilità | Disponibilità elevata con ridondanza della zona | 
+| --- | --- | --- |
+| Europa occidentale | :heavy_check_mark: | :heavy_check_mark: |
+| Europa settentrionale | :heavy_check_mark: | :heavy_check_mark: |
+| Regno Unito meridionale | :heavy_check_mark: | :heavy_check_mark: | 
+| Stati Uniti orientali 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Stati Uniti occidentali 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Stati Uniti centrali | :heavy_check_mark: | :heavy_check_mark: | 
+| Stati Uniti orientali | :heavy_check_mark: | :heavy_check_mark: | 
+| Asia sud-orientale | :heavy_check_mark: | :heavy_check_mark: |
+| Giappone orientale | :heavy_check_mark: | :heavy_check_mark: | 
+
+Si continuerà ad aggiungere nuove aree geografiche. 
+
 ## <a name="migration"></a>Migrazione
 
 Il servizio esegue la versione community di PostgreSQL. Questo consente la compatibilità completa delle applicazioni e richiede un costo di refactoring minimo per eseguire la migrazione di un'applicazione esistente sviluppata sul motore PostgreSQL a un server flessibile. 
 
-- **Dump e ripristino** : per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, eseguire il dump e il ripristino usando strumenti della community come pg_dump e pg_restore può fornire una soluzione più rapida per la migrazione. Per ulteriori dettagli vedere [Eseguire la migrazione con dump e ripristino](../howto-migrate-using-dump-and-restore.md).
-- **Servizio Migrazione del database di Azure** : per migrazioni semplici e semplificate verso server flessibili con tempi di inattività minimi è possibile sfruttare il Servizio Migrazione del database di Azure. Vedere [Servizio Migrazione del database tramite portale](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) e [Servizio Migrazione del database tramite interfaccia della riga di comando](../../dms/tutorial-postgresql-azure-postgresql-online.md). È possibile eseguire la migrazione dal Database di Azure per PostgreSQL: da server singolo a server flessibile. Per informazioni dettagliate, vedere l'[articolo Servizio Migrazione del database](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md).
+- **Dump e ripristino**: per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, eseguire il dump e il ripristino usando strumenti della community come pg_dump e pg_restore può fornire una soluzione più rapida per la migrazione. Per ulteriori dettagli vedere [Eseguire la migrazione con dump e ripristino](../howto-migrate-using-dump-and-restore.md).
+- **Servizio Migrazione del database di Azure**: per migrazioni semplici e semplificate verso server flessibili con tempi di inattività minimi è possibile sfruttare il Servizio Migrazione del database di Azure. Vedere [Servizio Migrazione del database tramite portale](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) e [Servizio Migrazione del database tramite interfaccia della riga di comando](../../dms/tutorial-postgresql-azure-postgresql-online.md). È possibile eseguire la migrazione dal Database di Azure per PostgreSQL: da server singolo a server flessibile. Per informazioni dettagliate, vedere l'[articolo Servizio Migrazione del database](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

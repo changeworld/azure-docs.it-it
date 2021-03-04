@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 7e71719d83426a3444435ed78d0d63a2599a9157
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8a02bb7c70df4fed55c354638fe6662b85e6c164
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748793"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049638"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>Guida introduttiva: creare un'app HoloLens con gli ancoraggi degli oggetti di Azure in C++/WinRT e DirectX
 
@@ -23,7 +23,6 @@ Si apprenderà come:
 > [!div class="checklist"]
 > * Creazione e caricamento laterale di un'applicazione HoloLens
 > * Rilevare un oggetto e visualizzarne il modello
-> * Acquisisci diagnostica di runtime
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -64,7 +63,7 @@ Per avviare ed eseguire il debug dell'app, selezionare **debug > avviare il debu
 
 ## <a name="ingest-object-model-and-detect-its-instance"></a>Inserire il modello a oggetti e rilevare la relativa istanza
 
-Per eseguire l'app di esempio, è necessario creare un modello a oggetti. Si supponga di avere già un modello di mesh 3D CAD o scansionato di un oggetto nello spazio. Vedere [Guida introduttiva: inserimento di un modello 3D](./get-started-model-ingestion.md) per la creazione di un modello.
+Per eseguire l'app di esempio, è necessario creare un modello a oggetti. Si supponga di avere già un modello di mesh 3D CAD o scansionato di un oggetto nello spazio. Vedere [Guida introduttiva: inserimento di un modello 3D](./get-started-model-conversion.md) per la creazione di un modello.
 
 Scaricare il modello, **Chair. ou** , in questo caso, nel computer. Dal portale per dispositivi HoloLens selezionare **System > file explorer > LocalAppData > AoaSampleApp > LocalState** e selezionare **Sfoglia.** Selezionare quindi il file del modello, **Chair. ou** , ad esempio, e selezionare **upload (carica**). Dovrebbe quindi essere visualizzato il file del modello nella cache locale.
 
@@ -86,7 +85,7 @@ L'app allinea strettamente un modello 3D alla rispettiva controparte fisica. Un 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: inserimento di un modello 3D](./get-started-model-ingestion.md)
+> [Guida introduttiva: inserimento di un modello 3D](./get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [Concetti: Panoramica dell'SDK](../concepts/sdk-overview.md)

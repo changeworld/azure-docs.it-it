@@ -5,122 +5,191 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 02/23/2021
+ms.date: 03/03/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
-ms.collection: M365-identity-device-management
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e87899010660eac11166275bdfd61151bb12c10f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6325a890ea297a3aa2bdad76a1d95c10448a7b61
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686938"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033914"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Aggiungere l'accesso condizionale ai flussi utente in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+L'accesso condizionale può essere aggiunto ai flussi utente Azure Active Directory B2C (Azure AD B2C) o ai criteri personalizzati per gestire gli accessi a rischio per le applicazioni. L'accesso condizionale Azure Active Directory (Azure AD) è lo strumento usato da Azure AD B2C per riunire i segnali, prendere decisioni e applicare i criteri dell'organizzazione.
+
+![Flusso di accesso condizionale](media/conditional-access-user-flow/conditional-access-flow.png)
+
+L'automazione della valutazione dei rischi con le condizioni dei criteri significa che gli accessi a rischio vengono identificati immediatamente e quindi corretti o bloccati.
+
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-È possibile aggiungere l'accesso condizionale ai flussi utente di Azure Active Directory B2C per gestire gli accessi a rischio alle applicazioni. L'integrazione di Identity Protection e dell'accesso condizionale in Azure AD B2C consente di configurare i criteri che identificano il comportamento di accesso a rischio e di applicare criteri che richiedono ulteriori azioni da parte dell'utente o dell'amministratore. Questi sono i componenti che abilitano l'accesso condizionale nei flussi utente di Azure AD B2C:
+## <a name="service-overview"></a>Panoramica del servizio
 
-- **Flusso utente**. Creare un flusso utente per guidare l'utente nel processo di accesso e iscrizione. Nelle impostazioni del flusso utente indicare se attivare i criteri di accesso condizionale quando un utente segue il flusso utente.
-- **Applicazione che indirizza gli utenti verso il flusso utente**. Configurare l'app in modo da indirizzare gli utenti verso il flusso utente appropriato di iscrizione e accesso specificando l'endpoint del flusso utente nell'app.
-- **Criteri di accesso condizionale**. [Creare un criterio di accesso condizionale](conditional-access-identity-protection-setup.md) e specificare le app a cui si vuole applicare il criterio. Quando l'utente segue il flusso utente di accesso o iscrizione per l'app, i criteri di accesso condizionale usano i segnali di Identity Protection per identificare gli accessi a rischio e visualizzare, se necessario, l'azione correttiva appropriata.
+Azure AD B2C valuta ogni evento di accesso e garantisce che tutti i requisiti dei criteri siano soddisfatti prima di concedere l'accesso utente. Durante questa fase di **valutazione** , il servizio di accesso condizionale valuta i segnali raccolti dai rilevamenti dei rischi di Identity Protection durante gli eventi di accesso. Il risultato di questo processo di valutazione è un set di attestazioni che indica se è necessario concedere o bloccare l'accesso. I criteri di Azure AD B2C usano queste attestazioni per eseguire un'azione all'interno del flusso utente, ad esempio il blocco dell'accesso o l'esecuzione di una correzione per l'utente con una correzione specifica come multi-factor authentication. "Blocca accesso" esegue l'override di tutte le altre impostazioni.
 
-L'accesso condizionale è supportato nelle versioni più recenti dei flussi utente. È possibile aggiungere criteri di accesso condizionale a flussi utente nuovi durante la creazione oppure a flussi utente esistenti, purché la versione supporti l'accesso condizionale. Quando si aggiunge l'accesso condizionale a un flusso utente esistente, è necessario esaminare due impostazioni:
+::: zone pivot="b2c-custom-policy"
+Nell'esempio seguente viene illustrato un profilo tecnico di accesso condizionale usato per valutare la minaccia di accesso.
 
-- **Multi-Factor Authentication (MFA)** : gli utenti possono ora usare un codice monouso tramite SMS o voce oppure una password monouso tramite posta elettronica per l'autenticazione a più fattori. Le impostazioni dell'autenticazione a più fattori sono indipendenti dalle impostazioni di accesso condizionale. È possibile impostare l'autenticazione a più fattori su **Always On** (Sempre attiva) in modo che l'autenticazione a più fattori sia obbligatoria indipendentemente dalla configurazione dell'accesso condizionale. In alternativa, è possibile impostare l'autenticazione a più fattori su **Condizionale**, in modo che l'autenticazione a più fattori sia obbligatoria solo se richiesta da un criterio di accesso condizionale attivo.
+```XML
+<TechnicalProfile Id="ConditionalAccessEvaluation">
+  <DisplayName>Conditional Access Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="OperationType">Evaluation</Item>
+  </Metadata>
+  ...
+</TechnicalProfile>
+```
 
-- **Accesso condizionale**: questa impostazione deve sempre essere **Attivato**. Questa impostazione viene in genere **disattivata** durante la risoluzione dei problemi o la migrazione oppure per le implementazioni legacy.
+::: zone-end
 
-Altre informazioni su [Identity Protection e sull'accesso condizionale](conditional-access-identity-protection-overview.md) in Azure AD B2C o su [come configurarlo](conditional-access-identity-protection-setup.md).
+Nella fase di **correzione** che segue, l'utente è in grado di richiedere l'autenticazione a più fattori. Al termine, Azure AD B2C informa Identity Protection che la minaccia di accesso identificato è stata risolta e con quale metodo. In questo esempio Azure AD B2C segnala che l'utente ha completato correttamente la richiesta di autenticazione a più fattori. 
+
+::: zone pivot="b2c-custom-policy"
+
+Nell'esempio seguente viene illustrato un profilo tecnico di accesso condizionale usato per correggere la minaccia identificata:
+
+```XML
+<TechnicalProfile Id="ConditionalAccessRemediation">
+  <DisplayName>Conditional Access Remediation</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+  <Metadata>
+    <Item Key="OperationType">Remediation</Item>
+  </Metadata>
+  ...
+</TechnicalProfile>
+```
+
+::: zone-end
+
+## <a name="components-of-the-solution"></a>Componenti della soluzione
+
+Questi sono i componenti che abilitano l'accesso condizionale in Azure AD B2C:
+
+- **Flusso utente** o **criterio personalizzato** che guida l'utente attraverso il processo di accesso e iscrizione.
+- **Criteri di accesso condizionale** che raggruppano i segnali per prendere decisioni e applicare i criteri dell'organizzazione. Quando un utente accede all'applicazione tramite un criterio di Azure AD B2C, i criteri di accesso condizionale usano Azure AD Identity Protection segnali per identificare gli accessi a rischio e presentano l'azione correttiva appropriata.
+- **Applicazione registrata** che indirizza gli utenti al flusso di utenti Azure ad B2C appropriato o ai criteri personalizzati.
+- [Browser Tor](https://www.torproject.org/download/) per simulare un accesso rischioso.
+
+## <a name="service-limitations-and-considerations"></a>Limitazioni e considerazioni sui servizi
+
+Quando si usa l'accesso condizionale Azure AD, tenere presente quanto segue:
+
+- Identity Protection è disponibile sia per le identità locali che per quelle di social networking, ad esempio Google o Facebook. Per le identità di social networking, è necessario attivare manualmente l'accesso condizionale. Il rilevamento è limitato perché le credenziali dell'account di social networking sono gestite dal provider di identità esterno.
+- In Azure AD B2C tenant è disponibile solo un subset di [Azure ad criteri di accesso condizionale](../active-directory/conditional-access/overview.md) .
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Per creare criteri di accesso a rischio, è richiesto Azure AD B2C Premium 2. I tenant del livello Premium P1 consentono di creare criteri di percorso, app o gruppo.
-- A scopo di test, è possibile [registrare l'applicazione Web di test](tutorial-register-applications.md) `https://jwt.ms`, ovvero un'applicazione Web di proprietà di Microsoft che visualizza il contenuto decodificato di un token (il contenuto del token non lascia mai il browser). 
-- Per simulare un accesso a rischio, scaricare Tor Browser e provare ad accedere all'endpoint del flusso utente.
-- Usare le impostazioni seguenti per [creare un criterio di accesso condizionale](conditional-access-identity-protection-setup.md):
-   
-  - Per **Utenti e gruppi** selezionare l'utente di test. Non selezionare **Tutti gli utenti** altrimenti potrebbe essere bloccato anche il proprio account utente.
-  - Per **Applicazioni cloud o azioni** scegliere **Selezionare le app** e quindi scegliere l'applicazione relying party.
-  - Per Condizioni selezionare **Rischio di accesso** e i livelli di rischio **Elevato**, **Medio** e **Basso**.
-  - Per **Concedi** scegliere **Blocca l'accesso**.
+[!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 
-      ![Rilevamenti dei rischi](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
+## <a name="pricing-tier"></a>Piano tariffario
+
+Azure AD B2C **Premium P2** è necessario per creare criteri di accesso rischiosi. I tenant **Premium P1** possono creare un criterio basato su criteri basati su località, applicazioni, utenti o gruppi. Per altre informazioni, vedere [modificare il piano tariffario Azure ad B2C](billing.md#change-your-azure-ad-pricing-tier)
+
+## <a name="prepare-your-azure-ad-b2c-tenant"></a>Preparare il tenant di Azure AD B2C
+
+Per aggiungere un criterio di accesso condizionale, disabilitare le impostazioni predefinite di sicurezza:
+
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
+3. In **servizi di Azure** selezionare **Azure ad B2C**. In alternativa, utilizzare la casella di ricerca per trovare e selezionare **Azure ad B2C**.
+4. Selezionare **Proprietà** e quindi **Gestisci le impostazioni predefinite per la sicurezza**.
+
+   ![Disabilitare le impostazioni predefinite per la sicurezza](media/conditional-access-user-flow/disable-security-defaults.png)
+
+5. In **Abilita impostazioni predefinite sicurezza** selezionare **No**.
+
+   ![Impostare l'opzione Abilita le impostazioni predefinite per la sicurezza su No](media/conditional-access-user-flow/enable-security-defaults-toggle.png)
+
+## <a name="add-a-conditional-access-policy"></a>Aggiungere un criterio di accesso condizionale
+
+Un criterio di accesso condizionale è un'istruzione if-then di assegnazioni e controlli di accesso. Un criterio di accesso condizionale raggruppa i segnali per prendere decisioni e applicare i criteri aziendali. L'operatore logico tra le assegnazioni è *e*. L'operatore in ogni assegnazione è *o*.
+
+![Assegnazioni di accesso condizionale](media/conditional-access-user-flow/conditional-access-assignments.png)
+
+Per aggiungere un criterio di accesso condizionale:
+
+1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
+1. In **Sicurezza** selezionare **Accesso condizionale (anteprima)** . Viene visualizzata la pagina **Criteri di accesso condizionale**.
+1. Selezionare **+ Nuovi criteri**.
+1. Immettere un nome per il criterio, ad esempio *Blocca accesso rischioso*.
+1. In **assegnazioni** scegliere **utenti e gruppi** e quindi selezionare una delle configurazioni supportate seguenti:
+
+    |Includi  |Licenza | Note  |
+    |---------|---------|---------|
+    |**Tutti gli utenti** | P1, P2 |Se si sceglie di includere **tutti gli utenti**, questi criteri avranno effetto su tutti gli utenti. Per evitare di bloccarsi, escludere l'account amministrativo scegliendo **Escludi**, selezione **ruoli directory** e quindi **amministratore globale** nell'elenco. È anche possibile selezionare **utenti e gruppi** e quindi selezionare l'account nell'elenco **Seleziona utenti esclusi** .  | 
+ 
+1. Selezionare **app Cloud o azioni**, quindi **selezionare app**. Cercare l' [applicazione relying party](tutorial-register-applications.md).
+
+1. Selezionare **condizioni** e quindi selezionare una delle condizioni seguenti. Ad esempio, selezionare **rischio di accesso** e livelli di rischio **alto**, **medio** e **basso** .
+    
+    |Condizione  |Licenza  |Note  |
+    |---------|---------|---------|
+    |**Rischio utente**|P2|Il rischio utente rappresenta la probabilità che un'identità o un account specificato venga compromesso.|
+    |**Rischio di accesso**|P2|Il rischio di accesso rappresenta la probabilità che una determinata richiesta di autenticazione non sia autorizzata dal proprietario dell'identità.|
+    |**Piattaforme**|Non supportato| Caratterizzato dal sistema operativo in esecuzione su un dispositivo. Per altre informazioni, vedere [piattaforme del dispositivo](../active-directory/conditional-access/concept-conditional-access-conditions.md#device-platforms).|
+    |**Percorsi**|P1, P2|Le località denominate possono includere le informazioni sulla rete IPv4 pubbliche, il paese o l'area geografica o aree sconosciute che non sono mappate a specifici paesi o aree geografiche. Per ulteriori informazioni, vedere [Sedi](../active-directory/conditional-access/concept-conditional-access-conditions.md#locations). |
+ 
+1. In **Controlli di accesso** selezionare **Concedi**. Quindi selezionare se bloccare o concedere l'accesso:
+    
+    |Opzione  |Licenza |Nota  |
+    |---------|---------|---------|
+    |**Blocca accesso**|P1, P2| Impedisce l'accesso in base alle condizioni specificate nei criteri di accesso condizionale.|
+    |**Concessione dell'accesso** con **Richiedi autenticazione** a più fattori|P1, P2|In base alle condizioni specificate nei criteri di accesso condizionale, è necessario che l'utente attraversi Azure AD B2C autenticazione a più fattori.|
+
+1. In **Abilita criteri** selezionare una delle opzioni seguenti:
+    
+    |Opzione  |Licenza |Nota  |
+    |---------|---------|---------|
+    |**Solo report**|P1, P2| Report: consente agli amministratori di valutare l'impatto dei criteri di accesso condizionale prima di abilitarli nel proprio ambiente. Si consiglia di controllare i criteri con questo stato e di determinare l'effetto degli utenti finali senza richiedere l'autenticazione a più fattori o bloccare gli utenti. Per altre informazioni, vedere [esaminare i risultati dell'accesso condizionale nel report di controllo](#review-conditional-access-outcomes-in-the-audit-report)|
+    | **Sì**| P1, P2| Il criterio di accesso viene valutato e non applicato. |
+    | **Disattivato** | P1, P2| Il criterio di accesso non è attivato e non ha alcun effetto sugli utenti. |
+
+1. Per abilitare il criterio di accesso condizionale di test, selezionare **Crea**.
+
+## <a name="add-conditional-access-to-a-user-flow"></a>Aggiungere l'accesso condizionale a un flusso utente
+
+Dopo aver aggiunto i criteri di accesso condizionale Azure AD, abilitare l'accesso condizionale nel flusso utente o nel criterio personalizzato. Quando si Abilita l'accesso condizionale, non è necessario specificare un nome di criterio.
+
+È possibile che più criteri di accesso condizionale si applichino a un singolo utente in qualsiasi momento. In questo caso, i criteri di controllo degli accessi più severi hanno la precedenza. Se, ad esempio, un criterio richiede multi-factor authentication, mentre l'altro blocca l'accesso, l'utente verrà bloccato.
+
+## <a name="enable-multi-factor-authentication-optional"></a>Abilitare l'autenticazione a più fattori (facoltativo)
+
+Quando si aggiunge l'accesso condizionale a un flusso utente, prendere in considerazione l'uso di **multi-factor authentication**. Gli utenti possono usare un codice monouso tramite SMS o Voice oppure una password monouso tramite posta elettronica per l'autenticazione a più fattori. Le impostazioni dell'autenticazione a più fattori sono indipendenti dalle impostazioni di accesso condizionale. È possibile impostare l'autenticazione a più fattori su **Always On** (Sempre attiva) in modo che l'autenticazione a più fattori sia obbligatoria indipendentemente dalla configurazione dell'accesso condizionale. In alternativa, è possibile impostare l'autenticazione a più fattori su **Condizionale**, in modo che l'autenticazione a più fattori sia obbligatoria solo se richiesta da un criterio di accesso condizionale attivo.
+
+> [!IMPORTANT]
+> Se il criterio di accesso condizionale concede l'accesso con l'autenticazione a più fattori, ma l'utente non ha registrato un numero di telefono, l'utente potrebbe essere bloccato.
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="add-conditional-access-to-a-new-user-flow"></a>Aggiungere l'accesso condizionale a un nuovo flusso utente
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
-1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
-1. In **Criteri** selezionare **Flussi utente** e quindi **Nuovo flusso utente**.
-1. Nella pagina **Crea un flusso utente** selezionare il tipo di flusso utente.
-1. In **Selezionare una versione** selezionare **Consigliata**, quindi selezionare **Crea**. Per altre informazioni sulle versioni dei flussi utente, vedere [qui](user-flow-versions.md).
-
-    ![Pagina Crea un flusso utente nel portale di Azure con proprietà evidenziate](./media/tutorial-create-user-flows/select-version.png)
-
-1. Immettere un **nome** per il flusso utente. Ad esempio, *signupsignin1*.
-1. Nella sezione **Provider di identità** selezionare i provider di identità da consentire per questo flusso utente.
-2. Nella sezione **Multi-Factor Authentication** selezionare il **metodo MFA**  desiderato e in **Applicazione di MFA** selezionare **Condizionale (opzione consigliata)** .
- 
-   ![Configurare l'autenticazione a più fattori](media/conditional-access-user-flow/configure-mfa.png)
-
-1. Nella sezione **Accesso condizionale** selezionare la casella di controllo **Applica i criteri di accesso condizionale**.
-
-   ![Configurare le impostazioni di accesso condizionale](media/conditional-access-user-flow/configure-conditional-access.png)
-
-1. Nella sezione **Attributi e attestazioni utente** scegliere le attestazioni e gli attributi che si vogliono raccogliere e inviare all'utente durante l'iscrizione. Ad esempio, selezionare **Mostra più** e quindi scegliere gli attributi e le attestazioni per **Paese/Area geografica** e **Nome visualizzato**. Selezionare **OK**.
-
-    ![Pagina di selezione di attributi e attestazioni utente con tre attestazioni selezionate](./media/conditional-access-user-flow/configure-user-attributes-claims.png)
-
-1. Fare clic su **Crea** per aggiungere il flusso utente. Viene automaticamente aggiunto al nome il prefisso *B2C_1*.
-
-## <a name="add-conditional-access-to-an-existing-user-flow"></a>Aggiungere l'accesso condizionale a un flusso utente esistente
-
-> [!NOTE]
-> Il flusso utente esistente deve essere di una versione che supporta l'accesso condizionale. Queste versioni del flusso utente sono contrassegnate come **Consigliata**.
+Per abilitare l'accesso condizionale per un flusso utente, assicurarsi che la versione supporti l'accesso condizionale. Queste versioni del flusso utente sono contrassegnate come **Consigliata**.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
 
-1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
+1. In **servizi di Azure** selezionare **Azure ad B2C**. In alternativa, utilizzare la casella di ricerca per trovare e selezionare **Azure ad B2C**.
 
 1. In **Criteri** selezionare **Flussi utente**. Selezionare quindi il flusso utente.
 
-1. Selezionare **Proprietà** e assicurarsi che il flusso utente supporti l'accesso condizionale. A questo scopo, selezionare **Proprietà** e cercare l'impostazione etichettata come **Accesso condizionale**.
+1. Selezionare **Proprietà** e assicurarsi che il flusso utente supporti l'accesso condizionale cercando l'impostazione con etichetta **accesso condizionale**.
  
    ![Configurare l'autenticazione a più fattori e l'accesso condizionale nelle proprietà](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. Nella sezione **Multi-Factor Authentication** selezionare il **metodo MFA**  desiderato e in **Applicazione di MFA** selezionare **Condizionale (opzione consigliata)** .
+1. Nella sezione **multi-factor authentication** selezionare il **Metodo** di autenticazione a più fattori desiderato, quindi in **imposizione** autenticazione a più fattori selezionare **condizionale (scelta consigliata)**.
  
 1. Nella sezione **Accesso condizionale** selezionare la casella di controllo **Applica i criteri di accesso condizionale**.
 
 1. Selezionare **Salva**.
 
-## <a name="test-the-user-flow"></a>Testare il flusso utente
-
-Per testare l'accesso condizionale nel flusso utente, [creare un criterio di accesso condizionale](conditional-access-identity-protection-setup.md) e abilitare l'accesso condizionale nel flusso utente come descritto in precedenza. 
-
-
-### <a name="run-the-user-flow"></a>Eseguire il flusso utente
-
-1. Selezionare il flusso utente creato per aprire la relativa pagina di panoramica, quindi selezionare **Esegui il flusso utente**. In **Applicazione** selezionare *webapp1*. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
-
-   ![Pagina Esegui il flusso utente nel portale con il pulsante Esegui il flusso utente evidenziato](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
-
-1. Copiare l'URL in **Esegui l'endpoint del flusso utente**.
-
-1. Per simulare un accesso a rischio, aprire [Tor Browser](https://www.torproject.org/download/) e usare l'URL copiato nel passaggio dell'anteprima per accedere all'app registrata.
-
-1. Immettere le informazioni richieste nella pagina di accesso e quindi provare ad accedere. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato. Nel token decodificato jwt.ms è indicato che l'accesso è stato bloccato:
-
-   ![Testare un accesso bloccato](media/conditional-access-identity-protection-setup/test-blocked-sign-in.png)
 
 ::: zone-end
 
@@ -128,11 +197,59 @@ Per testare l'accesso condizionale nel flusso utente, [creare un criterio di acc
 
 ## <a name="add-conditional-access-to-your-policy"></a>Aggiungere l'accesso condizionale ai criteri
 
-È possibile trovare un esempio di criteri di accesso condizionale in [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
+1. Ottenere l'esempio di criteri di accesso condizionale in [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
+1. In ogni file sostituire la stringa `yourtenant` con il nome del tenant del Azure ad B2C. Ad esempio, se il nome del tenant B2C è *contosob2c*, tutte le istanze di `yourtenant.onmicrosoft.com` diventano `contosob2c.onmicrosoft.com` .
+1. Caricare i file dei criteri.
 
-È anche possibile ottenere altre informazioni su come [definire un profilo tecnico di accesso condizionale in un criterio personalizzato](conditional-access-technical-profile.md).
+## <a name="test-your-custom-policy"></a>Testare i criteri personalizzati
+
+1. Selezionare il `B2C_1A_signup_signin_with_ca` `B2C_1A_signup_signin_with_ca_whatif` criterio o per aprire la relativa pagina di panoramica. Selezionare quindi **Esegui flusso utente**. In **Applicazione** selezionare *webapp1*. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
+1. Copiare l'URL in **Esegui l'endpoint del flusso utente**.
+
+1. Per simulare un accesso rischioso, aprire il [browser Tor](https://www.torproject.org/download/) e usare l'URL copiato nel passaggio precedente per accedere all'app registrata.
+
+1. Immettere le informazioni richieste nella pagina di accesso e quindi provare ad accedere. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato. Nel token decodificato jwt.ms si noterà che l'accesso è stato bloccato.
 
 ::: zone-end
+
+::: zone pivot="b2c-user-flow"
+
+## <a name="test-your-user-flow"></a>Testare il flusso utente
+
+1. Selezionare il flusso utente creato per aprire la relativa pagina Panoramica, quindi selezionare **Esegui flusso utente**. In **Applicazione** selezionare *webapp1*. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
+
+1. Copiare l'URL in **Esegui l'endpoint del flusso utente**.
+
+1. Per simulare un accesso rischioso, aprire il [browser Tor](https://www.torproject.org/download/) e usare l'URL copiato nel passaggio precedente per accedere all'app registrata.
+
+1. Immettere le informazioni richieste nella pagina di accesso e quindi provare ad accedere. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato. Nel token decodificato jwt.ms si noterà che l'accesso è stato bloccato.
+
+::: zone-end
+
+## <a name="review-conditional-access-outcomes-in-the-audit-report"></a>Esaminare i risultati dell'accesso condizionale nel report di controllo
+
+Per esaminare il risultato di un evento di accesso condizionale:
+
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+
+2. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
+
+3. In **servizi di Azure** selezionare **Azure ad B2C**. In alternativa, utilizzare la casella di ricerca per trovare e selezionare **Azure ad B2C**.
+
+4. In **Attività** selezionare **Log di controllo**.
+
+5. Filtrare il log di controllo impostando **Categoria** su **B2C** e **Tipo di risorsa attività** su **IdentityProtection**. Selezionare quindi **Applica**.
+
+6. Esaminare l'attività di controllo per un massimo di sette giorni. Sono inclusi i tipi di attività seguenti:
+
+   - **Valutazione dei criteri di accesso condizionale**: questa voce del log di controllo indica che durante un'autenticazione è stata eseguita una valutazione di accesso condizionale.
+   - Correggi **utente**: questa voce indica che la concessione o i requisiti di un criterio di accesso condizionale sono stati soddisfatti dall'utente finale e questa attività è stata segnalata al motore di rischio per attenuare (ridurre il rischio di) dell'utente.
+
+7. Selezionare una voce del log per la **valutazione dei criteri di accesso condizionale** nell'elenco per aprire la pagina **Dettagli attività: log di controllo**, che mostra gli identificatori dei log di controllo, unitamente a queste informazioni nella sezione **Altri dettagli**:
+
+   - **ConditionalAccessResult**: concessione richiesta dalla valutazione dei criteri condizionali.
+   - **AppliedPolicies**: elenco di tutti i criteri di accesso condizionale in cui sono state soddisfatte le condizioni e i criteri sono attivati.
+   - **ReportingPolicies**: elenco dei criteri di accesso condizionale impostati sulla modalità di sola segnalazione e sulla posizione in cui sono state soddisfatte le condizioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

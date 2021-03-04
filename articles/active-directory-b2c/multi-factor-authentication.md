@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d7bc92af31eb179155fd473356c741f365a07a35
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: b7b7f1c5fb0a7991707a26b4a7f54fb3ffaf7bab
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525145"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033521"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Abilitare l'autenticazione a più fattori in Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Questa funzionalità consente alle applicazioni di gestire scenari come:
 1. Nella sezione **autenticazione** a più fattori selezionare il **Metodo** di autenticazione a più fattori desiderato, quindi in **applicazione** dell'autenticazione a più fattori selezionare **Always on** oppure **condizionale (scelta consigliata)**.
    > [!NOTE]
    >
-   > - Se si seleziona **condizionale (scelta consigliata)**, è necessario anche [aggiungere un criterio di accesso condizionale](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) e specificare le app a cui si vuole applicare il criterio.
+   > - Se si seleziona **condizionale (scelta consigliata)**, è necessario [aggiungere anche l'accesso condizionale ai flussi utente](conditional-access-user-flow.md)e specificare le app a cui si desidera applicare i criteri.
    > - Multi-factor authentication è disabilitato per impostazione predefinita per i flussi utente di iscrizione. È possibile abilitare l'autenticazione a più fattori nei flussi utente con l'iscrizione tramite telefono, ma poiché un numero di telefono viene usato come identificatore primario, il codice di posta elettronica monouso è l'unica opzione disponibile per il secondo fattore di autenticazione.
 
 1. Selezionare **Salva**. L'autenticazione a più fattori è ora abilitata per questo flusso utente.

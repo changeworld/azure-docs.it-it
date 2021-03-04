@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 08/17/2020
-  ms.openlocfilehash: 0ee97ba1d0190cfb3331372329677b8ffe740439
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-  ms.translationtype: HT
+  ms.openlocfilehash: 3049f7598990a97e6647011012bae0ddd2651944
+  ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90883844"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102095528"
 landingContent:
 - title: Informazioni sul Centro sicurezza
   linkLists:
@@ -24,38 +24,38 @@ landingContent:
     links:
     - text: Quali sono le funzionalità chiave del Centro sicurezza?
       url: security-center-introduction.md
+    - text: Quali sono le funzionalità principali di Azure Defender?
+      url: azure-defender.md
     - text: Quali versioni di Windows Server e Linux sono supportate?
       url: security-center-os-coverage.md
-    - text: Che cos'è Azure Defender?
-      url: azure-defender.md
 - title: Mantenersi aggiornati
   linkLists:
   - linkListType: whats-new
     links:
     - text: Note sulla versione per il Centro sicurezza
       url: release-notes.md
-    - text: Esplorare la nuova pagina di panoramica
+    - text: Esplorare il dashboard di panoramica
       url: overview-page.md
-    - text: Proteggere i carichi di lavoro Kubernetes
-      url: kubernetes-workload-protections.md
+    - text: Usare i report di cartelle di lavoro integrate
+      url: custom-dashboards-azure-workbooks.md
     - text: Rispondere agli avvisi di Azure Defender per Key Vault
       url: defender-for-key-vault-usage.md
     - text: API del punteggio di sicurezza
-      url: secure-score-security-controls.md#get-your-secure-score-from-the-rest-api
+      url: secure-score-access-and-track.md#get-your-secure-score-from-the-rest-api
 - title: Introduzione
   linkLists:
   - linkListType: get-started
     links:
-    - text: Introduzione a Centro sicurezza
+    - text: Abilitare il Centro sicurezza per le sottoscrizioni
       url: security-center-get-started.md
-    - text: Configurare i criteri di sicurezza
-      url: tutorial-security-policy.md
-    - text: Valutare il comportamento di sicurezza
-      url: secure-score-security-controls.md
-    - text: Connettere l'account AWS
-      url: quickstart-onboard-aws.md
-    - text: Connettere l'account GCP
-      url: quickstart-onboard-gcp.md
+    - text: Abilitare Azure Defender
+      url: enable-azure-defender.md
+    - text: Configurare il provisioning automatico
+      url: security-center-enable-data-collection.md
+    - text: Configurare le notifiche tramite posta elettronica
+      url: security-center-provide-security-contact-details.md
+    - text: Connettere macchine virtuali non di Azure
+      url: quickstart-onboard-machines.md
 - title: Migliorare il punteggio di sicurezza
   linkLists:
   - linkListType: how-to-guide
@@ -66,10 +66,8 @@ landingContent:
       url: security-center-remediate-recommendations.md
     - text: Esentare una risorsa da una raccomandazione
       url: exempt-resource.md
-    - text: Usare le raccomandazioni per migliorare la sicurezza
-      url: security-center-using-recommendations.md
-    - text: Tenere traccia con l'API del controllo di sicurezza
-      url: secure-score-security-controls.md#get-your-secure-score-from-the-rest-api
+    - text: Tenere traccia dei punteggi nel tempo
+      url: custom-dashboards-azure-workbooks.md#use-the-secure-score-over-time-report
 - title: Attenuazione delle minacce
   linkLists:
   - linkListType: how-to-guide
@@ -80,7 +78,5 @@ landingContent:
       url: security-center-adaptive-application.md
     - text: Implementare Protezione avanzata adattiva per la rete
       url: security-center-adaptive-network-hardening.md
-    - text: Provare Azure Defender gratuitamente per 30 giorni
-      url: security-center-pricing.md#try-azure-defender-free-for-30-days
     - text: Usare il dashboard di Azure Defender
       url: azure-defender-dashboard.md

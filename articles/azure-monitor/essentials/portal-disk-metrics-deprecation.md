@@ -2,17 +2,16 @@
 title: La metrica del disco è deprecata nel portale di Azure | Microsoft Docs
 description: Informazioni sulle metriche del disco deprecate e su come aggiornare gli avvisi delle metriche per usare le nuove metriche.
 services: azure-monitor
-ms.subservice: metrics
 ms.topic: conceptual
 author: albecker1
 ms.author: albecker
 ms.date: 03/12/2020
-ms.openlocfilehash: 623d9385b9ae6b13c8964f655fb973fe67a0918a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 607ccacbfff86decaecaad0a869c8c0fe7500680
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616526"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033402"
 ---
 # <a name="disk-metrics-deprecation-in-the-azure-portal"></a>La metrica del disco è deprecata nel portale di Azure
 

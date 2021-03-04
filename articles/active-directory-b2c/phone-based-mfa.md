@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3ca73e020009817001f309ddf29c2984a8541026
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: cc9e0be90c138ba33e1b4dfe11ea6f9c8b7da297
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527480"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033555"
 ---
 # <a name="securing-phone-based-multi-factor-authentication-mfa"></a>Protezione dell'autenticazione a più fattori basata su telefono
 
@@ -89,7 +89,7 @@ Eseguire le azioni seguenti per attenuare le iscrizioni fraudolente.
 - Usare le versioni **consigliate** dei flussi utente per eseguire le operazioni seguenti:
      
    - Abilitare la funzionalità di accesso monouso per [la posta elettronica (OTP) per l'autenticazione a più fattori](phone-authentication-user-flows.md) (si applica ai flussi di iscrizione e accesso).
-   - [Configurare un criterio di accesso condizionale](conditional-access-identity-protection-setup.md) per bloccare gli accessi in base alla posizione (si applica solo ai flussi di accesso e non ai flussi di iscrizione).
+   - [Configurare un criterio di accesso condizionale](conditional-access-user-flow.md) per bloccare gli accessi in base alla posizione (si applica solo ai flussi di accesso e non ai flussi di iscrizione).
    - Usare i connettori API per [l'integrazione con una soluzione anti-bot come reCAPTCHA](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) (si applica ai flussi di iscrizione).
 
 - Rimuovere i codici paese che non sono rilevanti per l'organizzazione dal menu a discesa in cui l'utente verifica il numero di telefono. questa modifica verrà applicata alle iscrizioni future:

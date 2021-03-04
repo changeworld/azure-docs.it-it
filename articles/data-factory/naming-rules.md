@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: f0d14760ce3e6403c9b6fe8cc7a2100aeb3f39a6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bef8706d9dcef966397dcddc64ffbd567a8431f6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372910"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034405"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Regole di denominazione
 
@@ -27,6 +27,8 @@ La tabella seguente specifica le regole di denominazione per gli elementi di Dat
 | Integration Runtime |Univoco all'interno di un data factory. Per i nomi viene fatta distinzione tra maiuscole e minuscole. |<ul><li>Il nome del runtime di integrazione può contenere solo lettere, numeri e il carattere trattino (-).</li><li>Il primo e l'ultimo carattere devono essere una lettera o un numero. Ogni carattere trattino (-) deve essere immediatamente preceduto e seguito da una lettera o un numero.</li><li>I trattini consecutivi non sono consentiti nel nome del runtime di integrazione. </li></ul> |
 | Trasformazioni del flusso di dati | Univoco all'interno di un flusso di dati. I nomi non fanno distinzione tra maiuscole e minuscole | <ul><li>I nomi di trasformazione del flusso di dati possono contenere solo lettere e numeri</li><li>Il primo carattere deve essere una lettera. </li></ul> |
 | Gruppo di risorse |Univoco in Microsoft Azure. Per i nomi viene fatta distinzione tra maiuscole e minuscole. | Per altre informazioni, vedere [Regole di denominazione e restrizioni](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). |
+| Parametri della pipeline & variabile  |Univoco all'interno della pipeline. Per i nomi viene fatta distinzione tra maiuscole e minuscole. | <ul><li>Il controllo della convalida sui nomi dei parametri e delle variabili è limitato all'univocità a causa del motivo della compatibilità con le versioni precedenti.</li><li>Quando si usano parametri o variabili per fare riferimento a nomi di entità, ad esempio il servizio collegato, vengono applicate le regole di denominazione delle entità.</li><li>È consigliabile seguire le regole di denominazione della trasformazione flusso di dati per assegnare un nome ai parametri e alle variabili della pipeline.</li></ul> |
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Informazioni su come creare data factory seguendo le istruzioni dettagliate riportate nell'articolo [Guida introduttiva: creazione di una data factory](quickstart-create-data-factory-powershell.md). 

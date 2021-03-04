@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b42ac7b4e379559d86942279eaa19fe58533840
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8809f8c168e7095f05587c7a572e08287637dc5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651888"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034592"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Reimpostare la password di un utente con Azure Active Directory
 
@@ -33,7 +33,7 @@ Se un utente dimentica la propria password, non riesce ad accedere a un disposit
 
 ## <a name="to-reset-a-password"></a>Per reimpostare la password
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore utente o password. Per altre informazioni sui ruoli disponibili, vedere [Ruoli disponibili](../roles/permissions-reference.md#available-roles).
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore utente o password. Per ulteriori informazioni sui ruoli disponibili, vedere [Azure ad ruoli predefiniti](../roles/permissions-reference.md) .
 
 2. Selezionare **Azure Active Directory**, selezionare **Utenti**, cercare e selezionare l'utente che richiede la reimpostazione e quindi selezionare **Reimposta password**.
 

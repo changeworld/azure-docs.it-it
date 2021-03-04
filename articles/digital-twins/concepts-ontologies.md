@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b53cac6e732fb568ba799534d9ad9168fd65eab1
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3393856b25040cff603ea2ef51e8adbcba78dc26
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561530"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034694"
 ---
 # <a name="what-is-an-ontology"></a>Che cos'è una ontologia? 
 
@@ -58,7 +58,7 @@ Indipendentemente dalla strategia scelta per l'integrazione di un'ontologia nei 
 
 In seguito, dovrebbe essere possibile usare i modelli nell'istanza di Azure Digital gemelli. 
 
-È possibile visualizzarli con esempi quali [Esplora risorse di Azure Digital gemelli (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) o il [Visualizzatore del modello ADT](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer)oppure passare a usarli per creare i dispositivi [gemelli digitali](concepts-twins-graph.md).
+È possibile visualizzarli con esempi come [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) o il [Visualizzatore di modelli di Azure Digital gemelli](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer)oppure passare a usarli per creare i dispositivi [gemelli digitali](concepts-twins-graph.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: c7ee2289680bb50fabb8e6eb2a3ea0466bd58afb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1d956e33a84b5509c16400c8f5f8e813d116411a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663432"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095749"
 ---
 # <a name="azure-percept-audio-button-and-led-behavior"></a>Comportamento del pulsante e del LED audio di Azure Percept
 
@@ -25,7 +25,7 @@ Vedere le linee guida seguenti per informazioni sul pulsante e sugli stati dei L
 |Stato pulsante|  Comportamento|
 |------------|----------|
 |Disattiva audio|  Premere per disattivare/disattivare la matrice MIC. L'evento Button viene attivato dalla versione quando viene premuto.|
-|PTT/PTS|   Premere PTT per ignorare lo stato di individuazione delle parole chiave e attivare lo stato di ascolto del comando. Premere di nuovo per arrestare il dialogo attivo dell'agente e ripristinare lo stato di individuazione delle parole chiave.|
+|PTT/PTS|   Premere PTT per ignorare lo stato di individuazione delle parole chiave e attivare lo stato di ascolto del comando. Premere di nuovo per arrestare il dialogo attivo dell'agente e ripristinare lo stato di individuazione delle parole chiave. L'evento Button viene attivato dalla versione quando viene premuto. PTS funziona solo quando viene premuto il pulsante mentre l'agente sta parlando, non quando l'agente è in ascolto o nel pensiero.|
 
 ## <a name="led-behavior"></a>Comportamento del LED
 
@@ -35,7 +35,7 @@ Vedere le linee guida seguenti per informazioni sul pulsante e sugli stati dei L
 |---|------------|----------------| 
 |L02|   1x bianco, statico on |Accendere |
 |L02|   1x bianco, 0,5 Hz lampeggianti|  Autenticazione in corso |
-|L01 & L02 & L03|   3x blu, statico on|     Parola chiave rilevata|
+|L01 & L02 & L03|   3x blu, statico on|     In attesa di una parola chiave|
 |L01 & L02 & L03|   Matrice LED lampeggiante, 20fps | In ascolto o in conversazione|
 |L01 & L02 & L03|   LED Array Racing, 20fps|    Pensare|
 |L01 & L02 & L03|   3x rosso, statico | Disattiva audio|

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5ef61502d0b2fccc92ca606992e965b45764baa0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5687fb99c27b8b2141e0a2a817327cfbb124951a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745659"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109036"
 ---
 ## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Creare un processo Web attivato manualmente
 
@@ -28,8 +28,8 @@ ms.locfileid: "101745659"
 
     ![Screenshot che mostra le impostazioni che devono essere impostate per la creazione di un processo Web attivato manualmente.](../media/web-sites-create-web-jobs/addwjtriggered.png)
     
-    | Impostazione      | Valore di esempio   | Descrizione  |
-    | ------------ | ----------------- | ------------ |
+    | Impostazione      | Valore di esempio   | 
+    | ------------ | ----------------- | 
    | <abbr title="Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da `-` e `_` .">Nome</abbr> | myTriggeredWebJob | 
     | <abbr title="File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script.">Caricamento file</abbr> | ConsoleApp.zip |
     | <abbr title="I tipi includono Continuous, attivato.">Tipo</abbr> | Attivato | 

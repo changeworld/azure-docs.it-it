@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: data-factory
 author: chez-charlie
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
-ms.translationtype: HT
+ms.openlocfilehash: 10aa9b06af439fe701c53ef736ec691167560f95
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681262"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109030"
 ---
 Azure Data Factory è un servizio multi-tenant che prevede i limiti predefiniti seguenti per fare in modo che le sottoscrizioni dei clienti siano protette da carichi di lavoro reciproci. Per aumentare i limiti fino al valore massimo consentito per la sottoscrizione, contattare il supporto tecnico.
 
@@ -57,8 +57,8 @@ Azure Data Factory è un servizio multi-tenant che prevede i limiti predefiniti 
 | Gruppo di aree | Regioni |
 | -------- | ------ |
 | Gruppo di aree 1 | Stati Uniti centrali, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2 |
-| Gruppo di aree 2 | Australia orientale, Australia sud-orientale, Brasile meridionale, India centrale, Giappone orientale, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Asia sud-orientale, Stati Uniti centro-occidentali |
-| Gruppo di aree 3 | Canada centrale, Asia orientale, Francia centrale, Corea centrale, Regno Unito meridionale |
+| Gruppo di aree 2 | Australia orientale, Australia sudorientale, Brasile meridionale, India centrale, Giappone orientale, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Asia sudorientale, Stati Uniti centro-occidentali |
+| Gruppo di aree 3 | Altre aree |
 
 <sup>3</sup> Gli oggetti servizio collegato, pipeline e set di dati rappresentano un raggruppamento logico del carico di lavoro. I limiti per questi oggetti non riguardano la quantità di dati che è possibile spostare ed elaborare con Azure Data Factory. Data Factory è progettato per la scalabilità e la gestione di petabyte di dati.
 

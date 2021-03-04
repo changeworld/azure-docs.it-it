@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 3540204d66bb589c567514f92a9a8acb2159e343
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 77ccf09903b6cff83b52d60d43d0c52533c9c1ad
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665517"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041689"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configurare Azure Percept DK e distribuire il primo modello di intelligenza artificiale
 
@@ -173,7 +173,7 @@ Se si desidera creare una nuova sottoscrizione, attenersi alla [seguente procedu
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Avviso di disconnessione esperienza di installazione."::: 
 
-1. Continuare con il portale di Azure. tornare alla finestra di installazione e fare clic sul pulsante **continuare con il portale di Azure** per iniziare a creare i modelli di intelligenza artificiale personalizzati in Azure Percept Studio.
+1. Continuare con la portale di Azure: tornare alla finestra di installazione e fare clic sul pulsante **continua fino al portale di Azure** per iniziare a creare i modelli di intelligenza artificiale personalizzati in Azure Percept Studio.
 
     > [!NOTE]
     > Verificare che il computer host non sia più connesso al punto di accesso Dev Kit nelle impostazioni Wi-Fi ed è ora riconnesso al Wi-Fi locale.
@@ -205,8 +205,6 @@ Se si desidera creare una nuova sottoscrizione, attenersi alla [seguente procedu
     
 1. Distribuire un nuovo esempio predefinito nel dispositivo connesso. Selezionare un esempio dalla libreria e fare clic su "Distribuisci nel dispositivo"
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-1-select-prebuilt.png" alt-text="Selezionare un predefinito.":::
-    
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="Vedere Rilevamento di oggetti in azione.":::
 
 ## <a name="next-steps"></a>Passaggi successivi

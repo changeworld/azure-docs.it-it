@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 810ea58c5d88dec53463b9a2b04750169c70e137
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f3331504540e8c23c3a83fe245bae27ca6c49385
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704028"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041281"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -27,7 +27,7 @@ Questo articolo illustra come risolvere i problemi durante la distribuzione del 
 
 Se viene visualizzato l'errore "il file manifesto specificato non è valido: voce del manifesto OVF non valida", eseguire le operazioni seguenti:
 
-1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-discover-vmware.md). Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
+1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-discover-vmware.md) Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
 2. Se la distribuzione ha ancora esito negativo e si usa il client VMware vSphere per distribuire il file OVF, provare a distribuirlo tramite il client Web di vSphere. Se la distribuzione non riesce ancora, provare a usare un altro Web browser.
 3. Se si usa il client Web vSphere e si prova a distribuirlo in server vCenter 6,5 o 6,7, provare a distribuire gli OVA direttamente nell'host ESXi:
    - Connettersi direttamente all'host ESXi (invece di server vCenter) con il client Web (https://<*indirizzo IP host*>/UI).
@@ -167,6 +167,19 @@ Se le macchine virtuali individuate non vengono visualizzate nel portale o se i 
 
 Se si eliminano macchine virtuali che vengono comunque visualizzate nel portale, attendere 30 minuti. Se vengono ancora visualizzati, aggiornare come descritto in precedenza.
 
+## <a name="discovered-applications-and-sql-server-instances-and-databases-not-in-portal"></a>Applicazioni individuate e istanze di SQL Server e database non nel portale
+
+Dopo aver avviato l'individuazione nell'appliance, potrebbero essere necessarie fino a 24 ore per iniziare a visualizzare i dati di inventario nel portale.
+
+Se non è stata specificata l'autenticazione di Windows o SQL Server credenziali di autenticazione in Gestione configurazione Appliance, aggiungere le credenziali in modo che l'appliance possa usarle per connettersi alle rispettive istanze di SQL Server.
+
+Una volta stabilita la connessione, appliance raccoglie i dati di configurazione e delle prestazioni delle istanze di SQL Server e dei database. I dati di configurazione SQL Server vengono aggiornati ogni 24 ore e i dati sulle prestazioni vengono acquisiti ogni 30 secondi. Di conseguenza, qualsiasi modifica apportata alle proprietà dell'istanza SQL Server e dei database, ad esempio lo stato del database, il livello di compatibilità e così via, può richiedere fino a 24 ore per l'aggiornamento nel portale.
+
+## <a name="sql-server-instance-is-showing-up-in-not-connected-state-on-portal"></a>SQL Server istanza viene visualizzata nello stato "non connesso" nel portale
+Per visualizzare i problemi riscontrati durante l'individuazione di SQL Server istanze e dei database, fare clic su stato "non connesso" nella colonna stato connessione nella pagina "server individuati" del progetto.
+
+La creazione di una valutazione su server contenenti istanze SQL che non sono state individuate completamente o che non si trovano nello stato connesso, può comportare la conformità del contrassegno come "sconosciuto".
+
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Non vengono visualizzati i dati sulle prestazioni per alcune schede di rete nei server fisici
 
 Questo problema può verificarsi se nel server fisico è abilitata la virtualizzazione Hyper-V. A causa del Gap del prodotto, la velocità effettiva della rete viene acquisita sulle schede di rete virtuali individuate.
@@ -199,9 +212,9 @@ I tipici errori di individuazione delle app sono riepilogati nella tabella.
 
 | **Error (Errore) (Error (Errore)e)** | **Causa** | **Azione** |
 |--|--|--|
-| 9000: Impossibile rilevare lo stato dello strumento VMware. | È possibile che gli strumenti VMWare non siano installati o siano danneggiati. | Verificare che gli strumenti VMware siano installati e in esecuzione nella macchina virtuale. |
-| 9001: gli strumenti VMware non sono installati. | È possibile che gli strumenti VMWare non siano installati o siano danneggiati. | Verificare che gli strumenti VMware siano installati e in esecuzione nella macchina virtuale. |
-| 9002: gli strumenti VMware non sono in esecuzione. | È possibile che gli strumenti VMWare non siano installati o siano danneggiati. | Verificare che gli strumenti VMware siano installati e in esecuzione nella macchina virtuale. |
+| 9000: Impossibile rilevare lo stato dello strumento VMware. | È possibile che gli strumenti VMware non siano installati o siano danneggiati. | Verificare che gli strumenti VMware siano installati e in esecuzione nella macchina virtuale. |
+| 9001: gli strumenti VMware non sono installati. | È possibile che gli strumenti VMware non siano installati o siano danneggiati. | Verificare che gli strumenti VMware siano installati e in esecuzione nella macchina virtuale. |
+| 9002: gli strumenti VMware non sono in esecuzione. | È possibile che gli strumenti VMware non siano installati o siano danneggiati. | Verificare che gli strumenti VMware siano installati e in esecuzione nella macchina virtuale. |
 | 9003: il tipo di sistema operativo non è supportato per l'individuazione di macchine virtuali guest. | Il sistema operativo in esecuzione nel server non è né Windows né Linux. | I tipi di sistema operativo supportati sono solo Windows e Linux. Se il server è effettivamente Windows o Linux, controllare il tipo di sistema operativo specificato in server vCenter. |
 | 9004: la macchina virtuale non è in esecuzione. | La macchina virtuale è spenta. | Verificare che la macchina virtuale sia accesa. |
 | 9005: il tipo di sistema operativo non è supportato per l'individuazione di macchine virtuali guest. | Il tipo di sistema operativo non è supportato per l'individuazione delle macchine virtuali guest. | I tipi di sistema operativo supportati sono solo Windows e Linux. |

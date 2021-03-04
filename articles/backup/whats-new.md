@@ -3,12 +3,12 @@ title: Novità di Backup di Azure
 description: Informazioni sulle nuove funzionalità di backup di Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: dd9546002e63072ce9631f5b8e7ac09ab0f5352b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 48c8c189d956c4003d24511a54975fe86a982832
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728179"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095715"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novità di Backup di Azure
 
@@ -18,6 +18,9 @@ Per ulteriori informazioni sulle nuove versioni, è possibile aggiungere un segn
 
 ## <a name="updates-summary"></a>Riepilogo aggiornamenti
 
+- Marzo 2021
+  - [Il Centro backup è ora disponibile a livello generale](#backup-center-is-now-generally-available)
+  - [Supporto del livello di archiviazione per backup di Azure (in anteprima)](#archive-tier-support-for-azure-backup-in-preview)
 - 2021 febbraio
   - [Backup per i BLOB di Azure (in anteprima)](#backup-for-azure-blobs-in-preview)
 - Gennaio 2021
@@ -36,6 +39,18 @@ Per ulteriori informazioni sulle nuove versioni, è possibile aggiungere un segn
   - [Backup SAP HANA in macchine virtuali di Azure RHEL (in anteprima)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Archiviazione con ridondanza della zona (ZRS) per i dati di backup (in anteprima)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Eliminazione temporanea per carichi di lavoro di SQL Server e SAP HANA in macchine virtuali di Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="backup-center-is-now-generally-available"></a>Il Centro backup è ora disponibile a livello generale
+
+Backup Center semplifica la gestione della protezione dei dati su vasta scala, consentendo di individuare, gestire, monitorare, eseguire e ottimizzare la gestione dei backup da un'unica console centrale.
+
+Per ulteriori informazioni, vedere [Panoramica di Centro backup](backup-center-overview.md).
+
+## <a name="archive-tier-support-for-azure-backup-in-preview"></a>Supporto del livello di archiviazione per backup di Azure (in anteprima)
+
+Backup di Azure consente ora di ridurre il costo dei backup con conservazione a lungo termine con la disponibilità del livello di archiviazione per le macchine virtuali di Azure e SQL Server in macchine virtuali di Azure.
+
+Per altre informazioni, vedere [supporto del livello di archiviazione (anteprima)](archive-tier-support.md).
 
 ## <a name="backup-for-azure-blobs-in-preview"></a>Backup per i BLOB di Azure (in anteprima)
 

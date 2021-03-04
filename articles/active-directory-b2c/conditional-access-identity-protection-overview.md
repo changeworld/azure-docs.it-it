@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 03/03/2021
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17706f908613336714bb7daf08fdf3bfd5eaf64
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
-ms.translationtype: HT
+ms.openlocfilehash: e2ec8af824d573493d1da743923956e587ded62e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928393"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033827"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Identity Protection e l'accesso condizionale per Azure AD B2C
 
@@ -49,21 +49,21 @@ Il funzionamento di Identity Protection e dell'accesso condizionale in Azure AD 
 
 - Nei tenant di Azure AD B2C i rilevamenti di rischi per Identity Protection sono disponibili solo per gli account B2C locali e non per le identità di social network come Google o Facebook.
 
-- Nei tenant di Azure AD B2C è disponibile un subset dei rilevamenti di rischi di Identity Protection. Vedere [Configurare Identity Protection](conditional-access-identity-protection-setup.md#set-up-identity-protection).
+- Nei tenant di Azure AD B2C è disponibile un subset dei rilevamenti di rischi di Identity Protection. Vedere [analizzare i rischi con Identity Protection](identity-protection-investigate-risk.md)e [aggiungere l'accesso condizionale ai flussi utente](conditional-access-user-flow.md).
 
 - La funzionalità Conformità del dispositivo dell'accesso condizionale non è disponibile nei tenant di Azure AD B2C.
 
 
 ## <a name="integrate-conditional-access-with-user-flows-and-custom-policies"></a>Integrare l'accesso condizionale con flussi utente e criteri personalizzati
 
-In Azure AD B2C è possibile attivare le condizioni di accesso condizionale da flussi utente predefiniti. È anche possibile incorporare l'accesso condizionale in criteri personalizzati. Come per gli altri aspetti del flusso utente B2C, la messaggistica dell'esperienza utente finale può essere personalizzata in base alle alternative per il messaggio, il marchio e la mitigazione della propria organizzazione. Vedere [Definire un profilo tecnico di accesso condizionale](conditional-access-technical-profile.md).
+In Azure AD B2C è possibile attivare le condizioni di accesso condizionale da flussi utente predefiniti. È anche possibile incorporare l'accesso condizionale in criteri personalizzati. Come per gli altri aspetti del flusso utente B2C, la messaggistica dell'esperienza utente finale può essere personalizzata in base alle alternative per il messaggio, il marchio e la mitigazione della propria organizzazione. Vedere [aggiungere l'accesso condizionale ai flussi utente](conditional-access-user-flow.md).
 
 ## <a name="microsoft-graph-api"></a>API Microsoft Graph
 
-È anche possibile gestire i criteri di accesso condizionale in Azure AD B2C con l'API Microsoft Graph. Per informazioni dettagliate, vedere la [documentazione relativa all'accesso condizionale](../active-directory/conditional-access/overview.md) e le [informazioni di riferimento su Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta).
+È anche possibile gestire i criteri di accesso condizionale in Azure AD B2C con l'API Microsoft Graph. Per informazioni dettagliate, vedere la [documentazione sull'accesso condizionale](../active-directory/conditional-access/overview.md) e le [operazioni Microsoft Graph](microsoft-graph-operations.md#conditional-access).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare Identity Protection e l'accesso condizionale per Azure AD B2C](conditional-access-identity-protection-setup.md)
+- [Aggiungere l'accesso condizionale ai flussi utente](conditional-access-user-flow.md)
 - [Informazioni su Identity Protection in Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 - [Informazioni sull'accesso condizionale](../active-directory/conditional-access/overview.md)

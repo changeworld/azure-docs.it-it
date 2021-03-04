@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bcfe26bc6f637dd140776df98f8267c4c43684ba
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693527"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049543"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etichettare automaticamente i dati in ambito Azure
 
@@ -120,7 +120,10 @@ Quando si estende l'assegnazione di etichette alle risorse in Azure, è possibil
 
     :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Creare etichette di riservatezza nel centro sicurezza e conformità di Microsoft 365" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
 
-1. Assegnare un nome all'etichetta. Quindi, in **definire l'ambito per questa etichetta**, selezionare **file e messaggi di posta elettronica** e **risorse di Azure per competenza**.
+1. Assegnare un nome all'etichetta. Quindi, in **definire l'ambito per questa etichetta**:
+
+    - In tutti i casi, selezionare **asset di competenza di Azure**.
+    - Per etichettare i file, selezionare anche **file & messaggi di posta elettronica**. Questa opzione non è necessaria per etichettare solo gli asset di database. 
     
     :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Creare l'etichetta nel centro sicurezza e conformità di Microsoft 365" lightbox="media/create-sensitivity-label/create-label-scope.png":::
 

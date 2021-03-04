@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 3a8429d9dc6820b1f79c49d325872b61833f988d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341686"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095545"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Domande frequenti-domande generali sul centro sicurezza di Azure
 
@@ -29,7 +29,7 @@ Per raccogliere e archiviare i dati, il Centro sicurezza usa l'agente di Log Ana
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>In che modo è possibile accedere al Centro sicurezza di Azure?
-Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft Azure ed è accessibile dal [portale di Azure](https://azure.microsoft.com/features/azure-portal/). Per accedervi, accedere [al portale](https://portal.azure.com), selezionare **Sfoglia**e scorrere fino al **Centro sicurezza**.
+Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft Azure ed è accessibile dal [portale di Azure](https://azure.microsoft.com/features/azure-portal/). Per accedervi, accedere [al portale](https://portal.azure.com), selezionare **Sfoglia** e scorrere fino al **Centro sicurezza**.
 
 
 ## <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Quali risorse di Azure vengono monitorate dal Centro sicurezza di Azure?
@@ -46,10 +46,10 @@ La pagina **Panoramica del Centro sicurezza** Mostra il comportamento di sicurez
 
 
 
-## <a name="what-is-a-security-policy"></a>Cosa sono i criteri di sicurezza?
-I criteri di sicurezza definiscono il set di controlli consigliati per le risorse all'interno della sottoscrizione specificata. Nel Centro sicurezza di Azure è possibile definire i criteri per le sottoscrizioni di Azure in base ai requisiti di sicurezza della società e al tipo di applicazione o al livello di riservatezza dei dati in ciascuna sottoscrizione.
+## <a name="what-is-a-security-initiative"></a>Che cos'è un'iniziativa di sicurezza?
+Un'iniziativa di sicurezza definisce il set di controlli (criteri) consigliati per le risorse all'interno della sottoscrizione specificata. Nel centro sicurezza di Azure è possibile assegnare iniziative per le sottoscrizioni di Azure in base ai requisiti di sicurezza della società e al tipo di applicazioni o alla riservatezza dei dati in ogni sottoscrizione.
 
-I criteri di sicurezza abilitati nel Centro sicurezza di Azure determinano il monitoraggio e i suggerimenti per la sicurezza. Per ulteriori informazioni sui criteri di sicurezza, vedere [Monitoraggio dello stato di sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md).
+I criteri di sicurezza abilitati nel Centro sicurezza di Azure determinano il monitoraggio e i suggerimenti per la sicurezza. Per altre informazioni, vedere informazioni su [criteri di sicurezza, iniziative e consigli](security-policy-concept.md).
 
 
 ## <a name="who-can-modify-a-security-policy"></a>Chi può modificare i criteri di sicurezza?

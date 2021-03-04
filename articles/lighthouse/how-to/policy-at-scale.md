@@ -1,14 +1,14 @@
 ---
 title: Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 description: Informazioni su come Azure Lighthouse consente di distribuire una definizione dei criteri e un'assegnazione di criteri tra più tenant.
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 48354c3cca7574b1d5acf71865218564591bc23e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412069"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049781"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 
@@ -51,6 +51,9 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Sebbene sia possibile distribuire i criteri tra più tenant, attualmente non è possibile [visualizzare i dettagli di conformità](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) per le risorse non conformi in questi tenant.
+
 ## <a name="validate-the-policy-deployment"></a>Convalidare la distribuzione dei criteri
 
 Dopo aver distribuito il modello di Azure Resource Manager, è possibile verificare che la definizione dei criteri sia stata applicata correttamente provando a creare un account di archiviazione con **EnableHttpsTrafficOnly** impostato su **false** in una delle sottoscrizioni Delegate. Per via dell'assegnazione dei criteri, non è possibile creare questo account di archiviazione.  
@@ -90,9 +93,6 @@ foreach ($ManagedSub in $ManagedSubscriptions)
     }
 }
 ```
-
-> [!NOTE]
-> Sebbene sia possibile distribuire i criteri tra più tenant, attualmente non è possibile [visualizzare i dettagli di conformità](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) per le risorse non conformi in questi tenant.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

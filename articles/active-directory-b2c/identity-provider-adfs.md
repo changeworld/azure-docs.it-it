@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6dda65be98934ce90e985b241078ae8019afb7e0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e344d85bbdac92aa372fc5d5e59ef90b11dfac6c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361265"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095732"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere AD FS come provider di identità SAML usando criteri personalizzati in Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ ms.locfileid: "100361265"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo illustra come abilitare l'accesso per un account utente AD FS usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure ad B2C). È possibile abilitare l'accesso aggiungendo [un profilo tecnico del provider di identità SAML](saml-identity-provider-technical-profile.md) a un criterio personalizzato.
+Questo articolo illustra come abilitare l'accesso per un account utente AD FS usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure ad B2C). Per abilitare l'accesso, è necessario aggiungere un [provider di identità SAML](identity-provider-generic-saml.md) a un criterio personalizzato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -62,7 +62,7 @@ Questo articolo illustra come abilitare l'accesso per un account utente AD FS us
 
 Se si desidera che gli utenti possano accedere utilizzando un account di AD FS, è necessario definire l'account come provider di attestazioni con cui Azure AD B2C può comunicare tramite un endpoint. L'endpoint offre un set di attestazioni che vengono usate da Azure AD B2C per verificare se un utente specifico è stato autenticato.
 
-È possibile definire un account AD FS come provider di attestazioni aggiungendolo all'elemento **ClaimsProviders** nel file di estensione dei criteri. Per ulteriori informazioni, vedere [definire un profilo tecnico del provider di identità SAML](saml-identity-provider-technical-profile.md).
+È possibile definire un account AD FS come provider di attestazioni aggiungendolo all'elemento **ClaimsProviders** nel file di estensione dei criteri. Per altre informazioni, vedere [definire un provider di identità SAML](identity-provider-generic-saml.md).
 
 1. Aprire *TrustFrameworkExtensions.xml*.
 1. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice.
@@ -217,7 +217,7 @@ Questo errore indica che la richiesta SAML inviata da Azure AD B2C non è firmat
 
 #### <a name="option-1-set-the-signature-algorithm-in-azure-ad-b2c"></a>Opzione 1: impostare l'algoritmo di firma in Azure AD B2C  
 
-È possibile configurare la modalità di firma della richiesta SAML in Azure AD B2C. I metadati [XmlSignatureAlgorithm](saml-identity-provider-technical-profile.md#metadata) controllano il valore del `SigAlg` parametro (stringa di query o parametro post) nella richiesta SAML. Nell'esempio seguente viene configurato Azure AD B2C per l'utilizzo dell' `rsa-sha256` algoritmo di firma.
+È possibile configurare la modalità di firma della richiesta SAML in Azure AD B2C. I metadati [XmlSignatureAlgorithm](identity-provider-generic-saml.md) controllano il valore del `SigAlg` parametro (stringa di query o parametro post) nella richiesta SAML. Nell'esempio seguente viene configurato Azure AD B2C per l'utilizzo dell' `rsa-sha256` algoritmo di firma.
 
 ```xml
 <Metadata>

@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-object-anchors
 ms.author: crtreasu
-ms.date: 02/19/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: azure-object-anchors
-ms.openlocfilehash: 020f727674449523a57a608e8930d67e0f239cf6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74663f05c5ff995a090c7cd35e4edf46a754da17
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746019"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034609"
 ---
 # <a name="runtime-sdk-overview"></a>Panoramica di Runtime SDK
 
@@ -25,7 +25,7 @@ Tutti i tipi descritti di seguito sono reperibili nello spazio dei nomi **Micros
 
 ### <a name="objectmodel"></a>ObjectModel
 
-Un [ObjectModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) rappresenta la geometria di un oggetto fisico e codifica i parametri necessari per il rilevamento e la stima della posizione. È necessario crearlo utilizzando il [servizio ancoraggi oggetti](../quickstarts/get-started-model-ingestion.md). Un'applicazione può quindi caricare il file di modello generato usando l'API Anchors dell'oggetto ed eseguire una query sul mesh incorporato nel modello per la visualizzazione.
+Un [ObjectModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) rappresenta la geometria di un oggetto fisico e codifica i parametri necessari per il rilevamento e la stima della posizione. È necessario crearlo utilizzando il [servizio ancoraggi oggetti](../quickstarts/get-started-model-conversion.md). Un'applicazione può quindi caricare il file di modello generato usando l'API Anchors dell'oggetto ed eseguire una query sul mesh incorporato nel modello per la visualizzazione.
 
 ### <a name="objectsearcharea"></a>ObjectSearchArea
 
@@ -103,7 +103,7 @@ if(status != ObjectObserverStatus.Allowed)
 }
 ```
 
-Successivamente, l'applicazione crea un Observer di oggetti e carica i modelli necessari generati dal servizio di inserimento degli [ancoraggi degli oggetti](../quickstarts/get-started-model-ingestion.md).
+Successivamente, l'applicazione crea un Observer di oggetti e carica i modelli necessari generati dal [servizio di conversione del modello di ancoraggio degli oggetti](../quickstarts/get-started-model-conversion.md).
 
 ```cs
 var observer = new ObjectObserver();

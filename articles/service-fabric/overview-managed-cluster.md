@@ -3,12 +3,12 @@ title: Cluster gestiti di Service Fabric (anteprima)
 description: I cluster gestiti di Service Fabric sono un'evoluzione del modello di risorse cluster di Azure Service Fabric che semplifica la gestione della distribuzione e del cluster.
 ms.topic: overview
 ms.date: 02/15/2021
-ms.openlocfilehash: 8b90b73ef5f3202788ac7857875427673ebb562b
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 271852214097ee96ba6b10de7a94904981cd8ef8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635146"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041230"
 ---
 # <a name="service-fabric-managed-clusters-preview"></a>Cluster gestiti di Service Fabric (anteprima)
 
@@ -69,7 +69,7 @@ Le funzionalità più recenti per l'anteprima dei cluster gestiti Service Fabric
 * [Distribuzione di applicazioni con modelli ARM](how-to-managed-cluster-app-deployment-template.md)
 * [Aggiornamenti automatici del sistema operativo](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
 * [Crittografia del disco](how-to-enable-managed-cluster-disk-encryption.md)
-* [Applicazione delle regole di NSG](how-to-managed-cluster-configuration.md#apply-nsg-rules)
+* [Applicazione delle regole di NSG](how-to-managed-cluster-networking.md)
 
 Le funzionalità da aggiungere nelle prossime versioni includono:
 

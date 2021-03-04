@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: f31211c4448ad5bbe8d839b2ec86b0b61970f568
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 6778c8e5e1e4fa83d34141fd13ba21d483ab76e9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752193"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041349"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurare un'appliance in Azure per enti pubblici 
 
@@ -196,6 +196,6 @@ Assicurarsi che l'appliance possa connettersi agli URL di Azure per i [cloud gov
 
 Dopo aver distribuito il dispositivo, è necessario configurarlo per la prima volta e registrarlo con il progetto Azure Migrate.
 
-- Configurare l'appliance per [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
+- Configurare l'appliance per [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance).
 - Configurare l'appliance per [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
 - Configurare l'appliance per i [server fisici](how-to-set-up-appliance-physical.md).

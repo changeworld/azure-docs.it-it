@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8828b2dc48a8865e43a176757dc973a5cf85b784
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a39b91304c4123b216a0b508dcea0547cae5ab43
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703002"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041502"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrare i dispositivi gemelli digitali di Azure con il servizio Azure SignalR
 
@@ -51,7 +51,7 @@ Prima di tutto, scaricare le app di esempio richieste. Sono necessari entrambi g
 
     Verrà scaricata una copia del repository di esempio nel computer in uso, come **digital-twins-samples-master.zip**. Decomprimere la cartella.
 * [**Esempio di app Web di integrazione SignalR**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): si tratta di un'app Web React di esempio che utilizzerà i dati di telemetria di Azure Digital Twins da un servizio Azure SignalR.
-    -  Passare al collegamento di esempio e fare clic sul pulsante *Scarica zip* per scaricare una copia dell'esempio nel computer, come _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Decomprimere la cartella.
+    -  Passare al collegamento di esempio e usare lo stesso processo di download per scaricare una copia dell'esempio nel computer, come _**digitaltwins-signalr-webapp-sample-main.zip**_. Decomprimere la cartella.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
@@ -139,7 +139,7 @@ Si configurerà quindi l'app Web client di esempio. Iniziare raccogliendo l' **U
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Visualizzazione portale di Azure della funzione ' Negotiate '. Il pulsante ' Ottieni URL funzione ' è evidenziato e la parte dell'URL dall'inizio a'/API '":::
 
-1. Usando Visual Studio o un editor di codice di propria scelta, aprire la cartella _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ decompressa [*scaricata nella sezione scaricare le applicazioni di esempio*](#download-the-sample-applications) .
+1. Usando Visual Studio o un editor di codice di propria scelta, aprire la cartella _**digitaltwins-SignalR-webapp-Sample-Main**_ decompressa scaricata nella sezione [*scaricare le applicazioni di esempio*](#download-the-sample-applications) .
 
 1. Aprire il file *src/App.js* e sostituire l'URL della funzione in `HubConnectionBuilder` con l'URL dell'endpoint HTTP della funzione **Negotiate** salvata nel passaggio precedente:
 
@@ -148,7 +148,7 @@ Si configurerà quindi l'app Web client di esempio. Iniziare raccogliendo l' **U
             .withUrl('<Function URL>')
             .build();
     ```
-1. Nel *prompt dei comandi* per gli sviluppatori di Visual Studio o in qualsiasi finestra di comando del computer passare alla cartella *Azure_Digital_Twins_SignalR_integration_web_app_sample \src* . Eseguire il comando seguente per installare i pacchetti del nodo dipendenti:
+1. Nel *prompt dei comandi* per gli sviluppatori di Visual Studio o in qualsiasi finestra di comando nel computer, passare alla cartella *digitaltwins-SignalR-webapp-Sample-main\src* . Eseguire il comando seguente per installare i pacchetti del nodo dipendenti:
 
     ```cmd
     npm install
@@ -175,7 +175,7 @@ Non è necessario eseguire altre operazioni in questa console, ma è possibile l
 
 ### <a name="see-the-results"></a>Visualizzare i risultati
 
-Per visualizzare i risultati in azione, avviare l' **esempio di app Web di integrazione SignalR**. Questa operazione può essere eseguita da qualsiasi finestra della console nel percorso *Azure_Digital_Twins_SignalR_integration_web_app_sample \src* , eseguendo questo comando:
+Per visualizzare i risultati in azione, avviare l' **esempio di app Web di integrazione SignalR**. Questa operazione può essere eseguita da qualsiasi finestra della console nel percorso *digitaltwins-SignalR-webapp-Sample-main\src* , eseguendo questo comando:
 
 ```cmd
 npm start
@@ -203,7 +203,7 @@ Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale �
 az group delete --name <your-resource-group>
 ```
 
-Eliminare infine le cartelle di esempio del progetto scaricate nel computer locale (*digital-twins-samples-master.zip* e *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
+Eliminare infine le cartelle di esempio del progetto scaricate nel computer locale (*digital-twins-samples-master.zip*, *digitaltwins-signalr-webapp-sample-main.zip* e le relative controparti decompresse).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9abf389eb7f8862440f860c53a0dbd8b10315c67
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: d33634c08b85ad633fdad3f709b2b2182571d7de
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558139"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034762"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Informazioni sui modelli gemelli in Gemelli digitali di Azure
 
@@ -65,7 +65,7 @@ I dati di **telemetria** vengono spesso usati con i dispositivi Internet, perch�
 
 Di conseguenza, quando si progetta un modello in Azure Digital Twins, probabilmente si useranno le **Proprietà** nella maggior parte dei casi per modellare i dispositivi gemelli. In questo modo è possibile avere l'archiviazione di backup e la possibilità di leggere ed eseguire query sui campi dati.
 
-I dati di telemetria e le proprietà spesso interagiscono per gestire i dati in ingresso dai dispositivi. Poiché tutti i dati in ingresso nei dispositivi gemelli digitali di Azure sono tramite [API](how-to-use-apis-sdks.md), si userà in genere la funzione di ingresso per leggere gli eventi di telemetria o di proprietà dai dispositivi e impostare una proprietà in ADT in risposta. 
+I dati di telemetria e le proprietà spesso interagiscono per gestire i dati in ingresso dai dispositivi. Poiché tutti i dati in ingresso nei dispositivi gemelli digitali di Azure sono tramite [API](how-to-use-apis-sdks.md), in genere si userà la funzione di ingresso per leggere i dati di telemetria o gli eventi delle proprietà dai dispositivi e impostare una proprietà nei dispositivi gemelli digitali di Azure in risposta. 
 
 È anche possibile pubblicare un evento di telemetria dall'API dei dispositivi gemelli digitali di Azure. Come per gli altri dati di telemetria, si tratta di un evento di breve durata che richiede un listener per la gestione.
 
@@ -154,7 +154,7 @@ Tuttavia, se si dispone di molti modelli da caricare, o se sono presenti molte i
 
 _**Per la visualizzazione di modelli**_
 
-Dopo aver caricato i modelli nell'istanza di Azure Digital Twins, è possibile visualizzare i modelli nell'istanza di Azure Digital Twins, incluse eventuali relazioni di ereditarietà e modello, usando il [**Visualizzatore del modello ADT**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Questo esempio si trova attualmente in uno stato bozza. Invitiamo la community di sviluppo di Digital gemelli a estendere e contribuire all'esempio. 
+Dopo aver caricato i modelli nell'istanza di Azure Digital gemelli, è possibile visualizzare i modelli nell'istanza di Azure Digital Twins, incluse eventuali relazioni di ereditarietà e modello, usando il [**Visualizzatore di modelli di Azure Digital gemelli**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Questo esempio si trova attualmente in uno stato bozza. Invitiamo la community di sviluppo di Digital gemelli a estendere e contribuire all'esempio. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
