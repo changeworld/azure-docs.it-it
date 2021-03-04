@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 9a7a3a603944970a5e78a24ca4042f97b1c43fcc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d695758849fd4f7e6f595820221f6b8606fe7cf1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047860"
+ms.locfileid: "102096191"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architettura dell'appliance di Azure Migrate
 
@@ -62,7 +62,7 @@ L'appliance comunica con le origini di individuazione usando il processo seguent
 
 **Processo** | **Appliance VMware** | **Appliance Hyper-V** | **Appliance fisica**
 ---|---|---|---
-**Avvia individuazione**| Per impostazione predefinita, l'appliance comunica con il server vCenter sulla porta TCP 443. Se il server vCenter è in ascolto su una porta diversa, è possibile configurarla in Gestione configurazione Appliance. | L'appliance comunica con gli host Hyper-V sulla porta WinRM 5985 (HTTP). | L'appliance comunica con i server Windows attraverso la porta WinRM 5985 (HTTP) con server Linux sulla porta 22 (TCP).
+**Avvia individuazione** | Per impostazione predefinita, l'appliance comunica con il server vCenter sulla porta TCP 443. Se il server vCenter è in ascolto su una porta diversa, è possibile configurarla in Gestione configurazione Appliance. | L'appliance comunica con gli host Hyper-V sulla porta WinRM 5985 (HTTP). | L'appliance comunica con i server Windows attraverso la porta WinRM 5985 (HTTP) con server Linux sulla porta 22 (TCP).
 **Raccogliere i metadati di configurazione e prestazioni** | L'appliance raccoglie i metadati dei server in esecuzione in server vCenter usando le API vSphere connettendosi sulla porta 443 (porta predefinita) o su qualsiasi altra porta server vCenter in ascolto. | L'appliance raccoglie i metadati dei server in esecuzione negli host Hyper-V usando una sessione di Common Information Model (CIM) con host sulla porta 5985.| Il dispositivo raccoglie i metadati dai server Windows usando la sessione di Common Information Model (CIM) con server sulla porta 5985 e da server Linux con connettività SSH sulla porta 22.
 **Inviare i dati di individuazione** | Il dispositivo invia i dati raccolti a Azure Migrate: server assessment e Azure Migrate: migrazione server sulla porta SSL 443.<br/><br/> Il dispositivo può connettersi ad Azure tramite Internet o tramite ExpressRoute (richiede il peering Microsoft). | Il dispositivo invia i dati raccolti a Azure Migrate: server assessment sulla porta SSL 443.<br/><br/> Il dispositivo può connettersi ad Azure tramite Internet o tramite ExpressRoute (richiede il peering Microsoft).| Il dispositivo invia i dati raccolti a Azure Migrate: server assessment sulla porta SSL 443.<br/><br/> Il dispositivo può connettersi ad Azure tramite Internet o tramite ExpressRoute (richiede il peering Microsoft).
 **Frequenza di raccolta dati** | I metadati di configurazione vengono raccolti e inviati ogni 30 minuti. <br/><br/> I metadati delle prestazioni vengono raccolti ogni 20 secondi e vengono aggregati per l'invio di un punto dati ad Azure ogni 10 minuti. <br/><br/> I dati di inventario software vengono inviati ad Azure una volta ogni 12 ore. <br/><br/> I dati delle dipendenze senza agenti vengono raccolti ogni 5 minuti, aggregati nel dispositivo e inviati ad Azure ogni 6 ore. <br/><br/> I dati di configurazione SQL Server vengono aggiornati ogni 24 ore e i dati sulle prestazioni vengono acquisiti ogni 30 secondi.| I metadati di configurazione vengono raccolti e inviati ogni 30 minuti. <br/><br/> I metadati delle prestazioni vengono raccolti ogni 30 secondi e vengono aggregati per l'invio di un punto dati ad Azure ogni 10 minuti.|  I metadati di configurazione vengono raccolti e inviati ogni 30 minuti. <br/><br/> I metadati delle prestazioni vengono raccolti ogni 5 minuti e vengono aggregati per l'invio di un punto dati ad Azure ogni 10 minuti.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2021
 ms.author: memildin
-ms.openlocfilehash: b9095d78d902bf5e44bffaba5db19bf2c26e0845
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a659ea897f013e504668789a7d5671420ff70a9f
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727006"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099081"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -41,7 +41,7 @@ Microsoft Defender for endpoint è una soluzione di sicurezza completa di endpoi
 | Aspetto                          | Dettagli                                                                                                                                                                                                                                                                                                       |
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stato della versione:                  | Disponibile a livello generale                                                                                                                                                                                                                                                                                      |
-| Prezzi:                        | Richiede [Azure Defender per server](security-center-pricing.md)                                                                                                                                                                                                                                             |
+| Prezzi:                        | Richiede [Azure Defender per server](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Piattaforme supportate:            |  • Macchine di Azure che eseguono Windows<br> • Computer Azure Arc che eseguono Windows|
 | Versioni supportate di Windows:  |   • **Disponibilità generale (GA):** rilevamento in Windows Server 2016, 2012 r2 e 2008 R2 SP1<br> • **Anteprima-** rilevamento in windows server 2019, [desktop virtuale Windows (Wvd)](../virtual-desktop/overview.md)e [Windows 10 Enterprise multisessione](../virtual-desktop/windows-10-multisession-faq.md) (in precedenza Enterprise for Virtual Desktops (EVD)<br>Il monitoraggio degli endpoint server tramite queste integrazioni è stato disabilitato per i clienti di Office 365 GCC|
 | Sistemi operativi non supportati:  |  • Windows 10 (diverso da EVD o WVD)<br> • Linux|
@@ -83,8 +83,7 @@ Dopo aver configurato il percorso, non è possibile modificarlo. Se si dispone d
         - Se si distribuisce Defender a endpoint in un computer locale, connetterlo ad Azure Arc come illustrato in [connettere macchine ibride con i server abilitati per Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
     - Inoltre, per i **computer Windows Server 2019**, verificare che sia in esecuzione un agente valido e che l'estensione MicrosoftMonitoringAgent
 
-1. Abilitare **Azure Defender per i server**. Vedi [i prezzi del Centro sicurezza di Azure](security-center-pricing.md#enable-azure-defender).
-
+1. Abilitare **Azure Defender per i server**. Vedere [Guida introduttiva: abilitare Azure Defender](enable-azure-defender.md).
 
 1. Se è già stato concesso in licenza e distribuito Microsoft Defender per gli endpoint sui server, rimuoverlo usando la procedura descritta in [offboard Windows Servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.

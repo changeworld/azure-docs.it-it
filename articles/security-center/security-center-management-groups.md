@@ -1,26 +1,22 @@
 ---
-title: Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure | Microsoft Docs
-description: Questo articolo illustra come gestire il comportamento di sicurezza su larga scala applicando criteri a tutte le sottoscrizioni collegate al tenant Azure Active Directory.
+title: Organizzare le sottoscrizioni in gruppi di gestione e assegnare ruoli agli utenti per il Centro sicurezza di Azure
+description: Informazioni su come organizzare le sottoscrizioni di Azure in gruppi di gestione nel centro sicurezza di Azure e assegnare ruoli agli utenti dell'organizzazione
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2021
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 13cbc2e9451221fef951eb6fac4c6b2772275122
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3508d508a19d6ce7fba4f3ef3a4fa545a58a167d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556431"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099387"
 ---
-# <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organizzare i gruppi di gestione, le sottoscrizioni e la visibilità a livello di tenant
+# <a name="organize-subscriptions-into-management-groups-and-assign-roles-to-users"></a>Organizzare le sottoscrizioni in gruppi di gestione e assegnare ruoli agli utenti
 
 Questo articolo illustra come gestire il comportamento di sicurezza dell'organizzazione su larga scala applicando criteri di sicurezza a tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory.
 
@@ -79,65 +75,6 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
    > I gruppi di gestione possono contenere sia sottoscrizioni che gruppi di gestione figlio. Quando si assegna un utente a un ruolo di Azure al gruppo di gestione padre, l'accesso viene ereditato dalle sottoscrizioni del gruppo di gestione figlio. Anche i criteri impostati nel gruppo di gestione padre vengono ereditati dagli elementi figlio. 
 
 
-## <a name="grant-tenant-wide-permissions-to-yourself"></a>Concedere autorizzazioni a livello di tenant a se stessi
-
-Un utente con il ruolo di Azure Active Directory (AD) dell' **amministratore globale** potrebbe avere responsabilità a livello di tenant, ma non dispone delle autorizzazioni di Azure per visualizzare le informazioni a livello di organizzazione nel centro sicurezza di Azure. L'elevazione delle autorizzazioni è necessaria perché le assegnazioni di ruolo Azure AD non concedono l'accesso alle risorse di Azure. 
-
-> [!TIP]
-> Altre informazioni sull'elevazione delle autorizzazioni per il ruolo di amministratore globale in [elevate Access per gestire tutti i gruppi di gestione e le sottoscrizioni di Azure](../role-based-access-control/elevate-access-global-admin.md).
-
-Per assegnare autorizzazioni a livello di tenant:
-
-1. Se l'organizzazione gestisce l'accesso alle risorse con [Azure ad Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)o qualsiasi altro strumento PIM, il ruolo di amministratore globale deve essere attivo per l'utente attenendosi alla procedura riportata di seguito.
-
-1. In qualità di utente amministratore globale senza assegnazione sul gruppo di gestione radice del tenant, aprire la pagina **Panoramica** del Centro sicurezza e selezionare il collegamento **visibilità a livello di tenant** nel banner. 
-
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Abilitare le autorizzazioni a livello di tenant nel centro sicurezza di Azure":::
-
-1. Selezionare il nuovo ruolo di Azure da assegnare. 
-
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="Modulo per la definizione delle autorizzazioni a livello di tenant da assegnare all'utente":::
-
-    > [!TIP]
-    > Il ruolo di amministratore della sicurezza è generalmente necessario per applicare i criteri a livello di radice, mentre il ruolo con autorizzazioni di lettura per la sicurezza è sufficiente per garantire la visibilità a livello di tenant. Per altre informazioni sulle autorizzazioni concesse da questi ruoli, vedere la [Descrizione del ruolo predefinito di amministratore della sicurezza](../role-based-access-control/built-in-roles.md#security-admin) o la [Descrizione del ruolo con autorizzazioni di lettura per la sicurezza predefinito ](../role-based-access-control/built-in-roles.md#security-reader).
-    >
-    > Per le differenze tra questi ruoli specifici del Centro sicurezza, vedere la tabella in [ruoli e azioni consentite](security-center-permissions.md#roles-and-allowed-actions).
-
-    La visualizzazione a livello di organizzazione viene eseguita concedendo i ruoli a livello del gruppo di gestione radice del tenant.  
-
-1. Disconnettersi dal portale di Azure, quindi riconnettersi.
-
-1. Dopo avere ottenuto l'accesso con privilegi elevati, aprire o aggiornare il Centro sicurezza di Azure per verificare di avere visibilità su tutte le sottoscrizioni nel tenant di Azure AD. 
-
-
-## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Richiedere autorizzazioni a livello di tenant quando il proprio non è sufficiente
-
-Se si accede al centro sicurezza e viene visualizzato un banner che informa che la visualizzazione è limitata, è possibile fare clic per inviare una richiesta all'amministratore globale dell'organizzazione. Nella richiesta è possibile includere il ruolo che si desidera assegnare e l'amministratore globale deciderà quale ruolo concedere. 
-
-L'amministratore globale decide se accettare o rifiutare queste richieste. 
-
-> [!IMPORTANT]
-> È possibile inviare una richiesta ogni sette giorni.
-
-Per richiedere autorizzazioni elevate all'amministratore globale:
-
-1. Dal portale di Azure aprire il Centro sicurezza di Azure.
-
-1. Se viene visualizzato il banner "vengono visualizzate informazioni limitate". selezionarlo.
-
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner che informa un utente che può richiedere autorizzazioni a livello di tenant.":::
-
-1. Nel modulo di richiesta dettagliata selezionare il ruolo desiderato e la giustificazione per il motivo per cui sono necessarie queste autorizzazioni.
-
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Pagina dei dettagli per la richiesta di autorizzazioni a livello di tenant da amministratore globale di Azure":::
-
-1. Selezionare **Richiedi accesso**.
-
-    Un messaggio di posta elettronica viene inviato all'amministratore globale. Il messaggio di posta elettronica contiene un collegamento al centro sicurezza in cui è possibile approvare o rifiutare la richiesta.
-
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Invia un messaggio di posta elettronica all'amministratore globale per le nuove autorizzazioni":::
-
-    Quando l'amministratore globale seleziona **Controlla la richiesta** e completa il processo, la decisione viene inviata tramite posta elettronica all'utente richiedente. 
 
 ## <a name="assign-azure-roles-to-other-users"></a>Assegnare i ruoli di Azure ad altri utenti
 
@@ -195,6 +132,6 @@ Una volta assegnati i ruoli di Azure agli utenti, l'amministratore tenant deve r
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo è stato illustrato come ottenere visibilità a livello di tenant per il Centro sicurezza di Azure. Per informazioni correlate, vedere:
+In questo articolo si è appreso come organizzare le sottoscrizioni in gruppi di gestione e assegnare i ruoli agli utenti. Per informazioni correlate, vedere:
 
 - [Autorizzazioni nel Centro sicurezza di Azure](security-center-permissions.md)

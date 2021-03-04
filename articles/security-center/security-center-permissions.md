@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: 668fe1436feeb0888f7d871144da6cb6b8e3864e
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
-ms.translationtype: HT
+ms.openlocfilehash: 14ee9f23379a26c1756c622efb7d739f49dd0537
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922600"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099183"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
 
@@ -59,6 +59,5 @@ In questo articolo è stato illustrato come viene usato il Controllo degli acces
 
 - [Impostare i criteri di sicurezza nel Centro sicurezza](tutorial-security-policy.md)
 - [Gestire i suggerimenti per la sicurezza in Centro sicurezza](security-center-recommendations.md)
-- [Monitorare l'integrità della sicurezza delle risorse di Azure](security-center-monitoring.md)
 - [Gestire e rispondere agli avvisi di sicurezza in Centro sicurezza](security-center-managing-and-responding-alerts.md)
 - [Monitorare le soluzioni di sicurezza dei partner](./security-center-partner-integration.md)

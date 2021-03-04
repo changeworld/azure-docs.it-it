@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 593d2ccadf814cb5af27a4bb738f28132f39ab7d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5e41dea3b47c608b9e82ac57fa1cfe5247ea6cc2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663044"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099013"
 ---
 # <a name="managing-your-voice-assistant"></a>Gestione dell'Assistente vocale
 
@@ -28,7 +28,7 @@ Una parola chiave è una parola o una frase breve usata per attivare un assisten
 
 1. Fare clic su **modifica** accanto a **parola chiave personalizzata** nella pagina demo.
 
-    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Immagine.":::
+    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Screenshot della finestra demo dell'ospitalità.":::
 
     Se la pagina demo non è aperta, passare alla pagina del dispositivo (vedere di seguito) e fare clic su **testare l'Assistente vocale** in **azioni** per accedere alla demo.
 
@@ -40,17 +40,17 @@ Una parola chiave è una parola o una frase breve usata per attivare un assisten
 
 1. Nella pagina Panoramica di [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)fare clic su **dispositivi** nel riquadro del menu a sinistra.
 
-    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Immagine.":::
+    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Screenshot della pagina di Panoramica di Azure Percept studio con i dispositivi evidenziati.":::
 
 1. Selezionare il dispositivo in cui è stata distribuita l'applicazione di Assistente vocale.
 
 1. Aprire la scheda **sintesi vocale** .
 
-    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Immagine.":::
+    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Screenshot della pagina del dispositivo perimetrale con la scheda vocale evidenziata.":::
 
 1. Fare clic su **modifica** accanto a **parola chiave**.
 
-    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Immagine.":::
+    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Screenshot delle azioni disponibili per la soluzione vocale.":::
 
 1. Selezionare una delle parole chiave disponibili e fare clic su **Salva** per applicare le modifiche.
 

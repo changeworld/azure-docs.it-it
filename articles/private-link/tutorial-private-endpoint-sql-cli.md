@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.openlocfilehash: 8cfe44b9433ee1daac028253aa45c97804c88ae5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.custom: fasttrack-edit
+ms.openlocfilehash: ab530817e912495049ad3fe8b36f9a5fad47eb2c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544106"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096582"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Esercitazione: Connettersi a un server di Azure SQL con un endpoint privato di Azure - Interfaccia della riga di comando di Azure
 
@@ -54,7 +55,7 @@ In questa sezione si creeranno una rete virtuale, una subnet e un host bastion.
 
 L'host bastion verrà usato per connettersi in modo sicuro alla macchina virtuale per testare l'endpoint privato.
 
-Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)
+Creare una rete virtuale con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)
 
 * Denominata **myVNet**.
 * Prefisso indirizzo **10.0.0.0/16**.
@@ -73,7 +74,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-Aggiornare la subnet per disabilitare i criteri di rete degli endpoint privati per l'endpoint privato con [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Aggiornare la subnet per disabilitare i criteri di rete per l'endpoint privato con [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -217,7 +218,7 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Configurare la zona DNS privato
 
-In questa sezione si creerà e si configurerà la zona DNS privata con il comando [az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+In questa sezione si creerà e si configurerà la zona DNS privato con il comando [az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
 
 Si userà [az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) per creare il collegamento della rete virtuale alla zona DNS.
 
@@ -326,6 +327,8 @@ In questa esercitazione sono stati creati i componenti seguenti:
 * Un server SQL con un endpoint privato.
 
 La macchina virtuale è stata usata per testare la connettività in modo sicuro al server SQL tramite l'endpoint privato.
+
+Come passaggio successivo, potrebbe essere interessante anche l' [app Web con connettività privata allo](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) scenario di architettura del database SQL di Azure, che connette un'applicazione Web all'esterno della rete virtuale all'endpoint privato di un database.
 
 Informazioni su come creare un servizio Collegamento privato:
 > [!div class="nextstepaction"]

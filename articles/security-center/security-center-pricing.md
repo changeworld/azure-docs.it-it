@@ -1,30 +1,23 @@
 ---
-title: Prezzi del Centro sicurezza di Azure
-description: Il Centro sicurezza di Azure è disponibile in due modalità, con e senza Azure Defender.
-services: security-center
-documentationcenter: na
+title: Il Centro sicurezza di Azure è disponibile rispetto ad Azure Defender abilitato
+description: Informazioni sui vantaggi derivanti dall'abilitazione di Azure Defender per la protezione dei carichi di lavoro nel cloud nel centro sicurezza
 author: memildin
-manager: rkarlin
-ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
-ms.service: security-center
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: 8d8ef4236a9dd993faaaa2aacfd40a7592e9017f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+manager: rkarlin
+ms.service: security-center
+ms.topic: overview
+ms.date: 02/14/2021
+ms.openlocfilehash: 7ca8a89cc93cc36d790eca7b19665e5bfed9695c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698672"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099104"
 ---
-# <a name="pricing-of-azure-security-center"></a>Prezzi del Centro sicurezza di Azure
-Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione alle minacce e il rilevamento intelligente che consente di tenere il passo con i rischi informatici in rapida evoluzione.
+# <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Il Centro sicurezza di Azure è disponibile rispetto ad Azure Defender abilitato
+Azure Defender è gratuito per i primi 30 giorni. Al termine dei 30 giorni, se si sceglie di continuare a usare il servizio, l'utilizzo inizierà a essere addebitato automaticamente.
 
-
-## <a name="security-center-free-vs-azure-defender-enabled"></a>Centro sicurezza-gratuito rispetto ad Azure Defender abilitato
+## <a name="what-are-the-benefits-of-enabling-azure-defender"></a>Quali sono i vantaggi dell'abilitazione di Azure Defender?
 
 Il Centro sicurezza è disponibile in due modalità:
 
@@ -41,43 +34,22 @@ Il Centro sicurezza è disponibile in due modalità:
     - **Ampia protezione dalle minacce per risorse connesse all'ambiente di Azure** - Azure Defender include un'ampia protezione dalle minacce nativa di Azure per i servizi di Azure comuni per tutte le risorse: Azure Resource Manager, DNS di Azure, livello di rete di Azure e Azure Key Vault. Azure Defender offre una visibilità esclusiva del livello di gestione di Azure e del livello di DNS di Azure e può quindi proteggere risorse cloud connesse a tali livelli.
 
 
-## <a name="try-azure-defender-free-for-30-days"></a>Provare Azure Defender gratuitamente per 30 giorni
-Azure Defender è gratuito per i primi 30 giorni. Al termine dei 30 giorni, se si sceglie di continuare a usare il servizio, l'utilizzo inizierà a essere addebitato automaticamente.
-
-## <a name="enable-azure-defender"></a>Abilitare Azure Defender
-Con Azure Defender è possibile proteggere un'intera sottoscrizione di Azure e le misure di protezione verranno ereditate da tutte le risorse al suo interno.
-
-Per abilitare Azure Defender:
-
-1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
-1. Selezionare la sottoscrizione da aggiornare.
-1. Selezionare **Azure Defender - On** per eseguire l'aggiornamento.
-1. Selezionare **Salva**.
-
-Di seguito è riportata la pagina dei prezzi per una sottoscrizione di esempio. Si noterà che i prezzi vengono applicati separatamente per ogni piano di Azure Defender, che è possibile attivare o disattivare singolarmente.
-
-:::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Pagina dei prezzi del Centro sicurezza nel portale":::
-
-> [!NOTE]
-> Per abilitare le funzionalità del Centro sicurezza, incluse le funzionalità di protezione dalle minacce, è necessario abilitare Azure Defender nella sottoscrizione che contiene i carichi di lavoro applicabili. Se il servizio viene abilitato a livello di area di lavoro, non verranno abilitate funzionalità come l'accesso JIT alle VM, i controlli applicazioni adattivi e i rilevamenti di rete per le risorse di Azure. Inoltre, gli unici piani di Azure Defender disponibili a livello di area di lavoro sono Azure Defender per i server e Azure Defender per i server SQL nelle macchine virtuali.
->
-> È possibile abilitare **Azure Defender per gli account di archiviazione** a livello di sottoscrizione o di risorsa.
-> È possibile abilitare **Azure Defender per SQL** a livello di sottoscrizione o di risorsa.
-> È possibile abilitare la protezione dalle minacce per **Database di Azure per MariaDB/MySQL/PostgreSQL** solo a livello di risorsa.
-
-
 ## <a name="faq---pricing-and-billing"></a>Domande frequenti - Prezzi e fatturazione 
 
-- [Come è possibile verificare chi nell'organizzazione ha abilitato le modifiche di Azure Defender nel Centro sicurezza di Azure?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
-- [Quali sono i piani offerti dal Centro sicurezza?](#what-are-the-plans-offered-by-security-center)
-- [Come abilitare Azure Defender per la sottoscrizione?](#how-do-i-enable-azure-defender-for-my-subscription)
-- [È possibile abilitare Azure Defender per i server in un subset di server nella sottoscrizione?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
-- [Se si ha già una licenza di Microsoft Defender per endpoint, è possibile ottenere uno sconto per Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
-- [Se nella sottoscrizione è abilitato Azure Defender per i server, sono previsti addebiti per i server non in esecuzione?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
-- [Si riceveranno addebiti per i computer senza l'agente di Log Analytics installato?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
-- [Se un agente di Log Analytics è associato a più aree di lavoro, l'addebito verrà applicato due volte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
-- [Se l'agente di Log Analytics è associato a più aree di lavoro, la funzionalità gratuita di inserimento di 500 MB di dati è disponibile per tutte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
-- [L'inserimento gratuito di 500 MB di dati viene calcolato per un'intera area di lavoro o rigorosamente per computer?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+- [Il Centro sicurezza di Azure è disponibile rispetto ad Azure Defender abilitato](#azure-security-center-free-vs-azure-defender-enabled)
+  - [Quali sono i vantaggi dell'abilitazione di Azure Defender?](#what-are-the-benefits-of-enabling-azure-defender)
+  - [Domande frequenti - Prezzi e fatturazione](#faq---pricing-and-billing)
+    - [Come è possibile verificare chi nell'organizzazione ha abilitato le modifiche di Azure Defender nel Centro sicurezza di?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+    - [Quali sono i piani offerti dal Centro sicurezza?](#what-are-the-plans-offered-by-security-center)
+    - [Come abilitare Azure Defender per la sottoscrizione?](#how-do-i-enable-azure-defender-for-my-subscription)
+    - [È possibile abilitare Azure Defender per i server in un subset di server nella sottoscrizione?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+    - [Se si ha già una licenza di Microsoft Defender per endpoint, è possibile ottenere uno sconto per Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+    - [Se nella sottoscrizione è abilitato Azure Defender per i server, sono previsti addebiti per i server non in esecuzione?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+    - [Si riceveranno addebiti per i computer senza l'agente di Log Analytics installato?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+    - [Se un agente di Log Analytics è associato a più aree di lavoro, l'addebito verrà applicato due volte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+    - [Se l'agente di Log Analytics è associato a più aree di lavoro, la funzionalità gratuita di inserimento di 500 MB di dati è disponibile per tutte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+    - [L'inserimento gratuito di 500 MB di dati viene calcolato per un'intera area di lavoro o rigorosamente per computer?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+  - [Passaggi successivi](#next-steps)
 
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Come è possibile verificare chi nell'organizzazione ha abilitato le modifiche di Azure Defender nel Centro sicurezza di?
 Le sottoscrizioni di Azure possono avere più amministratori con le autorizzazioni per cambiare le impostazioni dei prezzi. Per individuare l'utente che ha apportato una modifica, usare il log attività di Azure.
@@ -100,7 +72,7 @@ Per abilitare Azure Defender per la sottoscrizione, è possibile usare uno dei m
 
 |Metodo  |Istruzioni  |
 |---------|---------|
-|Pagine del Centro sicurezza di Azure nel portale di Azure|[Abilitare Azure Defender](#enable-azure-defender)|
+|Pagine del Centro sicurezza di Azure nel portale di Azure|[Abilitare Azure Defender](enable-azure-defender.md)|
 |API REST|[API di prezzi](/rest/api/securitycenter/pricings)|
 |Interfaccia della riga di comando di Azure|[az security pricing](/cli/azure/security/pricing)|
 |PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|

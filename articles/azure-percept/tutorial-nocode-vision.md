@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 54d4f1fe983cf20b734351754bb8eba191894dbc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6de86cbc065b5352b3b643708dd55c6856b37dd7
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664903"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097908"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Creare una soluzione per la visione senza codice in Azure Percept Studio
 
@@ -23,6 +23,7 @@ Azure Percept Studio consente di creare e distribuire soluzioni personalizzate p
 - Etichettare le immagini di training in [visione personalizzata](https://www.customvision.ai/)
 - Eseguire il training del modello di classificazione o del rilevamento oggetti personalizzato
 - Distribuire il modello in DevKit
+- Migliorare il modello impostando la ripetizione del training
 
 Questa esercitazione è adatta per gli sviluppatori che non hanno alcuna esperienza di intelligenza artificiale e hanno appena iniziato a usare Azure Percept.
 
@@ -30,15 +31,13 @@ Questa esercitazione è adatta per gli sviluppatori che non hanno alcuna esperie
 
 - Azure Percept DK (DevKit)
 - [Sottoscrizione di Azure](https://azure.microsoft.com/free/)
-- Esperienza di configurazione (OOBE): la DevKit è stata connessa a una rete di Wi-Fi, è stato creato un hub Internet e il DevKit è stato connesso all'hub Internet.
+- Esperienza di installazione di Azure Percept DK: la DevKit è stata connessa a una rete di Wi-Fi, è stato creato un hub Internet e la DevKit è stata connessa all'hub Internet.
 
 ## <a name="create-a-vision-prototype"></a>Creare un prototipo di visione
 
 1. Avviare il browser e passare ad [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
 
-1. Nella pagina Panoramica fare clic sulla scheda **demo & esercitazioni** .
-
-    :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview-inline.png" alt-text="Schermata di Panoramica di Azure Percept Studio." lightbox="./media/tutorial-nocode-vision/percept-studio-overview.png":::
+1. Nella pagina Panoramica fare clic sulla scheda **demo & esercitazioni** .  :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview-inline.png" alt-text="Schermata di Panoramica di Azure Percept Studio." lightbox="./media/tutorial-nocode-vision/percept-studio-overview.png":::
 
 1. In **esercitazioni e demo di Vision** fare clic su **Crea un prototipo di visione**.
 
@@ -142,11 +141,23 @@ Dopo la chiusura di questa finestra, è possibile tornare indietro e modificare 
 
 :::image type="content" source="./media/tutorial-nocode-vision/vision-project-inline.png" alt-text="Pagina del progetto visione." lightbox="./media/tutorial-nocode-vision/vision-project.png":::
 
+## <a name="improve-your-model-by-setting-up-retraining"></a>Migliorare il modello impostando la ripetizione del training
+
+Dopo aver eseguito il training del modello e averlo distribuito al dispositivo, è possibile migliorare le prestazioni del modello impostando i parametri di ripetizione del training per acquisire più dati di training. Questa funzionalità viene usata per migliorare le prestazioni di un modello sottoposto a training offrendo la possibilità di acquisire immagini in base a un intervallo di probabilità. Ad esempio, è possibile impostare il dispositivo in modo che acquisisca solo le immagini di training quando la probabilità è bassa. Di seguito sono riportate alcune [indicazioni aggiuntive](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) sull'aggiunta di altre immagini e sul bilanciamento dei dati di training.
+
+1. Per configurare la ripetizione del training, tornare al **progetto**, quindi al **Riepilogo del progetto**
+1. Nella scheda **acquisizione immagine** selezionare **acquisizione automatica immagini** e **configurare la** ripetizione del training.
+1. Configurare l'acquisizione automatica delle immagini per raccogliere una grande quantità di immagini alla volta selezionando la casella **acquisizione automatica immagine** .
+1. Selezionare la frequenza di imaging preferita in **frequenza di acquisizione** e il numero totale di immagini che si desidera raccogliere in **destinazione**.
+1. Nella sezione **set up retraining** selezionare l'iterazione per la quale si desidera acquisire altri dati di training, quindi selezionare l'intervallo di probabilità. Solo le immagini che soddisfano il tasso di probabilità verranno caricate nel progetto.
+
+    :::image type="content" source="./media/tutorial-nocode-vision/vision-image-capture.png" alt-text="acquisizione di immagini.":::
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se per questa esercitazione è stata creata una nuova risorsa di Azure e non si vuole più sviluppare o usare la soluzione per la visione, seguire questa procedura per eliminare la risorsa:
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com/#home).
+1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
 1. Fare clic su **tutte le risorse**.
 1. Fare clic sulla casella di controllo accanto alla risorsa creata durante questa esercitazione. Il tipo di risorsa verrà elencato come **Servizi cognitivi**.
 1. Fare clic sull'icona **Elimina** nella parte superiore della schermata.

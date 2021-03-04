@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: ca3a1083b512709ad5ef070b6f5bd0e363baf80b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 432729417a65376533d9ecc201f2f6f52376cc58
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720750"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099404"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Criteri di SQL Information Protection nel centro sicurezza di Azure
  
@@ -32,7 +32,7 @@ Il meccanismo di classificazione è basato sui due elementi seguenti:
 Le opzioni dei criteri di Information Protection all'interno del Centro sicurezza forniscono un set predefinito di etichette e tipi di informazioni che fungeranno da impostazioni predefinite per il motore di classificazione. È possibile personalizzare il criterio in base alle esigenze dell'organizzazione, come descritto di seguito.
 
 > [!IMPORTANT]
-> Per personalizzare i criteri di Information Protection per il tenant di Azure, sono necessari privilegi amministrativi per il gruppo di gestione radice del tenant. Per altre informazioni, vedere [ottenere visibilità a livello di tenant per il Centro sicurezza di Azure](security-center-management-groups.md).
+> Per personalizzare i criteri di Information Protection per il tenant di Azure, sono necessari privilegi amministrativi per il gruppo di gestione radice del tenant. Per altre informazioni [, vedere concedere e richiedere visibilità a livello di tenant](tenant-wide-permissions-management.md).
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="Pagina che mostra i criteri di SQL Information Protection":::
  
@@ -58,7 +58,7 @@ Ognuno di questi elementi viene visualizzato nella scheda pertinente riportata d
 Dalla pagina **prezzi e impostazioni** del Centro sicurezza selezionare **SQL Information Protection**.
 
 > [!NOTE]
-> Questa opzione viene visualizzata solo per gli utenti con autorizzazioni a livello di tenant. [Concedere autorizzazioni a livello di tenant a se stessi](./security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
+> Questa opzione viene visualizzata solo per gli utenti con autorizzazioni a livello di tenant. [Concedere autorizzazioni a livello di tenant a se stessi](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accesso ai criteri di Information Protection SQL dalla pagina dei prezzi e delle impostazioni del Centro sicurezza di Azure":::
 

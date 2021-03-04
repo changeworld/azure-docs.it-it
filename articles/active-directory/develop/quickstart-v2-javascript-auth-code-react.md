@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: ae31265aee7b0919daf0fec9efbe4d5c6aa7cd91
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3df3d4a3e87f67678833f097a1e2aa3633a5991e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653457"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096429"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Guida introduttiva: accedere e ottenere un token di accesso in una SPA React usando il flusso del codice di autenticazione
 
@@ -26,6 +26,8 @@ In questa Guida introduttiva viene scaricato ed eseguito un esempio di codice ch
 Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
 Questa Guida introduttiva usa MSAL React con il flusso del codice di autorizzazione. Per una guida introduttiva simile che usa MSAL.js con il flusso implicito, vedere [Guida introduttiva: accedere agli utenti nelle app a singola pagina di JavaScript](./quickstart-v2-javascript.md).
+
+Questa funzionalità [!INCLUDE [active-directory-develop-preview](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 

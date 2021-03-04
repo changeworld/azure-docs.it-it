@@ -3,17 +3,18 @@ title: Visualizzare i dati sul traffico nelle mappe Android | Mappe Microsoft Az
 description: In questo articolo si apprenderà come visualizzare i dati sul traffico su una mappa usando il Microsoft Azure Maps Android SDK.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/04/2020
+ms.date: 2/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 113f39ac2976b870c9e07851cdd0919e2578940f
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 36b3666f12b48468467e76f4c281d58d8018478c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680461"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098537"
 ---
 # <a name="show-traffic-data-on-the-map-android-sdk"></a>Mostra i dati sul traffico sulla mappa (Android SDK)
 
@@ -39,6 +40,8 @@ In Mappe di Azure sono disponibili due tipi di dati di traffico:
 
 Il codice seguente illustra come visualizzare i dati relativi al traffico sulla mappa.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 //Show traffic on the map using the traffic options.
 map.setTraffic(
@@ -47,6 +50,19 @@ map.setTraffic(
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+map.setTraffic(
+    incidents(true),
+    flow(TrafficFlow.RELATIVE)
+)
+```
+
+::: zone-end
+
 Lo screenshot seguente mostra il codice precedente che rende le informazioni sul traffico in tempo reale sulla mappa.
 
 ![Mappa che mostra le informazioni sul traffico in tempo reale](media/how-to-show-traffic-android/android-show-traffic.png)
@@ -54,6 +70,8 @@ Lo screenshot seguente mostra il codice precedente che rende le informazioni sul
 ## <a name="get-traffic-incident-details"></a>Ottenere i dettagli dell'evento imprevisto del traffico
 
 I dettagli relativi a un evento imprevisto del traffico sono disponibili nelle proprietà della funzionalità utilizzata per visualizzare l'evento imprevisto sulla mappa. Gli eventi imprevisti del traffico vengono aggiunti alla mappa usando il servizio di riquadri del vettore di Azure Maps Traffic Incident. Il formato dei dati nei riquadri vettoriali, se [documentati qui](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles). Il codice seguente aggiunge un evento click alla mappa e recupera la funzionalità per gli eventi imprevisti del traffico su cui è stato fatto clic e visualizza un messaggio di avviso popup con alcuni dettagli.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Show traffic information on the map.
@@ -107,6 +125,59 @@ map.events.add((OnFeatureClick) (features) -> {
     }
 });
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Show traffic information on the map.
+map.setTraffic(
+    incidents(true),
+    flow(TrafficFlow.RELATIVE)
+)
+
+//Add a click event to the map.
+map.events.add(OnFeatureClick { features: List<Feature>? ->
+    if (features != null && features.size > 0) {
+        val incident = features[0]
+
+        //Ensure that the clicked feature is an traffic incident feature.
+        if (incident.properties() != null && incident.hasProperty("incidentType")) {
+            val sb = StringBuilder()
+            val incidentType = incident.getStringProperty("incidentType")
+
+            if (incidentType != null) {
+                sb.append(incidentType)
+            }
+
+            if (sb.length > 0) {
+                sb.append("\n")
+            }
+
+            //If the road is closed, find out where it is closed from.
+            if ("Road Closed" == incidentType) {
+                val from = incident.getStringProperty("from")
+                if (from != null) {
+                    sb.append(from)
+                }
+            } else { //Get the description of the traffic incident.
+                val description = incident.getStringProperty("description")
+                if (description != null) {
+                    sb.append(description)
+                }
+            }
+
+            val message = sb.toString()
+            if (message.length > 0) {
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+})
+```
+
+::: zone-end
 
 Lo screenshot seguente mostra il codice precedente che rende le informazioni sul traffico in tempo reale sulla mappa con un messaggio di avviso popup che Visualizza i dettagli dell'evento imprevisto.
 

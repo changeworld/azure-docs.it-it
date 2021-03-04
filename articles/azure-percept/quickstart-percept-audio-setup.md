@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/18/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 575107859f56df742ab41a299269c250511022b3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 588ebde85b6012ddbfb88ca8305fc735b7a0ba41
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665499"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097993"
 ---
 # <a name="azure-percept-audio-setup"></a>Installazione audio di Azure Percept
 
@@ -24,25 +24,21 @@ Azure Percept audio è compatibile con Azure Percept DK. Non è necessaria alcun
 - Audio di Azure Percept
 - [Sottoscrizione di Azure](https://azure.microsoft.com/free/)
 - [Esperienza di installazione di Azure PERCEPT dk](./quickstart-percept-dk-set-up.md): la DevKit è stata connessa a una rete di Wi-Fi, è stato creato un hub Internet e la DevKit è stata connessa all'hub Internet.
+- Altoparlante o cuffie che possono connettersi a un jack audio da 3,5 mm (facoltativo)
 
 ## <a name="connecting-your-devices"></a>Connessione dei dispositivi
 
-1. Connettere il dispositivo audio Azure Percept alla lavagna del vettore di Azure Percept DK con il cavo USB Micro Type-B a tipo USB-A. Connettere il tipo micro-B end del cavo al connettore audio SoM e il tipo-A end alla lavagna del vettore Percept DK.
+1. Connettere il dispositivo audio Azure Percept alla lavagna del vettore di Azure Percept DK con il cavo micro USB per il tipo USB-A. Connettere l'estremità micro USB del cavo alla lavagna degli sviluppatori (Developer) e al tipo-A-end per la lavagna del vettore Percept DK.
+1. (Facoltativo) connettere l'altoparlante o le cuffie all'audio di Azure Percept tramite il jack audio, che è denominato "line out". Questo consentirà di ricevere le risposte audio dell'Assistente vocale. Se non si connette un altoparlante o cuffie, sarà comunque possibile visualizzare le risposte come testo nella finestra demo. 
 
-1. Accendere la devkit.
-
-    - Il LED L01 sul SoM audio cambierà in verde continuo per indicare che il dispositivo è stato acceso.
-    - Il L02 LED cambierà in verde lampeggiante per indicare che il modello audio è autenticato.
+1. Accendere la devkit. Il LED L02 sulla lavagna dell'interposer cambierà in bianco lampeggiante per indicare che il dispositivo è stato acceso e che il modello di audio è autenticato.
 
 1. Attendere il completamento del processo di autenticazione. questa operazione può richiedere fino a 3 minuti.
 
 1. Si è pronti per iniziare la fase di prototipo quando viene visualizzato uno dei seguenti elementi:
 
-    - Il L01 LED si disattiva e L02 è bianco. Ciò indica che l'autenticazione è stata completata e che il DevKit non è stato ancora configurato con una parola chiave.
+    - Il L02 LED cambierà in bianco continuo. Ciò indica che l'autenticazione è stata completata e che il DevKit non è stato ancora configurato con una parola chiave.
     - Tutti e tre i LED diventano blu. Indica che l'autenticazione è stata completata e che DevKit è configurato con una parola chiave.
-
-    > [!NOTE]
-    > Contattare per supportare se il DevKit non esegue l'autenticazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

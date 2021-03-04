@@ -166,6 +166,10 @@ items:
             href: sensitivity-insights.md
           - name: Visualizzare informazioni dettagliate sulle estensioni di file
             href: file-extension-insights.md
+      - name: Sicurezza & rete
+        items:
+          - name: Gestisci endpoint privati
+            href: catalog-private-link.md
   - name: Informazioni di riferimento
     items:
       - name: Classificazioni supportate

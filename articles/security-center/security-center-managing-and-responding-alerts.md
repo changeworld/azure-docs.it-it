@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: a47ece762f2df3fa18cf2b79d338c28d4069c4ad
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 490f94c71611e07e765f5882cb4e3eec13033a6a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633498"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099336"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
 
 In questo argomento viene illustrato come visualizzare ed elaborare gli avvisi del Centro sicurezza e proteggere le risorse.
 
-I rilevamenti avanzati che attivano gli avvisi di sicurezza sono disponibili solo con Azure Defender. È disponibile una versione di valutazione gratuita. Per eseguire l'aggiornamento, vedere [abilitare Azure Defender](security-center-pricing.md#enable-azure-defender).
+I rilevamenti avanzati che attivano gli avvisi di sicurezza sono disponibili solo con Azure Defender. È disponibile una versione di valutazione gratuita. Per eseguire l'aggiornamento, vedere [abilitare Azure Defender](enable-azure-defender.md).
 
 ## <a name="what-are-security-alerts"></a>Informazioni sugli avvisi di sicurezza
 Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log delle risorse di Azure, della rete e delle soluzioni dei partner connesse, come soluzioni di protezione endpoint e firewall, per rilevare le minacce reali e ridurre i falsi positivi. Il Centro sicurezza visualizza un elenco degli avvisi di sicurezza in ordine di priorità, nonché le informazioni necessarie per analizzare rapidamente il problema e indicazioni per risolvere un attacco.

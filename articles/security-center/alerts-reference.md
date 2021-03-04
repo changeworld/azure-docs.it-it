@@ -1,23 +1,20 @@
 ---
 title: Tabella di riferimento per tutti gli avvisi di sicurezza del Centro sicurezza di Azure
-description: Questo articolo elenca gli avvisi di sicurezza visibili nel dashboard di Azure Defender del Centro sicurezza di Azure.
+description: Questo articolo elenca gli avvisi di sicurezza visibili nel dashboard di Azure Defender del Centro sicurezza di Azure
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/21/2021
+ms.date: 03/03/2021
 ms.author: memildin
-ms.openlocfilehash: a9ba66580d6b98cfde0abe934f53f05d27edc57f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e8ebf47420150c82c8e94299291e9ea6bd7d4d88
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735846"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096956"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Guida di riferimento per gli avvisi di sicurezza
 
@@ -278,6 +275,9 @@ Alla fine di questa pagina è disponibile una tabella che descrive la kill chain
 
 ## <a name="alerts-for-containers---host-level"></a><a name="alerts-containerhost"></a>Avvisi per i contenitori - Livello host
 
+Gli avvisi di Azure Defender per gli host del contenitore non sono limitati agli avvisi riportati di seguito. Molti degli avvisi elencati negli avvisi [per il livello di rete di Azure](#alerts-azurenetlayer), gli avvisi per i [computer Windows](#alerts-windows)e gli avvisi per le tabelle [di macchine Linux](#alerts-linux) possono anche essere attivati negli host del contenitore. Il team globale di intelligence per le minacce di Microsoft misura e ottimizza continuamente molti tipi di avvisi contro i cluster Kubernetes per ottimizzare il rilevamento e ridurre i falsi positivi.
+
+
 [Altri dettagli e note](defender-for-kubernetes-introduction.md)
 
 | Avviso                                                                          | Descrizione                                                                                                                                                                                                                                                                                                | Tattiche MITRE<br>[Altre informazioni](#intentions) | Gravità |
@@ -294,9 +294,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la kill chain
 
 ## <a name="alerts-for-sql-database-and-azure-synapse-analytics"></a><a name="alerts-sql-db-and-warehouse"></a>Avvisi per database SQL e Azure Synapse Analytics
 
-[Altri dettagli e note](defender-for-sql-introduction.md)
-
-| Avviso                                                    | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                               | Tattiche MITRE<br>[Altre informazioni](#intentions) | Gravità |
+[Altri dettagli e note](defender-for-sql-introduction.md)| Avviso                                                    | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                               | Tattiche MITRE<br>[Altre informazioni](#intentions) | Gravità |
 |----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
 | **Possibile vulnerabilità agli attacchi SQL injection**            | Un'applicazione ha generato un'istruzione SQL non corretta nel database. Ciò potrebbe indicare una possibile vulnerabilità ad attacchi SQL injection. Ci sono due possibili motivi per un'istruzione non corretta. Un difetto nel codice dell'applicazione potrebbe aver creato l'istruzione SQL non corretta. Oppure il codice dell'applicazione o le stored procedure non hanno corretto l'input utente quando è stata creata l'istruzione SQL non corretta, che può essere sfruttata per attacchi SQL injection. | -                                            | Media   |
 | **Tentativo di accesso da un'applicazione potenzialmente dannosa** | Un'applicazione potenzialmente dannosa ha provato ad accedere al server SQL '{nome}'.                                                                                                                                                                                                                                                                                                                                                               | Pre-attacco                                    | Alto     |
@@ -477,8 +475,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la kill chain
 
 ## <a name="security-incident-alerts"></a><a name="alerts-fusion"></a>Avvisi relativi a eventi imprevisti della sicurezza
 
-[Altri dettagli e note](security-center-alerts-cloud-smart.md)
-
+[Altri dettagli e note](security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents)
 
 | Avviso                                   | Descrizione                                                          | Tattiche MITRE<br>[Altre informazioni](#intentions) | Gravità |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|

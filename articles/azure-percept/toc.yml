@@ -38,12 +38,6 @@
           href: tutorial-nocode-vision.md
         - name: Compila e Distribuisci una soluzione di riconoscimento vocale senza codice
           href: tutorial-no-code-speech.md
-    - name: Sviluppo avanzato
-      items:
-        - name: Esercitazione per lo sviluppo avanzato (cloud)
-          href: advanced-development-cloud.md
-        - name: Esercitazione per lo sviluppo avanzato (locale)
-          href: advanced-development-local.md
 - name: Concetti
   items:
     - name: Audio di Azure Percept
@@ -106,5 +100,3 @@
           href: azure-percept-vision-datasheet.md
         - name: Foglio dati audio di Azure Percept
           href: azure-percept-audio-datasheet.md
-- name: Risorse
-  items: null

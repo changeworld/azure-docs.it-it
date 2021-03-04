@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: allensu
-ms.openlocfilehash: 7448e003771bea1e235d4e0776ebce3cb1beae17
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 4999d8b5d5ebe5d44aae782589b5c63324a4027b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544089"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096514"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Esercitazione: Connettersi a un server SQL di Azure con un endpoint privato di Azure - Azure PowerShell
 
@@ -336,6 +337,8 @@ In questa esercitazione sono stati creati i componenti seguenti:
 * Un server SQL con un endpoint privato.
 
 La macchina virtuale è stata usata per testare la connettività in modo sicuro al server SQL tramite l'endpoint privato.
+
+Come passaggio successivo, potrebbe essere interessante anche l' [app Web con connettività privata allo](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) scenario di architettura del database SQL di Azure, che connette un'applicazione Web all'esterno della rete virtuale all'endpoint privato di un database.
 
 Informazioni su come creare un servizio Collegamento privato:
 > [!div class="nextstepaction"]

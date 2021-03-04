@@ -1,16 +1,16 @@
 ---
 title: Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
 description: Usare la soluzione Ethereum di verifica dell'autorità di certificazione per distribuire e configurare una rete Ethereum per il Consorzio multimembro in Azure
-ms.date: 07/23/2020
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: devx-track-js
-ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 70c9498bae9117585963e111bea4f1e127cab232
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024399"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097942"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
 
@@ -48,9 +48,7 @@ Ogni distribuzione di un membro di un consorzio include:
 * Monitoraggio di Azure per l'aggregazione dei log e delle statistiche sulle prestazioni
 * Gateway di rete virtuale (facoltativo) per consentire le connessioni VPN tra reti virtuali private
 
-Per impostazione predefinita, gli endpoint RPC e peering sono accessibili tramite IP pubblico per consentire una connettività semplificata tra
-
-sottoscrizioni e cloud. Per i controlli di accesso a livello di applicazione, è possibile usare i [contratti di autorizzazione della parità](https://openethereum.github.io/Permissioning.html). Le reti distribuite dietro le VPN, che sfruttano i gateway VNet per la connettività tra sottoscrizioni sono supportate. Poiché le distribuzioni VPN e VNet sono più complesse, è consigliabile iniziare con un modello IP pubblico durante la prototipazione di una soluzione.
+Per impostazione predefinita, gli endpoint RPC e peering sono accessibili tramite IP pubblico per abilitare la connettività semplificata tra le sottoscrizioni e i cloud. Per i controlli di accesso a livello di applicazione, è possibile usare i [contratti di autorizzazione della parità](https://openethereum.github.io/Permissioning.html). Le reti distribuite dietro le VPN, che sfruttano i gateway VNet per la connettività tra sottoscrizioni sono supportate. Poiché le distribuzioni VPN e VNet sono più complesse, è consigliabile iniziare con un modello IP pubblico durante la prototipazione di una soluzione.
 
 I contenitori Docker vengono usati per l'affidabilità e la modularità. Azure Container Registry viene usato per ospitare e gestire le immagini con versione come parte di ogni distribuzione. Le immagini del contenitore sono costituite da:
 
@@ -84,13 +82,13 @@ Le sezioni successive illustrano come configurare il footprint del primo membro 
 
 Nella [portale di Azure](https://portal.azure.com)selezionare **Crea una risorsa** nell'angolo superiore sinistro.
 
-Selezionare **Blockchain** il  >  **Consorzio di prova blockchain Ethereum (anteprima)**.
+Selezionare il  >  **Consorzio di prova blockchain Ethereum (anteprima)**.
 
-### <a name="basics"></a>Operazioni di base
+### <a name="basics"></a>Nozioni di base
 
 In **nozioni di base** specificare i valori per i parametri standard per qualsiasi distribuzione.
 
-![Operazioni di base](./media/ethereum-poa-deployment/basic-blade.png)
+![Nozioni di base](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
@@ -99,9 +97,9 @@ Indirizzo di posta elettronica | Si riceverà una notifica di posta elettronica 
 Nome utente macchina virtuale | Nome utente amministratore di ogni macchina virtuale distribuita | 1-64 caratteri alfanumerici
 Tipo di autenticazione | Metodo per l'autenticazione per la macchina virtuale. | Password
 Password | Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite. Tutte le macchine virtuali hanno inizialmente la stessa password. È possibile modificare la password dopo il provisioning. | 12-72 caratteri 
-Sottoscrizione | La sottoscrizione sul quale eseguire la distribuzione della rete di consorzio |
+Subscription | La sottoscrizione sul quale eseguire la distribuzione della rete di consorzio |
 Gruppo di risorse| Gruppo di risorse nel quale eseguire la distribuzione della rete di consorzio. | myResourceGroup
-Location | La regione di Azure per gruppo di risorse. | West US 2
+Location | La regione di Azure per gruppo di risorse. | Stati Uniti occidentali 2
 
 Selezionare **OK**.
 
@@ -114,7 +112,7 @@ In *aree di distribuzione* specificare il numero di aree e località per ciascun
 Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
 Numero di regioni|Numero di aree per la distribuzione della rete di consorzio| 2
-Prima regione | Prima regione per la distribuzione della rete di consorzio | West US 2
+Prima regione | Prima regione per la distribuzione della rete di consorzio | Stati Uniti occidentali 2
 Seconda regione | Seconda area per la distribuzione della rete Consortium. Le aree aggiuntive sono visibili quando il numero di aree è maggiore o uguale a due. | Stati Uniti orientali 2
 
 Selezionare **OK**.
@@ -176,7 +174,7 @@ Chiave primaria di log Analytics esistente (Connetti a log di monitoraggio di Az
 
 Selezionare **OK**.
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 
 Fare clic sul riepilogo per esaminare gli input specificati ed eseguire la convalida pre-distribuzione di base. Prima di distribuire, è possibile scaricare il modello e i parametri.
 
@@ -273,231 +271,6 @@ $MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName
 New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
-## <a name="service-monitoring"></a>Monitoraggio del servizio
-
-È possibile individuare il portale di monitoraggio di Azure seguendo il collegamento nel messaggio di posta elettronica di distribuzione o individuando il parametro nell'output della distribuzione [OMS_PORTAL_URL].
-
-Il portale visualizza prima di tutto le statistiche di rete generali e la panoramica dei nodi.
-
-![Categorie di monitoraggio](./media/ethereum-poa-deployment/monitor-categories.png)
-
-La selezione di **Panoramica del nodo**  Mostra le statistiche dell'infrastruttura per nodo.
-
-![Statistiche del nodo](./media/ethereum-poa-deployment/node-stats.png)
-
-Selezionando **statistiche di rete** vengono visualizzate le statistiche di rete Ethereum.
-
-![Statistiche di rete](./media/ethereum-poa-deployment/network-stats.png)
-
-### <a name="sample-kusto-queries"></a>Query Kusto di esempio
-
-È possibile eseguire una query sui log di monitoraggio per esaminare gli errori o gli avvisi della soglia di installazione. Le query seguenti sono esempi che è possibile eseguire nello strumento di *Ricerca log* :
-
-I blocchi di elenco segnalati da più di una query di convalida possono essere utili per trovare i fork a catena.
-
-```sql
-MinedBlock_CL
-| summarize DistinctMiners = dcount(BlockMiner_s) by BlockNumber_d, BlockMiner_s
-| where DistinctMiners > 1
-```
-
-Ottiene il conteggio medio dei peer per un nodo validator specificato, mediato in bucket di 5 minuti.
-
-```sql
-let PeerCountRegex = @"Syncing with peers: (\d+) active, (\d+) confirmed, (\d+)";
-ParityLog_CL
-| where Computer == "vl-devn3lgdm-reg1000001"
-| project RawData, TimeGenerated
-| where RawData matches regex PeerCountRegex
-| extend ActivePeers = extract(PeerCountRegex, 1, RawData, typeof(int))
-| summarize avg(ActivePeers) by bin(TimeGenerated, 5m)
-```
-
-## <a name="ssh-access"></a>Accesso SSH
-
-Per impostazione predefinita, l'accesso alle porte SSH è negato in base a una regola del gruppo sicurezza di rete per motivi di sicurezza. Per accedere alle istanze di macchine virtuali nella rete PoA, è necessario modificare la regola di sicurezza seguente per *consentire*.
-
-1. Passare alla sezione **Panoramica** del gruppo di risorse distribuito nella portale di Azure.
-
-    ![Panoramica SSH](./media/ethereum-poa-deployment/ssh-overview.png)
-
-1. Selezionare il **gruppo di sicurezza di rete** per l'area della macchina virtuale a cui si vuole accedere.
-
-    ![Gruppo di sicurezza di rete SSH](./media/ethereum-poa-deployment/ssh-nsg.png)
-
-1. Selezionare la regola **Consenti-SSH** .
-
-    ![L'acquisizione schermo mostra una finestra panoramica che consente la selezione di SSH.](./media/ethereum-poa-deployment/ssh-allow.png)
-
-1. Modifica **azione** da **consentire**
-
-    ![Abilitare Consenti per SSH](./media/ethereum-poa-deployment/ssh-enable-allow.png)
-
-1. Selezionare **Salva**. L'applicazione delle modifiche può richiedere alcuni minuti.
-
-È possibile connettersi in remoto alle macchine virtuali per i nodi validator tramite SSH con il nome utente amministratore e la password/chiave SSH specificati. Il comando SSH per accedere al primo nodo validator è elencato nell'output della distribuzione del modello. Ad esempio:
-
-``` bash
-ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
-```
-
-Per ottenere nodi di transazione aggiuntivi, incrementare di uno il numero di porta.
-
-Se è stato distribuito in più di un'area, impostare il comando sul nome DNS o sull'indirizzo IP del servizio di bilanciamento del carico in tale area. Per trovare il nome DNS o l'indirizzo IP delle altre aree, trovare la risorsa con la convenzione di denominazione **\* \* \* \* \* -lbpip- \# reg** e visualizzare il nome DNS e le proprietà dell'indirizzo IP.
-
-## <a name="azure-traffic-manager-load-balancing"></a>Bilanciamento del carico di Gestione traffico di Azure
-
-Gestione traffico di Azure consente di ridurre i tempi di inattività e di migliorare la velocità di risposta della rete PoA grazie al routing del traffico in ingresso tra più distribuzioni in aree diverse. I controlli di integrità predefiniti e il reindirizzamento automatico consentono di garantire la disponibilità elevata degli endpoint RPC e del DApp di governance. Questa funzionalità è utile se la distribuzione è stata eseguita in più aree e si è pronti per la produzione.
-
-Usare gestione traffico per migliorare la disponibilità di rete PoA con failover automatico. È anche possibile usare gestione traffico per aumentare la velocità di risposta delle reti indirizzando gli utenti finali alla località di Azure con latenza di rete più bassa.
-
-Se si decide di creare un profilo di Gestione traffico, è possibile usare il nome DNS del profilo di accesso alla rete. Dopo che gli altri membri del consorzio sono stati aggiunti alla rete, Gestione traffico può essere usato anche per bilanciare il carico tra i validator distribuiti.
-
-### <a name="creating-a-traffic-manager-profile"></a>Creazione di un profilo di Gestione traffico
-
-1. Nella [portale di Azure](https://portal.azure.com)selezionare **Crea una risorsa** nell'angolo superiore sinistro.
-1. Cercare **il profilo di gestione traffico**.
-
-    ![Ricerca di gestione traffico di Azure](./media/ethereum-poa-deployment/traffic-manager-search.png)
-
-    Assegnare al profilo un nome univoco e selezionare il gruppo di risorse usato per la distribuzione del PoA.
-
-1. Selezionare **Crea** per distribuire.
-
-    ![Creazione di gestione traffico](./media/ethereum-poa-deployment/traffic-manager-create.png)
-
-1. Una volta distribuita, selezionare l'istanza nel gruppo di risorse. Il nome DNS per accedere a gestione traffico si trova nella scheda Panoramica.
-
-    ![Individuare il nome DNS di Gestione traffico](./media/ethereum-poa-deployment/traffic-manager-dns.png)
-
-1. Scegliere la scheda **endpoint** e selezionare il pulsante **Aggiungi** .
-1. Fornire un nome univoco per l'endpoint.
-1. Per **tipo di risorsa di destinazione** scegliere **indirizzo IP pubblico**.
-1. Scegliere l'indirizzo IP pubblico del servizio di bilanciamento del carico della prima area.
-
-    ![Routing di Gestione traffico](./media/ethereum-poa-deployment/traffic-manager-routing.png)
-
-Ripetere la procedura per ogni area nella rete distribuita. Una volta che gli endpoint sono nello stato **abilitato** , vengono caricati automaticamente e l'area è bilanciata al nome DNS di gestione traffico. È ora possibile usare questo nome DNS al posto del parametro [CONSORTIUM_DATA_URL] in altri passaggi dell'articolo.
-
-## <a name="data-api"></a>API Dati
-
-Ogni membro del consorzio ospita le informazioni necessarie per consentire agli altri utenti di connettersi alla rete. Per consentire la facilità di connettività, ogni membro ospita un set di informazioni di connessione nell'endpoint dell'API dati.
-
-Il membro esistente fornisce la [CONSORTIUM_DATA_URL] prima della distribuzione del membro. Durante la distribuzione, un membro aggiunto recupererà le informazioni dall'interfaccia JSON nell'endpoint seguente:
-
-`<CONSORTIUM_DATA_URL>/networkinfo`
-
-La risposta contiene informazioni utili per l'aggiunta di membri (blocco Genesis, ABI del contratto del set di validator, bootnodes) e informazioni utili per il membro esistente (indirizzi validator). È possibile usare questa standardizzazione per estendere il Consorzio tra i provider di servizi cloud. Questa API restituisce una risposta in formato JSON con la struttura seguente:
-
-```json
-{
-  "$id": "",
-  "type": "object",
-  "definitions": {},
-  "$schema": "https://json-schema.org/draft-07/schema#",
-  "properties": {
-    "majorVersion": {
-      "$id": "/properties/majorVersion",
-      "type": "integer",
-      "title": "This schema’s major version",
-      "default": 0,
-      "examples": [
-        0
-      ]
-    },
-    "minorVersion": {
-      "$id": "/properties/minorVersion",
-      "type": "integer",
-      "title": "This schema’s minor version",
-      "default": 0,
-      "examples": [
-        0
-      ]
-    },
-    "bootnodes": {
-      "$id": "/properties/bootnodes",
-      "type": "array",
-      "items": {
-        "$id": "/properties/bootnodes/items",
-        "type": "string",
-        "title": "This member’s bootnodes",
-        "default": "",
-        "examples": [
-          "enode://a348586f0fb0516c19de75bf54ca930a08f1594b7202020810b72c5f8d90635189d72d8b96f306f08761d576836a6bfce112cfb6ae6a3330588260f79a3d0ecb@10.1.17.5:30300",
-          "enode://2d8474289af0bb38e3600a7a481734b2ab19d4eaf719f698fe885fb239f5d33faf217a860b170e2763b67c2f18d91c41272de37ac67386f80d1de57a3d58ddf2@10.1.17.4:30300"
-        ]
-      }
-    },
-    "valSetContract": {
-      "$id": "/properties/valSetContract",
-      "type": "string",
-      "title": "The ValidatorSet Contract Source",
-      "default": "",
-      "examples": [
-        "pragma solidity 0.4.21;\n\nimport \"./SafeMath.sol\";\nimport \"./Utils.sol\";\n\ncontract ValidatorSet …"
-      ]
-    },
-    "adminContract": {
-      "$id": "/properties/adminContract",
-      "type": "string",
-      "title": "The AdminSet Contract Source",
-      "default": "",
-      "examples": [
-        "pragma solidity 0.4.21;\nimport \"./SafeMath.sol\";\nimport \"./SimpleValidatorSet.sol\";\nimport \"./Admin.sol\";\n\ncontract AdminValidatorSet is SimpleValidatorSet { …"
-      ]
-    },
-    "adminContractABI": {
-      "$id": "/properties/adminContractABI",
-      "type": "string",
-      "title": "The Admin Contract ABI",
-      "default": "",
-      "examples": [
-        "[{\"constant\":false,\"inputs\":[{\"name\":\"proposedAdminAddress\",\"type\":\"address\"},…"
-      ]
-    },
-    "paritySpec": {
-      "$id": "/properties/paritySpec",
-      "type": "string",
-      "title": "The Parity client spec file",
-      "default": "",
-      "examples": [
-        "\n{\n \"name\": \"PoA\",\n \"engine\": {\n \"authorityRound\": {\n \"params\": {\n \"stepDuration\": \"2\",\n \"validators\" : {\n \"safeContract\": \"0x0000000000000000000000000000000000000006\"\n },\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\"\n }\n }\n },\n \"params\": {\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\",\n \"wasmActivationTransition\": \"0x0\"\n },\n \"genesis\": {\n \"seal\": {\n \"authorityRound\": {\n \"step\": \"0x0\",\n \"signature\": \"0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\"\n }\n },\n \"difficulty\": \"0x20000\",\n \"gasLimit\": \"0x2FAF080\"\n },\n \"accounts\": {\n \"0x0000000000000000000000000000000000000001\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ecrecover\", \"pricing\": { \"linear\": { \"base\": 3000, \"word\": 0 } } } },\n \"0x0000000000000000000000000000000000000002\": { \"balance\": \"1\", \"builtin\": { \"name\": \"sha256\", \"pricing\": { \"linear\": { \"base\": 60, \"word\": 12 } } } },\n \"0x0000000000000000000000000000000000000003\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ripemd160\", \"pricing\": { \"linear\": { \"base\": 600, \"word\": 120 } } } },\n \"0x0000000000000000000000000000000000000004\": { \"balance\": \"1\", \"builtin\": { \"name\": \"identity\", \"pricing\": { \"linear\": { \"base\": 15, \"word\": 3 } } } },\n \"0x0000000000000000000000000000000000000006\": { \"balance\": \"0\", \"constructor\" : \"…\" }\n }\n}"
-      ]
-    },
-    "errorMessage": {
-      "$id": "/properties/errorMessage",
-      "type": "string",
-      "title": "Error message",
-      "default": "",
-      "examples": [
-        ""
-      ]
-    },
-    "addressList": {
-      "$id": "/properties/addressList",
-      "type": "object",
-      "properties": {
-        "addresses": {
-          "$id": "/properties/addressList/properties/addresses",
-          "type": "array",
-          "items": {
-            "$id": "/properties/addressList/properties/addresses/items",
-            "type": "string",
-            "title": "This member’s validator addresses",
-            "default": "",
-            "examples": [
-              "0x00a3cff0dccc0ecb6ae0461045e0e467cff4805f",
-              "0x009ce13a7b2532cbd89b2d28cecd75f7cc8c0727"
-            ]
-          }
-        }
-      }
-    }
-  }
-}
-
-```
-
 ## <a name="governance-dapp"></a>App decentralizzata per la governance
 
 Il fulcro di Proof-of-Authority è la governance decentralizzata. Poiché la verifica dell'autorità si basa su un elenco consentito di autorità di rete per garantire l'integrità della rete, è importante fornire un meccanismo equo per apportare modifiche a questo elenco di autorizzazioni. Ogni distribuzione viene fornita con un set di Smart-Contracts e del portale per la governance on-Chain di questo elenco consentito. Dopo che una modifica proposta raggiunge un voto di maggioranza da parte dei membri del consorzio, la modifica viene applicata. Il voto consente di aggiungere o compromettere i partecipanti a nuovi consensuali per essere rimossi in modo trasparente che incoraggi una rete onesta.
@@ -553,181 +326,7 @@ In alto a destra, è l'alias dell'account Ethereum e Identicon.  Se si è un amm
 
 ![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-## <a name="ethereum-development"></a>Sviluppo Ethereum<a id="tutorials"></a>
-
-Per compilare, distribuire e testare i contratti intelligenti, di seguito sono riportate alcune opzioni che è possibile prendere in considerazione per lo sviluppo di Ethereum:
-* [Suite tartufo](https://www.trufflesuite.com/docs/truffle/overview) -ambiente di sviluppo Ethereum basato su client
-* [Ethereum Remix](https://remix-ide.readthedocs.io/en/latest/index.html ) -ambiente di sviluppo Ethereum basato su browser e locale
-
-### <a name="compile-deploy-and-execute-smart-contract"></a>Compilazione, distribuzione ed esecuzione di Smart Contract
-
-Nell'esempio seguente viene creato un semplice contratto Smart. Si usa il tartufo per compilare e distribuire il contratto intelligente nella rete blockchain. Una volta distribuita, si chiama una funzione di contratto intelligente tramite una transazione.
-
-#### <a name="prerequisites"></a>Prerequisiti
-
-* Installare [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python è necessario per tartufo e Web3. Selezionare l'opzione Installa per includere Python nel percorso.
-* Installare tartufo v 5.0.5 `npm install -g truffle@v5.0.5` . Truffle richiede l'installazione di diversi strumenti, tra cui [Node.js](https://nodejs.org) e [Git](https://git-scm.com/). Per altre informazioni, vedere la [documentazione di tartufo](https://github.com/trufflesuite/truffle).
-
-### <a name="create-truffle-project"></a>Creare il progetto Truffle
-
-Prima di poter compilare e distribuire un contratto intelligente, è necessario creare un progetto tartufo.
-
-1. Aprire una shell o un prompt dei comandi.
-1. Creare una cartella denominata `HelloWorld`.
-1. Passare alla nuova `HelloWorld` cartella.
-1. Inizializzare un nuovo progetto tartufo usando il comando `truffle init` .
-
-    ![Creare un nuovo progetto tartufo](./media/ethereum-poa-deployment/create-truffle-project.png)
-
-### <a name="add-a-smart-contract"></a>Aggiungere un contratto intelligente
-
-Creare contratti intelligenti nella sottodirectory **contratti** del progetto tartufo.
-
-1. Creare un file nell'oggetto denominato `postBox.sol` nella sottodirectory **Contracts** del progetto tartuf.
-1. Aggiungere il codice di solidità seguente a **postBox. Sol**.
-
-    ```javascript
-    pragma solidity ^0.5.0;
-    
-    contract postBox {
-        string message;
-        function postMsg(string memory text) public {
-            message = text;
-        }
-        function getMsg() public view returns (string memory) {
-            return message;
-        }
-    }
-    ```
-
-### <a name="deploy-smart-contract-using-truffle"></a>Distribuire un contratto intelligente usando tartufo
-
-I progetti tartufo contengono un file di configurazione per i dettagli della connessione di rete blockchain. Modificare il file di configurazione per includere le informazioni di connessione per la rete.
-
-> [!WARNING]
-> Non inviare mai la chiave privata Ethereum tramite la rete. Assicurarsi che ogni transazione venga prima firmata in locale e che la transazione firmata venga inviata in rete.
-
-1. È necessaria la frase mnemonico per l' [account amministratore di Ethereum usato durante la distribuzione della rete blockchain](#ethereum-settings). Se è stato usato metamask per creare l'account, è possibile recuperare il tasto di scelta da metamask. Selezionare l'icona dell'account amministratore nella parte superiore destra dell'estensione della metamaschera e selezionare **impostazioni > sicurezza & Privacy > rivelare le parole di inizializzazione**.
-1. Sostituire il contenuto di `truffle-config.js` nel progetto tartufo con il contenuto seguente. Sostituire l'endpoint segnaposto e i valori del tasto di scelta.
-
-    ```javascript
-    const HDWalletProvider = require("truffle-hdwallet-provider");
-    const rpc_endpoint = "<Ethereum RPC endpoint>";
-    const mnemonic = "Twelve words you can find in MetaMask > Security & Privacy > Reveal Seed Words";
-
-    module.exports = {
-      networks: {
-        development: {
-          host: "localhost",
-          port: 8545,
-          network_id: "*" // Match any network id
-        },
-        poa: {
-          provider: new HDWalletProvider(mnemonic, rpc_endpoint),
-          network_id: 10101010,
-          gasPrice : 0
-        }
-      }
-    };
-    ```
-
-1. Poiché si usa il provider del portafoglio di tartufo HD, installare il modulo nel progetto usando il comando `npm install truffle-hdwallet-provider --save` .
-
-Il tartufo usa gli script di migrazione per distribuire i contratti intelligenti in una rete blockchain. Per distribuire il nuovo contratto intelligente è necessario uno script di migrazione.
-
-1. Aggiungere una nuova migrazione per distribuire il nuovo contratto. Creare `2_deploy_contracts.js` un file nella sottodirectory **Migrations** del progetto tartufo.
-
-    ``` javascript
-    var postBox = artifacts.require("postBox");
-    
-    module.exports = deployer => {
-        deployer.deploy(postBox);
-    };
-    ```
-
-1. Eseguire la distribuzione nella rete PoA usando il comando di migrazione a tartufo. Al prompt dei comandi nella directory del progetto tartufo eseguire:
-
-    ```javascript
-    truffle migrate --network poa
-    ```
-
-### <a name="call-a-smart-contract-function"></a>Chiamare una funzione di contratto intelligente
-
-Ora che il contratto intelligente è stato distribuito, è possibile inviare una transazione per chiamare una funzione.
-
-1. Nella directory del progetto tartufo creare un nuovo file denominato `sendtransaction.js` .
-1. Aggiungere il seguente contenuto a **sendtransaction.js**.
-
-    ``` javascript
-    var postBox = artifacts.require("postBox");
-    
-    module.exports = function(done) {
-      console.log("Getting the deployed version of the postBox smart contract")
-      postBox.deployed().then(function(instance) {
-        console.log("Calling postMsg function for contract ", instance.address);
-        return instance.postMsg("Hello, blockchain!");
-      }).then(function(result) {
-        console.log("Transaction hash: ", result.tx);
-        console.log("Request complete");
-        done();
-      }).catch(function(e) {
-        console.log(e);
-        done();
-      });
-    };
-    ```
-
-1. Eseguire lo script usando il comando tartuf Execute.
-
-    ```javascript
-    truffle exec sendtransaction.js --network poa
-    ```
-
-    ![Esegui script per chiamare la funzione tramite transazione](./media/ethereum-poa-deployment/send-transaction.png)
-
-## <a name="webassembly-wasm-support"></a>Supporto WebAssembly (WASM)
-
-Il supporto WebAssembly è già abilitato nelle nuove reti PoA distribuite. Consente lo sviluppo di smart contract in qualsiasi linguaggio esegua il transpile in Web-Assembly (Rust, C, C++). Per altre informazioni, vedere [Panoramica della parità di webassembly](https://openethereum.github.io/WebAssembly-Home.html) ed [esercitazione di parità Tech](https://github.com/paritytech/pwasm-tutorial)
-
-## <a name="faq"></a>Domande frequenti
-
-### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Si noterà che nella rete sono presenti molte transazioni che non sono state inviate. Da dove provengono?
-
-Non è sicuro sbloccare l'[API personale](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html). I bot sono in ascolto degli account Ethereum sbloccati e provano a svuotare i fondi. Il bot presuppone che questi account contengano vero ether e che provino a trasferire il saldo per primi. Non abilitare l'API personale nella rete. È invece possibile pre-firmare le transazioni manualmente usando un portafoglio come metamask o a livello di codice.
-
-### <a name="how-to-ssh-onto-a-vm"></a>Come si stabilisce una connessione SSH a una VM?
-
-La porta SSH non è esposta per motivi di sicurezza. Seguire [questa guida per abilitare la porta SSH](#ssh-access).
-
-### <a name="how-do-i-set-up-an-audit-member-or-transaction-nodes"></a>Come si configura un membro di controllo o i nodi delle transazioni?
-
-I nodi di transazione sono un set di client di parità con peering con la rete ma che non partecipano al consenso. Questi nodi possono tuttavia essere usati per inviare transazioni Ethereum e leggere lo stato dello smart contract. Questo meccanismo può essere usato per garantire la controllabilità ai membri del Consorzio non di autorità nella rete. A tale scopo, seguire la procedura descritta in [Growing the Consortium](#growing-the-consortium).
-
-### <a name="why-are-metamask-transactions-taking-a-long-time"></a>Perché le transazioni MetaMask richiedono molto tempo?
-
-Per garantire che le transazioni vengano ricevute nell'ordine corretto, ogni transazione Ethereum è dotata di un nonce incrementale. Se è stato usato un account in metamask in una rete diversa, è necessario reimpostare il valore nonce. Fare clic sull'icona delle impostazioni (tre barre), impostazioni, Reimposta account. La cronologia delle transazioni verrà cancellata e sarà possibile inviare di nuovo la transazione.
-
-### <a name="do-i-need-to-specify-gas-fee-in-metamask"></a>È necessario specificare la tariffa gas in MetaMask?
-
-L'etere non serve ad alcuna finalità in Proof-of-Authority Consortium. Di conseguenza, non è necessario specificare il costo del gas quando si inviano transazioni in metamask.
-
-### <a name="what-should-i-do-if-my-deployment-fails-due-to-failure-to-provision-azure-oms"></a>Cosa devo fare se la distribuzione ha esito negativo a causa del provisioning non riuscito di Azure OMS?
-
-Monitoraggio è una funzionalità facoltativa. In rari casi in cui la distribuzione non riesce a causa dell'impossibilità di eseguire correttamente il provisioning della risorsa di monitoraggio di Azure, è possibile ridistribuire senza monitoraggio di Azure.
-
-### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>Le distribuzioni di IP pubblici sono compatibili con le distribuzioni di reti private?
-
-No. Il peering richiede una comunicazione bidirezionale, quindi l'intera rete deve essere pubblica o privata.
-
-### <a name="what-is-the-expected-transaction-throughput-of-proof-of-authority"></a>Qual è la velocità effettiva delle transazioni prevista di Proof-of-Authority?
-
-La velocità effettiva delle transazioni è strettamente dipendente dai tipi di transazioni e dalla topologia di rete. Con l'utilizzo di transazioni semplici è stato effettuato un benchmark di una media di 400 transazioni al secondo con una rete distribuita in più aree.
-
-### <a name="how-do-i-subscribe-to-smart-contract-events"></a>Come posso eseguire la sottoscrizione a eventi smart contract?
-
-Ethereum Proof-of-Authority supporta ora i socket Web.  Controllare l'output della distribuzione per individuare l'URL e la porta del socket Web.
-
-## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
+## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti<a id="tutorials"></a>
 
 Per notizie su Azure Blockchain, visitare il [blog di Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/) per rimanere sempre aggiornati sull'offerta di servizi blockchain e per informazioni dal team tecnico di Azure Blockchain.
 

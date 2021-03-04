@@ -6,18 +6,23 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/12/2020
-ms.author: matjazl
-ms.openlocfilehash: cdb41f12e8f050e3c74fccddb392d7a816c15b2f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 03/03/2021
+ms.author: zxue
+ms.openlocfilehash: 5e24c7666fd2ece7d284b7705bc481866d7604de
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621879"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097041"
 ---
 # <a name="configure-private-link"></a>Configura collegamento privato
 
 Il collegamento privato consente di accedere all'API di Azure per FHIR tramite un endpoint privato, un'interfaccia di rete che si connette privatamente e in modo sicuro usando un indirizzo IP privato della rete virtuale. Con il collegamento privato, è possibile accedere in modo sicuro ai servizi dalla VNET come servizio di prima entità senza dover passare attraverso un DNS pubblico. Questo articolo illustra come creare, testare e gestire l'endpoint privato per l'API di Azure per FHIR.
+
+>[!Note]
+>Non è possibile spostare il collegamento privato né l'API di Azure per FHIR da un gruppo di risorse o una sottoscrizione a un altro dopo aver abilitato il collegamento privato. Per spostare, eliminare prima il collegamento privato, quindi spostare l'API di Azure per FHIR e creare un nuovo collegamento privato al termine dello spostamento. Valutare le potenziali ramificazioni di sicurezza prima di eliminare il collegamento privato.
+>
+>Se è abilitata l'esportazione dei log di controllo e/o della metrica per l'API di Azure per FHIR, aggiornare l'impostazione di esportazione tramite le impostazioni di diagnostica dal portale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
