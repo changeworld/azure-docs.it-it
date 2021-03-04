@@ -1,18 +1,17 @@
 ---
 title: IT Service Management Connector in Log Analytics
 description: Questo articolo fornisce una panoramica di IT Service Management Connector (connettore) e informazioni su come usarlo per monitorare e gestire gli elementi di lavoro ITSM in Log Analytics e risolvere rapidamente i problemi.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: ba32cfa4bc5cd0b41a210cf88fb598afc3064495
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ac5d864d98742c6884f9511b6956e4166e2c19da
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617216"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037473"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connettere Azure agli strumenti ITSM usando IT Service Management Connector
 

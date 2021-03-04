@@ -1,17 +1,16 @@
 ---
 title: IT Service Management Connector-esportazione sicura in monitoraggio di Azure-configurazioni di Azure
 description: Questo articolo illustra come configurare Azure per connettere i prodotti/servizi ITSM con esportazione sicura in monitoraggio di Azure per monitorare e gestire centralmente gli elementi di lavoro ITSM.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 62167b8fd72c660e50378a9492528aa5b70bbee7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8eb9430e3d280c52cf84c61f0a44cb12152ac054
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620837"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037541"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>Configurare Azure per la connessione di strumenti ITSM tramite l'esportazione sicura
 
@@ -30,7 +29,7 @@ Per usare "esportazione sicura", seguire questa procedura:
 
 Per registrare l'applicazione con Azure AD, attenersi alla procedura seguente:
 
-1. Eseguire la procedura descritta in [registrare un'applicazione con la piattaforma di identità Microsoft](../../active-directory/develop/quickstart-register-app.md).
+1. Seguire la procedura in [Registrare un'applicazione con Microsoft Identity Platform](../../active-directory/develop/quickstart-register-app.md).
 2. In Azure AD selezionare **Expose Application**.
 3. Selezionare **imposta** per **URI ID applicazione**.
 
@@ -44,7 +43,7 @@ Come passaggio facoltativo, è possibile definire il ruolo applicazione nel mani
 
 Questo passaggio può essere eseguito tramite gli stessi [comandi di PowerShell](../alerts/action-groups.md#secure-webhook-powershell-script).
 
-## <a name="create-a-secure-webhook-action-group"></a>Creare un gruppo di azione di Webhook sicuro
+## <a name="create-a-secure-webhook-action-group"></a>Creare un gruppo di azioni del webhook sicuro
 
 Dopo che l'applicazione è stata registrata con Azure AD, è possibile creare elementi di lavoro nello strumento ITSM in base agli avvisi di Azure, usando l'azione webhook sicura nei gruppi di azioni.
 

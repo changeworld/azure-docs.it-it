@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 09e7a39a2d97626dd01a00fdaef9bc4d711d557b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 22d7c1bbe03d8b3c0e3b6026c9bac039f0651548
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828085"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037252"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Arricchimento tramite intelligenza artificiale con Ricerca cognitiva di Azure
 
@@ -32,6 +33,17 @@ Le competenze predefinite rientrano nelle categorie seguenti:
 Le competenze predefinite in Azure ricerca cognitiva si basano su modelli di apprendimento automatico pre-addestrati in API Servizi cognitivi: [visione artificiale](../cognitive-services/computer-vision/index.yml) e [analisi del testo](../cognitive-services/text-analytics/overview.md). È possibile aggiungere una risorsa Servizi cognitivi se si desidera sfruttare queste risorse durante l'elaborazione del contenuto.
 
 Il linguaggio naturale e l'elaborazione delle immagini vengono applicati durante la fase di inserimento dei dati e i risultati diventano parte della composizione di un documento in un indice ricercabile in Ricerca cognitiva di Azure. I dati vengono originati come set di dati di Azure e quindi attraverso una pipeline di indicizzazione che usa le [competenze predefinite](cognitive-search-predefined-skills.md) necessarie.  
+
+## <a name="feature-availability"></a>Disponibilità delle funzionalità
+
+L'arricchimento AI è disponibile nelle aree in cui sono disponibili anche servizi cognitivi di Azure.  È possibile controllare la disponibilità corrente di intelligenza artificiale nella pagina [prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=search) .  L'arricchimento AI è disponibile in tutte le aree supportate eccetto:
+
++ Australia sud-orientale
++ Cina settentrionale 2
++ Norvegia orientale
++ Germania centro-occidentale
+
+Se il servizio di ricerca si trova in una di queste aree, non sarà possibile creare e usare skillsets, ma tutte le altre funzionalità del servizio di ricerca sono disponibili e completamente supportate.
 
 ## <a name="when-to-use-ai-enrichment"></a>Quando usare l'arricchimento di intelligenza artificiale
 
@@ -121,6 +133,6 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 + [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale (C#)](cognitive-search-create-custom-skill-example.md)
 + [Guida introduttiva: provare a arricchire l'intelligenza artificiale in una procedura dettagliata per il portale](cognitive-search-quickstart-blob.md)
 + [Esercitazione: informazioni sulle API di arricchimento intelligenza artificiale](cognitive-search-tutorial-blob.md)
-+ [Archivio conoscenze](knowledge-store-concept-intro.md)
++ [Knowledge store](knowledge-store-concept-intro.md)
 + [Creare un archivio conoscenze in REST](knowledge-store-create-rest.md)
 + [Suggerimenti per la risoluzione dei problemi](cognitive-search-concept-troubleshooting.md)

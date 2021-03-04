@@ -1,17 +1,16 @@
 ---
 title: Installare l'agente di Log Analytics in computer Windows
 description: Questo articolo descrive come connettere i computer Windows ospitati in altri cloud o in locale a Monitoraggio di Azure con l'agente di Log Analytics per Windows.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
-ms.openlocfilehash: 50bfed0ee4346955a9e478e7567f00610d8184f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: aec39b86f9651539028efce93ba6a88c3be75b0c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708663"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038311"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Installare l'agente di Log Analytics in computer Windows
 Questo articolo fornisce informazioni dettagliate sull'installazione dell'agente di Log Analytics nei computer Windows usando i metodi seguenti:

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c8d907062835f18393946b04f1f1e9d5ec345411
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 50358eed580bbd83f25386feb0068a252060672b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735761"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037116"
 ---
 # <a name="security-control-v2-data-protection"></a>Controllo di sicurezza V2: protezione dei dati
 
 La protezione dei dati copre il controllo della protezione dei dati inattivi, in transito e tramite meccanismi di accesso autorizzati. Sono inclusi l'individuazione, la classificazione, la protezione e il monitoraggio di asset di dati sensibili tramite il controllo di accesso, la crittografia e la registrazione in Azure.
 
-Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli dell'iniziativa incorporata relativa alla conformità normativa per il benchmark di sicurezza di Azure: protezione dei dati](../../governance/policy/samples/azure-security-benchmark#data-protection)
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli dell'iniziativa incorporata relativa alla conformità normativa per il benchmark di sicurezza di Azure: protezione dei dati](../../governance/policy/samples/azure-security-benchmark.md#data-protection)
 
 ## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: Individuare, classificare e assegnare un'etichetta ai dati sensibili
 
