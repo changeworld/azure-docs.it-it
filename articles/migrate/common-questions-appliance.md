@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 5a050d9aab9e8665c6048391488e57c9b4af10a5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753876"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043066"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate: domande comuni
 
@@ -36,21 +36,20 @@ Di seguito sono riportate altre informazioni sull'appliance Azure Migrate:
 
 ## <a name="how-can-i-deploy-the-appliance"></a>Come si distribuisce l'appliance?
 
-L'appliance può essere distribuita come indicato di seguito:
+L'appliance può essere distribuita usando due metodi:
 
-- Uso di un modello per l'individuazione di macchine virtuali VMware (. File OVA) e macchine virtuali Hyper-V (. File VHD) per creare una nuova macchina virtuale che ospita l'appliance.
-- Se non si vuole usare un modello, è possibile distribuire l'appliance in una macchina virtuale o fisica esistente per l'individuazione di macchine virtuali VMware o Hyper-V usando uno script del programma di installazione di PowerShell, disponibile per il download in un file zip dal portale.
-- Per i server fisici o virtuali dall'ambiente locale o da qualsiasi cloud, è sempre necessario distribuire l'appliance usando uno script in un server esistente.
-- Per Azure per enti pubblici, tutti e tre i dispositivi possono essere distribuiti solo tramite lo script del programma di installazione di PowerShell.
+- Il dispositivo può essere distribuito usando un modello per i server in esecuzione nell'ambiente VMware o Hyper-V ([modello OVA per VMware](how-to-set-up-appliance-vmware.md) o [VHD per Hyper-v](how-to-set-up-appliance-hyper-v.md)).
+- Se non si vuole usare un modello, è possibile distribuire l'appliance per l'ambiente VMware o Hyper-V usando uno [script del programma di installazione di PowerShell](deploy-appliance-script.md).
+- In Azure per enti pubblici è necessario distribuire l'appliance usando uno script del programma di installazione di PowerShell. Vedere i passaggi della distribuzione [qui](deploy-appliance-script-government.md).
+- Per i server fisici o virtualizzati in locale o in qualsiasi altro cloud, è sempre necessario distribuire l'appliance usando uno script del programma di installazione di PowerShell. Vedere i passaggi della distribuzione [qui](how-to-set-up-appliance-physical.md).
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>In che modo l'appliance si connette ad Azure?
 
 L'appliance può connettersi tramite Internet o usando Azure ExpressRoute. 
 
 - Assicurarsi che l'appliance possa connettersi a questi [URL di Azure](./migrate-appliance.md#url-access). 
-- È possibile usare ExpressRoute con il peering Microsoft.  Il peering pubblico è deprecato e non è disponibile per i nuovi circuiti ExpressRoute.
+- È possibile usare ExpressRoute con il peering Microsoft. Il peering pubblico è deprecato e non è disponibile per i nuovi circuiti ExpressRoute.
 - Il peering privato non è supportato.
-
 
 
 ## <a name="does-appliance-analysis-affect-performance"></a>L'analisi degli appliance influisce sulle prestazioni?
@@ -109,7 +108,7 @@ No. Esiste un mapping uno-a-uno tra un [Azure migrate Appliance](migrate-applian
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Un progetto di Azure Migrate può avere più appliance?
 
-A un progetto possono essere collegati più appliance. Tuttavia, un appliance può essere associato solo a un progetto. 
+Un progetto può avere più appliance registrate. Tuttavia, un dispositivo può essere registrato solo con un progetto.
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Il dispositivo di Azure Migrate/appliance di replica può connettersi allo stesso vCenter?
 
@@ -135,7 +134,7 @@ Non è inoltre possibile riutilizzare una chiave di progetto Azure Migrate esist
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>È possibile configurare l'appliance in una macchina virtuale di Azure?
 
-No. Attualmente questa opzione non è supportata. 
+No. Attualmente questa opzione non è supportata.
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>È possibile individuare in un host ESXi?
 
@@ -150,6 +149,19 @@ Solo gli agenti Appliance e appliance vengono aggiornati da questi aggiornamenti
 ## <a name="can-i-check-agent-health"></a>È possibile controllare l'integrità dell'agente?
 
 Sì. Nel portale passare alla pagina **integrità agente** per lo strumento di migrazione Azure migrate: server Assessment o Azure migrate: Server. Qui è possibile controllare lo stato della connessione tra Azure e gli agenti di individuazione e valutazione nell'appliance.
+
+## <a name="can-i-add-multiple-server-credentials-on-vmware-appliance"></a>È possibile aggiungere più credenziali del server nell'appliance VMware?
+
+Sì, sono ora supportate più credenziali server per eseguire l'inventario software (individuazione di applicazioni installate), l'analisi delle dipendenze senza agenti e l'individuazione di SQL Server istanze e database. [Altre informazioni](tutorial-discover-vmware.md#provide-server-credentials) su come fornire le credenziali in Gestione configurazione Appliance.
+
+## <a name="what-type-of-server-credentials-can-i-add-on-the-vmware-appliance"></a>Quali tipi di credenziali del server è possibile aggiungere nell'appliance VMware?
+È possibile specificare le credenziali di autenticazione Domain/Windows (non di dominio)/Linux (non di dominio)/SQL Server in Gestione configurazione Appliance. [Altre](add-server-credentials.md) informazioni su come fornire le credenziali e su come gestirle.
+
+## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>Quali tipi di proprietà di connessione SQL Server sono supportati da Azure Migrate per l'individuazione SQL?
+Azure Migrate crittografa la comunicazione tra le istanze Azure Migrate Appliance e SQL Server di origine (con la proprietà Crittografa connessione impostata su TRUE). Queste connessioni vengono crittografate con [TrustServerCertificate](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (impostato su true); il livello trasporto userà SSL per crittografare il canale e ignorare la catena di certificati per convalidare l'attendibilità. Il server appliance deve essere configurato in modo da [considerare attendibile l'autorità radice del certificato](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
+Se al momento dell'avvio non è stato eseguito il provisioning di alcun certificato sul server, SQL Server genera un certificato autofirmato che viene utilizzato per crittografare i pacchetti di accesso. [Altre informazioni](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,15 +3,14 @@ title: Guida alla transizione da Progettazione viste di monitoraggio di Azure a 
 description: Transizione dalle visualizzazioni alle cartelle di lavoro di monitoraggio di Azure.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 7c43d1e4dda10cca6b868ef814ec8298d6e21fd0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 19de2a3d3f5a998c09db7c4df689b0378e2597fd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736968"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043372"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guida alla transizione da Progettazione viste di monitoraggio di Azure a cartelle di lavoro
 [Progettazione](view-designer.md) viste è una funzionalità di monitoraggio di Azure che consente di creare visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro log Analytics, con grafici, elenchi e sequenze temporali. Sono state passate a cartelle di lavoro per fornire un'area di disegno flessibile per l'analisi dei dati e la creazione di report visivi avanzati all'interno del portale di Azure. Questo articolo consente di passare da Progettazione viste a cartelle di lavoro di. 

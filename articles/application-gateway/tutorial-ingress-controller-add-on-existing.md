@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 1daf5fef1383272f728ff3dac7557e55398f7d50
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bfff962f6d302f589acc437550fa25f76ec7ce35
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720223"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040423"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway"></a>Esercitazione: abilitare il componente aggiuntivo del controller di ingresso del gateway applicazione per un cluster AKS esistente con un gateway applicazione esistente
 
@@ -82,7 +82,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 
 Se si vuole usare portale di Azure per abilitare il componente aggiuntivo AGIC, passare a [( https://aka.ms/azure/portal/aks/agic) ](https://aka.ms/azure/portal/aks/agic) e passare al cluster AKS tramite il collegamento del portale. Da qui, passare alla scheda rete nel cluster AKS. Verrà visualizzata una sezione del controller di ingresso del gateway applicazione, che consente di abilitare o disabilitare il componente aggiuntivo del controller di ingresso usando l'interfaccia utente del portale. Selezionare la casella accanto a "Abilita controller in ingresso" e selezionare il gateway applicazione creato, *myApplicationGateway* dal menu a discesa. 
 
-![Portale del controller di ingresso del gateway applicazione](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+![Portale del controller di ingresso del gateway applicazione](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## <a name="peer-the-two-virtual-networks-together"></a>Eseguire il peering combinato delle due reti virtuali
 

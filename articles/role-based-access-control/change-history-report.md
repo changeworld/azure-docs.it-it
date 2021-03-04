@@ -1,26 +1,21 @@
 ---
 title: Visualizzare i log attività per le modifiche RBAC di Azure
-description: Visualizzare i log attività per le modifiche al controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per le risorse di Azure negli ultimi 90 giorni.
+description: Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo di Azure (RBAC di Azure) negli ultimi 90 giorni.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 03/01/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 53b72ac22df845f88dc82b14aa5dfaa57973b0d1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d9b39bc9a2f00fe83cae0ff78c6346042967e8bf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595839"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042130"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Visualizzare i log attività per le modifiche RBAC di Azure
 
@@ -41,6 +36,10 @@ Il modo più semplice per iniziare è visualizzare i log attività con il portal
 
 ![Log attività tramite il portale - screenshot](./media/change-history-report/activity-log-portal.png)
 
+Per ottenere ulteriori informazioni, fare clic su una voce per aprire il riquadro Riepilogo. Fare clic sulla scheda **JSON** per ottenere un log dettagliato.
+
+![Log attività tramite il portale con riquadro di riepilogo aperto-screenshot](./media/change-history-report/activity-log-summary-portal.png)
+
 Il log attività nel portale include diversi filtri. Ecco i filtri correlati a RBAC di Azure:
 
 | Filtra | Valore |
@@ -50,9 +49,24 @@ Il log attività nel portale include diversi filtri. Ecco i filtri correlati a R
 
 Per altre informazioni sui log attività, vedere [visualizzare i log attività per monitorare le azioni sulle risorse](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
-## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+## <a name="interpret-a-log-entry"></a>Interpretare una voce di log
+
+L'output del log della scheda JSON, Azure PowerShell o l'interfaccia della riga di comando di Azure può includere una grande quantità di informazioni. Di seguito sono riportate alcune delle proprietà chiave da cercare quando si tenta di interpretare una voce di log. Per i modi per filtrare l'output del log usando Azure PowerShell o l'interfaccia della riga di comando di Azure, vedere le sezioni seguenti.
+
+> [!div class="mx-tableFixed"]
+> | Proprietà | Valori di esempio | Descrizione |
+> | --- | --- | --- |
+> | autorizzazione: azione | Microsoft.Authorization/roleAssignments/write | Crea assegnazione ruolo |
+> |  | Microsoft.Authorization/roleAssignments/delete | Elimina assegnazione ruolo |
+> |  | Microsoft.Authorization/roleDefinitions/write | Crea o aggiorna la definizione del ruolo |
+> |  | Microsoft.Authorization/roleDefinitions/delete | Elimina definizione di ruolo |
+> | autorizzazione: ambito | /subscriptions/{subscriptionId}<br/>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId} | Ambito per l'azione |
+> | caller | admin@example.com<br/>ObjectId | Chi ha avviato l'azione |
+> | eventTimestamp | 2021-03-01T22:07:41.126243 Z | Ora in cui si è verificata l'azione |
+> | stato: valore | Avviato<br/>Completato<br/>Non riuscito | Stato dell'azione |
+
+## <a name="azure-powershell"></a>Azure PowerShell
 
 Per visualizzare i log attività con Azure PowerShell, usare il comando [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog).
 
@@ -68,56 +82,115 @@ Questo comando elenca tutte le modifiche relative alle definizioni di ruolo in u
 Get-AzLog -ResourceGroupName pharma-sales -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
-Questo comando elenca tutte le modifiche alle assegnazioni di ruolo e alle definizioni di ruolo in una sottoscrizione per gli ultimi 7 giorni e visualizza i risultati in un elenco:
+### <a name="filter-log-output"></a>Filtrare l'output del log
+
+L'output del log può includere una grande quantità di informazioni. Questo comando elenca tutte le modifiche alle definizioni dei ruoli e delle definizioni dei ruoli in una sottoscrizione per gli ultimi sette giorni e filtra l'output:
 
 ```azurepowershell
 Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
 ```
 
-```Example
-Caller                  : alain@example.com
-EventTimestamp          : 2/27/2020 9:18:07 PM
+Di seguito viene illustrato un esempio dell'output del log filtrato durante la creazione di un'assegnazione di ruolo:
+
+```azurepowershell
+Caller                  : admin@example.com
+EventTimestamp          : 3/1/2021 10:07:42 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
                           statusCode     : Created
-                          serviceRequestId: 11111111-1111-1111-1111-111111111111
+                          serviceRequestId: {serviceRequestId}
                           eventCategory  : Administrative
+                          entity         : /subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}
+                          message        : Microsoft.Authorization/roleAssignments/write
+                          hierarchy      : {tenantId}/{subscriptionId}
 
-Caller                  : alain@example.com
-EventTimestamp          : 2/27/2020 9:18:05 PM
+Caller                  : admin@example.com
+EventTimestamp          : 3/1/2021 10:07:41 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
-                          requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
-                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"}}
+                          requestbody    : {"Id":"{roleAssignmentId}","Properties":{"PrincipalId":"{principalId}","PrincipalType":"User","RoleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64","Scope":"/subscriptions/
+                          {subscriptionId}/resourceGroups/example-group"}}
+                          eventCategory  : Administrative
+                          entity         : /subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}
+                          message        : Microsoft.Authorization/roleAssignments/write
+                          hierarchy      : {tenantId}/{subscriptionId}
 
 ```
 
-Se si utilizza un'entità servizio per creare assegnazioni di ruolo, la proprietà chiamante sarà un ID oggetto. È possibile usare [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) per ottenere informazioni sull'entità servizio.
+Se si utilizza un'entità servizio per creare assegnazioni di ruolo, la proprietà chiamante sarà un ID oggetto entità servizio. È possibile usare [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) per ottenere informazioni sull'entità servizio.
 
 ```Example
-Caller                  : 44444444-4444-4444-4444-444444444444
-EventTimestamp          : 6/4/2020 9:43:08 PM
+Caller                  : {objectId}
+EventTimestamp          : 3/1/2021 9:43:08 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              : 
                           statusCode     : Created
-                          serviceRequestId: 55555555-5555-5555-5555-555555555555
-                          category       : Administrative
+                          serviceRequestId: {serviceRequestId}
+                          eventCategory  : Administrative
 ```
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per visualizzare i log attività usando l'interfaccia della riga di comando di Azure, usare il comando [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
+Per visualizzare i log attività usando l'interfaccia della riga di comando di Azure, usare il comando [az monitor activity-log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list).
 
-Questo comando elenca i log attività in un gruppo di risorse del 27 febbraio, cercando in futuro sette giorni:
+Questo comando elenca i log attività in un gruppo di risorse a partire dal 1 ° marzo, cercando in futuro sette giorni:
 
 ```azurecli
-az monitor activity-log list --resource-group pharma-sales --start-time 2020-02-27 --offset 7d
+az monitor activity-log list --resource-group example-group --start-time 2021-03-01 --offset 7d
 ```
 
-Questo comando elenca i log attività per il provider di risorse di autorizzazione dal 27 febbraio, cercando in futuro sette giorni:
+Questo comando elenca i log attività per il provider di risorse di autorizzazione a partire dal 1 ° marzo, cercando in futuro sette giorni:
 
 ```azurecli
-az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 2020-02-27 --offset 7d
+az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 2021-03-01 --offset 7d
+```
+
+### <a name="filter-log-output"></a>Filtrare l'output del log
+
+L'output del log può includere una grande quantità di informazioni. Questo comando elenca tutte le modifiche apportate ai ruoli e alle definizioni dei ruoli in una sottoscrizione, esaminando sette giorni e filtra l'output:
+
+```azurecli
+az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 2021-03-01 --offset 7d --query '[].{authorization:authorization, caller:caller, eventTimestamp:eventTimestamp, properties:properties}'
+```
+
+Di seguito viene illustrato un esempio dell'output del log filtrato durante la creazione di un'assegnazione di ruolo:
+
+```azurecli
+[
+ {
+    "authorization": {
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "role": null,
+      "scope": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}"
+    },
+    "caller": "admin@example.com",
+    "eventTimestamp": "2021-03-01T22:07:42.456241+00:00",
+    "properties": {
+      "entity": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
+      "eventCategory": "Administrative",
+      "hierarchy": "{tenantId}/{subscriptionId}",
+      "message": "Microsoft.Authorization/roleAssignments/write",
+      "serviceRequestId": "{serviceRequestId}",
+      "statusCode": "Created"
+    }
+  },
+  {
+    "authorization": {
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "role": null,
+      "scope": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}"
+    },
+    "caller": "admin@example.com",
+    "eventTimestamp": "2021-03-01T22:07:41.126243+00:00",
+    "properties": {
+      "entity": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
+      "eventCategory": "Administrative",
+      "hierarchy": "{tenantId}/{subscriptionId}",
+      "message": "Microsoft.Authorization/roleAssignments/write",
+      "requestbody": "{\"Id\":\"{roleAssignmentId}\",\"Properties\":{\"PrincipalId\":\"{principalId}\",\"PrincipalType\":\"User\",\"RoleDefinitionId\":\"/providers/Microsoft.Authorization/roleDefinitions/fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64\",\"Scope\":\"/subscriptions/{subscriptionId}/resourceGroups/example-group\"}}"
+    }
+  }
+]
 ```
 
 ## <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
@@ -139,7 +212,7 @@ Ecco i passaggi di base per iniziare:
 
    ![Opzione log di monitoraggio di Azure nel portale](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Facoltativamente, usare il [log Analytics di monitoraggio di Azure](../azure-monitor/logs/log-analytics-tutorial.md) per eseguire una query e visualizzare i log. Per altre informazioni, vedere [Introduzione alle query di log di monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md).
+1. Facoltativamente, usare il [log Analytics di monitoraggio di Azure](../azure-monitor/logs/log-analytics-tutorial.md) per eseguire una query e visualizzare i log. Per altre informazioni, vedere [Introduzione alle query di log in monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md).
 
 Ecco una query che restituisce le nuove assegnazioni di ruolo organizzate in base al provider di risorse di destinazione:
 
@@ -162,5 +235,5 @@ AzureActivity
 ![Log attività tramite il portale Advanced Analytics - screenshot](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Visualizzare eventi nel log attività](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+* [Visualizzare i log attività per monitorare le azioni sulle risorse](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 * [Monitorare l'attività di sottoscrizione con il log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md)

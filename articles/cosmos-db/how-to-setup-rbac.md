@@ -4,14 +4,14 @@ description: Informazioni su come configurare il controllo degli accessi in base
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.author: thweiss
-ms.openlocfilehash: d83109f380a3044073cf2dd8d10f29027ebb9f41
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: acb82a66c8ef4adcfeef0fcb527c44512ad4feaf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690907"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040873"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurare il controllo degli accessi in base al ruolo con Azure Active Directory per l'account Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -370,6 +370,7 @@ Queste informazioni aggiuntive passano nella categoria di log **DataPlaneRequest
 - È possibile creare fino a 100 definizioni di ruolo e 2.000 assegnazioni di ruolo per ogni account Azure Cosmos DB.
 - La risoluzione del gruppo di Azure AD non è attualmente supportata per le identità che appartengono a più di 200 gruppi.
 - Il token Azure AD viene attualmente passato come intestazione a ogni singola richiesta inviata al servizio Azure Cosmos DB, aumentando la dimensione complessiva del payload.
+- L'accesso ai dati con Azure AD tramite [Azure Cosmos DB Explorer](data-explorer.md) non è ancora supportato. L'uso di Esplora Azure Cosmos DB richiede ancora che l'utente abbia accesso alla chiave primaria dell'account per il momento.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

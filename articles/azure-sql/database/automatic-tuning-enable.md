@@ -10,17 +10,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 12/03/2019
-ms.openlocfilehash: 35e2a73b0cfae104cee417e7d4a159e7fd169a17
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/03/2021
+ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500904"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042522"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Abilitare l'ottimizzazione automatica nel portale di Azure per monitorare le query e migliorare le prestazioni del carico di lavoro
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
 
 Il database SQL di Azure gestisce automaticamente i servizi dati che monitorano costantemente le query e identifica l'azione che è possibile eseguire per migliorare le prestazioni del carico di lavoro. È possibile esaminare le raccomandazioni e applicarle manualmente oppure delegare al database SQL di Azure l'applicazione automatica delle azioni correttive, condizione nota come **modalità di ottimizzazione automatica**.
 
@@ -111,11 +110,26 @@ Se si imposta l'opzione di ottimizzazione singola su ON, qualsiasi impostazione 
 
 Per ulteriori informazioni sulle opzioni T-SQL per la configurazione dell'ottimizzazione automatica, vedere [Opzioni ALTER database set (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
-## <a name="disabled-by-the-system"></a>Disabilitazione da parte del sistema
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-L'ottimizzazione automatica esegue il monitoraggio di tutte le azioni eseguite a livello di database e in alcuni casi potrebbe non funzionare correttamente nel database. In questa situazione, l'opzione di ottimizzazione sarà disabilitata dal sistema. Nella maggior parte dei casi ciò accade perché Query Store non è abilitato o è in stato di sola lettura in un database specifico.
+### <a name="automated-recommendation-management-is-disabled"></a>Gestione automatica delle raccomandazioni è disabilitata
 
-## <a name="permissions"></a>Autorizzazioni
+In caso di messaggi di errore che la gestione automatica delle raccomandazioni è stata disabilitata o semplicemente disabilitata dal sistema, le cause più comuni sono:
+- Query Store non è abilitato o
+- Query Store è in modalità di sola lettura per un database specificato oppure
+- Query Store interrotto l'esecuzione perché ha utilizzato lo spazio di archiviazione allocato.
+
+Per risolvere il problema, è possibile prendere in considerazione i passaggi seguenti:
+- Pulire il Query Store o modificare il periodo di conservazione dei dati in "auto" con T-SQL. Vedere come [configurare i criteri di conservazione e acquisizione consigliati per query Store](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy).
+- Usare SQL Server Management Studio (SSMS) e seguire questa procedura:
+  - Connettersi al database SQL di Azure
+  - Fare clic con il pulsante destro del mouse sul database
+  - Passare a proprietà e fare clic su Query Store
+  - Impostare la modalità operativa su Read-Write
+  - Modificare la modalità di acquisizione dell'archivio in auto
+  - Modificare la modalità di pulizia basata sulle dimensioni in auto
+
+### <a name="permissions"></a>Autorizzazioni
 
 Poiché l'ottimizzazione automatica è una funzionalità di Azure, per usarla è necessario usare i ruoli predefiniti di Azure. L'utilizzo dell'autenticazione SQL non sarà sufficiente per utilizzare la funzionalità del portale di Azure.
 
@@ -123,7 +137,7 @@ Per usare l'ottimizzazione automatica, l'autorizzazione minima necessaria per co
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurare notifiche tramite posta elettronica per l'ottimizzazione automatica
 
-Vedere la Guida all' [ottimizzazione automatica delle notifiche tramite posta elettronica](automatic-tuning-email-notifications-configure.md) .
+Per ricevere notifiche automatiche tramite posta elettronica sulle raccomandazioni effettuate dall'ottimizzazione automatica, vedere la Guida all' [ottimizzazione automatica delle notifiche tramite posta elettronica](automatic-tuning-email-notifications-configure.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

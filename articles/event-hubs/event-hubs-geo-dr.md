@@ -3,12 +3,12 @@ title: Ripristino di emergenza geografico - Hub eventi di Azure | Microsoft Docs
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza in Hub eventi di Azure
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 2fd13ac98e80aa67a2a3150e8406a0b0b1b08d13
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: eb6ef1a7536b819d1bc973740a0da6fdf3d756d5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390675"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042369"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
@@ -44,11 +44,7 @@ In questo articolo viene usata la terminologia seguente:
 -  *Alias*: nome per una configurazione di ripristino di emergenza impostata. L'alias fornisce una singola stringa di connessione FQDN (nome di dominio completo) stabile. Le applicazioni usano questa stringa di connessione alias per connettersi a uno spazio dei nomi. 
 
 -  *Spazio dei nomi primario/secondario*: spazi dei nomi corrispondenti all'alias. Lo spazio dei nomi primario è "attivo" e riceve i messaggi (può essere uno spazio dei nomi esistente o nuovo). Lo spazio dei nomi secondario è "passivo" e non riceve messaggi. I metadati vengono sincronizzati tra entrambi gli spazi dei nomi, quindi entrambi possono facilmente accettare messaggi senza modifiche al codice dell'applicazione o alla stringa di connessione. Per fare in modo che solo lo spazio dei nomi attivo riceva i messaggi, è necessario usare l'alias.
-
-    > [!IMPORTANT]
-    > Per la funzionalità di ripristino di emergenza geografico è necessario che la sottoscrizione e il gruppo di risorse siano uguali per gli spazi dei nomi primari e secondari. 
 -  *Metadati*: entità come hub eventi e gruppi di consumer e le relative proprietà del servizio associate allo spazio dei nomi. Solo le entità e le relative impostazioni vengono replicate automaticamente. I messaggi e gli eventi non vengono replicati. 
-
 -  *Failover*: processo di attivazione dello spazio dei nomi secondario.
 
 ## <a name="supported-namespace-pairs"></a>Coppie di spazi dei nomi supportate
@@ -75,13 +71,13 @@ La sezione seguente è una panoramica del processo di failover e illustra come c
 È prima di tutto necessario creare uno spazio dei nomi primario o usarne uno esistente e creare un nuovo spazio dei nomi secondario, quindi associare i due spazi dei nomi. L'associazione fornisce un alias che può essere usato per la connessione. Poiché si usa un alias, non è necessario modificare le stringhe di connessione. È possibile aggiungere solo nuovi spazi dei nomi all'associazione di failover. 
 
 1. Creare lo spazio dei nomi primario.
-1. Creare lo spazio dei nomi secondario nella sottoscrizione e il gruppo di risorse con lo spazio dei nomi primario, ma in un'area diversa. Questo passaggio è facoltativo. È possibile creare lo spazio dei nomi secondario durante la creazione dell'associazione nel passaggio successivo. 
+1. Creare lo spazio dei nomi secondario in un'area diversa. Questo passaggio è facoltativo. È possibile creare lo spazio dei nomi secondario durante la creazione dell'associazione nel passaggio successivo. 
 1. Nella portale di Azure passare allo spazio dei nomi primario.
 1. Selezionare **ripristino geografico** nel menu a sinistra e selezionare **Avvia associazione** sulla barra degli strumenti. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Avviare l'associazione dallo spazio dei nomi primario":::    
 1. Nella pagina **avvio associazione** , attenersi alla seguente procedura:
-    1. Selezionare uno spazio dei nomi secondario esistente o crearne uno nella sottoscrizione e il gruppo di risorse con lo spazio dei nomi primario. In questo esempio viene selezionato uno spazio dei nomi esistente.  
+    1. Selezionare uno spazio dei nomi secondario esistente o crearne uno in un'area diversa. In questo esempio viene selezionato uno spazio dei nomi esistente.  
     1. In **alias** immettere un alias per l'associazione del ripristino di emergenza geografico. 
     1. Scegliere quindi **Create** (Crea). 
 

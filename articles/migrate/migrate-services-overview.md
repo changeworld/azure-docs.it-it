@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: a5fa6b1c75bee562394af42fcea9ebfabeb732f0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 858f006de7425a9fa8bea25e356a148b877aa30d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389536"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040601"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -37,7 +37,7 @@ L'hub Azure Migrate include questi strumenti:
 --- | --- | ---
 **Azure Migrate: Valutazione server** | Valutazione dei server. | Consente di individuare e valutare le macchine virtuali VMware e Hyper-V locali e i server fisici in preparazione per la migrazione ad Azure.
 **Azure Migrate: Migrazione server** | Migrazione dei server. | Consente di eseguire la migrazione ad Azure di macchine virtuali VMware e Hyper-V, server fisici, oltre ad altre macchine virtualizzate e VM del cloud pubblico.
-**Data Migration Assistant** | Consente di valutare i database di SQL Server per la migrazione a database SQL di Azure, Istanza gestita di SQL di Azure o macchine virtuali di Azure che eseguono SQL Server. | Data Migration Assistant facilita l'individuazione di potenziali problemi che possono impedire la migrazione. Identifica le funzionalità non supportate, oltre alle nuove funzionalità da cui è possibile trarre vantaggio dopo la migrazione, e consente di individuare il percorso corretto per la migrazione del database. [Altre informazioni](/sql/dma/dma-overview?view=sql-server-2017)
+**Data Migration Assistant** | Consente di valutare i database di SQL Server per la migrazione a database SQL di Azure, Istanza gestita di SQL di Azure o macchine virtuali di Azure che eseguono SQL Server. | Data Migration Assistant facilita l'individuazione di potenziali problemi che possono impedire la migrazione. Identifica le funzionalità non supportate, oltre alle nuove funzionalità da cui è possibile trarre vantaggio dopo la migrazione, e consente di individuare il percorso corretto per la migrazione del database. [Altre informazioni](/sql/dma/dma-overview)
 **Servizio Migrazione del database di Azure** | Consente di eseguire la migrazione di database locali a macchine virtuali di Azure che eseguono SQL Server, il database SQL di Azure o Istanze gestite di SQL di Azure. | [Altre informazioni](../dms/dms-overview.md) sul Servizio Migrazione del database.
 **Movere** | Valutazione dei server. | [Altre informazioni](#movere) su Movere.
 **Web App Migration Assistant** | Consente di valutare app Web locali ed eseguirne la migrazione ad Azure. |  usare Migration Assistant per Servizio app di Azure per valutare i siti Web locali per la migrazione a Servizio app di Azure.<br/><br/> Usare Migration Assistant per eseguire la migrazione di app Web .NET e PHP ad Azure. Per altre informazioni, vedere [Azure App Service Migration Assistant](https://appmigration.microsoft.com/).
@@ -78,6 +78,9 @@ Valutazione server si basa su un'[appliance leggera di Azure Migrate](migrate-ap
 - L'appliance individua i computer locali. Invia inoltre continuamente metadati e dati sulle prestazioni dei computer ad Azure Migrate.
 - L'individuazione dell'appliance è senza agente. Non viene installato nulla nei computer individuati.
 - Dopo l'individuazione eseguita dall'appliance, è possibile riunire i computer individuati in gruppi ed eseguire valutazioni per ogni gruppo.
+
+> [!Note]
+> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://go.microsoft.com/fwlink/?linkid=2155668) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 ## <a name="azure-migrate-server-migration-tool"></a>Azure Migrate: Strumento Migrazione server
 

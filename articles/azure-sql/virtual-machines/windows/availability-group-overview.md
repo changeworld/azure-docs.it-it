@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 213b973bfc93cb2237473b6bc4c7f1e138457409
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-ms.translationtype: HT
+ms.openlocfilehash: d879039e6d3ad94e55ed7f7bd283f8b99a5b2161
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131900"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042454"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Gruppi di disponibilità AlwaysOn per SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,7 +42,7 @@ Per aumentare la ridondanza e la disponibilità elevata, le VM di SQL Server dev
 
 L'inserimento di un set di VM nello stesso set di disponibilità protegge un data center dalle interruzioni causate da errori delle apparecchiature (le VM all'interno di un set di disponibilità non condividono risorse) o da aggiornamenti (le VM all'interno di un set di disponibilità non vengono aggiornate contemporaneamente). Le zone di disponibilità offrono protezione dagli errori di un intero data center, con ogni zona che rappresenta un set di data center all'interno di un'area.  Inserendo le risorse in zone di disponibilità diverse, ci si assicura che nessuna interruzione a livello di data center porti tutte le VM offline.
 
-Quando si creano le VM di Azure, è necessario scegliere se configurare i set di disponibilità o le zone di disponibilità.  Una VM di Azure non può essere inserita in entrambi.
+Quando si creano le VM di Azure, è necessario scegliere se configurare i set di disponibilità o le zone di disponibilità.  Una macchina virtuale di Azure non può partecipare a entrambe.
 
 
 ## <a name="connectivity"></a>Connettività 
@@ -51,6 +51,7 @@ In una tradizionale distribuzione locale i client si connettono al listener del 
 
 Con SQL Server in Macchine virtuali di Azure, configurare un [servizio di bilanciamento del carico](availability-group-vnn-azure-load-balancer-configure.md) per instradare il traffico al listener del gruppo di disponibilità oppure, se si usa SQL Server 2019 CU8 e versioni successive, è possibile configurare un [listener del nome di rete distribuita (DNN, Distributed Network Name)](availability-group-distributed-network-name-dnn-listener-configure.md) per sostituire il tradizionale listener di VNN del gruppo di disponibilità. 
 
+Per altre informazioni sulle opzioni di connettività del cluster, vedere [Instradare connessioni a disponibilità elevata e ripristino di emergenza a SQL Server in macchine virtuali di Azure](hadr-cluster-best-practices.md#connectivity). 
 
 ### <a name="vnn-listener"></a>Listener di VNN 
 

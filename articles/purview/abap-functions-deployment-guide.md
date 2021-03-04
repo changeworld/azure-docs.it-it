@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 1d9f1c5beafb7b54c5fd0189dd738ff8e346a3e8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 911238efafb948b304455cf75cc4ec2c3c605c76
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695992"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042105"
 ---
 # <a name="deploy-the-metadata-extraction-abap-function-module-for-the-sap-r3-family-of-bridges"></a>Distribuire il modulo di funzione ABAP di estrazione dei metadati per la famiglia di Bridge SAP R3 
 Questo articolo illustra i passaggi per distribuire il modulo della funzione ABAP nel server SAP
@@ -74,7 +74,7 @@ Quando il modulo è stato creato, specificare le informazioni seguenti:
 
 3.  Passare alla \" scheda codice sorgente \" . Esistono due modi per distribuire il codice per la funzione:
 
-    a.  Dal menu principale, caricare il \_ file Z MITI \_DOWNLOAD.txt selezionando Utilities = \> more Utilities = \> upload/download = \> upload.
+    a.  Dal menu principale caricare il file di testo [Z \_ miti \_ download](https://github.com/Azure/Purview-Samples/tree/master/connectors/sap) file selezionando Utilities = \> more Utilities = \> upload/download = \> upload.
 
     b.  In alternativa, aprire il file, copiarne il contenuto e incollarlo nell' \" area del codice sorgente \" .
 

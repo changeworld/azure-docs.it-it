@@ -1,17 +1,16 @@
 ---
 title: Query di log in Monitoraggio di Azure
 description: Informazioni di riferimento per il linguaggio di query Kusto usato da Monitoraggio di Azure. Include elementi aggiuntivi specifici di Monitoraggio di Azure e gli elementi non supportati nelle query di log di Monitoraggio di Azure.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: 7ce73fc69ac0ff88c6048aad39fd07ae802b978d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 529fc432bf8777ef7e2b527f08e9cb59e42bf156
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704226"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041026"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Query di log in Monitoraggio di Azure
 I log di monitoraggio di Azure si basano su Esplora dati di Azure e le query di log vengono scritte usando lo stesso linguaggio di query kusto (KQL). Si tratta di un linguaggio avanzato progettato per essere facile da leggere e creare, quindi è possibile iniziare a scrivere query con alcune linee guida di base.

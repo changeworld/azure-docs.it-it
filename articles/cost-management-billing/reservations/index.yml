@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 04/30/2020
-  ms.openlocfilehash: db01f91401b3a0f33b8ad53e91eb60839ecbcb7f
-  ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+  ms.date: 03/01/2021
+  ms.openlocfilehash: b25d522d5db9f513628e43724cb1abde9f55e99c
+  ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/05/2021
-  ms.locfileid: "99576296"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102040822"
 landingContent:
 - title: Acquistare prenotazioni
   linkLists:
@@ -24,72 +24,28 @@ landingContent:
     links:
     - text: Cosa sono le prenotazioni di Azure?
       url: save-compute-costs-reservations.md
-    - text: Cambi e rimborsi per le prenotazioni
-      url: exchange-and-refund-azure-reservations.md
-    - text: Acquistare una prenotazione con pagamenti mensili
-      url: ./prepare-buy-reservation.md
   - linkListType: how-to-guide
     links:
+    - text: Acquistare una prenotazione
+      url: prepare-buy-reservation.md
     - text: Esaminare le prenotazioni
       url: reservation-renew.md
-    - text: Azure Synapse Analytics
-      url: prepay-sql-data-warehouse-charges.md
-    - text: Macchina virtuale
-      url: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
-    - text: Archiviazione di Azure
-      url: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - text: Cosmos DB
-      url: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
-    - text: Database SQL
-      url: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2ftoc.json
-    - text: Esplora dati di Azure
-      url: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
-    - text: Azure Databricks
-      url: prepay-databricks-reserved-capacity.md
-    - text: Servizio app
-      url: prepay-app-service.md
-    - text: Piani software di Azure
-      url: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
 - title: Informazioni su si applicano gli sconti
   linkLists:
   - linkListType: concept
     links:
-    - text: Istanze di VM riservate
-      url: ../manage/understand-vm-reservation-charges.md
-    - text: Capacità riservata di Archiviazione di Azure
-      url: understand-storage-charges.md
-    - text: Capacità riservata di Cosmos DB
-      url: understand-cosmosdb-reservation-charges.md
-    - text: Capacità riservata del database SQL
-      url: understand-reservation-charges.md
-    - text: Azure Synapse Analytics
-      url: reservation-discount-azure-sql-dw.md
-    - text: Esplora dati di Azure
-      url: understand-azure-data-explorer-reservation-charges.md
-    - text: Azure Databricks
-      url: reservation-discount-databricks.md
-    - text: Servizio app
-      url: reservation-discount-app-service.md
-    - text: Piani software di Azure
-      url: understand-suse-reservation-charges.md
-- title: Come si applicano gli sconti al database di Azure
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Database di Azure per MySQL
-      url: understand-reservation-charges-mysql.md
-    - text: Database di Azure per PostgreSQL
-      url: understand-reservation-charges-postgresql.md
-    - text: Database di Azure per MariaDB
-      url: understand-reservation-charges-mariadb.md
+    - text: Come viene applicato lo sconto per la prenotazione
+      url: reservation-discount-application.md
 - title: Gestire le prenotazioni
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Gestire le prenotazioni
       url: manage-reserved-vm-instance.md
-    - text: Visualizzare le prenotazioni
+    - text: Visualizzare le prenotazioni e gestire le autorizzazioni
       url: view-reservations.md
+    - text: Scambio e rimborso di prenotazioni
+      url: exchange-and-refund-azure-reservations.md
   - linkListType: reference
     links:
     - text: API di prenotazione

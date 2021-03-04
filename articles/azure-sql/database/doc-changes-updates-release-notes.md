@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 607b588d3371b20c2b3fa9854e27a7ccdfe2e551
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 86687e8259e7abcb9ff0e97f8cb75d96c0abfca8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703768"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042505"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,7 +89,7 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
   - Supporto per <a href="/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> sharepoint 2016 e sharepoint 2019 </a> e <a href="/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 business Central. </a>
   - Creare un'istanza gestita con <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">regole di confronto a livello di istanza</a> e un <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso orario</a> di propria scelta.
   - Le istanze gestite ora sono protette con un [firewall predefinito](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Configurare SQL Istanza gestita per usare gli [endpoint pubblici](../managed-instance/public-endpoint-configure.md), la connessione per [l'override del proxy](connectivity-architecture.md#connection-policy) per ottenere prestazioni di rete migliori, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vcore di generazione hardware quinta generazione</a> o <a href="/azure/azure-sql/database/automated-backups-overview">configurare la conservazione dei backup fino a 35 giorni per il</a> ripristino temporizzato. La [Conservazione del backup a lungo termine](long-term-retention-overview.md#sql-managed-instance-support) (fino a 10 anni) è attualmente in anteprima pubblica limitata.  
+  - Configurare SQL Istanza gestita per usare gli [endpoint pubblici](../managed-instance/public-endpoint-configure.md), la connessione per [l'override del proxy](connectivity-architecture.md#connection-policy) per ottenere prestazioni di rete migliori, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vcore di generazione hardware quinta generazione</a> o <a href="/azure/azure-sql/database/automated-backups-overview">configurare la conservazione dei backup fino a 35 giorni per il</a> ripristino temporizzato. La [conservazione dei backup a lungo termine](long-term-retention-overview.md) (fino a 10 anni) è attualmente disponibile in anteprima pubblica.  
   - Le nuove funzionalità consentono di <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">eseguire il ripristino geografico del database in un altro data center tramite PowerShell</a>, [rinominare il database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [eliminare il cluster virtuale](../managed-instance/virtual-cluster-delete.md).
   - Il nuovo [ruolo Collaboratore Istanza](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) predefinito abilita la conformità della separazione dei compiti con i principi di sicurezza e la conformità agli standard aziendali.
   - SQL Istanza gestita è disponibile nelle aree di Azure per enti pubblici seguenti per GA (US Gov Texas, US Gov Arizona) e in Cina settentrionale 2 e Cina orientale 2. È disponibile anche nelle aree pubbliche seguenti: Australia centrale, Australia centrale 2, Brasile meridionale, Francia meridionale, Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali, Sudafrica settentrionale, Sudafrica occidentale.

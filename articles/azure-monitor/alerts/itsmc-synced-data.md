@@ -1,18 +1,17 @@
 ---
 title: Dati sincronizzati dal prodotto ITSM all'area di lavoro LA
 description: Questo articolo fornisce una panoramica dei dati sincronizzati dal prodotto ITSM all'area di lavoro di LA.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/29/2020
 ms.custom: references_regions
-ms.openlocfilehash: fd570950190ceabac413aca2d68368e5e722a3da
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 83994c1b6e150342a777a079d79d6a594d30c3ff
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614397"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041604"
 ---
 # <a name="data-synced-from-your-itsm-product"></a>Dati sincronizzati dal prodotto ITSM
 

@@ -3,15 +3,14 @@ title: Conversioni dei riquadri delle cartelle di lavoro di Progettazione viste 
 description: Dettagli per la conversione dei riquadri nelle cartelle di lavoro durante la transizione dalle viste in monitoraggio di Azure.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 0fe1c5a4e6da1cb2955542c2651fcaf2d015b8f8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b8d1840c0b1cea4c03312d38ed892fde94faa4c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619027"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043338"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Conversioni dei riquadri di Progettazione viste di monitoraggio di Azure
 [Progettazione](view-designer.md) viste è una funzionalità di monitoraggio di Azure che consente di creare visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro log Analytics, con grafici, elenchi e sequenze temporali. Vengono eliminati e sostituiti con cartelle di lavoro che forniscono funzionalità aggiuntive. Questo articolo fornisce informazioni dettagliate per la conversione di riquadri diversi in cartelle di lavoro.

@@ -1,17 +1,16 @@
 ---
 title: Filtri nelle viste di monitoraggio di Azure | Microsoft Docs
 description: Un filtro in una vista di monitoraggio di Azure consente agli utenti di filtrare i dati nella vista in base al valore di una proprietà specifica senza modificare la vista stessa.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: d428382493e15d2e0571f4cb4b6f090cf9056fe4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 988bb1467e7bf2cca31151d85c57677b235cab30
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618996"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043304"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtri nelle viste di monitoraggio di Azure
 Un **filtro** in una [vista di monitoraggio di Azure](view-designer.md) consente agli utenti di filtrare i dati nella vista in base al valore di una proprietà specifica senza modificare la vista stessa.  È ad esempio possibile consentire agli utenti della vista di filtrare solo i dati di un computer o un set di computer specifico.  È possibile creare più filtri in una singola vista per consentire agli utenti di filtrare in base a più proprietà.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.

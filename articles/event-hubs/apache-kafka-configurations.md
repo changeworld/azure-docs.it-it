@@ -2,13 +2,13 @@
 title: Configurazioni consigliate per client Apache Kafka-Hub eventi di Azure
 description: Questo articolo fornisce le configurazioni Apache Kafka consigliate per i client che interagiscono con hub eventi di Azure per Apache Kafka.
 ms.topic: reference
-ms.date: 01/07/2021
-ms.openlocfilehash: 713900a3cc7e2b9f6f176edb21455faa577098d6
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.date: 03/03/2021
+ms.openlocfilehash: be009aae41b2cb26ab02fdbe14bc4e18311ad235
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028829"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042352"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Configurazioni consigliate per i client di Apache Kafka
 Ecco le configurazioni consigliate per l'uso di hub eventi di Azure da Apache Kafka applicazioni client. 
@@ -33,7 +33,6 @@ Proprietà | Valori consigliati | Intervallo consentito | Note
 `metadata.max.idle.ms` | 180000 | > 5000 | Controlla per quanto tempo il producer memorizza nella cache i metadati per un argomento inattivo. Se il tempo trascorso dall'ultimo prodotto di un argomento supera la durata di inattività dei metadati, i metadati dell'argomento vengono dimenticati e l'accesso successivo forza una richiesta di recupero dei metadati.
 `linger.ms` | > 0 | | Per gli scenari con velocità effettiva elevata, il valore Linger deve essere uguale al valore massimo tollerabile per sfruttare i vantaggi dell'invio in batch.
 `delivery.timeout.ms` | | | Impostare in base alla formula ( `request.timeout.ms`  +  `linger.ms` ) * `retries` .
-`enable.idempotence` | false | | Idempotenza attualmente non supportato.
 `compression.type` | `none` | | La compressione non è attualmente supportata.
 
 ### <a name="consumer-configurations-only"></a>Solo configurazioni utente
@@ -62,7 +61,6 @@ Proprietà | Valori consigliati | Intervallo consentito | Note
 `retries` | > 0 | | Il valore predefinito è 2. È consigliabile usare questo valore. 
 `request.timeout.ms` | 30000.. 60000 | > 20000| Per impostazione predefinita, il valore predefinito è pari a almeno 20.000 ms.  `librdkafka` il valore predefinito è 5000, che può risultare problematico. *Mentre le richieste con valori di timeout inferiori sono accettate, il comportamento del client non è garantito.*
 `partitioner` | `consistent_random` | Vedere la documentazione di librdkafka | `consistent_random` è il valore predefinito e migliore.  Le chiavi vuote e null sono gestite idealmente nella maggior parte dei casi.
-`enable.idempotence` | false | | Idempotenza attualmente non supportato.
 `compression.codec` | `none` || La compressione non è attualmente supportata.
 
 ### <a name="consumer-configurations-only"></a>Solo configurazioni utente

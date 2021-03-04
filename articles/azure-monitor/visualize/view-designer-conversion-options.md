@@ -3,15 +3,14 @@ title: Opzioni di conversione di Progettazione viste di monitoraggio di Azure in
 description: Opzioni di conversione per la transizione da viste a cartelle di lavoro di monitoraggio di Azure.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: a36361430d6ac2af598c2255aed5830150f02217
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b8b6b8b41c729c3cbb6cf4589d679e93149e5314
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620426"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043406"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Opzioni di conversione di Progettazione viste di monitoraggio di Azure in cartelle di lavoro
 [Progettazione](view-designer.md) viste è una funzionalità di monitoraggio di Azure che consente di creare visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro log Analytics, con grafici, elenchi e sequenze temporali. Vengono eliminati e sostituiti con cartelle di lavoro che forniscono funzionalità aggiuntive. In questo articolo vengono confrontati i concetti fondamentali tra le due opzioni e per la conversione delle visualizzazioni in cartelle di lavoro.

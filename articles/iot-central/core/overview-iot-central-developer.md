@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 326fed659be43be3115cae1d7c2b14d0708f4a96
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f69bbecfc2acc24cd63b87212197342b28723a9f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377806"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043100"
 ---
 # <a name="iot-central-device-development-guide"></a>Guida allo sviluppo del dispositivo IoT Central
 
@@ -68,7 +68,7 @@ Con il servizio Device Provisioning:
 - È possibile usare ID dispositivo personalizzati per registrare i dispositivi in IoT Central. L'uso di ID dispositivo personalizzati semplifica l'integrazione con i sistemi back-office esistenti.
 - È disponibile un singolo modo coerente per connettere i dispositivi a IoT Central.
 
-Per altre informazioni, vedere [Connettersi ad Azure IoT Central](./concepts-get-connected.md).
+Per altre informazioni, vedere [connettersi ad Azure IOT Central](./concepts-get-connected.md) e [procedure consigliate](concepts-best-practices.md).
 
 ### <a name="security"></a>Sicurezza
 

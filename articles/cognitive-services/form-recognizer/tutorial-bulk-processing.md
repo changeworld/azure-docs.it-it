@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Estrarre i dati di moduli in blocco con Azure Data Factory - Riconoscimento modulo'
 titleSuffix: Azure Cognitive Services
-description: Configurare le attività di Azure Data Factory per attivare il training e l'esecuzione di modelli di Riconoscimento modulo per digitalizzare un backlog di documenti di grandi dimensioni.
+description: Configurare Azure Data Factory attività per attivare il training e l'esecuzione di modelli di riconoscimento moduli e digitalizzare un backlog di grandi dimensioni dei documenti.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,87 +9,89 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 6faa612f55b4114b4242c48d43aae9aac8c56582
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d0c95312e1794e2f78bbbef217ef5530a993146d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699998"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040907"
 ---
-# <a name="tutorial-extract-form-data-in-bulk-using-azure-data-factory"></a>Esercitazione: Estrarre i dati di moduli in blocco con Azure Data Factory
+# <a name="tutorial-extract-form-data-in-bulk-by-using-azure-data-factory"></a>Esercitazione: estrarre i dati del modulo in blocco usando Azure Data Factory
 
-In questa esercitazione verrà illustrato come usare Servizi di Azure per inserire un batch di moduli di grandi dimensioni in contenuto multimediale. Questa esercitazione illustra come automatizzare l'inserimento dati da un data lake di documenti di Azure Data Lake in un database SQL di Azure. Saranno sufficienti pochi clic per eseguire rapidamente il training dei modelli ed elaborare nuovi documenti.
+In questa esercitazione verrà illustrato come usare Servizi di Azure per inserire un batch di moduli di grandi dimensioni in contenuto multimediale. Nell'esercitazione viene illustrato come automatizzare l'inserimento di dati da un data Lake di Azure in un database SQL di Azure. Saranno sufficienti pochi clic per eseguire rapidamente il training dei modelli ed elaborare nuovi documenti.
 
 ## <a name="business-need"></a>Esigenza aziendale
 
-La maggior parte delle organizzazioni è ora consapevole dell'importanza dei dati presenti in formati diversi (PDF, immagini, video). È quindi alla ricerca delle procedure consigliate e delle soluzioni più convenienti per digitalizzare tali asset.
+La maggior parte delle organizzazioni è ora in grado di riconoscere il valore dei dati disponibili in vari formati (PDF, immagini, video). È quindi alla ricerca delle procedure consigliate e delle soluzioni più convenienti per digitalizzare tali asset.
 
-I clienti si trovano inoltre a gestire spesso diversi tipi di moduli provenienti dai clienti. Diversamente dalle guide di [avvio rapido](./quickstarts/client-library.md), in questa esercitazione viene illustrato come eseguire automaticamente il training di un modello con tipi nuovi e diversi di moduli usando un approccio basato sui metadati. Se non esiste già un modello per il tipo di modulo specificato, il sistema ne creerà uno e fornirà l'ID del modello. 
+Inoltre, i clienti hanno spesso diversi tipi di moduli che provengono da numerosi client e clienti. Diversamente dalle [guide introduttive](./quickstarts/client-library.md), in questa esercitazione viene illustrato come eseguire automaticamente il training di un modello con tipi nuovi e diversi di form utilizzando un approccio basato sui metadati. Se non si dispone di un modello esistente per il tipo di modulo specificato, il sistema ne creerà uno e fornirà l'ID modello. 
 
 Estraendo i dati dai moduli e combinandoli ai sistemi e i data warehouse esistenti, le aziende possono ottenere dati analitici e produrre valore per i propri clienti e utenti aziendali.
 
-Con il servizio di Riconoscimento modulo di Azure le organizzazioni possono sfruttare i propri dati, automatizzare i processi (fatturazione, elaborazione fiscale e così via), risparmiare denaro e tempo e ottenere dati ancora più accurati.
+Il riconoscimento di Azure Form consente alle organizzazioni di usare i propri dati, automatizzare i processi (pagamenti di fatture, elaborazioni fiscali e così via), risparmiare denaro e tempo e ottimizzare la precisione dei dati.
 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Configurare Azure Data Lake per l'archiviazione dei moduli
-> * Usare un database di Azure per creare una tabella di parametrizzazione
-> * Usare Azure Key Vault per archiviare le credenziali sensibili
-> * Eseguire il training di un modello di Riconoscimento modulo in un notebook di Databricks
-> * Estrarre i dati del modulo usando un notebook di Databricks
-> * Automatizzare il training del modulo e l'estrazione con Azure Data Factory
+> * Configurare Azure Data Lake per archiviare i moduli.
+> * Usare un database di Azure per creare una tabella parametrizzazione.
+> * Usare Azure Key Vault per archiviare le credenziali riservate.
+> * Eseguire il training del modello di riconoscimento form in un notebook Azure Databricks.
+> * Estrarre i dati del modulo usando un notebook di databricks.
+> * Automatizzare il training e l'estrazione dei moduli usando Azure Data Factory.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="creare una risorsa di Riconoscimento modulo"  target="_blank">creare una risorsa di Riconoscimento modulo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
-    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Riconoscimento modulo. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
-    * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
-* Un set di almeno cinque moduli dello stesso tipo. Se possibile, questo flusso di lavoro dovrebbe supportare set di documenti di grandi dimensioni. Per suggerimenti e informazioni sulle opzioni per la creazione di un set di dati di training, vedere [Creare un set di dati di training](./build-training-data-set.md). Per questa esercitazione, è possibile usare i file inclusi nella cartella **Train** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2128080).
+* Una sottoscrizione di Azure. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/cognitive-services/).
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" creare una risorsa di riconoscimento "  target="_blank"> del modulo creare una risorsa di riconoscimento del modulo <span class="docon docon-navigate-external x-hidden-focus"></span> </a> nella portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione della risorsa selezionare **Vai alla risorsa**.
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Riconoscimento modulo. La chiave e l'endpoint verranno incollati nel codice più avanti in questa Guida introduttiva.
+    * È possibile usare il piano tariffario gratuito (F0) per provare il servizio. Sarà quindi possibile eseguire l'aggiornamento in un secondo momento a un livello a pagamento per la produzione.
+* Un set di almeno cinque moduli dello stesso tipo. Se possibile, questo flusso di lavoro dovrebbe supportare set di documenti di grandi dimensioni. Vedere [creare un set di dati di training](./build-training-data-set.md) per suggerimenti e opzioni per riunire il set di dati di training. Per questa esercitazione, è possibile usare i file nella cartella Train del set di [dati di esempio](https://go.microsoft.com/fwlink/?linkid=2128080).
 
 ## <a name="project-architecture"></a>Architettura del progetto 
 
-Questo progetto definisce un set di pipeline di Azure Data Factory per attivare notebook Python che consentono di eseguire il training, l'analisi e l'estrazione di dati da documenti in un account di archiviazione di Azure Data Lake.
+Questo progetto costituisce un set di pipeline di Azure Data Factory per attivare notebook Python che consentono di eseguire il training, l'analisi e l'estrazione di dati da documenti in un account di archiviazione Azure Data Lake.
 
-Per l'API REST di Riconoscimento modulo è richiesta l'immissione di alcuni parametri. Per motivi di sicurezza, alcuni di questi parametri verranno archiviati in un Azure Key Vault, mentre altri parametri meno sensibili, come il nome della cartella del BLOB di archiviazione, verranno archiviati in una tabella di parametrizzazione in un database SQL di Azure.
+L'API REST del riconoscitore del modulo richiede alcuni parametri come input. Per motivi di sicurezza, alcuni di questi parametri verranno archiviati in un insieme di credenziali delle chiavi di Azure. Altri parametri meno sensibili, come il nome della cartella BLOB di archiviazione, verranno archiviati in una tabella di parametrizzazione in un database SQL di Azure.
 
-Per ogni tipo di modulo da analizzare gli ingegneri dei dati o i data scientist compileranno una riga della tabella dei parametri. Useranno quindi Azure Data Factory per eseguire l'iterazione dell'elenco dei tipi di modulo rilevati e passare i parametri pertinenti a un notebook di Databricks per eseguire il training o ripetere il training dei modelli di Riconoscimento modulo. In questo punto è anche possibile usare una funzione di Azure.
+Per ogni tipo di modulo da analizzare, gli ingegneri dei dati o i data scientist popolano una riga della tabella dei parametri. Utilizzeranno quindi Azure Data Factory per scorrere l'elenco dei tipi di modulo rilevati e passare i parametri rilevanti a un notebook di databricks per eseguire il training o ripetere il training dei modelli di riconoscimento del modulo. In questo punto è anche possibile usare una funzione di Azure.
 
-Il notebook di Azure Databricks usa quindi i modelli sottoposti a training per estrarre i dati del modulo ed esporta tali dati in un database SQL di Azure.
+Il notebook Azure Databricks usa quindi i modelli sottoposti a training per estrarre i dati del modulo. Esporta i dati in un database SQL di Azure.
 
-:::image type="content" source="./media/tutorial-bulk-processing/architecture.png" alt-text="architettura del progetto":::
+:::image type="content" source="./media/tutorial-bulk-processing/architecture.png" alt-text="Diagramma che illustra l'architettura del progetto.":::
 
 
 ## <a name="set-up-azure-data-lake"></a>Configurare Azure Data Lake
 
-Il backlog dei moduli può trovarsi nell'ambiente locale o in un server FTP. Per questa esercitazione si usano i moduli in un account di archiviazione di Azure Data Lake Gen 2. È possibile trasferire i file con Azure Data Factory, Azure Storage Explorer o AzCopy. I set di dati di training e assegnazione dei punteggi possono trovarsi in contenitori diversi, ma i set di dati di training per tutti i tipi di modulo devono trovarsi nello stesso contenitore, anche se in cartelle diverse.
+Il backlog dei moduli potrebbe trovarsi nell'ambiente locale o in un server FTP. Questa esercitazione usa i moduli in un account Azure Data Lake Storage Gen2. È possibile trasferire i file in questa posizione usando Azure Data Factory, Azure Storage Explorer o AzCopy. I set di impostazioni di training e di assegnazione dei punteggi possono trovarsi in contenitori diversi, ma i set di impostazioni di training per tutti i tipi di modulo devono trovarsi nello stesso contenitore. (Possono trovarsi in cartelle diverse).
 
-Per creare un nuovo data lake, seguire le istruzioni in [Creare un account di archiviazione da usare con Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md).
+Per creare un nuovo data Lake, seguire le istruzioni riportate in [creare un account di archiviazione da usare con Azure Data Lake storage Gen2](../../storage/blobs/create-data-lake-storage-account.md).
 
 ## <a name="create-a-parameterization-table"></a>Creare una tabella di parametrizzazione
 
-Verrà ora creata una tabella di metadati in un database SQL di Azure. Questa tabella conterrà i dati non sensibili richiesti dall'API REST di Riconoscimento modulo. Ogni volta che nel set di dati è presente un nuovo tipo di modulo, verrà inserito un nuovo record in questa tabella e verrà attivata la pipeline di training e di assegnazione dei punteggi (che verrà implementata in un secondo momento).
+Successivamente, verrà creata una tabella di metadati in un database SQL di Azure. Questa tabella conterrà i dati non sensibili richiesti dall'API REST di Riconoscimento modulo. Ogni volta che è presente un nuovo tipo di form nel set di dati, si inserirà un nuovo record in questa tabella e si attiveranno le pipeline di training e di assegnazione dei punteggi. Queste pipeline verranno implementate in un secondo momento.
 
-Nella tabella verranno usati i campi seguenti:
+Questi campi verranno usati nella tabella:
 
-* **form_description**: questo campo non è obbligatorio per il training. Fornisce una descrizione del tipo di moduli per il quale si sta eseguendo il training del modello, ad esempio "moduli cliente A", "modulo albergo B".
-* **training_container_name**: questo campo corrisponde al nome del contenitore dell'account di archiviazione in cui è stato archiviato il set di dati di training. Può essere lo stesso contenitore specificato per **scoring_container_name**.
-* **training_blob_root_folder**: indica la cartella nell'account di archiviazione in cui verranno archiviati i file per il training del modello.
-* **scoring_container_name**: questo campo corrisponde al nome del contenitore dell'account di archiviazione in cui sono stati archiviati i file da cui si vogliono estrarre le coppie chiave-valore. Può essere lo stesso contenitore specificato per **training_container_name**.
-* **scoring_input_blob_folder**: indica la cartella nell'account di archiviazione in cui verranno archiviati i file da cui estrarre i dati.
-* **model_id**: indica l'ID del modello di cui si vuole ripetere il training. Per la prima esecuzione, il valore deve essere impostato su -1, in modo che il notebook di training crei un nuovo modello personalizzato di cui eseguire il training. Il notebook di training restituirà l'ID modello appena creato all'istanza di Azure Data Factory e, usando un'attività di stored procedure, questo valore verrà aggiornato nel database SQL di Azure.
+* **form_description**. Non richiesto come parte del training. Questo campo fornisce una descrizione del tipo di form per il quale si sta eseguendo il training del modello (ad esempio, "client A Forms", "Hotel B Forms").
+* **training_container_name**. Nome del contenitore dell'account di archiviazione in cui è stato archiviato il set di dati di training. Può essere lo stesso contenitore specificato per **scoring_container_name**.
+* **training_blob_root_folder**. La cartella all'interno dell'account di archiviazione in cui verranno archiviati i file per il training del modello.
+* **scoring_container_name**. Nome del contenitore dell'account di archiviazione in cui sono stati archiviati i file da cui si vogliono estrarre le coppie chiave/valore. Può essere lo stesso contenitore specificato per **training_container_name**.
+* **scoring_input_blob_folder**. La cartella nell'account di archiviazione in cui verranno archiviati i file da cui estrarre i dati.
+* **MODEL_ID**. ID del modello di cui si vuole ripetere il training. Per la prima esecuzione, il valore deve essere impostato su-1, in modo che il notebook di training crei un nuovo modello personalizzato per il training. Il notebook di training restituirà il nuovo ID modello all'istanza di Azure Data Factory. Usando un'attività stored procedure, questo valore verrà aggiornato nel database SQL di Azure.
 
-  Quando si vuole inserire un nuovo tipo di modulo, è necessario reimpostare manualmente l'ID modello su -1 prima di eseguire il training del modello.
+  Quando si desidera inserire un nuovo tipo di modulo, è necessario reimpostare manualmente l'ID modello su-1 prima di eseguire il training del modello.
 
-* **file_type**: i tipi di modulo supportati sono `application/pdf`, `image/jpeg`, `image/png` e `image/tif`.
+* **file_type**. I tipi di form supportati sono `application/pdf` ,, `image/jpeg` `image/png` e `image/tif` .
 
-  Se si hanno moduli con tipi di file diversi, sarà necessario modificare questo valore e quello di **model_id** quando si esegue il training di un nuovo tipo di modulo.
-* **form_batch_group_id**: nel corso del tempo potrebbero esistere più tipi di modulo di cui si esegue il training per lo stesso modello. **form_batch_group_id** consente di specificare tutti i tipi di modulo di cui è stato eseguito il training usando un modello specifico.
+  Se sono presenti moduli in altri tipi di file, è necessario modificare questo valore e **MODEL_ID** quando si esegue il training di un nuovo tipo di form.
+* **form_batch_group_id**. Nel corso del tempo, è possibile che si disponga di più tipi di modulo di cui si esegue il training per lo stesso modello. Il campo **form_batch_group_id** consentirà di specificare tutti i tipi di modulo che hanno corso di training con un modello specifico.
 
 ### <a name="create-the-table"></a>Creare la tabella
 
-[Creare un database SQL di Azure](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase) e quindi eseguire lo script SQL seguente nell'[editor di query](../../azure-sql/database/connect-query-portal.md) per creare la tabella necessaria.
+
+[Creare un database SQL di Azure](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase)e quindi eseguire lo script SQL nell' [editor di query](../../azure-sql/database/connect-query-portal.md) per creare la tabella richiesta:
+
 
 ```sql
 CREATE TABLE dbo.ParamFormRecogniser(
@@ -105,7 +107,7 @@ CREATE TABLE dbo.ParamFormRecogniser(
 GO
 ```
 
-Eseguire lo script seguente per creare la routine per l'aggiornamento automatico di **model_id** dopo che ne è stato eseguito il training.
+Eseguire questo script per creare la procedura che aggiorna automaticamente **MODEL_ID** dopo il training.
 
 ```SQL
 CREATE PROCEDURE [dbo].[update_model_id] ( @form_batch_group_id  varchar(50),@model_id varchar(50))
@@ -121,16 +123,16 @@ END
 
 Per motivi di sicurezza, si preferisce non archiviare determinate informazioni sensibili nella tabella di parametrizzazione del database SQL di Azure. I parametri sensibili verranno quindi archiviati come segreti di Azure Key Vault.
 
-### <a name="create-an-azure-key-vault"></a>Creare un Azure Key Vault
+### <a name="create-an-azure-key-vault"></a>Creare un insieme di credenziali delle chiavi di Azure
 
-[Creare una risorsa Key Vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault). Passare quindi alla risorsa Key Vault dopo che è stata creata e nella sezione **impostazioni** selezionare **segreti** per aggiungere i parametri.
+[Creare una risorsa Key Vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault). Passare quindi alla risorsa Key Vault dopo che è stata creata e, nella sezione **Impostazioni** , selezionare **segreti** per aggiungere i parametri.
 
-Verrà visualizzata una nuova finestra. Selezionare **Genera/Importa**. Immettere il nome del parametro e il relativo valore e quindi fare clic su Crea. Eseguire questa operazione per i parametri seguenti:
+Verrà visualizzata una nuova finestra. Selezionare **genera/importa**. Immettere il nome del parametro e il relativo valore, quindi selezionare **Crea**. Completare i passaggi seguenti per i parametri seguenti:
 
-* **CognitiveServiceEndpoint**: URL dell'endpoint dell'API di Riconoscimento modulo.
-* **CognitiveServiceSubscriptionKey**: chiave di accesso del servizio Riconoscimento modulo. 
-* **StorageAccountName**: account di archiviazione in cui sono archiviati i moduli e i set di dati di training da cui si vogliono estrarre le coppie chiave-valore. Se si trovano in account diversi, immettere ognuno dei nomi di account come segreti distinti. Tenere presente che i set di dati di training devono trovarsi nello stesso contenitore per tutti i tipi di modulo, anche se in cartelle diverse.
-* **StorageAccountSasKey**: firma di accesso condiviso dell'account di archiviazione. Per recuperare l'URL di firma di accesso condiviso, passare alla risorsa di archiviazione e selezionare la scheda **Storage Explorer**. Passare al contenitore, fare clic con il pulsante destro del mouse e scegliere **Ottieni firma di accesso condiviso**. È importante ottenere la firma di accesso condiviso per il contenitore, non per l'account di archiviazione. Assicurarsi che le autorizzazioni **Lettura** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **CognitiveServiceEndpoint**. URL dell'endpoint dell'API di riconoscimento del modulo.
+* **CognitiveServiceSubscriptionKey**. Chiave di accesso per il servizio di riconoscimento del modulo. 
+* **StorageAccountName**. L'account di archiviazione in cui vengono archiviati il set di dati di training e i moduli da cui si desidera estrarre le coppie chiave/valore. Se questi elementi si trovano in account diversi, immettere il nome di ogni account come segreto separato. Tenere presente che i set di impostazioni di training devono trovarsi nello stesso contenitore per tutti i tipi di form. Possono trovarsi in cartelle diverse.
+* **StorageAccountSasKey**. Firma di accesso condiviso (SAS) dell'account di archiviazione. Per recuperare l'URL della firma di accesso condiviso, passare alla risorsa di archiviazione. Nella scheda **Storage Explorer** passare al contenitore, fare clic con il pulsante destro del mouse e selezionare **Ottieni firma di accesso condiviso**. È importante ottenere la firma di accesso condiviso per il contenitore, non per l'account di archiviazione. Verificare che le autorizzazioni **lettura** ed **elenco** siano selezionate e quindi selezionare **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Il formato deve essere il seguente: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
 
 ## <a name="train-your-form-recognizer-model-in-a-databricks-notebook"></a>Eseguire il training di un modello di Riconoscimento modulo in un notebook di Databricks
 
@@ -138,28 +140,29 @@ Si userà Azure Databricks per archiviare ed eseguire il codice Python che inter
 
 ### <a name="create-a-notebook-in-databricks"></a>Creare un notebook in Databricks
 
-[Creare una risorsa di Azure Databricks](https://ms.portal.azure.com/#create/Microsoft.Databricks) nel portale di Azure. Passare alla risorsa dopo che è stata creata e avviare l'area di lavoro.
+[Creare una risorsa di Azure Databricks](https://ms.portal.azure.com/#create/Microsoft.Databricks) nel portale di Azure. Passare alla risorsa dopo che è stata creata e aprire l'area di lavoro.
 
 ### <a name="create-a-secret-scope-backed-by-azure-key-vault"></a>Creare un ambito dei segreti con supporto di Azure Key Vault
 
-Per fare riferimento ai segreti nell'istanza di Azure Key Vault creata in precedenza, è necessario creare un ambito dei segreti in Databricks. Seguire la procedura descritta in [Creare un ambito dei segreti supportato da Azure Key Vault](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
+
+Per fare riferimento ai segreti nell'insieme di credenziali delle chiavi di Azure creato in precedenza, è necessario creare un ambito segreto in databricks. Attenersi alla procedura seguente: [creare un ambito Secret con supporto di Azure Key Vault](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
 
 ### <a name="create-a-databricks-cluster"></a>Creare un cluster di Databricks
 
 Un cluster è una raccolta di risorse di calcolo di Databricks. Per creare un cluster:
 
-1. Nella barra laterale fare clic sul pulsante **Cluster**.
-1. Nella pagina **Cluster** fare clic su **Crea cluster**.
-1. Nella pagina **Crea cluster** specificare un nome di cluster e selezionare **7.2 (Scala 2.12, Spark 3.0.0)** nell'elenco a discesa per la versione del runtime di Databricks.
-1. Fare clic su **Crea cluster**.
+1. Nel riquadro sinistro selezionare il pulsante **cluster** .
+1. Nella pagina **cluster** selezionare **Crea cluster**.
+1. Nella pagina **Crea cluster** specificare un nome di cluster e quindi selezionare **7,2 (scala 2,12, Spark 3.0.0)** nell'elenco **Databricks Runtime versione** .
+1. Selezionare **Crea cluster**.
 
 ### <a name="write-a-settings-notebook"></a>Scrivere un notebook di impostazioni
 
-A questo punto è possibile aggiungere i notebook Python. Per prima cosa, creare un notebook denominato **Settings**. Questo notebook assegnerà i valori della tabella di parametrizzazione alle variabili presenti nello script. I valori verranno passati come parametri in un secondo momento da Azure Data Factory. Verranno inoltre eseguita l'assegnazione dei valori dei segreti nel Key Vault alle variabili. 
+A questo punto si è pronti per aggiungere notebook Python. Per prima cosa, creare un notebook denominato **Settings**. Questo notebook assegnerà i valori nella tabella di parametrizzazione alle variabili nello script. In seguito Azure Data Factory passerà i valori in come parametri. Verranno anche assegnati i valori dei segreti nell'insieme di credenziali delle chiavi alle variabili. 
 
-1. Per creare il notebook **Settings**, fare clic sul pulsante **area di lavoro**, nella nuova scheda fare clic sull'elenco a discesa e selezionare **crea** e quindi **notebook**.
-1. Nella finestra popup immettere il nome che si vuole assegnare al notebook e selezionare  **Python** come linguaggio predefinito. Selezionare il cluster Databricks e quindi **Crea**.
-1. Nella prima cella del notebook verranno recuperati i parametri passati da Azure Data Factory.
+1. Per creare il notebook **delle impostazioni** , selezionare il pulsante **area di lavoro** . Nella scheda nuovo selezionare l'elenco a discesa e selezionare **Crea** e quindi **notebook**.
+1. Nella finestra popup immettere un nome per il notebook e quindi selezionare **Python** come lingua predefinita. Selezionare il cluster databricks e quindi fare clic su **Crea**.
+1. Nella prima cella del notebook si recuperano i parametri passati da Azure Data Factory:
 
     ```python 
     dbutils.widgets.text("form_batch_group_id", "","")
@@ -196,7 +199,7 @@ A questo punto è possibile aggiungere i notebook Python. Per prima cosa, creare
     file_to_score_name=  getArgument("file_to_score_name")
     ```
 
-1. Nella seconda cella i segreti verranno recuperati da Key Vault e quindi assegnati alle variabili.
+1. Nella seconda cella si recuperano i segreti da Key Vault e li si assegna alle variabili:
 
     ```python 
     cognitive_service_subscription_key = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveserviceSubscriptionKey")
@@ -211,16 +214,16 @@ A questo punto è possibile aggiungere i notebook Python. Per prima cosa, creare
 
 ### <a name="write-a-training-notebook"></a>Scrivere un notebook di training
 
-Dopo aver completato il notebook **Settings**, è possibile creare un notebook per eseguire il training del modello. Come indicato in precedenza, verranno usati i file archiviati in una cartella in un account di archiviazione di Azure Data Lake Gen 2 (**training_blob_root_folder**). Il nome della cartella è stato passato come variabile. Ogni set di tipi di modulo sarà disponibile nella stessa cartella e, quando si eseguirà il ciclo della tabella dei parametri, verrà eseguito il training del modello usando tutti i tipi di modulo. 
+Dopo aver completato il notebook **Settings**, è possibile creare un notebook per eseguire il training del modello. Come indicato in precedenza, si useranno i file archiviati in una cartella in un account Azure Data Lake Storage Gen2 (**training_blob_root_folder**). Il nome della cartella è stato passato come variabile. Ogni set di tipi di form si troverà nella stessa cartella. Durante il ciclo della tabella dei parametri, verrà effettuato il training del modello usando tutti i tipi di form. 
 
-1. Creare un nuovo notebook denominato **TrainFormRecognizer**. 
-1. Nella prima cella eseguire il notebook di impostazioni:
+1. Creare un notebook denominato **TrainFormRecognizer**. 
+1. Nella prima cella eseguire il notebook **delle impostazioni** :
 
     ```python
     %run "./Settings"
     ```
 
-1. Nella cella successiva assegnare le variabili dal file **Settings** e quindi eseguire il training dinamico del modello per ogni tipo di modulo, applicando il codice nell'[avvio rapido REST](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md#get-training-results%20).
+1. Nella cella successiva assegnare le variabili dal file Settings e quindi eseguire il training dinamico del modello per ogni tipo di modulo, applicando il codice nell'[avvio rapido REST](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md#get-training-results%20).
 
     ```python
     import json
@@ -234,7 +237,7 @@ Dopo aver completato il notebook **Settings**, è possibile creare un notebook p
     includeSubFolders=True
     useLabelFile=False
     headers = {
-        # Request headers
+        # Request headers.
         'Content-Type': file_type,
         'Ocp-Apim-Subscription-Key': cognitive_service_subscription_key,
     }
@@ -245,7 +248,7 @@ Dopo aver completato il notebook **Settings**, è possibile creare un notebook p
             "includeSubFolders": includeSubFolders
        },
     }
-    if model_id=="-1": # if you don't already have a model you want to retrain. In this case, we create a model and use it to extract the key-value pairs
+    if model_id=="-1": # If you don't already have a model you want to retrain. In this case, we create a model and use it to extract the key/value pairs.
       try:
           resp = post(url = post_url, json = body, headers = headers)
           if resp.status_code != 201:
@@ -258,7 +261,7 @@ Dopo aver completato il notebook **Settings**, è possibile creare un notebook p
       except Exception as e:
           print("POST model failed:\n%s" % str(e))
           quit()
-    else :# if you already have a model you want to retrain, we reuse it and (re)train with the new form types.  
+    else :# If you already have a model you want to retrain, we reuse it and (re)train with the new form types.  
       try:
         get_url =post_url+r"/"+model_id
           
@@ -267,7 +270,7 @@ Dopo aver completato il notebook **Settings**, è possibile creare un notebook p
           quit()
     ```
 
-1. Nel passaggio finale del processo di training si otterrà il risultato del training in formato JSON.
+1. Il passaggio finale del processo di training consiste nell'ottenere il risultato della formazione in formato JSON:
 
     ```python
     n_tries = 10
@@ -305,22 +308,22 @@ Dopo aver completato il notebook **Settings**, è possibile creare un notebook p
     print("Train operation did not complete within the allocated time.")
     ```
 
-## <a name="extract-form-data-using-a-notebook"></a>Estrarre i dati del moduli con un notebook
+## <a name="extract-form-data-by-using-a-notebook"></a>Estrarre i dati del modulo tramite un notebook
 
 ### <a name="mount-the-azure-data-lake-storage"></a>Montare l'account di archiviazione di Azure Data Lake
 
-Il passaggio successivo consiste nell'assegnare un punteggio ai diversi moduli disponibili con il modello sottoposto a training. L'account di archiviazione di Azure Data Lake verrà montato Databricks e fare riferimento al montaggio durante il processo di inserimento.
+Il passaggio successivo consiste nell'assegnare un punteggio ai vari formati disponibili usando il modello sottoposto a training. L'account Azure Data Lake Storage viene montato in databricks e si fa riferimento al montaggio durante il processo di inserimento.
 
-Proprio come nella fase di training, si userà Azure Data Factory per richiamare l'estrazione delle coppie chiave-valore dai moduli. Verrà eseguito il ciclo sui moduli presenti nelle cartelle specificate nella tabella dei parametri.
+Come nella fase di training, si userà Azure Data Factory per richiamare l'estrazione delle coppie chiave/valore dai form. Eseguiamo il ciclo sui moduli nelle cartelle specificate nella tabella dei parametri.
 
-1. A questo punto verrà creato il notebook per montare l'account di archiviazione in Databricks. A tale notebook verrà assegnato il nome **MountDataLake**. 
+1. Creare il notebook per montare l'account di archiviazione in databricks. Chiamarlo **MountDataLake**. 
 1. È prima necessario chiamare il notebook **Settings**:
 
     ```python
     %run "./Settings"
     ```
 
-1. Nella seconda cella verranno definite le variabili per i parametri sensibili, che verranno recuperati dai segreti del Key Vault.
+1. Nella seconda cella definire le variabili per i parametri sensibili, che verranno recuperati dal Key Vault Secrets:
 
     ```python
     cognitive_service_subscription_key = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveserviceSubscriptionKey")
@@ -335,7 +338,7 @@ Proprio come nella fase di training, si userà Azure Data Factory per richiamare
     
     ```
 
-1. Successivamente, si proverà a smontare l'account di archiviazione nel caso in cui sia stato montato in precedenza.
+1. Provare a smontare l'account di archiviazione nel caso in cui sia stato montato in precedenza:
 
     ```python
     try:
@@ -345,7 +348,7 @@ Proprio come nella fase di training, si userà Azure Data Factory per richiamare
     
     ```
 
-1. Verrà infine montato l'account di archiviazione.
+1. Montare l'account di archiviazione:
 
 
     ```python
@@ -361,21 +364,21 @@ Proprio come nella fase di training, si userà Azure Data Factory per richiamare
     ```
 
     > [!NOTE]
-    > È stato montato solo l'account di archiviazione di training. In questo caso i file di training e i file da cui estrarre le coppie chiave-valore sono disponibili nello account di archiviazione. Se gli account di archiviazione di assegnazione dei punteggi e training sono diversi, a questo punto sarà necessario montare entrambi gli account di archiviazione. 
+    > È stato montato solo l'account di archiviazione di training. In questo caso, i file di training e i file da cui si desidera estrarre le coppie chiave/valore si trovano nello stesso account di archiviazione. Se gli account di archiviazione per punteggio e training sono diversi, sarà necessario montare entrambi gli account di archiviazione. 
 
 ### <a name="write-the-scoring-notebook"></a>Scrivere il notebook di assegnazione dei punteggi
 
-A questo punto è possibile creare un notebook di assegnazione dei punteggi. Analogamente al notebook di training, verranno usati i file archiviati nelle cartelle dell'account di archiviazione di Azure Data Lake appena montato. Il nome della cartella viene passato come variabile. Verrà eseguito il ciclo di tutti i moduli nella cartella specificata e verranno estratte le coppie chiave-valore. 
+È ora possibile creare un notebook di assegnazione dei punteggi. In questo modo, verrà usato un file archiviato in cartelle nell'account Azure Data Lake Storage appena montato, che verrà usato nel notebook di training. Il nome della cartella viene passato come variabile. Eseguiamo il ciclo di tutti i moduli nella cartella specificata ed Estrai le coppie chiave/valore. 
 
-1. Creare un nuovo notebook e assegnargli il nome **ScoreFormRecognizer**. 
-1. Eseguire i notebook **Settings** e **MountDataLake**.
+1. Creare un notebook e chiamarlo **ScoreFormRecognizer**. 
+1. Eseguire le **Impostazioni** e i notebook di **MountDataLake** :
 
     ```python
     %run "./Settings"
     %run "./MountDataLake"
     ```
 
-1. Aggiungere quindi il codice seguente che chiama l'API [Analisi](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).
+1. Aggiungere questo codice, che chiama l'API [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) :
 
     ```python
     ########### Python Form Recognizer Async Analyze #############
@@ -394,7 +397,7 @@ A questo punto è possibile creare un notebook di assegnazione dei punteggi. Ana
     }
     
     headers = {
-        # Request headers
+        # Request headers.
         'Content-Type': file_type,
         'Ocp-Apim-Subscription-Key': cognitive_service_subscription_key,
     }
@@ -414,7 +417,7 @@ A questo punto è possibile creare un notebook di assegnazione dei punteggi. Ana
         quit() 
     ```
 
-1. Nella cella successiva si otterranno i risultati dell'estrazione delle coppie chiave-valore. In questa cella verrà restituito il risultato. Dal momento che si vuole che il risultato in formato JSON venga elaborato ulteriormente nel database SQL di Azure o in Cosmos DB, il risultato verrà scritto in un file con estensione JSON. Il nome del file di output sarà il nome del file con punteggio, concatenato con "_output.json". Il file verrà archiviato nella stessa cartella del file di origine.
+1. Nella cella successiva si otterranno i risultati dell'estrazione della coppia chiave/valore. In questa cella verrà restituito il risultato. Si vuole il risultato in formato JSON in modo che sia possibile elaborarlo ulteriormente nel database SQL di Azure o in Azure Cosmos DB. Scriviamo quindi il risultato in un file con estensione JSON. Il nome del file di output sarà il nome del file con punteggio concatenato a "_output.json". Il file verrà archiviato nella stessa cartella del file di origine.
 
     ```python
     n_tries = 10
@@ -459,52 +462,52 @@ A questo punto è possibile creare un notebook di assegnazione dei punteggi. Ana
     file.close()
     ```
 
-## <a name="automate-training-and-scoring-with-azure-data-factory"></a>Automatizzare il training e l'assegnazione dei punteggi con Azure Data Factory
+## <a name="automate-training-and-scoring-by-using-azure-data-factory"></a>Automatizzare il training e l'assegnazione dei punteggi usando Azure Data Factory
 
-L'unico passaggio rimanente consiste nel configurare il servizio Azure Data Factory per automatizzare i processi di training e assegnazione dei punteggi. Per prima cosa, seguire la procedura descritta in [Creare una data factory](../../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory). Dopo aver creato la risorsa Azure Data Factory, sarà necessario creare tre pipeline: una per il training e due per l'assegnazione dei punteggi (illustrata di seguito).
+L'unico passaggio rimanente consiste nel configurare il servizio Azure Data Factory per automatizzare i processi di training e assegnazione dei punteggi. Per prima cosa, seguire la procedura descritta in [Creare una data factory](../../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory). Dopo aver creato la risorsa di Azure Data Factory, è necessario creare tre pipeline: una per il training e due per l'assegnazione dei punteggi. (Verrà illustrato più avanti).
 
 ### <a name="training-pipeline"></a>Pipeline di training
 
-La prima attività nella pipeline di training è una ricerca che consenta di leggere e restituire i valori della tabella di parametrizzazione nel database SQL di Azure. Dal momento che tutti i set di dati di training si troveranno nello stesso account di archiviazione e nello stesso contenitore (ma in cartelle potenzialmente diverse), verrà mantenuto il valore predefinito dell'attributo **First row only** (Solo prima riga) nelle impostazioni dell'attività di ricerca. Per ogni tipo di modulo per cui eseguire il training del modello, si eseguirà il training del modello usando tutti i file presenti in **training_blob_root_folder**.
+La prima attività nella pipeline di training è una ricerca che consenta di leggere e restituire i valori della tabella di parametrizzazione nel database SQL di Azure. Tutti i set di impostazioni di training si troveranno nello stesso account di archiviazione e nel contenitore, ma in cartelle potenzialmente diverse. Quindi, la **prima riga** del valore predefinito dell'attributo verrà mantenuta solo nelle impostazioni dell'attività di ricerca. Per ogni tipo di form su cui eseguire il training del modello, si eseguirà il training del modello usando tutti i file in **training_blob_root_folder**.
 
-:::image type="content" source="./media/tutorial-bulk-processing/training-pipeline.png" alt-text="pipeline di training nella data factory":::
+:::image type="content" source="./media/tutorial-bulk-processing/training-pipeline.png" alt-text="Screenshot che mostra una pipeline di training in Data Factory.":::
 
-La stored procedure accetta due parametri: **model_id** e **form_batch_group_id**. Il codice per restituire l'ID modello dal notebook di Databricks è `dbutils.notebook.exit(model_id)` e il codice per leggere il codice nell'attività della stored procedure nella data factory è `@activity('GetParametersFromMetadaTable').output.firstRow.form_batch_group_id`.
+Il stored procedure accetta due parametri: **MODEL_ID** e **form_batch_group_id**. Il codice per restituire l'ID modello dal notebook di databricks è `dbutils.notebook.exit(model_id)` . Il codice per leggere il codice nell'attività stored procedure in Data Factory è `@activity('GetParametersFromMetadaTable').output.firstRow.form_batch_group_id` .
 
 ### <a name="scoring-pipelines"></a>Pipeline di assegnazione dei punteggi
 
-Per estrarre le coppie chiave-valore, verranno analizzate tutte le cartelle incluse nella tabella di parametrizzazione e, per ogni cartella, verranno estratte le coppie chiave-valore di tutti i file in essa contenuti. Al momento, Azure Data Factory non supporta cicli ForEach annidati. Verranno invece create due pipeline. La prima pipeline eseguirà la ricerca dalla tabella di parametrizzazione e passerà l'elenco di cartelle come parametro alla seconda pipeline.
+Per estrarre le coppie chiave/valore, verranno analizzate tutte le cartelle della tabella di parametrizzazione. Per ogni cartella verranno estratte le coppie chiave/valore di tutti i file al suo interno. Azure Data Factory attualmente non supporta i cicli ForEach annidati. Si creeranno invece due pipeline. La prima pipeline eseguirà la ricerca dalla tabella di parametrizzazione e passerà l'elenco di cartelle come parametro alla seconda pipeline.
 
-:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-1a.png" alt-text="prima pipeline di assegnazione dei punteggi nella data factory":::
+:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-1a.png" alt-text="Screenshot che mostra la prima pipeline di assegnazione dei punteggi in Data Factory.":::
 
-:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-1b.png" alt-text="prima pipeline di assegnazione dei punteggi nella data factory, dettagli":::
+:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-1b.png" alt-text="Screenshot che mostra i dettagli per la prima pipeline di assegnazione dei punteggi in Data Factory.":::
 
-La seconda pipeline userà un'attività GetMeta per ottenere l'elenco dei file nella cartella e lo passerà come parametro al notebook Databricks di assegnazione dei punteggi.
+La seconda pipeline utilizzerà un'attività getmeta per ottenere l'elenco dei file nella cartella e passarlo come parametro al notebook databricks di assegnazione dei punteggi.
 
-:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-2a.png" alt-text="seconda pipeline di assegnazione dei punteggi nella data factory":::
+:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-2a.png" alt-text="Screenshot che mostra la seconda pipeline di assegnazione dei punteggi in Data Factory.":::
 
-:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-2b.png" alt-text="seconda pipeline di assegnazione dei punteggi nella data factory, dettagli":::
+:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-2b.png" alt-text="Screenshot che mostra i dettagli per la seconda pipeline di assegnazione dei punteggi in Data Factory.":::
 
 ### <a name="specify-a-degree-of-parallelism"></a>Specificare un grado di parallelismo
 
-Nelle pipeline di training e di assegnazione dei punteggi è possibile specificare il grado di parallelismo per elaborare più moduli contemporaneamente.
+Nelle pipeline di training e di assegnazione dei punteggi è possibile specificare il grado di parallelismo, in modo da poter elaborare contemporaneamente più moduli.
 
 Per impostare il grado di parallelismo nella pipeline Azure Data Factory:
 
-* Selezionare l'attività ForEach.
-* Deselezionare la casella **Sequenziale**.
-* Impostare il grado di parallelismo nella casella di testo **Numero di batch**. Per l'assegnazione dei punteggi è consigliabile un numero massimo di batch pari a 15.
+1. Selezionare l'attività **foreach** .
+1. Deselezionare la casella **sequenziale** .
+1. Impostare il grado di parallelismo nella casella **batch count** . Per l'assegnazione dei punteggi è consigliabile un numero massimo di batch pari a 15.
 
-:::image type="content" source="./media/tutorial-bulk-processing/parallelism.png" alt-text="configurazione del parallelismo per l'attività di assegnazione dei punteggi in Azure Data Factory":::
+:::image type="content" source="./media/tutorial-bulk-processing/parallelism.png" alt-text="Screenshot che mostra la configurazione del parallelismo per l'attività di assegnazione dei punteggi in Azure Data Factory.":::
 
-## <a name="how-to-use"></a>Uso
+## <a name="how-to-use-the-pipeline"></a>Come usare la pipeline
 
-A questo punto si ha una pipeline automatizzata per digitalizzare il backlog dei moduli ed eseguire alcune analisi. Quando si aggiungono nuovi moduli di un tipo noto a una cartella di archiviazione esistente, è sufficiente eseguire di nuovo le pipeline di assegnazione dei punteggi e verranno aggiornati tutti i file di output, inclusi i file di output per i nuovi moduli. 
+A questo punto si ha una pipeline automatizzata per digitalizzare il backlog dei moduli ed eseguire alcune analisi. Quando si aggiungono nuove forme di un tipo familiare a una cartella di archiviazione esistente, è sufficiente eseguire nuovamente le pipeline di assegnazione dei punteggi. Aggiorneranno tutti i file di output, inclusi i file di output per i nuovi moduli. 
 
-Se si aggiungono nuovi moduli di un nuovo tipo, sarà necessario caricare anche un set di dati di training nel contenitore appropriato. Aggiungere quindi una nuova riga nella tabella di parametrizzazione, immettendo i percorsi dei nuovi documenti e il relativo set di dati di training. Immettere il valore -1 per **model_ID** per indicare che è necessario eseguire il training di un nuovo modello per tali moduli. Eseguire la pipeline di training in Azure Data Factory. Dopo la lettura dalla tabella, verrà eseguito il training di un modello e l'ID modello nella tabella verrà sovrascritto. È quindi possibile chiamare le pipeline di assegnazione dei punteggi per iniziare a scrivere i file di output.
+Se si aggiungono nuovi moduli di un nuovo tipo, sarà necessario caricare anche un set di dati di training nel contenitore appropriato. Si aggiungerà quindi una nuova riga nella tabella di parametrizzazione, inserendo i percorsi dei nuovi documenti e il set di dati di training. Immettere un valore pari a-1 per **model_ID** per indicare che è necessario eseguire il training di un nuovo modello per i moduli. Eseguire quindi la pipeline di training in Azure Data Factory. La pipeline leggerà dalla tabella, eseguirà il training di un modello e sovrascriverà l'ID modello nella tabella. È quindi possibile chiamare le pipeline di assegnazione dei punteggi per iniziare a scrivere i file di output.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si sono configurate le pipeline di Azure Data Factory per attivare il training e l'esecuzione di modelli di Riconoscimento modulo per digitalizzare un backlog di file di grandi dimensioni. Esaminare quindi l'API di Riconoscimento modulo per scoprire quali altri operazioni è possibile eseguire.
+In questa esercitazione si configurano le pipeline di Azure Data Factory per attivare il training e l'esecuzione di modelli di riconoscimento moduli e digitalizzare un backlog di grandi dimensioni di file. Esaminare quindi l'API di Riconoscimento modulo per scoprire quali altri operazioni è possibile eseguire.
 
 * [API REST di Riconoscimento modulo](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)

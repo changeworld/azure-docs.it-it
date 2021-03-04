@@ -1,21 +1,24 @@
 ---
-title: Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
-description: Informazioni su come sviluppare Funzioni di Azure in C#.
+title: Sviluppare funzioni C# con funzioni di Azure
+description: Informazioni su come usare C# per sviluppare e pubblicare codice eseguito in-process con il runtime di funzioni di Azure.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 335cc3017e7b016666324306181c90a0e405a956
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: e29b250b25bdafb2b3af26f5669f2ae5ed485457
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806314"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041196"
 ---
-# <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
+# <a name="develop-c-functions-using-azure-functions"></a>Sviluppare funzioni C# con funzioni di Azure
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
 Questo articolo è un'introduzione allo sviluppo di Funzioni di Azure tramite C# nelle librerie di classi .NET.
+
+>[!IMPORTANT]
+>Questo articolo supporta le funzioni della libreria di classi .NET che vengono eseguite in-process con il Runtime. Funzioni supporta inoltre .NET 5. x eseguendo le funzioni C# out-of-process e isolate dal runtime. Per altre informazioni, vedere [funzioni di processo isolate .NET](dotnet-isolated-process-guide.md).
 
 Gli sviluppatori C# possono anche essere interessati a uno degli articoli seguenti:
 
@@ -31,9 +34,11 @@ Le versioni del runtime di funzioni funzionano con versioni specifiche di .NET. 
 
 | Versione del runtime di funzioni | Versione massima di .NET |
 | ---- | ---- |
-| Funzioni 3. x | .NET Core 3.1 |
+| Funzioni 3. x | .NET Core 3.1<br/>.NET 5,0<sup>*</sup> |
 | Funzioni 2.x | .NET Core 2.2 |
 | Funzioni 1.x | .NET Framework 4.7 |
+
+<sup>*</sup> Deve eseguire [out-of-process](dotnet-isolated-process-guide.md).
 
 Per altre informazioni, vedere [Panoramica delle versioni del runtime di funzioni di Azure](functions-versions.md)
 
@@ -94,9 +99,11 @@ Method Signature può contenere parametri diversi da quelli usati con l'attribut
 
 L'ordine dei parametri nella firma della funzione non è rilevante. È ad esempio possibile inserire i parametri di trigger prima o dopo le altre associazioni e il parametro del logger prima o dopo i parametri di associazione o di trigger.
 
-### <a name="output-binding-example"></a>Esempio di associazione di output
+### <a name="output-bindings"></a>Associazioni di output
 
-L'esempio seguente differisce dal precedente per l'aggiunta di un'associazione di coda di output. La funzione scrive il messaggio della coda che attiva la funzione in un nuovo messaggio di un'altra coda.
+Una funzione può avere zero o un binding di output definito utilizzando parametri di output. 
+
+Nell'esempio seguente viene modificata la precedente aggiungendo un'associazione di coda di output denominata `myQueueItemCopy` . La funzione scrive il contenuto del messaggio che attiva la funzione in un nuovo messaggio in una coda diversa.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -112,6 +119,8 @@ public static class SimpleExampleWithOutput
     }
 }
 ```
+
+I valori assegnati alle associazioni di output vengono scritti quando la funzione viene chiusa. È possibile usare più di un'associazione di output in una funzione semplicemente assegnando valori a più parametri di output. 
 
 Gli articoli di riferimento di associazione ([Code di archiviazione](functions-bindings-storage-queue.md), ad esempio) illustrano quali tipi di parametri è possibile usare con attributi di associazione di trigger, input o output.
 
@@ -361,7 +370,7 @@ Ecco una rappresentazione JSON di esempio dei dati `customDimensions`:
 }
 ```
 
-## <a name="log-custom-telemetry-in-c-functions"></a>Registrare dati di telemetria personalizzati nelle funzioni C#
+### <a name="log-custom-telemetry"></a><a name="log-custom-telemetry-in-c-functions"></a>Registrare i dati di telemetria personalizzati
 
 È disponibile una versione di Application Insights SDK specifica per Funzioni di Azure, che consente di inviare dati di telemetria personalizzati dalle funzioni in uso ad Application Insights: [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Al prompt dei comandi, usare il comando seguente per installare il pacchetto:
 

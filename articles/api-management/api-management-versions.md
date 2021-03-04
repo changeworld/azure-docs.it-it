@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 9dc44b4b898603df88d1bdd8c36ddfb6449335ac
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 55951f288314d92cf5057e7d5c1e988f65cb3e14
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547197"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040380"
 ---
 # <a name="versions-in-azure-api-management"></a>Versioni in gestione API di Azure
 
@@ -42,7 +42,7 @@ Quando si usa lo schema di controllo delle versioni dei percorsi, l'identificato
 
 Ad esempio, `https://apis.contoso.com/products/v1` e `https://apis.contoso.com/products/v2` possono fare riferimento alla stessa `products` API, ma alle versioni `v1` e `v2` rispettivamente.
 
-Il formato di un URL della richiesta API quando si usa il controllo delle versioni basato su intestazione è: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}` .
+Il formato di un URL della richiesta API quando si usa il controllo delle versioni basato sul percorso è: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}` .
 
 ### <a name="header-based-versioning"></a>Controllo delle versioni basato su intestazione
 

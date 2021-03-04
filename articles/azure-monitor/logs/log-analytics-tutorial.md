@@ -1,17 +1,16 @@
 ---
 title: Esercitazione su Log Analytics
 description: Questa esercitazione illustra come usare le funzionalità di Log Analytics in Monitoraggio di Azure per compilare ed eseguire una query su log e analizzarne i risultati nel portale di Azure.
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: a7a6ba395769677fe46ddfff675640f6e15060a0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723181"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041145"
 ---
 # <a name="log-analytics-tutorial"></a>Esercitazione su Log Analytics
 Log Analytics è uno strumento disponibile nel portale di Azure che consente di modificare ed eseguire query su log dai dati raccolti dai log di Monitoraggio di Azure e analizzarne i risultati in modo interattivo. È possibile usare le query di Log Analytics per recuperare i record che corrispondono a determinati criteri, identificare le tendenze, analizzare i modelli e fornire un'ampia varietà di informazioni dettagliate sui dati. 

@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/20/2021
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0adcbf49ff2128fdbe623121838058c5ed89dce2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9c311826c2b17f8e9f95d1ef31980922154635b9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378027"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042318"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Aggiornare il daemon di sicurezza e il runtime di IoT Edge
 
@@ -29,6 +29,9 @@ Per trovare la versione più recente di Azure IoT Edge, fare riferimento alle [v
 Il daemon di sicurezza di IoT Edge è un componente nativo che deve essere aggiornato usando la gestione pacchetti nel dispositivo IoT Edge.
 
 Controllare la versione del daemon di sicurezza in esecuzione nel dispositivo tramite il comando `iotedge version`.
+
+>[!IMPORTANT]
+>Se si sta aggiornando un dispositivo dalla versione 1,0 o 1,1 alla versione 1,2, esistono differenze nei processi di installazione e configurazione che richiedono passaggi aggiuntivi. Per ulteriori informazioni, vedere la procedura più avanti in questo articolo: [caso speciale: aggiornamento da 1,0 o 1,1 a 1,2](#special-case-update-from-10-or-11-to-12).
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
@@ -67,6 +70,9 @@ Aggiornare apt.
    sudo apt-get update
    ```
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 Verificare quali versioni di IoT Edge sono disponibili.
 
    ```bash
@@ -91,17 +97,41 @@ Se la versione che si vuole installare non è disponibile tramite apt-get, è po
 curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
 curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
 ```
+<!-- end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Verificare quali versioni di IoT Edge sono disponibili.
+
+   ```bash
+   apt list -a aziot-edge
+   ```
+
+Se si desidera eseguire l'aggiornamento alla versione più recente di IoT Edge, utilizzare il comando seguente che aggiorna anche il servizio di identità alla versione più recente:
+
+   ```bash
+   sudo apt-get install aziot-edge
+   ```
+<!-- end 1.2 -->
+:::moniker-end
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
 <!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
-
+:::moniker range="iotedge-2018-06"
 Con IoT Edge per Linux in Windows, IoT Edge viene eseguito in una macchina virtuale Linux ospitata in un dispositivo Windows. Questa macchina virtuale è preinstallata con IoT Edge e viene gestita con Microsoft Update per rendere aggiornati i componenti. Attualmente non sono disponibili aggiornamenti.
 
-::: moniker-end
-
 Con IoT Edge per Windows, IoT Edge viene eseguito direttamente nel dispositivo Windows. Per istruzioni sull'aggiornamento che usano gli script di PowerShell, vedere [installare e gestire Azure IOT Edge per Windows](how-to-install-iot-edge-windows-on-windows.md).
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Attualmente non è disponibile il supporto per IoT Edge versione 1,2 in esecuzione nei dispositivi Windows.
+
+:::moniker-end
 
 ---
 
@@ -158,7 +188,79 @@ Se si usano tag specifici nella distribuzione (ad esempio, mcr.microsoft.com/azu
 
 1. Selezionare **Verifica e crea**, esaminare la distribuzione e selezionare **Crea**.
 
-## <a name="update-to-a-release-candidate-version"></a>Eseguire l'aggiornamento a una versione finale candidata
+## <a name="special-case-update-from-10-or-11-to-12"></a>Caso speciale: aggiornamento da 1,0 o 1,1 a 1,2
+
+A partire dalla versione 1,2, il servizio IoT Edge usa un nuovo nome di pacchetto e presenta alcune differenze nei processi di installazione e configurazione. Se si dispone di un dispositivo IoT Edge che esegue la versione 1,0 o 1,1, seguire queste istruzioni per informazioni su come eseguire l'aggiornamento a 1,2.
+
+>[!NOTE]
+>Attualmente non è disponibile alcun supporto per IoT Edge versione 1,2 in esecuzione nei dispositivi Windows.
+
+Di seguito sono riportate alcune delle differenze principali tra 1,2 e versioni precedenti:
+
+* Il nome del pacchetto è stato modificato da **iotedge** a **aziot-Edge**.
+* Il pacchetto **libiothsm-STD** non è più usato. Se è stato usato il pacchetto standard fornito come parte della versione IoT Edge, le configurazioni possono essere trasferite alla nuova versione. Se è stata usata un'implementazione diversa di libiothsm-STD, sarà necessario riconfigurare tutti i certificati forniti dall'utente come il certificato di identità del dispositivo, la CA del dispositivo e il bundle di attendibilità.
+* Un nuovo servizio di identità, **aziot-Identity-Service** , è stato introdotto come parte della versione 1,2. Questo servizio gestisce il provisioning e la gestione delle identità per IoT Edge e per altri componenti del dispositivo che devono comunicare con l'hub Internet, ad esempio l'aggiornamento del dispositivo dell'hub Azure. <!--TODO: add link to ADU when available -->
+* Il file di configurazione predefinito ha un nuovo nome e un nuovo percorso. `/etc/iotedge/config.yaml`In precedenza, le informazioni di configurazione del dispositivo sono ora previste per `/etc/aziot/congig.toml` impostazione predefinita. Il `iotedge config import` comando può essere utilizzato per facilitare la migrazione delle informazioni di configurazione nel percorso e nella nuova sintassi precedenti.
+* I moduli che usano l'API del carico di lavoro IoT Edge per crittografare o decrittografare i dati persistenti non possono essere decrittografati dopo l'aggiornamento. IoT Edge genera dinamicamente una chiave di crittografia master e una chiave di crittografia per uso interno. Questa chiave non verrà trasferita al nuovo servizio. IoT Edge v 1.2 ne genererà uno nuovo.
+
+Prima di automatizzare i processi di aggiornamento, verificare che funzioni nei computer di test.
+
+Quando si è pronti, seguire questa procedura per aggiornare IoT Edge nei dispositivi:
+
+1. Ottenere la configurazione più recente del repository da Microsoft:
+
+   * **Ubuntu Server 18.04**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+   * **Raspberry Pi OS Stretch**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+2. Copiare l'elenco generato.
+
+   ```bash
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+
+3. Installare la chiave pubblica di Microsoft GPG.
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
+
+4. Aggiornare apt.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+5. Disinstallare la versione precedente di IoT Edge, lasciando inalterati i file di configurazione.
+
+   ```bash
+   sudo apt-get remove iotedge
+   ```
+
+6. Installare la versione più recente di IoT Edge, insieme al servizio di identità Internet delle cose.
+
+   ```bash
+   sudo apt-get install aziot-edge
+   ```
+
+7. Importare il file config. YAML precedente nel nuovo formato e applicare le informazioni di configurazione.
+
+   ```bash
+   sudo iotedge config import
+   ```
+
+Ora che il servizio IoT Edge in esecuzione nei dispositivi è stato aggiornato, seguire la procedura descritta in questo articolo per [aggiornare anche i contenitori di runtime](#update-the-runtime-containers).
+
+## <a name="special-case-update-to-a-release-candidate-version"></a>Caso speciale: aggiornamento a una versione finale candidata
 
 Azure IoT Edge rilascia periodicamente nuove versioni del servizio IoT Edge. Prima di ogni versione stabile, sono presenti una o più versioni di Release Candidate (RC). Le versioni RC includono tutte le funzionalità pianificate per la versione, ma sono ancora in fase di test e convalida. Se si vuole testare una nuova funzionalità in anticipo, è possibile installare una versione RC e inviare commenti e suggerimenti tramite GitHub.
 

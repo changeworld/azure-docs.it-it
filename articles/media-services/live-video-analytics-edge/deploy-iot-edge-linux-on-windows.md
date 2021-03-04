@@ -3,12 +3,12 @@ title: Eseguire la distribuzione in un IoT Edge per Linux in Windows-Azure
 description: Questo articolo fornisce indicazioni su come eseguire la distribuzione in un IoT Edge per Linux in un dispositivo Windows.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: 5cf4184857f12065d808d7b528dbfe8258950cd8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b635070d6a4834da2c6d82cc768684b6cde9cd71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745480"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042182"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Eseguire la distribuzione in un dispositivo IoT Edge per Linux in Windows (EFLOW)
 
@@ -107,7 +107,7 @@ Di seguito viene illustrato il flusso generale del documento e in 5 semplici pas
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Provare il rilevamento del movimento insieme alla registrazione dei video pertinenti nel cloud. Seguire i passaggi della Guida introduttiva [rilevare il movimento, registrare i clip video in servizi multimediali](detect-motion-record-video-clips-media-services-quickstart.md#review-the-sample-video) .
-* Esegui [intelligenza artificiale su video live](use-your-model-quickstart#overview) (è possibile ignorare la configurazione dei prerequisiti perché è già stata eseguita in precedenza)
+* Esegui [intelligenza artificiale su video live](use-your-model-quickstart.md#overview) (è possibile ignorare la configurazione dei prerequisiti perché è già stata eseguita in precedenza)
 * Usare l' [estensione vs code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) per visualizzare altri grafici multimediali.
 * Usare una [fotocamera IP](https://en.wikipedia.org/wiki/IP_camera)  che supporta RTSP invece di usare il simulatore RTSP. È possibile trovare videocamere IP che supportano RTSP nella pagina dei [prodotti conformi a ONVIF](https://www.onvif.org/conformant-products/). Cercare dispositivi conformi ai profili G, S o T.
 
