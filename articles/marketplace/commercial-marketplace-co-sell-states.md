@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 09/02/2020
-ms.openlocfilehash: 688fabb7138ad71a978051e742dd8397042ffcf1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 9ec914e5fea0d54f4705e8f14f5a64fa80c1adfe
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744670"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120029"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Co-selling di codici di stato e provincia in Azure Marketplace
 
-Questo articolo elenca i codici di stato e provincia disponibili quando si forniscono informazioni di contatto nella pagina di co-selling dell'offerta. Se applicabile, usare questi codici per fornire informazioni sullo stato/provincia quando si [forniscono informazioni di contatto nella pagina di co-selling dell'offerta](commercial-marketplace-co-sell.md#contacts).
+Questo articolo elenca i codici di stato e provincia disponibili quando si forniscono informazioni di contatto nella pagina di co-selling dell'offerta. Se applicabile, usare questi codici per fornire informazioni sullo stato/provincia quando si [forniscono informazioni di contatto nella pagina di co-selling dell'offerta](commercial-marketplace-co-sell.md#enter-your-contacts).
 
 ## <a name="us-states-and-territories"></a>Stati e territori degli Stati Uniti
 

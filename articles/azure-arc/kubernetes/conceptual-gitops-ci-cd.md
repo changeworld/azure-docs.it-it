@@ -2,30 +2,31 @@
 title: Flusso di lavoro CI/CD con GitOps-Azure Arc Enabled Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/26/2021
+ms.date: 03/03/2021
 ms.topic: conceptual
 author: tcare
 ms.author: tcare
 description: Questo articolo fornisce una panoramica concettuale di un flusso di lavoro CI/CD con GitOps
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contenitori, CI, CD, Azure DevOps
-ms.openlocfilehash: 044275db0977a20474aa1451324486ad1750a7f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054919"
+ms.locfileid: "102121780"
 ---
-# <a name="overview"></a>Panoramica
+# <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Flusso di lavoro CI/CD con GitOps-Azure Arc Enabled Kubernetes
 
 Le distribuzioni Kubernetes moderne ospitano più applicazioni, cluster e ambienti. Con GitOps è possibile gestire più facilmente queste configurazioni complesse, tenendo traccia dello stato desiderato degli ambienti Kubernetes in modo dichiarativo con git. Usando gli strumenti Git comuni per tenere traccia dello stato del cluster, è possibile aumentare la responsabilità, semplificare l'analisi degli errori e abilitare l'automazione per la gestione degli ambienti.
 
-Questo articolo fornisce una panoramica concettuale su come rendere GitOps una realtà nell'intero ciclo di vita di una modifica dell'applicazione con Azure Arc, Azure Repos e Azure Pipelines. Esaminare un esempio end-to-end di una singola modifica di un'applicazione da uno sviluppatore a ambienti Kubernetes controllati da GitOps.
+Questa panoramica concettuale illustra GitOps come realtà nell'intero ciclo di vita delle modifiche dell'applicazione usando Azure Arc, Azure Repos e Azure Pipelines. [Passare a un esempio](#example-workflow) di una singola modifica di applicazione negli ambienti Kubernetes controllati da GitOps.
 
 ## <a name="architecture"></a>Architettura
 
 Si consideri un'applicazione distribuita in uno o più ambienti Kubernetes.
 
 ![Architettura CI/CD GitOps](./media/gitops-arch.png)
+
 ### <a name="application-repo"></a>Repository dell'applicazione
 Il repository dell'applicazione contiene il codice dell'applicazione su cui lavorano gli sviluppatori durante il ciclo interno. I modelli di distribuzione dell'applicazione risiedono in questo repository in un formato generico, ad esempio Helm o Kustomize. I valori specifici dell'ambiente non vengono archiviati. Le modifiche apportate a questo repository richiamano una pipeline pull o CI che avvia il processo di distribuzione.
 ### <a name="container-registry"></a>Registro contenitori
@@ -33,15 +34,15 @@ Il registro contenitori include tutte le immagini di prima e di terze parti usat
 ### <a name="pr-pipeline"></a>Pipeline PR
 Le richieste pull al repository dell'applicazione vengono gestite in modo corretto per l'esecuzione della pipeline di richiesta pull. Questa pipeline esegue le attività di controllo di qualità di base, ad esempio le operazioni di pelucchi e unit test sul codice dell'applicazione. La pipeline verifica l'applicazione e non i modelli Dockerfile e Helm usati per la distribuzione in un ambiente Kubernetes. Le immagini Docker devono essere compilate e testate, ma non inserite. Tenere la durata della pipeline relativamente breve per consentire l'iterazione rapida.
 ### <a name="ci-pipeline"></a>Pipeline CI
-La pipeline dell'applicazione CI esegue tutti i passaggi della pipeline di richiesta pull ed espande i controlli di test e distribuzione. La pipeline può essere eseguita per ogni commit o a cadenza regolare con un gruppo di commit. A questo punto, eseguire il test dell'applicazione troppo lungo per una pipeline di richiesta pull. Eseguire il push delle immagini Docker nella Container Registry dopo la compilazione in preparazione per la distribuzione. Per il modello sostituito è possibile usare un set di valori di testing. A questo punto le immagini utilizzate nel runtime del servizio devono essere incorporate, compilate e testate. Nella compilazione CI in particolare, gli artefatti vengono pubblicati affinché il passaggio del CD venga utilizzato in preparazione per la distribuzione.
+La pipeline dell'applicazione CI esegue tutti i passaggi della pipeline di richiesta pull ed espande i controlli di test e distribuzione. La pipeline può essere eseguita per ogni commit o a cadenza regolare con un gruppo di commit. A questo punto, eseguire il test dell'applicazione troppo lungo per una pipeline di richiesta pull. Eseguire il push delle immagini Docker nella Container Registry dopo la compilazione in preparazione per la distribuzione. Per il modello sostituito è possibile usare un set di valori di test. A questo punto le immagini utilizzate nel runtime del servizio devono essere incorporate, compilate e testate. Nella compilazione CI in particolare, gli artefatti vengono pubblicati affinché il passaggio del CD venga utilizzato in preparazione per la distribuzione.
 ### <a name="flux"></a>Flux
 Flux è un servizio che viene eseguito in ogni cluster ed è responsabile della gestione dello stato desiderato. Il servizio esegue spesso il polling del repository GitOps per le modifiche al cluster e le applica.
 ### <a name="cd-pipeline"></a>Pipeline CD
 La pipeline CD viene attivata automaticamente da compilazioni CI riuscite. USA i modelli pubblicati in precedenza, sostituisce i valori dell'ambiente e apre una richiesta pull al repository GitOps per richiedere una modifica allo stato desiderato di uno o più cluster Kubernetes. Gli amministratori del cluster riesaminano la richiesta di modifica dello stato e approvano il merge nel repository GitOps. La pipeline attende quindi il completamento della richiesta pull, che consente a Flux di selezionare la modifica dello stato.
 ### <a name="gitops-repo"></a>Repository GitOps
-Il repository GitOps rappresenta lo stato desiderato corrente di tutti gli ambienti tra i cluster. Qualsiasi modifica apportata a questo repository viene prelevata dal servizio Flux in ogni cluster e distribuita. Le richieste pull vengono create con modifiche allo stato desiderato, riviste e unite. Queste richieste pull contengono modifiche sia ai modelli di distribuzione sia ai manifesti Kubernetes di rendering risultanti. I manifesti di basso livello di cui è stato eseguito il rendering evitano eventuali sorprese alla base della sostituzione del modello, consentendo un'attenta ispezione delle modifiche generalmente non visualizzate a livello di modello.
+Il repository GitOps rappresenta lo stato desiderato corrente di tutti gli ambienti tra i cluster. Qualsiasi modifica apportata a questo repository viene prelevata dal servizio Flux in ogni cluster e distribuita. Le richieste pull vengono create con modifiche allo stato desiderato, riviste e unite. Queste richieste pull contengono modifiche sia ai modelli di distribuzione sia ai manifesti Kubernetes di rendering risultanti. I manifesti sottoposti a rendering di basso livello consentono un controllo più accurato delle modifiche generalmente non visualizzate a livello di modello.
 ### <a name="kubernetes-clusters"></a>Cluster Kubernetes
-Uno o più cluster Kubernetes abilitati per Azure Arc servono i diversi ambienti richiesti dall'applicazione. Ad esempio, un singolo cluster può gestire un ambiente di sviluppo e di controllo di qualità tramite diversi spazi dei nomi. Un secondo cluster può offrire una separazione più semplice degli ambienti e un controllo più granulare.
+Almeno un cluster Kubernetes abilitato in Azure Arc serve i diversi ambienti richiesti dall'applicazione. Ad esempio, un singolo cluster può gestire un ambiente di sviluppo e di controllo di qualità tramite diversi spazi dei nomi. Un secondo cluster può offrire una separazione più semplice degli ambienti e un controllo più granulare.
 ## <a name="example-workflow"></a>Esempio di flusso di lavoro
 In qualità di sviluppatore di applicazioni, Alice:
 * Scrive il codice dell'applicazione.
@@ -73,4 +74,4 @@ Si supponga che Alice voglia apportare una modifica all'applicazione che modific
 8.  Una volta che tutti gli ambienti hanno ricevuto correttamente le distribuzioni, la pipeline viene completata.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Configurazioni e GitOps con Azure Arc abilitato Kubernetes](./conceptual-configurations.md)
+Altre informazioni sulla creazione di connessioni tra il cluster e un repository Git come [risorsa di configurazione con Azure Arc Enabled Kubernetes](./conceptual-configurations.md)

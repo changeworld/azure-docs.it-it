@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 44a084266a083b2cc7c0609e4bfedb10a018585d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 075b04414c752ce87365d03212fcdabab6eaa7dd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107555"
+ms.locfileid: "102119825"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Configurare le opzioni del provider di identità SAML con Azure Active Directory B2C
 
@@ -43,8 +43,8 @@ L'elemento **OutputClaims** contiene un elenco di attestazioni restituite dal pr
 L'elemento Claim di output contiene gli attributi seguenti:
 
 - **ClaimTypeReferenceId** è il riferimento a un tipo di attestazione. 
-- **PartnerClaimType** è il nome della proprietà visualizzato in Azure Insights. Utilizzare la sintassi `{property:NAME}` , dove `NAME` viene aggiunta la proprietà all'evento.
-- **DefaultValue** è un valore predefinito da registrare, ad esempio il nome dell'evento. Attestazione utilizzata nel percorso utente, ad esempio il nome del provider di identità. Se l'attestazione è vuota, verrà utilizzato il valore predefinito. Ad esempio, l' `identityProvider` attestazione viene impostata dai profili tecnici della Federazione, ad esempio Facebook. Se l'attestazione è vuota, indica l'accesso dell'utente con un account locale. Quindi, il valore predefinito è impostato su *local*. È anche possibile registrare un [resolver di attestazioni](claim-resolver-overview.md) con un valore contestuale, ad esempio l'ID dell'applicazione o l'indirizzo IP dell'utente.
+- **PartnerClaimType** è il nome della proprietà che viene visualizzata asserzione SAML. 
+- **DefaultValue** è un valore predefinito predefinito. Se l'attestazione è vuota, verrà utilizzato il valore predefinito. È anche possibile usare un [resolver di attestazioni](claim-resolver-overview.md) con un valore contestuale, ad esempio l'ID di correlazione, o l'indirizzo IP dell'utente.
 
 ### <a name="subject-name"></a>Nome oggetto
 

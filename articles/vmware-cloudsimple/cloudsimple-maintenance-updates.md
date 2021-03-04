@@ -4,17 +4,17 @@ titleSuffix: Azure VMware Solution by CloudSimple
 description: Descrive il processo del servizio CloudSimple per la manutenzione e gli aggiornamenti pianificati
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 08/20/2019
+ms.date: 03/04/2021
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 814a901fba065e36ea3ba9e3a6fe1175365de6c5
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025028"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120709"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Manutenzione e aggiornamenti di CloudSimple
 
@@ -39,7 +39,7 @@ CloudSimple monitora inoltre costantemente gli errori seguenti:
 * Porte NIC fisiche
 * Server
 * Fan
-* Alimentazione
+* Potenza
 * Commutatori
 * Porte switch
 
@@ -50,7 +50,7 @@ CloudSimple esegue il backup, gestisce e aggiorna questi elementi VMware nei clo
 * ESXi
 * Servizi della piattaforma vCenter
 * Controller
-* Rete VSAN
+* vSAN
 * NSX
 
 ## <a name="back-up-and-restore"></a>Backup e ripristino
@@ -100,7 +100,7 @@ Gli aggiornamenti software includono:
 * **Aggiornamenti**. Modifica della versione secondaria di un componente dello stack VMware.
 * **Aggiornamenti**. Modifica della versione principale di un componente dello stack VMware.
 
-CloudSimple testa una patch di sicurezza critica non appena diventa disponibile da VMware. Per SLA, CloudSimple esegue il rollup della patch di sicurezza negli ambienti di cloud privato entro una settimana.
+CloudSimple testa una patch di sicurezza critica non appena diventa disponibile da VMware. 
 
 CloudSimple fornisce aggiornamenti di manutenzione trimestrale per i componenti software VMware. Quando è disponibile una nuova versione principale del software VMware, CloudSimple collabora con i clienti per coordinare una finestra di manutenzione adatta per l'aggiornamento.
 

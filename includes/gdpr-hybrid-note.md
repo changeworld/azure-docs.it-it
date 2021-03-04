@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: includere file
+description: includere file
 services: active-directory
 author: eross-msft
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/01/2018
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 5bcc770c730b53a9523415a4978b439ac0079410
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 6cbdf96571ece4f714affb13aa97d495cc84dab3
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974061"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109144"
 ---
->[!Note]
->Se si vuole visualizzare o eliminare dati personali, consultare il materiale sussidiario di Microsoft sul sito [Richieste del soggetto dei dati per l'RGPD in Windows](/microsoft-365/compliance/gdpr-data-subject-requests). Se si cercano le informazioni generali sull'RGPD, vedere la [sezione sull'RGPD del portale del servizio attendibile](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+> [!NOTE]
+> Per informazioni sulla visualizzazione o l'eliminazione di dati personali, consultare le linee guida di Microsoft relative alle [richieste di soggetto dati di Windows per il](/microsoft-365/compliance/gdpr-dsr-windows) sito di GDPR. Per informazioni generali su GDPR, vedere la [sezione GDPR del Centro protezione Microsoft](https://www.microsoft.com/trust-center/privacy/gdpr-overview) e la [sezione GDPR del portale di attendibilità del servizio](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

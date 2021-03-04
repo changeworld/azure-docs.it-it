@@ -1,5 +1,5 @@
 ---
-title: Aggregazione di eventi (anteprima)
+title: Aggregazione di eventi
 titleSuffix: Azure Defender for IoT
 description: Defender per gli agenti di sicurezza Internet raccoglie gli eventi di dati e di sistema dal dispositivo locale e invia i dati al cloud di Azure per l'elaborazione e l'analisi.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: azure
-ms.openlocfilehash: 9ce24a44e48f090a0dc7d355952b3cf50dd4318c
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 53811c20330d96b279eeb24e1aa90248b60fcb32
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809915"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120046"
 ---
-# <a name="event-aggregation-preview"></a>Aggregazione di eventi (anteprima)
+# <a name="event-aggregation"></a>Aggregazione di eventi 
 
 Defender per gli agenti di sicurezza Internet raccoglie gli eventi di dati e di sistema dal dispositivo locale e invia i dati al cloud di Azure per l'elaborazione e l'analisi. Il Defender per l'agente del Micro Internet raccoglie molti tipi di eventi del dispositivo, inclusi i nuovi processi e tutti i nuovi eventi di connessione. Sia il nuovo processo che i nuovi eventi di connessione possono verificarsi di frequente in un dispositivo entro un secondo. Questa funzionalità è importante per la sicurezza completa, tuttavia, il numero di messaggi inviati dagli agenti di sicurezza può essere rapidamente soddisfatto o superare i limiti di quota e di costo dell'hub. Tuttavia, questi eventi contengono informazioni di sicurezza estremamente utili, cruciali per la protezione del dispositivo. 
 

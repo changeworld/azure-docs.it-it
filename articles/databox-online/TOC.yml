@@ -102,7 +102,7 @@
     - name: Panoramica
       items:
         - name: Che cos'è Azure Stack Edge Mini R?
-          href: azure-stack-edge-k-series-overview.md
+          href: azure-stack-edge-mini-r-overview.md
     - name: Concetti
       items:
         - name: Istruzioni per la sicurezza

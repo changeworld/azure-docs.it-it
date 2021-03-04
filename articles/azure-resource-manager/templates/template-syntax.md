@@ -2,13 +2,13 @@
 title: Struttura e sintassi del modello
 description: Descrive la struttura e le proprietà dei modelli di Azure Resource Manager (modelli ARM) usando la sintassi dichiarativa JSON.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 31576c72fb845677f132fd9cd6ee776db922d436
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: da64eb8abeaf45f58933dfbddaf954cad8e66f4a
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722705"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120417"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendere la struttura e la sintassi dei modelli di Resource Manager
 
@@ -46,62 +46,6 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 
 Ogni elemento ha proprietà che è possibile impostare. In questo articolo le sezioni del modello vengono esaminate in modo dettagliato.
 
-## <a name="data-types"></a>Tipi di dati
-
-All'interno di un modello ARM, è possibile usare questi tipi di dati:
-
-* string
-* securestring
-* INT
-* bool
-* object
-* secureObject
-* array
-
-Nel modello seguente viene illustrato il formato per i tipi di dati di. Ogni tipo ha un valore predefinito nel formato corretto.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringParameter": {
-      "type": "string",
-      "defaultValue": "option 1"
-    },
-    "intParameter": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "boolParameter": {
-      "type": "bool",
-      "defaultValue": true
-    },
-    "objectParameter": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b"
-      }
-    },
-    "arrayParameter": {
-      "type": "array",
-      "defaultValue": [ 1, 2, 3 ]
-    }
-  },
-  "resources": [],
-  "outputs": {}
-}
-```
-
-La stringa protetta usa lo stesso formato di stringa e l'oggetto protetto usa lo stesso formato dell'oggetto. Quando si imposta un parametro su una stringa sicura o un oggetto protetto, il valore del parametro non viene salvato nella cronologia di distribuzione e non viene registrato. Tuttavia, se si imposta il valore sicuro su una proprietà che non prevede un valore sicuro, il valore non è protetto. Se, ad esempio, si imposta una stringa sicura su un tag, tale valore viene archiviato come testo normale. Usare le stringhe sicure per le password e i segreti.
-
-Per i numeri interi passati come parametri inline, l'intervallo di valori può essere limitato dall'SDK o dallo strumento da riga di comando usato per la distribuzione. Ad esempio, quando si usa PowerShell per distribuire un modello, i tipi integer possono variare da-2147483648 a 2147483647. Per evitare questa limitazione, specificare valori integer di grandi dimensioni in un [file di parametri](parameter-files.md). I tipi di risorsa applicano i propri limiti per le proprietà Integer.
-
-Quando si specificano valori booleani e Integer nel modello, non racchiudere il valore tra virgolette. Valori stringa iniziale e finale con virgolette doppie ( `"string value"` ).
-
-Gli oggetti iniziano con una parentesi graffa sinistra ( `{` ) e terminano con una parentesi graffa destra ( `}` ). Le matrici iniziano con una parentesi quadra aperta ( `[` ) e terminano con una parentesi quadra chiusa ( `]` ).
-
 ## <a name="parameters"></a>Parametri
 
 Nella `parameters` sezione del modello si specificano i valori che è possibile immettere durante la distribuzione delle risorse. È previsto un limite di 256 parametri in un modello. È possibile ridurre il numero di parametri utilizzando oggetti che contengono più proprietà.
@@ -128,7 +72,7 @@ Le proprietà disponibili per un parametro sono:
 | Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | Nome parametro |Sì |Nome del parametro. Deve essere un identificatore JavaScript valido. |
-| tipo |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. Vedere [tipi di dati](#data-types). |
+| tipo |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. Vedere [tipi di dati nei modelli ARM](data-types.md). |
 | defaultValue |No |Valore predefinito per il parametro, se non viene fornito alcun valore per il parametro. |
 | allowedValues |No |Matrice di valori consentiti per il parametro per assicurare che venga fornito il valore corretto. |
 | minValue |No |Il valore minimo per i parametri di tipo int, questo valore è inclusivo. |
@@ -141,7 +85,7 @@ Per esempi relativi all'uso dei parametri, vedere [parametri nei modelli ARM](te
 
 ## <a name="variables"></a>Variabili
 
-Nella `variables` sezione si costruiscono i valori che possono essere usati in tutto il modello. Non è obbligatorio definire le variabili. Queste tuttavia consentono spesso di semplificare il modello, riducendo le espressioni complesse. Il formato di ogni variabile corrisponde a uno dei [tipi di dati](#data-types).
+Nella `variables` sezione si costruiscono i valori che possono essere usati in tutto il modello. Non è obbligatorio definire le variabili. Queste tuttavia consentono spesso di semplificare il modello, riducendo le espressioni complesse. Il formato di ogni variabile corrisponde a uno dei [tipi di dati](data-types.md).
 
 Nell'esempio seguente vengono illustrate le opzioni disponibili per la definizione di una variabile:
 

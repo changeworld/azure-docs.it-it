@@ -6,16 +6,16 @@
       href: overview.md
     - name: Programma di convalida di Azure Arc
       href: validation-program.md
+- name: Avvi rapidi
+  items:
+    - name: Connettere un cluster ad Azure Arc
+      href: quickstart-connect-cluster.md
 - name: Esercitazioni
   items:
     - name: Distribuire configurazioni con GitOps
       href: tutorial-use-gitops-connected-cluster.md
     - name: Implementare CI/CD con GitOps
       href: tutorial-gitops-ci-cd.md
-- name: Avvi rapidi
-  items:
-    - name: Connettere un cluster ad Azure Arc
-      href: quickstart-connect-cluster.md
 - name: Concetti
   items:
     - name: Architettura degli agenti

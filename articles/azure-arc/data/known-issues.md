@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4667e8fa3a5624dddc3cb0dd792fc73ea812332
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8100d9e12f107e0c4598876c46453b46c6ee4d0e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693108"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122001"
 ---
 # <a name="known-issues---azure-arc-enabled-data-services-preview"></a>Problemi noti-Azure Arc Enabled Data Services (anteprima)
 
@@ -22,10 +22,7 @@ ms.locfileid: "101693108"
 
 ## <a name="february-2021"></a>2021 febbraio
 
-
 - La modalità cluster connessa è disabilitata
-- L'iperscalabilità di PostgreSQL abilitata per Azure Arc restituisce un messaggio di errore non accurato quando non è possibile eseguire il ripristino fino al punto nel tempo relativo indicato. Se, ad esempio, è stato specificato un punto nel tempo per il ripristino precedente rispetto a quello dei backup, il ripristino ha esito negativo con un messaggio di errore simile al seguente: `ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}` . Quando si verifica questo problema, riavviare il comando dopo aver indicato un punto nel tempo compreso nell'intervallo di date per cui si dispone di backup. Per determinare questo intervallo, elencare i backup ed esaminare le date in cui sono state eseguite.
-- Quando si esegue un ripristino completo, è necessario un ID di backup. Per impostazione predefinita, se non si indica un ID di backup verrà usato il backup più recente. Questa operazione non funziona in questa versione.
 
 ## <a name="introduced-prior-to-february-2021"></a>Introdotta prima del 2021 febbraio
 

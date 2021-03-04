@@ -8,16 +8,20 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: aa22cffc1fc38e055c6c2bb504c311c012f31ac2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: e4c58d67668a67eee38a73d46a2a40ca29c1dfd8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012902"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121253"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Avvio rapido: Usare la cache di Azure per Redis in Node.js
 
 In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app Node.js per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure.
+
+## <a name="skip-to-the-code-on-github"></a>Passa al codice su GitHub
+
+Per passare direttamente al codice, vedere la [ Guida introduttivaNode.js](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/nodejs) su GitHub.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

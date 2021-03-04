@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ea23be06939d58b08516a00bbe8aba97c6ccc87d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 488065b0a1865484e96ea574b3031f2bf61869dd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095273"
+ms.locfileid: "102120590"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -153,7 +153,7 @@ L'elemento **SingleSignOn** contiene l'attributo seguente:
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Ambito | Sì | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il `Suppressed` valore indica che il comportamento viene eliminato e all'utente viene sempre richiesta una selezione del provider di identità.  Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
-| KeepAliveInDays | Sì | Controlla per quanto tempo l'utente rimane connesso. Se si imposta il valore su 0, la funzionalità KMSI viene disattivata. Per altre informazioni, vedere [Mantenere l'accesso](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
+| KeepAliveInDays | No | Controlla per quanto tempo l'utente rimane connesso. Se si imposta il valore su 0, la funzionalità KMSI viene disattivata. Per altre informazioni, vedere [Mantenere l'accesso](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
 |EnforceIdTokenHintOnLogout| No|  Forzare il passaggio di un token ID emesso in precedenza all'endpoint di disconnessione come hint per la sessione autenticata corrente dell'utente finale con il client. I valori possibili sono: `false` (impostazione predefinita) o `true`. Per altre informazioni, vedere [accesso Web con OpenID Connect](openid-connect.md).  |
 
 

@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 37496b9358ec72c79f8d26e32a92485f001e0e9d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8dbde1f74c700e772823d61b3e35a464f9bbc17e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031668"
+ms.locfileid: "102120964"
 ---
 # <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Guida introduttiva: creare una cache di redis Enterprise (anteprima)
 
@@ -49,13 +49,7 @@ Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha un
 
 1. Selezionare **Avanti: Rete** e ignorare la pagina.
 
-   > [!NOTE] 
-   > L'opzione Collegamento privato è in fase di implementazione e potrebbe non essere disponibile immediatamente nella propria area.
-   >
-
-1. Selezionare **Avanti: Avanzate** e impostare i **criteri di clustering** su **Enterprise**.
-   
-   È possibile mantenere le impostazioni predefinite o cambiarle in base alle esigenze. Se si attiva l'opzione **Allow access only via TLS** (Consenti l'accesso solo tramite TLS), è necessario usare TLS per accedere alla nuova cache dall'applicazione.
+1. Selezionare **Avanti: Avanzate** e impostare i **criteri di clustering** su **Enterprise**. Abilitare **l'accesso non TLS solo** se si prevede di connettersi alla nuova cache senza usare TLS. Questa operazione non è tuttavia consigliata.
 
    :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Scheda Avanzate livello Enterprise":::
 

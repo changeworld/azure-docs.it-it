@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9104fb4598eb62ed96d0b21734053fa118b5237
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203249"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120283"
 ---
 # <a name="stringcollection-claims-transformations"></a>Trasformazioni delle attestazioni StringCollection
 
@@ -31,7 +31,7 @@ Aggiunge un'attestazione stringa a una nuova attestazione StringCollection di va
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | Il ClaimType da aggiungere all'attestazione di output. |
-| InputClaim | collection | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
+| InputClaim | collection | stringCollection | Raccolta di stringhe da aggiungere all'attestazione di output. Se la raccolta contiene elementi, la trasformazione delle attestazioni copia gli elementi e aggiunge l'elemento alla fine dell'attestazione della raccolta di output. |
 | OutputClaim | collection | stringCollection | ClaimType generato dopo che è stata richiamata la trasformazione delle attestazioni, con il valore specificato nell'attestazione di input. |
 
 Usare questa trasformazione delle attestazioni per aggiungere una stringa a un oggetto stringCollection nuovo o esistente. Viene comunemente usato in un profilo tecnico **AAD-UserWriteUsingAlternativeSecurityId**. Prima che venga creato un nuovo account di social networking, la trasformazione di attestazioni **CreateOtherMailsFromEmail** legge il ClaimType e aggiunge il valore al ClaimType **otherMails**.
@@ -64,7 +64,7 @@ Aggiunge un parametro di stringa a una nuova attestazione StringCollection di va
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | collection | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
+| InputClaim | collection | stringCollection | Raccolta di stringhe da aggiungere all'attestazione di output. Se la raccolta contiene elementi, la trasformazione delle attestazioni copia gli elementi e aggiunge l'elemento alla fine dell'attestazione della raccolta di output. |
 | InputParameter | item | string | Il valore da aggiungere all'attestazione di output. |
 | OutputClaim | collection | stringCollection | Tipo attestazione generato dopo che questa trasformazione di attestazioni è stato richiamato con il valore specificato nel parametro di input. |
 
@@ -125,7 +125,7 @@ L'esempio seguente legge l'attestazione **otherMails** e restituisce il primo el
 
 ## <a name="stringcollectioncontains"></a>StringCollectionContains
 
-Verifica se un tipo di attestazione StringCollection contiene un elemento
+Verifica se un tipo di attestazione StringCollection contiene un elemento.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |

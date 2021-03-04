@@ -1,20 +1,8 @@
 ---
-title: includere file
-description: includere file
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
-ms.topic: include
-ms.date: 02/01/2021
-ms.author: spelluru
-ms.custom: include file
-ms.openlocfilehash: 45cc5120072f2a8c7742f79cfb79161042345505
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
-ms.translationtype: MT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427189"
+title: includere la descrizione del file: includere i servizi file: Event-Hub Author: spelluru ms. Service: Event-Hub ms. Topic: include MS. Date: 02/01/2021 ms. Author: spelluru ms. Custom: "include file", "FastTrack-Edit", "Internet", "Event-Hub"
+
 ---
+
 Le tabelle seguenti forniscono le quote e i limiti specifici di [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Per informazioni sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="common-limits-for-all-tiers"></a>Limiti comuni per tutti i livelli
@@ -24,7 +12,6 @@ I limiti seguenti sono comuni tra tutti i livelli.
 | --- |  --- | --- |
 | Numero di spazi dei nomi di Hub eventi per sottoscrizione |- |100 |
 | Numero di hub eventi per ogni spazio dei nomi | Le successive richieste per la creazione di un nuovo hub eventi vengono rifiutate. |10 |
-| Numero di partizioni per hub eventi |- |32 |
 | Dimensioni del nome di un hub eventi |- | 256 caratteri |
 | Dimensioni del nome di un gruppo di consumer |- | 256 caratteri |
 | Numero di ricevitori non epoch per gruppo consumer |- |5 |
@@ -39,11 +26,17 @@ La tabella seguente illustra i limiti che possono essere diversi per i livelli B
 
 | Limite | Note | Basic | Standard |
 |---|---|--|---|
-| Dimensione massima degli eventi di Hub eventi| &nbsp; | 256 KB | 1 MB |
+| Dimensioni massime della pubblicazione di hub eventi| &nbsp; | 256 KB | 1 MB |
 | Numero di gruppi consumer per hub eventi | &nbsp; |1 |20 |
 | Numero di connessioni AMQP per spazio dei nomi | Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |100 |5\.000|
 | Periodo di conservazione massimo dei dati dell'evento | &nbsp; |1 giorno |1-7 giorni |
 | Numero massimo di unità di velocità effettiva |Il superamento di questo limite causa la limitazione dei dati e la generazione di un'[eccezione di server occupato](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Per richiedere un numero maggiore di unità elaborate per un livello Standard, inviare una [richiesta di supporto](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). Le [unità elaborate aggiuntive](../articles/event-hubs/event-hubs-auto-inflate.md) sono disponibili in blocchi da 20 in base a un acquisto con impegno. |20 | 20 | 
+| Numero di partizioni per hub eventi | |32 | 32 | 
+
+> [!NOTE]
+>
+> È possibile pubblicare eventi singolarmente o in batch. 
+> Il limite di pubblicazione (in base allo SKU) si applica indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni superiori alla soglia massima verrà rifiutata.
 
 ### <a name="dedicated-tier-vs-standard-tier"></a>Livello Dedicato e Standard
 L'offerta Hub eventi Dedicato viene fatturata a un prezzo mensile fisso, con un minimo di 4 ore di utilizzo. Il livello Dedicato offre tutte le funzionalità del piano Standard, ma con capacità e limiti su scala aziendale per i clienti con carichi di lavoro intensi. 

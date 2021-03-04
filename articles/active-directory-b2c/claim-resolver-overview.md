@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/28/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e4e90d91b8e6ae017f00e37304c4da56cd618732
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b69492dc41786a677043df5e77c9d12aa26893f6
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095307"
+ms.locfileid: "102119774"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -87,7 +87,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {Context:CorrelationId} | L'ID di correlazione.  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |Data e ora in formato UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |Modalità di distribuzione dei criteri.  | Produzione |
-| {Context: HostName} | Nome host per la richiesta corrente.  | contoso.b2clogin.com |
+| {Context: HostName} | Nome host della richiesta corrente.  | contoso.b2clogin.com |
 | {Context:IPAddress} | Indirizzo IP utente. | 11.111.111.11 |
 | {Context: KMSI} | Indica se la casella [di controllo Mantieni l'accesso](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) è selezionata. |  true |
 

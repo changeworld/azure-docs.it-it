@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 2/24/2021
-ms.openlocfilehash: 5d978410cae2b2de1a2f6711de82ae71a1da168c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745275"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120131"
 ---
 # <a name="co-sell-requirements"></a>Requisiti di co-selling
 
@@ -24,7 +24,7 @@ Questa tabella Mostra tutti i possibili stati di co-selling:
 | ------------ | ------------- |
 | Non co-selling pronto | I [requisiti minimi per lo stato pronto per il co-selling](#requirements-for-co-sell-ready-status) non sono stati soddisfatti. |
 | Co-selling pronto | Tutti i [requisiti per lo stato di co-selling pronto](#requirements-for-co-sell-ready-status) sono stati soddisfatti. |
-| Co-selling IP di Azure incentivate | Sono stati soddisfatti i requisiti di co-selling pronti, oltre a [questi requisiti aggiuntivi](#requirements-for-IP-Co-sell-incentivized-status). |
+| Co-selling IP di Azure incentivate | Sono stati soddisfatti i requisiti di co-selling pronti, oltre a [questi requisiti aggiuntivi](#requirements-for-ip-co-sell-incentivized-status). |
 | App biz ISV Connect Premium Incentive  | Questo stato si applica alle offerte Dynamics 365 e Power Apps e indica che sono stati soddisfatti tutti i [requisiti per questo stato](#requirements-for-biz-apps-isv-connect-premium-incentive-status) . |
 |||
 

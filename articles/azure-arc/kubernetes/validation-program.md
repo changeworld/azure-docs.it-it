@@ -2,18 +2,18 @@
 title: Programma di convalida Kubernetes abilitato per Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Descrive il programma di convalida dell'arco per le distribuzioni Kubernetes
 keywords: Kubernetes, Arc, Azure, K8s, convalida
-ms.openlocfilehash: 0d7756f407a3a176c8913d99bdb45a5026300569
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 819df906add6275997e01fab310fe8dd57a87b51
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689216"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121372"
 ---
 # <a name="azure-arc-validation-program"></a>Programma di convalida di Azure Arc
 
@@ -61,6 +61,6 @@ I test di conformità eseguiti come parte della convalida Kubernetes di Azure Ar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Connettere un cluster ad Azure Arc](./connect-cluster.md)
-* [Creare configurazioni nel cluster Kubernetes abilitato per l'arco](./use-gitops-connected-cluster.md)
-* [Usare i criteri di Azure per applicare configurazioni su larga scala](./use-azure-policy.md)
+Informazioni su come connettere un cluster ad Azure Arc.
+> [!div class="nextstepaction"]
+> [Connettere un cluster ad Azure Arc](./quickstart-connect-cluster.md)

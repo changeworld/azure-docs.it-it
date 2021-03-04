@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: 8191d68f701a3be6a37d8623d2d900f6aa6c1851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec28f9290808836ec2dfd334b23fe8c76df03fc
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939543"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120063"
 ---
-# <a name="security-module-for-azure-rtos-api-preview"></a>Modulo di sicurezza per l'API RTO di Azure (anteprima)
+# <a name="security-module-for-azure-rtos-api"></a>API del modulo di sicurezza per Azure RTOS 
 
 Questa API è destinata all'uso con il modulo di sicurezza solo per Azure RTO. Per altre risorse, vedere il [modulo Security per la risorsa GitHub di Azure RTO](https://github.com/azure-rtos/azure-iot-preview/releases). 
 
@@ -54,7 +54,7 @@ Questa routine Abilita il sottosistema del modulo Security di Azure. Una macchin
 
 ### <a name="allowed-from"></a>Consentito da
 
-Threads
+Thread
 
 ## <a name="disable-azure-iot-security-module"></a>Disabilitare il modulo di sicurezza Azure Internet
 
@@ -87,7 +87,7 @@ Questa routine Disabilita il sottosistema del modulo di sicurezza di Azure.
 
 ### <a name="allowed-from"></a>Consentito da
 
-Threads
+Thread
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,16 +8,20 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: ffc5c8ea647d4cadd2d151eb880c794ac5f4ebd4
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002461"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121440"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Avvio rapido: Usare la cache di Azure per Redis in .NET Framework
 
 In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app .NET Framework per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure. Si usa specificamente il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) con codice C# in un'app console .NET.
+
+## <a name="skip-to-the-code-on-github"></a>Passa al codice su GitHub
+
+Per passare direttamente al codice, vedere la [Guida introduttiva .NET Framework](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) su GitHub.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -90,7 +94,7 @@ using StackExchange.Redis;
 using System.Configuration;
 ```
 
-La connessione a Cache Redis di Azure è gestita dalla classe `ConnectionMultiplexer`. Questa classe deve essere condivisa e riutilizzata in tutta l'applicazione client. Non creare una nuova connessione per ogni operazione. 
+La connessione a Cache Redis di Azure è gestita dalla classe `ConnectionMultiplexer`. Questa classe deve essere condivisa e riusata in tutta l'applicazione client. Non creare una nuova connessione per ogni operazione. 
 
 Non archiviare mai le credenziali nel codice sorgente. Per semplificare questo esempio, viene usato solo un file di configurazione dei segreti esterno. Un approccio migliore potrebbe consistere nell'usare [Azure Key Vault con certificati](/rest/api/keyvault/certificate-scenarios).
 

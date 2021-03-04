@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ce41edd2c0048a20368dd02c2dd6101248e26c14
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: aac75e7876ce59b90e27f9e87c96240755d26235
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400014"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120743"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -35,7 +35,7 @@ L'elemento **UserJourneys** contiene l'elemento seguente:
 
 L'elemento **UserJourney** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Identificatore di un percorso utente che può essere usato in modo che altri elementi nei criteri possano farvi riferimento. L'elemento **DefaultUserJourney** dei [criteri della relying party](relyingparty.md) punta a questo attributo. |
 
@@ -58,7 +58,7 @@ L'elemento **AuthorizationTechnicalProfiles** contiene l'elemento seguente:
 
 L'elemento **AuthorizationTechnicalProfile** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | TechnicalProfileReferenceId | Sì | Identificatore del profilo tecnico da eseguire. |
 
@@ -80,7 +80,7 @@ Nell'esempio seguente viene illustrato un elemento Journey utente con profili te
 
 Un percorso utente è costituito da una sequenza di orchestrazione da seguire per garantire l'esito positivo di una transazione. Se un passaggio non riesce, la transazione ha esito negativo. Questi passaggi di orchestrazione referenziano i blocchi predefiniti e i provider di attestazioni consentiti nel file dei criteri. Qualsiasi passaggio di orchestrazione finalizzato a mostrare o eseguire il rendering di un'esperienza utente ha anche un riferimento all'identificatore della definizione del contenuto corrispondente.
 
-I passaggi di orchestrazione possono essere eseguiti in modo condizionale in base alle precondizioni definite nell'elemento step dell'orchestrazione. Ad esempio, è possibile selezionare questa opzione per eseguire un passaggio di orchestrazione solo se esistono attestazioni specifiche o se un'attestazione è uguale o meno al valore specificato.
+I passaggi di orchestrazione possono essere eseguiti in modo condizionale in base alle precondizioni definite nell'elemento step dell'orchestrazione. È ad esempio possibile selezionare questa opzione per eseguire un passaggio di orchestrazione solo se esiste un'attestazione specifica o se un'attestazione è uguale o meno al valore specificato.
 
 Per specificare l'elenco ordinato dei passaggi di orchestrazione, viene aggiunto un elemento **OrchestrationSteps** come parte dei criteri. Questo elemento è obbligatorio.
 
@@ -92,7 +92,7 @@ L'elemento **OrchestrationSteps** contiene l'elemento seguente:
 
 L'elemento **OrchestrationStep** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | `Order` | Sì | Ordine dei passaggi di orchestrazione. |
 | `Type` | Sì | Tipo del passaggio di orchestrazione. Valori possibili: <ul><li>**ClaimsProviderSelection**: indica che il passaggio di orchestrazione mostra diversi provider di attestazioni all'utente per selezionarne uno.</li><li>**CombinedSignInAndSignUp**: indica che il passaggio di orchestrazione mostra una pagina combinata di accesso a provider di social network e iscrizione ad account locali.</li><li>**ClaimsExchange**: indica che il passaggio di orchestrazione scambia attestazioni con un provider di attestazioni.</li><li>**Getclaims** : specifica che il passaggio di orchestrazione deve elaborare i dati di attestazione inviati a Azure AD B2C dal relying party tramite la relativa `InputClaims` configurazione.</li><li>**InvokeSubJourney** -indica che il passaggio di orchestrazione scambia attestazioni con un [percorso secondario](subjourneys.md) (in anteprima pubblica).</li><li>**SendClaims**: indica che il passaggio di orchestrazione invia le attestazioni alla relying party con un token emesso da un'autorità di certificazione delle attestazioni.</li></ul> |
@@ -121,7 +121,7 @@ L'elemento **Preconditions** contiene l'elemento seguente:
 
 L'elemento **precondition** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | `Type` | Sì | Tipo di controllo o query da eseguire per questa precondizione. Il valore può essere **ClaimsExist**, a indicare che le azioni devono essere eseguite se le attestazioni specificate esistono nel set di attestazioni corrente dell'utente, oppure **ClaimEquals**, a indicare che le azioni devono essere eseguite se l'attestazione specificata esiste e il relativo valore è uguale al valore specificato. |
 | `ExecuteActionsIf` | Sì | Usare un test true o false per decidere se eseguire le azioni nella precondizione. |
@@ -189,9 +189,12 @@ Le precondizioni possono verificare più precondizioni. L'esempio seguente deter
 </OrchestrationStep>
 ```
 
-## <a name="claimsproviderselection"></a>ClaimsProviderSelection
+## <a name="identity-provider-selection"></a>Selezione del provider di identità
 
-Un passaggio di orchestrazione di tipo `ClaimsProviderSelection` o `CombinedSignInAndSignUp` può contenere un elenco di provider di attestazioni con cui un utente può eseguire l'accesso. L'ordine degli elementi all'interno degli elementi `ClaimsProviderSelections` determina l'ordine dei provider di identità visualizzati.
+La selezione del provider di identità consente agli utenti di selezionare un'azione da un elenco di opzioni. La selezione del provider di identità è costituita da una coppia di due passaggi di orchestrazione: 
+
+1. **Buttons** : inizia con il tipo di `ClaimsProviderSelection` o `CombinedSignInAndSignUp` che contiene un elenco di opzioni da cui un utente può scegliere. L'ordine delle opzioni all'interno dell' `ClaimsProviderSelections` elemento controlla l'ordine dei pulsanti presentati all'utente.
+2. **Actions** , seguito dal tipo di `ClaimsExchange` . Il ClaimsExchange contiene un elenco di azioni. L'azione è un riferimento a un profilo tecnico, ad esempio [OAuth2](oauth2-technical-profile.md), [OpenID Connect](openid-connect-technical-profile.md), [trasformazione delle attestazioni](claims-transformation-technical-profile.md)o [autocertificato](self-asserted-technical-profile.md). Quando un utente fa clic su uno dei pulsanti, viene eseguita l'azione corrispondente.
 
 L'elemento **ClaimsProviderSelections** contiene l'elemento seguente:
 
@@ -201,13 +204,13 @@ L'elemento **ClaimsProviderSelections** contiene l'elemento seguente:
 
 L'elemento **ClaimsProviderSelections** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | DisplayOption| No | Controlla il comportamento di un caso in cui è disponibile una singola selezione del provider di attestazioni. Valori possibili: `DoNotShowSingleProvider` (impostazione predefinita), l'utente viene reindirizzato immediatamente al provider di identità federato. `ShowSingleProvider`In alternativa, Azure ad B2C Visualizza la pagina di accesso con la selezione del singolo provider di identità. Per usare questo attributo, la [versione della definizione del contenuto](page-layout.md) deve essere `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` e versioni successive.|
 
 L'elemento **ClaimsProviderSelection** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | TargetClaimsExchangeId | No | Identificatore dello scambio di attestazioni, eseguito nel passaggio successivo di selezione dei provider di attestazioni. È necessario specificare questo attributo o l'attributo ValidationClaimsExchangeId, ma non entrambi. |
 | ValidationClaimsExchangeId | No | Identificatore dello scambio di attestazioni, eseguito nel passaggio corrente di convalida della selezione dei provider di attestazioni. È necessario specificare questo attributo o l'attributo TargetClaimsExchangeId, ma non entrambi. |
@@ -242,7 +245,7 @@ Nel passaggio di orchestrazione seguente l'utente può scegliere di accedere con
   <ClaimsExchanges>
     <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
     <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-  <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
   </ClaimsExchanges>
@@ -259,7 +262,7 @@ L'elemento **ClaimsExchanges** contiene l'elemento seguente:
 
 L'elemento **ClaimsExchange** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Identificatore del passaggio di scambio di attestazioni. L'identificatore viene usato per referenziare lo scambio di attestazioni da un passaggio di selezione dei provider di attestazioni nei criteri. |
 | TechnicalProfileReferenceId | Sì | Identificatore del profilo tecnico da eseguire. |
@@ -276,6 +279,6 @@ L'elemento **viaggiò** contiene l'elemento seguente:
 
 L'elemento **candidato** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | SubJourneyReferenceId | Sì | Identificatore del [percorso secondario](subjourneys.md) da eseguire. |

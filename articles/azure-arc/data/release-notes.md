@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d3eb4e4b45a13872a11515dd4f53fcbbc069a954
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6b4d5c1372a8351f1fe5a6608aff38bf232aabd8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686683"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121950"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Note sulla versione-Azure Arc Enabled Data Services (anteprima)
 
@@ -36,7 +36,7 @@ Altri aggiornamenti includono:
 - Azure Data Studio per l'iperscalabilità di PostgreSQL abilitata per Azure Arc: 
    - La pagina Panoramica Mostra ora lo stato del gruppo di server per nodo
    - È ora disponibile una nuova pagina delle proprietà per visualizzare altri dettagli sul gruppo di server
-   - Configurare i parametri del motore Postgres dalla pagina **parametri nodo** =
+   - Configurare i parametri del motore Postgres dalla pagina **parametri del nodo**
 
 Per i problemi associati a questa versione, vedere [problemi noti-Azure Arc Enabled Data Services (anteprima)](known-issues.md)
 

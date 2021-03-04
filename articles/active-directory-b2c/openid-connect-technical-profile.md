@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/01/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f6b6fb18ce086c2eadc829f03460452deb0a12b9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 670fbeeb006d21e29675f88895018d1a453a1c54
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675153"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120301"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di OpenID Connect in un Azure Active Directory B2C criteri personalizzati
 
@@ -95,6 +95,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | token_endpoint_auth_method | No | Specifica il modo in cui Azure AD B2C invia l'intestazione di autenticazione all'endpoint del token. Valori possibili: `client_secret_post` (impostazione predefinita) e `client_secret_basic` (anteprima pubblica). Per altre informazioni, vedere la [sezione autenticazione client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 | token_signing_algorithm | No | Algoritmo di firma usato per le asserzioni client quando il **token_endpoint_auth_method** metadati è impostato su `private_key_jwt` . Valori possibili: `RS256` (impostazione predefinita). |
 | SingleLogoutEnabled | No | Indica se durante l'accesso il profilo tecnico tenta di disconnettersi da provider di identità federati. Per ulteriori informazioni, vedere [Azure ad B2C la disconnessione della sessione](./session-behavior.md#sign-out).  Valori possibili: `true` (impostazione predefinita) o `false` . |
+|ReadBodyClaimsOnIdpRedirect| No| Impostare su `true` per leggere le attestazioni dal corpo della risposta nel reindirizzamento del provider di identità. Questi metadati vengono usati con l' [ID Apple](identity-provider-apple-id.md), in cui le attestazioni vengono restituite nel payload della risposta.|
 
 ```xml
 <Metadata>

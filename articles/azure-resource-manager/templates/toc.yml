@@ -328,6 +328,8 @@
       items:
         - name: Confronto tra JSON e bicipite
           href: compare-template-syntax.md
+    - name: Tipi di dati
+      href: data-types.md
     - name: Domande frequenti
       href: frequently-asked-questions.md
     - name: Modelli per la coerenza del cloud

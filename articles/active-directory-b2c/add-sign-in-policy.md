@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2956f0ffb562214477249da3198ebbe42ef9bb45
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c84966f7b4dc1740235fe6414da2ba832a1334fd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660370"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102119910"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configurare un flusso di accesso in Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ I criteri di accesso consentono agli utenti di:
 * Gli utenti possono accedere con un account Azure AD B2C locale
 * Iscriversi o accedere con un account di social networking
 * Reimpostazione della password
-* Gli utenti non possono effettuare l'iscrizione per un account Azure AD B2C locale: per creare un account, un amministratore può usare [MS API Graph](microsoft-graph-operations.md).
+* Gli utenti non possono iscriversi per un account Azure AD B2C locale. Per creare un account, un amministratore può utilizzare [portale di Azure](manage-users-portal.md#create-a-consumer-user)o [MS API Graph](microsoft-graph-operations.md).
 
 ![Flusso di modifica del profilo](./media/add-sign-in-policy/sign-in-user-flow.png)
 
@@ -75,26 +75,34 @@ Il profilo tecnico **SelfAsserted-LocalAccountSignin-email** è un [autocertific
 1. Aggiungere il provider di attestazioni seguente all' `ClaimsProviders` elemento:
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Local Account</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
-          <Metadata>
-            <Item Key="setting.showSignupLink">false</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
+    <!--
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Local Account</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+            <Metadata>
+              <Item Key="setting.showSignupLink">false</Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    <!--
+    </ClaimsProviders> -->
     ```
 
 1. All'interno `<BuildingBlocks>` dell'elemento aggiungere il [ContentDefinition](contentdefinitions.md) seguente per fare riferimento alla versione 1.2.0 o all'URI dei dati più recente:
 
     ```XML
-    <ContentDefinitions>
-     <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
+    <!-- 
+    <BuildingBlocks> 
+      <ContentDefinitions>-->
+        <ContentDefinition Id="api.localaccountsignup">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+        </ContentDefinition>
+      <!--
+      </ContentDefinitions>
+    </BuildingBlocks> -->
     ```
 
 ## <a name="update-and-test-your-policy"></a>Aggiornare e testare i criteri
@@ -103,7 +111,7 @@ Il profilo tecnico **SelfAsserted-LocalAccountSignin-email** è un [autocertific
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD. A tale scopo, selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant di Azure AD.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 1. Fare clic su **Framework dell'esperienza di gestione delle identità**.
-1. Selezionare **Carica criteri personalizzati** e caricare i file dei due criteri modificati.
+1. Selezionare **carica criteri personalizzati**, quindi caricare il file di criteri modificato *TrustFrameworkExtensions.xml*.
 1. Selezionare i criteri di accesso caricati, quindi fare clic sul pulsante **Esegui adesso** .
 1. Dovrebbe essere possibile accedere con l'account creato (usando MS API Graph), senza il collegamento per l'iscrizione.
 

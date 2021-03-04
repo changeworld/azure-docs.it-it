@@ -8,16 +8,20 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: edb80ab3107cbd0a5ddd802d56a60ce77affb2f2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 856f33875316eca8b3c16f28c6c222f42e0a0be5
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012919"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121270"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Avvio rapido: Usare la cache di Azure per Redis in Java
 
 In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app Java usando il client [Jedis](https://github.com/xetorthio/jedis) di Redis per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure.
+
+## <a name="skip-to-the-code-on-github"></a>Passa al codice su GitHub
+
+Per passare direttamente al codice, vedere la [Guida introduttiva di Java](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java) su GitHub.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

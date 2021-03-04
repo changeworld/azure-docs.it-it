@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbb0c5617696347b566ba09a481afae4f52379aa
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a70b8be6c034f002f0e387b5d3b4ba5deafa1a5e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096038"
+ms.locfileid: "102120505"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -555,7 +555,7 @@ Riferimento all'elemento **UseTechnicalProfileForSessionManagement** al [profilo
 
 ## <a name="enabled-for-user-journeys"></a>Abilitato per i percorsi utente
 
-L'elemento [ClaimsProviderSelections](userjourneys.md#claimsproviderselection) in un percorso utente definisce l'elenco di selezioni di provider di attestazioni e il relativo ordine. Con l'elemento **EnabledForUserJourneys** è possibile filtrare i provider di attestazioni disponibili per l'utente. L'elemento **EnabledForUserJourneys** contiene uno dei valori seguenti:
+L'elemento [ClaimsProviderSelections](userjourneys.md#identity-provider-selection) in un percorso utente definisce l'elenco di selezioni di provider di attestazioni e il relativo ordine. Con l'elemento **EnabledForUserJourneys** è possibile filtrare i provider di attestazioni disponibili per l'utente. L'elemento **EnabledForUserJourneys** contiene uno dei valori seguenti:
 
 - **Sempre**, eseguire il profilo tecnico.
 - **Mai**, ignorare il profilo tecnico.

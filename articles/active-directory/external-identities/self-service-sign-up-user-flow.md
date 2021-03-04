@@ -11,14 +11,14 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 883e658fd3f03eb50d54e548ffac49e23b340808
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a59e573c9b24d9a8b5577b55d143fcaca67952f0
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688643"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120760"
 ---
-# <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)
+# <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>Aggiungere un flusso utente di iscrizione self-service a un'app
 
 > [!NOTE]
 > Alcune delle funzionalità descritte in questo articolo sono le funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

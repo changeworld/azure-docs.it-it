@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dcd0ccdc42a820f1e264b739cb0063516a0cb53e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: db2715f0827203dac505fa4dc15c22bdab953010
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688553"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120216"
 ---
 # <a name="user-profile-attributes"></a>Attributi del profilo utente
 
@@ -101,9 +101,9 @@ Un account cliente, che può essere un consumatore, un partner o un cittadino, p
 - Identità **locale** : il nome utente e la password vengono archiviati localmente nella directory Azure ad B2C. Queste identità sono spesso dette "account locali".
 - Identità **federata** , nota anche come account *aziendali* o *sociali* , l'identità dell'utente è gestita da un provider di identità FEDERATO come Facebook, Microsoft, ADFS o Salesforce.
 
-Un utente con un account cliente può accedere con più identità. Ad esempio nome utente, indirizzo di posta elettronica, ID dipendente, ID pubblico e altro. Un singolo account può avere più identità, sia locali che sociali, con la stessa password.
+Un utente con un account cliente può accedere con più identità. Ad esempio nome utente, indirizzo di posta elettronica, ID dipendente, ID pubblico e altro. Un singolo account può avere più identità, sia locali che sociali, con la stessa password. 
 
-Nell'API Microsoft Graph, sia le identità locali che quelle federate vengono archiviate nell' `identities` attributo User, che è di tipo [objectIdentity] [Graph-objectIdentity]. La `identities` raccolta rappresenta un set di identità usate per accedere a un account utente. Questa raccolta consente all'utente di accedere all'account utente con qualsiasi identità associata.
+Nell'API Microsoft Graph, sia le identità locali che quelle federate vengono archiviate nell' `identities` attributo User, che è di tipo [objectIdentity](/graph/api/resources/objectidentity). La `identities` raccolta rappresenta un set di identità usate per accedere a un account utente. Questa raccolta consente all'utente di accedere all'account utente con qualsiasi identità associata. L'attributo identitys può contenere fino a dieci oggetti [objectIdentity](/graph/api/resources/objectidentity) . Ogni oggetto contiene le proprietà seguenti:
 
 | Nome   | Tipo |Descrizione|
 |:---------------|:--------|:----------|

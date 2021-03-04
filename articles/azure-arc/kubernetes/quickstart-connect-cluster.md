@@ -5,15 +5,15 @@ author: mgoedtel
 ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
-ms.date: 02/24/2021
+ms.date: 03/03/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: c50266ce0afd6dd3f5860e3259d2b22af817834c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3fc522c4bdda9eb1047d5258bcc431d0268990b9
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689250"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121644"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Guida introduttiva: connettere un cluster Kubernetes esistente ad Azure Arc 
 
@@ -238,4 +238,4 @@ az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 
 Passare all'articolo successivo per informazioni su come distribuire le configurazioni nel cluster Kubernetes connesso usando GitOps.
 > [!div class="nextstepaction"]
-> [Distribuire le configurazioni con Gitops](use-gitops-connected-cluster.md)
+> [Distribuire le configurazioni con Gitops](tutorial-use-gitops-connected-cluster.md)

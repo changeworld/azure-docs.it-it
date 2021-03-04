@@ -2,22 +2,20 @@
 title: Usare Criteri di Azure per applicare le configurazioni del cluster su larga scala
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Usare Criteri di Azure per applicare le configurazioni del cluster su larga scala
 keywords: Kubernetes, Arc, Azure, K8s, contenitori
-ms.openlocfilehash: 7f85050666c383ba49730bd88ce1f26d55607e7a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 05a6665a985ef8b229ee58082dc9b2c10cdcece3
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101652148"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121457"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale"></a>Usare Criteri di Azure per applicare le configurazioni del cluster su larga scala
-
-## <a name="overview"></a>Panoramica
 
 È possibile usare i criteri di Azure per applicare le configurazioni ( `Microsoft.KubernetesConfiguration/sourceControlConfigurations` tipo di risorsa) su larga scala nei cluster Kubernetes abilitati per Azure Arc ( `Microsoft.Kubernetes/connectedclusters` ).
 
@@ -69,4 +67,4 @@ Per i cluster esistenti, è necessario eseguire manualmente un'attività di corr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare Monitoraggio di Azure per i contenitori con cluster Kubernetes abilitati per Arc](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)
+[Configurare monitoraggio di Azure per i contenitori con i cluster Kubernetes abilitati per Azure Arc](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md).

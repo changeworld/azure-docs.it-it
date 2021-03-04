@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a6c580f7d6bc03f298621b1a33fcb9f3f461e802
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 59a2c96987762e6b56cc7b453877cebe3124e443
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748610"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109218"
 ---
 <!-- default for linux -->
 
@@ -67,10 +67,14 @@ ms.locfileid: "101748610"
 
 1. Una volta completata la distribuzione, selezionare **Esplora sito Web** nel messaggio per visualizzare l'app Web appena distribuita.
 
-<br>
+<br/>
 <details>
-<summary>Risoluzione dei problemi</summary>
+<summary><strong>Risoluzione dei problemi</strong></summary>
+
+Se non è stato possibile completare questi passaggi, controllare quanto segue:
+
 * Assicurarsi che l'applicazione sia in ascolto sulla porta fornita dalla variabile di ambiente PORT: `process.env.PORT`.
+
 * Se viene visualizzato l'errore **"Non si dispone delle autorizzazioni necessarie per visualizzare la directory o la pagina"** , è probabile che l'applicazione non sia stata avviata correttamente. Esaminare l'output del log per individuare e correggere l'errore. 
 
 </details>
@@ -80,7 +84,7 @@ ms.locfileid: "101748610"
 [Segnalare un problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&prepare-your-environment)
 
 
-<br>
+<br/>
 <hr/>
 
 

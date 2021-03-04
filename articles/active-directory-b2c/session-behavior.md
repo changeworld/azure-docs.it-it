@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2021
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e0516c25a69f22f5e66dd3ed083805cd4a9f1a61
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d64e85576b35caa2262ad1d635fc72fc7e2d2b8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096140"
+ms.locfileid: "102120624"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurare il comportamento della sessione in Azure Active Directory B2C
 
@@ -71,7 +71,7 @@ La sessione dell'applicazione può essere una sessione basata su cookie archivia
 
 È possibile configurare il comportamento della sessione di Azure AD B2C, tra cui:
 
-- **Durata della sessione dell'app Web (minuti)** : periodo di tempo durante il quale il cookie della sessione di Azure ad B2C viene archiviato nel browser dell'utente dopo l'autenticazione. È possibile impostare la durata della sessione su un valore compreso tra 15 e 720 minuti.
+- **Durata della sessione dell'app Web (minuti)** : periodo di tempo durante il quale il cookie della sessione di Azure ad B2C viene archiviato nel browser dell'utente dopo l'autenticazione. È possibile impostare la durata della sessione per un massimo di 24 ore.
 
 - **Timeout della sessione dell'app Web** : indica il modo in cui una sessione viene estesa dall'impostazione della durata della sessione o l'impostazione Mantieni l'accesso (KMSI).
   - **Rolling** : indica che la sessione viene estesa ogni volta che l'utente esegue un'autenticazione basata su cookie (impostazione predefinita).

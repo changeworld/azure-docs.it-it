@@ -2,18 +2,18 @@
 title: Aggiornamento degli agenti Kubernetes abilitati per Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Aggiornamenti dell'agente di controllo per Azure Arc abilitato Kubernetes
 keywords: Kubernetes, Arc, Azure, K8s, contenitori, Agent, aggiornamento
-ms.openlocfilehash: 3a5355269db4ccfc91612f661b464556b22c1d35
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 172654f655e594c295a8807b417c32d7849bd4b1
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662823"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121916"
 ---
 # <a name="upgrading-azure-arc-enabled-kubernetes-agents"></a>Aggiornamento degli agenti Kubernetes abilitati per Azure Arc
 
@@ -84,6 +84,6 @@ Una versione secondaria degli agenti Kubernetes abilitati per Azure Arc viene ri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Connettere un cluster ad Azure Arc](./connect-cluster.md)
-* [Creare configurazioni nel cluster Kubernetes abilitato per l'arco](./use-gitops-connected-cluster.md)
-* [Usare i criteri di Azure per applicare configurazioni su larga scala](./use-azure-policy.md)
+* Esaminare la Guida introduttiva per [connettere un cluster Kubernetes ad Azure Arc](./connect-cluster.md).
+* Si dispone già di un cluster Kubernetes connesso ad Azure Arc? [Creare configurazioni nel cluster Kubernetes abilitato per l'arco](./use-gitops-connected-cluster.md).
+* Informazioni su come [usare i criteri di Azure per applicare configurazioni su larga scala](./use-azure-policy.md).

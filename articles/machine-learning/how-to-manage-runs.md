@@ -9,15 +9,15 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 12/04/2020
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3eaab31d3948e41a216eaa402c2a11e470a6545d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fb877b208e6c9599347e2b45e140545e5815e695
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691502"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120811"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Avviare, monitorare e annullare le esecuzioni di training in Python
 
@@ -113,6 +113,10 @@ Sono necessari gli elementi seguenti:
     
         Per altre informazioni, vedere [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+
+    Per un esempio di training di un modello nella finestra di progettazione Azure Machine Learning, vedere [esercitazione: stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md).
+
     ---
 
 * Monitorare lo stato di un'esecuzione
@@ -195,8 +199,7 @@ Una descrizione dell'esecuzione può essere aggiunta a un'esecuzione per fornire
 
 Passare alla pagina dei **Dettagli** dell'esecuzione e selezionare l'icona di modifica o matita per aggiungere, modificare o eliminare descrizioni per l'esecuzione. Per salvare in modo permanente le modifiche apportate all'elenco esecuzioni, salvare le modifiche apportate alla visualizzazione personalizzata esistente o a una nuova visualizzazione personalizzata. Il formato Markdown è supportato per le descrizioni di esecuzione che consentono di incorporare le immagini e deep linking come illustrato di seguito.
 
-:::image type="content" source="media/how-to-manage-runs/rundescription.gif" alt-text="Screenshot: creare una descrizione dell'esecuzione"::: 
-    
+:::image type="content" source="media/how-to-manage-runs/run-description.gif" alt-text="Screenshot: creare una descrizione dell'esecuzione"::: 
 
 ## <a name="tag-and-find-runs"></a>Esegui tag e trova
 
