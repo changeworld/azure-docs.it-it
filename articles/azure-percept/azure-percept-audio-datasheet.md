@@ -6,30 +6,30 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: f2e86928a2efafd75da790d3953054ab0513c704
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 27b47cbd8eed60ccc2dc1c4a8dd397cca53a9d35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663369"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098418"
 ---
 # <a name="azure-percept-audio-datasheet"></a>Foglio dati audio di Azure Percept
 
 |Specifica del prodotto           |Valore     |
 |--------------------------------|--------|
-|Prestazioni                     |180 gradi per il campo a 4 m, 58dB  |
-|Settori di destinazione               |Servizi sanitari <br> Ospitalità <br> Edifici intelligenti <br> Automobilistico <br> Retail  |
-|Scenari di Hero                  |Concierge virtuale locale <br> Assistente vocale veicolo e comando/controllo <br> Controllo qualità punto vendita |
-|Incluso in box  |1x Azure Percept audio SoM <br> 1x USB 2,0 digitare da a a micro B cavo |
-|Dimensioni esterne             |18mm x 136mm   |
+|Prestazioni                     |180 gradi per il campo a 4 m, 63dB  |
+|Settori di destinazione               |Ospitalità <br> Servizi sanitari <br> Edifici intelligenti <br> Automobilistico <br> Retail <br> Produzione  |
+|Scenari di Hero                  |Concierge virtuale locale <br> Assistente vocale veicolo e comando/controllo <br> Servizi punto vendita e controllo qualità <br> Rilevamento attività warehouse|
+|Incluso in box  |1x Azure Percept audio SoM <br> 1x lavagna Developer (Interposer) <br> 1 cavo FPC <br> 1x USB 2,0 digitare a su micro cavo USB <br> 1x piastra meccanica|
+|Dimensioni esterne             |90mm x170mm x 25mm   |
+|Peso prodotto                  |0,42 kg   |
 |Piano di controllo di gestione        |Aggiornamento del dispositivo Azure (ADU)          |
-|Software e servizi supportati |Parole chiave e comandi personalizzabili <br> [Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [Runtime ONNX](https://www.onnxruntime.ai/) <br> Aggiornamento del dispositivo Azure |
-|Accelerazione intelligenza artificiale                 |Codec XUF208 XMOS        |
-|Sensori, indicatori visivi e componenti   |4x microfoni di rilevamento della memoria (MSM261D3526Z1CM) <br> Pulsanti 2x <br> Hub USB <br> PCM <br> LED 3x <br> Driver LED          |
-|Crypto-Controller di sicurezza      |ST-Micro STM32L462CE       |
+|Software e servizi supportati |Parole chiave e comandi personalizzabili <br> SDK per dispositivi vocali di Azure <br> [Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) |
+|Elaborazione audio                 |Codec XUF208 XMOS        |
+|Sensori, indicatori visivi e componenti   |4x microfoni di rilevamento della memoria (MSM261D3526Z1CM) <br> Pulsanti 2x <br> Hub USB <br> DAC <br> LED 3x <br> Driver LED          |
+|Crypto-Controller di sicurezza      |ST-Microelectronics STM32L462CE       |
 |Porte                           |1x USB 2,0 tipo micro B <br> Audio esterno da 3,5 mm     |
-|Protezione                      |IP50    |
-|Certificazione                   |CE <br> UL <br> CCC <br> FCC     |
-|Temperatura operativa           |da-20 a 70 gradi C     |
-|Umidità relativa               |da 8% a 90%    |
-|Vibrazione                       |2.0 GRMS da 1 a 300Hz.     |
+|Certificazione                   |FCC <br> IC <br> RoHS <br> RAGGIUNGERE <br> UL    |
+|Temperatura operativa           |da 0 a 35 gradi C     |
+|Temperatura non operativa       |da-40 a 85 gradi C     |
+|Umidità relativa               |dal 10% al 95%    |

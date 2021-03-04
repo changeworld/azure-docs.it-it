@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: Passare al pool SQL dedicato (in precedenza SQL Data Warehouse)
+- name: Passa a pool SQL dedicato (in precedenza SQL DW) >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Panoramica
   items:
@@ -48,17 +48,19 @@
   items:
     - name: Avvi rapidi
       items:
-        - name: Creare un'area di lavoro con il portale di Azure
-          href: quickstart-create-workspace.md
-          displayName: quickstart
-        - name: Creare un'area di lavoro con l'interfaccia della riga di comando di Azure
-          href: quickstart-create-workspace-cli.md
-          displayName: quickstart
-        - name: Creare un'area di lavoro con Azure PowerShell
-          href: quickstart-create-workspace-powershell.md
-          displayName: quickstart
-        - name: Eseguire la distribuzione con un modello
-          href: quickstart-deployment-template-workspaces.md
+        - name: Creare un'area di lavoro
+          items:
+            - name: Portale di Azure
+              href: quickstart-create-workspace.md
+              displayName: quickstart
+            - name: Interfaccia della riga di comando di Azure
+              href: quickstart-create-workspace-cli.md
+              displayName: quickstart
+            - name: Azure PowerShell
+              href: quickstart-create-workspace-powershell.md
+              displayName: quickstart
+            - name: Modello ARM
+              href: quickstart-deployment-template-workspaces.md
           displayName: quickstart
         - name: Collegare un'area di lavoro di Power BI
           href: quickstart-power-bi.md
@@ -586,6 +588,8 @@
               href: ./spark/apache-spark-manage-scala-packages.md
             - name: Risolvere gli errori di installazione dei pacchetti Python
               href: ./spark/apache-spark-troubleshoot-library-errors.md
+            - name: Creare un canale privato conda
+              href: ./spark/apache-spark-custom-conda-channel.md
         - name: Usare notebook e strumenti IDE
           items:
             - name: Gestire i notebook

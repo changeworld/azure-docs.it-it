@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: b9da3b0647d5abe60dd8f6cb21163ff21f07205b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07ba61f630b849a377f1c7ba881f95518eb73606
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539721"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042607"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Note sulla versione per l'estensione app Web di Azure per Application Insights
 
@@ -27,6 +27,24 @@ Questo articolo contiene le note sulla versione per l'estensione app Web di Azur
     - Disinstallare le estensioni del sito privato poiché non è più supportato.
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="2838"></a>2.8.38
+
+- Estensione JAVA: aggiornato all' [agente Java 3.0.2 (GA)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.0.2) da 2.5.1.
+- Estensione Node.js: aggiornamento AI SDK in [1.8.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/1.8.8) da 1.8.7.
+- .NET Core: rimosse le versioni out-of-Support (2,0, 2,2, 3,0). Le versioni supportate sono 2,1 e 3,1.
+
+### <a name="2837"></a>2.8.37
+
+- Estensione di Windows AppSvc: .NET Core funzionano con qualsiasi versione di System.Diagnostics.DiagnosticSource.dll.
+
+### <a name="2836"></a>2.8.36
+
+- Estensione AppSvc Windows: abilitata tra le op con l'SDK di intelligenza artificiale in .NET Core.
+
+### <a name="2835"></a>2.8.35
+
+- Estensione AppSvc Windows: aggiunta del supporto per .NET Core 3,1.
 
 ### <a name="2833"></a>2.8.33
 

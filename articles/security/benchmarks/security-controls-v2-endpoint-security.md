@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7672f4eb4530dbfb5d039b066fe7cf6eaf79e5a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 48b22ba913370b27cd01319a14a2a627d7589ce4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718642"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051515"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Controllo di sicurezza V2: sicurezza degli endpoint
 
 Endpoint Security copre i controlli nel rilevamento e nella risposta degli endpoint. Questo include l'uso del servizio di rilevamento e risposta dell'endpoint e del servizio antimalware per gli endpoint negli ambienti di Azure.
 
-Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli dell'iniziativa incorporata relativa alla conformità normativa per il benchmark di sicurezza di Azure: sicurezza degli endpoint](../../governance/policy/samples/azure-security-benchmark#endpoint-security)
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli dell'iniziativa incorporata relativa alla conformità normativa per il benchmark di sicurezza di Azure: sicurezza degli endpoint](../../governance/policy/samples/azure-security-benchmark.md#endpoint-security)
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: usare il rilevamento e la risposta degli endpoint (EDR)
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 19675a92101ed1a13b07bc1a4039701cd029a020
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890769"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044086"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Aggiungere un livello di estrusione poligono alla mappa
 
@@ -22,7 +22,7 @@ Questo articolo illustra come usare il livello di estrusione poligono per esegui
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Usare un livello di estrusione poligono
 
-Connettere il [livello di estrusione poligono](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) a un'origine dati. Quindi, è stato caricato sulla mappa. Il livello di estrusione poligono esegue il rendering delle aree di un `Polygon` e delle `MultiPolygon` funzionalità come forme estruse. Le  `height` `base` proprietà e del livello di estrusione poligono definiscono la distanza di base dalla superficie e dall'altezza della forma estrusa in **metri** . Il codice seguente illustra come creare un poligono, aggiungerlo a un'origine dati ed eseguirne il rendering usando la classe del livello di estrusione poligono.
+Connettere il [livello di estrusione poligono](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) a un'origine dati. Quindi, è stato caricato sulla mappa. Il livello di estrusione poligono esegue il rendering delle aree di un `Polygon` e delle `MultiPolygon` funzionalità come forme estruse. Le `height` `base` proprietà e del livello di estrusione poligono definiscono la distanza di base dalla superficie e dall'altezza della forma estrusa in **metri**. Il codice seguente illustra come creare un poligono, aggiungerlo a un'origine dati ed eseguirne il rendering usando la classe del livello di estrusione poligono.
 
 > [!Note]
 > Il `base` valore definito nel livello di estrusione poligono deve essere minore o uguale a quello di `height` .
@@ -32,10 +32,9 @@ Connettere il [livello di estrusione poligono](/javascript/api/azure-maps-contro
 <iframe height="500" style="width: 100%;" scrolling="no" title="Poligono estruso" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Vedere il <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>poligono estruso</a> di penna di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.</iframe>
 
-
 ## <a name="add-data-driven-polygons"></a>Aggiungere poligoni basati sui dati
 
-È possibile eseguire il rendering di una mappa choropleth utilizzando il livello di estrusione poligono. Impostare le `height` `fillColor` proprietà e del livello di estrusione sulla misura della variabile statistica nelle `Polygon` `MultiPolygon` geometrie della funzionalità e. Nell'esempio di codice seguente viene illustrata una mappa choropleth estrusa dell'U. S in base alla misurazione della densità della popolazione per stato.
+È possibile eseguire il rendering di una mappa choropleth utilizzando il livello di estrusione poligono. Impostare le `height` `fillColor` proprietà e del livello di estrusione sulla misura della variabile statistica nelle `Polygon` `MultiPolygon` geometrie della funzionalità e. Nell'esempio di codice seguente viene illustrata una mappa choropleth estrusa del Stati Uniti in base alla misurazione della densità della popolazione per stato.
 
 <br/>
 
@@ -45,7 +44,7 @@ Vedere la <a href='https://codepen.io/azuremaps/pen/eYYYNox'>mappa choropleth di
 
 ## <a name="add-a-circle-to-the-map"></a>Aggiungere un cerchio alla mappa
 
-Azure Maps usa una versione estesa dello schema GeoJSON che fornisce una definizione per i cerchi come indicato [qui](./extend-geojson.md#circle). È possibile eseguire il rendering di un cerchio estruso sulla mappa creando una `point` funzionalità con una `subType` proprietà di `Circle` e una proprietà numerata `Radius` che rappresenta il raggio in **metri** . Esempio:
+Azure Maps usa una versione estesa dello schema GeoJSON che fornisce una definizione per i cerchi come indicato [qui](./extend-geojson.md#circle). È possibile eseguire il rendering di un cerchio estruso sulla mappa creando una `point` funzionalità con una `subType` proprietà di `Circle` e una proprietà numerata `Radius` che rappresenta il raggio in **metri**. Ad esempio:
 
 ```javascript
 {

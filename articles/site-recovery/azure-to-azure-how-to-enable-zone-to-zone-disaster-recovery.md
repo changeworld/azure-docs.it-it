@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: d207a5629647ef3582f1e0490ef6ccc407f935f7
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: beba8e1d8126818f142e4873d551ed077af869d2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584839"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035238"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Abilitare il ripristino di emergenza delle VM di Azure tra le zone di disponibilità
 
@@ -20,7 +20,7 @@ Questo articolo descrive come eseguire la replica, il failover e il failback di 
 
 >[!NOTE]
 >
->- Il supporto per il ripristino di emergenza da zona a zona è attualmente limitato a nove aree: Asia sudorientale, Giappone orientale, Australia orientale, Regno Unito meridionale, Europa occidentale, Europa settentrionale, Stati Uniti centrali, Stati Uniti orientali e Stati Uniti occidentali 2.  
+>- Il supporto per il ripristino di emergenza da zona a zona è attualmente limitato alle aree seguenti: Asia sudorientale, Giappone orientale, Australia orientale, Regno Unito meridionale, Europa occidentale, Europa settentrionale, Stati Uniti centrali, Stati Uniti orientali, Stati Uniti orientali 2 e Stati Uniti occidentali 2.  
 >- Site Recovery non sposta o archivia i dati dei clienti all'interno dell'area in cui viene distribuito quando il cliente usa il ripristino di emergenza da zona a zona. I clienti possono selezionare un insieme di credenziali dei servizi di ripristino da un'area diversa se lo scelgono. L'insieme di credenziali di servizi di ripristino contiene metadati ma non dati effettivi del cliente.
 
 Site Recovery servizio contribuisce alla strategia di continuità aziendale e ripristino di emergenza, mantenendo le app aziendali in esecuzione, durante le interruzioni pianificate e non pianificate. Si tratta dell'opzione di ripristino di emergenza consigliata per rendere operativo le applicazioni in caso di interruzioni a livello di area.

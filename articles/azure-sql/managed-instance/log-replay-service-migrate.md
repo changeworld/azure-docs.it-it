@@ -4,17 +4,17 @@ description: Informazioni su come eseguire la migrazione dei database da SQL Ser
 services: sql-database
 ms.service: sql-managed-instance
 ms.custom: seo-lt-2019, sqldbrb=1
-ms.devlang: ''
 ms.topic: how-to
 author: danimir
+ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
-ms.openlocfilehash: bc0dc72c7547c8f74aec53b7153fc5384c6b634b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74403b7ec1469ce7cdaadc9931eb5ac95f55f6f5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690788"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096837"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-using-log-replay-service-preview"></a>Eseguire la migrazione dei database da SQL Server a SQL Istanza gestita utilizzando il servizio di riproduzione log (anteprima)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ CON ridondanza locale può essere avviato in modalità di completamento automati
 
 Quando con ridondanza locale viene arrestato, automaticamente in caso di completamento automatico o manualmente in cutover, non è possibile riprendere il processo di ripristino per un database portato online in SQL Istanza gestita. Per ripristinare i file di backup aggiuntivi dopo che la migrazione è stata completata tramite il completamento automatico o manualmente in cutover, è necessario eliminare il database e l'intera catena di backup deve essere ripristinata da zero riavviando il con ridondanza locale.
 
-![Passaggi dell'orchestrazione del servizio di riproduzione log illustrati per SQL Istanza gestita](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
+   :::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="Passaggi dell'orchestrazione del servizio di riproduzione log illustrati per SQL Istanza gestita" border="false":::
     
 | Operazione | Dettagli |
 | :----------------------------- | :------------------------- |
@@ -193,18 +193,30 @@ WITH COMPRESSION, CHECKSUM
 L'archivio BLOB di Azure viene usato come risorsa di archiviazione intermedia per i file di backup tra SQL Server e SQL Istanza gestita. Il token di autenticazione SAS con autorizzazioni di elenco e di sola lettura deve essere generato per l'uso da con ridondanza locale Service. Questo consentirà al servizio con ridondanza locale di accedere all'archivio BLOB di Azure e usare i file di backup per ripristinarli in SQL Istanza gestita. Seguire questa procedura per generare l'autenticazione SAS per l'uso di con ridondanza locale:
 
 1. Accedere al Storage Explorer da portale di Azure
+
 2. Espandere contenitori BLOB
-3. Fare clic con il pulsante destro del mouse sul contenitore BLOB e selezionare Ottieni firma di accesso condiviso  ![ servizio genera token di autenticazione SAS](./media/log-replay-service-migrate/lrs-sas-token-01.png)
+
+3. Fare clic con il pulsante destro del mouse sul contenitore BLOB e selezionare Ottieni firma di accesso condiviso
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-01.png" alt-text="Servizio di riproduzione log-ottenere la firma di accesso condiviso":::
+
 4. Selezionare l'intervallo di tempo per la scadenza del token. Verificare che il token sia valido per la durata della migrazione.
+
 5. Selezionare il fuso orario per il token-UTC o l'ora locale
-    - Il fuso orario del token e del Istanza gestita SQL potrebbe non corrispondere. Verificare che il token di firma di accesso condiviso disponga della validità del tempo appropriata per tenere in considerazione i fusi orari. Se possibile, impostare il fuso orario su un'ora precedente e successiva della finestra di migrazione pianificata.
+
+   - Il fuso orario del token e del Istanza gestita SQL potrebbe non corrispondere. Verificare che il token di firma di accesso condiviso disponga della validità del tempo appropriata per tenere in considerazione i fusi orari. Se possibile, impostare il fuso orario su un'ora precedente e successiva della finestra di migrazione pianificata.
+
 6. Selezionare Leggi ed elenca solo le autorizzazioni
-    - Non è necessario selezionare altre autorizzazioni, altrimenti con ridondanza locale non sarà in grado di avviarsi. Questo requisito di sicurezza è da progettazione.
-7. Fare clic nel pulsante Crea il  ![ servizio di riproduzione log genera il token di autenticazione SAS](./media/log-replay-service-migrate/lrs-sas-token-02.png)
 
-L'autenticazione SAS verrà generata con la validità dell'ora specificata in precedenza. Sarà necessaria la versione URI del token generato, come illustrato nella schermata seguente.
+   - Non è necessario selezionare altre autorizzazioni, altrimenti con ridondanza locale non sarà in grado di avviarsi. Questo requisito di sicurezza è da progettazione.
 
-![Esempio di URI di autenticazione SAS generato dal servizio di riesecuzione del log](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
+7. Fai clic sul pulsante Crea
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-02.png" alt-text="Servizio di riproduzione log-genera token di autenticazione SAS":::
+
+   L'autenticazione SAS verrà generata con la validità dell'ora specificata in precedenza. Sarà necessaria la versione URI del token generato, come illustrato nella schermata seguente.
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Servizio di riproduzione log: copiare la firma di accesso condiviso URI":::
 
 ### <a name="copy-parameters-from-sas-token-generated"></a>Copia i parametri dal token SAS generato
 
@@ -212,7 +224,7 @@ Per poter usare correttamente il token SAS per avviare con ridondanza locale, è
 - StorageContainerUri e 
 - StorageContainerSasToken, separato da un punto interrogativo (?), come illustrato nell'immagine seguente.
 
-    ![Esempio di URI di autenticazione SAS generato dal servizio di riesecuzione del log](./media/log-replay-service-migrate/lrs-token-structure.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-structure.png" alt-text="Esempio di URI di autenticazione SAS generato dal servizio di riesecuzione del log" border="false":::
 
 - La prima parte che inizia con "https://" fino a quando non viene usato il punto interrogativo (?) per il parametro StorageContainerURI fornito come input a con ridondanza locale. In questo modo vengono fornite informazioni con ridondanza locale sulla cartella in cui sono archiviati i file di backup del database.
 - La seconda parte, che inizia dopo il punto interrogativo (?), nell'esempio "SP =" e fino alla fine della stringa è il parametro StorageContainerSasToken. Questo è il token di autenticazione firmato effettivo, valido per la durata dell'intervallo di tempo specificato. Questa parte non deve necessariamente iniziare con "SP =" come illustrato e il caso potrebbe variare.
@@ -221,11 +233,11 @@ Copiare i parametri come segue:
 
 1. Copiare la prima parte del token a partire da https://fino a quando il punto interrogativo (?) viene usato come parametro StorageContainerUri in PowerShell o nell'interfaccia della riga di comando per avviare con ridondanza locale, come illustrato nella schermata seguente.
 
-    ![Parametro StorageContainerUri copia servizio di riproduzione log](./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png" alt-text="Parametro StorageContainerUri copia servizio di riproduzione log":::
 
 2. Copiare la seconda parte del token a partire dal punto interrogativo (?), fino alla fine della stringa e usarla come parametro StorageContainerSasToken in PowerShell o nell'interfaccia della riga di comando per l'avvio di con ridondanza locale, come illustrato nella schermata seguente.
 
-    ![Parametro StorageContainerSasToken copia servizio di riproduzione log](./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png" alt-text="Parametro StorageContainerSasToken copia servizio di riproduzione log":::
 
 > [!IMPORTANT]
 > - Le autorizzazioni per il token SAS per l'archiviazione BLOB di Azure devono essere lette e solo elencate. Se vengono concesse altre autorizzazioni per il token di autenticazione SAS, l'avvio del servizio con ridondanza locale non riuscirà. Questi requisiti di sicurezza sono di progettazione.

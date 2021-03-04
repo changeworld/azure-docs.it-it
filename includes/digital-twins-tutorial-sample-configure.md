@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: f5b332415f1abf7d4c1002bdd4f3bfcef12f1267
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: ff9d1f0ff75a6df6c115ecfe2b8c5f71b12049e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023261"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036173"
 ---
 ## <a name="configure-the-sample-project"></a>Configurare il progetto di esempio
 
@@ -22,7 +22,7 @@ All'interno della cartella passare a _AdtSampleApp_. Aprire _**AdtE2ESample.sln*
 
 In Visual Studio selezionare il file _SampleClientApp > **appsettings.json**_ per aprirlo nella finestra di modifica. Questo file verrà usato come file JSON preimpostato con le variabili di configurazione necessarie per eseguire il progetto.
 
-Nel corpo del file sostituire `instanceUrl` con l'URL del *nome host* dell'istanza di Gemelli digitali di Azure (preceduto da *https://* come illustrato di seguito).
+Nel corpo del file modificare l' `instanceUrl` *URL del nome host* dell'istanza di Azure Digital Twins (aggiungendo **_https://_** davanti al *nome host*, come illustrato di seguito).
 
 ```json
 {
@@ -32,7 +32,7 @@ Nel corpo del file sostituire `instanceUrl` con l'URL del *nome host* dell'istan
 
 Salvare e chiudere il file. 
 
-Configurare quindi il file *appsettings.json* in modo che venga copiato nella directory di output quando si compila *SampleClientApp*. A tale scopo, fare clic con il pulsante destro del mouse sul file *appsettings.json* e scegliere *Proprietà*. Nel controllo *Proprietà* modificare il valore della proprietà *Copia nella directory di output* con *Copia se più recente*.
+Configurare quindi il file *appsettings.json* in modo che venga copiato nella directory di output quando si compila *SampleClientApp*. A tale scopo, fare clic con il pulsante destro del mouse *sul fileappsettings.js* e scegliere **Proprietà**. Nel controllo **Proprietà** cercare la proprietà copia nella *directory di output* . Modificare il valore in **copia se più recente** se non è già impostato su tale valore.
 
 :::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Estratto della finestra di Visual Studio che mostra il riquadro Esplora soluzioni con appsettings.json evidenziato e il riquadro Proprietà con la proprietà 'Copia nella directory di output' impostata su 'Copia se più recente'" border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
 

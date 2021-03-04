@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 43119a51be2359ed2ddfb4e5d5fa629badedb054
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a274ec1aab3f530700f89ef810fa667fdf4d08e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720682"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042981"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controllo di sicurezza V2: registrazione e rilevamento minacce
 
 Registrazione e rilevamento delle minacce copre i controlli per il rilevamento di minacce in Azure e l'abilitazione, la raccolta e l'archiviazione dei log di controllo per i servizi di Azure. Questo include l'abilitazione dei processi di rilevamento, analisi e correzione con i controlli per generare avvisi di alta qualità con il rilevamento delle minacce nativo nei servizi di Azure. include anche la raccolta di log con monitoraggio di Azure, la centralizzazione dell'analisi della sicurezza con Sentinel di Azure, la sincronizzazione dell'ora e la conservazione dei log.
 
-Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli dell'iniziativa incorporata relativa alla conformità normativa per il benchmark di sicurezza di Azure: registrazione e rilevamento delle minacce](../../governance/policy/samples/azure-security-benchmark#logging-and-threat-detection)
+Per visualizzare i criteri di Azure predefiniti applicabili, vedere la pagina relativa ai [Dettagli dell'iniziativa incorporata relativa alla conformità normativa per il benchmark di sicurezza di Azure: registrazione e rilevamento delle minacce](../../governance/policy/samples/azure-security-benchmark.md#logging-and-threat-detection)
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: abilitazione del rilevamento delle minacce per le risorse di Azure
 

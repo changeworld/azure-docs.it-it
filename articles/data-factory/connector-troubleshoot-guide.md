@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 02/08/2021
 ms.author: jingwang
 ms.custom: has-adal-ref
-ms.openlocfilehash: 574c4967c1e45ce1ae2be92d8648d654322e2244
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9d8f940e3900c00b1c6f6623dfeff2d92ca85aa3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727822"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042437"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Risolvere i problemi di Azure Data Factory connettori
 
@@ -831,7 +831,7 @@ Questo articolo illustra i modi comuni per risolvere i problemi relativi ai conn
 
     Se il contenuto della chiave privata è dall'insieme di credenziali delle chiavi, il file di chiave originale può funzionare se lo si carica direttamente nel servizio collegato SFTP.
 
-    Per altre informazioni, vedere [copiare dati da e verso il server SFTP usando Azure Data Factory](./connector-sftp.md#using-ssh-public-key-authentication). Il contenuto della chiave privata è contenuto della chiave privata SSH con codifica Base64.
+    Per altre informazioni, vedere [copiare dati da e verso il server SFTP usando Azure Data Factory](./connector-sftp.md#use-ssh-public-key-authentication). Il contenuto della chiave privata è contenuto della chiave privata SSH con codifica Base64.
 
     Codificare l'intero file di chiave privata originale con codifica Base64 e archiviare la stringa codificata nell' *insieme* di credenziali delle chiavi. Il file di chiave privata originale è quello che può funzionare nel servizio collegato SFTP se si seleziona **carica** dal file.
 

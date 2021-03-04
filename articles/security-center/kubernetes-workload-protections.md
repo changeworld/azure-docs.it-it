@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: f024457ed9f20e6bab0852a53ab6a60ac85ed25a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 6d0e660ecce1d45dab4d6003cdba391ba2eb4ee9
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546262"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095596"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteggere i carichi di lavoro Kubernetes
 
@@ -51,7 +51,7 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
 
 Per configurare le raccomandazioni, installare il  **componente aggiuntivo criteri di Azure per Kubernetes**. 
 
-- È possibile distribuire automaticamente questo componente aggiuntivo come descritto in [abilitare il provisioning automatico delle estensioni](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Con il provisioning automatico attivato per il componente aggiuntivo, l'estensione viene abilitata per impostazione predefinita in tutti i cluster esistenti e futuri che soddisfano i requisiti dell'installazione.
+- È possibile distribuire automaticamente questo componente aggiuntivo come descritto in [abilitare il provisioning automatico dell'agente e delle estensioni log Analytics](security-center-enable-data-collection.md#auto-provision-mma). Con il provisioning automatico attivato per il componente aggiuntivo, l'estensione viene abilitata per impostazione predefinita in tutti i cluster esistenti e futuri che soddisfano i requisiti dell'installazione.
 
     :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Uso dello strumento di provisioning automatico del Centro sicurezza per installare il componente aggiuntivo dei criteri per Kubernetes":::
 

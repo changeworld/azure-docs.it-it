@@ -1,18 +1,18 @@
 ---
 title: Modello di risorsa per la funzionalità di ripristino temporizzato Azure Cosmos DB.
-description: Questo articolo illustra il modello di risorse per la funzionalità di ripristino temporizzato Azure Cosmos DB. Vengono illustrati i parametri che supportano il backup continuo e le risorse che possono essere ripristinate in Azure Cosmos DB API per gli account SQL e MongoDB.
+description: Questo articolo illustra il modello di risorsa per la funzionalità di ripristino temporizzato di Azure Cosmos DB. Vengono illustrati i parametri che supportano il backup continuo e le risorse che possono essere ripristinate nell'API di Azure Cosmos DB per gli account SQL e MongoDB.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/22/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d838425583638aef5199b52df4869923c826553d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: edf60a5c454d34a2424ef7981b02952ffbfd3bde
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369969"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097228"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modello di risorsa per la funzionalità di ripristino temporizzato di Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "100369969"
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questo articolo illustra il modello di risorse per la funzionalità di ripristino temporizzato di Azure Cosmos DB (anteprima). Vengono illustrati i parametri che supportano il backup continuo e le risorse che possono essere ripristinate in Azure Cosmos DB API per gli account SQL e MongoDB.
+Questo articolo illustra il modello di risorse per la funzionalità di ripristino temporizzato di Azure Cosmos DB (anteprima). Vengono illustrati i parametri che supportano il backup continuo e le risorse che possono essere ripristinate nell'API di Azure Cosmos DB per gli account SQL e MongoDB.
 
 ## <a name="database-accounts-resource-model"></a>Modello di risorsa dell'account di database
 
@@ -128,7 +128,7 @@ Questa risorsa contiene un'istanza dell'account di database che può essere ripr
 | restorableLocations: creationTime | Ora in formato UTC in cui è stato creato l'account a livello di area.|
 | restorableLocations: deletionTime | Ora in formato UTC in cui è stato eliminato l'account a livello di area. Questo valore è vuoto se l'account locale è Live.|
 
-Per ottenere un elenco di tutti gli account ripristinabili, vedere [account di database ripristinabili-elenco](restorable-database-accounts-list.md) o [account di database ripristinabili-elenchi per località](restorable-database-accounts-list-by-location.md) .
+Per ottenere un elenco di tutti gli account ripristinabili, vedere [account di database ripristinabili-elenco](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list) o [account di database ripristinabili-elenchi per località](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation) .
 
 ### <a name="restorable-sql-database"></a>Database SQL ripristinabile
 
@@ -142,7 +142,7 @@ Ogni risorsa contiene informazioni di un evento di mutazione, ad esempio la crea
 | operationType | Tipo di operazione di questo evento di database. Ecco i valori possibili:<br/><ul><li>Creazione: evento di creazione del database</li><li>Elimina: evento di eliminazione del database</li><li>Sostituisci: evento di modifica del database</li><li>SystemOperation: evento di modifica del database attivato dal sistema. Questo evento non è stato avviato dall'utente</li></ul> |
 | database |Proprietà del database SQL al momento dell'evento|
 
-Per ottenere un elenco di tutte le mutazioni del database, vedere l'articolo relativo ai [database SQL ripristinabili-elenco](restorable-sql-databases-list.md) .
+Per ottenere un elenco di tutte le mutazioni del database, vedere l'articolo relativo ai [database SQL ripristinabili-elenco](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list) .
 
 ### <a name="restorable-sql-container"></a>Contenitore SQL ripristinabile
 
@@ -156,7 +156,7 @@ Ogni risorsa contiene informazioni di un evento di mutazione, ad esempio la crea
 | operationType | Tipo di operazione di questo evento contenitore. Ecco i valori possibili: <br/><ul><li>Creazione: evento di creazione del contenitore</li><li>Elimina: evento di eliminazione del contenitore</li><li>Sostituisci: evento di modifica del contenitore</li><li>SystemOperation: evento di modifica del contenitore attivato dal sistema. Questo evento non è stato avviato dall'utente</li></ul> |
 | contenitore | Proprietà del contenitore SQL al momento dell'evento.|
 
-Per ottenere un elenco di tutte le mutazioni del contenitore nello stesso database, vedere l'articolo relativo all' [elenco di contenitori SQL ripristinabili](restorable-sql-containers-list.md) .
+Per ottenere un elenco di tutte le mutazioni del contenitore nello stesso database, vedere l'articolo relativo all' [elenco di contenitori SQL ripristinabili](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list) .
 
 ### <a name="restorable-sql-resources"></a>Risorse SQL ripristinabili
 
@@ -167,7 +167,7 @@ Ogni risorsa rappresenta un singolo database e tutti i contenitori in tale datab
 | databaseName  | Nome del database SQL.
 | collectionNames   | Elenco di contenitori SQL in questo database.|
 
-Per ottenere un elenco di database SQL e di una combinazione di contenitori presenti nell'account nel timestamp e nella posizione specificati, vedere l'articolo [risorse SQL ripristinabili-elenco](restorable-sql-resources-list.md) .
+Per ottenere un elenco di database SQL e di una combinazione di contenitori presenti nell'account nel timestamp e nella posizione specificati, vedere l'articolo [risorse SQL ripristinabili-elenco](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list) .
 
 ### <a name="restorable-mongodb-database"></a>Database MongoDB ripristinabile
 
@@ -180,7 +180,7 @@ Ogni risorsa contiene informazioni di un evento di mutazione, ad esempio la crea
 | ownerResourceId   | ID risorsa del database MongoDB. |
 | operationType |   Tipo di operazione di questo evento di database. Ecco i valori possibili:<br/><ul><li> Creazione: evento di creazione del database</li><li> Elimina: evento di eliminazione del database</li><li> Sostituisci: evento di modifica del database</li><li> SystemOperation: evento di modifica del database attivato dal sistema. Questo evento non è stato avviato dall'utente </li></ul> |
 
-Per ottenere un elenco di tutte le mutazioni del database, vedere l'articolo relativo ai [database MongoDB ripristinabili-elenco](restorable-mongodb-databases-list.md) .
+Per ottenere un elenco di tutte le mutazioni del database, vedere l'articolo relativo ai [database MongoDB ripristinabili-elenco](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list) .
 
 ### <a name="restorable-mongodb-collection"></a>Raccolta MongoDB ripristinabile
 
@@ -193,7 +193,7 @@ Ogni risorsa contiene informazioni di un evento di mutazione, ad esempio la crea
 | ownerResourceId   | ID risorsa della raccolta MongoDB. |
 | operationType |Tipo di operazione dell'evento della raccolta. Ecco i valori possibili:<br/><ul><li>Creazione: evento di creazione raccolta</li><li>Elimina: evento di eliminazione della raccolta</li><li>Sostituisci: evento di modifica della raccolta</li><li>SystemOperation: evento di modifica della raccolta attivato dal sistema. Questo evento non è stato avviato dall'utente</li></ul> |
 
-Per ottenere un elenco di tutte le mutazioni del contenitore nello stesso database, vedere l'articolo [raccolte MongoDB ripristinabili-elenco](restorable-mongodb-collections-list.md) .
+Per ottenere un elenco di tutte le mutazioni del contenitore nello stesso database, vedere l'articolo [raccolte MongoDB ripristinabili-elenco](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list) .
 
 ### <a name="restorable-mongodb-resources"></a>Risorse MongoDB ripristinabili
 
@@ -204,7 +204,7 @@ Ogni risorsa rappresenta un singolo database e tutte le raccolte in tale databas
 | databaseName  |Nome del database MongoDB. |
 | collectionNames | Elenco di raccolte MongoDB in questo database. |
 
-Per ottenere un elenco di tutte le combinazioni di database e raccolte MongoDB presenti nell'account nel timestamp e nella posizione specificati, vedere l'articolo [risorse MongoDB ripristinabili-elenco](restorable-mongodb-resources-list.md) .
+Per ottenere un elenco di tutte le combinazioni di database e raccolte MongoDB presenti nell'account nel timestamp e nella posizione specificati, vedere l'articolo [risorse MongoDB ripristinabili-elenco](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

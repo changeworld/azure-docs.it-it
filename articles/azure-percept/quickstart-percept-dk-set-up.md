@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 77ccf09903b6cff83b52d60d43d0c52533c9c1ad
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 78c5d2d03ebca45bcf1602b35453914d033db5c8
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041689"
+ms.locfileid: "102098248"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configurare Azure Percept DK e distribuire il primo modello di intelligenza artificiale
 
@@ -25,7 +25,7 @@ Se si verificano problemi durante questo Avvio rapido, vedere la guida alla [ris
 - Azure Percept DK.
 - Un computer host basato su Windows, Linux o OS X con funzionalità Wi-Fi e un Web browser.
 - Un account Azure con una sottoscrizione attiva. [Crea gratuitamente un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- L'account Azure deve avere il ruolo "proprietario" o "collaboratore" per la sottoscrizione. Scopri di più sulle definizioni dei ruoli di Azure
+- L'account Azure deve avere il ruolo "proprietario" o "collaboratore" per la sottoscrizione. Altre informazioni sulle [definizioni di ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
 
 ### <a name="prerequisite-check"></a>Controllo dei prerequisiti
 

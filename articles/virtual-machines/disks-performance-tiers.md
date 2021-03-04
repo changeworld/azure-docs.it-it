@@ -8,12 +8,12 @@ ms.date: 03/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 161aafce1c04e5d09cf08529bcbf1baf6b8a86b1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 429845aa22b6d069b8d7233132de8eb3b24b2985
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674926"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043678"
 ---
 # <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Modificare il livello di prestazioni usando il modulo Azure PowerShell o l'interfaccia della riga di comando di Azure
 
@@ -117,7 +117,7 @@ $disk.Tier
 
 ## <a name="change-the-performance-tier-of-a-disk-without-downtime-preview"></a>Modificare il livello di prestazioni di un disco senza tempi di inattività (anteprima)
 
-È anche possibile modificare il livello di prestazioni senza tempi di inattività, quindi non è necessario deallocare la VM o scollegare il disco per modificare il livello. Per ulteriori informazioni e il collegamento per l'iscrizione per l'anteprima, vedere la sezione [modifica del livello di prestazioni senza tempi di inattività (anteprima)](#changing-performance-tier-without-downtime-preview) .
+È anche possibile modificare il livello di prestazioni senza tempi di inattività, quindi non è necessario deallocare la VM o scollegare il disco per modificare il livello. Per ulteriori informazioni e il collegamento per l'iscrizione per l'anteprima, vedere la sezione [modificare il livello di prestazioni senza tempi di inattività (anteprima)](#change-performance-tier-without-downtime-preview) .
 
 
 Lo script seguente aggiornerà il livello di un disco in un livello superiore rispetto al livello Baseline usando il modello di esempio [CreateUpdateDataDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json). Sostituire `<yourSubScriptionID>` ,,, `<yourResourceGroupName>` `<yourDiskName>` `<yourDiskSize>` , `<yourDesiredPerformanceTier>` quindi eseguire lo script:

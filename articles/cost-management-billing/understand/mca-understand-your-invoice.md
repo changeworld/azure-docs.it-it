@@ -9,18 +9,22 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 766136731cb92b1bd4f0965d4929b1ac5eda14dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690494"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050444"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termini presenti nella fattura del Contratto del cliente Microsoft in Azure
 
 Questo articolo si applica a un account di fatturazione di Azure per un Contratto del cliente Microsoft. [Verificare di avere accesso a un Contratto del cliente Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 La fattura contiene un riepilogo degli addebiti e le istruzioni per il pagamento. È disponibile per il download in formato PDF (Portable Document Format) dal [Portale di Azure](https://portal.azure.com/). In alternativa, è possibile riceverla tramite posta elettronica. Per altre informazioni, vedere [Visualizzare e scaricare la fattura di Microsoft Azure](download-azure-invoice.md).
+
+Per informazioni sulla fattura e su come analizzarne gli addebiti, vedere il video sulla [fatturazione del contratto clienti Microsoft](https://www.youtube.com/watch?v=e2LGZZ7GubA) .
+
+>[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
 
 ## <a name="billing-period"></a>Periodo di fatturazione
 
@@ -104,6 +108,6 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni sugli addebiti nella fattura del profilo di fatturazione](review-customer-agreement-bill.md)
-- [Come ottenere la fattura e i dati di uso giornalieri di Azure](../manage/download-azure-invoice-daily-usage-date.md)
+- [Come ottenere la fattura e i dati di utilizzo giornalieri di Azure](../manage/download-azure-invoice-daily-usage-date.md)
 - [Visualizzare i prezzi di Azure dell'organizzazione](../manage/ea-pricing.md)
 - [Visualizzare i documenti fiscali per il profilo di fatturazione](mca-download-tax-document.md)

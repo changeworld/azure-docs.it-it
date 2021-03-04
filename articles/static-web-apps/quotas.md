@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 915f8675ffda0d70347905d11c7d93975b9d4526
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 1bf9a2cf7af8b18994ef2473c11176b8aea74f6e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132738"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042726"
 ---
 # <a name="quotas-in-azure-static-web-apps-preview"></a>Quote in App Web statiche di Azure (anteprima)
 
@@ -27,7 +27,7 @@ Per App Web statiche di Azure (anteprima) sono disponibili le quote seguenti.
 | Larghezza di banda in eccedenza           | Non disponibile      |
 | App per sottoscrizione di Azure | 10               |
 | Dimensioni dell'app                    | 250 MB           |
-| Ambienti di pre-produzione | 1                |
+| Ambienti di pre-produzione | 3                |
 | Domini personalizzati              | 1                |
 | Autorizzazione<br><br>Con ruoli personalizzati e regole di gestione | Massimo 25 utenti finali invitati e ruoli assegnati |
 | Funzioni di Azure             | Disponibile        |

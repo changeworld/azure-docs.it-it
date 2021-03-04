@@ -3,15 +3,14 @@ title: Progettazione viste di monitoraggio di Azure per la conversione di cartel
 description: Attività comuni per la transizione da viste a cartelle di lavoro di monitoraggio di Azure.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 4e9d9e65dedae083138f3b29a2a609e124ce0fc8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d479e64620519491ba4847349ea33820747fcea7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619117"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043474"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Progettazione viste in cartelle di lavoro conversione di attività comuni
 [Progettazione](view-designer.md) viste è una funzionalità di monitoraggio di Azure che consente di creare visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro log Analytics, con grafici, elenchi e sequenze temporali. Vengono eliminati e sostituiti con cartelle di lavoro che forniscono funzionalità aggiuntive. Questo articolo descrive in dettaglio le attività comuni per la conversione delle visualizzazioni in cartelle di lavoro.

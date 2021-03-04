@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7b1d18982a4f2a9ee8ba585af56a5e9ded7c1c62
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367806"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036827"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
 
@@ -78,7 +78,7 @@ La sezione seguente consente di identificare tutte le parti interessate coinvolt
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Parti interessate: Privileged Identity Management per i ruoli di Azure AD
 
-| Name | Ruolo | Action |
+| Nome | Ruolo | Azione |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Architetto delle identità o Amministratore globale di Azure**<br/>Un rappresentante del team di gestione delle identità responsabile della definizione di come allineare questa modifica all'infrastruttura di gestione delle identità di base dell'organizzazione. | A/R/I |
 | Nome e indirizzo di posta elettronica | **Proprietario del servizio o diretto superiore**<br/>Un rappresentante dei proprietari IT di un servizio o di un gruppo di servizi. Sono essenziali per prendere decisioni e contribuire a implementare Privileged Identity Management per il team. | A/R/I |
@@ -88,7 +88,7 @@ La sezione seguente consente di identificare tutte le parti interessate coinvolt
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-roles"></a>Stakeholder: Privileged Identity Management per i ruoli di Azure
 
-| Name | Ruolo | Action |
+| Nome | Ruolo | Azione |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Proprietario delle risorse o delle sottoscrizioni**<br/>Un rappresentante dei proprietari IT di ogni sottoscrizione o risorsa che si desidera distribuire Privileged Identity Management per | A/R/I |
 | Nome e indirizzo di posta elettronica | **Responsabile della sicurezza**<br/>Un rappresentante del team addetto alla sicurezza che può approvare la conformità del piano ai requisiti di sicurezza dell'organizzazione. | A/R |
@@ -111,7 +111,7 @@ Per Azure AD ruoli, è comune per le organizzazioni assegnare il ruolo di ammini
 
 Attenersi alla procedura seguente per implementare il principio dei privilegi minimi per i ruoli del Azure AD.
 
-1. Comprendere le caratteristiche specifiche dei ruoli leggendo le informazioni sui [ruoli di amministratore disponibili in Azure AD](../roles/permissions-reference.md#available-roles). È inoltre utile fare riferimento al documento sui [ruoli di amministratore per attività di identità in Azure AD](../roles/delegate-by-task.md), che presenta il ruolo con privilegi minimi da usare per ogni attività specifica.
+1. Comprendere la granularità dei ruoli leggendo e comprendendo i [ruoli predefiniti Azure ad](../roles/permissions-reference.md)disponibili. È inoltre utile fare riferimento al documento sui [ruoli di amministratore per attività di identità in Azure AD](../roles/delegate-by-task.md), che presenta il ruolo con privilegi minimi da usare per ogni attività specifica.
 
 1. Visualizzare l'elenco degli utenti che dispongono di ruoli con privilegi all'interno dell'organizzazione. È possibile usare l' [individuazione Privileged Identity Management e le informazioni dettagliate (anteprima)](pim-security-wizard.md) per ridurre l'esposizione.
 
@@ -298,7 +298,7 @@ Ora che sono stati identificati gli utenti di test, usare questo passaggio per c
 
 1. [Configurare le impostazioni dei ruoli delle risorse di Azure](pim-resource-roles-configure-role-settings.md) per un ruolo all'interno di una sottoscrizione o una risorsa che si vuole testare.
 
-1. Passare a **risorse di Azure** per la sottoscrizione e selezionare **ruoli**e selezionare il ruolo configurato.
+1. Passare a **risorse di Azure** per la sottoscrizione e selezionare **ruoli** e selezionare il ruolo configurato.
 
 1. Se gli utenti del gruppo di test sono già configurati come amministratori attivi, per renderli idonei è possibile cercarli e [aggiornare la rispettiva assegnazione di ruolo](pim-resource-roles-assign-roles.md#update-or-remove-an-existing-role-assignment). Se invece gli utenti non hanno ancora un ruolo, è possibile [assegnarne uno nuovo](pim-resource-roles-assign-roles.md#assign-a-role).
 

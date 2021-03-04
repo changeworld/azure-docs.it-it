@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.date: 03/03/2021
+ms.openlocfilehash: 6a71999f0896a5d056b7d0b38be4d494c347e9f9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807649"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049373"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Come connettersi Azure Data Factory e Azure
 
@@ -73,7 +73,7 @@ Attenersi alla procedura seguente per connettere un account di Data Factory esis
 
 Quando un utente di competenza registra un Data Factory a cui ha accesso, nel back-end si verifica quanto segue:
 
-1. Il **Data Factory MSI** viene aggiunto al ruolo di competenza controllo degli accessi in base al ruolo: **Data Curator di competenza**
+1. L' **identità gestita di data factory** viene aggiunta al ruolo controllo degli accessi in base al ruolo: responsabile **dati di competenza**.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot che mostra Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
      
@@ -88,76 +88,91 @@ Per rimuovere una connessione data factory, procedere come segue:
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot che illustra come selezionare le data factory per la rimozione della connessione." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configurare un runtime di integrazione self-hosted per raccogliere la derivazione da SQL locale
+## <a name="configure-a-self-hosted-integration-runtime-to-collect-lineage"></a>Configurare un Integration Runtime self-hosted per raccogliere la derivazione
 
-La derivazione per l'attività di copia Data Factory è disponibile per i database SQL locali. Se si esegue il runtime di integrazione self-hosted per lo spostamento dei dati con Azure Data Factory e si vuole acquisire la derivazione in Azure, verificare che la versione sia 4.8.7418.1 o successiva. Per altre informazioni sul runtime di integrazione self-hosted, vedere [creare e configurare un runtime di integrazione self-hosted](../data-factory/create-self-hosted-integration-runtime.md).
+La derivazione per l'attività di copia Data Factory è disponibile per gli archivi dati locali come i database SQL. Se si esegue il runtime di integrazione self-hosted per lo spostamento dei dati con Azure Data Factory e si vuole acquisire la derivazione in Azure, verificare che la versione sia 5,0 o successiva. Per altre informazioni sul runtime di integrazione self-hosted, vedere [creare e configurare un runtime di integrazione self-hosted](../data-factory/create-self-hosted-integration-runtime.md).
 
 ## <a name="supported-azure-data-factory-activities"></a>Attività Azure Data Factory supportate
 
 Azure competenza acquisisce la derivazione di runtime dalle attività Azure Data Factory seguenti:
 
-- Copiare dati
-- Flusso di dati
-- Esecuzione del pacchetto SSIS
+- [Copia dati](../data-factory/copy-activity-overview.md)
+- [Flusso di dati](../data-factory/concepts-data-flow-overview.md)
+- [Esecuzione del pacchetto SSIS](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
 
 > [!IMPORTANT]
 > Azure competenza Elimina la derivazione se l'origine o la destinazione usa un sistema di archiviazione dati non supportato.
 
 L'integrazione tra Data Factory e la competenza supporta solo un subset dei sistemi dati supportati da Data Factory, come descritto nelle sezioni seguenti.
 
-### <a name="data-factory-copy-data-support"></a>Supporto di Data Factory Copia dati
+### <a name="data-factory-copy-activity-support"></a>Supporto per l'attività di copia Data Factory
 
-| Sistema di archiviazione dati | Supportato come origine | 
+| Archivio dati | Supportato | 
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Sì | 
-| ADLS Gen2 | Sì | 
-| BLOB Azure | Sì |
-| Azure Cosmos DB (API SQL) | Sì | 
-| Azure Cosmos DB (API Mongo) | Sì |
+| Archiviazione BLOB di Azure | Sì |
 | Ricerca cognitiva di Azure | Sì | 
-| Esplora dati di Azure | Sì | 
+| Azure Cosmos DB (API SQL) \* | Sì | 
+| API di Azure Cosmos DB per MongoDB \* | Sì |
+| Esplora dati di Azure \* | Sì | 
+| Azure Data Lake Storage Gen1 | Sì | 
+| Azure Data Lake Storage Gen2 | Sì | 
 | Database di Azure per Maria DB \* | Sì | 
-| Database di Azure per MYSQL \* | Sì | 
+| Database di Azure per MySQL \* | Sì | 
 | Database di Azure per PostgreSQL \* | Sì |
 | Archiviazione file di Azure | Sì | 
-| Archiviazione tabelle di Azure | Sì |
 | Database SQL di Azure \* | Sì | 
-| Azure SQL MI \* | Sì | 
-| Azure sinapsi Analytics (in precedenza SQL DW) \* | Sì | 
-| SQL Server locale  \* | Sì | 
+| Istanza gestita SQL di Azure \* | Sì | 
+| Analisi delle sinapsi di Azure \* | Sì | 
+| Archiviazione tabelle di Azure \* | Sì |
+| SQL Server \* | Sì | 
 | Amazon S3 | Sì | 
-| Teradata | Sì | 
-| Connettore tabella SAP | Sì |
-| SAP ECC | Sì | 
-| Hive | Sì | 
+| Alveare \* | Sì | 
+| SAP ECC \* | Sì |
+| Tabella SAP \* | Sì |
+| Teradata \* | Sì |
+
+*\* Azure competenze attualmente non supporta la query o la stored procedure per la derivazione o l'analisi. La derivazione è limitata solo alle origini tabella e vista.*
 
 > [!Note]
 > La funzionalità di derivazione presenta un certo sovraccarico delle prestazioni in Data Factory attività di copia. Per chi imposta data factory connessioni in ambito, è possibile osservare che alcuni processi di copia richiedono più tempo per essere completati. Per lo più, l'effetto è non trascurabile. Se i processi di copia importano un tempo molto più lungo rispetto al consueto, contattare il supporto tecnico.
 
+#### <a name="known-limitations-on-copy-activity-lineage"></a>Limitazioni note sulla derivazione dell'attività di copia
+
+Attualmente, se si usano le funzionalità dell'attività di copia seguenti, la derivazione non è ancora supportata:
+
+- Copiare i dati in Azure Data Lake Storage Gen1 usando il formato binario.
+- Copiare i dati in Azure sinapsi Analytics usando l'istruzione di base o di copia.
+- Impostazione di compressione per file binari, delimitati di testo, Excel, JSON e XML.
+- Opzioni di partizione di origine per database SQL di Azure, Azure SQL Istanza gestita, Azure sinapsi Analytics, SQL Server e tabella SAP.
+- Copiare i dati nel sink basato su file con l'impostazione del numero massimo di righe per ogni file.
+- Aggiungere altre colonne durante la copia.
+
 ### <a name="data-factory-data-flow-support"></a>Supporto del flusso di dati Data Factory
 
-| Sistema di archiviazione dati | Supportato |
+| Archivio dati | Supportato |
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Sì |
-| ADLS Gen2 | Sì |
-| BLOB Azure | Sì |
+| Archiviazione BLOB di Azure | Sì |
+| Azure Data Lake Storage Gen1 | Sì |
+| Azure Data Lake Storage Gen2 | Sì |
 | Database SQL di Azure \* | Sì |
-| Azure sinapsi Analytics (in precedenza SQL DW) \* | Sì |
+| Analisi delle sinapsi di Azure \* | Sì |
+
+*\* Azure competenze attualmente non supporta la query o la stored procedure per la derivazione o l'analisi. La derivazione è limitata solo alle origini tabella e vista.*
 
 ### <a name="data-factory-execute-ssis-package-support"></a>Data Factory eseguire il supporto di pacchetti SSIS
 
-| Sistema di archiviazione dati | Supportato |
+| Archivio dati | Supportato |
 | ------------------- | ------------------- |
-| BLOB Azure | Sì |
-| ADLS Gen1 | Sì |
-| ADLS Gen2 | Sì |
-| Database SQL di Azure \* | Sì |
-| Azure SQL MI \*| Sì |
-| Azure sinapsi Analytics (in precedenza SQL DW) \* | Sì |
-| SQL Server locale \* | Sì |
+| Archiviazione BLOB di Azure | Sì |
+| Azure Data Lake Storage Gen1 | Sì |
+| Azure Data Lake Storage Gen2 | Sì |
 | Archiviazione file di Azure | Sì |
+| Database SQL di Azure \* | Sì |
+| Istanza gestita SQL di Azure \*| Sì |
+| Analisi delle sinapsi di Azure \* | Sì |
+| SQL Server \* | Sì |
 
-*\* Per gli scenari di SQL (Azure e locali), Azure competenza non supporta stored procedure o script per la derivazione o l'analisi. La derivazione è limitata solo alle origini tabella e vista.*
+*\* Azure competenze attualmente non supporta la query o la stored procedure per la derivazione o l'analisi. La derivazione è limitata solo alle origini tabella e vista.*
 
 > [!Note]
 > Azure Data Lake Storage Gen2 è ora disponibile a livello generale. È consigliabile iniziare a usarlo oggi stesso. Per altre informazioni, vedere la [pagina del prodotto](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
@@ -172,7 +187,7 @@ Di seguito sono riportate alcune altre modalità di ricerca delle informazioni n
 
 - Nella scheda derivazione **passare il mouse** sulle forme per visualizzare in anteprima informazioni aggiuntive sull'asset nella descrizione comando.
 - Selezionare il nodo o il bordo per visualizzare il tipo di asset a cui appartiene o per cambiare asset.
-- Le colonne di un set di dati vengono visualizzate sul lato sinistro **della scheda di** derivazione. Per ulteriori informazioni sulla derivazione a livello di colonna, vedere [Lineage a livello di colonna](catalog-lineage-user-guide.md#column-level-lineage).
+- Le colonne di un set di dati vengono visualizzate sul lato sinistro **della scheda di** derivazione. Per altre informazioni sulla derivazione a livello di colonna, vedere [DataSet Column](catalog-lineage-user-guide.md#dataset-column-lineage)Derivation.
 
 ### <a name="data-lineage-for-11-operations"></a>Derivazione dei dati per operazioni 1:1
 

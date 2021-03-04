@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 11/12/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 4517c939e14f3157db606f087ef042c1ba7eba3e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ed6319d5374db56cfe85e7ef9413480e523d9a34
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672254"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050886"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Distribuire macchine virtuali in host dedicati usando il Azure PowerShell
 
@@ -24,7 +24,6 @@ Assicurarsi di aver installato Azure PowerShell versione 2.8.0 o successiva ed √
 
 ## <a name="limitations"></a>Limitazioni
 
-- I set di scalabilit√† di macchine virtuali non sono attualmente supportati negli host dedicati.
 - Le dimensioni e i tipi di hardware disponibili per gli host dedicati variano in base all'area. Per ulteriori informazioni, fare riferimento alla [pagina dei prezzi](https://aka.ms/ADHPricing) dell'host.
 
 ## <a name="create-a-host-group"></a>Creare un gruppo host

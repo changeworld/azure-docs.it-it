@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 8d5c18eaaa4065eac515f38557664ceb44262adf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c70ecc4fc5469d728bc12d47024585ccf00ff98e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695936"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098707"
 ---
 # <a name="manage-scala-and-java-packages-for-apache-spark-in-azure-synapse-analytics"></a>Gestire i pacchetti scala e Java per Apache Spark in Azure sinapsi Analytics
 
@@ -37,13 +37,10 @@ I pacchetti dell'area di lavoro possono essere file con estensione jar personali
 
 Per aggiungere i pacchetti dell'area di lavoro:
 1. Passare alla scheda **Gestisci**  >  **pacchetti dell'area di lavoro** .
-2. Caricare i file della rotellina usando il selettore file.
-3. Una volta caricati i file nell'area di lavoro di sinapsi di Azure, è possibile aggiungere questi file della rotellina a un pool di Apache Spark specificato.
+2. Caricare i file jar usando il selettore file.
+3. Una volta caricati i file nell'area di lavoro di sinapsi di Azure, è possibile aggiungere questi file jar a un pool di Apache Spark specificato.
 
 ![Screenshot che evidenzia i pacchetti dell'area di lavoro.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Visualizzare i pacchetti dell'area di lavoro")
-
-> [!IMPORTANT]
-> L'installazione dei pacchetti dell'area di lavoro non è attualmente supportata nelle aree di lavoro di exfiltration protected (DEP).
 
 ## <a name="pool-libraries"></a>Librerie di pool
 Dopo aver identificato i pacchetti scala e Java che si vuole usare per l'applicazione Spark, è possibile installarli in un pool Spark. Le librerie a livello di pool sono disponibili per tutti i blocchi appunti e i processi in esecuzione nel pool.

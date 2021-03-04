@@ -5,15 +5,15 @@ description: Informazioni su come installare e autenticare Defender micro Agent.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/18/2021
+ms.date: 3/3/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 8d7e6dffcc40ba1e34a4a84ecccccc1f8b181393
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4125fc3c2f03104eeca108a73d83f2fad44bebc1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703049"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051753"
 ---
 # <a name="install-defender-for-iot-micro-agent-preview"></a>Installare Defender per gli agenti Internet (anteprima)
 
@@ -21,7 +21,7 @@ Questo articolo fornisce una spiegazione su come installare e autenticare Defend
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di installare il modulo Defender for Internet è necessario creare un'identità del modulo nell'hub Internet delle cose. Per altre informazioni su come creare un'identità del modulo, vedere [creare un modulo azureiotsecurity gemello](quickstart-create-security-twin.md)
+Prima di installare il modulo Defender for Internet è necessario creare un'identità del modulo nell'hub Internet delle cose. Per altre informazioni su come creare un'identità del modulo, vedere [creare un modulo gemello di Defender Internet Agent (anteprima)](quickstart-create-micro-agent-module-twin.md).
 
 ## <a name="install-the-package"></a>Installare il pacchetto
 

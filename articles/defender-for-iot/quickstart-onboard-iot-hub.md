@@ -1,5 +1,5 @@
 ---
-title: Onboarding in Defender per la soluzione basata su agenti it
+title: Onboarding di Defender per le cose in una soluzione basata su agenti
 description: Informazioni su come eseguire l'onboarding e abilitare il servizio di sicurezza Defender per IoT nell'hub IoT di Azure.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 127e439a7740cb97cbe126071aaaa5245cd85782
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 62ea7b95609f9e1f896852da5c10244d1bd16ce1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809134"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049934"
 ---
-# <a name="onboard-to-defender-for-iot-agent-based-solution"></a>Onboarding in Defender per la soluzione basata su agenti it
+# <a name="onboard-defender-for-iot-to-an-agent-based-solution"></a>Onboarding di Defender per le cose in una soluzione basata su agenti
 
 Questo articolo illustra come abilitare il servizio Defender per il servizio Internet delle cose nell'hub Internet esistente. Se non si ha già un hub IoT, vedere [Creare un hub IoT usando il portale di Azure](../iot-hub/iot-hub-create-through-portal.md) per iniziare.
 
@@ -35,7 +35,7 @@ Questo articolo illustra come abilitare il servizio Defender per il servizio Int
 > [!NOTE]
 > Attualmente Defender per IoT supporta solo hub IoT del livello Standard.
 
-## <a name="onboard-to-defender-for-iot-in-iot-hub"></a>Onboarding in Defender per le cose nell'hub Internet delle cose
+## <a name="onboard-defender-for-iot-to-an-iot-hub"></a>Onboarding di Defender per le cose in un hub Internet
 
 Per tutti i nuovi hub Internet, Defender for Internet è impostato **su on** per impostazione predefinita. È possibile verificare che Defender for Internet è attivato o disattivato durante il **processo di creazione** dell'hub Internet.
 
@@ -55,14 +55,23 @@ Per verificare che l'interruttore sia impostato **su** attivato:
 
 ## <a name="onboard-defender-for-iot-to-an-existing-iot-hub"></a>Onboarding di Defender per le cose in un hub Internet esistente
 
-È possibile monitorare i modelli di comunicazione di gestione delle identità dei dispositivi, da dispositivo a cloud e da cloud a dispositivo, per avviare il servizio eseguire le operazioni seguenti: 
+È possibile caricare Defender per le cose in un hub Internet esistente, in cui è quindi possibile monitorare i modelli di comunicazione da dispositivo a cloud e da cloud a dispositivo.
 
-1. Passare all'hub Internet. 
+Per caricare Defender per le cose in un hub Internet esistente:
 
-1. Selezionare il menu **Panoramica sicurezza**   . 
+1. Passare all'hub Internet delle cose. 
 
-1. Fare clic su Proteggi la soluzione Internet delle cose e completare il modulo di onboarding. 
+1. Selezionare l'hub delle cose da caricare.
 
+1. Selezionare una delle opzioni nella sezione **sicurezza** .
+
+1. Fare clic su **Proteggi la soluzione** Internet   delle cose e completare il modulo di onboarding. 
+
+    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Selezionare il pulsante Proteggi la soluzione Internet delle cose per proteggere la soluzione.":::
+
+Il pulsante **Proteggi la soluzione** Internet delle cose verrà visualizzato solo se l'hub Internet delle cose non è già stato caricato o se durante il caricamento è stato lasciato il Defender per l'attivazione/ **disattivazione.**
+
+:::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="Se l'interruttore è stato impostato su OFF durante l'onboarding.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: overview
 ms.date: 02/18/2021
 ms.custom: template-overview
-ms.openlocfilehash: 0581e659eca0a59719db0dd0e48cf3628b64dd2a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 85b7f3a62324bc93cd78649cd39e0f4dc7d0baed
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665502"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098197"
 ---
 # <a name="introduction-to-azure-percept"></a>Introduzione ad Azure Percept
 
@@ -22,21 +22,21 @@ Le difficoltà di integrazione che si verificano quando si tenta di distribuire 
 
 - Identificazione e selezione del silicio appropriato per potenziare le soluzioni.
 - Garanzia della sicurezza collettiva di hardware, software, modelli e dati.
-- Possibilità di creare e gestire soluzioni che funzionano in modo uniforme.
+- La possibilità di creare e gestire soluzioni che funzionano in modo uniforme, su larga scala.
 
 ## <a name="components-of-azure-percept"></a>Componenti di Azure Percept
 
 I componenti principali di Azure Percept sono:
 
-- Programmi di certificazione e progettazione di riferimento hardware per intelligenza artificiale.
+1. Programmi di certificazione e progettazione di riferimento hardware per intelligenza artificiale.
 
     - Fornisce all'ecosistema degli sviluppatori hardware i modelli e le procedure consigliate per lo sviluppo di hardware di intelligenza artificiale perimetrale che può essere integrato facilmente con i servizi di intelligenza artificiale e di Azure.
 
-- Azure Percept DK (DevKit).
+2. Azure Percept DK (DevKit).
 
-    - Un kit di sviluppo sufficientemente flessibile per supportare un'ampia gamma di scenari di creazione di prototipi.
+    - Un kit di sviluppo sufficientemente flessibile per supportare un'ampia gamma di scenari di creazione di prototipi per i generatori di dispositivi, i compilatori di soluzioni e i clienti.
 
-- Servizi e flussi di lavoro per accelerare lo sviluppo di soluzioni e modelli di intelligenza artificiale Edge.
+3. Servizi e flussi di lavoro per accelerare lo sviluppo di soluzioni e modelli di intelligenza artificiale Edge.
 
     - Flussi di lavoro di sviluppo e modelli predefiniti accessibili da Azure Percept Studio.
     - Servizi per lo sviluppo di modelli.

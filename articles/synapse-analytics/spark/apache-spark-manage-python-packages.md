@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 296bd3a4a75cdd7f5dab3b6eb5fdcb00a889703d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695937"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098775"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gestire le librerie Python per Apache Spark in Azure sinapsi Analytics
 
@@ -42,7 +42,7 @@ Esistono due modi principali per installare una libreria in un cluster:
 > [!IMPORTANT]
 > - Se il pacchetto che si sta installando è di grandi dimensioni o richiede molto tempo per l'installazione, questo influirà sul tempo di avvio dell'istanza di Spark.
 > - La modifica della versione di PySpark, Python, scala/Java, .NET o Spark non è supportata.
-> - L'installazione di pacchetti da PyPI non è supportata nelle aree di lavoro abilitate per DEP.
+> - L'installazione di pacchetti da repository esterni come PyPI, conda-Forge o i canali conda predefiniti non è supportata nelle aree di lavoro abilitate per DEP.
 
 ### <a name="install-python-packages"></a>Installare i pacchetti Python
 I pacchetti Python possono essere installati da repository come PyPI e Conda-Forge fornendo un file di specifica dell'ambiente. 
@@ -140,9 +140,6 @@ Per aggiungere i pacchetti dell'area di lavoro:
 
 ![Screenshot che evidenzia i pacchetti dell'area di lavoro.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Visualizzare i pacchetti dell'area di lavoro")
 
-> [!IMPORTANT]
-> L'installazione dei pacchetti dell'area di lavoro non è attualmente supportata nelle aree di lavoro di exfiltration protected (DEP).
-
 ### <a name="storage-account"></a>Account di archiviazione
 I pacchetti Wheel personalizzati possono essere installati nel pool di Apache Spark caricando tutti i file della rotellina nell'account Azure Data Lake Storage (Gen2) collegato con l'area di lavoro sinapsi. 
 
@@ -160,8 +157,8 @@ Potrebbe essere necessario aggiungere la ```python``` cartella all'interno della
 >[!WARNING]
 > Quando si forniscono file di ruote personalizzati, gli utenti non possono fornire i file della rotellina sia nell'account di archiviazione che nell'interfaccia della libreria dell'area di lavoro. Se vengono specificati entrambi, verranno installati solo i file della rotellina specificati nell'elenco dei pacchetti dell'area di lavoro. 
 
-## <a name="session-scoped-libraries-preview"></a>Librerie con ambito sessione (anteprima)
-Oltre alle librerie a livello di pool, è anche possibile specificare librerie con ambito sessione all'inizio di una sessione del notebook.  Le librerie con ambito sessione consentono di specificare e usare ambienti Python personalizzati all'interno di una sessione del notebook. 
+## <a name="session-scoped-packages-preview"></a>Pacchetti con ambito sessione (anteprima)
+Oltre ai pacchetti a livello di pool, è anche possibile specificare librerie con ambito sessione all'inizio di una sessione del notebook.  Le librerie con ambito sessione consentono di specificare e usare ambienti Python personalizzati all'interno di una sessione del notebook. 
 
 Quando si usano le librerie con ambito sessione, è importante tenere presente quanto segue:
    - Quando si installano le librerie con ambito sessione, solo il notebook corrente può accedere alle librerie specificate. 
@@ -187,3 +184,4 @@ In alcuni casi, per visualizzare le versioni del pacchetto da conda, potrebbe es
 ## <a name="next-steps"></a>Passaggi successivi
 - Visualizzare le librerie predefinite: [supporto della versione Apache Spark](apache-spark-version-support.md)
 - Risolvere gli errori di installazione della libreria: [risoluzione degli errori di libreria](apache-spark-troubleshoot-library-errors.md)
+- Creare un canale conda privato utilizzando l'account di Azure Data Lake Storage: [canali privati conda](./spark/../apache-spark-custom-conda-channel.md)

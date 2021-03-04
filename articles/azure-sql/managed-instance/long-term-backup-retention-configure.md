@@ -1,5 +1,5 @@
 ---
-title: 'Istanza gestita SQL di Azure: conservazione dei backup a lungo termine (PowerShell)'
+title: 'Istanza gestita SQL di Azure: conservazione dei backup a lungo termine'
 description: Informazioni su come archiviare e ripristinare i backup automatici in contenitori di archiviazione BLOB di Azure separati per un Istanza gestita SQL di Azure con PowerShell.
 services: sql-database
 ms.service: sql-managed-instance
@@ -7,28 +7,88 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: how-to
-author: anosov1960
-ms.author: sashan
+author: shkale-msft
+ms.author: shkale
 ms.reviewer: mathoma, sstein
-ms.date: 04/29/2020
-ms.openlocfilehash: bb74a2e271473666332c627f6ad4324ca597e40c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: f298f0f9d76750be932db79b5a08b6385e984f88
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593354"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052027"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gestire la conservazione dei backup a lungo termine Istanza gestita SQL di Azure (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-In Istanza gestita SQL di Azure è possibile configurare un criterio di [conservazione dei backup a lungo termine](../database/long-term-retention-overview.md#sql-managed-instance-support) come funzionalità di anteprima pubblica limitata. In questo modo è possibile mantenere automaticamente i backup del database in contenitori di archiviazione BLOB di Azure separati per un massimo di 10 anni. È quindi possibile ripristinare un database usando questi backup con PowerShell.
+In Istanza gestita SQL di Azure è possibile configurare un criterio di [conservazione dei backup a lungo termine](../database/long-term-retention-overview.md) come funzionalità di anteprima pubblica. In questo modo è possibile mantenere automaticamente i backup del database in contenitori di archiviazione BLOB di Azure separati per un massimo di 10 anni. È quindi possibile ripristinare un database usando questi backup con PowerShell.
 
    > [!IMPORTANT]
-   > La versione LTR per le istanze gestite è attualmente in anteprima limitata ed è disponibile per le sottoscrizioni EA e CSP ogni caso. Per richiedere la registrazione, creare un ticket di [supporto di Azure](https://azure.microsoft.com/support/create-ticket/). Per tipo di problema selezionare problema tecnico, per servizio scegliere Istanza gestita di database SQL e per il tipo di problema selezionare **backup, ripristino e continuità aziendale/conservazione dei backup a lungo termine**. Nella richiesta indicare che si desidera registrarsi all'anteprima pubblica limitata della conservazione a lungo termine per l'istanza gestita.
+   > Il LTR per le istanze gestite è attualmente disponibile in anteprima pubblica nelle aree pubbliche di Azure. 
 
 Le sezioni seguenti illustrano come usare PowerShell per configurare la conservazione a lungo termine dei backup, visualizzare i backup nella risorsa di archiviazione di Azure SQL ed eseguire il ripristino da un backup nella risorsa di archiviazione di Azure SQL.
 
-## <a name="azure-roles-to-manage-long-term-retention"></a>Ruoli di Azure per gestire la conservazione a lungo termine
+
+## <a name="using-the-azure-portal"></a>Uso del portale di Azure
+
+Le sezioni seguenti illustrano come usare la portale di Azure per impostare i criteri di conservazione a lungo termine, gestire i backup di conservazione a lungo termine disponibili e ripristinare da un backup disponibile.
+
+### <a name="configure-long-term-retention-policies"></a>Configurare i criteri di conservazione a lungo termine
+
+È possibile configurare SQL Istanza gestita per [conservare i backup automatici](../database/long-term-retention-overview.md) per un periodo più lungo rispetto al periodo di conservazione per il livello di servizio.
+
+1. Nella portale di Azure selezionare l'istanza gestita e quindi fare clic su **backup**. Nella scheda **criteri di conservazione** selezionare i database per i quali si desidera impostare o modificare i criteri di conservazione dei backup a lungo termine. Le modifiche non verranno applicate a nessun database lasciato deselezionato. 
+
+   ![collegamento di gestione backup](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
+
+2. Nel riquadro **Configura criteri** specificare il periodo di memorizzazione desiderato per i backup settimanali, mensili o annuali. Scegliere un periodo di memorizzazione di ' 0' per indicare che non è necessario impostare la conservazione dei backup a lungo termine.
+
+   ![Configurare criteri](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
+
+3. Al termine, fare clic su **Applica**.
+
+> [!IMPORTANT]
+> Quando si Abilita un criterio di conservazione dei backup a lungo termine, potrebbe essere necessario attendere fino a 7 giorni prima che il primo backup diventi visibile e disponibile per il ripristino. Per informazioni dettagliate sul backup Cadance di LTR, vedere [conservazione dei backup a lungo termine](../database/long-term-retention-overview.md).
+
+### <a name="view-backups-and-restore-from-a-backup"></a>Visualizzare i backup e il ripristino da un backup
+
+Visualizzare i backup conservati per un database specifico con un criterio LTR e ripristinare da tali backup.
+
+1. Nella portale di Azure selezionare l'istanza gestita e quindi fare clic su **backup**. Nella scheda **Available backups** (Backup disponibili) selezionare il database per cui si vuole visualizzare i backup disponibili. Fare clic su **Manage**.
+
+   ![Selezionare il database](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
+
+1. Nel riquadro **Gestisci backup** esaminare i backup disponibili.
+
+   ![Visualizzare i backup](./media/long-term-backup-retention-configure/ltr-available-backups.png)
+
+1. Selezionare il backup da cui si desidera eseguire il ripristino, fare clic su **Ripristina**, quindi nella pagina Ripristina specificare il nome del nuovo database. Il backup e l'origine saranno precompilati in questa pagina. 
+
+   ![Selezionare Backup per il ripristino](./media/long-term-backup-retention-configure/ltr-available-backups-restore.png)
+   
+   ![ripristinare](./media/long-term-backup-retention-configure/ltr-restore.png)
+
+1. Fare clic su **Verifica + crea** per esaminare i dettagli del ripristino. Fare quindi clic su **Crea** per ripristinare il database dal backup scelto.
+
+1. Sulla barra degli strumenti fare clic sull'icona di notifica per visualizzare lo stato del processo di ripristino.
+
+   ![avanzamento processo di ripristino](./media/long-term-backup-retention-configure/restore-job-progress-long-term.png)
+
+1. Al termine del processo di ripristino, aprire la pagina **panoramica istanza gestita** per visualizzare il database appena ripristinato.
+
+> [!NOTE]
+> A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per [estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente](../database/recovery-using-backups.md#point-in-time-restore).
+
+
+## <a name="using-powershell"></a>Utilizzo di PowerShell
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+> [!IMPORTANT]
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure. Tuttavia, lo sviluppo futuro verrà eseguito nel modulo AZ. SQL. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
+
+Le sezioni seguenti illustrano come usare PowerShell per configurare la conservazione dei backup a lungo termine, visualizzare i backup in archiviazione di Azure e ripristinare da un backup in archiviazione di Azure.
+
+### <a name="azure-rbac-roles-to-manage-long-term-retention"></a>Ruoli RBAC di Azure per gestire la conservazione a lungo termine
 
 Per **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstanceDatabase** è necessario disporre di uno dei ruoli seguenti:
 
@@ -52,7 +112,7 @@ Per **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup** è necessario dispor
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
-## <a name="create-an-ltr-policy"></a>Creare i criteri di conservazione a lungo termine
+### <a name="create-an-ltr-policy"></a>Creare i criteri di conservazione a lungo termine
 
 ```powershell
 # get the Managed Instance
@@ -88,7 +148,7 @@ $LTRPolicy = @{
 Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy @LTRPolicy
 ```
 
-## <a name="view-ltr-policies"></a>Visualizzare i criteri di conservazione a lungo termine
+### <a name="view-ltr-policies"></a>Visualizzare i criteri di conservazione a lungo termine
 
 Questo esempio illustra come elencare i criteri di LTR all'interno di un'istanza per un singolo database
 
@@ -119,7 +179,7 @@ foreach($database in $Databases.Name){
  }
 ```
 
-## <a name="clear-an-ltr-policy"></a>Cancellare i criteri di conservazione a lungo termine
+### <a name="clear-an-ltr-policy"></a>Cancellare i criteri di conservazione a lungo termine
 
 Questo esempio illustra come cancellare i criteri di conservazione a lungo termine da un database
 
@@ -134,7 +194,7 @@ $LTRPolicy = @{
 Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy @LTRPolicy
 ```
 
-## <a name="view-ltr-backups"></a>Visualizzare i backup con conservazione a lungo termine
+### <a name="view-ltr-backups"></a>Visualizzare i backup con conservazione a lungo termine
 
 Questo esempio illustra come elencare i backup di LTR all'interno di un'istanza di.
 
@@ -177,7 +237,7 @@ $LTRBackupParam = @{
 Get-AzSqlInstanceDatabaseLongTermRetentionBackup @LTRBackupParam 
 ```
 
-## <a name="delete-ltr-backups"></a>Eliminare i backup con conservazione a lungo termine
+### <a name="delete-ltr-backups"></a>Eliminare i backup con conservazione a lungo termine
 
 Questo esempio illustra come eliminare un backup con conservazione a lungo termine dall'elenco di backup.
 
@@ -197,9 +257,9 @@ Remove-AzSqlInstanceDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.Resou
 > [!IMPORTANT]
 > L'eliminazione di un backup con conservazione a lungo termine non è reversibile. Per eliminare un backup di LTR dopo l'eliminazione dell'istanza, è necessario disporre dell'autorizzazione per l'ambito della sottoscrizione. È possibile configurare le notifiche relative a ogni eliminazione in monitoraggio di Azure filtrando l'operazione "Elimina un backup di conservazione a lungo termine". Il log attività contiene informazioni su chi ha effettuato la richiesta e sul momento in cui è stata effettuata. Per istruzioni dettagliate, vedere [Creare gli avvisi del log attività](../../azure-monitor/alerts/alerts-activity-log.md).
 
-## <a name="restore-from-ltr-backups"></a>Eseguire il ripristino dai backup con conservazione a lungo termine
+### <a name="restore-from-ltr-backups"></a>Eseguire il ripristino dai backup con conservazione a lungo termine
 
-Questo esempio illustra come eseguire il ripristino da un backup con conservazione a lungo termine. Si noti che questa interfaccia non è stata modificata, ma il parametro dell'ID risorsa richiede ora l'ID risorsa del backup con conservazione a lungo termine.
+Questo esempio illustra come eseguire il ripristino da un backup con conservazione a lungo termine. Si noti che questa interfaccia non è stata modificata, ma il parametro Resource ID richiede ora l'ID della risorsa di backup LTR.
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the instance $instanceName of the resource group $resourceGroup

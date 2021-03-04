@@ -1,14 +1,14 @@
 ---
-title: Convertire Azure Resource Manager modelli tra JSON e bicipite
-description: Confronta Azure Resource Manager modelli sviluppati con JSON e bicipite.
+title: Confrontare la sintassi per i modelli di Azure Resource Manager in JSON e bicipite
+description: Confronta Azure Resource Manager modelli sviluppati con JSON e bicipite e Mostra come eseguire la conversione tra le lingue.
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: 9388ed50f13d6885d0a0668b61a9141dae375244
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 29c2b9948957ebc10a26f22f0fe3daf383dfe5ba
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745106"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036215"
 ---
 # <a name="comparing-json-and-bicep-for-templates"></a>Confronto tra JSON e bicipite per i modelli
 
@@ -18,40 +18,21 @@ Questo articolo mette a confronto la sintassi bicipite con la sintassi JSON per 
 
 Se si ha familiarità con l'uso di JSON per sviluppare modelli ARM, usare la tabella seguente per informazioni sulla sintassi equivalente per bicipite.
 
-| Scenario | Modello ARM | Bicep |
+| Scenario | Bicep | JSON |
 | -------- | ------------ | ----- |
-| Creare un'espressione | `"[func()]"` | `func()` |
-| Ottieni valore parametro | `[parameters('exampleParameter'))]` | `exampleParameter` |
-| Ottieni valore variabile | `[variables('exampleVar'))]` | `exampleVar` |
-| Concatenare le stringhe | `[concat(parameters('namePrefix'), '-vm')]` | `'${namePrefix}-vm'` |
-| Imposta proprietà risorsa | `"sku": "2016-Datacenter",` | `sku: '2016-Datacenter'` |
-| Restituisce l'operatore AND logico | `[and(parameter('isMonday'), parameter('isNovember'))]` | `isMonday && isNovember` |
-| Ottenere l'ID risorsa della risorsa nel modello | `[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]` | `nic1.id` |
-| Ottenere la proprietà dalla risorsa nel modello | `[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]` | `diagsAccount.properties.primaryEndpoints.blob` |
-| Impostare un valore in modo condizionale | `[if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]` | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` |
-| Separare una soluzione in più file | Usare i modelli collegati | Usare i moduli |
-| Impostare l'ambito di destinazione della distribuzione | `"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"` | `targetScope = 'subscription'` |
-| Imposta dipendenza | `"dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]` | Si basano sul rilevamento automatico delle dipendenze o sull'impostazione manuale di una dipendenza con `dependsOn: [ stg ]` |
-
-Per dichiarare il tipo e la versione di una risorsa, usare il comando seguente in bicipite:
-
-```bicep
-resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-}
-```
-
-Anziché la sintassi equivalente in JSON:
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Compute/virtualMachines",
-    "apiVersion": "2020-06-01",
-    ...
-  }
-]
-```
+| Creare un'espressione | `func()` | `"[func()]"` |
+| Ottieni valore parametro | `exampleParameter` | `[parameters('exampleParameter'))]` |
+| Ottieni valore variabile | `exampleVar` | `[variables('exampleVar'))]` |
+| Concatenare le stringhe | `'${namePrefix}-vm'` | `[concat(parameters('namePrefix'), '-vm')]` |
+| Imposta proprietà risorsa | `sku: '2016-Datacenter'` | `"sku": "2016-Datacenter",` |
+| Restituisce l'operatore AND logico | `isMonday && isNovember` | `[and(parameter('isMonday'), parameter('isNovember'))]` |
+| Ottenere l'ID risorsa della risorsa nel modello | `nic1.id` | `[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]` |
+| Ottenere la proprietà dalla risorsa nel modello | `diagsAccount.properties.primaryEndpoints.blob` | `[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]` |
+| Impostare un valore in modo condizionale | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` | `[if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]` |
+| Separare una soluzione in più file | Usare i moduli | Usare i modelli collegati |
+| Impostare l'ambito di destinazione della distribuzione | `targetScope = 'subscription'` | `"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"` |
+| Imposta dipendenza | Si basano sul rilevamento automatico delle dipendenze o sull'impostazione manuale di una dipendenza con `dependsOn: [ stg ]` | `"dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]` |
+| Dichiarazione di risorsa | `resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {...}` | `"resources": [ { "type": "Microsoft.Compute/virtualMachines", "apiVersion": "2020-06-01", ... } ]` |
 
 ## <a name="recommendations"></a>Consigli
 
@@ -63,10 +44,7 @@ Anziché la sintassi equivalente in JSON:
 
 L'interfaccia della riga di comando bicipite fornisce un comando per decompilare qualsiasi modello ARM esistente in un file bicipite. Per decompilare un file JSON, usare: `bicep decompile "path/to/file.json"`
 
-Questo comando fornisce un punto di partenza per la creazione di bicipiti, ma il comando non funziona per tutti i modelli. Il comando potrebbe non riuscire o potrebbe essere necessario risolvere i problemi dopo la decompilazione. Attualmente, il comando presenta le limitazioni seguenti:
-
-* Non è possibile decompilare i modelli che usano i cicli di copia.
-* I modelli annidati possono essere decompilati solo se usano l'ambito di valutazione dell'espressione "Inner".
+Questo comando fornisce un punto di partenza per la creazione di bicipiti, ma il comando non funziona per tutti i modelli. Il comando potrebbe non riuscire o potrebbe essere necessario risolvere i problemi dopo la decompilazione. Attualmente, i modelli annidati possono essere decompilati solo se usano l'ambito di valutazione dell'espressione "Inner".
 
 È possibile esportare il modello per un gruppo di risorse e passarlo direttamente al comando bicipit decompile. Nell'esempio seguente viene illustrato come decompilare un modello esportato.
 
@@ -100,4 +78,4 @@ Il [parco bicipite](https://aka.ms/bicepdemo) consente di visualizzare side-by-S
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sul progetto bicipite, vedere [progetto bicipite](https://github.com/Azure/bicep).
+Per informazioni sul bicipite, vedere l' [esercitazione sul bicipite](./bicep-tutorial-create-first-bicep.md).

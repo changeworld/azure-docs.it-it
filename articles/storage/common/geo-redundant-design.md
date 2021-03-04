@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1a07acedadfaf3d5158ba8e494d4527301655425
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480684"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035102"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Usare la ridondanza geografica per progettare applicazioni a disponibilità elevata
 
@@ -148,6 +148,12 @@ Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativ
 
 * Aggiungere un gestore per l'evento [**Retrying**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) nell'oggetto [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
 
+    # <a name="net-v12"></a>[.NET v12](#tab/current)
+
+    Stiamo attualmente lavorando per creare frammenti di codice che riflettono la versione 12. x delle librerie client di archiviazione di Azure. Per altre informazioni, vedere [annuncio delle librerie client di archiviazione di Azure V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
+
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
@@ -156,8 +162,15 @@ Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativ
             ...
     };
     ```
+    ---
 
 * Nel metodo [**Evaluate**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) in un criterio di tentativi personalizzato è possibile eseguire codice personalizzato ogni volta che viene eseguito un tentativo. Oltre a registrare l'esecuzione di un tentativo, il metodo consente di modificare il comportamento dei tentativi.
+
+    # <a name="net-v12"></a>[.NET v12](#tab/current)
+
+    Stiamo attualmente lavorando per creare frammenti di codice che riflettono la versione 12. x delle librerie client di archiviazione di Azure. Per altre informazioni, vedere [annuncio delle librerie client di archiviazione di Azure V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -184,6 +197,7 @@ Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativ
         return info;
     }
     ```
+    ---
 
 * Il terzo approccio consiste nell'implementazione di un componente di monitoraggio personalizzato nell'applicazione che esegue continuamente il ping dell'endpoint di archiviazione primario con richieste di lettura fittizie, ad esempio la lettura di un BLOB di piccole dimensioni, per determinarne l'integrità. Questa operazione impiegherà alcune risorse, ma non molte. Quando viene rilevato un problema che raggiunge la soglia, verranno attivate l'impostazione **SecondaryOnly** e la modalità di sola lettura.
 
@@ -201,8 +215,8 @@ Nella tabella seguente viene illustrato un esempio di ciò che può verificarsi 
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transazione A: <br> Inserimento dell'entità <br> employee nell'area primaria |                                   |                    | Transazione A inserita nell'area primaria,<br> non ancora replicata. |
 | T1       |                                                            | Transazione A <br> replicata<br> nell'area secondaria | T1 | Transazione A replicata nell'area secondaria. <br>Ora ultima sincronizzazione aggiornata.    |
-| T2       | Transazione B:<br>Aggiornamento<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
-| T3       | Transazione C:<br> Aggiornamento <br>entità<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
+| T2       | Transazione B:<br>Aggiorna<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
+| T3       | Transazione C:<br> Aggiorna <br>entità<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
 | *T4*     |                                                       | Transazione C <br>replicata<br> nell'area secondaria | T1         | Transazione C replicata nell'area secondaria.<br>LastSyncTime non aggiornato perché <br>la transazione B non è stata ancora replicata.|
 | *T5*     | Lettura delle entità <br>dall'area secondaria                           |                                  | T1                 | Si ottiene un valore non aggiornato per l'entità <br> employee perché la transazione B <br> non è stata ancora replicata. Si ottiene il nuovo valore per<br> l'entità administrator role perché C è stata<br> replicata. Ora ultima sincronizzazione non ancora<br> aggiornata perché la transazione B<br> non è stata replicata. È possibile stabilire che<br>l'entità administrator role è incoerente <br>perché la data/ora dell'entità è successiva <br>all'ora dell'ultima sincronizzazione. |
 | *T6*     |                                                      | Transazione B<br> replicata<br> nell'area secondaria | T6                 | *T6*: tutte le transazioni fino alla C sono <br>state replicate, ora ultima sincronizzazione<br> aggiornata. |
@@ -218,6 +232,13 @@ Per informazioni su come verificare l'ora dell'ultima sincronizzazione, vedere [
 È importante verificare che l'applicazione si comporti come previsto quando si verificano errori non irreversibili. È ad esempio necessario verificare che l'applicazione passi all'area secondaria e in modalità di sola lettura quando viene rilevato un problema e torni all'area primaria quando questa è nuovamente disponibile. A tale scopo è necessario un modo per simulare gli errori non irreversibili e la frequenza con cui si verificano.
 
 È possibile usare [Fiddler](https://www.telerik.com/fiddler) per intercettare e modificare le risposte HTTP in uno script. Questo script può identificare le risposte che provengono dall'endpoint primario e sostituire il codice di stato HTTP con un codice riconosciuto dalla libreria client di archiviazione come errore non irreversibile. Questo frammento di codice descrive un esempio semplice di script Fiddler che intercetta le risposte alle richieste di lettura sulla tabella **employeedata** per restituire uno stato 502:
+
+
+# <a name="java-v12"></a>[Java V12](#tab/current)
+
+Stiamo attualmente lavorando per creare frammenti di codice che riflettono la versione 12. x delle librerie client di archiviazione di Azure. Per altre informazioni, vedere [annuncio delle librerie client di archiviazione di Azure V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v11"></a>[V11 Java](#tab/legacy)
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
