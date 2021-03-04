@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e3705be10cb540538464e6b1299d848bc9057c7c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691825"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039921"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 
@@ -106,10 +106,7 @@ In questa sezione viene illustrato come Azure Machine Learning comunica in modo 
 
 1. Azure Batch Services riceve il processo dall'area di lavoro e invia il processo di training all'ambiente di calcolo tramite il servizio di bilanciamento del carico pubblico di cui è stato effettuato il provisioning con la risorsa di calcolo. 
 
-1. La risorsa di calcolo riceve il processo e inizia il training. Le risorse di calcolo accedono ad account di archiviazione protetti per scaricare i file di training e caricare l'output. 
-
-![Diagramma dell'architettura che mostra il modo in cui un processo di training Azure Machine Learning viene inviato quando si usa un VNet](./media/how-to-network-security-overview/secure-training-job-submission.png)
-
+1. La risorsa di calcolo riceve il processo e inizia il training. Le risorse di calcolo accedono ad account di archiviazione protetti per scaricare i file di training e caricare l'output.
 
 ### <a name="limitations"></a>Limitazioni
 

@@ -1,17 +1,16 @@
 ---
 title: Materiale sussidiario per i dati personali archiviati in Azure Log Analytics | Microsoft Docs
 description: Questo articolo descrive come gestire i dati personali archiviati in Azure Log Analytics e i metodi per identificarli e rimuoverli.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 078ff7b48423f0e5327a6d22f3ddd6887dffeb43
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ff6d532d3c391ffecfbfb54a761c73ff24c823d9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620006"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040261"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
 

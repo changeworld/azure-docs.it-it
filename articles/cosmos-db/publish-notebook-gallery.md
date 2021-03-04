@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: dech
-ms.openlocfilehash: c7c910c7162bde2209b07eb4f1d533328bae08c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 58ae61bc9e1736b13bb1802e2f39d5ada045cb6a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693211"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039326"
 ---
 # <a name="publish-notebooks-to-the-azure-cosmos-db-notebook-gallery"></a>Pubblicare notebook nella raccolta Azure Cosmos DB notebook
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB notebook Jupyter incorporati sono integrati direttamente negli account Azure Cosmos DB nel portale di Azure. Usando questi notebook, è possibile analizzare e visualizzare i dati dal portale di Azure. I notebook predefiniti per Azure Cosmos DB sono attualmente disponibili in [29 aree](#supported-regions). Per usare i notebook, [creare un nuovo account Cosmos](#create-a-new-cosmos-account) o [abilitare i notebook in un account esistente](#enable-notebooks-in-an-existing-cosmos-account) in una di queste aree.
+Azure Cosmos DB notebook Jupyter incorporati sono integrati direttamente negli account Azure Cosmos DB nel portale di Azure. Usando questi notebook, è possibile analizzare e visualizzare i dati dal portale di Azure. I notebook predefiniti per Azure Cosmos DB sono attualmente disponibili in [molte aree](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). Per usare i notebook, [creare un nuovo account Cosmos](create-cosmosdb-resources-portal.md) o [abilitare i notebook in un account esistente](enable-notebooks.md) in una di queste aree.
 
 L'ambiente notebook nel portale di Azure include alcuni esempi pubblicati dal team di Azure Cosmos DB. Dispone inoltre di una raccolta pubblica in cui è possibile pubblicare e condividere i propri notebook. Dopo che un notebook è stato pubblicato nella raccolta, è disponibile per tutti gli utenti Azure Cosmos DB da visualizzare e usare. In questo articolo si apprenderà come usare i notebook dalla raccolta pubblica e pubblicare il notebook nella raccolta.
 
@@ -53,7 +53,7 @@ Per pubblicare un notebook, attenersi alla procedura seguente:
 
    È anche possibile trovare l'opzione **pubblica nella raccolta** selezionando **...** pulsante accanto al nome del notebook:
 
-   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Scegliere un notebook da pubblicare nella raccolta.":::
+   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Un altro approccio per scegliere un notebook da pubblicare nella raccolta.":::
 
 1. Compilare il modulo **Publish to Gallery** con i dettagli seguenti:
 
@@ -61,11 +61,10 @@ Per pubblicare un notebook, attenersi alla procedura seguente:
    * **Descrizione:**  Breve descrizione delle operazioni del notebook.
    * **Tag:** I tag sono facoltativi e vengono usati per filtrare i risultati quando si esegue una ricerca con una parola chiave.
    * **Immagine di copertina:** Immagine usata nella pagina di copertina quando viene pubblicato il notebook. È possibile scegliere una delle opzioni seguenti:
-
-     * **Immagine personalizzata** : è possibile caricare un'immagine dal computer. Scegliere un file di immagine con proporzioni 256x144.
-     * **URL** : specificare un URL accessibile pubblicamente in cui si trova l'immagine.
-     * **Acquisisci screenshot** : una schermata del notebook aperto viene automaticamente acquisita e caricata nell'anteprima.
-     * **Usare prima** l'output di output della prima cella con un output visualizzato. Le celle che visualizzano solo Markdown/text non vengono conteggiate come output di visualizzazione.
+   * **Immagine personalizzata** : è possibile caricare un'immagine dal computer. Scegliere un file di immagine con proporzioni 256x144.
+   * **URL** : specificare un URL accessibile pubblicamente in cui si trova l'immagine.
+   * **Acquisisci screenshot** : una schermata del notebook aperto viene automaticamente acquisita e caricata nell'anteprima.
+   * **Usare prima** l'output di output della prima cella con un output visualizzato. Le celle che visualizzano solo Markdown/text non vengono conteggiate come output di visualizzazione.
 
    :::image type="content" source="./media/publish-notebook-gallery/publish-notebook.png" alt-text="Compilare il modulo Publish to Gallery.":::
 

@@ -122,8 +122,6 @@ items:
             href: how-to-create-import-export-glossary.md
           - name: Gestire i modelli di termini
             href: how-to-manage-term-templates.md
-          - name: Modificare gli asset in blocco per assegnare termini di glossario
-            href: how-to-bulk-edit-assets.md
       - name: Modifiche di massa
         items:
           - name: Modificare in blocco gli asset in annotazioni e contatti Tag

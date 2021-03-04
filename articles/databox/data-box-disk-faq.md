@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/02/2021
 ms.author: alkohli
 ms.custom: references_regions
-ms.openlocfilehash: 7212fc4113c1de0a7aee4c6c02e8fa65f9828680
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 88aedb7daa375ae6b4a9107dceed1d25ed72ed92
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724830"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039105"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Domande frequenti
 
@@ -55,7 +55,7 @@ R. Per cinque dischi, ognuno con capacità di 8 TB (7 TB di capacità utilizzabi
 R.  Per visualizzare dove sono attualmente disponibili i dischi di Data Box, vedere le [Aree di disponibilità](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. In quali aree è possibile archiviare dati con i dischi di Data Box?
-R. Data Box Disk è supportato per tutte le aree all'interno di Stati Uniti, Canada, Australia, Europa occidentale ed Europa settentrionale, Corea e Giappone. Sono supportate solo le aree del cloud pubblico di Azure. Non sono supportati i cloud Azure per enti pubblici o altri cloud sovrani.
+R. Data Box Disk è supportato per tutte le aree all'interno di Stati Uniti, Canada, Europa, Regno Unito, Australia, Singapore, India, Cina, Hong Kong, Giappone, Corea e Sudafrica. Sono supportate solo le aree del cloud pubblico di Azure. Non sono supportati i cloud Azure per enti pubblici o altri cloud sovrani.
 
 ### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>Q. Come è possibile importare i dati di origine presenti nel percorso in un paese/area geografica in un'area di Azure in un paese diverso?
 R. Data Box Disk supporta l'inserimento di dati solo all'interno dello stesso paese/area geografica della destinazione e non attraverserà i confini internazionali. L'unica eccezione riguarda gli ordini nell'Unione europea (UE), in cui i dischi Data Box possono essere distribuiti da e verso qualsiasi paese dell'Unione europea.
@@ -199,7 +199,7 @@ R.  Per velocizzare il processo di copia:
 - Copiare i file nel disco della macchina virtuale.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>Q. È possibile usare più account di archiviazione con i dischi di Data Box?
-R.  No. Con i dischi di Data Box è attualmente supportato un solo account di archiviazione, generale o classico. Sono supportati BLOB sia ad accesso frequente che sporadico. Attualmente, sono supportati solo gli account di archiviazione in Stati Uniti, Europa occidentale ed Europa settentrionale nel cloud pubblico di Azure.
+R.  No. Con i dischi di Data Box è attualmente supportato un solo account di archiviazione, generale o classico. Sono supportati BLOB sia ad accesso frequente che sporadico.
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>Q. Qual è il set di strumenti disponibile per i dati con i Data Box Disk?
 R. Il set di strumenti disponibile con il Data Box Disk contiene tre strumenti:

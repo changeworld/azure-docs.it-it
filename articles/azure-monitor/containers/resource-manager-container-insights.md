@@ -1,17 +1,16 @@
 ---
 title: Esempi di modelli di Gestione risorse per informazioni dettagliate sul contenitore
 description: Esempi di Azure Resource Manager modelli per distribuire e configureContainer informazioni dettagliate.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: f75278663abde8d4b0f47c8df1dbbdbc298bcafb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68bad5b4bfcef4f0f633bce7e3e352486aed3fdf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723334"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039190"
 ---
 # <a name="resource-manager-template-samples-for-container-insights"></a>Esempi di modelli di Gestione risorse per informazioni dettagliate sul contenitore
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per distribuire e configurare l'agente di Log Analytics per macchine virtuali in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.

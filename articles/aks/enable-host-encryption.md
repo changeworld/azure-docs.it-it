@@ -3,13 +3,13 @@ title: Abilitare la crittografia basata su host in Azure Kubernetes Service (AKS
 description: Informazioni su come configurare una crittografia basata su host in un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: ac28c698a766f1f3febaff582038906f658d58dd
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.date: 03/03/2021
+ms.openlocfilehash: 66e71dfd6a76fb4e6b464eb5c44dcc809fb9be38
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071851"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039734"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Crittografia basata su host in Azure Kubernetes Service (AKS) (anteprima)
 
@@ -26,6 +26,13 @@ Questa funzionalità può essere impostata solo in fase di creazione del cluster
 ### <a name="prerequisites"></a>Prerequisiti
 
 - Assicurarsi che sia `aks-preview` installata l'estensione CLI v 0.4.73 o versione successiva.
+- Assicurarsi che sia stato `EnableEncryptionAtHostPreview` abilitato il flag funzionalità `Microsoft.ContainerService` .
+
+Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica **encryptionAtHost@microsoft.com** con gli ID sottoscrizione per ottenere la funzionalità abilitata per le sottoscrizioni. 
+
+> [!IMPORTANT]
+> **encryptionAtHost@microsoft.com** Per ottenere la funzionalità abilitata per le risorse di calcolo, è necessario inviare un messaggio di posta elettronica con gli ID sottoscrizione. Non è possibile abilitarlo manualmente per le risorse di calcolo.
+
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando aks-preview
 

@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: c56e7318e24b802ae9ad605a0c9ae5f88397ec8b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5b40cfcde7aa1771c8a4b9025d35b2dc0c728676
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680618"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039785"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>Guida introduttiva: creare e configurare il server di route usando Azure PowerShell
 
@@ -70,7 +70,7 @@ L'ID RouteServerSubnet è simile a quello riportato di seguito:
 Creare il server di route con questo comando:
 
 ```azurepowershell-interactive 
-New-AzRouteServer -Name myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
+New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
 ```
 
 Il percorso deve corrispondere al percorso della rete virtuale. HostedSubnet è l'ID RouteServerSubnet ottenuto nella sezione precedente.
@@ -80,7 +80,7 @@ Il percorso deve corrispondere al percorso della rete virtuale. HostedSubnet è 
 Usare il comando seguente per stabilire il peering BGP dal server di route all'appliance virtuale di dispositivo:
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName "myNVA” -PeerIp “nva_ip” -PeerAsn “nva_asn” -RouteServerName "myRouteServer -ResourceGroupName ”RouteServerRG”
+Add-AzRouteServerPeer -PeerName "myNVA" -PeerIp "nva_ip" -PeerAsn "nva_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 "nva_ip" è l'indirizzo IP della rete virtuale assegnato all'appliance virtuale di rete. "nva_asn" è il numero di sistema autonomo (ASN) configurato nell'appliance virtuale di rete. Il numero ASN può essere qualsiasi numero a 16 bit diverso da quelli nell'intervallo 65515-65520. Questo intervallo di ASN è riservato da Microsoft.
@@ -88,7 +88,7 @@ Add-AzRouteServerPeer -PeerName "myNVA” -PeerIp “nva_ip” -PeerAsn “nva_a
 Per configurare il peering con diversi appliance virtuale di sistema o un'altra istanza della stessa appliance virtuale di sistema per la ridondanza, usare questo comando:
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName “NVA2_name” -PeerIp “nva2_ip” -PeerAsn “nva2_asn” -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Add-AzRouteServerPeer -PeerName "NVA2_name" -PeerIp "nva2_ip" -PeerAsn "nva2_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 ## <a name="complete-the-configuration-on-the-nva"></a>Completare la configurazione nell'appliance virtuale di dispositivo
@@ -96,7 +96,7 @@ Add-AzRouteServerPeer -PeerName “NVA2_name” -PeerIp “nva2_ip” -PeerAsn �
 Per completare la configurazione nell'appliance virtuale di dispositivo e abilitare le sessioni BGP, sono necessari l'IP e l'ASN del server di route di Azure. È possibile ottenere queste informazioni usando questo comando:
 
 ```azurepowershell-interactive 
-Get-AzRouteServer -RouterName “myRouteServer” -ResourceGroupName “RouteServerRG”
+Get-AzRouteServer -RouterServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 L'output contiene le informazioni seguenti:
@@ -113,13 +113,13 @@ Se si dispone di un gateway ExpressRoute e di un gateway VPN di Azure nella stes
 1. Per abilitare lo scambio di route tra il server di route di Azure e i gateway, usare questo comando:
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” -AllowBranchToBranchTraffic 
+Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -AllowBranchToBranchTraffic 
 ```
 
 2. Per disabilitare lo scambio di route tra il server di route di Azure e i gateway, usare questo comando:
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
@@ -137,13 +137,13 @@ Se il server di route di Azure non è più necessario, usare questi comandi per 
 1. Rimuovere il peering BGP tra il server di route di Azure e un appliance virtuale di Azure con questo comando:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 2. Rimuovere il server di route di Azure con questo comando:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Remove-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

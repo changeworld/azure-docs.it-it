@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 2/9/2021
+ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 402714b55d7513e41458503b12c68768d0c6ad5e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 20b8e354d0c8e2e04cf22d1b8014f5b8e33a860c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745934"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038867"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Aggiungere il supporto IPv6 per il peering privato con Azure PowerShell (anteprima)
 
@@ -60,8 +60,8 @@ La richiesta verrà quindi approvata dal team di ExpressRoute entro 2-3 giorni l
 
 3. Aggiungere un peering privato IPv6 alla configurazione del peering privato IPv4 esistente. Fornire una coppia di subnet IPv6/126 di cui si è proprietari per il collegamento primario e i collegamenti secondari. Da ognuna di queste subnet si assegnerà al router il primo indirizzo IP utilizzabile, poiché il secondo indirizzo IP utilizzabile per il router viene usato da Microsoft.
 
-> [!Note]
-> Il peer ASN e VlanId devono corrispondere a quelli della configurazione del peering privato IPv4.
+    > [!Note]
+    > Il peer ASN e VlanId devono corrispondere a quelli della configurazione del peering privato IPv4.
 
     ```azurepowershell-interactive
     Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
@@ -175,6 +175,7 @@ Sebbene il supporto per IPv6 sia disponibile per le connessioni alle distribuzio
 * Connessioni alle distribuzioni in Azure tramite uno SKU del gateway non AZ ExpressRoute
 * Connessioni alle distribuzioni in aree non AZ
 * Copertura globale le connessioni tra circuiti ExpressRoute
+* Uso di ExpressRoute con vWAN
 
 ## <a name="next-steps"></a>Passaggi successivi
 

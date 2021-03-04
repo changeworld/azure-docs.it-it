@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: risoluzione dei problemi, aggiornamento, bug, Kinect, feedback, ripristino, registrazione, suggerimenti
-ms.openlocfilehash: a6e00b6c5e9e4f82bb668769aade8311896bef32
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 5f13815b8f8b26f6a08da28181a4a6164b7b89a3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587282"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038821"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problemi noti e risoluzione dei problemi relativi a Kinect di Azure
 
@@ -98,7 +98,7 @@ La registrazione per l'SDK di rilevamento del corpo K4ABT.dll è simile, ad ecce
 
 ## <a name="azure-kinect-viewer-fails-to-open"></a>Non è possibile aprire il Visualizzatore Kinect di Azure
 
-- Verificare prima che il dispositivo venga enumerato in Windows Device Manager.
+- Verificare prima che il dispositivo venga enumerato in Windows Gestione dispositivi.
 
     ![Fotocamere Kinect di Azure in gestione dispositivi di Windows](./media/resources/viewer-fails.png)
 
@@ -113,9 +113,9 @@ La registrazione per l'SDK di rilevamento del corpo K4ABT.dll è simile, ad ecce
 
 ## <a name="cannot-find-microphone"></a>Non è possibile trovare il microfono
 
-- Verificare prima che la matrice di microfoni venga enumerata in Device Manager.
+- Verificare prima che la matrice di microfoni venga enumerata in Gestione dispositivi.
 - Se un dispositivo viene enumerato e funziona in modo corretto in Windows, il problema potrebbe essere dovuto al caso in cui le finestre di aggiornamento del firmware hanno assegnato un ID contenitore diverso alla fotocamera di profondità.
-- È possibile provare a reimpostarlo passando a Device Manager, facendo clic con il pulsante destro del mouse su "array di microfoni Kinect di Azure" e scegliendo "Disinstalla dispositivo". Al termine, scollegare e riconnettere il sensore.
+- È possibile provare a reimpostarlo passando a Gestione dispositivi, facendo clic con il pulsante destro del mouse su "array di microfoni Kinect di Azure" e scegliendo "Disinstalla dispositivo". Al termine, scollegare e riconnettere il sensore.
 
     ![Array Mic Kinect di Azure](./media/resources/mic-not-found.png)
 
@@ -148,7 +148,7 @@ Per Azure Kinect DK in **Windows, Intel**, **Texas Instruments (ti)** e **Renesa
 
 L'argomento dei controller host USB diventa ancora più complicato quando in un PC è installato più di un controller host. Quando i controller host sono combinati, è possibile che si verifichino problemi nel caso in cui alcune porte funzionino correttamente e altre non funzionino affatto. A seconda del modo in cui le porte vengono cablate, è possibile che vengano visualizzate tutte le porte anteriori con il Kinect di Azure
 
-**Windows:** Per individuare il controller host aperto Device Manager
+**Windows:** Per individuare il controller host aperto Gestione dispositivi
 
 1. Visualizza-> dispositivi per tipo 
 2. Con la connessione di Azure Kinect selezionare le fotocamere->fotocamera di Azure Kinect 4K
@@ -174,6 +174,10 @@ Il motore di profondità Kinect di Azure in Linux usa OpenGL. OpenGL richiede un
 2. Spegnere il sistema, disconnettere il monitor e accendere il sistema. L'accesso automatico impone la creazione di una sessione x-server.
 2. Connettersi tramite SSH e impostare la variabile di visualizzazione ENV `export DISPLAY=:0`
 3. Avviare l'applicazione Kinect di Azure.
+
+L'utilità [xtrlock](http://manpages.ubuntu.com/manpages/xenial/man1/xtrlock.1x.html) può essere usata per bloccare immediatamente la schermata dopo l'accesso automatico. Aggiungere il comando seguente all'applicazione di avvio o al servizio systemd:
+
+`bash -c “xtrlock -b”` 
 
 ## <a name="missing-c-documentation"></a>Documentazione di C# mancante
 

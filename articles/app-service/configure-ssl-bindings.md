@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: be5000b6f9153839b926932c82c9f8fa3ab93f5f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a713d869a754f17f4030c531999c822a2cbb76ee
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704838"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039802"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure
 
@@ -42,7 +42,7 @@ Per completare questa guida pratica:
 - [Aggiungere un certificato privato all'app](configure-ssl-certificate.md)
 
 > [!NOTE]
-> Il modo più semplice per aggiungere un certificato privato consiste nel [creare un certificato gestito di Servizio app di Azure](configure-ssl-certificate.md#create-a-free-certificate-preview) (anteprima).
+> Il modo più semplice per aggiungere un certificato privato consiste nel [creare un certificato gestito di Servizio app di Azure](configure-ssl-certificate.md#create-a-free-managed-certificate-preview) (anteprima).
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -73,7 +73,7 @@ Se l'app non dispone di certificato per il dominio personalizzato selezionato, s
 - **Carica certificato PFX**: seguire il flusso di lavoro in [Importa un certificato del servizio app](configure-ssl-certificate.md#import-an-app-service-certificate), quindi selezionare questa opzione.
 
 > [!NOTE]
-> È anche possibile [creare un di certificato gratuito (anteprima)](configure-ssl-certificate.md#create-a-free-certificate-preview) o [importare un certificato Key Vault](configure-ssl-certificate.md#import-a-certificate-from-key-vault), ma è necessario eseguire questa operazione separatamente e quindi tornare alla finestra di dialogo **Associazione TLS/SSL**.
+> È anche possibile [creare un di certificato gratuito (anteprima)](configure-ssl-certificate.md#create-a-free-managed-certificate-preview) o [importare un certificato Key Vault](configure-ssl-certificate.md#import-a-certificate-from-key-vault), ma è necessario eseguire questa operazione separatamente e quindi tornare alla finestra di dialogo **Associazione TLS/SSL**.
 
 ### <a name="create-binding"></a>Crea associazione
 

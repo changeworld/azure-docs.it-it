@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e1c7e15ff77fd75ff2fb70a6741ea2dd9a4cab8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704430"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040244"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Aggiornamento da Application Insights Java 2. x SDK
 
@@ -219,11 +219,24 @@ Anche in questo caso, per alcune applicazioni, è comunque preferibile la visual
 
 In precedenza nell'SDK 2. x, il nome dell'operazione dalla telemetria delle richieste è stato anche impostato sui dati di telemetria delle dipendenze.
 Application Insights Java 3,0 non popola più il nome dell'operazione sui dati di telemetria delle dipendenze.
-Se si desidera visualizzare il nome dell'operazione per la richiesta padre dei dati di telemetria delle dipendenze, è possibile scrivere una query logs (kusto) per creare un join dalla tabella delle dipendenze alla tabella delle richieste.
+Per visualizzare il nome dell'operazione per la richiesta padre dei dati di telemetria delle dipendenze, è possibile scrivere una query logs (kusto) per creare un join dalla tabella delle dipendenze alla tabella delle richieste, ad esempio
+
+```
+let start = datetime('...');
+let end = datetime('...');
+dependencies
+| where timestamp between (start .. end)
+| project timestamp, type, name, operation_Id
+| join (requests
+    | where timestamp between (start .. end)
+    | project operation_Name, operation_Id)
+    on $left.operation_Id == $right.operation_Id
+| summarize count() by operation_Name, type, name
+```
 
 ## <a name="2x-sdk-logging-appenders"></a>2. x appendici registrazione SDK
 
-L'agente 3,0 [raccoglie automaticamente la registrazione](./java-standalone-config#auto-collected-logging) senza la necessità di configurare gli appendici di registrazione.
+L'agente 3,0 [raccoglie automaticamente la registrazione](./java-standalone-config.md#auto-collected-logging) senza la necessità di configurare gli appendici di registrazione.
 Se si usano gli appendici per la registrazione di 2. x SDK, è possibile rimuoverli, perché verranno comunque eliminati dall'agente 3,0.
 
 ## <a name="2x-sdk-spring-boot-starter"></a>2. x SDK Spring boot Starter

@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, Kinect, specifiche, hardware, DK, funzionalità, profondità, colori, RGB, IMU, array, profondità, più sincronizzazioni
-ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eabf77896777f39efcfd61adb3040bca8642716e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592280"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039955"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronizzare più dispositivi Azure Kinect DK
 
@@ -36,6 +36,9 @@ Esistono diversi motivi per usare più dispositivi Azure Kinect DK, inclusi i se
 ## <a name="plan-your-multi-device-configuration"></a>Pianificare la configurazione di più dispositivi
 
 Prima di iniziare, verificare di aver esaminato le [specifiche hardware Kinect dk di Azure](hardware-specification.md) e la [videocamera depth di Azure Kinect dk](depth-camera.md).
+
+> [!NOTE]  
+> Rimuovere il coperchio di plastica esterno per esporre la sincronizzazione in e sincronizzare i Jack.
 
 ### <a name="select-a-device-configuration"></a>Selezionare una configurazione del dispositivo
 
@@ -63,6 +66,9 @@ L'origine del trigger deve recapitare il segnale alla **sincronizzazione** del d
 ![Configurazioni di cavi per un segnale trigger esterno](./media/resources/camera-trigger-signal.jpg)
 
 Per altre informazioni su come usare le apparecchiature esterne, vedere [usare il registratore Kinect di Azure con dispositivi sincronizzati esterni](record-external-synchronized-units.md)
+
+> [!NOTE]  
+> Sync out è il VSync per la fotocamera RGB. I timestamp per tutti i dispositivi sono impostati su zero e vengono conteggiati. Microsoft non ha caratterizzato la larghezza minima e massima dell'impulso di sincronizzazione e consiglia di imitare l'impulso generato dalla sincronizzazione da un DK di Azure Kinect.
 
 ### <a name="plan-your-camera-settings-and-software-configuration"></a>Pianificare le impostazioni della fotocamera e la configurazione del software
 
