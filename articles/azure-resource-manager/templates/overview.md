@@ -2,13 +2,13 @@
 title: Panoramica dei modelli
 description: Vengono descritti i vantaggi dell'utilizzo di modelli di Azure Resource Manager (modelli ARM) per la distribuzione di risorse.
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 03/03/2021
+ms.openlocfilehash: 7f850d06066a6892db9f17ae86a6bba9496bad58
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621840"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046381"
 ---
 # <a name="what-are-arm-templates"></a>Che cosa sono i modelli di Azure Resource Manager?
 
@@ -17,6 +17,8 @@ Con il passaggio al cloud, molti team hanno adottato metodi di sviluppo agile. Q
 Per soddisfare queste esigenze, è possibile automatizzare le distribuzioni e utilizzare la pratica dell'infrastruttura come codice. Nel codice è necessario definire l'infrastruttura da distribuire. Il codice dell'infrastruttura diventa parte del progetto. Proprio come il codice dell'applicazione, il codice dell'infrastruttura viene archiviato in un repository di origine e ne viene versione. Uno dei team può eseguire il codice e distribuire ambienti simili.
 
 Per implementare l'infrastruttura come codice per le soluzioni di Azure, usare modelli di Azure Resource Manager (modelli ARM). Il modello è un file JavaScript Object Notation (JSON) che definisce l'infrastruttura e la configurazione per il progetto. Il modello usa una sintassi dichiarativa che consente di indicare ciò che si intende distribuire senza dover scrivere la sequenza dei comandi di programmazione per crearlo. Nel modello si specificano le risorse da distribuire e le proprietà di tali risorse.
+
+È stato introdotto un nuovo linguaggio per lo sviluppo di modelli ARM. Il linguaggio è denominato bicipite ed è attualmente in versione di anteprima. I modelli bicipite e JSON offrono le stesse funzionalità. È possibile convertire il modello tra le due lingue. Il bicipite offre una sintassi più semplice da usare per la creazione di modelli. Per altre informazioni, vedere [che cos'è il bicipite (anteprima)?](bicep-overview.md).
 
 ## <a name="why-choose-arm-templates"></a>Perché scegliere i modelli ARM?
 
@@ -68,7 +70,7 @@ Il modello include le sezioni seguenti:
 
 * [Funzioni definite dall'utente](template-user-defined-functions.md) : creare funzioni personalizzate che semplificano il modello.
 
-* [Risorse](template-syntax.md#resources) : specificare le risorse da distribuire.
+* [Risorse](resource-declaration.md) : specificare le risorse da distribuire.
 
 * [Output](template-outputs.md) : valori restituiti dalle risorse distribuite.
 

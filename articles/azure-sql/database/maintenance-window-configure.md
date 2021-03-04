@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: ae31b329cbea82ac664af24e42ec58d094b3a7ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e8f7e5451b48066f52a4c1038e58b1efa99951e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663441"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048599"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configura finestra di manutenzione (anteprima)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -275,7 +275,7 @@ La procedura seguente imposta la finestra di manutenzione su un database esisten
 1. Passare all'istanza gestita per la quale si desidera impostare la finestra di manutenzione.
 1. Nel menu **Impostazioni** selezionare **manutenzione**, quindi selezionare la finestra di manutenzione desiderata.
 
-   :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="Pagina manutenzione database SQL":::
+   :::image type="content" source="media/maintenance-window-configure/maintenance-mi.png" alt-text="Pagina di manutenzione dell'istanza gestita di SQL":::
 
 
 

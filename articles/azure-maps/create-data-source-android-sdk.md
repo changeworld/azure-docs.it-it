@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: fc68dc25aad3671a55e5c11cbee094b4027e7070
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674644"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047673"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Creare un'origine dati (Android SDK)
 
@@ -360,14 +360,17 @@ Mappe di Azure rispetta la [specifica del riquadro vettoriale MapBox](https://gi
 - Dettagli del [](/rest/api/maps/traffic/gettrafficflowtile)  |  [formato dati](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) della documentazione del flusso di traffico
 - Azure Maps Creator consente inoltre la creazione e l'accesso ai riquadri vettoriali personalizzati tramite il [rendering del riquadro Get V2](/rest/api/maps/renderv2/getmaptilepreview)
 
+> [!TIP]
+> Quando si usano i riquadri di immagini Vector o raster del servizio di rendering di Azure Maps con SDK Web, è possibile sostituire `atlas.microsoft.com` con il segnaposto `azmapsdomain.invalid` . Questo segnaposto verrà sostituito con lo stesso dominio utilizzato dalla mappa e aggiungerà automaticamente anche i dettagli di autenticazione. Questo semplifica notevolmente l'autenticazione con il servizio di rendering quando si usa l'autenticazione Azure Active Directory.
+
 Per visualizzare i dati da un'origine del riquadro vettoriale sulla mappa, connettere l'origine a uno dei livelli di rendering dei dati. Tutti i livelli che usano un'origine vettore devono specificare un `sourceLayer` valore nelle opzioni. Il codice seguente carica il servizio Tile del vettore del flusso di traffico di Azure Maps come origine del riquadro vettoriale, quindi lo Visualizza su una mappa usando un livello linea. Questa origine del riquadro vettoriale dispone di un singolo set di dati nel livello di origine denominato "flusso del traffico". Nei dati della riga di questo set di dati è presente una proprietà denominata `traffic_level` utilizzata in questo codice per selezionare il colore e ridimensionare le linee.
 
 ```java
 //Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
-String trafficFlowUrl = "https://atlas.microsoft.com/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}&subscription-key=" + AzureMaps.getSubscriptionKey();
+String trafficFlowUrl = "https://azmapsdomain.invalid/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}";
 
 //Create a vector tile source and add it to the map.
-VectorTileSource source = new VectorTileSource("flowLayer",
+VectorTileSource source = new VectorTileSource(
     tiles(new String[] { trafficFlowUrl }),
     maxSourceZoom(22)
 );

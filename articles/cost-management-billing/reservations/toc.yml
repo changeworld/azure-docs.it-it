@@ -11,14 +11,16 @@
       href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Consigli sulle prenotazioni
       href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Come viene applicato lo sconto per la prenotazione di Azure
-      href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Modalità di applicazione dello sconto
       items:
+        - name: Come viene applicato lo sconto per la prenotazione di Azure
+          href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Servizio app
           href: reservation-discount-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Cache Redis di Azure
           href: understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Azure Data Factory
+          href: ../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Cosmos DB
           href: understand-cosmosdb-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Database per MariaDB
@@ -68,6 +70,8 @@
           href: prepay-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Prenotazione di Cache di Azure per Redis
           href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Azure Data Factory
+          href: ../../data-factory/data-flow-reserved-capacity-overview.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Database di Azure per MariaDB
           href: ../../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Database di Azure per MySQL
@@ -120,6 +124,8 @@
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Risolvere problemi
       items:
+        - name: Risolvere i problemi relativi ai trasferimenti tra tenant
+          href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Nessuna sottoscrizione idonea
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Risolvere i problemi di utilizzo delle prenotazioni

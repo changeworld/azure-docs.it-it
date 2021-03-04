@@ -1,17 +1,16 @@
 ---
 title: Panoramica di Monitoraggio di Azure | Microsoft Docs
 description: Panoramica dei servizi e delle funzionalità Microsoft che contribuiscono a una strategia di monitoraggio completa per i servizi e le applicazioni di Azure.
-ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 00f1bec4d4117d9ccebb4440e3649dd9dff32058
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 544d6937e412e3e1cfc2cf4e520c02f3f804fc8c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717350"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047163"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -145,7 +144,7 @@ Sono disponibili varie API di lettura e scrittura di metriche e log in e da Moni
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su:
 
-* [Metriche e log](data-platform.md) per i dati raccolti da Monitoraggio di Azure.
+* [Metriche e log](https://docs.microsoft.com/azure/azure-monitor/data-platform#metrics) per i dati raccolti da Monitoraggio di Azure.
 * [Origini dati](agents/data-sources.md) per come i diversi componenti dell'applicazione inviano i dati di telemetria.
 * [Query di log](logs/log-query-overview.md) per l'analisi dei dati raccolti.
 * [Procedure consigliate](/azure/architecture/best-practices/monitoring) per il monitoraggio di applicazioni e servizi cloud.

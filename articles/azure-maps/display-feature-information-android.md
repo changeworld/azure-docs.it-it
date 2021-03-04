@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 37b5ab1c144ed81d995da40b87edeaccdcad7253
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 4e84bd821d53048b134db635c7ec541db74fbf11
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680012"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047715"
 ---
 # <a name="display-feature-information"></a>Visualizzare informazioni sulle funzionalità
 
@@ -75,6 +75,81 @@ Oltre ai messaggi di avviso popup, esistono molti altri modi per presentare le p
 - Finestre di [dialogo](https://developer.android.com/guide/topics/ui/dialogs) : una finestra di dialogo è una piccola finestra in cui viene richiesto all'utente di prendere una decisione o immettere informazioni aggiuntive. Una finestra di dialogo non riempie lo schermo e viene in genere usata per gli eventi modali che richiedono agli utenti di eseguire un'azione prima di poter continuare.
 - Aggiungere un [frammento](https://developer.android.com/guide/components/fragments) all'attività corrente.
 - Passare a un'altra attività o a una vista.
+
+## <a name="display-a-popup"></a>Visualizzazione di un popup
+
+Azure Maps Android SDK fornisce una `Popup` classe che semplifica la creazione di elementi di annotazione dell'interfaccia utente ancorati a una posizione sulla mappa. Per i popup è necessario passare una visualizzazione con un layout relativo nell' `content` opzione del popup. Di seguito è riportato un esempio di layout semplice in cui viene visualizzato il testo scuro sopra a uno sfondo.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_margin="8dp"
+    android:padding="10dp"
+
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:text=""
+        android:textSize="18dp"
+        android:textColor="#222"
+        android:layout_height="wrap_content"
+        android:width="200dp"/>
+
+</RelativeLayout>
+```
+
+Supponendo che il layout precedente venga archiviato in un file denominato `popup_text.xml` nella `res -> layout` cartella di un'app, il codice seguente crea un popup, lo aggiunge alla mappa. Quando si fa clic su una funzionalità, la `title` proprietà viene visualizzata utilizzando il `popup_text.xml` layout, con il centro inferiore del layout ancorato alla posizione specificata sulla mappa.
+
+```java
+//Create a popup and add it to the map.
+Popup popup = new Popup();
+map.popups.add(popup);
+
+map.events.add((OnFeatureClick)(feature) -> {
+    //Get the first feature and it's properties.
+    Feature f = feature.get(0);
+    JsonObject props = f.properties();
+
+    //Retrieve the custom layout for the popup.
+    View customView = LayoutInflater.from(this).inflate(R.layout.popup_text, null);
+
+    //Access the text view within the custom view and set the text to the title property of the feature.
+    TextView tv = customView.findViewById(R.id.message);
+    tv.setText(props.get("title").getAsString());
+
+    //Get the coordinates from the clicked feature and create a position object.
+    List<Double> c = ((Point)(f.geometry())).coordinates();
+    Position pos = new Position(c.get(0), c.get(1));
+
+    //Set the options on the popup.
+    popup.setOptions(
+        //Set the popups position.
+        position(pos),
+
+        //Set the anchor point of the popup content.
+        anchor(AnchorType.BOTTOM),
+
+        //Set the content of the popup.
+        content(customView)
+
+        //Optionally, hide the close button of the popup.
+        //, closeButton(false)
+    );
+
+    //Open the popup.
+    popup.open();
+});
+
+```
+
+L'acquisizione di schermate seguente mostra i popup visualizzati quando si fa clic sulle funzionalità e si rimane ancorati alla posizione specificata sulla mappa mentre viene spostata.
+
+![Animazione di un popup visualizzato e della mappa spostata con il popup ancorato a una posizione sulla mappa](./media/display-feature-information-android/android-popup.gif)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

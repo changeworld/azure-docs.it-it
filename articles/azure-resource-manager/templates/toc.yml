@@ -4,6 +4,8 @@
   items:
     - name: Che cosa sono i modelli di Azure Resource Manager?
       href: overview.md
+    - name: Panoramica sul bicipite
+      href: bicep-overview.md
 - name: Avvi rapidi
   items:
     - name: Creare modelli - Portale
@@ -324,9 +326,7 @@
       href: template-best-practices.md
     - name: Bicep
       items:
-        - name: Panoramica
-          href: bicep-overview.md
-        - name: Passare da JSON a bicipite
+        - name: Confronto tra JSON e bicipite
           href: compare-template-syntax.md
     - name: Domande frequenti
       href: frequently-asked-questions.md

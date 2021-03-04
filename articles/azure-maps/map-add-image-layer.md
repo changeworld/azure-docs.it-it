@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 43de832095e2c2dd674a156da914ed26f1e472d0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f0c24940e606020dc45e5a000cfcb030fd806d4b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892945"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047486"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Aggiungere un livello per le immagini a una mappa
 
@@ -70,6 +70,9 @@ Il codice usa la funzione statica della `getCoordinatesFromEdges` classe [ImageL
 
 <iframe height='500' scrolling='no' title='Sovrapposizione di terra KML come livello per le immagini' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Penna <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>Sovrapposizione di terra KML come livello per le immagini</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+> [!TIP]
+> Usare le `getPixels` `getPositions` funzioni e della classe del livello immagine per eseguire la conversione tra le coordinate geografiche del livello immagine posizionato e le coordinate del pixel dell'immagine locale.
 
 ## <a name="customize-an-image-layer"></a>Personalizzare un livello per le immagini
 

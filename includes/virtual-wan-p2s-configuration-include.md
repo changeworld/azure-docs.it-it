@@ -4,13 +4,15 @@ ms.author: cherylmc
 ms.date: 02/23/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.openlocfilehash: b5c0bdbb29af7b8894d86233520ff09854faa201
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 567c0bb75c30a1f0ccdcde7ec1b0f04f5d6e54c5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732489"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048259"
 ---
+[!INCLUDE [Portal feature rollout](virtual-wan-portal-feature-rollout.md)]
+
 1. Passare a **tutte le risorse** e selezionare la rete WAN virtuale creata, quindi selezionare **configurazioni VPN utente** dal menu a sinistra.
 1. Nella pagina **configurazioni VPN utente** selezionare **+ Crea configurazione VPN utente** nella parte superiore della pagina per aprire la pagina di configurazione per la creazione di una **nuova VPN utente** .
 
@@ -23,7 +25,7 @@ ms.locfileid: "101732489"
    **VPN IKEv2**
 
    * **Requisiti:** Quando si seleziona il tipo di tunnel **IKEv2** , viene visualizzato un messaggio che indica di selezionare un metodo di autenticazione. Per IKEv2, è possibile specificare un solo metodo di autenticazione. È possibile scegliere il certificato di Azure, Azure Active Directory o l'autenticazione basata su RADIUS.
- 
+
    * **Parametri personalizzati IPSec:** Per personalizzare i parametri per la fase 1 e la fase 2 di IKE, impostare l'opzione IPsec su **Custom** e selezionare i valori dei parametri. Per ulteriori informazioni sui parametri personalizzabili, vedere l'articolo relativo a [IPsec personalizzato](../articles/virtual-wan/point-to-site-ipsec.md) .
 
      :::image type="content" source="media/virtual-wan-p2s-configuration/custom.png" alt-text="Screenshot del passaggio IPsec a Custom.":::

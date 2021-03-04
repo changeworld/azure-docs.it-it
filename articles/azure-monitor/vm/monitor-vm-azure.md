@@ -2,17 +2,16 @@
 title: Monitorare le macchine virtuali di Azure con Monitoraggio di Azure
 description: Descrive come raccogliere e analizzare i dati di monitoraggio generati dalle macchine virtuali di Azure tramite Monitoraggio di Azure.
 ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 6209389843b19d933bdce2726b55946b8839a264
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2c93471436030f9260f4fa0d95d656c27d382346
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731375"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047044"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure
 Questo articolo descrive come usare Monitoraggio di Azure per raccogliere e analizzare i dati di monitoraggio generati dalle macchine virtuali di Azure e mantenerne l'integrità. Con Monitoraggio di Azure è possibile monitorare la disponibilità e le prestazioni delle macchine virtuali come per qualsiasi [altra risorsa di Azure](../essentials/monitor-azure-resource.md). Le macchine virtuali sono però diverse rispetto ad altre risorse perché è necessario monitorare anche il sistema operativo guest e i carichi di lavoro in esecuzione in esso. 
@@ -56,7 +55,7 @@ Per abilitare tutte le funzionalità di Monitoraggio di Azure per il monitoraggi
 | Passaggio di configurazione | Azioni completate | Funzionalità abilitate |
 |:---|:---|:---|
 | Nessuna configurazione | - Raccolta delle metriche della piattaforma host nelle metriche.<br>- Raccolta del log attività. | - Esplora metriche per host.<br>- Avvisi per le metriche per host.<br>- Avvisi del log attività. |
-| [Abilitare VM Insights](#enable-azure-monitor-for-vms) | - Installazione dell'agente di Log Analytics.<br>- Installazione di Dependency Agent.<br>- Raccolta dei dati sulle prestazioni guest nei log.<br>- Raccolta dei dettagli sui processi e sulle dipendenze nei log. | - Grafici sulle prestazioni e cartelle di lavoro per i dati sulle prestazioni guest.<br>- Query su log per i dati sulle prestazioni guest.<br>- Avvisi del log per i dati sulle prestazioni guest.<br>- Mapping delle dipendenze. |
+| [Abilitare VM Insights](#enable-vm-insights) | - Installazione dell'agente di Log Analytics.<br>- Installazione di Dependency Agent.<br>- Raccolta dei dati sulle prestazioni guest nei log.<br>- Raccolta dei dettagli sui processi e sulle dipendenze nei log. | - Grafici sulle prestazioni e cartelle di lavoro per i dati sulle prestazioni guest.<br>- Query su log per i dati sulle prestazioni guest.<br>- Avvisi del log per i dati sulle prestazioni guest.<br>- Mapping delle dipendenze. |
 | [Installare l'estensione di diagnostica e l'agente Telegraf](#enable-diagnostics-extension-and-telegraf-agent) | - Raccolta dei dati sulle prestazioni guest nelle metriche. | - Esplora metriche per guest.<br>- Avvisi per le metriche per guest.  |
 | [Configurare un'area di lavoro Log Analytics](#configure-log-analytics-workspace) | - Raccolta degli eventi da guest. | - Query su log per gli eventi guest.<br>- Avvisi del log per gli eventi guest. |
 | [Creare l'impostazione di diagnostica per la macchina virtuale](#collect-platform-metrics-and-activity-log) | - Raccolta delle metriche della piattaforma nei log.<br>- Raccolta del log attività nei log. | -Log query per le metriche host.<br>- Avvisi del log per le metriche host.<br>- Query su log per il log attività.

@@ -1,17 +1,16 @@
 ---
 title: Come eseguire query sui log da VM Insights
 description: La soluzione VM Insights raccoglie le metriche e i dati di log in e in questo articolo vengono descritti i record e sono incluse le query di esempio.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: bbecb15173c929aee46e7d1eeb5e83aab86430f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 28ee7f3d327c09f5837c7dc9e2f39c0f2ca4d888
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713525"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046534"
 ---
 # <a name="how-to-query-logs-from-vm-insights"></a>Come eseguire query sui log da VM Insights
 

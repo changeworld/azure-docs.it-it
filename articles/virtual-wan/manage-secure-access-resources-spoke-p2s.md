@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: c2efd9ac137c226c1d3a77e2cb6ebe17d75cb496
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 751d11fcd4b5d4c33145ee7f2b7b49971b8927ae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051531"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048260"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>Gestire l'accesso sicuro alle risorse in spoke reti virtuali per i client VPN utente
 
@@ -50,8 +50,6 @@ Quando si seleziona il metodo di autenticazione, sono disponibili tre opzioni. O
 * **Autenticazione basata su RADIUS:** Ottenere l'indirizzo IP del server RADIUS, il segreto del server RADIUS e le informazioni sul certificato.
 
 * **Certificati di Azure:** Per questa configurazione sono necessari i certificati. È necessario generare o ottenere i certificati. Per ogni client è necessario un certificato client. Inoltre, è necessario caricare le informazioni sul certificato radice (chiave pubblica). Per ulteriori informazioni sui certificati richiesti, vedere [generare ed esportare i certificati](../vpn-gateway/vpn-gateway-certificates-point-to-site.md).
-
-Nell'esempio seguente viene illustrata l'autenticazione del certificato di Azure.
 
 [!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
 
@@ -116,7 +114,7 @@ Una volta completati questi passaggi, si creerà un'architettura che consente ag
 1. Nella scheda **Hub** selezionare **Associa hub virtuali**.
 1. Selezionare l'hub virtuale creato in precedenza e quindi selezionare **Aggiungi**.
 1. Selezionare **Rivedi e crea**.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 Il completamento di questo processo può richiedere più di 5 minuti.
 
@@ -131,7 +129,7 @@ In questa sezione è necessario assicurarsi che il traffico venga instradato att
 1. Verificare che la connessione VNet e il traffico privato della connessione Branch siano protetti dal firewall di Azure.
 1. Selezionare **Salva**.
 
-## <a name="validate"></a><a name="validate"></a>Convalidare
+## <a name="validate"></a><a name="validate"></a>Convalida
 
 Verificare la configurazione dell'hub protetto.
 

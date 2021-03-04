@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/22/2021
-ms.openlocfilehash: 887245bbbefa1c0232313b638203206b623d506b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: c466d7717dd1dad0ea9ee3f44088d1400cee083f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729709"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048183"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novità di Azure Sentinel
 
@@ -32,8 +32,44 @@ Le funzionalità indicate sono attualmente in anteprima. Le [condizioni aggiunti
 
 ## <a name="february-2021"></a>2021 febbraio
 
+- [Connettori dati di terze parti](#third-party-data-connectors)
 - [OFFRONO dati Insights nella pagina entità](#ueba-insights-in-the-entity-page)
 - [Ricerca di eventi imprevisti migliorata](#improved-incident-search)
+
+### <a name="third-party-data-connectors"></a>Connettori dati di terze parti
+
+La nostra raccolta di integrazioni di terze parti continua a crescere, con trenta connettori aggiunti negli ultimi due mesi. Ecco un elenco:
+
+- [Difesa del phishing di Agari e protezione del marchio](connect-agari-phishing-defense.md)
+- [Eventi di sicurezza Akamai](connect-akamai-security-events.md)
+- [Alsid per Active Directory](connect-alsid-active-directory.md)
+- [Apache HTTP Server](connect-apache-http-server.md)
+- [Aruba ClearPass](connect-aruba-clearpass.md)
+- [CylancePROTECT BlackBerry](connect-data-sources.md)
+- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
+- [Potenza di eStreamer Cisco](connect-data-sources.md)
+- [Cisco Meraki](connect-cisco-meraki.md)
+- [Cisco Umbrella](connect-cisco-umbrella.md)
+- [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
+- [Controllo Enterprise di ESET](connect-data-sources.md)
+- [Centro di gestione della sicurezza di ESET](connect-data-sources.md)
+- [Area di lavoro Google (in precedenza G Suite)](connect-google-workspace.md)
+- [WAF gateway impervertito](connect-imperva-waf-gateway.md)
+- [Juniper SRX](connect-juniper-srx.md)
+- [Netskope](connect-data-sources.md)
+- [Log DNS di NXLog](connect-nxlog-dns.md)
+- [Controllo di NXLog Linux](connect-nxlog-linuxaudit.md)
+- [Piattaforma onside](connect-data-sources.md)
+- [Sicurezza della posta elettronica su richiesta di Proofpoint (POD)](connect-proofpoint-pod.md)
+- [Knowledge base sulla gestione delle vulnerabilità Qualys](connect-data-sources.md)
+- [Cloud del servizio Salesforce](connect-salesforce-service-cloud.md)
+- [Firewall SonicWall](connect-data-sources.md)
+- [Sophos cloud Optix](connect-sophos-cloud-optix.md)
+- [Squid Proxy](connect-squid-proxy.md)
+- [Endpoint Protection Symantec](connect-data-sources.md)
+- [Thycotic Secret Server](connect-thycotic-secret-server.md)
+- [Micro XDR tendenza](connect-data-sources.md)
+- [VMWare ESXi](connect-vmware-esxi.md)
 
 ### <a name="ueba-insights-in-the-entity-page"></a>OFFRONO dati Insights nella pagina entità
 
@@ -66,6 +102,7 @@ Quando si esegue la ricerca di eventi imprevisti in Sentinel di Azure, è ora po
 - [Procedura guidata per le regole di analisi: miglioramento dell'esperienza di modifica delle query (anteprima pubblica)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [AZ. SecurityInsights PowerShell Module (anteprima pubblica)](#azsecurityinsights-powershell-module-public-preview)
 - [Connettore database SQL](#sql-database-connector)
+- [Connettore Dynamics 365](#dynamics-365-connector)
 - [Commenti per gli eventi imprevisti migliorati](#improved-incident-comments)
 - [Cluster Log Analytics dedicati](#dedicated-log-analytics-clusters)
 - [Identità gestite di app per la logica](#logic-apps-managed-identities)
@@ -81,7 +118,7 @@ La creazione guidata regola di analisi pianificata di Azure Sentinel fornisce or
 -   Supporto esteso per il completamento automatico.
 -   Convalide di query in tempo reale. Gli errori nella query sono ora visualizzati come un blocco rosso nella barra di scorrimento e come un punto rosso nel nome della scheda della **logica del set di regole** . Inoltre, non è possibile salvare una query con errori.
 
-Per altre informazioni, vedere [esercitazione: rilevare le minacce](tutorial-detect-threats-built-in.md)predefinite.
+Per altre informazioni, vedere [esercitazione: creare regole di analisi personalizzate per rilevare le minacce](tutorial-detect-threats-custom.md).
 ### <a name="azsecurityinsights-powershell-module-public-preview"></a>AZ. SecurityInsights PowerShell Module (anteprima pubblica)
 
 Azure Sentinel supporta ora il nuovo modulo di PowerShell [AZ. SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) .
@@ -99,6 +136,12 @@ Azure Sentinel offre ora un connettore del database SQL di Azure, in cui è poss
 Azure SQL è un motore di database PaaS (Platform-as-a-Service) completamente gestito che gestisce la maggior parte delle funzioni di gestione di database, ad esempio l'aggiornamento, l'applicazione di patch, i backup e il monitoraggio, senza coinvolgimento degli utenti.
 
 Per altre informazioni, vedere [connettere i log di diagnostica e di controllo del database SQL di Azure](connect-azure-sql-logs.md).
+
+### <a name="dynamics-365-connector"></a>Connettore Dynamics 365
+
+Azure Sentinel offre ora un connettore per Microsoft Dynamics 365, che consente di raccogliere i log delle attività di utenti, amministratori e di supporto delle applicazioni di Dynamics 365 in Sentinel di Azure. È possibile utilizzare questi dati per controllare l'intera azione di elaborazione dei dati e analizzarla per individuare possibili violazioni della sicurezza.
+
+Per altre informazioni, vedere [connettere i log attività di Dynamics 365 ad Azure Sentinel](connect-dynamics-365.md).
 
 ### <a name="improved-incident-comments"></a>Commenti per gli eventi imprevisti migliorati
 
@@ -185,15 +228,14 @@ Azure Sentinel usa l'agente di Log Analytics per inviare eventi all'area di lavo
 Per ulteriori informazioni, vedere la [documentazione di log Analytics](../azure-monitor/agents/log-analytics-agent.md) e le [Note sulla versione di log Analytics Agent](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
 ## <a name="november-2020"></a>Novembre 2020
 
-- [Monitorare i PlayBook delle app per la logica in Sentinel di Azure](#monitor-your-logic-apps-playbooks-in-azure-sentinel)
+- [Monitora l'integrità dei PlayBook in Sentinel di Azure](#monitor-your-playbooks-health-in-azure-sentinel)
 - [Connettore Microsoft 365 Defender (anteprima pubblica)](#microsoft-365-defender-connector-public-preview)
-### <a name="monitor-your-logic-apps-playbooks-in-azure-sentinel"></a>Monitorare i PlayBook delle app per la logica in Sentinel di Azure
 
-Azure Sentinel ora si integra con le [app log di Azure](../logic-apps/index.yml), un servizio cloud che consente di pianificare, automatizzare e orchestrare attività, processi aziendali e flussi di lavoro.
+### <a name="monitor-your-playbooks-health-in-azure-sentinel"></a>Monitora l'integrità dei PlayBook in Sentinel di Azure
 
-Usare un'app per la logica di Azure in Sentinel di Azure come PlayBook, che può essere richiamato automaticamente quando viene creato un evento imprevisto o quando si esegue la valutazione e si lavora con gli eventi imprevisti. 
+I PlayBook di Sentinel di Azure si basano sui flussi di lavoro compilati in [app log di Azure](../logic-apps/index.yml), un servizio cloud che consente di pianificare, automatizzare e orchestrare attività, processi aziendali e flussi di lavoro. I PlayBook possono essere richiamati automaticamente quando viene creato un evento imprevisto o durante la valutazione e l'utilizzo di eventi imprevisti. 
 
-Per fornire informazioni dettagliate sull'integrità, sulle prestazioni e sull'utilizzo dei PlayBook, inclusi quelli aggiunti con le app per la logica di Azure, è stata aggiunta una [cartella di lavoro di Azure](../azure-monitor/visualize/workbooks-overview.md) denominata **Playbooks Health Monitoring**. 
+Per fornire informazioni dettagliate sull'integrità, sulle prestazioni e sull'utilizzo dei PlayBook, è stata aggiunta una [cartella di lavoro](../azure-monitor/visualize/workbooks-overview.md) denominata **Playbooks Health Monitoring**. 
 
 Usare la cartella di lavoro di **monitoraggio dello stato dei PlayBook** per monitorare l'integrità dei PlayBook o cercare anomalie nella quantità di esecuzioni riuscite o non riuscite. 
 

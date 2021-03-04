@@ -1,18 +1,17 @@
 ---
 title: Configurare Log Analytics area di lavoro per VM Insights
 description: Viene descritto come creare e configurare l'area di lavoro Log Analytics usata da VM Insights.
-ms.subservice: ''
 ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
-ms.openlocfilehash: dc7e6c42837ccaa56c7a211deb646c934ec137a4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5a0e04772cfc1c9be77c0ad8b32b0e93be8b9f54
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717129"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046721"
 ---
 # <a name="configure-log-analytics-workspace-for-vm-insights"></a>Configurare Log Analytics area di lavoro per VM Insights
 VM Insights raccoglie i dati da una o più aree di lavoro Log Analytics in monitoraggio di Azure. Prima di caricare gli agenti, è necessario creare e configurare un'area di lavoro. Questo articolo descrive i requisiti dell'area di lavoro e per configurarlo per la VM Insights.

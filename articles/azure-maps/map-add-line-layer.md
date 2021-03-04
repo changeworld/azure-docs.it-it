@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9cf2f4876d62572ace118562fe5760f2b4010fa5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fedf1bc37661100404106859d3aef52b3eddf06d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891160"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048138"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Aggiungere un livello linea alla mappa
 
@@ -66,7 +66,7 @@ Visualizzare l'elemento Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>S
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Aggiungere una sfumatura del tratto a una linea
 
-È possibile applicare un colore a tratto singolo a una linea. È anche possibile riempire una linea con una sfumatura di colori per visualizzare la transizione da un segmento di linea al segmento di linea successivo. Ad esempio, è possibile usare le sfumature di linea per rappresentare le modifiche nel tempo e nella distanza oppure con temperature diverse in una linea di oggetti connessa. Per applicare questa funzionalità a una linea, è necessario che l'opzione `lineMetrics` dell'origine dati sia impostata su true e quindi un'espressione di sfumatura del colore possa essere passata all'opzione `strokeColor` della linea. L'espressione di sfumatura del tratto deve fare riferimento all'espressione dati `['line-progress']` che espone le metriche di linea calcolate all'espressione.
+È possibile applicare un colore a tratto singolo a una linea. È anche possibile riempire una linea con una sfumatura di colori per visualizzare la transizione da un segmento di linea al segmento di linea successivo. Ad esempio, è possibile usare le sfumature di linea per rappresentare le modifiche nel tempo e nella distanza oppure con temperature diverse in una linea di oggetti connessa. Per applicare questa funzionalità a una riga, è necessario che l'opzione dell'origine dati sia `lineMetrics` impostata su `true` , quindi un'espressione di sfumatura di colore possa essere passata all' `strokeColor` opzione della riga. L'espressione di sfumatura del tratto deve fare riferimento all'espressione dati `['line-progress']` che espone le metriche di linea calcolate all'espressione.
 
 <br/>
 

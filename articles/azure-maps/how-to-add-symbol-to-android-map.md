@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 040fcde35707074ffaf102ed6c224b2f47a084bb
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 1706b60a61bd3b507d9fbcf555e478b388f51168
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679343"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047571"
 ---
 # <a name="add-a-symbol-layer-android-sdk"></a>Aggiungere un livello di simbolo (Android SDK)
 
@@ -132,6 +132,52 @@ Lo screenshot seguente mostra il codice precedente che consente di riportare una
 
 > [!TIP]
 > Quando si desidera eseguire il rendering del testo solo con un livello di simbolo, è possibile nascondere l'icona impostando la `iconImage` proprietà delle opzioni dell'icona su `"none"` .
+
+## <a name="modify-symbol-colors"></a>Modificare i colori del simbolo
+
+Il Android SDK mappe di Azure viene visualizzato con un set di varianti di colore predefinite dell'icona del marcatore predefinito. Ad esempio, `marker-red` può essere passato nell' `iconImage` opzione di un livello di simbolo per eseguire il rendering di una versione rossa dell'icona del marcatore in tale livello. 
+
+```java
+SymbolLayer layer = new SymbolLayer(source,
+    iconImage("marker-red")
+);
+```
+
+La tabella seguente elenca tutti i nomi di immagine icona incorporati disponibili. Tutti questi marcatori eseguono il pull dei colori dalle risorse di colore di cui è possibile eseguire l'override. Oltre a eseguire l'override del colore di riempimento principale del marcatore. Si noti tuttavia che l'override del colore di uno di questi marcatori verrebbe applicato a tutti i livelli che usano l'immagine dell'icona.
+
+| Nome immagine icona | Nome risorsa colore |
+|-----------------|---------------------|
+| `marker-default` | `mapcontrol_marker_default` |
+| `marker-black` | `mapcontrol_marker_black` |
+| `marker-blue` | `mapcontrol_marker_blue` |
+| `marker-darkblue` | `mapcontrol_marker_darkblue` |
+| `marker-red` | `mapcontrol_marker_red` |
+| `marker-yellow` | `mapcontrol_marker_yellow` |
+
+È anche possibile eseguire l'override del colore del bordo di tutti i marcatori usando il `mapcontrol_marker_border` nome della risorsa colore. È possibile eseguire l'override dei colori di questi marcatori aggiungendo un colore con lo stesso nome nel `colors.xml` file dell'app. Il file seguente, ad esempio, `colors.xml` renderebbe il colore verde chiaro del marcatore predefinito.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mapcontrol_marker_default">#00FF00</color>
+</resources>
+```
+
+Di seguito è riportata una versione modificata del codice XML del vettore del marcatore predefinito che è possibile modificare per creare versioni personalizzate aggiuntive del marcatore predefinito. La versione modificata può essere aggiunta alla `drawable` cartella dell'app e aggiunta allo sprite dell'immagine Maps usando `map.images.add` , quindi usata con un livello di simboli.
+
+```xml
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24.5dp"
+    android:height="36.5dp"
+    android:viewportWidth="24.5"
+    android:viewportHeight="36.5">
+    <path
+        android:pathData="M12.25,0.25a12.2543,12.2543 0,0 0,-12 12.4937c0,6.4436 6.4879,12.1093 11.059,22.5641 0.5493,1.2563 1.3327,1.2563 1.882,0C17.7621,24.8529 24.25,19.1857 24.25,12.7437A12.2543,12.2543 0,0 0,12.25 0.25Z"
+        android:strokeWidth="0.5"
+        android:fillColor="@color/mapcontrol_marker_default"
+        android:strokeColor="@color/mapcontrol_marker_border"/>
+</vector>
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

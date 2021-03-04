@@ -2,17 +2,16 @@
 title: Monitorare una macchina virtuale di Azure con Monitoraggio di Azure
 description: Informazioni su come raccogliere e analizzare i dati per una macchina virtuale di Azure in Monitoraggio di Azure.
 ms.service: azure-monitor
-ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: fa0360d6730293f3817d63e31b24464a0e4950ce
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7efd8baf54aeacbd2f55640240a15f2517dcd904
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725476"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046925"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Monitorare una macchina virtuale di Azure con Monitoraggio di Azure.
 [Monitoraggio di Azure](../overview.md) avvia la raccolta di dati dalle macchine virtuali di Azure nel momento in cui vengono create. Questa guida di avvio rapido illustra brevemente i dati raccolti automaticamente per una VM di Azure e come visualizzare tali dati nel portale di Azure. Verrà quindi abilitata la VM [Insights](../vm/vminsights-overview.md) per la macchina virtuale che consentirà agli agenti della VM di raccogliere e analizzare i dati dal sistema operativo guest, inclusi i processi e le relative dipendenze.

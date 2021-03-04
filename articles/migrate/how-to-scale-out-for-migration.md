@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: fda9026adf46a26927912b9e1983a537470c37ee
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745582"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048013"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Ridimensionare la migrazione senza agenti di macchine virtuali VMware in Azure
 
@@ -153,7 +153,7 @@ A questo punto è necessario rivalidare che l'appliance con scalabilità orizzon
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importazione riuscita":::
 
 > [!IMPORTANT]
-> Se si modificano le credenziali di server vCenter nell'appliance principale, assicurarsi di importare di nuovo i file di configurazione nell'appliance con scalabilità orizzontale per ottenere la configurazione più recente e continuare le repliche in corso.<br/> Se il dispositivo con scalabilità orizzontale non è più necessario, assicurarsi di disabilitare l'appliance con scalabilità orizzontale. [**Scopri di più**](./common-questions-appliance) su come disabilitare l'appliance con scalabilità orizzontale quando non è necessario.
+> Se si modificano le credenziali di server vCenter nell'appliance principale, assicurarsi di importare di nuovo i file di configurazione nell'appliance con scalabilità orizzontale per ottenere la configurazione più recente e continuare le repliche in corso.<br/> Se il dispositivo con scalabilità orizzontale non è più necessario, assicurarsi di disabilitare l'appliance con scalabilità orizzontale. [**Scopri di più**](./common-questions-appliance.md) su come disabilitare l'appliance con scalabilità orizzontale quando non è necessario.
 
 ## <a name="replicate"></a>Replica
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/28/2021
+ms.date: 03/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e01f44d363d038bd2ea4b985e12c9afc200f2c20
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691519"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046449"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -58,6 +58,11 @@ Inoltre, il servizio di controllo:
 
 - Se il *controllo del server è abilitato*, viene *sempre applicato al database*. Il database verrà controllato, indipendentemente dalle impostazioni di controllo del database.
 
+- Quando i criteri di controllo vengono definiti a livello di database in un'area di lavoro Log Analytics o in una destinazione dell'hub eventi, le operazioni seguenti non manterranno i criteri di controllo a livello di database di origine:
+    - [Copia del database](database-copy.md)
+    - [Ripristino temporizzato](recovery-using-backups.md)
+    - [Replica geografica](active-geo-replication-overview.md) (il database secondario non avrà il controllo a livello di database)
+
 - L'abilitazione del controllo sul database, oltre ad abilitarla nel server, *non sostituisce o* modifica le impostazioni del controllo del server. I due controlli coesisteranno. In altre parole, il database viene controllato due volte in parallelo, una volta con i criteri del server e una volta con i criteri del database.
 
    > [!NOTE]
@@ -94,7 +99,8 @@ Il database SQL di Azure e il controllo di Azure sinapsi archivia 4000 caratteri
 Nella sezione seguente è descritta la configurazione del controllo mediante il portale di Azure.
 
   > [!NOTE]
-  > Non è possibile abilitare il controllo in un pool SQL dedicato sospeso. Per abilitare il controllo, annullare la sospensione del pool SQL dedicato. Altre informazioni sul [pool SQL dedicato](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - Non è possibile abilitare il controllo in un pool SQL dedicato sospeso. Per abilitare il controllo, annullare la sospensione del pool SQL dedicato. Altre informazioni sul [pool SQL dedicato](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - Quando il controllo viene configurato in un'area di lavoro Log Analytics o in una destinazione dell'hub uniforme tramite il portale di Azure o il cmdlet di PowerShell, viene creata un' [impostazione di diagnostica](../../azure-monitor/essentials/diagnostic-settings.md) con la categoria "SQLSecurityAuditEvents" abilitata.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare a **controllo** sotto l'intestazione sicurezza nel riquadro **database SQL** o **SQL Server** .
@@ -104,18 +110,18 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
 4. Se si preferisce abilitare il controllo a livello di database, impostare **Controllo** su **ATTIVA**. Se il controllo del server è abilitato, il controllo configurato del database coesisterà con il controllo del server.
 
-5. Sono disponibili più opzioni per la configurazione della posizione in cui verranno scritti i log di controllo. È possibile scrivere i log in un account di archiviazione di Azure, in un'area di lavoro Log Analytics per l'uso da log di monitoraggio di Azure (anteprima) o nell'hub eventi per l'utilizzo con hub eventi (anteprima). È possibile configurare qualsiasi combinazione di queste opzioni e verranno scritti i log di controllo per ognuno.
+5. Sono disponibili più opzioni per la configurazione della posizione in cui verranno scritti i log di controllo. È possibile scrivere i log in un account di archiviazione di Azure, in un'area di lavoro Log Analytics per l'uso da log di monitoraggio di Azure o nell'hub eventi per l'uso con hub eventi. È possibile configurare qualsiasi combinazione di queste opzioni e verranno scritti i log di controllo per ognuno.
   
    ![opzioni di archiviazione](./media/auditing-overview/auditing-select-destination.png)
 
-### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Controllo delle operazioni di supporto tecnico Microsoft (anteprima)
+### <a name="auditing-of-microsoft-support-operations"></a><a id="auditing-of-microsoft-support-operations"></a>Controllo delle operazioni di supporto tecnico Microsoft
 
-Il controllo delle operazioni di supporto tecnico Microsoft (anteprima) per SQL Server di Azure consente di controllare le operazioni dei tecnici del supporto tecnico Microsoft quando devono accedere al server durante una richiesta di supporto. L'uso di questa funzionalità, insieme al controllo, consente una maggiore trasparenza nella forza lavoro e consente il rilevamento delle anomalie, la visualizzazione delle tendenze e la prevenzione della perdita dei dati.
+Il controllo delle operazioni di supporto tecnico Microsoft per Azure SQL Server consente di controllare le operazioni dei tecnici del supporto tecnico Microsoft quando devono accedere al server durante una richiesta di supporto. L'uso di questa funzionalità, insieme al controllo, consente una maggiore trasparenza nella forza lavoro e consente il rilevamento delle anomalie, la visualizzazione delle tendenze e la prevenzione della perdita dei dati.
 
-Per abilitare il controllo delle operazioni di supporto tecnico Microsoft (anteprima) passare a **controllo** sotto l'intestazione sicurezza nel riquadro del **server SQL di Azure** e passare al **controllo delle operazioni del supporto tecnico Microsoft (anteprima)** a **on**.
+Per abilitare il controllo delle operazioni di supporto tecnico Microsoft passare a **controllo** sotto l'intestazione sicurezza nel riquadro del **server di Azure SQL** e cambiare il **controllo delle operazioni di supporto Microsoft** **su on**.
 
   > [!IMPORTANT]
-  > Il controllo delle operazioni del supporto tecnico Microsoft (anteprima) non supporta la destinazione dell'account di archiviazione. Per abilitare la funzionalità, è necessario configurare un'area di lavoro Log Analytics o una destinazione dell'hub eventi.
+  > Il controllo delle operazioni del supporto tecnico Microsoft non supporta la destinazione dell'account di archiviazione. Per abilitare la funzionalità, è necessario configurare un'area di lavoro Log Analytics o una destinazione dell'hub eventi.
 
 ![Screenshot delle operazioni di supporto tecnico Microsoft](./media/auditing-overview/support-operations.png)
 
@@ -137,7 +143,7 @@ Per configurare la scrittura dei log per un account di archiviazione, selezionar
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Controlla per Log Analytics destinazione
   
-Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **Log Analytics (anteprima)** e aprire **Dettagli di Log Analytics**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
+Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **log Analytics** e aprire **log Analytics dettagli**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -145,7 +151,7 @@ Per altri dettagli sull'area di lavoro Log Analytics di monitoraggio di Azure, v
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Controllare la destinazione dell'hub eventi
 
-Per configurare la scrittura dei log a un hub eventi, selezionare **Hub eventi (anteprima)** e aprire **i dettagli dell'Hub eventi**. Selezionare l'hub eventi in cui verranno scritti i log e quindi fare clic su **OK**. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
+Per configurare la scrittura dei log di controllo in un hub eventi, selezionare **Hub eventi** e aprire **i dettagli dell'hub** eventi. Selezionare l'hub eventi in cui verranno scritti i log e quindi fare clic su **OK**. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 

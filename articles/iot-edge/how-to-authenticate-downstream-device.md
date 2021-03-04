@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d9e3e0f96d235829928c1f7c79864b1dc732f9e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391984"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046347"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticare un dispositivo downstream con l'hub IoT di Azure
 
@@ -35,7 +35,7 @@ Completare i passaggi in [Configurare un dispositivo IoT Edge come gateway trasp
 
 Se si usa l'autenticazione X. 509, verranno generati i certificati per il dispositivo downstream. Avere lo stesso certificato CA radice e lo script di generazione del certificato usato per l'articolo del gateway trasparente disponibile per l'uso.
 
-Questo articolo si riferisce al *nome host del gateway*  in diversi punti. Il nome host del gateway viene dichiarato nel parametro **hostname** del file config.yaml nel dispositivo gateway IoT Edge. Viene fatto riferimento a tale valore nella stringa di connessione del dispositivo downstream. Il nome host del gateway deve essere risolvibile in un indirizzo IP, usando DNS o una voce del file host sul dispositivo downstream.
+Questo articolo si riferisce al *nome host del gateway*  in diversi punti. Il nome host del gateway viene dichiarato nel parametro **hostname** del file di configurazione nel dispositivo gateway IOT Edge. Viene fatto riferimento a tale valore nella stringa di connessione del dispositivo downstream. Il nome host del gateway deve essere risolvibile in un indirizzo IP, usando DNS o una voce del file host sul dispositivo downstream.
 
 ## <a name="register-device-with-iot-hub"></a>Registrare il dispositivo con l'hub Internet
 
@@ -192,7 +192,7 @@ Per le stringhe di connessione per i dispositivi downstream sono necessari i com
 * Metodo di autenticazione, che indica se la chiave simmetrica o i certificati X. 509
   * Se si usa l'autenticazione con chiave simmetrica, fornire la chiave primaria o secondaria: `SharedAccessKey={key}`
   * Se si usa l'autenticazione del certificato X. 509, fornire un flag: `x509=true`
-* Dispositivo gateway attraverso cui il dispositivo si connette. Fornire il valore di **hostname** presente nel file config.yaml del dispositivo gateway IoT Edge: `GatewayHostName={gateway hostname}`
+* Dispositivo gateway attraverso cui il dispositivo si connette. Specificare il valore del **nome host** dal file di configurazione del dispositivo gateway IOT Edge: `GatewayHostName={gateway hostname}`
 
 Nel complesso, una stringa di connessione completa ha un aspetto simile al seguente:
 

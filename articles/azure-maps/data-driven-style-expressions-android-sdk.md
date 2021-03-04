@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 61d7a295d86fd7da74dee03cd35c79feea0218ed
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7e4af0647a2810a27001c15a5030fca660828147
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681580"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047741"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>Espressioni di stile basate sui dati (Android SDK)
 
@@ -158,7 +158,7 @@ Le seguenti espressioni di stile Web SDK non sono supportate nel Android SDK:
 - Indice di
 - slice
 
-**Esempi**
+**esempi**
 
 È possibile accedere alle proprietà di una funzionalità direttamente in un'espressione tramite un' `get` espressione. In questo esempio viene utilizzato il `zoneColor` valore della funzionalità per specificare la proprietà Color di un livello Bubble.
 
@@ -336,7 +336,7 @@ Lo pseudocodice seguente definisce la struttura dell' `match` espressione.
 match(Expression input, Expression defaultOutput, Expression.Stop... stops)
 ```
 
-**Esempi**
+**esempi**
 
 Nell'esempio seguente viene analizzata la `entityType` proprietà di una funzionalità punto in un livello a bolle per cercare una corrispondenza. Se viene trovata una corrispondenza, viene restituito il valore specificato o viene restituito il valore di fallback.
 
@@ -662,7 +662,7 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 
 Oltre a usare una sfumatura uniforme per colorare una mappa termica, i colori possono essere specificati all'interno di un set di intervalli usando un' `step` espressione. L'uso `step` di un'espressione per colorare la mappa termica suddivide visivamente la densità in intervalli simili a una mappa di contorno o di stile radar.  
 
-```java 
+```java
 HeatMapLayer layer = new HeatMapLayer(dataSource,
     heatmapColor(
         step(
@@ -679,6 +679,36 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 ```
 
 Per ulteriori informazioni, vedere la documentazione relativa all' [aggiunta di un livello mappa termica](map-add-heat-map-layer-android.md) .
+
+### <a name="line-progress-expression"></a>Espressione avanzamento riga
+
+Un'espressione di avanzamento riga recupera lo stato di avanzamento lungo una linea sfumata in un livello linea e viene definito come `lineProgress()` . Questo valore è un numero compreso tra 0 e 1. Viene usato in combinazione con un' `interpolation` espressione or `step` . Questa espressione può essere utilizzata solo con l' `strokeGradient` opzione del livello linea.
+
+> [!NOTE]
+> L' `strokeGradient` opzione del livello linea richiede che l' `lineMetrics` opzione dell'origine dati sia impostata su `true` .
+
+**Esempio**
+
+In questo esempio viene utilizzata l' `lineProgress()` espressione per applicare una sfumatura di colore al tratto di una linea.
+
+```javascript
+LineLayer layer = new LineLayer(source,
+    strokeGradient(
+        interpolate(
+            linear(),
+            lineProgress(),
+            stop(0, color(Color.BLUE)),
+            stop(0.1, color(Color.argb(255, 65, 105, 225))), //Royal Blue
+            stop(0.3, color(Color.CYAN)),
+            stop(0.5, color(Color.argb(255,0, 255, 0))), //Lime
+            stop(0.7, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+);
+```
+
+[Vedere l'esempio in tempo reale](map-add-line-layer.md#line-stroke-gradient)
 
 ### <a name="text-field-format-expression"></a>Espressione formato campo testo
 

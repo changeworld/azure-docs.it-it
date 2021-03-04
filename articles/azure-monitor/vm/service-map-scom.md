@@ -1,17 +1,16 @@
 ---
 title: Integrare il mapping di VM Insights con Operations Manager | Microsoft Docs
 description: VM Insights individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping delle comunicazioni tra i servizi. Questo articolo illustra l'uso della funzionalità mappa per creare automaticamente diagrammi applicazioni distribuite in Operations Manager.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: a39f40c2a284a743db258a49f36cb4f13c2a4d1c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3a7d0d49313cb524a5bf39add5c9a55862dcad47
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725493"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046891"
 ---
 # <a name="integrate-system-center-operations-manager-with-vm-insights-map-feature"></a>Integrare System Center Operations Manager con la funzionalità di mapping di VM Insights
 

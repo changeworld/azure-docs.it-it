@@ -13,81 +13,52 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/27/2021
+ms.date: 03/03/2021
 ms.author: yelevin
-ms.openlocfilehash: c404aa93669cd95dccb0ad185d71d2ec16256d0d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 30cd0181ff2c5fbb8918921be3515818128a98d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570428"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048234"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Risorse utili per l'uso di Azure Sentinel
 
-
-
 Questo articolo elenca le risorse che consentono di ottenere altre informazioni sull'uso di Azure Sentinel.
 
-- **Connettori per app** per la logica di Azure: <https://docs.microsoft.com/connectors/>
+## <a name="learn-more-about-creating-queries"></a>Altre informazioni sulla creazione di query
 
+Azure Sentinel usa il linguaggio di query kusto (KQL) di Log Analytics monitoraggio di Azure per la compilazione di query. Per altre informazioni, vedere:
 
-## <a name="auditing-and-reporting"></a>Controllo e creazione di report
-I log di controllo di Azure Sentinel vengono conservati nei [log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md).
+- [Concetti di KQL](/azure/data-explorer/kusto/concepts/)
+- [Query KQL](/azure/data-explorer/kusto/query/)
+- [Guida di riferimento rapido a KQL](/azure/data-explorer/kql-quick-reference).
+- [Introduzione alle query KQL](../azure-monitor/logs/get-started-queries.md)
 
-Le operazioni supportate seguenti possono essere controllate.
+## <a name="learn-more-about-creating-automation"></a>Altre informazioni sulla creazione di automazione
 
-|Nome operazione|    Tipo di risorsa|
-|----|----|
-|Crea o Aggiorna cartella di lavoro  |Microsoft. Insights/cartelle di lavoro|
-|Elimina cartella di lavoro    |Microsoft. Insights/cartelle di lavoro|
-|Imposta flusso di lavoro   |Microsoft.Logic/workflows|
-|Elimina flusso di lavoro    |Microsoft.Logic/workflows|
-|Crea ricerca salvata    |Microsoft. OperationalInsights/Workspaces/savedSearches|
-|Elimina ricerca salvata    |Microsoft. OperationalInsights/Workspaces/savedSearches|
-|Aggiornare le regole di avviso |Microsoft. SecurityInsights/alertRules|
-|Elimina regole di avviso |Microsoft. SecurityInsights/alertRules|
-|Aggiornare le azioni di risposta alle regole di avviso |Microsoft. SecurityInsights/alertRules/actions|
-|Elimina azioni di risposta regola di avviso |Microsoft. SecurityInsights/alertRules/actions|
-|Aggiornare i segnalibri   |Microsoft. SecurityInsights/segnalibri|
-|Elimina segnalibri   |Microsoft. SecurityInsights/segnalibri|
-|Casi di aggiornamento   |Microsoft. SecurityInsights/case|
-|Analisi case di aggiornamento  |Microsoft. SecurityInsights/Cases/Investigations|
-|Crea commenti case   |Microsoft. SecurityInsights/case/Commenti|
-|Aggiornare i connettori dati |Microsoft. SecurityInsights/dataconnectors|
-|Elimina connettori dati |Microsoft. SecurityInsights/dataconnectors|
-|Aggiorna impostazioni    |Microsoft. SecurityInsights/Settings|
+Crea l'automazione in Sentinel di Azure usando app per la logica di Azure, con una raccolta di PlayBook predefiniti in continua crescita. 
 
-### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Visualizzare i dati di controllo e report in Sentinel di Azure
+Per altre informazioni, vedere [connettori di app](https://docs.microsoft.com/connectors/)per la logica di Azure.
 
-È possibile visualizzare questi dati eseguendone il flusso dal log attività di Azure in Sentinel di Azure, in cui è possibile eseguire ricerche e analisi su di essi.
-
-1. Connettere l'origine dati dell' [attività di Azure](connect-azure-activity.md) . Al termine di questa operazione, gli eventi di controllo vengono trasmessi in una nuova tabella nella schermata **logs** denominata AzureActivity.
-
-1. Eseguire quindi una query sui dati usando KQL, come qualsiasi altra tabella.
-
-    Per scoprire, ad esempio, chi è l'ultimo utente a modificare una particolare regola di analisi, usare la query seguente (sostituendo `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` con l'ID regola della regola da controllare):
-
-    ```kusto
-    AzureActivity
-    | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS/ALERTRULES/WRITE"
-    | where Properties contains "alertRules/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    | project Caller , TimeGenerated , Properties
-    ```
-
-
-## <a name="blogs-and-forums"></a>Blog e forum
+## <a name="comment-on-our-blogs-and-forums"></a>Commenti sui blog e sui forum
 
 Ci piace sentire dagli utenti.
 
-- **Inserire le domande** nello [spazio TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) per Azure Sentinel. 
+Nello spazio TechCommunity per Sentinel di Azure:
 
-- **Inviare suggerimenti per i miglioramenti** tramite il programma [vocale dell'utente](https://feedback.azure.com/forums/920458-azure-sentinel) .
+- [Visualizza e commenta i post di Blog recenti](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog)
+- [Pubblica le tue domande su Azure Sentinel](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)
 
-- **Visualizzare e commentare** i post di Blog di Azure Sentinel:
+È anche possibile inviare suggerimenti per i miglioramenti tramite il programma [vocale dell'utente](https://feedback.azure.com/forums/920458-azure-sentinel) .
 
-    - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
-    - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
+## <a name="join-the-azure-sentinel-github-community"></a>Partecipa alla community di GitHub di Azure Sentinel
 
+Il [repository GitHub di Azure Sentinel](https://github.com/Azure/Azure-Sentinel) è una risorsa potente per il rilevamento delle minacce e l'automazione. 
+
+Gli analisti della sicurezza di Microsoft creano e aggiungono continuamente nuove cartelle di lavoro, playbook, query di ricerca e altro ancora, pubblicandoli nella community perché ognuno possa usarli nel proprio ambiente. 
+
+Scaricare il contenuto di esempio dal repository GitHub della community privata per creare cartelle di lavoro personalizzate, cercare query, notebook e PlayBook per Azure Sentinel.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

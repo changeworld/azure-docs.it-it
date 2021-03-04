@@ -1,18 +1,17 @@
 ---
 title: Esempi di PowerShell per Monitoraggio di Azure
 description: Usare PowerShell per accedere alle funzionalità di Monitoraggio di Azure, ad esempio scalabilità automatica, avvisi, webhook e ricerca nei log attività.
-ms.subservice: ''
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9f43531e6b81b9bd4a294d70e9b8091463cf507a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1aa0d44dcb73a925494c0bc4aae43dc93e5a33d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627458"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047061"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Esempi di PowerShell per Monitoraggio di Azure
 Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamente alle funzionalità di Monitoraggio di Azure.

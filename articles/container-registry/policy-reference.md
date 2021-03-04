@@ -7,12 +7,12 @@ author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4f3210fb46d5b4a772cdbb125cc5481d7cdd5995
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 5dc5d27d0364bf64d9f8b695213c2f71cc822949
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093005"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048489"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Definizioni predefinite di Criteri di Azure per Registro Azure Container
 
@@ -26,6 +26,7 @@ Il nome di ogni definizione di criterio predefinito punta alla definizione del c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Vedere linee guida per [assegnare criteri ed esaminare la conformità](container-registry-azure-policy.md).
 - Vedere i criteri predefiniti nel [repository di GitHub su Criteri di Azure](https://github.com/Azure/azure-policy).
 - Vedere la [struttura delle definizioni di Criteri di Azure](../governance/policy/concepts/definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](../governance/policy/concepts/effects.md).

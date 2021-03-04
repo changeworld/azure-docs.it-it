@@ -1,17 +1,16 @@
 ---
 title: Avvisi da VM Insights
 description: Viene descritto come creare regole di avviso da dati sulle prestazioni raccolti da VM Insights.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: e3b5f49d9a4ed7af40afba5b267ba0c7bb9cd73a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06c58b7081ed68724a3c907f8fe76dcf5f7b8057
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704056"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046806"
 ---
 # <a name="how-to-create-alerts-from-vm-insights"></a>Come creare avvisi da VM Insights
 Gli [avvisi in monitoraggio di Azure](../alerts/alerts-overview.md) notificano in modo proattivo i dati e i modelli interessanti nei dati di monitoraggio. VM Insights non include regole di avviso preconfigurate, ma è possibile crearne di personalizzate in base ai dati raccolti. Questo articolo fornisce indicazioni sulla creazione di regole di avviso, incluso un set di query di esempio.

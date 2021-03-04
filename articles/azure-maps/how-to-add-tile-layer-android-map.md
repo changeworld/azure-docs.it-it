@@ -3,17 +3,18 @@ title: Aggiungere un livello sezione a Maps Android | Mappe Microsoft Azure
 description: Informazioni su come aggiungere un livello sezione a una mappa. Vedere un esempio che usa le mappe di Azure Android SDK per aggiungere una sovrapposizione di radar meteorologici a una mappa.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/08/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 8ea6f44c47c5cd4d223b053640f65827f46db482
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 6a920dc222cae4aedd77b667644de317637bbb69
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679292"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047503"
 ---
 # <a name="add-a-tile-layer-to-a-map-android-sdk"></a>Aggiungere un livello sezione a una mappa (Android SDK)
 
@@ -36,6 +37,7 @@ L'URL di riquadro passato in un livello riquadro deve essere un URL http/https i
 * `{quadkey}` - Identificatore del riquadro quadkey basato sulla convenzione di denominazione del sistema di riquadri di Mappe di Bing.
 * `{bbox-epsg-3857}` - Una stringa  del rettangolo delimitatore nel formato `{west},{south},{east},{north}` nel sistema di riferimento spaziale EPSG 3857.
 * `{subdomain}` : Segnaposto per i valori del sottodominio, se viene specificato il valore del sottodominio.
+* `azmapsdomain.invalid` : Segnaposto per allineare il dominio e l'autenticazione delle richieste del riquadro con gli stessi valori usati dalla mappa. Usare questo valore quando si chiama un servizio affiancato ospitato da mappe di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,6 +46,8 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
 ## <a name="add-a-tile-layer-to-the-map"></a>Aggiungere un livello sezione alla mappa
 
 In questo esempio viene illustrato come creare un livello sezione che punta a un set di riquadri. In questo esempio viene utilizzato il sistema di affiancamento "x, y, zoom". L'origine di questo livello sezione è il [progetto OpenSeaMap](https://openseamap.org/index.php), che contiene i grafici nautici originati dalla folla. Spesso quando si visualizzano i livelli dei riquadri è opportuno poter visualizzare chiaramente le etichette delle città sulla mappa. Questo comportamento può essere eseguito inserendo il livello sezione sotto i livelli dell'etichetta della mappa.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 TileLayer layer = new TileLayer(
@@ -57,16 +61,31 @@ TileLayer layer = new TileLayer(
 map.layers.add(layer, "labels");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = TileLayer(
+    tileUrl("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"),
+    opacity(0.8f),
+    tileSize(256),
+    minSourceZoom(7),
+    maxSourceZoom(17)
+)
+
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
 Lo screenshot seguente mostra il codice precedente che mostra un livello sezione di informazioni nautiche su una mappa con uno stile di scala di grigi scuro.
 
 ![Mappa Android visualizzazione del livello sezione](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere l'articolo seguente per altre informazioni sui modi per impostare gli stili della mappa
+Vedere l'articolo seguente per altre informazioni sui modi per sovrapporre le immagini in una mappa.
 
 > [!div class="nextstepaction"]
-> [Modificare lo stile della mappa](set-android-map-styles.md)
-
-> [!div class="nextstepaction"]
-> [Aggiungere una mappa termica](map-add-heat-map-layer-android.md)
+> [Livello immagine](map-add-image-layer-android.md)

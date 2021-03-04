@@ -1,17 +1,16 @@
 ---
 title: Visualizzare le dipendenze dell'app con VM Insights
 description: Map è una funzionalità di VM Insights. Individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping delle comunicazioni tra i servizi. Questo articolo fornisce informazioni dettagliate su come usare la funzionalità map in diversi scenari.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: 19da3e3e02581ce9fad080bb23bc48dcb9a3ceb3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 267ec0ed01fb85e9e29b0b8c9294d20d610db8fb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719645"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046568"
 ---
 # <a name="use-the-map-feature-of-vm-insights-to-understand-application-components"></a>Usare la funzionalità di mapping di VM Insights per comprendere i componenti dell'applicazione
 In VM Insights è possibile visualizzare i componenti dell'applicazione individuati in macchine virtuali (VM) Windows e Linux in esecuzione in Azure o nell'ambiente in uso. È possibile osservare le macchine virtuali in due modi. Visualizzare una mappa direttamente da una macchina virtuale o visualizzare una mappa da monitoraggio di Azure per visualizzare i componenti tra gruppi di macchine virtuali. Questo articolo consente di comprendere questi due metodi di visualizzazione e come usare la funzionalità mappa. 

@@ -6,90 +6,67 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 42d4a722be25eec4b3e27012350346018fdba0f3
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 9a7a3a603944970a5e78a24ca4042f97b1c43fcc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754114"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047860"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architettura dell'appliance di Azure Migrate
 
-Questo articolo descrive l'architettura e i processi di Azure Migrate Appliance. Il Azure Migrate Appliance è un'appliance semplice distribuita in locale per individuare le macchine virtuali e i server fisici per la migrazione ad Azure. 
+Questo articolo descrive l'architettura e i processi di Azure Migrate Appliance. Il Azure Migrate Appliance è un'appliance semplice distribuita in locale per individuare le macchine virtuali e i server fisici per la migrazione ad Azure.
 
 ## <a name="deployment-scenarios"></a>Scenari di distribuzione
 
 L'appliance di Azure Migrate viene usata negli scenari seguenti.
 
-**Scenario** | **Strumento** | **Usata per** 
+**Scenario** | **Strumento** | **Utilizzato per** 
 --- | --- | ---
-**Valutazione della macchina virtuale VMware** | Azure Migrate: Valutazione server | Individuare le macchine virtuali VMware.<br/><br/> Individuare le app e le dipendenze del computer.<br/><br/> Raccogliere i metadati del computer e le prestazioni e inviarli ad Azure.
-**Migrazione di macchine virtuali VMware (senza agenti)** | Azure Migrate: Migrazione del server | Individuare le macchine virtuali VMware<br/><br/>  Eseguire la replica di macchine virtuali VMware con [migrazione senza agenti](server-migrate-overview.md).
-**Valutazione della macchina virtuale Hyper-V** | Azure Migrate: Valutazione server | Individuare le VM Hyper-V.<br/><br/> Raccogliere i metadati del computer e le prestazioni e inviarli ad Azure.
-**Computer fisico** |  Azure Migrate: Valutazione server |  Individuare i server fisici.<br/><br/> Raccogliere i metadati del computer e le prestazioni e inviarli ad Azure.
+**Individuazione e valutazione dei server in esecuzione nell'ambiente VMware** | Azure Migrate: Valutazione server | Individuare i server in esecuzione nell'ambiente VMware<br/><br/> Eseguire l'individuazione delle applicazioni installate, l'analisi delle dipendenze senza agenti e individuare SQL Server istanze e database.<br/><br/> Raccolta dei metadati delle prestazioni e della configurazione del server per le valutazioni.
+**Migrazione senza agenti di server in esecuzione nell'ambiente VMware** | Azure Migrate: Migrazione del server | Individuare i server in esecuzione nell'ambiente VMware.<br/><br/> Replicare i server senza installare agenti su di essi.
+**Individuazione e valutazione dei server in esecuzione nell'ambiente Hyper-V** | Azure Migrate: Valutazione server | Individuare i server in esecuzione nell'ambiente Hyper-V.<br/><br/> Raccolta dei metadati delle prestazioni e della configurazione del server per le valutazioni.
+**Individuazione e valutazione dei server fisici o virtualizzati in locale** |  Azure Migrate: Valutazione server |  Individuare i server fisici o virtualizzati locali.<br/><br/> Raccolta dei metadati delle prestazioni e della configurazione del server per le valutazioni.
 
-## <a name="appliance-components"></a>Componenti dell'appliance
+## <a name="deployment-methods"></a>Metodi di distribuzione
 
-Il dispositivo dispone di un numero di componenti.
+L'appliance può essere distribuita usando due metodi:
 
-- **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.
-- **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure. 
-- **Agente di raccolta**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.
-- **Agente DRA**: organizza la replica della macchina virtuale e coordina la comunicazione tra computer replicati e Azure. È usato solo quando si esegue la replica di macchine virtuali VMware in Azure con la migrazione senza agente.
-- **Gateway**: invia i dati replicati ad Azure. È usato solo quando si esegue la replica di macchine virtuali VMware in Azure con la migrazione senza agente.
-- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.
+- Il dispositivo può essere distribuito usando un modello per i server in esecuzione nell'ambiente VMware o Hyper-V ([modello OVA per VMware](how-to-set-up-appliance-vmware.md) o [VHD per Hyper-v](how-to-set-up-appliance-hyper-v.md)).
+- Se non si vuole usare un modello, è possibile distribuire l'appliance per l'ambiente VMware o Hyper-V usando uno [script del programma di installazione di PowerShell](deploy-appliance-script.md).
+- In Azure per enti pubblici è necessario distribuire l'appliance usando uno script del programma di installazione di PowerShell. Vedere i passaggi della distribuzione [qui](deploy-appliance-script-government.md).
+- Per i server fisici o virtualizzati in locale o in qualsiasi altro cloud, è sempre necessario distribuire l'appliance usando uno script del programma di installazione di PowerShell. Vedere i passaggi della distribuzione [qui](how-to-set-up-appliance-physical.md).
+- I collegamenti di download sono disponibili nelle tabelle seguenti.
 
+## <a name="appliance-services"></a>Servizi Appliance
 
+L'Appliance dispone dei servizi seguenti:
 
-## <a name="appliance-deployment"></a>Distribuzione dell'appliance
+- **Gestione configurazione Appliance**: si tratta di un'applicazione Web che può essere configurata con i dettagli dell'origine per avviare l'individuazione e la valutazione dei server. 
+- **Agente di individuazione**: l'agente raccoglie i metadati di configurazione del server che possono essere usati per creare come valutazioni locali.
+- **Agente di valutazione**: l'agente raccoglie i metadati delle prestazioni del server che possono essere usati per creare valutazioni basate sulle prestazioni.
+- **Servizio di aggiornamento automatico**: il servizio mantiene aggiornati tutti gli agenti in esecuzione nell'appliance. Viene eseguito automaticamente una volta ogni 24 ore.
+- **Agente DRA**: Orchestra la replica del server e coordina la comunicazione tra i server replicati e Azure. Usato solo quando si esegue la replica di server in Azure usando la migrazione senza agente.
+- **Gateway**: invia i dati replicati ad Azure. Usato solo quando si esegue la replica di server in Azure usando la migrazione senza agente.
+- **SQL Discovery and Assessment Agent**: Invia i metadati di configurazione e delle prestazioni di SQL Server istanze e database in Azure.
 
-- Il dispositivo Azure Migrate può essere configurato usando un modello per [Hyper-V](how-to-set-up-appliance-hyper-v.md) o [VMware](how-to-set-up-appliance-vmware.md) oppure un programma di installazione di script di PowerShell per [VMware/Hyper-v](deploy-appliance-script.md)e per i [server fisici](how-to-set-up-appliance-physical.md). 
-- I requisiti di supporto e i prerequisiti per la distribuzione del dispositivo sono riepilogati nella [matrice di supporto dell'appliance](migrate-appliance.md).
+> [!Note]
+> Gli ultimi 3 servizi sono disponibili solo nell'appliance usato per l'individuazione e la valutazione dei server in esecuzione nell'ambiente VMware.<br/> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
-
-## <a name="appliance-registration"></a>Registrazione dell'appliance
-
-Durante l'installazione dell'appliance si registra l'appliance con Azure Migrate e vengono eseguite le azioni riepilogate nella tabella.
-
-**Azione** | **Dettagli** | **Autorizzazioni**
---- | --- | ---
-**Registra provider di origine** | Questi provider di risorse sono registrati nella sottoscrizione scelta durante l'installazione dell'appliance: Microsoft. OffAzure, Microsoft. migrate e Microsoft. insieme di credenziali.<br/><br/> La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. | Per registrare i provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
-**Creare Azure AD app-Communication** | Azure Migrate crea un'app Azure Active Directory (Azure AD) per la comunicazione (autenticazione e autorizzazione) tra gli agenti in esecuzione nell'appliance e i rispettivi servizi in esecuzione in Azure.<br/><br/> Questa app non ha i privilegi necessari per effettuare chiamate Azure Resource Manager o l'accesso RBAC di Azure a qualsiasi risorsa. | È necessario disporre di [queste autorizzazioni](./tutorial-discover-vmware.md#prepare-an-azure-user-account) per Azure migrate per creare l'app.
-**Creare app Azure AD-Key Vault** | Questa app viene creata solo per la migrazione senza agenti di macchine virtuali VMware in Azure.<br/><br/> Viene usato esclusivamente per accedere all'insieme di credenziali delle chiavi creato nella sottoscrizione dell'utente per la migrazione senza agenti.<br/><br/> Ha accesso RBAC di Azure nell'insieme di credenziali delle chiavi di Azure (creato nel tenant del cliente) quando l'individuazione viene avviata dall'appliance. | È necessario disporre di [queste autorizzazioni](./tutorial-discover-vmware.md#prepare-an-azure-user-account) per Azure migrate per creare l'app.
-
-
-
-## <a name="collected-data"></a>Dati raccolti
-
-I dati raccolti dal client per tutti gli scenari di distribuzione sono riepilogati nella [matrice di supporto dell'appliance](migrate-appliance.md).
 
 ## <a name="discovery-and-collection-process"></a>Processo di individuazione e raccolta
 
-![Architecture](./media/migrate-appliance-architecture/architecture1.png)
+:::image type="content" source="./media/migrate-appliance-architecture/architecture1.png" alt-text="Architettura del dispositivo":::
 
-L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il processo seguente.
+L'appliance comunica con le origini di individuazione usando il processo seguente.
 
-1. **Avvia individuazione**:
-    - Quando si avvia l'individuazione nell'appliance Hyper-V, la comunicazione con gli host Hyper-V sulla porta WinRM 5985 (HTTP) viene comunicata.
-    - Quando si avvia l'individuazione nell'appliance VMware, per impostazione predefinita comunica con il server vCenter sulla porta TCP 443. Se il server vCenter è in ascolto su una porta diversa, è possibile configurarla nell'app Web Appliance.
-2. **Raccogliere i metadati e i dati sulle prestazioni**:
-    - L'appliance usa una sessione di Common Information Model (CIM) per raccogliere i dati delle macchine virtuali Hyper-V dall'host Hyper-V sulla porta 5985.
-    - Per impostazione predefinita, l'appliance comunica con la porta 443 per raccogliere i dati delle macchine virtuali VMware dal server vCenter.
-3. **Invia dati**: il dispositivo invia i dati raccolti a Azure migrate server Assessment e Azure migrate migrazione del server sulla porta SSL 443. Il dispositivo può connettersi ad Azure tramite Internet o tramite ExpressRoute (richiede il peering Microsoft).
-    - Per i dati sulle prestazioni, l'appliance raccoglie i dati di utilizzo in tempo reale.
-        - I dati sulle prestazioni vengono raccolti ogni 20 secondi per VMware e ogni 30 secondi per Hyper-V per ogni metrica delle prestazioni.
-        - Viene eseguito il rollup dei dati raccolti per creare un singolo punto dati per 10 minuti.
-        - Il valore di picco dell'utilizzo viene selezionato da tutti i punti dati da 20 a 30 secondi e inviato ad Azure per il calcolo della valutazione.
-        - In base al valore percentile specificato nelle proprietà di valutazione (cinquantesimo/90/95/99 °), i punti di dieci minuti sono ordinati in ordine crescente e il valore percentile appropriato viene usato per calcolare la valutazione
-    - Per la migrazione del server, l'appliance avvia la raccolta dei dati della macchina virtuale e la replica in Azure.
-4. Valutazione **e migrazione**: è ora possibile creare valutazioni dei metadati raccolti dal dispositivo usando Azure migrate Assessment server. Inoltre, è possibile avviare la migrazione di macchine virtuali VMware con Azure Migrate migrazione del server per orchestrare la replica di VM senza agenti.
-
-## <a name="appliance-upgrades"></a>Aggiornamenti dell'appliance
-
-L'appliance viene aggiornata quando vengono aggiornati gli agenti di Azure Migrate in esecuzione nell'appliance. Questa operazione viene eseguita automaticamente perché per impostazione predefinita l'aggiornamento automatico è abilitato nell'appliance. È possibile modificare questa impostazione predefinita per aggiornare manualmente gli agenti.
-
-Per disattivare l'aggiornamento automatico nel registro di sistema, impostare il HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance chiave "AutoUpdate" su 0 (DWORD).
-
+**Processo** | **Appliance VMware** | **Appliance Hyper-V** | **Appliance fisica**
+---|---|---|---
+**Avvia individuazione**| Per impostazione predefinita, l'appliance comunica con il server vCenter sulla porta TCP 443. Se il server vCenter è in ascolto su una porta diversa, è possibile configurarla in Gestione configurazione Appliance. | L'appliance comunica con gli host Hyper-V sulla porta WinRM 5985 (HTTP). | L'appliance comunica con i server Windows attraverso la porta WinRM 5985 (HTTP) con server Linux sulla porta 22 (TCP).
+**Raccogliere i metadati di configurazione e prestazioni** | L'appliance raccoglie i metadati dei server in esecuzione in server vCenter usando le API vSphere connettendosi sulla porta 443 (porta predefinita) o su qualsiasi altra porta server vCenter in ascolto. | L'appliance raccoglie i metadati dei server in esecuzione negli host Hyper-V usando una sessione di Common Information Model (CIM) con host sulla porta 5985.| Il dispositivo raccoglie i metadati dai server Windows usando la sessione di Common Information Model (CIM) con server sulla porta 5985 e da server Linux con connettività SSH sulla porta 22.
+**Inviare i dati di individuazione** | Il dispositivo invia i dati raccolti a Azure Migrate: server assessment e Azure Migrate: migrazione server sulla porta SSL 443.<br/><br/> Il dispositivo può connettersi ad Azure tramite Internet o tramite ExpressRoute (richiede il peering Microsoft). | Il dispositivo invia i dati raccolti a Azure Migrate: server assessment sulla porta SSL 443.<br/><br/> Il dispositivo può connettersi ad Azure tramite Internet o tramite ExpressRoute (richiede il peering Microsoft).| Il dispositivo invia i dati raccolti a Azure Migrate: server assessment sulla porta SSL 443.<br/><br/> Il dispositivo può connettersi ad Azure tramite Internet o tramite ExpressRoute (richiede il peering Microsoft).
+**Frequenza di raccolta dati** | I metadati di configurazione vengono raccolti e inviati ogni 30 minuti. <br/><br/> I metadati delle prestazioni vengono raccolti ogni 20 secondi e vengono aggregati per l'invio di un punto dati ad Azure ogni 10 minuti. <br/><br/> I dati di inventario software vengono inviati ad Azure una volta ogni 12 ore. <br/><br/> I dati delle dipendenze senza agenti vengono raccolti ogni 5 minuti, aggregati nel dispositivo e inviati ad Azure ogni 6 ore. <br/><br/> I dati di configurazione SQL Server vengono aggiornati ogni 24 ore e i dati sulle prestazioni vengono acquisiti ogni 30 secondi.| I metadati di configurazione vengono raccolti e inviati ogni 30 minuti. <br/><br/> I metadati delle prestazioni vengono raccolti ogni 30 secondi e vengono aggregati per l'invio di un punto dati ad Azure ogni 10 minuti.|  I metadati di configurazione vengono raccolti e inviati ogni 30 minuti. <br/><br/> I metadati delle prestazioni vengono raccolti ogni 5 minuti e vengono aggregati per l'invio di un punto dati ad Azure ogni 10 minuti.
+**Valutazione e migrazione** | È possibile creare valutazioni dei metadati raccolti dal dispositivo usando Azure Migrate: strumento di valutazione del server.<br/><br/>Inoltre, è possibile avviare la migrazione dei server in esecuzione nell'ambiente VMware utilizzando Azure Migrate: strumento di migrazione server per orchestrare la replica del server senza agente.| È possibile creare valutazioni dei metadati raccolti dal dispositivo usando Azure Migrate: strumento di valutazione del server. | È possibile creare valutazioni dei metadati raccolti dal dispositivo usando Azure Migrate: strumento di valutazione del server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 8f3e2e96a529ea3347f09729146e73d5517ed759
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3a0f0f617e45834f1f205bcb4c8bcbc884b20d22
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692148"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048115"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Controllo degli accessi in base al ruolo di Azure in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -72,7 +72,7 @@ Questa impostazione impedisce qualsiasi modifica a qualsiasi risorsa Cosmos da q
 
 - Modifica di stored procedure, trigger o funzioni definite dall'utente.
 
-Se le applicazioni (o gli utenti tramite portale di Azure) eseguono una di queste azioni, è necessario eseguirne la migrazione per l'esecuzione tramite [modelli ARM](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), l'interfaccia della riga di comando di [Azure](manage-with-cli.md), REST o la [libreria di gestione di Azure](https://github.com/Azure-Samples/cosmos-management-net). Si noti che la gestione di Azure è disponibile in [più lingue](../index.yml?product=developer-tools#languages-and-tools).
+Se le applicazioni (o gli utenti tramite portale di Azure) eseguono una di queste azioni, è necessario eseguirne la migrazione per l'esecuzione tramite [modelli ARM](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), l'interfaccia della riga di comando di [Azure](manage-with-cli.md), REST o la [libreria di gestione di Azure](https://github.com/Azure-Samples/cosmos-management-net). Si noti che la gestione di Azure è disponibile in [più lingue](/azure/?product=developer-tools#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Imposta tramite il modello ARM
 

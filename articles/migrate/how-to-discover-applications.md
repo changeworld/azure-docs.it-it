@@ -1,86 +1,84 @@
 ---
 title: Individuare le app nei server locali con Azure Migrate
 description: Informazioni su come individuare app, ruoli e funzionalità nei server locali con Azure Migrate Assessment server.
-author: vineetvikram
-ms.author: vivikram
+author: vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: eb589c08122cd47747c005c13d12b336319fd558
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 8266b585881546b37bbb21b82780ab26d85dada7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752006"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048081"
 ---
-# <a name="discover-machine-apps-roles-and-features"></a>Individuare app, ruoli e funzionalità del computer
+# <a name="discover-installed-applications-roles-and-features-software-inventory-and-sql-server-instances-and-databases"></a>Individuare le applicazioni, i ruoli e le funzionalità installate (inventario software) e i database e le istanze di SQL Server
 
-Questo articolo descrive come individuare applicazioni, ruoli e funzionalità nei server locali, usando Azure Migrate: server assessment.
+Questo articolo descrive come individuare le applicazioni, i ruoli e le funzionalità installate (inventario software) e SQL Server istanze e database nei server in esecuzione nell'ambiente VMware, usando Azure Migrate: strumento di valutazione del server.
 
-L'individuazione dell'inventario di app, ruoli e funzionalità in esecuzione in computer locali consente di identificare e adattare un percorso di migrazione ad Azure per i carichi di lavoro. App-Discovery usa l'appliance Azure Migrate per eseguire l'individuazione, usando le credenziali Guest della macchina virtuale. App-Discovery è senza agente. Nessun elemento viene installato nelle macchine virtuali.
+L'inventario software consente di identificare e personalizzare un percorso di migrazione ad Azure per i carichi di lavoro. L'inventario software usa il dispositivo Azure Migrate per eseguire l'individuazione, usando le credenziali del server. È completamente senza agenti. per raccogliere questi dati, non vengono installati agenti nei server.
 
 > [!NOTE]
-> L'individuazione delle app è attualmente disponibile in anteprima solo per le macchine virtuali VMware ed è limitata all'individuazione. Non è ancora stata offerta una valutazione basata su app. 
-
+> L'inventario software è attualmente disponibile in anteprima per i server in esecuzione solo nell'ambiente VMware ed è limitato all'individuazione. Attualmente non è disponibile una valutazione basata su applicazioni.<br/> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-- Assicurarsi di avere:
-    - [Creazione](./create-manage-projects.md) di un progetto Azure migrate.
-    - [Aggiunta](how-to-assess.md) dello strumento di valutazione Azure migrate: server a un progetto.
-- Esaminare i [requisiti e il supporto per l'individuazione delle app](migrate-support-matrix-vmware.md#vmware-requirements).
-- Verificare che le macchine virtuali in cui è in esecuzione App-Discovery dispongano di PowerShell versione 2,0 o successiva e che siano installati gli strumenti VMware (successivi a 10.2.0).
-- Verificare i [requisiti](migrate-appliance.md) per la distribuzione di Azure migrate Appliance.
+- Assicurarsi di aver [creato un progetto Azure migrate](./create-manage-projects.md) con lo strumento Azure migrate: server assessment.
+- Esaminare i [requisiti di VMware](migrate-support-matrix-vmware.md#vmware-requirements) per eseguire l'inventario software.
+- Esaminare i [requisiti dell'appliance](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) prima di configurare l'appliance.
+- Esaminare i [requisiti di individuazione delle applicazioni](migrate-support-matrix-vmware.md#application-discovery-requirements) prima di avviare l'inventario software nei server.
 
-
-## <a name="deploy-the-azure-migrate-appliance"></a>Distribuire l'appliance Azure Migrate
+## <a name="deploy-and-configure-the-azure-migrate-appliance"></a>Distribuire e configurare il dispositivo Azure Migrate
 
 1. [Esaminare](migrate-appliance.md#appliance---vmware) i requisiti per la distribuzione di Azure migrate Appliance.
 2. Esaminare gli URL di Azure a cui l'appliance dovrà accedere nei cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [governativi](migrate-appliance.md#government-cloud-urls).
 3. [Esaminare i dati](migrate-appliance.md#collected-data---vmware) che l'appliance raccoglierà durante l'individuazione e la valutazione.
 4. [Prendere nota](migrate-support-matrix-vmware.md#port-access-requirements) dei requisiti di accesso alle porte per l'appliance.
-5. [Distribuire il dispositivo Azure migrate](how-to-set-up-appliance-vmware.md) per avviare l'individuazione. Per distribuire l'appliance, scaricare e importare un modello OVA in VMware per creare l'appliance come macchina virtuale VMware. Configurare il dispositivo e quindi registrarlo con Azure Migrate.
-6. Quando si distribuisce l'appliance, per avviare l'individuazione continua è necessario specificare quanto segue:
-    - Nome del server vCenter a cui si desidera connettersi.
-    - Credenziali create per l'appliance per la connessione server vCenter.
-    - Le credenziali dell'account create per l'appliance per la connessione alle macchine virtuali Windows/Linux.
-
-Dopo che l'appliance è stata distribuita e sono state fornite le credenziali, l'appliance avvia l'individuazione continua dei metadati della macchina virtuale e dei dati sulle prestazioni, nonché l'individuazione di app, funzionalità e ruoli.  La durata dell'individuazione delle app dipende dal numero di macchine virtuali disponibili. Richiede in genere un'ora per l'individuazione di app di 500 VM.
+5. [Distribuire il dispositivo Azure migrate](how-to-set-up-appliance-vmware.md) per avviare l'individuazione. Per distribuire l'appliance, scaricare e importare un modello OVA in VMware per creare un server in esecuzione nel server vCenter. Dopo aver distribuito il dispositivo, è necessario registrarlo con il progetto Azure Migrate e configurarlo per avviare l'individuazione.
+6. Quando si configura l'appliance, è necessario specificare quanto segue in Gestione configurazione Appliance:
+    - Dettagli del server vCenter a cui si desidera connettersi.
+    - server vCenter le credenziali con ambito per individuare i server nell'ambiente VMware.
+    - Credenziali del server che possono essere credenziali di dominio/Windows (non di dominio)/Linux (non di dominio). [Altre](add-server-credentials.md) informazioni su come fornire le credenziali e su come gestirle.
 
 ## <a name="verify-permissions"></a>Verificare le autorizzazioni
 
-È [stato creato un server vCenter account](./tutorial-discover-vmware.md#prepare-vmware) di sola lettura per l'individuazione e la valutazione. L'account di sola lettura necessita di privilegi abilitati per **Virtual Machines**  >  **le operazioni Guest** delle macchine virtuali, per interagire con la macchina virtuale per l'individuazione delle app.
+- È necessario [creare un account di sola lettura server vCenter per l'](./tutorial-discover-vmware.md#prepare-vmware) individuazione e la valutazione. Per   >  interagire con i server per eseguire l'inventario software, per l'account di sola lettura devono essere abilitati i privilegi per le **operazioni Guest** delle macchine virtuali.
+- È possibile aggiungere più credenziali di dominio e non di dominio (Windows/Linux) in Gestione configurazione Appliance per l'individuazione delle applicazioni. È necessario un account utente Guest per i server Windows e un account utente normale/normale (accesso non sudo) per tutti i server Linux. [Altre](add-server-credentials.md) informazioni su come fornire le credenziali e su come gestirle.
 
-### <a name="add-the-user-account-to-the-appliance"></a>Aggiungere l'account utente al dispositivo
+### <a name="add-credentials-and-initiate-discovery"></a>Aggiungere le credenziali e avviare l'individuazione
 
-Aggiungere l'account utente come segue:
+1. Aprire Gestione configurazione Appliance, completare i controlli dei prerequisiti e la registrazione dell'appliance.
+2. Passare al pannello **Gestisci credenziali e origini di individuazione** .
+1.  In **passaggio 1: specificare** le credenziali server vCenter fare clic su **Aggiungi credenziali** per fornire le credenziali per l'account server vCenter che l'appliance userà per individuare i server in esecuzione nel server vCenter.
+1. In **passaggio 2:** specificare i dettagli della server vCenter fare clic su **Aggiungi origine di individuazione** per selezionare il nome descrittivo per le credenziali dall'elenco a discesa, specificare l' **indirizzo IP/FQDN** del pannello di server vCenter istanza :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="3 in Gestione configurazione Appliance per server vCenter dettagli":::
+1. In **passaggio 3: specificare le credenziali del server per eseguire l'inventario software, l'analisi delle dipendenze senza agenti e l'individuazione di istanze e database di SQL Server**, fare clic su **Aggiungi credenziali** per fornire più credenziali server per avviare l'inventario software.
+1. Fare clic su **Avvia individuazione per avviare** l'individuazione server vCenter.
 
-1. Aprire l'app gestione Appliance. 
-2. Passare al pannello **specificare i dettagli di vCenter** .
-3. In **individua applicazione e dipendenze dalle macchine virtuali** fare clic su **Aggiungi credenziali** .
-3. Scegliere il **sistema operativo**, specificare un nome descrittivo per l'account e la password del **nome utente** / **Password**
-6. Fare clic su **Salva**.
-7. Fare clic su **Salva e avvia individuazione**.
-
-    ![Aggiungi account utente VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
-
+ Al termine dell'individuazione del server vCenter, l'appliance avvia l'individuazione delle applicazioni, dei ruoli e delle funzionalità installate (inventario software). La durata dipende dal numero di server individuati. Per i server 500, la visualizzazione dell'inventario individuato nel portale di Azure Migrate richiede circa un'ora.
 
 ## <a name="review-and-export-the-inventory"></a>Esaminare ed esportare l'inventario
 
-Al termine dell'individuazione, se sono state fornite le credenziali per l'individuazione delle app, è possibile esaminare ed esportare l'inventario delle app nel portale di Azure.
+Al termine dell'inventario software, è possibile esaminare ed esportare l'inventario nel portale di Azure.
 
 1. In **Azure migrate-Servers**  >  **Azure migrate: server Assessment**, fare clic sul conteggio visualizzato per aprire la pagina **server individuati** .
 
     > [!NOTE]
-    > In questa fase è anche possibile impostare facoltativamente l'analisi delle dipendenze per i computer individuati, in modo che sia possibile visualizzare le dipendenze tra i computer che si desidera valutare. [Altre](concepts-dependency-visualization.md) informazioni sull'analisi delle dipendenze.
+    > In questa fase è anche possibile abilitare l'analisi delle dipendenze per i server individuati, in modo che sia possibile visualizzare le dipendenze tra i server che si desidera valutare. [Altre](concepts-dependency-visualization.md) informazioni sull'analisi delle dipendenze.
 
-2. In **applicazioni individuate** fare clic sul conteggio visualizzato.
-3. Nell' **inventario delle applicazioni** è possibile esaminare le app, i ruoli e le funzionalità individuate.
+2. In **applicazioni individuate** colonna, fare clic sul numero visualizzato per esaminare le applicazioni, i ruoli e le funzionalità individuate.
 4. Per esportare l'inventario, in **server individuati** fare clic su **Esporta inventario delle app**.
 
-L'inventario delle app viene esportato e scaricato in formato Excel. Il foglio di **inventario dell'applicazione** Visualizza tutte le app individuate in tutti i computer.
+L'inventario delle applicazioni viene esportato e scaricato in formato Excel. Il foglio di **inventario dell'applicazione** Visualizza tutte le app individuate in tutti i server.
+
+## <a name="discover-sql-server-instances-and-databases"></a>Individuare istanze e database di SQL Server
+
+- L'individuazione dell'applicazione identifica anche le istanze di SQL Server in esecuzione nell'ambiente VMware.
+- Se non è stata specificata l'autenticazione di Windows o SQL Server credenziali di autenticazione in Gestione configurazione Appliance, aggiungere le credenziali in modo che l'appliance possa usarle per connettersi alle rispettive istanze di SQL Server.
+
+Una volta stabilita la connessione, appliance raccoglie i dati di configurazione e delle prestazioni delle istanze di SQL Server e dei database. I dati di configurazione SQL Server vengono aggiornati ogni 24 ore e i dati sulle prestazioni vengono acquisiti ogni 30 secondi. Di conseguenza, qualsiasi modifica apportata alle proprietà dell'istanza SQL Server e dei database, ad esempio lo stato del database, il livello di compatibilità e così via, può richiedere fino a 24 ore per l'aggiornamento nel portale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare una valutazione](how-to-create-assessment.md) per i server individuati.
-- Valutare SQL Server database usando [Azure migrate: valutazione del database](/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).
+- [Valutare i server SQL](./tutorial-assess-sql.md) per la migrazione ad Azure SQL.
