@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 4e626cb5cac29a0e5133eb77cbaff3f4131b8456
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ebdb6a44a1f20ce0835fc5d7358d99c8224d3d77
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722348"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044936"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -94,6 +94,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Coreano (Corea)                     | `ko-KR` | Audio (20201015)<br>Testo                 |      Sì                     |
 | Lettone (Lettonia)                   | `lv-LV` | Testo                                   |                           |
 | Lituano (Lituania)             | `lt-LT` | Testo                                   |                           |
+| Malese (Malaysia)                    | `ms-MY` | Testo                                   |                           |
 | Maltese (Malta)                     | `mt-MT` | Testo                                   |                           |
 | Marathi (India)                    | `mr-IN` | Testo                                   |                           |
 | Norvegese (Bokmål, Norvegia)         | `nb-NO` | Testo                                   |     Sì                      |

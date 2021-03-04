@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 1a276915f8132f2941bfb4425011c2d34454093b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3350ff7aa05232173e5fd3b21451a76a0a40683d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693884"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043712"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Anteprima: modalità di orchestrazione per i set di scalabilità di macchine virtuali in Azure 
 
@@ -73,7 +73,7 @@ Il metodo preferito consiste nell'usare Azure Resource Graph per eseguire una qu
 | order by resourceGroup desc, name desc 
 ```
 
-L'esecuzione di query sulle risorse con [Azure Resource Graph](../governance/resource-graph/overview) è un modo pratico ed efficiente per eseguire query sulle risorse di Azure e ridurre al minimo le chiamate API al provider di risorse. Il grafico delle risorse di Azure è una cache coerente in cui le risorse nuove o aggiornate potrebbero non essere riflesse per un massimo di 60 secondi. È possibile:
+L'esecuzione di query sulle risorse con [Azure Resource Graph](../governance/resource-graph/overview.md) è un modo pratico ed efficiente per eseguire query sulle risorse di Azure e ridurre al minimo le chiamate API al provider di risorse. Il grafico delle risorse di Azure è una cache coerente in cui le risorse nuove o aggiornate potrebbero non essere riflesse per un massimo di 60 secondi. È possibile:
 - Elencare le macchine virtuali in un gruppo di risorse o una sottoscrizione.
 - Usare l'opzione Espandi per recuperare la visualizzazione dell'istanza, ovvero l'assegnazione di un dominio di errore, gli Stati di alimentazione e di provisioning, per tutte le macchine virtuali nella sottoscrizione.
 - Usare l'API Get VM e i comandi per ottenere la visualizzazione del modello e dell'istanza per una singola istanza.

@@ -28,6 +28,8 @@
           href: dns-forwarding.md
     - name: Archiviazione
       items:
+        - name: Crittografare PVC con la chiave gestita dal cliente (anteprima)
+          href: howto-encrypt-data-disks.md
         - name: Creare una StorageClass di File di Azure
           href: howto-create-a-storageclass.md
         - name: Usare il registro contenitori predefinito

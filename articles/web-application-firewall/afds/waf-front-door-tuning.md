@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: 4c710792dd7966fad76b33954fdf7c2253cf18f0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8752886bc5304de420083212d29ccd3e1cb14084
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488239"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043695"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Ottimizzazione del Web Application Firewall (WAF) per Azure front door
  
@@ -38,9 +38,17 @@ UserId=20&captchaId=7&captchaId=15&comment="1=1"&rating=3
 
 Se si prova la richiesta, il WAF blocca il traffico che contiene la stringa *1 = 1* in qualsiasi parametro o campo. Si tratta di una stringa spesso associata a un attacco SQL injection. È possibile esaminare i log e visualizzare il timestamp della richiesta e le regole bloccate o corrispondenti.
  
-Nell'esempio seguente viene esaminato un `FrontdoorWebApplicationFirewallLog` log generato a causa di una corrispondenza della regola.
+Nell'esempio seguente viene esaminato un `FrontdoorWebApplicationFirewallLog` log generato a causa di una corrispondenza della regola. Per trovare le richieste bloccate nelle ultime 24 ore, è possibile usare la query di Log Analytics seguente:
+
+```kusto
+AzureDiagnostics
+| where Category == 'FrontdoorWebApplicationFirewallLog'
+| where TimeGenerated > ago(1d)
+| where action_s == 'Block'
+
+```
  
-Nel campo "requestUri" è possibile vedere che la richiesta è stata eseguita in `/api/Feedbacks/` modo specifico. L'ID della regola verrà trovato `942110` nel campo "RuleName". Conoscendo l'ID regola, è possibile accedere al [repository ufficiale del set di regole OWASP ModSecurity Core](https://github.com/coreruleset/coreruleset) e cercare in base a tale [ID regola](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) di esaminare il codice e conoscere esattamente le corrispondenze di questa regola. 
+Nel `requestUri` campo è possibile osservare che la richiesta è stata eseguita in `/api/Feedbacks/` modo specifico. L'ID della regola verrà trovato `942110` nel `ruleName` campo. Conoscendo l'ID regola, è possibile accedere al [repository ufficiale del set di regole OWASP ModSecurity Core](https://github.com/coreruleset/coreruleset) e cercare in base a tale [ID regola](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) di esaminare il codice e conoscere esattamente le corrispondenze di questa regola. 
  
 Quindi, selezionando il `action` campo si noterà che questa regola è impostata per bloccare le richieste al momento della corrispondenza e si conferma che la richiesta è stata effettivamente bloccata da WAF perché `policyMode` è impostato su `prevention` . 
  
@@ -181,7 +189,7 @@ Nell'esempio seguente è stata creata una regola personalizzata con due condizio
 
 L'uso di una regola personalizzata consente di ottenere la massima granularità quando si ottimizzano le regole di WAF e per la gestione di falsi positivi. In questo caso, l'azione non viene eseguita solo in base al `comment` valore del corpo della richiesta, che può esistere in più siti o app con lo stesso criterio WAF. Se si include anche un'altra condizione per trovare una corrispondenza con un URI di richiesta specifico `/api/Feedbacks/` , la regola personalizzata si applica a questo caso di utilizzo esplicito che è stato esaminato. In questo modo si garantisce che lo stesso attacco, se eseguito in condizioni diverse, verrebbe comunque controllato e impedito dal motore WAF.
 
-![File di log](../media/waf-front-door-tuning/custom-rule.png)
+![Log](../media/waf-front-door-tuning/custom-rule.png)
 
 Quando si Esplora il registro, è possibile osservare che il `ruleName_s` campo contiene il nome assegnato alla regola personalizzata creata: `redirectcomment` . Nel `action_s` campo è possibile vedere che è stata eseguita l'azione di *Reindirizzamento* per questo evento. Nel `details_matches_s` campo è possibile visualizzare i dettagli di entrambe le condizioni.
 
@@ -196,6 +204,9 @@ Tuttavia, la disabilitazione di una regola è un'impostazione globale che si app
 Se si desidera utilizzare Azure PowerShell per disabilitare una regola gestita, vedere la [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?preserve-view=true&view=azps-4.7.0) documentazione dell'oggetto. Se si vuole usare l'interfaccia della riga di comando di Azure, vedere la [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?preserve-view=true&view=azure-cli-latest) documentazione.
 
 ![Regole di WAF](../media/waf-front-door-tuning/waf-rules.png)
+
+> [!TIP]
+> È consigliabile documentare le modifiche apportate ai criteri di WAF. Includere le richieste di esempio per illustrare il rilevamento falso positivo e spiegare chiaramente perché è stata aggiunta una regola personalizzata, è stata disabilitata una regola o un set di regole oppure è stata aggiunta un'eccezione. Questa documentazione può essere utile se si riprogetta l'applicazione in futuro ed è necessario verificare che le modifiche siano ancora valide. Può anche essere utile se si è mai controllati o se è necessario giustificare il motivo per cui è stato riconfigurato il criterio WAF dalle impostazioni predefinite.
 
 ## <a name="finding-request-fields"></a>Ricerca di campi di richiesta
 

@@ -3,15 +3,14 @@ title: Riepilogo e accesso alla conversione delle cartelle di lavoro di Progetta
 description: Autorizzazioni necessarie per accedere alle cartelle di lavoro durante la transizione dalle viste in monitoraggio di Azure.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c5b3096c4eb8cf71ff1d13476fa09cc65ef413a7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 42cb8db0f67d3a01b2e8443e6cb7c47f0fc44c4b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613114"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043391"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Riepilogo e accesso alla conversione di Progettazione viste a cartelle di lavoro
 [Progettazione](view-designer.md) viste è una funzionalità di monitoraggio di Azure che consente di creare visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro log Analytics, con grafici, elenchi e sequenze temporali. Vengono eliminati e sostituiti con cartelle di lavoro che forniscono funzionalità aggiuntive. In questo articolo viene illustrato in dettaglio come creare un riepilogo della panoramica e le autorizzazioni necessarie per accedere alle cartelle di lavoro di.

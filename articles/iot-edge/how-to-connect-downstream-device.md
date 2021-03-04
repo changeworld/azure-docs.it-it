@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 35bb17a5cdfcc6aff4a513a594a08283ab1f1305
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44fe128658b90d2327f17f22b2a33aaa1d4da1fc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437032"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046126"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 
@@ -214,7 +214,7 @@ L'output di questo comando potrebbe essere lungo, incluse le informazioni su tut
 
 Se il dispositivo foglia ha una connessione intermittente al dispositivo gateway, provare a eseguire la procedura seguente per la risoluzione.
 
-1. Il nome host del gateway nella stringa di connessione corrisponde al valore del nome host nel file IoT Edge config. YAML nel dispositivo gateway?
+1. Il nome host del gateway nella stringa di connessione corrisponde al valore del nome host nel file di configurazione IoT Edge nel dispositivo gateway?
 2. Il nome host del gateway è risolvibile in un indirizzo IP? È possibile risolvere connessioni intermittenti utilizzando DNS o aggiungendo una voce del file host nel dispositivo foglia.
 3. Le porte di comunicazione sono aperte nel firewall? La comunicazione basata sul protocollo usato (MQTTS: 8883/AMQPS: 5671/HTTPS: 433) deve essere possibile tra il dispositivo downstream e il IoT Edge trasparente.
 

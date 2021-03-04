@@ -1,17 +1,16 @@
 ---
 title: Esempi di modelli di Azure Resource Manager per gli agenti
 description: Modelli di Azure Resource Manager di esempio per distribuire e configurare agenti di macchine virtuali in Monitoraggio di Azure.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 4d4f9b7caed81f8c01e7e2d7e9f94ec3acf3ba92
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9aae62b9f4ca74b11c4f62c44f6d310628d36316
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737342"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045769"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Esempi di modelli di Resource Manager per agenti in Monitoraggio di Azure
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per distribuire e configurare l'[agente di Log Analytics](./log-analytics-agent.md) e l'[estensione di diagnostica](./diagnostics-extension-overview.md) per le macchine virtuali in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.

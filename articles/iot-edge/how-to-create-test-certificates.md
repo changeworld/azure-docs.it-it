@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: d82f1cac6e437663fa0b1c3e21c65036f3c1d4eb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927703"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046041"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creare certificati demo per testare le funzionalità del dispositivo IoT Edge
 
@@ -32,7 +32,7 @@ Seguire questa procedura per creare i certificati demo per testare lo scenario d
 1. [Configurare gli script](#set-up-scripts) per la generazione di certificati nel dispositivo.
 2. [Creare il certificato CA radice](#create-root-ca-certificate) usato per firmare tutti gli altri certificati per lo scenario.
 3. Generare i certificati necessari per lo scenario che si desidera testare:
-   * [Creare IOT Edge certificati di identità del dispositivo](#create-iot-edge-device-identity-certificates) per il provisioning automatico con il servizio Device provisioning in hub Internet.
+   * [Creare IOT Edge certificati di identità del dispositivo](#create-iot-edge-device-identity-certificates) per il provisioning dei dispositivi con l'autenticazione del certificato X. 509, manualmente o con il servizio Device provisioning in hub Internet.
    * [Creare certificati della CA del dispositivo IOT Edge](#create-iot-edge-device-ca-certificates) per IOT Edge dispositivi in scenari gateway.
    * [Creare certificati di dispositivo downstream](#create-downstream-device-certificates) per l'autenticazione di dispositivi downstream in uno scenario di gateway.
 
@@ -78,7 +78,7 @@ In questa sezione si clona il repository IoT Edge ed eseguire gli script.
 
 1. Aprire una finestra di PowerShell in modalità amministratore.
 
-2. Clonare il repository git IoT Edge, che contiene gli script per generare i certificati demo. Usare il comando `git clone` o [scaricare il file ZIP](https://github.com/Azure/iotedge/archive/master.zip).
+2. Clonare il repository Git IoT Edge che contiene gli script per generare certificati demo. Usare il comando `git clone` o [scaricare il file ZIP](https://github.com/Azure/iotedge/archive/master.zip).
 
    ```powershell
    git clone https://github.com/Azure/iotedge.git
@@ -119,7 +119,7 @@ In questa sezione si clona il repository IoT Edge ed eseguire gli script.
 
 Per creare certificati demo in un dispositivo Windows, è necessario clonare gli script di generazione e configurarli per l'esecuzione localmente in bash.
 
-1. Clonare il repository git IoT Edge, che contiene gli script per generare i certificati demo.
+1. Clonare il repository Git IoT Edge che contiene gli script per generare certificati demo.
 
    ```bash
    git clone https://github.com/Azure/iotedge.git
@@ -127,7 +127,7 @@ Per creare certificati demo in un dispositivo Windows, è necessario clonare gli
 
 2. Passare alla directory che si vuole usare, In questo articolo verrà fatto riferimento a questa directory come *\<WRKDIR>* . Tutti i file di certificato e di chiave verranno creati in questa directory.
   
-3. Copiare i file di configurazione e script dal repository IoT Edge clonato nella directory di lavoro.
+3. Copiare i file di configurazione e script dal repository IoT Edge clonato alla directory di lavoro.
 
    ```bash
    cp <path>/iotedge/tools/CACertificates/*.cnf .
@@ -163,7 +163,7 @@ Prima di procedere con i passaggi descritti in questa sezione, seguire i passagg
    New-CACertsCertChain rsa
    ```
 
-   Questo comando script crea diversi file di certificato e di chiave, ma quando gli articoli richiedono il **certificato CA radice** , usare il file seguente:
+   Questo comando script crea diversi file di certificato e di chiave, ma quando gli articoli richiedono il **certificato CA radice**, usare il file seguente:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
@@ -177,15 +177,15 @@ Prima di procedere con i passaggi descritti in questa sezione, seguire i passagg
    ./certGen.sh create_root_and_intermediate
    ```
 
-   Questo comando script crea diversi file di certificato e di chiave, ma quando gli articoli richiedono il **certificato CA radice** , usare il file seguente:
+   Questo comando script crea diversi file di certificato e di chiave, ma quando gli articoli richiedono il **certificato CA radice**, usare il file seguente:
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
 ## <a name="create-iot-edge-device-identity-certificates"></a>Creare certificati di identità del dispositivo IoT Edge
 
-I certificati di identità dei dispositivi vengono usati per effettuare il provisioning di dispositivi IoT Edge tramite il servizio Device provisioning in hub Azure.
+I certificati di identità del dispositivo vengono usati per effettuare il provisioning dei dispositivi IoT Edge se si sceglie di usare l'autenticazione del certificato X. 509. Questi certificati funzionano se si usa il provisioning manuale o il provisioning automatico tramite il servizio Device provisioning in hub Azure.
 
-I certificati di identità del dispositivo vengono inseriti nella sezione **provisioning** del file config. YAML sul dispositivo IOT Edge.
+I certificati di identità del dispositivo vengono inseriti nella sezione **provisioning** del file di configurazione nel dispositivo IOT Edge.
 
 Prima di procedere con i passaggi descritti in questa sezione, seguire i passaggi descritti nelle sezioni [configurare gli script](#set-up-scripts) e [creare il certificato CA radice](#create-root-ca-certificate) .
 
@@ -223,11 +223,19 @@ Lo script crea diversi file di certificato e chiave, inclusi tre che verranno us
 
 ## <a name="create-iot-edge-device-ca-certificates"></a>Creare certificati CA del dispositivo IoT Edge
 
-Ogni dispositivo IoT Edge per l'ambiente di produzione necessita di un certificato CA del dispositivo a cui viene fatto riferimento dal file config. yaml.
+Ogni dispositivo IoT Edge per l'ambiente di produzione necessita di un certificato CA del dispositivo a cui viene fatto riferimento dal file di configurazione.
 Il certificato della CA del dispositivo è responsabile della creazione di certificati per i moduli in esecuzione nel dispositivo.
 È anche necessario per gli scenari di gateway, perché il certificato della CA del dispositivo è il modo in cui il dispositivo IoT Edge verifica la propria identità nei dispositivi downstream.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 I certificati della CA del dispositivo vengono inseriti nella sezione **certificato** del file config. YAML sul dispositivo IOT Edge.
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+I certificati della CA del dispositivo vengono inseriti nella sezione **CA perimetrale** del file config. toml nel dispositivo IOT Edge.
+:::moniker-end
 
 Prima di procedere con i passaggi descritti in questa sezione, seguire i passaggi descritti nelle sezioni [configurare gli script](#set-up-scripts) e [creare il certificato CA radice](#create-root-ca-certificate) .
 
@@ -241,12 +249,12 @@ Prima di procedere con i passaggi descritti in questa sezione, seguire i passagg
    New-CACertsEdgeDevice "<CA cert name>"
    ```
 
-   Questo comando crea diversi file di certificato e chiave. Il certificato e la coppia di chiavi seguenti devono essere copiati in un dispositivo IoT Edge e a cui viene fatto riferimento nel file config. YAML:
+   Questo comando crea diversi file di certificato e chiave. Il certificato e la coppia di chiavi seguenti devono essere copiati in un dispositivo IoT Edge e a cui si fa riferimento nel file di configurazione:
 
    * `<WRKDIR>\certs\iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
 
-Il nome passato al comando **New-CACertsEdgeDevice** non deve corrispondere al parametro hostname in config. YAML o all'ID del dispositivo nell'hub Internet.
+Il nome passato al comando **New-CACertsEdgeDevice** non deve essere uguale al parametro hostname nel file di configurazione o all'ID del dispositivo nell'hub Internet.
 
 ### <a name="linux"></a>Linux
 
@@ -258,12 +266,12 @@ Il nome passato al comando **New-CACertsEdgeDevice** non deve corrispondere al p
    ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
-   Questo comando script crea diversi file di certificato e chiave. Il certificato e la coppia di chiavi seguenti devono essere copiati in un dispositivo IoT Edge e a cui viene fatto riferimento nel file config. YAML:
+   Questo comando script crea diversi file di certificato e chiave. Il certificato e la coppia di chiavi seguenti devono essere copiati in un dispositivo IoT Edge e a cui si fa riferimento nel file di configurazione:
 
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-Il nome passato al comando **create_edge_device_ca_certificate** non deve corrispondere al parametro hostname in config. YAML o all'ID del dispositivo nell'hub Internet.
+Il nome passato al comando **create_edge_device_ca_certificate** non deve corrispondere al parametro hostname nel file di configurazione o all'ID del dispositivo nell'hub Internet.
 
 ## <a name="create-downstream-device-certificates"></a>Creare certificati downstream per i dispositivi
 
@@ -289,7 +297,7 @@ Il dispositivo Internet delle cose necessita anche di una copia dei certificati 
 
 1. Passare alla directory di lavoro con gli script di generazione del certificato e il certificato CA radice.
 
-2. Creare due certificati (primario e secondario) per il dispositivo downstream. Una convenzione di denominazione semplice da usare consiste nel creare i certificati con il nome del dispositivo Internet delle cose e quindi con l'etichetta primaria o secondaria. Esempio:
+2. Creare due certificati (primario e secondario) per il dispositivo downstream. Una convenzione di denominazione semplice da usare consiste nel creare i certificati con il nome del dispositivo Internet delle cose e quindi con l'etichetta primaria o secondaria. Ad esempio:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -319,7 +327,7 @@ Il dispositivo Internet delle cose necessita anche di una copia dei certificati 
 
 1. Passare alla directory di lavoro con gli script di generazione del certificato e il certificato CA radice.
 
-2. Creare due certificati (primario e secondario) per il dispositivo downstream. Una convenzione di denominazione semplice da usare consiste nel creare i certificati con il nome del dispositivo Internet delle cose e quindi con l'etichetta primaria o secondaria. Esempio:
+2. Creare due certificati (primario e secondario) per il dispositivo downstream. Una convenzione di denominazione semplice da usare consiste nel creare i certificati con il nome del dispositivo Internet delle cose e quindi con l'etichetta primaria o secondaria. Ad esempio:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

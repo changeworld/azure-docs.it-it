@@ -4,12 +4,12 @@ description: Informazioni sullo sviluppo di funzioni con Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 78965a1a09272663c52469b8ccd91988f30b53cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0829ef9a6b63866c2527e521ed7edf48a3249392
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708697"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044256"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -22,7 +22,7 @@ Gli sviluppatori di Python possono anche essere interessati a uno degli articoli
 | <ul><li>[Funzione Python con Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Funzione Python con terminale/prompt dei comandi](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Classificazione di immagini con PyTorch](machine-learning-pytorch.md)</li><li>[Esempio di automazione di Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine Learning con TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Esplora esempi di Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
-> Sebbene sia possibile [sviluppare funzioni di Azure basate su Python in locale in Windows](./azure-functions/create-first-function-vs-code-python#run-the-function-locally), Python è supportato solo in un piano di hosting basato su Linux durante l'esecuzione in Azure. Vedere l'elenco delle combinazioni di [Runtime/sistema operativo](./azure-functions/functions-scale#operating-systemruntime) supportate.
+> Sebbene sia possibile [sviluppare funzioni di Azure basate su Python in locale in Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python è supportato solo in un piano di hosting basato su Linux durante l'esecuzione in Azure. Vedere l'elenco delle combinazioni di [Runtime/sistema operativo](functions-scale.md#operating-systemruntime) supportate.
 
 ## <a name="programming-model"></a>Modello di programmazione
 

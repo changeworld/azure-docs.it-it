@@ -1,17 +1,16 @@
 ---
 title: Distribuire Monitoraggio di Azure
 description: Vengono descritti i diversi passaggi necessari per un'implementazione completa di monitoraggio di Azure per monitorare tutte le risorse nella sottoscrizione di Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: f5855d7ab1f7ba8e11334f1373fb10166f47003a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7656efeb26a8a8b3c752ea996c8e644c68a48626
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708255"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044001"
 ---
 # <a name="deploy-azure-monitor"></a>Distribuire Monitoraggio di Azure
 L'abilitazione di monitoraggio di Azure per monitorare tutte le risorse di Azure è una combinazione di configurazione dei componenti di monitoraggio di Azure e configurazione delle risorse di Azure per generare dati di monitoraggio per la raccolta di monitoraggio di Azure. Questo articolo descrive i diversi passaggi necessari per un'implementazione completa di monitoraggio di Azure con una configurazione comune per monitorare tutte le risorse nella sottoscrizione di Azure. Le descrizioni di base per ogni passaggio sono fornite con collegamenti ad altra documentazione per informazioni dettagliate sui requisiti di configurazione.

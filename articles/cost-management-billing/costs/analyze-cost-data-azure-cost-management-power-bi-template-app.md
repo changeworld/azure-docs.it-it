@@ -3,17 +3,17 @@ title: Analizzare i costi di Azure con l'app Power BI
 description: Questo articolo illustra come installare e usare l'app Power BI Gestione costi di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 1/29/2021
+ms.date: 02/19/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: d3439f5a86c445898d95191a32496b5f0c86be0b
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: b08ff57f964ef7bc3712c930c222a10ed0f89ef4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070158"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045099"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analizzare i costi con l'app Power BI Gestione costi di Azure per contratti Enterprise (EA)
 
@@ -36,24 +36,23 @@ L'app limita la personalizzazione. Per modificare ed estendere i filtri, le visu
 Per installare l'app:
 
 1. Aprire l'[app Power BI Gestione costi di Azure](https://aka.ms/costmgmt/ACMApp).
-2. Nella pagina di AppSource per Power BI selezionare **Scarica adesso**.
-3. Selezionare **Continua** per accettare le condizioni per l'utilizzo e l'informativa sulla privacy.
-4. Nella finestra **Install this Power BI app** (Installa questa app di Power BI) selezionare **Installa**.
-5. Se necessario, creare un'area di lavoro e selezionare **Continua**.
-6. Al termine dell'installazione, viene visualizzata una notifica che informa che la nuova app è pronta.
-7. Selezionare **Vai all'app**.
-8. Nella finestra **Operazioni iniziali con la nuova app** selezionare **Connetti** in **Connettere i dati**.  
-  ![Operazioni iniziali con la nuova app - Connetti](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
-9. Nella finestra di dialogo visualizzata immettere il numero del contratto Enterprise per **BillingProfileIdOrEnrollmentNumber**. Specificare il numero di mesi di dati da ottenere. In **Ambito** lasciare il valore predefinito **Numero di registrazione** e quindi selezionare **Avanti**.  
-  ![Immettere le informazioni sulla registrazione del contratto Enterprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. La finestra di dialogo successiva consente di connettersi ad Azure e ottenere i dati necessari per le raccomandazioni sulle istanze riservate. *Lasciare invariati i valori predefiniti configurati*, quindi selezionare **Accedi**.  
-  ![Screenshot che illustra la finestra di dialogo Connetti all'app Gestione costi di Azure con i valori predefiniti.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
-11. Il passaggio finale dell'installazione consiste nella connessione alla registrazione del contratto Enterprise e richiede un account [amministratore dell'organizzazione](../manage/understand-ea-roles.md). Selezionare **Accedi** per eseguire l'autenticazione con la registrazione EA. Questo passaggio avvia anche un'azione di aggiornamento dei dati in Power BI.  
-  ![Connessione alla registrazione EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
+1. Nella pagina di AppSource per Power BI selezionare **Scarica adesso**.
+1. Selezionare **Continua** per accettare le condizioni per l'utilizzo e l'informativa sulla privacy.
+1. Nella finestra **Install this Power BI app** (Installa questa app di Power BI) selezionare **Installa**.
+1. Se necessario, creare un'area di lavoro e selezionare **Continua**.
+1. Al termine dell'installazione, viene visualizzata una notifica che informa che la nuova app è pronta.
+1. Selezionare l'app installata.
+1. Nella pagina riquadro attività iniziale selezionare **Connetti i dati**.
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" alt-text="Screenshot che evidenzia il collegamento Connetti i dati." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" :::
+1. Nella finestra di dialogo visualizzata immettere il numero del contratto Enterprise per **BillingProfileIdOrEnrollmentNumber**. Specificare il numero di mesi di dati da ottenere. In **Ambito** lasciare il valore predefinito **Numero di registrazione** e quindi selezionare **Avanti**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" alt-text="Screenshot che mostra dove immettere le informazioni di registrazione E." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" :::
+1. La finestra di dialogo successiva si connette ad Azure e recupera i dati. *Lasciare i valori predefiniti configurati* e selezionare **Accedi e continua**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Screenshot che mostra la finestra di dialogo Connetti all'app gestione costi di Azure con i valori predefiniti." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
+1. Il passaggio finale dell'installazione consiste nella connessione alla registrazione del contratto Enterprise e richiede un account [amministratore dell'organizzazione](../manage/understand-ea-roles.md). Lasciare tutti i valori predefiniti. Selezionare **Accedi e Connetti**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="Screenshot che mostra la finestra di dialogo Connetti ad Azure Cost Management con i valori predefiniti con cui connettersi." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
+1. Viene richiesto di eseguire l'autenticazione con la registrazione EA. Eseguire l'autenticazione con Power BI. Dopo l'autenticazione, viene avviato un Power BI aggiornamento dati.
     > [!NOTE]
     > Il completamento del processo di aggiornamento dei dati potrebbe richiedere tempo. La quantità di tempo dipende dal numero di mesi specificati e dalla quantità di dati da sincronizzare.
-12. Per controllare lo stato dell'aggiornamento dei dati, selezionare la scheda **Set di dati** nell'area di lavoro. Osservare il timestamp della voce Aggiornato. Se l'aggiornamento è ancora in corso, un indicatore ne mostra lo stato.  
-  ![Aggiornamento dei dati](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/data-refresh2.png)
 
 Al termine dell'aggiornamento dei dati, selezionare l'app Gestione costi di Azure per visualizzare i report già creati.
 
@@ -78,11 +77,11 @@ Nell'app sono disponibili i report descritti di seguito.
 
 **Windows Server AHB Usage** (Utilizzo Vantaggio Azure Hybrid di Windows Server): mostra il numero di macchine virtuali in cui è abilitato Vantaggio Azure Hybrid, oltre al numero di core/vCPU usate dalle macchine virtuali.
 
-![Report completo su Vantaggio Azure Hybrid](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" alt-text="Screenshot che illustra il report completo sui vantaggi di Azure Hybrid." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" :::
 
 Il report identifica anche le VM Windows in cui Vantaggio Azure Hybrid è **abilitato** ma le vCPU sono _meno di_ 8. Mostra inoltre le VM in cui Vantaggio Azure Hybrid **non è abilitato** e le vCPU sono 8 _o più_. Queste informazioni consentono di sfruttare completamente Vantaggio Azure Hybrid. Applicare il vantaggio alle macchine virtuali più dispendiose per ottimizzare i potenziali risparmi.
 
-![Vantaggio Azure Hybrid - meno di 8 vCPU e vCPU non abilitate](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" alt-text="Screenshot che mostra l'area meno di 8 vCPU e vCPU non abilitata del report Azure Hybrid benefits." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" :::
 
 **RI Chargeback** (Chargeback istanza riservata): aiuta a identificare dove e in quale misura il vantaggio di un'istanza riservata viene applicato per area, sottoscrizione, gruppo di risorse o risorsa. A questo scopo il report usa dati di utilizzo ammortizzati.
 
@@ -105,7 +104,7 @@ Per altre informazioni sui dati ammortizzati, vedere [Ottenere informazioni sui 
 
 Per usare il report, selezionare il filtro di drill-down.
 
-![Report sulla copertura istanze riservate VM - selezione del filtro di drill-down](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" alt-text="Screenshot che mostra l'opzione Seleziona drill-down nel report di code coverage della macchina virtuale." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" :::
 
 Selezionare l'area che si vuole analizzare. Selezionare quindi il gruppo di flessibilità delle dimensioni istanza e così via.
 
@@ -118,7 +117,7 @@ La tabella delle raccomandazioni fornisce raccomandazioni per l'acquisto di pren
 
 I valori _Normalized Size_ (Dimensioni normalizzate) e _Recommended Quantity Normalized_ (Quantità consigliata normalizzata) consentono di normalizzare l'acquisto alle dimensioni più piccole per un gruppo di flessibilità delle dimensioni istanza. Le informazioni sono utili se si prevede di acquistare solo una prenotazione per tutte le dimensioni nel gruppo di flessibilità delle dimensioni istanza.
 
-![Raccomandazioni sulle istanze riservate](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recomendations.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recommendations.png" alt-text="Screenshot che mostra il report raccomandazioni RI." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recommendations.png" :::
 
 **VM RI Coverage (single recommendation)** (Copertura istanze riservate VM - singola raccomandazione): il report è suddiviso tra l'utilizzo della VM su richiesta e l'utilizzo della VM per istanza riservata nel periodo selezionato. Fornisce raccomandazioni per gli acquisti di istanze riservate di VM nell'ambito di una sottoscrizione.
 
@@ -151,7 +150,7 @@ Il valore di **Ambito** predefinito `Enrollment Number` è stato modificato nell
 
 Riconnettersi a Gestione costi e impostare il valore di **Ambito** su `Enrollment Number`. Non immettere il numero di registrazione dell'organizzazione. Digitare invece `Enrollment Number` esattamente come mostrato nell'immagine seguente.
 
-![Immettere le informazioni sulla registrazione del contratto Enterprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number-troubleshoot.png" alt-text="Screenshot che mostra che il testo predefinito del numero di registrazione non deve essere modificato." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number-troubleshoot.png" :::
 
 ### <a name="budgetamount-error"></a>Errore di BudgetAmount
 
@@ -166,12 +165,11 @@ Data source error: The 'budgetAmount' column does not exist in the rowset. Table
 
 #### <a name="cause"></a>Causa
 
-Questo errore è dovuto a un bug nei metadati sottostanti. Il problema si verifica perché non è disponibile alcun budget in **Gestione costi > Budget** nel portale di Azure. La correzione del bug sta per essere distribuita in Power BI Desktop e nel servizio Power BI. 
+Questo errore è dovuto a un bug nei metadati sottostanti. Il problema si verifica perché non è disponibile alcun budget in **Gestione costi > Budget** nel portale di Azure. La correzione del bug sta per essere distribuita in Power BI Desktop e nel servizio Power BI.
 
 #### <a name="solution"></a>Soluzione
 
 - Finché il bug non viene corretto, è possibile aggirare il problema aggiungendo un budget di test nel portale di Azure al livello di account di fatturazione/registrazione EA. Il budget di test sblocca la connessione con Power BI. Per altre informazioni sulla creazione di un budget, vedere [Esercitazione: Creare e gestire budget di Azure](tutorial-acm-create-budgets.md).
-
 
 ### <a name="invalid-credentials-for-azureblob-error"></a>Credenziali non valide per l'errore di AzureBlob
 
@@ -183,15 +181,14 @@ Failed to update data source credentials: The credentials provided for the Azure
 
 #### <a name="cause"></a>Causa
 
-Questo errore si verifica se si cambia il metodo di autenticazione per la connessione BLOB AutoFitComboMeter.
+Questo errore si verifica se si modifica il metodo di autenticazione per la connessione all'origine dati.
 
 #### <a name="solution"></a>Soluzione
 
 1. Connettersi ai dati.
 1. Dopo aver immesso la registrazione EA e il numero di mesi, assicurarsi di lasciare il valore predefinito **Anonimo** per il metodo di autenticazione e **Nessuno** per l'impostazione del livello di privacy.  
-  ![Screenshot che illustra la finestra di dialogo Connetti all'app Gestione costi di Azure con i valori Anonimo e Nessuno.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+  :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" alt-text="Screenshot che illustra la finestra di dialogo Connetti all'app Gestione costi di Azure con i valori Anonimo e Nessuno." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" :::
 1. Nella pagina successiva impostare **OAuth2** come metodo di autenticazione e **Nessuno** per il livello di privacy. Quindi, accedere per eseguire l'autenticazione con la registrazione. Questo passaggio avvia anche un aggiornamento dei dati in Power BI.
-
 
 ## <a name="data-reference"></a>Riferimenti ai dati
 

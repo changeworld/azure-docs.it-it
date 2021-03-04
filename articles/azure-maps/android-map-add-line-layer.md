@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 3e68be79a4405af103512a9009187857a0d9af39
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 62002b776262e97dd34db1d9ecd3b7b0e09f46f3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681586"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044230"
 ---
 # <a name="add-a-line-layer-to-the-map-android-sdk"></a>Aggiungere un livello linea alla mappa (Android SDK)
 
@@ -110,20 +110,21 @@ Lo screenshot seguente mostra il codice precedente che esegue il rendering di du
 
 ![Mappa con linee con stile dell'unità dati di cui è stato eseguito il rendering in un livello linea](media/android-map-add-line-layer/android-line-layer-data-drive-style.png)
 
-## <a name="add-symbols-along-a-line"></a>Aggiungere simboli lungo una linea
+## <a name="add-a-stroke-gradient-to-a-line"></a>Aggiungere una sfumatura del tratto a una linea
 
-Questo esempio illustra come aggiungere icone a freccia lungo una linea sulla mappa. Quando si usa un livello di simboli, impostare l' `symbolPlacement` opzione su `SymbolPlacement.LINE` . Questa opzione consente di eseguire il rendering dei simboli lungo la linea e di ruotare le icone (0 gradi = destra).
+È possibile applicare un colore a tratto singolo a una linea. È anche possibile riempire una linea con una sfumatura di colori per visualizzare la transizione da un segmento di linea al segmento di linea successivo. Ad esempio, è possibile usare le sfumature di linea per rappresentare le modifiche nel tempo e nella distanza oppure con temperature diverse in una linea di oggetti connessa. Per applicare questa funzionalità a una riga, è necessario che l'opzione dell'origine dati sia `lineMetrics` impostata su `true` , quindi un'espressione di sfumatura di colore possa essere passata all' `strokeColor` opzione della riga. L'espressione di sfumatura del tratto deve fare riferimento all'espressione dati `lineProgress` che espone le metriche di linea calcolate all'espressione.
 
 ```java
 //Create a data source and add it to the map.
-DataSource source = new DataSource();
+source = new DataSource(
+    //Enable line metrics on the data source. This is needed to enable support for strokeGradient.
+    withLineMetrics(true)
+);
 map.sources.add(source);
 
-//Load a image of an arrow into the map image sprite and call it "arrow-icon".
-map.images.add("arrow-icon", R.drawable.purple-arrow-right);
-
-//Create and add a line to the data source.
-source.add(LineString.fromLngLats(Arrays.asList(
+//Create a line and add it to the data source.
+source.add(LineString.fromLngLats(
+    Arrays.asList(
         Point.fromLngLat(-122.18822, 47.63208),
         Point.fromLngLat(-122.18204, 47.63196),
         Point.fromLngLat(-122.17243, 47.62976),
@@ -139,7 +140,65 @@ source.add(LineString.fromLngLats(Arrays.asList(
         Point.fromLngLat(-122.11595, 47.66712),
         Point.fromLngLat(-122.11063, 47.66735),
         Point.fromLngLat(-122.10668, 47.67035),
-        Point.fromLngLat(-122.10565, 47.67498))));
+        Point.fromLngLat(-122.10565, 47.67498)
+    )
+));
+
+//Create a line layer and pass in a gradient expression for the strokeGradient property.
+map.layers.add(new LineLayer(source,
+    strokeWidth(6f),
+
+    //Pass an interpolate or step expression that represents a gradient.
+    strokeGradient(
+        interpolate(
+            linear(),
+            lineProgress(),
+            stop(0, color(Color.BLUE)),
+            stop(0.1, color(Color.argb(255, 65, 105, 225))), //Royal Blue
+            stop(0.3, color(Color.CYAN)),
+            stop(0.5, color(Color.argb(255,0, 255, 0))), //Lime
+            stop(0.7, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+));
+```
+
+Lo screenshot seguente mostra il codice precedente che visualizza una riga di cui è stato eseguito il rendering usando un colore tratto sfumato.
+
+![Mappa con una linea sottoposta a rendering come tracciato sfumatura in un livello linea](media/android-map-add-line-layer/android-line-layer-gradient.jpg)
+
+## <a name="add-symbols-along-a-line"></a>Aggiungere simboli lungo una linea
+
+Questo esempio illustra come aggiungere icone a freccia lungo una linea sulla mappa. Quando si usa un livello di simboli, impostare l' `symbolPlacement` opzione su `SymbolPlacement.LINE` . Questa opzione consente di eseguire il rendering dei simboli lungo la linea e di ruotare le icone (0 gradi = destra).
+
+```java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Load a image of an arrow into the map image sprite and call it "arrow-icon".
+map.images.add("arrow-icon", R.drawable.purple-arrow-right);
+
+//Create and add a line to the data source.
+source.add(LineString.fromLngLats(Arrays.asList(
+    Point.fromLngLat(-122.18822, 47.63208),
+    Point.fromLngLat(-122.18204, 47.63196),
+    Point.fromLngLat(-122.17243, 47.62976),
+    Point.fromLngLat(-122.16419, 47.63023),
+    Point.fromLngLat(-122.15852, 47.62942),
+    Point.fromLngLat(-122.15183, 47.62988),
+    Point.fromLngLat(-122.14256, 47.63451),
+    Point.fromLngLat(-122.13483, 47.64041),
+    Point.fromLngLat(-122.13466, 47.64422),
+    Point.fromLngLat(-122.13844, 47.65440),
+    Point.fromLngLat(-122.13277, 47.66515),
+    Point.fromLngLat(-122.12779, 47.66712),
+    Point.fromLngLat(-122.11595, 47.66712),
+    Point.fromLngLat(-122.11063, 47.66735),
+    Point.fromLngLat(-122.10668, 47.67035),
+    Point.fromLngLat(-122.10565, 47.67498)))
+);
 
 //Create a line layer and add it to the map.
 map.layers.add(new LineLayer(source,
@@ -175,7 +234,7 @@ Per questo esempio, l'immagine seguente è stata caricata nella cartella di cui 
 |:-----------------------------------------------------------------------:|
 |                                                  |
 
-La schermata seguente mostra il codice sopra riportato per eseguire il rendering di una riga con le icone a freccia visualizzate lungo.
+La schermata seguente mostra il codice riportato sopra che visualizza una riga con le icone a freccia visualizzate lungo.
 
 ![Mappa con linee con stile di unità dati con frecce visualizzate in un livello linea](media/android-map-add-line-layer/android-symbols-along-line-path.png)
 
