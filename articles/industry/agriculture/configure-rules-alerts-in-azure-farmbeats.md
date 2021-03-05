@@ -4,13 +4,13 @@ description: Viene descritto come configurare le regole e gestire gli avvisi in 
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 5e6a5d414c341f482c3fddf95a2f8bb8e55a3ca2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: a04f973cbfa3a68016065f50e9e2ff4f7566da94
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168546"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182928"
 ---
 # <a name="configure-rules-and-manage-alerts"></a>Configurare regole e gestire avvisi
 
@@ -37,7 +37,7 @@ Azure FarmBeats consente di creare regole basate sulla logica di business, oltre
     ![Screenshot che mostra l'opzione abilitata per la posta elettronica.](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
 
 10. Immettere gli **indirizzi** di posta elettronica a cui si desidera inviare l'avviso di posta elettronica, insieme all' **oggetto del messaggio** di posta elettronica e alle **Note aggiuntive**.  
-11. Per abilitare o disabilitare la regola, nello **stato della regola**attivare l'interruttore **attivato** .
+11. Per abilitare o disabilitare la regola, nello **stato della regola** attivare l'interruttore **attivato** .
     È possibile visualizzare il numero di dispositivi che saranno interessati dalla regola.
 12. Selezionare **applica** per creare la regola.
 
@@ -69,9 +69,9 @@ Per modificare una regola, attenersi alla seguente procedura:
 
     ![Screenshot che mostra la schermata Modifica regola.](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
 
-4. Modificare il **nome della regola**e la **Descrizione della regola** , quindi selezionare una farm dal menu a discesa **Seleziona Farm** .
+4. Modificare il **nome della regola** e la **Descrizione della regola** , quindi selezionare una farm dal menu a discesa **Seleziona Farm** .
 5. Digitare il nome della farm per selezionare la farm e le **condizioni** vengono visualizzate nella stessa finestra.  
-6. In **condizioni**modificare **misura**, **operatore** e **valore**.
+6. In **condizioni** modificare **misura**, **operatore** e **valore**.
 7. Digitare il nome della misura nel menu a discesa **misura** .
 8. Selezionare **+ Aggiungi condizione** per aggiungere/modificare le condizioni alle regole.
 
@@ -80,7 +80,7 @@ Per modificare una regola, attenersi alla seguente procedura:
 9.  Selezionare il **livello di gravità**.  
 10. In **azione**, attivare l'interruttore **abilitata** per la posta elettronica per abilitare gli avvisi di posta elettronica.
 11. Modificare gli **indirizzi di posta** elettronica a cui si vuole inviare l'avviso di posta elettronica, insieme all' **oggetto del messaggio** di posta elettronica e alle **Note aggiuntive**.  
-12. Per abilitare o disabilitare la regola, nello **stato della regola**attivare l'interruttore **attivato** .
+12. Per abilitare o disabilitare la regola, nello **stato della regola** attivare l'interruttore **attivato** .
 È possibile visualizzare il numero di dispositivi che saranno interessati da questa regola.
 13. Selezionare **applica** per modificare la regola.
 

@@ -3,12 +3,12 @@ title: Distribuire Horizon in una soluzione VMware di Azure
 description: Informazioni su come distribuire VMware Horizon in una soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 2cf6fc5cb7662188650365cb019774d6c778d405
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c34d0ac7806f8284e893cf3ad4f3c82dd404ff41
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684876"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181398"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuire Horizon in una soluzione VMware di Azure 
 
@@ -212,6 +212,10 @@ Collaborare con il team di vendita VMware EUC per determinare il costo della lic
 ### <a name="azure-instance-types"></a>Tipi di istanza di Azure
 
 Per informazioni sulle dimensioni delle macchine virtuali di Azure che saranno necessarie per l'infrastruttura Horizon, vedere le linee guida di VMware disponibili [qui](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
+
+## <a name="references"></a>Riferimenti
+[Requisiti di sistema per l'agente Horizon per Linux](https://docs.vmware.com/en/VMware-Horizon/2012/linux-desktops-setup/GUID-E268BDBF-1D89-492B-8563-88936FD6607A.html)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla soluzione VMware Horizon in Azure, vedere le [domande frequenti](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf)su VMware Horizon.

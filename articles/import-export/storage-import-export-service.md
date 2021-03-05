@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6dd2c7fcef6860cb5a2eaf88d141f8567955ed25
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: b1f1560fc1a00577e1e4b30d922fc7d4cae0ab92
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706472"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181845"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 
@@ -79,7 +79,7 @@ In generale, un processo di importazione prevede i passaggi seguenti:
 >
 > Per le spedizioni all'estero (fuori data center paese/area geografica), condividere un account International Carrier.
 
- ![Figura 1: importazione del flusso di processo](./media/storage-import-export-service/importjob.png)
+ ![Figura 1: importazione del flusso di processo](./media/storage-import-export-service/import-job.png)
 
 Per istruzioni dettagliate per l'importazione dei dati, vedere:
 
@@ -108,7 +108,7 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 >
 > Per le spedizioni all'estero (fuori data center paese/area geografica), condividere un account International Carrier.
   
- ![Figura 2: esportazione del flusso di processo](./media/storage-import-export-service/exportjob.png)
+ ![Figura 2: esportazione del flusso di processo](./media/storage-import-export-service/export-job.png)
 
 Per istruzioni dettagliate sull'esportazione dei dati, vedere [Export data from Azure Blobs](storage-import-export-data-from-blobs.md) (Esportare dati da BLOB di Azure).
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: dc1e54106e2f31c7390d784cba6f92cf775e963c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98044f6ff6311241717cb66a6e26a72702d749e6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572691"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181449"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
 
@@ -42,6 +42,7 @@ Le autorizzazioni seguenti vengono usate dall'identità del cluster AKS, che vie
 
 | Autorizzazione | Motivo |
 |---|---|
+| Microsoft. servizio contenitore/managedClusters/*  <br/> | Obbligatorio per la creazione di utenti e il funzionamento del cluster
 | Microsoft.Network/loadBalancers/delete <br/> Microsoft.Network/loadBalancers/read <br/> Microsoft.Network/loadBalancers/write | Necessario per configurare il servizio di bilanciamento del carico per un servizio LoadBalancer. |
 | Microsoft.Network/publicIPAddresses/delete <br/> Microsoft.Network/publicIPAddresses/read <br/> Microsoft.Network/publicIPAddresses/write | Necessario per trovare e configurare indirizzi IP pubblici per un servizio LoadBalancer. |
 | Microsoft.Network/publicIPAddresses/join/action | Obbligatorio per la configurazione di indirizzi IP pubblici per un servizio LoadBalancer. |

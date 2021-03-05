@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: c2241d738a43c6891ee4bea0829400fdc51a664b
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 83fc88a57a1cdbec35a8f939a81698799d290d70
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734233"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183625"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Distribuire un modello di Machine Learning in funzioni di Azure con cache di Azure per Redis 
 
@@ -26,7 +26,7 @@ Cache di Azure per Redis è estremamente efficiente e scalabile: quando abbinato
 ## <a name="prerequisites"></a>Prerequisiti
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/).
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](../machine-learning/how-to-manage-workspace.md) .
-* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * Un modello di apprendimento automatico sottoposto a training registrato nell'area di lavoro. Se non si dispone di un modello, usare l' [esercitazione relativa alla classificazione delle immagini: Train Model](../machine-learning/tutorial-train-models-with-aml.md) per eseguire il training e la registrazione di un modello.
 
 > [!IMPORTANT]

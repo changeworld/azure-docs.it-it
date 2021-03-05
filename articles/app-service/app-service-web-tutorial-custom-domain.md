@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
-ms.openlocfilehash: b3ff1b344852d57f0effbd978c06aa617682ea4f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 79599ce04b93409c67342be73cf88d5e20621c1d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720317"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182588"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -144,7 +144,7 @@ Dopo aver aggiunto i record CNAME e TXT, la pagina dei record DNS è simile all'
 
 1. Nel riquadro sinistro della pagina dell'app nel portale di Azure selezionare **Domini personalizzati**.
 
-    ![Screenshot che mostra il menu Domini personalizzati.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Screenshot che mostra il menu domini personalizzati.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. Nella pagina **Domini personalizzati** dell'app aggiungere il nome DNS personalizzato completo (`www.contoso.com`) all'elenco.
 
@@ -185,7 +185,7 @@ Per eseguire il mapping di un record A, è necessario l'indirizzo IP esterno del
 
 1. Nel riquadro sinistro della pagina dell'app nel portale di Azure selezionare **Domini personalizzati**.
 
-   ![Screenshot che mostra il menu Domini personalizzati.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+   ![Screenshot che mostra il menu domini personalizzati.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. Nella pagina **Domini personalizzati** copiare l'indirizzo IP dell'app.
 
@@ -277,7 +277,7 @@ Dopo aver aggiunto il record CNAME, la pagina dei record DNS è simile all'esemp
 
 1. Nel riquadro sinistro della pagina dell'app nel portale di Azure selezionare **Domini personalizzati**.
 
-    ![Screenshot che mostra il menu Domini personalizzati.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Screenshot che mostra il menu domini personalizzati.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. Selezionare **Aggiungi dominio personalizzato**.
 
@@ -308,10 +308,7 @@ Passare ai nomi DNS configurati in precedenza, ad esempio `contoso.com`, `www.co
 
 ## <a name="resolve-404-not-found"></a>Risolvere l'errore 404 "Non trovato"
 
-Se si riceve un errore HTTP 404 (Non trovato) quando si seleziona l'URL del dominio personalizzato, verificare che il dominio venga risolto nell'indirizzo IP dell'app usando <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Se non viene risolto, il problema può dipendere da uno dei motivi seguenti:
-
-- Nel dominio personalizzato configurato manca un record A o un record CNAME.
-- Il browser client ha memorizzato nella cache l'indirizzo IP precedente del dominio. Cancellare la cache e testare nuovamente la risoluzione del DNS. In un computer Windows cancellare la cache con `ipconfig /flushdns`.
+Se si riceve un errore HTTP 404 (non trovato) quando si seleziona l'URL del dominio personalizzato, verificare che il dominio venga risolto nell'indirizzo IP dell'app usando <a href="https://www.nslookup.io/" target="_blank">nslookup.io</a>. In caso contrario, verificare che i record A e CNAME siano configurati correttamente utilizzando lo stesso sito. Se l'indirizzo IP viene risolto correttamente, ma si sta ancora ottenendo un 404, il browser potrebbe avere memorizzato nella cache l'indirizzo IP precedente del dominio. Cancellare la cache e testare nuovamente la risoluzione del DNS. In un computer Windows cancellare la cache con `ipconfig /flushdns`.
 
 ## <a name="migrate-an-active-domain"></a>Eseguire la migrazione di un dominio attivo
 

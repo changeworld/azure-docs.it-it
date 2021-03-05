@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 31b2d562d4d0c53b23e8e3f454057b4e26e41ba9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f07c249e3b7cb54283959df410d51ca18998f2cf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875247"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181517"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
@@ -98,7 +98,7 @@ Per le applicazioni che gestiscono gli eventi di archiviazione BLOB è consiglia
 > * Controllare anche che il tipo di evento che si verifica, eventType, sia un oggetto che si è preparati a elaborare e non presupporre che tutti gli eventi che si ricevono siano dei tipi previsti.
 > * Poiché i messaggi possono arrivare dopo un certo ritardo, usare i campi eTag per capire se le informazioni sugli oggetti sono ancora aggiornate. Per informazioni su come usare il campo ETag, vedere [gestione della concorrenza nell'archivio BLOB](./concurrency-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
 > * Poiché i messaggi possono arrivare senza ordine, utilizzare i campi di Sequencer per comprendere l'ordine degli eventi in un oggetto specifico. Il campo sequencer è un valore stringa che rappresenta la sequenza logica di eventi per un nome di BLOB particolare. È possibile usare il confronto di stringhe standard per comprendere la sequenza relativa di due eventi nello stesso nome di BLOB.
-> * Gli eventi di archiviazione garantiscono il recapito at-least-once ai sottoscrittori, che garantisce che tutti i messaggi vengano restituiti. Tuttavia, a causa di tentativi o disponibilità di sottoscrizioni, è possibile che si verifichino occasionalmente messaggi duplicati. Per ulteriori informazioni sul recapito dei messaggi e sui tentativi, vedere [recapito dei messaggi di griglia di eventi e riprovare](../../event-grid/delivery-and-retry.md).
+> * Gli eventi di archiviazione garantiscono il recapito at-least-once ai sottoscrittori, che garantisce che tutti i messaggi vengano restituiti. Tuttavia, a causa dei tentativi tra i nodi e i servizi back-end o la disponibilità delle sottoscrizioni, possono verificarsi messaggi duplicati. Per ulteriori informazioni sul recapito dei messaggi e sui tentativi, vedere [recapito dei messaggi di griglia di eventi e riprovare](../../event-grid/delivery-and-retry.md).
 > * Usare il campo blobType per capire il tipo di operazioni consentite sul BLOB e quali tipi di librerie client è consigliabile usare per accedere al BLOB. I valori validi sono `BlockBlob` o `PageBlob`. 
 > * Usare il campo URL con i costruttori `CloudBlockBlob` e `CloudAppendBlob` per accedere al BLOB.
 > * Ignorare i campi che non si conoscono. Questa procedura consentirà di rimanere flessibili alle nuove funzionalità che potrebbero essere aggiunte in futuro.

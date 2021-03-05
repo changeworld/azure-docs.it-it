@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: cc3323a3ae2d604557d7e09b38252d63f17c5470
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d51de526205e8ef663dcfd682ec5858e4bc2f645
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319917"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183982"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Stato degli scenari di migrazione supportati dal servizio migrazione del database di Azure
 
@@ -69,11 +69,11 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 
 | Destinazione  | Source (Sorgente) | Supporto | Stato |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Database SQL di Azure** | SQL Server | ✔ | GA |
-|   | Servizi Desktop remoto SQL | ✔ | GA |
+| **Database SQL di Azure** | SQL Server | X | GA |
+|   | Servizi Desktop remoto SQL | X | GA |
 |   | Oracle | X |  |
 | **Istanza gestita del database SQL di Azure** | SQL Server | ✔ | GA |
-|   | Servizi Desktop remoto SQL | ✔ | GA |
+|   | Servizi Desktop remoto SQL | X | GA |
 |   | Oracle | X |  |
 | **VM di Azure SQL** | SQL Server | X |   |
 |   | Oracle  | X |  |

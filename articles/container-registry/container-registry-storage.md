@@ -2,34 +2,34 @@
 title: Archiviazione immagini del contenitore
 description: Informazioni dettagliate su come archiviare le immagini del contenitore e altri elementi in Azure Container Registry, inclusi sicurezza, ridondanza e capacità.
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4bdffd111273e00b796e45f4e09bfac9ba6713e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ec4328b44d5493b8d765fa30c548adc3d747d446
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036011"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183268"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Archiviazione immagini del contenitore in Registro Azure Container
 
-Ogni Registro Azure Container [Basic, Standard e Premium](container-registry-skus.md) beneficia delle funzionalità di archiviazione avanzate di Azure, come ad esempio la crittografia dei dati inattivi per la sicurezza dei dati di immagine e la ridondanza geografica per la protezione dei dati di immagine. Le sezioni seguenti descrivono sia le funzionalità che i limiti di archiviazione immagini in Registro Azure Container.
+Ogni registro contenitori di Azure [Basic, standard e Premium](container-registry-skus.md) trae vantaggio dalle funzionalità avanzate di archiviazione di Azure, inclusa la crittografia inattiva. Le sezioni seguenti descrivono le funzionalità e i limiti dell'archiviazione immagini in Azure Container Registry (ACR).
 
 ## <a name="encryption-at-rest"></a>Crittografia dei dati inattivi
 
 Tutte le immagini del contenitore e altri elementi nel registro di sistema vengono crittografati a riposo. Azure esegue automaticamente la crittografia di un'immagine prima di archiviarla e la decrittografa in tempo reale quando l'utente, un'applicazione o un servizio eseguono il pull dell'immagine. Facoltativamente, applicare un livello di crittografia aggiuntivo con una [chiave gestita dal cliente](container-registry-customer-managed-keys.md).
 
-## <a name="geo-redundant-storage"></a>Archiviazione con ridondanza geografica
+## <a name="regional-storage"></a>Archiviazione a livello di area
 
-Per i registri contenitori distribuiti nella maggior parte delle aree, Azure usa uno schema di archiviazione con ridondanza geografica per prevenire la perdita delle immagini del contenitore e di altri artefatti. Azure Container Registry replica automaticamente le immagini del contenitore in più data center geograficamente distanti, impedendone la perdita in caso di errore di archiviazione a livello di area.
+Azure Container Registry archivia i dati nell'area in cui viene creato il registro di sistema, per consentire ai clienti di soddisfare i requisiti di residenza e conformità dei dati.
 
-> [!IMPORTANT]
-> * Se si verifica un errore di archiviazione a livello di area, è possibile recuperare i dati del registro solo contattando il supporto tecnico di Azure. 
-> * Per quanto riguarda i requisiti di residenza dei dati in Brasile meridionale e Asia sudorientale, i dati Container Registry di Azure in tali aree sono archiviati [solo in locale](https://azure.microsoft.com/global-infrastructure/geographies/). Per l'Asia sudorientale, tutti i dati vengono archiviati in Singapore. Per il Brasile meridionale, tutti i dati vengono archiviati in Brasile. Quando l'area viene persa a causa di un'emergenza significativa, Microsoft non sarà in grado di ripristinare i dati di Azure Container Registry.
+Per aiutarti a prevenire le interruzioni del Data Center, alcune aree offrono [ridondanza della zona](zone-redundancy.md), in cui i dati vengono replicati in più data center in una determinata area.
+
+I clienti che desiderano archiviare i dati in più aree per ottenere prestazioni migliori tra aree geografiche diverse o che vogliono avere resilienza in caso di interruzione a livello di area devono abilitare la [replica geografica](container-registry-geo-replication.md).
 
 ## <a name="geo-replication"></a>Replica geografica
 
-Per gli scenari che richiedono una disponibilità ancora più elevata, è consigliabile usare la funzione di [replica geografica](container-registry-geo-replication.md) dei registri Premium. La replica geografica scongiura la perdita dell'accesso al registro in caso di guasto *totale* a livello regionale, non solo di un guasto nel sistema di archiviazione. La replica geografica offre anche altri vantaggi, come l'archiviazione immagini vicina alla rete per push/pull più rapidi negli scenari di distribuzione o sviluppo distribuiti.
+Per gli scenari che richiedono una garanzia a disponibilità elevata, è consigliabile usare la funzionalità di [replica geografica](container-registry-geo-replication.md) dei registri Premium. La replica geografica consente di evitare la perdita di accesso al registro di sistema in caso di errore a livello di area. La replica geografica offre anche altri vantaggi, come l'archiviazione immagini vicina alla rete per push/pull più rapidi negli scenari di distribuzione o sviluppo distribuiti.
 
 ## <a name="zone-redundancy"></a>Ridondanza della zona
 

@@ -3,14 +3,14 @@ title: Distribuire un ruolo di lavoro ibrido per runbook di Linux in Automazione
 description: Questo articolo descrive come installare un ruolo di lavoro ibrido per Runbook di automazione di Azure per eseguire manuali operativi in computer basati su Linux nel Data Center locale o nell'ambiente cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/18/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 543ae640871699c7e1fffda46463752483ff6a4e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708918"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182333"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -48,7 +48,7 @@ La funzionalità Hybrid Runbook Worker supporta le distribuzioni seguenti. Si pr
 * Server Red Hat Enterprise Linux 5, 6, 7 e 8
 * Debian GNU/Linux 6, 7 e 8
 * Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS e 18,04 LTS
-* SUSE Linux Enterprise Server 12 e 15
+* SUSE Linux Enterprise Server 12 e 15 (SUSE non ha rilasciato versioni numerate 13 o 14)
 
 > [!IMPORTANT]
 > Prima di abilitare la funzionalità Gestione aggiornamenti, che dipende dal ruolo di lavoro ibrido per Runbook di sistema, confermare le distribuzioni [supportate.](update-management/overview.md#supported-operating-systems)
@@ -66,7 +66,7 @@ I requisiti minimi per un sistema Linux e un ruolo di lavoro ibrido per Runbook 
 |Glibc |Libreria GNU C| 2.5-12 |
 |Openssl| Librerie OpenSSL | 1.0 (sono supportati TLS 1.1 e TLS 1.2)|
 |Curl | Client Web cURL | 7.15.5|
-|Python-ctypes | Python 2.x è obbligatorio |
+|Python-ctypes | Sono necessari Python 2. x o Python 3. x |
 |PAM | Moduli di autenticazione modulare|
 | **Pacchetto facoltativo** | **Descrizione** | **Versione minima**|
 | PowerShell Core | Per eseguire PowerShell manuali operativi, è necessario installare PowerShell core. Vedere [Installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo. | 6.0.0 |
@@ -90,13 +90,16 @@ I ruoli di lavoro ibridi per Runbook di Linux supportano un set limitato di tipi
 
 |Tipo Runbook | Supportato |
 |-------------|-----------|
-|Python 2 |Sì |
-|PowerShell |Sì<sup>1</sup> |
+|Python 3 (anteprima)|Sì, necessario solo per queste distribuzioni: SUSE LES 15, RHEL 8 e CentOS 8|
+|Python 2 |Sì, per qualsiasi distribuzione che non richiede Python 3<sup>1</sup> |
+|PowerShell |Sì<sup>2</sup> |
 |Flusso di lavoro PowerShell |No |
 |Grafico |No |
 |Grafico del flusso di lavoro di PowerShell |No |
 
-<sup>1</sup> PowerShell manuali operativi richiede l'installazione di PowerShell core nel computer Linux. Vedere [Installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo.
+<sup>1</sup> Vedere [sistemi operativi Linux supportati](#supported-linux-operating-systems).
+
+<sup>2</sup> PowerShell manuali operativi richiede l'installazione di PowerShell core nel computer Linux. Vedere [Installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo.
 
 ### <a name="network-configuration"></a>Configurazione di rete
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/07/2020
-ms.openlocfilehash: 445810d5873bb935ded180a969e4612542bde5ed
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.date: 3/04/2021
+ms.openlocfilehash: 92702f38b6143c5dac2111c57fadeba7d9142992
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120182"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181058"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migrazione di soluzioni di co-selling da OCP GTM al Marketplace commerciale
 
@@ -136,7 +136,7 @@ Per istruzioni dettagliate sulle informazioni che è necessario fornire prima ch
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="Le schede di configurazione della panoramica dell'offerta sono disponibili nel centro per i partner.":::
 
-3. Alcuni dei dettagli relativi ai venditori Microsoft sono stati copiati dalla soluzione OCP GTM. Completare le informazioni necessarie rimanenti nella scheda **co-selling with Microsoft** per rendere disponibile la co-selling dell'offerta. Al termine, selezionare **revisione e pubblicazione**. Per ulteriori informazioni, vedere [come inviare i materiali di co-selling nel centro per i partner](marketplace-co-sell.md).
+3. Alcuni dei dettagli relativi ai venditori Microsoft sono stati copiati dalla soluzione OCP GTM. Completare le informazioni necessarie rimanenti nella scheda **co-selling with Microsoft** per rendere disponibile la co-selling dell'offerta. Al termine, selezionare **revisione e pubblicazione**. Per altre informazioni, vedere [configurare la co-selling per un'offerta di Marketplace commerciale](commercial-marketplace-co-sell.md).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="Scheda co-selling dell'offerta nel centro per i partner.":::
 
@@ -154,5 +154,5 @@ Per istruzioni dettagliate sulle informazioni che è necessario fornire prima ch
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Rivendere tramite partner CSP](cloud-solution-providers.md)
-- [Come inviare i materiali di co-selling nel centro per i partner](marketplace-co-sell.md)
+- [Configurare la co-selling per un'offerta di Marketplace commerciale](commercial-marketplace-co-sell.md)
 - Visualizza le [domande frequenti](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

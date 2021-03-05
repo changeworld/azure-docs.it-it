@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: a42601b696f292e9d2a9da90070fea3662acae87
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6f6d71dec9726f009ab9a56e0a49ba21f5d218fd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099908"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181024"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Domande frequenti su Azure front door standard/Premium (anteprima)
 
@@ -85,7 +85,11 @@ Sì. In realtà, il front-end di Azure supporta l'host, il percorso, il reindiri
 
 ### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Ricerca per categorie bloccare l'accesso al back-end solo alla porta di ingresso di Azure?
 
-Per bloccare l'applicazione in modo da accettare solo il traffico proveniente dall'sportello anteriore specifico, è necessario configurare gli ACL IP per il back-end. Limitare quindi il traffico del back-end al valore specifico dell'intestazione ' X-Azure-FDID ' inviato dalla porta anteriore. Questi passaggi sono descritti di seguito:
+Il modo migliore per bloccare l'applicazione in modo da accettare il traffico solo dall'istanza di front door specifica consiste nel pubblicare l'applicazione tramite un endpoint privato. Il traffico di rete tra la porta anteriore e l'applicazione attraversa il VNet e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica.
+
+Per altre informazioni, vedere la pagina relativa alla [protezione dell'origine per lo sportello anteriore con collegamento privato](concept-private-link.md).  
+
+In alternativa, per bloccare l'applicazione in modo da accettare il traffico solo da un sportello anteriore specifico, è necessario configurare gli ACL IP per il back-end. Limitare quindi il traffico del back-end al valore specifico dell'intestazione ' X-Azure-FDID ' inviato dalla porta anteriore. Questi passaggi sono descritti di seguito:
 
 * Configurare ACLing IP per i back-end in modo che accettino il traffico dallo spazio degli indirizzi IP back-end di Azure front door e dai servizi di infrastruttura di Azure. Vedere i dettagli dell'indirizzo IP seguente per ACLing il back-end:
  

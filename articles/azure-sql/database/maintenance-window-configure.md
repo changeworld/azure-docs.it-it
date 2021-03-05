@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/04/2021
-ms.openlocfilehash: f5692f2bcaaadfc56084ec8db745eae48112ecf3
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 210f0c52a2b27492bfa2181473043df3537157d2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101240"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183200"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configura finestra di manutenzione (anteprima)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -178,7 +178,7 @@ Quando si imposta la finestra di manutenzione, ogni area ha le proprie opzioni d
 
 ### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>Individuare le finestre di manutenzione del database SQL e del pool elastico
 
-Nell'esempio seguente vengono restituite le finestre di manutenzione disponibili per l'area *eastus2* usando il comando [AZ Maintenance public-Configuration List](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list) . Per i database e i pool elastici, impostare `maintenanceScope` su `SQLDB` .
+Nell'esempio seguente vengono restituite le finestre di manutenzione disponibili per l'area *eastus2* usando il comando [AZ Maintenance public-Configuration List](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) . Per i database e i pool elastici, impostare `maintenanceScope` su `SQLDB` .
 
    ```azurecli
    location="eastus2"
@@ -188,7 +188,7 @@ Nell'esempio seguente vengono restituite le finestre di manutenzione disponibili
 
 ### <a name="discover-sql-managed-instance-maintenance-windows"></a>Individuare le finestre di manutenzione di SQL Istanza gestita
 
-Nell'esempio seguente vengono restituite le finestre di manutenzione disponibili per l'area *eastus2* usando il comando [AZ Maintenance public-Configuration List](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list) . Per le istanze gestite, impostare `maintenanceScope` su `SQLManagedInstance` .
+Nell'esempio seguente vengono restituite le finestre di manutenzione disponibili per l'area *eastus2* usando il comando [AZ Maintenance public-Configuration List](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) . Per le istanze gestite, impostare `maintenanceScope` su `SQLManagedInstance` .
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"

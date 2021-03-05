@@ -57,8 +57,12 @@
       href: how-to-cache-purge.md
     - name: Compressione
       href: how-to-compression.md
-    - name: Abilita collegamento privato ad app Web
-      href: how-to-enable-private-link-web-app.md
+    - name: Abilita collegamento privato
+      items:
+        - name: Eseguire la connessione a un account di archiviazione
+          href: how-to-enable-private-link-storage-account.md
+        - name: Connettersi a un'app Web
+          href: how-to-enable-private-link-web-app.md
     - name: Registrazione
       href: how-to-logs.md
     - name: Monitoraggio e avvisi

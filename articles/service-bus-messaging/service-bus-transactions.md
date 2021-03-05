@@ -2,14 +2,14 @@
 title: Panoramica dell'elaborazione delle transazioni nel bus di servizio di Azure
 description: Questo articolo offre una panoramica dell'elaborazione delle transazioni e della funzionalità di invio tramite il bus di servizio di Azure.
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e2848f41d5557584b0f1a197b548a00a4aef1564
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684792"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183744"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Panoramica dell'elaborazione delle transazioni del bus di servizio
 
@@ -42,6 +42,8 @@ La ricezione del messaggio (completamento, abbandono, non recapitabilità, rinvi
 Per consentire la consegna transazionale di dati da una coda o un argomento a un processore e quindi a un'altra coda o argomento, il bus di servizio supporta i *trasferimenti*. In un'operazione di trasferimento, un mittente invia prima di tutto un messaggio a una *coda o* a un argomento di trasferimento e la coda o l'argomento di trasferimento sposta immediatamente il messaggio alla coda o all'argomento di destinazione desiderato usando la stessa implementazione di trasferimento affidabile su cui si basa la funzionalità di autoinoltri. Non viene mai eseguito il commit del messaggio nel log della coda di trasferimento o dell'argomento in modo che diventi visibile per i consumer della coda di trasferimento o dell'argomento.
 
 La potenza di questa funzionalità transazionale diventa evidente quando la coda di trasferimento o l'argomento stesso è l'origine dei messaggi di input del mittente. In altre parole, il bus di servizio può trasferire il messaggio alla coda o all'argomento di destinazione "tramite" la coda o l'argomento di trasferimento, durante l'esecuzione di un'operazione completa (o rinviata o non recapitabile) sul messaggio di input, tutto in un'unica operazione atomica. 
+
+Se è necessario ricevere da una sottoscrizione dell'argomento e quindi inviare a una coda o a un argomento nella stessa transazione, l'entità di trasferimento deve essere un argomento. In questo scenario, avviare Transaction Scope nell'argomento, ricevere dalla sottoscrizione con nell'ambito della transazione e inviare tramite l'argomento transfer a una coda o a un argomento di destinazione. 
 
 ### <a name="see-it-in-code"></a>Codice di esempio
 

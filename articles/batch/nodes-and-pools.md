@@ -3,12 +3,12 @@ title: Nodi e pool in Azure Batch
 description: Informazioni sui nodi di calcolo, sui pool e sul modo in cui vengono usati in un flusso di lavoro di Azure Batch dal punto di vista dello sviluppo.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: e55be57968eae2a371a21b214dbd15921641e31f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: be38d4f91afcaa1ac31e9b9bbc6d2547da2ee99e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741775"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183659"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodi e pool in Azure Batch
 
@@ -74,6 +74,9 @@ La **Configurazione macchina virtuale**, specifica che il pool è composto da ma
 L' [agente del nodo batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) è un programma che viene eseguito in ogni nodo del pool e fornisce l'interfaccia di comando e controllo tra il nodo e il servizio batch. Sono disponibili diverse implementazioni dell'agente del nodo, definite SKU, per sistemi operativi diversi. Quando si crea un pool basato su Configurazione macchina virtuale, è necessario specificare non solo le dimensioni dei nodi e l'origine delle immagini usate per crearli, ma anche il **riferimento a un'immagine della macchina virtuale** e lo **SKU dell'agente del nodo** Batch da installare nei nodi. Per altre informazioni sulla specifica di queste proprietà del pool, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md). È anche possibile collegare uno o più dischi di dati vuoti a VM in pool create da immagini del Marketplace oppure includere i dischi di dati nelle immagini personalizzate usate per creare le macchine virtuali. Quando si includono dischi dati è necessario montare e formattare i dischi all'interno di una macchina virtuale per poterli usare.
 
 ### <a name="cloud-services-configuration"></a>Configurazione di Servizi cloud
+
+> [!WARNING]
+> I pool di configurazione del servizio cloud sono deprecati. Usare invece i pool di configurazione delle macchine virtuali.
 
 La **configurazione di Servizi cloud**, specifica che il pool è composto da nodi di Servizi cloud di Azure. Servizi cloud fornisce solo nodi di calcolo Windows.
 

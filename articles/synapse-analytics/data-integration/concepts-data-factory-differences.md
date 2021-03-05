@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8818d4db489cef8203ae515c18c61e215d577033
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9cd3fc9353c684ec6617761616b958477ca83ee3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387616"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183642"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integrazione dei dati in Azure sinapsi Analytics rispetto a Azure Data Factory
 
@@ -24,7 +24,7 @@ In Azure sinapsi Analytics le funzionalità di integrazione dei dati, ad esempio
 
 Per la disponibilità delle funzionalità, vedere la tabella seguente:
 
-| Categoria                 | Funzionalità    |  Azure Data Factory  | Azure Synapse Analytics |
+| Category                 | Funzionalità    |  Azure Data Factory  | Azure Synapse Analytics |
 | ------------------------ | ---------- | :------------------: | :---------------------: |
 | **Integration Runtime**  | Uso di SSIS e SSIS Integration Runtime | ✓ | ✗ |
 |                          | Supporto per Integration Runtime tra aree (flussi di dati) | ✓ | ✗ |
@@ -36,6 +36,7 @@ Per la disponibilità delle funzionalità, vedere la tabella seguente:
 | **Integrazione del repository GIT** | Integrazione con GIT | ✓ | ✓ |
 | **Monitoring**           | Monitoraggio dei processi Spark per il flusso di dati | ✗ | ✓<br><small>*Sfruttare i pool di Spark sinapsi* |
 |                          | Integrazione con monitoraggio di Azure | ✓ | ✗ |
+| **Derivazione** | Supporta la pubblicazione di dati di derivazione della pipeline in  | ✓ | ✗ |  
 
 > [!Note]
 > Il **tempo di** esecuzione è un'impostazione Azure Integration Runtime che consente al cluster Spark di *rimanere* attivo per un periodo di tempo dopo un'esecuzione del flusso di dati.

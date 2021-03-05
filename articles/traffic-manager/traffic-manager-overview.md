@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2021
 ms.author: duau
-ms.openlocfilehash: 09b82eed5ad6a9ad121ca56d197eb9c003d027f5
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 8c8897218b153c8584c89abab98934268ccd555d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624910"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182163"
 ---
 # <a name="what-is-traffic-manager"></a>Gestione traffico di Azure
 Gestione traffico di Azure è un servizio di bilanciamento del carico del traffico basato su DNS. Questo servizio ti permette di distribuire il traffico alle tue applicazioni pubbliche nelle aree di Azure globali. Gestione traffico fornisce anche gli endpoint pubblici con disponibilità elevata e velocità di risposta rapida.
@@ -24,8 +24,12 @@ Gestione traffico di Azure è un servizio di bilanciamento del carico del traffi
 Gestione traffico USA DNS per indirizzare le richieste client all'endpoint di servizio appropriato in base a un metodo di routing del traffico. Gestione traffico fornisce anche il monitoraggio dello stato per ogni endpoint. L'endpoint può essere qualsiasi servizio con connessione Internet ospitato all'interno o all'esterno di Azure. Gestione traffico offre diversi [metodi di routing del traffico](traffic-manager-routing-methods.md) e [opzioni di monitoraggio degli endpoint](traffic-manager-monitoring.md) per soddisfare le diverse esigenze delle applicazioni e i modelli di failover automatico. Gestione traffico è resiliente agli errori, incluso l'errore di un'intera area di Azure.
 
 >[!NOTE]
-> Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari. Per la terminazione del protocollo Transport Layer Security (TLS) ("offload SSL"), la richiesta per HTTP/HTTPS o l'elaborazione a livello di applicazione, vedere [Gateway di applicazione](../application-gateway/overview.md). Se si vuole ottenere il bilanciamento a livello di area, vedere [Load Balancer](../load-balancer/load-balancer-overview.md). Gli scenari end-to-end potrebbero trarre vantaggio dalla combinazione di queste soluzioni in base alle esigenze.
->
+> Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari. 
+> * Se si vuole bilanciare il carico tra i server in un'area a livello di applicazione, esaminare il [gateway applicazione](../application-gateway/overview.md).
+> * Se è necessario ottimizzare il routing globale del traffico Web e ottimizzare le prestazioni e l'affidabilità dell'utente finale di livello superiore tramite il failover globale rapido, vedere la [porta anteriore](../frontdoor/front-door-overview.md).
+> * Per eseguire il bilanciamento del carico a livello di rete, vedere [Load Balancer](../load-balancer/load-balancer-overview.md). 
+> 
+> Gli scenari end-to-end potrebbero trarre vantaggio dalla combinazione di queste soluzioni in base alle esigenze.
 > Per un confronto tra le opzioni di bilanciamento del carico di Azure, vedere [Panoramica delle opzioni di bilanciamento del carico in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 Gestione traffico offre le funzionalità seguenti:

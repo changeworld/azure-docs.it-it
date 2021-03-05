@@ -4,15 +4,15 @@ description: Questo articolo descrive come usare il ripartizionamento per ottimi
 ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
-ms.date: 09/19/2019
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 72f81a0eac81acdca71c8ed81695789c417898ca
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 95749f2acea6b605cfdba5a4f3d4f5526e751c5a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014196"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182537"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Usare il partizionamento per ottimizzare l'elaborazione con analisi di flusso di Azure
 
@@ -23,25 +23,47 @@ Potrebbe non essere possibile usare la [parallelizzazione](stream-analytics-para
 * Non si controlla la chiave di partizione per il flusso di input.
 * L'origine "spruzza" input tra più partizioni che successivamente devono essere unite.
 
-Il partizionamento o il rimescolamento è necessario quando si elaborano i dati in un flusso non partizionato in base a uno schema di input naturale, ad esempio **PartitionID** per hub eventi. Quando si esegue la ripartizione, ogni partizione può essere elaborata in modo indipendente, che consente di scalare in modo lineare la pipeline di streaming.
+Il partizionamento o il rimescolamento è necessario quando si elaborano i dati in un flusso non partizionato in base a uno schema di input naturale, ad esempio **PartitionID** per hub eventi. Quando si esegue la ripartizione, ogni partizione può essere elaborata in modo indipendente, che consente di scalare in modo lineare la pipeline di streaming. 
 
 ## <a name="how-to-repartition"></a>Come ripartizionare
+È possibile ripartizionare l'input in due modi:
+1. Usare un processo di analisi di flusso separato che esegue il partizionamento
+2. Usare un singolo processo ma eseguire il ripartizionamento prima della logica di analisi personalizzata
 
-Per eseguire la ripartizione, utilizzare la parola chiave **in** dopo un'istruzione **Partition by** nella query. Nell'esempio seguente i dati vengono partizionati per **DeviceID** in un numero di partizioni pari a 10. L'hashing di **DeviceID** viene usato per determinare quale partizione deve accettare il sottoflusso. I dati vengono scaricati in modo indipendente per ogni flusso partizionato, supponendo che l'output supporti le Scritture partizionate e disponga di 10 partizioni.
-
+### <a name="creating-a-separate-stream-analytics-job-to-repartition-input"></a>Creazione di un processo di analisi di flusso separato per la ripartizione dell'input
+È possibile creare un processo che legge input e scritture in un output di hub eventi usando una chiave di partizione. Questo hub eventi può quindi fungere da input per un altro processo di analisi di flusso in cui si implementa la logica di analisi. Quando si configura questo output di hub eventi nel processo, è necessario specificare la chiave di partizione in base alla quale analisi di flusso ripartirà i dati. 
 ```sql
+-- For compat level 1.2 or higher
 SELECT * 
 INTO output
 FROM input
-PARTITION BY DeviceID 
-INTO 10
+
+--For compat level 1.1 or lower
+SELECT *
+INTO output
+FROM input PARTITION BY PartitionId
+```
+
+### <a name="repartition-input-within-a-single-stream-analytics-job"></a>Ripartizionare l'input all'interno di un singolo processo di analisi di flusso
+È anche possibile introdurre un passaggio nella query che prima Ripartiziona l'input e che può quindi essere usato da altri passaggi della query. Se ad esempio si vuole ripartizionare l'input in base a **DeviceID**, la query sarà:
+```sql
+WITH RepartitionedInput AS 
+( 
+SELECT * 
+FROM input PARTITION BY DeviceID
+)
+
+SELECT DeviceID, AVG(Reading) as AvgNormalReading  
+INTO output
+FROM RepartitionedInput  
+GROUP BY DeviceId, TumblingWindow(minute, 1)  
 ```
 
 La query di esempio seguente unisce due flussi di dati ripartizionati. Quando si uniscono due flussi di dati ripartizionati, i flussi devono avere la stessa chiave di partizione e il numero. Il risultato è un flusso con lo stesso schema di partizione.
 
 ```sql
-WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID INTO 10),
-step2 AS (SELECT * FROM input2 PARTITION BY DeviceID INTO 10)
+WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID),
+step2 AS (SELECT * FROM input2 PARTITION BY DeviceID)
 
 SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY DeviceID
 ```

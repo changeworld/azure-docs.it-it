@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 1a3f2ae4829c7f4ae41d31e2a2fc35d79adf3d4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 772602a11878276da3b81b84e7f4016997375077
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596707"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183064"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurare la visualizzazione delle dipendenze
 
@@ -22,14 +22,14 @@ Questo articolo descrive come configurare l'analisi delle dipendenze basate su a
 - Esaminare i requisiti di supporto e distribuzione per l'analisi delle dipendenze basate su agente per:
     - [VM VMware](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
     - [Server fisici](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
-    - [Macchine virtuali Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+    - [VM Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements)
 - Assicurarsi di:
     - Avere un progetto Azure Migrate. In caso contrario, [crearne](./create-manage-projects.md) uno ora.
     - Verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server Assessment al progetto.
     - Configurare un' [appliance Azure migrate](migrate-appliance.md) per individuare i computer locali. L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. Configurare un'appliance per:
-        - [VMware](how-to-set-up-appliance-vmware.md) Macchine virtuali.
-        - [Hyper-V](how-to-set-up-appliance-hyper-v.md) Macchine virtuali.
-        - [Server fisici](how-to-set-up-appliance-physical.md).
+        - [VMware](how-to-set-up-appliance-vmware.md) Macchine virtuali
+        - [Hyper-V](how-to-set-up-appliance-hyper-v.md) Macchine virtuali
+        - [Server fisici](how-to-set-up-appliance-physical.md)
 - Per usare la visualizzazione delle dipendenze, è necessario associare un' [area di lavoro log Analytics](../azure-monitor/logs/manage-access.md) a un progetto Azure migrate:
     - È possibile aggiungere un'area di lavoro solo dopo aver configurato il dispositivo Azure Migrate e individuando i computer nel progetto Azure Migrate.
     - Assicurarsi di disporre di un'area di lavoro nella sottoscrizione che contiene il progetto Azure Migrate.

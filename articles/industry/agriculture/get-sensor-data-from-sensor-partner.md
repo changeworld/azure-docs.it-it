@@ -4,13 +4,13 @@ description: Questo articolo descrive come ottenere i dati dei sensori dai partn
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 57baa00f7f9b64212d0aee8b0a2efeca814abeb3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 474b6f8356724546105d902a15427f483f656317
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168529"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182775"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Ottenere i dati dei sensori dai partner dei sensori
 
@@ -80,7 +80,7 @@ Per generare le informazioni precedenti, attenersi alla procedura seguente:
 
     ```
 
-8. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory**  >  pagina**Panoramica** .
+8. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory**  >  pagina **Panoramica** .
 
     ```azurepowershell-interactive
 
@@ -92,7 +92,7 @@ Per generare le informazioni precedenti, attenersi alla procedura seguente:
 > 1. Il nome dell'endpoint dell'API datahub deve essere in lettere minuscole.
 > 2. Se si copia l'URL del nome del sito Web farmbeats per l'endpoint API datahub, assicurarsi che non sia presente una barra finale (/).
 
-9. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API**, l' **ID tenant**, l' **ID client**, il **segreto client**e la **stringa di connessione EventHub**.
+9. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API**, l' **ID tenant**, l' **ID client**, il **segreto client** e la **stringa di connessione EventHub**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrare i dati del dispositivo usando le credenziali generate
 

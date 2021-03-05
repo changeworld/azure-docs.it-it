@@ -10,12 +10,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 7cefe75eefb746c150b051a7bd1f4513c103d205
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: ea418576ab8fe06964a61e48f16393e1a0566ce8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655859"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182248"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Trigger di riscaldamento di funzioni di Azure
 
@@ -28,7 +28,7 @@ Questo articolo illustra come usare il trigger di riscaldamento in funzioni di A
 
 ## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
-È necessario il pacchetto NuGet [Microsoft. Azure. webjobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) , versione **3.0.5 o successiva** . Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/). 
+È necessario il pacchetto NuGet [Microsoft. Azure. webjobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) , versione **3.0.5 o successiva** . Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/main/src/WebJobs.Extensions/Extensions/Warmup). 
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 

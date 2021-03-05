@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: ac93d835b8dbdd5a12d031825dcb879160df5e95
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b9a207ffa14a18a5f4421fd21cebed28290b5ea6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575347"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183081"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Informazioni dettagliate sulle risorse in Azure
 
@@ -40,7 +40,7 @@ Per altre informazioni, vedere [gestire le origini dati in Azure (anteprima)](ma
 In Azure competenza è possibile registrare e analizzare i tipi di origine. Una volta completata l'analisi, è possibile visualizzare la distribuzione di asset in asset Insights, che indica lo stato dei dati in base alla classificazione e ai set di risorse. Indica inoltre se sono presenti modifiche alle dimensioni dei dati.
 
 > [!NOTE]
-> Dopo aver analizzato i tipi di origine, fornire a Asset Insights fino a un'ora per riflettere i nuovi asset.
+> Dopo aver analizzato i tipi di origine, assegnare a Asset Insights 3-8 ore per riflettere i nuovi asset. Il ritardo può essere dovuto a un traffico elevato nell'area di distribuzione o alle dimensioni del carico di lavoro. Per ulteriori informazioni, contattare il team di supporto di Field.
 
 1. Passare alla risorsa di competenza di Azure nella portale di Azure.
 
@@ -94,7 +94,7 @@ I due grafici successivi in asset Insights mostrano una distribuzione di tipi di
 
 1. Selezionare il percorso per visualizzare l'elenco di asset.
 
-Il secondo grafico nei tipi di origine basati su file è **_costituito da file non associati a un set di risorse_**. Se si prevede che tutti i file debbano essere sottoposti a rollup in un set di risorse, questo grafico può essere utile per comprendere quali asset non sono stati sottoposti a rollup. Gli asset mancanti possono indicare il modello di file errato nella cartella. Seguire gli stessi passaggi di altri grafici per visualizzare altri dettagli sui file.
+Il secondo grafico nei tipi di origine basati su file è ***costituito da file non associati a un set di risorse***. Se si prevede che tutti i file debbano essere sottoposti a rollup in un set di risorse, questo grafico può essere utile per comprendere quali asset non sono stati sottoposti a rollup. Gli asset mancanti possono indicare il modello di file errato nella cartella. Seguire gli stessi passaggi di altri grafici per visualizzare altri dettagli sui file.
 
    :::image type="content" source="./media/asset-insights/file-based-assets.png" alt-text="Visualizza Asset basati su file":::  
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d8e6c4b2addf9745b2ddabe8f6fdad9d82dce59f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: ca25bbb72ff853f819f3e8ce4e0092ddb762b156
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503951"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183812"
 ---
 # <a name="use-purview-studio"></a>Usare Purview Studio
 
@@ -26,7 +26,7 @@ Questo articolo fornisce una panoramica di alcune delle principali funzionalità
 
 * Per avviare l'account di competenza, passare a account di competenza in portale di Azure, selezionare l'account che si vuole avviare e avviare l'account.
 
-   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Screenshot della selezione per avviare il catalogo degli account Azure per le competenze.":::
+   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Screenshot dell'opzione da selezionare per avviare il catalogo dell'account Azure Purview.":::
 
 * Un altro modo per avviare l'account di competenza consiste nell'accedere a `https://web.purview.azure.com` , selezionare **Azure Active Directory** e un nome di account per avviare l'account.
 
@@ -38,7 +38,7 @@ Questo articolo fornisce una panoramica di alcune delle principali funzionalità
 
 Nell'elenco seguente sono riepilogate le principali funzionalità della **Home page**. Ogni numero nell'elenco corrisponde a un numero evidenziato nella schermata precedente.
 
-1. Nome descrittivo del catalogo. È possibile impostare il nome del catalogo in **Management Center** > **informazioni sull'account*.
+1. Nome descrittivo del catalogo. È possibile impostare il nome del catalogo nelle  >  **informazioni sull'account** del centro di gestione.
 
 2. Il catalogo Analytics mostra il numero di:
     - Utenti, gruppi e applicazioni

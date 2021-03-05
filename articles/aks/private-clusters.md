@@ -4,12 +4,12 @@ description: Informazioni su come creare un cluster privato del servizio Azure K
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: d3b53c860c150b5b67d38cf5d11db9f070ffb81d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f0c74c1b3715fd3f5c83c3a9231009e622b87927
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392800"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181228"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creare un cluster privato del servizio Azure Kubernetes
 
@@ -134,8 +134,8 @@ Come indicato in precedenza, il peering di rete virtuale è un modo per accedere
 * In caso di manutenzione sul piano di controllo, l' [IP AKS](./limit-egress-traffic.md) potrebbe cambiare. In questo caso è necessario aggiornare il record A che punta all'indirizzo IP privato del server API nel server DNS personalizzato e riavviare tutti i pod o le distribuzioni personalizzati usando hostNetwork.
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations

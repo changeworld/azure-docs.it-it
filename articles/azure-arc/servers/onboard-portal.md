@@ -3,12 +3,12 @@ title: Connettere macchine virtuali ibride ad Azure dal portale di Azure
 description: Questo articolo illustra come installare l'agente e connettere i computer ad Azure usando i server abilitati per Azure Arc dal portale di Azure.
 ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 97962f7fd9816e398f017555d7043cf65db00ed8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d7a89db7b8a42476a312a8f9a96c5ad230b140a2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584961"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183149"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connettere macchine virtuali ibride ad Azure dal portale di Azure
 
@@ -38,7 +38,7 @@ Lo script per automatizzare il download e l'installazione e stabilire la conness
 
     1. Nell'elenco a discesa **Gruppo di risorse** selezionare il gruppo di risorse da cui verrà gestito il computer.
     1. Nell'elenco a discesa **Area** selezionare l'area di Azure in cui archiviare i metadati dei server.
-    1. Nell'elenco a discesa **Sistema operativo** selezionare il sistema operativo in cui verrà eseguito lo script.
+    1. Nell'elenco a discesa **sistema operativo** selezionare il sistema operativo in cui è configurato lo script per l'esecuzione.
     1. Se il computer comunica tramite un server proxy per connettersi a Internet, specificare l'indirizzo IP del server proxy o il nome e il numero di porta che il computer userà per le comunicazioni. Immettere il valore nel formato `http://<proxyURL>:<proxyport>`.
     1. Selezionare **Avanti: Tag**.
 
@@ -164,8 +164,8 @@ Dopo aver installato l'agente e averlo configurato per la connessione ai server 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Le informazioni sulla risoluzione dei problemi sono reperibili nella [Guida alla risoluzione dei problemi relativi all'agente del computer connesso](troubleshoot-agent-onboard.md).
+- Le informazioni sulla risoluzione dei problemi sono reperibili nella [Guida alla risoluzione dei problemi relativi all'agente del computer connesso](troubleshoot-agent-onboard.md).
 
-* Informazioni su come gestire il computer usando i [criteri di Azure](../../governance/policy/overview.md), ad esempio la configurazione di VM [Guest](../../governance/policy/concepts/guest-configuration.md), verificare che il computer stia segnalando l'area di lavoro Log Analytics prevista, abilitare il monitoraggio con [Monitoraggio di Azure con macchine virtuali](../../azure-monitor/vm/vminsights-enable-policy.md) e molto altro ancora.
+- Informazioni su come gestire il computer usando [criteri di Azure](../../governance/policy/overview.md), ad esempio la [configurazione Guest](../../governance/policy/concepts/guest-configuration.md)della VM, verificare che il computer stia segnalando l'area di lavoro log Analytics prevista, abilitare il monitoraggio con [monitoraggio di Azure con le macchine virtuali](../../azure-monitor/vm/vminsights-enable-policy.md)e molto altro ancora.
 
-* Altre informazioni sull'[agente Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si desidera raccogliere dati di monitoraggio del carico di lavoro e del sistema operativo, gestirli con manuali operativi di automazione o funzionalità come Gestione aggiornamenti o usare altri servizi di Azure come il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).
+- Altre informazioni sull'[agente Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si desidera raccogliere dati di monitoraggio del carico di lavoro e del sistema operativo con Monitoraggio di Azure per le macchine virtuali, gestirli usando manuali operativi di automazione o funzionalità come Gestione aggiornamenti oppure usare altri servizi di Azure come il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).

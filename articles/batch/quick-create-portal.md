@@ -4,12 +4,12 @@ description: Questa guida di avvio rapido illustra come usare il portale di Azur
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: d8584ecea8ddd5934771dbe5945a6172a28c801c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: HT
+ms.openlocfilehash: 1234a932a732cdb6fda1c412a423ae0b1ea089e9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106477"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184016"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Guida introduttiva: Eseguire il primo processo Batch nel portale di Azure
 
@@ -69,7 +69,7 @@ Dopo alcuni minuti, lo stato dell'allocazione diventa **Stabile** e i nodi vengo
 
 ## <a name="create-a-job"></a>Creare un processo
 
-Dopo aver creato un pool, creare un processo da eseguire nel pool stesso. Un processo Batch è un gruppo logico per una o più attività. Un processo include le impostazioni comuni per le attività, ad esempio la priorità e il pool nel quale eseguire le attività. Inizialmente il processo è privo di attività.
+Dopo aver creato un pool, creare un processo da eseguire nel pool stesso. Un processo batch è un gruppo logico di una o più attività. Un processo include le impostazioni comuni per le attività, ad esempio la priorità e il pool nel quale eseguire le attività. Inizialmente il processo è privo di attività.
 
 1. Nella visualizzazione dell'account Batch selezionare **Processi** > **Aggiungi**.
 

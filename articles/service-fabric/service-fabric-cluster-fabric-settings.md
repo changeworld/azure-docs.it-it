@@ -3,12 +3,12 @@ title: Modificare le impostazioni di un cluster di Azure Service Fabric
 description: Questo articolo descrive le impostazioni dell'infrastruttura e i criteri di aggiornamento dell'infrastruttura che è possibile personalizzare.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 34a63a86bc10a787ef077b9067c3fba5a9e4da25
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919783"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183404"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -130,7 +130,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |EnableTelemetry |Bool, valore predefinito: true | Dinamico |Parametro per abilitare o disabilitare la telemetria. |
 |FailuresOnlyHttpTelemetry | Bool, valore predefinito: false | Dinamico | Se è abilitata l'acquisizione della telemetria HTTP. Vengono acquisite solo le richieste non riuscite. Ciò consente di ridurre il numero di eventi generati per la telemetria. |
 |HttpTelemetryCapturePercentage | int, valore predefinito: 50 | Dinamico | Se è abilitata l'acquisizione della telemetria HTTP. Viene acquisita solo una percentuale casuale di richieste. Ciò consente di ridurre il numero di eventi generati per la telemetria. |
-|MaxDiskQuotaInMB |Int, valore predefinito: 65536 | Dinamico |Quota del disco in MB per i file di log di Windows Fabric. |
+|MaxDiskQuotaInMB |Int, valore predefinito: 65536 | Dinamico |Quota disco in MB per i file di log dell'infrastruttura di Windows e Linux. |
 |ProducerInstances |string | Dinamico |L'elenco delle istanze di producer DCA. |
 
 ## <a name="dnsservice"></a>DnsService
