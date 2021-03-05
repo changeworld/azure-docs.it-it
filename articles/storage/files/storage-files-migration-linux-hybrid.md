@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0ef4faf14ec01a25419fd22ba8c73a8a033b4172
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f95585237bbee743083b855dd78cc850c4daffe8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879983"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202689"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Eseguire la migrazione da Linux a una distribuzione cloud ibrida con Sincronizzazione file di Azure
 
@@ -39,7 +39,7 @@ Se non si esegue Samba sul server Linux e si vuole eseguire la migrazione delle 
 * Creare un'istanza di Windows Server 2019 come macchina virtuale o server fisico. Windows Server 2012 R2 è il requisito minimo. È supportato anche un cluster di failover di Windows Server.
 * Effettuare il provisioning o aggiungere l'archiviazione diretta (DAS). L'archiviazione NAS (Network Attached Storage) non è supportata.
 
-  La quantità di spazio di archiviazione di cui si esegue il provisioning può essere inferiore a quella attualmente in uso nel server Samba di Linux, se si usa la funzionalità di suddivisione in [livelli sincronizzazione file di Azure cloud](storage-sync-cloud-tiering.md) . Tuttavia, quando si copiano i file dal più ampio spazio del server Samba Linux al volume di Windows Server più piccolo in una fase successiva, sarà necessario lavorare in batch:
+  La quantità di spazio di archiviazione di cui si esegue il provisioning può essere inferiore a quella attualmente in uso nel server Samba di Linux, se si usa la funzionalità di suddivisione in [livelli sincronizzazione file di Azure cloud](storage-sync-cloud-tiering-overview.md) . Tuttavia, quando si copiano i file dal più ampio spazio del server Samba Linux al volume di Windows Server più piccolo in una fase successiva, sarà necessario lavorare in batch:
 
   1. Spostare un set di file che si integrano sul disco.
   2. Consente di attivare la sincronizzazione file e la suddivisione in livelli nel cloud.
@@ -98,7 +98,7 @@ Eseguire la prima copia locale nella cartella di destinazione di Windows Server:
 
 Il comando Robocopy seguente consente di copiare i file dalla risorsa di archiviazione del server Samba Linux alla cartella di destinazione di Windows Server. Windows Server lo sincronizza con le condivisioni file di Azure. 
 
-Se è stato effettuato il provisioning di una quantità minore di spazio di archiviazione nell'istanza di Windows Server rispetto a quella dei file sul server Samba Linux, è stata configurata la suddivisione in livelli nel cloud. Con l'esaurimento del volume locale di Windows Server, la suddivisione in [livelli cloud](storage-sync-cloud-tiering.md) viene avviata e i file di livello già sincronizzati. La suddivisione in livelli cloud genererà spazio sufficiente per continuare la copia dal server Samba Linux. La suddivisione in livelli nel cloud viene verificata una volta all'ora per vedere cosa è stato sincronizzato e liberare spazio su disco per raggiungere i criteri del 99% di spazio disponibile per un volume.
+Se è stato effettuato il provisioning di una quantità minore di spazio di archiviazione nell'istanza di Windows Server rispetto a quella dei file sul server Samba Linux, è stata configurata la suddivisione in livelli nel cloud. Con l'esaurimento del volume locale di Windows Server, la suddivisione in [livelli cloud](storage-sync-cloud-tiering-overview.md) viene avviata e i file di livello già sincronizzati. La suddivisione in livelli cloud genererà spazio sufficiente per continuare la copia dal server Samba Linux. La suddivisione in livelli nel cloud viene verificata una volta all'ora per vedere cosa è stato sincronizzato e liberare spazio su disco per raggiungere i criteri del 99% di spazio disponibile per un volume.
 
 È possibile che Robocopy sposti i file più velocemente di quanto sia possibile sincronizzare al cloud e al livello localmente, causando un esaurimento dello spazio su disco locale. Robocopy avrà quindi esito negativo. Si consiglia di usare le condivisioni in una sequenza che impedisce il problema. Si consideri, ad esempio, di non avviare i processi Robocopy per tutte le condivisioni contemporaneamente. In alternativa, provare a trasferire le condivisioni che rientrano nella quantità corrente di spazio disponibile nell'istanza di Windows Server. Se il processo Robocopy ha esito negativo, è sempre possibile eseguire di nuovo il comando finché si usa l'opzione di mirroring/ripulitura seguente:
 

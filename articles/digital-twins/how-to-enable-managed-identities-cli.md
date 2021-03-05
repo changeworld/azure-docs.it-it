@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 035d782321feb5d467638159fc191f65573b1042
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c9ce87584373bd87a8f89ecb4ea692b44d3fab4d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716126"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202961"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Abilitare un'identità gestita per il routing degli eventi di Azure Digital Twins (anteprima): interfaccia della riga di comando di Azure
 
@@ -40,7 +40,7 @@ Uno di questi metodi di creazione fornirà le stesse opzioni di configurazione e
 
 Questa sezione illustra come abilitare un'identità gestita dal sistema in un'istanza di Azure Digital Twins attualmente in fase di creazione. 
 
-Questa operazione viene eseguita aggiungendo un `--assign-identity` parametro al `az dt create` comando utilizzato per creare l'istanza. Per altre informazioni su questo comando, vedere la [documentazione di riferimento](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create) o le [istruzioni generali per la configurazione di un'istanza di dispositivi gemelli digitali di Azure](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
+Questa operazione viene eseguita aggiungendo un `--assign-identity` parametro al `az dt create` comando utilizzato per creare l'istanza. Per altre informazioni su questo comando, vedere la [documentazione di riferimento](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create) o le [istruzioni generali per la configurazione di un'istanza di dispositivi gemelli digitali di Azure](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
 
 Per creare un'istanza con un'identità gestita dal sistema, aggiungere il  `--assign-identity` parametro come segue:
 
@@ -97,9 +97,9 @@ Di seguito è riportato un esempio in cui viene creata un'istanza con un'identit
 az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
 ```
 
-Per ulteriori esempi di assegnazioni di ruolo con questo comando, vedere la [documentazione di riferimento **AZ DT create** Reference](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create).
+Per ulteriori esempi di assegnazioni di ruolo con questo comando, vedere la [documentazione di riferimento **AZ DT create** Reference](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create).
 
-In alternativa, è possibile usare anche il gruppo di comandi [**AZ Role Assignment**](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) per creare e gestire i ruoli. Questa operazione può essere utilizzata per supportare scenari aggiuntivi in cui non si desidera raggruppare l'assegnazione di ruolo con il comando crea.
+In alternativa, è possibile usare anche il gruppo di comandi [**AZ Role Assignment**](/cli/azure/role/assignment) per creare e gestire i ruoli. Questa operazione può essere utilizzata per supportare scenari aggiuntivi in cui non si desidera raggruppare l'assegnazione di ruolo con il comando crea.
 
 ## <a name="create-an-endpoint-with-identity-based-authentication"></a>Creare un endpoint con l'autenticazione basata su identità
 
@@ -108,7 +108,7 @@ Dopo aver configurato un'identità gestita dal sistema per l'istanza di Azure Di
 >[!NOTE]
 > Non è possibile modificare un endpoint che è già stato creato con l'identità basata su chiave per passare all'autenticazione basata sull'identità. Quando l'endpoint viene creato per la prima volta, è necessario scegliere il tipo di autenticazione.
 
-Questa operazione viene eseguita aggiungendo un `--auth-type` parametro al `az dt endpoint create` comando usato per creare l'endpoint. Per ulteriori informazioni su questo comando, vedere la relativa [documentazione di riferimento](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) o le [istruzioni generali per la configurazione di un endpoint di dispositivi gemelli digitali di Azure](how-to-manage-routes-apis-cli.md#create-the-endpoint).
+Questa operazione viene eseguita aggiungendo un `--auth-type` parametro al `az dt endpoint create` comando usato per creare l'endpoint. Per ulteriori informazioni su questo comando, vedere la relativa [documentazione di riferimento](/cli/azure/ext/azure-iot/dt/endpoint/create) o le [istruzioni generali per la configurazione di un endpoint di dispositivi gemelli digitali di Azure](how-to-manage-routes-apis-cli.md#create-the-endpoint).
 
 Per creare un endpoint che usa l'autenticazione basata su identità, specificare il `IdentityBased` tipo di autenticazione con il  `--auth-type` parametro. Nell'esempio seguente viene illustrato questo per un endpoint di hub eventi.
 

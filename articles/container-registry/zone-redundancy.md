@@ -4,12 +4,12 @@ description: Informazioni sull'abilitazione della ridondanza della zona in Azure
 ms.topic: article
 ms.date: 02/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a190ea68f41196fb11c20259b9953f516d6f5370
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738107"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203862"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Abilitare la ridondanza della zona in Azure Container Registry per la resilienza e la disponibilità elevata
 
@@ -48,7 +48,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-zone-enabled-registry"></a>Crea registro di sistema abilitato per la zona
 
-Eseguire il comando [AZ ACR create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) per creare un registro con ridondanza della zona nel livello di servizio Premium. Scegliere un'area che [supporta le zone di disponibilità](../availability-zones/az-region.md) per container Registry di Azure. Nell'esempio seguente la ridondanza della zona è abilitata nell'area *eastus* . `az acr create`Per altre opzioni del registro di sistema, vedere la guida del comando.
+Eseguire il comando [AZ ACR create](/cli/azure/acr#az_acr_create) per creare un registro con ridondanza della zona nel livello di servizio Premium. Scegliere un'area che [supporta le zone di disponibilità](../availability-zones/az-region.md) per container Registry di Azure. Nell'esempio seguente la ridondanza della zona è abilitata nell'area *eastus* . `az acr create`Per altre opzioni del registro di sistema, vedere la guida del comando.
 
 ```azurecli
 az acr create \
@@ -70,7 +70,7 @@ Nell'output del comando prendere nota della `zoneRedundancy` proprietà per il r
 
 ### <a name="create-zone-redundant-replication"></a>Creazione della replica con ridondanza della zona
 
-Eseguire il comando [AZ ACR Replication create](/cli/azure/acr/replication?view=azure-cli-latest#az_acr_replication_create) per creare una replica del registro di sistema con ridondanza della zona in un'area che [supporta le zone di disponibilità](../availability-zones/az-region.md) per container Registry di Azure, ad esempio *westus2*. 
+Eseguire il comando [AZ ACR Replication create](/cli/azure/acr/replication#az_acr_replication_create) per creare una replica del registro di sistema con ridondanza della zona in un'area che [supporta le zone di disponibilità](../availability-zones/az-region.md) per container Registry di Azure, ad esempio *westus2*. 
 
 ```azurecli
 az acr replication create \
@@ -220,7 +220,7 @@ Copiare il contenuto seguente in un nuovo file e salvarlo usando un nome file, a
   }
 ```
 
-Eseguire il comando [AZ Deployment Group create](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) seguente per creare il registro di sistema usando il file di modello precedente. Dove indicato, fornire:
+Eseguire il comando [AZ Deployment Group create](/cli/azure/group/deployment#az_group_deployment_create) seguente per creare il registro di sistema usando il file di modello precedente. Dove indicato, fornire:
 
 * nome univoco del registro di sistema o distribuzione del modello senza parametri. verrà creato un nome univoco per l'utente
 * un percorso per la replica che supporta le zone di disponibilità, ad esempio *westus2*

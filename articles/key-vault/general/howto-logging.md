@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0e1ce841f6da8f15bd977437bca6b835a7b0d745
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 9ec1e59a5599ca2e95578eacc1484932956ebf16
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108739"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204015"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Come abilitare la registrazione di Key Vault
 
@@ -34,7 +34,7 @@ I comandi di questa guida sono formattati per [cloud Shell](https://shell.azure.
 
 Il primo passaggio per la configurazione della registrazione delle chiavi è la connessione alla sottoscrizione che contiene l'insieme di credenziali delle chiavi. Questo è particolarmente importante se sono presenti più sottoscrizioni associate all'account.
 
-Con l'interfaccia della riga di comando di Azure è possibile visualizzare tutte le sottoscrizioni usando il comando [AZ account list](/cli/azure/account?view=azure-cli-latest#az_account_list) e quindi connettersi a una usando [AZ account set](/cli/azure/account?view=azure-cli-latest#az_account_set):
+Con l'interfaccia della riga di comando di Azure è possibile visualizzare tutte le sottoscrizioni usando il comando [AZ account list](/cli/azure/account#az_account_list) e quindi connettersi a una usando [AZ account set](/cli/azure/account#az_account_set):
 
 ```azurecli-interactive
 az account list
@@ -58,7 +58,7 @@ Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di 
 
 È anche necessario specificare un nome di account di archiviazione. I nomi degli account di archiviazione devono essere univoci, con una lunghezza compresa tra 3 e 24 caratteri e usare solo numeri e lettere minuscole.  Infine, verrà creato un account di archiviazione dello SKU "Standard_LRS".
 
-Con l'interfaccia della riga di comando di Azure usare il comando [AZ storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create) .
+Con l'interfaccia della riga di comando di Azure usare il comando [AZ storage account create](/cli/azure/storage/account#az_storage_account_create) .
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -84,9 +84,9 @@ Il "ID" dell'account di archiviazione sarà nel formato "/subscriptions/<your-Su
 
 ## <a name="obtain-your-key-vault-resource-id"></a>Ottenere l'ID risorsa dell'insieme di credenziali delle chiavi
 
-Nella [Guida introduttiva dell'interfaccia](quick-create-cli.md) della riga di comando e in [PowerShell](quick-create-powershell.md)è stata creata una chiave con un nome univoco.  Usare nuovamente questo nome nei passaggi seguenti.  Se non è possibile ricordare il nome dell'insieme di credenziali delle chiavi, è possibile usare l'interfaccia della riga di comando di Azure [AZ Key Vault list](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_list) oppure il cmdlet Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) per elencarli.
+Nella [Guida introduttiva dell'interfaccia](quick-create-cli.md) della riga di comando e in [PowerShell](quick-create-powershell.md)è stata creata una chiave con un nome univoco.  Usare nuovamente questo nome nei passaggi seguenti.  Se non è possibile ricordare il nome dell'insieme di credenziali delle chiavi, è possibile usare l'interfaccia della riga di comando di Azure [AZ Key Vault list](/cli/azure/keyvault#az_keyvault_list) oppure il cmdlet Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) per elencarli.
 
-Usare il nome dell'insieme di credenziali delle chiavi per trovare il relativo ID risorsa.  Con l'interfaccia della riga di comando di Azure usare il comando [AZ Vault Show](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_show) .
+Usare il nome dell'insieme di credenziali delle chiavi per trovare il relativo ID risorsa.  Con l'interfaccia della riga di comando di Azure usare il comando [AZ Vault Show](/cli/azure/keyvault#az_keyvault_show) .
 
 ```azurecli-interactive
 az keyvault show --name "<your-unique-keyvault-name>"
@@ -102,7 +102,7 @@ L'ID di risorsa per l'insieme di credenziali delle chiavi sarà nel formato "/su
 
 ## <a name="enable-logging-using-azure-powershell"></a>Abilitare la registrazione con Azure PowerShell
 
-Per abilitare la registrazione per Key Vault, usare l'interfaccia della riga di comando di Azure [AZ monitor Diagnostic-Settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest) oppure il cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) , insieme all'ID dell'account di archiviazione e all'ID della risorsa dell'insieme di credenziali delle chiavi.
+Per abilitare la registrazione per Key Vault, usare l'interfaccia della riga di comando di Azure [AZ monitor Diagnostic-Settings create](/cli/azure/monitor/diagnostic-settings) oppure il cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) , insieme all'ID dell'account di archiviazione e all'ID della risorsa dell'insieme di credenziali delle chiavi.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
@@ -116,7 +116,7 @@ Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId 
 
 Facoltativamente, è possibile impostare un criterio di conservazione per i log, in modo che i log meno recenti vengano eliminati automaticamente dopo un periodo di tempo specificato. Ad esempio, è possibile impostare criteri di conservazione per l'eliminazione automatica dei log più vecchi di 90 giorni.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_update) command. 
+<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
 
 ```azurecli-interactive
 az monitor diagnostic-settings update 
@@ -143,7 +143,7 @@ Cosa viene registrato:
 
 Key Vault log vengono archiviati nel contenitore "Insights-logs-AuditEvent" nell'account di archiviazione specificato. Per visualizzare i log, è necessario scaricare i BLOB.
 
-Per prima cosa, elencare tutti i BLOB nel contenitore.  Con l'interfaccia della riga di comando di Azure usare il comando [AZ storage BLOB list](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_list) .
+Per prima cosa, elencare tutti i BLOB nel contenitore.  Con l'interfaccia della riga di comando di Azure usare il comando [AZ storage BLOB list](/cli/azure/storage/blob#az_storage_blob_list) .
 
 ```azurecli-interactive
 az storage blob list --account-name "<your-unique-storage-account-name>" --container-name "insights-logs-auditevent"
@@ -159,7 +159,7 @@ Come si vedrà dall'output del comando dell'interfaccia della riga di comando di
 
 Poiché è possibile usare lo stesso account di archiviazione per raccogliere i log per più risorse, l'ID completo della risorsa nel nome del BLOB è utile per accedere solo ai BLOB necessari o per scaricarli. Prima di procedere, si vedrà però come scaricare tutti i BLOB.
 
-Con l'interfaccia della riga di comando di Azure, usare il comando [AZ storage BLOB download](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_download) , passare i nomi dei BLOB e il percorso del file in cui si desidera salvare i risultati.
+Con l'interfaccia della riga di comando di Azure, usare il comando [AZ storage BLOB download](/cli/azure/storage/blob#az_storage_blob_download) , passare i nomi dei BLOB e il percorso del file in cui si desidera salvare i risultati.
 
 ```azurecli-interactive
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"

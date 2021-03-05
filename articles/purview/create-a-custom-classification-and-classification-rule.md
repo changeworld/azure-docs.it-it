@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/5/2021
-ms.openlocfilehash: 3cc29e0bd806ab76c4980128df5a89761e465fe7
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d1a0873552ac9043d8f584f38ecd41c5e8543489
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988372"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202758"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classificazioni personalizzate in Azure competenza 
 
@@ -91,24 +91,50 @@ Per creare una regola di classificazione personalizzata:
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="Aggiungi nuova regola di classificazione" border="true":::
 
-5. Verrà visualizzata la finestra di dialogo **nuova regola di classificazione** . Immettere le informazioni di configurazione per la nuova regola.
+5. Verrà visualizzata la finestra di dialogo **nuova regola di classificazione** . Compilare i campi e decidere se creare una regola di **espressione regolare** o una **regola del dizionario**.
 
-    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/createclassificationrule.png" alt-text="Crea nuova regola di classificazione" border="true":::
+    |Campo     |Descrizione  |
+    |---------|---------|
+    |Nome   |    Obbligatorio. Il valore massimo è 100 caratteri.    |
+    |Descrizione      |Facoltativa. Il valore massimo è 256 caratteri.    |
+    |Nome classificazione    | Obbligatorio. Selezionare il nome della classificazione dall'elenco a discesa per indicare allo scanner di applicarlo se viene trovata una corrispondenza.        |
+    |State   |  Obbligatorio. Le opzioni sono abilitate o disabilitate. Enabled è il valore predefinito.    |
 
-|Campo     |Descrizione  |
-|---------|---------|
-|Nome   |    Obbligatorio. Il valore massimo è 100 caratteri.    |
-|Descrizione      |Facoltativa. Il valore massimo è 256 caratteri.    |
-|Nome classificazione    | Obbligatorio. Selezionare il nome della classificazione dall'elenco a discesa per indicare allo scanner di applicarlo se viene trovata una corrispondenza.        |
-|State   |  Obbligatorio. Le opzioni sono abilitate o disabilitate. Enabled è il valore predefinito.    |
-|Modello di dati    |facoltativo. Espressione regolare che rappresenta i dati archiviati nel campo dati. Il limite è molto grande. Nell'esempio precedente, i modelli di dati verificano l'ID di un dipendente che è letteralmente la parola `Employee{GUID}` .  |
-|Modello di colonna    |facoltativo. Espressione regolare che rappresenta i nomi di colonna per i quali si desidera trovare una corrispondenza. Il limite è molto grande.          |
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-classification-rule.png" alt-text="Crea nuova regola di classificazione" border="true":::
 
-In **modello dati** sono disponibili due opzioni:
+### <a name="creating-a-regular-expression-rule"></a>Creazione di una regola di espressione regolare
 
-- **Soglia di corrispondenza Distinct**: numero totale di valori di dati distinti che devono essere trovati in una colonna prima che lo scanner esegua il modello di dati. Il valore suggerito è 8. Questo valore può essere regolato manualmente in un intervallo compreso tra 2 e 32. Il sistema richiede questo valore per assicurarsi che la colonna contenga dati sufficienti affinché lo scanner lo classifichi in modo accurato. Una colonna contenente più righe che contengono tutti il valore 1, ad esempio, non sarà classificata. Anche le colonne che contengono una riga con un valore e il resto delle righe hanno valori null non vengono classificate. Se si specificano più modelli, questo valore viene applicato a ognuno di essi.
+1. Se si crea una regola di espressione regolare, viene visualizzata la schermata seguente. Facoltativamente, è possibile caricare un file che verrà usato per **generare i modelli Regex suggeriti** per la regola.
 
-- **Soglia di corrispondenza minima**: è possibile usare questa impostazione per impostare la percentuale minima di corrispondenze del valore dei dati in una colonna che deve essere trovata dallo scanner per la classificazione da applicare. Il valore suggerito è 60%. È necessario prestare attenzione a questa impostazione. Se si riduce il livello inferiore al 60%, è possibile introdurre classificazioni false positive nel catalogo. Se si specificano più modelli di dati, questa impostazione è disabilitata e il valore è fisso al 60%.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Crea nuova regola regex" border="true":::
+
+1. Se si decide di generare un modello Regex suggerito, dopo il caricamento di un file selezionare uno dei modelli suggeriti e fare clic su **Aggiungi a modelli** per utilizzare i modelli di dati e di colonna suggeriti. È possibile modificare i modelli suggeriti o anche digitare i propri modelli senza caricare un file.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Genera Regex suggerito" border="true":::
+
+    |Campo     |Descrizione  |
+    |---------|---------|
+    |Modello di dati    |facoltativo. Espressione regolare che rappresenta i dati archiviati nel campo dati. Il limite è molto grande. Nell'esempio precedente, i modelli di dati verificano l'ID di un dipendente che è letteralmente la parola `Employee{GUID}` .  |
+    |Modello di colonna    |facoltativo. Espressione regolare che rappresenta i nomi di colonna per i quali si desidera trovare una corrispondenza. Il limite è molto grande.          |
+
+1. Nel **modello di dati** sono disponibili due soglie che è possibile impostare:
+
+    - **Soglia di corrispondenza Distinct**: numero totale di valori di dati distinti che devono essere trovati in una colonna prima che lo scanner esegua il modello di dati. Il valore suggerito è 8. Questo valore può essere regolato manualmente in un intervallo compreso tra 2 e 32. Il sistema richiede questo valore per assicurarsi che la colonna contenga dati sufficienti affinché lo scanner lo classifichi in modo accurato. Una colonna contenente più righe che contengono tutti il valore 1, ad esempio, non sarà classificata. Anche le colonne che contengono una riga con un valore e il resto delle righe hanno valori null non vengono classificate. Se si specificano più modelli, questo valore viene applicato a ognuno di essi.
+
+    - **Soglia di corrispondenza minima**: è possibile usare questa impostazione per impostare la percentuale minima delle corrispondenze del valore dei dati distinti in una colonna che deve essere trovata dallo scanner per la classificazione da applicare. Il valore suggerito è 60%. È necessario prestare attenzione a questa impostazione. Se si riduce il livello inferiore al 60%, è possibile introdurre classificazioni false positive nel catalogo. Se si specificano più modelli di dati, questa impostazione è disabilitata e il valore è fisso al 60%.
+
+1. È ora possibile verificare la regola e **crearla** .
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Verificare la regola prima della creazione" border="true":::
+
+### <a name="creating-a-dictionary-rule"></a>Creazione di una regola del dizionario
+
+1.  Se si crea una regola del dizionario, viene visualizzata la schermata seguente. Caricare un file contenente tutti i valori possibili per la classificazione che si sta creando in un'unica colonna.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Crea regola del dizionario" border="true":::
+
+1.  Dopo la generazione del dizionario, è possibile modificare le soglie di corrispondenza e di corrispondenza minime e inviare la regola.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Crea regola del dizionario" border="true":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

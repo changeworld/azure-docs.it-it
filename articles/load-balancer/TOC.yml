@@ -39,6 +39,8 @@
           href: tutorial-cross-region-portal.md
         - name: Creare un servizio di bilanciamento del carico tra aree-PowerShell
           href: tutorial-cross-region-powershell.md
+        - name: Creare un servizio di bilanciamento del carico tra aree-interfaccia della riga di comando di Azure
+          href: tutorial-cross-region-cli.md
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure

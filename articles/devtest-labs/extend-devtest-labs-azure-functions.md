@@ -3,12 +3,12 @@ title: Estendere Azure DevTest Labs usando funzioni di Azure | Microsoft Docs
 description: Informazioni su come estendere Azure DevTest Labs usando funzioni di Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bcd12d77065d231198e992fa5c459f0fc210855a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a51f0935540df18cfb8805902bbe2c4ec365291
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476309"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203675"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Usare Funzioni di Azure per estendere DevTest Labs
 È possibile usare funzioni di Azure per supportare scenari aggiuntivi oltre a quelli già supportati da DevTest Labs. Funzioni di Azure può essere usato per estendere la funzionalità incorporata del servizio per soddisfare le esigenze specifiche dell'azienda. Nell'elenco seguente sono riportati alcuni degli scenari possibili. Questo articolo illustra come implementare uno di questi scenari di esempio.
@@ -44,9 +44,9 @@ Quando si seleziona il pulsante **Seleziona qui per aggiornare** , la pagina chi
 Questa sezione fornisce istruzioni dettagliate per la configurazione delle risorse di Azure necessarie per aggiornare la pagina del **supporto interno** . Questa procedura dettagliata fornisce un esempio di estensione di DevTest Labs. È possibile usare questo modello per altri scenari.
 
 ### <a name="step-1-create-a-service-principal"></a>Passaggio 1: creare un'entità servizio 
-Il primo passaggio consiste nell'ottenere un'entità servizio con l'autorizzazione per la sottoscrizione che contiene il Lab. L'entità servizio deve usare l'autenticazione basata su password. Questa operazione può essere eseguita con l'interfaccia della riga di comando di [Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0)o l' [portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md). Se si dispone già di un'entità servizio da usare, è possibile ignorare questo passaggio.
+Il primo passaggio consiste nell'ottenere un'entità servizio con l'autorizzazione per la sottoscrizione che contiene il Lab. L'entità servizio deve usare l'autenticazione basata su password. Questa operazione può essere eseguita con l'interfaccia della riga di comando di [Azure](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0)o l' [portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md). Se si dispone già di un'entità servizio da usare, è possibile ignorare questo passaggio.
 
-Annotare l'ID **applicazione**, la **chiave**e l' **ID tenant** per l'entità servizio. Sarà necessario più avanti in questa procedura dettagliata. 
+Annotare l'ID **applicazione**, la **chiave** e l' **ID tenant** per l'entità servizio. Sarà necessario più avanti in questa procedura dettagliata. 
 
 ### <a name="step-2-download-the-sample-and-open-in-visual-studio-2019"></a>Passaggio 2: scaricare l'esempio e aprirlo in Visual Studio 2019
 Scaricare una copia dell' [esempio di funzioni di Azure di C#](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions/CSharp) in locale (clonando il repository o scaricando il repository da [qui](https://github.com/Azure/azure-devtestlab/archive/master.zip)).  

@@ -212,6 +212,10 @@
           href: diagnostic-logs.md
         - name: Metriche
           href: metrics.md
+    - name: Casi d'uso
+      items:
+        - name: Casi d'uso per i domini
+          href: event-domains-use-cases.md
 - name: Guide pratiche
   items:
     - name: 'Creare, visualizzare e gestire gli argomenti di sistema'

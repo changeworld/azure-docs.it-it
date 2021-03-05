@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 2d531edeeae9e0dd7e392cae66d9e4d41c68dfa2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 73dc2520fbe970123a52133cb00909fea190610a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882264"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202672"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Eseguire la migrazione da Network Attached Storage (NAS) a una distribuzione cloud ibrida con Sincronizzazione file di Azure
 
@@ -45,7 +45,7 @@ Come indicato nell' [articolo Panoramica della migrazione](storage-files-migrati
 * Creare una macchina virtuale di Windows Server 2019, almeno 2012R2, come macchina virtuale o server fisico. È supportato anche un cluster di failover di Windows Server.
 * Effettuare il provisioning o aggiungere l'archiviazione collegata direttamente (DAS rispetto a NAS, che non è supportata).
 
-    Se si usa la funzionalità di suddivisione in [livelli cloud](storage-sync-cloud-tiering.md) di sincronizzazione file di Azure, la quantità di spazio di archiviazione di cui si effettua il provisioning può essere inferiore a quella attualmente in uso nel dispositivo NAS.
+    Se si usa la funzionalità di suddivisione in [livelli cloud](storage-sync-cloud-tiering-overview.md) di sincronizzazione file di Azure, la quantità di spazio di archiviazione di cui si effettua il provisioning può essere inferiore a quella attualmente in uso nel dispositivo NAS.
     Tuttavia, quando si copiano i file dallo spazio NAS più ampio al volume di Windows Server più piccolo in una fase successiva, sarà necessario lavorare in batch:
 
     1. Spostare un set di file che si integrano sul disco
@@ -105,7 +105,7 @@ Eseguire la prima copia locale nella cartella di destinazione di Windows Server:
 
 Il comando RoboCopy seguente consente di copiare i file dalla risorsa di archiviazione NAS alla cartella di destinazione di Windows Server. Windows Server lo sincronizza con le condivisioni file di Azure. 
 
-Se è stato effettuato il provisioning di una quantità minore di spazio di archiviazione nel server Windows rispetto a quella dei file, è stata configurata la suddivisione in livelli nel cloud. Con l'esaurimento del volume locale di Windows Server, la suddivisione in [livelli cloud](storage-sync-cloud-tiering.md) verrà avviata e i file di livello che sono già stati sincronizzati correttamente. La suddivisione in livelli cloud genererà spazio sufficiente per continuare la copia dal dispositivo NAS. La suddivisione in livelli nel cloud viene controllata una volta all'ora per vedere cosa è stato sincronizzato e liberare spazio su disco per raggiungere lo spazio disponibile nel volume del 99%.
+Se è stato effettuato il provisioning di una quantità minore di spazio di archiviazione nel server Windows rispetto a quella dei file, è stata configurata la suddivisione in livelli nel cloud. Con l'esaurimento del volume locale di Windows Server, la suddivisione in [livelli cloud](storage-sync-cloud-tiering-overview.md) verrà avviata e i file di livello che sono già stati sincronizzati correttamente. La suddivisione in livelli cloud genererà spazio sufficiente per continuare la copia dal dispositivo NAS. La suddivisione in livelli nel cloud viene controllata una volta all'ora per vedere cosa è stato sincronizzato e liberare spazio su disco per raggiungere lo spazio disponibile nel volume del 99%.
 È possibile che RoboCopy sposti i file più velocemente di quanto sia possibile sincronizzare al cloud e al livello localmente, esaurendo così lo spazio su disco locale. RoboCopy avrà esito negativo. Si consiglia di usare le condivisioni in una sequenza che lo impedisce. Ad esempio, non avviare i processi RoboCopy per tutte le condivisioni contemporaneamente o solo le condivisioni che rientrano nella quantità corrente di spazio disponibile sul server Windows, per citarne alcune.
 
 ```console
@@ -208,13 +208,13 @@ Creare una condivisione nella cartella di Windows Server ed eventualmente modifi
 È possibile provare a eseguire alcune di queste copie in parallelo. Si consiglia di elaborare l'ambito di una condivisione file di Azure alla volta.
 
 > [!WARNING]
-> Dopo aver spostato tutti i dati dal NAS al server Windows e aver completato la migrazione: tornare a ***tutti** i gruppi di sincronizzazione nella portale di Azure e modificare il valore percentuale spazio disponibile del volume del cloud in modo che sia più adatto per l'utilizzo della cache, ad indicare il 20%. 
+> Dopo aver spostato tutti i dati dal NAS al server Windows e aver completato la migrazione: tornare a ***tutti***  i gruppi di sincronizzazione nell'portale di Azure e modificare il valore percentuale spazio disponibile del volume del cloud in modo che sia più adatto per l'utilizzo della cache, ad indicare il 20%. 
 
 I criteri di spazio libero del volume di suddivisione in livelli nel cloud agiscono a livello di volume con potenzialmente più endpoint server sincronizzati. Se si dimentica di regolare lo spazio libero su un solo endpoint server, la sincronizzazione continuerà ad applicare la regola più restrittiva e tenterà di mantenere il 99% di spazio libero su disco, rendendo la cache locale non funziona come previsto. A meno che non si tratti dell'obiettivo di avere solo lo spazio dei nomi per un volume che contiene solo i dati di archiviazione a cui si accede raramente e si riserva il resto dello spazio di archiviazione per un altro scenario.
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-Il problema più probabile in cui è possibile eseguire è che il comando RoboCopy ha esito negativo con _ "volume full" * sul lato Windows Server. La suddivisione in livelli nel cloud funziona una volta ogni ora per l'evacuazione del contenuto dal disco locale di Windows Server, sincronizzato. Il suo obiettivo è raggiungere il 99% di spazio disponibile nel volume.
+Il problema più probabile in cui è possibile eseguire è che il comando RoboCopy ha esito negativo con *"volume full"* sul lato server di Windows. La suddivisione in livelli nel cloud funziona una volta ogni ora per l'evacuazione del contenuto dal disco locale di Windows Server, sincronizzato. Il suo obiettivo è raggiungere il 99% di spazio disponibile nel volume.
 
 Consentire la sincronizzazione dello stato di avanzamento e la suddivisione in livelli nel cloud liberare spazio su disco. È possibile osservare che in Esplora file in Windows Server.
 

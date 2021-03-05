@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: 3a64bb261db39efb63b35004f1daa0452b4f0672
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 618617d3602e45ebb15314c7cc5f6898a73bb71f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715157"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203726"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -29,6 +29,12 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+## <a name="march-2021"></a>Marzo 2021
+
+L'analisi audio è ora disponibile in un nuovo bundle aggiuntivo di funzionalità audio a un punto di prezzo diverso. Il nuovo set di impostazioni di base di analisi **audio** offre un'opzione a basso costo per estrarre solo le didascalie e i sottotitoli di output per la traduzione vocale. Il set di impostazioni **audio di base** produrrà due contatori distinti sulla fattura, inclusa una riga per la trascrizione e una riga separata per la formattazione della didascalia e del sottotitolo. Per altre informazioni sui prezzi, vedere la pagina dei [prezzi di servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/) .
+
+Il bundle appena aggiunto è disponibile durante l'indicizzazione o la reindicizzazione del file scegliendo il set di impostazioni di   ->  **base audio** (opzione avanzata), sotto la casella di riepilogo a discesa **video + audio indicizzazione** .
 
 ## <a name="february-2021"></a>2021 febbraio
 

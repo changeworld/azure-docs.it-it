@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: ae62bf353f8a92c4408d4a38a91771ad60a13107
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
-ms.translationtype: HT
+ms.openlocfilehash: 2fc77d0cdfb6bd8a62555951c0b6dc7e9b732f93
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285313"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203539"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale in Python
 
@@ -66,7 +66,7 @@ Creare una VM denominata **myVM** usando uno dei metodi seguenti:
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
 | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) | [Il portale di Azure](../../virtual-machines/windows/quick-create-portal.md) |
 
-Per creare una VM Linux con l'interfaccia della riga di comando di Azure, usare il comando [az vm create](/cli/azure/vm).  L'esempio seguente aggiunge un account utente denominato *azureuser*. Il parametro `--generate-ssh-keys` viene usato per generare automaticamente una chiave SSH e inserito nella posizione predefinita della chiave ( *~/.ssh* ). 
+Per creare una VM Linux con l'interfaccia della riga di comando di Azure, usare il comando [az vm create](/cli/azure/vm).  L'esempio seguente aggiunge un account utente denominato *azureuser*. Il parametro `--generate-ssh-keys` viene usato per generare automaticamente una chiave SSH e inserito nella posizione predefinita della chiave ( *~/.ssh*). 
 
 ```azurecli-interactive
 az vm create \
@@ -81,7 +81,7 @@ Prendere nota del valore di `publicIpAddress` nell'output.
 
 ## <a name="assign-an-identity-to-the-vm"></a>Assegnare un'identità alla macchina virtuale
 
-Creare un'identità assegnata dal sistema per la macchina virtuale con il comando [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) dell'interfaccia della riga di comando di Azure:
+Creare un'identità assegnata dal sistema per la macchina virtuale con il comando [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
 az vm identity assign --name "myVM" --resource-group "myResourceGroup"

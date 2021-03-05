@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d275f2f4cad83c8f378c471e5a3fa1313d6c0e7d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: a66eff14490add8269082e4e54f077d1d9db7e02
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624871"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102205979"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>La rete WAN virtuale di Azure è disponibile a livello generale?
 
@@ -302,3 +302,8 @@ No. La rete WAN virtuale non archivia alcun dato dei clienti.
 ### <a name="are-there-any-managed-service-providers-that-can-manage-virtual-wan-for-users-as-a-service"></a>Esistono provider di servizi gestiti in grado di gestire la rete WAN virtuale per gli utenti come servizio?
 
 Sì. Per un elenco delle soluzioni dei provider di servizi gestiti abilitate tramite Azure Marketplace, vedere [Offerte di Azure Marketplace da partner MSP di rete di Azure](../articles/networking/networking-partners-msp.md#msp).
+
+### <a name="how-does-virtual-wan-hub-routing-differ-from-azure-route-server-in-a-vnet"></a>Differenze tra il routing dell'hub WAN virtuale e il server di route di Azure in una VNet
+
+Il server di route di Azure fornisce un servizio di peering Border Gateway Protocol (BGP) che può essere usato da appliance virtuale di rete (appliance virtuale di rete) per apprendere le route dal server di route in un hub DIY VNet. Il routing WAN virtuale offre più funzionalità, tra cui il routing di transito VNET al VNET, il routing personalizzato, l'associazione e la propagazione di route personalizzate e un servizio Hub completamente mesh con zero touch, oltre a servizi di connettività di ExpressRoute, VPN del sito, utenti remoti/VPN P2S su larga scala e funzionalità di hub sicuro (firewall di Azure). Quando si stabilisce un peering di Border Gateway Protocol (BGP) tra l'appliance virtuale di rete e il server router di Azure, è possibile pubblicizzare gli indirizzi IP dall'appliance virtuale di rete alla rete virtuale. Per tutte le funzionalità di routing avanzate, ad esempio il routing di transito, il routing personalizzato e così via, è possibile usare il routing WAN virtuale.
+

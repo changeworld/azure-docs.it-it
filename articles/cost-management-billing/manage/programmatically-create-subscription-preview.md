@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 68d890386d53b4115c773b128f8678bac9579e53
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: bc761d0bf4001fb1e3fb757b9be9e1e19689913d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844336"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202995"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Creare sottoscrizioni di Azure a livello di codice con API in anteprima
 
@@ -165,7 +165,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Tipo   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | No      | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio "Microsoft Azure Enterprise".                                 |
 | `offerType`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -183,7 +183,7 @@ Eseguire il comando [New-AzSubscription](/powershell/module/az.subscription) rip
 New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
 ```
 
-| Nome dell'elemento  | Obbligatorio | Type   | Descrizione |
+| Nome dell'elemento  | Obbligatorio | Tipo   | Descrizione |
 |---------------|----------|--------|----|
 | `Name` | No      | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio *Microsoft Azure Enterprise*. |
 | `OfferType`   | Sì      | string | Offerta di sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -198,13 +198,13 @@ Per visualizzare un elenco completo di tutti i parametri, vedere [New-AzSubscrip
 
 Installare prima di tutto l'estensione in anteprima eseguendo `az extension add --name subscription`.
 
-Eseguire il comando [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create&preserve-view=true) riportato di seguito, sostituendo `<enrollmentAccountObjectId>` con il valore `name` copiato dal primo passaggio (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Per specificare i proprietari, vedere [Come ottenere gli ID oggetto utente](grant-access-to-create-subscription.md#userObjectId).
+Eseguire il comando [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create) riportato di seguito, sostituendo `<enrollmentAccountObjectId>` con il valore `name` copiato dal primo passaggio (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Per specificare i proprietari, vedere [Come ottenere gli ID oggetto utente](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurecli-interactive
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
-| Nome dell'elemento  | Obbligatorio | Type   | Descrizione |
+| Nome dell'elemento  | Obbligatorio | Tipo   | Descrizione |
 |---------------|----------|--------|------------|
 | `display-name` | No      | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio *Microsoft Azure Enterprise*.|
 | `offer-type`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -213,7 +213,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `owner-upn`    | No       | string | Indirizzo di posta elettronica di un utente da aggiungere come proprietario con Controllo degli accessi in base al ruolo di Azure nella sottoscrizione al momento della creazione. È possibile usare il parametro anziché `owner-object-id`.|
 | `owner-spn` | No       | string | ID applicazione di un'entità servizio da aggiungere come proprietario con Controllo degli accessi in base al ruolo di Azure nella sottoscrizione al momento della creazione. È possibile usare il parametro anziché `owner-object-id`. Quando si usa il parametro, l'entità servizio deve avere [accesso in lettura alla directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
 
-Per visualizzare un elenco completo di tutti i parametri, vedere [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create&preserve-view=true).
+Per visualizzare un elenco completo di tutti i parametri, vedere [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create).
 
 ---
 
@@ -358,7 +358,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 ```
 
-| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Tipo   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Sì      | string | Nome visualizzato della sottoscrizione|
 | `billingProfileId`   | Sì      | string | ID del profilo di fatturazione a cui vengono fatturati gli addebiti della sottoscrizione.  |
@@ -527,7 +527,7 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 }'
 ```
 
-| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Tipo   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Sì      | string | Nome visualizzato della sottoscrizione|
 | `skuId` | Sì      | string | ID SKU del piano di Azure. Usare *0001* per le sottoscrizioni di tipo Piano di Microsoft Azure |

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1e51552acdd869a3f304a6d48e18e9d2aa6c782
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 272a642f70849b85be00d2507109eb97935c0dde
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576770"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202502"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -111,7 +111,7 @@ Per visualizzare l'integrità di un **endpoint server** nel portale, passare all
 
 - L' **attività di sincronizzazione** e **integrità degli endpoint server** nel portale si basa sugli eventi di sincronizzazione registrati nel registro eventi di telemetria sul server (ID 9102 e 9302). Se una sessione di sincronizzazione ha esito negativo a causa di un errore temporaneo, ad esempio l'errore è stato annullato, l'endpoint server sarà comunque visualizzato come **integro** nel portale, purché la sessione di sincronizzazione corrente stia procedendo (i file vengono applicati). L'ID evento 9302 è l'evento dello stato di avanzamento della sincronizzazione e l'ID evento 9102 viene registrato al termine di una sessione di sincronizzazione.  Per ulteriori informazioni, vedere [Sync Health](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) and [Sync Progress](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Se l'integrità dell'endpoint server Visualizza un **errore** o **Nessuna attività**, vedere la documentazione relativa alla [risoluzione dei problemi](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) per informazioni aggiuntive.
 - Il numero di **file non sincronizzati** nel portale è basato sull'ID evento 9121 registrato nel registro eventi di telemetria sul server. Questo evento viene registrato per ogni errore per elemento al termine della sessione di sincronizzazione. Per risolvere gli errori per elemento, vedere [ricerca per categorie verificare se sono presenti file o cartelle specifici che non sono sincronizzati](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
-- Per visualizzare l' **efficienza** di suddivisione in livelli nel cloud nel portale, passare alle **proprietà dell'endpoint server** e passare alla sezione suddivisione in **livelli nel cloud** . I dati forniti per l'efficienza di suddivisione in livelli nel cloud si basano sull'ID evento 9071 registrato nel registro eventi di telemetria sul server. Per altre informazioni, vedere [Suddivisione in livelli cloud](./storage-sync-cloud-tiering.md).
+- Per visualizzare l' **efficienza** di suddivisione in livelli nel cloud nel portale, passare alle **proprietà dell'endpoint server** e passare alla sezione suddivisione in **livelli nel cloud** . I dati forniti per l'efficienza di suddivisione in livelli nel cloud si basano sull'ID evento 9071 registrato nel registro eventi di telemetria sul server. Per altre informazioni, vedere [monitorare](./storage-sync-monitor-cloud-tiering.md)la suddivisione in livelli nel cloud.
 - Per visualizzare **i file senza** suddivisione in livelli e **richiamare gli errori** nel portale, passare alle **proprietà dell'endpoint server** e passare alla sezione suddivisione in **livelli nel cloud** . La suddivisione in **livelli dei file non** è basata sull'id evento 9003 registrato nel registro eventi di telemetria sul server e gli **errori di richiamo** si basano sull'ID evento 9006. Per esaminare i file che non riescono a eseguire il livello o richiamare, vedere [come risolvere i problemi dei file che non riescono a livello](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) e [come risolvere i problemi dei file che non vengono richiamati](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 ### <a name="metric-charts"></a>Grafici delle metriche

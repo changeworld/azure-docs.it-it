@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 469fdbced4601c6ffb4b6aa35e8f943bcb5dde1b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5d902e0172a048527ce8f2fa9e22c5fc9bf22e0b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965783"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203624"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure
 
@@ -47,7 +47,7 @@ Prima di iniziare la configurazione, verificare di essere in possesso degli elem
 
 ### <a name="sign-in-to-your-azure-account"></a>Accedere con l'account Azure
 
-Aprire una finestra della console ed eseguire l'autenticazione con le credenziali. Per altre informazioni, vedere [accedere ad Azure dall'interfaccia della](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) riga di comando di Azure
+Aprire una finestra della console ed eseguire l'autenticazione con le credenziali. Per altre informazioni, vedere [accedere ad Azure dall'interfaccia della](/cli/azure/authenticate-azure-cli) riga di comando di Azure
 
 ```
 az login

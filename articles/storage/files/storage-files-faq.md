@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737614"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202638"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud accessibili tramite il [protocollo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard del settore e il [protocollo NFS (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (anteprima). È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -119,26 +119,38 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="sizeondisk-versus-size"></a>
   **Perché la proprietà *Dimensioni su disco* per un file non corrisponde alla proprietà *Dimensioni* dopo l'uso di Sincronizzazione file di Azure?**  
-  Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+  Vedere [comprendere sincronizzazione file di Azure](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior)suddivisione in livelli nel cloud.
 
 * <a id="is-my-file-tiered"></a>
   **Come si può stabilire se un file è archiviato a livelli?**  
-  Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#is-my-file-tiered).
+  Vedere [come gestire sincronizzazione file di Azure file a livelli](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**Un file da usare è stato archiviato a livelli. Come è possibile richiamare il file su disco per usarlo in locale?**  
-  Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#afs-recall-file).
+  Vedere [come gestire sincronizzazione file di Azure file a livelli](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
   **Come è possibile forzare l'archiviazione a livelli di un file o una directory?**  
-  Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#afs-force-tiering).
+  Vedere [come gestire sincronizzazione file di Azure file a livelli](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **Come viene interpretato lo *spazio disponibile del volume* quando in un volume sono presenti più endpoint server?**  
-  Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  Vedere [scegliere Sincronizzazione file di Azure criteri](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume)di suddivisione in livelli cloud.
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **La suddivisione in livelli nel cloud è disabilitata perché sono presenti file a livelli nel percorso dell'endpoint server?**  
-  Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#afs-tiering-disabled).
+    Esistono due motivi per cui i file a livelli possono esistere nel percorso dell'endpoint server:
+
+    - Quando si aggiunge un nuovo endpoint server a un gruppo di sincronizzazione esistente, se si sceglie la prima opzione richiama spazio dei nomi o richiama solo spazio dei nomi per la modalità di download iniziale, i file verranno visualizzati come livelli fino a quando non vengono scaricati localmente. Per evitare questo problema, selezionare l'opzione evita file a livelli per la modalità di download iniziale. Per richiamare manualmente i file, usare il cmdlet [Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) .
+
+    - Se la suddivisione in livelli nel cloud è stata abilitata nell'endpoint server e quindi disabilitata, i file rimarranno a livelli fino a quando non saranno accessibili.
+
+* <a id="afs-tiered-files-not-showing-thumbnails"></a>
+  **Perché i file a livelli non visualizzano anteprime o anteprime in Esplora risorse?**  
+    Per i file a livelli, le anteprime e le anteprime non saranno visibili nell'endpoint server. Questo comportamento è previsto perché la funzionalità della cache delle anteprime in Windows ignora intenzionalmente la lettura dei file con l'attributo offline. Con la suddivisione in livelli nel cloud abilitata, la lettura tramite file a livelli ne determina il download (richiamata).
+
+    Questo comportamento non è specifico per Sincronizzazione file di Azure, in Esplora risorse viene visualizzata una "X grigia" per tutti i file in cui è impostato l'attributo offline. Quando si accede ai file tramite SMB, viene visualizzata l'icona X. Per una spiegazione dettagliata di questo comportamento, vedere [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
+    Per domande su come gestire i file a livelli, vedere [come gestire i file a livelli](storage-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
   **Quali file o cartelle vengono automaticamente esclusi da Sincronizzazione file di Azure?**  
@@ -274,7 +286,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     2.  Aprire la console "Active Directory domini e trust"
     3.  Fare clic con il pulsante destro del mouse sul dominio a cui si desidera accedere alla condivisione file, quindi fare clic sulla scheda "Trust" e selezionare il dominio della foresta B dai trust in uscita. Se non è stata configurata la relazione di trust tra le due foreste, è necessario configurare prima il trust
     4.  Fare clic su "Properties..." quindi "nome suffisso routing"
-    5.  Controllare se viene visualizzato il surffix "*. file.core.windows.net". In caso contrario, fare clic su' Aggiorna '
+    5.  Controllare se viene visualizzato il suffisso "*. file.core.windows.net". In caso contrario, fare clic su' Aggiorna '
     6.  Selezionare "*. file.core.windows.net", quindi fare clic su "Abilita" e "applica"
 
 * <a id=""></a>

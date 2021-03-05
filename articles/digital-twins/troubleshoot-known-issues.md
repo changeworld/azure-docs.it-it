@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 49c790ae92537ab72fb9848ed4e57e222ef11d79
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d7d97ca1eb590fb96789d439243dd04d6143a960
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545684"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203148"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemi noti nei dispositivi gemelli digitali di Azure
 
@@ -24,7 +24,7 @@ Questo articolo fornisce informazioni sui problemi noti associati ai dispositivi
 
 | Questa operazione ha effetto? | Causa | Soluzione |
 | --- | --- | --- |
-| Nei &nbsp; dispositivi &nbsp; gemelli digitali di Azure &nbsp; questo influisca sui gruppi di comandi seguenti:<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Questo è il risultato di un problema noto nel Cloud Shell: il [*recupero del token da cloud Shell intermitted ha esito negativo con errore del Client 400: richiesta non valida*](https://github.com/Azure/azure-cli/issues/11749).<br><br>Si presenta un problema con i token di autenticazione dell'istanza di Azure Digital gemelli e con l'autenticazione basata su [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) predefinita di cloud Shell. <br><br>Questo non influisce sui comandi di Azure Digital gemelli dei `az dt` `az dt endpoint` gruppi di comandi o, perché usano un tipo diverso di token di autenticazione (in base a Azure Resource Manager), che non presenta un problema con l'autenticazione di identità gestita del cloud Shell. | Un modo per risolvere questo problema consiste nell'eseguire nuovamente il `az login` comando in cloud Shell e completare i passaggi di accesso successivi. Questa operazione consente di disattivare la sessione dall'autenticazione di identità gestita, evitando così il problema principale. Successivamente, dovrebbe essere possibile eseguire di nuovo il comando.<br><br>In alternativa, è possibile aprire il riquadro Cloud Shell nel portale di Azure e completare il Cloud Shell lavorare da questa posizione.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Immagine dell'icona del Cloud Shell nella barra delle icone portale di Azure" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Infine, un'altra soluzione consiste nell' [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) riga di comando di Azure nel computer, in modo da poter eseguire i comandi dell'interfaccia della riga di comando Questo problema non viene riscontrato nell'interfaccia della riga di comando locale. |
+| Nei &nbsp; dispositivi &nbsp; gemelli digitali di Azure &nbsp; questo influisca sui gruppi di comandi seguenti:<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Questo è il risultato di un problema noto nel Cloud Shell: il [*recupero del token da cloud Shell intermitted ha esito negativo con errore del Client 400: richiesta non valida*](https://github.com/Azure/azure-cli/issues/11749).<br><br>Si presenta un problema con i token di autenticazione dell'istanza di Azure Digital gemelli e con l'autenticazione basata su [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) predefinita di cloud Shell. <br><br>Questo non influisce sui comandi di Azure Digital gemelli dei `az dt` `az dt endpoint` gruppi di comandi o, perché usano un tipo diverso di token di autenticazione (in base a Azure Resource Manager), che non presenta un problema con l'autenticazione di identità gestita del cloud Shell. | Un modo per risolvere questo problema consiste nell'eseguire nuovamente il `az login` comando in cloud Shell e completare i passaggi di accesso successivi. Questa operazione consente di disattivare la sessione dall'autenticazione di identità gestita, evitando così il problema principale. Successivamente, dovrebbe essere possibile eseguire di nuovo il comando.<br><br>In alternativa, è possibile aprire il riquadro Cloud Shell nel portale di Azure e completare il Cloud Shell lavorare da questa posizione.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Immagine dell'icona del Cloud Shell nella barra delle icone portale di Azure" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Infine, un'altra soluzione consiste nell' [installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure nel computer, in modo da poter eseguire i comandi dell'interfaccia della riga di comando Questo problema non viene riscontrato nell'interfaccia della riga di comando locale. |
 
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Assegnazione di ruolo mancante dopo l'installazione tramite script

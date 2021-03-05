@@ -7,12 +7,12 @@ ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4612e1236af5fbe47db9a3569e2f4da2378017e2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c89427f83600d3b8091d5293b1757fa6f1a15ef1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784898"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202485"
 ---
 # <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>Creare e distribuire il Bridge Plug and Play
 
@@ -227,7 +227,7 @@ I passaggi descritti in questa sezione presuppongono che sia presente l'ambiente
   sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
   ```
 
-- INTERFACCIA della riga di comando di [Azure](/cli/azure/install-azure-cli-apt?view=azure-cli-latest&preserve-view=true) installata nell'ambiente WSL 2 per gestire le risorse di Azure.
+- INTERFACCIA della riga di comando di [Azure](/cli/azure/install-azure-cli-apt) installata nell'ambiente WSL 2 per gestire le risorse di Azure.
 
   > [!TIP]
   > Se si preferisce, è possibile eseguire i `az` comandi nel [Azure cloud Shell](https://shell.azure.com/) in cui è preinstallata l'interfaccia della riga di comando.

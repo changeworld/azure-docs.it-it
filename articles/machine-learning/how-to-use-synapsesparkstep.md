@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f52686f991e3d14a8cde82c602b182874305f27d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ea7dc30d0aed1350a8c9275d786ea22fa52c77bf
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102184101"
+ms.locfileid: "102203692"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Come usare Apache Spark (basati su Azure sinapsi Analytics) nella pipeline di Machine Learning (anteprima)
 
@@ -90,8 +90,6 @@ Il primo passaggio consiste nel configurare il `SynapseCompute` . L' `linked_ser
 Una volta creata la configurazione, è possibile creare un machine learning `ComputeTarget` passando `Workspace` , `ComputeTargetAttachConfiguration` e il nome con cui si vuole fare riferimento al calcolo nell'area di lavoro di machine learning. La chiamata a `ComputeTarget.attach()` è asincrona, pertanto l'esempio si blocca fino al completamento della chiamata.
 
 ## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Creare un `SynapseSparkStep` che usi il pool di Apache Spark collegato
-
-Il processo del notebook [Spark di esempio nel pool Apache Spark](https://github.com/azure/machinelearningnotebooks) definisce una semplice pipeline di machine learning. In primo luogo, il notebook definisce un passaggio di preparazione dei dati basato sul `synapse_compute` definito nel passaggio precedente. Quindi, il notebook definisce un passaggio di training basato su una destinazione di calcolo più adatta per il training. Il notebook di esempio usa il database di sopravvivenza Titanic per illustrare l'input e l'output dei dati; non pulisce effettivamente i dati o crea un modello predittivo. Poiché in questo esempio non è presente un training reale, il passaggio di training usa una risorsa di calcolo economica basata sulla CPU.
 
 Flussi di dati in una pipeline di Machine Learning tramite `DatasetConsumptionConfig` oggetti, che possono conservare dati tabulari o set di file. I dati provengono spesso da file nell'archiviazione BLOB nell'archivio dati di un'area di lavoro. Il codice seguente illustra un codice tipico per la creazione di input per una pipeline di Machine Learning:
 
@@ -228,7 +226,7 @@ Il codice precedente crea la nuova risorsa di calcolo, se necessario. Quindi, il
 
 Dopo aver definito tutti i passaggi, è possibile creare ed eseguire la pipeline. 
 
-```
+```python
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])

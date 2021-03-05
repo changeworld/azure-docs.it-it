@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: cb501dd8e548ea2f6ce8b63fbffb1c4b2403c9a6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8c6e584a4bdb1953d7ceac4e3d612b329738f646
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035960"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203981"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Guida introduttiva: esplorare uno scenario di esempio di dispositivi digitali gemelli di Azure con Esplora dispositivi digitali di Azure
 
@@ -57,13 +57,13 @@ Nella parte restante di questa sezione vengono illustrati questi passaggi.
 
 L'applicazione Azure Digital Twins Explorer usa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (parte della `Azure.Identity` libreria) per autenticare gli utenti con l'istanza di Azure Digital Twins quando viene eseguita nel computer locale. Per altre informazioni sui diversi modi con cui un'app client può eseguire l'autenticazione con Gemelli digitali di Azure, vedere [Scrivere il codice di autenticazione dell'app](how-to-authenticate-client.md).
 
-Con questo tipo di autenticazione, Esplora Digital gemelli di Azure cercherà le credenziali all'interno dell'ambiente locale, ad esempio un accesso di Azure in un'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) locale o in Visual Studio o Visual Studio Code. Per questo motivo, è necessario *accedere ad Azure in locale* tramite uno di questi meccanismi per configurare le credenziali per l'app di Azure Digital Twins Explorer.
+Con questo tipo di autenticazione, Esplora Digital gemelli di Azure cercherà le credenziali all'interno dell'ambiente locale, ad esempio un accesso di Azure in un'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) locale o in Visual Studio o Visual Studio Code. Per questo motivo, è necessario *accedere ad Azure in locale* tramite uno di questi meccanismi per configurare le credenziali per l'app di Azure Digital Twins Explorer.
 
 Se è già stato effettuato l'accesso ad Azure in uno di questi modi, è possibile passare alla [sezione successiva](#run-and-configure-azure-digital-twins-explorer).
 
 In caso contrario, è possibile installare l'interfaccia della riga di comando di Azure locale con questa procedura:
 
-1. Per completare l'installazione corrispondente al sistema operativo, seguire la procedura descritta in [questo collegamento](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+1. Per completare l'installazione corrispondente al sistema operativo, seguire la procedura descritta in [questo collegamento](/cli/azure/install-azure-cli).
 1. Aprire una finestra della console nel computer.
 1. Eseguire `az login` e seguire le istruzioni sull'autenticazione per accedere all'account Azure.
 1. Possibile ultimo passaggio: se si usano più sottoscrizioni di Azure in questo account, impostare il contesto di autenticazione su quella che contiene l'istanza di Gemelli digitali di Azure eseguendo `az account set --subscription "<your-subscription-name-or-ID>"` (è possibile usare il nome o il valore ID della sottoscrizione).

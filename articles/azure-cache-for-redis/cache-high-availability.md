@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 2005b24e9a5692adda8c8e3a5100a6450c67663c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ad6696fc4fe2af7047c25a3a9c260d3b12588ee2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653848"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203301"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Disponibilità elevata per cache di Azure per Redis
 
@@ -23,7 +23,7 @@ Cache di Azure per Redis implementa la disponibilità elevata usando più macchi
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Replica standard](#standard-replication)| Configurazione replicata a doppio nodo in un singolo data center con failover automatico | 99,9% |✔|✔|-|
 | [Ridondanza della zona](#zone-redundancy) | Configurazione replicata a più nodi in AZs, con failover automatico | 99,95% (livello Premium), 99,99% (livelli Enterprise) |-|Anteprima|Anteprima|
-| [Replica geografica](#geo-replication) | Istanze della cache collegate in due aree, con failover controllato dall'utente | 99,999% (livello Enterprise) |-|✔|-|
+| [Replica geografica](#geo-replication) | Istanze della cache collegate in due aree, con failover controllato dall'utente | 99,999% (livello Enterprise) |-|✔|Anteprima|
 
 ## <a name="standard-replication"></a>Replica standard
 
