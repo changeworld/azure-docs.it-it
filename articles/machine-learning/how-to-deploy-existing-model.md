@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 46b8f153e65f436fa1062a0606e0fb0136d972a5
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 0a536781f3218807c36f6eefe738b9a375de8d4b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97824593"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213131"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Distribuire il modello esistente con Azure Machine Learning
 
@@ -25,7 +25,7 @@ Questo articolo illustra come registrare e distribuire un modello di Machine Lea
 
 Per altre informazioni sui concetti e i termini in questo articolo, vedere [gestire, distribuire e monitorare i modelli di Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md)
   + Negli esempi di Python si presuppone che la `ws` variabile sia impostata sull'area di lavoro Azure Machine Learning. Per ulteriori informazioni su come connettersi all'area di lavoro, consultare la [documentazione di Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=trueworkspace).
@@ -34,7 +34,7 @@ Per altre informazioni sui concetti e i termini in questo articolo, vedere [gest
 
 * [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
-* L' [interfaccia](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) della riga di comando di Azure e l' [estensione CLI Machine Learning](reference-azure-machine-learning-cli.md).
+* L' [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure e l' [estensione CLI Machine Learning](reference-azure-machine-learning-cli.md).
 
 * Un modello con training. Il modello deve essere salvato in modo permanente in uno o più file nell'ambiente di sviluppo. <br><br>Per dimostrare la registrazione di un modello sottoposto a training, il codice di esempio in questo articolo usa i modelli del [progetto di analisi del sentimento Twitter di Paolo Ripamonti](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
@@ -61,7 +61,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 > [!TIP]
 > È anche possibile impostare `tags` `properties` gli oggetti Aggiungi e dizionario sul modello registrato. Questi valori possono essere utilizzati in un secondo momento per facilitare l'identificazione di un modello specifico. Ad esempio, il Framework usato, i parametri di training e così via.
 
-Per ulteriori informazioni, vedere la pagina relativa al riferimento al [Registro AZ ml Model](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) .
+Per ulteriori informazioni, vedere la pagina relativa al riferimento al [Registro AZ ml Model](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-register) .
 
 
 Per altre informazioni sulla registrazione dei modelli in generale, vedere [gestire, distribuire e monitorare i modelli di Machine Learning](concept-model-management-and-deployment.md).
@@ -268,7 +268,7 @@ Per distribuire il modello dall'interfaccia della riga di comando, usare il coma
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
+Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) .
 
 Per ulteriori informazioni sulla distribuzione, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 

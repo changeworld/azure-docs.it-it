@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d47935f76347b2d5272b386942a85643a732e643
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: d9fb9e0221ad6a5749899c89bbd9dc5631e7a91c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831753"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213267"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Avvio rapido: Creare un modulo di protezione hardware gestito usando un modello di Azure Resource Manager
 
@@ -43,7 +43,7 @@ Per accedere ad Azure usando l'interfaccia della riga di comando è possibile di
 az login
 ```
 
-Per altre informazioni sulle opzioni di accesso con l'interfaccia della riga di comando, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Per altre informazioni sulle opzioni di accesso con l'interfaccia della riga di comando, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli)
 
 ## <a name="create-a-manage-hsm"></a>Creare un modulo di protezione hardware gestito
 
@@ -55,13 +55,13 @@ La risorsa di Azure definita nel modello:
 
 Altri esempi di modelli di Azure Key Vault sono disponibili [qui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
-Il modello richiede l'ID oggetto associato all'account. Per trovarlo, usare il comando [az ad user show](/cli/azure/ad/user?view=azure-cli-latest&preserve-view=true#az_ad_user_show) dell'interfaccia della riga di comando di Azure, passando il proprio indirizzo di posta elettronica al parametro `--id`. È possibile limitare l'output solo all'ID oggetto con il parametro `--query`.
+Il modello richiede l'ID oggetto associato all'account. Per trovarlo, usare il comando [az ad user show](/cli/azure/ad/user#az_ad_user_show) dell'interfaccia della riga di comando di Azure, passando il proprio indirizzo di posta elettronica al parametro `--id`. È possibile limitare l'output solo all'ID oggetto con il parametro `--query`.
 
 ```azurecli-interactive
 az ad user show --id <your-email-address> --query "objectId"
 ```
 
-Potrebbe essere necessario anche l'ID tenant. Per trovarlo, usare il comando [az ad user show](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_show) dell'interfaccia della riga di comando di Azure. È possibile limitare l'output solo all'ID tenant con il parametro `--query`.
+Potrebbe essere necessario anche l'ID tenant. Per trovarlo, usare il comando [az ad user show](/cli/azure/account#az_account_show) dell'interfaccia della riga di comando di Azure. È possibile limitare l'output solo all'ID tenant con il parametro `--query`.
 
  ```azurecli-interactive
  az account show --query "tenantId"

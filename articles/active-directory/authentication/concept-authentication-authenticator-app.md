@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8e33c87d53580d96363ba15bccbc889370f2479d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648799"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212910"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Metodi di autenticazione nell'app Azure Active Directory Microsoft Authenticator
 
 L'app Microsoft Authenticator offre un livello di sicurezza aggiuntivo per l'account aziendale o dell'Istituto di istruzione Azure AD o per il account Microsoft ed è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Con l'app Microsoft Authenticator, gli utenti possono eseguire l'autenticazione senza password durante l'accesso o come opzione di verifica aggiuntiva durante la reimpostazione della password self-service (SSPR) o gli eventi di Multi-Factor Authentication Azure AD.
 
-Gli utenti possono ricevere una notifica tramite l'app per dispositivi mobili da approvare o rifiutare, oppure possono usare l'app Authenticator per generare un codice di verifica OATH che può essere inserito in un'interfaccia di accesso. Se si abilitano sia la notifica che il codice di verifica, gli utenti che registrano l'app Authenticator possono usare uno dei due metodi per verificare la propria identità.
+Gli utenti possono ricevere una notifica tramite l'app per dispositivi mobili per approvare o negare o usare l'app Authenticator per generare un codice di verifica OAUTH che può essere inserito in un'interfaccia di accesso. Se si abilitano sia la notifica che il codice di verifica, gli utenti che registrano l'app Authenticator possono usare uno dei due metodi per verificare la propria identità.
 
 Per usare l'app Authenticator a una richiesta di accesso anziché una combinazione di nome utente e password, vedere [abilitare l'accesso senza password con l'app Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

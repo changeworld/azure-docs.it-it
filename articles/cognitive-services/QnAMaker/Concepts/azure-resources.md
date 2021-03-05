@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f5a248b8701c71b2dcf0415c6656b9b565535232
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 2427fbdaa497ccb6d9a46330dcc6eb872e1d28ac
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096544"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214168"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Risorse di Azure per QnA Maker
 
@@ -126,7 +126,7 @@ QnA Maker Managed è un servizio gratuito e la velocità effettiva è attualment
 |[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) di SKU del servizio app e controllare ricerca cognitiva livello e [creare repliche ricerca cognitiva](../../../search/search-capacity-planning.md)|La Knowledge base deve soddisfare un numero maggiore di richieste provenienti dall'app client, ad esempio un bot di chat.|
 |[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) di Servizio ricerca cognitiva di Azure|Si prevede di avere molte Knowledge base.|
 
-Per ottenere gli aggiornamenti più recenti del runtime, [aggiornare il servizio app nel portale di Azure](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+Per ottenere gli aggiornamenti più recenti del runtime, [aggiornare il servizio app nel portale di Azure](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates).
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
@@ -307,7 +307,7 @@ La prima Knowledge base creata nella risorsa QnA Maker viene utilizzata per dete
 
 Se si crea un servizio QnA e le relative dipendenze (ad esempio la ricerca) tramite il portale, viene creato un servizio di ricerca e collegato al servizio QnA Maker. Dopo aver creato queste risorse, è possibile aggiornare l'impostazione del servizio app per usare un servizio di ricerca precedentemente esistente e rimuovere quello appena creato.
 
-Informazioni [su come configurare](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker per l'uso di una risorsa di servizi cognitivi diversa da quella creata come parte del processo di creazione delle risorse QnA Maker.
+Informazioni [su come configurare](../How-To/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker per l'uso di una risorsa di servizi cognitivi diversa da quella creata come parte del processo di creazione delle risorse QnA Maker.
 
 ### <a name="app-service-and-app-service-plan"></a>Servizio app e piano di servizio app
 

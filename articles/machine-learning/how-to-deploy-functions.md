@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: 901e4d458cc2d77d4e7f13c1782b86c8532ca499
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 88408c4d1c1936d364029f73d9e7b2be0bcf9d84
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327169"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213114"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 
@@ -31,7 +31,7 @@ Con Azure Machine Learning, è possibile creare immagini Docker da modelli di ap
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
-* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * Un modello di apprendimento automatico sottoposto a training registrato nell'area di lavoro. Se non si dispone di un modello, usare l' [esercitazione relativa alla classificazione delle immagini: Train Model](tutorial-train-models-with-aml.md) per eseguire il training e la registrazione di un modello.
 
     > [!IMPORTANT]

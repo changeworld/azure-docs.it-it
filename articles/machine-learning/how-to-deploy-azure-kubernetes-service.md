@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 7ba01139e365b2f0023ef0784b6ed83e7bde609a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 342ae2f590f4bf4ce88f64d6d545defff358ad72
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831729"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215222"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 
@@ -24,7 +24,7 @@ Informazioni su come usare Azure Machine Learning per distribuire un modello com
 
 - __Tempo di risposta rapido__
 - __Scalabilità__ automatica del servizio distribuito
-- __Registrazione__
+- __Logging__
 - __Raccolta di dati del modello__
 - __autenticazione__
 - __Terminazione TLS__
@@ -92,7 +92,7 @@ Azureml-Fe scala sia verso l'alto (verticalmente) per usare più core, sia orizz
 
 Quando si esegue il ridimensionamento in basso e in, viene utilizzato l'utilizzo della CPU. Se viene raggiunta la soglia di utilizzo della CPU, il front-end verrà prima ridimensionato. Se l'utilizzo della CPU scende alla soglia di riduzione delle prestazioni, viene eseguita un'operazione di riduzione del livello. La scalabilità verticale e orizzontale si verifica solo se sono disponibili risorse cluster sufficienti.
 
-## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Informazioni sui requisiti di connettività per il cluster di inferenza AKS
+## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Informazioni sui requisiti di connettività per il cluster di inferenza del servizio Azure Kubernetes
 
 Quando Azure Machine Learning crea o associa un cluster AKS, il cluster AKS viene distribuito con uno dei due modelli di rete seguenti:
 * Funzionalità di rete kubenet: le risorse di rete vengono in genere create e configurate quando viene distribuito il cluster del servizio Azure Kubernetes.
@@ -184,7 +184,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
+Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) .
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -372,7 +372,7 @@ print(token)
 >
 > Microsoft consiglia di creare l'area di lavoro di Azure Machine Learning nella stessa area del cluster del servizio Azure Kubernetes. Per eseguire l'autenticazione con un token, il servizio Web effettuerà una chiamata all'area in cui viene creata l'area di lavoro Azure Machine Learning. Se l'area dell'area di lavoro non è disponibile, non sarà possibile recuperare un token per il servizio Web, anche se il cluster si trova in un'area diversa da quella dell'area di lavoro. In questo modo, l'autenticazione basata su token risulta non disponibile fino a quando l'area dell'area di lavoro non sarà nuovamente disponibile. Inoltre, maggiore è la distanza tra l'area del cluster e l'area dell'area di lavoro, più tempo sarà necessario per recuperare un token.
 >
-> Per recuperare un token, è necessario usare l'SDK Azure Machine Learning o il comando [AZ ml Service Get-Access-token](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) .
+> Per recuperare un token, è necessario usare l'SDK Azure Machine Learning o il comando [AZ ml Service Get-Access-token](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-get-access-token) .
 
 
 ### <a name="vulnerability-scanning"></a>Analisi delle vulnerabilità

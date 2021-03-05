@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 741cfce56554e05d0c5f5a9242a33502b8a6fbe6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cebba214671cfab75a3f44720578b51febacdfcd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699420"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215069"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -150,7 +150,7 @@ Un parametro presenta le proprietà seguenti, usate nella definizione di criteri
   - `assignPermissions`: (Facoltativo) Impostare come _true_ per consentire al portale di Azure di creare assegnazioni di ruolo durante l'assegnazione dei criteri. Questa proprietà è utile nel caso in cui si desideri assegnare autorizzazioni al di fuori dell'ambito di assegnazione. È disponibile un'assegnazione di ruolo per ogni definizione di ruolo nel criterio (o per definizione di ruolo in tutti i criteri dell'iniziativa). Il valore del parametro deve essere una risorsa o un ambito valido.
 - `defaultValue`: (facoltativa) imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore.
   Obbligatoria quando si aggiorna una definizione di criteri esistente già assegnata.
-- `allowedValues`: (Facoltativo) Fornisce una matrice di valori accettati dal parametro durante l'assegnazione.
+- `allowedValues`: (Facoltativo) Fornisce una matrice di valori accettati dal parametro durante l'assegnazione. Per i confronti di valori consentiti viene fatta distinzione tra maiuscole 
 
 Ad esempio, è possibile definire una definizione di criteri per limitare i percorsi in cui le risorse possono essere distribuite. Un parametro per questa definizione di criteri potrebbe essere **allowedLocations**. Questo parametro è stato usato da ogni assegnazione della definizione di criteri per limitare i valori accettati. L'uso di **strongType** offre un'esperienza migliorata nel completamento dell'assegnazione tramite portale:
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: dddecb3dba6d707e16241731a25df3b3749be103
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: d23d6cb5a43de4ccf0d10287b8cf8f597797b893
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825408"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214984"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
@@ -77,7 +77,7 @@ La classe [azureml.core.Webservice](/python/api/azureml-core/azureml.core.webser
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Se si conosce il nome del servizio distribuito, usare il comando [AZ ml Service Show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) :
+Se si conosce il nome del servizio distribuito, usare il comando [AZ ml Service Show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) :
 
 ```azurecli
 az ml service show -n <service-name>
@@ -677,7 +677,7 @@ Power BI supporta l'utilizzo di servizi Web Azure Machine Learning per arricchir
 
 Per generare un servizio Web supportato per l'utilizzo in Power BI, lo schema deve supportare il formato richiesto da Power BI. [Informazioni su come creare uno schema supportato da Power bi](./how-to-deploy-advanced-entry-script.md#power-bi-compatible-endpoint).
 
-Dopo aver distribuito il servizio Web, può essere utilizzato dai flussi di dati di Power BI. [Informazioni su come utilizzare un servizio web Azure Machine Learning da Power bi](/power-bi/service-machine-learning-integration).
+Dopo aver distribuito il servizio Web, può essere utilizzato dai flussi di dati di Power BI. [Informazioni su come usare un servizio Web Azure Machine Learning da Power BI](/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

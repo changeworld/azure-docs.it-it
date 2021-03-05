@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 123be57566a31d9831bfd0172373d571be2bf294
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c2121f429b928d58a2df7b4e4663341cf600da3e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035170"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214474"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Avvio rapido: Distribuire la prima applicazione Azure Spring Cloud
 
@@ -37,7 +37,7 @@ Il codice dell'applicazione usato in questo argomento di avvio rapido è una sem
 
 * Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). Il servizio Azure Spring Cloud supporta .NET Core 3.1 e versioni successive.
-* [Interfaccia della riga di comando di Azure versione 2.0.67 o successiva](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [Interfaccia della riga di comando di Azure versione 2.0.67 o successiva](/cli/azure/install-azure-cli).
 * [Git](https://git-scm.com/).
 
 ## <a name="install-azure-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando di Azure
@@ -338,9 +338,9 @@ Questa guida di avvio rapido illustra come:
 
 Per completare questa guida introduttiva:
 
-* [Installare JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
+* [Installare JDK 8](/java/azure/jdk/)
 * [Iscriversi per ottenere una sottoscrizione di Azure](https://azure.microsoft.com/free/)
-* (Facoltativo) [Installare l'interfaccia della riga di comando di Azure versione 2.0.67 o successiva](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) e l'estensione Azure Spring Cloud con il comando `az extension add --name spring-cloud`
+* (Facoltativo) [Installare l'interfaccia della riga di comando di Azure versione 2.0.67 o successiva](/cli/azure/install-azure-cli) e l'estensione Azure Spring Cloud con il comando `az extension add --name spring-cloud`
 * (Facoltativo) [Installare Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) ed [eseguire l'accesso](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="generate-a-spring-cloud-project"></a>Generare un progetto Spring Cloud

@@ -9,12 +9,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 5d5278c33c24c7f95459b9c121bca9e960615b9c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a925d3f55395d094c7f19f65de4b72fd20a11a41
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99260181"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213675"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrare i dati tramite Azure Data Lake Storage accelerazione query
 
@@ -40,7 +40,7 @@ L'accelerazione delle query consente alle applicazioni e ai Framework di analisi
 
   ### <a name="java"></a>[Java](#tab/java)
 
-  - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) versione 8 o successiva
+  - [Java Development Kit (JDK)](/java/azure/jdk/) versione 8 o successiva
 
   - [Apache Maven](https://maven.apache.org/download.cgi) 
 

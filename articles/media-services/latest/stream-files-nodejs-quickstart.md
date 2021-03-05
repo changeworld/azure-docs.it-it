@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 566a7a978a08bf7e37b6c4ab8b0609222b34e549
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b7efa37747e6d116b4cf26b4cf54377037f22cdd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724524"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212757"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Come codificare ed eseguire lo streaming di file video con Node.JS
 
@@ -128,15 +128,15 @@ az group delete --name amsResourceGroup
 
 ## <a name="more-developer-documentation-for-nodejs-on-azure"></a>Ulteriore documentazione per gli sviluppatori per Node.js in Azure
 
-- [Azure per & JavaScript Node.js sviluppatori](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Azure per & JavaScript Node.js sviluppatori](/azure/developer/javascript/)
 - [Codice sorgente di servizi multimediali nel @azure/azure-sdk-for-js repository dell'hub git](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Documentazione dei pacchetti di Azure per sviluppatori Node.js](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+- [Documentazione dei pacchetti di Azure per sviluppatori Node.js](/javascript/api/overview/azure/)
 
 ## <a name="see-also"></a>Vedere anche
 
 - [Codici di errore dei processi](/rest/api/media/jobs/get#joberrorcode).
 - [installazione di NPM @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [Azure per & JavaScript Node.js sviluppatori](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Azure per & JavaScript Node.js sviluppatori](/azure/developer/javascript/)
 - [Codice sorgente di servizi multimediali nel @azure/azure-sdk-for-js repository](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## <a name="next-steps"></a>Passaggi successivi

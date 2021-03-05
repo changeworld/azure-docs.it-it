@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: ae508754775d4eb622d8e91ef58eb0d6e1c45692
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 080666c9857c1a3dc509ca980bc85b1dc11b5975
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94889015"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214287"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Ripristini automatici delle istanze per i set di scalabilità di macchine virtuali di Azure
 
@@ -56,7 +56,7 @@ Questa funzionalità non è attualmente supportata per i set di scalabilità di 
 
 La funzionalità di ripristino automatico delle istanze si basa sul monitoraggio dello stato delle singole istanze in un set di scalabilità. Le istanze di VM in un set di scalabilità possono essere configurate per emettere lo stato di integrità dell'applicazione usando l' [estensione dell'integrità dell'applicazione](./virtual-machine-scale-sets-health-extension.md) o i [Probe di integrità del bilanciamento del carico](../load-balancer/load-balancer-custom-probe-overview.md) Se un'istanza risulta non integra, il set di scalabilità esegue un'azione di ripristino eliminando l'istanza non integra e creandone una nuova per sostituirla. Il modello di set di scalabilità di macchine virtuali più recente viene usato per creare la nuova istanza. Questa funzionalità può essere abilitata nel modello di set di scalabilità di macchine virtuali usando l'oggetto *automaticRepairsPolicy* .
 
-### <a name="batching"></a>Batch
+### <a name="batching"></a>Creazione di batch
 
 Le operazioni di ripristino automatico dell'istanza vengono eseguite in batch. In un determinato momento, non più del 5% delle istanze nel set di scalabilità viene ripristinato tramite i criteri di riparazione automatici. In questo modo è possibile evitare l'eliminazione e la ricreazione simultanee di un numero elevato di istanze, se non è stato trovato nello stesso momento.
 
@@ -141,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-Nell'esempio seguente vengono abilitati i criteri di riparazione automatica durante la creazione di un nuovo set di scalabilità con *[AZ vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. Creare innanzitutto un gruppo di risorse, quindi creare un nuovo set di scalabilità con il periodo di tolleranza dei criteri di riparazione automatica impostato su 30 minuti.
+Nell'esempio seguente vengono abilitati i criteri di riparazione automatica durante la creazione di un nuovo set di scalabilità con *[AZ vmss create](/cli/azure/vmss#az-vmss-create)*. Creare innanzitutto un gruppo di risorse, quindi creare un nuovo set di scalabilità con il periodo di tolleranza dei criteri di riparazione automatica impostato su 30 minuti.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -209,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-Di seguito è riportato un esempio per aggiornare i criteri di ripristino automatico delle istanze di un set di scalabilità esistente, usando *[AZ vmss Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
+Di seguito è riportato un esempio per aggiornare i criteri di ripristino automatico delle istanze di un set di scalabilità esistente, usando *[AZ vmss Update](/cli/azure/vmss#az-vmss-update)*.
 
 ```azurecli-interactive
 az vmss update \  
@@ -259,7 +259,7 @@ Usare l'API *setOrchestrationServiceState* con api versione 2019-12-01 o success
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
 
-Usare il cmdlet [Get-instance-View](/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) per visualizzare il *serviceState* per le riparazioni automatiche dell'istanza. 
+Usare il cmdlet [Get-instance-View](/cli/azure/vmss#az-vmss-get-instance-view) per visualizzare il *serviceState* per le riparazioni automatiche dell'istanza. 
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -267,7 +267,7 @@ az vmss get-instance-view \
     --resource-group MyResourceGroup
 ```
 
-Usare il cmdlet [set-Orchestration-Service-state](/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) per aggiornare *serviceState* per le riparazioni automatiche dell'istanza. Quando il set di scalabilità viene scelto per la funzionalità di ripristino automatico, è possibile usare questo cmdlet per sospendere o riprendere le riparazioni automatiche per il set di scalabilità. 
+Usare il cmdlet [set-Orchestration-Service-state](/cli/azure/vmss#az-vmss-set-orchestration-service-state) per aggiornare *serviceState* per le riparazioni automatiche dell'istanza. Quando il set di scalabilità viene scelto per la funzionalità di ripristino automatico, è possibile usare questo cmdlet per sospendere o riprendere le riparazioni automatiche per il set di scalabilità. 
 
 ```azurecli-interactive
 az vmss set-orchestration-service-state \

@@ -16,12 +16,12 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.custom: devx-track-java
-ms.openlocfilehash: 57daf9170a7f97c6c141532dafe759cde9d1c77b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7a857b887b53ccb2288507742ca52d72d90ff548
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519065"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214355"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Come inviare messaggi di posta elettronica usando SendGrid da Java in una distribuzione Azure
 L'esempio seguente illustra come è possibile usare SendGrid per inviare messaggi di posta elettronica da una pagina Web ospitata in Azure. L'applicazione risultante chiederà all'utente i valori di posta elettronica, come illustrato nello screenshot seguente.
@@ -40,7 +40,7 @@ Per usare il codice in questo argomento è necessario eseguire le operazioni seg
 
 Per poter inviare i messaggi di posta elettronica è inoltre necessario disporre di un nome utente e una password di SendGrid. Per iniziare a usare SendGrid, vedere [Come inviare messaggi di posta elettronica usando SendGrid da Java](store-sendgrid-java-how-to-send-email.md).
 
-Se non si usa Eclipse, è inoltre consigliabile consultare l'argomento [Creazione di un'applicazione Hello World per Azure in Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable)o acquisire familiarità con altre tecniche per l'hosting di applicazioni Java in Azure.
+Se non si usa Eclipse, è inoltre consigliabile consultare l'argomento [Creazione di un'applicazione Hello World per Azure in Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)o acquisire familiarità con altre tecniche per l'hosting di applicazioni Java in Azure.
 
 ## <a name="create-a-web-form-for-sending-email"></a>Creare un modulo Web per l'invio di posta elettronica
 Nel codice seguente viene illustrato come creare un modulo Web per recuperare i dati utente per l'invio di posta elettronica. Per gli scopi di questa esercitazione il file JSP è denominato **emailform.jsp**.

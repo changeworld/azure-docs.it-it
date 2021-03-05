@@ -9,17 +9,17 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ee10866791d1e5015ef5c91d98bff286ed6ce67a
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: a4adb5bff80f1ab216a39fa773e027670b9e6509
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591906"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212689"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installare e usare l'estensione dell'interfaccia della riga di comando per Azure Machine Learning
 
 
-L'interfaccia della riga di comando di Azure Machine Learning è un'estensione dell'[interfaccia della riga di comando di Azure](/cli/azure/?preserve-view=true&view=azure-cli-latest), un'interfaccia della riga di comando multipiattaforma per la piattaforma Azure. Questa estensione offre i comandi per lavorare con Azure Machine Learning. Consente di automatizzare le attività di Machine Learning. L'elenco seguente fornisce alcune azioni di esempio che è possibile eseguire con l'estensione dell'interfaccia della riga di comando:
+L'interfaccia della riga di comando di Azure Machine Learning è un'estensione dell'[interfaccia della riga di comando di Azure](/cli/azure/), un'interfaccia della riga di comando multipiattaforma per la piattaforma Azure. Questa estensione offre i comandi per lavorare con Azure Machine Learning. Consente di automatizzare le attività di Machine Learning. L'elenco seguente fornisce alcune azioni di esempio che è possibile eseguire con l'estensione dell'interfaccia della riga di comando:
 
 + Eseguire gli esperimenti per creare modelli di apprendimento automatico
 
@@ -33,13 +33,13 @@ L'interfaccia della riga di comando non sostituisce Azure Machine Learning SDK. 
 
 * Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Per usare i comandi dell'interfaccia della riga di comando in questo documento dall'**ambiente locale**, è necessaria l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Per usare i comandi dell'interfaccia della riga di comando in questo documento dall'**ambiente locale**, è necessaria l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-    Se si usa [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), l'interfaccia della riga di comando è accessibile tramite il browser e si trova nel cloud.
+    Se si usa [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), l'interfaccia della riga di comando è accessibile tramite il browser e si trova nel cloud.
 
 ## <a name="full-reference-docs"></a>Documentazione di riferimento completa
 
-Trovare la [documentazione di riferimento completa per l'estensione azure-cli-ml dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-cli-ml/?preserve-view=true&view=azure-cli-latest).
+Trovare la [documentazione di riferimento completa per l'estensione azure-cli-ml dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-cli-ml/).
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Connettere l'interfaccia della riga di comando alla sottoscrizione di Azure
 
@@ -56,7 +56,7 @@ Se l'interfaccia della riga di comando può aprire il browser predefinito, esegu
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
-Per altri metodi di autenticazione, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
+Per altri metodi di autenticazione, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 
 ## <a name="install-the-extension"></a>Installare l'estensione
 
@@ -110,7 +110,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
 
-    Per altre informazioni, vedere [az ml workspace create](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
+    Per altre informazioni, vedere [az ml workspace create](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-create).
 
 + Allegare una configurazione di un'area di lavoro a una cartella per abilitare la consapevolezza contestuale dell'interfaccia della riga di comando.
 
@@ -120,7 +120,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
 
     Questo comando crea una `.azureml` sottodirectory che contiene i file di ambiente runconfig e conda di esempio. Contiene anche un file `config.json` usato per comunicare con l'area di lavoro di Azure Machine Learning.
 
-    Per altre informazioni, vedere [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
+    Per altre informazioni, vedere [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder#ext-azure-cli-ml-az-ml-folder-attach).
 
 + Allegare un contenitore BLOB di Azure come archivio dati.
 
@@ -128,7 +128,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
 
-    Per altre informazioni, vedere [az ml datastore attach-blob](/cli/azure/ext/azure-cli-ml/ml/datastore?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-attach-blob).
+    Per altre informazioni, vedere [az ml datastore attach-blob](/cli/azure/ext/azure-cli-ml/ml/datastore#ext-azure-cli-ml-az-ml-datastore-attach-blob).
 
 + Caricare file in un archivio dati.
 
@@ -136,7 +136,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     az ml datastore upload  -n datastorename -p sourcepath
     ```
 
-    Per altre informazioni, vedere [az ml datastore upload](/cli/azure/ext/azure-cli-ml/ml/datastore?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-upload).
+    Per altre informazioni, vedere [az ml datastore upload](/cli/azure/ext/azure-cli-ml/ml/datastore#ext-azure-cli-ml-az-ml-datastore-upload).
 
 + Allegare un cluster AKS come destinazione di calcolo.
 
@@ -144,7 +144,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myresourcegroup -w myworkspace
     ```
 
-    Per altre informazioni, vedere [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
+    Per altre informazioni, vedere [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
 
 ### <a name="compute-clusters"></a>Cluster di elaborazione
 
@@ -181,7 +181,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
         az ml computetarget amlcompute identity assign --name cpu-cluster '[system]'
         ```
 
-Per altre informazioni, vedere [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
+Per altre informazioni, vedere [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-note.md)]
 
@@ -196,7 +196,7 @@ Gestire le istanze di calcolo.  In tutti gli esempi riportati di seguito, il nom
     az ml computetarget create computeinstance -n cpu -s "STANDARD_D3_V2" -v
     ```
 
-    Per altre informazioni, vedere [AZ ml computetarget create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
+    Per altre informazioni, vedere [AZ ml computetarget create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
 
 + Arrestare un computeinstance.
 
@@ -204,7 +204,7 @@ Gestire le istanze di calcolo.  In tutti gli esempi riportati di seguito, il nom
     az ml computetarget computeinstance stop -n cpu -v
     ```
 
-    Per ulteriori informazioni, vedere [AZ ml computetarget computeinstance stop](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Per ulteriori informazioni, vedere [AZ ml computetarget computeinstance stop](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
 
 + Avviare un computeinstance.
 
@@ -212,7 +212,7 @@ Gestire le istanze di calcolo.  In tutti gli esempi riportati di seguito, il nom
     az ml computetarget computeinstance start -n cpu -v
     ```
 
-    Per altre informazioni, vedere [AZ ml computetarget computeinstance Start](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Per altre informazioni, vedere [AZ ml computetarget computeinstance Start](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
 
 + Riavviare un computeinstance.
 
@@ -220,7 +220,7 @@ Gestire le istanze di calcolo.  In tutti gli esempi riportati di seguito, il nom
     az ml computetarget computeinstance restart -n cpu -v
     ```
 
-    Per altre informazioni, vedere [AZ ml computetarget computeinstance restart](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Per altre informazioni, vedere [AZ ml computetarget computeinstance restart](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
 + Eliminare un computeinstance.
 
@@ -228,7 +228,7 @@ Gestire le istanze di calcolo.  In tutti gli esempi riportati di seguito, il nom
     az ml computetarget delete -n cpu -v
     ```
 
-    Per ulteriori informazioni, vedere [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Per ulteriori informazioni, vedere [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
 
 
 ## <a name="run-experiments"></a><a id="experiments"></a>Eseguire esperimenti
@@ -246,7 +246,7 @@ Gestire le istanze di calcolo.  In tutti gli esempi riportati di seguito, il nom
     >
     > Lo schema runconfig completo è disponibile in questo [file JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). Lo schema è autoesplicativo tramite la chiave `description` di ogni oggetto. Sono inoltre disponibili enumerazioni per i valori possibili e un frammento di modello alla fine.
 
-    Per altre informazioni, vedere [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
+    Per altre informazioni, vedere [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-script).
 
 * Visualizzare un elenco di esperimenti:
 
@@ -254,7 +254,7 @@ Gestire le istanze di calcolo.  In tutti gli esempi riportati di seguito, il nom
     az ml experiment list
     ```
 
-    Per altre informazioni, vedere [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+    Per altre informazioni, vedere [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment#ext-azure-cli-ml-az-ml-experiment-list).
 
 ### <a name="hyperdrive-run"></a>Esecuzione di HyperDrive
 
@@ -298,7 +298,7 @@ I comandi seguenti illustrano come usare i set di dati in Azure Machine Learning
 
     Per informazioni sul formato del file JSON usato per definire il set di dati, usare `az ml dataset register --show-template`.
 
-    Per altre informazioni, vedere [az ml dataset register](/cli/azure/ext/azure-cli-ml/ml/dataset?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-register).
+    Per altre informazioni, vedere [az ml dataset register](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-register).
 
 + Elencare tutti i set di dati in un'area di lavoro:
 
@@ -306,7 +306,7 @@ I comandi seguenti illustrano come usare i set di dati in Azure Machine Learning
     az ml dataset list
     ```
 
-    Per altre informazioni, vedere [az ml dataset list](/cli/azure/ext/azure-cli-ml/ml/dataset?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-list).
+    Per altre informazioni, vedere [az ml dataset list](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-list).
 
 + Ottenere dettagli su un set di dati:
 
@@ -314,7 +314,7 @@ I comandi seguenti illustrano come usare i set di dati in Azure Machine Learning
     az ml dataset show -n dataset-name
     ```
 
-    Per altre informazioni, vedere [az ml dataset show](/cli/azure/ext/azure-cli-ml/ml/dataset?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-show).
+    Per altre informazioni, vedere [az ml dataset show](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-show).
 
 + Annullare la registrazione di un set di dati:
 
@@ -322,7 +322,7 @@ I comandi seguenti illustrano come usare i set di dati in Azure Machine Learning
     az ml dataset unregister -n dataset-name
     ```
 
-    Per altre informazioni, vedere [az ml dataset unregister](/cli/azure/ext/azure-cli-ml/ml/dataset?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Per altre informazioni, vedere [az ml dataset unregister](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-archive).
 
 ## <a name="environment-management"></a>Gestione dell'ambiente
 
@@ -334,7 +334,7 @@ I comandi seguenti illustrano come creare, registrare ed elencare gli [ambienti]
     az ml environment scaffold -n myenv -d myenvdirectory
     ```
 
-    Per altre informazioni, vedere [az ml environment scaffold](/cli/azure/ext/azure-cli-ml/ml/environment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-scaffold).
+    Per altre informazioni, vedere [az ml environment scaffold](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-scaffold).
 
 + Registrare un ambiente:
 
@@ -342,7 +342,7 @@ I comandi seguenti illustrano come creare, registrare ed elencare gli [ambienti]
     az ml environment register -d myenvdirectory
     ```
 
-    Per altre informazioni, vedere [az ml environment register](/cli/azure/ext/azure-cli-ml/ml/environment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-register).
+    Per altre informazioni, vedere [az ml environment register](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-register).
 
 + Elencare ambienti registrati:
 
@@ -350,7 +350,7 @@ I comandi seguenti illustrano come creare, registrare ed elencare gli [ambienti]
     az ml environment list
     ```
 
-    Per altre informazioni, vedere [az ml environment list](/cli/azure/ext/azure-cli-ml/ml/environment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-list).
+    Per altre informazioni, vedere [az ml environment list](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-list).
 
 + Scaricare un ambiente registrato:
 
@@ -358,7 +358,7 @@ I comandi seguenti illustrano come creare, registrare ed elencare gli [ambienti]
     az ml environment download -n myenv -d downloaddirectory
     ```
 
-    Per altre informazioni, vedere [az ml environment download](/cli/azure/ext/azure-cli-ml/ml/environment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download).
+    Per altre informazioni, vedere [az ml environment download](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-download).
 
 ### <a name="environment-configuration-schema"></a>Schema di configurazione dell'ambiente
 
@@ -429,7 +429,7 @@ I comandi seguenti illustrano come usare le pipeline di Machine Learning:
     az ml pipeline create -n mypipeline -y mypipeline.yml
     ```
 
-    Per altre informazioni, vedere [az ml pipeline create](/cli/azure/ext/azure-cli-ml/ml/pipeline?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create).
+    Per altre informazioni, vedere [az ml pipeline create](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext-azure-cli-ml-az-ml-pipeline-create).
 
     Per altre informazioni sul file YAML della pipeline, vedere [Definire le pipeline di Machine Learning in YAML](reference-pipeline-yaml.md).
 
@@ -439,7 +439,7 @@ I comandi seguenti illustrano come usare le pipeline di Machine Learning:
     az ml run submit-pipeline -n myexperiment -y mypipeline.yml
     ```
 
-    Per altre informazioni, vedere [az ml run submit-pipeline](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-pipeline).
+    Per altre informazioni, vedere [az ml run submit-pipeline](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-pipeline).
 
     Per altre informazioni sul file YAML della pipeline, vedere [Definire le pipeline di Machine Learning in YAML](reference-pipeline-yaml.md).
 
@@ -449,7 +449,7 @@ I comandi seguenti illustrano come usare le pipeline di Machine Learning:
     az ml pipeline create-schedule -n myschedule -e myexpereiment -i mypipelineid -y myschedule.yml
     ```
 
-    Per altre informazioni, vedere [az ml pipeline create-schedule](/cli/azure/ext/azure-cli-ml/ml/pipeline?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create-schedule).
+    Per altre informazioni, vedere [az ml pipeline create-schedule](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext-azure-cli-ml-az-ml-pipeline-create-schedule).
 
     Per altre informazioni sul file YAML di programmazione della pipeline, vedere [Definire le pipeline di Machine Learning in YAML](reference-pipeline-yaml.md#schedules).
 
@@ -463,14 +463,14 @@ I comandi seguenti illustrano come registrare un modello con training e quindi d
     az ml model register -n mymodel -p sklearn_regression_model.pkl
     ```
 
-    Per altre informazioni, vedere [az ml model register](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register).
+    Per altre informazioni, vedere [az ml model register](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-register).
 
 + **FACOLTATIVO** Profilare il modello per ottenere valori ottimali per la CPU e la memoria per la distribuzione.
     ```azurecli-interactive
     az ml model profile -n myprofile -m mymodel:1 --ic inferenceconfig.json -d "{\"data\": [[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}" -t myprofileresult.json
     ```
 
-    Per altre informazioni, vedere [az ml model profile](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
+    Per altre informazioni, vedere [az ml model profile](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-profile).
 
 + Distribuire il modello nel servizio Azure Kubernetes
     ```azurecli-interactive
@@ -481,7 +481,7 @@ I comandi seguenti illustrano come registrare un modello con training e quindi d
     
     Per altre informazioni sullo schema di un file di configurazione della distribuzione, vedere [Schema di configurazione della distribuzione](#deploymentconfig).
 
-    Per altre informazioni, vedere [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
+    Per altre informazioni, vedere [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy).
 
 <a id="inferenceconfig"></a>
 
@@ -507,6 +507,6 @@ I comandi seguenti illustrano come registrare un modello con training e quindi d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Riferimento ai comandi per l'estensione dell'interfaccia della riga di comando di Machine Learning](/cli/azure/ext/azure-cli-ml/ml?preserve-view=true&view=azure-cli-latest).
+* [Riferimento ai comandi per l'estensione dell'interfaccia della riga di comando di Machine Learning](/cli/azure/ext/azure-cli-ml/ml).
 
 * [Eseguire il training e distribuire modelli di Machine Learning usando Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)

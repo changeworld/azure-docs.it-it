@@ -6,12 +6,12 @@ ms.author: elhorton
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: e85cc9cdbb14c419e4bddb5ee659aa657b49a8c1
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fc30515f4b5ca0a763bf9f40de6a03356b88e500
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183540"
+ms.locfileid: "102214610"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Panoramica degli SDK per dispositivi Azure
 
@@ -100,7 +100,7 @@ Questi SDK possono essere eseguiti su qualsiasi dispositivo in grado di supporta
 * [Esempi](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples)
 * [Pacchetto](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk)
 * [Documentazione di riferimento](/java/api/com.microsoft.azure.sdk.iot.device)
-* [Documentazione di riferimento sul modulo perimetrale](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable&preserve-view=true)
+* [Documentazione di riferimento sul modulo perimetrale](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)
 
 #### <a name="nodejs-device-sdk"></a>SDK per dispositivi Node.js
 
@@ -108,7 +108,7 @@ Questi SDK possono essere eseguiti su qualsiasi dispositivo in grado di supporta
 * [Esempi](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)
 * [Pacchetto](https://www.npmjs.com/package/azure-iot-device)
 * [Documentazione di riferimento](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest&preserve-view=true)
-* [Documentazione di riferimento sul modulo perimetrale](/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest&preserve-view=true)
+* [Documentazione di riferimento sul modulo perimetrale](/javascript/api/azure-iot-device/moduleclient)
 
 #### <a name="python-device-sdk"></a>SDK per dispositivi Python
 
@@ -143,9 +143,9 @@ Gemelli digitali di Azure è un'offerta PaaS che consente la creazione di grafic
 
 **C# ADT Service SDK**: [](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)  |  [](https://www.nuget.org/packages/Azure.DigitalTwins.Core)  |  [](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples)  |  [documentazione di riferimento](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) per esempi di pacchetti del repository GitHub
 
-**Java ADT Service SDK**: [](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)  |  [](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)  |  [](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core/src/samples)  |  [documentazione di riferimento](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable) per esempi di pacchetti del repository GitHub
+**Java ADT Service SDK**: [](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)  |  [](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)  |  [](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core/src/samples)  |  [documentazione di riferimento](/java/api/overview/azure/digitaltwins/client) per esempi di pacchetti del repository GitHub
 
-**Node.js ADT Service SDK**: [](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)  |  [](https://www.npmjs.com/package/@azure/digital-twins-core)  |  [](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core/samples)  |  [documentazione di riferimento](/javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest&preserve-view=true) per esempi di pacchetti del repository GitHub
+**Node.js ADT Service SDK**: [](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)  |  [](https://www.npmjs.com/package/@azure/digital-twins-core)  |  [](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core/samples)  |  [documentazione di riferimento](/javascript/api/@azure/digital-twins-core/) per esempi di pacchetti del repository GitHub
 
 **Python ADT Service SDK**: [](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)  |  [](https://pypi.org/project/azure-digitaltwins-core/)  |  [](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core/samples)  |  [documentazione di riferimento](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true) per esempi di pacchetti del repository GitHub
 
@@ -157,7 +157,7 @@ Il servizio Device Provisioning in hub IoT è un servizio helper per Hub IoT che
 
 **SDK del servizio Device provisioning in C#**: documentazione di [](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service)  |  [](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/)  |  [](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)  |  [riferimento](/dotnet/api/microsoft.azure.devices.provisioning.service?view=azure-dotnet&preserve-view=true) per esempi di pacchetti del repository GitHub
 
-**SDK del servizio Device provisioning in Java**: documentazione di [](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-service-client/src)  |  [](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client)  |  [](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples#provisioning-service-client)  |  [riferimento](/java/api/com.microsoft.azure.sdk.iot.provisioning.service?view=azure-java-stable&preserve-view=true) per esempi di pacchetti del repository GitHub
+**SDK del servizio Device provisioning in Java**: documentazione di [](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-service-client/src)  |  [](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client)  |  [](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples#provisioning-service-client)  |  [riferimento](/java/api/com.microsoft.azure.sdk.iot.provisioning.service) per esempi di pacchetti del repository GitHub
 
 **Node.js Device Provisioning Service SDK**: [](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service)  |  [](https://www.npmjs.com/package/azure-iot-provisioning-service)  |  [](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)  |  [documentazione di riferimento](/javascript/api/azure-iot-provisioning-service) per esempi di pacchetti del repository GitHub
 

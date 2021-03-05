@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 552aad3e3b41bcfd55d1b57a53d8dff2080a6210
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 94034edfa1a5c6ffccd022b4cbf7bae42cc0bae3
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534703"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212468"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -36,7 +36,7 @@ Un'entità di sicurezza è un oggetto che rappresenta un utente, un gruppo, un s
 
 * L'entità di sicurezza di un **gruppo** identifica un set di utenti creati in Azure Active Directory. Tutti i ruoli o le autorizzazioni assegnati al gruppo vengono concessi a tutti gli utenti all'interno del gruppo.
 
-* Un'**entità servizio** è un tipo di entità di sicurezza che identifica un'applicazione o un servizio, ovvero una porzione di codice anziché un utente o un gruppo. L'ID oggetto di un'entità servizio è noto come **ID client** e funge da nome utente. Il **segreto client** o il **certificato** dell'entità servizio funge da password. Molti servizi di Azure supportano l'assegnazione di [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) con la gestione automatica dell' **ID client** e del **certificato**. L'identità gestita è l'opzione più sicura e consigliata per l'autenticazione in Azure.
+* Un' **entità servizio** è un tipo di entità di sicurezza che identifica un'applicazione o un servizio, ovvero un frammento di codice anziché un utente o un gruppo. L'ID oggetto di un'entità servizio è noto come **ID client** e funge da nome utente. Il **segreto client** o il **certificato** dell'entità servizio funge da password. Molti servizi di Azure supportano l'assegnazione di [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) con la gestione automatica dell' **ID client** e del **certificato**. L'identità gestita è l'opzione più sicura e consigliata per l'autenticazione in Azure.
 
 Per ulteriori informazioni sull'autenticazione per Key Vault, vedere [eseguire l'autenticazione a Azure Key Vault](authentication.md)
 

@@ -10,7 +10,7 @@ ms. Service: Media-Services ms. workload: media ms.tgt_pltfrm: na ms. DevLang: n
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
-> Anche se l'esercitazione usa esempi di [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
+> Anche se l'esercitazione usa esempi di [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
 
 È possibile usare Servizi multimediali per distribuire flussi HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming crittografati con AES usando chiavi di crittografia a 128 bit. Servizi multimediali fornisce anche il servizio di distribuzione delle chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. Per consentire a Servizi multimediali di crittografare il video in modo dinamico, è necessario associare la chiave di crittografia a un localizzatore di streaming e anche configurare i criteri di chiave simmetrica. Quando un lettore richiede un flusso, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti con AES-128. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di chiave simmetrica specificati per tale chiave.
 

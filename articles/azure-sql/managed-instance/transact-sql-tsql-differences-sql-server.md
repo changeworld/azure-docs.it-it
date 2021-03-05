@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 1/12/2021
+ms.date: 3/5/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: a182ca3ba70b9faa1ba67fdb6c91a4eaf8e766ef
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 014140b9b9832bab3de4f71c0b5f164b564b3fe5
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691196"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212723"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -252,7 +252,7 @@ Alcune proprietà di file non possono essere impostate o modificate:
 Le opzioni seguenti sono attive per impostazione predefinita e non possono essere modificate:
 
 - `MULTI_USER`
-- `ENABLE_BROKER ON`
+- `ENABLE_BROKER`
 - `AUTO_CLOSE OFF`
 
 Le opzioni seguenti non possono essere modificate:
@@ -471,6 +471,10 @@ Il broker di servizio tra istanze non è supportato:
 - `sys.routes`: Come prerequisito, è necessario selezionare l'indirizzo da sys. routes. L'indirizzo deve essere locale in ogni route. Vedere [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
 - `CREATE ROUTE`: Non è possibile usare `CREATE ROUTE` con `ADDRESS` diversi da `LOCAL` . Vedere [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE`: Non è possibile usare `ALTER ROUTE` con `ADDRESS` diversi da `LOCAL` . Vedere [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+
+Service Broker è abilitato per impostazione predefinita e non può essere disabilitato. Le opzioni ALTER DATABSE seguenti non sono supportate:
+- `ENABLE_BROKER`
+- `DISABLE_BROKER`
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Stored procedure, funzioni e trigger
 

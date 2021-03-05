@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 56644ab6cacfd811a23fb89b9bf6a10c87542db3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b82c9b21b9ccde7f7d5ee3e2b1c8c845a82bf459
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876784"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213420"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Avvio rapido: Configurare il server di configurazione di Azure Spring Cloud
 
@@ -42,9 +42,9 @@ Azure Spring Cloud Config Server è un servizio di configurazione centralizzato 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Installare JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
+* [Installare JDK 8](/java/azure/jdk/)
 * [Iscriversi per ottenere una sottoscrizione di Azure](https://azure.microsoft.com/free/)
-* (Facoltativo) [Installare l'interfaccia della riga di comando di Azure versione 2.0.67 o successiva](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) e installare l'estensione Azure Spring Cloud con il comando `az extension add --name spring-cloud`
+* (Facoltativo) [Installare l'interfaccia della riga di comando di Azure versione 2.0.67 o successiva](/cli/azure/install-azure-cli) e installare l'estensione Azure Spring Cloud con il comando `az extension add --name spring-cloud`
 * (Facoltativo) [Installare Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) ed [eseguire l'accesso](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="azure-spring-cloud-config-server-procedures"></a>Procedure del server di configurazione di Azure Spring Cloud

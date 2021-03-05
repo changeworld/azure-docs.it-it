@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 55221fa529688fbae1698a094ea31f6a3f765100
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
-ms.translationtype: HT
+ms.openlocfilehash: 77df97eaecc59bc9160bcf63ae5d3904cd79ec79
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796245"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215188"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Esercitazione: Eseguire il training e la distribuzione di un modello dall'interfaccia della riga di comando
 
@@ -39,7 +39,7 @@ Si apprenderà a eseguire le operazioni seguenti:
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Per usare i comandi dell'interfaccia della riga di comando in questo documento dall'**ambiente locale**, è necessaria l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Per usare i comandi dell'interfaccia della riga di comando in questo documento dall'**ambiente locale**, è necessaria l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
     Se si usa [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), l'interfaccia della riga di comando è accessibile tramite il browser e si trova nel cloud.
 
@@ -128,7 +128,7 @@ La risposta di questo comando è simile al codice JSON seguente:
 }
 ```
 
-Per altre informazioni sull'uso dei gruppi di risorse, vedere [az group](/cli/azure/group?preserve-view=true&view=azure-cli-latest).
+Per altre informazioni sull'uso dei gruppi di risorse, vedere [az group](/cli/azure/group).
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 

@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: ceef827f7406f8915d205349372a43626c917e4b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f826c947b1e47c1c996a8e9102492e85adafa326
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729233"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215154"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -87,7 +87,7 @@ Per altre informazioni, vedere [Endpoint servizio di rete virtuale](../virtual-n
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Limitare l'account di archiviazione a una rete virtuale 
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella.  È possibile sostituire questo account di archiviazione con uno protetto con endpoint di servizio o privato.  Questa funzionalità funziona attualmente solo per tutti gli SKU supportati da VNET, che includono standard e Premium, tranne che per gli indicatori Flex in cui VNET è disponibile solo per lo SKU Premium. Per configurare una funzione con un account di archiviazione limitato a una rete privata:
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella. È possibile sostituire questo account di archiviazione con uno protetto con endpoint di servizio o privato. Questa funzionalità è attualmente disponibile per tutti gli SKU supportati da reti virtuali, che includono standard e Premium, tranne che per gli indicatori Flex in cui le reti virtuali sono disponibili solo per lo SKU Premium. Per configurare una funzione con un account di archiviazione limitato a una rete privata:
 
 1. Creare una funzione con un account di archiviazione in cui non sono abilitati gli endpoint di servizio.
 1. Configurare la funzione per la connessione alla rete virtuale.
@@ -96,7 +96,7 @@ Quando si crea un'app per le funzioni, è necessario creare o collegare un accou
 1. Abilitare gli endpoint servizio o l'endpoint privato per l'account di archiviazione.  
     * Se si usano connessioni a endpoint privati, per l'account di archiviazione è necessario un endpoint privato per le `file` `blob` sottorisorse e.  Se si usano determinate funzionalità come Durable Functions, sarà necessario `queue` e `table` accessibili anche tramite una connessione all'endpoint privato.
     * Se si usano gli endpoint del servizio, abilitare la subnet dedicata alle app per le funzioni per gli account di archiviazione.
-1. Opzionale Copiare il contenuto del file e del BLOB dall'account di archiviazione dell'app per le funzioni nell'account di archiviazione e nella condivisione file protetti.
+1. Copiare il contenuto del file e del BLOB dall'account di archiviazione dell'app per le funzioni nell'account di archiviazione e nella condivisione file protetti.
 1. Copiare la stringa di connessione per questo account di archiviazione.
 1. Aggiornare le **impostazioni dell'applicazione** in **configurazione** per l'app per le funzioni come riportato di seguito:
     - `AzureWebJobsStorage` alla stringa di connessione per l'account di archiviazione protetto.

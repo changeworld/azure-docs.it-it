@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a9b3d534e74ccd44dfaa35ec5bf3b65f50641c7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e4b06cbcbef79e243116bddb33adbcf6476fac8a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666658"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213369"
 ---
 # <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump per SAP HANA in istanze Large di Azure (HLI)
 
@@ -67,7 +67,7 @@ Questo documento descrive i dettagli su come abilitare il servizio kdump in ista
 
 ## <a name="setup-details"></a>Dettagli di configurazione
 
-- Lo script per abilitare kdump è disponibile [qui](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
+- Lo script per abilitare kdump è disponibile [qui](https://github.com/Azure/sap-hana-tools/blob/master/tools/enable-kdump.sh)
 > [!NOTE]
 > Questo script viene eseguito in base alla configurazione del Lab e il cliente prevede di contattare il fornitore del sistema operativo per eventuali ulteriori operazioni di ottimizzazione.
 > Verrà eseguito il provisioning di un LUN separato per i server nuovi ed esistenti per il salvataggio dei dump e lo script si occuperà di configurare il file system fuori dal LUN.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 479daa9a94247ada30c54a9c5df3471035765087
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46d79de612a17c7b21e7cc51dcf4904209e1625d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908276"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212944"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Avviare, arrestare ed eliminare l'applicazione Azure Spring cloud
 
@@ -27,12 +27,12 @@ Dopo aver distribuito un'applicazione, è possibile avviarla, arrestarla ed elim
 1. Passare all'istanza del servizio Azure Spring Cloud nel portale di Azure.
 1. Selezionare la scheda **Dashboard dell'applicazione**.
 1. Selezionare l'applicazione di cui cambiare lo stato.
-1. Nella pagina **Panoramica** relativa a tale applicazione selezionare **Start/Stop**, **Restart**o **Delete**.
+1. Nella pagina **Panoramica** relativa a tale applicazione selezionare **Start/Stop**, **Restart** o **Delete**.
 
 ## <a name="using-the-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
 > [!NOTE]
-> È possibile usare parametri facoltativi e configurare le impostazioni predefinite con l'interfaccia della riga di comando di Azure. Per altre informazioni sull'interfaccia della riga di comando di Azure, leggere la [documentazione di riferimento](/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest&preserve-view=true).  
+> È possibile usare parametri facoltativi e configurare le impostazioni predefinite con l'interfaccia della riga di comando di Azure. Per altre informazioni sull'interfaccia della riga di comando di Azure, leggere la [documentazione di riferimento](/cli/azure/ext/spring-cloud/spring-cloud).  
 
 Installare prima di tutto l'estensione Azure Spring cloud per l'interfaccia della riga di comando di Azure come indicato di seguito:
 
