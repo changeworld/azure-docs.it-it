@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/11/2021
-ms.openlocfilehash: ccf7f272069516d53732b10ec1af5bb4841f1208
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d73f8eeb7b69440f8db67d0b95b40ed6258ee8e7
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101730423"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201788"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-azure-iot-hub-python"></a>Guida introduttiva: inviare dati di telemetria da un dispositivo a un hub Azure (Python)
 
@@ -69,7 +69,7 @@ In questa sezione si userà Python SDK per inviare messaggi dal dispositivo simu
     export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
     ```
 
-1. Nella shell dell'interfaccia della riga di comando aperta, eseguire il comando [AZ Internet Hub monitor-Events](/cli/azure/ext/azure-iot/iot/hub?preserve-view=true&view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) per avviare il monitoraggio degli eventi nel dispositivo Internet delle cose.  I messaggi di evento verranno stampati nel terminale all'arrivo.
+1. Nella shell dell'interfaccia della riga di comando aperta, eseguire il comando [AZ Internet Hub monitor-Events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) per avviare il monitoraggio degli eventi nel dispositivo Internet delle cose.  I messaggi di evento verranno stampati nel terminale all'arrivo.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
@@ -130,12 +130,12 @@ Se le risorse di Azure create in questa Guida introduttiva non sono più necessa
 > L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate.
 
 Per eliminare un gruppo di risorse per nome:
-1. Eseguire il comando [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). In questo modo vengono rimossi il gruppo di risorse, l'hub IoT e la registrazione del dispositivo creato.
+1. Eseguire il comando [az group delete](/cli/azure/group#az-group-delete). In questo modo vengono rimossi il gruppo di risorse, l'hub IoT e la registrazione del dispositivo creato.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Eseguire il comando [az group list](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-list) per verificare che il gruppo di risorse sia stato eliminato.  
+1. Eseguire il comando [az group list](/cli/azure/group#az-group-list) per verificare che il gruppo di risorse sia stato eliminato.  
 
     ```azurecli
     az group list

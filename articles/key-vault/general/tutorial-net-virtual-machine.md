@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e69e5d9b94a47bf7db21ef3732a4ddcba7c2cf5c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 5d78299c4583251180b3fb9a902561406b849b4a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181551"
+ms.locfileid: "102201176"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale in .NET
 
@@ -42,7 +42,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
   * [.NET Core 3.1 SDK o versione successiva](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-  * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+  * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-resources-and-assign-permissions"></a>Creare le risorse e assegnare le autorizzazioni
 
@@ -74,7 +74,7 @@ Creare una macchina virtuale Windows o Linux con uno dei metodi seguenti:
 | [Azure portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) |
 
 ## <a name="assign-an-identity-to-the-vm"></a>Assegnare un'identità alla macchina virtuale
-Creare un'identità assegnata dal sistema per la macchina virtuale con il comando [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign):
+Creare un'identità assegnata dal sistema per la macchina virtuale con il comando [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign):
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -90,7 +90,7 @@ Annotare l'identità assegnata dal sistema che viene visualizzata nel codice seg
 ```
 
 ## <a name="assign-permissions-to-the-vm-identity"></a>Assegnare autorizzazioni per l'identità della macchina virtuale
-Assegnare le autorizzazioni dell'identità creata in precedenza all'insieme di credenziali delle chiavi con il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy):
+Assegnare le autorizzazioni dell'identità creata in precedenza all'insieme di credenziali delle chiavi con il comando [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy):
 
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list

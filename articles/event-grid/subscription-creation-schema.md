@@ -3,16 +3,16 @@ title: Schema di sottoscrizione per Griglia di eventi di Azure
 description: Questo articolo descrive le proprietà per la sottoscrizione di un evento con griglia di eventi di Azure. Schema di sottoscrizione di griglia di eventi.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6e33171cbba65cfeaca49ab6a8954be8bb89acb
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119073"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199952"
 ---
 # <a name="event-grid-subscription-schema"></a>Schema di sottoscrizione per Griglia di eventi
 
-Per creare una sottoscrizione di Griglia di eventi, si invia una richiesta all'operazione di sottoscrizione Crea evento. Usare il formato seguente:
+Per creare una sottoscrizione di Griglia di eventi, si invia una richiesta all'operazione di sottoscrizione Crea evento. Utilizzare il seguente formato:
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
@@ -25,7 +25,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 ``` 
 
 Il nome della sottoscrizione eventi deve essere composto da 3 a 64 caratteri e solo da a-z, A-Z, 0-9, e "-". L'articolo descrive le proprietà e lo schema per il corpo della richiesta.
- 
+ 
 ## <a name="event-subscription-properties"></a>Proprietà delle sottoscrizioni eventi
 
 | Proprietà | Type | Descrizione |
@@ -48,6 +48,7 @@ Il nome della sottoscrizione eventi deve essere composto da 3 a 64 caratteri e s
 | subjectBeginsWith | string | Filtro di corrispondenza del prefisso per il campo dell'oggetto nel messaggio dell'evento. La stringa predefinita o una stringa vuota corrisponde sempre. | 
 | subjectEndsWith | string | Filtro di corrispondenza del suffisso per il campo dell'oggetto nel messaggio dell'evento. La stringa predefinita o una stringa vuota corrisponde sempre. |
 | isSubjectCaseSensitive | string | Controlla la corrispondenza tra maiuscole e minuscole per i filtri. |
+| enableAdvancedFilteringOnArrays | boolean | Abilita l'utilizzo di matrici per le chiavi nel filtro avanzato. Per ulteriori informazioni, vedere [filtro avanzato](event-filtering.md#advanced-filtering). |
 
 
 ## <a name="example-subscription-schema"></a>Schema di sottoscrizione di esempio

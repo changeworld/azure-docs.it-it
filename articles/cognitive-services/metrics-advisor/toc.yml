@@ -40,7 +40,7 @@
     - name: API Advisor metriche
       href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
     - name: Informazioni di riferimento sull'interfaccia della riga di comando di Azure
-      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Informazioni di riferimento su PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Risorse

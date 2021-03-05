@@ -3,12 +3,12 @@ title: Creare e gestire macchine virtuali in DevTest Labs con l'interfaccia dell
 description: Informazioni su come usare Azure DevTest Labs per creare e gestire le macchine virtuali con l'interfaccia della riga di comando di Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 57510a722ab6a34b9d498e74a140d6f350c8fc02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ee6bf607fe1b66cece0e7ddb25a2da2830258b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482837"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201465"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Creare e gestire macchine virtuali con DevTest Labs tramite l'interfaccia della riga di comando di Azure
 Questa Guida introduttiva illustra la creazione, l'avvio, la connessione, l'aggiornamento e la pulizia di un computer di sviluppo nel Lab. 
@@ -153,4 +153,4 @@ az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group s
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere il contenuto seguente: [documentazione dell'interfaccia della riga di comando di Azure per Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest). 
+Vedere il contenuto seguente: [documentazione dell'interfaccia della riga di comando di Azure per Azure DevTest Labs](/cli/azure/lab). 

@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: tyao
-ms.openlocfilehash: 885582481e3783bdd4fbad40a24499f42a40ce24
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 885b4d132208ab6f8b470d147438e26a5fd4bab7
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193449"
+ms.locfileid: "102201669"
 ---
 # <a name="connect-azure-front-door-premium-to-a-storage-account-origin-with-private-link"></a>Connettere Azure front door Premium a un account di archiviazione Origin con collegamento privato
 
@@ -23,7 +23,7 @@ Questo articolo illustra come configurare lo SKU di Azure front door Premium per
 
 Accedere al [portale di Azure](https://portal.azure.com).
 
-## <a name="enable-private-link-to-a-storage-account-in-azure-front-door-premium"></a>Abilitare il collegamento privato a un account di archiviazione in Azure front door Premium
+## <a name="enable-private-link-to-a-storage-account"></a>Abilita collegamento privato a un account di archiviazione
  
 In questa sezione si eseguirà il mapping del servizio di collegamento privato a un endpoint privato creato nella rete privata di Azure front door. 
 
@@ -47,7 +47,7 @@ In questa sezione si eseguirà il mapping del servizio di collegamento privato a
 
 1. Quindi selezionare **Aggiungi** per salvare la configurazione.
 
-## <a name="approve-azure-front-door-premium-private-endpoint-connection-from-the-storage-account"></a>Approva la connessione all'endpoint privato di Azure front door Premium dall'account di archiviazione
+## <a name="approve-private-endpoint-connection-from-the-storage-account"></a>Approva la connessione all'endpoint privato dall'account di archiviazione
 
 1. Passare all'account di archiviazione per cui si configura il collegamento privato nell'ultima sezione. Selezionare **rete** in **Impostazioni**.
 

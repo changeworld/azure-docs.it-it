@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3806578f5d1af61329e2e32fa3e8eceb9afa4d42
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 32b1558bf4af2ee151fef33a8c0cbe7df82f1e84
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713967"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201754"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opzioni di configurazione-Application Insights di monitoraggio di Azure per Java
 
@@ -219,7 +219,7 @@ Questi sono i `level` valori validi che è possibile specificare nel `applicatio
 | ALL               | ALL    | ALL     | ALL     |
 
 > [!NOTE]
-> Se al logger viene passata un'eccezione, il messaggio di log (e l'eccezione) verrà visualizzato nel portale di Azure sotto la `exceptions` tabella anziché nella `traces` tabella.
+> Se al logger viene passato un oggetto eccezione, il messaggio di log (e i dettagli dell'oggetto eccezione) verrà visualizzato nel portale di Azure sotto la `exceptions` tabella anziché nella `traces` tabella.
 
 ## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Metriche del micrometro raccolte automaticamente (incluse le metriche dell'attuatore Spring boot)
 

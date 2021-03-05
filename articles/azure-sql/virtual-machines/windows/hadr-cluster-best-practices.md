@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 5a2540aeb36cfcb2048ec994bbb486badc8a68d1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 4ab4e40e1dd4bbaf9ae73ab545285f5ae6261e27
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358810"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201771"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedure consigliate per la configurazione del cluster (SQL Server nelle macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,7 +47,7 @@ La configurazione di una risorsa quorum consente al cluster di continuare online
 La tabella seguente elenca le opzioni del quorum disponibili nell'ordine consigliato per l'uso con una macchina virtuale di Azure, con il disco di controllo che è la scelta preferita: 
 
 
-||[Disco di controllo](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud di controllo](/windows-server/failover-clustering/deploy-cloud-witness)  |[Condivisione file di controllo](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
+||[Disco di controllo](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Server di controllo cloud](/windows-server/failover-clustering/deploy-cloud-witness)  |[Controllo di condivisione file](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Sistema operativo supportato**| Tutti |Windows Server 2016+| Tutti|
 
@@ -76,9 +76,7 @@ Per iniziare, vedere [configurare un cloud](/windows-server/failover-clustering/
 
 ### <a name="file-share-witness"></a>Condivisione file di controllo
 
-Una condivisione file di controllo è una condivisione file SMB che in genere è configurata in un file server che esegue Windows Server. Mantiene le informazioni di clustering in un file witness. log, ma non archivia una copia del database del cluster. In Azure è possibile configurare una [condivisione file di Azure](../../../storage/files/storage-how-to-create-file-share.md) da usare come condivisione file di controllo oppure è possibile usare una condivisione file in una macchina virtuale separata.
-
-Se si intende usare una condivisione file di Azure, è possibile montarla con lo stesso processo usato per [montare la condivisione file Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+Una condivisione file di controllo è una condivisione file SMB che in genere è configurata in un file server che esegue Windows Server. Mantiene le informazioni di clustering in un file witness. log, ma non archivia una copia del database del cluster. In Azure è possibile configurare una condivisione file in una macchina virtuale separata.
 
 Per iniziare, vedere [configurare una condivisione file](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)di controllo.
 

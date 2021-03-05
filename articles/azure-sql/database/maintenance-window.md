@@ -10,53 +10,54 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/04/2021
-ms.openlocfilehash: 0a9a4b2de03c62640bb1c643d3ff3da4139d42a4
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: cf3404f364a7beee67cfa7dc523b9fd4b7b9985a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101206"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201312"
 ---
 # <a name="maintenance-window-preview"></a>Finestra di manutenzione (anteprima)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-La funzionalità finestra di manutenzione consente la configurazione di pianificazioni della finestra di manutenzione stimabili per il [database SQL di Azure](sql-database-paas-overview.md) e [istanza gestita di SQL](../managed-instance/sql-managed-instance-paas-overview.md). 
+La funzionalità finestra di manutenzione consente di configurare la pianificazione della manutenzione per il [database SQL di Azure](sql-database-paas-overview.md) e le risorse dell' [istanza gestita di SQL di Azure](../managed-instance/sql-managed-instance-paas-overview.md) , rendendo prevedibili gli eventi di manutenzione di interesse e meno problematici. 
 
-Per altre informazioni sugli eventi di manutenzione, vedere [pianificare gli eventi di manutenzione di Azure nel database SQL di Azure e istanza gestita SQL di Azure](planned-maintenance.md).
+> [!Note]
+> La funzionalità finestra di manutenzione non protegge da eventi non pianificati, ad esempio errori hardware, che potrebbero causare brevi interruzioni della connessione.
 
 ## <a name="overview"></a>Panoramica
 
-Azure esegue periodicamente aggiornamenti di manutenzione pianificata sul database SQL di Azure e sulle risorse di SQL Istanza gestita che includono spesso aggiornamenti per hardware sottostante, software che include sistema operativo sottostante e il motore SQL. Durante un aggiornamento di manutenzione, le risorse sono completamente disponibili e accessibili, ma alcuni aggiornamenti di manutenzione richiedono un failover Poiché Azure porta le istanze offline per un breve periodo di tempo per l'applicazione degli aggiornamenti di manutenzione, in media di otto secondi.  Gli aggiornamenti di manutenzione pianificata si verificano una volta ogni 35 giorni in media, il che significa che il cliente può prevedere circa un evento di manutenzione pianificata al mese per ogni database SQL di Azure o istanza gestita di SQL e solo durante gli slot della finestra di manutenzione selezionati dal cliente.   
+Azure esegue periodicamente la [manutenzione pianificata](planned-maintenance.md) del database SQL e delle risorse di SQL istanza gestita. Durante l'evento di manutenzione SQL di Azure, i database sono completamente disponibili, ma possono essere soggetti a failover brevi entro i rispettivi contratti di disponibilità per il [database SQL](https://azure.microsoft.com/support/legal/sla/sql-database) e [SQL istanza gestita](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance), perché in alcuni casi è necessaria la riconfigurazione delle risorse.
 
-La finestra di manutenzione è destinata ai carichi di lavoro aziendali che non sono resilienti a problemi di connettività intermittenti che possono derivare da eventi di manutenzione pianificata.
+La finestra di manutenzione è destinata ai carichi di lavoro di produzione che non sono resilienti ai failover di database o di istanza e non possono assorbire brevi interruzioni della connessione causati da eventi di manutenzione pianificata. Scegliendo la finestra di manutenzione preferita, è possibile ridurre al minimo l'effetto della manutenzione pianificata perché si verifica al di fuori del picco orario di ufficio. I carichi di lavoro resilienti e i carichi di lavoro non di produzione possono basarsi sui criteri di manutenzione predefiniti di SQL Azure.
 
-La finestra di manutenzione può essere configurata usando il portale di Azure, PowerShell, l'interfaccia della riga di comando o l'API di Azure. Può essere configurato durante la creazione o per i database SQL esistenti e per le istanze gestite di SQL.
+La finestra di manutenzione può essere configurata durante la creazione o per le risorse esistenti di Azure SQL. Può essere configurato usando il portale di Azure, PowerShell, l'interfaccia della riga di comando o l'API di Azure.
 
 > [!Important]
 > La configurazione della finestra di manutenzione è un'operazione asincrona a esecuzione prolungata, simile alla modifica del livello di servizio della risorsa SQL di Azure. La risorsa è disponibile durante l'operazione, ad eccezione di un breve failover che si verifica alla fine dell'operazione e in genere dura fino a 8 secondi anche in caso di transazioni a esecuzione prolungata interrotte. Per ridurre al minimo l'effetto del failover, è necessario eseguire l'operazione al di fuori delle ore di punta.
 
 ### <a name="gain-more-predictability-with-maintenance-window"></a>Ottenere maggiore prevedibilità con la finestra di manutenzione
 
-Per impostazione predefinita, tutti i database SQL di Azure e i database delle istanze gestite vengono aggiornati al giorno dalle 17.00 alle 8.00 locali per evitare interruzioni massime dell'orario di ufficio. L'ora locale è determinata dall' [area di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) che ospita la risorsa. È possibile modificare ulteriormente gli aggiornamenti di manutenzione in un momento appropriato per il database scegliendo tra due slot della finestra di manutenzione aggiuntiva:
+Per impostazione predefinita, i criteri di manutenzione di Azure SQL bloccano gli aggiornamenti interessati durante il periodo dalle 8.00 alle 17.00 ora locale ogni giorno per evitare eventuali rotture durante l'orario di lavoro di picco tipico. L'ora locale è determinata dall' [area di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) che ospita la risorsa. In altre parole, la _finestra di manutenzione predefinita_ consente la manutenzione tra le 17.00 e le 8.00 il giorno successivo, ogni giorno. È possibile adattare ulteriormente gli aggiornamenti di manutenzione a un tempo appropriato per le risorse SQL di Azure scegliendo tra due slot della finestra di manutenzione aggiuntiva:
  
 * Finestra del giorno della settimana, dalle 22:00 alle 6.00 ora locale lunedì-giovedì
 * Finestra del fine settimana, da 10:00 a 6 ora locale venerdì-domenica
 
-Una volta effettuata la selezione della finestra di manutenzione e la configurazione del servizio è stata completata, tutti gli aggiornamenti di manutenzione pianificata vengono eseguiti solo durante la finestra scelta.   
+Una volta effettuata la selezione della finestra di manutenzione e la configurazione del servizio è stata completata, la manutenzione pianificata verrà eseguita solo durante la finestra scelta.   
 
-> [!Note]
-> Oltre agli aggiornamenti pianificati per la manutenzione, in rari casi gli eventi di manutenzione non pianificata possono causare indisponibilità. 
+> [!Important]
+> In rari casi in cui eventuali rimandi di azione potrebbero causare un grave effetto, ad esempio l'applicazione di patch di sicurezza critiche, la finestra di manutenzione configurata potrebbe essere temporaneamente sottoposta a override. 
 
 ### <a name="cost-and-eligibility"></a>Costo e idoneità
 
-La configurazione e l'uso della finestra di manutenzione sono gratuite per tutti i [tipi di offerta](https://azure.microsoft.com/support/legal/offer-details/)idonei: con pagamento in base al consumo, provider di soluzioni cloud (CSP), Microsoft Enterprise o contratto per i clienti Microsoft.
+La configurazione e l'uso della finestra di manutenzione sono gratuite per tutti i [tipi di offerta](https://azure.microsoft.com/support/legal/offer-details/)idonei: con pagamento in base al consumo, provider di soluzioni cloud (CSP), Microsoft contratto Enterprise o contratto per i clienti Microsoft.
 
 > [!Note]
 > Per offerta di Azure si intende il tipo di sottoscrizione di Azure di cui si dispone. Ad esempio, una sottoscrizione con [tariffe con pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/)al consumo, [Azure in Open](https://azure.microsoft.com/en-us/offers/ms-azr-0111p/)e [Visual Studio Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0063p/) sono tutte offerte di Azure. Ogni offerta o piano presenta termini e vantaggi diversi. L'offerta o il piano viene visualizzato nella panoramica della sottoscrizione. Per altre informazioni sul passaggio della sottoscrizione a un'offerta diversa, vedere [modificare la sottoscrizione di Azure in un'offerta diversa](/azure/cost-management-billing/manage/switch-azure-offer).
 
 ## <a name="advance-notifications"></a>Notifiche avanzate
 
-Le notifiche di manutenzione possono essere configurate in modo da ricevere avvisi sui prossimi eventi di manutenzione pianificata per il database SQL di Azure 24 ore in anticipo, al momento della manutenzione e al termine della finestra di manutenzione. Per altre informazioni, vedere [notifiche di avanzamento](advance-notifications.md).
+Le notifiche di manutenzione possono essere configurate in modo da ricevere avvisi sui prossimi eventi di manutenzione pianificata per il database SQL di Azure 24 ore in anticipo, al momento della manutenzione e al termine della manutenzione. Per altre informazioni, vedere [notifiche di avanzamento](advance-notifications.md).
 
 ## <a name="availability"></a>Disponibilità
 
@@ -102,6 +103,25 @@ Per altre informazioni sui criteri di connessione client nel database SQL di Azu
 
 Per altre informazioni sui criteri di connessione client nell'istanza gestita di SQL di Azure, vedere [tipi di connessione istanza gestita SQL di Azure](../../azure-sql/managed-instance/connection-types-overview.md).
 
+## <a name="considering-specifics-of-azure-sql-managed-instance"></a>Considerazioni sulle specifiche di Istanza gestita SQL di Azure
+
+Istanza gestita SQL di Azure è costituito da componenti del servizio ospitati in un set dedicato di macchine virtuali isolate che vengono eseguite all'interno della subnet della rete virtuale del cliente. Queste macchine virtuali formano [i cluster virtuali](https://docs.microsoft.com/azure/azure-sql/managed-instance/connectivity-architecture-overview#high-level-connectivity-architecture) che possono ospitare più istanze gestite. La finestra di manutenzione configurata nelle istanze di una subnet può influenzare il numero di cluster virtuali all'interno della subnet e la distribuzione delle istanze tra cluster virtuali. Questo potrebbe richiedere una considerazione di pochi effetti.
+
+### <a name="maintenance-window-configuration-is-long-running-operation"></a>La configurazione della finestra di manutenzione è un'operazione di lunga durata 
+Tutte le istanze ospitate in un cluster virtuale condividono la finestra di manutenzione. Per impostazione predefinita, tutte le istanze gestite sono ospitate nel cluster virtuale con la finestra di manutenzione predefinita. Specificando un'altra finestra di manutenzione per l'istanza gestita durante la creazione o successivamente, il servizio deve essere inserito in un cluster virtuale con la finestra di manutenzione corrispondente. Se nella subnet non è presente un cluster virtuale di questo tipo, è necessario crearne uno nuovo per adattarlo all'istanza. Per ospitare un'istanza aggiuntiva nel cluster virtuale esistente, potrebbe essere necessario ridimensionare il cluster. Entrambe le operazioni contribuiscono alla durata della configurazione della finestra di manutenzione per un'istanza gestita.
+La durata prevista della configurazione della finestra di manutenzione nell'istanza gestita può essere calcolata usando [la durata stimata delle operazioni di gestione delle istanze](https://docs.microsoft.com/azure/azure-sql/managed-instance/management-operations-overview#duration).
+
+> [!Important]
+> Un breve failover si verifica alla fine dell'operazione e in genere dura fino a 8 secondi anche in caso di transazioni con esecuzione prolungata interrotte. Per ridurre al minimo l'effetto del failover, è necessario eseguire l'operazione al di fuori delle ore di punta.
+
+### <a name="ip-address-space-requirements"></a>Requisiti dello spazio degli indirizzi IP
+Ogni nuovo cluster virtuale nella subnet richiede indirizzi IP aggiuntivi in base all' [allocazione di indirizzi IP del cluster virtuale](https://docs.microsoft.com/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size). La modifica della finestra di manutenzione per l'istanza gestita esistente richiede anche una [capacità IP aggiuntiva temporanea](https://docs.microsoft.com/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) come nello scenario vcore di ridimensionamento per il livello di servizio corrispondente.
+
+### <a name="ip-address-change"></a>Modifica degli indirizzi IP
+La configurazione e la modifica della finestra di manutenzione causano la modifica dell'indirizzo IP dell'istanza, all'interno dell'intervallo di indirizzi IP della subnet.
+
+> [!Important]
+>  Assicurarsi che le regole NSG e firewall non blocchino il traffico dati dopo la modifica dell'indirizzo IP. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

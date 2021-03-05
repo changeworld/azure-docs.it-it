@@ -1,6 +1,6 @@
 ---
 title: Pianificazione per la distribuzione di Sincronizzazione file di Azure | Microsoft Docs
-description: Pianificare una distribuzione con Sincronizzazione file di Azure, un servizio che consente di memorizzare nella cache un numero di condivisioni file di Azure in una VM Windows Server o cloud locale.
+description: Pianificare una distribuzione con Sincronizzazione file di Azure, un servizio che consente di memorizzare nella cache più condivisioni file di Azure in una VM Windows Server o cloud locale.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 197bd1ab63093a18bd7838349acb3aed11a98e16
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219477"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202383"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "99219477"
         [![Intervista e demo di presentazione di Sincronizzazione file di Azure - Fare clic per riprodurre.](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
     :::column-end:::
     :::column:::
-        Sincronizzazione file di Azure è un servizio che consente di memorizzare nella cache un certo numero di condivisioni file di Azure in una macchina virtuale locale Windows Server o cloud. 
+        Sincronizzazione file di Azure è un servizio che consente di memorizzare nella cache più condivisioni file di Azure in una macchina virtuale locale di Windows Server o cloud. 
         
         Questo articolo introduce i concetti e le funzionalità di Sincronizzazione file di Azure. Dopo aver acquisito familiarità con Sincronizzazione file di Azure, si può seguire la [guida alla distribuzione di Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md) per provare questo servizio.        
     :::column-end:::
@@ -52,16 +52,19 @@ Prima di poter creare un gruppo di sincronizzazione in un servizio di sincronizz
 Un gruppo di sincronizzazione contiene un endpoint cloud, una condivisione file di Azure e almeno un endpoint server. L'oggetto endpoint server contiene le impostazioni che configurano la capacità del **cloud a livelli**, che fornisce la funzionalità di memorizzazione nella cache di Sincronizzazione file di Azure. Per eseguire la sincronizzazione con una condivisione file di Azure, l'account di archiviazione che contiene la condivisione file di Azure deve trovarsi nella stessa area di Azure del servizio di sincronizzazione archiviazione.
 
 > [!Important]  
-> È possibile apportare modifiche a qualsiasi endpoint cloud o endpoint server nel gruppo di sincronizzazione e fare in modo che i file vengano sincronizzati con gli altri endpoint del gruppo di sincronizzazione. Se si apporta direttamente una modifica all'endpoint cloud (condivisione file di Azure), le modifiche apportate devono essere prima di tutto individuate da un processo di rilevamento delle modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una sola volta ogni 24 ore. Per altre informazioni, vedere [Domande frequenti su File di Azure](storage-files-faq.md#afs-change-detection).
+> È possibile apportare modifiche allo spazio dei nomi di qualsiasi endpoint cloud o endpoint server nel gruppo di sincronizzazione e fare in modo che i file vengano sincronizzati con gli altri endpoint del gruppo di sincronizzazione. Se si apporta direttamente una modifica all'endpoint cloud (condivisione file di Azure), le modifiche apportate devono essere prima di tutto individuate da un processo di rilevamento delle modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una sola volta ogni 24 ore. Per altre informazioni, vedere [Domande frequenti su File di Azure](storage-files-faq.md#afs-change-detection).
 
-### <a name="management-guidance"></a>Linee guida per la gestione
-Quando si distribuisce Sincronizzazione file di Azure, è consigliabile seguire queste indicazioni:
+### <a name="consider-the-count-of-storage-sync-services-needed"></a>Considerare il numero di servizi di sincronizzazione archiviazione necessari
+Una sezione precedente illustra la risorsa principale da configurare per Sincronizzazione file di Azure: un *servizio di sincronizzazione archiviazione*. Un server Windows può essere registrato solo in un servizio di sincronizzazione archiviazione. Quindi, spesso è consigliabile distribuire solo un singolo servizio di sincronizzazione archiviazione e registrare tutti i server. 
 
-- Distribuire le condivisioni file di Azure in un rapporto di 1:1 con le condivisioni file di Windows. L'oggetto endpoint server offre un elevato livello di flessibilità rispetto alla configurazione della topologia di sincronizzazione sul lato server della relazione di sincronizzazione. Per semplificare la gestione, fare in modo che il percorso dell'endpoint server corrisponda al percorso della condivisione file di Windows. 
+Creare più servizi di sincronizzazione archiviazione solo se si dispone di:
+* Set distinti di server che non devono mai scambiare dati tra loro. In questo caso, si vuole progettare il sistema in modo da escludere determinati set di server da sincronizzare con una condivisione file di Azure già in uso come endpoint cloud in un gruppo di sincronizzazione in un servizio di sincronizzazione archiviazione diverso. Un altro modo per esaminare questo aspetto è che i server Windows registrati in un servizio di sincronizzazione archiviazione diverso non possono essere sincronizzati con la stessa condivisione file di Azure.
+* è necessario avere più server registrati o gruppi di sincronizzazione di quelli che possono essere supportati da un singolo servizio di sincronizzazione archiviazione. Per ulteriori informazioni, esaminare gli [obiettivi di scalabilità sincronizzazione file di Azure](storage-files-scale-targets.md#azure-file-sync-scale-targets) .
 
-- Usare il minor numero possibile di servizi di sincronizzazione archiviazione. Questo semplifica la gestione quando sono presenti gruppi di sincronizzazione che contengono più endpoint server, perché un'istanza di Windows Server può essere registrata in un solo servizio di sincronizzazione archiviazione alla volta. 
+## <a name="plan-for-balanced-sync-topologies"></a>Pianificare le topologie di sincronizzazione bilanciate
+Prima di distribuire le risorse, è importante pianificare ciò che verrà sincronizzato in un server locale, con la condivisione file di Azure. La creazione di un piano consentirà di determinare il numero di account di archiviazione, condivisioni file di Azure e le risorse di sincronizzazione necessarie. Queste considerazioni sono ancora rilevanti, anche se i dati attualmente non risiedono in un server Windows o nel server che si vuole usare a lungo termine. La [sezione](#migration) relativa alla migrazione consente di determinare i percorsi di migrazione appropriati per la situazione.
 
-- Quando si distribuiscono condivisioni file di Azure, prestare attenzione alle limitazioni di un account di archiviazione in termini di operazioni di I/O al secondo. Idealmente, si dovrebbe mantenere un mapping 1:1 tra condivisioni file e account di archiviazione, ma questo non sempre è possibile, a causa dei diversi limiti e restrizioni imposti dall'organizzazione e da Azure. Quando non è possibile distribuire una sola condivisione file per account di archiviazione, valutare quali condivisioni saranno particolarmente attive e quali lo saranno meno, per assicurarsi di non inserire le condivisioni file più utilizzate nello stesso account di archiviazione.
+[!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
 ## <a name="windows-file-server-considerations"></a>Considerazioni relative al file server Windows
 Per abilitare la funzionalità di sincronizzazione in Windows Server, è necessario installare l'agente scaricabile di Sincronizzazione file di Azure. L'agente di Sincronizzazione file di Azure fornisce due componenti principali: `FileSyncSvc.exe`, il servizio di Windows in background responsabile del monitoraggio delle modifiche negli endpoint server e dell'avvio delle sessioni di sincronizzazione, e `StorageSync.sys`, un filtro del file system che abilita il cloud a livelli e il ripristino di emergenza rapido.  
@@ -203,7 +206,7 @@ Sincronizzazione file di Azure non supporta la deduplicazione dei dati e il clou
 - Se si abilita la deduplicazione in un volume dopo aver abilitato il cloud a livelli, il processo iniziale di ottimizzazione di Deduplicazione dati ottimizzerà i file nel volume che non sono già suddivisi in livelli. L'effetto sul cloud a livelli sarà il seguente:
     - Il criterio di spazio disponibile continuerà a suddividere i file in livelli in base allo spazio libero nel volume usando la mappa termica.
     - Il criterio di data ignorerà la suddivisione in livelli di file che altrimenti sarebbero stati idonei, a causa del processo di ottimizzazione di Deduplicazione dati che accede ai file.
-- Per i processi di ottimizzazione di Deduplicazione dati, la suddivisione nel cloud a livelli con i criteri di data verrà ritardata in base all'impostazione [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps), se il file non è già suddiviso in livelli. 
+- Per i processi di ottimizzazione di Deduplicazione dati, la suddivisione nel cloud a livelli con i criteri di data verrà ritardata in base all'impostazione [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps&preserve-view=true), se il file non è già suddiviso in livelli. 
     - Esempio: Se l'impostazione MinimumFileAgeDays è sette giorni e il criterio di data del cloud a livelli è 30 giorni, il criterio di data suddividerà i file in livelli dopo 37 giorni.
     - Nota: quando un file è suddiviso in livelli da Sincronizzazione file di Azure, il processo di ottimizzazione di Deduplicazione dati ignorerà il file.
 - Se un server che esegue Windows Server 2012 R2 con l'agente di Sincronizzazione file di Azure installato viene aggiornato a Windows Server 2016 o Windows Server 2019, è necessario eseguire i passaggi seguenti per supportare la deduplicazione dei dati e il cloud a livelli nello stesso volume:  
@@ -320,15 +323,9 @@ Per richiedere l'accesso per queste aree, seguire la procedura in [questo docume
 > L'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica della zona consentono di eseguire manualmente il failover dell'archiviazione nell'area secondaria. Si consiglia di non eseguire questa operazione al di fuori di una situazione di emergenza quando si usa Sincronizzazione file di Azure, per la maggiore probabilità che si verifichi una perdita di dati. In caso di emergenza, se si vuole avviare un failover manuale dell'archiviazione è necessario aprire un caso di supporto presso Microsoft per fare in modo che Sincronizzazione file di Azure riprenda la sincronizzazione con l'endpoint secondario.
 
 ## <a name="migration"></a>Migrazione
-Se si ha un file server Windows esistente, è possibile installare Sincronizzazione file di Azure direttamente, senza bisogno di spostare i dati in un nuovo server. Se si sta pianificando la migrazione a un nuovo file server Windows nell'ambito dell'adozione di Sincronizzazione file di Azure, esistono diversi possibili approcci per spostare i dati:
+Se si dispone di un Windows file server 2012R2 o versione successiva, è possibile installare direttamente Sincronizzazione file di Azure sul posto, senza dover spostare i dati su un nuovo server. Se si prevede di eseguire la migrazione a una nuova file server di Windows nell'ambito di un'adozione Sincronizzazione file di Azure o se i dati si trovano attualmente in un dispositivo NAS (Network Attached Storage), è possibile utilizzare Sincronizzazione file di Azure con questi dati per diversi approcci di migrazione. L'approccio di migrazione da scegliere dipende dalla posizione in cui si trovano i dati. 
 
-- Creare endpoint server per la vecchia condivisione file e la nuova condivisione file e consentire a Sincronizzazione file di Azure di sincronizzare i dati tra gli endpoint server. Il vantaggio di questo approccio è che rende molto semplice eseguire l'oversubscription dell'archiviazione nel nuovo file server, dal momento che Sincronizzazione file di Azure supporta il cloud a livelli. Quando si è pronti, è possibile trasferire gli utenti finali alla condivisione file nel nuovo server e rimuovere l'endpoint server della condivisione file precedente.
-
-- Creare un endpoint server solo sul nuovo file server e copiarvi i dati dalla condivisione file precedente usando `robocopy`. A seconda della topologia delle condivisioni file nel nuovo server (il numero di condivisioni presenti in ogni volume, la quantità di spazio disponibile in ogni volume e così via), potrebbe essere necessario effettuare temporaneamente il provisioning di spazio di archiviazione aggiuntivo, perché è previsto che l'operazione `robocopy` dal server precedente al nuovo server nel data center locale termini prima dello spostamento dei dati in Azure da parte di Sincronizzazione file di Azure.
-
-È anche possibile usare Data Box per eseguire la migrazione dei dati in una distribuzione di Sincronizzazione file di Azure. Nella maggior parte dei casi, quando i clienti vogliono usare Data Box per inserire i dati, lo fanno perché ritengono che aumenterà la velocità della distribuzione o che sia utile per gli scenari di larghezza di banda limitata. Anche se è vero che l'uso di un Data Box per inserire dati nella distribuzione di Sincronizzazione file di Azure ridurrà l'utilizzo della larghezza di banda, per la maggior parte degli scenari sarà probabilmente più veloce caricare i dati online tramite uno dei metodi descritti in precedenza. Per altre informazioni su come usare Data Box per inserire dati nella distribuzione di Sincronizzazione file di Azure, vedere [Eseguire la migrazione di dati in blocco a Sincronizzazione file di Azure con Azure DataBox](storage-sync-offline-data-transfer.md).
-
-Un errore comune dei clienti quando eseguono la migrazione dei dati nella nuova distribuzione di Sincronizzazione file di Azure è copiare i dati direttamente nella condivisione file di Azure, anziché nei file server Windows. Anche se Sincronizzazione file di Azure identificherà tutti i nuovi file nella condivisione file di Azure e li sincronizzerà con le condivisioni file di Windows, questa operazione è in genere molto più lenta rispetto al caricamento dei dati tramite il file server Windows. Quando si usano gli strumenti di copia di Azure, ad esempio AzCopy, è importante usare la versione più recente. Controllare la [tabella strumenti copia file](storage-files-migration-overview.md#file-copy-tools) per ottenere una panoramica degli strumenti di copia di Azure per assicurarsi che sia possibile copiare tutti i metadati importanti di un file, ad esempio timestamp e ACL.
+Vedere l'articolo relativo alla [sincronizzazione file di Azure e alla panoramica della migrazione di condivisione file di Azure](storage-files-migration-overview.md) in cui è possibile trovare istruzioni dettagliate per il proprio scenario.
 
 ## <a name="antivirus"></a>Antivirus
 Poiché l'antivirus funziona analizzando i file per il codice dannoso noto, un prodotto antivirus potrebbe causare il richiamo di file a più livelli, ottenendo così un elevato costo in uscita. Nella versione 4.0 e successive dell'agente di Sincronizzazione file di Azure, per i file archiviati a livelli è impostato l'attributo sicuro di Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. È consigliabile consultare il fornitore del software per ottenere informazioni su come configurare la soluzione in modo che non legga i file per cui è impostato questo attributo (molte lo fanno automaticamente). 
@@ -342,6 +339,9 @@ Le soluzioni antivirus Microsoft, Windows Defender e System Center Endpoint Prot
 Se è abilitata la suddivisione in livelli nel cloud, le soluzioni che eseguono direttamente il backup dell'endpoint server o di una macchina virtuale in cui si trova l'endpoint server non devono essere usate. La suddivisione in livelli nel cloud fa sì che solo un subset dei dati sia archiviato nell'endpoint server, con il set di dati completo che risiede nella condivisione file di Azure. A seconda della soluzione di backup utilizzata, i file a livelli verranno ignorati e non vengono sottoposti a backup (poiché hanno il FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set di attributi) o verranno richiamati su disco, ottenendo un elevato costo in uscita. È consigliabile usare una soluzione di backup cloud per eseguire il backup diretto della condivisione file di Azure. Per altre informazioni, vedere [informazioni sul backup di condivisioni file di Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) o contattare il provider di backup per verificare se supporta il backup di condivisioni file di Azure.
 
 Se si preferisce usare una soluzione di backup locale, è necessario eseguire i backup in un server del gruppo di sincronizzazione con la suddivisione in livelli nel cloud disabilitata. Quando si esegue un ripristino, usare le opzioni di ripristino a livello di volume o a livello di file. I file ripristinati tramite l'opzione di ripristino a livello di file vengono sincronizzati con tutti gli endpoint del gruppo di sincronizzazione e i file esistenti vengono sostituiti dalla versione ripristinata dal backup.  Nel ripristino a livello di volume i file non vengono sostituiti dalla versione più recente nella condivisione file di Azure o in altri endpoint server.
+
+> [!WARNING]
+> L'opzione Robocopy/B non è supportata con Sincronizzazione file di Azure. L'uso dell'opzione Robocopy/B con un endpoint del server Sincronizzazione file di Azure come origine può causare il danneggiamento del file.
 
 > [!Note]  
 > Il ripristino bare metal può avere risultati imprevisti e non è attualmente supportato.

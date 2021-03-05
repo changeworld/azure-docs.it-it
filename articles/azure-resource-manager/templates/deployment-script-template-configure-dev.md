@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: f731236b235883f019c74ef0b32f5066ca5b7514
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b2e1ffb3cbd513766945864e33589c46284bf942
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179368"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200938"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Configurare l'ambiente di sviluppo per gli script di distribuzione nei modelli ARM
 
@@ -357,7 +357,7 @@ Il valore predefinito per il percorso di montaggio è `/mnt/azscripts/azscriptin
 L'immagine del contenitore predefinita specificata nel modello è **MCR.Microsoft.com/Azure-CLI:2.9.1**. Vedere un elenco delle [versioni supportate dell'interfaccia](https://mcr.microsoft.com/v2/azure-cli/tags/list)della riga di comando di Azure.
 
 > [!IMPORTANT]
-> Lo script di distribuzione usa le immagini CLI disponibili di Microsoft Container Registry. La certificazione di un'immagine dell'interfaccia della riga di comando per uno script di distribuzione richiede circa un mese. Non usare le versioni dell'interfaccia della riga di comando rilasciate negli ultimi 30 giorni. Per trovare le date di rilascio delle immagini, vedere [Note sulla versione dell'interfaccia della riga di comando di Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se si usa una versione non supportata, nel messaggio di errore vengono elencate le versioni supportate.
+> Lo script di distribuzione usa le immagini CLI disponibili di Microsoft Container Registry. La certificazione di un'immagine dell'interfaccia della riga di comando per uno script di distribuzione richiede circa un mese. Non usare le versioni dell'interfaccia della riga di comando rilasciate negli ultimi 30 giorni. Per trovare le date di rilascio delle immagini, vedere [Note sulla versione dell'interfaccia della riga di comando di Azure](/cli/azure/release-notes-azure-cli). Se si usa una versione non supportata, nel messaggio di errore vengono elencate le versioni supportate.
 
 Il modello sospende l'istanza del contenitore dopo 1.800 secondi. Sono disponibili 30 minuti prima che l'istanza del contenitore entra in uno stato terminale e la sessione termina.
 

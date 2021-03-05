@@ -7,14 +7,14 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f8a6758cdf0a6da709a564c1e17c56a2fe5625b0
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: fca11ce1cfa09fb680c2b288e40fa5f51337bdb8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124653"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200785"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Distribuire una macchina virtuale con avvio attendibile abilitato (anteprima)
 
@@ -37,7 +37,7 @@ Creare una macchina virtuale con avvio attendibile abilitato.
 1. Nella pagina **macchine virtuali** selezionare **Aggiungi**, quindi selezionare **macchina virtuale**.
 1. In **Dettagli progetto** verificare che sia selezionata la sottoscrizione corretta.
 1. In **gruppo di risorse** selezionare **Crea nuovo** e digitare un nome per il gruppo di risorse oppure selezionare un gruppo di risorse esistente nell'elenco a discesa.
-1. In **Dettagli istanza** Digitare un nome per il nome della macchina virtuale e scegliere un'area che supporti l'avvio attendibile.
+1. In **Dettagli istanza** Digitare un nome per il nome della macchina virtuale e scegliere un'area che supporti l' [avvio attendibile](trusted-launch.md#public-preview-limitations).
 1. In **immagine** selezionare un' [immagine che supporti l'avvio attendibile](trusted-launch.md#public-preview-limitations). È possibile che venga visualizzata solo la versione di generazione 1 dell'immagine, ovvero OK, procedere al passaggio successivo.
 1. Passare alla scheda **Avanzate** selezionandola nella parte superiore della pagina.
 1. Scorrere verso il basso fino alla sezione **generazione VM** e quindi selezionare **generazione 2**.
@@ -140,7 +140,7 @@ Per ottenere vTPM e consigli di avvio protetti per le macchine virtuali con avvi
 
 In alcuni casi, potrebbe essere necessario firmare gli elementi per l'avvio protetto UEFI.  Ad esempio, potrebbe essere necessario esaminare [come firmare gli elementi per l'avvio protetto](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) per Ubuntu. In questi casi, è necessario immettere le chiavi di registrazione dell'utilità per la macchina virtuale. Per eseguire questa operazione, è necessario usare la console seriale di Azure per accedere all'utilità di.
 
-1. Abilitare la console seriale di Azure per Linux.
+1. Abilitare la console seriale di Azure per Linux. Per altre informazioni, vedere [console seriale per Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 1. Cercare le **macchine virtuali** e selezionare la VM dall'elenco.
 1. Nel menu a sinistra, in **supporto e risoluzione dei problemi**, selezionare **console seriale**. Viene visualizzata una pagina a destra, con la console seriale.

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 7753c6c118d763163e6bc8f69f5b4eee13fe2393
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 53b5add7526b0c20487e8fe3adb0b8ebe207a2ce
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588795"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200037"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizzare i dati di un sensore in tempo reale dall'hub IoT di Azure in un'applicazione Web
 
@@ -153,7 +153,7 @@ Si dovrebbe visualizzare anche l'output nella console che mostra i messaggi tras
 
 La [funzionalità app Web del Servizio app di Azure](../app-service/overview.md) offre una piattaforma distribuita come servizio (PAAS) per l'hosting di applicazioni Web. Le applicazioni Web ospitate nel Servizio app di Azure possono trarre vantaggio dalle potenti funzionalità di Azure, ad esempio sicurezza aggiuntiva, bilanciamento del carico e scalabilità, nonché soluzioni DevOps di Azure e partner come la distribuzione continua, la gestione dei pacchetti e così via. Il Servizio app di Azure supporta applicazioni Web sviluppate in molti linguaggi comuni e distribuite in un'infrastruttura Windows o Linux.
 
-In questa sezione si esegue il provisioning di un'app Web in Servizio app e si distribuisce il codice usando i comandi dell'interfaccia della riga di comando di Azure. Per informazioni dettagliate sui comandi usati, vedere la documentazione di [AZ webapp](/cli/azure/webapp?view=azure-cli-latest). Prima di iniziare, assicurarsi di aver completato i passaggi per [aggiungere un gruppo di risorse all'hub IoT](#add-a-consumer-group-to-your-iot-hub), [ottenere una stringa di connessione del servizio per l'hub IoT](#get-a-service-connection-string-for-your-iot-hub) e [scaricare l'app Web da GitHub](#download-the-web-app-from-github).
+In questa sezione si esegue il provisioning di un'app Web in Servizio app e si distribuisce il codice usando i comandi dell'interfaccia della riga di comando di Azure. Per informazioni dettagliate sui comandi usati, vedere la documentazione di [AZ webapp](/cli/azure/webapp). Prima di iniziare, assicurarsi di aver completato i passaggi per [aggiungere un gruppo di risorse all'hub IoT](#add-a-consumer-group-to-your-iot-hub), [ottenere una stringa di connessione del servizio per l'hub IoT](#get-a-service-connection-string-for-your-iot-hub) e [scaricare l'app Web da GitHub](#download-the-web-app-from-github).
 
 1. Un [piano di servizio app](../app-service/overview-hosting-plans.md) definisce un set di risorse di calcolo per l'esecuzione di un'app ospitata in Servizio app. In questa esercitazione per ospitare l'app Web viene usato il livello Sviluppatore/gratuito. Con il livello gratuito, l'app Web viene eseguita su risorse Windows condivise con altre app del servizio app, incluse le app di altri clienti. Azure offre anche piani di servizio app per distribuire app Web in risorse di calcolo Linux. Se si dispone già di un piano di servizio app che si desidera usare, è possibile ignorare questo passaggio.
 

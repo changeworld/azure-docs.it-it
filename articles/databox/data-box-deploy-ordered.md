@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 26e8f08d4b901a9ea57da826d9441d23508c4a4c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797624"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201890"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -239,7 +239,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 6. In **Ordine** passare alla scheda **Informazioni di base**. Immettere o selezionare le informazioni seguenti e quindi selezionare **Avanti: Destinazione dei dati>** .
 
-    |Impostazione  |valore  |
+    |Impostazione  |Valore  |
     |---------|---------|
     |Sottoscrizione      | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
     |Resource group    | Il gruppo di risorse selezionato in precedenza. |
@@ -437,7 +437,7 @@ Seguire questa procedura nell'interfaccia della riga di comando di Azure per ord
    |query| Stringa di query JMESPath. Per altre informazioni, vedere [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Include la registrazione dettagliata. | --verbose |
 
-2. Nel prompt dei comandi preferito o nel terminale eseguire il comando [az data box job create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) per creare l'ordine di Azure Data Box.
+2. Nel prompt dei comandi preferito o nel terminale eseguire il comando [az data box job create](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-create) per creare l'ordine di Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -605,7 +605,7 @@ Microsoft prepara e spedisce quindi il dispositivo tramite un corriere locale. S
 
 ### <a name="track-a-single-order"></a>Monitorare un singolo ordine
 
-Per ottenere informazioni di rilevamento su un singolo ordine di Azure Data Box esistente, eseguire [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true) . Il comando visualizza le informazioni sull'ordine, ad esempio: nome, gruppo di risorse, informazioni di tracciabilità, ID sottoscrizione, informazioni di contatto, tipo di spedizione e SKU del dispositivo.
+Per ottenere informazioni di rilevamento su un singolo ordine di Azure Data Box esistente, eseguire [`az databox job show`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-show) . Il comando visualizza le informazioni sull'ordine, ad esempio: nome, gruppo di risorse, informazioni di tracciabilità, ID sottoscrizione, informazioni di contatto, tipo di spedizione e SKU del dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -646,7 +646,7 @@ Per ottenere informazioni di rilevamento su un singolo ordine di Azure Data Box 
 
 ### <a name="list-all-orders"></a>Elencare tutti gli ordini
 
-Se sono stati ordinati più dispositivi, è possibile eseguire [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) per visualizzare tutti i Azure Data Box ordini. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
+Se sono stati ordinati più dispositivi, è possibile eseguire [`az databox job list`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-list) per visualizzare tutti i Azure Data Box ordini. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
 Il comando visualizza inoltre i timestamp di ogni ordine.
 
 ```azurecli
@@ -765,7 +765,7 @@ Per eliminare un ordine annullato, passare a **Panoramica** e fare clic su **Eli
 
 ### <a name="cancel-an-order"></a>Annullare un ordine
 
-Per annullare un ordine di Azure Data Box, eseguire [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true) . È necessario specificare il motivo per l'annullamento dell'ordine.
+Per annullare un ordine di Azure Data Box, eseguire [`az databox job cancel`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-cancel) . È necessario specificare il motivo per l'annullamento dell'ordine.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -802,7 +802,7 @@ Per annullare un ordine di Azure Data Box, eseguire [`az databox job cancel`](/c
 
 ### <a name="delete-an-order"></a>Eliminare un ordine
 
-Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) per eliminare l'ordine.
+Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [`az databox job delete`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-delete) per eliminare l'ordine.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]

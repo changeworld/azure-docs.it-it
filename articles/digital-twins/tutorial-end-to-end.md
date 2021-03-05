@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d46a20079919f052ed343c9702ba02ce7f109b5c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3395dc3010f7ae3aabadda8105c1765a9c300988
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "102036172"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201261"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
@@ -408,9 +408,9 @@ Al termine dell'esercitazione, è possibile scegliere le risorse che si desidera
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **Se si vuole continuare a usare l'istanza di Azure Digital Twins configurata in questo articolo, ma si cancellano alcuni o tutti i modelli, i gemelli e le relazioni**, è possibile usare i comandi [AZ DT](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) CLI in una finestra di [Azure cloud Shell](https://shell.azure.com) per eliminare gli elementi che si vuole rimuovere.
+* **Se si vuole continuare a usare l'istanza di Azure Digital Twins configurata in questo articolo, ma si cancellano alcuni o tutti i modelli, i gemelli e le relazioni**, è possibile usare i comandi [AZ DT](/cli/azure/ext/azure-iot/dt) CLI in una finestra di [Azure cloud Shell](https://shell.azure.com) per eliminare gli elementi che si vuole rimuovere.
 
-    Questa opzione non rimuoverà alcuna delle altre risorse di Azure create in questa esercitazione (hub degli elementi, app per funzioni di Azure e così via). È possibile eliminarli singolarmente usando i [comandi DT](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) appropriati per ogni tipo di risorsa.
+    Questa opzione non rimuoverà alcuna delle altre risorse di Azure create in questa esercitazione (hub degli elementi, app per funzioni di Azure e così via). È possibile eliminarli singolarmente usando i [comandi DT](/cli/azure/reference-index) appropriati per ogni tipo di risorsa.
 
 Potrebbe anche essere necessario eliminare la cartella del progetto dal computer locale.
 

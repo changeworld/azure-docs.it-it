@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 7eeb7b82d9c3bfe21019d5d68f82c2e6d7a2bf68
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 22945cdaff2696a15d5b119bd0f32fd0a179ebf7
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171514"
+ms.locfileid: "102202094"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-preparation-preview"></a>Connetti pool di Apache Spark (basati su Azure sinapsi Analytics) per la preparazione dei dati (anteprima)
 
@@ -357,10 +357,6 @@ train_ds = Dataset.File.from_files(path=datastore_paths, validate=True)
 input1 = train_ds.as_mount()
 
 ```
-
-## <a name="example-notebook"></a>Notebook di esempio
-
-Vedere questo [notebook end-to-end](../synapse-analytics/overview-what-is.md) per un esempio di codice dettagliato su come eseguire la preparazione dei dati e il training del modello da un singolo notebook con Azure sinapsi Analytics e Azure Machine Learning.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

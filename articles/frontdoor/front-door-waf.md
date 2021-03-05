@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: a5d51a77b1da0ae44c76d0187113105c4e53c9b4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
-ms.translationtype: HT
+ms.openlocfilehash: f894fd5ca7bb98c48b106c13b8fe6130b2c76c6e
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279227"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201057"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Esercitazione: Dimensionare rapidamente e proteggere un'applicazione Web tramite il servizio Frontdoor di Azure e Web application firewall di Azure (WAF)
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Le istruzioni fornite in questa esercitazione usano l'interfaccia della riga di comando di Azure. [Vedere questa guida](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) per iniziare a usare l'interfaccia della riga di comando di Azure.
+- Le istruzioni fornite in questa esercitazione usano l'interfaccia della riga di comando di Azure. [Vedere questa guida](/cli/azure/get-started-with-azure-cli) per iniziare a usare l'interfaccia della riga di comando di Azure.
 
   > [!TIP] 
   > Un modo semplice e rapido per iniziare a usare l'interfaccia della riga di comando di Azure è rappresentato da [Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
@@ -48,7 +48,7 @@ In questa esercitazione si apprenderà come:
    ```
 
 > [!NOTE] 
-> Per altre informazioni sui comandi usati in questa esercitazione, vedere [Informazioni di riferimento dell'interfaccia della riga di comando di Azure per il servizio Frontdoor](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest).
+> Per altre informazioni sui comandi usati in questa esercitazione, vedere [Informazioni di riferimento dell'interfaccia della riga di comando di Azure per il servizio Frontdoor](/cli/azure/ext/front-door).
 
 ## <a name="create-an-azure-front-door-resource"></a>Creare una risorsa Frontdoor di Azure
 
@@ -144,7 +144,7 @@ Si consiglia di verificare che solo i vertici di Frontdoor di Azure possano comu
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando le risorse di questa esercitazione non sono più necessarie, usare il comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) per rimuovere il gruppo di risorse, Frontdoor e i criteri WAF:
+Quando le risorse di questa esercitazione non sono più necessarie, usare il comando [az group delete](/cli/azure/group#az-group-delete) per rimuovere il gruppo di risorse, Frontdoor e i criteri WAF:
 
 ```azurecli-interactive
   az group delete \

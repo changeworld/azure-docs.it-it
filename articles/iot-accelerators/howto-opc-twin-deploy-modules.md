@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1c12b1c7fd393227cb22d011f8b88f914cfded59
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 38235f9b01b321e27664ee837763732971f0b85c
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445494"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201499"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuisci il modulo e le dipendenze di OPC Twin da zero
 
@@ -182,7 +182,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Installare la versione più recente dell' [interfaccia della riga di comando di Azure (AZ)](/cli/azure/?view=azure-cli-latest) da [qui](/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Installare la versione più recente dell' [interfaccia della riga di comando di Azure (AZ)](/cli/azure/) da [qui](/cli/azure/install-azure-cli).
 
 ### <a name="quickstart"></a>Avvio rapido
 

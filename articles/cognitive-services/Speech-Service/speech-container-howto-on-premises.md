@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: aahi
-ms.openlocfilehash: c3791a9049a3eab3ddd6fc70073629c38830dbc7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 78ac9ae4aa8611f50caa94c84d3e6c95e58fc91c
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96002280"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200734"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Usare i contenitori di servizi vocali con Kubernetes e Helm
 
@@ -27,7 +27,7 @@ I prerequisiti seguenti prima di usare i contenitori di riconoscimento vocale in
 
 | Necessario | Scopo |
 |----------|---------|
-| Account Azure | Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito][free-azure-account]. |
+| Account Azure | Se non si ha una sottoscrizione di Azure, creare un [account gratuito][free-azure-account] prima di iniziare. |
 | Accesso Container Registry | Per consentire a Kubernetes di eseguire il pull delle immagini Docker nel cluster, sarà necessario accedere al registro contenitori. |
 | INTERFACCIA della riga di comando Kubernetes | L' [interfaccia][kubernetes-cli] della riga di comando di Kubernetes è necessaria per gestire le credenziali condivise dal registro contenitori. Kubernetes è necessario anche prima di Helm, ovvero Kubernetes Package Manager. |
 | Interfaccia della riga di comando di Helm | Installare l' [interfaccia][helm-install]della riga di comando di Helm, che viene usata per installare un grafico Helm (definizione del pacchetto del contenitore). |
@@ -229,7 +229,7 @@ Per altri dettagli sull'installazione di applicazioni con Helm in Azure Kubernet
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/intro/install/

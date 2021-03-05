@@ -3,12 +3,12 @@ title: Usare gli strumenti da riga di comando per avviare e arrestare le macchin
 description: Informazioni su come usare gli strumenti da riga di comando per avviare e arrestare le macchine virtuali in Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e5a42658f2b83f101271f158c9af70833601b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b9be3d09c488fdae211d81daf88e8807bc7b4dc
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476417"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201193"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Usare gli strumenti da riga di comando per avviare e arrestare Azure DevTest Labs macchine virtuali
 Questo articolo illustra come usare Azure PowerShell o l'interfaccia della riga di comando di Azure per avviare o arrestare le macchine virtuali in un Lab in Azure DevTest Labs. È possibile creare script PowerShell/CLI per automatizzare queste operazioni. 
@@ -66,7 +66,7 @@ else {
 
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-L' [interfaccia](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) della riga di comando di Azure è un altro modo per automatizzare l'avvio e l'arresto delle macchine virtuali di DevTest Labs. L'interfaccia della riga di comando di Azure può essere [installata](/cli/azure/install-azure-cli?view=azure-cli-latest) in sistemi operativi diversi. Lo script seguente fornisce i comandi per l'avvio e l'arresto di una macchina virtuale in un Lab. 
+L' [interfaccia](/cli/azure/get-started-with-azure-cli) della riga di comando di Azure è un altro modo per automatizzare l'avvio e l'arresto delle macchine virtuali di DevTest Labs. L'interfaccia della riga di comando di Azure può essere [installata](/cli/azure/install-azure-cli) in sistemi operativi diversi. Lo script seguente fornisce i comandi per l'avvio e l'arresto di una macchina virtuale in un Lab. 
 
 ```azurecli
 # Sign in to Azure

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: b3c917c9652954783fcddd92b9a7370c358ab3cc
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
-ms.translationtype: HT
+ms.openlocfilehash: b5cf7f2e5957ef57009c1b461ae81863d6d8ab9b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233645"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199969"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Esportare certificati da Azure Key Vault
 
@@ -61,7 +61,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-Per altre informazioni, vedere [gli esempi e le definizioni dei parametri](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download).
+Per altre informazioni, vedere [gli esempi e le definizioni dei parametri](/cli/azure/keyvault/certificate#az-keyvault-certificate-download).
 
 Il download come certificato comporta il recupero della parte pubblica. Per ottenere sia la chiave privata che i metadati pubblici, è possibile eseguire il download come segreto.
 
@@ -75,7 +75,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-Per altre informazioni, vedere le [definizioni dei parametri](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
+Per altre informazioni, vedere le [definizioni dei parametri](/cli/azure/keyvault/secret#az-keyvault-secret-download).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

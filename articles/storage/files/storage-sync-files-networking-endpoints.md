@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 64d66e1b9eab225b38ee21306fea6f9534a708f3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f307380114acd4f98d68b580333c4dccc2a7340b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673850"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201601"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurazione degli endpoint di rete di Sincronizzazione file di Azure
 File di Azure e Sincronizzazione file di Azure prevedono due tipi principali di endpoint per l'accesso alle condivisioni file di Azure: 
@@ -125,7 +125,7 @@ Address: 192.168.0.5
 
 ---
 
-### <a name="create-the-storage-sync-private-endpoint"></a>Creare l'endpoint privato di sincronizzazione archiviazione
+### <a name="create-the-storage-sync-service-private-endpoint"></a>Creare l'endpoint privato del servizio di sincronizzazione archiviazione
 > [!Important]  
 > Per usare endpoint privati nella risorsa servizio di sincronizzazione archiviazione, è necessario usare l'agente di Sincronizzazione file di Azure versione 10.1 o successiva. Le versioni dell'agente precedenti alla 10.1 non supportano gli endpoint privati nel servizio di sincronizzazione archiviazione. Tutte le versioni precedenti degli agenti supportano gli endpoint privati nella risorsa account di archiviazione.
 
@@ -597,13 +597,10 @@ Per disabilitare l'accesso all'endpoint pubblico del servizio di sincronizzazion
 $storageSyncServiceResourceGroupName = "<storage-sync-service-resource-group>"
 $storageSyncServiceName = "<storage-sync-service>"
 
-$storageSyncService = Get-AzResource `
-        -ResourceGroupName $storageSyncServiceResourceGroupName `
-        -ResourceName $storageSyncServiceName `
-        -ResourceType "Microsoft.StorageSync/storageSyncServices"
-
-$storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
+Set-AzStorageSyncService `
+    -ResourceGroupName $storageSyncServiceResourceGroupName `
+    -Name $storageSyncServiceName `
+    -IncomingTrafficPolicy AllowVirtualNetworksOnly
 ```
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
@@ -611,6 +608,34 @@ L'interfaccia della riga di comando di Azure non supporta l'impostazione della `
 
 ---
 
+## <a name="azure-policy"></a>Criteri di Azure
+Criteri di Azure consente di applicare gli standard dell'organizzazione e valutare la conformità a questi standard su larga scala. File di Azure e Sincronizzazione file di Azure espongono diversi criteri utili per la rete di controllo e correzione che consentono di monitorare e automatizzare la distribuzione.
+
+I criteri controllano l'ambiente e inviano un avviso se gli account di archiviazione o i servizi di sincronizzazione archiviazione differiscono dal comportamento definito. Ad esempio, se un endpoint pubblico è abilitato quando il criterio è stato impostato in modo che gli endpoint pubblici siano disabilitati. I criteri di modifica/distribuzione consentono di eseguire altre operazioni e di modificare in modo proattivo una risorsa, ad esempio il servizio di sincronizzazione archiviazione, o distribuire risorse (ad esempio, endpoint privati) per allinearle ai criteri.
+
+Per File di Azure e Sincronizzazione file di Azure sono disponibili i criteri predefiniti seguenti:
+
+| Azione | Servizio | Condizione | Nome criteri |
+|-|-|-|-|
+| Audit | File di Azure | L'endpoint pubblico dell'account di archiviazione è abilitato. Per altre informazioni, vedere [disabilitare l'accesso all'endpoint pubblico dell'account di archiviazione](#disable-access-to-the-storage-account-public-endpoint) . | Gli account di archiviazione devono limitare l'accesso alla rete |
+| Audit | Sincronizzazione file di Azure | L'endpoint pubblico del servizio di sincronizzazione archiviazione è abilitato. Per ulteriori informazioni, vedere [disabilitare l'accesso all'endpoint pubblico del servizio di sincronizzazione archiviazione](#disable-access-to-the-storage-sync-service-public-endpoint) . | L'accesso alla rete pubblica deve essere disabilitato per Sincronizzazione file di Azure |
+| Audit | File di Azure | Per l'account di archiviazione è necessario almeno un endpoint privato. Per altre informazioni, vedere [creare l'endpoint privato dell'account di archiviazione](#create-the-storage-account-private-endpoint) . | L'account di archiviazione deve usare una connessione collegamento privato |
+| Audit | Sincronizzazione file di Azure | Il servizio di sincronizzazione archiviazione richiede almeno un endpoint privato. Per altre informazioni, vedere [creare l'endpoint privato del servizio di sincronizzazione archiviazione](#create-the-storage-sync-service-private-endpoint) . | Sincronizzazione file di Azure deve usare il collegamento privato |
+| Modifica | Sincronizzazione file di Azure | Disabilitare l'endpoint pubblico del servizio di sincronizzazione archiviazione. | Modificare: configurare Sincronizzazione file di Azure per disabilitare l'accesso alla rete pubblica |
+| Distribuire | Sincronizzazione file di Azure | Distribuire un endpoint privato per il servizio di sincronizzazione archiviazione. | Configurare Sincronizzazione file di Azure con endpoint privati |
+| Distribuire | Sincronizzazione file di Azure | Distribuire un record a nella zona DNS privatelink.afs.azure.net. | Configurare Sincronizzazione file di Azure per l'uso delle zone DNS private |
+
+### <a name="set-up-a-private-endpoint-deployment-policy"></a>Configurare i criteri di distribuzione di un endpoint privato
+Per configurare un criterio di distribuzione degli endpoint privati, passare alla [portale di Azure](https://portal.azure.com/)e cercare i **criteri**. Il centro criteri di Azure deve essere un risultato superiore. Passare a   >  **definizioni** di creazione nel sommario del centro criteri. Il riquadro **definizioni** risultante contiene i criteri predefiniti in tutti i servizi di Azure. Per trovare i criteri specifici, selezionare la categoria **archiviazione** nel filtro categoria o cercare **Configura sincronizzazione file di Azure con endpoint privati**. Selezionare **...** e **assegnare** per creare un nuovo criterio dalla definizione.
+
+Il pannello informazioni di **base** della procedura guidata **assegna criterio** consente di impostare un elenco di esclusione per ambito, risorsa o gruppo di risorse e di assegnare ai criteri un nome descrittivo per facilitarne la distinzione. Non è necessario modificarli affinché i criteri funzionino, ma è possibile apportare modifiche. Selezionare **Avanti** per passare alla pagina **parametri** . 
+
+Nel pannello **parametri** selezionare il **...** accanto all'elenco a discesa **privateEndpointSubnetId** per selezionare la rete virtuale e la subnet in cui devono essere distribuiti gli endpoint privati per le risorse del servizio di sincronizzazione archiviazione. La procedura guidata risultante può richiedere alcuni secondi per caricare le reti virtuali disponibili nella sottoscrizione. Selezionare la rete virtuale/subnet appropriata per l'ambiente e fare clic su **Seleziona**. Selezionare **Avanti** per passare al pannello **correzione** .
+
+Affinché l'endpoint privato venga distribuito quando viene identificato un servizio di sincronizzazione archiviazione senza un endpoint privato, è necessario selezionare l' **attività crea una correzione** nella pagina **monitoraggio e aggiornamento** . Infine, selezionare **Verifica + crea** per esaminare l'assegnazione dei criteri e **creare** per crearla.
+
+L'assegnazione di criteri risultante verrà eseguita periodicamente e potrebbe non essere eseguita immediatamente dopo la creazione.
+
 ## <a name="see-also"></a>Vedere anche
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
-- [Distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
+- [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 4a874e6f1e026a1888b9039799be71c95f040ac6
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628918"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202349"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Eseguire la migrazione a condivisioni file di Azure
 
@@ -34,8 +34,8 @@ La chiave in ogni migrazione consiste nell'acquisire tutte le fedeltà dei file 
 
 Ecco i due componenti di base di un file:
 
-- **Flusso di dati** : il flusso di dati di un file archivia il contenuto del file.
-- **Metadati del file** : i metadati del file hanno questi sottocomponenti:
+- **Flusso di dati**: il flusso di dati di un file archivia il contenuto del file.
+- **Metadati del file**: i metadati del file hanno questi sottocomponenti:
    * Attributi di file come di sola lettura
    * Autorizzazioni per i file, che possono essere denominate *autorizzazioni NTFS* o *ACL di file e cartelle*
    * Timestamp, in particolare la creazione e i timestamp dell'Ultima modifica
@@ -111,7 +111,7 @@ Sono disponibili diversi strumenti per la copia di file da Microsoft e da altri.
 
     La prima volta che si esegue lo strumento, viene copiata la maggior parte dei dati. Questa esecuzione iniziale potrebbe durare un po'. Spesso dura più a lungo del necessario per portare l'origine dati offline per i processi aziendali.
 
-    Eseguendo il mirroring di un'origine a una destinazione (come con **Robocopy/Mir** ), è possibile eseguire nuovamente lo strumento sulla stessa origine e destinazione. L'esecuzione è molto più rapida perché è necessario trasportare solo le modifiche di origine che si verificano dopo l'esecuzione precedente. La riesecuzione di uno strumento di copia in questo modo può ridurre i tempi di inattività.
+    Eseguendo il mirroring di un'origine a una destinazione (come con **Robocopy/Mir**), è possibile eseguire nuovamente lo strumento sulla stessa origine e destinazione. L'esecuzione è molto più rapida perché è necessario trasportare solo le modifiche di origine che si verificano dopo l'esecuzione precedente. La riesecuzione di uno strumento di copia in questo modo può ridurre i tempi di inattività.
 
 La tabella seguente classifica gli strumenti Microsoft e la relativa idoneità corrente per le condivisioni file di Azure:
 
@@ -153,4 +153,4 @@ Di seguito sono riportate altre informazioni sulle tecnologie File di Azure cita
 
 * [Panoramica della condivisione file di Azure](storage-files-introduction.md)
 * [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
-* [Sincronizzazione file di Azure: suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md)
+* [Sincronizzazione file di Azure: suddivisione in livelli nel cloud](storage-sync-cloud-tiering-overview.md)
