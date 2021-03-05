@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e37c5a748a8e99f49e3535946268427139bbbf44
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000862"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184424"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un Load Balancer Standard pubblico in Azure Kubernetes Service (AKS)
 
@@ -96,13 +96,13 @@ Azure Load Balancer offre connettività in uscita da una rete virtuale oltre all
 
 Come tutte le regole di Load Balancer, le regole in uscita seguono la stessa sintassi familiare delle regole di bilanciamento del carico e delle regole NAT in ingresso:
 
-***indirizzi IP e parametri front-end + pool back-end** _
+***Indirizzi IP e parametri front-end + pool back-end***
 
 Una regola in uscita configura NAT in uscita per tutte le macchine virtuali identificate dal pool back-end da convertire in front-end. E i parametri offrono ulteriore controllo dettagliato sull'algoritmo NAT in uscita.
 
 Anche se una regola in uscita può essere usata con un singolo indirizzo IP pubblico, le regole in uscita semplificano l'impegno di configurazione per la scalabilità di NAT in uscita. È possibile usare più indirizzi IP per gestire scenari su larga scala e le regole in uscita per risolvere i problemi dei modelli soggetti a esaurimento delle porte SNAT. Ogni indirizzo IP aggiuntivo fornito da un front-end fornisce porte temporanee 64K per Load Balancer da usare come porte SNAT. 
 
-Quando si usa un servizio di bilanciamento del carico _Standard * SKU con indirizzi IP pubblici in uscita gestiti, che vengono creati per impostazione predefinita, è possibile ridimensionare il numero di indirizzi IP pubblici in uscita gestiti usando il **`load-balancer-managed-ip-count`** parametro.
+Quando si usa un servizio di bilanciamento del carico con SKU *standard* con indirizzi IP pubblici in uscita gestiti, che vengono creati per impostazione predefinita, è possibile ridimensionare il numero di indirizzi IP pubblici in uscita gestiti usando il **`load-balancer-managed-ip-count`** parametro.
 
 Per aggiornare un cluster esistente, eseguire il comando seguente. Questo parametro può essere impostato anche in fase di creazione del cluster, per avere più indirizzi IP pubblici in uscita gestiti.
 
@@ -403,17 +403,17 @@ Per altre informazioni sull'uso di Load Balancer interni per il traffico in ingr
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-create]: /cli/azure/group#az-group-create
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[az-network-lb-outbound-rule-list]: /cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-list
-[az-network-public-ip-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show
-[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
+[az-network-lb-outbound-rule-list]: /cli/azure/network/lb/outbound-rule#az-network-lb-outbound-rule-list
+[az-network-public-ip-show]: /cli/azure/network/public-ip#az-network-public-ip-show
+[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/skus.md

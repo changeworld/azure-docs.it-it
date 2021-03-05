@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.openlocfilehash: ec6a8382e2c0ce2cb359a62dd3f80fc977c4b1c2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8964248bb23b2b615c7e73e26d730fbd79b4e9e7
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674662"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184458"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Creare un database Oracle in una VM di Azure
 
@@ -221,12 +221,12 @@ Il software Oracle è già installato nell'immagine del Marketplace. Creare un d
 1.  Passa all'utente **Oracle** :
 
     ```bash
-    $ sudo su - oracle
+    sudo su - oracle
     ```
 2. Avvio del listener del database
 
    ```bash
-   $ lsnrctl start
+   lsnrctl start
    ```
    L'output è simile al seguente:
   

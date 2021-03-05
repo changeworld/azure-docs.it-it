@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: include
 ms.date: 12/08/2020
 ms.author: pafarley
-ms.openlocfilehash: ebef33072b802ffc35b8c011d974dbcd203fa6e1
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 346a30b538af8006eaada13b00c77762b9cdfca8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561478"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102193950"
 ---
 Introduzione all'API REST Content Moderator di Azure. 
 
@@ -32,6 +32,7 @@ Usare l'API REST Content Moderator per:
 * Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="creare una risorsa Content Moderator"  target="_blank">creare una risorsa Content Moderator <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Attendere che venga distribuita e fare clic sul pulsante **Vai alla risorsa**.
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione a Content Moderator. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
+* [PowerShell versione 6.0 +](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1)o un'applicazione della riga di comando simile.
 
 
 ## <a name="moderate-text"></a>Moderare il testo
@@ -43,7 +44,7 @@ Verrà usato un comando simile al seguente per chiamare l'API Content Moderator 
 Copiare il comando in un editor di testo e apportare le modifiche seguenti:
 
 1. Assegnare `Ocp-Apim-Subscription-Key` alla propria chiave di sottoscrizione Viso valida.
-1. Modificare la prima parte dell'URL della query in modo che equivalga all'endpoint che corrisponde alla chiave di sottoscrizione.
+1. Cambiare la prima parte dell'URL della query in modo che equivalga all'endpoint che corrisponde alla chiave di sottoscrizione.
    [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Facoltativamente, cambiare il corpo della richiesta sostituendolo con qualsiasi stringa di testo da analizzare.
 

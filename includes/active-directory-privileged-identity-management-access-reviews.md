@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere file
 description: File di inclusione
 services: active-directory
 author: barclayn
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96842389"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102193927"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Creare una o più verifiche di accesso
 
@@ -53,7 +53,7 @@ ms.locfileid: "96842389"
 
     - **Utenti selezionati**: usare questa opzione quando non è noto chi abbia bisogno dell'accesso. Con questa opzione è possibile assegnare l'esecuzione della revisione a un proprietario delle risorse o a un gestore del gruppo.
     - **Membri (autonomo)** : usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni di ruolo.
-    - **Gestione (anteprima)** : usare questa opzione per fare in modo che il responsabile dell'utente riveda l'assegnazione di ruolo. Quando si seleziona gestione (anteprima), è anche possibile specificare un revisore di fallback. Ai revisori di fallback viene richiesto di esaminare un utente quando l'utente non dispone di un responsabile specificato nella directory.
+    - **Manager** : usare questa opzione per fare in modo che il responsabile dell'utente riveda l'assegnazione di ruolo. Quando si seleziona Manager, sarà anche possibile specificare un revisore di fallback. Ai revisori di fallback viene richiesto di esaminare un utente quando l'utente non dispone di un responsabile specificato nella directory.
 
 ### <a name="upon-completion-settings"></a>Impostazioni al completamento
 

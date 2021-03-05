@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a00ea22ee0d9125588f2bb97505d7a4c0ba9a1ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6a78d3d23a167eb0d3c254e079f807ea150fa68f
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750875"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102194078"
 ---
 <a name="HOLTop"></a>
 
@@ -131,7 +131,7 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 > [!NOTE]
 > Questa guida di avvio rapido presuppone che siano state [create variabili di ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint del servizio Visione artificiale, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
-In un nuovo metodo creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** con la chiave e usarlo con l'endpoint per creare un oggetto **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)** .
+In un nuovo metodo nella classe **Program** creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials?view=azure-dotnet)** con la chiave e usarlo con l'endpoint per creare un oggetto **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet)** .
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 

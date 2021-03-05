@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 9a7e02955d7784feb57d7e9ccc7e337b6a939380
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8409a4d897ea9b20528a5b30273819e6962774cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651553"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184492"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kendis---azure-ad-integration"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con kendis-Azure AD Integration
 
@@ -123,13 +123,21 @@ In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On conced
 
 ## <a name="configure-kendis-azure-ad-integration-sso"></a>Configurare Kendis-Azure Active Directory Integration SSO
 
-1. In un'altra finestra del Web browser accedere al sito aziendale di kendis-Azure AD Integration come amministratore.
+1. Per automatizzare la configurazione all'interno dell'integrazione kendis-Azure AD, è necessario installare l'estensione del browser per l' **accesso sicuro alle app personali** facendo clic su **installa l'estensione**.
 
-1. Passare a **impostazioni > configurazioni SAML**.
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
+
+2. Dopo l'aggiunta dell'estensione al browser, fare clic su **Configura kendis-Azure ad l'integrazione** indirizza l'utente all'applicazione Kendis-Azure ad Integration. Da qui, fornire le credenziali di amministratore per accedere all'integrazione di kendis-Azure AD. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 5.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+3. Per configurare manualmente l'integrazione con kendis Azure AD, in un'altra finestra del Web browser accedere al sito aziendale di kendis-Azure AD Integration come amministratore.
+
+4. Passare a **impostazioni > configurazioni SAML**.
 
     ![impostazioni per le configurazioni SAML](./media/kendis-scaling-agile-platform-tutorial/settings.png)
 
-1. Fare clic sul pulsante **modifica** nella parte inferiore della pagina e seguire questa procedura.
+5. Fare clic sul pulsante **modifica** nella parte inferiore della pagina e seguire questa procedura.
 
     ![Configurazioni SAML](./media/kendis-scaling-agile-platform-tutorial/saml-configuration-settings.png)
 
