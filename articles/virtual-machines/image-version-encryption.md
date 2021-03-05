@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 0f5eb6a2964cdb679c2a83bd9d9b6296e3e962ed
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f8ea2224020e6fa6c5dae135dc575cc77510efd5
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499289"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123939"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Anteprima: Usare le chiavi gestite dal cliente per crittografare le immagini
 
@@ -27,7 +27,7 @@ La crittografia lato server tramite chiavi gestite dal cliente usa Azure Key Vau
 
 Questo articolo richiede che sia già stata impostata una crittografia del disco in ogni area in cui si vuole replicare l'immagine:
 
-- Per usare solo una chiave gestita dal cliente, vedere gli articoli relativi all'abilitazione delle chiavi gestite dal cliente con la crittografia lato server usando il [portale di Azure](./disks-enable-customer-managed-keys-portal.md) o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- Per usare solo una chiave gestita dal cliente, vedere gli articoli relativi all'abilitazione delle chiavi gestite dal cliente con la crittografia lato server usando il [portale di Azure](./disks-enable-customer-managed-keys-portal.md) o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation).
 
 - Per usare le chiavi gestite dalla piattaforma e gestite dal cliente (per la crittografia doppia), vedere gli articoli relativi all'abilitazione della crittografia doppia inattiva tramite il [portale di Azure](./disks-enable-double-encryption-at-rest-portal.md) o [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
 

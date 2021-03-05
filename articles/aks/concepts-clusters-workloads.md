@@ -4,12 +4,12 @@ description: Informazioni sui componenti di base del cluster e del carico di lav
 services: container-service
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a1718d906ab5f51ea71be9b304028576c9fffa0
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373233"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122443"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -61,7 +61,7 @@ Per eseguire le applicazioni e i servizi di supporto, è necessario un *nodo* Ku
 
 - `kubelet`È l'agente Kubernetes che elabora le richieste di orchestrazione dal piano di controllo e la pianificazione dell'esecuzione dei contenitori richiesti.
 - La rete virtuale è gestita dal *kube-proxy* in ogni nodo. Il proxy instrada il traffico di rete e gestisce gli indirizzi IP per i servizi e i pod.
-- Il *runtime del contenitore* è il componente che consente alle applicazioni in contenitori di eseguire e interagire con risorse aggiuntive, ad esempio la rete virtuale e la risorsa di archiviazione. In AKS, Moby viene usato come runtime del contenitore.
+- Il *runtime del contenitore* è il componente che consente alle applicazioni in contenitori di eseguire e interagire con risorse aggiuntive, ad esempio la rete virtuale e la risorsa di archiviazione. I cluster AKS che usano i pool di nodi Kubernetes versione 1,19 e sono più usati `containerd` come runtime del contenitore. I cluster AKS che usano Kubernetes prima della versione 1.19 per i pool di nodi usano [Moby](https://mobyproject.org/) (upstream Docker) come runtime del contenitore.
 
 ![Macchina virtuale di Azure e risorse di supporto per un nodo di Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -69,7 +69,7 @@ La dimensione della macchina virtuale di Azure per i nodi definisce il numero di
 
 In AKS l'immagine della macchina virtuale per i nodi del cluster è attualmente basata su Ubuntu Linux o Windows Server 2019. Quando si crea un cluster AKS o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le Configura. Non è necessario eseguire alcuna configurazione manuale. I nodi agente vengono fatturati come macchine virtuali standard, quindi tutti gli sconti sulle dimensioni della macchina virtuale in uso (incluse le [prenotazioni di Azure][reservation-discounts]) vengono applicati automaticamente.
 
-Se è necessario usare un sistema operativo host diverso, un altro runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Se ad esempio si vuole usare un runtime del contenitore diverso da Moby, è possibile usare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
+Se è necessario usare un sistema operativo host diverso, un altro runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Se ad esempio si vuole usare un runtime del contenitore diverso da `containerd` o Moby, è possibile usare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
 
 ### <a name="resource-reservations"></a>Prenotazioni di risorse
 

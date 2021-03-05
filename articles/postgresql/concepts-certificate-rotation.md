@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: c9bc6e3822ac6c014b9ff00e9cd81bbe707628fe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6dc687879eb646b4abd081b40bce292d20ff3186
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736067"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123990"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per il server singolo database di Azure per PostgreSQL
 
@@ -83,7 +83,7 @@ Le indicazioni per gli utenti sono: usare i passaggi indicati in questo document
 
 ## <a name="what-if-we-removed-the-baltimorecybertrustroot-certificate"></a>Cosa accade se è stato rimosso il certificato BaltimoreCyberTrustRoot?
 
-Si inizierà a errori di connettività durante la connessione al database di Azure per il server PostgreSQL. Per mantenere la connettività, sarà necessario configurare di nuovo [SSL](howto-configure-ssl.md) con il certificato [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) .
+Si inizierà a errori di connettività durante la connessione al database di Azure per il server PostgreSQL. Per mantenere la connettività, sarà necessario configurare di nuovo SSL con il certificato [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) .
 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti

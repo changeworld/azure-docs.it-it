@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 90d526a58f4223fc70be5414ce5722238ce2c735
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b09c36f1dce3c394ff24e3e601d773279a6ac510
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733432"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123310"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 
@@ -43,7 +43,7 @@ Le domande migliori sono quelle semplici. Considerare la parola chiave o la fras
 
 Le risposte migliori sono semplici risposte ma non troppo semplici. Non usare risposte quali `yes` e `no` . Se la risposta deve essere collegata ad altre origini o fornire un'esperienza avanzata con i supporti e i collegamenti, usare l'assegnazione di tag [dei metadati](../how-to/edit-knowledge-base.md#add-metadata) per distinguere le risposte, quindi [inviare la query](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) con i tag dei metadati nella `strictFilters` proprietà per ottenere la versione di risposta corretta.
 
-|Risposta|Richieste di Follup|
+|Risposta|Richieste di completamento|
 |--|--|
 |Spegnere il computer portatile della superficie con il pulsante di alimentazione sulla tastiera.|* Combinazioni di tasti per la sospensione, l'arresto e il riavvio.<br>* Come eseguire l'avvio a freddo di una superficie portatile<br>* Come modificare il BIOS per una superficie portatile<br>* Differenze tra sospensione, arresto e riavvio|
 |Il servizio clienti è disponibile tramite telefono, Skype e SMS 24 ore al giorno.|* Informazioni di contatto per le vendite.<br> * Località e ore di ufficio e archiviazione per una visita del personale.<br> * Accessori per una superficie portatile.|

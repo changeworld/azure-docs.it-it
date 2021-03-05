@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 77cc509a9fac2a24b3cd70675c1ee4160ecdb24d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06ad8bf169e2b4b44f4f6a8ec5155aa6722a038c
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741855"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124058"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -99,7 +99,7 @@ Per bloccare l'applicazione in modo che accetti il traffico solo da un sportello
 
 - Cercare il `Front Door ID` valore nella sezione Panoramica della pagina del portale di porta anteriore. È quindi possibile filtrare in base all'intestazione in ingresso '**X-Azure-FDID**' inviata dalla porta anteriore al back-end con tale valore per assicurarsi che sia consentita solo un'istanza di front door specifica, perché gli intervalli IP precedenti sono condivisi con altre istanze di altri clienti.
 
-- Applicare il filtro regole nel server Web back-end per limitare il traffico in base al valore dell'intestazione ' X-Azure-FDID ' risultante. Si noti che alcuni servizi come app Azure Service forniscono questa funzionalità di [filtraggio basata sull'intestazione](../app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance-preview) senza la necessità di modificare l'applicazione o l'host.
+- Applicare il filtro regole nel server Web back-end per limitare il traffico in base al valore dell'intestazione ' X-Azure-FDID ' risultante. Si noti che alcuni servizi come app Azure Service forniscono questa funzionalità di [filtraggio basata sull'intestazione](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance-preview) senza la necessità di modificare l'applicazione o l'host.
 
   Di seguito è riportato un esempio per [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
 

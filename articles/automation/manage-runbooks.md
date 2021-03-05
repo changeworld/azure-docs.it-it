@@ -3,14 +3,14 @@ title: Gestire runbook in Automazione di Azure
 description: Questo articolo descrive come gestire runbook in Automazione di Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/23/2020
+ms.date: 02/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed5eda668f6bd52ba144aa664119ab613fdb7742
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: af767ab37e8e77195b7d13b24ea78f4fb88485fb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183584"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122137"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gestire runbook in Automazione di Azure
 
@@ -23,6 +23,7 @@ Creare un nuovo runbook in Automazione di Azure usando il portale di Azure o Win
 * [Modificare runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md)
 * [Informazioni sui concetti chiave del flusso di lavoro di Windows PowerShell per i runbook di Automazione](automation-powershell-workflow.md)
 * [Gestire pacchetti Python 2 in Automazione di Azure](python-packages.md)
+* [Gestire i pacchetti Python 3 (anteprima) in automazione di Azure](python-3-packages.md)
 
 ### <a name="create-a-runbook-in-the-azure-portal"></a>Creare un runbook nel portale di Azure
 
@@ -45,7 +46,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importare un runbook
 
-È possibile importare uno script PowerShell o un flusso di lavoro PowerShell ( **.ps1**), un runbook grafico ( **.graphrunbook**) o uno script Python 2 ( **.py**) per creare il proprio runbook. È necessario specificare il [tipo di runbook](automation-runbook-types.md) che viene creato durante l'importazione tenendo conto delle considerazioni seguenti.
+È possibile importare uno script di PowerShell o del flusso di lavoro PowerShell (con estensione **ps1**), un Runbook grafico (**graphrunbook**) o uno script Python 2 o Python 3 (**. py**) per creare il proprio Runbook. È necessario specificare il [tipo di runbook](automation-runbook-types.md) che viene creato durante l'importazione tenendo conto delle considerazioni seguenti.
 
 * È possibile importare un file **.ps1** che non contiene un flusso di lavoro in un [runbook di PowerShell](automation-runbook-types.md#powershell-runbooks) oppure in un [runbook del flusso di lavoro di PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Se il file viene importato in un runbook del flusso di lavoro PowerShell, questo viene convertito in un flusso di lavoro. In questo caso, i commenti vengono inclusi nel runbook per descrivere le modifiche apportate.
 

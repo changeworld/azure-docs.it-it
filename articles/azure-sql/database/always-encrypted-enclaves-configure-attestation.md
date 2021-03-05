@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: fb42a0428f0439053375027481d38977b068e356
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555661"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122579"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configurare l'attestazione di Azure per il server logico SQL di Azure
 
@@ -66,10 +66,14 @@ authorizationrules
 
 Il criterio precedente verifica:
 
-- L'enclave nel database SQL di Azure non supporta il debug (che ridurrebbe il livello di protezione fornito dall'enclave).
-- L'ID prodotto della libreria all'interno dell'Enclave è l'ID prodotto assegnato a Always Encrypted con le enclave sicure (4639).
-- L'ID versione (SVN) della libreria è maggiore di 0.
+- L'enclave nel database SQL di Azure non supporta il debug. 
+  > È possibile caricare le enclave con debug disabilitato o abilitato. Il supporto del debug è progettato per consentire agli sviluppatori di risolvere i problemi relativi al codice in esecuzione in un'enclave. In un sistema di produzione, il debug potrebbe consentire a un amministratore di esaminare il contenuto dell'enclave, riducendo così il livello di protezione fornito dall'enclave. Il criterio consigliato Disabilita il debug per assicurarsi che se un amministratore malintenzionato tenta di attivare il supporto del debug prendendo il computer enclave, l'attestazione avrà esito negativo. 
+- L'ID prodotto dell'enclave corrisponde all'ID prodotto assegnato a Always Encrypted con enclave sicure.
+  > Ogni Enclave ha un ID prodotto univoco che distingue l'enclave da altre enclavi. L'ID prodotto assegnato all'enclave Always Encrypted è 4639. 
+- Il numero di versione della sicurezza (SVN) della libreria è maggiore di 0.
+  > Il SVN consente a Microsoft di rispondere a potenziali bug di sicurezza identificati nel codice dell'enclave. Se un problema di sicurezza viene individuato e risolto, Microsoft distribuirà una nuova versione dell'enclave con un nuovo SVN (incrementato). I criteri consigliati in precedenza verranno aggiornati per riflettere il nuovo SVN. Aggiornando i criteri in modo che corrispondano ai criteri consigliati, è possibile assicurarsi che se un amministratore malintenzionato tenta di caricare un'enclave precedente e non sicura, l'attestazione avrà esito negativo.
 - La libreria nell'enclave è stata firmata con la chiave di firma Microsoft (il valore dell'attestazione x-ms-SGX-mrsigner è l'hash della chiave di firma).
+  > Uno degli obiettivi principali dell'attestazione consiste nel convincere i client che il binario in esecuzione nell'enclave è il binario che dovrebbe essere eseguito. I criteri di attestazione forniscono due meccanismi a questo scopo. Uno è l'attestazione **mrenclave** , ovvero l'hash del file binario che dovrebbe essere eseguito in un'enclave. Il problema con **mrenclave** è che l'hash binario cambia anche con modifiche semplici al codice, che rende difficile eseguire il Rev del codice in esecuzione nell'enclave. È quindi consigliabile usare **mrsigner**, che è un hash di una chiave usata per firmare il file binario dell'enclave. Quando Microsoft si accende l'enclave, il **mrsigner** rimane invariato a condizione che la chiave di firma non venga modificata. In questo modo, diventa possibile distribuire i file binari aggiornati senza suddividere le applicazioni dei clienti. 
 
 > [!IMPORTANT]
 > Viene creato un provider di attestazione con i criteri predefiniti per le enclave Intel SGX, che non convalidano il codice in esecuzione nell'enclave. Microsoft consiglia di impostare i criteri consigliati in precedenza e non usare i criteri predefiniti per Always Encrypted con le enclave sicure.

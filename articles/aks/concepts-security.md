@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 1adf8370f55a0f6131eb4140c58fa4618e08127b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6c69e46ea3510476089cd932b1cd1bdf14254021
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686022"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122375"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
@@ -40,7 +40,10 @@ Per impostazione predefinita, il server dell'API Kubernetes usa un indirizzo IP 
 
 ## <a name="node-security"></a>Sicurezza dei nodi
 
-I nodi del servizio Azure Kubernetes sono macchine virtuali di Azure gestite dall'utente. I nodi di Linux eseguono una distribuzione di Ubuntu ottimizzata usando il runtime del contenitore Moby. I nodi di Windows Server eseguono una versione ottimizzata di Windows Server 2019 e usano anche il runtime del contenitore Moby. Quando un cluster del servizio Azure Kubernetes viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
+I nodi del servizio Azure Kubernetes sono macchine virtuali di Azure gestite dall'utente. I nodi Linux eseguono una distribuzione Ubuntu ottimizzata usando il `containerd` runtime del contenitore di o Moby. I nodi di Windows Server eseguono una versione ottimizzata di Windows Server 2019 e usano anche il `containerd` runtime del contenitore Moby o. Quando un cluster del servizio Azure Kubernetes viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
+
+> [!NOTE]
+> I cluster AKS che usano i pool di nodi Kubernetes versione 1,19 e sono più usati `containerd` come runtime del contenitore. I cluster AKS che usano Kubernetes prima della versione 1.19 per i pool di nodi usano [Moby](https://mobyproject.org/) (upstream Docker) come runtime del contenitore.
 
 La piattaforma Azure applica automaticamente le patch di sicurezza del sistema operativo ai nodi di Linux durante la notte. Se un aggiornamento della sicurezza del sistema operativo Linux richiede un riavvio dell'host, tale riavvio non viene eseguito automaticamente. È possibile riavviare i nodi di Linux manualmente. In alternativa, un approccio comune consiste nell'usare [Kured][kured], un daemon di riavvio open source per Kubernetes. Kured viene eseguito come [DaemonSet][aks-daemonsets] e monitora ogni nodo per verificare se è presente un file che indichi che è necessario un riavvio. I riavvii sono gestiti all'interno del cluster usando lo stesso [processo di blocco e svuotamento](#cordon-and-drain) come aggiornamento del cluster.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 2/9/2021
 ms.author: duau
-ms.openlocfilehash: c305ee78abac7e175dc086666dfd1e2926f8da2b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ef6ea9017a9aaa98e153df0d67f0b54fe5a2b64d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097823"
+ms.locfileid: "102124160"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Aggiungere il supporto IPv6 per il peering privato usando il portale di Azure (anteprima)
 
@@ -88,7 +88,7 @@ Se si prevede di connettersi a un nuovo set di risorse di Azure in un'area con z
 
 2. [Creare la subnet del gateway dual stack](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-gateway-subnet).
 
-3. [Creare il gateway di rete virtuale](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) usando uno SKU con ridondanza della zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Se si prevede di usare FastPath, usare ErGw3AZ.
+3. [Creare il gateway di rete virtuale](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) usando uno SKU con ridondanza della zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Se si prevede di usare FastPath, usare ErGw3AZ (si noti che questo è disponibile solo per i circuiti che usano ExpressRoute Direct).
 
 4. [Collegare la rete virtuale al circuito ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
@@ -99,6 +99,8 @@ Sebbene il supporto per IPv6 sia disponibile per le connessioni alle distribuzio
 * Connessioni alle distribuzioni in aree non AZ
 * Copertura globale le connessioni tra circuiti ExpressRoute
 * Uso di ExpressRoute con la rete WAN virtuale
+* FastPath con circuiti diretti non ExpressRoute
+* Coesistenza con il gateway VPN
 
 ## <a name="next-steps"></a>Passaggi successivi
 

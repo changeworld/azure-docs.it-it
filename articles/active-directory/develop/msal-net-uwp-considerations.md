@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 03/03/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6451368baf9c047f0318eb74d53ffac075d4a184
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 8a8aab447007eb574a7a4bc532d8177bd0d8b345
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063451"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122477"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Considerazioni sull'uso di piattaforma UWP (Universal Windows Platform) con MSAL.NET
 Gli sviluppatori di applicazioni che usano piattaforma UWP (Universal Windows Platform) (UWP) con MSAL.NET devono prendere in considerazione i concetti presentati in questo articolo.
 
 ## <a name="the-usecorporatenetwork-property"></a>Proprietà UseCorporateNetwork
-Nella piattaforma Windows Runtime (WinRT) è presente `PublicClientApplication` la proprietà booleana `UseCorporateNetwork` . Questa proprietà consente alle applicazioni Windows 8.1 e alle applicazioni UWP di trarre vantaggio dall'autenticazione integrata di Windows (IWA) se l'utente ha effettuato l'accesso a un account che dispone di un tenant federato Azure Active Directory (Azure AD). Gli utenti che hanno eseguito l'accesso al sistema operativo possono anche usare Single Sign-On (SSO). Quando si imposta la `UseCorporateNetwork` proprietà, MSAL.NET utilizza un gestore di autenticazione Web (WAB).
+Nella piattaforma Windows Runtime (WinRT) è presente `PublicClientApplication` la proprietà booleana `UseCorporateNetwork` . Questa proprietà consente alle applicazioni Windows 10 e alle applicazioni UWP di trarre vantaggio dall'autenticazione integrata di Windows (IWA) se l'utente ha effettuato l'accesso a un account che dispone di un tenant federato Azure Active Directory (Azure AD). Gli utenti che hanno eseguito l'accesso al sistema operativo possono anche usare Single Sign-On (SSO). Quando si imposta la `UseCorporateNetwork` proprietà, MSAL.NET utilizza un gestore di autenticazione Web (WAB).
 
 > [!IMPORTANT]
 > `UseCorporateNetwork`Se si imposta la proprietà su true, si presuppone che lo sviluppatore dell'applicazione abbia abilitato IWA nell'applicazione. Per abilitare l'autenticazione integrata:
@@ -61,7 +61,7 @@ Per ulteriori informazioni, vedere [Web Authentication broker-Fiddler](/windows/
 ## <a name="next-steps"></a>Passaggi successivi
 Negli esempi seguenti vengono fornite ulteriori informazioni.
 
-Esempio | Piattaforma | Description 
+Esempio | Piattaforma | Descrizione 
 |------ | -------- | -----------|
 |[Active-Directory-DotNet-native-UWP-V2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | Piattaforma UWP | Applicazione client UWP che usa MSAL.NET. Accede a Microsoft Graph per un utente che esegue l'autenticazione tramite un endpoint Azure AD 2,0. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[Active-Directory-Novell-native-V2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, piattaforma UWP | App Novell Forms che illustra come usare MSAL per autenticare gli account personali Microsoft e Azure AD tramite la piattaforma di identità Microsoft. Viene inoltre illustrato come accedere a Microsoft Graph e visualizzare il token risultante. <br>![Diagramma che illustra come usare MSAL per autenticare gli account personali Microsoft e Azure AD tramite la piattaforma di identità Microsoft.](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

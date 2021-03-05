@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi relativi all'agente Micro-Internet Defender (anteprima)
+title: Risoluzione dei problemi relativi all'agente micro Defender
 titleSuffix: Azure Defender for IoT
 description: Informazioni su come gestire gli errori imprevisti o non spiegati.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/24/2021
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: 07198a5d0ef5d0a6c9eed97523c61826e451b7f5
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: dade0d0d5dc4d690ea94f20deaf956b1e079bad7
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809811"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124177"
 ---
-# <a name="defender-iot-micro-agent-troubleshooting-preview"></a>Risoluzione dei problemi relativi all'agente Micro-Internet Defender (anteprima)
+# <a name="defender-iot-micro-agent-troubleshooting"></a>Risoluzione dei problemi relativi all'agente micro Defender 
 
 In caso di errori imprevisti o non spiegati, utilizzare i seguenti metodi di risoluzione dei problemi per tentare di risolvere i problemi. È anche possibile contattare il team del prodotto Azure Defender per l'assistenza in base alle esigenze.   
 

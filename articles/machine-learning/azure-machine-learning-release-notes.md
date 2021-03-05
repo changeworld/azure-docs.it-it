@@ -9,18 +9,36 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: b19c5e8ca1f7984f33a5cedf37a2774532c79350
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 69313b48b505bd0b53df6f15f636e2903f41ebfd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661104"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124007"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
 
 __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggiornata copiando e incollando l'URL seguente nel lettore di feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-02-28"></a>2021-02-28
+### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Esperienza di Azure Machine Learning Studio notebook (aggiornamento di febbraio)
++ **Nuove funzionalità**
+  + [Terminale nativo (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Gli utenti possono ora accedere a un terminale integrato e all'operazione git tramite il terminale integrato.
+  + [Frammenti di codice notebook (anteprima)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Gli estratti di codice comuni di Azure ML sono ora disponibili a portata di mano. Passare al pannello frammenti di codice, accessibile tramite la barra degli strumenti o attivare il menu frammenti di codice in-code con CTRL + barra spaziatrice.  
+  + [Tasti di scelta rapida](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Parità completa con tasti di scelta rapida disponibili in Jupyter. 
+  + Indica i parametri della cella. Mostra gli utenti con celle in un notebook sono celle del parametro e possono eseguire notebook con parametri tramite [Papermill](https://github.com/nteract/papermill) nell'istanza di calcolo.
+  + Gestione sessioni terminal e kernel: gli utenti saranno in grado di gestire tutti i kernel e le sessioni terminal in esecuzione nel calcolo.
+  + Pulsante condivisione. Gli utenti possono ora condividere qualsiasi file in Esplora file del notebook facendo clic con il pulsante destro del mouse sul file e usando il pulsante Condividi.
+
+
++ **Correzioni di bug e miglioramenti**
+  + Tempi di caricamento delle pagine migliorati
+  + prestazioni migliorate 
+  + Maggiore velocità e affidabilità del kernel
+  + Aggiunta della rotellina di rotazione per mostrare lo stato di avanzamento di tutte [le operazioni di istanza di calcolo](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators)in corso.
+  + Fare clic con il pulsante destro del mouse in Esplora file. Se si fa clic con il pulsante destro del mouse su un file, verranno aperte le operazioni 
 
 ## <a name="2021-02-16"></a>2021-02-16
 

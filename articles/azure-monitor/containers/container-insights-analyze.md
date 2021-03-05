@@ -3,12 +3,12 @@ title: Monitoraggio Kubernetes con informazioni dettagliate sul contenitore | Mi
 description: Questo articolo descrive come è possibile visualizzare e analizzare le prestazioni di un cluster Kubernetes con informazioni dettagliate sul contenitore.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 432de02d22a418e92a7487001ae8c128323f3685
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 865a21e8c54d2cf569e04534fab6ec14f5519f34
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711349"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124313"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>Monitorare le prestazioni del cluster Kubernetes con informazioni dettagliate sul contenitore
 
@@ -20,7 +20,7 @@ Per informazioni su come abilitare il contenitore Insights, vedere [onboarding c
 
 Monitoraggio di Azure offre una visualizzazione a più cluster che mostra lo stato di integrità di tutti i cluster Kubernetes monitorati che eseguono Linux e Windows Server 2019 distribuiti tra gruppi di risorse nelle sottoscrizioni. Mostra i cluster individuati in tutti gli ambienti che non sono monitorati dalla soluzione. È possibile comprendere immediatamente l'integrità del cluster e, da qui, è possibile eseguire il drill-down nella pagina delle prestazioni del nodo e del controller oppure spostarsi per visualizzare i grafici delle prestazioni per il cluster. Per i cluster AKS individuati e identificati come non monitorati, è possibile abilitare il monitoraggio in qualsiasi momento.
 
-Le principali differenze nel monitoraggio di un cluster di Windows Server con informazioni dettagliate sul contenitore rispetto a un cluster Linux [sono descritte nell'](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) articolo introduttivo.
+Le principali differenze nel monitoraggio di un cluster di Windows Server con informazioni dettagliate sul contenitore rispetto a un cluster Linux [sono descritte nell'](container-insights-overview.md#what-does-container-insights-provide) articolo introduttivo.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 

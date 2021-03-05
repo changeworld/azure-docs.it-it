@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0e230a975748fe2f737c4b8fe8491887351d387
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd4374067fe0070c379a76ef5f59bb6aef5b29fc
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004671"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123106"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Assegnare ruoli di Azure AD in Privileged Identity Management
 
@@ -101,7 +101,7 @@ Per ulteriori informazioni sulla creazione di unità amministrative, vedere [agg
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Aggiornare o rimuovere un'assegnazione di ruolo esistente
 
-Seguire questi passaggi per aggiornare o rimuovere un'assegnazione di ruolo esistente.
+Seguire questi passaggi per aggiornare o rimuovere un'assegnazione di ruolo esistente. **Solo per i clienti con licenza Azure ad P2**: non assegnare un gruppo come attivo a un ruolo tramite Azure AD e Privileged Identity Management (PIM). Per una spiegazione dettagliata, vedere [problemi noti](../roles/groups-concept.md#known-issues).
 
 1. Aprire **Azure ad Privileged Identity Management**.
 
@@ -173,7 +173,7 @@ Per impostazione predefinita, i nuovi utenti sono *idonei* solo per un ruolo di 
 
 ## <a name="remove-a-user-from-a-role"></a>Rimuovere un utente da un ruolo
 
-È possibile rimuovere gli utenti da assegnazioni di ruolo, ma assicurarsi che sia sempre presente almeno un utente che è un amministratore globale permanente. Se non si è certi se gli utenti necessitano ancora di assegnazioni di ruoli, è possibile [avviare una verifica di accesso per il ruolo](pim-how-to-start-security-review.md).
+È possibile rimuovere gli utenti dalle assegnazioni di ruoli, ma è necessario assicurarsi che sia sempre presente almeno un utente con ruolo di amministratore globale permanente. Se non si è certi se gli utenti necessitano ancora di assegnazioni di ruoli, è possibile [avviare una verifica di accesso per il ruolo](pim-how-to-start-security-review.md).
 
 Seguire questa procedura per rimuovere un utente specifico da un ruolo di amministratore Azure AD.
 

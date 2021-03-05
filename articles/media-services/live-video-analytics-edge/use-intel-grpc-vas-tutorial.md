@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 62787bfb586f2847d984499cf966708749184ee1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096344"
+ms.locfileid: "102124415"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Esercitazione: analizzare video in tempo reale usando Intel OpenVINO™ DL Streamer-Edge per intelligenza artificiale 
 
@@ -327,7 +327,8 @@ Per usare un modello diverso, sarà necessario modificare il modello di distribu
 "PIPELINE_VERSION=vehicle_attributes_recognition"
 ],
 ```
-> [!TIP] Copiare il modello e archiviarlo con un nuovo nome per ogni possibile pipeline. In questo modo è possibile passare da un modello all'altro creando una nuova distribuzione basata su uno di questi modelli.
+> [!TIP]
+> Copiare il modello e archiviarlo con un nuovo nome per ogni possibile pipeline. In questo modo è possibile passare da un modello all'altro creando una nuova distribuzione basata su uno di questi modelli.
 
 Dopo aver modificato le variabili, è possibile distribuire di nuovo il modello nel dispositivo. È ora possibile ripetere i passaggi precedenti per eseguire nuovamente il programma di esempio, con la nuova pipeline. I risultati dell'inferenza saranno simili (nello schema) ma visualizzeranno più o meno informazioni a seconda del modello di pipeline scelto.
 

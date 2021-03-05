@@ -3,12 +3,12 @@ title: Parametri nei modelli
 description: Viene descritto come definire i parametri in un modello di Azure Resource Manager (ARM template) e nel file bicipite.
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: b23417766524204e490450568bb80b8c49e2d328
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a8608e4733960d7f5ba7e5f548c47f16a2b244bb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043933"
+ms.locfileid: "102123395"
 ---
 # <a name="parameters-in-arm-templates"></a>Parametri nei modelli ARM
 
@@ -16,7 +16,7 @@ Questo articolo descrive come definire e usare i parametri nel modello di Azure 
 
 Gestione risorse risolve i valori dei parametri prima di avviare le operazioni di distribuzione. Quando il parametro viene usato nel modello, Gestione risorse lo sostituisce con il valore risolto.
 
-Ogni parametro deve essere impostato su uno dei [tipi di dati](template-syntax.md#data-types)di.
+Ogni parametro deve essere impostato su uno dei [tipi di dati](data-types.md)di.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 

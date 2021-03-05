@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d572545f589475dc2b460db90329fe8b0a838c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c262ba87698c04da69728f7a370040c0679ec44e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904304"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122868"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Come diagnosticare e risolvere autonomamente i problemi nel cloud Spring di Azure
 
 **Questo articolo si applica a:** ✔️ Java ✔️ C#
 
-La diagnostica cloud Spring di Azure è un'esperienza interattiva che consente di risolvere i problemi dell'app. Non è richiesta alcuna configurazione. Quando si rilevano problemi, la diagnostica cloud Spring di Azure rileva gli errori e fornisce informazioni utili per risolvere il problema.
+La diagnostica cloud Spring di Azure è un'esperienza interattiva per la risoluzione dei problemi dell'app senza configurazione. La diagnostica cloud Spring di Azure identifica i problemi e guida le informazioni che consentono di risolvere i problemi e risolverli.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione, sono necessari:
@@ -30,7 +30,7 @@ Per completare questa esercitazione, sono necessari:
 ## <a name="navigate-to-the-diagnostics-page"></a>Passare alla pagina di diagnostica
 1. Accedere al portale di Azure.
 2. Passare alla pagina **Panoramica** di Azure Spring Cloud.
-3. Aprire **diagnosticare e risolvere i problemi** nel menu sul lato sinistro della pagina.
+3. Selezionare **diagnostica e Risolvi i problemi** nel riquadro di spostamento a sinistra.
 
  ![Diagnostica, Risolvi finestra di dialogo](media/spring-cloud-diagnose/diagnose-solve-dialog.png)
 
@@ -39,7 +39,7 @@ Per individuare un problema, è possibile eseguire una ricerca digitando una par
 
  ![Problemi relativi alla ricerca](media/spring-cloud-diagnose/search-detectors.png)
 
-Selezione del **controllo integrità**del server di configurazione, **stato di integrità del server di configurazione**o cronologia degli aggiornamenti del **server** di configurazione visualizzerà diversi risultati.
+Selezione del **controllo integrità** del server di configurazione, **stato di integrità del server di configurazione** o cronologia degli aggiornamenti del **server** di configurazione visualizzerà diversi risultati.
 
 ![Opzioni problemi](media/spring-cloud-diagnose/detectors-options.png)
 

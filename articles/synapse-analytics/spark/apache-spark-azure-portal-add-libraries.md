@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 76d3bdc8a6eb133daa2d241bdf4c3b73271f0173
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 38826451bbb8ec9303f61db53544cfe8ca2fcd41
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100203"
+ms.locfileid: "102123089"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gestire le librerie per Apache Spark in Azure sinapsi Analytics
 Le librerie forniscono codice riutilizzabile che può essere utile includere nei programmi o nei progetti. 
@@ -38,6 +38,7 @@ Quando si sviluppano modelli o applicazioni personalizzate, il team può svilupp
 In sinapsi i pacchetti dell'area di lavoro possono essere file di rotellina o file jar personalizzati o privati. È possibile caricare i pacchetti nell'area di lavoro e successivamente assegnarli a un pool Spark specifico. Una volta assegnati, i pacchetti dell'area di lavoro vengono installati automaticamente in tutte le sessioni del pool Spark.
 
 Per altre informazioni su come gestire le librerie dell'area di lavoro, vedere le guide alle procedure seguenti:
+
 - [Pacchetti dell'area di lavoro Python (anteprima): ](./apache-spark-manage-python-packages.md#install-wheel-files) Caricare i file della rotellina Python come pacchetto dell'area di lavoro e successivamente aggiungerli a specifici pool di Apache Spark senza server.
 - [Pacchetti dell'area di lavoro scala/Java (anteprima): ](./apache-spark-manage-scala-packages.md#workspace-packages) Caricare i file jar scala e Java come pacchetto dell'area di lavoro e aggiungerli in seguito a pool di Apache Spark senza server specifici.
 
@@ -61,6 +62,7 @@ Spesso, quando si esegue l'analisi interattiva dei dati o l'apprendimento automa
 I pacchetti con ambito sessione consentono agli utenti di definire le dipendenze dei pacchetti all'inizio della sessione. Quando si installa un pacchetto con ambito sessione, solo la sessione corrente può accedere ai pacchetti specificati. Di conseguenza, questi pacchetti con ambito sessione non influiscano su altre sessioni o processi che usano lo stesso pool di Apache Spark. Inoltre, queste librerie vengono installate sopra i pacchetti di runtime di base e a livello di pool. 
 
 Per altre informazioni su come gestire i pacchetti con ambito sessione, vedere le guide alle procedure seguenti:
+
 - [Pacchetti della sessione Python (anteprima):](./apache-spark-manage-python-packages.md) All'inizio di una sessione, fornire un oggetto conda *Environment. yml* per installare pacchetti Python aggiuntivi da repository comuni. 
 - [Pacchetti di sessione scala/Java: ](./apache-spark-manage-scala-packages.md) All'inizio della sessione, fornire un elenco di file jar da installare usando ```%%configure``` .
 

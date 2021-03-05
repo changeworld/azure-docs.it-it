@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/26/2021
-ms.openlocfilehash: c57ac9ddbebcf02cb0118705b63f97fd1880b0f2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 098f62365971fd634001706ab99fd414a6b25056
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696018"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123565"
 ---
 # <a name="register-and-scan-azure-multiple-sources"></a>Registrare e analizzare più origini di Azure
 
@@ -95,12 +95,12 @@ Per creare ed eseguire una nuova analisi, procedere come segue:
     1. È possibile selezionare una **credenziale a livello padre** come identità del servizio gestito o una specifica credenziale del tipo di entità servizio, che è possibile scegliere di usare per tutti i tipi di risorse nella sottoscrizione o nel gruppo di risorse
     1. È anche possibile selezionare in modo specifico **il tipo di risorsa e applicare credenziali diverse** per quel tipo di risorsa
     1. Ogni credenziale verrà considerata come il metodo di autenticazione per tutte le risorse in un determinato tipo
-    1. È necessario impostare le credenziali scelte sulle risorse per analizzarle correttamente come descritto in questa [sezione](#Setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) precedente
+    1. È necessario impostare le credenziali scelte sulle risorse per analizzarle correttamente come descritto in questa [sezione](#setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) precedente
 1. All'interno di ogni tipo è possibile scegliere di eseguire l'analisi di tutte le risorse o di un subset di essi in base al nome.
     1. Se si lascia l'opzione, **tutte** le future risorse di quel tipo verranno analizzate anche nelle esecuzioni di analisi future
     1. Se si selezionano account di archiviazione specifici o database SQL, le risorse future create da tale tipo nella sottoscrizione o nel gruppo di risorse non verranno incluse per le analisi, a meno che l'analisi non venga modificata in modo esplicito in futuro
  
-1.  Scegliere **Continua** per procedere. Si testerà l'accesso per verificare se è stato applicato l'identità del servizio gestito come lettore nella sottoscrizione o nel gruppo di risorse. Se viene generato un messaggio di errore, seguire le istruzioni riportate [qui](#Setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)
+1.  Scegliere **Continua** per procedere. Si testerà l'accesso per verificare se è stato applicato l'identità del servizio gestito come lettore nella sottoscrizione o nel gruppo di risorse. Se viene generato un messaggio di errore, seguire le istruzioni riportate [qui](#setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)
 
 1.  Selezionare **analisi set di regole** per ogni tipo di risorsa scelto nel passaggio precedente. È anche possibile creare set di regole di analisi inline.
   :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-rule-set.png" alt-text="Selezione set di regole di analisi multiple di Azure":::

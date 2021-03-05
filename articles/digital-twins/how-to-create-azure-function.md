@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b37277c660562721273ff9ae86dd677ee7ac7d55
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2419761c195258c60561e284abf0227b915ed4f6
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050002"
+ms.locfileid: "102123633"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Connetti le app per le funzioni in Azure per l'elaborazione dei dati
 
@@ -86,7 +86,7 @@ Successivamente, nel Esplora soluzioni di Visual Studio aprire il file _function
 
 Verranno ora dichiarate le variabili a livello di classe e verrà aggiunto il codice di autenticazione che consente alla funzione di accedere ai dispositivi gemelli digitali di Azure. Si aggiungerà quanto segue alla funzione nel file _function1.cs_ .
 
-* Codice per leggere l'URL del servizio di dispositivi digitali gemelli di Azure come variabile di ambiente. È consigliabile leggere l'URL del servizio da una variabile di ambiente, anziché impostarlo come hardcoded nella funzione.
+* Codice per leggere l'URL del servizio di dispositivi digitali gemelli di Azure come **variabile di ambiente**. È consigliabile leggere l'URL del servizio da una variabile di ambiente, anziché impostarlo come hardcoded nella funzione. Il valore di questa variabile di ambiente verrà impostato [più avanti in questo articolo](#set-up-security-access-for-the-function-app). Per altre informazioni sulle variabili di ambiente, vedere [*gestire l'app per le funzioni*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
@@ -134,7 +134,7 @@ Usare il valore _principalId_ nel comando seguente per assegnare l'identità del
 ```azurecli-interactive 
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
-Infine, è possibile rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di ambiente. Per ulteriori informazioni sull'impostazione di variabili di ambiente, vedere [*variabili di ambiente*](/sandbox/functions-recipes/environment-variables). 
+Infine, rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di **ambiente** . Per altre informazioni sulle variabili di ambiente, vedere [*gestire l'app per le funzioni*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 > [!TIP]
 > L'URL dell'istanza di Azure Digital gemelli viene creato aggiungendo *https://* all'inizio del *nome host* dell'istanza di Azure Digital gemelli. Per visualizzare il nome host, insieme a tutte le proprietà dell'istanza, è possibile eseguire `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -183,7 +183,7 @@ Salvare quindi i dettagli facendo clic sul pulsante _Salva_ .
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Configurare le impostazioni dell'applicazione tramite portale di Azure
 
-È possibile rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di ambiente. Per altre informazioni, vedere variabili di [*ambiente*](/sandbox/functions-recipes/environment-variables). Le impostazioni dell'applicazione sono esposte come variabili di ambiente per accedere all'istanza di dispositivi gemelli digitali. 
+Per rendere accessibile l'URL dell'istanza di Azure Digital gemelli alla funzione, è possibile impostare una **variabile di ambiente** . Per altre informazioni sulle variabili di ambiente, vedere [*gestire l'app per le funzioni*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). Le impostazioni dell'applicazione sono esposte come variabili di ambiente per accedere all'istanza di Azure Digital gemelli. 
 
 Per impostare una variabile di ambiente con l'URL dell'istanza, ottenere prima l'URL individuando il nome host dell'istanza di Azure Digital gemelli. Cercare l'istanza nella barra di ricerca [portale di Azure](https://portal.azure.com) . Selezionare quindi _Panoramica_ sulla barra di spostamento a sinistra per visualizzare il _nome host_. Copiare questo valore.
 

@@ -2,14 +2,14 @@
 title: Usare la raccolta di immagini condivise per creare un pool di immagini personalizzato
 description: I pool di immagini personalizzati sono un modo efficiente per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di batch.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8623c47952540717ae50538fd7b0282c9c8629bb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731362"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124245"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usare la raccolta di immagini condivise per creare un pool di immagini personalizzato
 
@@ -69,12 +69,15 @@ Se si crea una nuova macchina virtuale per l'immagine, usare un'immagine produtt
 > [!NOTE]
 > È possibile usare un'immagine di terze parti che dispone di licenza aggiuntiva e di condizioni di acquisto come immagine di base. Per informazioni su queste immagini del Marketplace, vedere il materiale sussidiario per le macchine virtuali [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms).
 
+Per la creazione di macchine virtuali, seguire queste linee guida:
+
 - Assicurarsi che la macchina virtuale venga creata con un disco gestito. Questa è l'impostazione di archiviazione predefinita quando si crea una macchina virtuale.
 - Non installare le estensioni di Azure, ad esempio l'estensione Script personalizzato, nella macchina virtuale. Se l'immagine contiene un'estensione preinstallata, Azure può incontrare alcuni problemi durante la distribuzione del pool di Batch.
 - Quando si usano dischi dati allegati è necessario montare e formattare i dischi all'interno di una macchina virtuale per poterli usare.
 - Verificare che l'immagine del sistema operativo di base usi l'unità temporanea predefinita. L'agente del nodo Batch attualmente prevede l'uso dell'unità temporanea predefinita.
 - Verificare che il disco del sistema operativo non sia crittografato.
-- Quando la VM è in esecuzione, connetterla tramite RDP (per Windows) o SSH (per Linux). Installare il software necessario o copiare i dati desiderati.  
+- Quando la VM è in esecuzione, connetterla tramite RDP (per Windows) o SSH (per Linux). Installare il software necessario o copiare i dati desiderati.
+- Per un provisioning più veloce del pool, usare l' [impostazione della cache del disco ReadWrite](../virtual-machines/premium-storage-performance.md#disk-caching) per il disco del sistema operativo della macchina virtuale.
 
 ### <a name="create-a-vm-snapshot"></a>Creare uno snapshot della macchina virtuale
 

@@ -3,12 +3,12 @@ title: Variabili nei modelli
 description: Viene descritto come definire le variabili in un modello di Azure Resource Manager (ARM template) e nel file bicipite.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: e00a9e8e1801725707bac2abdc67512477e2cf07
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3ab14c9acfcc2d6c9edd23fb3bc4d876cd5ac756
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700338"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123378"
 ---
 # <a name="variables-in-arm-templates"></a>Variabili nei modelli ARM
 
@@ -20,7 +20,7 @@ Gestione risorse risolve le variabili prima di avviare le operazioni di distribu
 
 ## <a name="define-variable"></a>Definisci variabile
 
-Quando si definisce una variabile, non si specifica un [tipo di dati](template-syntax.md#data-types) per la variabile. Specificare invece un valore o un'espressione di modello. Il tipo di variabile viene dedotto dal valore risolto. Nell'esempio seguente viene impostata una variabile su una stringa.
+Quando si definisce una variabile, non si specifica un [tipo di dati](data-types.md) per la variabile. Specificare invece un valore o un'espressione di modello. Il tipo di variabile viene dedotto dal valore risolto. Nell'esempio seguente viene impostata una variabile su una stringa.
 
 # <a name="json"></a>[JSON](#tab/json)
 

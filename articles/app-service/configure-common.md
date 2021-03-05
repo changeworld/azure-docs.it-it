@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: ec9e3b6ca4b07003852681523a21b87ab7b8671b
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: a865c1070150b31399b5b738a0a469a07e0b13de
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825953"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122358"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app del servizio app nel portale di Azure
 
@@ -271,8 +271,6 @@ Nella scheda **mapping percorsi** fare clic su **nuova applicazione virtuale o d
 Per altre informazioni, vedere [accedere ad archiviazione di Azure come una condivisione di rete da un contenitore nel servizio app](configure-connect-to-azure-storage.md).
 
 ## <a name="configure-language-stack-settings"></a>Configurare le impostazioni dello stack di lingue
-
-Per le app Linux, vedere:
 
 - [ASP.NET Core](configure-language-dotnetcore.md)
 - [Node.js](configure-language-nodejs.md)

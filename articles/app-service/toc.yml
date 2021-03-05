@@ -187,8 +187,6 @@
               href: deploy-ci-cd-custom-container.md
             - name: Eseguire la distribuzione dall'archivio Git locale
               href: deploy-local-git.md
-            - name: GitHub Action
-              href: deploy-github-actions.md
             - name: GitHub Action per i contenitori
               href: deploy-container-github-action.md
             - name: Eseguire la distribuzione con un modello
