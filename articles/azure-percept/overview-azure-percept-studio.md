@@ -7,16 +7,16 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: d850b47078f504b8ccb23d8c0a43811e99dc71d8
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 7650e80273567a693c3566fede068678b3cc5b17
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098350"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179409"
 ---
 # <a name="azure-percept-studio-overview"></a>Panoramica di Azure Percept Studio
 
-Azure Percept studio è il punto di lancio singolo per la creazione di soluzioni e modelli di intelligenza artificiale Edge. Azure Percept Studio ti permette di individuare e completare flussi di lavoro guidati che semplificano l'integrazione di hardware idoneo per intelligenza artificiale e servizi cloud di intelligenza artificiale e di Azure.
+[Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) è il punto di lancio singolo per la creazione di soluzioni e modelli di intelligenza artificiale Edge. Azure Percept Studio ti permette di individuare e completare flussi di lavoro guidati che semplificano l'integrazione di hardware idoneo per intelligenza artificiale e servizi cloud di intelligenza artificiale e di Azure.
 
 In studio è possibile visualizzare i dispositivi perimetrali idonei per l'intelligenza artificiale come endpoint per la raccolta di dati di training iniziali e continui, nonché destinazioni di distribuzione per le iterazioni del modello. L'accesso ai dispositivi e ai dati di Training consente la creazione rapida di prototipi e il modello di intelligenza artificiale Edge iterativo per gli scenari di [visione](./tutorial-nocode-vision.md) e [sintesi vocale](./tutorial-no-code-speech.md) .
 
@@ -32,8 +32,7 @@ Indipendentemente dal fatto che si sia un programmatore di intelligenza artifici
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-<!-- [here](https://go.microsoft.com/fwlink/?linkid=2135819). -->
-
+- Vedere Azure Percept Studio [qui](https://go.microsoft.com/fwlink/?linkid=2135819)
 - Ottenere Azure Percept DK e l'accessorio audio Azure Percept in [Microsoft Online Store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 - Completare la [Guida](./quickstart-percept-dk-set-up.md) introduttiva all'installazione di Azure Percept dk
 - Prova le esercitazioni per la creazione di soluzioni di [visione artificiale](./tutorial-nocode-vision.md) e [riconoscimento vocale](./tutorial-no-code-speech.md) senza codice

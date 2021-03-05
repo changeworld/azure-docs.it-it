@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8884663b3f0e861e62f48c3aab680f0f31e74428
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 8f84fb6bf37a3d3b61f4cad2c89745447aa88a36
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098384"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179392"
 ---
 # <a name="introduction-to-azure-percept-audio"></a>Introduzione ad Azure Percept audio
 
@@ -65,7 +65,7 @@ Azure Percept Audio passes the audio input to the Azure Percept DK carrier board
 
 ## <a name="build-a-no-code-prototype"></a>Creazione di un prototipo senza codice
 
-Crea una [soluzione di sintesi vocale senza codice](./tutorial-no-code-speech.md) usando i modelli di Assistente vocale di Azure Percept per gli scenari di ospitalità, sanità, inventario e auto.
+Crea una [soluzione di riconoscimento vocale senza codice](./tutorial-no-code-speech.md) in [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) usando i modelli di Assistente vocale di Azure Percept per gli scenari di ospitalità, sanità, inventario e auto.
 
 ### <a name="manage-your-no-code-speech-solution"></a>Gestire la soluzione di riconoscimento vocale senza codice
 

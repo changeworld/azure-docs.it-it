@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4c2ace609d67cc48d1b73bdb044e7048ebda21e7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: c93ecdc138e757f84e995a69a6c3d7f1b5460abe
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098333"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179375"
 ---
 # <a name="azure-percept-dk-overview"></a>Panoramica di Azure Percept DK
 
@@ -24,7 +24,7 @@ Azure Percept DK è un kit di sviluppo per intelligenza artificiale e Internet E
 
 - **Possibilità di eseguire l'intelligenza artificiale al perimetro**. Con l'accelerazione hardware incorporata, è in grado di eseguire modelli di intelligenza artificiale senza una connessione al cloud.
 - **Radice hardware della sicurezza del trust incorporata**. Per altri dettagli, vedere questa panoramica della [sicurezza di Azure Percept](./overview-percept-security.md) .
-- **Perfetta integrazione con [Azure Percept Studio](./overview-azure-percept-studio.md)** e altri servizi di Azure. Ad esempio, Hub Azure, servizi cognitivi di Azure e [analisi video in tempo reale](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
+- **Perfetta integrazione con [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)** e altri servizi di Azure. Ad esempio, Hub Azure, servizi cognitivi di Azure e [analisi video in tempo reale](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
 - **Perfetta integrazione con l' [audio facoltativo di Azure Percept](./overview-azure-percept-audio.md)**
 - **Supporto per le piattaforme di intelligenza artificiale principali**. Ad esempio ONNX e TensorFlow.
 - **Integrazione con il sistema di ringhiera 80/20**. Semplifica la creazione di prototipi in ambienti di produzione. Altre informazioni sull' [integrazione con 80/20](./overview-8020-integration.md).

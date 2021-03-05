@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 6276527230cf889b471887fdb3da70e06a2fc8d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcfe12b30e336863c8e112d9ad675a2f57fe48f4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582340"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179137"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Monitoraggio di Azure per Esplora dati di Azure (anteprima)
 
@@ -103,10 +103,10 @@ La scheda **metrica chiave** Mostra una visualizzazione unificata di alcune metr
 
 La scheda **utilizzo** consente agli utenti di approfondire le prestazioni dei comandi e delle query del cluster. In questa pagina è possibile:
  
- - Vedere quali utenti e applicazioni inviano la maggior parte delle query o utilizzano la maggior parte della CPU e della memoria (per poter comprendere quali utenti inviano le query più pesanti per l'elaborazione del cluster).
- - Identificare gli utenti e le applicazioni principali in base alle query non riuscite.
- - Identificare le ultime modifiche apportate al numero di query rispetto alla media giornaliera cronologica (negli ultimi 16 giorni), in base all'utente e all'applicazione.
- - Identificare tendenze e picchi nel numero di query, memoria e utilizzo della CPU per utente, applicazione e tipo di comando.
+ - Vedere i gruppi di carico di lavoro, gli utenti e le applicazioni che inviano la maggior parte delle query o utilizzano la maggior parte della CPU e della memoria (per poter comprendere quali carichi di lavoro stanno inviando le query più pesanti per elaborare il cluster).
+ - Identificare i gruppi di carico di lavoro principali, gli utenti e le applicazioni tramite query non riuscite
+ - Identificare le ultime modifiche apportate al numero di query rispetto alla media giornaliera cronologica (negli ultimi 16 giorni), per gruppo di carico di lavoro, utente e applicazione.
+ - Identificare tendenze e picchi nel numero di query, memoria e utilizzo della CPU per gruppo di carico di lavoro, utente, applicazione e tipo di comando.
 
 [![Screenshot della visualizzazione delle operazioni con grafici ad anello dell'applicazione principale per numero di comandi e query, principali entità per comando e conteggio di query e comandi principali in base ai tipi di comando](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 

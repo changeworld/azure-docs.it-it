@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 190f44e95c96a2aee60e1b28f8817a74d3e06e3f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981307"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178661"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteggere un ambiente di Azure Machine Learning inferenza con reti virtuali
 
@@ -34,7 +34,6 @@ Questo articolo illustra come proteggere le risorse di inferenza seguenti in una
 > - Cluster AKS privato
 > - Cluster AKS con collegamento privato
 > - Istanze di Azure Container
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -58,7 +57,6 @@ Per usare un cluster AKS in una rete virtuale, è necessario soddisfare i requis
 > [!div class="checklist"]
 > * Seguire i prerequisiti in [configurare Advanced Networking in Azure Kubernetes Service (AKS)](../aks/configure-azure-cni.md#prerequisites).
 > * L'istanza di AKS e la rete virtuale devono trovarsi nella stessa area. Se si proteggono gli account di archiviazione di Azure usati dall'area di lavoro in una rete virtuale, è necessario che si trovino nella stessa rete virtuale dell'istanza di AKS.
-
 
 Per aggiungere AKS in una rete virtuale all'area di lavoro, seguire questa procedura:
 
@@ -274,7 +272,7 @@ Se non si vogliono usare le regole in uscita predefinite e si vuole limitare l'a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo è la terza parte di una serie di reti virtuali in quattro parti. Vedere il resto degli articoli per informazioni su come proteggere una rete virtuale:
+Questo articolo è la quarta parte di una serie di reti virtuali in cinque parti. Vedere il resto degli articoli per informazioni su come proteggere una rete virtuale:
 
 * [Parte 1: Panoramica di rete virtuale](how-to-network-security-overview.md)
 * [Parte 2: proteggere le risorse dell'area di lavoro](how-to-secure-workspace-vnet.md)

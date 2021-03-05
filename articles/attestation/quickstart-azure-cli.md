@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4fc799c1c6dcaaa3ed4bc41c93bd6b786f51591c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: ae283785b4d4dc80c6b9b6c3997aaf82c9ff0f2f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429246"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178712"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Avvio rapido: Configurare Attestazione di Azure con l'interfaccia della riga di comando di Azure
 
-Introduzione all' [attestazione di Azure](/cli/azure/ext/attestation/attestation?view=azure-cli-latest)tramite l'interfaccia della riga di comando di Azure.
+Introduzione all' [attestazione di Azure](/cli/azure/ext/attestation/attestation)tramite l'interfaccia della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -69,13 +69,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Ecco i comandi che è possibile usare per creare e gestire il provider di attestazioni:
 
-1. Eseguire il comando [AZ Attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) per creare un provider di attestazione senza requisito di firma dei criteri:
+1. Eseguire il comando [AZ Attestation create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) per creare un provider di attestazione senza requisito di firma dei criteri:
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
    
-1. Eseguire il comando [az attestation show](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_show) per recuperare le proprietà del provider di attestazioni, ad esempio lo stato e AttestURI:
+1. Eseguire il comando [az attestation show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) per recuperare le proprietà del provider di attestazioni, ad esempio lo stato e AttestURI:
 
    ```azurecli
    az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
@@ -95,7 +95,7 @@ Ecco i comandi che è possibile usare per creare e gestire il provider di attest
    TagsTable:
    ```
 
-È possibile eliminare un provider di attestazioni usando il comando [az attestation delete](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_delete):
+È possibile eliminare un provider di attestazioni usando il comando [az attestation delete](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_delete):
 
 ```azurecli
 az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
@@ -105,7 +105,7 @@ az attestation delete --name "myattestationprovider" --resource-group "sample-re
 
 Usare i comandi descritti qui per fornire la gestione dei criteri per un provider di attestazioni, un tipo di attestazione alla volta.
 
-Il comando [az attestation policy show](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_show) restituisce il criterio corrente per l'ambiente TEE specificato:
+Il comando [az attestation policy show](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_show) restituisce il criterio corrente per l'ambiente TEE specificato:
 
 ```azurecli
 az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
@@ -120,7 +120,7 @@ Di seguito sono elencati i tipi di TEE supportati:
 - `SGX-OpenEnclaveSDK`
 - `TPM`
 
-Usare il comando [az attestation policy set](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_set) per impostare un nuovo criterio per il tipo di attestazione specificato.
+Usare il comando [az attestation policy set](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_set) per impostare un nuovo criterio per il tipo di attestazione specificato.
 
 Per impostare i criteri in formato testo per un tipo di attestazione specificato usando il percorso del file:
 

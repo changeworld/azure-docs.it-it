@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: c59108752677fc33e28578c3c679be24108806d5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aeabd74117f99c7cac9bde0eda02b9627caf0804
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385609"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177785"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Attività ForEach in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -483,6 +483,7 @@ Di seguito vengono descritte alcune limitazioni dell'attività ForEach con le so
 |---|---|
 | Non è possibile annidare un ciclo ForEach all'interno di un altro ciclo ForEach (o un ciclo Until). | Progettare una pipeline a due livelli, in cui la pipeline esterna con il ciclo ForEach esterno esegue l'iterazione su una pipeline interna con il ciclo annidato. |
 | Per l'attività ForEach sono previsti un `batchCount` massimo di 50 per l'elaborazione parallela e un massimo di 100.000 elementi. | Progettare una pipeline a due livelli in cui la pipeline esterna con l'attività ForEach esegue l'iterazione su una pipeline interna. |
+| Non è possibile utilizzare la variabile in un'attività ForEach eseguita in parallelo perché le variabili sono globali per l'intera pipeline, ma non sono limitate a un ciclo ForEach o a un'altra attività. | Si consiglia di utilizzare ForEach sequenziale o di eseguire pipeline all'interno di ForEach (variabile/parametro gestito nella pipeline figlio).|
 | | |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -4,13 +4,13 @@ description: Questo articolo descrive come ottenere immagini drone dai partner.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 04f0c3c63d00ea49bf43f00f256266599a73d6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: v-ummehabiba
+ms.openlocfilehash: 18932d2ddb60242b4d7874dddf0349a62cd5c738
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88508805"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177607"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Ottenere immagini drone da partner drone
 
@@ -85,7 +85,7 @@ Quando si seleziona la sezione relativa alle immagini drone, viene visualizzata 
 
 ## <a name="view-all-drone-maps"></a>Visualizza tutte le mappe drone
 
-I file e le immagini caricati dal provider drone vengono visualizzati nella sezione **Maps** . Selezionare la sezione **Maps** , filtrare in base alla **Farm**e selezionare i file appropriati da visualizzare e scaricare.
+I file e le immagini caricati dal provider drone vengono visualizzati nella sezione **Maps** . Selezionare la sezione **Maps** , filtrare in base alla **Farm** e selezionare i file appropriati da visualizzare e scaricare.
 
   ![Sezione Maps](./media/get-drone-imagery-from-drone-partner/view-drone-maps-1.png)
 

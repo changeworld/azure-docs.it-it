@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, SDK, download dell'aggiornamento, più recente, disponibile, installazione
-ms.openlocfilehash: 2fd14781c42192c713d826729f8fab6c698d6321
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 591fcba4c887e298cf667c5d95c19184bc213ffe
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505478"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179630"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Download di Azure Kinect Sensor SDK
 
@@ -41,18 +41,23 @@ Attualmente, l'unica distribuzione supportata è Ubuntu 18.04. Per richiedere il
 
 Prima di tutto, è necessario configurare il [repository pacchetti di Microsoft](https://packages.microsoft.com/), seguendo le istruzioni disponibili [qui](/windows-server/administration/linux-package-repository-for-microsoft-software).
 
-A questo punto, è possibile installare i pacchetti necessari. Il pacchetto `k4a-tools` include il [visualizzatore di Azure Kinect](azure-kinect-viewer.md), il [registratore di Azure Kinect](record-sensor-streams-file.md) e [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md). Per installarlo, eseguire
+A questo punto, è possibile installare i pacchetti necessari. Il pacchetto `k4a-tools` include il [visualizzatore di Azure Kinect](azure-kinect-viewer.md), il [registratore di Azure Kinect](record-sensor-streams-file.md) e [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md). Per installare il pacchetto, eseguire:
 
- `sudo apt install k4a-tools`
+`sudo apt install k4a-tools`
+ 
+Questo comando installa i pacchetti di dipendenza necessari per il corretto funzionamento degli strumenti, inclusa la versione più recente di `libk4a<major>.<minor>` . È necessario aggiungere le regole udev per accedere ad Azure Kinect DK senza essere l'utente root. Per istruzioni, vedere [configurazione del dispositivo Linux](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md#linux-device-setup). In alternativa, è possibile avviare applicazioni che usano il dispositivo come radice.
 
- Il pacchetto `libk4a<major>.<minor>-dev` contiene le intestazioni e i file CMake da compilare con `libk4a`.
-Il pacchetto `libk4a<major>.<minor>` contiene gli oggetti condivisi necessari per eseguire i file eseguibili che dipendono da `libk4a`.
+Il `libk4a<major>.<minor>-dev` pacchetto contiene le intestazioni e i file CMake per la compilazione di applicazioni/file eseguibili `libk4a` .
 
- Per le esercitazioni di base è richiesto il pacchetto `libk4a<major>.<minor>-dev`. Per installarlo, eseguire
+Il `libk4a<major>.<minor>` pacchetto contiene gli oggetti condivisi necessari per eseguire applicazioni/eseguibili che dipendono da `libk4a` .
 
- `sudo apt install libk4a1.1-dev`
+Per le esercitazioni di base è richiesto il pacchetto `libk4a<major>.<minor>-dev`. Per installare il pacchetto, eseguire:
+
+`sudo apt install libk4a<major>.<minor>-dev` 
 
 Se il comando riesce, l'SDK è pronto per l'uso.
+
+Assicurarsi di installare la versione corrispondente di `libk4a<major>.<minor>` con `libk4a<major>.<minor>-dev` . Se, ad esempio, si installa il `libk4a4.1-dev` pacchetto, installare il `libk4a4.1` pacchetto corrispondente che contiene la versione corrispondente dei file oggetto condivisi. Per la versione più recente di `libk4a` , vedere i collegamenti nella sezione successiva.
 
 ## <a name="change-log-and-older-versions"></a>Log delle modifiche e versioni precedenti
 

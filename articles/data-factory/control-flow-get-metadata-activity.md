@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 151f4352ce7c845050c899792fd7285c97f844bc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bd8fc3383d6d9a0afb7733cb94643623e6879d23
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049985"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178542"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ottenere l'attività dei metadati in Azure Data Factory
 
@@ -83,8 +83,14 @@ Tenere presente quanto segue:
 | columnCount | Numero di colonne nel file o nella tabella relazionale. |
 | esiste| Indica se esiste un file, una cartella o una tabella. Se `exists` viene specificato nell'elenco dei campi Get Metadata, l'attività non avrà esito negativo anche se il file, la cartella o la tabella non esiste. Viene invece `exists: false` restituito nell'output. |
 
->[!TIP]
->Quando si desidera convalidare l'esistenza di un file, una cartella o una tabella, specificare `exists` nell'elenco dei campi attività Ottieni metadati. È quindi possibile controllare il `exists: true/false` risultato nell'output dell'attività. Se `exists` non è specificato nell'elenco dei campi, l'attività Ottieni metadati avrà esito negativo se l'oggetto non viene trovato.
+> [!TIP]
+> Quando si desidera convalidare l'esistenza di un file, una cartella o una tabella, specificare `exists` nell'elenco dei campi attività Ottieni metadati. È quindi possibile controllare il `exists: true/false` risultato nell'output dell'attività. Se `exists` non è specificato nell'elenco dei campi, l'attività Ottieni metadati avrà esito negativo se l'oggetto non viene trovato.
+
+> [!NOTE]
+> Quando si ottengono metadati da archivi di file e si configura `modifiedDatetimeStart` o `modifiedDatetimeEnd` , nell' `childItems` output sono inclusi solo i file nel percorso specificato con l'ora dell'Ultima modifica nell'intervallo specificato. Gli elementi nelle sottocartelle non sono inclusi.
+
+> [!NOTE]
+> Affinché l'elenco dei campi della **struttura** fornisca la struttura dei dati effettiva per i set di dati in formato testo delimitato ed Excel, è necessario abilitare la `First Row as Header` proprietà, supportata solo per queste origini dati.
 
 ## <a name="syntax"></a>Sintassi
 

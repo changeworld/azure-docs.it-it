@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 7dde05e02421ef8d2ea46fd0d50687ede6e5d884
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ff8c549f74b59706de5203f2d2e46867d6cb1d0a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727802"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177786"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Creare un trigger per l'esecuzione di una pipeline in risposta a un evento di archiviazione
 
@@ -26,7 +26,6 @@ Per un'introduzione di dieci minuti e una dimostrazione di questa funzionalità,
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
 
-
 > [!NOTE]
 > L'integrazione descritta in questo articolo dipende dalla [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/). Verificare che la sottoscrizione sia registrata con il provider di risorse di Griglia di eventi. Per altre informazioni, vedere [Provider e tipi di risorse](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). È necessario essere in grado di eseguire l'azione *Microsoft. EventGrid/eventSubscriptions/**. Questa azione fa parte del ruolo predefinito collaboratore sottoscrizione evento di EventGrid.
 
@@ -34,11 +33,11 @@ Per un'introduzione di dieci minuti e una dimostrazione di questa funzionalità,
 
 Questa sezione illustra come creare un trigger di evento di archiviazione all'interno dell'interfaccia utente di Azure Data Factory.
 
-1. Passare al **canvas di creazione**
+1. Passare alla scheda **modifica** , mostrata con un simbolo a matita. 
 
-1. Nell'angolo in basso a sinistra fare clic sul pulsante **Trigger**
+1. Selezionare **trigger** dal menu, quindi selezionare **nuovo/modifica**. 
 
-1. Fare clic su **+ Nuovo** per aprire il riquadro di spostamento laterale per la di creazione di trigger
+1. Nella pagina **Aggiungi trigger** selezionare **Scegli trigger**, quindi selezionare **+ nuovo**. 
 
 1. Selezionare l' **evento di archiviazione** del tipo di trigger
 
@@ -107,4 +106,5 @@ In questa sezione vengono forniti esempi di impostazioni del trigger dell'evento
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni dettagliate sui trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Per informazioni dettagliate sui trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Informazioni su come fare riferimento ai metadati dei trigger nella pipeline, vedere [metadati del trigger di riferimento nelle esecuzioni di pipeline](how-to-use-trigger-parameterization.md)

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 1b62777ec647efc6d5aded573e681cadd6475b47
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9754a043c90c01f889be9639d2d045fb1929de17
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654796"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178117"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedure consigliate per Cache di Azure per Redis 
 Seguendo queste procedure consigliate, è possibile ottimizzare le prestazioni e l'uso conveniente della cache di Azure per l'istanza di Redis.
@@ -51,7 +51,7 @@ Ci sono diversi aspetti relativi all'utilizzo della memoria all'interno dell'ist
 ## <a name="client-library-specific-guidance"></a>Indicazioni specifiche per la libreria client
  * [StackExchange. Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java: quale client è necessario usare?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
- * [Lattuga (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
+ * [Lattuga (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
  * [JEDIS (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
@@ -73,6 +73,8 @@ Se si desidera testare il funzionamento del codice in condizioni di errore, è c
  * La macchina virtuale client usata per il test deve trovarsi **nella stessa area** dell'istanza di cache Redis.
  * **È consigliabile usare la serie di macchine virtuali dv2** per il client poiché dispongono di hardware migliore e offriranno risultati ottimali.
  * Assicurarsi che la macchina virtuale client utilizzata includa **almeno la quantità di calcolo e larghezza di banda* della cache sottoposta a test. 
+ * **Testare le condizioni di failover** nella cache. È importante assicurarsi di non eseguire il test delle prestazioni della cache solo in condizioni di stato costanti. Testare anche le condizioni di failover e misurare il carico della CPU/server nella cache durante tale periodo di tempo. È possibile avviare un failover [riavviando il nodo primario](cache-administration.md#reboot). Ciò consentirà di verificare il comportamento dell'applicazione in termini di velocità effettiva e latenza durante le condizioni di failover (si verifica durante gli aggiornamenti e può verificarsi durante un evento non pianificato). Idealmente, si non di voler visualizzare il picco di carico CPU/server a un valore superiore al 80% anche durante un failover che può influire sulle prestazioni.
+ * I componenti **Premium P2 e versioni successive** sono ospitati in VM con 4 o più core. Questa operazione è utile per distribuire il carico di lavoro di crittografia/decrittografia TLS tra più core per ridurre l'utilizzo complessivo della CPU.  [Per informazioni dettagliate sulle dimensioni e sui core delle macchine virtuali, vedere qui.](cache-planning-faq.md#azure-cache-for-redis-performance)
  * **Abilitare VRSS** nel computer client se si è in Windows.  [Per informazioni dettagliate, vedere qui](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Script PowerShell di esempio:
      >PowerShell-ExecutionPolicy Unrestricted Enable-NetAdapterRSS-Name (Get-NetAdapter). Nome 
 

@@ -2,13 +2,13 @@
 title: Bus di servizio di Azure - Aggiornare automaticamente le unità di messaggistica
 description: Questo articolo illustra come è possibile usare l'aggiornamento automatico delle unità di messaggistica di uno spazio dei nomi del bus di servizio.
 ms.topic: how-to
-ms.date: 09/15/2020
-ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 7fc3aca82b8f01d70dec4fc2dac7842895417ec9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720597"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177956"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Aggiornare automaticamente le unità di messaggistica di uno spazio dei nomi del bus di servizio di Azure 
 Il ridimensionamento automatico offre la possibilità di avere la quantità corretta di risorse in esecuzione per gestire il carico dell'applicazione. Consente di aggiungere risorse per gestire gli incrementi di carico nonché di risparmiare denaro rimuovendo le risorse inattive. Per ulteriori informazioni sulla funzionalità di scalabilità automatica di monitoraggio di Azure, vedere [Panoramica della scalabilità automatica in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) . 
@@ -136,8 +136,14 @@ La sezione precedente illustra come aggiungere una condizione predefinita per l'
     
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="scalabilità a unità di messaggistica specifiche-Ripeti giorni specifici":::
 
-> [!IMPORTANT]
-> Per altre informazioni sul funzionamento delle impostazioni di scalabilità automatica, in particolare su come seleziona un profilo o una condizione e valuta più regole, vedere [informazioni sulle impostazioni di scalabilità](../azure-monitor/autoscale/autoscale-understanding-settings.md)automatica.          
+    
+    Per altre informazioni sul funzionamento delle impostazioni di scalabilità automatica, in particolare su come seleziona un profilo o una condizione e valuta più regole, vedere [informazioni sulle impostazioni di scalabilità](../azure-monitor/autoscale/autoscale-understanding-settings.md)automatica.          
+
+    > [!NOTE]
+    > - La metrica esaminata per prendere decisioni sulla scalabilità automatica può essere di 5-10 minuti. Quando si gestiscono carichi di lavoro Spiky, è consigliabile disporre di durate più brevi per la scalabilità verticale e più lunga per la riduzione (> 10 minuti) per assicurarsi che le unità di messaggistica siano sufficienti per elaborare carichi di lavoro spinosi. 
+    > 
+    > - Se si verificano errori dovuti alla mancanza di capacità (nessuna unità di messaggistica disponibile), generare un ticket di supporto con Microsoft.  
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sulle unità di messaggistica, vedere [Messaggistica Premium](service-bus-premium-messaging.md)
