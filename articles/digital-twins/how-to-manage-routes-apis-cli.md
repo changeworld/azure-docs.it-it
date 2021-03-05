@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d25a429873ccf8b546c0919456c97e64445f184c
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 40cf83b0ca9e4c794979f2b20ddb73360758abc5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071699"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198541"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -48,7 +48,7 @@ Questa sezione illustra come creare questi endpoint usando l'interfaccia della r
 
 ### <a name="create-the-endpoint"></a>Creare l'endpoint
 
-Dopo aver creato le risorse dell'endpoint, è possibile usarle per un endpoint di Azure Digital gemelli. Gli esempi seguenti illustrano come creare endpoint usando il comando [AZ DT endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Sostituire i segnaposto nei comandi con i dettagli delle proprie risorse.
+Dopo aver creato le risorse dell'endpoint, è possibile usarle per un endpoint di Azure Digital gemelli. Gli esempi seguenti illustrano come creare endpoint usando il comando [AZ DT endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Sostituire i segnaposto nei comandi con i dettagli delle proprie risorse.
 
 Per creare un endpoint di griglia di eventi:
 
@@ -119,7 +119,7 @@ Attenersi alla procedura seguente per configurare queste risorse di archiviazion
     
 #### <a name="create-the-dead-letter-endpoint"></a>Creare l'endpoint dei messaggi non recapitabili
 
-Per creare un endpoint con messaggi non recapitabili abilitati, aggiungere il seguente parametro del messaggio non recapitabile al comando [AZ DT endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
+Per creare un endpoint con messaggi non recapitabili abilitati, aggiungere il seguente parametro del messaggio non recapitabile al comando [AZ DT endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
 Il valore del parametro è l'URI di firma di accesso condiviso dei messaggi non **recapitabili** costituito dal nome dell'account di archiviazione, dal nome del contenitore e dal token SAS raccolti nella [sezione precedente](#set-up-storage-resources). Questo parametro crea l'endpoint con l'autenticazione basata su chiavi.
 
@@ -204,7 +204,7 @@ Se non è presente alcun nome di route, nessun messaggio viene instradato all'es
 
 Una route deve consentire la selezione di più notifiche e tipi di evento. 
 
-È possibile creare route di eventi con le API del [piano dati **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) di Azure Digital gemelli o i [comandi **AZ DT Route** CLI](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true). Il resto di questa sezione illustra il processo di creazione.
+È possibile creare route di eventi con le API del [piano dati **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) di Azure Digital gemelli o i [comandi **AZ DT Route** CLI](/cli/azure/ext/azure-iot/dt/route). Il resto di questa sezione illustra il processo di creazione.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Creare route con le API e C# SDK
 
@@ -225,7 +225,7 @@ Il metodo di esempio seguente mostra come creare, elencare ed eliminare una rout
 
 ### <a name="create-routes-with-the-cli"></a>Creare route con l'interfaccia della riga di comando
 
-Le route possono essere gestite anche usando i comandi [AZ DT Route](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) per l'interfaccia della riga di comando di Azure Digital gemelli. 
+Le route possono essere gestite anche usando i comandi [AZ DT Route](/cli/azure/ext/azure-iot/dt/route) per l'interfaccia della riga di comando di Azure Digital gemelli. 
 
 Per altre informazioni sull'uso dell'interfaccia della riga di comando e sui comandi disponibili, vedere [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
 

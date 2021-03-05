@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8e82f8974b53224b3e471d1628a1ca5819ce2955
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 7108ee956c18fbcc150b56cbcb8ae1c69841dda4
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044476"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198588"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (CLI)
 
@@ -93,7 +93,7 @@ A questo punto si ha un'istanza di Azure Digital Twins pronta per l'uso e sono s
 ## <a name="next-steps"></a>Passaggi successivi
 
 Testare le singole chiamate API REST nell'istanza usando i comandi dell'interfaccia della riga di comando di Azure Digital gemelli: 
-* [riferimento AZ DT](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [riferimento AZ DT](/cli/azure/ext/azure-iot/dt)
 * [*Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure*](how-to-use-cli.md)
 
 In alternativa, vedere come connettere un'applicazione client all'istanza con il codice di autenticazione:

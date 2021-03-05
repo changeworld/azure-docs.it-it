@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b3ba007f03b3aa4883d9455dc43b2bc19676da59
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 43a568149ccf85579b4f8190974fff872d6e09ea
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803970"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199646"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Come certificare i dispositivi Plug and Play IoT
 
@@ -51,13 +51,13 @@ Per soddisfare i requisiti di certificazione, il dispositivo deve:
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Testare con l'interfaccia della riga di comando dell'estensione Azure IoT
 
-L' [estensione dell'interfaccia](/cli/azure/ext/azure-iot/iot/product?preserve-view=true&view=azure-cli-latest) della riga di comando di Azure è in grado di verificare che l'implementazione del dispositivo corrisponda al modello prima di inviare il dispositivo per la certificazione tramite il portale per i dispositivi Azure Certified
+L' [estensione dell'interfaccia](/cli/azure/ext/azure-iot/iot/product) della riga di comando di Azure è in grado di verificare che l'implementazione del dispositivo corrisponda al modello prima di inviare il dispositivo per la certificazione tramite il portale per i dispositivi Azure Certified
 
 La procedura seguente illustra come preparare ed eseguire i test di certificazione usando l'interfaccia della riga di comando:
 
 ### <a name="install-the-azure-iot-extension-for-the-azure-cli"></a>Installare l'estensione Azure per l'interfaccia della riga di comando di Azure
 
-Vedere le istruzioni di installazione per configurare l' [interfaccia](/cli/azure/?preserve-view=true&view=azure-cli-latest) della riga di comando di Azure nell'ambiente in uso.
+Vedere le istruzioni di installazione per configurare l' [interfaccia](/cli/azure) della riga di comando di Azure nell'ambiente in uso.
 
 Per installare l'estensione Azure, eseguire il comando seguente:
 
@@ -65,7 +65,7 @@ Per installare l'estensione Azure, eseguire il comando seguente:
 az extension add --name azure-iot
 ```
 
-Per altre informazioni, vedere l' [interfaccia della riga di comando di Azure per Azure](/cli/azure/azure-cli-reference-for-iot?preserve-view=true&view=azure-cli-latest).
+Per altre informazioni, vedere l' [interfaccia della riga di comando di Azure per Azure](/cli/azure/azure-cli-reference-for-iot).
 
 ### <a name="create-a-new-product-test"></a>Crea nuovo test del prodotto
 
@@ -79,7 +79,7 @@ az iot product test create --badge-type Pnp --at SymmetricKey --device-type Fini
 ```
 
 > [!NOTE]
-> Quando si usa l'interfaccia della riga di comando, è necessario [accedere](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest) alla sottoscrizione.
+> Quando si usa l'interfaccia della riga di comando, è necessario [accedere](/cli/azure/authenticate-azure-cli) alla sottoscrizione.
 
 L'output JSON del comando contiene `primaryKey` , `registrationId` e `scopeID` da usare quando si connette il dispositivo.
 

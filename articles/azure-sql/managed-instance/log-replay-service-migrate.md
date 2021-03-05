@@ -9,62 +9,68 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
-ms.openlocfilehash: 74403b7ec1469ce7cdaadc9931eb5ac95f55f6f5
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 0bc00aea67fa2f71599ee62e657e1ca1b0627681
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096837"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199850"
 ---
-# <a name="migrate-databases-from-sql-server-to-sql-managed-instance-using-log-replay-service-preview"></a>Eseguire la migrazione dei database da SQL Server a SQL Istanza gestita utilizzando il servizio di riproduzione log (anteprima)
+# <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Eseguire la migrazione dei database da SQL Server a SQL Istanza gestita utilizzando il servizio di riproduzione log (anteprima)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-In questo articolo viene illustrato come configurare manualmente la migrazione del database da SQL Server 2008-2019 a SQL Istanza gestita utilizzando il servizio di riproduzione log (con ridondanza locale) attualmente disponibile in anteprima pubblica. Si tratta di un servizio cloud abilitato per Istanza gestita in base alla tecnologia di log shipping SQL Server. CON ridondanza locale deve essere usato nei casi in cui esistano migrazioni personalizzate e architetture ibride complesse, quando è necessario un maggiore controllo, quando esiste una minima tolleranza per i tempi di inattività o quando il servizio migrazione dati di Azure (DMS) non può essere usato.
+Questo articolo illustra come configurare manualmente la migrazione del database da SQL Server 2008-2019 ad Azure SQL Istanza gestita tramite il servizio di riproduzione log (con ridondanza locale), attualmente disponibile in anteprima pubblica. CON ridondanza locale è un servizio cloud abilitato per SQL Istanza gestita ed è basato sulla tecnologia di SQL Server log shipping. 
 
-Sia DMS che con ridondanza locale utilizzano la stessa tecnologia di migrazione sottostante e le stesse API. Con il rilascio di con ridondanza locale, vengono abilitate le migrazioni personalizzate complesse e l'architettura ibrida tra i locali. SQL Server e istanze gestite di SQL.
+Il [servizio migrazione del database di Azure](/azure/dms/tutorial-sql-server-to-managed-instance) e con ridondanza locale usano la stessa tecnologia di migrazione sottostante e le stesse API. Rilasciando con ridondanza locale, è possibile abilitare migrazioni personalizzate complesse e architetture ibride tra SQL Server locali e SQL Istanza gestita.
 
 ## <a name="when-to-use-log-replay-service"></a>Quando utilizzare il servizio di riproduzione log
 
-Nei casi in cui non è possibile usare [Azure DMS](/azure/dms/tutorial-sql-server-to-managed-instance.md) per la migrazione, il servizio cloud con ridondanza locale può essere usato direttamente con PowerShell, i cmdlet dell'interfaccia della riga di comando o l'API per compilare e orchestrare manualmente le migrazioni di database a SQL istanza gestita. 
+Quando non è possibile usare il servizio migrazione del database di Azure per la migrazione, è possibile usare con ridondanza locale direttamente con PowerShell, i cmdlet dell'interfaccia della riga di comando di Azure o le API per compilare e orchestrare manualmente le migrazioni di database a SQL Istanza gestita. 
 
-È possibile prendere in considerazione l'uso del servizio cloud con ridondanza locale in alcuni dei casi seguenti:
-- È necessario un maggiore controllo per il progetto di migrazione del database
-- Esiste una piccola tolleranza per i tempi di inattività sulla migrazione cutover
-- Non è possibile installare il file eseguibile DMS nell'ambiente in uso
-- L'eseguibile DMS non ha accesso ai file dei backup del database
-- Nessun accesso al sistema operativo host disponibile oppure nessun privilegio di amministratore
-- Non è possibile aprire le porte di rete dall'ambiente in Azure
-- I backup vengono archiviati direttamente nell'archiviazione BLOB di Azure usando l'opzione TO URL
-- Esiste la necessità di usare i backup differenziali
+È possibile considerare l'uso di con ridondanza locale nei casi seguenti:
+- È necessario un maggiore controllo per il progetto di migrazione del database.
+- Il tempo di inattività per la migrazione cutover è ridotto.
+- Impossibile installare il file eseguibile del servizio migrazione del database nell'ambiente in uso.
+- Il file eseguibile del servizio migrazione del database non dispone dell'accesso ai file dei backup del database.
+- Nessun accesso al sistema operativo host disponibile oppure nessun privilegio di amministratore.
+- Non è possibile aprire le porte di rete dall'ambiente ad Azure.
+- I backup vengono archiviati direttamente nell'archiviazione BLOB di Azure tramite l' `TO URL` opzione.
+- È necessario usare i backup differenziali.
 
 > [!NOTE]
-> Il modo automatizzato consigliato per eseguire la migrazione dei database da SQL Server a SQL Istanza gestita è l'uso di Azure DMS. Questo servizio usa lo stesso servizio cloud con ridondanza locale nel back-end con log shipping in modalità NORECOVERY. È necessario considerare manualmente l'uso di con ridondanza locale per orchestrare le migrazioni nei casi in cui Azure DMS non supporta completamente gli scenari.
+> È consigliabile automatizzare la migrazione dei database da SQL Server a SQL Istanza gestita utilizzando il servizio migrazione del database. Questo servizio usa lo stesso servizio cloud con ridondanza locale nel back-end, con log shipping in `NORECOVERY` modalità. Prendere in considerazione l'utilizzo manuale di con ridondanza locale per orchestrare le migrazioni quando il servizio migrazione del database non supporta completamente gli scenari.
 
-## <a name="how-does-it-work"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
-La creazione di una soluzione personalizzata usando con ridondanza locale per eseguire la migrazione dei database nel cloud richiede diversi passaggi di orchestrazione mostrati nel diagramma e descritti nella tabella seguente.
+La creazione di una soluzione personalizzata usando con ridondanza locale per eseguire la migrazione dei database nel cloud richiede diversi passaggi di orchestrazione, come illustrato nel diagramma e nella tabella più avanti in questa sezione.
 
-La migrazione prevede l'esecuzione di backup completi del database in SQL Server con CHECKSUM abilitato e la copia dei file di backup nell'archiviazione BLOB di Azure. CON ridondanza locale viene usato per ripristinare i file di backup dall'archiviazione BLOB di Azure a SQL Istanza gestita. L'archivio BLOB di Azure viene usato come risorsa di archiviazione intermedia tra SQL Server e SQL Istanza gestita.
+La migrazione prevede l'esecuzione di backup completi del database in SQL Server con `CHECKSUM` abilitato e la copia dei file di backup nell'archiviazione BLOB di Azure. CON ridondanza locale viene usato per ripristinare i file di backup dall'archiviazione BLOB a SQL Istanza gestita. L'archiviazione BLOB è una risorsa di archiviazione intermedia tra SQL Server e SQL Istanza gestita.
 
-CON ridondanza locale eseguirà il monitoraggio dell'archiviazione BLOB di Azure per qualsiasi nuovo backup differenziale o del log aggiunto dopo il ripristino del backup completo e ripristinerà automaticamente eventuali nuovi file aggiunti. Lo stato di avanzamento dei file di backup da ripristinare in SQL Istanza gestita può essere monitorato tramite il servizio e, se necessario, il processo può anche essere interrotto.
+CON ridondanza locale monitora l'archiviazione BLOB per qualsiasi nuovo backup differenziale o del log aggiunto dopo il ripristino del backup completo. CON ridondanza locale Ripristina quindi automaticamente questi nuovi file. È possibile utilizzare il servizio per monitorare lo stato di avanzamento dei file di backup ripristinati in SQL Istanza gestita ed è possibile arrestare il processo, se necessario.
 
-CON ridondanza locale non richiede una convenzione di denominazione dei file di backup specifica durante l'analisi di tutti i file presenti nell'archivio BLOB di Azure e crea la catena di backup leggendo solo le intestazioni di file. I database si trovano nello stato "ripristino" durante il processo di migrazione, perché vengono ripristinati in modalità [NORECOVERY](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql#comparison-of-recovery-and-norecovery) e non possono essere utilizzati per la lettura o la scrittura finché il processo di migrazione non è stato completato completamente. 
+CON ridondanza locale non richiede una convenzione di denominazione specifica per i file di backup. Analizza tutti i file posizionati nell'archivio BLOB e costruisce la catena di backup leggendo solo le intestazioni dei file. I database si trovano nello stato "ripristino" durante il processo di migrazione. I database vengono ripristinati in modalità [NORECOVERY](/sql/t-sql/statements/restore-statements-transact-sql#comparison-of-recovery-and-norecovery) , quindi non possono essere utilizzati per la lettura o la scrittura fino al completamento del processo di migrazione. 
 
-Quando si esegue la migrazione di diversi database, i backup per ogni database devono essere inseriti in una cartella separata nell'archivio BLOB di Azure. CON ridondanza locale deve essere avviato separatamente per ogni database e i percorsi diversi per separare le cartelle di archiviazione BLOB di Azure devono essere specificati. 
+Se si sta eseguendo la migrazione di diversi database, è necessario:
+ 
+- Inserire i backup per ogni database in una cartella separata nell'archivio BLOB.
+- Avviare con ridondanza locale separatamente per ogni database.
+- Specificare percorsi diversi per separare le cartelle di archiviazione BLOB. 
 
-CON ridondanza locale può essere avviato in modalità di completamento automatico o in modalità continua. Quando viene avviato in modalità di completamento automatico, la migrazione viene completata automaticamente quando è stato ripristinato l'ultimo nome del file di backup specificato. Quando viene avviato in modalità continua, il servizio ripristinerà continuamente tutti i nuovi file di backup aggiunti e la migrazione viene completata solo su cutover manuale. Si consiglia di eseguire il cutover manuale solo dopo che è stato eseguito il backup della parte finale del log e viene visualizzato come ripristinato in SQL Istanza gestita. Il passaggio finale cutover renderà il database online e disponibile per l'uso in lettura e scrittura in SQL Istanza gestita.
+È possibile avviare con ridondanza locale in modalità di *completamento automatico* o *continua* . Quando si avvia la modalità di completamento automatico, la migrazione viene completata automaticamente quando è stato ripristinato l'ultimo file di backup specificato. Quando si avvia con ridondanza locale in modalità continua, il servizio ripristinerà continuamente eventuali nuovi file di backup aggiunti e la migrazione viene completata solo con il cutover manuale. 
 
-Quando con ridondanza locale viene arrestato, automaticamente in caso di completamento automatico o manualmente in cutover, non è possibile riprendere il processo di ripristino per un database portato online in SQL Istanza gestita. Per ripristinare i file di backup aggiuntivi dopo che la migrazione è stata completata tramite il completamento automatico o manualmente in cutover, è necessario eliminare il database e l'intera catena di backup deve essere ripristinata da zero riavviando il con ridondanza locale.
+È consigliabile eseguire il ritaglio manuale dopo che è stato eseguito il backup della parte finale del log e viene visualizzato come ripristinato in SQL Istanza gestita. Il passaggio finale cutover renderà il database online e disponibile per l'uso in lettura e scrittura in SQL Istanza gestita.
 
-   :::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="Passaggi dell'orchestrazione del servizio di riproduzione log illustrati per SQL Istanza gestita" border="false":::
+Dopo l'arresto di con ridondanza locale, tramite il completamento automatico o manualmente tramite cutover, non è possibile riprendere il processo di ripristino per un database che è stato portato online in SQL Istanza gestita. Per ripristinare i file di backup aggiuntivi al termine della migrazione tramite il completamento automatico o cutover, è necessario eliminare il database. È anche necessario ripristinare l'intera catena di backup da zero riavviando con ridondanza locale.
+
+:::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="Diagramma che illustra i passaggi di orchestrazione del servizio di riesecuzione del log per SQL Istanza gestita." border="false":::
     
 | Operazione | Dettagli |
 | :----------------------------- | :------------------------- |
-| **1. copiare i backup del database da SQL Server all'archivio BLOB di Azure**. | -Copiare backup completi, differenziali e del log da SQL Server al contenitore di archiviazione BLOB di Azure usando [Azcopy](/azure/storage/common/storage-use-azcopy-v10)o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). <br />-Usare i nomi di file, perché con ridondanza locale non richiede una convenzione di denominazione dei file specifica.<br />-Durante la migrazione di diversi database, è necessaria una cartella separata per ogni database. |
-| **2. avviare il servizio con ridondanza locale nel cloud**. | -Il servizio può essere avviato con una scelta di cmdlet: <br /> PowerShell [Start-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay) <br /> [Cmdlet di az_sql_midb_log_replay_start](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)dell'interfaccia della riga di comando. <br /> -Avviare con ridondanza locale separatamente per ogni database diverso che punta a una cartella di backup diversa nell'archivio BLOB di Azure. <br />-Una volta avviata, il servizio eseguirà il backup dal contenitore di archiviazione BLOB di Azure e avvierà il ripristino in SQL Istanza gestita.<br /> -Nel caso in cui con ridondanza locale sia stato avviato in modalità continua, una volta ripristinati tutti i backup caricati inizialmente, il servizio controllerà tutti i nuovi file caricati nella cartella e applicherà continuamente i log in base alla catena LSN, fino a quando il servizio non viene arrestato. |
-| **2,1. monitorare lo stato dell'operazione**. | -Lo stato di avanzamento dell'operazione di ripristino può essere monitorato con una scelta di cmdlet o: <br /> PowerShell [Get-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay) <br /> [Cmdlet di az_sql_midb_log_replay_show](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)dell'interfaccia della riga di comando. |
-| **2,2. Stop\abort l'operazione, se necessario**. | -Se il processo di migrazione deve essere interrotto, l'operazione può essere interrotta con una scelta di cmdlet: <br /> PowerShell [Stop-azsqlinstancedatabaselogreplay]/PowerShell/Module/AZ.SQL/stop-azsqlinstancedatabaselogreplay) <br /> Cmdlet di [az_sql_midb_log_replay_stop](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop) dell'interfaccia della riga di comando. <br /><br />-Questo comporterà l'eliminazione del database da ripristinare in SQL Istanza gestita. <br />-Una volta arrestata, non è possibile riprendere con ridondanza locale per un database. Il processo di migrazione deve essere riavviato da zero. |
-| **3. cutover nel cloud quando è pronto**. | -Arrestare l'applicazione e il carico di lavoro. Eseguire l'ultimo backup di log Tail e caricarlo nell'archiviazione BLOB di Azure.<br /> -Completare il cutover avviando l'operazione di completamento con ridondanza locale con una scelta di cmdlet: <br />PowerShell [complete-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay) <br /> Cmdlet di [az_sql_midb_log_replay_complete](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete) dell'interfaccia della riga di comando. <br /><br />-In questo modo il servizio con ridondanza locale verrà arrestato e il database tornerà online per l'uso in lettura e scrittura su SQL Istanza gestita.<br /> : Consente di reindirizzare la stringa di connessione dell'applicazione da SQL Server a SQL Istanza gestita. |
+| **1. copiare i backup del database da SQL Server nell'archivio BLOB**. | Copiare i backup completi, differenziali e del log da SQL Server a un contenitore di archiviazione BLOB usando [Azcopy](/azure/storage/common/storage-use-azcopy-v10) o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). <br /><br />Usare qualsiasi nome file. CON ridondanza locale non richiede una convenzione di denominazione dei file specifica.<br /><br />Per eseguire la migrazione di diversi database, è necessaria una cartella separata per ogni database. |
+| **2. avviare con ridondanza locale nel cloud**. | È possibile riavviare il servizio con una scelta di cmdlet: PowerShell ([Start-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure ([cmdlet di az_sql_midb_log_replay_start](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)). <br /><br /> Avviare con ridondanza locale separatamente per ogni database che punta a una cartella di backup nell'archivio BLOB. <br /><br /> Una volta avviato, il servizio eseguirà i backup dal contenitore di archiviazione BLOB e avvierà il ripristino in SQL Istanza gestita.<br /><br /> Se con ridondanza locale è stato avviato in modalità continua, dopo il ripristino di tutti i backup caricati inizialmente, il servizio osserverà eventuali nuovi file caricati nella cartella. Il servizio applicherà continuamente i log in base alla catena del numero di sequenza del file di log (LSN) finché non verrà arrestato. |
+| **2,1. monitorare lo stato dell'operazione**. | È possibile monitorare lo stato di avanzamento dell'operazione di ripristino con una scelta di cmdlet: PowerShell ([Get-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure ([cmdlet di az_sql_midb_log_replay_show](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)). |
+| **2,2. arrestare l'operazione, se necessario**. | Se è necessario arrestare il processo di migrazione, è possibile scegliere i cmdlet: PowerShell ([Stop-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure ([az_sql_midb_log_replay_stop](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop)). <br /><br /> L'arresto dell'operazione eliminerà il database di cui si sta eseguendo il ripristino in SQL Istanza gestita. Dopo l'arresto di un'operazione, non è possibile riprendere con ridondanza locale per un database. È necessario riavviare il processo di migrazione da zero. |
+| **3. quando si è pronti, passare al cloud**. | Arrestare l'applicazione e il carico di lavoro. Eseguire l'ultimo backup di log Tail e caricarlo nell'archiviazione BLOB di Azure.<br /><br /> Completare il cutover avviando un'operazione con ridondanza locale `complete` con una scelta di cmdlet: PowerShell ([complete-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure [az_sql_midb_log_replay_complete](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete). Questa operazione arresterà con ridondanza locale e causerà la messa in linea del database per l'utilizzo in lettura e scrittura su SQL Istanza gestita.<br /><br /> Consente di reindirizzare la stringa di connessione dell'applicazione da SQL Server a SQL Istanza gestita. |
 
 ## <a name="requirements-for-getting-started"></a>Requisiti per la Guida introduttiva
 
@@ -72,49 +78,48 @@ Quando con ridondanza locale viene arrestato, automaticamente in caso di complet
 - SQL Server 2008-2019
 - Backup completo dei database (uno o più file)
 - Backup differenziale (uno o più file)
-- Backup del log (non suddiviso per il file di log delle transazioni)
-- **È necessario abilitare il checksum** per i backup (obbligatorio)
+- Backup del log (non suddiviso per un file di log delle transazioni)
+- `CHECKSUM` abilitato per i backup (obbligatorio)
 
 ### <a name="azure-side"></a>Lato Azure
-- PowerShell AZ. SQL Module versione 2.16.0 o successiva ([installare](https://www.powershellgallery.com/packages/Az.Sql/)o usare Azure [cloud Shell](/azure/cloud-shell/))
-- INTERFACCIA della riga di comando versione 2.19.0 o successiva ([installazione](/cli/azure/install-azure-cli))
+- PowerShell AZ. SQL Module versione 2.16.0 o successiva ([installata](https://www.powershellgallery.com/packages/Az.Sql/) o a cui si accede tramite [Azure cloud Shell](/azure/cloud-shell/))
+- INTERFACCIA della riga di comando di Azure versione 2.19.0 o successiva ([installata](/cli/azure/install-azure-cli))
 - Provisioning del contenitore di archiviazione BLOB di Azure
-- Token di sicurezza SAS con autorizzazioni di **sola lettura** ed **elenco** generate per il contenitore di archiviazione BLOB
+- Token di sicurezza della firma di accesso condiviso con autorizzazioni di lettura ed elenco generate per il contenitore di archiviazione BLOB
 
-### <a name="migrating-multiple-databases"></a>Migrazione di più database
-- I file di backup per database diversi devono essere posizionati in cartelle separate nell'archivio BLOB di Azure.
-- CON ridondanza locale deve essere avviato separatamente per ogni database che punta a una cartella appropriata nell'archivio BLOB di Azure.
-- CON ridondanza locale può supportare fino a 100 processi di ripristino simultanei per singolo SQL Istanza gestita.
+### <a name="migration-of-multiple-databases"></a>Migrazione di più database
+È necessario inserire i file di backup per database diversi in cartelle separate nell'archivio BLOB.
 
-### <a name="azure-rbac-permissions-required"></a>Autorizzazioni RBAC di Azure richieste
+Avviare con ridondanza locale separatamente per ogni database puntando a una cartella appropriata nell'archivio BLOB. CON ridondanza locale può supportare fino a 100 processi di ripristino simultanei per singola istanza gestita.
+
+### <a name="azure-rbac-permissions"></a>Autorizzazioni RBAC di Azure
 Per eseguire con ridondanza locale tramite i client forniti è necessario uno dei seguenti ruoli di Azure:
-- Ruolo di proprietario della sottoscrizione o
-- [Istanza gestita ruolo Collaboratore](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) o
-- Ruolo personalizzato con l'autorizzazione seguente:
-  - `Microsoft.Sql/managedInstances/databases/*`
+- Ruolo proprietario sottoscrizione
+- Ruolo [collaboratore istanza gestita](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor)
+- Ruolo personalizzato con l'autorizzazione seguente: `Microsoft.Sql/managedInstances/databases/*`
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Di seguito sono riportate le procedure consigliate:
-- Eseguire [Data Migration Assistant](/sql/dma/dma-overview) per convalidare che i database siano pronti per la migrazione a SQL istanza gestita. 
-- Suddividere i backup completi e differenziali in più file, anziché in un singolo file.
+Si consiglia di ricorrere alle seguenti procedure:
+- Eseguire [Data Migration Assistant](/sql/dma/dma-overview) per verificare che i database siano pronti per la migrazione a SQL istanza gestita. 
+- Suddividere i backup completi e differenziali in più file, anziché usare un singolo file.
 - Abilitare la compressione dei backup.
-- Usare Cloud Shell per eseguire gli script perché verranno sempre aggiornati ai cmdlet più recenti rilasciati.
-- Pianificare il completamento della migrazione entro 47 ore dall'avvio del servizio con ridondanza locale. Si tratta di un periodo di tolleranza che impedisce patch software gestite dal sistema dopo l'avvio di con ridondanza locale.
+- Usare Cloud Shell per eseguire gli script, perché verranno sempre aggiornati ai cmdlet più recenti rilasciati.
+- Pianificare il completamento della migrazione entro 47 ore dopo l'avvio di con ridondanza locale. Si tratta di un periodo di tolleranza che impedisce l'installazione di patch software gestite dal sistema.
 
 > [!IMPORTANT]
-> - Impossibile utilizzare il database da ripristinare utilizzando con ridondanza locale fino al completamento del processo di migrazione.
-> - L'accesso in sola lettura ai database durante la migrazione non è supportato da con ridondanza locale.
-> - Al termine della migrazione, il processo di migrazione viene finalizzato poiché con ridondanza locale non supporta il ripristino della ripresa.
+> - Non è possibile usare il database ripristinato tramite con ridondanza locale fino al termine del processo di migrazione. 
+> - CON ridondanza locale non supporta l'accesso in sola lettura ai database durante la migrazione.
+> - Al termine della migrazione, il processo di migrazione viene finalizzato perché con ridondanza locale non supporta la ripresa del processo di ripristino.
 
 ## <a name="steps-to-execute"></a>Passaggi da eseguire
 
-### <a name="make-backups-on-the-sql-server"></a>Eseguire i backup nel SQL Server
+### <a name="make-backups-of-sql-server"></a>Eseguire backup di SQL Server
 
-I backup nel SQL Server possono essere effettuati con una delle due opzioni seguenti:
+È possibile eseguire il backup di SQL Server usando una delle opzioni seguenti:
 
-- Eseguire il backup nell'archiviazione su disco locale, quindi caricare i file nell'archiviazione BLOB di Azure, nel caso in cui l'ambiente sia limitato al backup diretto nell'archiviazione BLOB di Azure.
-- Eseguire il backup direttamente nell'archivio BLOB di Azure con l'opzione "TO URL" in T-SQL, nel caso in cui l'ambiente e le procedure di sicurezza consentano di eseguire questa operazione. 
+- Eseguire il backup nell'archiviazione su disco locale e quindi caricare i file nell'archiviazione BLOB di Azure, se l'ambiente limita i backup diretti all'archiviazione BLOB.
+- Eseguire il backup direttamente nell'archiviazione BLOB con l' `TO URL` opzione in T-SQL, se l'ambiente e le procedure di sicurezza lo consentono. 
 
 Impostare i database di cui si desidera eseguire la migrazione alla modalità di recupero con registrazione completa per consentire i backup del log.
 
@@ -126,126 +131,120 @@ SET RECOVERY FULL
 GO
 ```
 
-Per eseguire manualmente il backup completo, diff e log del database nella risorsa di archiviazione locale, usare gli script T-SQL di esempio indicati di seguito. Verificare che l'opzione CHECKSUM sia abilitata perché questo è un requisito obbligatorio per con ridondanza locale.
+Per eseguire manualmente backup completi, differenziali e del log del database nell'archiviazione locale, usare gli script T-SQL di esempio seguenti. Verificare che l' `CHECKSUM` opzione sia abilitata, perché è obbligatoria per con ridondanza locale.
 
 ```SQL
--- Example on how to make full database backup to the local disk
+-- Example of how to make a full database backup to the local disk
 BACKUP DATABASE [SampleDB]
 TO DISK='C:\BACKUP\SampleDB_full.bak'
 WITH INIT, COMPRESSION, CHECKSUM
 GO
 
--- Example on how to make differential database backup to the locak disk
+-- Example of how to make a differential database backup to the local disk
 BACKUP DATABASE [SampleDB]
 TO DISK='C:\BACKUP\SampleDB_diff.bak'
 WITH DIFFERENTIAL, COMPRESSION, CHECKSUM
 GO
 
--- Example on how to make the transactional log backup to the local disk
+-- Example of how to make a transactional log backup to the local disk
 BACKUP LOG [SampleDB]
 TO DISK='C:\BACKUP\SampleDB_log.trn'
 WITH COMPRESSION, CHECKSUM
 GO
 ```
 
-### <a name="create-azure-blob-storage"></a>Creazione di un archivio BLOB di Azure
+### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
 L'archivio BLOB di Azure viene usato come risorsa di archiviazione intermedia per i file di backup tra SQL Server e SQL Istanza gestita. Per creare un nuovo account di archiviazione e un contenitore BLOB nell'account di archiviazione, seguire questa procedura:
 
-1. [Creare un account di archiviazione](../../storage/common/storage-account-create.md?tabs=azure-portal)
-2. [Creta un contenitore BLOB](../../storage/blobs/storage-quickstart-blobs-portal.md) nell'account di archiviazione
+1. [Creare un account di archiviazione](../../storage/common/storage-account-create.md?tabs=azure-portal).
+2. [Creta un contenitore BLOB](../../storage/blobs/storage-quickstart-blobs-portal.md) nell'account di archiviazione.
 
-### <a name="copy-backups-from-sql-server-to-azure-blob-storage"></a>Copiare i backup da SQL Server all'archivio BLOB di Azure
+### <a name="copy-backups-from-sql-server-to-blob-storage"></a>Copiare i backup da SQL Server nell'archiviazione BLOB
 
-È possibile usare alcuni degli approcci seguenti per caricare i backup nell'archiviazione BLOB nella migrazione dei database all'istanza gestita usando con ridondanza locale:
-- Uso di [Azcopy](/azure/storage/common/storage-use-azcopy-v10)o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) per caricare i backup in un contenitore BLOB.
-- Utilizzo di Storage Explorer in portale di Azure.
+Per eseguire la migrazione di database a un'istanza gestita tramite con ridondanza locale, è possibile usare gli approcci seguenti per caricare i backup nell'archiviazione BLOB:
+- Uso di SQL Server funzionalità [di backup nativo in URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)
+- Uso di [Azcopy](/azure/storage/common/storage-use-azcopy-v10) o [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer) per caricare i backup in un contenitore BLOB
+- Utilizzo di Storage Explorer nel portale di Azure
 
-### <a name="make-backups-from-sql-server-directly-to-azure-blob-storage"></a>Eseguire backup da SQL Server direttamente nell'archivio BLOB di Azure
+### <a name="make-backups-from-sql-server-directly-to-blob-storage"></a>Eseguire backup da SQL Server direttamente nell'archiviazione BLOB
+Se i criteri aziendali e di rete lo consentono, un'alternativa consiste nell'eseguire il backup da SQL Server direttamente nell'archiviazione BLOB usando l'opzione backup nativo SQL Server [per l'URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) . Se è possibile adottare questa opzione, non è necessario eseguire i backup nell'archivio locale e caricarli nell'archivio BLOB.
 
-Nel caso in cui i criteri aziendali e di rete lo consentano, il modo alternativo consiste nel creare backup da SQL Server direttamente nell'archiviazione BLOB di Azure usando SQL Server opzione [backup nativo in URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) . Se è possibile adottare questa opzione, non è necessario eseguire i backup nell'archivio locale e caricarli nell'archiviazione BLOB di Azure.
+Come primo passaggio, per questa operazione è necessario generare un token di autenticazione SAS per l'archiviazione BLOB e quindi importare il token in SQL Server. Il secondo passaggio consiste nel creare backup con l' `TO URL` opzione in T-SQL. Verificare che tutti i backup vengano eseguiti con l' `CHEKSUM` opzione abilitata.
 
-Come primo passaggio, questa operazione richiede la generazione del token di autenticazione SAS per l'archiviazione BLOB di Azure e il token deve essere importato nel SQL Server. Il secondo passaggio consiste nel creare backup con l'opzione "TO URL" in T-SQL. Verificare che tutti i backup vengano eseguiti con l'opzione CHEKSUM abilitata.
-
-Per riferimento, il codice di esempio per eseguire il backup nell'archiviazione BLOB di Azure è indicato di seguito. Questo esempio non include istruzioni su come importare il token SAS. Per istruzioni dettagliate, tra cui come generare e importare il token di firma di accesso condiviso in SQL Server, seguire questa esercitazione: [usare il servizio di archiviazione BLOB di Azure con SQL Server](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage). 
+Per riferimento, il codice di esempio seguente consente di eseguire i backup nell'archivio BLOB. Questo esempio non include istruzioni su come importare il token SAS. Per istruzioni dettagliate, tra cui come generare e importare il token di firma di accesso condiviso in SQL Server, vedere l'esercitazione [usare l'archivio BLOB di Azure con SQL Server](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage). 
 
 ```SQL
--- Example on how to make full database backup to URL
+-- Example of how to make a full database backup to a URL
 BACKUP DATABASE [SampleDB]
 TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/SampleDB_full.bak'
 WITH INIT, COMPRESSION, CHECKSUM
 GO
-
--- Example on how to make differential database backup to URL
+-- Example of how to make a differential database backup to a URL
 BACKUP DATABASE [SampleDB]
 TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/SampleDB_diff.bak'  
 WITH DIFFERENTIAL, COMPRESSION, CHECKSUM
 GO
 
--- Example on how to make the transactional log backup to URL
+-- Example of how to make a transactional log backup to a URL
 BACKUP LOG [SampleDB]
 TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/SampleDB_log.trn'  
 WITH COMPRESSION, CHECKSUM
 ```
 
-### <a name="generate-azure-blob-storage-sas-authentication-for-lrs"></a>Generare l'autenticazione SAS di archiviazione BLOB di Azure per con ridondanza locale
+### <a name="generate-a-blob-storage-sas-authentication-token-for-lrs"></a>Generare un token di autenticazione SAS per l'archiviazione BLOB per con ridondanza locale
 
-L'archivio BLOB di Azure viene usato come risorsa di archiviazione intermedia per i file di backup tra SQL Server e SQL Istanza gestita. Il token di autenticazione SAS con autorizzazioni di elenco e di sola lettura deve essere generato per l'uso da con ridondanza locale Service. Questo consentirà al servizio con ridondanza locale di accedere all'archivio BLOB di Azure e usare i file di backup per ripristinarli in SQL Istanza gestita. Seguire questa procedura per generare l'autenticazione SAS per l'uso di con ridondanza locale:
+L'archivio BLOB di Azure viene usato come risorsa di archiviazione intermedia per i file di backup tra SQL Server e SQL Istanza gestita. È necessario generare un token di autenticazione della firma di accesso condiviso, con solo le autorizzazioni List e Read, per con ridondanza locale. Il token consentirà a con ridondanza locale di accedere all'archiviazione BLOB e usare i file di backup per ripristinarli in SQL Istanza gestita. 
 
-1. Accedere al Storage Explorer da portale di Azure
+Per generare il token, attenersi alla procedura seguente:
 
-2. Espandere contenitori BLOB
+1. Aprire Storage Explorer dalla portale di Azure.
+2. Espandere **contenitori BLOB**.
+3. Fare clic con il pulsante destro del mouse sul contenitore BLOB e selezionare **Ottieni firma di accesso condiviso**.
 
-3. Fare clic con il pulsante destro del mouse sul contenitore BLOB e selezionare Ottieni firma di accesso condiviso
-
-   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-01.png" alt-text="Servizio di riproduzione log-ottenere la firma di accesso condiviso":::
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-01.png" alt-text="Screenshot che mostra le selezioni per la generazione di un token di autenticazione S A.":::
 
 4. Selezionare l'intervallo di tempo per la scadenza del token. Verificare che il token sia valido per la durata della migrazione.
+5. Selezionare il fuso orario per il token: UTC o l'ora locale.
+    
+   > [!IMPORTANT]
+   > Il fuso orario del token e dell'istanza gestita potrebbe non corrispondere. Verificare che il token di firma di accesso condiviso disponga della validità del tempo appropriato, prendendo in considerazione i fusi orari. Se possibile, impostare il fuso orario su un'ora precedente e successiva della finestra di migrazione pianificata.
+6. Selezionare **Leggi** ed **Elenca** solo le autorizzazioni.
 
-5. Selezionare il fuso orario per il token-UTC o l'ora locale
+   > [!IMPORTANT]
+   > Non selezionare altre autorizzazioni. In caso contrario, con ridondanza locale non verrà avviato. Questo requisito di sicurezza è da progettazione.
+7. Selezionare **Crea**.
 
-   - Il fuso orario del token e del Istanza gestita SQL potrebbe non corrispondere. Verificare che il token di firma di accesso condiviso disponga della validità del tempo appropriata per tenere in considerazione i fusi orari. Se possibile, impostare il fuso orario su un'ora precedente e successiva della finestra di migrazione pianificata.
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-02.png" alt-text="Screenshot che mostra le selezioni per la scadenza, il fuso orario e le autorizzazioni del token S A, insieme al pulsante Crea.":::
 
-6. Selezionare Leggi ed elenca solo le autorizzazioni
+L'autenticazione SAS viene generata con la validità dell'ora specificata. È necessaria la versione URI del token, come illustrato nello screenshot seguente.
 
-   - Non è necessario selezionare altre autorizzazioni, altrimenti con ridondanza locale non sarà in grado di avviarsi. Questo requisito di sicurezza è da progettazione.
+:::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Screenshot che mostra un esempio della versione U R I di un token S A.":::
 
-7. Fai clic sul pulsante Crea
+### <a name="copy-parameters-from-the-sas-token"></a>Copiare i parametri dal token SAS
 
-   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-02.png" alt-text="Servizio di riproduzione log-genera token di autenticazione SAS":::
+Prima di usare il token SAS per avviare con ridondanza locale, è necessario comprenderne la struttura. L'URI del token di firma di accesso condiviso generato è costituito da due parti separate da un punto interrogativo ( `?` ), come illustrato nell'esempio seguente:
 
-   L'autenticazione SAS verrà generata con la validità dell'ora specificata in precedenza. Sarà necessaria la versione URI del token generato, come illustrato nella schermata seguente.
+:::image type="content" source="./media/log-replay-service-migrate/lrs-token-structure.png" alt-text="Esempio U R I per un token S A generato per il servizio di riproduzione log." border="false":::
 
-   :::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Servizio di riproduzione log: copiare la firma di accesso condiviso URI":::
+La prima parte, a partire da `https://` fino a quando il punto interrogativo ( `?` ) viene usata per il `StorageContainerURI` parametro alimentato come input per con ridondanza locale. Fornisce informazioni con ridondanza locale sulla cartella in cui sono archiviati i file di backup del database.
 
-### <a name="copy-parameters-from-sas-token-generated"></a>Copia i parametri dal token SAS generato
-
-Per poter usare correttamente il token SAS per avviare con ridondanza locale, è necessario comprenderne la struttura. L'URI del token SAS generato è costituito da due parti:
-- StorageContainerUri e 
-- StorageContainerSasToken, separato da un punto interrogativo (?), come illustrato nell'immagine seguente.
-
-   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-structure.png" alt-text="Esempio di URI di autenticazione SAS generato dal servizio di riesecuzione del log" border="false":::
-
-- La prima parte che inizia con "https://" fino a quando non viene usato il punto interrogativo (?) per il parametro StorageContainerURI fornito come input a con ridondanza locale. In questo modo vengono fornite informazioni con ridondanza locale sulla cartella in cui sono archiviati i file di backup del database.
-- La seconda parte, che inizia dopo il punto interrogativo (?), nell'esempio "SP =" e fino alla fine della stringa è il parametro StorageContainerSasToken. Questo è il token di autenticazione firmato effettivo, valido per la durata dell'intervallo di tempo specificato. Questa parte non deve necessariamente iniziare con "SP =" come illustrato e il caso potrebbe variare.
+La seconda parte, che inizia dopo il punto interrogativo ( `?` ) e continua fino alla fine della stringa, è il `StorageContainerSasToken` parametro. Questo è il token di autenticazione firmato effettivo, che è valido per la durata dell'ora specificata. Questa parte non deve necessariamente iniziare con `sp=` , come illustrato nell'esempio. Il caso potrebbe variare.
 
 Copiare i parametri come segue:
 
-1. Copiare la prima parte del token a partire da https://fino a quando il punto interrogativo (?) viene usato come parametro StorageContainerUri in PowerShell o nell'interfaccia della riga di comando per avviare con ridondanza locale, come illustrato nella schermata seguente.
+1. Copiare la prima parte del token, iniziando da `https://` sempre fino al punto interrogativo ( `?` ). Usarlo come `StorageContainerUri` parametro in PowerShell o nell'interfaccia della riga di comando di Azure per avviare con ridondanza locale.
 
-   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png" alt-text="Parametro StorageContainerUri copia servizio di riproduzione log":::
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png" alt-text="Screenshot che mostra la copia della prima parte del token.":::
 
-2. Copiare la seconda parte del token a partire dal punto interrogativo (?), fino alla fine della stringa e usarla come parametro StorageContainerSasToken in PowerShell o nell'interfaccia della riga di comando per l'avvio di con ridondanza locale, come illustrato nella schermata seguente.
+2. Copiare la seconda parte del token, a partire dal punto interrogativo ( `?` ) fino alla fine della stringa. Usarlo come `StorageContainerSasToken` parametro in PowerShell o nell'interfaccia della riga di comando di Azure per avviare con ridondanza locale.
 
-   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png" alt-text="Parametro StorageContainerSasToken copia servizio di riproduzione log":::
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png" alt-text="Screenshot che mostra la copia della seconda parte del token.":::
+   
+> [!NOTE]
+> Non includere il punto interrogativo quando si copia una parte del token.
 
-> [!IMPORTANT]
-> - Le autorizzazioni per il token SAS per l'archiviazione BLOB di Azure devono essere lette e solo elencate. Se vengono concesse altre autorizzazioni per il token di autenticazione SAS, l'avvio del servizio con ridondanza locale non riuscirà. Questi requisiti di sicurezza sono di progettazione.
-> - Il token deve avere la validità dell'ora appropriata. Assicurarsi che vengano presi in considerazione i fusi orari tra il token e l'istanza gestita.
-> - Verificare che il parametro StorageContainerUri per PowerShell o l'interfaccia della riga di comando venga copiato dall'URI del token generato, a partire da https://fino a quando il punto interrogativo (?). Non includere il punto interrogativo.
-> Verificare che il parametro StorageContainerSasToken per PowerShell dell'interfaccia della riga di comando venga copiato dall'URI del token generato, a partire dal punto interrogativo (?), fino alla fine della stringa. Non includere il punto interrogativo.
-
-### <a name="log-in-to-azure-and-select-subscription"></a>Accedere ad Azure e selezionare sottoscrizione
+### <a name="log-in-to-azure-and-select-a-subscription"></a>Accedere ad Azure e selezionare una sottoscrizione
 
 Usare il cmdlet di PowerShell seguente per accedere ad Azure:
 
@@ -253,7 +252,7 @@ Usare il cmdlet di PowerShell seguente per accedere ad Azure:
 Login-AzAccount
 ```
 
-Selezionare la sottoscrizione appropriata in cui si trova il Istanza gestita SQL usando il cmdlet di PowerShell seguente:
+Selezionare la sottoscrizione appropriata in cui risiede l'istanza gestita usando il cmdlet di PowerShell seguente:
 
 ```powershell
 Select-AzSubscription -SubscriptionId <subscription ID>
@@ -261,13 +260,17 @@ Select-AzSubscription -SubscriptionId <subscription ID>
 
 ## <a name="start-the-migration"></a>Avviare la migrazione
 
-La migrazione viene avviata avviando il servizio con ridondanza locale. Il servizio può essere avviato in modalità di completamento automatico o in modalità continua. Quando viene avviato in modalità di completamento automatico, la migrazione viene completata automaticamente al ripristino dell'ultimo file di backup specificato. Questa opzione richiede il comando avvia per specificare il nome file dell'ultimo file di backup. Quando con ridondanza locale viene avviato in modalità continua, il servizio ripristinerà continuamente eventuali nuovi file di backup aggiunti e la migrazione verrà completata solo su cutover manuale. 
+Per avviare la migrazione, avviare con ridondanza locale. È possibile avviare il servizio in modalità di completamento automatico o continua. 
+
+Quando si usa la modalità di completamento automatico, la migrazione viene completata automaticamente quando è stato ripristinato l'ultimo file di backup specificato. Questa opzione richiede il comando avvia per specificare il nome file dell'ultimo file di backup. 
+
+Quando si usa la modalità continua, il servizio ripristinerà continuamente tutti i nuovi file di backup aggiunti. La migrazione viene completata solo in cutover manuale. 
 
 ### <a name="start-lrs-in-autocomplete-mode"></a>Avviare con ridondanza locale in modalità di completamento automatico
 
-Per avviare il servizio con ridondanza locale in modalità di completamento automatico, usare i comandi seguenti di PowerShell o dell'interfaccia della riga di comando. Specificare l'ultimo nome del file di backup con il parametro-LastBackupName. Al momento del ripristino dell'ultimo nome del file di backup specificato, il servizio avvierà automaticamente un cutover.
+Per avviare con ridondanza locale in modalità di completamento automatico, usare i comandi seguenti di PowerShell o dell'interfaccia della riga di comando di Azure. Specificare l'ultimo nome del file di backup utilizzando il `-LastBackupName` parametro. Al momento del ripristino dell'ultimo file di backup specificato, il servizio avvierà automaticamente un cutover.
 
-Avviare con ridondanza locale in modalità di completamento automatico-esempio di PowerShell:
+Di seguito è riportato un esempio di avvio di con ridondanza locale in modalità di completamento automatico usando PowerShell:
 
 ```PowerShell
 Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
@@ -280,7 +283,7 @@ Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
     -LastBackupName "last_backup.bak"
 ```
 
-Avviare con ridondanza locale in modalità di completamento automatico-esempio dell'interfaccia della riga di comando:
+Di seguito è riportato un esempio di avvio di con ridondanza locale in modalità di completamento automatico usando l'interfaccia della riga di comando di Azure:
 
 ```CLI
 az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb -a --last-bn "backup.bak"
@@ -290,7 +293,7 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb -a --last
 
 ### <a name="start-lrs-in-continuous-mode"></a>Avviare con ridondanza locale in modalità continua
 
-Avviare con ridondanza locale in modalità continua-esempio di PowerShell:
+Di seguito è riportato un esempio di avvio di con ridondanza locale in modalità continua con PowerShell:
 
 ```PowerShell
 Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
@@ -300,7 +303,7 @@ Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
     -StorageContainerSasToken "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
-Avviare con ridondanza locale in modalità continua-esempio dell'interfaccia della riga di comando:
+Di seguito è riportato un esempio di avvio di con ridondanza locale in modalità continua usando l'interfaccia della riga di comando di Azure:
 
 ```CLI
 az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
@@ -308,9 +311,9 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
     --storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
-### <a name="scripting-lrs-start-in-continuous-mode"></a>Avvio di con ridondanza locale di scripting in modalità continua
+I client PowerShell e CLI per avviare con ridondanza locale in modalità continua sono sincroni. Ciò significa che i client attendono che la risposta dell'API segnali in caso di esito positivo o negativo per avviare il processo. 
 
-I client PowerShell e CLI per avviare con ridondanza locale in modalità continua sono sincroni. Ciò significa che i client attendono che la risposta dell'API segnali in caso di esito positivo o negativo per avviare il processo. Durante questa attesa, il comando non restituisce il controllo al prompt dei comandi. Se si crea uno script per l'esperienza di migrazione e si richiede il comando di avvio di con ridondanza locale per restituire immediatamente il controllo per continuare con il resto dello script, è possibile eseguire PowerShell come processo in background con l'opzione-AsJob. Ad esempio:
+Durante questa attesa, il comando non restituisce il controllo al prompt dei comandi. Se si sta eseguendo lo script dell'esperienza di migrazione ed è necessario il comando di avvio di con ridondanza locale per restituire immediatamente il controllo per continuare con il resto dello script, è possibile eseguire PowerShell come processo in background con l' `-AsJob` opzione. Ad esempio:
 
 ```PowerShell
 $lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob
@@ -318,18 +321,18 @@ $lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob
 
 Quando si avvia un processo in background, viene restituito immediatamente un oggetto processo, anche se il completamento del processo richiede un tempo prolungato. È possibile continuare a lavorare nella sessione senza interruzioni durante l'esecuzione del processo. Per informazioni dettagliate sull'esecuzione di PowerShell come processo in background, vedere la documentazione di [PowerShell Start-Job](/powershell/module/microsoft.powershell.core/start-job#description) .
 
-Analogamente, per avviare un comando dell'interfaccia della riga di comando in Linux come processo in background, usare il segno commerciale (&) alla fine del comando di avvio di con ridondanza locale.
+Analogamente, per avviare un comando dell'interfaccia della riga di comando di Azure in Linux come processo in background, usare la e commerciale ( `&` ) alla fine del comando di avvio di con ridondanza locale:
 
 ```CLI
 az sql midb log-replay start <required parameters> &
 ```
 
 > [!IMPORTANT]
-> Dopo l'avvio di con ridondanza locale, tutte le patch del software gestito dal sistema verranno interrotte per le prossime 47 ore. Al passaggio di questa finestra, la prossima patch software automatizzata arresterà automaticamente il con ridondanza locale in corso. In tal caso, non è possibile riprendere la migrazione ed è necessario riavviarla da zero. 
+> Dopo l'avvio di con ridondanza locale, tutte le patch software gestite dal sistema vengono interrotte per 47 ore. Dopo questa finestra, la patch software automatizzata successiva arresterà automaticamente con ridondanza locale. In tal caso, non è possibile riprendere la migrazione ed è necessario riavviarla da zero. 
 
 ## <a name="monitor-the-migration-progress"></a>Monitorare lo stato di avanzamento della migrazione
 
-Per monitorare lo stato dell'operazione di migrazione, usare il comando di PowerShell seguente:
+Per monitorare lo stato di avanzamento della migrazione tramite PowerShell, usare il comando seguente:
 
 ```PowerShell
 Get-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
@@ -337,7 +340,7 @@ Get-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
     -Name "ManagedDatabaseName"
 ```
 
-Per monitorare lo stato dell'operazione di migrazione, usare il comando dell'interfaccia della riga di comando seguente:
+Per monitorare lo stato di avanzamento della migrazione tramite l'interfaccia della riga di comando di Azure, usare il comando seguente:
 
 ```CLI
 az sql midb log-replay show -g mygroup --mi myinstance -n mymanageddb
@@ -345,9 +348,9 @@ az sql midb log-replay show -g mygroup --mi myinstance -n mymanageddb
 
 ## <a name="stop-the-migration"></a>Arrestare la migrazione
 
-Se è necessario arrestare la migrazione, usare i cmdlet seguenti. L'arresto della migrazione eliminerà il database di ripristino in SQL Istanza gestita a causa del quale non sarà possibile riprendere la migrazione.
+Se è necessario arrestare la migrazione, usare i cmdlet seguenti. L'arresto della migrazione eliminerà il database di ripristino in SQL Istanza gestita, quindi non sarà possibile riprendere la migrazione.
 
-Per stop\abort il processo di migrazione, usare il comando di PowerShell seguente:
+Per arrestare il processo di migrazione tramite PowerShell, usare il comando seguente:
 
 ```PowerShell
 Stop-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
@@ -355,7 +358,7 @@ Stop-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
     -Name "ManagedDatabaseName"
 ```
 
-Per stop\abort il processo di migrazione, usare il comando dell'interfaccia della riga di comando seguente:
+Per arrestare il processo di migrazione tramite l'interfaccia della riga di comando di Azure, usare il comando seguente:
 
 ```CLI
 az sql midb log-replay stop -g mygroup --mi myinstance -n mymanageddb
@@ -363,9 +366,9 @@ az sql midb log-replay stop -g mygroup --mi myinstance -n mymanageddb
 
 ## <a name="complete-the-migration-continuous-mode"></a>Completamento della migrazione (modalità continua)
 
-Nel caso in cui con ridondanza locale venga avviato in modalità continua, dopo aver verificato che tutti i backup siano stati ripristinati, l'avvio del cutover completerà la migrazione. Al termine del cutover, verrà eseguita la migrazione del database e sarà possibile accedere in lettura e scrittura.
+Se il con ridondanza locale è stato avviato in modalità continua, dopo aver verificato che tutti i backup siano stati ripristinati, l'avvio del cutover completerà la migrazione. Dopo cutover, il database verrà migrato e pronto per l'accesso in lettura e scrittura.
 
-Per completare il processo di migrazione in modalità continua con ridondanza locale, usare il comando di PowerShell seguente:
+Per completare il processo di migrazione in modalità continua con ridondanza locale tramite PowerShell, usare il comando seguente:
 
 ```PowerShell
 Complete-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
@@ -374,7 +377,7 @@ Complete-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 -LastBackupName "last_backup.bak"
 ```
 
-Per completare il processo di migrazione in modalità continua con ridondanza locale, usare il comando dell'interfaccia della riga di comando seguente:
+Per completare il processo di migrazione in modalità continua con ridondanza locale tramite l'interfaccia della riga di comando di Azure, usare il comando seguente:
 
 ```CLI
 az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last-backup-name "backup.bak"
@@ -382,27 +385,28 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 
 ## <a name="functional-limitations"></a>Limitazioni funzionali
 
-Le limitazioni funzionali del servizio di riesecuzione del log (con ridondanza locale) sono:
-- Impossibile utilizzare il database da ripristinare per l'accesso in sola lettura durante il processo di migrazione.
-- Le patch del software gestito dal sistema verranno bloccate per 47 ore dall'avvio di con ridondanza locale. Alla scadenza di questo intervallo di tempo, l'aggiornamento software successivo arresterà con ridondanza locale. In tal caso, con ridondanza locale deve essere riavviato da zero.
-- Per con ridondanza locale è necessario eseguire il backup dei database nel SQL Server con l'opzione CHECKSUM abilitata.
-- Il token di firma di accesso condiviso per l'uso da parte di con ridondanza locale deve essere generato per l'intero contenitore di archiviazione BLOB di Azure e deve avere solo le autorizzazioni di lettura ed elenco.
-- I file di backup per database diversi devono essere posizionati in cartelle separate nell'archivio BLOB di Azure.
-- CON ridondanza locale deve essere avviato separatamente per ogni database che punta a cartelle separate con file di backup nell'archiviazione BLOB di Azure.
-- CON ridondanza locale può supportare fino a 100 processi di ripristino simultanei per singolo SQL Istanza gestita.
+Le limitazioni funzionali di con ridondanza locale sono:
+- Il database di cui si sta eseguendo il ripristino non può essere utilizzato per l'accesso in sola lettura durante il processo di migrazione.
+- Le patch software gestite dal sistema sono bloccate per 47 ore dopo l'avvio di con ridondanza locale. Dopo la scadenza di questo intervallo di tempo, l'aggiornamento software successivo arresterà con ridondanza locale. È quindi necessario riavviare con ridondanza locale da zero.
+- Per con ridondanza locale è necessario eseguire il backup di database in SQL Server con l' `CHECKSUM` opzione abilitata.
+- Il token di firma di accesso condiviso che verrà usato da con ridondanza locale deve essere generato per l'intero contenitore di archiviazione BLOB di Azure e deve avere solo autorizzazioni di lettura ed elenco.
+- I file di backup per database diversi devono essere posizionati in cartelle separate nell'archivio BLOB.
+- CON ridondanza locale deve essere avviato separatamente per ogni database che punta a cartelle separate con file di backup nell'archivio BLOB.
+- CON ridondanza locale può supportare fino a 100 processi di ripristino simultanei per singola istanza gestita.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Una volta avviato il con ridondanza locale, usare i cmdlet di monitoraggio (Get-azsqlinstancedatabaselogreplay o az_sql_midb_log_replay_show) per visualizzare lo stato dell'operazione. Se dopo un certo periodo di tempo con ridondanza locale non riesce a iniziare con un errore, verificare la presenza di alcuni dei problemi più comuni:
-- Esiste già un database con lo stesso nome in SQL MI a cui si sta tentando di eseguire la migrazione da SQL Server? Per risolvere il conflitto, rinominare uno dei database.
-- Il backup del database nel SQL Server è stato eseguito con l'opzione **checksum** ?
-- Le autorizzazioni per il token SAS sono **lette** ed **elencate** solo per il servizio con ridondanza locale?
-- Il token di firma di accesso condiviso per con ridondanza locale è stato copiato iniziando dopo il punto interrogativo "?" con contenuto iniziale simile a "SV = 2020-02-10..."? 
-- Il tempo di **validità del token** di firma di accesso condiviso è applicabile per l'intervallo di tempo di avvio e completamento della migrazione? Potrebbero verificarsi mancate corrispondenze a causa dei diversi **fusi orari** usati per SQL istanza gestita e il token SAS. Provare a rigenerare il token SAS estendendo la validità del token della finestra temporale prima e dopo la data corrente.
+Dopo l'avvio di con ridondanza locale, usare il cmdlet Monitoring ( `get-azsqlinstancedatabaselogreplay` o `az_sql_midb_log_replay_show` ) per visualizzare lo stato dell'operazione. Se con ridondanza locale non viene avviato dopo un certo periodo di tempo e viene generato un errore, verificare i problemi più comuni:
+
+- Un database esistente in SQL Istanza gestita ha lo stesso nome di quello che si sta tentando di migrare da SQL Server? Per risolvere il conflitto, rinominare uno dei database.
+- È stato eseguito il backup del database in SQL Server tramite l' `CHECKSUM` opzione?
+- Le autorizzazioni per il token SAS sono lette ed elencate solo per con ridondanza locale?
+- Il token di firma di accesso condiviso per con ridondanza locale è stato copiato dopo il punto interrogativo ( `?` ) con contenuto che inizia come segue: `sv=2020-02-10...` ? 
+- Il tempo di validità del token di firma di accesso condiviso è applicabile per l'intervallo di tempo di avvio e completamento della migrazione? Potrebbero esserci mancate corrispondenze a causa dei diversi fusi orari usati per SQL Istanza gestita e il token SAS. Provare a rigenerare il token SAS ed estendere la validità del token della finestra temporale prima e dopo la data corrente.
 - Il nome del database, il nome del gruppo di risorse e il nome dell'istanza gestita sono stati digitati correttamente?
 - Se con ridondanza locale è stato avviato in modalità di completamento automatico, era un nome file valido per l'ultimo file di backup specificato?
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulla [migrazione di SQL Server a un'istanza gestita di SQL](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
-- Altre informazioni sulle [differenze tra SQL Server e istanza gestita SQL di Azure](transact-sql-tsql-differences-sql-server.md).
+- Altre informazioni sulle [differenze tra SQL Server e SQL istanza gestita](transact-sql-tsql-differences-sql-server.md).
 - Altre informazioni sulle [procedure consigliate per i carichi di lavoro relativi a costi e dimensioni migrati in Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs).

@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: b266def0dbe81542714fc6d47986f3cde8235dd0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 62981686c7aadc713c4abc78075be8613fe0af45
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122961"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199307"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorare la connettività dei dispositivi con l'interfaccia della riga di comando di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "92122961"
 
 Usare l'estensione dell'interfaccia della riga di comando di Azure per visualizzare i messaggi inviati dai dispositivi a IoT Central e osservare le modifiche nel dispositivo gemello. È possibile usare questo strumento per eseguire il debug e osservare la connettività dei dispositivi e diagnosticare i problemi dei messaggi del dispositivo che non raggiungono il cloud o i dispositivi che non rispondono alle modifiche del dispositivo gemello
 
-[Vedere le informazioni di riferimento sulle estensioni dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
+[Vedere le informazioni di riferimento sulle estensioni dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-iot/iot/central)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -62,7 +62,7 @@ az login
 ```
 
 ### <a name="get-the-application-id-of-your-iot-central-app"></a>Ottenere l'ID applicazione dell'app IoT Central
-In **Impostazioni amministrazione/applicazione**copiare l' **ID applicazione**. Questo valore verrà usato nei passaggi successivi.
+In **Impostazioni amministrazione/applicazione** copiare l' **ID applicazione**. Questo valore verrà usato nei passaggi successivi.
 
 ### <a name="monitor-messages"></a>Monitoraggio dei messaggi
 Monitorare i messaggi inviati all'app IoT Central dai dispositivi. L'output include tutte le intestazioni e le annotazioni.

@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: df706a83c4892c15140e5d5c827a248156b66069
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 728014c53ab019f25bdc9b097c8b493411833aaa
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095688"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198847"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -160,7 +160,7 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 
   Per altre informazioni su come generare i token di firma di accesso condiviso, vedere la sezione sui dispositivi nell'articolo [Uso dei token di sicurezza dell'hub IoT](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Quando si esegue il test, è anche possibile usare gli [strumenti di Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Internet multipiattaforma per Visual Studio Code o il comando di estensione CLI [AZ l'hub generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token&preserve-view=true) per generare rapidamente un token SAS che è possibile copiare e incollare nel codice.
+  Quando si esegue il test, è anche possibile usare gli [strumenti di Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Internet multipiattaforma per Visual Studio Code o il comando di estensione CLI [AZ l'hub generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) per generare rapidamente un token SAS che è possibile copiare e incollare nel codice.
 
 ### <a name="for-azure-iot-tools"></a>Per Azure IoT Tools
 

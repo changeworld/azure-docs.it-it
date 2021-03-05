@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9566560aaebaaa7ba3fc6d963a30637e33118077
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8f2bd316c733f4680a266d609e1cc95a4879016d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651060"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198524"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurare le impostazioni di Multi-Factor Authentication Azure AD
 
@@ -57,7 +57,7 @@ Per configurare le impostazioni di blocco degli account, completare le impostazi
 
 ## <a name="block-and-unblock-users"></a>Bloccare e sbloccare utenti
 
-Se il dispositivo di un utente è stato smarrito o rubato, è possibile bloccare Azure AD Multi-Factor Authentication tentativi per l'account associato. Eventuali tentativi di Azure AD Multi-Factor Authentication per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati.
+Se il dispositivo di un utente è stato smarrito o rubato, è possibile bloccare Azure AD Multi-Factor Authentication tentativi per l'account associato. Eventuali tentativi di Azure AD Multi-Factor Authentication per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati. È stato pubblicato un video su [come bloccare e sbloccare gli utenti nel tenant](https://www.youtube.com/watch?v=WdeE1On4S1o) per illustrare come eseguire questa operazione.
 
 ### <a name="block-a-user"></a>Bloccare un utente
 

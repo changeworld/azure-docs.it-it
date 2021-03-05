@@ -3,12 +3,12 @@ title: Domini eventi in Griglia di eventi di Azure
 description: Questo articolo descrive come usare i domini eventi per gestire il flusso di eventi personalizzati per vari clienti, organizzazioni o applicazioni aziendali.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 9b313784cd006087f3c2f1354053540cc9224782
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 46a50a8ecc50bd1b80efcba41228564df1c36c9f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328828"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198686"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informazioni sui domini eventi per la gestione di argomenti di Griglia di eventi
 
@@ -25,15 +25,8 @@ Un dominio eventi è uno strumento per la gestione di un numero elevato di argom
 
 I domini eventi mettono a disposizione la stessa architettura usata dai servizi di Azure, come Archiviazione e hub IoT, per pubblicare i propri eventi. Consentono di pubblicare eventi in migliaia di argomenti. I domini offrono anche il controllo dell'autenticazione e dell'autorizzazione su ogni argomento, consentendo di partizionare i tenant.
 
-### <a name="example-use-case"></a>Esempio di caso d'uso
-
-I domini eventi si possono comprendere più facilmente con un esempio. Supponiamo di eseguire contoso Operating Machinery, dove Produci i trattori, le attrezzature di scavo e altri macchinari pesanti. Quando si gestisce un'azienda, si esegue il push verso i clienti di informazioni in tempo reale riguardanti la manutenzione delle apparecchiature, l'integrità dei sistemi e gli aggiornamenti dei contratti. Tutte queste informazioni vengono inoltrate a vari endpoint, tra cui l'app, gli endpoint dei clienti e altre infrastrutture configurate dai clienti.
-
-I domini eventi consentono di modellare Contoso Construction Machinery come una singola entità di gestione degli eventi. Ogni cliente viene rappresentato come un argomento all'interno del dominio. L'autenticazione e l'autorizzazione vengono gestite mediante Azure Active Directory. Ogni cliente può sottoscrivere il proprio argomento e ricevere i relativi eventi. L'accesso gestito tramite il dominio eventi garantisce che il cliente possa accedere solo al proprio argomento.
-
-Offre inoltre un singolo endpoint, in cui è possibile pubblicare tutti gli eventi dei clienti. Griglia di eventi assicurerà che ogni argomento venga a conoscenza solo degli eventi con ambito a livello del proprio tenant.
-
-![Esempio di Contoso Construction](./media/event-domains/contoso-construction-example.png)
+## <a name="example-use-case"></a>Esempio di caso d'uso
+[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
 
 ## <a name="access-management"></a>Gestione degli accessi
 
@@ -107,6 +100,8 @@ Se questi limiti non soddisfano l'utente, contattare il team del prodotto aprend
 I domini degli eventi utilizzano gli stessi [prezzi delle operazioni](https://azure.microsoft.com/pricing/details/event-grid/) utilizzate da tutte le altre funzionalità di griglia di eventi.
 
 Nei domini eventi le operazioni funzionano come negli argomenti personalizzati. Ogni ingresso di un evento in un dominio eventi è un'operazione e ogni tentativo di recapito di un evento è un'operazione.
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c6b9cfab4256c72118a65f7fb0c8e672e2082ffe
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715701"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199663"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Come usare il post per inviare richieste alle API dei dispositivi gemelli digitali di Azure
 
@@ -21,7 +21,7 @@ Il [post](https://www.getpostman.com/) è uno strumento di test REST che fornisc
 
 Questo articolo descrive come configurare il [client REST di post](https://www.getpostman.com/) per interagire con le API di Azure Digital gemelli, seguendo questa procedura:
 
-1. Usare l' [interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) della riga di comando di Azure per ottenere un Bearer token che si userà per eseguire richieste API in un altro utente.
+1. Usare l' [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure per ottenere un Bearer token che si userà per eseguire richieste API in un altro utente.
 1. Configurare una raccolta di post e configurare il client REST per l'uso del bearer token per l'autenticazione.
 1. Usare il post di pubblicazione configurato per creare e inviare una richiesta alle API dei dispositivi gemelli digitali di Azure.
 
@@ -41,9 +41,9 @@ Scaricare quindi la versione desktop del client di post. Passare a [*www.getpost
 
 Dopo aver configurato il post e l'istanza di Azure Digital gemelli, è necessario ottenere un bearer token che le richieste del post di pubblicazione possano usare per l'autorizzazione alle API dei dispositivi gemelli digitali di Azure.
 
-È possibile ottenere questo token in diversi modi. Questo articolo usa l' [interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) della riga di comando di Azure per accedere all'account Azure e ottenere un token in questo modo.
+È possibile ottenere questo token in diversi modi. Questo articolo usa l' [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure per accedere all'account Azure e ottenere un token in questo modo.
 
-Se è installata un'interfaccia della riga di comando di Azure in [locale](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), è possibile avviare un prompt dei comandi nel computer per eseguire i comandi seguenti.
+Se è installata un'interfaccia della riga di comando di Azure in [locale](/cli/azure/install-azure-cli), è possibile avviare un prompt dei comandi nel computer per eseguire i comandi seguenti.
 In caso contrario, è possibile aprire una finestra di [Azure cloud Shell](https://shell.azure.com) nel browser ed eseguire i comandi in tale finestra.
 
 1. Prima di tutto, assicurarsi di essere connessi ad Azure con le credenziali appropriate eseguendo questo comando:
@@ -52,7 +52,7 @@ In caso contrario, è possibile aprire una finestra di [Azure cloud Shell](https
     az login
     ```
 
-1. Usare quindi il comando [AZ account Get-Access-token](/cli/azure/account?preserve-view=true&view=azure-cli-latest#az_account_get_access_token) per ottenere un Bearer token con accesso al servizio Azure Digital Twins.
+1. Usare quindi il comando [AZ account Get-Access-token](/cli/azure/account#az_account_get_access_token) per ottenere un Bearer token con accesso al servizio Azure Digital Twins.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0

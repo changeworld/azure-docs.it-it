@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: cc55d1569c85dd0873d0132833acc99bd5d06136
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 505859075ce58c5db6873544123710a11135651a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928938"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198609"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Avvio rapido: Configurare il servizio Device Provisioning in hub IoT con un modello di Resource Manager
 
@@ -136,13 +136,13 @@ Accedere al proprio account Azure e selezionare la sottoscrizione.
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
-1. Per verificare la distribuzione, eseguire questo [comando per elencare le risorse](/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) e cercare il nuovo servizio di provisioning e il nuovo hub IoT nell'output:
+1. Per verificare la distribuzione, eseguire questo [comando per elencare le risorse](/cli/azure/resource#az-resource-list) e cercare il nuovo servizio di provisioning e il nuovo hub IoT nell'output:
 
     ```azurecli
      az resource list -g "${projectName}rg"
     ```
 
-2. Per verificare che l'hub sia già collegato alla risorsa DPS, eseguire questo [comando per visualizzare l'estensione DPS](/cli/azure/iot/dps?view=azure-cli-latest#az_iot_dps_show&preserve-view=true).
+2. Per verificare che l'hub sia già collegato alla risorsa DPS, eseguire questo [comando per visualizzare l'estensione DPS](/cli/azure/iot/dps#az_iot_dps_show).
 
     ```azurecli
      az iot dps show --name <Your provisioningServiceName>

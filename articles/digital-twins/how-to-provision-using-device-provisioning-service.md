@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 24dac044982d59e93da17ee75190f378d5e3cdea
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c2e7c9c96f237512d7f28f7243707b097c034aab
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050920"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198456"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gestire automaticamente i dispositivi nei dispositivi gemelli digitali di Azure usando il servizio Device provisioning (DPS)
 
@@ -69,7 +69,7 @@ Quando viene effettuato il provisioning di un nuovo dispositivo usando il serviz
 
 Creare un'istanza del servizio Device provisioning, che verrà usata per eseguire il provisioning dei dispositivi. È possibile usare le istruzioni dell'interfaccia della riga di comando di Azure riportate di seguito oppure usare la portale di Azure: [*Guida introduttiva: configurare il servizio Device provisioning in hub Internet con l'portale di Azure*](../iot-dps/quick-setup-auto-provision.md).
 
-Il comando dell'interfaccia della riga di comando di Azure seguente creerà un servizio Device provisioning. Sarà necessario specificare un nome, un gruppo di risorse e un'area. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)l'interfaccia della riga di comando di Azure.
+Il comando dell'interfaccia della riga di comando di Azure seguente creerà un servizio Device provisioning. Sarà necessario specificare un nome, un gruppo di risorse e un'area. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli)l'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
@@ -190,7 +190,7 @@ Salvare il progetto, quindi pubblicare di nuovo l'app per le funzioni. Per istru
 
 A questo punto, è necessario impostare le variabili di ambiente nell'app per le funzioni precedente, contenente il riferimento all'istanza di Azure Digital Twins creata e all'hub eventi. Se è stata usata l'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)), la prima impostazione sarà già configurata.
 
-Aggiungere l'impostazione con questo comando dell'interfaccia della riga di comando di Azure. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)l'interfaccia della riga di comando di Azure.
+Aggiungere l'impostazione con questo comando dell'interfaccia della riga di comando di Azure. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli)l'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
@@ -223,7 +223,7 @@ Per attivare il processo di ritiro, è necessario eliminare manualmente il dispo
 
 Nella [prima metà di questo articolo](#auto-provision-device-using-device-provisioning-service)è stato creato un dispositivo nell'hub Internet e un dispositivo gemello digitale corrispondente. 
 
-A questo punto, passare all'hub Internet e quindi eliminare il dispositivo. è possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_iot_hub_module_identity_delete) o nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs). 
+A questo punto, passare all'hub Internet e quindi eliminare il dispositivo. è possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-iot/iot/hub/module-identity#ext_azure_iot_az_iot_hub_module_identity_delete) o nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs). 
 
 Il dispositivo verrà rimosso automaticamente dai dispositivi gemelli digitali di Azure. 
 
@@ -240,7 +240,7 @@ Si noterà che il gemello del dispositivo non è più disponibile nell'istanza d
 
 Se le risorse create in questo articolo non sono più necessarie, attenersi alla procedura seguente per eliminarle.
 
-Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale è possibile eliminare tutte le risorse di Azure in un gruppo di risorse con il comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) . Il gruppo di risorse verrà rimosso. istanza di Azure Digital Twins; l'hub Internet delle cose e la registrazione del dispositivo hub; argomento di griglia di eventi e sottoscrizioni associate; lo spazio dei nomi di hub eventi e entrambe le app di funzioni di Azure, incluse le risorse associate come l'archiviazione.
+Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale è possibile eliminare tutte le risorse di Azure in un gruppo di risorse con il comando [AZ Group Delete](/cli/azure/group#az-group-delete) . Il gruppo di risorse verrà rimosso. istanza di Azure Digital Twins; l'hub Internet delle cose e la registrazione del dispositivo hub; argomento di griglia di eventi e sottoscrizioni associate; lo spazio dei nomi di hub eventi e entrambe le app di funzioni di Azure, incluse le risorse associate come l'archiviazione.
 
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. 

@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: ba58f7897827cf7ce7f6156df1434733d89d7f42
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5515d1084b28091cf7d20958cfca8af3f2664563
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844455"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199493"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Inviare messaggi da cloud a dispositivo da un hub Internet delle cose
 
@@ -147,7 +147,7 @@ Ogni hub IoT espone le opzioni di configurazione seguenti per la messaggistica d
 
     ![Impostare le opzioni di configurazione per la messaggistica da cloud a dispositivo nel portale](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **Interfaccia** della riga di comando di Azure: usare il comando [AZ all hub Update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
+* **Interfaccia** della riga di comando di Azure: usare il comando [AZ all hub Update](/cli/azure/iot/hub#az-iot-hub-update) :
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

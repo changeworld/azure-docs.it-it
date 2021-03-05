@@ -91,7 +91,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sull'interfaccia della riga di comando
-      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Informazioni di riferimento su PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
     - name: API Analisi del testo

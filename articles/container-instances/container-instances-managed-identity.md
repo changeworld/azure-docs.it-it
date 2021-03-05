@@ -3,12 +3,12 @@ title: Abilitare l'identità gestita nel gruppo di contenitori
 description: Informazioni su come abilitare un'identità gestita in istanze di contenitore di Azure in grado di eseguire l'autenticazione con altri servizi di Azure
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 67ef17b77a9db92e539dd860a3083760fe1160db
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: a0d029e39122ca7bb858103f4d7f88e2536850d5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558947"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198320"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di Azure Container
 
@@ -53,13 +53,13 @@ Per usare un'identità gestita, è necessario concedere all'identità l'accesso 
 
 Gli esempi in questo articolo usano un'identità gestita in istanze di contenitore di Azure per accedere a un segreto dell'insieme di credenziali delle chiavi di Azure. 
 
-Per iniziare, creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* con il comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) seguente:
+Per iniziare, creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* con il comando [az group create](/cli/azure/group#az-group-create) seguente:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Usare il comando [AZ Key Vault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) per creare un insieme di credenziali delle chiavi. Assicurarsi di specificare un nome univoco dell'insieme di credenziali delle chiavi. 
+Usare il comando [AZ Key Vault create](/cli/azure/keyvault#az-keyvault-create) per creare un insieme di credenziali delle chiavi. Assicurarsi di specificare un nome univoco dell'insieme di credenziali delle chiavi. 
 
 ```azurecli-interactive
 az keyvault create \
@@ -68,7 +68,7 @@ az keyvault create \
   --location eastus
 ```
 
-Archiviare un segreto di esempio nell'insieme di credenziali delle chiavi usando il comando [AZ Keys Vault Secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) :
+Archiviare un segreto di esempio nell'insieme di credenziali delle chiavi usando il comando [AZ Keys Vault Secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) :
 
 ```azurecli-interactive
 az keyvault secret set \
@@ -83,7 +83,7 @@ Continuare con gli esempi seguenti per accedere all'insieme di credenziali delle
 
 ### <a name="create-an-identity"></a>Creare un'identità
 
-Innanzitutto creare un'identità nella sottoscrizione usando il comando [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create). È possibile usare lo stesso gruppo di risorse usato per creare l'insieme di credenziali delle chiavi o utilizzarne uno diverso.
+Innanzitutto creare un'identità nella sottoscrizione usando il comando [az identity create](/cli/azure/identity#az-identity-create). È possibile usare lo stesso gruppo di risorse usato per creare l'insieme di credenziali delle chiavi o utilizzarne uno diverso.
 
 ```azurecli-interactive
 az identity create \
@@ -91,7 +91,7 @@ az identity create \
   --name myACIId
 ```
 
-Per usare l'identità nei passaggi seguenti, usare il comando [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) per archiviare l'ID dell'entità servizio e l'ID risorsa dell'identità nelle variabili.
+Per usare l'identità nei passaggi seguenti, usare il comando [az identity show](/cli/azure/identity#az-identity-show) per archiviare l'ID dell'entità servizio e l'ID risorsa dell'identità nelle variabili.
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
@@ -109,7 +109,7 @@ resourceID=$(az identity show \
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Concedere l'accesso all'identità assegnata dall'utente all'insieme di credenziali delle chiavi
 
-Eseguire il comando [AZ Key Vault set-Policy](/cli/azure/keyvault?view=azure-cli-latest) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità assegnata dall'utente di ottenere i segreti dall'insieme di credenziali delle chiavi:
+Eseguire il comando [AZ Key Vault set-Policy](/cli/azure/keyvault) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità assegnata dall'utente di ottenere i segreti dall'insieme di credenziali delle chiavi:
 
 ```azurecli-interactive
  az keyvault set-policy \
@@ -121,7 +121,7 @@ Eseguire il comando [AZ Key Vault set-Policy](/cli/azure/keyvault?view=azure-cli
 
 ### <a name="enable-user-assigned-identity-on-a-container-group"></a>Abilitare l'identità assegnata dall'utente in un gruppo di contenitori
 
-Eseguire il comando [AZ container create](/cli/azure/container?view=azure-cli-latest#az-container-create) seguente per creare un'istanza di contenitore basata sull'immagine di Microsoft `azure-cli` . Questo esempio fornisce un gruppo a contenitore singolo che è possibile usare in modo interattivo per eseguire l'interfaccia della riga di comando di Azure per accedere ad altri servizi di Azure. In questa sezione viene usato solo il sistema operativo di base. Per un esempio di uso dell'interfaccia della riga di comando di Azure nel contenitore, vedere [abilitare l'identità assegnata dal sistema in un gruppo di contenitori](#enable-system-assigned-identity-on-a-container-group). 
+Eseguire il comando [AZ container create](/cli/azure/container#az-container-create) seguente per creare un'istanza di contenitore basata sull'immagine di Microsoft `azure-cli` . Questo esempio fornisce un gruppo a contenitore singolo che è possibile usare in modo interattivo per eseguire l'interfaccia della riga di comando di Azure per accedere ad altri servizi di Azure. In questa sezione viene usato solo il sistema operativo di base. Per un esempio di uso dell'interfaccia della riga di comando di Azure nel contenitore, vedere [abilitare l'identità assegnata dal sistema in un gruppo di contenitori](#enable-system-assigned-identity-on-a-container-group). 
 
 Il parametro `--assign-identity` passa al gruppo l'identità gestita assegnata dall'utente. Il comando con esecuzione prolungata mantiene in esecuzione il contenitore. Questo esempio usa lo stesso gruppo di risorse usato per creare l'insieme di credenziali delle chiavi, ma è possibile specificarne uno diverso.
 
@@ -134,7 +134,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-Entro pochi secondi si dovrebbe ricevere una risposta dall'interfaccia della riga di comando di Azure che indica che è stata completata la distribuzione. Verificarne lo stato con il comando [AZ container Show](/cli/azure/container?view=azure-cli-latest#az-container-show) .
+Entro pochi secondi si dovrebbe ricevere una risposta dall'interfaccia della riga di comando di Azure che indica che è stata completata la distribuzione. Verificarne lo stato con il comando [AZ container Show](/cli/azure/container#az-container-show) .
 
 ```azurecli-interactive
 az container show \
@@ -206,7 +206,7 @@ La risposta avrà un aspetto simile a quanto riportato di seguito e mostrerà il
 
 ### <a name="enable-system-assigned-identity-on-a-container-group"></a>Abilitare l'identità assegnata dal sistema in un gruppo di contenitori
 
-Eseguire il comando [AZ container create](/cli/azure/container?view=azure-cli-latest#az-container-create) seguente per creare un'istanza di contenitore basata sull'immagine di Microsoft `azure-cli` . Questo esempio fornisce un gruppo a contenitore singolo che è possibile usare in modo interattivo per eseguire l'interfaccia della riga di comando di Azure per accedere ad altri servizi di Azure. 
+Eseguire il comando [AZ container create](/cli/azure/container#az-container-create) seguente per creare un'istanza di contenitore basata sull'immagine di Microsoft `azure-cli` . Questo esempio fornisce un gruppo a contenitore singolo che è possibile usare in modo interattivo per eseguire l'interfaccia della riga di comando di Azure per accedere ad altri servizi di Azure. 
 
 Il parametro `--assign-identity` senza valori aggiuntivi abilita un'identità gestita assegnata dal sistema nel gruppo. L'ambito dell'identità è il gruppo di risorse del gruppo di contenitori. Il comando con esecuzione prolungata mantiene in esecuzione il contenitore. Questo esempio usa lo stesso gruppo di risorse usato per creare l'insieme di credenziali delle chiavi, che rientra nell'ambito dell'identità.
 
@@ -255,7 +255,7 @@ spID=$(az container show \
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Concessione dell'accesso al gruppo di contenitori all'insieme di credenziali delle chiavi
 
-Eseguire il comando [AZ Key Vault set-Policy](/cli/azure/keyvault?view=azure-cli-latest) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità gestita dal sistema di ottenere i segreti dall'insieme di credenziali delle chiavi:
+Eseguire il comando [AZ Key Vault set-Policy](/cli/azure/keyvault) seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità gestita dal sistema di ottenere i segreti dall'insieme di credenziali delle chiavi:
 
 ```azurecli-interactive
  az keyvault set-policy \

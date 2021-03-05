@@ -7,21 +7,23 @@ ms.service: virtual-machines-linux
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/01/2021
+ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 448e9f6487b5afc51be9b3dee8e07007c8534a0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0fecf9f16cd1069b140e61a019a43510b59e76e8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695176"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199178"
 ---
-# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-a-linux-vm"></a>Installare e configurare xrdp per l'uso di Desktop remoto con una VM Linux
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Installare e configurare xrdp per l'uso di Desktop remoto con Ubuntu
 
-Le macchine virtuali Linux (VM) di Azure in genere vengono gestite dalla riga di comando tramite una connessione secure shell (SSH). Quando si è nuovi a Linux, o per scenari di risoluzione dei problemi rapidi, l'uso di desktop remoto potrebbe risultare più facile. Questo articolo illustra come installare e configurare un ambiente desktop ([xfce](https://www.xfce.org)) e desktop remoto ([xrdp](http://xrdp.org)) per VM Linux usando il modello di distribuzione Resource Manager.
+Le macchine virtuali Linux (VM) di Azure in genere vengono gestite dalla riga di comando tramite una connessione secure shell (SSH). Quando si è nuovi a Linux, o per scenari di risoluzione dei problemi rapidi, l'uso di desktop remoto potrebbe risultare più facile. Questo articolo illustra come installare e configurare un ambiente desktop ([Xfce](https://www.xfce.org)) e desktop remoto ([xrdp](http://xrdp.org)) per la VM Linux che esegue Ubuntu.
 
+L'articolo è stato scritto e testato usando una VM Ubuntu 18,04. 
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Questo articolo richiede l'esistenza di una macchina virtuale Ubuntu 18.04 LTS in Azure. Se è necessario creare una macchina virtuale, usare uno dei metodi seguenti:
 
 - L'[interfaccia della riga di comando di Azure](quick-create-cli.md)

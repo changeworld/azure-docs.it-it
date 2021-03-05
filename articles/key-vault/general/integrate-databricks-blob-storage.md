@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: ba80d78cbc7d34b1496daffbd489a1d0dbfed8b4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
-ms.translationtype: HT
+ms.openlocfilehash: fc33b24aac8964d0a8390b4b38c5e1862ed639a8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285662"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198915"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>Esercitazione: Accedere ad Archiviazione BLOB di Azure con Azure Databricks e Azure Key Vault
 
@@ -29,11 +29,11 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Prima di iniziare questa esercitazione, installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+Prima di iniziare questa esercitazione, installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-a-storage-account-and-blob-container-with-azure-cli"></a>Creare un account di archiviazione e un contenitore BLOB con l'interfaccia della riga di comando di Azure
 
-Per usare i BLOB, è necessario creare prima un account di archiviazione per utilizzo generico. Se non è disponibile, creare un [gruppo di risorse](/cli/azure/group?view=azure-cli-latest#az-group-create) prima di eseguire il comando. Il comando seguente crea e visualizza i metadati del contenitore di archiviazione. Copiare l' **ID**.
+Per usare i BLOB, è necessario creare prima un account di archiviazione per utilizzo generico. Se non è disponibile, creare un [gruppo di risorse](/cli/azure/group#az-group-create) prima di eseguire il comando. Il comando seguente crea e visualizza i metadati del contenitore di archiviazione. Copiare l'**ID**.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob

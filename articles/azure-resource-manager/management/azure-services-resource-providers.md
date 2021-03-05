@@ -3,12 +3,12 @@ title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 581c25b384bf6e2865a21f083ba12eef2e5e8bcd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: cc9793bfc0ca6cc0afbede241534453209685d94
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733788"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198932"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -35,7 +35,7 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft. AutonomousSystems | [Sistemi autonomi](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Soluzione Azure VMware](../../azure-vmware/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
-| Microsoft. AzureArcData | Registro dei servizi dati abilitati per Azure Arc |
+| Microsoft. AzureArcData | Servizi dati con abilitazione di Azure Arc |
 | Microsoft.AzureData | Registro SQL Server |
 | Microsoft.AzureStack | core |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
@@ -59,12 +59,12 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.CognitiveServices | [Servizi cognitivi](../../cognitive-services/index.yml) |
 | Microsoft. Commerce- [registrato](#registration) | core |
 | Microsoft.Compute | [Macchine virtuali](../../virtual-machines/index.yml)<br />[Set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft. consumo- [registrato](#registration) | [Gestione dei costi](/azure/cost-management/) |
+| Microsoft. consumo- [registrato](#registration) | [Gestione costi](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Istanze di Container](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Registro Container](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [Servizio Azure Kubernetes](../../aks/index.yml) |
-| Microsoft. CostManagement- [registrato](#registration) | [Gestione dei costi](/azure/cost-management/) |
-| Microsoft.CostManagementExports | [Gestione dei costi](/azure/cost-management/) |
+| Microsoft. CostManagement- [registrato](#registration) | [Gestione costi](/azure/cost-management/) |
+| Microsoft.CostManagementExports | [Gestione costi](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Customer Lockbox per Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Provider personalizzati di Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |

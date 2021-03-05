@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 25c3ff7582ed408776c0ae6904e4bacddd89e40b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: a1cce7264e56b16d285685392186a05e2f075439
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624172"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199765"
 ---
-# <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare l'interfaccia della riga di comando di Azure per configurare il routing dei messaggi per l'hub IoT
+# <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Esercitazione: usare l'interfaccia della riga di comando di Azure per configurare il routing dei messaggi dell'hub
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -147,7 +147,7 @@ Dopo aver configurato le risorse di base, è possibile configurare il routing de
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Per creare l'endpoint di routing, usare [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create&preserve-view=true). Per creare la route dei messaggi per l'endpoint, usare [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create&preserve-view=true).
+Per creare l'endpoint di routing, usare [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create). Per creare la route dei messaggi per l'endpoint, usare [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create).
 
 ### <a name="route-to-a-storage-account"></a>Creare la route a un account di archiviazione
 
@@ -157,27 +157,27 @@ Configurare prima di tutto l'endpoint per l'account di archiviazione, quindi con
 
 Queste sono le variabili usate dallo script che devono essere impostate all'interno della sessione di Cloud Shell:
 
-**storageConnectionString**: questo valore viene recuperato dall'account di archiviazione configurato nello script precedente. Viene usato dal routing dei messaggi per accedere all'account di archiviazione.
+**storageConnectionString**: questo valore viene recuperato dall'account di archiviazione impostato nello script precedente. Viene usato dal routing dei messaggi per accedere all'account di archiviazione.
 
-  **resourceGroup**: esistono due occorrenze di gruppo di risorse, impostarle entrambe sul proprio gruppo di risorse.
+  **resourceGroup**: sono presenti due occorrenze del gruppo di risorse. impostarle sul gruppo di risorse.
 
-**endpoint subscriptionID**: questo campo è impostato sull'ID sottoscrizione di Azure per l'endpoint. 
+**endpoint subscriptionID**: questo campo è impostato sulla SubscriptionId di Azure per l'endpoint. 
 
-**endpointType**: il tipo di endpoint. Questo valore deve essere impostato su `azurestoragecontainer`, `eventhub`, `servicebusqueue` o `servicebustopic`. Per questa esercitazione, impostarlo su `azurestoragecontainer`.
+**EndpointType**: questo campo è il tipo di endpoint. Questo valore deve essere impostato su `azurestoragecontainer`, `eventhub`, `servicebusqueue` o `servicebustopic`. Per questa esercitazione, impostarlo su `azurestoragecontainer`.
 
-**iotHubName**: il nome dell'hub che eseguirà il routing.
+**iotHubName**: questo campo è il nome dell'hub che eseguirà il routing.
 
-**containerName**: il nome del contenitore nell'account di archiviazione in cui verranno scritti i dati.
+**containerName**: questo campo è il nome del contenitore nell'account di archiviazione in cui verranno scritti i dati.
 
-**encoding**: questo campo può essere `avro` o `json`. Indica il formato dei dati archiviati.
+**Encoding**: questo campo sarà `avro` o `json` . Indica il formato dei dati archiviati.
 
-**routeName**: il nome della route da configurare. 
+**RouteName**: questo campo è il nome della route che si sta configurando. 
 
-**endpointName**: il nome che identifica l'endpoint. 
+**EndpointName**: questo campo è il nome che identifica l'endpoint. 
 
-**enabled**: per impostazione predefinita, questo campo è `true`, a indicare che la route dei messaggi deve essere abilitata dopo la creazione.
+**Enabled**: questo campo viene impostato sul valore predefinito `true` , a indicare che la route del messaggio deve essere abilitata dopo la creazione.
 
-**condition**: la query usata per filtrare i messaggi e trovare quello inviato a questo endpoint. La condizione di query per i messaggi da instradare nell'account di archiviazione è `level="storage"`.
+**Condition**: questo campo è la query utilizzata per filtrare i messaggi inviati a questo endpoint. La condizione di query per i messaggi da instradare nell'account di archiviazione è `level="storage"`.
 
 Copiare questo script, incollarlo nella finestra Cloud Shell ed eseguirlo.
 
@@ -259,13 +259,13 @@ echo "service bus queue connection string = " $sbqConnectionString
 
 Configurare ora l'endpoint di routing e la route dei messaggi per la coda del bus di servizio. Queste sono le variabili usate dallo script che devono essere impostate all'interno della sessione di Cloud Shell:
 
-**endpointName**: il nome che identifica l'endpoint. 
+**EndpointName**: questo campo è il nome che identifica l'endpoint. 
 
-**endpointType**: il tipo di endpoint. Questo valore deve essere impostato su `azurestoragecontainer`, `eventhub`, `servicebusqueue` o `servicebustopic`. Per questa esercitazione, impostarlo su `servicebusqueue`.
+**EndpointType**: questo campo è il tipo di endpoint. Questo valore deve essere impostato su `azurestoragecontainer`, `eventhub`, `servicebusqueue` o `servicebustopic`. Per questa esercitazione, impostarlo su `servicebusqueue`.
 
-**routeName**: il nome della route da configurare. 
+**RouteName**: questo campo è il nome della route che si sta configurando. 
 
-**condition**: la query usata per filtrare i messaggi e trovare quello inviato a questo endpoint. La condizione di query per i messaggi da instradare nella coda del bus di servizio è `level="critical"`.
+**Condition**: questo campo è la query utilizzata per filtrare i messaggi inviati a questo endpoint. La condizione di query per i messaggi da instradare nella coda del bus di servizio è `level="critical"`.
 
 Ecco l'interfaccia della riga di comando di Azure per l'endpoint di routing e la route dei messaggi per la coda del bus di servizio.
 

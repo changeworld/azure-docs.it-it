@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c7ca826eaf7d72cb35985b154458f149ef4a0e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: df867059a7d4020952f71ca8d663a644ee2428fd
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649317"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199629"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
 
@@ -35,6 +34,7 @@ Gli utenti guest possono ora accedere alle app multi-tenant o Microsoft di terze
 ![Accesso endpoint comune](media/redemption-experience/common-endpoint-flow-small.png)
 
 L'utente viene quindi reindirizzato all'endpoint con tenant, in cui è possibile accedere con il proprio indirizzo di posta elettronica o selezionare un provider di identità configurato.
+
 ## <a name="redemption-through-a-direct-link"></a>Riscatto attraverso un collegamento diretto
 
 In alternativa al messaggio di posta elettronica di invito o all'URL comune di un'applicazione, è possibile assegnare a un guest un collegamento diretto all'app o al portale. È prima necessario aggiungere l'utente guest alla directory tramite il [portale di Azure](./b2b-quickstart-add-guest-users-portal.md) o [PowerShell](./b2b-quickstart-invite-powershell.md). Quindi è possibile usare uno dei [modi personalizzabili per distribuire le applicazioni agli utenti](../manage-apps/end-user-experiences.md), inclusi i collegamenti di accesso diretto. Quando un utente guest usa un collegamento diretto anziché un messaggio di posta elettronica di invito, viene comunque guidato attraverso la prima esperienza di consenso.
@@ -73,7 +73,7 @@ Quando un utente fa clic sul collegamento **Accetta l'invito** in un [messaggio 
 
 3. Se un amministratore ha abilitato la [federazione Google](./google-federation.md), Azure AD controlla se il suffisso del dominio dell'utente è gmail.com o googlemail.com e reindirizza l'utente a Google.
 
-4. Il processo di riscatto controlla se l'utente dispone di un [account Microsoft (account del servizio gestito)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personale esistente.
+4. Il processo di riscatto controlla se l'utente dispone di un account Microsoft personale esistente [(MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) per i riscatti JIT (just-in-Time), ma non per il riscatto del collegamento di posta elettronica di invito. Se l'utente dispone già di un account del servizio gestito, accederà con il servizio MSA esistente.
 
 5. Una volta identificato la **home directory** dell'utente, l'utente viene reindirizzato al provider di identità corrispondente per l'accesso.  
 

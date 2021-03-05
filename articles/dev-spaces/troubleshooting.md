@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Informazioni su come individuare e risolvere i problemi comuni relativi all'abilitazione e all'uso di Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: bf8c4d2040445fa3417fce02fb4b66216b21f3b5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 14ced0c66b42b6f18c946d0c75091be1af5598f5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548869"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197793"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Risoluzione dei problemi di Azure Dev Spaces
 
@@ -26,7 +26,7 @@ Per risolvere i problemi in modo più efficace, può essere utile creare log mag
 
 Per Visual Studio, impostare la variabile di ambiente `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` su 1. Assicurarsi di riavviare Visual Studio per rendere effettiva la variabile di ambiente. Una volta abilitati, i log dettagliati vengono scritti nella directory `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
 
-Nell'interfaccia della riga di comando è possibile visualizzare altre informazioni durante l'esecuzione del comando usando lo switch `--verbose`. È anche possibile esplorare i log più dettagliati in `%TEMP%\Azure Dev Spaces`. In un Mac la directory *TEMP* è reperibile eseguendo `echo $TMPDIR` in una finestra del terminale. In un computer Linux la directory *TEMP* è solitamente `/tmp`. Verificare inoltre che la registrazione sia abilitata nel [file di configurazione dell'interfaccia della riga di comando di Azure](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
+Nell'interfaccia della riga di comando è possibile visualizzare altre informazioni durante l'esecuzione del comando usando lo switch `--verbose`. È anche possibile esplorare i log più dettagliati in `%TEMP%\Azure Dev Spaces`. In un Mac la directory *TEMP* è reperibile eseguendo `echo $TMPDIR` in una finestra del terminale. In un computer Linux la directory *TEMP* è solitamente `/tmp`. Verificare inoltre che la registrazione sia abilitata nel [file di configurazione dell'interfaccia della riga di comando di Azure](/cli/azure/azure-cli-configuration#cli-configuration-values-and-environment-variables).
 
 Azure Dev Spaces inoltre funziona meglio con il debug di una singola istanza, o pod. Il file `azds.yaml` contiene un'impostazione, *replicaCount*, che indica il numero di pod eseguiti da Kubernetes per il servizio. Se si cambia l'impostazione *replicaCount* per configurare l'app in modo che esegua più pod per un determinato servizio, il debugger si collega al primo pod, se l'elenco è in ordine alfabetico. Il debugger si collega a un pod diverso quando il pod originale viene riciclato, determinando un comportamento imprevisto.
 
@@ -91,7 +91,7 @@ azure-cli                         2.0.60 *
 
 Nonostante venga visualizzato questo messaggio di errore quando si esegue `az aks use-dev-spaces` con una versione dell'interfaccia della riga di comando di Azure precedente a 2.0.63, l'installazione viene completata. È possibile continuare a usare `azds` senza problemi.
 
-Per risolvere il problema, aggiornare l'installazione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) alla versione 2.0.63 o successiva. Questo aggiornamento consentirà di risolvere il messaggio di errore che si riceve quando si esegue `az aks use-dev-spaces`. In alternativa, è possibile continuare a usare la versione corrente dell'interfaccia della riga di comando di Azure e dell'interfaccia della riga di comando di Azure Dev Spaces.
+Per risolvere il problema, aggiornare l'installazione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) alla versione 2.0.63 o successiva. Questo aggiornamento consentirà di risolvere il messaggio di errore che si riceve quando si esegue `az aks use-dev-spaces`. In alternativa, è possibile continuare a usare la versione corrente dell'interfaccia della riga di comando di Azure e dell'interfaccia della riga di comando di Azure Dev Spaces.
 
 ### <a name="error-unable-to-reach-kube-apiserver"></a>Messaggio di errore analogo a "Non è possibile raggiungere kube-apiserver"
 

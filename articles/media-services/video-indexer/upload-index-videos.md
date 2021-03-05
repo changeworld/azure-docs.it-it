@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/12/2020
+ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3a3c2812a4ecfa1a80539804122042bc2dc2f3a2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "95994494"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199187"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -83,18 +83,22 @@ Questo parametro consente di specificare un ID che verrà associato al video. L'
 
 #### <a name="indexingpreset"></a>indexingPreset
 
-Usare questo parametro se registrazioni non elaborate o esterne contengono rumore di fondo. Questo parametro si usa per configurare il processo di indicizzazione. È possibile specificare i valori seguenti:
+Usare questo parametro per definire il bundle AI che si vuole applicare al file audio o video. Questo parametro si usa per configurare il processo di indicizzazione. È possibile specificare i valori seguenti:
 
-- `AudioOnly`: indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando il video)
-- `VideoOnly` -Indicizzare ed estrarre informazioni dettagliate usando solo video (ignorando l'audio)
-- `Default`: indicizzare ed estrarre informazioni dettagliate usando audio e video
-- `DefaultWithNoiseReduction`: indicizzare ed estrarre informazioni dettagliate sia dall'audio che dal video, applicando gli algoritmi di riduzione del rumore al flusso audio
+- `AudioOnly` : Indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando video).
+- `VideoOnly` -Indicizzare ed estrarre informazioni dettagliate usando solo video (ignorando l'audio).
+- `Default` : Indicizzare ed estrarre informazioni dettagliate usando audio e video.
+- `DefaultWithNoiseReduction` : Consente di indicizzare ed estrarre informazioni dettagliate da audio e video, applicando algoritmi di riduzione del rumore nel flusso audio.
+
+    Il `DefaultWithNoiseReduction` valore viene ora mappato al set di impostazioni predefinito (deprecato).
+- `BasicAudio` -Indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando video), incluse solo le funzionalità audio di base (trascrizione, traduzione, sottotitoli di output di formato e sottotitoli).
+ - `AdvancedAudio` -Indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando video), incluse le funzionalità audio avanzate (rilevamento di eventi audio) oltre all'analisi audio standard.
 
 > [!NOTE]
 > Video Indexer copre fino a due tracce di audio. Se sono presenti più tracce audio nel file, verranno considerate come una traccia.<br/>
 Se si desidera indicizzare le tracce separatamente, sarà necessario estrarre il file audio pertinente e indicizzarlo come `AudioOnly` .
 
-Il prezzo dipende dall'opzione di indicizzazione selezionata.  
+Il prezzo dipende dall'opzione di indicizzazione selezionata. Per altre informazioni, vedere [prezzi di servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
 
 #### <a name="priority"></a>priority
 
@@ -135,7 +139,7 @@ Dopo aver copiato questo codice nella piattaforma di sviluppo, sarà necessario 
 
     * Passare a https://api-portal.videoindexer.ai/.
     * Accedi
-    * Passa alla **Products**  ->  **Authorization**  ->  **sottoscrizione di autorizzazione** per i prodotti
+    * Passa alla   ->    ->  **sottoscrizione di autorizzazione** per i prodotti
     * Copiare la **chiave primaria**
 * URL video: URL del file video/audio da indicizzare. L'URL deve puntare a un file multimediale; le pagine HTML non sono supportate. Il file può essere protetto da un token di accesso fornito come parte dell'URI e l'endpoint che gestisce il file deve essere protetto con il protocollo TLS 1.2 o versione successiva. L'URL deve essere codificato.
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b9a491b639cd1b960ffe3b7164a0940770792148
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: adfe5318949ffa624ebe3548944b558bd0dda9e1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107522"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198473"
 ---
 # <a name="options-for-registering-a-saml-application-in-azure-ad-b2c"></a>Opzioni per la registrazione di un'applicazione SAML in Azure AD B2C
 
@@ -60,6 +60,54 @@ Per consentire Azure AD B2C di inviare asserzioni crittografate, impostare l'ele
     <Protocol Name="SAML2"/>
     <Metadata>
       <Item Key="WantsEncryptedAssertions">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+### <a name="encryption-method"></a>Metodo di crittografia
+
+Per configurare il metodo di crittografia utilizzato per crittografare i dati dell'asserzione SAML, impostare la `DataEncryptionMethod` chiave dei metadati all'interno del relying party. I valori possibili sono `Aes256` (impostazione predefinita),, `Aes192` `Sha512` o `Aes128` . I metadati controllano il valore dell' `<EncryptedData>` elemento nella risposta SAML.
+
+Per configurare il metodo di crittografia utilizzato per crittografare la copia della chiave utilizzata per crittografare i dati dell'asserzione SAML, impostare la `KeyEncryptionMethod` chiave dei metadati all'interno del relying party. I valori possibili sono `Rsa15` (impostazione predefinita): algoritmo RSA Public Key Cryptography Standard (PKCS) versione 1,5 e `RsaOaep` algoritmo di crittografia OAEP (Optimal asimmetrica Encryption Padding).  I metadati controllano il valore dell'  `<EncryptedKey>` elemento nella risposta SAML.
+
+Nell'esempio seguente viene illustrata la `EncryptedAssertion` sezione di un'asserzione SAML. Il metodo dati crittografati è `Aes128` e il metodo della chiave crittografata è `Rsa15` .
+
+```xml
+<saml:EncryptedAssertion>
+  <xenc:EncryptedData xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" Type="http://www.w3.org/2001/04/xmlenc#Element">
+    <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+    <dsig:KeyInfo>
+      <xenc:EncryptedKey>
+        <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5" />
+        <xenc:CipherData>
+          <xenc:CipherValue>...</xenc:CipherValue>
+        </xenc:CipherData>
+      </xenc:EncryptedKey>
+    </dsig:KeyInfo>
+    <xenc:CipherData>
+      <xenc:CipherValue>...</xenc:CipherValue>
+    </xenc:CipherData>
+  </xenc:EncryptedData>
+</saml:EncryptedAssertion>
+```
+
+È possibile modificare il formato delle asserzioni crittografate. Per configurare il formato di crittografia, impostare la `UseDetachedKeys` chiave dei metadati all'interno del relying party. Valori possibili: `true` o `false` (impostazione predefinita). Quando il valore è impostato su `true` , le chiavi scollegate aggiungono l'asserzione crittografata come elemento figlio di anziché `EncrytedAssertion` `EncryptedData` .
+
+Configurare il metodo e il formato di crittografia, usare le chiavi dei metadati all'interno del [relying party profilo tecnico](relyingparty.md#technicalprofile):
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="DataEncryptionMethod">Aes128</Item>
+      <Item Key="KeyEncryptionMethod">Rsa15</Item>
+      <Item Key="UseDetachedKeys">false</Item>
     </Metadata>
    ..
   </TechnicalProfile>
@@ -114,7 +162,7 @@ Sono disponibili criteri di esempio completi che è possibile usare per il test 
 
 È possibile configurare l'algoritmo di firma usato per firmare l'asserzione SAML. I possibili valori sono `Sha256`, `Sha384`, `Sha512` o `Sha1`. Verificare che il profilo tecnico e l'applicazione usino lo stesso algoritmo di firma. Usare solo l'algoritmo supportato dal certificato.
 
-Configurare l'algoritmo di firma utilizzando la `XmlSignatureAlgorithm` chiave dei metadati all'interno del nodo dei metadati RelyingParty.
+Configurare l'algoritmo di firma utilizzando la `XmlSignatureAlgorithm` chiave dei metadati all'interno dell'elemento dei metadati relying party.
 
 ```xml
 <RelyingParty>
@@ -132,7 +180,7 @@ Configurare l'algoritmo di firma utilizzando la `XmlSignatureAlgorithm` chiave d
 
 ## <a name="saml-response-lifetime"></a>Durata risposta SAML
 
-È possibile configurare il periodo di tempo per cui la risposta SAML rimane valida. Impostare la durata usando l' `TokenLifeTimeInSeconds` elemento dei metadati all'interno del profilo tecnico dell'emittente del token SAML. Questo valore indica il numero di secondi che possono trascorrere dal `NotBefore` timestamp calcolato al momento del rilascio del token. Automaticamente, il tempo selezionato per questo è l'ora corrente. La durata predefinita è 300 secondi (5 minuti).
+È possibile configurare il periodo di tempo per cui la risposta SAML rimane valida. Impostare la durata usando l' `TokenLifeTimeInSeconds` elemento dei metadati all'interno del profilo tecnico dell'emittente del token SAML. Questo valore indica il numero di secondi che possono trascorrere dal `NotBefore` timestamp calcolato al momento del rilascio del token. La durata predefinita è 300 secondi (5 minuti).
 
 ```xml
 <ClaimsProvider>
@@ -170,6 +218,26 @@ Ad esempio, quando l'oggetto `TokenNotBeforeSkewInSeconds` è impostato su `120`
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <Item Key="TokenNotBeforeSkewInSeconds">120</Item>
+      </Metadata>
+      ...
+    </TechnicalProfile>
+```
+
+## <a name="remove-milliseconds-from-date-and-time"></a>Rimuovi millisecondi da data e ora
+
+È possibile specificare se i millisecondi verranno rimossi dai valori DateTime entro la risposta SAML, ad esempio IssueInstant, NotBefore, NotOnOrAfter e AuthnInstant. Per rimuovere i millisecondi, impostare la `RemoveMillisecondsFromDateTime
+` chiave dei metadati all'interno del relying party. Valori possibili: `false` (impostazione predefinita) o `true` .
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Token Issuer</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="Saml2AssertionIssuer">
+      <DisplayName>Token Issuer</DisplayName>
+      <Protocol Name="SAML2"/>
+      <OutputTokenFormat>SAML2</OutputTokenFormat>
+      <Metadata>
+        <Item Key="RemoveMillisecondsFromDateTime">true</Item>
       </Metadata>
       ...
     </TechnicalProfile>
