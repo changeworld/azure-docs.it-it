@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bf469b79fa532978e904a54f32c80280706ee7cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752648"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174581"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft Identity Platform e credenziali di tipo password del proprietario della risorsa OAuth 2.0
 
@@ -34,8 +34,9 @@ La piattaforma Microsoft Identity supporta la [concessione delle credenziali pas
 > * Gli account che non dispongono di password non possono accedere tramite ROPC. Per questo scenario, è consigliabile utilizzare un flusso diverso per l'app.
 > * Se gli utenti devono usare [Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md) per accedere all'applicazione, saranno invece bloccati.
 > * ROPC non è supportato negli scenari di [federazione delle identità ibride](../hybrid/whatis-fed.md) (ad esempio, Azure AD e il file system distribuito di Azure usati per autenticare gli account locali). Se gli utenti vengono reindirizzati con l'intera pagina a un provider di identità locale, Azure AD non riesce a verificare il nome utente e la password con tale provider di identità. L'[autenticazione pass-through](../hybrid/how-to-connect-pta.md) è tuttavia supportata con ROPC.
+> * Un'eccezione a uno scenario di Federazione di identità ibrida è la seguente: i criteri di individuazione dell'area di autenticazione principale con AllowCloudPasswordValidation impostati su TRUE consentiranno il funzionamento di ROPC Flow per gli utenti federati quando la password locale viene sincronizzata nel cloud. Per altre informazioni, vedere [abilitare l'autenticazione ROPC diretta degli utenti federati per le applicazioni legacy](../manage-apps/configure-authentication-for-federated-users-portal.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
 
-## <a name="protocol-diagram"></a>Diagramma di protocollo
+## <a name="protocol-diagram"></a>Diagramma del protocollo
 
 Il diagramma seguente mostra il flusso ROPC.
 
@@ -43,7 +44,7 @@ Il diagramma seguente mostra il flusso ROPC.
 
 ## <a name="authorization-request"></a>Authorization request (Richiesta di autorizzazione)
 
-Il flusso ROPC è una richiesta singola: invia l'identificazione del client e le credenziali dell'utente all'IDP, quindi riceve i token in cambio. Il client deve richiedere l'indirizzo di posta elettronica (UPN) e la password dell'utente prima di procedere. Subito dopo una richiesta con esito positivo, il client dovrebbe rilasciare le credenziali dell'utente dalla memoria in modo sicuro. Non deve mai salvarle.
+Il flusso ROPC è una richiesta singola: invia l'identificazione del client e le credenziali dell'utente all'IDP, quindi riceve i token in cambio. Il client deve richiedere l'indirizzo di posta elettronica (UPN) e la password dell'utente prima di procedere. Subito dopo una richiesta con esito positivo, il client deve rilasciare in modo sicuro le credenziali dell'utente dalla memoria. Non deve mai salvarle.
 
 > [!TIP]
 > Provare a eseguire la richiesta in Postman.
@@ -77,7 +78,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 ### <a name="successful-authentication-response"></a>Risposta di autenticazione con esito positivo
 
-L'esempio seguente illustra una risposta del token con esito positivo:
+Nell'esempio seguente viene illustrata una risposta di token di esito positivo:
 
 ```json
 {

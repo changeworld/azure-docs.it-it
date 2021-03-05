@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 01/11/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: d3aa0ca83b28708fde81cba12993ac6e79e79a88
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 8e5bb7bffddaedbf6349611c17e8d9cbec3c4139
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760606"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172681"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurare un flusso di lavoro di GitHub Actions per distribuire il sito Web statico in Archiviazione di Azure
 
@@ -131,7 +131,7 @@ Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione e il nom
           with:
             azcliversion: 2.0.72
             inlineScript: |
-            az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
+               az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
     ``` 
 
 1. Completare il flusso di lavoro aggiungendo un'azione di disconnessione da Azure. Ecco il flusso di lavoro completato. Il file verrà visualizzato nella cartella `.github/workflows` del repository.
@@ -165,7 +165,7 @@ Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione e il nom
           with:
             azcliversion: 2.0.72
             inlineScript: |
-            az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
+               az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
       
       # Azure logout 
         - name: logout

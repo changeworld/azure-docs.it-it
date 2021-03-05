@@ -4,13 +4,13 @@ description: Questo articolo descrive come generare mappe in Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 92228c691c323bc0b9621dfc7413d86c5c2669e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: v-ummehabiba
+ms.openlocfilehash: d0176fd337abd37f97a6dbe5cf7c68ccf94114d0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709063"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173865"
 ---
 # <a name="generate-maps"></a>Generare mappe
 
@@ -54,7 +54,7 @@ Questa sezione illustra in dettaglio le procedure per la creazione di mappe di s
 Attenersi a questa procedura.
 
 1. Nella home page passare a **Maps** dal menu di spostamento a sinistra.
-2. Selezionare **Crea mappe**e selezionare **posizionamento dei sensori** dal menu a discesa.
+2. Selezionare **Crea mappe** e selezionare **posizionamento dei sensori** dal menu a discesa.
 
     ![Selezionare la posizione del sensore](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-1.png)
 
@@ -86,11 +86,11 @@ Attenersi a questa procedura.
 
     ![Finestra Filtro](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3. Selezionare i valori di **tipo**, **Data**e **nome** nei menu a discesa. Selezionare quindi **applica** per cercare la mappa che si desidera visualizzare.
+3. Selezionare i valori di **tipo**, **Data** e **nome** nei menu a discesa. Selezionare quindi **applica** per cercare la mappa che si desidera visualizzare.
   La data in cui è stato creato il processo viene visualizzata nel formato type_farmname_YYYY-MM-GG.
 4. Scorrere l'elenco delle mappe disponibili usando le barre di navigazione alla fine della pagina.
 5. Selezionare la mappa che si desidera visualizzare. In una finestra popup viene visualizzata l'anteprima per la mappa selezionata.
-6. Selezionare **Scarica**e scaricare il file GeoJSON delle coordinate del sensore.
+6. Selezionare **Scarica** e scaricare il file GeoJSON delle coordinate del sensore.
 
     ![Anteprima mappa posizionamento sensori](./media/get-sensor-data-from-sensor-partner/download-sensor-placement-map-1.png)
 
@@ -113,7 +113,7 @@ FarmBeats offre la possibilità di generare NDVI, Enhanced vegetazione index (EV
 Attenersi a questa procedura.
 
 1. Nella home page passare a **Maps** dal menu di spostamento a sinistra.
-2. Selezionare **Crea mappe**e selezionare **indici satellite** dal menu a discesa.
+2. Selezionare **Crea mappe** e selezionare **indici satellite** dal menu a discesa.
 
     ![Selezionare indici satellite dal menu a discesa](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-satellite-indices-1.png)
 
@@ -146,7 +146,7 @@ Attenersi a questa procedura.
 
     ![Finestra Filtro Visualizza i criteri di ricerca](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3. Selezionare i valori di **tipo**, **Data**e **nome** nei menu a discesa. Selezionare quindi **applica** per cercare la mappa che si desidera visualizzare.
+3. Selezionare i valori di **tipo**, **Data** e **nome** nei menu a discesa. Selezionare quindi **applica** per cercare la mappa che si desidera visualizzare.
   La data in cui è stato creato il processo viene visualizzata nel formato type_farmname_YYYY-MM-GG.
 
 4. Scorrere l'elenco delle mappe disponibili usando le barre di navigazione alla fine della pagina.
@@ -178,7 +178,7 @@ Prima di provare a generare un mappa termica di umidità del suolo, rispettare i
 Attenersi a questa procedura.
 
 1. Nella home page passare a **Maps** dal menu di spostamento a sinistra per visualizzare la pagina **Maps** .
-2. Selezionare **create maps**e selezionare **Soil umidità** dal menu a discesa.
+2. Selezionare **create maps** e selezionare **Soil umidità** dal menu a discesa.
 
     ![Selezionare umidità del suolo dal menu a discesa](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-soil-moisture-1.png)
 
@@ -189,7 +189,7 @@ Attenersi a questa procedura.
 4. Selezionare una farm dal menu a discesa **Farm** .
    Per cercare e selezionare la farm, è possibile scorrere dall'elenco a discesa o immettere il nome della farm nel menu a discesa **Seleziona Farm** .
 5. Nel menu a discesa **Seleziona misura sensore di umidità del suolo** selezionare la misura del sensore di umidità del suolo (profondità) per cui si vuole generare la mappa.
-Per trovare la misura del sensore, passare a **sensori**e selezionare qualsiasi sensore di umidità del suolo. Quindi, nella sezione **Proprietà sensore** , usare il valore in **Nome misura**.
+Per trovare la misura del sensore, passare a **sensori** e selezionare qualsiasi sensore di umidità del suolo. Quindi, nella sezione **Proprietà sensore** , usare il valore in **Nome misura**.
 6. Per generare una mappa per **oggi** o **questa settimana**, selezionare una delle opzioni.
 7. Per generare una mappa per un intervallo di date personalizzato, selezionare l'opzione **Seleziona intervallo di date**. Immettere la data di inizio e di fine per cui si vuole generare la mappa termica di umidità del suolo.
 8. Selezionare **genera mappe**.
@@ -213,8 +213,8 @@ Attenersi a questa procedura.
 
     ![Selezionare filtro nel percorso di spostamento a sinistra](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3.  Selezionare i valori di **tipo**, **Data**e **nome** nei menu a discesa. Selezionare quindi **applica** per cercare la mappa che si desidera visualizzare. La data in cui è stato creato il processo viene visualizzata nel formato type_farmname_YYYY-MM-GG.
-4. Selezionare l'icona di **ordinamento** accanto alle intestazioni di tabella per eseguire l'ordinamento in base a **Farm**, **Data**, **created on**, **ID processo**e **tipo di processo**.
+3.  Selezionare i valori di **tipo**, **Data** e **nome** nei menu a discesa. Selezionare quindi **applica** per cercare la mappa che si desidera visualizzare. La data in cui è stato creato il processo viene visualizzata nel formato type_farmname_YYYY-MM-GG.
+4. Selezionare l'icona di **ordinamento** accanto alle intestazioni di tabella per eseguire l'ordinamento in base a **Farm**, **Data**, **created on**, **ID processo** e **tipo di processo**.
 5. Scorrere l'elenco delle mappe disponibili usando i pulsanti di spostamento alla fine della pagina.
 6. Selezionare la mappa che si desidera visualizzare. In una finestra popup viene visualizzata l'anteprima per la mappa selezionata.
 7. Selezionare **Scarica** dal menu a discesa per selezionare il formato di download. La mappa viene scaricata e archiviata nella cartella specificata.

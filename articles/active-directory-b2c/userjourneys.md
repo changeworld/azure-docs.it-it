@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aac75e7876ce59b90e27f9e87c96240755d26235
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 05307fe2ad9e0a59fa11c30f2dc7154ba5076603
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120743"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174666"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -119,18 +119,23 @@ L'elemento **Preconditions** contiene l'elemento seguente:
 
 #### <a name="precondition"></a>Precondition
 
+I passaggi di orchestrazione possono essere eseguiti in modo condizionale in base alle precondizioni definite nel passaggio dell'orchestrazione. Esistono due tipi di precondizioni:
+ 
+- **Attestazioni exist** : specifica che le azioni devono essere eseguite se le attestazioni specificate sono presenti nel contenitore delle attestazioni corrente dell'utente.
+- **Claim Equals** : specifica che le azioni devono essere eseguite se l'attestazione specificata esiste e il relativo valore è uguale al valore specificato. Il controllo esegue un confronto ordinale con distinzione tra maiuscole e minuscole. Quando si controlla il tipo di attestazione booleana, usare `True` o `False` .
+
 L'elemento **precondition** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | `Type` | Sì | Tipo di controllo o query da eseguire per questa precondizione. Il valore può essere **ClaimsExist**, a indicare che le azioni devono essere eseguite se le attestazioni specificate esistono nel set di attestazioni corrente dell'utente, oppure **ClaimEquals**, a indicare che le azioni devono essere eseguite se l'attestazione specificata esiste e il relativo valore è uguale al valore specificato. |
-| `ExecuteActionsIf` | Sì | Usare un test true o false per decidere se eseguire le azioni nella precondizione. |
+| `ExecuteActionsIf` | Sì | Utilizzare un `true` `false` test o per decidere se eseguire le azioni nella precondizione. |
 
 L'elemento **Precondition** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| Valore | 1:n | ClaimTypeReferenceId per cui eseguire una query. Un altro elemento value contiene il valore da controllare.</li></ul>|
+| Valore | 1:2 | Identificatore di un tipo di attestazione. L'attestazione è già definita nella sezione schema delle attestazioni nel file di criteri o nel file dei criteri padre. Quando la precondizione è il tipo di `ClaimEquals` , un secondo `Value` elemento contiene il valore da verificare. |
 | Azione | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Se il valore di `Action` è impostato su `SkipThisOrchestrationStep`, l'elemento `OrchestrationStep` associato non deve essere eseguito. |
 
 #### <a name="preconditions-examples"></a>Esempi di precondizioni
@@ -189,7 +194,7 @@ Le precondizioni possono verificare più precondizioni. L'esempio seguente deter
 </OrchestrationStep>
 ```
 
-## <a name="identity-provider-selection"></a>Selezione del provider di identità
+## <a name="claims-provider-selection"></a>Selezione del provider di attestazioni
 
 La selezione del provider di identità consente agli utenti di selezionare un'azione da un elenco di opzioni. La selezione del provider di identità è costituita da una coppia di due passaggi di orchestrazione: 
 
@@ -215,7 +220,7 @@ L'elemento **ClaimsProviderSelection** contiene gli attributi seguenti:
 | TargetClaimsExchangeId | No | Identificatore dello scambio di attestazioni, eseguito nel passaggio successivo di selezione dei provider di attestazioni. È necessario specificare questo attributo o l'attributo ValidationClaimsExchangeId, ma non entrambi. |
 | ValidationClaimsExchangeId | No | Identificatore dello scambio di attestazioni, eseguito nel passaggio corrente di convalida della selezione dei provider di attestazioni. È necessario specificare questo attributo o l'attributo TargetClaimsExchangeId, ma non entrambi. |
 
-### <a name="claimsproviderselection-example"></a>Esempio di ClaimsProviderSelection
+### <a name="claims-provider-selection-example"></a>Esempio di selezione del provider di attestazioni
 
 Nel passaggio di orchestrazione seguente l'utente può scegliere di accedere con Facebook, LinkedIn, Twitter, Google o un account locale. Se l'utente sceglie uno dei provider di identità di social networking, il secondo passaggio di orchestrazione viene eseguito con lo scambio di attestazioni selezionato specificato nell'attributo `TargetClaimsExchangeId`. Il secondo passaggio di orchestrazione reindirizza l'utente al provider di identità di social network per completare il processo di accesso. Se l'utente sceglie di eseguire l'accesso con l'account locale, Azure AD B2C rimane nello stesso passaggio di orchestrazione (la stessa pagina di iscrizione o accesso) e ignora il secondo passaggio.
 

@@ -9,105 +9,80 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/03/2018
+ms.date: 02/23/2021
 ms.author: jeedes
-ms.openlocfilehash: e1440feacd10935b15195110cd7ea3e20b4d523c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 450db7c01de4ea7db0133ceca962941ae1a927e5
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687635"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173136"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Esercitazione: Integrazione di Azure Active Directory con SAML SSO for Jira by resolution GmbH
 
-Questa esercitazione descrive come integrare SAML SSO for Jira by resolution GmbH con Azure Active Directory (Azure AD).
-L'integrazione di SAML SSO for Jira di resolution GmbH con Azure AD offre i vantaggi seguenti:
+In questa esercitazione si apprenderà come integrare SAML SSO for JIRA di Resolution GmbH con Azure Active Directory (Azure AD). Quando si integra SAML SSO for JIRA di Resolution GmbH con Azure AD, è possibile:
 
-* È possibile controllare in Azure AD chi può accedere a Jira con il plug-in SAML SSO by resolution GmbH.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Jira con gli account Azure AD personali usando SAML SSO for Jira by resolution GmbH.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
-
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Controllare in Azure AD chi ha accesso a SAML SSO for JIRA di Resolution GmbH.
+* Abilitare gli utenti per l'accesso automatico a SAML SSO for JIRA di Resolution GmbH con i relativi account Azure AD.
+* Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con SAML SSO for Jira by resolution GmbH, sono necessari gli elementi seguenti:
+Per iniziare, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di SAML SSO for Jira by resolution GmbH abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione abilitata per SAML SSO for JIRA di Resolution GmbH Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* SAML SSO for Jira by resolution GmbH supporta l'accesso SSO avviato da **SP** e **IDP**
+* SAML SSO for JIRA di Resolution GmbH supporta la funzionalità SSO avviata da **SP** e **IDP** .
 
-## <a name="adding-an-enterprise-application-for-single-sign-on"></a>Aggiunta di un'applicazione aziendale per l'accesso SSO
+> [!NOTE]
+> Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
 
-Per configurare l'accesso Single Sign-On di Azure AD, è necessario aggiungere una nuova applicazione aziendale. Nella raccolta è disponibile un set di impostazioni per l'applicazione preconfigurato a questo scopo, **SAML SSO for Jira by resolution GmbH**.
+## <a name="add-saml-sso-for-jira-by-resolution-gmbh-from-the-gallery"></a>Aggiungere SAML SSO for JIRA di Resolution GmbH dalla raccolta
 
-**Per aggiungere SAML SSO for Jira di resolution GmbH dalla raccolta, seguire questa procedura:**
+Per configurare l'integrazione di SAML SSO for Jira di resolution GmbH in Azure AD, è necessario aggiungere SAML SSO for Jira di resolution GmbH dalla raccolta all'elenco di app SaaS gestite.
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **SAML SSO for JIRA di Resolution GmbH** nella casella di ricerca.
+1. Selezionare **SAML SSO for JIRA di Resolution GmbH** dal pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-saml-sso-for-jira-by-resolution-gmbh"></a>Configurare e testare Azure AD SSO for SAML SSO for JIRA di Resolution GmbH
 
-2. Passare ad **Applicazioni aziendali** e quindi fare clic su **Tutte le applicazioni**.
+Configurare e testare Azure AD SSO con SAML SSO for JIRA di Resolution GmbH usando un utente di test di nome **B. Simon**. Per il funzionamento dell'accesso SSO, è necessario stabilire una relazione di collegamento tra un utente Azure AD e l'utente correlato in SAML SSO for JIRA di Resolution GmbH.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+Per configurare e testare Azure AD SSO con SAML SSO for JIRA di Resolution GmbH, seguire questa procedura:
 
-3. Per aggiungere la nuova applicazione, fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare SAML SSO for JIRA di Resolution GmbH SSO](#configure-saml-sso-for-jira-by-resolution-gmbh-sso)** : per configurare le impostazioni Single Sign-on sul lato applicazione.
+    1. **[Creare un utente di test di SAML SSO for JIRA di Resolution GmbH](#create-saml-sso-for-jira-by-resolution-gmbh-test-user)** : per avere una controparte di B. Simon in SAML SSO for JIRA di Resolution GmbH collegata al Azure ad rappresentazione dell'utente.
+1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
-4. Nella casella di ricerca digitare **SAML SSO for Jira by resolution GmbH**, selezionare **SAML SSO for Jira by resolution GmbH** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione. È anche possibile modificare il nome dell'app aziendale.
+Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-     ![SAML SSO for Jira by resolution GmbH nell'elenco risultati](common/search-new-app.png)
+1. Nella pagina di integrazione dell'applicazione **SAML SSO for JIRA di Resolution GmbH** della portale di Azure individuare la sezione **Gestisci** e selezionare **Single Sign-on**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
-## <a name="configure-and-test-single-sign-on-with-the-saml-sso-plugin-and-azure-ad"></a>Configurare e testare l'accesso Single Sign-On con il plug-in SAML SSO e Azure AD
-
-In questa sezione viene configurato e testato l'accesso Single Sign-On a Jira per un utente di Azure AD. L'operazione viene eseguita usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SAML SSO for Jira by resolution GmbH.
-
-Per configurare e testare l'accesso Single Sign-On, è necessario completare i passaggi seguenti:
-
-1. **[Configurare l'applicazione aziendale di Azure AD per l'accesso Single Sign-On](#configure-the-azure-ad-enterprise-application-for-single-sign-on)** : configurare l'applicazione aziendale di Azure AD per l'accesso Single Sign-On.
-2. **[Configurare il plug-in SAML SSO dell'istanza di Jira](#configure-the-saml-sso-plugin-of-your-jira-instance)** : configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : creare un utente di test in Azure AD.
-1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : consentire all'utente di test di usare l'accesso Single Sign-On sul lato Azure.
-1. **[Creare l'utente di test in Jira](#create-the-test-user-also-in-jira)** : creare un utente di test controparte in Jira per l'utente di test di Azure AD.
-1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** : verificare se la configurazione funziona.
-
-### <a name="configure-the-azure-ad-enterprise-application-for-single-sign-on"></a>Configurare l'applicazione aziendale di Azure AD per l'accesso Single Sign-On
-
-In questa sezione si configura l'accesso Single Sign-On nel portale di Azure.
-
-Per configurare l'accesso Single Sign-On con SAML SSO for Jira by resolution GmbH, seguire questa procedura:
-
-1. Nel [portale di Azure](https://portal.azure.com/), nell'applicazione aziendale **SAML SSO for Jira by resolution GmbH** appena creata, selezionare **Single Sign-On** nel pannello a sinistra.
-
-    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
-
-2. In **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** per abilitare l'accesso Single Sign-On.
-
-    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
-
-3. In seguito, fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
-
-    ![Modificare la configurazione SAML di base](common/edit-urls.png)
+   ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura, se si vuole configurare l'applicazione in modalità avviata da **IDP**:
-
-    ![Screenshot che mostra la sezione "Configurazione SAML di base" con le caselle di testo "Identificatore" e "URL di risposta" evidenziate e il pulsante "Salva" selezionato.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/samlsso`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/samlsso`
 
     c. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura, se si vuole configurare l'applicazione in modalità avviata da **SP**:
-
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di SAML SSO for Jira by resolution GmbH](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -118,17 +93,41 @@ Per configurare l'accesso Single Sign-On con SAML SSO for Jira by resolution Gmb
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-### <a name="configure-the-saml-sso-plugin-of-your-jira-instance"></a>Configurare il plug-in SAML SSO dell'istanza di Jira 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+
+In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
+
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Selezionare **Nuovo utente** in alto nella schermata.
+1. In **Proprietà utente** seguire questa procedura:
+   1. Nel campo **Nome** immettere `B.Simon`.  
+   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+
+In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On concedendo l'accesso a SAML SSO for JIRA di Resolution GmbH.
+
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **SAML SSO for Jira by resolution GmbH** (SAML SSO for Jira di resolution GmbH).
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+
+## <a name="configure-saml-sso-for-jira-by-resolution-gmbh-sso"></a>Configurare SAML SSO for JIRA di Resolution GmbH SSO 
 
 1. In un'altra finestra del Web browser accedere all'istanza di Jira come amministratore.
 
 2. Passare il puntatore sull'icona dell'ingranaggio a destra e fare clic su **Manage apps** (Gestisci app).
     
-    ![Screenshot di una freccia che punta all'icona "Cog" e l'opzione "Manage apps" selezionata nel menu a discesa.](./media/samlssojira-tutorial/addon1.png)
+    ![Screenshot di una freccia che punta all'icona "Cog" e l'opzione "Manage apps" selezionata nel menu a discesa.](./media/samlssojira-tutorial/add-on-1.png)
 
 3. Se si viene reindirizzati alla pagina Administrator Access (Accesso amministratore), immettere la **password** e fare clic sul pulsante **Confirm** (Conferma).
 
-    ![Screenshot che mostra la pagina "Administrator Access".](./media/samlssojira-tutorial/addon2.png)
+    ![Screenshot che mostra la pagina "Administrator Access".](./media/samlssojira-tutorial/add-on-2.png)
 
 4. In genere, Jira reindirizza l'utente al Marketplace di Atlassian. In caso contrario, fare clic su **Find new apps** (Trova nuove app) nel pannello a sinistra. Cercare **SAML Single Sign On (SSO) for JIRA** e fare clic sul pulsante **Install** (Installa) per installare il plug-in di SAML.
 
@@ -144,17 +143,17 @@ Per configurare l'accesso Single Sign-On con SAML SSO for Jira by resolution Gmb
 
     ![Screenshot che mostra l'app "SAML Single Sign On (SSO) Jira, SAML/SSO" con il pulsante "Manage" selezionato.](./media/samlssojira-tutorial/store-4.png)
     
-8. In seguito, fare clic su **Configure** (Configura) per configurare il plug-in appena installato.
+7. In seguito, fare clic su **Configure** (Configura) per configurare il plug-in appena installato.
 
     ![Screenshot che mostra la pagina "Manage apps" con il pulsante "Configure" selezionato per l'app "SAML SingleSignOn for Jira".](./media/samlssojira-tutorial/store-5.png)
 
-9. Nella procedura guidata **SAML Single Sign-On Plugin Configuration** (Configurazione del plug-in SAML Single Sign-On) fare clic sul pulsante **Add new IdP** (Aggiungi nuovo provider di identità) per configurare Azure AD come nuovo provider di identità.
+8. Nella procedura guidata **SAML Single Sign-On Plugin Configuration** (Configurazione del plug-in SAML Single Sign-On) fare clic sul pulsante **Add new IdP** (Aggiungi nuovo provider di identità) per configurare Azure AD come nuovo provider di identità.
 
-    ![Screenshot mostra la pagina "Welcome" con il pulsante "Add New IdP" selezionato.](./media/samlssojira-tutorial/addon4.png) 
+    ![Screenshot mostra la pagina "Welcome" con il pulsante "Add New IdP" selezionato.](./media/samlssojira-tutorial/add-on-4.png) 
 
-10. Nella pagina **Choose your SAML Identity Provider** (Scegliere il provider di identità SAML) seguire questa procedura:
+9. Nella pagina **Choose your SAML Identity Provider** (Scegliere il provider di identità SAML) seguire questa procedura:
 
-    ![Screenshot che mostra la pagina "Choose your SAML Identity Provider" con le caselle di testo "IdP Type" e "Name" evidenziate e il pulsante "Next" selezionato.](./media/samlssojira-tutorial/addon5a.png)
+    ![Screenshot che mostra la pagina "Choose your SAML Identity Provider" con le caselle di testo "IdP Type" e "Name" evidenziate e il pulsante "Next" selezionato.](./media/samlssojira-tutorial/identity-provider.png)
  
     a. Impostare **AD Azure** come tipo di provider di identità.
     
@@ -164,13 +163,13 @@ Per configurare l'accesso Single Sign-On con SAML SSO for Jira by resolution Gmb
     
     d. Fare clic su **Avanti**.
     
-11. Nella pagina **Identity provider configuration** (Configurazione provider di identità), fare clic su **Next** (Avanti).
+10. Nella pagina **Identity provider configuration** (Configurazione provider di identità), fare clic su **Next** (Avanti).
  
-    ![Screenshot che mostra la pagina "Identity provider configuration".](./media/samlssojira-tutorial/addon5b.png)
+    ![Screenshot che mostra la pagina "Identity provider configuration".](./media/samlssojira-tutorial/configuration.png)
 
-12. Nella pagina **Import SAML IdP Metadata** (Importa metadati provider di identità SAML) seguire questa procedura:
+11. Nella pagina **Import SAML IdP Metadata** (Importa metadati provider di identità SAML) seguire questa procedura:
 
-    ![Screenshot che mostra la pagina "Import SAML IdP Metadata" con l'azione "Select Metadata XML File" selezionata.](./media/samlssojira-tutorial/addon5c.png)
+    ![Screenshot che mostra la pagina "Import SAML IdP Metadata" con l'azione "Select Metadata XML File" selezionata.](./media/samlssojira-tutorial/metadata.png)
 
     a. Fare clic sul pulsante **Select Metadata XML File** (Seleziona file XML dei metadati) e selezionare il file **XML dei metadati della federazione** scaricato in precedenza.
 
@@ -180,73 +179,23 @@ Per configurare l'accesso Single Sign-On con SAML SSO for Jira by resolution Gmb
      
     d. Fare clic sul pulsante **Next** (Avanti).
     
-13. Nella pagina **User ID attribute and transformation** (Attributo e trasformazione ID utente) fare clic sul pulsante **Next** (Avanti).
+12. Nella pagina **User ID attribute and transformation** (Attributo e trasformazione ID utente) fare clic sul pulsante **Next** (Avanti).
 
-    ![Screenshot che mostra la pagina "User I D attribute and transformation" con il pulsante "Next" selezionato.](./media/samlssojira-tutorial/addon5d.png)
+    ![Screenshot che mostra la pagina "User I D attribute and transformation" con il pulsante "Next" selezionato.](./media/samlssojira-tutorial/transformation.png)
     
-14. Nella pagina **User creation and update** (Creazione e aggiornamento utente) fare clic su **Save & Next** (Salva e continua) per salvare le impostazioni.
+13. Nella pagina **User creation and update** (Creazione e aggiornamento utente) fare clic su **Save & Next** (Salva e continua) per salvare le impostazioni.
     
-    ![Screenshot che mostra la pagina "User creation and update" con il pulsante "Save & Next" selezionato.](./media/samlssojira-tutorial/addon6a.png)
+    ![Screenshot che mostra la pagina "User creation and update" con il pulsante "Save & Next" selezionato.](./media/samlssojira-tutorial/update.png)
     
-15. Nella pagina **Test your settings** (Test impostazioni) fare clic su **Skip test & configure manually** (Ignora test e configura manualmente) per ignorare il test dell'utente. Il test verrà eseguito nella sezione successiva e richiede alcune impostazioni nel portale di Azure.
+14. Nella pagina **Test your settings** (Test impostazioni) fare clic su **Skip test & configure manually** (Ignora test e configura manualmente) per ignorare il test dell'utente. Il test verrà eseguito nella sezione successiva e richiede alcune impostazioni nel portale di Azure.
     
-    ![Screenshot che mostra la pagina "Test your settings" con il pulsante "Skip test & configure manually" selezionato.](./media/samlssojira-tutorial/addon6b.png)
+    ![Screenshot che mostra la pagina "Test your settings" con il pulsante "Skip test & configure manually" selezionato.](./media/samlssojira-tutorial/test.png)
     
-16. Fare clic su **OK** per ignorare l'avviso.
+15. Fare clic su **OK** per ignorare l'avviso.
     
-    ![Screenshot che mostra la finestra di dialogo di avviso con il pulsante "OK" selezionato.](./media/samlssojira-tutorial/addon6c.png)
+    ![Screenshot che mostra la finestra di dialogo di avviso con il pulsante "OK" selezionato.](./media/samlssojira-tutorial/warning.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
-
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure. L'utente verrà usato per testare l'accesso Single Sign-On.
-
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
-
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
-
-2. Scegliere **Nuovo utente** in alto nella schermata.
-
-    ![Pulsante Nuovo utente](common/new-user.png)
-
-3. In **Proprietà utente** seguire questa procedura:
-
-    ![Finestra di dialogo Utente](common/user-properties.png)
-
-    a. Nel campo **Nome** immettere **Britta Simon**.
-  
-    b. Nel campo **Nome utente** immettere <b>BrittaSimon@contoso.com</b>.
-
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
-
-    d. Fare clic su **Crea**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
-
-In questa sezione aggiungere Britta Simon all'applicazione aziendale per abilitare l'utente all'uso dell'accesso Single Sign-On.
-
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**. 
-
-    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
-
-2. Nell'elenco delle applicazioni cercare l'applicazione aziendale creata all'inizio di questa esercitazione. Se si sono seguiti i passaggi dell'esercitazione, il nome dell'applicazione è **SAML SSO for Jira by resolution GmbH**. Se si è assegnato un altro nome all'applicazione, cercare tale nome.
-
-    ![Collegamento di SAML SSO for Jira by resolution GmbH nell'elenco delle applicazioni](common/all-applications.png)
-
-3. Scegliere **Utenti e gruppi** nel pannello a sinistra.
-
-    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
-4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
-
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-
-6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
-
-### <a name="create-the-test-user-also-in-jira"></a>Creare l'utente di test in Jira
+### <a name="create-saml-sso-for-jira-by-resolution-gmbh-test-user"></a>Creare l'utente di test di SAML SSO for Jira by resolution GmbH
 
 Per consentire agli utenti di Azure AD di accedere a SAML SSO for Jira by resolution GmbH, è necessario eseguire il provisioning in SAML SSO for Jira by resolution GmbH. Nel caso specifico di questa esercitazione, è necessario eseguire il provisioning manualmente. Sono tuttavia disponibili anche altri modelli di provisioning per il plug-in SAML SSO by resolution, ad esempio il provisioning **Just-In-Time**. Vedere la relativa documentazione in [SAML SSO di resolution GmbH](https://wiki.resolution.de/doc/saml-sso/latest/all). In caso di domande, contattare il [supporto di resolution](https://www.resolution.de/go/support).
 
@@ -256,19 +205,19 @@ Per consentire agli utenti di Azure AD di accedere a SAML SSO for Jira by resolu
 
 2. Passare il puntatore sull'icona dell'ingranaggio e selezionare **User management** (Gestione utenti).
 
-   ![Screenshot di una freccia che punta all'icona "Cog" e l'opzione "User Management" selezionata nel menu a discesa.](./media/samlssojira-tutorial/user1.png)
+   ![Screenshot di una freccia che punta all'icona "Cog" e l'opzione "User Management" selezionata nel menu a discesa.](./media/samlssojira-tutorial/user-1.png)
 
 3. Se si viene reindirizzati alla pagina Administrator Access (Accesso amministratore), immettere la **password** e fare clic sul pulsante **Confirm** (Conferma).
 
-    ![Screenshot che mostra la pagina "Administrator Access" con la casella di testo "Password" evidenziata.](./media/samlssojira-tutorial/user2.png) 
+    ![Screenshot che mostra la pagina "Administrator Access" con la casella di testo "Password" evidenziata.](./media/samlssojira-tutorial/user-2.png) 
 
 4. Nella sezione della scheda **User management** (Gestione utenti) fare clic su **Create user** (Crea utente).
 
-    ![Screenshot che mostra la scheda "User management" con il pulsante "Create user" selezionato.](./media/samlssojira-tutorial/user3-new.png) 
+    ![Screenshot che mostra la scheda "User management" con il pulsante "Create user" selezionato.](./media/samlssojira-tutorial/user-3-new.png) 
 
 5. Nella pagina della finestra di dialogo **Create New User** (Crea nuovo utente) effettuare le operazioni seguenti. È necessario creare l'utente esattamente come in Azure AD:
 
-    ![Aggiungere un dipendente](./media/samlssojira-tutorial/user4-new.png) 
+    ![Aggiungere un dipendente](./media/samlssojira-tutorial/user-4-new.png) 
 
     a. Nella casella di testo **Email address** (Indirizzo di posta elettronica) digitare l'indirizzo di posta elettronica dell'utente: <b>BrittaSimon@contoso.com</b>.
 
@@ -280,16 +229,23 @@ Per consentire agli utenti di Azure AD di accedere a SAML SSO for Jira by resolu
 
     e. Fare clic su **Create user** (Crea utente) per completare la creazione dell'utente.
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+## <a name="test-sso"></a>Testare l'accesso SSO
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di SAML SSO for Jira by resolution GmbH nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di SAML SSO for Jira by resolution GmbH per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Avviato da SP:
 
-Per testare l'accesso Single Sign-On è anche possibile passare a `https://<server-base-url>/plugins/servlet/samlsso`. Sostituire **\<server-base-url>** con l'URL di base dell'istanza di Jira.
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso SAML SSO for JIRA di Resolution GmbH, in cui è possibile avviare il flusso di accesso.  
 
+* Passare direttamente all'URL di accesso SAML SSO for JIRA di Resolution GmbH e avviare il flusso di accesso da questa posizione.
 
-## <a name="enable-single-sign-on-redirection-for-jira"></a>Abilitare il reindirizzamento Single Sign-On per Jira
+#### <a name="idp-initiated"></a>Avviato da IDP:
+
+* Fare clic su **test questa applicazione** in portale di Azure e si dovrebbe accedere automaticamente a SAML SSO for JIRA di Resolution GmbH per il quale si configura l'accesso SSO. 
+
+È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro SAML SSO for JIRA di Resolution GmbH in app personali, se configurato in modalità SP si verrà reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso e, se configurato in modalità IDP, si dovrebbe accedere automaticamente a SAML SSO for JIRA di Resolution GmbH per il quale si configura SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="enable-sso-redirection-for-jira"></a>Abilita reindirizzamento SSO per JIRA
 
 Come indicato nella sezione precedente, esistono attualmente due modi per attivare l'accesso Single Sign-On. Tramite il **portale di Azure** o tramite **un collegamento specifico all'istanza di Jira**. Il plug-in SAML SSO di resolution GmbH consente inoltre di attivare l'accesso Single Sign-On semplicemente tramite l'**accesso a qualsiasi URL che punta all'istanza di Jira**.
 
@@ -300,21 +256,16 @@ Per attivare il reindirizzamento SSO, eseguire le operazioni seguenti nell'**ist
 1. Accedere alla pagina di configurazione del plug-in SAML SSO in Jira.
 1. Fare clic su **Redirection** (Reindirizzamento) nel riquadro sinistro.
 
-   ![Screenshot parziale della pagina di configurazione del plug-in SAML SSO in Jira che evidenzia il collegamento di reindirizzamento nel percorso di spostamento a sinistra.](./media/samlssojira-tutorial/ssore1.png)
+   ![Screenshot parziale della pagina di configurazione del plug-in SAML SSO in Jira che evidenzia il collegamento di reindirizzamento nel percorso di spostamento a sinistra.](./media/samlssojira-tutorial/configure-1.png)
 
 1. Contrassegnare con un segno di spunta **Enable SSO Redirect** (Abilita il reindirizzamento SSO).
 
-   ![Screenshot parziale della pagina di configurazione del plug-in SAML SSO in Jira in cui è evidenziata la casella di controllo "Enable SSO Redirect" selezionata.](./media/samlssojira-tutorial/ssore2.png) 
+   ![Screenshot parziale della pagina di configurazione del plug-in SAML SSO in Jira in cui è evidenziata la casella di controllo "Enable SSO Redirect" selezionata.](./media/samlssojira-tutorial/configure-2.png) 
 
 1. Scegliere il pulsante **Save Settings** (Salva impostazioni) nell'angolo in alto a destra.
 
 Dopo aver attivato l'opzione, è comunque possibile tornare al prompt di nome utente/password, se l'opzione **Enable nosso** (Abilita nosso) è contrassegnata con un segno di spunta, passando a `https://<server-base-url>/login.jsp?nosso`. Come nei casi precedenti, sostituire **\<server-base-url>** con l'URL di base.
 
+## <a name="next-steps"></a>Passaggi successivi
 
-## <a name="additional-resources"></a>Risorse aggiuntive
-
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
-
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
+Dopo aver configurato SAML SSO for JIRA di Resolution GmbH, è possibile applicare il controllo della sessione, che protegge exfiltration e l'infiltrazione dei dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

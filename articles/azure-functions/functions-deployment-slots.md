@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 87d7d4676c604ca7219b7580eb3ce585282a7f11
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2dbf7c31e6b0b40fa9dc2d59e86c0ecc731657e1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327241"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172410"
 ---
 # <a name="azure-functions-deployment-slots"></a>Slot di distribuzione di funzioni di Azure
 
@@ -118,7 +118,7 @@ Per creare un'impostazione di distribuzione, attenersi alla procedura seguente:
 
 Gli slot sono vuoti quando si crea uno slot. Per distribuire l'applicazione in uno slot, è possibile usare qualsiasi [tecnologia di distribuzione supportata](./functions-deployment-technologies.md) .
 
-## <a name="scaling"></a>Scalabilità
+## <a name="scaling"></a>Ridimensionamento
 
 Tutti gli slot si adattano allo stesso numero di ruoli di lavoro dello slot di produzione.
 
@@ -127,7 +127,7 @@ Tutti gli slot si adattano allo stesso numero di ruoli di lavoro dello slot di p
 
 ## <a name="add-a-slot"></a>Aggiungi uno slot
 
-È possibile aggiungere uno slot tramite l' [interfaccia](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) della riga di comando o tramite il portale. I passaggi seguenti illustrano come creare un nuovo slot nel portale:
+È possibile aggiungere uno slot tramite l' [interfaccia](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create) della riga di comando o tramite il portale. I passaggi seguenti illustrano come creare un nuovo slot nel portale:
 
 1. Passare all'app per le funzioni.
 
@@ -141,7 +141,7 @@ Tutti gli slot si adattano allo stesso numero di ruoli di lavoro dello slot di p
 
 ## <a name="swap-slots"></a>Scambia slot
 
-È possibile scambiare gli slot tramite l' [interfaccia](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) della riga di comando o tramite il portale. I passaggi seguenti illustrano come scambiare gli slot nel portale:
+È possibile scambiare gli slot tramite l' [interfaccia](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap) della riga di comando o tramite il portale. I passaggi seguenti illustrano come scambiare gli slot nel portale:
 
 1. Passare all'app per le funzioni.
 1. Selezionare **slot di distribuzione** e quindi fare clic su **swap**.
@@ -160,7 +160,7 @@ Se uno scambio genera un errore o si vuole semplicemente annullare uno scambio, 
 
 ## <a name="remove-a-slot"></a>Rimuovere uno slot
 
-È possibile rimuovere uno slot tramite l' [interfaccia](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) della riga di comando o tramite il portale. La procedura seguente illustra come rimuovere uno slot nel portale:
+È possibile rimuovere uno slot tramite l' [interfaccia](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete) della riga di comando o tramite il portale. La procedura seguente illustra come rimuovere uno slot nel portale:
 
 1. Passare a **slot di distribuzione** nell'app per le funzioni e quindi selezionare il nome dello slot.
 
@@ -180,13 +180,13 @@ Se uno scambio genera un errore o si vuole semplicemente annullare uno scambio, 
 
 ## <a name="automate-slot-management"></a>Automatizzare la gestione degli slot
 
-Usando l' [interfaccia](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest)della riga di comando di Azure, è possibile automatizzare le azioni seguenti per uno slot:
+Usando l' [interfaccia](/cli/azure/functionapp/deployment/slot)della riga di comando di Azure, è possibile automatizzare le azioni seguenti per uno slot:
 
-- [create](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
-- [delete](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
-- [list](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [scambio](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
-- [scambio automatico](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
+- [create](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create)
+- [delete](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete)
+- [list](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-list)
+- [scambio](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap)
+- [scambio automatico](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-auto-swap)
 
 ## <a name="change-app-service-plan"></a>Modificare il piano di servizio app
 

@@ -138,9 +138,9 @@
         - name: Criteri di Azure per Kubernetes
           displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
           href: ./concepts/policy-for-kubernetes.md
-        - name: Proteggere i pod con Criteri di Azure
+        - name: Proteggere AKS con criteri di Azure
           displayName: 'aks, psp, rego, opa'
-          href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Controllare le VM con la configurazione guest
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

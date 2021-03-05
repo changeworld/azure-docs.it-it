@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ca3957563f7c7a7021ad994cc323823763c2936e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559540"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171546"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -38,7 +38,6 @@ Vedere gli altri articoli di questa serie:
 
 > [!IMPORTANT]
 > Se l'area di lavoro si trova in un __cloud sovrano__, ad esempio Azure per enti pubblici o Azure Cina 21ViaNet, i notebook integrati _non_ supportano l'uso dell'archiviazione che si trova in una rete virtuale. È invece possibile usare Jupyter Notebook da un'istanza di calcolo. Per altre informazioni, vedere la sezione [accedere ai dati in un notebook dell'istanza di calcolo](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -107,7 +106,6 @@ La tabella seguente descrive il motivo per cui è necessario abilitare l'autenti
 >
 > Per risolvere questo problema, rimuovere l'account FileStore dalla rete virtuale, quindi aggiungerlo di nuovo alla rete virtuale.
 
-
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Concessione dell'accesso al __lettore__ di identità gestito dell'area di lavoro al collegamento privato di archiviazione
 
 Se l'account di archiviazione di Azure usa un endpoint privato, è necessario concedere l'accesso del **lettore** di identità gestito dall'area di lavoro al collegamento privato. Per ulteriori informazioni, vedere ruolo predefinito [Reader](../role-based-access-control/built-in-roles.md#reader) . 
@@ -134,7 +132,7 @@ Per l' __archiviazione BLOB di Azure__, l'identità gestita dall'area di lavoro 
 
 Per controllare l'accesso ai dati all'interno di una rete virtuale, è possibile usare gli elenchi di controllo di accesso (ACL) e gli elenchi di controllo di accesso di tipo POSIX.
 
-Per usare il controllo degli accessi in base al ruolo di Azure, aggiungere l'identità gestita dall'area di lavoro al ruolo [lettore dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+Per usare il controllo degli accessi in base al ruolo di Azure, aggiungere l'identità gestita dall'area di lavoro al ruolo [lettore dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 Per usare gli ACL, è possibile assegnare l'accesso all'identità gestita dall'area di lavoro in modo analogo a qualsiasi altro principio di sicurezza. Per altre informazioni, vedere [elenchi di controllo di accesso per file e directory](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -162,7 +160,7 @@ Assicurarsi di avere accesso agli account di archiviazione intermedi nella rete 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo è una parte facoltativa di una serie di reti virtuali in quattro parti. Vedere il resto degli articoli per informazioni su come proteggere una rete virtuale:
+Questo articolo è la parte cinque di una serie di reti virtuali in cinque parti. Vedere il resto degli articoli per informazioni su come proteggere una rete virtuale:
 
 * [Parte 1: Panoramica di rete virtuale](how-to-network-security-overview.md)
 * [Parte 2: proteggere le risorse dell'area di lavoro](how-to-secure-workspace-vnet.md)

@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d33811dc056baa3d205d7d86c1bdd7bff74ae54
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: eef8179567d83e3727c3ab949eef2706ce2a9b16
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330003"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175805"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>Componenti Plug and Play IoT nei modelli
 
@@ -64,7 +64,7 @@ Lo screenshot seguente mostra il modo in cui il modello viene visualizzato nello
 
 L'ID modello viene archiviato in una proprietà del dispositivo gemello, come illustrato nella schermata seguente:
 
-:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Componente predefinito in Azure Internet Explorer":::
+:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="ID modello nella proprietà del dispositivo gemello digitale":::
 
 Un modello DTDL senza componenti è una semplificazione utile per un dispositivo o un modulo di IoT Edge con un unico set di dati di telemetria, proprietà e comandi. Un modello che non usa i componenti semplifica la migrazione di un dispositivo o di un modulo esistente come un Plug and Play dispositivo o modulo. si crea un modello DTDL che descrive il dispositivo o il modulo effettivo senza la necessità di definire alcun componente.
 

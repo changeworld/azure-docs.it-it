@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733841"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175652"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Usare gli script di distribuzione nei modelli ARM
 
@@ -141,7 +141,7 @@ Dettagli sui valori delle proprietà:
 - `azPowerShellVersion`/`azCliVersion`: Specificare la versione del modulo da usare. Vedere un elenco di [versioni di Azure PowerShell supportate](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Vedere un elenco delle [versioni supportate dell'interfaccia](https://mcr.microsoft.com/v2/azure-cli/tags/list)della riga di comando di Azure.
 
   >[!IMPORTANT]
-  > Lo script di distribuzione usa le immagini CLI disponibili di Microsoft Container Registry. La certificazione di un'immagine dell'interfaccia della riga di comando per uno script di distribuzione richiede circa un mese. Non usare le versioni dell'interfaccia della riga di comando rilasciate negli ultimi 30 giorni. Per trovare le date di rilascio delle immagini, vedere [Note sulla versione dell'interfaccia della riga di comando di Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se viene utilizzata una versione non supportata, nel messaggio di errore vengono elencate le versioni supportate.
+  > Lo script di distribuzione usa le immagini CLI disponibili di Microsoft Container Registry. La certificazione di un'immagine dell'interfaccia della riga di comando per uno script di distribuzione richiede circa un mese. Non usare le versioni dell'interfaccia della riga di comando rilasciate negli ultimi 30 giorni. Per trovare le date di rilascio delle immagini, vedere [Note sulla versione dell'interfaccia della riga di comando di Azure](/cli/azure/release-notes-azure-cli). Se viene utilizzata una versione non supportata, nel messaggio di errore vengono elencate le versioni supportate.
 
 - `arguments`: Specificare i valori del parametro. I valori sono separati da uno spazio.
 
@@ -377,10 +377,10 @@ Timeout             : PT1H
 
 Usando l'interfaccia della riga di comando di Azure, è possibile gestire gli script di distribuzione nell'ambito della sottoscrizione o del gruppo
 
-- [AZ Deployment-scripts Delete](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-delete): eliminare uno script di distribuzione.
-- [AZ Deployment-scripts list](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-list): elenca tutti gli script di distribuzione.
-- [AZ Deployment-scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-show): recuperare uno script di distribuzione.
-- [AZ Deployment-scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-lates&preserve-view=truet#az-deployment-scripts-show-log): Mostra i log di script di distribuzione.
+- [AZ Deployment-scripts Delete](/cli/azure/deployment-scripts#az-deployment-scripts-delete): eliminare uno script di distribuzione.
+- [AZ Deployment-scripts list](/cli/azure/deployment-scripts#az-deployment-scripts-list): elenca tutti gli script di distribuzione.
+- [AZ Deployment-scripts show](/cli/azure/deployment-scripts#az-deployment-scripts-show): recuperare uno script di distribuzione.
+- [AZ Deployment-scripts show-log](/cli/azure/deployment-scripts#az-deployment-scripts-show-log): Mostra i log di script di distribuzione.
 
 L'output del comando list è simile al seguente:
 

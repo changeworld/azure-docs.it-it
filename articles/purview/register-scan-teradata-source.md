@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 0885870497ef3488d78fe899c96ee2a82a5b84fc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696187"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175081"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Registrare e analizzare un'origine Teradata (anteprima)
 
@@ -94,13 +94,13 @@ Per creare ed eseguire una nuova analisi, procedere come segue:
 
 6.  **Schema**: elenco subset di schemi da importare espressi come un elenco separato da punti e virgola. ad esempio, Schema1; Schema2. Se l'elenco è vuoto, verranno importati tutti gli schemi utente. Tutti gli schemi di sistema (ad esempio SysAdmin) e gli oggetti di sistema vengono ignorati per impostazione predefinita. Quando l'elenco è vuoto, vengono importati tutti gli schemi disponibili.
 
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
-        - start with A or    
-        - end with B or    
-        - contain C or    
-        - equal D
+    I modelli di nomi di schema accettabili con la sintassi delle espressioni LIKE SQL includono %, ad esempio A%; %B; %C%; D
+    - inizia con A o    
+    - termina con B o    
+    - contiene C o    
+    - è uguale a D
 
-        Usage of NOT and special characters are not acceptable
+    L'uso di NOT e di caratteri speciali non è consentito
 
 7.  **Percorso driver**: specificare il percorso della posizione del driver JDBC nella macchina virtuale in cui è in esecuzione il runtime di integrazione self-hosted. Deve corrispondere al percorso della cartella JAR valida.
 

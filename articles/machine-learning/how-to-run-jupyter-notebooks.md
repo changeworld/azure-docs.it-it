@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 82c11b913d38695c8738de88f3ce69b198ee099e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fe6fa5c9b05afd5479818fe9bb25e471665cb867
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691876"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171467"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Eseguire Jupyter notebook nell'area di lavoro
 
@@ -185,6 +185,89 @@ Un indicatore accanto all'elenco a discesa **Kernel** mostra lo stato del kernel
 ## <a name="find-compute-details"></a>Dettagli del calcolo
 
 I dettagli sulle istanze di calcolo sono disponibili nella pagina **Compute** (Calcolo) in [Studio](https://ml.azure.com).
+
+## <a name="useful-keyboard-shortcuts"></a>Tasti di scelta rapida
+Analogamente ai notebook di Jupyter, Azure Machine Learning Studio notebook hanno un'interfaccia utente modale. La tastiera esegue diverse operazioni a seconda della modalità in cui si trova la cella del notebook. Azure Machine Learning Studio notebook supportano le due modalità seguenti per una cella di codice specificata: modalità comando e modalità di modifica.
+
+### <a name="command-mode-shortcuts"></a>Collegamenti alla modalità di comando
+
+Una cella è in modalità di comando quando non è presente un cursore di testo che richiede di digitare. Quando una cella è in modalità di comando, è possibile modificare il notebook nel suo complesso, ma non digitare in singole celle. Immettere la modalità comando premendo `ESC` o usando il mouse per selezionare all'esterno dell'area dell'editor di una cella.  Il bordo sinistro della cella attiva è blu e a tinta unita e il pulsante **Esegui** è blu.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Cella notebook in modalità comando ":::
+
+| Tasto di scelta rapida                      | Descrizione                          |
+| ----------------------------- | ------------------------------------|
+| Immettere                         | Attivare la modalità di modifica             |        
+| MAIUSC+INVIO                 | Eseguire la cella, selezionare sotto         |     
+| Controllo/comando + invio       | Esegui cella                            |
+| ALT+INVIO                   | Eseguire la cella, inserire la cella del codice sotto    |
+| Controllo/comando + ALT + INVIO | Eseguire la cella, inserire la cella Markdown sotto|
+| ALT + R                       | Esegui tutto      |                       
+| S                             | Converti cella in codice    |                         
+| M                             | Converte la cella in Markdown  |                       
+| Massimo/K                          | Selezionare la cella in alto    |               
+| Giù/J                        | Selezionare la cella in basso    |               
+| A                             | Inserisci cella di codice sopra  |            
+| B                             | Inserisci cella di codice sotto   |           
+| Controllo/comando + MAIUSC + A   | Inserisci cella Markdown sopra    |      
+| Controllo/comando + MAIUSC + B   | Inserisci cella Markdown sotto   |       
+| X                             | Taglia cella selezionata    |               
+| C                             | Copia cella selezionata   |               
+| MAIUSC + V                     | Incolla la cella selezionata sopra           |
+| V                             | Incolla la cella selezionata sotto    |       
+| D D                           | Elimina cella selezionata|                
+| O                             | Attiva/Disattiva Output         |              
+| MAIUSC + O                     | Imposta/Nascondi scorrimento output   |          
+| i                           | Interrompi kernel |                   
+| 0 0                           | Riavviare il kernel |                     
+| MAIUSC + barra spaziatrice                 | Scorri verso l'alto  |                         
+| Space                         | Scorri verso il basso|
+| Scheda                           | Imposta lo stato attivo su elemento attivabile successivo (quando il trap di tabulazione è disabilitato)|
+| Controllo/comando + S           | Salva notebook |                      
+| 1                             | Passa a H1|                       
+| 2                             | Passa a H2|                        
+| 3                             | Passa a H3|                        
+| 4                             | Passa a H4 |                       
+| 5                             | Passa a H5 |                       
+| 6                             | Passa a H6 |                       
+
+### <a name="edit-mode-shortcuts"></a>Collegamenti alla modalità di modifica
+
+La modalità di modifica è indicata da un cursore di testo che richiede di digitare nell'area dell'editor. Quando una cella è in modalità di modifica, è possibile digitare nella cella. Per passare alla modalità di modifica, premere `Enter` o usare il mouse per selezionare l'area dell'editor di una cella. Il bordo sinistro della cella attiva è verde e tratteggiato e il pulsante **Esegui** è verde. Viene visualizzata anche la richiesta di cursore nella cella in modalità di modifica.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Cella notebook in modalità di modifica":::
+
+Usando i tasti di scelta rapida seguenti, è possibile esplorare ed eseguire più facilmente il codice in Azure Machine Learning notebook in modalità di modifica.
+
+| Tasto di scelta rapida                      | Descrizione|                                     
+| ----------------------------- | ----------------------------------------------- |
+| Carattere speciale di escape                        | Immettere la modalità di comando|  
+| Controllo/comando + barra spaziatrice       | Attiva IntelliSense |
+| MAIUSC+INVIO                 | Eseguire la cella, selezionare sotto |                         
+| Controllo/comando + invio       | Esegui cella  |                                      
+| ALT+INVIO                   | Eseguire la cella, inserire la cella del codice sotto  |              
+| Controllo/comando + ALT + INVIO | Eseguire la cella, inserire la cella Markdown sotto  |          
+| ALT + R                       | Eseguire tutte le celle     |                              
+| Su                            | Spostare il cursore verso l'alto o la cella precedente    |             
+| Giù                          | Spostare il cursore verso il basso o la cella successiva |                  
+| Controllo/comando + S           | Salva notebook   |                                
+| Controllo/comando + freccia su          | Andare all'inizio della cella   |                             
+| Controllo/comando + freccia giù        | Andare alla fine della cella |                                 
+| Scheda                           | Completamento o rientro del codice (se il Trap Tab è abilitato) |
+| Controllo/comando + M           | Abilita/Disabilita trap tabulazione  |                       
+| Controllo/comando +]           | Impostare un rientro |                                         
+| Controllo/comando + [           | Annullare l'impostazione di un rientro  |                                        
+| Controllo/comando + A           | Seleziona tutto|                                      
+| Controllo/comando + Z           | Annulla |                                           
+| Controllo/comando + MAIUSC + Z   | Ripeti |                                           
+| Controllo/comando + Y           | Ripeti |                                           
+| Controllo/comando + Home        | Andare all'inizio della cella|                                
+| Controllo/comando + fine         | Andare alla fine della cella   |                               
+| Controllo/comando + freccia sinistra        | Andare a sinistra di una parola |                               
+| Controllo/comando + diritto       | Andare a destra di una parola |                              
+| Controllo/comando + Backspace   | Eliminare la parola prima |                             
+| Controllo/comando + Elimina      | Eliminare la parola dopo |                              
+| Controllo/comando +/           | Imposta/Nascondi commento sulla cella
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

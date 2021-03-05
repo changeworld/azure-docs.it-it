@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 027d1bf005ac052bf48e2c0aa3a4a71fc29f36f2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647439"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175431"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform
 
@@ -40,7 +40,8 @@ Per creare la registrazione dell'app, seguire questa procedura:
 1. Se si ha accesso a più tenant, nel menu in alto usare il filtro **directory + sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: per selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
-1. Immettere un **nome** per l'applicazione. Questo nome può essere visualizzato dagli utenti dell'app. È possibile cambiarlo in seguito.
+1. Immettere un **nome** visualizzato per l'applicazione. Gli utenti dell'applicazione potrebbero visualizzare il nome visualizzato quando usano l'app, ad esempio durante l'accesso.
+    È possibile modificare il nome visualizzato in qualsiasi momento e più registrazioni di app possono condividere lo stesso nome. L'ID applicazione (client) generato automaticamente dall'app, non il nome visualizzato, identifica in modo univoco l'app all'interno della piattaforma di identità.
 1. Specificare gli utenti che possono usare l'applicazione, talvolta denominata *destinatari di accesso*.
 
     | Tipi di account supportati | Descrizione |

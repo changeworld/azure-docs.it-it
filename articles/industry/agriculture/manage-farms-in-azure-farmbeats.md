@@ -4,13 +4,13 @@ description: Viene descritto come gestire le farm
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: dc06f7c75e27d831994b97b97f3d20bb34c3a6c5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 050b3b4d67eda9b6c9b4621c014e3e6baad34053
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167934"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173801"
 ---
 # <a name="manage-farms"></a>Gestire aziende agricole
 
@@ -58,7 +58,7 @@ Nella pagina elenco farm viene visualizzato un elenco di farm create. Selezionar
 Nella pagina **Farm** viene visualizzato un elenco di farm create.
 
 1.  Selezionare una farm per visualizzare e modificare la farm.
-2.  Selezionare **modifica Farm** per modificare le informazioni della farm. Nella finestra **Dettagli Farm** è possibile modificare il **nome**, le **colture**, l' **Indirizzo**e definire i campi **limite della farm** .
+2.  Selezionare **modifica Farm** per modificare le informazioni della farm. Nella finestra **Dettagli Farm** è possibile modificare il **nome**, le **colture**, l' **Indirizzo** e definire i campi **limite della farm** .
 
     ![Progetto FarmBeats](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
 

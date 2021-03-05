@@ -4,13 +4,13 @@ description: Viene descritto come generare mappa termica di umidità del suolo i
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: dd8d688355e0f71ce77cdbc6012d788c7b16d825
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165554"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173784"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Genera mappa termica di umidità del suolo
 
@@ -67,8 +67,8 @@ Questo passaggio consente di creare un processo o un'operazione a esecuzione pro
 3.  Nella pagina **Dettagli Farm** selezionare **Genera mappa di precisione**.
 4.  Dal menu a discesa selezionare **Soil umidità**.
 5.  Nella finestra **umidità del terreno** selezionare **questa settimana**.
-6.  Nella misura **Seleziona** **sensore**di umidità del suolo immettere la misura che si vuole usare per la mappa.
-    Per trovare la misura del sensore, in **sensori**selezionare qualsiasi sensore di umidità del suolo. In **Proprietà sensore**usare il valore **Nome misura** .
+6.  Nella misura **Seleziona** **sensore** di umidità del suolo immettere la misura che si vuole usare per la mappa.
+    Per trovare la misura del sensore, in **sensori** selezionare qualsiasi sensore di umidità del suolo. In **Proprietà sensore** usare il valore **Nome misura** .
 
     ![Screenshot che mostra la schermata di umidità del suolo.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
@@ -93,4 +93,4 @@ Eseguire la procedura descritta di seguito:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato generato un mappa termica di umidità del suolo, viene illustrato come [generare il posizionamento dei sensori](generate-maps-in-azure-farmbeats.md#sensor-placement-map) e inserire [i dati cronologici di telemetria](ingest-historical-telemetry-data-in-azure-farmbeats.md). 
+Ora che è stato generato un mappa termica di umidità del suolo, viene illustrato come [generare il posizionamento dei sensori](generate-maps-in-azure-farmbeats.md#sensor-placement-map) e inserire [i dati cronologici di telemetria](ingest-historical-telemetry-data-in-azure-farmbeats.md). 

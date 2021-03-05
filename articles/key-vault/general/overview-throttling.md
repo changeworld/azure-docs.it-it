@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7bdc3ac517df6b73fba7231cfe0fdc9855803782
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289675"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175754"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Guida alla limitazione delle richieste per Azure Key Vault
 
@@ -24,7 +24,7 @@ I limiti delle richieste variano in base allo scenario. Ad esempio, se si esegue
 
 ## <a name="how-does-key-vault-handle-its-limits"></a>Gestione dei limiti da parte di Key Vault
 
-I limiti del servizio in Key Vault impedire l'utilizzo improprio delle risorse e garantire la qualità del servizio per tutti i client di Key Vault. Quando viene superata una soglia di servizio, Key Vault limita le altre richieste da tale client per un determinato periodo di tempo, restituisce il codice di stato HTTP 429 (troppe richieste) e la richiesta ha esito negativo. Richieste non riuscite che restituiscono un conteggio di 429 per i limiti di limitazione rilevati da Key Vault. 
+I limiti del servizio in Key Vault impedire l'utilizzo improprio delle risorse e garantire la qualità del servizio per tutti i client di Key Vault. Quando viene superata una soglia di servizio, Key Vault limita le altre richieste da tale client per un determinato periodo di tempo, restituisce il codice di stato HTTP 429 (troppe richieste) e la richiesta ha esito negativo. Le richieste non riuscite che restituiscono un 429 non vengono conteggiate per i limiti di limitazione rilevati da Key Vault. 
 
 Key Vault è stato originariamente progettato per essere usato per archiviare e recuperare i segreti in fase di distribuzione.  Il mondo si è evoluto e Key Vault viene usato in fase di esecuzione per archiviare e recuperare i segreti e spesso le app e i servizi vogliono usare Key Vault come un database.  I limiti correnti non supportano velocità effettiva elevata.
 
@@ -47,8 +47,8 @@ Se si ritiene che il precedente non soddisfi le proprie esigenze, compilare la t
 
 Se è stata approvata una capacità aggiuntiva, tenere presente quanto segue in seguito all'aumento della capacità:
 1. Il modello di coerenza dei dati cambia. Quando un insieme di credenziali è consentito nell'elenco con capacità di velocità effettiva aggiuntiva, la coerenza dei dati del servizio Key Vault garantisce modifiche (necessario per soddisfare un volume RPS superiore perché il servizio di archiviazione di Azure sottostante non può rimanere attivo).  In pratica
-  1. **Senza Allow Listing** : il servizio Key Vault rifletterà i risultati di un'operazione di scrittura (ad esempio, Secrett, CreateKey) immediatamente nelle chiamate successive, ad esempio SecretGet, segno di firma.
-  1. **Con Allow Listing** : il servizio Key Vault rifletterà i risultati di un'operazione di scrittura (ad esempio, Secrett, CreateKey) entro 60 secondi nelle chiamate successive, ad esempio SecretGet, segno di firma.
+  1. **Senza Allow Listing**: il servizio Key Vault rifletterà i risultati di un'operazione di scrittura (ad esempio, Secrett, CreateKey) immediatamente nelle chiamate successive, ad esempio SecretGet, segno di firma.
+  1. **Con Allow Listing**: il servizio Key Vault rifletterà i risultati di un'operazione di scrittura (ad esempio, Secrett, CreateKey) entro 60 secondi nelle chiamate successive, ad esempio SecretGet, segno di firma.
 1. Il codice client deve rispettare i criteri di backup per 429 tentativi. Il codice client che chiama il servizio Key Vault non deve ritentare immediatamente Key Vault richieste quando riceve un codice di risposta 429.  Il Azure Key Vault linee guida per la limitazione delle richieste pubblicate qui consiglia di applicare backoff esponenziali quando si riceve un codice di risposta http 429.
 
 Nel caso l'utente abbia delle esigenze aziendali per cui sono necessarie delle limitazioni maggiori, contattare Microsoft.
@@ -96,6 +96,6 @@ Quando si genera il codice di errore HTTP 429, iniziare a limitare le richieste 
 
 A questo punto, il codice di risposta HTTP 429 dovrebbe non essere più visualizzato.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 Per un approfondimento sulla limitazione delle richieste nel cloud di Microsoft, vedere [Throttling Pattern](/azure/architecture/patterns/throttling) (Modello di limitazione delle richieste).

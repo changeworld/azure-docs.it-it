@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 11e47e83da09699d60ada11539dbb2f000f075db
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 1f37ee36710211e95bcc5d99a095de4303c85281
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788673"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172393"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Avvio rapido: Creare un'app Python usando il Servizio app di Azure in Linux
 
@@ -230,7 +230,7 @@ Problemi? Per prima cosa, vedere la [guida alla risoluzione dei problemi](config
 
 È possibile accedere ai log della console generati dall'interno dell'app e del contenitore in cui è in esecuzione. I log includono tutti gli output generati tramite le istruzioni `print`.
 
-Per trasmettere in streaming i log, eseguire il comando [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail):
+Per trasmettere in streaming i log, eseguire il comando [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail):
 
 ```azurecli
 az webapp log tail

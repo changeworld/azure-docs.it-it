@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe69967d84777091aec0bbbf1626b98f5018d0e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b0865fb2bda04f5a7e9ba2ef73a717946fa656a5
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693181"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175312"
 ---
 # <a name="authentication-methods-activity"></a>Attività dei metodi di autenticazione 
 
@@ -26,10 +26,17 @@ Il dashboard attività nuovi metodi di autenticazione consente agli amministrato
 
 ## <a name="permissions-and-licenses"></a>Autorizzazioni e licenze
 
-I ruoli seguenti possono accedere all'utilizzo e alle informazioni dettagliate:
+I ruoli predefiniti e personalizzati con le autorizzazioni seguenti possono accedere al pannello attività metodi di autenticazione e alle API:
+
+- Microsoft. directory/auditLogs/allProperties/Read
+- Microsoft. directory/signInReports/allProperties/Read
+
+I ruoli seguenti dispongono delle autorizzazioni necessarie:
 
 - Lettore di report
 - Ruolo con autorizzazioni di lettura per la sicurezza
+- Ruolo con autorizzazioni di lettura globali
+- Operatore di sicurezza
 - Amministratore della protezione
 - Amministratore globale
 
@@ -122,11 +129,12 @@ Il report Dettagli registrazione Mostra le informazioni seguenti per ogni utente
 - Stato (esito positivo, esito negativo)
 - Motivo dell'errore (spiegazione)
 
-  ![Screenshot della pagina Usage](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
+  ![Screenshot degli eventi di registrazione e reimpostazione](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## <a name="limitations"></a>Limitazioni
 
-Le registrazioni del passaggio di accesso temporaneo (TAP) non vengono riflesse nella scheda registrazione del report perché sono valide solo per un breve periodo di tempo.
+- I dati del report non vengono aggiornati in tempo reale e possono riflettere una latenza di poche ore.
+- Le registrazioni di pass di accesso temporanee non vengono riflesse nella scheda registrazione del report perché sono valide solo per un breve periodo di tempo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

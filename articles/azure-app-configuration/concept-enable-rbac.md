@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.date: 05/26/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 4768dbe292b7c71770ded1e8ad27025bc9944608
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f29be1807dfcc314c89d30301107670a970263ce
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930263"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172876"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizzare l'accesso a Configurazione app di Azure tramite Azure Active Directory
 Oltre all'uso di Message Authentication Code basato su hash (HMAC), app Azure configurazione supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle istanze di configurazione dell'app.  Azure AD consente di usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per concedere le autorizzazioni a un'entità di sicurezza.  Un'entità di sicurezza può essere un utente, un' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) o un' [entità servizio dell'applicazione](../active-directory/develop/app-objects-and-service-principals.md).  Per altre informazioni sui ruoli e sulle assegnazioni di ruolo, vedere [Informazioni sui diversi ruoli](../role-based-access-control/overview.md).
@@ -37,9 +37,6 @@ Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a
 - **Ruolo con autorizzazioni di lettura per i dati di Configurazione dell'app**: usare questo ruolo per concedere l'accesso in lettura ai dati di Configurazione app. Questo ruolo non concede l'accesso alla risorsa di Configurazione app.
 - **Collaboratore**: usare questo ruolo per gestire la risorsa di Configurazione app. Mentre è possibile accedere ai dati di configurazione dell'app usando le chiavi di accesso, questo ruolo non concede l'accesso diretto ai dati usando Azure AD.
 - **Lettore**: usare questo ruolo per concedere l'accesso in lettura alla risorsa di Configurazione app. Questo ruolo non concede l'accesso alle chiavi di accesso della risorsa né ai dati archiviati in Configurazione app.
-
-> [!NOTE]
-> Attualmente, il portale di Azure supporta solo l'autenticazione HMAC per accedere ai dati di configurazione dell'app. L'autenticazione Azure AD non è supportata. Per questo motivo, gli utenti del portale di Azure richiedono il ruolo *collaboratore* per recuperare le chiavi di accesso della risorsa di configurazione dell'app. La concessione di ruoli del *proprietario dei dati* *di configurazione dell'app o* dei dati di configurazione delle app non ha alcun effetto sull'accesso tramite il portale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sull'uso delle [identità gestite](howto-integrate-azure-managed-service-identity.md) per amministrare il servizio Configurazione app.

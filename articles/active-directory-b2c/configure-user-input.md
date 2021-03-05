@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: eb7cba1de280793a1ca98687c71355c1ea702d4c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e76fe1c26f428403a79a3605b7a41f761fe2a4bb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585225"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171621"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Aggiungere attributi utente e personalizzare l'input dell'utente in Azure Active Directory B2C
 
@@ -198,7 +198,7 @@ Per raccogliere l'attestazione City durante l'iscrizione, è necessario aggiunge
 </ClaimsProvider>
 ```
 
-Per raccogliere l'attestazione City dopo l'accesso iniziale con un account federato, è necessario aggiungerla come attestazione di output al `SelfAsserted-Social` profilo tecnico. Per consentire agli utenti di account locali e federati di modificare i dati di profilo in un secondo momento, aggiungere l'attestazione di output al `SelfAsserted-ProfileUpdate` profilo tecnico. Eseguire l'override di questi profili tecnici nel file di estensione. Specificare l'intero elenco delle attestazioni di output per controllare l'ordine in cui le attestazioni vengono presentate sullo schermo. Trovare l'elemento **ClaimsProviders**. Aggiungere un nuovo ClaimsProviders come segue:
+Per raccogliere l'attestazione City dopo l'accesso iniziale con un account federato, è necessario aggiungerla come attestazione di output al `SelfAsserted-Social` profilo tecnico. Per consentire agli utenti di account locali e federati di modificare i dati di profilo in un secondo momento, aggiungere le attestazioni di input e output al `SelfAsserted-ProfileUpdate` profilo tecnico. Eseguire l'override di questi profili tecnici nel file di estensione. Specificare l'intero elenco delle attestazioni di output per controllare l'ordine in cui le attestazioni vengono presentate sullo schermo. Trovare l'elemento **ClaimsProviders**. Aggiungere un nuovo ClaimsProviders come segue:
 
 ```xml
 <ClaimsProvider>
@@ -206,6 +206,9 @@ Per raccogliere l'attestazione City dopo l'accesso iniziale con un account feder
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->
     <TechnicalProfile Id="SelfAsserted-Social">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="city" />
+      </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="displayName"/>
         <OutputClaim ClaimTypeReferenceId="givenName"/>
@@ -215,6 +218,9 @@ Per raccogliere l'attestazione City dopo l'accesso iniziale con un account feder
     </TechnicalProfile>
     <!--Edit profile page-->
     <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="city" />
+      </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="displayName"/>
         <OutputClaim ClaimTypeReferenceId="givenName" />

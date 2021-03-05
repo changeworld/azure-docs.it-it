@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/03/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9cd5a62cd85687767497b142a30d31aa6dd00b77
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994843"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175091"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -149,6 +149,42 @@ Usare questa trasformazione di attestazioni per impostare un valore ClaimType di
     - **value**: Condizioni d'uso di Contoso...
 - Attestazioni di output:
     - **createdClaim**: l'elemento TOS ClaimType contiene il valore "Condizioni d'uso di Contoso...".
+
+## <a name="copyclaimifpredicatematch"></a>CopyClaimIfPredicateMatch
+
+Copiare il valore di un'attestazione in un altro se il valore dell'attestazione di input corrisponde al predicato di attestazione di output. 
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Tipo di attestazione, che deve essere copiato. |
+| OutputClaim | outputClaim | string | Il tipo di attestazione che viene generato dopo la trasformazione delle attestazioni è stato richiamato. Il valore dell'attestazione di input viene verificato rispetto a questo predicato di attestazione. |
+
+Nell'esempio seguente il valore dell'attestazione signInName viene copiato in phoneNumber Claim, solo se signInName è un numero di telefono. Per l'esempio completo, vedere la pagina relativa al [numero di telefono o all'accesso tramite posta elettronica](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml) .
+
+```xml
+<ClaimsTransformation Id="SetPhoneNumberIfPredicateMatch" TransformationMethod="CopyClaimIfPredicateMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example-1"></a>Esempio 1
+
+- Attestazioni di input:
+    - **attestazione**: bob@contoso.com
+- Attestazioni di output:
+    - **outputClaim**: l'attestazione di output non verrà modificata rispetto al valore originale.
+
+### <a name="example-2"></a>Esempio 2
+
+- Attestazioni di input:
+    - **attestazione**: + 11234567890
+- Attestazioni di output:
+    - **outputClaim**: +11234567890
 
 ## <a name="compareclaims"></a>CompareClaims
 
