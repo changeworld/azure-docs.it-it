@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Eseguire la migrazione offline di SQL Server a un database singolo SQL'
+title: 'Esercitazione: eseguire la migrazione di SQL Server offline al database SQL di Azure'
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione offline da SQL Server a Database SQL di Azure tramite il Servizio Migrazione del database di Azure.
 services: dms
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: b02572f8f6f6531afba9e24af1d2eab53f5cb6ad
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9c3fa0d8ac4540495e8580fd208507a2c1aaa7ce
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742110"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180688"
 ---
-# <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Esercitazione: Eseguire la migrazione di SQL Server al database SQL di Azure offline con il Servizio Migrazione del database
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server al database SQL di Azure con DMS
 
-È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di SQL Server a [Database SQL di Azure](/azure/sql-database/). In questa esercitazione si esegue la migrazione del database [AdventureWorks2016](/sql/samples/adventureworks-install-configure?tabs=ssms&view=sql-server-ver15#download-backup-files) ripristinato in un'istanza locale di SQL Server 2016 o versione successiva a un database singolo o in pool in Database SQL di Azure usando il Servizio Migrazione del database di Azure.
+È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di SQL Server a [Database SQL di Azure](/azure/sql-database/). In questa esercitazione si esegue la migrazione del database [AdventureWorks2016](/sql/samples/adventureworks-install-configure#download-backup-files) ripristinato in un'istanza locale di SQL Server 2016 o versione successiva a un database singolo o in pool in Database SQL di Azure usando il Servizio Migrazione del database di Azure.
 
 Si apprenderà come:
 > [!div class="checklist"]
@@ -33,6 +33,7 @@ Si apprenderà come:
 > - Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
 > - Eseguire la migrazione.
 > - Monitorare la migrazione.
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -147,7 +148,7 @@ Per eseguire la migrazione dello schema di **Adventureworks2016** a un database 
 
 1. Accedere al portale di Azure. Cercare e selezionare **Sottoscrizioni**.
 
-   ![Mostra le sottoscrizioni del portale](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
+   ![Mostra le sottoscrizioni del portale](media/tutorial-sql-server-to-azure-sql/portal-select-subscription-1.png)
 
 2. Selezionare la sottoscrizione in cui si vuole creare l'istanza del Servizio Migrazione del database di Azure e quindi selezionare **Provider di risorse**.
 
@@ -165,7 +166,7 @@ Per eseguire la migrazione dello schema di **Adventureworks2016** a un database 
 
 2. Nella schermata **Servizio Migrazione del database di Azure** selezionare **Crea**.
 
-    ![Creare l'istanza del Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-azure-sql/dms-create1.png)
+    ![Creare l'istanza del Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-azure-sql/dms-create-1.png)
   
 3. Nella schermata Informazioni di base di **Crea servizio Migrazione**:
 
@@ -176,7 +177,7 @@ Per eseguire la migrazione dello schema di **Adventureworks2016** a un database 
      - Scegliere **Azure** come modalità del servizio.
      - Selezione di un piano tariffario. Per altre informazioni sui costi e i piani tariffari, vedere la [pagina relativa ai prezzi](https://aka.ms/dms-pricing).
 
-    ![Configurare le impostazioni di base dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-azure-sql/dms-settings2.png)
+    ![Configurare le impostazioni di base dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-azure-sql/dms-settings-2.png)
 
      - Al termine, selezionare **Avanti: Rete**.
 
@@ -184,7 +185,7 @@ Per eseguire la migrazione dello schema di **Adventureworks2016** a un database 
 
     - Selezionare una rete virtuale esistente o crearne una nuova. La rete virtuale consente al Servizio Migrazione del database di Azure di accedere all'istanza di SQL Server di origine e all'istanza di destinazione di Database SQL di Azure. Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo [Creare una rete virtuale con il portale di Azure](../virtual-network/quick-create-portal.md).
 
-    ![Configurare le impostazioni di rete dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-azure-sql/dms-settings3.png)
+    ![Configurare le impostazioni di rete dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-azure-sql/dms-settings-3.png)
 
     - Selezionare **Rivedi e crea** per creare il servizio.
 
@@ -202,9 +203,9 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
      ![Individuare l'istanza di Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
-4. Nella schermata **Nuovo progetto di migrazione** specificare un nome per il progetto e quindi selezionare **SQL Server** nella casella di testo **Tipo del server di origine**, **Database SQL di Azure** nella casella di testo **Tipo del server di destinazione** e **Migrazione dei dati offline** per **Scegli il tipo di attività**.
+4. Nella schermata **nuovo progetto di migrazione** specificare un nome per il progetto, nella casella di testo **tipo server di origine** Selezionare **SQL Server**, nella casella di testo tipo di **server di destinazione** selezionare **database SQL di Azure** e quindi per * * Scegli tipo di attività di migrazione * *, selezionare **migrazione dei dati**.
 
-    ![Creare il progetto del Servizio Migrazione del database](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
+    ![Creare il progetto del Servizio Migrazione del database](media/tutorial-sql-server-to-azure-sql/dms-create-project-2.png)
 
 5. Selezionare **Crea ed esegui attività** per creare il progetto ed eseguire l'attività di migrazione.
 
@@ -224,34 +225,42 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
     > [!IMPORTANT]
     > Se si usa SSIS, il Servizio Migrazione del database non supporta al momento la migrazione del database SSISDB di origine, ma è possibile ridistribuire i propri progetti/pacchetti SSIS nel database SSISDB di destinazione ospitato dal database SQL di Azure. Per altre informazioni sulla migrazione dei pacchetti SSIS, vedere l'articolo [Eseguire la migrazione di pacchetti SQL Server Integration Services in Azure](./how-to-migrate-ssis-packages.md).
 
-   ![Dettagli origine](media/tutorial-sql-server-to-azure-sql/dms-source-details2.png)
+   ![Dettagli origine](media/tutorial-sql-server-to-azure-sql/dms-source-details-2.png)
+   
+3. Selezionare **Avanti: selezionare i database**.
 
-3. Selezionare **Avanti: Seleziona la destinazione**.
+## <a name="select-databases-for-migration"></a>Selezionare i database per la migrazione
+
+Selezionare tutti i database o database specifici di cui si vuole eseguire la migrazione al database SQL di Azure. DMS fornisce l'ora di migrazione prevista per i database selezionati. Se i tempi di inattività della migrazione sono accettabili, continuare con la migrazione. Se il tempo di inattività della migrazione non è accettabile, provare a eseguire la migrazione a [SQL istanza gestita con tempi di inattività quasi nulli](tutorial-sql-server-managed-instance-online.md) o contattare il [Team DMS](mailto:DMSFeedback@microsoft.com) per altre opzioni. 
+
+1. Scegliere i database di cui si desidera eseguire la migrazione dall'elenco dei database disponibili. 
+1. Esaminare i tempi di inattività previsti. Se è accettabile, fare clic su **Avanti: selezionare destinazione >>**
+
+   ![Database di origine](media/tutorial-sql-server-to-azure-sql/select-database.png)
+
+
 
 ## <a name="specify-target-details"></a>Specificare i dettagli della destinazione
 
-1. Nella schermata **Seleziona la destinazione** specificare i dettagli di connessione per la destinazione, ovvero l'istanza di Database SQL di Azure di cui è già stato eseguito il provisioning e in cui è stato distribuito lo schema di **Adventureworks2016** con Data Migration Assistant.
+1. Nella schermata **Seleziona destinazione** specificare le impostazioni di autenticazione per il database SQL di Azure. 
 
-    ![Selezionare la destinazione](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
-    
-    > [!NOTE]
-    > Le connessioni degli endpoint privati al database SQL di Azure di destinazione sono supportate dal servizio migrazione del database di Azure tranne quando si usa un nome DNS personalizzato. 
+   ![Selezionare la destinazione](media/tutorial-sql-server-to-azure-sql/select-target.png)
 
-2. Selezionare **Avanti: Mappa ai database di destinazione** e mappare il database di origine e quello di destinazione per la migrazione.
+1. Selezionare **Avanti: Mappa ai database di destinazione** e mappare il database di origine e quello di destinazione per la migrazione.
 
     Se il database di destinazione contiene lo stesso nome del database di origine, il Servizio Migrazione del database di Azure seleziona il database di destinazione per impostazione predefinita.
 
-    ![Eseguire il mapping nei database di destinazione](media/tutorial-sql-server-to-azure-sql/dms-map-targets-activity2.png)
+    ![Eseguire il mapping nei database di destinazione](media/tutorial-sql-server-to-azure-sql/dms-map-targets-activity-2.png)
 
-3. Selezionare **Avanti: Configura le impostazioni di migrazione**, quindi espandere l'elenco delle tabelle ed esaminare l'elenco dei campi interessati.
+1. Selezionare **Avanti: Configura le impostazioni di migrazione**, quindi espandere l'elenco delle tabelle ed esaminare l'elenco dei campi interessati.
 
     Il Servizio Migrazione del database di Azure seleziona automaticamente tutte le tabelle di origine vuote disponibili nell'istanza di destinazione di Database SQL di Azure. Se si vuole eseguire di nuovo la migrazione delle tabelle che includono già dati, occorre selezionarle esplicitamente in questo pannello.
 
-    ![Selezionare le tabelle](media/tutorial-sql-server-to-azure-sql/dms-configure-setting-activity2.png)
+    ![Selezionare le tabelle](media/tutorial-sql-server-to-azure-sql/dms-configure-setting-activity-2.png)
 
-4. Selezionare **Avanti: Riepilogo**, quindi esaminare la configurazione della migrazione e specificare un nome per l'attività di migrazione nella casella di testo **Nome attività**.
+1. Selezionare **Avanti: Riepilogo**, quindi esaminare la configurazione della migrazione e specificare un nome per l'attività di migrazione nella casella di testo **Nome attività**.
 
-    ![Scegliere l'opzione di convalida](media/tutorial-sql-server-to-azure-sql/dms-configuration2.png)
+    ![Scegliere l'opzione di convalida](media/tutorial-sql-server-to-azure-sql/dms-configuration-2.png)
 
 ## <a name="run-the-migration"></a>Eseguire la migrazione
 
@@ -259,13 +268,13 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
     Viene visualizzata la finestra dell'attività di migrazione con il campo **Stato** dell'attività impostato su **In sospeso**.
 
-    ![Stato attività](media/tutorial-sql-server-to-azure-sql/dms-activity-status1.png)
+    ![Stato attività](media/tutorial-sql-server-to-azure-sql/dms-activity-status-1.png)
 
 ## <a name="monitor-the-migration"></a>Monitorare la migrazione
 
 1. Nella schermata dell'attività di migrazione selezionare **Aggiorna** per aggiornare la visualizzazione finché nel campo **Stato** delle migrazioni non viene indicato **Completata**.
 
-    ![Stato attività: Completata](media/tutorial-sql-server-to-azure-sql/dms-completed-activity1.png)
+    ![Stato attività: Completata](media/tutorial-sql-server-to-azure-sql/dms-completed-activity-1.png)
 
 2. Verificare i database di destinazione nell'istanza di **Database SQL di Azure** di destinazione.
 

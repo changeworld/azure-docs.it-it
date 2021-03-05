@@ -4,13 +4,13 @@ description: Questo articolo descrive come gestire gli utenti in Azure FarmBeats
 author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
-ms.author: v-umha
-ms.openlocfilehash: e2769e97dde7f0b99bd29da9c6eb65954bc84dd2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.author: v-ummehabiba
+ms.openlocfilehash: de9a11cac9856417422bd72579cbca44233ab422
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677552"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179902"
 ---
 # <a name="manage-users"></a>Gestire gli utenti
 
@@ -30,21 +30,21 @@ Azure FarmBeats USA Azure AD per l'autenticazione, il controllo di accesso e i r
 
 Azure FarmBeats supporta due tipi di ruoli utente:
 
- - **Amministratore** : completare l'accesso alle API datahub di Azure FarmBeats. Gli utenti con questo ruolo possono eseguire una query su tutti gli oggetti datahub di Azure FarmBeats ed eseguire tutte le operazioni dall'acceleratore FarmBeats.
- - Sola **lettura** : accesso di sola lettura alle API datahub di FarmBeats. Gli utenti possono visualizzare le API datahub, i dashboard acceleratori e le mappe. Gli utenti con accesso in sola lettura non possono eseguire operazioni quali la generazione di mappe, l'associazione di dispositivi o la creazione di farm.
+ - **Amministratore**: completare l'accesso alle API datahub di Azure FarmBeats. Gli utenti con questo ruolo possono eseguire una query su tutti gli oggetti datahub di Azure FarmBeats ed eseguire tutte le operazioni dall'acceleratore FarmBeats.
+ - Sola **lettura**: accesso di sola lettura alle API datahub di FarmBeats. Gli utenti possono visualizzare le API datahub, i dashboard acceleratori e le mappe. Gli utenti con accesso in sola lettura non possono eseguire operazioni quali la generazione di mappe, l'associazione di dispositivi o la creazione di farm.
 
 ## <a name="add-users-to-azure-farmbeats"></a>Aggiungere utenti ad Azure FarmBeats
 
 Per aggiungere utenti ad Azure FarmBeats:
 
 1. Accedere a acceleratore e quindi selezionare l'icona **Impostazioni** .
-2. Selezionare **controllo di accesso** .
+2. Selezionare **controllo di accesso**.
 
     ![Riquadro Impostazioni farm](./media/create-farms-in-azure-farmbeats/settings-users-1.png)
 
 3. Immettere l'ID di posta elettronica dell'utente a cui si vuole concedere l'accesso.
-4. Selezionare il ruolo desiderato, **amministratore** o di **sola lettura** .
-5. Selezionare **Aggiungi ruolo** .
+4. Selezionare il ruolo desiderato, **amministratore** o di **sola lettura**.
+5. Selezionare **Aggiungi ruolo**.
 
 L'utente aggiunto ora può accedere ad Azure FarmBeats (sia datahub che Accelerator).
 
@@ -53,8 +53,8 @@ L'utente aggiunto ora può accedere ad Azure FarmBeats (sia datahub che Accelera
 Per rimuovere gli utenti dal sistema FarmBeats di Azure:
 
 1. Accedere a acceleratore e quindi selezionare l'icona **Impostazioni** .
-2. Selezionare **controllo di accesso** .
-3. Selezionare **Elimina** .
+2. Selezionare **controllo di accesso**.
+3. Selezionare **Elimina**.
 
    L'utente viene eliminato dal sistema. Si riceverà il messaggio di conferma seguente:
 
@@ -69,16 +69,16 @@ Attenersi alla procedura per aggiungere utenti a Azure AD:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. In alto a destra selezionare l'account e quindi passare al tenant Azure AD associato a FarmBeats.
-3. Selezionare gli **utenti** di  > **Azure Active Directory** .
+3. Selezionare gli **utenti** di  > **Azure Active Directory**.
 
     Viene visualizzato un elenco di Azure AD utenti.
 
-4. Per aggiungere un utente alla directory, selezionare **nuovo utente** . Per aggiungere un utente esterno, selezionare **nuovo utente Guest** .
+4. Per aggiungere un utente alla directory, selezionare **nuovo utente**. Per aggiungere un utente esterno, selezionare **nuovo utente Guest**.
 
     ![Riquadro "tutti gli utenti"](./media/create-farms-in-azure-farmbeats/manage-users-3.png)
 
 5. Selezionare il nome del nuovo utente e quindi completare i campi obbligatori per tale utente.
-6. Selezionare **Crea** .
+6. Selezionare **Crea**.
 
 Per informazioni sulla gestione di utenti Azure AD, vedere [aggiungere o eliminare utenti in Azure ad](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 

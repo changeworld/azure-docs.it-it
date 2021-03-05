@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ee15bfaa1d69e2e5047e7d24986f8e4e7d5b8b31
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791444"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180242"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL di Azure 
 
@@ -41,16 +41,20 @@ Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Account di database con privilegi minimi
 
--   **Per la configurazione della sincronizzazione** . Create/Alter Table; Alter Database; Create Procedure; Select/ Alter Schema; Create User-Defined Type.
+-   **Per la configurazione della sincronizzazione**. Create/Alter Table; Alter Database; Create Procedure; Select/ Alter Schema; Create User-Defined Type.
 
--   **Per la sincronizzazione continua** . SELECT/INSERT/UPDATE/DELETE per le tabelle selezionate per la sincronizzazione e su tabelle di rilevamento e metadati di sincronizzazione; Autorizzazione Execute per le stored procedure create dal servizio. Autorizzazione Execute per i tipi di tabella definiti dall'utente.
+-   **Per la sincronizzazione continua**. SELECT/INSERT/UPDATE/DELETE per le tabelle selezionate per la sincronizzazione e su tabelle di rilevamento e metadati di sincronizzazione; Autorizzazione Execute per le stored procedure create dal servizio. Autorizzazione Execute per i tipi di tabella definiti dall'utente.
 
--   **Per il deprovisioning** . Alter su tabelle che fanno parte della sincronizzazione; Select/Delete su tabelle di metadati di sincronizzazione; Control su tabelle di rilevamento della sincronizzazione, stored procedure e tipi di tabelle definiti dall'utente.
+-   **Per il deprovisioning**. Alter su tabelle che fanno parte della sincronizzazione; Select/Delete su tabelle di metadati di sincronizzazione; Control su tabelle di rilevamento della sincronizzazione, stored procedure e tipi di tabelle definiti dall'utente.
 
 Il database SQL di Azure supporta un solo set di credenziali. Per eseguire queste operazioni nei limiti di questo vincolo, considerare le opzioni seguenti:
 
 -   Modificare le credenziali per le diverse fasi, ad esempio *credentials1* per la configurazione e *credentials2* per la sincronizzazione continua.  
 -   Modificare l'autorizzazione delle credenziali, ovvero, modificare l'autorizzazione dopo aver configurato la sincronizzazione.
+
+### <a name="auditing"></a>Controllo
+
+È consigliabile abilitare il controllo a livello di database nei gruppi di sincronizzazione. 
 
 ## <a name="setup"></a>Configurazione
 
@@ -168,7 +172,7 @@ Monitorare regolarmente l'integrità del database e del gruppo di sincronizzazio
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a>Evitare database e gruppi di sincronizzazione non aggiornati
 
-È possibile che un gruppo di sincronizzazione o un database all'interno di un gruppo di sincronizzazione non sia più aggiornato. Quando lo stato di un gruppo di sincronizzazione è **obsoleto** , smette di funzionare. Quando lo stato di un database è **Out-of-date** (Non aggiornato), può verificarsi una perdita di dati. È consigliabile evitare questo scenario anziché provare a risolvere il problema.
+È possibile che un gruppo di sincronizzazione o un database all'interno di un gruppo di sincronizzazione non sia più aggiornato. Quando lo stato di un gruppo di sincronizzazione è **obsoleto**, smette di funzionare. Quando lo stato di un database è **Out-of-date** (Non aggiornato), può verificarsi una perdita di dati. È consigliabile evitare questo scenario anziché provare a risolvere il problema.
 
 #### <a name="avoid-out-of-date-databases"></a>Evitare database e gruppi di sincronizzazione non aggiornati
 

@@ -4,12 +4,12 @@ description: Informazioni su come personalizzare la funzionalità di autenticazi
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 4f2f43b142b290d29a4a90e504422b6c9ba2739c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 50587feff29e1c02a639d63d0c99156dcec4f68e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630328"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180871"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -648,7 +648,7 @@ Quando si Abilita l'autenticazione/autorizzazione, il middleware della piattafor
 
 ##### <a name="from-the-azure-cli"></a>Dall'interfaccia della riga di comando di Azure
 
-Usando l'interfaccia della riga di comando di Azure, visualizzare la versione corrente del middleware con il comando [AZ webapp auth Show](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-show) .
+Usando l'interfaccia della riga di comando di Azure, visualizzare la versione corrente del middleware con il comando [AZ webapp auth Show](/cli/azure/webapp/auth#az-webapp-auth-show) .
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -679,7 +679,7 @@ Il campo viene visualizzato `runtimeVersion` nell'output dell'interfaccia della 
 
 #### <a name="update-the-current-runtime-version"></a>Aggiornare la versione corrente del runtime
 
-Usando l'interfaccia della riga di comando di Azure, è possibile aggiornare l' `runtimeVersion` impostazione dell'app con il comando [AZ webapp auth Update](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-update) .
+Usando l'interfaccia della riga di comando di Azure, è possibile aggiornare l' `runtimeVersion` impostazione dell'app con il comando [AZ webapp auth Update](/cli/azure/webapp/auth#az-webapp-auth-update) .
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \

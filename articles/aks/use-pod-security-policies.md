@@ -4,21 +4,26 @@ description: Informazioni su come controllare l'ammissione di pod usando PodSecu
 services: container-service
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: 23c436cb3ddf970939ab9d7b936a4e03e1fbb7ff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cb317e5e0d1f558121e675f569bad37811768ca6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371227"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180310"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere il cluster usando i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **La funzionalità descritta in questo documento Pod Security Policy (anteprima) è impostata per la deprecazione e non sarà più disponibile dopo il 30 giugno 2021** a favore di criteri di [Azure per AKS](use-pod-security-on-azure-policy.md). La data di deprecazione è stata estesa dalla data precedente del 15 ottobre 2020.
+> **La funzionalità descritta in questo documento Pod Security Policy (anteprima) è impostata per la deprecazione e non sarà più disponibile dopo il 30 giugno 2021** a favore di criteri di [Azure per AKS](use-azure-policy.md). La data di deprecazione è stata estesa dalla data precedente del 15 ottobre 2020.
 >
 > Dopo la deprecazione di Criteri di sicurezza dei pod (anteprima), sarà necessario disabilitare la funzionalità in eventuali cluster esistenti che usano la funzionalità deprecata per eseguire aggiornamenti futuri del cluster e mantenere il supporto tecnico di Azure.
 >
-> È consigliabile iniziare a testare gli scenari con criteri di Azure per AKS, che offre criteri predefiniti per proteggere i pod e le iniziative predefinite che vengono mappate ai criteri di sicurezza pod. Fare clic qui per informazioni sulla [migrazione a criteri di Azure da criteri di sicurezza pod (anteprima)](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
+> È consigliabile iniziare a testare gli scenari con criteri di Azure per AKS, che offre criteri predefiniti per proteggere i pod e le iniziative predefinite che vengono mappate ai criteri di sicurezza pod. Per eseguire la migrazione dai criteri di sicurezza Pod, è necessario eseguire le azioni seguenti in un cluster.
+> 
+> 1. [Disabilitare i criteri di sicurezza Pod](#clean-up-resources) nel cluster
+> 1. Abilitare il [componente aggiuntivo criteri di Azure][kubernetes-policy-reference]
+> 1. Abilitare i criteri di Azure desiderati dai [criteri predefiniti disponibili][policy-samples]
+> 1. Esaminare [le modifiche del comportamento tra i criteri di sicurezza pod e i criteri di Azure](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
 Per migliorare la sicurezza del cluster AKS, è possibile limitare i pod che è possibile pianificare. I pod che richiedono risorse non consentite non possono essere eseguiti nel cluster AKS. Questo accesso viene definito usando i criteri di sicurezza pod. Questo articolo illustra come usare i criteri di sicurezza di pod per limitare la distribuzione di pod in AKS.
 
@@ -77,6 +82,26 @@ Quando si abilitano i criteri di sicurezza pod in un cluster AKS, vengono applic
 * Abilitare la funzionalità dei criteri di sicurezza Pod
 
 Per mostrare in che modo i criteri predefiniti limitano le distribuzioni Pod, in questo articolo viene prima abilitata la funzionalità criteri di sicurezza Pod, quindi si crea un criterio personalizzato.
+
+### <a name="behavior-changes-between-pod-security-policy-and-azure-policy"></a>Differenze di comportamento tra i criteri di sicurezza pod e i criteri di Azure
+
+Di seguito è riportato un riepilogo delle modifiche del comportamento tra i criteri di sicurezza di Pod e i criteri di Azure.
+
+|Scenario| Criteri di sicurezza Pod | Criteri di Azure |
+|---|---|---|
+|Installazione|Abilitare la funzionalità dei criteri di sicurezza Pod |Abilita il componente aggiuntivo criteri di Azure
+|Distribuisci criteri| Distribuire la risorsa criteri di sicurezza Pod| Assegnare i criteri di Azure all'ambito della sottoscrizione o del gruppo di risorse. Il componente aggiuntivo criteri di Azure è necessario per le applicazioni di risorse Kubernetes.
+| Criteri predefiniti | Quando i criteri di sicurezza pod sono abilitati in AKS, vengono applicati i criteri predefiniti con privilegi e senza restrizioni. | Non vengono applicati criteri predefiniti abilitando il componente aggiuntivo criteri di Azure. È necessario abilitare in modo esplicito i criteri in criteri di Azure.
+| Utenti che possono creare e assegnare criteri | Amministrazione cluster crea una risorsa criteri di sicurezza Pod | Gli utenti devono avere un ruolo minimo di autorizzazioni ' proprietario ' o ' collaboratore criteri risorse ' nel gruppo di risorse del cluster AKS. -Tramite l'API, gli utenti possono assegnare i criteri nell'ambito delle risorse del cluster AKS. L'utente deve avere almeno le autorizzazioni "proprietario" o "collaboratore criteri risorse" per la risorsa cluster AKS. -Nella portale di Azure i criteri possono essere assegnati a livello di gruppo di gestione/sottoscrizione/gruppo di risorse.
+| Autorizzazione di criteri| Gli account utente e del servizio richiedono autorizzazioni esplicite per l'uso di criteri di sicurezza pod. | Per autorizzare i criteri non è necessaria alcuna assegnazione aggiuntiva. Dopo che i criteri sono stati assegnati in Azure, tutti gli utenti del cluster possono usare questi criteri.
+| Applicabilità dei criteri | L'utente amministratore ignora l'applicazione dei criteri di sicurezza pod. | Tutti gli utenti (amministratore & non amministratore) vedono gli stessi criteri. Non sono presenti maiuscole e minuscole specifiche in base agli utenti. L'applicazione di criteri può essere esclusa a livello di spazio dei nomi.
+| Ambito dei criteri | I criteri di sicurezza Pod non sono spazio dei nomi | I modelli di vincolo usati dai criteri di Azure non sono spazio dei nomi.
+| Azione di negazione/controllo/mutazione | I criteri di sicurezza Pod supportano solo le azioni di negazione. La mutazione può essere eseguita con i valori predefiniti per le richieste di creazione. La convalida può essere eseguita durante le richieste di aggiornamento.| Criteri di Azure supporta entrambe le azioni di controllo & negazione. La mutazione non è ancora supportata, ma è pianificata.
+| Conformità dei criteri di sicurezza Pod | Non esiste visibilità sulla conformità dei Pod esistenti prima di abilitare i criteri di sicurezza di Pod. I Pod non conformi creati dopo l'abilitazione di criteri di sicurezza pod sono negati. | I Pod non conformi esistenti prima di applicare i criteri di Azure verranno visualizzati nelle violazioni dei criteri. I Pod non conformi creati dopo l'abilitazione di criteri di Azure vengono negati se i criteri vengono impostati con un effetto di negazione.
+| Come visualizzare i criteri nel cluster | `kubectl get psp` | `kubectl get constrainttemplate` -Vengono restituiti tutti i criteri.
+| Criteri di sicurezza Pod standard-con privilegi | Quando si Abilita la funzionalità, per impostazione predefinita viene creata una risorsa di criteri di sicurezza di Pod con privilegi. | La modalità con privilegi non implica alcuna restrizione, di conseguenza è equivalente all'assenza di un'assegnazione di criteri di Azure.
+| [Criteri di sicurezza Pod standard-Baseline/default](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | L'utente installa una risorsa di base dei criteri di sicurezza pod. | Criteri di Azure fornisce un' [iniziativa di base predefinita](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) che esegue il mapping ai criteri di sicurezza pod di base.
+| [Criteri di sicurezza Pod standard-con restrizioni](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | L'utente installa una risorsa con restrizioni dei criteri di sicurezza pod. | Criteri di Azure fornisce un' [iniziativa limitata incorporata](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) che esegue il mapping ai criteri di sicurezza di Pod limitati.
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Abilitare i criteri di sicurezza pod in un cluster AKS
 
@@ -453,3 +478,4 @@ Per altre informazioni sulla limitazione del traffico di rete Pod, vedere [prote
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[policy-samples]: ./policy-reference.md#microsoftcontainerservice

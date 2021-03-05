@@ -4,12 +4,12 @@ description: Batch supporta Azure AD per l'autenticazione dal servizio Batch. In
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2ceefa538c44208750da8986fcf3d161f0c0865f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95252641"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180021"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -41,7 +41,7 @@ Per eseguire l'autenticazione con Azure AD, usare l'endpoint con l'ID tenant, ov
 >
 > L'endpoint specifico del tenant è facoltativo quando si esegue l'autenticazione usando l'autenticazione integrata, ma è consigliabile usarlo. Tuttavia, è anche possibile usare l'endpoint di Azure AD comune. L'endpoint comune consente di usare un'interfaccia di raccolta di credenziali generiche quando non è disponibile un tenant specifico. L'endpoint comune è `https://login.microsoftonline.com/common`.
 
-Per ulteriori informazioni sugli endpoint Azure AD, vedere [autenticazione e autorizzazione](). /active-directory/develop/authentication-vs-authorization.md).
+Per ulteriori informazioni sugli endpoint Azure AD, vedere [autenticazione e autorizzazione](../active-directory/develop/authentication-vs-authorization.md).
 
 ### <a name="batch-resource-endpoint"></a>Endpoint di risorse Batch
 

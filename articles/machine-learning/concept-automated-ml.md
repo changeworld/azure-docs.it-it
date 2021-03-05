@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: ee9267637c5e3250bfcd543ca46c39d513725819
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 6ed9b316fceeb30a775e2e0d90e7bbb0a07278cd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072225"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180498"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Informazioni su Machine Learning automatizzato
 
@@ -116,7 +116,7 @@ Per gli esperimenti automatici di Machine Learning, conteggi viene applicato aut
 
 In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensionati o normalizzati automaticamente per consentire il corretto funzionamento degli algoritmi. Durante il training del modello, viene applicata una delle tecniche di ridimensionamento o normalizzazione seguenti a ogni modello. Informazioni sul modo in cui AutoML consente di [prevenire i dati in eccesso e sbilanciati](concept-manage-ml-pitfalls.md) nei modelli.
 
-|Ridimensionamento e normalizzazione| Descrizione |
+|Ridimensionamento dell' &nbsp; & &nbsp; elaborazione| Descrizione |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Consente di standardizzare le funzionalità rimuovendo la media e il ridimensionando alla varianza unitaria  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Consente di trasformare le funzionalità ridimensionando ogni funzionalità in base al valore minimo e massimo della colonna  |

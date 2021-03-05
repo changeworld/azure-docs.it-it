@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: a05003bfeceb46059ad0301f99befcdceb456e89
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 42ad24e4421b75a3942879bcac8f99b3c8b8138a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633292"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180956"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Creare un backup dell'applicazione cluster Red Hat OpenShift 4 di Azure
 
@@ -22,9 +22,6 @@ In questo articolo si prepara l'ambiente per la creazione di un backup dell'appl
 > [!div class="checklist"]
 > * Configurare i prerequisiti e installare gli strumenti necessari
 > * Creare un backup dell'applicazione Azure Red Hat OpenShift 4
-
-> [!NOTE] 
-> Velero non esegue il backup dei dati dell'archivio chiave-valore di Azure Red Hat OpenShift ETCD. Se è necessario eseguire il backup di ETCD, vedere backup di [ETCD](https://docs.openshift.com/container-platform/4.5/backup_and_restore/backing-up-etcd.html).
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.6.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 

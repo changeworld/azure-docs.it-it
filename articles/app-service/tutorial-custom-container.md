@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: servizio app di azure, app web, linux, windows, docker, contenitore
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: b3507e22c691f3e3ca9f9e6562a313e95e42f080
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
-ms.translationtype: HT
+ms.openlocfilehash: 5d3a714230f0279bd68b39cd02624866b9b3bacf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900196"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180514"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Eseguire la migrazione di un software personalizzato al Servizio app di Azure usando un contenitore personalizzato
 
@@ -211,7 +211,7 @@ I log trasmessi sono simili al seguente:
 
 ::: zone pivot="container-linux"
 
-Il servizio app di Azure usa la tecnologia dei contenitori Docker per ospitare immagini predefinite e personalizzate. Per vedere un elenco di immagini predefinite, eseguire il comando dell'interfaccia della riga di comando di Azure ['az webapp list-runtimes --linux'](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-list-runtimes). Se queste immagini non soddisfano le proprie esigenze, è possibile creare e distribuire un'immagine personalizzata.
+Il servizio app di Azure usa la tecnologia dei contenitori Docker per ospitare immagini predefinite e personalizzate. Per vedere un elenco di immagini predefinite, eseguire il comando dell'interfaccia della riga di comando di Azure ['az webapp list-runtimes --linux'](/cli/azure/webapp#az-webapp-list-runtimes). Se queste immagini non soddisfano le proprie esigenze, è possibile creare e distribuire un'immagine personalizzata.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -333,7 +333,7 @@ ENTRYPOINT ["init.sh"]
 
 Questa sezione e quelle che seguono illustrano come effettuare il provisioning di risorse in Azure in cui eseguire il push dell'immagine e quindi come distribuire un contenitore nel servizio app di Azure. Per iniziare, creare un gruppo di risorse in cui raccogliere tutte queste risorse.
 
-Eseguire il comando [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create) per creare un gruppo di risorse:
+Eseguire il comando [az group create](/cli/azure/group#az-group-create) per creare un gruppo di risorse:
 
 ```azurecli-interactive
 az group create --name AppSvc-DockerTutorial-rg --location westus2
@@ -345,7 +345,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
 
 In questa sezione si esegue il push dell'immagine in Registro Azure Container da cui verrà distribuita con il servizio app.
 
-1. Eseguire il comando [`az acr create`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-create) per creare un'istanza di Registro Azure Container:
+1. Eseguire il comando [`az acr create`](/cli/azure/acr#az-acr-create) per creare un'istanza di Registro Azure Container:
 
     ```azurecli-interactive
     az acr create --name <registry-name> --resource-group AppSvc-DockerTutorial-rg --sku Basic --admin-enabled true
@@ -353,7 +353,7 @@ In questa sezione si esegue il push dell'immagine in Registro Azure Container da
     
     Sostituire `<registry-name>` con un nome appropriato per il registro. Il nome deve essere univoco in tutto Azure e può contenere solo lettere e numeri.
 
-1. Eseguire il comando [`az acr show`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-show) per recuperare le credenziali per il registro:
+1. Eseguire il comando [`az acr show`](/cli/azure/acr#az-acr-show) per recuperare le credenziali per il registro:
 
     ```azurecli-interactive
     az acr credential show --resource-group AppSvc-DockerTutorial-rg --name <registry-name>
@@ -400,7 +400,7 @@ In questa sezione si esegue il push dell'immagine in Registro Azure Container da
 
 Per distribuire un contenitore nel servizio app di Azure, creare prima un'app Web nel servizio app, quindi connettere l'app Web al registro contenitori. All'avvio dell'app, il servizio app esegue automaticamente il pull dell'immagine dal registro.
 
-1. Creare un piano di servizio app usando il comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest&preserve-view=true#az-appservice-plan-create):
+1. Creare un piano di servizio app usando il comando [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create):
 
     ```azurecli-interactive
     az appservice plan create --name AppSvc-DockerTutorial-plan --resource-group AppSvc-DockerTutorial-rg --is-linux
@@ -408,7 +408,7 @@ Per distribuire un contenitore nel servizio app di Azure, creare prima un'app We
 
     Un piano di servizio app corrisponde alla macchina virtuale che ospita l'app Web. Per impostazione predefinita, il comando precedente usa un [piano tariffario B1](https://azure.microsoft.com/pricing/details/app-service/linux/) poco costoso, gratuito per il primo mese. È possibile controllare il livello con il parametro `--sku`.
 
-1. Creare l'app Web con il comando [`az webpp create`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-create):
+1. Creare l'app Web con il comando [`az webpp create`](/cli/azure/webapp#az-webapp-create):
 
     ```azurecli-interactive
     az webapp create --resource-group AppSvc-DockerTutorial-rg --plan AppSvc-DockerTutorial-plan --name <app-name> --deployment-container-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
@@ -416,7 +416,7 @@ Per distribuire un contenitore nel servizio app di Azure, creare prima un'app We
     
     Sostituire `<app-name>` con un nome per l'app Web, che deve essere univoco in tutto Azure. Sostituire inoltre `<registry-name>` con il nome del registro creato nel passaggio precedente.
 
-1. Usare [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) per impostare la variabile di ambiente `WEBSITES_PORT` come previsto dal codice dell'app: 
+1. Usare [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) per impostare la variabile di ambiente `WEBSITES_PORT` come previsto dal codice dell'app: 
 
     ```azurecli-interactive
     az webapp config appsettings set --resource-group AppSvc-DockerTutorial-rg --name <app-name> --settings WEBSITES_PORT=8000
@@ -426,7 +426,7 @@ Per distribuire un contenitore nel servizio app di Azure, creare prima un'app We
     
     Per altre informazioni su questa variabile di ambiente, vedere il file [readme nel repository GitHub dell'esempio](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Abilitare '[identità gestita](./overview-managed-identity.md) per l'app Web usando il comando [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest&preserve-view=true#az-webapp-identity-assign):
+1. Abilitare '[identità gestita](./overview-managed-identity.md) per l'app Web usando il comando [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign):
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -436,7 +436,7 @@ Per distribuire un contenitore nel servizio app di Azure, creare prima un'app We
 
     L'identità gestita consente di concedere le autorizzazioni all'app Web per accedere ad altre risorse di Azure senza la necessità di credenziali specifiche.
 
-1. Recuperare l'ID sottoscrizione con il comando [`az account show`](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az-account-show), che sarà necessario nel passaggio successivo:
+1. Recuperare l'ID sottoscrizione con il comando [`az account show`](/cli/azure/account#az-account-show), che sarà necessario nel passaggio successivo:
 
     ```azurecli-interactive
     az account show --query id --output tsv
@@ -459,7 +459,7 @@ Per altre informazioni su queste autorizzazioni, vedere [Che cos'è il controllo
 
 È possibile completare questi passaggi dopo aver eseguito il push dell'immagine nel registro contenitori e una volta completato il provisioning del servizio app.
 
-1. Usare il comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest&preserve-view=true#az-webapp-config-container-set) per specificare il registro contenitori e l'immagine da distribuire per l'app Web:
+1. Usare il comando [`az webapp config container set`](/cli/azure/webapp/config/container#az-webapp-config-container-set) per specificare il registro contenitori e l'immagine da distribuire per l'app Web:
 
     ```azurecli-interactive
     az webapp config container set --name <app-name> --resource-group AppSvc-DockerTutorial-rg --docker-custom-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest --docker-registry-server-url https://<registry-name>.azurecr.io

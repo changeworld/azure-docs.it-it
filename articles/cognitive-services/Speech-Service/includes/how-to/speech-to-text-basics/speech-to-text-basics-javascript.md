@@ -2,15 +2,15 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: a27fba6e426b72d72160a9a238f68cf8cef5c73b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cc5e306aa9677c7370d03dbb26ef3fe69293a630
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948187"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180055"
 ---
 Una delle principali funzionalità del servizio Voce è la possibilità di riconoscere e trascrivere la voce umana, ovvero di convertire la voce in testo scritto. Questa guida di avvio rapido illustra come usare Speech SDK in app e prodotti per eseguire la conversione della voce in testo scritto di alta qualità.
 
@@ -18,40 +18,23 @@ Una delle principali funzionalità del servizio Voce è la possibilità di ricon
 
 Per passare direttamente al codice di esempio, vedere gli [esempi di avvio rapido JavaScript](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node) in GitHub.
 
+In alternativa, vedere l' [esempio React](https://github.com/Azure-Samples/AzureSpeechReactSample) per informazioni su come usare l'SDK di riconoscimento vocale in un ambiente basato su browser.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che si abbia un account Azure e una sottoscrizione del servizio Voce. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](../../../overview.md#try-the-speech-service-for-free).
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
-Prima di poter eseguire qualsiasi operazione, è necessario installare <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK per JavaScript<span class="docon docon-navigate-external x-hidden-focus"></span></a>. A seconda della piattaforma, usare le istruzioni seguenti:
+Prima di poter eseguire qualsiasi operazione, è necessario installare l'SDK per la sintesi vocale per Node.js. Se si vuole semplicemente installare il nome del pacchetto, eseguire `npm install microsoft-cognitiveservices-speech-sdk` . Per istruzioni sull'installazione guidata, vedere l'articolo [introduttivo](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Clinux%2Cjre%2Cnodejs&pivots=programming-language-javascript) .
 
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
-class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web browser <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-
-A seconda dell'ambiente di destinazione, inoltre, usare una delle alternative seguenti:
-
-# <a name="script"></a>[script](#tab/script)
-
-Scaricare ed estrarre il file *microsoft.cognitiveservices.speech.sdk.bundle.js* di <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK per JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a> e inserirlo in una cartella accessibile per il file HTML.
-
-```html
-<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
-```
-
-> [!TIP]
-> Se la destinazione è un Web browser e si usa il tag `<script>`, il prefisso `sdk` non è necessario quando si fa riferimento alle classi. Il prefisso `sdk` è un alias usato per la denominazione del modulo di `require`.
-
-# <a name="require"></a>[require](#tab/require)
+Usare l' `require` istruzione seguente per importare l'SDK.
 
 ```javascript
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-Per altre informazioni su `require`, vedere <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">Informazioni su require<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-
----
+Per ulteriori informazioni su `require` , vedere la [documentazione di richiesta](https://nodejs.org/en/knowledge/getting-started/what-is-require/).
 
 ## <a name="create-a-speech-configuration"></a>Creare una configurazione di Voce
 
@@ -72,52 +55,14 @@ Esistono alcuni altri modi per inizializzare una classe [`SpeechConfig`](/javasc
 
 ## <a name="recognize-from-microphone-browser-only"></a>Riconoscimento da microfono (solo browser)
 
-Per eseguire il riconoscimento vocale usando il microfono del dispositivo, creare un oggetto `AudioConfig` usando `fromDefaultMicrophoneInput()`. Quindi, inizializzare una classe [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer), passando la classe `speechConfig` e `audioConfig`.
+Il riconoscimento vocale da un microfono **non è supportato in Node.js** ed è supportato solo in un ambiente JavaScript basato su browser. Vedere l' [esempio React](https://github.com/Azure-Samples/AzureSpeechReactSample) su GitHub per visualizzare il [riconoscimento vocale dall'implementazione del microfono](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29).
 
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
-
-function fromMic() {
-    let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
-    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-    
-    console.log('Speak into your microphone.');
-    recognizer.recognizeOnceAsync(result => {
-        console.log(`RECOGNIZED: Text=${result.text}`);
-    });
-}
-fromMic();
-```
-
-Se si vuole usare un dispositivo di input audio *specifico*, è necessario specificare l'ID del dispositivo nella classe `AudioConfig`. Informazioni su [come ottenere l'ID del dispositivo](../../../how-to-select-audio-input-devices.md) di input audio.
+> [!NOTE]
+> Se si vuole usare un dispositivo di input audio *specifico*, è necessario specificare l'ID del dispositivo nella classe `AudioConfig`. Informazioni su [come ottenere l'ID del dispositivo](../../../how-to-select-audio-input-devices.md) di input audio.
 
 ## <a name="recognize-from-file"></a>Riconoscimento da file 
 
-# <a name="browser"></a>[Browser](#tab/browser)
-
-Per eseguire il riconoscimento vocale da un file audio in un ambiente JavaScript basato su browser, usare la funzione `fromWavFileInput()` per creare una classe [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig). La funzione `fromWavFileInput()` prevede un oggetto [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File/File) JavaScript come parametro.
-
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
-
-function fromFile() {
-    // wavByteContent should be a byte array of the raw wav content
-    let file = new File([wavByteContent]);
-    let audioConfig = sdk.AudioConfig.fromWavFileInput(file);
-    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-    
-    recognizer.recognizeOnceAsync(result => {
-        console.log(`RECOGNIZED: Text=${result.text}`);
-    });
-}
-fromFile();
-```
-
-# <a name="nodejs"></a>[Node.js](#tab/node)
-
-Per eseguire il riconoscimento vocale da un file audio in Node.js, è necessario usare uno schema progettuale alternativo che usa un flusso di push, perché l'oggetto [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File/File) JavaScript non può essere usato in un runtime di Node.js. Il codice seguente:
+Per eseguire il riconoscimento vocale da un file audio in Node.js, è necessario usare uno schema progettuale alternativo che usa un flusso di push, perché l'oggetto `File` JavaScript non può essere usato in un runtime di Node.js. Il codice seguente:
 
 * Crea un flusso push usando `createPushStream()`
 * Apre il file `.wav` creando un flusso di lettura e lo scrive nel flusso push
@@ -149,8 +94,6 @@ fromFile();
 
 L'uso di un flusso push come input presuppone che i dati audio siano un PCM non elaborato, ad esempio ignorano le intestazioni.
 L'API continuerà a funzionare in determinati casi se l'intestazione non è stata ignorata, ma per ottenere risultati ottimali è consigliabile implementare la logica per leggere le intestazioni, in modo che il `fs` cominci all'*inizio dei dati audio*.
-
----
 
 ## <a name="error-handling"></a>Gestione degli errori
 
@@ -190,7 +133,7 @@ Al contrario, si usa il riconoscimento continuo quando si vuole **controllare** 
 Per iniziare, definire l'input e inizializzare un [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer):
 
 ```javascript
-const recognizer = new sdk.SpeechRecognizer(speechConfig);
+const recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
 ```
 
 Infine, sottoscrivere gli eventi inviati dal [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer).
