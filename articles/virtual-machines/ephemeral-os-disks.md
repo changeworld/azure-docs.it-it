@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 62f89106538ab7f57047e211fc8715878f889af1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9c13a914a002f63f3c0d5bd988b0d76b951586dd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684560"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124687"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Dischi del sistema operativo temporaneo per le macchine virtuali di Azure
 
@@ -244,6 +244,11 @@ R: i dischi temporanei non supportano:
 - Backup di Azure
 - Azure Site Recovery  
 - Scambio del disco del sistema operativo 
+
+> [!NOTE]
+> 
+> Il disco temporaneo non sarà accessibile tramite il portale. Quando si accede al disco temporaneo, è possibile che venga visualizzato l'errore "risorsa non trovata" o "404".
+> 
  
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile creare una macchina virtuale con un disco del sistema operativo temporaneo usando l'interfaccia della riga di comando di [Azure](/cli/azure/vm#az-vm-create).

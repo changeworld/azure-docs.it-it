@@ -9,12 +9,12 @@ ms.subservice: security
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 4c4ad2a1350632d381cc258049ee85c87766f9b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f8a6758cdf0a6da709a564c1e17c56a2fe5625b0
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694122"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124653"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Distribuire una macchina virtuale con avvio attendibile abilitato (anteprima)
 
@@ -140,7 +140,7 @@ Per ottenere vTPM e consigli di avvio protetti per le macchine virtuali con avvi
 
 In alcuni casi, potrebbe essere necessario firmare gli elementi per l'avvio protetto UEFI.  Ad esempio, potrebbe essere necessario esaminare [come firmare gli elementi per l'avvio protetto](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) per Ubuntu. In questi casi, è necessario immettere le chiavi di registrazione dell'utilità per la macchina virtuale. Per eseguire questa operazione, è necessario usare la console seriale di Azure per accedere all'utilità di.
 
-1. Abilitare la console seriale di Azure per Linux. Per altre informazioni, vedere [console seriale per Linux](serial-console-linux.md).
+1. Abilitare la console seriale di Azure per Linux.
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 1. Cercare le **macchine virtuali** e selezionare la VM dall'elenco.
 1. Nel menu a sinistra, in **supporto e risoluzione dei problemi**, selezionare **console seriale**. Viene visualizzata una pagina a destra, con la console seriale.
