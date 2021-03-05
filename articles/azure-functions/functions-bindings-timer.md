@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: c6b3bd61386cbde0e8de63055eee9218e372dfcd
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: dbcd6d55ee921c7fabd8e746e0fdcd6f1427733c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547843"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210707"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure
 
@@ -342,7 +342,7 @@ Espresso come stringa, il formato di `TimeSpan` è `hh:mm:ss`, dove `hh` è mino
 |--------------|----------------|
 | "01:00:00"   | Ogni ora     |
 | "00:01:00"   | Ogni minuto   |
-| "24:00:00"   | Ogni 24 giorni  |
+| "25:00:00"   | ogni 25 giorni  |
 | "1.00:00:00" | Ogni giorno      |
 
 ## <a name="scale-out"></a>Aumento delle istanze

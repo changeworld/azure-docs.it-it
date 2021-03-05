@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 65e378c0380804c13e4b42d855aede7781b93592
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746763"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211669"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurare una regola di restrizione IP con un Web Application Firewall per lo sportello anteriore di Azure
 
@@ -37,10 +37,10 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
    |Impostazione  |Valore  |
    |---------|---------|
    |Criteri per     |WAF globale (porta anteriore)|
-   |Sottoscrizione     |Selezionare la propria sottoscrizione|
+   |Subscription     |Selezionare la propria sottoscrizione|
    |Resource group     |Selezionare il gruppo di risorse in cui si trova la porta anteriore.|
    |Nome criteri     |Digitare un nome per il criterio|
-   |Stato criteri     |Attivato|
+   |Stato criteri     |Abilitato|
 
    Selezionare **Avanti: impostazioni dei criteri**
 
@@ -53,7 +53,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
    |Impostazione  |Valore  |
    |---------|---------|
    |Nome regola personalizzata     |FdWafCustRule|
-   |Stato     |Attivato|
+   |Stato     |Abilitato|
    |Tipo regola     |Corrispondenza|
    |Priorità    |100|
    |Tipo di corrispondenza     |Indirizzo IP|
@@ -95,7 +95,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 
 ### <a name="create-a-waf-policy"></a>Creare un criterio WAF
 
-Creare un criterio WAF usando il comando [AZ Network front-door WAF-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create) . Nell'esempio seguente, sostituire il nome del criterio *IPAllowPolicyExampleCLI* con un nome di criterio univoco.
+Creare un criterio WAF usando il comando [AZ Network front-door WAF-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-create) . Nell'esempio seguente, sostituire il nome del criterio *IPAllowPolicyExampleCLI* con un nome di criterio univoco.
 
 ```azurecli-interactive 
 az network front-door waf-policy create \
@@ -105,7 +105,7 @@ az network front-door waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>Aggiungere una regola di controllo di accesso IP personalizzata
 
-Usare il comando [AZ Network front-door WAF-Policy Custom-Rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) per aggiungere una regola di controllo di accesso IP personalizzata per il criterio WAF appena creato.
+Usare il comando [AZ Network front-door WAF-Policy Custom-Rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule#ext-front-door-az-network-front-door-waf-policy-rule-create) per aggiungere una regola di controllo di accesso IP personalizzata per il criterio WAF appena creato.
 
 Negli esempi seguenti:
 -  Sostituire *IPAllowPolicyExampleCLI* con il criterio univoco creato in precedenza.
@@ -138,7 +138,7 @@ az network front-door waf-policy rule match-condition add \
   ```
                                                    
 ### <a name="find-the-id-of-a-waf-policy"></a>Trovare l'ID di un criterio WAF 
-Trovare l'ID di un criterio WAF usando il comando [AZ Network front-door WAF-Policy Show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) . Sostituire *IPAllowPolicyExampleCLI* nell'esempio seguente con il criterio univoco creato in precedenza.
+Trovare l'ID di un criterio WAF usando il comando [AZ Network front-door WAF-Policy Show](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-show) . Sostituire *IPAllowPolicyExampleCLI* nell'esempio seguente con il criterio univoco creato in precedenza.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -148,7 +148,7 @@ Trovare l'ID di un criterio WAF usando il comando [AZ Network front-door WAF-Pol
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Collegare un criterio WAF a un host front-end di Azure front-end
 
-Impostare l'ID *WebApplicationFirewallPolicyLink* di Azure front door sull'ID criterio usando il comando [AZ Network front-door Update](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext-front-door-az-network-front-door-update) . Sostituire *IPAllowPolicyExampleCLI* con il criterio univoco creato in precedenza.
+Impostare l'ID *WebApplicationFirewallPolicyLink* di Azure front door sull'ID criterio usando il comando [AZ Network front-door Update](/cli/azure/ext/front-door/network/front-door#ext-front-door-az-network-front-door-update) . Sostituire *IPAllowPolicyExampleCLI* con il criterio univoco creato in precedenza.
 
    ```azurecli
    az network front-door update \

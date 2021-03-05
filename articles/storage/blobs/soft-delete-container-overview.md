@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 674a336e79f118d543590fb7514b6bebef72cf47
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f157b44e92289d0e9c5b88108550c144344c5206
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390182"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211142"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminazione temporanea per i contenitori (anteprima)
 
@@ -27,8 +27,8 @@ Per la protezione end-to-end per i dati BLOB, Microsoft consiglia di abilitare l
 - Controllo delle versioni dei BLOB, per gestire automaticamente le versioni precedenti di un BLOB. Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati. Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere [abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md).
 - Eliminazione temporanea BLOB, per ripristinare un BLOB o una versione che è stata eliminata. Per informazioni su come abilitare l'eliminazione temporanea del BLOB, vedere [abilitare e gestire l'eliminazione temporanea per i BLOB](soft-delete-blob-enable.md).
 
-> [!WARNING]
-> L'eliminazione di un account di archiviazione non può essere annullata. L'eliminazione temporanea del contenitore non protegge dall'eliminazione di un account di archiviazione, ma solo dall'eliminazione di contenitori in tale account. Per proteggere un account di archiviazione dall'eliminazione, configurare un blocco sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco di Azure Resource Manager risorse, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+> [!IMPORTANT]
+> L'eliminazione temporanea del contenitore è attualmente in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali applicabili alle funzionalità di Azure disponibili in versione beta, di anteprima o non ancora rilasciate a livello generale.
 
 ## <a name="how-container-soft-delete-works"></a>Funzionamento dell'eliminazione temporanea del contenitore
 
@@ -46,14 +46,14 @@ Una volta scaduto il periodo di conservazione, il contenitore viene eliminato de
 
 La disabilitazione dell'eliminazione temporanea del contenitore non comporta l'eliminazione permanente di contenitori che in precedenza sono stati eliminati temporaneamente. Eventuali contenitori eliminati temporaneamente verranno eliminati definitivamente alla scadenza del periodo di memorizzazione che era attivo al momento dell'eliminazione del contenitore.
 
+> [!IMPORTANT]
+> L'eliminazione temporanea del contenitore non protegge dall'eliminazione di un account di archiviazione, ma solo dall'eliminazione di contenitori in tale account. Per proteggere un account di archiviazione dall'eliminazione, configurare un blocco sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco di Azure Resource Manager risorse, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 
 L'eliminazione temporanea del contenitore è disponibile in anteprima in tutte le aree di Azure.
 
-> [!IMPORTANT]
-> L'anteprima dell'eliminazione temporanea del contenitore è destinata solo all'uso non in produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.
-
-La versione 2019-12-12 e successive dell'API REST di archiviazione di Azure supporta l'eliminazione temporanea del contenitore.
+La versione 2019-12-12 o successiva dell'API REST di archiviazione di Azure supporta l'eliminazione temporanea del contenitore.
 
 ### <a name="storage-account-support"></a>Supporto dell'account di archiviazione
 

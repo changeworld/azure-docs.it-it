@@ -215,7 +215,7 @@
     - name: Linee guida per il ridimensionamento delle macchine virtuali
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: interfaccia della riga di comando di Azure (CLI)
-      href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+      href: /cli/azure/ext/desktopvirtualization/
     - name: Scenari di esempio di Azure
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
     - name: Individuazione della posta elettronica

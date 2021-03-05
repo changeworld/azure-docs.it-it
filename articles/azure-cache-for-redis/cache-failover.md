@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 7cfa7257e64421c30c359bb34044988bbb5af1dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7c70fa2e7131f09f621e992d537e0b120061ef
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093086"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210734"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Failover e applicazione di patch per cache di Azure per Redis
 
@@ -72,6 +72,10 @@ La maggior parte delle librerie client tenta di riconnettersi alla cache se sono
 Poiché non è possibile evitare completamente i failover, scrivere le applicazioni client per la resilienza per le interruzioni di connessione e le richieste non riuscite. Sebbene la maggior parte delle librerie client riconnetta automaticamente l'endpoint della cache, alcuni di essi tentano di ritentare le richieste non riuscite. A seconda dello scenario dell'applicazione, potrebbe essere utile usare la logica di ripetizione dei tentativi con backoff.
 
 Per testare la resilienza di un'applicazione client, usare un [riavvio](cache-administration.md#reboot) come trigger manuale per le interruzioni di connessione. Si consiglia inoltre di [pianificare gli aggiornamenti](cache-administration.md#schedule-updates) in una cache. Indicare al servizio di gestione di applicare le patch di runtime di redis durante le finestre settimanali specificate. Si tratta in genere di periodi in cui il traffico delle applicazioni client è basso per evitare potenziali incidenti.
+
+### <a name="can-i-be-notified-in-advance-of-a-planned-maintenance"></a>È possibile ricevere una notifica prima di una manutenzione pianificata?
+
+Cache di Azure per Redis ora pubblica le notifiche su un canale di pubblicazione/sottoscrizione denominato [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) circa 30 secondi prima degli aggiornamenti pianificati. Si tratta di notifiche di runtime, che sono compilate in modo specifico per le applicazioni che possono usare gli interruttori per ignorare i comandi della cache o del buffer, ad esempio durante gli aggiornamenti pianificati. Non si tratta di un meccanismo che può inviare notifiche in anticipo a giorni o ore.
 
 ### <a name="client-network-configuration-changes"></a>Rete client-modifiche di configurazione
 

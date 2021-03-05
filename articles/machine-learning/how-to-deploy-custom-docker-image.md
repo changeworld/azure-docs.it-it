@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 1ff4d7693a7e493ccb736ab9363fd26c93017c79
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4a9e374923f6317f7a325979dca1810fad91aeb6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695351"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209471"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuire un modello usando un'immagine di base Docker personalizzata
 
@@ -43,7 +43,7 @@ Questo documento è suddiviso in due sezioni:
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
 * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
-* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * [Estensione dell'interfaccia della riga di comando per Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Un [container Registry di Azure](../container-registry/index.yml) o un altro registro Docker accessibile su Internet.
 * I passaggi descritti in questo documento presuppongono che si abbia familiarità con la creazione e l'uso di un oggetto di __configurazione dell'inferenza__ come parte della distribuzione del modello. Per ulteriori informazioni, vedere [la pagina relativa alla posizione di distribuzione e](how-to-deploy-and-where.md).
@@ -207,7 +207,7 @@ Per usare un'immagine personalizzata, sono necessarie le informazioni seguenti:
 
 * Se l'immagine si trova in un __repository privato__, sono necessarie le informazioni seguenti:
 
-    * __Indirizzo__ del registro di sistema. Ad esempio, `myregistry.azureecr.io`
+    * __Indirizzo__ del registro di sistema. Ad esempio: `myregistry.azureecr.io`.
     * __Nome utente__ e __password__ di un'entità servizio con accesso in lettura al registro di sistema.
 
     Se non si dispone di queste informazioni, rivolgersi all'amministratore per il Container Registry di Azure che contiene l'immagine.

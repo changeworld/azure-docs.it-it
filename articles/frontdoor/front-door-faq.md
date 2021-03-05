@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: ba859a0ad8edacfa2e51486b150f94b3dea37a16
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6fdcedd19c02251035a838d34ba51e786595134b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182894"
+ms.locfileid: "102212451"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -87,7 +87,8 @@ Le route per la porta anteriore non sono ordinate e viene selezionata una route 
 
 ### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Ricerca per categorie bloccare l'accesso al back-end solo alla porta di ingresso di Azure?
 
-> [! Si noti che il nuovo SKU front door Premium offre un modo più consigliato per bloccare l'applicazione tramite un endpoint privato. [Altre informazioni sull'endpoint privato](./standard-premium/concept-private-link.md)
+> [!NOTE]
+> Il nuovo SKU front door Premium offre un modo più consigliato per bloccare l'applicazione tramite un endpoint privato. [Altre informazioni sull'endpoint privato](./standard-premium/concept-private-link.md)
 
 Per bloccare l'applicazione in modo che accetti il traffico solo da un sportello anteriore specifico, è necessario configurare gli ACL IP per il back-end e quindi limitare il traffico nel back-end al valore specifico dell'intestazione ' X-Azure-FDID ' inviato dalla porta anteriore. Questi passaggi sono descritti di seguito:
 

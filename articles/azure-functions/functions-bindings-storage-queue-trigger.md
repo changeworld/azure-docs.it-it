@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 59cedb25295770ba4ae4a33aac3287c5fed1297d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8c2ea69d38f354455b7957ddc7b6ff41da30100b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381495"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210768"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Trigger di archiviazione code di Azure per funzioni di Azure
 
@@ -407,7 +407,7 @@ Per esempi relativi all'uso di questi tipi, vedere [il repository GitHub per l'e
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'annotazione [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) consente di accedere al messaggio della coda che ha attivato la funzione.
+L'annotazione [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) consente di accedere al messaggio della coda che ha attivato la funzione.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

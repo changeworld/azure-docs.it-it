@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 22abd38ead1257b49eeae98acfcd74349f563811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992294"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211805"
 ---
 # <a name="managed-hsm-logging"></a>Registrazione del modulo di protezione hardware gestito 
 
@@ -22,7 +22,7 @@ Dopo aver creato uno o più moduli di protezione hardware gestiti, può essere u
 
 È possibile accedere alle informazioni di registrazione dopo massimo 10 minuti dall'operazione del modulo di protezione hardware gestito, ma nella maggior parte dei casi si potrà farlo prima.  La gestione dei log nell'account di archiviazione è compito dell'utente:
 
-* Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
+* Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitandone l'accesso.
 * Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 
 Questa esercitazione offre un'introduzione alla registrazione del modulo di protezione hardware gestito. Verrà creato un account di archiviazione, verrà abilitata la registrazione e verranno interpretate le informazioni relative ai log raccolte.  
@@ -48,7 +48,7 @@ Il primo passaggio per la configurazione della registrazione delle chiavi consis
 az login
 ```
 
-Per altre informazioni sulle opzioni di accesso con l'interfaccia della riga di comando, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Per altre informazioni sulle opzioni di accesso con l'interfaccia della riga di comando, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli)
 
 Potrebbe essere necessario specificare la sottoscrizione usata per creare il modulo di protezione hardware gestito. Immettere il comando seguente per visualizzare le sottoscrizioni relative all'account:
 

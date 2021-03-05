@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f75b8055757557eadeb98a45196a116e56c5aa35
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 54e99c645b93bfcb3aee4e81cef3b2b5d6589d95
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093441"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211465"
 ---
 # <a name="creating-filters-with-cli"></a>Creazione di filtri con l'interfaccia della riga di comando
 
@@ -29,7 +29,7 @@ Quando si distribuiscono contenuti ai clienti (flusso di eventi dal vivo o di vi
 
 Per una descrizione dettagliata di questa funzionalità e degli scenari in cui viene usata, vedere [manifesti](filters-dynamic-manifest-overview.md) e [filtri](filters-concept.md)dinamici.
 
-Questo argomento illustra come configurare un filtro per un asset Video on demand e usare l'interfaccia della riga di comando per Servizi multimediali v3 per creare [filtri account](/cli/azure/ams/account-filter?view=azure-cli-latest) e [filtri asset](/cli/azure/ams/asset-filter?view=azure-cli-latest).
+Questo argomento illustra come configurare un filtro per un asset Video on demand e usare l'interfaccia della riga di comando per Servizi multimediali v3 per creare [filtri account](/cli/azure/ams/account-filter) e [filtri asset](/cli/azure/ams/asset-filter).
 
 > [!NOTE]
 > Assicurarsi di esaminare [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -80,7 +80,7 @@ Di seguito è riportato l'esempio che definisce le condizioni di selezione di tr
 
 ## <a name="create-account-filters"></a>Creare filtri account
 
-Il comando [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) seguente crea un filtro account con le selezioni di traccia del filtro [definite in precedenza](#define-a-filter).
+Il comando [az ams account-filter](/cli/azure/ams/account-filter) seguente crea un filtro account con le selezioni di traccia del filtro [definite in precedenza](#define-a-filter).
 
 Questo comando consente di superare il parametro `--tracks` facoltativo che include JSON per le selezioni di traccia.  Usare @{file} per caricare JSON da un file. Se si usa l’interfaccia della riga di comando di Azure in locale, specificare il percorso completo del file:
 
@@ -92,7 +92,7 @@ Vedere anche [Esempi JSON per i filtri](/rest/api/media/accountfilters/createoru
 
 ## <a name="create-asset-filters"></a>Creare filtri asset
 
-Il comando [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest) seguente crea un filtro asset con le selezioni di traccia del filtro [definite in precedenza](#define-a-filter). 
+Il comando [az ams asset-filter](/cli/azure/ams/asset-filter) seguente crea un filtro asset con le selezioni di traccia del filtro [definite in precedenza](#define-a-filter). 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
@@ -132,4 +132,4 @@ Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
 
 ## <a name="see-also"></a>Vedi anche
 
-[Interfaccia della riga di comando di Azure](/cli/azure/ams?view=azure-cli-latest)
+[Interfaccia della riga di comando di Azure](/cli/azure/ams)

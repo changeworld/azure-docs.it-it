@@ -3,12 +3,12 @@ title: Creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a u
 description: Questo articolo fornisce indicazioni su come creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a un'entità servizio per analisi video in tempo reale su IoT Edge usando l'interfaccia della riga di comando di Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 80974c111dd451314635d06334766322bc68e437
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425724"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210445"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a un'entità servizio
 
@@ -49,7 +49,7 @@ Se non si dispone di un account del servizio multimediale, attenersi alla proced
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. Creare un [gruppo di risorse](/cli/azure/group?view=azure-cli-latest#az-group-create) e un [account di archiviazione](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+1. Creare un [gruppo di risorse](/cli/azure/group#az-group-create) e un [account di archiviazione](/cli/azure/storage/account#az-storage-account-create).
 1. A questo punto, creare un account di servizi multimediali di Azure usando il modello di comando seguente in Cloud Shell:
 
     ```
@@ -85,8 +85,8 @@ Questo comando genera una risposta simile alla seguente:
 ```
 1. L'output per un'entità servizio con autenticazione della password include la chiave della password che in questo caso è il parametro "AadSecret". 
 
-    Assicurarsi di copiare questo valore perché non può essere recuperato. Se si dimentica la password, [reimpostare le credenziali dell'entità servizio](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
-1. La chiave appId e tenant viene visualizzata rispettivamente nell'output come "AadClientId" e "AadTenantId". Vengono usati nell'autenticazione basata su entità servizio. Registrare i valori, che possono essere tuttavia recuperati in qualsiasi momento con [az ad sp list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
+    Assicurarsi di copiare questo valore perché non può essere recuperato. Se si dimentica la password, [reimpostare le credenziali dell'entità servizio](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+1. La chiave appId e tenant viene visualizzata rispettivamente nell'output come "AadClientId" e "AadTenantId". Vengono usati nell'autenticazione basata su entità servizio. Registrare i valori, che possono essere tuttavia recuperati in qualsiasi momento con [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
 
 ### <a name="create-a-custom-role-definition"></a>Creare una definizione di ruolo personalizzata  
 
@@ -171,7 +171,7 @@ Con il comando precedente viene stampato il valore objectId dell'entità servizi
 “objectId” : “<yourObjectId>”,
 ```
 
-Usare [AZ Role Assignment create Command](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) template per collegare il ruolo personalizzato all'entità servizio:
+Usare [AZ Role Assignment create Command](/cli/azure/role/assignment#az-role-assignment-create) template per collegare il ruolo personalizzato all'entità servizio:
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>    

@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 71f393897dff266f1b0922a19eefd70cffea133d
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 8f22f1af04d59b4c1fb7f19a3d6815b61cac5fbd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600354"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211228"
 ---
 # <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Distribuire i modelli sottoposti a training con Azure Machine Learning nei computer locali 
 
@@ -185,8 +185,8 @@ L'uso di Docker per distribuire il modello come servizio Web è l'opzione più c
 È possibile scaricare il modello:  
 
 - Dal portale selezionare la scheda **modelli** , selezionare il modello desiderato e nella pagina **Dettagli** Selezionare **Scarica**.
-- Dalla riga di comando, usando `az ml model download` . (Vedere [download del modello).](/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download&preserve-view=false)
-- Usando il metodo Python SDK `Model.download()` . Vedere la [classe del modello.](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-&preserve-view=false)
+- Dalla riga di comando, usando `az ml model download` . (Vedere [download del modello).](/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download)
+- Usando il metodo Python SDK `Model.download()` . Vedere la [classe del modello.](/python/api/azureml-core/azureml.core.model.model#download-target-dir------exist-ok-false--exists-ok-none-)
 
 Un modello di Azure è uno o più oggetti Python serializzati, inclusi in un pacchetto di file Python Pickle (estensione PKL). Il contenuto del file pickle dipende dalla tecnica o dalla libreria di Machine Learning utilizzata per eseguire il training del modello. Se ad esempio si usa il modello dell'esercitazione, è possibile caricare il modello con:
 

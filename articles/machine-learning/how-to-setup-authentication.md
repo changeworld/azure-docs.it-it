@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 27c8a0b80068124613af15565f387f15ac6b8e57
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 30e4fede72df8eaf922745e7781c9e0d11f7ddb4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027255"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210819"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurare l'autenticazione per le risorse e i flussi di lavoro di Azure Machine Learning
 
@@ -54,7 +54,7 @@ Per usare un'entità servizio (SP), è necessario innanzitutto creare il servizi
 >
 > Il motivo per cui si concede l'accesso minimo è che un'entità servizio usa una password per l'autenticazione e la password può essere archiviata come parte di uno script di automazione. Se la password viene persa, l'accesso minimo richiesto per le attività specifiche riduce al minimo l'utilizzo dannoso di SP.
 
-Il modo più semplice per creare un SP e concedere l'accesso all'area di lavoro consiste nell'usare l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Per creare un'entità servizio e concedere l'accesso all'area di lavoro, seguire questa procedura:
+Il modo più semplice per creare un SP e concedere l'accesso all'area di lavoro consiste nell'usare l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli). Per creare un'entità servizio e concedere l'accesso all'area di lavoro, seguire questa procedura:
 
 > [!NOTE]
 > Per eseguire tutti questi passaggi, è necessario essere un amministratore della sottoscrizione.
@@ -67,9 +67,9 @@ Il modo più semplice per creare un SP e concedere l'accesso all'area di lavoro 
 
     Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso. In caso contrario, è necessario aprire un browser e seguire le istruzioni nella riga di comando. Le istruzioni prevedono l'individuazione di [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e l'immissione di un codice di autorizzazione.
 
-    Se si hanno più sottoscrizioni di Azure, è possibile usare il `az account set -s <subscription name or ID>` comando per impostare la sottoscrizione. Per altre informazioni, vedere [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest) (Usare più sottoscrizioni di Azure).
+    Se si hanno più sottoscrizioni di Azure, è possibile usare il `az account set -s <subscription name or ID>` comando per impostare la sottoscrizione. Per altre informazioni, vedere [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli) (Usare più sottoscrizioni di Azure).
 
-    Per altri metodi di autenticazione, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
+    Per altri metodi di autenticazione, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 
 1. Installare l'estensione Azure Machine Learning:
 
@@ -236,7 +236,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Usare un'entità servizio dall'interfaccia della riga di comando di Azure
 
-È possibile usare un'entità servizio per i comandi dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [accedere usando un'entità servizio](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal).
+È possibile usare un'entità servizio per i comandi dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [accedere usando un'entità servizio](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Usare un'entità servizio con l'API REST (anteprima)
 

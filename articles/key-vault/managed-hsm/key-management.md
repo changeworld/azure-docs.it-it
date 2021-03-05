@@ -8,17 +8,17 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 3f054638e09061c652946c9c2db1a32db73c23d9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.openlocfilehash: 8d0cbd35b53bc8460ac8a19e5197d1f560657263
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521034"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212043"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Gestire un modulo di protezione hardware gestito con l'interfaccia della riga di comando di Azure
 
 > [!NOTE]
-> Key Vault supporta due tipi di risorse: insiemi di credenziali e moduli di protezione hardware gestiti. Questo articolo riguarda il **modulo di protezione hardware gestito** . Per informazioni su come gestire un insieme di credenziali, vedere [Gestire Key Vault con l'interfaccia della riga di comando di Azure](../general/manage-with-cli2.md).
+> Key Vault supporta due tipi di risorse: insiemi di credenziali e moduli di protezione hardware gestiti. Questo articolo riguarda il **modulo di protezione hardware gestito**. Per informazioni su come gestire un insieme di credenziali, vedere [Gestire Key Vault con l'interfaccia della riga di comando di Azure](../general/manage-with-cli2.md).
 
 Per una panoramica del modulo di protezione hardware gestito, vedere [Che cos'è il modulo di protezione hardware gestito?](overview.md)
 
@@ -42,7 +42,7 @@ Per accedere ad Azure usando l'interfaccia della riga di comando è possibile di
 az login
 ```
 
-Per altre informazioni sulle opzioni di accesso con l'interfaccia della riga di comando, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Per altre informazioni sulle opzioni di accesso con l'interfaccia della riga di comando, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli)
 
 > [!NOTE]
 > In tutti i comandi seguenti vengono illustrati due metodi di utilizzo. Uno usa i parametri **--hsm-name** e **--name** (per il nome della chiave) e l'altro usa il parametro **--id** in cui è possibile specificare l'intero URL incluso, se necessario, il nome della chiave. Il secondo metodo è utile quando il chiamante (un utente o un'applicazione) non ha accesso in lettura al piano di controllo e ha accesso limitato al piano dati.
@@ -69,7 +69,7 @@ Tenere presente che l'operazione di `get` restituisce solo gli attributi di chia
 
 ### <a name="create-an-ec-key"></a>Creare una chiave EC
 
-Nell'esempio seguente viene illustrato come creare una chiave **EC** con una curva P-256 che verrà usata solo per le operazioni **sign e verify** (--ops) e ha due tag, **usage** e **appname** . I tag consentono di aggiungere altri metadati alla chiave per facilitarne il rilevamento e la gestione.
+Nell'esempio seguente viene illustrato come creare una chiave **EC** con una curva P-256 che verrà usata solo per le operazioni **sign e verify** (--ops) e ha due tag, **usage** e **appname**. I tag consentono di aggiungere altri metadati alla chiave per facilitarne il rilevamento e la gestione.
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
