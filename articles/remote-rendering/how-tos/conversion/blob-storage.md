@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: cfc10658463888e43ea1a24dfefd3f8939ec8ef7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 889c25fd1402c4438ff648afce64905de112c8db
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762782"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215545"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Usare l'archiviazione BLOB di Azure per la conversione dei modelli
 
@@ -28,7 +28,7 @@ Il servizio di [conversione del modello](model-conversion.md) richiede l'accesso
 La creazione dell'account di archiviazione e dei contenitori BLOB può essere eseguita con uno degli strumenti seguenti:
 
 - [Azure portal](https://portal.azure.com)
-- [riga di comando AZ](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [riga di comando AZ](/cli/azure/install-azure-cli)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDK (C#, Python...)
 
@@ -52,7 +52,7 @@ Per informazioni dettagliate sulle associazioni di firma di accesso condiviso, v
 
 - AZ PowerShell module
   - vedere gli [script di PowerShell di esempio](../../samples/powershell-example-scripts.md)
-- [riga di comando AZ](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [riga di comando AZ](/cli/azure/install-azure-cli)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
   - fare clic con il pulsante destro del mouse sul contenitore "Ottieni firma di accesso condiviso" (lettura, elencare l'accesso per il contenitore di input, accesso in scrittura per il contenitore
 - SDK (C#, Python...)

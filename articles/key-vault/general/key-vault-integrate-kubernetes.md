@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: fd40ad41bda50d93943a514cd9cc3aeeab4ac948
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b130fd3f85b676f0a394ad95730181ff499dac96
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198881"
+ms.locfileid: "102216497"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Esercitazione: Configurare ed eseguire il provider di Azure Key Vault per il driver CSI dell'archivio di segreti in Kubernetes
 
@@ -37,7 +37,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 * Prima di iniziare questa esercitazione, installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli-windows).
 
-Questa esercitazione presuppone che l'utente esegua il servizio Azure Kubernetes nei nodi Linux.
+Questa esercitazione presuppone che il servizio Azure Kubernetes sia in esecuzione nei nodi Linux.
 
 ## <a name="use-managed-identities"></a>Usare identità gestite
 
@@ -107,7 +107,7 @@ Per creare un'istanza di Key Vault e impostare i segreti, seguire le istruzioni 
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Creare un oggetto SecretProviderClass personale
 
-Per creare un oggetto SecretProviderClass personalizzato con parametri specifici del provider per il driver CSI dell'archivio segreti, [usare questo modello](https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/examples/pod-identity/v1alpha1_secretproviderclass_pod_identity.yaml). Questo oggetto fornirà all'identità l'accesso all'istanza di Key Vault.
+Per creare un oggetto SecretProviderClass personalizzato con parametri specifici del provider per il driver CSI dell'archivio segreti, [usare questo modello](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/service-principal/v1alpha1_secretproviderclass_service_principal.yaml). Questo oggetto fornirà all'identità l'accesso all'istanza di Key Vault.
 
 Nel file YAML SecretProviderClass di esempio compilare i parametri mancanti. I parametri seguenti sono obbligatori:
 

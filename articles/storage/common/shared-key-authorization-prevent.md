@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 944e233fafc4cf5c8c90041e18f94d0e53b7bb46
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2ed6c0c20869e31c0ef664d15305c5aa85ca4c6c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591545"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215579"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedisci l'autorizzazione della chiave condivisa per un account di archiviazione di Azure (anteprima)
 
@@ -22,12 +22,8 @@ Ogni richiesta sicura a un account di archiviazione di Azure deve essere autoriz
 
 Quando si impedisce l'autorizzazione della chiave condivisa per un account di archiviazione, archiviazione di Azure rifiuta tutte le richieste successive a tale account che sono autorizzate con le chiavi di accesso dell'account. Verranno riuscite solo le richieste protette autorizzate con Azure AD. Per altre informazioni sull'uso di Azure AD, vedere [autorizzare l'accesso a BLOB e code usando Azure Active Directory](storage-auth-aad.md).
 
-> [!WARNING]
-> Archiviazione di Azure supporta Azure AD autorizzazione solo per le richieste all'archiviazione BLOB e code. Se non si consente l'autorizzazione con la chiave condivisa per un account di archiviazione, le richieste di File di Azure o l'archiviazione tabelle che usano l'autorizzazione della chiave condivisa avranno esito negativo. Poiché il portale di Azure usa sempre l'autorizzazione della chiave condivisa per accedere ai dati di file e tabelle, se non si consente l'autorizzazione con la chiave condivisa per l'account di archiviazione, non sarà possibile accedere ai dati di file o tabelle nel portale di Azure.
->
-> Microsoft consiglia di eseguire la migrazione di tutti i dati di archiviazione di File di Azure o tabelle in un account di archiviazione separato prima di impedire l'accesso all'account tramite chiave condivisa o di non applicare questa impostazione agli account di archiviazione che supportano i carichi di lavoro di File di Azure o di archiviazione tabelle.
->
-> La disattivazione dell'accesso con chiave condivisa per un account di archiviazione non influisce sulle connessioni SMB ai File di Azure.
+> [!IMPORTANT]
+> La disabilitazione dell'autorizzazione della chiave condivisa è attualmente in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali applicabili alle funzionalità di Azure disponibili in versione beta, di anteprima o non ancora rilasciate a livello generale.
 
 Questo articolo descrive come rilevare le richieste inviate con l'autorizzazione della chiave condivisa e come correggere l'autorizzazione della chiave condivisa per l'account di archiviazione. Per informazioni su come eseguire la registrazione per l'anteprima, vedere [informazioni sull'anteprima](#about-the-preview).
 
@@ -133,11 +129,23 @@ Per non consentire l'autorizzazione della chiave condivisa per un account di arc
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot che illustra come impedire l'accesso con chiave condivisa per l'account":::
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Per impedire l'autorizzazione della chiave condivisa per un account di archiviazione con PowerShell, installare il [modulo AZ. storage PowerShell](https://www.powershellgallery.com/packages/Az.Storage), versione 3.4.0 o successiva. Successivamente, configurare la proprietà **AllowSharedKeyAccess** per un account di archiviazione nuovo o esistente.
+
+L'esempio seguente illustra come impedire l'accesso con la chiave condivisa per un account di archiviazione esistente con PowerShell. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -AllowSharedKeyAccess $false
+```
+
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per impedire l'autorizzazione della chiave condivisa per un account di archiviazione con l'interfaccia della riga di comando di Azure, installare l'interfaccia della riga di comando di Azure 2.9.1 Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Successivamente, configurare la proprietà **allowSharedKeyAccess** per un account di archiviazione nuovo o esistente.
 
-L'esempio seguente illustra come impostare la proprietà **allowSharedKeyAccess** con l'interfaccia della riga di comando di Azure. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
+L'esempio seguente illustra come impedire l'accesso con la chiave condivisa per un account di archiviazione esistente con l'interfaccia della riga di comando di Azure. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
 ```azurecli-interactive
 $storage_account_id=$(az resource show \
@@ -236,12 +244,17 @@ Alcuni strumenti di Azure offrono la possibilità di usare Azure AD autorizzazio
 | Hub IoT Azure | Supportata. Per altre informazioni, vedere [supporto dell'hub Internet per le reti virtuali](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell è una shell integrata nel portale di Azure. Azure Cloud Shell ospita file per la persistenza in una condivisione file di Azure in un account di archiviazione. Questi file diventeranno inaccessibili se l'autorizzazione della chiave condivisa non è consentita per l'account di archiviazione. Per altre informazioni, vedere [connettere l'archiviazione dei file di Microsoft Azure](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Per eseguire i comandi in Azure Cloud Shell per gestire gli account di archiviazione per cui non è consentito l'accesso con chiave condivisa, verificare prima di tutto che siano state concesse le autorizzazioni necessarie per questi account tramite il controllo degli accessi in base al ruolo di Azure. Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). |
 
+## <a name="transition-azure-files-and-table-storage-workloads"></a>File di Azure di transizione e carichi di lavoro di archiviazione tabelle
+
+Archiviazione di Azure supporta Azure AD autorizzazione solo per le richieste all'archiviazione BLOB e code. Se non si consente l'autorizzazione con la chiave condivisa per un account di archiviazione, le richieste di File di Azure o l'archiviazione tabelle che usano l'autorizzazione della chiave condivisa avranno esito negativo. Poiché il portale di Azure usa sempre l'autorizzazione della chiave condivisa per accedere ai dati di file e tabelle, se non si consente l'autorizzazione con la chiave condivisa per l'account di archiviazione, non sarà possibile accedere ai dati di file o tabelle nel portale di Azure.
+
+Microsoft consiglia di eseguire la migrazione di tutti i dati di archiviazione di File di Azure o tabelle in un account di archiviazione separato prima di impedire l'accesso all'account tramite chiave condivisa o di non applicare questa impostazione agli account di archiviazione che supportano i carichi di lavoro di File di Azure o di archiviazione tabelle.
+
+La disattivazione dell'accesso con chiave condivisa per un account di archiviazione non influisce sulle connessioni SMB ai File di Azure.
+
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 
 L'anteprima per la disabilitazione dell'autorizzazione della chiave condivisa è disponibile nel cloud pubblico di Azure. È supportato per gli account di archiviazione che usano solo il modello di distribuzione Azure Resource Manager. Per informazioni sugli account di archiviazione che usano il modello di distribuzione Azure Resource Manager, vedere [tipi di account di archiviazione](storage-account-overview.md#types-of-storage-accounts).
-
-> [!IMPORTANT]
-> Questa versione di anteprima è destinata solo all'uso in ambienti non di produzione.
 
 Nell'anteprima sono incluse le limitazioni descritte nelle sezioni riportate di seguito.
 

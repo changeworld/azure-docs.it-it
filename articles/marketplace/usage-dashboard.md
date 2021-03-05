@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d898efb44bb92151a5d044a6699a4efb70fa9390
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934403"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215732"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di utilizzo nell'analisi per il marketplace commerciale
 
@@ -154,9 +154,9 @@ _**Tabella 1: dizionario dei termini dati**_
 | NormalizedUsage | Normalized Usage | Unità di utilizzo normalizzate totali utilizzate dall'asset distribuito dal cliente.<br>Le ore di utilizzo normalizzate sono definite come ore di utilizzo normalizzate per contabilizzare il numero di core della macchina virtuale: [numero di core della macchina virtuale] x [ore di utilizzo di base]. Le macchine virtuali designate come "SHAREDCORE" usano 1/6 (o 0,1666) come moltiplicatore di [numero di core della macchina virtuale]. |
 | MeteredUsage | Utilizzo a consumo | Unità di utilizzo totali utilizzate dai contatori configurati con l'offerta distribuita dal cliente. |
 | RawUsage | Raw Usage | Unità di utilizzo RAW totali utilizzate dall'asset distribuito dal cliente.<br>Le ore di utilizzo non elaborato sono definite come quantità di tempo in cui le macchine virtuali sono in esecuzione in termini di unità di utilizzo. |
-| Estimated Extended Charge (CC) | Costo esteso stimato nella valuta del cliente | Indica gli addebiti associati all'utilizzo. La colonna è il prodotto di Price (CC) e Quantity Usage. |
-| Estimated Extended Charge (PC) | Addebito esteso stimato nella valuta del pagamento | Indica gli addebiti associati all'utilizzo. La colonna è il prodotto del prezzo stimato (PC) e della quantità di utilizzo. |
-||||
+| Estimated Extended Charge (CC) | Costo esteso stimato nella valuta del cliente | Indica gli addebiti associati all'utilizzo. La colonna è il prodotto prezzo (CC) e utilizzo non elaborato. |
+| Estimated Extended Charge (PC) | Addebito esteso stimato nella valuta del pagamento | Indica gli addebiti associati all'utilizzo. La colonna è il prodotto con prezzo stimato (PC) e utilizzo non elaborato. |
+|
 
 ### <a name="usage-page-filters"></a>Filtri pagina utilizzo
 

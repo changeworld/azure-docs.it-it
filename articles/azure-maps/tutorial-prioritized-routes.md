@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5e7f38e4bbc95e04bf54f8f7a2dd80e21891e8df
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625000"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215494"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Esercitazione: Trovare e visualizzare percorsi per diverse modalità di viaggio con Mappe di Azure
 
@@ -117,7 +117,7 @@ La procedura seguente illustra come creare e visualizzare il controllo mappa in 
     });
     ```
 
-    Nel gestore dell'evento `ready` della mappa il valore dell'impostazione relativa al flusso del traffico è `relative`, che corrisponde alla velocità sulla strada in relazione a condizioni di traffico regolare. Per altre opzioni sul traffico, vedere l'[interfaccia TrafficOptions](/javascript/api/azure-maps-control/atlas.trafficoptions?preserve-view=false&view=azure-maps-typescript-latest).
+    Nel gestore dell'evento `ready` della mappa il valore dell'impostazione relativa al flusso del traffico è `relative`, che corrisponde alla velocità sulla strada in relazione a condizioni di traffico regolare. Per altre opzioni sul traffico, vedere l'[interfaccia TrafficOptions](/javascript/api/azure-maps-control/atlas.trafficoptions).
 
 2. Salvare il file **MapTruckRoute.html** e aggiornare la pagina nel browser. Se si fa zoom avanti su una città, ad esempio Los Angeles, si noterà che le strade vengono visualizzate con i dati aggiornati sul flusso del traffico.
 
@@ -193,7 +193,7 @@ In questa esercitazione verranno calcolati due itinerari e ne verrà eseguito il
 
     Questo codice crea due [oggetti punto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti di partenza e di arrivo, che vengono quindi aggiunti all'origine dati.
 
-    L'ultimo blocco di codice imposta la visualizzazione della fotocamera tramite le informazioni di latitudine e longitudine del punto di partenza e di arrivo. I punti di partenza e di arrivo vengono aggiunti all'origine dati. Per il calcolo del rettangolo di selezione viene usata la funzione `atlas.data.BoundingBox.fromData`. Questo rettangolo di selezione viene usato per impostare la visualizzazione delle videocamere della mappa sull'intero percorso con la funzione `map.setCamera`. Per compensare le dimensioni in pixel delle icone di simbolo, viene aggiunta una spaziatura interna. Per altre informazioni sulla proprietà setCamera del controllo mappa, vedere [setCamera(CameraOptions | CameraBoundsOptions e AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
+    L'ultimo blocco di codice imposta la visualizzazione della fotocamera tramite le informazioni di latitudine e longitudine del punto di partenza e di arrivo. I punti di partenza e di arrivo vengono aggiunti all'origine dati. Per il calcolo del rettangolo di selezione viene usata la funzione `atlas.data.BoundingBox.fromData`. Questo rettangolo di selezione viene usato per impostare la visualizzazione delle videocamere della mappa sull'intero percorso con la funzione `map.setCamera`. Per compensare le dimensioni in pixel delle icone di simbolo, viene aggiunta una spaziatura interna. Per altre informazioni sulla proprietà setCamera del controllo mappa, vedere [setCamera(CameraOptions | CameraBoundsOptions e AnimationOptions)](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-).
 
 3. Salvare il file **TruckRoute.html** e aggiornare il browser. La mappa è ora centrata sulla città di Seattle. L'indicatore blu a goccia contrassegna il punto di partenza. L'indicatore rotondo a goccia contrassegna il punto di arrivo.
 

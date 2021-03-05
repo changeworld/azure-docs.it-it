@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d5c85095e767c0e92c22410054ac4f8fc5267660
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1f78d7185415b66445c78f3b4cdb54ed0d63cb0a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097142"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216616"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Spring data Azure Cosmos DB v2 per l'API Core (SQL): Note sulla versione e risorse
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +55,7 @@ ms.locfileid: "93097142"
 > * [Spring Data Gremlin con Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Si desidera procedere velocemente?
-> 1. Installare il [runtime Java minimo supportato, JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), in modo da poter usare l'SDK.
+> 1. Installare il [runtime Java minimo supportato, JDK 8](/java/azure/jdk/), in modo da poter usare l'SDK.
 > 2. Creare un'app Spring data Azure Cosmos DB usando lo [Starter](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). È semplice.
 > 3. Usare la guida per gli [sviluppatori di Spring Data Azure Cosmos DB](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), che illustra le richieste di Azure Cosmos DB di base.
 >
@@ -85,11 +85,11 @@ ms.locfileid: "93097142"
 ### <a name="225-may-19-2020"></a>2.2.5 (19 maggio 2020)
 #### <a name="new-features"></a>Nuove funzionalità
 * Aggiorna Azure Cosmos DB versione a 3.7.3.
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Contiene correzioni di perdite di memoria e aggiornamenti della versione Netty da Azure Cosmos DB SDK 3.7.3.
 
 ### <a name="224-april-6-2020"></a>2.2.4 (6 aprile 2020)
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Corregge il flag da considerare `allowTelemetry` `CosmosDbConfig` .
 * Corregge la `TTL` proprietà nel contenitore.
 
@@ -97,19 +97,19 @@ ms.locfileid: "93097142"
 #### <a name="new-features"></a>Nuove funzionalità
 * Aggiunge nuova `findAll` API per la chiave di partizione.
 * Aggiorna Azure Cosmos DB versione a 3.7.0.
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Correzioni `collectionName`  ->  `containerName` .
 * Corregge `entityClass` e `domainClass`  ->  `domainType` .
 * Corregge "restituire la raccolta di entità salvata dal repository anziché dall'entità di input".
 
 ### <a name="2110-february-25-2020"></a>2.1.10 (25 febbraio 2020)
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Backports correzione per "restituire la raccolta di entità salvata dal repository anziché dall'entità di input".
 
 ### <a name="222-january-15-2020"></a>2.2.2 (15 gennaio 2020)
 #### <a name="new-features"></a>Nuove funzionalità
 * Aggiorna Azure Cosmos DB versione a 3.6.0.
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 
 ### <a name="221-december-31-2019"></a>2.2.1 (31 dicembre 2019)
 #### <a name="new-features"></a>Nuove funzionalità
@@ -117,7 +117,7 @@ ms.locfileid: "93097142"
 * Aggiunge un campo di annotazione per abilitare o disabilitare la creazione automatica della raccolta.
 * Migliora la gestione delle eccezioni. Espone `CosmosClientException` tramite `CosmosDBAccessException` .
 * Espone `requestCharge` e `activityId` fino a `ResponseDiagnostics` .
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Correzioni di aggiornamento 3.5.0 SDK "eccezione quando Cosmos DB intestazione della risposta HTTP è maggiore di 8192 byte", "" ConsistencyPolicy. defaultConsistencyLevel () ha esito negativo in caso di decadimento ristretto e prefisso coerente ".
 * Corregge `findById` il comportamento del metodo. In precedenza, questo metodo restituisce un valore vuoto se l'entità non è stata trovata anziché generare un'eccezione.
 * Corregge un bug in cui l'ordinamento non è stato applicato alla pagina successiva quando `CosmosPageRequest` è stato utilizzato.
@@ -125,7 +125,7 @@ ms.locfileid: "93097142"
 ### <a name="219-december-26-2019"></a>2.1.9 (26 dicembre 2019)
 #### <a name="new-features"></a>Nuove funzionalità
 * Aggiunge un campo di annotazione per abilitare o disabilitare la creazione automatica della raccolta.
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 *  Corregge `findById` il comportamento del metodo. In precedenza, questo metodo restituisce un valore vuoto se l'entità non è stata trovata anziché generare un'eccezione.
 
 ### <a name="220-october-21-2019"></a>2.2.0 (21 ottobre 2019)
@@ -138,7 +138,7 @@ ms.locfileid: "93097142"
 * Aggiunge `findByIdAndPartitionKey` le `deleteByIdAndPartitionKey` API e.
 * Rimuove la dipendenza da Azure-documentdb.
 * Consente di rietichettare DocumentDB in Azure Cosmos DB.
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Correzioni "l'ordinamento genera un'eccezione quando pageSize è inferiore al numero totale di elementi nel repository".
 
 ### <a name="218-october-18-2019"></a>2.1.8 (18 ottobre 2019)
@@ -157,14 +157,14 @@ ms.locfileid: "93097142"
 * Aggiunge altre modifiche di configurazione per il supporto del repository Cosmos reattivo.
 
 ### <a name="212-march-19-2019"></a>2.1.2 (19 marzo 2019)
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Rimuove `applicationInsights` la dipendenza per:
     * Rischio potenziale di inquinamento delle dipendenze.
     * Incompatibilità con Java 11.
     * Evitare potenziali conseguenze sulle prestazioni per CPU e/o memoria.
 
 ### <a name="207-march-20-2019"></a>2.0.7 (20 marzo 2019)
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Backporting rimuove `applicationInsights` la dipendenza per:
     * Rischio potenziale di inquinamento delle dipendenze.
     * Incompatibilità con Java 11.
@@ -186,7 +186,7 @@ ms.locfileid: "93097142"
 #### <a name="new-features"></a>Nuove funzionalità
 * Aggiunge parole chiave `exists` e `startsWith` .
 * Leggimi degli aggiornamenti.
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Correzioni "Impossibile chiamare self href direttamente per l'entità".
 * Correzioni "findAll avrà esito negativo se la raccolta non viene creata".
 
@@ -198,7 +198,7 @@ ms.locfileid: "93097142"
 * Semplifica la configurazione di Spring-data-cosmosdb.
 * Aggiunge `deleteCollection` le `deleteAll` API e.
 
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Correzione di bug e attenuazione dei difetti.
 
 ## <a name="faq"></a>Domande frequenti

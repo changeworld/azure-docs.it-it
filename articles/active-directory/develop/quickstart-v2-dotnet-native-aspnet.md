@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 9dc787c57ef3ab84d9a2b90cfe059594b0a31d08
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0e8565615cdbac63b0526b5cd87dd9d92d5aa4f1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102513"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216684"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Avvio rapido: Chiamare un'API Web ASP.NET protetta da Microsoft Identity Platform
 
@@ -178,7 +178,7 @@ Per specificare chi può accedere all'applicazione, usare una delle opzioni segu
 
 ### <a name="option-2-use-a-custom-method-to-validate-issuers"></a>Opzione 2: Usare un metodo personalizzato per convalidare le autorità di certificazione
 
-È possibile implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro `IssuerValidator`. Per altre informazioni su come usare questo parametro, vedere la [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet&preserve-view=true).
+È possibile implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro `IssuerValidator`. Per altre informazioni su come usare questo parametro, vedere la [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
