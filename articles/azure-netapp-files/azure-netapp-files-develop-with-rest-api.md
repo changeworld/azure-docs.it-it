@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 4599f4e3ca291c312c99e938b237d1eb9cd9d407
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c5993dc1dc645319e272ab310a97bc3ff8ac495d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929281"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174241"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Sviluppare per Azure NetApp Files con API REST 
 
@@ -34,7 +34,7 @@ La specifica dell'API REST per Azure NetApp Files viene pubblicata tramite [GitH
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Accedere all'API REST di Azure NetApp Files  
 
-1. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) se non lo si è già fatto.
+1. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) se non lo si è già fatto.
 2. Creare un'entità servizio in Azure Active Directory (Azure AD):
    1. Verificare di avere [autorizzazioni sufficienti](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 

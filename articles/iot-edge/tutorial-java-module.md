@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 51b7f6e814a9fad286a934466daeb1ffced225c1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.openlocfilehash: cbe4942b63389faab00861438a0149b68c0e89c0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968061"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177301"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in Java per dispositivi Linux
 
@@ -56,7 +56,7 @@ Prima di iniziare questa esercitazione è necessario aver completato l'esercitaz
 Per sviluppare un modulo IoT Edge in Java, installare i prerequisiti aggiuntivi seguenti nel computer di sviluppo: 
 
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) per Visual Studio Code.
-* [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) e [impostare la variabile di ambiente `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) in modo che punti all'installazione di JDK.
+* [Java se Development Kit 11](/azure/developer/java/fundamentals/java-jdk-long-term-support)e [impostare la `JAVA_HOME` variabile di ambiente](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) in modo che punti all'installazione di JDK.
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
@@ -80,7 +80,7 @@ Creare un modello di soluzione Java da poter personalizzare con il proprio codic
    | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione oppure accettare quello predefinito **EdgeSolution**. |
    | Select module template (Selezionare un modello di modulo) | Scegliere **Java Module** (Modulo Java). |
    | Provide a module name (Specificare un nome per il modulo) | Assegnare il modulo il nome **JavaModule**. |
-   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore viene preinserita in base al nome specificato nell'ultimo passaggio. Sostituire **localhost:5000** con il valore del **server di accesso** nel registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br>Il repository di immagini finale sarà simile a \<registry name\>.azurecr.io/javamodule. |
+   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore viene preinserita in base al nome specificato nell'ultimo passaggio. Sostituire **localhost:5000** con il valore di **Server di accesso** del registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br>Il repository di immagini finale sarà simile a \<registry name\>.azurecr.io/javamodule. |
    | Specificare il valore per l'ID gruppo | Immettere un valore per l'ID gruppo o accettare quello predefinito **com.edgemodule**. |
 
    ![Specificare il repository di immagini Docker](./media/tutorial-java-module/repository.png)

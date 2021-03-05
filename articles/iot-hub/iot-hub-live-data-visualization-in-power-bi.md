@@ -1,5 +1,5 @@
 ---
-title: Visualizzazione dei dati in tempo reale di dati FRM Hub di Azure-Power BI
+title: Visualizzazione dei dati in tempo reale dei dati dall'hub degli oggetti Azure-Power BI
 description: Usare Power BI per visualizzare i dati di temperatura e umidità raccolti dal sensore e inviati all'hub IoT di Azure.
 author: robinsh
 keywords: visualizzazione dei dati in tempo reale, visualizzazione dei dati dal vivo, visualizzazione dei dati del sensore
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 82caf13618fe8483ab8d3a622c6c0d51ab05a206
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146785"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177335"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizzare i dati del sensore in tempo reale da IoT Hub di Azure tramite Power BI
 
@@ -80,7 +80,7 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
    **Sottoscrizione** selezionare la sottoscrizione usata per questa esercitazione.
 
-   **Hub**Internet delle cose: selezionare l'hub Internet che si sta usando per questa esercitazione.
+   **Hub** Internet delle cose: selezionare l'hub Internet che si sta usando per questa esercitazione.
 
    **Endpoint**: selezionare **Messaggistica**.
 
@@ -187,7 +187,7 @@ Nei passaggi seguenti viene illustrato come creare e pubblicare un report utiliz
     >
     > ![Contattare la notifica di amministratore](./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png)
 
-11. Selezionare **Crea codice di incorporamento**e quindi selezionare **pubblica**.
+11. Selezionare **Crea codice di incorporamento** e quindi selezionare **pubblica**.
 
 Viene fornito il collegamento al report che è possibile condividere con tutti gli utenti per l'accesso ai report e un frammento di codice che è possibile usare per integrare il report nel Blog o nel sito Web.
 

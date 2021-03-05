@@ -5,24 +5,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 6037ef9c539c3c57f2ba5a19f371237159d1bf69
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 3bba9dbf40fe6893a06c21d7f6b5475cfa8552cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030886"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176655"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo di inserimento dei dati di log in Monitoraggio di Azure
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati di log diventino disponibili dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.
 
 ## <a name="typical-latency"></a>Latenza tipica
-La latenza si riferisce al tempo in cui i dati vengono creati nel sistema monitorato e al tempo necessario affinché diventino disponibili per l'analisi in Monitoraggio di Azure. La latenza tipica per inserire dati di log è compresa tra 2 e 5 minuti. La latenza specifica per dati particolari varia in base a una serie di fattori illustrati di seguito.
+La latenza si riferisce al tempo in cui i dati vengono creati nel sistema monitorato e al tempo necessario affinché diventino disponibili per l'analisi in Monitoraggio di Azure. La latenza tipica di inserimento dei dati di log è compresa tra 20 e 3 minuti. Tuttavia, la latenza specifica per i dati specifici varierà in base a una serie di fattori illustrati di seguito.
 
 
 ## <a name="factors-affecting-latency"></a>Fattori che influiscono sulla latenza
 Il tempo totale di inserimento per un determinato set di dati può essere suddiviso nelle seguenti aree di alto livello. 
 
-- Tempo dell'agente: il tempo necessario per individuare un evento, raccoglierlo e inviarlo al punto di inserimento di Monitoraggio di Azure come record di log. Nella maggior parte dei casi, questo processo viene gestito da un agente.
+- Ora agente: il tempo per individuare un evento, raccoglierlo, quindi inviarlo a monitoraggio di Azure registra il punto di inserimento come record di log. Nella maggior parte dei casi, questo processo viene gestito da un agente. La latenza aggiuntiva potrebbe essere introdotta dalla rete.
 - Tempo della pipeline: il tempo necessario alla pipeline di inserimento per elaborare il record di log. Include l'analisi delle proprietà dell'evento e l'aggiunta potenziale di informazioni calcolate.
 - Tempo di indicizzazione: il tempo impiegato per inserire un record di log nell'archivio per Big Data di Monitoraggio di Azure.
 
@@ -36,16 +36,17 @@ Gli agenti e le soluzioni di gestione usano diverse strategie per raccogliere i 
 - La soluzione Replica Active Directory esegue la valutazione ogni cinque giorni, mentre la soluzione Valutazione Active Directory esegue una valutazione settimanale dell'infrastruttura Active Directory. L'agente raccoglierà questi log solo al termine della valutazione.
 
 ### <a name="agent-upload-frequency"></a>Frequenza di caricamento dell'agente
-Per assicurarsi che l'agente di Log Analytics sia leggero, l'agente memorizza nel buffer i log e li carica periodicamente in Monitoraggio di Azure. La frequenza di caricamento varia tra 30 secondi e 2 minuti a seconda del tipo di dati. La maggior parte dei dati viene caricata in meno di 1 minuto. Le condizioni della rete possono influire negativamente sulla latenza di questi dati per raggiungere il punto di inserimento di Monitoraggio di Azure.
+Per assicurarsi che l'agente di Log Analytics sia leggero, l'agente memorizza nel buffer i log e li carica periodicamente in Monitoraggio di Azure. La frequenza di caricamento varia tra 30 secondi e 2 minuti a seconda del tipo di dati. La maggior parte dei dati viene caricata in meno di 1 minuto. 
+
+### <a name="network"></a>Rete
+Le condizioni della rete possono influire negativamente sulla latenza di questi dati per raggiungere il punto di inserimento dei log di monitoraggio di Azure.
 
 ### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Log attività, log delle risorse e metriche di Azure
-I dati di Azure richiedono altro tempo prima che siano disponibili nel punto di inserimento di Log Analytics per l'elaborazione:
+I dati di Azure aggiungono ulteriore tempo per diventare disponibile nel punto di inserimento dei log di monitoraggio di Azure per l'elaborazione:
 
-- I dati dei log delle risorse sono necessari 2-15 minuti, a seconda del servizio di Azure. Vedere la [query più avanti](#checking-ingestion-time) per esaminare questa latenza nell'ambiente
-- L'invio delle metriche della piattaforma Azure al punto di inserimento di Log Analytics richiede 3 minuti.
-- L'invio dei dati dei log attività al punto di inserimento di Log Analytics richiederà circa 10-15 minuti.
-
-Una volta disponibili nel punto di inserimento, i dati impiegano altri 2-5 minuti prima di essere disponibili per l'esecuzione di query.
+- I log delle risorse in genere aggiungono 30-90 secondi, a seconda del servizio di Azure. Alcuni servizi di Azure, in particolare il database SQL di Azure e la rete virtuale di Azure, attualmente segnalano i log a intervalli di 5 minuti. Il lavoro è in corso per migliorare ulteriormente questa operazione. Vedere la [query più avanti](#checking-ingestion-time) per esaminare questa latenza nell'ambiente
+- La metrica della piattaforma Azure richiede altri 3 minuti per l'esportazione nel punto di inserimento dei log di monitoraggio di Azure.
+- Se si usa l'integrazione legacy, i dati del log attività potrebbero richiedere altri 10-15 minuti. Si consiglia di usare le impostazioni di diagnostica a livello di sottoscrizione per inserire i log attività nei log di monitoraggio di Azure, che comporta una latenza aggiuntiva di circa 30 secondi.
 
 ### <a name="management-solutions-collection"></a>Raccolta delle soluzioni di gestione
 Alcune soluzioni non raccolgono i dati da un agente e possono usare un metodo di raccolta che introduce una latenza aggiuntiva. Alcune soluzioni raccolgono dati a intervalli regolari senza tentare di eseguire la raccolta quasi in tempo reale. Ecco alcuni esempi specifici:
@@ -56,6 +57,9 @@ Alcune soluzioni non raccolgono i dati da un agente e possono usare un metodo di
 Per determinare la frequenza di raccolta specifica, consultare la documentazione relativa a ciascuna soluzione.
 
 ### <a name="pipeline-process-time"></a>Tempo di elaborazione della pipeline
+
+Una volta disponibile al punto di inserimento, i dati richiedono altri 30-60 secondi per essere disponibili per l'esecuzione di query.
+
 Una volta che i record di log vengono inseriti nella pipeline di monitoraggio di Azure (come indicato nella proprietà [_TimeReceived](./log-standard-columns.md#_timereceived) ), vengono scritti nell'archiviazione temporanea per garantire l'isolamento dei tenant e per assicurarsi che i dati non vadano perduti. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti. Un altro processo che aggiunge latenza è il processo che gestisce i log personalizzati. In alcuni casi, questo processo potrebbe aggiungere alcuni minuti di latenza ai log che vengono raccolti dai file dall'agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisioning di nuovi tipi di dati personalizzati

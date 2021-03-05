@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 642fa044b3272e311769ddbcc5462cb396563652
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/22/2021
+ms.openlocfilehash: 21edde3eba76b565332acb9c67225f3bbb0fe803
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702556"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177284"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -203,20 +203,24 @@ Nella [portale di Azure](https://portal.azure.com)aggiungere uno o più criteri 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Nome del criterio** | Sì | Il nome da usare per il criterio di autorizzazione |
-   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Il valore dell'attestazione è limitato a un [numero massimo di caratteri](logic-apps-limits-and-config.md#authentication-limits). Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (ID token Web JSON) <p><p>Come minimo, l'elenco di **attestazioni** deve includere l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID autorità di certificazione Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
+   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Il valore dell'attestazione è limitato a un [numero massimo di caratteri](logic-apps-limits-and-config.md#authentication-limits). Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (identificatore del token Web JSON) <p><p>Come minimo, l'elenco di **attestazioni** deve includere l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID autorità di certificazione Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
    |||
 
 1. Per aggiungere un'altra attestazione, selezionare una delle opzioni seguenti:
 
    * Per aggiungere un altro tipo di attestazione, selezionare **Aggiungi attestazione standard**, selezionare il tipo di attestazione e specificare il valore dell'attestazione.
 
-   * Per aggiungere un'attestazione personalizzata, selezionare **Aggiungi attestazione personalizzata**, quindi specificare il valore dell'attestazione personalizzata.
+   * Per aggiungere un'attestazione personalizzata, selezionare **Aggiungi attestazione personalizzata**. Per altre informazioni, vedere [How to provide optional Claims to your app](../active-directory/develop/active-directory-optional-claims.md). L'attestazione personalizzata viene quindi archiviata come parte dell'ID JWT. ad esempio, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"` . 
 
 1. Per aggiungere un altro criterio di autorizzazione, selezionare **Aggiungi criteri**. Ripetere i passaggi precedenti per configurare i criteri.
 
 1. Al termine, selezionare **Salva**.
 
 1. Per includere l' `Authorization` intestazione dal token di accesso negli output dei trigger basati su richiesta, vedere [includere l'intestazione ' Authorization ' negli output del trigger di richiesta](#include-auth-header).
+
+
+Le proprietà del flusso di lavoro, ad esempio i criteri, non vengono visualizzate nella visualizzazione del codice dell'app per la logica nella portale di Azure. Per accedere ai criteri a livello di codice, chiamare l'API seguente tramite Azure Resource Manager (ARM): `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820` . Assicurarsi di sostituire i valori segnaposto per l'ID sottoscrizione di Azure, il nome del gruppo di risorse e il nome del flusso di lavoro.
+
 
 <a name="define-authorization-policy-template"></a>
 

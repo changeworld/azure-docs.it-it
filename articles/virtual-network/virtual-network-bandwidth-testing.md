@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 27cc55978582468c759603571bd8b0e69f29db5d
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: abcd2f6e23ea0c7c26b2ee26b2f6ca4ad502b769
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226574"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177182"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test della larghezza di banda/velocità effettiva (NTTTCP)
 
@@ -93,15 +93,19 @@ Usare nttcp-for-linux, È disponibile in <https://github.com/Microsoft/ntttcp-fo
 
 Nelle macchine virtuali Linux (MITTENTE e RICEVITORE), eseguire i comandi seguenti per preparare ntttcp-for-linux:
 
-CentOS - Installare Git:
+CentOS-installare GCC e git:
 ``` bash
   yum install gcc -y  
   yum install git -y
 ```
-Ubuntu - Installare Git:
+Ubuntu-installa build-essential e git:
 ``` bash
  apt-get -y install build-essential  
  apt-get -y install git
+```
+SUSE-installare git-core, GCC e make:
+``` bash
+  zypper in -y git-core gcc make
 ```
 Verificare e installare in entrambie le macchine virtuali:
 ``` bash

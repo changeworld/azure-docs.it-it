@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2acc3d104786be330e3e799ad7bd96d703587581
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: 77a1c02c1ec59778521104e57f3bf3de8e52fa44
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738991"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177415"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -104,46 +104,57 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 1. Accedere all'indirizzo https://portal.azure.com/.
 2. Cercare i **processi di importazione/esportazione**.
 
-    ![Eseguire ricerche nei processi di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+   ![Eseguire ricerche nei processi di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
 3. Selezionare **+ Nuovo**.
 
-    ![Selezionare nuovo per creare un nuovo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+   ![Selezionare nuovo per creare un nuovo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Nozioni di base**:
 
-   * Selezionare **Importa in Azure**.
-   * Immettere un nome descrittivo per il processo di importazione. Usare il nome per tenere traccia dello stato dei processi.
-       * Il nome può contenere solo lettere minuscole, numeri e segni meno.
-       * Il nome deve iniziare con una lettera e non può contenere spazi.
-   * Selezionare una sottoscrizione.
-   * Immettere o selezionare un gruppo di risorse.
+   1. Selezionare una sottoscrizione.
+   1. Selezionare un gruppo di risorse oppure selezionare **Crea nuovo** e crearne uno nuovo.
+   1. Immettere un nome descrittivo per il processo di importazione. Usare il nome per tenere traccia dello stato dei processi.
+      * Il nome può contenere solo lettere minuscole, numeri e segni meno.
+      * Il nome deve iniziare con una lettera e non può contenere spazi.
 
-     ![Creare il processo di importazione - Passaggio 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+   1. Selezionare **Importa in Azure**.
+
+    ![Creare il processo di importazione - Passaggio 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+
+    Selezionare **Avanti: dettagli processo >** per continuare.
 
 5. In **Dettagli processo**:
 
-   * Caricare i file journal delle unità ottenuti durante il passaggio di preparazione delle unità. Se è stato usato `waimportexport.exe version1`, caricare un file per ogni unità preparata. Se le dimensioni del file journal superano 2 MB, è possibile usare il file `<Journal file name>_DriveInfo_<Drive serial ID>.xml` creato insieme al file journal.
-   * Selezionare l'account di archiviazione di destinazione in cui si troveranno i dati.
-   * La località di consegna viene popolata automaticamente in base all'area dell'account di archiviazione selezionato.
+   1. Caricare i file journal creati in [Passaggio 1: Preparare le unità](#step-1-prepare-the-drives). Se è stato usato `waimportexport.exe version1`, caricare un file per ogni unità preparata. Se le dimensioni del file journal superano 2 MB, è possibile usare il file `<Journal file name>_DriveInfo_<Drive serial ID>.xml` creato insieme al file journal.
+   1. Selezionare l'area di Azure di destinazione per l'ordine.
+   1. Selezionare l'account di archiviazione per l'importazione.
+      
+      La località di consegna viene popolata automaticamente in base all'area dell'account di archiviazione selezionato.
+   1. Se non si vuole salvare un log dettagliato, deselezionare l'opzione **Salva il log dettagliato nel contenitore BLOB ' waimportexport '** .
 
-   ![Creare il processo di importazione - Passaggio 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+   ![Creare il processo di importazione - Passaggio 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png).
 
-6. In **Informazioni sul mittente della spedizione**:
+   Selezionare **Avanti: spedizione >** per continuare.
 
-   * Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo in `adbops@microsoft.com`  con le informazioni relative al vettore che si intende usare.
-   * Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. In assenza di un numero di account, creare un account di vettore [FedEx](https://www.fedex.com/us/oadr/) o [DHL](https://www.dhl.com/).
-   * Fornire un nome di contatto completo e valido, un telefono, un indirizzo di posta elettronica, via, città, CAP, stato/provincia e paese/area geografica.
+6. In **spedizione**:
+
+   1. Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo in `adbops@microsoft.com`  con le informazioni relative al vettore che si intende usare.
+   1. Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. In assenza di un numero di account, creare un account di vettore [FedEx](https://www.fedex.com/us/oadr/) o [DHL](https://www.dhl.com/).
+   1.  Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area.
 
        > [!TIP]
        > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
 
-     ![Creare il processo di importazione - Passaggio 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+   ![Creare il processo di importazione - Passaggio 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
-7. In **Riepilogo**:
+   Selezionare **Verifica + crea** per continuare.
 
-   * Esaminare le informazioni sul processo fornite nel riepilogo. Prendere nota del nome del processo e dell'indirizzo di spedizione del data center di Azure per rispedire i dischi ad Azure. Queste informazioni verranno usate successivamente sull'etichetta indirizzo.
-   * Fare clic su **OK** per creare il processo di importazione.
+7. Nel riepilogo degli ordini:
+
+   1. Esaminare le **condizioni** e quindi selezionare "Accetto che tutte le informazioni fornite siano corrette e accettino i termini e le condizioni." Viene quindi eseguita la convalida.
+   1. Esaminare le informazioni sul processo fornite nel riepilogo. Prendere nota del nome del processo e dell'indirizzo di spedizione del data center di Azure per rispedire i dischi ad Azure. Queste informazioni verranno usate successivamente sull'etichetta indirizzo.
+   1. Selezionare **Crea**.
 
      ![Creare il processo di importazione - Passaggio 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 

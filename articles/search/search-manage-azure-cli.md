@@ -1,5 +1,5 @@
 ---
-title: Script CLI di Azure con il modulo AZ search
+title: Script dell'interfaccia della riga di comando di Azure con il modulo AZ search
 titleSuffix: Azure Cognitive Search
 description: Creare e configurare un servizio ricerca cognitiva di Azure con l'interfaccia della riga di comando di Azure. È possibile aumentare o ridurre le prestazioni di un servizio, gestire chiavi API di amministrazione e query ed eseguire query per ottenere informazioni sul sistema.
 manager: luisca
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 6287215233ae9baa220df37c6b820c1d1bec7720
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ee6b0e1b745e86c72843af88c0f6d17f91512e15
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032518"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176757"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Gestire il servizio ricerca cognitiva di Azure con l'interfaccia della riga di comando di Azure
 > [!div class="op_single_selector"]
@@ -41,48 +41,7 @@ In alcuni casi, vengono poste domande sulle attività *non* presenti nell'elenco
 
 All'interno di un servizio, la creazione e la gestione dei contenuti sono tramite [servizio di ricerca API REST](/rest/api/searchservice/) o [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). Sebbene non esistano comandi di PowerShell dedicati per il contenuto, è possibile scrivere script che chiamano API REST o .NET per creare e caricare gli indici.
 
-<a name="check-versions-and-load"></a>
-
-## <a name="check-versions-and-upgrade"></a>Controllare le versioni e l'aggiornamento
-
-Gli esempi in questo articolo sono interattivi e richiedono autorizzazioni elevate. È necessario installare l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-È ora possibile eseguire l'interfaccia della riga di comando di Azure con il `az` comando dal prompt dei comandi di Windows, da PowerShell o da [Azure cloud Shell](../cloud-shell/overview.md). PowerShell offre alcune funzionalità di completamento con tasto TAB non disponibili dal prompt dei comandi di Windows. 
-
-### <a name="check-the-azure-cli-version"></a>Controllare la versione dell'interfaccia della riga di comando di Azure
-
-Se non si è certi che l'interfaccia della riga di comando di Azure sia installata, eseguire il comando seguente come passaggio di verifica. 
-
-```azurecli-interactive
-az --version
-```
-Se questo comando non funziona, vedere [installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure per installare l'interfaccia della riga di comando di Azure.
-
-Se è presente la versione 2.11.0 o successiva, è possibile eseguire il `az upgrade` comando per aggiornare l'interfaccia della riga di comando alla versione più recente.
-
-```azurecli-interactive
-az upgrade
-```
-
-### <a name="connect-to-azure-with-a-browser-sign-in-token"></a>Connettersi ad Azure con un token di accesso del browser
-
-È possibile usare le credenziali di accesso del portale per connettersi a una sottoscrizione nell'interfaccia della riga di comando di Azure. In alternativa, è possibile [eseguire l'autenticazione in modo non interattivo con un'entità servizio](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal).
-
-```azurecli-interactive
-az login
-```
-
-Se si contengono più sottoscrizioni di Azure, impostare la sottoscrizione di Azure. Per visualizzare un elenco di sottoscrizioni correnti, eseguire questo comando.
-
-```azurecli-interactive
-az account list --output table
-```
-
-Per specificare la sottoscrizione, eseguire il comando seguente. Nell'esempio seguente, il nome della sottoscrizione è `ContosoSubscription`.
-
-```azurecli-interactive
-az account set --subscription "ContosoSubscription"
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 <a name="list-search-services"></a>
 
@@ -262,7 +221,7 @@ az network vnet subnet update \
 id=$(az search service show \
     --resource-group <resource-group-name> \
     --name <service-name> \
-    --query [id]' \
+    --query [id] \
     --output tsv)
 
 # Create the private endpoint

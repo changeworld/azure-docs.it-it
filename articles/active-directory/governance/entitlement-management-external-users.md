@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b356d5dff453b598eeb773af1a56fc50193e9e16
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: c7c78dcbc34deca769739f82964df41ebfc596ea
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746661"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176791"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Regolamentare l'accesso per gli utenti esterni nella gestione entitlement di Azure AD
 
@@ -84,7 +84,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 - Consentire ai guest di invitare altri guest nella propria directory significa che gli inviti Guest possono verificarsi al di fuori della gestione dei diritti. Si consiglia di impostare i **Guest come invitati** a **No** per consentire solo gli inviti regolati correttamente.
 - Se si usa l'elenco Consenti B2B, è necessario assicurarsi che tutti i domini con cui si vuole collaborare con la gestione dei diritti siano aggiunti all'elenco. In alternativa, se si usa l'elenco di negazione B2B, è necessario assicurarsi che tutti i domini con cui si vuole collaborare non vengano aggiunti all'elenco.
 - Se si crea un criterio di gestione dei diritti per **tutti gli utenti** (tutte le organizzazioni connesse e i nuovi utenti esterni) e un utente non appartiene a un'organizzazione connessa nella directory, verrà creata automaticamente un'organizzazione connessa quando richiede il pacchetto. Tutte le impostazioni dell'elenco Consenti o Impedisci B2B disponibili avranno la precedenza. Quindi, assicurarsi di includere i domini che si intende includere in questo criterio nell'elenco Consenti se ne viene usato uno ed escluderli dall'elenco di negazione se si usa un elenco di accesso negato.
-- Se si vuole creare un criterio di gestione dei diritti che includa **tutti gli utenti** (tutte le organizzazioni connesse e tutti i nuovi utenti esterni), è necessario prima di tutto abilitare la posta elettronica per la password una sola volta per la directory. Per ulteriori informazioni, vedere la pagina relativa all' [autenticazione del codice di posta elettronica monouso (anteprima)](../external-identities/one-time-passcode.md).
+- Se si vuole creare un criterio di gestione dei diritti che includa **tutti gli utenti** (tutte le organizzazioni connesse e tutti i nuovi utenti esterni), è necessario prima di tutto abilitare la posta elettronica per la password una sola volta per la directory. Per ulteriori informazioni, vedere la pagina relativa all' [autenticazione del codice di posta elettronica una volta](../external-identities/one-time-passcode.md).
 - Per altre informazioni su Azure AD impostazioni di collaborazione esterna B2B, vedere [abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i guest](../external-identities/delegate-invitations.md).
 
     ![Azure AD impostazioni di collaborazione esterna](./media/entitlement-management-external-users/collaboration-settings.png)

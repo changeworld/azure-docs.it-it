@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f358bebc1cc4eb17b8c50b1e3a13366717ae98c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ab2ad15da9b1676924197d28e734f6baf59a02ef
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100713"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176638"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduzione ad Azure Defender per registri contenitori
 
@@ -68,9 +68,9 @@ Di seguito è riportato un diagramma generale dei componenti e dei vantaggi dell
 ## <a name="faq-for-azure-container-registry-image-scanning"></a>Domande frequenti sull'analisi delle immagini di Registro Azure Container
 
 ### <a name="how-does-security-center-scan-an-image"></a>Come vengono analizzate le immagini dal Centro sicurezza?
-L'immagine viene estratta dal registro. Viene quindi eseguita in una sandbox isolata con la funzionalità di analisi di Qualys che estrae un elenco di vulnerabilità note.
+Il Centro sicurezza estrae l'immagine dal registro di sistema e la esegue in una sandbox isolata con lo scanner Qualys. Lo scanner estrae un elenco di vulnerabilità note.
 
-Il Centro sicurezza filtra e classifica i risultati restituiti dalla funzionalità di analisi. Quando un'immagine è integra, il Centro sicurezza la contrassegna come tale. Il Centro sicurezza genera raccomandazioni sulla sicurezza solo per le immagini che presentano problemi da risolvere. Inviando notifiche solo in caso di problemi individuati, il Centro sicurezza riduce il rischio di avvisi informativi indesiderati.
+Il Centro sicurezza filtra e classifica i risultati restituiti dalla funzionalità di analisi. Quando un'immagine è integra, il Centro sicurezza la contrassegna come tale. Il Centro sicurezza genera raccomandazioni sulla sicurezza solo per le immagini che presentano problemi da risolvere. Inviando notifiche solo quando si verificano problemi, il Centro sicurezza riduce il rischio di avvisi indesiderati informativi.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>È possibile ottenere i risultati dell'analisi tramite l'API REST?
 Sì. I risultati si trovano nell'[API REST Sub-Assessments](/rest/api/securitycenter/subassessments/list/). Si può anche usare Azure Resource Graph, l'API Kusto-per tutte le risorse: una query può recuperare un'analisi specifica.
@@ -78,7 +78,7 @@ Sì. I risultati si trovano nell'[API REST Sub-Assessments](/rest/api/securityce
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Quali tipi di registri vengono analizzati? Per quali tipi vengono addebitati dei costi?
 Per un elenco dei tipi di registri contenitori supportati da Azure Defender per registri contenitori, vedere [Disponibilità](#availability).
 
-Se si collegano registri non supportati alla sottoscrizione di Azure, questi non vengono analizzati e non viene addebitato alcun costo.
+Se si connettono registri non supportati alla sottoscrizione di Azure, Azure Defender non li analizzerà e non verrà fatturato.
 
 ### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>È possibile personalizzare i risultati dell'analisi delle vulnerabilità?
 Sì. Se l'organizzazione deve ignorare un risultato invece di correggerlo, è possibile disabilitarlo facoltativamente. I risultati disabilitati non influiscono sul punteggio di sicurezza e non generano elementi non significativi.

@@ -7,12 +7,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.topic: how-to
 ms.date: 01/17/2021
-ms.openlocfilehash: 0da38475c0e3c766cabbf765ea89dc5714a5b830
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: b95afe513dba2f1da9556b27ec17bcccc9fe88e1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747568"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173552"
 ---
 # <a name="synchronize-virtual-network-dns-servers-setting-on-sql-managed-instance-virtual-cluster"></a>Sincronizzare le impostazioni server DNS della rete virtuale in SQL Istanza gestita cluster virtuale
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -21,7 +21,7 @@ Questo articolo illustra quando e come sincronizzare i server DNS di rete virtua
 
 ## <a name="when-to-synchronize-the-dns-setting"></a>Quando sincronizzare l'impostazione DNS
 
-In alcuni scenari, ad esempio la posta elettronica del database e i server collegati ad altre istanze di SQL Server nell'ambiente cloud o ibrido, sono richiesti nomi host privati che devono essere risolti dall'Istanza gestita di SQL. In questo caso, è necessario configurare un DNS personalizzato all'interno di Azure. Per informazioni dettagliate, vedere [configurare un DNS personalizzato per il istanza gestita SQL di Azure](custom-dns-configure.md) .
+In alcuni scenari, ad esempio la posta elettronica del database e i server collegati ad altre istanze di SQL Server nell'ambiente cloud o ibrido, sono richiesti nomi host privati che devono essere risolti dall'Istanza gestita di SQL. In questo caso, è necessario configurare un DNS personalizzato all'interno di Azure. Per conoscere i dettagli, vedere [Configurare un DNS personalizzato per Istanza gestita di SQL di Azure](custom-dns-configure.md).
 
 Se questa modifica viene implementata dopo la creazione di un [cluster virtuale](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) che ospita istanza gestita, sarà necessario sincronizzare le impostazioni dei server DNS nel cluster virtuale con la configurazione della rete virtuale.
 
@@ -66,7 +66,7 @@ virtualNetworkName="vnet-fog-eastus"
 virtualNetwork=$(az network vnet show -g $resourceGroup -n $virtualNetworkName --query "id" -otsv)
 ```
 
-Usare l'interfaccia della riga di comando di Azure [AZ Resource Invoke-Action](/cli/azure/resource?view=azure-cli-latest#az_resource_invoke_action) per sincronizzare la configurazione dei server DNS per tutti i cluster virtuali nella subnet.
+Usare l'interfaccia della riga di comando di Azure [AZ Resource Invoke-Action](/cli/azure/resource#az_resource_invoke_action) per sincronizzare la configurazione dei server DNS per tutti i cluster virtuali nella subnet.
 
 ```Azure CLI
 az sql virtual-cluster list --query "[? contains(subnetId,'$virtualNetwork')].id" -o tsv \

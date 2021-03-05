@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 12/11/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2df7255980ca00d405cf80a9fff69ff0511bd17
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5ffc655cebb19b755b990171ab662576ac541793
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659308"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174292"
 ---
 # <a name="call-flow-topologies"></a>Topologie del flusso di chiamate
 Questo articolo descrive le topologie del flusso di chiamate dei servizi di comunicazione di Azure. Questo è un ottimo articolo da consultare se si è un cliente aziendale che integra i servizi di comunicazione all'interno di una rete gestita. Per un'introduzione ai flussi di chiamata dei servizi di comunicazione, vedere la [documentazione concettuale sui flussi di chiamata](./call-flows.md).
@@ -152,7 +152,7 @@ La segnalazione tra la VPN e la rete del cliente usa Flow 2 *. Segnalazione tra 
 
 ### <a name="vpn-user-to-internal-user-direct-media"></a>Da utente VPN a utente interno (supporto diretto)
 
-:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="Un flusso di chiamate uno-a-uno con una VPN con supporto diretto":::
+:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="Un flusso di chiamate uno-a-uno (utente interno) con una VPN con supporto diretto":::
 
 *Figura 6-utente VPN per l'utente interno (supporto diretto)*
 
@@ -162,7 +162,7 @@ Questa trasmissione multimediale è bidirezionale. La direzione di Flow 2 all'ut
 
 ### <a name="vpn-user-to-external-user-direct-media"></a>Utente VPN per utente esterno (supporto diretto)
 
-:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Un flusso di chiamate uno-a-uno con una VPN con supporto diretto":::
+:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Uno-a-uno flusso di chiamate (utente esterno) con una VPN con supporto diretto":::
 
 *Figura 7-utente VPN a utente esterno (supporto diretto)*
 

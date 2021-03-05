@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: cb19b7e8c5271e1106e69c98d5bd17a1bcb822bf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3da450ce1130b693fa346b4a6f4b42f6a0fd60a3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385286"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174207"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variabili di sistema supportate da Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -20,6 +20,7 @@ ms.locfileid: "100385286"
 Questo articolo descrive le variabili di sistema supportate da Azure Data Factory. È possibile usare queste variabili nelle espressioni quando si definiscono le entità di Data Factory.
 
 ## <a name="pipeline-scope"></a>Ambito della pipeline
+
 È possibile fare riferimento a queste variabili di sistema in un punto qualsiasi della pipeline JSON.
 
 | Nome variabile | Descrizione |
@@ -36,6 +37,7 @@ Questo articolo descrive le variabili di sistema supportate da Azure Data Factor
 >Le variabili di sistema di data e ora correlate al trigger (in entrambi gli ambiti di pipeline e trigger) restituiscono le date UTC in formato ISO 8601, ad esempio `2017-06-01T22:20:00.4061448Z` .
 
 ## <a name="schedule-trigger-scope"></a>Ambito del trigger di pianificazione
+
 È possibile fare riferimento a queste variabili di sistema in qualsiasi punto del trigger JSON per i trigger di tipo [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
 | Nome variabile | Descrizione |
@@ -44,6 +46,7 @@ Questo articolo descrive le variabili di sistema supportate da Azure Data Factor
 | @trigger().startTime |Ora in cui il trigger è stato **effettivamente** attivato per richiamare l'esecuzione della pipeline. Questo può differire leggermente dall'ora pianificata del trigger. |
 
 ## <a name="tumbling-window-trigger-scope"></a>Ambito del trigger della finestra a cascata
+
 È possibile fare riferimento a queste variabili di sistema in qualsiasi punto del trigger JSON per i trigger di tipo [TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 
 | Nome variabile | Descrizione |
@@ -53,7 +56,8 @@ Questo articolo descrive le variabili di sistema supportate da Azure Data Factor
 | @trigger().scheduledTime |Ora in cui il trigger è stato pianificato per richiamare l'esecuzione della pipeline. |
 | @trigger().startTime |Ora in cui il trigger è stato **effettivamente** attivato per richiamare l'esecuzione della pipeline. Questo può differire leggermente dall'ora pianificata del trigger. |
 
-## <a name="event-based-trigger-scope"></a>Ambito trigger basato su eventi
+## <a name="storage-event-trigger-scope"></a>Ambito del trigger dell'evento di archiviazione
+
 È possibile fare riferimento a queste variabili di sistema in qualsiasi punto del trigger JSON per i trigger di tipo [BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
 
 | Nome variabile | Descrizione |
@@ -63,4 +67,5 @@ Questo articolo descrive le variabili di sistema supportate da Azure Data Factor
 | @trigger().startTime |Ora in cui il trigger è stato attivato per richiamare l'esecuzione della pipeline. |
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per informazioni sull'uso di queste variabili nelle espressioni, vedere [Expression language & functions](control-flow-expression-language-functions.md) (Linguaggio e funzioni delle espressioni).

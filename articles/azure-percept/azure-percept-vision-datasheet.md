@@ -6,12 +6,12 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 54dae3341910bf863de7e2a2cef832ae670ca09a
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 7bbb3a88bbc3011ec5dd917cdb0c1e49f7556aab
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097568"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177165"
 ---
 # <a name="azure-percept-vision-datasheet"></a>Foglio dati sulla visione di Azure Percept
 
@@ -26,7 +26,7 @@ Le specifiche elencate di seguito sono relative al dispositivo Azure Percept Vis
 |Software e servizi supportati |[Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [Runtime ONNX](https://www.onnxruntime.ai/) <br> [OpenVINO](https://docs.openvinotoolkit.org/latest/index.html) <br> Aggiornamento del dispositivo Azure |
 |Accelerazione intelligenza artificiale                 |Intel Movidius miriade X (MA2085) Vision Processing Unit (VPU) with Intel fotocamera ISP Integrated, 0,7 Top |
 |Sensori e indicatori visivi   |Sensore della fotocamera IMX219 Sony con obiettivo 6P<br>Soluzione: 8MP a 30 fps, distanza: 50cm-infinito<br>FoV: 120 gradi diagonale, colore: ampio intervallo dinamico, otturatore fisso a scorrimento|
-|Supporto della fotocamera                  |RGB (attualmente) e IR (in futuro) <br> 2 fotocamere possono essere eseguite simultaneamente |
+|Supporto della fotocamera                  |RGB <br> 2 fotocamere possono essere eseguite simultaneamente |
 |Crypto-Controller di sicurezza      |ST-Micro STM32L462CE      |
 |Componente di controllo delle versioni/ID       |EEPROM 64KB |
 |Memoria                          |LPDDR4 2 GB     |

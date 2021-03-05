@@ -4,12 +4,12 @@ description: Informazioni su come usare i server con abilitazione di Azure Arc p
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico, ibrido
 ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: 5692dfaceb15086b04ee951b8ecdf88f73c7d122
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 92de3b1a9cf07c25b13e2d038534e93318882bb1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686224"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175975"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Che cosa sono i server con abilitazione di Azure Arc?
 
@@ -23,7 +23,7 @@ Quando si connette la macchina virtuale a server con abilitazione di Azure Arc, 
 
 - Assegnare [configurazioni guest di Criteri di Azure](../../governance/policy/concepts/guest-configuration.md) usando la stessa esperienza dell'assegnazione dei criteri per le macchine virtuali di Azure. Oggi la maggior parte dei criteri di Configurazione guest non applicano configurazioni, ma si limitano a controllare le impostazioni all'interno del computer. Per informazioni sul costo associato all'uso dei criteri di Configurazione guest di Criteri di Azure con server con abilitazione di Arc, vedere la [guida sui prezzi](https://azure.microsoft.com/pricing/details/azure-policy/) di Criteri di Azure.
 
-- Creare report sulle modifiche di configurazione relative al software installato, ai servizi Microsoft, al Registro di sistema e ai file di Windows, nonché ai daemon Linux nei server monitorati usando [Rilevamento modifiche e inventario](../../automation/change-tracking/overview.md) di Automazione di Azure.
+- Report sulle modifiche di configurazione relative al software installato, ai servizi Microsoft, al registro di sistema e ai file di Windows e ai Daemon Linux nei server monitorati usando automazione di Azure [rilevamento modifiche e l'inventario](../../automation/change-tracking/overview.md) e il [monitoraggio dell'integrità dei file del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)per i server abilitati con [Azure Defender per server](https://docs.microsoft.com/azure/security-center/defender-for-servers-introduction).
 
 - Monitorare le prestazioni del sistema operativo guest della macchina virtuale connessa e individuare i componenti dell'applicazione per monitorarne i processi e le dipendenze con altre risorse che l'applicazione comunica tramite [Monitoraggio di Azure per le macchine virtuali](../../azure-monitor/vm/vminsights-overview.md).
 

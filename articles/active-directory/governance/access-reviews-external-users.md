@@ -3,7 +3,7 @@ title: Usare Azure AD Identity Governance per rivedere e rimuovere gli utenti es
 description: Usare le verifiche di accesso per estendere la rimozione dell'accesso dai membri delle organizzazioni partner
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
-ms.author: barclayn
-ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.author: ajburnle
+ms.openlocfilehash: fe68ec498d17ec20778c8f34fc6ffa1f0964c44e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677323"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176961"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Usare la governance delle identità Azure Active Directory (Azure AD) per rivedere e rimuovere gli utenti esterni che non hanno più l'accesso alle risorse
 
@@ -65,14 +65,15 @@ Gli utenti che non hanno più accesso alle risorse nel tenant possono essere rim
 
 Al termine della verifica, nella pagina **risultati** viene visualizzata una panoramica della risposta fornita da ogni identità esterna. È possibile scegliere di applicare i risultati automaticamente e consentire alle verifiche di accesso di disabilitarli ed eliminarli. In alternativa, è possibile esaminare le risposte fornite e decidere se si desidera rimuovere l'accesso o il completamento di un utente e ottenere ulteriori informazioni prima di prendere una decisione. Se alcuni utenti hanno ancora accesso alle risorse che non sono state ancora esaminate, è possibile usare la revisione come parte dell'individuazione e arricchire il ciclo di verifica e di attestazione successivo.
 
-## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Disabilitare ed eliminare identità esterne con Azure AD le verifiche di accesso (anteprima)
+## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews"></a>Disabilitare ed eliminare identità esterne con le verifiche di accesso Azure AD
 
-Oltre all'opzione che consente di rimuovere identità esterne indesiderate da risorse quali gruppi o applicazioni, le verifiche di accesso Azure AD possono impedire l'accesso delle identità esterne al tenant ed eliminare le identità esterne dal tenant dopo 30 giorni. Dopo aver selezionato **Blocca utente per 30 giorni, quindi rimuovere l'utente dal tenant** , la verifica resterà nello stato "applicazione" per 30 giorni. Durante questo periodo, le impostazioni, i risultati, i revisori o i log di controllo sotto la revisione corrente non saranno visualizzabili o configurabili. 
+Oltre all'opzione che consente di rimuovere identità esterne indesiderate da risorse quali gruppi o applicazioni, le verifiche di accesso Azure AD possono impedire l'accesso delle identità esterne al tenant ed eliminare le identità esterne dal tenant dopo 30 giorni. Dopo aver selezionato **Blocca utente per 30 giorni, quindi rimuovere l'utente dal tenant**, la verifica resterà nello stato "applicazione" per 30 giorni. Durante questo periodo, le impostazioni, i risultati, i revisori o i log di controllo sotto la revisione corrente non saranno visualizzabili o configurabili. 
 
 ![al termine delle impostazioni](media/access-reviews-external-users/upon-completion-settings.png)
 
-Quando si crea una nuova verifica di accesso, nella sezione "impostazioni di completamento", per l' **azione da applicare agli utenti** non autorizzati, è possibile definire impedisce agli utenti di eseguire l'accesso **per 30 giorni, quindi rimuovere l'utente dal tenant** .
-Questa impostazione, attualmente in anteprima, consente di identificare, bloccare ed eliminare identità esterne dal tenant di Azure AD. Le identità esterne che vengono rivedute e negate l'accesso continuo da parte del revisore verranno bloccate ed eliminate, indipendentemente dall'accesso alle risorse o dall'appartenenza al gruppo. Questa impostazione è ideale per l'ultimo passaggio dopo aver verificato che gli utenti esterni in-Review non contengano più l'accesso alle risorse e possano essere rimossi in modo sicuro dal tenant o se si desidera assicurarsi che vengano rimossi, indipendentemente dall'accesso permanente. La funzionalità "Disabilita ed Elimina" blocca prima l'utente esterno, togliendo la possibilità di accedere al tenant e accedere alle risorse. L'accesso alle risorse non viene revocato in questa fase e, nel caso in cui si desideri ricreare un'istanza dell'utente esterno, la possibilità di accedere può essere riconfigurata. In assenza di ulteriori azioni, un'identità esterna bloccata verrà eliminata dalla directory dopo 30 giorni, rimuovendo l'account e il relativo accesso.
+Quando si crea una nuova verifica di accesso, nella sezione "impostazioni di completamento", per l' **azione da applicare agli utenti** non autorizzati, è possibile definire impedisce agli utenti di eseguire l'accesso **per 30 giorni, quindi rimuovere l'utente dal tenant**.
+
+Questa impostazione consente di identificare, bloccare ed eliminare identità esterne dal tenant di Azure AD. Le identità esterne che vengono rivedute e negate l'accesso continuo da parte del revisore verranno bloccate ed eliminate, indipendentemente dall'accesso alle risorse o dall'appartenenza al gruppo. Questa impostazione è ideale per l'ultimo passaggio dopo aver verificato che gli utenti esterni in-Review non contengano più l'accesso alle risorse e possano essere rimossi in modo sicuro dal tenant o se si desidera assicurarsi che vengano rimossi, indipendentemente dall'accesso permanente. La funzionalità "Disabilita ed Elimina" blocca prima l'utente esterno, togliendo la possibilità di accedere al tenant e accedere alle risorse. L'accesso alle risorse non viene revocato in questa fase e, nel caso in cui si desideri ricreare un'istanza dell'utente esterno, la possibilità di accedere può essere riconfigurata. In assenza di ulteriori azioni, un'identità esterna bloccata verrà eliminata dalla directory dopo 30 giorni, rimuovendo l'account e il relativo accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

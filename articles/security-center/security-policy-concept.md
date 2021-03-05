@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/28/2021
-ms.openlocfilehash: a5aae4013067ba37334e3e85a9e7ef882efd1dd2
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/04/2021
+ms.openlocfilehash: 4dc29c8b52a3d0953445666672a716af013ee408
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107674"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176434"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>Che cosa sono i criteri di sicurezza, le iniziative e le raccomandazioni?
 
@@ -25,6 +25,7 @@ Una definizione di criteri di Azure, creata in criteri di Azure, è una regola r
 
 Per implementare le definizioni dei criteri, sia predefinite che personalizzate, è necessario assegnarle. Tutti questi criteri possono essere assegnati tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
+Sono disponibili diversi tipi di criteri in criteri di Azure. Il Centro sicurezza usa principalmente i criteri di "controllo" che controllano condizioni e configurazioni specifiche, quindi segnalano la conformità. Sono inoltre disponibili criteri "applica" che possono essere utilizzati per applicare impostazioni sicure.
 
 ## <a name="what-is-a-security-initiative"></a>Che cos'è un'iniziativa di sicurezza?
 
@@ -38,7 +39,7 @@ L'iniziativa predefinita assegnata automaticamente a ogni sottoscrizione nel cen
 
 Il Centro sicurezza offre le opzioni seguenti per lavorare con i criteri e le iniziative di sicurezza:
 
-- **Visualizzare e modificare l'iniziativa predefinita incorporata** : quando si Abilita il Centro sicurezza, l'iniziativa denominata ' benchmark di sicurezza di Azure ' viene assegnata automaticamente a tutte le sottoscrizioni registrate del Centro sicurezza. Per personalizzare questa iniziativa, è possibile abilitare o disabilitare singoli criteri al suo interno. Per informazioni sulle opzioni disponibili, vedere l'elenco dei [criteri di sicurezza predefiniti](./policy-reference.md) .
+- **Visualizzare e modificare l'iniziativa predefinita incorporata** : quando si Abilita il Centro sicurezza, l'iniziativa denominata ' benchmark di sicurezza di Azure ' viene assegnata automaticamente a tutte le sottoscrizioni registrate del Centro sicurezza. Per personalizzare questa iniziativa, è possibile abilitare o disabilitare singoli criteri al suo interno modificando i parametri di un criterio. Per informazioni sulle opzioni disponibili, vedere l'elenco dei [criteri di sicurezza predefiniti](./policy-reference.md) .
 
 - **Aggiungere iniziative personalizzate** : se si desidera personalizzare le iniziative di sicurezza applicate alla sottoscrizione, è possibile eseguire questa operazione nel centro sicurezza. Si riceveranno quindi consigli se i computer non seguono i criteri creati. Per istruzioni sulla creazione e l'assegnazione di criteri personalizzati, vedere [uso di iniziative e criteri di sicurezza personalizzati](custom-security-policies.md).
 
@@ -46,9 +47,9 @@ Il Centro sicurezza offre le opzioni seguenti per lavorare con i criteri e le in
 
 ## <a name="what-is-a-security-recommendation"></a>Che cos'è un suggerimento per la sicurezza?
 
-Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Fornisce quindi raccomandazioni su come correggere tali vulnerabilità. Una raccomandazione è il risultato della valutazione delle risorse rispetto ai criteri pertinenti e dell'identificazione delle risorse che non soddisfano i requisiti definiti.
+Usando i criteri, il Centro sicurezza analizza periodicamente lo stato di conformità delle risorse per identificare i potenziali problemi di configurazione e i punti di debolezza della sicurezza. Vengono quindi fornite indicazioni su come correggere tali problemi. Le raccomandazioni sono il risultato della valutazione delle risorse rispetto ai criteri pertinenti e l'identificazione delle risorse che non soddisfano i requisiti definiti.
 
-Il Centro sicurezza di Azure apporta le raccomandazioni sulla sicurezza in base alle iniziative scelte. 
+Il Centro sicurezza apporta le raccomandazioni sulla sicurezza in base alle iniziative scelte. Quando un criterio dell'iniziativa viene confrontato con le risorse e trova uno o più che non sono conformi, viene presentato come raccomandazione nel centro sicurezza.
 
 Le raccomandazioni sono azioni da intraprendere per proteggere e rafforzare le risorse. Ogni raccomandazione fornisce le informazioni seguenti:
 

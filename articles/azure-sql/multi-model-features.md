@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b16a2fc9f107a8420fb7d05667807a869fa3e00a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791648"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172758"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Funzionalità multimodello del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -87,7 +87,7 @@ Per altre informazioni, vedere [come usare i dati JSON](database/json-features.m
 
 In alcuni scenari specifici è possibile usare i modelli di documento invece dei modelli relazionali:
 
-- L'elevata normalizzazione dello schema non conferisce vantaggi significativi poiché si accede contemporaneamente a tutti i campi di oggetti oppure non si aggiornano mai le parti normalizzate degli oggetti. Tuttavia, il modello normalizzato aumenta la complessità delle query a causa del numero elevato di tabelle che è necessario unire per ottenere i dati.
+- La normalizzazione dello schema non comporta vantaggi significativi perché si accede contemporaneamente a tutti i campi degli oggetti oppure non si aggiornano mai le parti normalizzate degli oggetti. Tuttavia, il modello normalizzato aumenta la complessità delle query a causa del numero elevato di tabelle che è necessario unire per ottenere i dati.
 - Si sta operando con le applicazioni che usano documenti JSON come modelli di dati o di comunicazione in modo nativo e non si desiderano introdurre livelli aggiuntivi che vadano a trasformare i dati relazionali in JSON e viceversa.
 - È necessario semplificare il modello di dati denormalizzando le tabelle figlio o i modelli Entità-Oggetto-Valore.
 - È necessario caricare o esportare i dati archiviati in formato JSON senza uno strumento aggiuntivo che analizzi i dati.
@@ -124,7 +124,7 @@ Il motore di database di SQL Server offre una potente piattaforma per lo svilupp
 
 In alcuni scenari specifici è possibile usare i modelli di documento invece dei modelli relazionali:
 
-- L'elevata normalizzazione dello schema non conferisce vantaggi significativi poiché si accede contemporaneamente a tutti i campi di oggetti oppure non si aggiornano mai le parti normalizzate degli oggetti. Tuttavia, il modello normalizzato aumenta la complessità delle query a causa del numero elevato di tabelle che è necessario unire per ottenere i dati.
+- La normalizzazione dello schema non comporta vantaggi significativi perché si accede contemporaneamente a tutti i campi degli oggetti oppure non si aggiornano mai le parti normalizzate degli oggetti. Tuttavia, il modello normalizzato aumenta la complessità delle query a causa del numero elevato di tabelle che è necessario unire per ottenere i dati.
 - Si sta operando con le applicazioni che usano documenti XML come modelli di dati o di comunicazione in modo nativo e non si desiderano introdurre livelli aggiuntivi che vadano a trasformare i dati relazionali in XML e viceversa.
 - È necessario semplificare il modello di dati denormalizzando le tabelle figlio o i modelli Entità-Oggetto-Valore.
 - È necessario caricare o esportare i dati archiviati in formato XML senza uno strumento aggiuntivo che analizzi i dati.

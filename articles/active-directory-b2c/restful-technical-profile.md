@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: eb6d82019cccd1da327461cb0a0635aea4f3647f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386851"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174972"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C
 
@@ -112,7 +112,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sì | L'URL dell'endpoint API REST. |
 | AuthenticationType | Sì | Tipo di autenticazione eseguita dal provider di attestazioni RESTful. Valori possibili: `None` , `Basic` , `Bearer` ,  `ClientCertificate` o `ApiKeyHeader` . <br /><ul><li>Il `None` valore indica che l'API REST è anonima. </li><li>Il valore`Basic` indica che l'API REST viene protetta con l'autenticazione di base HTTP. Solo gli utenti verificati, tra cui Azure AD B2C, possono accedere all'API. </li><li>Il `ClientCertificate` valore (consigliato) indica che l'API REST limita l'accesso usando l'autenticazione del certificato client. Solo i servizi con i certificati appropriati, ad esempio Azure AD B2C, possono accedere all'API. </li><li>Il `Bearer` valore indica che l'API REST limita l'accesso tramite il token di connessione del client OAuth2. </li><li>Il `ApiKeyHeader` valore indica che l'API REST è protetta con l'intestazione HTTP della chiave API, ad esempio *x-Functions-Key*. </li></ul> |
@@ -129,7 +129,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 I metadati seguenti possono essere usati per configurare i messaggi di errore visualizzati quando si verifica un errore nell'API REST. I messaggi di errore possono essere [localizzati](localization-string-ids.md#restful-service-error-messages).
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | DefaultUserMessageIfRequestFailed | No | Un messaggio di errore personalizzato predefinito per tutte le eccezioni dell'API REST.|
 | UserMessageIfCircuitOpen | No | Messaggio di errore quando l'API REST non è raggiungibile. Se non è specificato, verrà restituito DefaultUserMessageIfRequestFailed. |
@@ -154,7 +154,7 @@ Se il tipo di autenticazione è impostato su `None`, l'elemento **CryptographicK
 
 Se il tipo di autenticazione è impostato su `Basic`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Sì | Il nome utente usato per l'autenticazione. |
 | BasicAuthenticationPassword | Sì | La password usata per l'autenticazione. |
@@ -179,7 +179,7 @@ Nell'esempio seguente viene illustrato un profilo tecnico con autenticazione di 
 
 Se il tipo di autenticazione è impostato su `ClientCertificate`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClientCertificate | Sì | Il certificato X509 (set di chiavi RSA) da usare per l'autenticazione. |
 
@@ -200,7 +200,7 @@ Se il tipo di autenticazione è impostato su `ClientCertificate`, l'elemento **C
 
 Se il tipo di autenticazione è impostato su `Bearer`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | BearerAuthenticationToken | No | Token di porta OAuth 2,0. |
 
@@ -221,9 +221,12 @@ Se il tipo di autenticazione è impostato su `Bearer`, l'elemento **Cryptographi
 
 Se il tipo di autenticazione è impostato su `ApiKeyHeader`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Nome dell'intestazione HTTP, ad esempio `x-functions-key` o `x-api-key` . | Sì | Chiave utilizzata per l'autenticazione. |
+
+> [!NOTE]
+> A questo punto, Azure AD B2C supporta solo un'intestazione HTTP per l'autenticazione. Se la chiamata RESTful richiede più intestazioni, ad esempio un ID client e un segreto client, sarà necessario eseguire il proxy della richiesta in qualche modo.
 
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
@@ -256,7 +259,7 @@ L'API REST può restituire un messaggio di errore, ad esempio "Utente nel sistem
 }
 ```
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | version | Sì | Versione dell'API REST. Ad esempio: 1.0.1 |
 | status | Sì | Deve essere 409 |
@@ -290,4 +293,3 @@ Per esempi relativi all'uso di un profilo tecnico RESTful, vedere gli articoli s
 - [Procedura dettagliata: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente](custom-policy-rest-api-claims-validation.md)
 - [Procedura dettagliata: Aggiungere scambi di attestazioni API REST ai criteri personalizzati in Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
 - [Proteggere i servizi API REST](secure-rest-api.md)
-

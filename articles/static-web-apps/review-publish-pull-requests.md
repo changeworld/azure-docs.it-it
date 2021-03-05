@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 78d2f3b399e26ca0c6036fd74fa1fba49d1f21f4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1cb5f2f9ac941001efb18301f4a54bd0092920ba
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042777"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172741"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Esaminare le richieste pull negli ambienti di pre-produzione in App Web statiche di Azure (anteprima)
 
@@ -109,7 +109,7 @@ Le versioni di staging dell'applicazione sono attualmente accessibili pubblicame
 > [!WARNING]
 > Prestare attenzione quando si pubblicano contenuti sensibili nelle versioni di staging, in quanto l'accesso agli ambienti di pre-produzione non è limitato.
 
-Il numero di ambienti di pre-produzione disponibili per ogni app distribuita con App Web statiche dipende dal livello di SKU in uso. Nel livello gratuito, ad esempio, è disponibile 1 ambiente di pre-produzione oltre all'ambiente di produzione.
+Il numero di ambienti di pre-produzione disponibili per ogni app distribuita con App Web statiche dipende dal livello di SKU in uso. Con il livello gratuito, ad esempio, è possibile disporre di 3 ambienti di pre-produzione oltre all'ambiente di produzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

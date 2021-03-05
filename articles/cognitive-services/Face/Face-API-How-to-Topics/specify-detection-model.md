@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a70b10f7d22c9cc04427bdfbb44243fad457ba0
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 04699890af2cfe835ecca6ee983808d7d8d002c8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913484"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174190"
 ---
 # <a name="specify-a-face-detection-model"></a>Specificare un modello di rilevamento volto
 
@@ -43,6 +43,7 @@ Quando si usa l'API [rileva faccia] , è possibile assegnare la versione del mod
 
 * `detection_01`
 * `detection_02`
+* `detection_03`
 
 Un URL della richiesta per l'API REST di [rilevamento viso] sarà simile al seguente:
 
@@ -52,7 +53,7 @@ Se si usa la libreria client, è possibile assegnare il valore per `detectionMod
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_03", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_04", detectionModel: "detection_03");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>Aggiungi faccia a persona con il modello specificato
@@ -62,17 +63,17 @@ Il servizio viso può estrarre i dati facciali da un'immagine e associarli a un 
 Vedere l'esempio di codice seguente per la libreria client .NET.
 
 ```csharp
-// Create a PersonGroup and add a person with face detected by "detection_02" model
+// Create a PersonGroup and add a person with face detected by "detection_03" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_03");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
+await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_03");
 ```
 
-Questo codice crea un **gruppo** con ID `mypersongroupid` e vi aggiunge una **persona** . Quindi aggiunge un volto a questa **persona** usando il `detection_02` modello. Se non si specifica il parametro *detectionModel* , l'API utilizzerà il modello predefinito `detection_01` .
+Questo codice crea un **gruppo** con ID `mypersongroupid` e vi aggiunge una **persona** . Quindi aggiunge un volto a questa **persona** usando il `detection_03` modello. Se non si specifica il parametro *detectionModel* , l'API utilizzerà il modello predefinito `detection_01` .
 
 > [!NOTE]
 > Non è necessario usare lo stesso modello di rilevamento per tutti i visi in un oggetto **Person** e non è necessario usare lo stesso modello di rilevamento quando si rilevano nuovi visi da confrontare con un oggetto **Person** (ad esempio, nell'API di [Identificazione del viso] ).
@@ -82,13 +83,13 @@ Questo codice crea un **gruppo** con ID `mypersongroupid` e vi aggiunge una **pe
 È inoltre possibile specificare un modello di rilevamento quando si aggiunge una faccia a un oggetto **facet** esistente. Vedere l'esempio di codice seguente per la libreria client .NET.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
+await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_03");
 ```
 
-Questo codice crea un **facet** denominato `My face collection` e ne aggiunge una faccia con il `detection_02` modello. Se non si specifica il parametro *detectionModel* , l'API utilizzerà il modello predefinito `detection_01` .
+Questo codice crea un **facet** denominato `My face collection` e ne aggiunge una faccia con il `detection_03` modello. Se non si specifica il parametro *detectionModel* , l'API utilizzerà il modello predefinito `detection_01` .
 
 > [!NOTE]
 > Non è necessario utilizzare lo stesso modello di rilevamento per tutti i visi in un oggetto **facet** e non è necessario utilizzare lo stesso modello di rilevamento quando si rilevano nuovi visi da confrontare con un oggetto **facet** .
@@ -97,14 +98,14 @@ Questo codice crea un **facet** denominato `My face collection` e ne aggiunge un
 
 I diversi modelli di rilevamento viso sono ottimizzati per diverse attività. Per una panoramica delle differenze, vedere la tabella seguente.
 
-|**detection_01**  |**detection_02**  |
-|---------|---------|
-|Scelta predefinita per tutte le operazioni di rilevamento del viso. | Rilasciato nel maggio 2019 e disponibile facoltativamente in tutte le operazioni di rilevamento del viso.
-|Non ottimizzato per visi piccoli, a visualizzazione laterale o sfocata.  | Accuratezza migliorata per i visi piccoli, di visualizzazione laterale e sfocata. |
-|Restituisce gli attributi del viso (posto, età, emozione e così via) se sono specificati nella chiamata di rilevamento. |  Non restituisce attributi della faccia.     |
-|Restituisce i punti di riferimento della faccia se specificati nella chiamata di rilevamento.   | Non restituisce riferimenti ai visi.  |
+|**detection_01**  |**detection_02**  |**detection_03** 
+|---------|---------|---|
+|Scelta predefinita per tutte le operazioni di rilevamento del viso. | Rilasciato nel maggio 2019 e disponibile facoltativamente in tutte le operazioni di rilevamento del viso. |  Rilasciato nel febbraio 2021 e disponibile facoltativamente in tutte le operazioni di rilevamento del viso.
+|Non ottimizzato per visi piccoli, a visualizzazione laterale o sfocata.  | Accuratezza migliorata per i visi piccoli, di visualizzazione laterale e sfocata. | Ulteriore accuratezza migliorata, inclusi i visi più piccoli (64x64 pixel) e gli orientamenti delle facce ruotate.
+|Restituisce gli attributi del volto principale (post, Age, Emotion e così via) se sono specificati nella chiamata di rilevamento. |  Non restituisce attributi della faccia.     | Restituisce gli attributi "maschera" e "noseAndMouthCovered" se sono specificati nella chiamata di rilevamento.
+|Restituisce i punti di riferimento della faccia se specificati nella chiamata di rilevamento.   | Non restituisce riferimenti ai visi.  | Non restituisce riferimenti ai visi.
 
-Il modo migliore per confrontare le prestazioni dei `detection_01` modelli e `detection_02` è usarli in un set di dati di esempio. È consigliabile chiamare l'API di [rilevamento viso] su un'ampia gamma di immagini, in particolare immagini di molti visi o di visi difficili da visualizzare, usando ogni modello di rilevamento. Prestare attenzione al numero di visi restituiti da ogni modello.
+Il modo migliore per confrontare le prestazioni dei modelli di rilevamento consiste nell'usarli in un set di dati di esempio. È consigliabile chiamare l'API di [rilevamento viso] su un'ampia gamma di immagini, in particolare immagini di molti visi o di visi difficili da visualizzare, usando ogni modello di rilevamento. Prestare attenzione al numero di visi restituiti da ogni modello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

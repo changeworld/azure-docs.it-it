@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 38826451bbb8ec9303f61db53544cfe8ca2fcd41
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123089"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176417"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gestire le librerie per Apache Spark in Azure sinapsi Analytics
 Le librerie forniscono codice riutilizzabile che può essere utile includere nei programmi o nei progetti. 
@@ -61,10 +61,14 @@ Spesso, quando si esegue l'analisi interattiva dei dati o l'apprendimento automa
 
 I pacchetti con ambito sessione consentono agli utenti di definire le dipendenze dei pacchetti all'inizio della sessione. Quando si installa un pacchetto con ambito sessione, solo la sessione corrente può accedere ai pacchetti specificati. Di conseguenza, questi pacchetti con ambito sessione non influiscano su altre sessioni o processi che usano lo stesso pool di Apache Spark. Inoltre, queste librerie vengono installate sopra i pacchetti di runtime di base e a livello di pool. 
 
+Questi pacchetti vengono aggiunti automaticamente all'ambiente Python. I pacchetti non devono essere indicati nel file di *requirements.txt* .
+
+Si noti che questo metodo attualmente supporta solo `*.whl` file. Non aggiungere `*.tar.gz` file al contenitore.
+
 Per altre informazioni su come gestire i pacchetti con ambito sessione, vedere le guide alle procedure seguenti:
 
 - [Pacchetti della sessione Python (anteprima):](./apache-spark-manage-python-packages.md) All'inizio di una sessione, fornire un oggetto conda *Environment. yml* per installare pacchetti Python aggiuntivi da repository comuni. 
-- [Pacchetti di sessione scala/Java: ](./apache-spark-manage-scala-packages.md) All'inizio della sessione, fornire un elenco di file jar da installare usando ```%%configure``` .
+- [Pacchetti di sessione scala/Java: ](./apache-spark-manage-scala-packages.md) All'inizio della sessione, fornire un elenco di file jar da installare usando `%%configure` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Visualizzare le librerie predefinite: [supporto della versione Apache Spark](apache-spark-version-support.md)

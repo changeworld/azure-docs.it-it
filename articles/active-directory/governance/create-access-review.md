@@ -2,7 +2,7 @@
 title: Creare una verifica di accesso dei gruppi & applicazioni-Azure AD
 description: Informazioni su come creare una verifica di accesso dei membri del gruppo o dell'accesso alle applicazioni in Azure Active Directory verifiche di accesso.
 services: active-directory
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
-ms.author: barclayn
+ms.date: 3/3/2021
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b12eb95a7840bdbb902701fc644eee30ffe9900f
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 7143c3f9786d41c32ae954ab219197a9cfaa1050
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778590"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176876"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -80,7 +80,7 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
     - **Proprietario del gruppo** (sono disponibili solo quando si esegue una verifica in un team o gruppo)
     - **Utenti o gruppi selezionati**
     - **Utenti che verificano l'accesso**
-    - **Anteprima Manager degli utenti.**
+    - **Manager degli utenti.**
     Se si sceglie un **Manager di utenti** o **proprietari di gruppo**  , è possibile specificare anche un revisore di fallback. Ai revisori di fallback viene chiesto di eseguire una verifica quando l'utente non ha specificato alcuna gestione nella directory o il gruppo non dispone di un proprietario.
 
     ![nuova verifica di accesso](./media/create-access-review/new-access-review.png)

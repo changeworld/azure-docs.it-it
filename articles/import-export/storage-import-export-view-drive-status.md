@@ -5,25 +5,36 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8333745b802f41b5a1b3dc07663870299800e3f6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 8ef18ea663f3a77589d61ed89c50df38f5cf0d0e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706424"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176148"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualizzare lo stato dei processi di Importazione/Esportazione di Azure
 
 Questo articolo fornisce informazioni su come visualizzare lo stato delle unità e dei processi per i processi di Importazione/Esportazione di Azure. Il servizio Importazione/Esportazione di Azure viene usato per il trasferimento sicuro grandi quantità di dati in BLOB di Azure e File di Azure. Il servizio viene usato anche per esportare i dati da Archiviazione BLOB di Azure.  
 
 ## <a name="view-job-and-drive-status"></a>Visualizzare lo stato di processi e unità
-È possibile tenere traccia dello stato dei processi di importazione o esportazione dalla portale di Azure selezionando la scheda **importazione/esportazione** . Nella pagina verrà visualizzato un elenco dei processi.
+È possibile tenere traccia dello stato dei processi di importazione o esportazione nella scheda **importazione/esportazione** della portale di Azure.
+1. Accedere all'indirizzo https://portal.azure.com/.
+2. Cercare i **processi di importazione/esportazione**.
 
-![Visualizzare lo stato dei processi](./media/storage-import-export-service/jobstate.png)
+    ![Eseguire ricerche nei processi di importazione/esportazione](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
 
+ 3. Nella pagina verrà visualizzato un elenco dei processi di importazione/esportazione.
+
+    ![Visualizzare lo stato dei processi](./media/storage-import-export-view-drive-status/job-state.png)
+
+4. Selezionare e fare clic su un processo per visualizzare i dettagli dei processi.
+
+   ![Visualizzare lo stato dettagliato del processo](./media/storage-import-export-view-drive-status/job-detail.png)
+  
 ## <a name="view-job-status"></a>Visualizzare lo stato di un processo
 
 Viene visualizzato uno degli stati di processo seguenti, in base al punto in cui si trova l'unità nel processo.
@@ -56,13 +67,13 @@ La tabella seguente descrive ogni stato in cui può trovarsi un'unità in un pro
 
 Questa immagine dal portale di Azure consente di visualizzare lo stato dell'unità di un processo di esempio:
 
-![Visualizza stato dell'unità](./media/storage-import-export-service/drivestate.png)
+![Visualizza stato dell'unità](./media/storage-import-export-view-drive-status/drive-state.png)
 
 La tabella seguente descrive gli stati di errore delle unità e le azioni intraprese corrispondenti.
 
-| Stato dell'unità | Event | Risoluzione/Passaggio successivo |
+| Stato dell'unità | Evento | Risoluzione/Passaggio successivo |
 |:--- |:--- |:--- |
-| MaiRicevuta | Un'unità contrassegnata come **mairicevuta** (perché non è stata ricevuta come parte della spedizione del processo) arriva in un'altra spedizione. | Il team delle operazioni modifica lo stato in **Ricevuta**. |
+| Mai ricevuto | Un'unità contrassegnata come **mairicevuta** (perché non è stata ricevuta come parte della spedizione del processo) arriva in un'altra spedizione. | Il team delle operazioni modifica lo stato in **Ricevuta**. |
 | N/D | Un'unità che non fa parte di alcun processo arriva al Data Center come parte di un altro processo. | L'unità è contrassegnata come unità aggiuntiva. Viene restituito all'utente quando il processo associato al pacchetto originale viene completato. |
 
 ## <a name="time-to-process-job"></a>Tempo di elaborazione del processo

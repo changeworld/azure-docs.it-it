@@ -11,17 +11,16 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 07b8c130a2a22554e4cd5b33996d5a5ee967d47f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 083d750db0db050265c93cc658d4f3b6556b850d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029533"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176213"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteggere un'area di lavoro Azure Machine Learning con reti virtuali
 
 Questo articolo illustra come proteggere un'area di lavoro Azure Machine Learning e le risorse associate in una rete virtuale.
-
 
 Questo articolo è la seconda parte di una serie in cinque parti che illustra come proteggere un flusso di lavoro Azure Machine Learning. È consigliabile leggere prima di tutto la [parte 1: Panoramica di VNet](how-to-network-security-overview.md) per comprendere prima l'architettura complessiva. 
 
@@ -128,7 +127,7 @@ Per impostazione predefinita, Azure Machine Learning esegue la validità dei dat
 - Archiviazione BLOB di Azure
 - Condivisione file di Azure
 - PostgreSQL
-- database SQL di Azure
+- Database SQL di Azure
 
 L'esempio di codice seguente crea un nuovo archivio dati BLOB di Azure e imposta `skip_validation=True` .
 
@@ -296,7 +295,7 @@ Una volta soddisfatti questi requisiti, attenersi alla procedura seguente per ab
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo fa parte di una serie di reti virtuali in quattro parti. Vedere il resto degli articoli per informazioni su come proteggere una rete virtuale:
+Questo articolo è la seconda parte di una serie di reti virtuali in cinque parti. Vedere il resto degli articoli per informazioni su come proteggere una rete virtuale:
 
 * [Parte 1: Panoramica di rete virtuale](how-to-network-security-overview.md)
 * [Parte 3: proteggere l'ambiente di training](how-to-secure-training-vnet.md)

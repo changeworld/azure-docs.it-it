@@ -3,12 +3,12 @@ title: Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (antepri
 description: Informazioni su come configurare la pubblicazione automatica di Griglia di eventi di Azure per Funzioni durevoli.
 ms.topic: conceptual
 ms.date: 04/25/2020
-ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44df100a5c794abf918a09dea0f94d30ddf916d3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081747"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175958"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (anteprima)
 
@@ -26,7 +26,7 @@ Di seguito sono indicati alcuni scenari in cui questa funzionalità è utile:
 
 * Installare [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) nel progetto Durable Functions.
 * Installare l'[emulatore di Archiviazione di Azure](../../storage/common/storage-use-emulator.md) (solo Windows) o usare un account di archiviazione di Azure esistente.
-* Installare l'[interfaccia della riga di comando di Azure](/cli/azure/?view=azure-cli-latest) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md)
+* Installare l'[interfaccia della riga di comando di Azure](/cli/azure/) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Creare un argomento personalizzato di Griglia di eventi
 
@@ -132,11 +132,11 @@ Usando il portale di Azure, creare un'altra app per le funzioni per rimanere in 
 
 1. Cercare **Griglia di eventi**, quindi selezionare il modello del **trigger di Griglia di eventi di Azure**. 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Aggiungere una funzione nel portale di Azure" border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Selezionare il modello di trigger di Griglia di eventi nel portale di Azure." border="true":::
 
 1. Assegnare un nome al nuovo trigger, quindi selezionare **Crea funzione**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Aggiungere una funzione nel portale di Azure" border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Assegnare un nome al trigger di Griglia di eventi nel portale di Azure." border="true":::
 
 
     Viene creata una funzione con il codice seguente:
@@ -172,11 +172,11 @@ Usando il portale di Azure, creare un'altra app per le funzioni per rimanere in 
 
 1. Selezionare **Integrazione** nella nuova funzione, quindi selezionare **Trigger di Griglia di eventi (eventGridEvent)** . 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Aggiungere una funzione nel portale di Azure" border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Selezionare il collegamento del trigger di Griglia di eventi." border="true":::
 
 1. Selezionare **Crea descrizione di Griglia di eventi**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Aggiungere una funzione nel portale di Azure" border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Creare la sottoscrizione di Griglia di eventi." border="true":::
 
 1. Assegnare un nome alla sottoscrizione di eventi e selezionare il tipo di argomento **Argomenti di Griglia di eventi**. 
 
@@ -184,7 +184,7 @@ Usando il portale di Azure, creare un'altra app per le funzioni per rimanere in 
 
 1. Selezionare **Create** (Crea).
 
-    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Aggiungere una funzione nel portale di Azure" border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Creare una sottoscrizione di Griglia di eventi." border="true":::
 
 Ora si è pronti a ricevere gli eventi del ciclo di vita.
 

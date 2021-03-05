@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.custom: devx-track-csharp
 ms.reviewer: olegan
-ms.openlocfilehash: b15e39b55dfe49a3fb3c1e0e38798570efdf46bd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c6d51210867e83c6acc74ca890ab65b195dc64fc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592758"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176672"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 Application Insights .NET SDK è costituito da alcuni pacchetti NuGet. Il [pacchetto di base](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fornisce l'API per l'invio di dati di telemetria ad Application Insights. [Altri pacchetti](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) forniscono *moduli* e *inizializzatori* di telemetria per il rilevamento automatico dei dati di telemetria dall'applicazione e dal rispettivo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e gli inizializzatori di telemetria e impostare i parametri per alcuni di essi.
 
-Il file di configurazione è denominato `ApplicationInsights.config` o `ApplicationInsights.xml`, a seconda del tipo di applicazione. Viene aggiunto automaticamente al progetto quando si [installano alcune versioni dell'SDK][start]. Per impostazione predefinita, quando si usa l'esperienza automatizzata dei progetti modello di Visual Studio che supportano l' **aggiunta di > Application Insights Telemetry**, il file di ApplicationInsights.config viene creato nella cartella radice del progetto e, al momento della conformità, viene copiato nella cartella bin. Viene anche aggiunto a un'app Web da [Status Monitor su un server IIS][redfield]. Il file di configurazione viene ignorato se si usa l' [estensione per il sito Web di Azure](azure-web-apps.md) o l' [estensione per VM di Azure e set di scalabilità di macchine virtuali](azure-vm-vmss-apps.md) .
+Il file di configurazione è denominato `ApplicationInsights.config` o `ApplicationInsights.xml`, a seconda del tipo di applicazione. Viene aggiunto automaticamente al progetto quando si [installano alcune versioni dell'SDK][start]. Per impostazione predefinita, quando si usa l'esperienza automatizzata dei progetti modello di Visual Studio che supportano l' **aggiunta di > Application Insights Telemetry**, il file di ApplicationInsights.config viene creato nella cartella radice del progetto e quando compilato viene copiato nella cartella bin. Viene anche aggiunto a un'app Web da [Status Monitor su un server IIS][redfield]. Il file di configurazione viene ignorato se si usa l' [estensione per il sito Web di Azure](azure-web-apps.md) o l' [estensione per VM di Azure e set di scalabilità di macchine virtuali](azure-vm-vmss-apps.md) .
 
 Non esiste un file equivalente per controllare l'[SDK in una pagina Web][client].
 

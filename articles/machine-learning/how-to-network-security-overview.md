@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: e3705be10cb540538464e6b1299d848bc9057c7c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1309ad1b3e3f6bd6f9b543959220bf71c569f083
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039921"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175006"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 
@@ -175,7 +175,7 @@ Per altre informazioni sui nomi di dominio e sugli indirizzi IP richiesti, veder
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo fa parte di una serie di reti virtuali in quattro parti. Vedere il resto degli articoli per informazioni su come proteggere una rete virtuale:
+Questo articolo fa parte di una serie di reti virtuali in cinque parti. Vedere il resto degli articoli per informazioni su come proteggere una rete virtuale:
 
 * [Parte 2: Panoramica di rete virtuale](how-to-secure-workspace-vnet.md)
 * [Parte 3: proteggere l'ambiente di training](how-to-secure-training-vnet.md)

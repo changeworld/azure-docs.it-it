@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727958"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175873"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Risolvere i problemi relativi a CI-CD, Azure DevOps e GitHub in ADF 
 
@@ -190,7 +190,7 @@ OAuth non è stato configurato per ADF. L'URL non è configurato correttamente.
 
 ##### <a name="resolution"></a>Soluzione
 
-Per prima cosa si concede l'accesso OAuth ad ADF. Quindi, è necessario usare l'URL corretto per connettersi a GIT Enterprise. La configurazione deve essere impostata sulle organizzazioni dei clienti perché il servizio ADF tenterà prima https://hostname/api/v3/search/repositories?q=user%3 <customer credential> .... e hanno esito negativo. Quindi, il tentativo avrà https://hostname/api/v3/orgs/ <vaorg> / <repo> esito positivo. 
+Per prima cosa si concede l'accesso OAuth ad ADF. Quindi, è necessario usare l'URL corretto per connettersi a GIT Enterprise. La configurazione deve essere impostata sulle organizzazioni del cliente. Ad esempio, ADF tenterà prima di tutto *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ...* e avrà esito negativo. Quindi tenterà *https://hostname/api/v3/orgs/ <org> / <repo> ...* e avrà esito positivo. 
  
 ### <a name="recover-from-a-deleted-data-factory"></a>Ripristino da un data factory eliminato
 
@@ -203,7 +203,8 @@ Data Factory eliminata dal cliente o il gruppo di risorse che contiene il Data F
 
 Se non è presente alcun controllo del codice sorgente, il recupero di un Data Factory eliminato dal back-end non è possibile perché quando il servizio riceve il comando Deleted, l'istanza viene eliminata e non è stato archiviato alcun backup.
 
-#### <a name="resoloution"></a>Resoloution
+#### <a name="resolution"></a>Soluzione
+
 Per ripristinare il Data Factory eliminato con controllo del codice sorgente, vedere i passaggi seguenti:
 
  * Creare una nuova Azure Data Factory.

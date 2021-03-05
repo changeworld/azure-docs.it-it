@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2d64e85576b35caa2262ad1d635fc72fc7e2d2b8
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120624"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175108"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurare il comportamento della sessione in Azure Active Directory B2C
 
@@ -194,7 +194,7 @@ Per aggiungere la casella di controllo KMSI alla pagina di iscrizione e accesso,
 
 ### <a name="configure-a-relying-party-file"></a>Configurare un file di relying party
 
-Aggiornare il file della relying party (RP) che avvierà il percorso utente appena creato.
+Aggiornare il file della relying party (RP) che avvierà il percorso utente appena creato. Il parametro keepAliveInDays consente di configurare il tempo di permanenza del cookie di sessione keep me signed in (KMSI). Se ad esempio si imposta il valore su 30, il cookie di sessione KMSI verrà mantenuto per 30 giorni. L'intervallo per il valore è compreso tra 1 e 90 giorni.
 
 1. Aprire il file dei criteri personalizzati. Ad esempio, *SignUpOrSignin.xml*.
 1. Se non esiste già, aggiungere un `<UserJourneyBehaviors>` nodo figlio al `<RelyingParty>` nodo. Deve trovarsi immediatamente dopo `<DefaultUserJourney ReferenceId="User journey Id" />` , ad esempio: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />` .

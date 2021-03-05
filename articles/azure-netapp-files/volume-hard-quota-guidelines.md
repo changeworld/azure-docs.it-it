@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: b25d312e6710a07f523c4acdb0fd4b970ce4a2d7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 12807e83f7841bc67999ce385d0cb82bf15f4c71
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740087"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175992"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Cosa comporta la modifica della quota hardware del volume per il servizio Azure NetApp Files
 
@@ -185,8 +185,8 @@ In alcuni casi, il pool di capacità host non dispone di capacità sufficiente p
 
 È possibile usare gli [strumenti dell'interfaccia](azure-netapp-files-sdk-cli.md#cli-tools)della riga di comando di Azure NetApp files, tra cui l'interfaccia della riga di comando di Azure e Azure PowerShell, per modificare manualmente le dimensioni del pool di capacità  I due comandi seguenti possono essere usati per gestire Azure NetApp Files risorse del volume e del pool:  
 
-* [`az netappfiles pool`](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest)
-* [`az netappfiles volume`](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest)
+* [`az netappfiles pool`](/cli/azure/netappfiles/pool)
+* [`az netappfiles volume`](/cli/azure/netappfiles/volume)
 
 Per gestire le risorse di Azure NetApp Files usando l'interfaccia della riga di comando di Azure, è possibile aprire il portale di Azure e selezionare il collegamento **cloud Shell** di Azure nella parte superiore della barra dei menu: 
 
@@ -196,13 +196,13 @@ Questa azione apre il Azure Cloud Shell:
 
 [![Screenshot che mostra cloud Shell finestra. ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png)](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
 
-Gli esempi seguenti usano i comandi per [visualizzare](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest#az-netappfiles-volume-show) e [aggiornare](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest#az-netappfiles-volume-update) le dimensioni di un volume:
+Gli esempi seguenti usano i comandi per [visualizzare](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) e [aggiornare](/cli/azure/netappfiles/volume#az-netappfiles-volume-update) le dimensioni di un volume:
  
 [![Screenshot che mostra l'uso di PowerShell per visualizzare le dimensioni del volume. ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png)](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
 
 [![Screenshot che illustra l'uso di PowerShell per aggiornare le dimensioni del volume. ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png)](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
 
-Gli esempi seguenti usano i comandi per [visualizzare](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest#az-netappfiles-pool-show) e [aggiornare](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest#az-netappfiles-pool-update) le dimensioni di un pool di capacità:
+Gli esempi seguenti usano i comandi per [visualizzare](/cli/azure/netappfiles/pool#az-netappfiles-pool-show) e [aggiornare](/cli/azure/netappfiles/pool#az-netappfiles-pool-update) le dimensioni di un pool di capacità:
 
 [![Screenshot che mostra l'uso di PowerShell per visualizzare le dimensioni del pool di capacità. ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png)](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
 

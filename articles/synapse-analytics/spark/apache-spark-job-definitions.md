@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: 3f1e3fd360197310a89a67d43053649d904aeb18
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d125bca5ed67476897eec7cd32a586776d8b1ea8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677611"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176621"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Esercitazione: Creare una definizione di processo Apache Spark in Synapse Studio
 
@@ -34,7 +34,7 @@ Prima di iniziare l'esercitazione, verificare che siano soddisfatti i requisiti 
 
 * Area di lavoro di Azure Synapse Analytics. Per le istruzioni, vedere [Creare un'area di lavoro di Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md).
 * Un pool di Apache Spark serverless.
-* Account di archiviazione Azure Data Lake Storage Gen2. È necessario essere il **proprietario dei dati del BLOB di archiviazione** del file system di ADLS Gen2 che si vuole usare. Se non lo si è, è necessario aggiungere l'autorizzazione manualmente.
+* Account di archiviazione Azure Data Lake Storage Gen2. È necessario essere il **collaboratore dati BLOB di archiviazione** del file System ADLS Gen2 che si vuole usare. Se non lo si è, è necessario aggiungere l'autorizzazione manualmente.
 * Se non si vuole usare l'account di archiviazione predefinito dell'area di lavoro, collegare l'account di archiviazione di ADLS Gen2 richiesto in Synapse Studio. 
 
 ## <a name="create-an-apache-spark-job-definition-for-pyspark-python"></a>Creare una definizione di processo Apache Spark per PySpark (Python)
@@ -162,7 +162,7 @@ In questa sezione viene creata una definizione di processo Apache Spark per .NET
 
 ## <a name="submit-an-apache-spark-job-definition-as-a-batch-job"></a>Inviare una definizione di processo Apache Spark come processo batch
 
-Dopo aver creato una definizione di processo Apache Spark, è possibile inviarla a un pool di Apache Spark. Assicurarsi di essere il **proprietario dei dati del BLOB di archiviazione** del file system di ADLS Gen2 che si vuole usare. Se non lo si è, è necessario aggiungere l'autorizzazione manualmente.
+Dopo aver creato una definizione di processo Apache Spark, è possibile inviarla a un pool di Apache Spark. Assicurarsi di essere il **collaboratore dati BLOB di archiviazione** del ADLS Gen2 file System che si vuole usare. Se non lo si è, è necessario aggiungere l'autorizzazione manualmente.
 
 ### <a name="scenario-1-submit-apache-spark-job-definition"></a>Scenario 1: Inviare la definizione di processo Apache Spark
  1. Aprire una finestra di definizione di processo Apache Spark selezionandola.
