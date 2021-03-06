@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: 16797a5bdb5ef5f2b5660a33e1788b8824f1ad8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b4a63f76cbcd9e98295f5edcf7ff2d06979e6556
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722561"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244798"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>Guida introduttiva: libreria client viso per JavaScript
 
@@ -27,7 +27,7 @@ Usare la libreria client Face per JavaScript per:
 * [Creare un gruppo di persone](#create-a-person-group)
 * [Identificare un viso](#identify-a-face)
 
-[Documentazione di riferimento](/javascript/api/@azure/cognitiveservices-face/?view=azure-node-latest) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Esempi](/samples/browse/?products=azure&term=face&languages=javascript)
+[Documentazione di riferimento](/javascript/api/@azure/cognitiveservices-face/) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Esempi](/samples/browse/?products=azure&term=face&languages=javascript)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -92,12 +92,12 @@ Le classi e le interfacce seguenti gestiscono alcune delle principali funzionali
 
 |Nome|Descrizione|
 |---|---|
-|[FaceClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceclient?view=azure-node-latest) | Questa classe rappresenta l'autorizzazione per l'utilizzo del servizio Viso ed è necessaria per tutte le funzionalità del servizio. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per produrre istanze di altre classi. |
-|[Viso](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/face?view=azure-node-latest)|Questa classe gestisce le attività di rilevamento e riconoscimento di base che è possibile eseguire con i visi umani. |
-|[DetectedFace](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/detectedface?view=azure-node-latest)|Questa classe rappresenta tutti i dati rilevati da un singolo viso in un'immagine. È possibile usarla per recuperare informazioni dettagliate sul viso.|
-|[Facet](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/facelist?view=azure-node-latest)|Questa classe gestisce i costrutti **FaceList** archiviati nel cloud, che archiviano un set assortito di visi. |
-|[PersonGroupPerson](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroupperson?view=azure-node-latest)| Questa classe gestisce i costrutti **Person** archiviati nel cloud, che archiviano un set di visi che appartengono a una singola persona.|
-|[Gruppo](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup?view=azure-node-latest)| Questa classe gestisce i costrutti **PersonGroup** archiviati nel cloud, che archiviano un set di oggetti **Person** assortiti. |
+|[FaceClient](/javascript/api/@azure/cognitiveservices-face/faceclient) | Questa classe rappresenta l'autorizzazione per l'utilizzo del servizio Viso ed è necessaria per tutte le funzionalità del servizio. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per produrre istanze di altre classi. |
+|[Viso](/javascript/api/@azure/cognitiveservices-face/face)|Questa classe gestisce le attività di rilevamento e riconoscimento di base che è possibile eseguire con i visi umani. |
+|[DetectedFace](/javascript/api/@azure/cognitiveservices-face/detectedface)|Questa classe rappresenta tutti i dati rilevati da un singolo viso in un'immagine. È possibile usarla per recuperare informazioni dettagliate sul viso.|
+|[Facet](/javascript/api/@azure/cognitiveservices-face/facelist)|Questa classe gestisce i costrutti **FaceList** archiviati nel cloud, che archiviano un set assortito di visi. |
+|[PersonGroupPerson](/javascript/api/@azure/cognitiveservices-face/persongroupperson)| Questa classe gestisce i costrutti **Person** archiviati nel cloud, che archiviano un set di visi che appartengono a una singola persona.|
+|[Gruppo](/javascript/api/@azure/cognitiveservices-face/persongroup)| Questa classe gestisce i costrutti **PersonGroup** archiviati nel cloud, che archiviano un set di oggetti **Person** assortiti. |
 
 ## <a name="code-examples"></a>Esempi di codice
 
@@ -114,7 +114,7 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-Creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto **[ApiKeyCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest)** con la chiave e usarlo con l'endpoint per creare un oggetto **[FaceClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceclient?view=azure-node-latest)** .
+Creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto **[ApiKeyCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials)** con la chiave e usarlo con l'endpoint per creare un oggetto **[FaceClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceclient)** .
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="credentials":::
 
@@ -134,14 +134,14 @@ Si userà la funzione seguente per attendere il completamento del training del g
 
 ### <a name="get-detected-face-objects"></a>Ottenere gli oggetti viso rilevati
 
-Creare un nuovo metodo per rilevare i visi. Il metodo `DetectFaceExtract` elabora tre delle immagini all'URL specificato e crea un elenco di oggetti **[DetectedFace](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/detectedface?view=azure-node-latest)** nella memoria del programma. L'elenco di valori **[FaceAttributeType](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceattributetype?view=azure-node-latest)** specifica quali caratteristiche estrarre. 
+Creare un nuovo metodo per rilevare i visi. Il metodo `DetectFaceExtract` elabora tre delle immagini all'URL specificato e crea un elenco di oggetti **[DetectedFace](/javascript/api/@azure/cognitiveservices-face/detectedface)** nella memoria del programma. L'elenco di valori **[FaceAttributeType](/javascript/api/@azure/cognitiveservices-face/faceattributetype)** specifica quali caratteristiche estrarre. 
 
-Il `DetectFaceExtract` Metodo quindi analizza e stampa i dati dell'attributo per ogni viso rilevato. Ogni attributo deve essere specificato separatamente nella chiamata all'API di rilevamento viso originale (nell'elenco **[FaceAttributeType](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceattributetype?view=azure-node-latest)** ). Il codice seguente elabora ogni attributo, ma è probabile che sia necessario usarne solo uno o alcuni.
+Il `DetectFaceExtract` Metodo quindi analizza e stampa i dati dell'attributo per ogni viso rilevato. Ogni attributo deve essere specificato separatamente nella chiamata all'API di rilevamento viso originale (nell'elenco **[FaceAttributeType](/javascript/api/@azure/cognitiveservices-face/faceattributetype)** ). Il codice seguente elabora ogni attributo, ma è probabile che sia necessario usarne solo uno o alcuni.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="detect":::
 
 > [!TIP]
-> È anche possibile rilevare i visi in un'immagine locale. Vedere i metodi [viso](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/face?view=azure-node-latest) , ad esempio [DetectWithStreamAsync](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/face?view=azure-node-latest#detectWithStream_msRest_HttpRequestBody__FaceDetectWithStreamOptionalParams__ServiceCallback_DetectedFace____).
+> È anche possibile rilevare i visi in un'immagine locale. Vedere i metodi [viso](/javascript/api/@azure/cognitiveservices-face/face) , ad esempio [DetectWithStreamAsync](/javascript/api/@azure/cognitiveservices-face/face#detectWithStream_msRest_HttpRequestBody__FaceDetectWithStreamOptionalParams__ServiceCallback_DetectedFace____).
 
 ## <a name="find-similar-faces"></a>Individuazione di visi simili
 
@@ -161,11 +161,11 @@ Il metodo seguente rileva i visi in un set di immagini di destinazione e in un'u
 
 ## <a name="identify-a-face"></a>Identificare un viso
 
-L'operazione di [Identificazione](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/face?view=azure-node-latest#identify_string____FaceIdentifyOptionalParams__ServiceCallback_IdentifyResult____) acquisisce un'immagine di una persona (o più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca del riconoscimento facciale). Confronta ogni viso rilevato con un [PersonGroup](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup?view=azure-node-latest), un database di oggetti [Person](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/person?view=azure-node-latest) diversi le cui caratteristiche del viso sono note. Per eseguire l'operazione di identificazione, è prima di tutto necessario creare ed eseguire il training di un [gruppo](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup?view=azure-node-latest).
+L'operazione di [Identificazione](/javascript/api/@azure/cognitiveservices-face/face#identify_string____FaceIdentifyOptionalParams__ServiceCallback_IdentifyResult____) acquisisce un'immagine di una persona (o più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca del riconoscimento facciale). Confronta ogni viso rilevato con un [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup), un database di oggetti [Person](/javascript/api/@azure/cognitiveservices-face/person) diversi le cui caratteristiche del viso sono note. Per eseguire l'operazione di identificazione, è prima di tutto necessario creare ed eseguire il training di un [gruppo](/javascript/api/@azure/cognitiveservices-face/persongroup).
 
 ### <a name="add-faces-to-person-group"></a>Aggiungi visi al gruppo person
 
-Creare la funzione seguente per aggiungere visi a [gruppo](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup?view=azure-node-latest).
+Creare la funzione seguente per aggiungere visi a [gruppo](/javascript/api/@azure/cognitiveservices-face/persongroup).
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="add_faces":::
 
@@ -178,7 +178,7 @@ Creare la funzione helper seguente per attendere che il gruppo person completi i
 ### <a name="create-a-person-group"></a>Creare un gruppo di persone
 
 Il codice seguente:
-- Crea un [gruppo](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup?view=azure-node-latest)
+- Crea un [gruppo](/javascript/api/@azure/cognitiveservices-face/persongroup)
 - Aggiunge visi al gruppo person chiamando `AddFacesToPersonGroup` , definito in precedenza.
 - Addestra il gruppo person.
 - Identifica i visi nel gruppo person.
@@ -188,7 +188,7 @@ Questo gruppo **Person** e gli oggetti **Person** associati sono ora pronti per 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="identify":::
 
 > [!TIP]
-> È anche possibile creare un **PersonGroup** dalle immagini locali. Vedere i metodi [PersonGroupPerson](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroupperson?view=azure-node-latest) , ad esempio [AddFaceFromStream](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroupperson?view=azure-node-latest#addFaceFromStream_string__string__msRest_HttpRequestBody__Models_PersonGroupPersonAddFaceFromStreamOptionalParams_).
+> È anche possibile creare un **PersonGroup** dalle immagini locali. Vedere i metodi [PersonGroupPerson](/javascript/api/@azure/cognitiveservices-face/persongroupperson) , ad esempio [AddFaceFromStream](/javascript/api/@azure/cognitiveservices-face/persongroupperson#addFaceFromStream_string__string__msRest_HttpRequestBody__Models_PersonGroupPersonAddFaceFromStreamOptionalParams_).
 
 ## <a name="main"></a>Principale
 

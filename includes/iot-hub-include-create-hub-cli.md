@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
-ms.openlocfilehash: ab17b12913630774c4fe6d99a4830080de02e541
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 10bd2c4902157b9e01b1cb0ff10b3ebdf448568c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712582"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244917"
 ---
 Nelle sezioni seguenti si configura un terminale e si usa l'interfaccia della riga di comando di Azure per creare un hub Internet. Per configurare un terminale che esegue i comandi dell'interfaccia della riga di comando di Azure, è possibile usare la Azure Cloud Shell basata su browser o usare un terminale locale.
 * Per usare Cloud Shell, passare alla sezione successiva: [avviare il cloud Shell](#launch-the-cloud-shell). 
@@ -41,7 +41,7 @@ Per avviare Cloud Shell:
 Se si sceglie di usare un terminale locale anziché Cloud Shell, completare questa sezione.  
 
 1. Aprire un terminale locale.
-1. Eseguire il comando [AZ login](/cli/azure/reference-index?preserve-view=true&view=azure-cli-latest#az_login) :
+1. Eseguire il comando [AZ login](/cli/azure/reference-index#az_login) :
 
    ```azurecli
    az login
@@ -65,7 +65,7 @@ In questa sezione si installa l'estensione Microsoft Azure Internet per l'interf
 > [!IMPORTANT]
 > I comandi del terminale nel resto di questa Guida introduttiva funzionano nello stesso Cloud Shell o in un terminale locale. Per eseguire un comando, selezionare **copia** per copiare un blocco di codice in questa Guida introduttiva. Quindi incollarlo nella shell dell'interfaccia della riga di comando ed eseguirlo.
 
-Eseguire il comando [AZ Extension Add](/cli/azure/extension?preserve-view=true&view=azure-cli-latest#az-extension-add) . 
+Eseguire il comando [AZ Extension Add](/cli/azure/extension#az-extension-add) . 
 
    ```azurecli
    az extension add --name azure-iot
@@ -77,7 +77,7 @@ In questa sezione si usa l'interfaccia della riga di comando di Azure per creare
 
 Per creare un hub e un gruppo di risorse:
 
-1. Eseguire il comando [AZ Group create](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-create) per creare un gruppo di risorse. Il comando seguente crea un gruppo denominato *MyResourceGroup* nella posizione *eastus*. 
+1. Eseguire il comando [AZ Group create](/cli/azure/group#az-group-create) per creare un gruppo di risorse. Il comando seguente crea un gruppo denominato *MyResourceGroup* nella posizione *eastus*. 
     >[!NOTE]
     > Facoltativamente, è possibile impostare un percorso alternativo. Per visualizzare le posizioni disponibili, eseguire `az account list-locations` . Questa esercitazione USA *eastus* come illustrato nel comando di esempio. 
 
@@ -85,7 +85,7 @@ Per creare un hub e un gruppo di risorse:
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Eseguire il comando [az iot hub create](/cli/azure/iot/hub?preserve-view=true&view=azure-cli-latest#az-iot-hub-create) per creare un hub IoT. La creazione di un hub IoT potrebbe richiedere alcuni minuti. 
+1. Eseguire il comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) per creare un hub IoT. La creazione di un hub IoT potrebbe richiedere alcuni minuti. 
 
     *YourIotHubName*. Sostituire il segnaposto e le parentesi graffe circostanti nel comando seguente, usando il nome scelto per l'hub Internet delle cose. Un nome dell'hub IoT deve essere univoco a livello globale in Azure. Usare il nome dell'hub Internet nel resto di questa Guida introduttiva ogni volta che viene visualizzato il segnaposto.
 
@@ -97,7 +97,7 @@ Per creare un hub e un gruppo di risorse:
 In questa sezione viene creato un dispositivo di Internet delle cose simulato connesso all'hub Internet delle cose. 
 
 Per creare un dispositivo simulato:
-1. Eseguire il comando [AZ tutto Hub Device-Identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity?preserve-view=true&view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) nella shell dell'interfaccia della riga di comando. Verrà creata l'identità del dispositivo simulato. 
+1. Eseguire il comando [AZ tutto Hub Device-Identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) nella shell dell'interfaccia della riga di comando. Verrà creata l'identità del dispositivo simulato. 
 
     *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
@@ -107,7 +107,7 @@ Per creare un dispositivo simulato:
     az iot hub device-identity create --device-id myDevice --hub-name {YourIoTHubName} 
     ```
 
-1.  Eseguire il comando [AZ molto Hub Device-Identity Connection-String Show](/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string?preserve-view=true&view=azure-cli-latest#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) . 
+1.  Eseguire il comando [AZ molto Hub Device-Identity Connection-String Show](/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) . 
 
     ```azurecli
     az iot hub device-identity connection-string show --device-id myDevice --hub-name {YourIoTHubName}

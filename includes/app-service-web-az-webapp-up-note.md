@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: app-service
 author: msangapu
 ms.service: app-service
@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 02/27/2019
 ms.author: msangapu
 ms.custom: include file
-ms.openlocfilehash: 08458bd170707b28c69fdad1d8aa115a7ad245a5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.openlocfilehash: d285b48606485fbd7f53511a15be1e2a31791829
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95564057"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244507"
 ---
 > [!NOTE]
 > Il comando `az webapp up` esegue le azioni seguenti:
 >
->- Crea un [gruppo di risorse](/cli/azure/group?view=azure-cli-latest#az-group-create) predefinito.
+>- Creare un [gruppo di risorse](/cli/azure/group#az-group-create)predefinito.
 >
->- Crea un [piano di servizio app](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) predefinito.
+>- Creare un [piano di servizio app](/cli/azure/appservice/plan#az-appservice-plan-create)predefinito.
 >
->- [Crea un'app](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) con il nome specificato.
+>- [Creare un'app](/cli/azure/webapp#az-webapp-create) con il nome specificato.
 >
 >- [Distribuire file ZIP](../articles/app-service/deploy-zip.md) i dalla directory di lavoro corrente all'app.
 >
