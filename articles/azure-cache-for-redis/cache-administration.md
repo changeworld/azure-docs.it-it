@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 156dfd1d9553e369357eb68225e722222a59d847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a79b0b5b5f21d1c75fec6b062f1ca91cfe9dd1f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838671"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219200"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Come amministrare Cache Redis di Azure
 Questo argomento descrive come eseguire attività di amministrazione, ad esempio il [riavvio](#reboot) e la [pianificazione degli aggiornamenti](#schedule-updates) per le istanze di Cache Redis di Azure.
@@ -57,6 +57,8 @@ Sì, se si riavvia la cache tutte le connessioni client vengono annullate. Il ri
 > 
 > 
 
+
+
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Con il riavvio i dati nella cache andranno persi?
 Se si riavvia sia il nodo **Master** che quello di **replica** , tutti i dati nella cache (o in tale partizione se si usa una cache Premium con il clustering abilitato) potrebbero andare perduti, ma ciò non è garantito. Se è stato configurato il [salvataggio permanente dei dati](cache-how-to-premium-persistence.md), il backup più recente viene ripristinato quando la cache ritorna in linea, ma tutte le scritture nella cache che si sono verificate dopo l'esecuzione del backup andranno perse.
 
@@ -69,8 +71,9 @@ Sì, per istruzioni relative a PowerShell vedere [Riavviare una Cache Redis](cac
 Il pannello **Pianifica aggiornamenti** consente di definire una finestra di manutenzione per l'istanza della cache. Una finestra di manutenzione consente di controllare i giorni e le ore di una settimana durante i quali è possibile aggiornare le macchine virtuali che ospitano la cache. Cache di Azure per Redis effettuerà il massimo sforzo per avviare e completare l'aggiornamento del software server Redis entro l'intervallo di tempo specificato definito.
 
 > [!NOTE] 
-> Si noti che l'intervallo di manutenzione è applicabile solo agli aggiornamenti del server Redis e non a tutti gli aggiornamenti di Azure o del sistema operativo delle macchine virtuali che ospitano la cache.
+> La finestra di manutenzione si applica agli aggiornamenti del server Redis e agli aggiornamenti al sistema operativo delle macchine virtuali che ospitano la cache. La finestra di manutenzione non si applica agli aggiornamenti del sistema operativo host per gli host che ospitano le macchine virtuali della cache o altri componenti di rete di Azure. In rari casi, in cui le cache sono ospitate in modelli precedenti (è possibile stabilire se la cache si trova in un modello precedente se il nome DNS della cache viene risolto in un suffisso "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" o "cloudapi.de"), la finestra di manutenzione non si applica agli aggiornamenti del sistema operativo guest.
 >
+
 
 ![Pianificare gli aggiornamenti](./media/cache-administration/redis-schedule-updates.png)
 

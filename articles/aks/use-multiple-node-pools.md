@@ -4,12 +4,12 @@ description: Informazioni su come creare e gestire pool di nodi multipli per un 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 07c4628a17d2c76e8e4608c9c6d059a81a9c378f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3e029695e9dce79473ada0bae3e7f0bbfd30db89
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182860"
+ms.locfileid: "102218486"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster nel servizio Azure Kubernetes (AKS)
 
@@ -130,9 +130,11 @@ Un carico di lavoro potrebbe richiedere la suddivisione dei nodi di un cluster i
 #### <a name="limitations"></a>Limitazioni
 
 * Tutte le subnet assegnate a nodepools devono appartenere alla stessa rete virtuale.
-* I pod di sistema devono avere accesso a tutti i nodi del cluster per fornire funzionalità critiche, ad esempio la risoluzione DNS tramite coreDNS.
-* L'assegnazione di una subnet univoca per ogni pool di nodi è limitata ad Azure CNI durante l'anteprima.
-* L'uso di criteri di rete con una subnet univoca per ogni pool di nodi non è supportato durante l'anteprima.
+* I pod di sistema devono avere accesso a tutti i nodi/Pod del cluster per fornire funzionalità critiche, ad esempio la risoluzione DNS e il tunneling kubectl log/Exec/Port-inoltro.
+* Se si espande il VNET dopo aver creato il cluster, è necessario aggiornare il cluster (eseguire qualsiasi operazione Clster gestita, ma le operazioni del pool di nodi non sono conteggiate) prima di aggiungere una subnet al di fuori della CIDR originale. AKS eliminerà l'errore nel pool di agenti ora, sebbene sia stato inizialmente consentito. Se non si sa come riconciliare il file del cluster con un ticket di supporto. 
+* I criteri di rete di calice non sono supportati. 
+* I criteri di rete di Azure non sono supportati.
+* Kube-proxy prevede un singolo CIDR contiguo e lo usa per tre optmizations. Vedere questo [K.E.P.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) e--cluster-CIDR [qui](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) per i dettagli. In Azure CNI la subnet del pool di nodi prima verrà assegnata a Kube-proxy. 
 
 Per creare un pool di nodi con una subnet dedicata, passare l'ID risorsa della subnet come parametro aggiuntivo quando si crea un pool di nodi.
 

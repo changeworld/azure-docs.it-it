@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 952889777e4236d7fa03fad5b1bdbf98499f7066
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 52f2a2ed301bf734ad605a2ee68a0ab672a97014
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721311"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218724"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Aggiornare o eliminare un servizio di bilanciamento del carico usato dai set di scalabilità di macchine virtuali
 
@@ -30,7 +30,7 @@ Quando si lavora con i set di scalabilità di macchine virtuali e un'istanza di 
 
 ## <a name="set-up-a-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Configurare un servizio di bilanciamento del carico per la scalabilità orizzontale di set di scalabilità di macchine virtuali
 
-Verificare che l'istanza di Azure Load Balancer disponga di un [pool NAT in ingresso](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) configurato e che il set di scalabilità di macchine virtuali sia inserito nel pool back-end del servizio di bilanciamento del carico. Load Balancer creerà automaticamente nuove regole NAT in ingresso nel pool NAT in ingresso quando vengono aggiunte nuove istanze di macchine virtuali al set di scalabilità di macchine virtuali.
+Verificare che l'istanza di Azure Load Balancer disponga di un [pool NAT in ingresso](/cli/azure/network/lb/inbound-nat-pool) configurato e che il set di scalabilità di macchine virtuali sia inserito nel pool back-end del servizio di bilanciamento del carico. Load Balancer creerà automaticamente nuove regole NAT in ingresso nel pool NAT in ingresso quando vengono aggiunte nuove istanze di macchine virtuali al set di scalabilità di macchine virtuali.
 
 Per verificare se il pool NAT in ingresso è configurato correttamente:
 
@@ -44,7 +44,7 @@ Non è possibile aggiungere singole regole NAT in ingresso. È tuttavia possibil
 
 Per aggiungere un intero set di regole NAT in ingresso per i set di scalabilità di macchine virtuali, creare prima un pool NAT in ingresso nel servizio di bilanciamento del carico. Fare quindi riferimento al pool NAT in ingresso dal profilo di rete del set di scalabilità di macchine virtuali. Viene visualizzato un esempio completo di utilizzo dell'interfaccia della riga di comando.
 
-Il nuovo pool NAT in ingresso non deve avere un intervallo di porte front-end sovrapposto con i pool NAT in ingresso esistenti. Per visualizzare i pool NAT in ingresso esistenti configurati, usare il [comando dell'interfaccia della riga di comando](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list):
+Il nuovo pool NAT in ingresso non deve avere un intervallo di porte front-end sovrapposto con i pool NAT in ingresso esistenti. Per visualizzare i pool NAT in ingresso esistenti configurati, usare il [comando dell'interfaccia della riga di comando](/cli/azure/network/lb/inbound-nat-pool#az_network_lb_inbound_nat_pool_list):
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 

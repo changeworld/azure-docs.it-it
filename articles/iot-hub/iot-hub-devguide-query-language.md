@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbdc1c079f7ef2a06ece553e9fec542cbc05ea54
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cae2bcb1a3302814a426fa0cb2dfb36ba1b013fa
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147659"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218367"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
@@ -91,7 +91,7 @@ SELECT * FROM devices
 > [!NOTE]
 > Gli [SDK dell'hub IoT](iot-hub-devguide-sdks.md) supportano il paging di risultati di grandi dimensioni.
 
-L'hub IoT consente di recuperare i dispositivi gemelli applicando filtri con condizioni arbitrarie. Ad esempio, per ricevere dispositivi gemelli in cui il tag **location.region** è impostato su**US** usare la query seguente:
+L'hub IoT consente di recuperare i dispositivi gemelli applicando filtri con condizioni arbitrarie. Ad esempio, per ricevere dispositivi gemelli in cui il tag **location.region** è impostato su **US** usare la query seguente:
 
 ```sql
 SELECT * FROM devices
@@ -234,7 +234,7 @@ L'oggetto query espone più valori **Next**, a seconda dell'opzione di deseriali
 ### <a name="limitations"></a>Limitazioni
 
 > [!IMPORTANT]
-> I risultati della query possono avere qualche minuto di ritardo rispetto ai valori più recenti nei dispositivi gemelli. Se si eseguono query sui singoli dispositivi gemelli in base all'ID, usare l' [API REST di Get gemelle](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Questa API restituisce sempre i valori più recenti e ha limiti di limitazione più elevati. È possibile rilasciare direttamente l'API REST o usare la funzionalità equivalente in uno degli [SDK del servizio Hub Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> I risultati della query possono avere qualche minuto di ritardo rispetto ai valori più recenti nei dispositivi gemelli. Se si eseguono query sui singoli dispositivi gemelli in base all'ID, usare l' [API REST di Get gemelle](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). Questa API restituisce sempre i valori più recenti e ha limiti di limitazione più elevati. È possibile rilasciare direttamente l'API REST o usare la funzionalità equivalente in uno degli [SDK del servizio Hub Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 I confronti sono attualmente supportati solo tra tipi primitivi (non oggetti), ad esempio `... WHERE properties.desired.config = properties.reported.config` è supportato solo se tali proprietà hanno valori primitivi.
 
@@ -316,7 +316,7 @@ Attualmente le query su **devices.jobs** non supportano:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Nozioni di base di una query dell'hub IoT
 
-Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti su cui eseguire l'iterazione (**Devices**, **Devices. modules**o **Devices.Jobs**). Viene quindi applicato il filtro nella clausola WHERE. Con le aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY. Per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
+Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti su cui eseguire l'iterazione (**Devices**, **Devices. modules** o **Devices.Jobs**). Viene quindi applicato il filtro nella clausola WHERE. Con le aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY. Per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
 
 ```sql
 SELECT <select_list>

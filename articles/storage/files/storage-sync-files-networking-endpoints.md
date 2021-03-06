@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f307380114acd4f98d68b580333c4dccc2a7340b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 97ccbd0858a7b85c4b5d1e460f67416d8139e49a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201601"
+ms.locfileid: "102218605"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurazione degli endpoint di rete di Sincronizzazione file di Azure
 File di Azure e Sincronizzazione file di Azure prevedono due tipi principali di endpoint per l'accesso alle condivisioni file di Azure: 
@@ -34,7 +34,7 @@ Questo articolo presuppone quanto segue:
 
 Inoltre:
 - Se si intende usare Azure PowerShell, [installare l'ultima versione](/powershell/azure/install-az-ps).
-- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](/cli/azure/install-azure-cli).
 
 ## <a name="create-the-private-endpoints"></a>Creare gli endpoint privati
 Quando si crea un endpoint privato per una risorsa di Azure, vengono distribuite le risorse seguenti:
@@ -622,8 +622,8 @@ Per File di Azure e Sincronizzazione file di Azure sono disponibili i criteri pr
 | Audit | File di Azure | Per l'account di archiviazione è necessario almeno un endpoint privato. Per altre informazioni, vedere [creare l'endpoint privato dell'account di archiviazione](#create-the-storage-account-private-endpoint) . | L'account di archiviazione deve usare una connessione collegamento privato |
 | Audit | Sincronizzazione file di Azure | Il servizio di sincronizzazione archiviazione richiede almeno un endpoint privato. Per altre informazioni, vedere [creare l'endpoint privato del servizio di sincronizzazione archiviazione](#create-the-storage-sync-service-private-endpoint) . | Sincronizzazione file di Azure deve usare il collegamento privato |
 | Modifica | Sincronizzazione file di Azure | Disabilitare l'endpoint pubblico del servizio di sincronizzazione archiviazione. | Modificare: configurare Sincronizzazione file di Azure per disabilitare l'accesso alla rete pubblica |
-| Distribuire | Sincronizzazione file di Azure | Distribuire un endpoint privato per il servizio di sincronizzazione archiviazione. | Configurare Sincronizzazione file di Azure con endpoint privati |
-| Distribuire | Sincronizzazione file di Azure | Distribuire un record a nella zona DNS privatelink.afs.azure.net. | Configurare Sincronizzazione file di Azure per l'uso delle zone DNS private |
+| Distribuisci | Sincronizzazione file di Azure | Distribuire un endpoint privato per il servizio di sincronizzazione archiviazione. | Configurare Sincronizzazione file di Azure con endpoint privati |
+| Distribuisci | Sincronizzazione file di Azure | Distribuire un record a nella zona DNS privatelink.afs.azure.net. | Configurare Sincronizzazione file di Azure per l'uso delle zone DNS private |
 
 ### <a name="set-up-a-private-endpoint-deployment-policy"></a>Configurare i criteri di distribuzione di un endpoint privato
 Per configurare un criterio di distribuzione degli endpoint privati, passare alla [portale di Azure](https://portal.azure.com/)e cercare i **criteri**. Il centro criteri di Azure deve essere un risultato superiore. Passare a   >  **definizioni** di creazione nel sommario del centro criteri. Il riquadro **definizioni** risultante contiene i criteri predefiniti in tutti i servizi di Azure. Per trovare i criteri specifici, selezionare la categoria **archiviazione** nel filtro categoria o cercare **Configura sincronizzazione file di Azure con endpoint privati**. Selezionare **...** e **assegnare** per creare un nuovo criterio dalla definizione.

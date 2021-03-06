@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 52413f36a9ba5c7b7a3c68567a65a20bc3ce4090
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c354435f689f5182dd368fd53fdab28f1ab63d48
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585205"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218792"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizzare i log e le metriche con le impostazioni di diagnostica
 
@@ -27,7 +27,7 @@ Usando la funzionalità di diagnostica di Azure Spring cloud, è possibile anali
 Scegliere la categoria di log e la categoria metrica che si vuole monitorare.
 
 > [!TIP]
-> Vuoi semplicemente trasmettere i log? Vedere questo [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs).
+> Vuoi semplicemente trasmettere i log? Vedere questo [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/spring-cloud/spring-cloud/app#ext-spring-cloud-az-spring-cloud-app-logs).
 
 ## <a name="logs"></a>Log
 

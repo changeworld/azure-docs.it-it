@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 714fb92e8757fed6e11a09528b60cda3e945175e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696864"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218894"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Creare un servizio di bilanciamento del carico pubblico con IPv6 tramite l'interfaccia della riga di comando di Azure
 
@@ -58,7 +58,7 @@ Per distribuire un servizio di bilanciamento del carico, creare e configurare gl
 
 In questo esempio gli strumenti dell'interfaccia della riga di comando di Azure vengono eseguiti in una finestra di comando di PowerShell. Per migliorare la leggibilità e il riutilizzo non vengono usati i cmdlet di Azure PowerShell, ma le funzionalità di script di PowerShell.
 
-1. [Installare e configurare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) seguendo la procedura riportata nell'articolo collegato e accedere all'account di Azure.
+1. [Installare e configurare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) seguendo la procedura riportata nell'articolo collegato e accedere all'account di Azure.
 
 2. Configurare le variabili di PowerShell per l'uso con i comandi dell'interfaccia della riga di comando di Azure:
 

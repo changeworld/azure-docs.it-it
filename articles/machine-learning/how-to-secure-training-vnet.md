@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: cb034c42ceee870ed7be72eb5ff7d29c42b72f36
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2b264da06cf5088da07ec91cfa40c4babfde4c38
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183591"
+ms.locfileid: "102219064"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteggere un ambiente di training Azure Machine Learning con reti virtuali
 
@@ -171,7 +171,7 @@ Se si usa il [tunneling forzato](../vpn-gateway/vpn-gateway-forced-tunneling-rm.
 
     * Scaricare [gli intervalli IP e i tag del servizio di Azure](https://www.microsoft.com/download/details.aspx?id=56519) e cercare `BatchNodeManagement.<region>` e `AzureMachineLearning.<region>` nel file, dove `<region>` è l'area di Azure.
 
-    * Usare l['interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) per scaricare le informazioni. L'esempio seguente Scarica le informazioni sull'indirizzo IP e filtra le informazioni per l'area Stati Uniti orientali 2 (primaria) e l'area Stati Uniti centrali (secondario):
+    * Usare l['interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) per scaricare le informazioni. L'esempio seguente Scarica le informazioni sull'indirizzo IP e filtra le informazioni per l'area Stati Uniti orientali 2 (primaria) e l'area Stati Uniti centrali (secondario):
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"

@@ -11,12 +11,12 @@ ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3d2e01b645c1661d4b44520193b9c4557cbc1ea0
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 47d2c8865109e8ef43317b3c4a19c36e692aff91
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652175"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218843"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servizio a prestazioni elevate con il server di inferenza Triton (anteprima) 
 
@@ -36,7 +36,7 @@ Triton è un Framework *ottimizzato per l'inferenza*. Offre un utilizzo migliore
 
 * Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiarità con le [modalità di distribuzione di un modello](how-to-deploy-and-where.md) con Azure Machine Learning.
-* [SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/?view=azure-ml-py) **o** l'interfaccia della riga di comando di [Azure](/cli/azure/?view=azure-cli-latest) e l' [estensione Machine Learning](reference-azure-machine-learning-cli.md).
+* [SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/?view=azure-ml-py) **o** l'interfaccia della riga di comando di [Azure](/cli/azure/) e l' [estensione Machine Learning](reference-azure-machine-learning-cli.md).
 * Installazione funzionante di Docker per i test locali. Per informazioni sull'installazione e la convalida di Docker, vedere [orientamento e configurazione](https://docs.docker.com/get-started/) nella documentazione di Docker.
 
 ## <a name="architectural-overview"></a>Panoramica dell'architettura
@@ -331,7 +331,7 @@ print(local_service.scoring_uri)
 
 ---
 
-Al termine della distribuzione, viene visualizzato l'URI di assegnazione dei punteggi. Per questa distribuzione locale, sarà `http://localhost:6789/score` . Se si esegue la distribuzione nel cloud, è possibile usare il comando [AZ ml Service Show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI per ottenere l'URI di assegnazione dei punteggi.
+Al termine della distribuzione, viene visualizzato l'URI di assegnazione dei punteggi. Per questa distribuzione locale, sarà `http://localhost:6789/score` . Se si esegue la distribuzione nel cloud, è possibile usare il comando [AZ ml Service Show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) CLI per ottenere l'URI di assegnazione dei punteggi.
 
 Per informazioni su come creare un client che invii le richieste di inferenza all'URI di assegnazione dei punteggi, vedere [utilizzare un modello distribuito come servizio Web](how-to-consume-web-service.md).
 
