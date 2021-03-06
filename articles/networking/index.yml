@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 09/28/2020
-  ms.openlocfilehash: 40effbde3ad1c0676eae4c79f72b84d04dbd62e7
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.openlocfilehash: afa5f2425b521ef0a83d44be03f5e99fb066504b
+  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101698655"
+  ms.lasthandoff: 03/05/2021
+  ms.locfileid: "102217143"
 highlightedContent:
   items:
   - title: Che cos'è Rete di Azure?
@@ -336,7 +336,7 @@ additionalContent:
       url: /powershell/module/az.network/?view=azps-3.5.0#networking
     - title: Comandi dell'interfaccia della riga di comando di Azure per la rete di Azure
       summary: Trovare i comandi di rete di Azure nelle informazioni di riferimento sull'interfaccia della riga di comando.
-      url: /cli/azure/network?view=azure-cli-latest
+      url: /cli/azure/network
     - title: Blog nella rete di Azure
       summary: Visualizzare i blog più recenti nella rete di Azure.
       url: https://azure.microsoft.com/blog/topics/networking/

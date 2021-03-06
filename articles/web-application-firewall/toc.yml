@@ -154,11 +154,11 @@
     - name: Interfaccia della riga di comando di Azure
       items:
         - name: Frontdoor
-          href: /cli/azure/ext/front-door/network?view=azure-cli-latest
+          href: /cli/azure/ext/front-door/network
         - name: Gateway applicazione
-          href: /cli/azure/network/application-gateway?view=azure-cli-latest
+          href: /cli/azure/network/application-gateway
         - name: RETE CDN
-          href: /cli/azure/cdn/waf?view=azure-cli-latest
+          href: /cli/azure/cdn/waf
     - name: Azure PowerShell
       items:
         - name: Frontdoor

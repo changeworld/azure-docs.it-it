@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.openlocfilehash: 74addd691e3a6c42f48100292542cfd3563b5c3a
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: d39ade2536b96bf5e665ecfc01e81232f2fec075
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797564"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217942"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduzione alla velocità effettiva con provisioning in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -99,12 +99,12 @@ Dopo aver creato un contenitore o un database Azure Cosmos, è possibile aggiorn
 È possibile recuperare la velocità effettiva con provisioning di un contenitore o di un database nel portale di Azure o tramite gli SDK:
 
 * [Container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) in .NET SDK.
-* [CosmosContainer. readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) in Java SDK.
+* [CosmosContainer. readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput) in Java SDK.
 
 La risposta di questi metodi contiene anche la [velocità effettiva minima di provisioning](concepts-limits.md#storage-and-database-operations) per il contenitore o il database:
 
 * [ThroughputResponse. MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) in .NET SDK.
-* [ThroughputResponse. getMinThroughput ()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) in Java SDK.
+* [ThroughputResponse. getMinThroughput ()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) in Java SDK.
 
 Il numero effettivo minimo di ur/sec può variare a seconda della configurazione dell'account. Ma in genere è il massimo:
 
@@ -117,7 +117,7 @@ Il numero effettivo minimo di ur/sec può variare a seconda della configurazione
 È possibile ridimensionare la velocità effettiva con provisioning di un contenitore o di un database tramite la portale di Azure o tramite gli SDK:
 
 * [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) in .NET SDK.
-* [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) in Java SDK.
+* [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput) in Java SDK.
 
 Se si **riduce la velocità effettiva con provisioning**, sarà possibile farlo fino al [minimo](#current-provisioned-throughput).
 
@@ -129,7 +129,7 @@ Se si **aumenta la velocità effettiva con provisioning**, nella maggior parte d
 È possibile controllare a livello di codice lo stato di avanzamento della scalabilità leggendo la [velocità effettiva con provisioning corrente](#current-provisioned-throughput) e usando:
 
 * [ThroughputResponse. IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) in .NET SDK.
-* [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) in Java SDK.
+* [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending) in Java SDK.
 
 È possibile usare le [metriche di monitoraggio di Azure](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) per visualizzare la cronologia della velocità effettiva con provisioning (UR/sec) e l'archiviazione in una risorsa.
 

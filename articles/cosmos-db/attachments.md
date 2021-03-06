@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b6504c0521328edc356dea1c146fe9aeb6bde55f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0a2ff0f24e3fe4711e0d2f1c306ae2eaa0fda5e0
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092739"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217245"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Allegati Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -163,5 +163,5 @@ namespace attachments
 
 - Introduzione all' [archiviazione BLOB di Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - Ottenere i riferimenti per l'uso degli allegati tramite [.NET SDK v2 Azure Cosmos DB](/dotnet/api/microsoft.azure.documents.attachment?preserve-view=true&view=azure-dotnet)
-- Ottenere i riferimenti per l'uso degli allegati tramite [Java SDK v2 di Azure Cosmos DB](/java/api/com.microsoft.azure.documentdb.attachment?preserve-view=true&view=azure-java-stable)
+- Ottenere i riferimenti per l'uso degli allegati tramite [Java SDK v2 di Azure Cosmos DB](/java/api/com.microsoft.azure.documentdb.attachment)
 - Ottenere riferimenti per l'uso di allegati tramite [l'API REST di Azure Cosmos DB](/rest/api/cosmos-db/attachments)
