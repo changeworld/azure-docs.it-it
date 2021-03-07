@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 4bc598080b96886e6734ac3709761465a1a28d49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eda6eaf69fad6f8600651660ae4ac6223fe8f8c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899526"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438064"
 ---
 # <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-pro-gpu-device"></a>Usare IoT Edge modulo per eseguire un'applicazione Kubernetes senza stato sul dispositivo GPU Pro Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Questo articolo descrive come è possibile usare un modulo IoT Edge per distribuire un'applicazione senza stato nel dispositivo Azure Stack Edge Pro.
 
@@ -47,7 +49,7 @@ Per aggiungere un modulo app webserver nel dispositivo Azure Stack Edge Pro, seg
 
     ![Selezionare IoT Edge dispositivo](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/select-iot-edge-device-1.png)  
 
-1. Selezionare **Imposta moduli**. In **imposta moduli nel dispositivo**selezionare **+ Aggiungi** e quindi selezionare **IOT Edge modulo**.
+1. Selezionare **Imposta moduli**. In **imposta moduli nel dispositivo** selezionare **+ Aggiungi** e quindi selezionare **IOT Edge modulo**.
 
     ![Seleziona modulo IoT Edge](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/select-iot-edge-module-1.png)
 

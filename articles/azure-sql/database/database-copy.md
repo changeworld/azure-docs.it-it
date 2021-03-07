@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 10/30/2020
-ms.openlocfilehash: 7f053b1984a2d838deb14bacd10cdc071e19d8a1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: b112506acead01e8dc2bbe72b0d52f47ada326a7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035139"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440412"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
 
@@ -194,7 +194,7 @@ Monitorare il processo di copia eseguendo una query sulle viste [sys. databases]
 > [!IMPORTANT]
 > Se è necessario creare una copia con un obiettivo di servizio sostanzialmente più piccolo rispetto all'origine, è possibile che il database di destinazione non disponga di risorse sufficienti per completare il processo di seeding, causando l'esito negativo dell'operazione di copia. In questo scenario usare una richiesta di ripristino geografico per creare una copia in un server diverso e/o in un'area diversa. Per altre informazioni, vedere [ripristinare un database SQL di Azure usando i backup del database](recovery-using-backups.md#geo-restore) .
 
-## <a name="azure-roles-to-manage-database-copy"></a>Ruoli di Azure per gestire la copia del database
+## <a name="azure-rbac-roles-and-permissions-to-manage-database-copy"></a>Ruoli e autorizzazioni RBAC di Azure per gestire la copia del database
 
 Per creare una copia del database, è necessario disporre dei seguenti ruoli
 

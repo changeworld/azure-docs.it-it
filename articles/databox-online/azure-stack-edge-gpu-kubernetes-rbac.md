@@ -6,17 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 9a9625dcf40ae7d11e1154fc89b7f04652c8ca16
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 1b38a9807e05385a378fa6103710fb6b393c7b1f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635841"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443149"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Controllo degli accessi in base al ruolo Kubernetes sul dispositivo GPU Pro Azure Stack Edge
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Nel dispositivo Azure Stack Edge Pro, quando si configura il ruolo di calcolo, viene creato un cluster Kubernetes. È possibile usare il controllo degli accessi in base al ruolo Kubernetes (Kubernetes RBAC) per limitare l'accesso alle risorse del cluster sul dispositivo.
 
@@ -39,13 +40,13 @@ Il dispositivo Azure Stack Edge Pro ha gli spazi dei nomi seguenti:
 - **Spazio dei nomi System** : questo spazio dei nomi è il punto in cui si trovano le risorse principali, ad esempio le funzionalità di rete come DNS e proxy o il dashboard Kubernetes. In genere non si distribuiscono le proprie applicazioni in questo spazio dei nomi. Usare questo spazio dei nomi per eseguire il debug di eventuali problemi del cluster Kubernetes. 
 
     Nel dispositivo sono presenti più spazi dei nomi di sistema e i nomi corrispondenti a questi spazi dei nomi di sistema sono riservati. Di seguito è riportato un elenco degli spazi dei nomi di sistema riservati: 
-    - Kube-sistema
+    - kube-system
     - metallb-sistema
     - DBE-spazio dei nomi
     - default
     - kubernetes-dashboard
     - Kube-node-lease
-    - Kube-pubblico
+    - kube-public
 
 
     Assicurarsi di non usare nomi riservati per gli spazi dei nomi utente creati. 
@@ -61,15 +62,15 @@ Il dispositivo Azure Stack Edge Pro ha gli spazi dei nomi seguenti:
 
 Nel mondo reale, è importante suddividere il cluster in più spazi dei nomi. 
 
-- **Più utenti** : se sono presenti più utenti, più spazi dei nomi consentiranno a tali utenti di distribuire le applicazioni e i servizi negli spazi dei nomi specifici in modo isolato l'uno dall'altro. 
-- **Singolo utente** : anche se è presente un singolo utente, più spazi dei nomi consentiranno all'utente di eseguire più versioni delle applicazioni nello stesso cluster Kubernetes.
+- **Più utenti**: se sono presenti più utenti, più spazi dei nomi consentiranno a tali utenti di distribuire le applicazioni e i servizi negli spazi dei nomi specifici in modo isolato l'uno dall'altro. 
+- **Singolo utente**: anche se è presente un singolo utente, più spazi dei nomi consentiranno all'utente di eseguire più versioni delle applicazioni nello stesso cluster Kubernetes.
 
 ### <a name="roles-and-rolebindings"></a>Roles e RoleBindings
 
 Kubernetes ha il concetto di associazione ruolo e ruolo che consente di concedere autorizzazioni a un utente o a una risorsa a livello di spazio dei nomi e a livello di cluster. 
 
-- **Ruoli** : è possibile definire le autorizzazioni per gli utenti come **ruolo** e quindi usare i **ruoli** per concedere le autorizzazioni all'interno di uno spazio dei nomi. 
-- **RoleBindings** : dopo aver definito i ruoli, è possibile usare **RoleBindings** per assegnare i ruoli per un determinato spazio dei nomi. 
+- **Ruoli**: è possibile definire le autorizzazioni per gli utenti come **ruolo** e quindi usare i **ruoli** per concedere le autorizzazioni all'interno di uno spazio dei nomi. 
+- **RoleBindings**: dopo aver definito i ruoli, è possibile usare **RoleBindings** per assegnare i ruoli per un determinato spazio dei nomi. 
 
 Questo approccio consente di separare logicamente un singolo cluster Kubernetes, con la possibilità per gli utenti di accedere solo alle risorse dell'applicazione nello spazio dei nomi assegnato. 
 

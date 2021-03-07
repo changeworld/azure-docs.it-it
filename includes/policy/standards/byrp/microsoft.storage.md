@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: bdfa47c5453981856b4a9074cbabcc61314e0be5
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 966ea68c3e3c5f102ea9c57dfe9bca05388821c6
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100106050"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443362"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark di sicurezza di Azure
 
@@ -43,7 +43,7 @@ Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure p
 |Protezione dei dati |4.4 |Crittografare tutte le informazioni riservate in transito |[È consigliabile abilitare il trasferimento sicuro agli account di archiviazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 |Gestione asset e inventario |6.9 |Usare solo servizi di Azure approvati |[È consigliabile eseguire la migrazione degli account di archiviazione alle nuove risorse di Azure Resource Manager](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F37e0d2fe-28a5-43d6-a273-67d37d1f5606) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Classic_AuditForClassicStorages_Audit.json) |
 
-## <a name="cis-microsoft-azure-foundations-benchmark"></a>CIS Microsoft Azure Foundations Benchmark
+## <a name="cis-microsoft-azure-foundations-benchmark-110"></a>CIS Microsoft Azure Foundations Benchmark 1.1.0
 
 Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure per tutti i servizi di Azure a questo standard di conformità, vedere [Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark 1.1.0](../../../../articles/governance/policy/samples/cis-azure-1-1-0.md).
 Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
@@ -56,6 +56,22 @@ Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft 
 |Account di archiviazione |3.8 |Assicurarsi che il criterio "Servizi Microsoft attendibili" sia abilitato per l'accesso all'account di archiviazione |[Gli account di archiviazione devono consentire l'accesso da servizi Microsoft attendibili](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9d007d0-c057-4772-b18c-01e546713bcd) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccess_TrustedMicrosoftServices_Audit.json) |
 |Registrazione e monitoraggio |5.1.5 |Verificare che il contenitore di archiviazione che archivia i log attività non sia accessibile pubblicamente |[L'accesso pubblico agli account di archiviazione non deve essere consentito](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 |Registrazione e monitoraggio |5.1.6 |Assicurarsi che l'account di archiviazione contenente il contenitore con i log attività sia crittografato con BYOK (Bring Your Own Key) |[L'account di archiviazione che include il contenitore con i log attività deve essere crittografato tramite BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
+
+## <a name="cis-microsoft-azure-foundations-benchmark-130"></a>1.3.0 benchmark di base di CIS Microsoft Azure
+
+Per esaminare il modo in cui i criteri di Azure disponibili predefiniti per tutti i servizi di Azure vengono mappati a questo standard di conformità, vedere [conformità normativa ai criteri di Azure-Microsoft Azure benchmark di](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md)base di 1.3.0.
+Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
+
+|Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Account di archiviazione |3.1 |Assicurarsi che l'opzione "Trasferimento sicuro obbligatorio" sia impostata su "Abilitato". |[È consigliabile abilitare il trasferimento sicuro agli account di archiviazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+|Account di archiviazione |3,5 |Assicurarsi che ' livello di accesso pubblico ' sia impostato su privato per i contenitori BLOB |[L'accesso pubblico agli account di archiviazione non deve essere consentito](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
+|Account di archiviazione |3,6 |Assicurarsi che la regola di accesso alla rete predefinita per gli account di archiviazione sia impostata su Nega |[Gli account di archiviazione devono limitare l'accesso alla rete](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_NetworkAcls_Audit.json) |
+|Account di archiviazione |3,6 |Assicurarsi che la regola di accesso alla rete predefinita per gli account di archiviazione sia impostata su Nega |[Gli account di archiviazione devono limitare l'accesso alla rete usando regole di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2a1a9cdf-e04d-429a-8416-3bfb72a1b26f) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccountOnlyVnetRulesEnabled_Audit.json) |
+|Account di archiviazione |3,7 |Assicurarsi che il criterio "Servizi Microsoft attendibili" sia abilitato per l'accesso all'account di archiviazione |[Gli account di archiviazione devono consentire l'accesso da servizi Microsoft attendibili](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9d007d0-c057-4772-b18c-01e546713bcd) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccess_TrustedMicrosoftServices_Audit.json) |
+|Account di archiviazione |3.9 |Assicurarsi che l'archiviazione per i dati critici sia crittografata con la chiave gestita dal cliente |[Gli account di archiviazione devono usare la chiave gestita dal cliente per la crittografia](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6fac406b-40ca-413b-bf8e-0bf964659c25) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccountCustomerManagedKeyEnabled_Audit.json) |
+|Registrazione e monitoraggio |5.1.3 |Verificare che il contenitore di archiviazione che archivia i log attività non sia accessibile pubblicamente |[L'accesso pubblico agli account di archiviazione non deve essere consentito](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
+|Registrazione e monitoraggio |5.1.4 |Assicurarsi che l'account di archiviazione contenente il contenitore con i log attività sia crittografato con BYOK (Bring Your Own Key) |[L'account di archiviazione che include il contenitore con i log attività deve essere crittografato tramite BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
 
 ## <a name="cmmc-level-3"></a>Livello CMMC 3
 
@@ -123,10 +139,10 @@ Per ulteriori informazioni su questo standard di conformità, vedere [ISO 27001:
 |Sicurezza delle comunicazioni |13.1.1 |Controlli di rete |[Gli account di archiviazione devono limitare l'accesso alla rete](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_NetworkAcls_Audit.json) |
 |Sicurezza delle comunicazioni |13.2.1 |Procedure e criteri di trasferimento delle informazioni |[È consigliabile abilitare il trasferimento sicuro agli account di archiviazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 
-## <a name="new-zealand-ism"></a>Nuova Zelanda ISM
+## <a name="new-zealand-ism-restricted"></a>New Zealand ISM con restrizioni
 
-Per esaminare il modo in cui i criteri di Azure disponibili predefiniti per tutti i servizi di Azure sono associati a questo standard di conformità, vedere la pagina relativa alla [conformità alle normative dei criteri di Azure-manuale sulla sicurezza delle informazioni](../../../../articles/governance/policy/samples/new-zealand-ism.md)
-Per altre informazioni su questo standard di conformità, vedere la pagina relativa al [manuale sulla sicurezza delle informazioni di New Zealand](https://www.nzism.gcsb.govt.nz/).
+Per esaminare il mapping tra i criteri di Azure disponibili predefiniti per tutti i servizi di Azure e questo standard di conformità, vedere [conformità alle normative di criteri di Azure-Nuova Zelanda ISM con restrizioni](../../../../articles/governance/policy/samples/new-zealand-ism.md).
+Per ulteriori informazioni su questo standard di conformità, vedere [New Zealand ISM Restricted](https://www.nzism.gcsb.govt.nz/).
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

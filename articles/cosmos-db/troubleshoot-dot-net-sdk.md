@@ -3,18 +3,18 @@ title: Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosm
 description: Usare funzionalità come la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi Azure Cosmos DB quando si usa .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 02/05/2021
+ms.date: 03/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: dce309b955882f6236f285ee6bd20a79201e43fb
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 1f7548b355353eb77419f4d1760b40ba02eeddda
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429936"
+ms.locfileid: "102442197"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -93,12 +93,47 @@ Se l'app viene distribuita in [macchine virtuali di Azure senza un indirizzo IP 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Latenza di rete elevata
 Una latenza di rete elevata può essere identificata usando la [stringa di diagnostica](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) nell'SDK v2 o [diagnostica](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) in V3 SDK.
 
-Se non sono presenti [timeout](troubleshoot-dot-net-sdk-request-timeout.md) e la diagnostica Mostra singole richieste in cui la latenza elevata è evidente sulla differenza tra `ResponseTime` e `RequestStartTime` , ad esempio (>300 millisecondi in questo esempio):
+Se non sono presenti [timeout](troubleshoot-dot-net-sdk-request-timeout.md) e la diagnostica Mostra singole richieste in cui è evidente la latenza elevata.
+
+# <a name="v3-sdk"></a>[SDK V3](#tab/diagnostics-v3)
+
+La diagnostica può essere ottenuta da qualsiasi `ResponseMessage` , `ItemResponse` , `FeedResponse` o `CosmosException` dalla `Diagnostics` proprietà:
+
+```csharp
+ItemResponse<MyItem> response = await container.CreateItemAsync<MyItem>(item);
+Console.WriteLine(response.Diagnostics.ToString());
+```
+
+Le interazioni di rete nella diagnostica saranno ad esempio:
+
+```json
+{
+    "name": "Microsoft.Azure.Documents.ServerStoreModel Transport Request",
+    "id": "0e026cca-15d3-4cf6-bb07-48be02e1e82e",
+    "component": "Transport",
+    "start time": "12: 58: 20: 032",
+    "duration in milliseconds": 1638.5957
+}
+```
+
+Dove `duration in milliseconds` Visualizza la latenza.
+
+# <a name="v2-sdk"></a>[SDK V2](#tab/diagnostics-v2)
+
+La diagnostica è disponibile quando il client è configurato in [modalità diretta](sql-sdk-connection-modes.md), tramite la `RequestDiagnosticsString` proprietà:
+
+```csharp
+ResourceResponse<Document> response = await client.ReadDocumentAsync(documentLink, new RequestOptions() { PartitionKey = new PartitionKey(partitionKey) });
+Console.WriteLine(response.RequestDiagnosticsString);
+```
+
+E la latenza dovrebbe essere la differenza tra `ResponseTime` e `RequestStartTime` :
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
 ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: rntbd://..., ...
 ```
+--- 
 
 Questa latenza può avere più cause:
 

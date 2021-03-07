@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: e786a323cfb1ebacdf7e6693e3ca4299f10aadb3
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 7940ac3a67a0562aa0b7a21690deec30220a48a3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216038"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434713"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Scegliere il livello di hub IoT più adatto per la soluzione
 
@@ -85,7 +85,7 @@ La differenza a livello di funzionalità supportate tra i livelli Basic e Standa
 | [Recupero statistiche dei servizi](/javascript/api/azure-iot-digitaltwins-service/registrymanager#getservicestatistics-msrest-requestoptionsbase-) | Sì | Sì |
 | [Creazione o aggiornamento dispositivo](/javascript/api/azure-iot-digitaltwins-service/registrymanager#createorupdatedevice-string--device--servicecallback-device--) | Sì | Sì |
 | [Creazione o aggiornamento modulo](/javascript/api/azure-iot-digitaltwins-service/registrymanager#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | Sì | Sì |
-| [Query su hub IoT](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | Sì | Sì |
+| [Query su hub IoT](/dotnet/api/microsoft.azure.devices.registrymanager) | Sì | Sì |
 | [Creazione URI di firma di accesso condiviso per il caricamento di file](/rest/api/iothub/device/createfileuploadsasuri) | Sì | Sì |
 | [Ricezione notifica di dispositivo associato](/rest/api/iothub/device/receivedeviceboundnotification) | Sì | Sì |
 | [Invio evento dispositivo](/rest/api/iothub/device/senddeviceevent) | Sì | Sì |

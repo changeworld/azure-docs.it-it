@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875737"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439460"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -58,14 +58,22 @@ Se non si dispone di un ruolo che concede autorizzazioni per i livelli di gestio
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Cosa accade se non è possibile ottenere le autorizzazioni del livello di gestione necessarie dall'amministratore?
 
-Se si vuole accedere a contenitori o code BLOB, è possibile connettersi a tali risorse usando le credenziali di Azure.
+Se si vuole accedere a contenitori BLOB, ADLS Gen2 contenitori o directory, o code, è possibile connettersi a tali risorse usando le credenziali di Azure.
 
 1. Aprire la finestra di dialogo Connetti.
-2. Selezionare "Aggiungi una risorsa tramite Azure Active Directory (Azure AD)". Fare clic su Avanti.
-3. Selezionare l'account utente e il tenant associati alla risorsa a cui si sta eseguendo la connessione. Fare clic su Avanti.
-4. Selezionare il tipo di risorsa, immettere l'URL della risorsa e immettere un nome visualizzato univoco per la connessione. Selezionare Avanti, quindi Connetti.
+1. Selezionare il tipo di risorsa a cui si vuole connettersi.
+1. Selezionare **Accedi con Azure Active Directory (Azure ad)**. Selezionare **Avanti**.
+1. Selezionare l'account utente e il tenant associati alla risorsa a cui si sta eseguendo la connessione. Selezionare **Avanti**.
+1. Immettere l'URL della risorsa e immettere un nome visualizzato univoco per la connessione. Selezionare **Avanti** , quindi **Connetti**.
 
-Per altri tipi di risorse, non è attualmente disponibile una soluzione correlata a RBAC di Azure. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
+Per altri tipi di risorse, non è attualmente disponibile una soluzione correlata a RBAC di Azure. Come soluzione alternativa, è possibile richiedere un URL di firma di accesso condiviso, quindi connettersi alla risorsa attenendosi alla procedura seguente:
+
+1. Aprire la finestra di dialogo Connetti.
+1. Selezionare il tipo di risorsa a cui si vuole connettersi.
+1. Selezionare **firma di accesso condiviso (SAS)**. Selezionare **Avanti**.
+1. Immettere l'URL di firma di accesso condiviso ricevuto e immettere un nome visualizzato univoco per la connessione. Selezionare **Avanti** , quindi **Connetti**.
+ 
+Per altre informazioni sulla connessione alle risorse, vedere [connettersi a una singola risorsa](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource).
 
 ### <a name="recommended-azure-built-in-roles"></a>Ruoli predefiniti di Azure consigliati
 

@@ -1,22 +1,22 @@
 ---
-title: Dettagli di conformità alle normative per la nuova Zelanda ISM
-description: Dettagli dell'iniziativa incorporata per la conformità alle normative della Nuova Zelanda. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 02/09/2021
+title: Dettagli di conformità alle normative per la New Zealand ISM Restricted
+description: Informazioni dettagliate sull'iniziativa incorporata per la conformità alle normative del nuovo Zealand ISM. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
+ms.date: 03/05/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b2f4cec4f2c9abf6fb896ba9d515db1780115716
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 5f346f7755cf252ed15513d8dc0a60a9bc5cce3f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101733"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437247"
 ---
-# <a name="details-of-the-new-zealand-ism-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata per la conformità alle normative della Nuova Zelanda
+# <a name="details-of-the-new-zealand-ism-restricted-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata per la conformità alle normative della Nuova Zelanda ISM
 
-L'articolo seguente illustra in dettaglio come viene eseguito il mapping della definizione di iniziativa incorporata per la conformità alle normative di criteri di Azure ai domini e ai **controlli** di **conformità** in Nuova Zelanda
-Per ulteriori informazioni su questo standard di conformità, vedere [Nuova Zelanda ISM](https://www.nzism.gcsb.govt.nz/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
+L'articolo seguente illustra in dettaglio come viene eseguito il mapping della definizione dell'iniziativa incorporata per la conformità alle normative di criteri di Azure ai **controlli** e ai **domini di conformità** in Nuova Zelanda ISM
+Per ulteriori informazioni su questo standard di conformità, vedere [New Zealand ISM Restricted](https://www.nzism.gcsb.govt.nz/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
-I mapping seguenti sono per i **nuovi controlli ISM Zealand** . Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
+I mapping seguenti si riportano ai controlli con **restrizioni ISM di New Zealand** . Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
 Trovare e selezionare quindi la definizione di iniziativa predefinita per la **sicurezza delle informazioni in Nuova Zelanda** .
 
 > [!IMPORTANT]
@@ -91,7 +91,7 @@ Trovare e selezionare quindi la definizione di iniziativa predefinita per la **s
 
 ## <a name="access-control-and-passwords"></a>Controllo di accesso e password
 
-### <a name="16132-system-user-identitfication"></a>Identitfication utente sistema 16.1.32
+### <a name="16132-system-user-identification"></a>Identificazione utente del sistema 16.1.32
 
 **ID**: NZISM Security benchmark AC-2 **ownership**: Customer
 

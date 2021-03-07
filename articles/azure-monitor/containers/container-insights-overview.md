@@ -3,12 +3,12 @@ title: Panoramica delle informazioni dettagliate sul contenitore | Microsoft Doc
 description: Questo articolo descrive il contenitore Insights che monitora la soluzione AKS container Insights e il valore che fornisce monitorando l'integrità dei cluster AKS e delle istanze di contenitore in Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 1055e2228c6625ae24e6bf388cf297e3e3363666
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a29890f569c47c48aae7d5d61badee7edeef58a0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723385"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441517"
 ---
 # <a name="container-insights-overview"></a>Panoramica di container Insights
 
@@ -58,7 +58,7 @@ Le principali differenze nel monitoraggio di un cluster di Windows Server rispet
 
 Vedere il video seguente che fornisce un approfondimento di livello intermedio per informazioni sul monitoraggio del cluster AKS con informazioni dettagliate sul contenitore.
 
-> [!VIDEO https://youtu.be/XEdwGvS2AwA]
+> [!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
 
 ## <a name="how-do-i-access-this-feature"></a>Come si accede a questa funzionalità?
 

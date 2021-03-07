@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 683da659dcfa07c0a105382f4cc93d1f4dfb21b5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 54b650d598cf19e061465b3a4fa18d50808e7f29
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219537"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426162"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analizzare i dati con pool SQL dedicati
 
@@ -77,11 +77,12 @@ Azure Synapse Analytics offre la possibilità di analizzare i dati con un pool S
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Esplorare i dati dei taxi di New York nel pool SQL dedicato
 
 1. In Synapse Studio passare all'hub **Data** (Dati).
+1. Verrà visualizzato un database denominato **SQLPOOL1**. Se non viene visualizzato, fare clic su **Aggiorna**.
 1. Passare a **SQLPOOL1** > **Tabelle**. 
-1. Fare clic con il pulsante destro del mouse sulla tabella **dbo.Trip** e selezionare **New SQL Script** > **Select TOP 100 Rows** (Nuovo script SQL > Seleziona prime 100 righe).
-1. Attendere mentre viene creato ed eseguito un nuovo script SQL.
-1. Si noti che nella parte superiore dello script SQL la sezione **Connetti a** è impostata automaticamente sul pool SQL denominato **SQLPOOL1**.
-1. Sostituire il testo dello script SQL con il codice ed eseguirlo.
+3. Fare clic con il pulsante destro del mouse sulla tabella **dbo.Trip** e selezionare **New SQL Script** > **Select TOP 100 Rows** (Nuovo script SQL > Seleziona prime 100 righe).
+4. Attendere mentre viene creato ed eseguito un nuovo script SQL.
+5. Si noti che nella parte superiore dello script SQL la sezione **Connetti a** è impostata automaticamente sul pool SQL denominato **SQLPOOL1**.
+6. Sostituire il testo dello script SQL con il codice ed eseguirlo.
 
     ```sql
     SELECT PassengerCount,

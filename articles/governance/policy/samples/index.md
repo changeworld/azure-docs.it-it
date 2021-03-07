@@ -3,12 +3,12 @@ title: Indice di esempi di criteri
 description: Indice dei criteri predefiniti di Criteri di Azure. Tag delle categorie, conformità alle normative, Key Vault, Kubernetes, configurazione Guest e altro ancora.
 ms.date: 01/29/2021
 ms.topic: sample
-ms.openlocfilehash: ae016e42af582847b871624844773ed971ef583d
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 5e235d5a1a2c548c9c5b2779e7042a45c4218625
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095597"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435087"
 ---
 # <a name="azure-policy-samples"></a>Esempi di Criteri di Azure
 
@@ -39,6 +39,7 @@ Di seguito sono riportati i servizi predefiniti di [conformità alle normativa](
 
 - [Azure Security Benchmark v2](./azure-security-benchmark.md)
 - [Azure Security Benchmark v1](./azure-security-benchmarkv1.md)
+- [1.3.0 di base di Microsoft Azure CIS per le fondamenta v](./cis-azure-1-3-0.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
 - [Livello CMMC 3](./cmmc-l3.md)
 - [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md)

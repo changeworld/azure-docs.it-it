@@ -28,18 +28,18 @@ L'esercitazione illustra come:
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
 - Installare Visual Studio Code o Visual Studio.
-- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account Servizi multimediali.
-- Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](./access-api-howto.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
+- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).<br/>Assicurarsi di copiare i dettagli di accesso all'API in formato JSON o archiviare i valori necessari per connettersi all'account di servizi multimediali nel formato di file con estensione ENV usato in questo esempio.
+- Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](./access-api-howto.md) e salvare le credenziali. È necessario usarli per accedere all'API in questo esempio o immetterli nel formato di file. env. 
 - Una fotocamera o un dispositivo (ad esempio un portatile) usato per trasmettere un evento.
-- Un codificatore Live locale che converte i segnali dalla fotocamera in flussi inviati al servizio di streaming live di servizi multimediali, vedere [codificatori Live locali consigliati](recommended-on-premises-live-encoders.md). Il flusso deve essere in formato **RTMP** oppure **Smooth Streaming**.  
-- Per questo esempio, è consigliabile iniziare con un codificatore software come il software di streaming live di OBS Studio per iniziare. 
+- Un codificatore software locale che codifica il flusso della fotocamera e lo invia al servizio di streaming live di servizi multimediali usando il protocollo RTMP, vedere [codificatori Live locali consigliati](recommended-on-premises-live-encoders.md). Il flusso deve essere in formato **RTMP** oppure **Smooth Streaming**.  
+- Per questo esempio, è consigliabile iniziare con un codificatore software, ad esempio [Open Broadcast software OBS Studio](https://obsproject.com/download) , per semplificarne l'introduzione. 
 
 > [!TIP]
 > Assicurarsi di leggere [Live streaming with Azure Media Services v3](live-streaming-overview.md) (Streaming live con Servizi multimediali di Azure v3) prima di procedere. 
 
 ## <a name="download-and-configure-the-sample"></a>Scaricare e configurare l'esempio
 
-Clonare nel computer un repository GitHub contenente l'esempio .NET di streaming usando il comando seguente:  
+Clonare il repository dell'hub git seguente che contiene l'esempio di .NET streaming live nel computer usando il comando seguente:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
@@ -48,6 +48,9 @@ Clonare nel computer un repository GitHub contenente l'esempio .NET di streaming
 L'esempio di streaming live è disponibile nella cartella [Live](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Live).
 
 Aprire il file [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/appsettings.json) nel progetto scaricato. Sostituire i valori con le credenziali ottenute durante l'[accesso alle API](./access-api-howto.md).
+
+Si noti che è inoltre possibile utilizzare il formato di file con estensione ENV alla radice del progetto per impostare le variabili di ambiente solo una volta per tutti i progetti nel repository di esempi .NET. È sufficiente copiare il file Sample. env, compilare le informazioni ottenute dalla pagina di accesso all'API di servizi multimediali portale di Azure o dall'interfaccia della riga di comando di Azure.  Rinominare il file con estensione ENV di esempio in ". env" per utilizzarlo in tutti i progetti.
+Il file con estensione gitignore è già configurato per evitare la pubblicazione del contenuto di questo file nel repository con fork. 
 
 > [!IMPORTANT]
 > Questo esempio usa un suffisso univoco per ogni risorsa. Se si annulla il debug o si termina l'app senza eseguirla per intero, per l'account risulteranno disponibili più eventi live. <br/>Assicurarsi di arrestare gli eventi live in esecuzione. In caso contrario, verranno **fatturati**.
@@ -58,27 +61,24 @@ In questa sezione vengono esaminate le funzioni definite nel file [Program.cs](h
 
 L'esempio crea un suffisso univoco per ogni risorsa in modo che non si verifichino conflitti di nomi se si esegue l'esempio più volte senza effettuare la pulizia.
 
-> [!IMPORTANT]
-> Questo esempio usa un suffisso univoco per ogni risorsa. Se si annulla il debug o si termina l'app senza eseguirla per intero, per l'account risulteranno disponibili più eventi live. <br/>
-> Assicurarsi di arrestare gli eventi live in esecuzione. In caso contrario, verranno **fatturati**.
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Iniziare a usare le API di Servizi multimediali con .NET SDK
 
-Per iniziare a usare le API di Servizi multimediali con .NET, è necessario creare un oggetto **AzureMediaServicesClient**. Per eseguire questa operazione, specificare le credenziali necessarie per consentire al client di connettersi ad Azure tramite Azure AD. Nel codice clonato all'inizio dell'articolo, la funzione **GetCredentialsAsync** crea l'oggetto ServiceClientCredentials in base alle credenziali fornite nel file di configurazione locale. 
+Per iniziare a usare le API di Servizi multimediali con .NET, è necessario creare un oggetto **AzureMediaServicesClient**. Per eseguire questa operazione, specificare le credenziali necessarie per consentire al client di connettersi ad Azure tramite Azure AD. Nel codice clonato all'inizio dell'articolo, la funzione **GetCredentialsAsync** crea l'oggetto ServiceClientCredentials in base alle credenziali fornite nel file di configurazione locale (appsettings.json) o tramite il file delle variabili di ambiente. env che si trova nella radice del repository.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateMediaServicesClient)]
 
 ### <a name="create-a-live-event"></a>Creare un evento live
 
-Questa sezione mostra come creare un evento live di tipo **pass-through** (LiveEventEncodingType impostato su None). Per altre informazioni sui tipi di Eventi live disponibili, vedere [Tipi di eventi live](live-events-outputs-concept.md#live-event-types). 
+Questa sezione mostra come creare un evento live di tipo **pass-through** (LiveEventEncodingType impostato su None). Per altre informazioni sugli altri tipi disponibili di eventi live, vedere [tipi di eventi live](live-events-outputs-concept.md#live-event-types). Oltre al pass-through, è possibile usare un evento live di transcodifica Live per la codifica cloud con velocità in bit adattiva 720P o 1080P. 
  
 Alcune caratteristiche che è possibile specificare durante la creazione dell'evento live sono:
 
-* Località di Servizi multimediali.
-* Protocollo di streaming per l'evento live (attualmente, sono supportati i protocolli RTMP e Smooth Streaming).<br/>Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione dell'evento live o degli output live associati. Se sono necessari protocolli diversi, è necessario creare eventi live separati per ogni protocollo di streaming.  
+* Il protocollo di inserimento per l'evento Live (attualmente, i protocolli RTMP e Smooth Streaming sono supportati).<br/>Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione dell'evento live o degli output live associati. Se sono necessari protocolli diversi, è necessario creare eventi live separati per ogni protocollo di streaming.  
 * Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo evento live. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').<br/>Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.<br/>Gli indirizzi IP devono essere in uno dei formati seguenti: Indirizzo IpV4 con quattro numeri o intervallo di indirizzi CIDR.
 * Quando si crea l'evento, è possibile impostarne l'avvio automatico. <br/>Quando l'avvio automatico è impostato su true, l'evento live verrà avviato dopo la creazione. Ciò significa che la fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing.md).
-* Per un URL di inserimento predittivo, impostare la modalità di "reindirizzamento a microsito". Per informazioni dettagliate, vedere [URL di inserimento di eventi live](live-events-outputs-concept.md#live-event-ingest-urls).
+Sono disponibili anche modalità standby per avviare l'evento live con uno stato "allocato" del costo inferiore che rende più veloce lo spostamento allo stato "in esecuzione". Questa operazione è utile per situazioni come hotpools che devono distribuire rapidamente i canali ai flussi.
+* Affinché un URL di inserimento sia predittivo e più semplice da gestire in un codificatore Live basato su hardware, impostare la proprietà "useStaticHostname" su true. Per informazioni dettagliate, vedere [URL di inserimento di eventi live](live-events-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveEvent)]
 
@@ -101,15 +101,27 @@ Usare previewEndpoint per visualizzare in anteprima e verificare che l'input dal
 
 Dopo l'avvio del flusso nell'evento live, è possibile iniziare l'evento di streaming creando un asset, un output live e un localizzatore di streaming. In questo modo il flusso viene archiviato e reso disponibile agli utenti tramite l'endpoint di streaming.
 
+Quando si apprendono questi concetti, è preferibile considerare l'oggetto "asset" come il nastro da inserire in un registratore video nei giorni precedenti. "Output Live" è il computer registratore di nastri. "Evento live" è solo il segnale video che si trova nella parte posteriore del computer.
+
+Per prima cosa creare il segnale creando il "evento live".  Il segnale non viene propagato fino a quando non si avvia l'evento Live e si connette il codificatore all'input.
+
+Il nastro può essere creato in qualsiasi momento. Si tratta semplicemente di una "risorsa" vuota che verrà passata all'oggetto di output attivo, ovvero il registratore del nastro in questa analogia.
+
+Il registratore di nastri può essere creato in qualsiasi momento. Il che significa che è possibile creare un output Live prima di avviare il flusso del segnale o dopo. Se è necessario velocizzare le operazioni, è talvolta utile crearlo prima di avviare il flusso del segnale.
+
+Per arrestare il registratore del nastro, chiamare delete in LiveOutput. Il contenuto non viene eliminato dal "asset" del nastro.  L'asset viene sempre mantenuto con il contenuto video archiviato fino a quando non si chiama Delete in modo esplicito nell'asset.
+
+Nella sezione successiva verrà illustrata la creazione dell'asset ("Tape") e l'output Live ("registratore di nastri").
+
 #### <a name="create-an-asset"></a>Creare un asset
 
-Creare un asset utilizzabile dall'output live.
+Creare un asset utilizzabile dall'output live. Nell'analogia precedente, questo sarà il nastro in cui viene registrato il segnale video live. I visualizzatori saranno in grado di visualizzare il contenuto in tempo reale o su richiesta da questo nastro virtuale.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateAsset)]
 
 #### <a name="create-a-live-output"></a>Creare un output live
 
-Gli output live iniziano al momento della creazione e terminano quando vengono eliminati. Quando si elimina l'output live, non si elimina l'asset sottostante e il contenuto dell'asset.
+Gli output live iniziano al momento della creazione e terminano quando vengono eliminati. Questo sarà il "registratore di nastri" per l'evento. Quando si elimina l'output Live, non viene eliminato l'asset o il contenuto sottostante nell'asset. Considerarlo come l'espulsione del nastro. L'asset con la registrazione durerà fino a quando si desidera e quando viene espulso (ovvero, quando l'output Live viene eliminato) sarà disponibile per la visualizzazione su richiesta immediatamente. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveOutput)]
 
@@ -118,7 +130,7 @@ Gli output live iniziano al momento della creazione e terminano quando vengono e
 > [!NOTE]
 > Quando viene creato l'account Servizi multimediali, all'account viene aggiunto un endpoint di streaming **predefinito** nello stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md) e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato in **esecuzione** .
 
-Quando l'asset output live è stato pubblicato usando un localizzatore di streaming, l'evento live (fino alla lunghezza dell'intervallo DVR) continuerà a essere visualizzabile fino alla scadenza o all'eliminazione del localizzatore di streaming, a seconda del valore raggiunto per primo.
+Quando si pubblica l'asset usando un localizzatore di streaming, l'evento Live (fino alla lunghezza della finestra DVR) continuerà a essere visualizzabile fino alla scadenza o all'eliminazione del localizzatore di streaming, a seconda del valore che viene raggiunto per primo. Questo è il modo in cui è possibile rendere disponibile la registrazione "Tape" virtuale per visualizzare i destinatari in diretta e su richiesta. Lo stesso URL può essere usato per controllare l'evento Live, la finestra DVR o l'asset su richiesta al termine della registrazione (quando viene eliminato l'output Live).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateStreamingLocator)]
 

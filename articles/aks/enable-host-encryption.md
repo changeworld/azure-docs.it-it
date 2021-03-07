@@ -4,12 +4,12 @@ description: Informazioni su come configurare una crittografia basata su host in
 services: container-service
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: 66e71dfd6a76fb4e6b464eb5c44dcc809fb9be38
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f4e599ae7aa81c15f86d0e8b1c934824010ea45b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039734"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430156"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Crittografia basata su host in Azure Kubernetes Service (AKS) (anteprima)
 
@@ -48,7 +48,7 @@ az extension update --name aks-preview
 
 ### <a name="limitations"></a>Limitazioni
 
-- Può essere abilitato solo nei nuovi pool di nodi o in nuovi cluster.
+- Può essere abilitato solo nei nuovi pool di nodi.
 - Può essere abilitato solo nelle [aree di Azure][supported-regions] che supportano la crittografia lato server di Azure Managed disks e solo con specifiche [dimensioni di VM supportate][supported-sizes].
 - Richiede un cluster AKS e un pool di nodi in base ai set di scalabilità di macchine virtuali (VMSS) come *tipo di set di VM*.
 

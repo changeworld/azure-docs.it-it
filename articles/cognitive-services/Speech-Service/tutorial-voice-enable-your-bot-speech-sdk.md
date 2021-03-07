@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee7116efe931d101a1505bc2d9d866d8ea5b92a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d91bfee228b946ff564f6d080976f9ce5c12caa4
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943444"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426264"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Esercitazione: abilitare il bot tramite l'SDK vocale
 
@@ -69,7 +69,7 @@ Per completare questa esercitazione, è necessario eseguire le operazioni seguen
 
 L'app client che verrà creata in questa esercitazione usa alcuni servizi di Azure. Per ridurre il tempo di round trip per le risposte dal bot, è necessario assicurarsi che questi servizi si trovino nella stessa area di Azure. In questa sezione verrà creato un gruppo di risorse nell'area **Stati Uniti occidentali** . Questo gruppo di risorse verrà usato durante la creazione di singole risorse per bot Framework, il canale di riconoscimento vocale diretto e il servizio di riconoscimento vocale.
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Creare un gruppo di risorse <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Creare un gruppo di risorse </a>
 1. Verrà richiesto di fornire alcune informazioni:
    * Impostare la **sottoscrizione** per la **versione di valutazione gratuita** . è anche possibile usare una sottoscrizione esistente.
    * Immettere un nome per il **gruppo di risorse**. Si consiglia **SpeechEchoBotTutorial-ResourceGroup**.
@@ -95,7 +95,7 @@ Ora che si dispone di un gruppo di risorse in un'area supportata, il passaggio s
 
 Seguire queste istruzioni per creare una risorsa vocale:
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Creare una risorsa del servizio vocale <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Creare una risorsa del servizio vocale </a>
 4. Verrà richiesto di fornire alcune informazioni:
    * Assegnare un **nome** alla risorsa. Si consiglia **di SpeechEchoBotTutorial-Speech**
    * Per **Subscription (sottoscrizione**), verificare che sia selezionata la **versione di valutazione gratuita** .
@@ -115,7 +115,7 @@ A questo punto, verificare che il gruppo di risorse (**SpeechEchoBotTutorial-Res
 
 Il passaggio successivo consiste nel creare un piano di servizio app. Un piano di servizio app definisce un set di risorse di calcolo per l'esecuzione di un'app Web.
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate" target="_blank">Creare un piano di servizio app Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate" target="_blank">Creare un piano di servizio app Azure </a>
 4. Verrà richiesto di fornire alcune informazioni:
    * Impostare la **sottoscrizione** per la **versione di valutazione gratuita** . è anche possibile usare una sottoscrizione esistente.
    * Per **gruppo di risorse** selezionare **SpeechEchoBotTutorial-ResourceGroup**.
@@ -236,7 +236,7 @@ Il passaggio successivo consiste nel distribuire Echo bot in Azure. Ci sono alcu
 
 Ora che è stato creato un servizio di app Azure per ospitare il bot, il passaggio successivo consiste nel creare una **registrazione dei canali bot**. La creazione di una registrazione del canale è un prerequisito per la registrazione del bot con i canali di bot Framework, incluso il canale vocale diretto. Per altre informazioni sul modo in cui i bot usano i canali, vedere [connettere un bot ai canali](/azure/bot-service/bot-service-manage-channels).
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Creare una registrazione per i canali di Azure bot <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Creare una registrazione per i canali di Azure bot </a>
 2. Verrà richiesto di fornire alcune informazioni:
    * Per **handle bot** immettere **SpeechEchoBotTutorial-BotRegistration-# # # #** e sostituire **####** con l'utente selezionato. Si noti che l'handle bot deve essere univoco a livello globale. Se si immette un handle bot ma si ottiene il messaggio di errore _l'ID bot richiesto non è disponibile_, selezionare un numero diverso. Negli esempi seguenti è stato usato 8726
    * Per **sottoscrizione** selezionare **versione di valutazione gratuita**.

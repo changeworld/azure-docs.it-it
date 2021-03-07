@@ -40,7 +40,9 @@
       href: connected-cache-disconnected-device-update.md
     - name: Configurare la cache connessa Microsoft per l'aggiornamento del dispositivo per l'hub Internet
       href: connected-cache-configure.md
-    - name: Schema correlato all'importazione e altre informazioni
+    - name: Importazione degli aggiornamenti del dispositivo
+      href: import-concepts.md
+    - name: Schema correlato all'importazione
       href: import-schema.md
 - name: Guide pratiche
   items:

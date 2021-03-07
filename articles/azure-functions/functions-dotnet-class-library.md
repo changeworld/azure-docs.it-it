@@ -4,12 +4,12 @@ description: Informazioni su come usare C# per sviluppare e pubblicare codice es
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: e29b250b25bdafb2b3af26f5669f2ae5ed485457
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 748b4a2a6af1c0183e28af8da732bc90531bee29
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041196"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428403"
 ---
 # <a name="develop-c-functions-using-azure-functions"></a>Sviluppare funzioni C# con funzioni di Azure
 
@@ -23,24 +23,40 @@ Questo articolo è un'introduzione allo sviluppo di Funzioni di Azure tramite C#
 Gli sviluppatori C# possono anche essere interessati a uno degli articoli seguenti:
 
 | Guida introduttiva | Concetti| Apprendimento guidato/esempi |
-| -- | -- | -- | 
+|--| -- |--| 
 | <ul><li>[Con Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Uso di Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Uso degli strumenti da riga di comando](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li><li>[Sviluppo di Visual Studio](functions-develop-vs.md)</li><li>[Inserimento delle dipendenze](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Esempi per C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Funzioni di Azure supporta i linguaggi di programmazione C# e script C#. Per materiale sussidiario sull'[uso di C# nel portale di Azure](functions-create-function-app-portal.md), vedere [Guida di riferimento a per sviluppatori di script C# (.csx)](functions-reference-csharp.md).
 
 ## <a name="supported-versions"></a>Versioni supportate
 
-Le versioni del runtime di funzioni funzionano con versioni specifiche di .NET. La tabella seguente mostra il livello più elevato di .NET Core e .NET Framework e .NET Core che possono essere usati con una versione specifica di funzioni nel progetto. 
+Le versioni del runtime di funzioni funzionano con versioni specifiche di .NET. Per altre informazioni sulle versioni di funzioni, vedere [Panoramica delle versioni del runtime di funzioni di Azure](functions-versions.md)
+
+La tabella seguente mostra il livello più elevato di .NET Core o .NET Framework utilizzabile con una versione specifica di funzioni. 
 
 | Versione del runtime di funzioni | Versione massima di .NET |
 | ---- | ---- |
-| Funzioni 3. x | .NET Core 3.1<br/>.NET 5,0<sup>*</sup> |
-| Funzioni 2.x | .NET Core 2.2 |
+| Funzioni 3. x | .NET Core 3.1<br/>.NET 5,0<sup>1</sup> |
+| Funzioni 2.x | .NET Core 2,2<sup>2</sup> |
 | Funzioni 1.x | .NET Framework 4.7 |
 
-<sup>*</sup> Deve eseguire [out-of-process](dotnet-isolated-process-guide.md).
+<sup>1</sup> deve eseguire [out-of-process](dotnet-isolated-process-guide.md).  
+<sup>2</sup> per informazioni dettagliate, vedere [considerazioni sulle funzioni V2. x](#functions-v2x-considerations).   
 
-Per altre informazioni, vedere [Panoramica delle versioni del runtime di funzioni di Azure](functions-versions.md)
+Per le ultime notizie sulle versioni di funzioni di Azure, inclusa la rimozione di versioni secondarie precedenti specifiche, monitorare [app Azure annunci di servizio](https://github.com/Azure/app-service-announcements/issues).
+
+### <a name="functions-v2x-considerations"></a>Considerazioni sulle funzioni V2. x
+
+Le app per le funzioni destinate alla versione 2. x più recente ( `~2` ) vengono aggiornate automaticamente per l'esecuzione in .NET Core 3,1. A causa delle modifiche di rilievo tra le versioni di .NET Core, non tutte le app sviluppate e compilate con .NET Core 2,2 possono essere aggiornate in modo sicuro a .NET Core 3,1. È possibile rifiutare esplicitamente l'aggiornamento mediante l'aggiunta dell'app per le funzioni a `~2.0` . Le funzioni rilevano anche API incompatibili e possono aggiungere l'app a `~2.0` per impedire l'esecuzione errata in .NET Core 3,1. 
+
+>[!NOTE]
+>Se l'app per le funzioni è bloccata `~2.0` e si modifica questa destinazione della versione in `~2` , l'app per le funzioni potrebbe interrompersi. Se si esegue la distribuzione usando i modelli ARM, controllare la versione nei modelli. In tal caso, ripristinare la versione di destinazione `~2.0` e correggere i problemi di compatibilità. 
+
+Le app per le funzioni che hanno come destinazione `~2.0` continuano a essere eseguite in .NET Core 2,2. Questa versione di .NET Core non riceve più aggiornamenti della sicurezza e altri aggiornamenti di manutenzione. Per altre informazioni, vedere [Questa pagina di annuncio](https://github.com/Azure/app-service-announcements/issues/266). 
+
+È consigliabile lavorare per rendere le funzioni compatibili con .NET Core 3,1 appena possibile. Dopo aver risolto questi problemi, modificare la versione o eseguire l' `~2` aggiornamento a `~3` . Per altre informazioni sulla destinazione delle versioni del runtime di funzioni, vedere [How to target Azure Functions Runtime Versions](set-runtime-version.md).
+
+Quando si esegue in Linux in un piano Premium o dedicato (servizio app), si aggiunge la versione specificando invece la destinazione di un'immagine specifica impostando l' `linuxFxVersion` impostazione di configurazione del sito su `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice` per informazioni su come impostare `linuxFxVersion` , vedere [aggiornamenti manuali delle versioni in Linux](set-runtime-version.md#manual-version-updates-on-linux).
 
 ## <a name="functions-class-library-project"></a>Progetto di libreria di classi per Funzioni
 
@@ -90,7 +106,7 @@ L'attributo trigger specifica il tipo di trigger e associa i dati di input a un 
 
 ## <a name="method-signature-parameters"></a>Parametri di Method Signature
 
-Method Signature può contenere parametri diversi da quelli usati con l'attributo trigger. Ecco alcuni dei parametri aggiuntivi che è possibile includere:
+Method Signature può contenere parametri diversi da quelli usati con l'attributo trigger. Di seguito sono riportati alcuni degli altri parametri che è possibile includere:
 
 * [Associazioni di input e output](functions-triggers-bindings.md) contrassegnate come tali tramite la decorazione con attributi.  
 * Un parametro `ILogger` o `TraceWriter` ([solo versione 1.x](functions-versions.md#creating-1x-apps)) per la [registrazione](#logging).
@@ -147,7 +163,7 @@ public static class BindingExpressionsExample
 
 Il processo di compilazione crea un file *function.json* in una cartella della funzione nella cartella di compilazione. Come affermato in precedenza, questo file non viene modificato direttamente. Non è possibile modificare la configurazione di associazione o disabilitare la funzione modificando il file. 
 
-Lo scopo di questo file è fornire informazioni al controller di scalabilità da usare per le [decisioni di scalabilità nel piano a consumo](event-driven-scaling.md). Per questo motivo il file contiene solo informazioni di trigger, non associazioni di input o output.
+Lo scopo di questo file è fornire informazioni al controller di scalabilità da usare per le [decisioni di scalabilità nel piano a consumo](event-driven-scaling.md). Per questo motivo, il file contiene solo le informazioni sul trigger, non le associazioni di input/output.
 
 Il file *function.json* generato include una proprietà `configurationSource` che indica al runtime di usare gli attributi .NET per le associazioni invece della configurazione *function.json*. Ecco un esempio:
 
@@ -172,7 +188,7 @@ Il file *function.json* generato include una proprietà `configurationSource` ch
 
 La generazione del file *function.json* viene eseguita dal pacchetto NuGet [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-Per le versioni 1.x e 2.x del runtime di Funzioni viene usato lo stesso pacchetto. Un progetto 1.x si distingue da un progetto 2.x in base al framework di destinazione. Ecco le parti rilevanti dei file con estensione *csproj* che mostrano i diversi framework di destinazione e lo stesso pacchetto `Sdk`:
+Per le versioni 1.x e 2.x del runtime di Funzioni viene usato lo stesso pacchetto. Un progetto 1.x si distingue da un progetto 2.x in base al framework di destinazione. Di seguito sono riportate le parti pertinenti dei file con *estensione csproj* , che mostrano diversi framework di destinazione con lo stesso `Sdk` pacchetto:
 
 # <a name="v2x"></a>[V2. x +](#tab/v2)
 
@@ -625,7 +641,7 @@ public static class IBinderExample
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) definisce l'associazione di input o output del [BLOB di archiviazione](functions-bindings-storage-blob.md) e [TextWriter](/dotnet/api/system.io.textwriter) è un tipo di associazione di output supportato.
 
-### <a name="multiple-attribute-example"></a>Esempio con più attributi
+### <a name="multiple-attributes-example"></a>Esempio di più attributi
 
 L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Ad esempio:
 

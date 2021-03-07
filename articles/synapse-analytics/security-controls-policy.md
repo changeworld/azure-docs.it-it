@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità normativi di criteri di Azure per Azure sinapsi Analytics
 description: Elenca i controlli di conformità alle normative di criteri di Azure disponibili per analisi sinapsi di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: sample
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: dc00f63087e38e89446f87449e2eed75e6add768
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 64d9d0c9727f8fad5a80608305806d5caa974a39
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092639"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439078"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-synapse-analytics"></a>Controlli di conformità normativi di criteri di Azure per Azure sinapsi Analytics
 

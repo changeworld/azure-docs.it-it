@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9b092c3c7382c984e8555125820c7c34d91f5e87
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 63817c8a65678579ce535a3c2e667e4eb0971a63
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048930"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434067"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: metriche
 
@@ -78,7 +78,7 @@ Metriche che è necessario eseguire con la fatturazione:
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operazioni dell'API di fatturazione | Conteggio | Totale | Metrica di fatturazione per il conteggio di tutte le richieste API effettuate nel servizio Azure Digital Twins. | Meter ID |
 | BillingMessagesProcessed | Messaggi di fatturazione elaborati | Conteggio | Totale | Metrica di fatturazione per il numero di messaggi inviati dai dispositivi gemelli digitali di Azure agli endpoint esterni.<br><br>Per essere considerato un singolo messaggio ai fini della fatturazione, un payload non deve avere una dimensione superiore a 1 KB. I payload di dimensioni maggiori di questo verranno conteggiati come messaggi aggiuntivi in incrementi di 1 KB (pertanto un messaggio compreso tra 1 e 2 KB verrà conteggiato come 2 messaggi, tra 2 e 3 KB sarà costituito da 3 messaggi e così via).<br>Questa restrizione si applica anche alle risposte, pertanto una chiamata che restituisce 1,5 KB nel corpo della risposta, ad esempio, verrà fatturata come 2 operazioni. | Meter ID |
-| BillingQueryUnits | Unità query di fatturazione | Conteggio | Totale | Il numero di unità di query, una misura calcolata internamente dell'utilizzo delle risorse del servizio, utilizzata per eseguire le query. È disponibile anche un'API helper per la misurazione delle unità di query: [classe QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet) | Meter ID |
+| BillingQueryUnits | Unità query di fatturazione | Conteggio | Totale | Il numero di unità di query, una misura calcolata internamente dell'utilizzo delle risorse del servizio, utilizzata per eseguire le query. È disponibile anche un'API helper per la misurazione delle unità di query: [classe QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper) | Meter ID |
 
 Per altri dettagli sul modo in cui vengono fatturati i dispositivi gemelli digitali di Azure, vedere prezzi di dispositivi [*gemelli digitali di Azure*](https://azure.microsoft.com/pricing/details/digital-twins/).
 

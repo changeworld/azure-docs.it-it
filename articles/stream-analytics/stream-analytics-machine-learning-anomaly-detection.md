@@ -2,16 +2,16 @@
 title: Rilevamento anomalie in Analisi di flusso di Azure
 description: Questo articolo descrive come rilevare le anomalie usando Analisi di flusso di Azure e Azure Machine Learning insieme.
 ms.service: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: jseb225
+ms.author: jeanb
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 78730b011e508f98779b9e00624882466d6a03a0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ec37ea6cbb1c1c6693aab1f6855948d32b85e95b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178496"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441194"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento anomalie in Analisi di flusso di Azure
 
@@ -29,7 +29,7 @@ Il video seguente illustra come rilevare un'anomalia in tempo reale usando le fu
 
 ## <a name="model-behavior"></a>Comportamento del modello
 
-Generalmente l'accuratezza del modello migliora se la finestra temporale scorrevole contiene più dati. I dati nella finestra temporale scorrevole specificata vengono trattati come parte del normale intervallo di valori per quell'intervallo di tempo. Il modello considera solo la cronologia eventi sulla finestra temporale scorrevole per verificare se l'evento corrente è anomalo. Man mano che la finestra temporale scorrevole scorre, i vecchi valori vengono rimossi dal training del modello.
+Generalmente l'accuratezza del modello migliora se la finestra temporale scorrevole contiene più dati. I dati nella finestra temporale scorrevole specificata vengono trattati come parte del normale intervallo di valori per quell'intervallo di tempo. Il modello considera solo la cronologia eventi sulla finestra temporale scorrevole per verificare se l'evento corrente è anomalo. Quando la finestra temporale scorrevole viene spostata, i valori precedenti vengono rimossi dal training del modello.
 
 Le funzioni operano stabilendo un valore normale certo basato su quanto rilevato fino a quel momento. Gli outlier vengono identificati mediante un confronto con il valore normale stabilito, entro il livello di attendibilità. Le dimensioni della finestra devono essere basate sul numero minimo di eventi necessari per eseguire il training del modello per il comportamento normale in modo che, quando si verifica un'anomalia, sia in grado di riconoscerla.
 
@@ -128,7 +128,7 @@ Quando si esegue il partizionamento della funzione in base a deviceId, aggiunger
 ### <a name="observations"></a>Osservazioni
 La tabella seguente include le osservazioni sulla velocità effettiva per un singolo nodo (6 SU) per il caso non partizionato:
 
-| Dimensioni cronologia (eventi) | Durata finestra (MS) | Totale eventi di input al secondo |
+| Dimensioni cronologia (eventi)    | Durata finestra (MS) | Totale eventi di input al secondo |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2.200 |
 | 600 | 728 | 1.650 |

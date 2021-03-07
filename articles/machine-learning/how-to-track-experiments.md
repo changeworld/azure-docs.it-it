@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9e5f64d9ef61a272da488ad70e690db4c07ddccc
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 0130af66152d4f70db47191ae2f271630a59e179
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625078"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441075"
 ---
 # <a name="enable-logging-in-ml-training-runs"></a>Abilitare la registrazione in esecuzioni di training ML
 
@@ -38,6 +38,37 @@ I log consentono di diagnosticare gli errori e gli avvisi o di tenete traccia di
 ## <a name="data-types"></a>Tipi di dati
 
 È possibile registrare più tipi di dati, tra cui valori scalari, elenchi, tabelle, immagini, directory e altro ancora. Per altre informazioni e per esempi di codice Python per tipi di dati diversi, vedere la [pagina di informazioni di riferimento sulla classe Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py).
+
+### <a name="logging-run-metrics"></a>Metrica di esecuzione della registrazione 
+
+Usare i metodi seguenti nelle API di registrazione per influenzare le visualizzazioni della metrica. Si notino i [limiti del servizio](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) per queste metriche registrate. 
+
+|Valore registrato|Codice di esempio| Formattare nel portale|
+|----|----|----|
+|Registra una matrice di valori numerici| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|Grafico a linee a singola variabile|
+|Registra un valore numerico singolo con lo stesso nome di metrica usato più volte (come in un ciclo for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Grafico a linee a singola variabile|
+|Registra più volte una riga con due colonne numeriche|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Grafico a linee a due variabili|
+|Registra una tabella con due colonne numeriche|`run.log_table(name='Sine Wave', value=sines)`|Grafico a linee a due variabili|
+|Immagine del log|`run.log_image(name='food', path='./breadpudding.jpg', plot=None, description='desert')`|Utilizzare questo metodo per registrare un file di immagine o un tracciato matplotlib nell'esecuzione. Queste immagini saranno visibili e confrontabili nel record di esecuzione|
+
+### <a name="logging-with-mlflow"></a>Registrazione con MLflow
+Usare MLFlowLogger per registrare le metriche.
+
+```python
+from azureml.core import Run
+# connect to the workspace from within your running code
+run = Run.get_context()
+ws = run.experiment.workspace
+
+# workspace has associated ml-flow-tracking-uri
+mlflow_url = ws.get_mlflow_tracking_uri()
+
+#Example: PyTorch Lightning
+from pytorch_lightning.loggers import MLFlowLogger
+
+mlf_logger = MLFlowLogger(experiment_name=run.experiment.name, tracking_uri=mlflow_url)
+mlf_logger._run_id = run.id
+```
 
 ## <a name="interactive-logging-session"></a>Sessione di registrazione interattiva
 

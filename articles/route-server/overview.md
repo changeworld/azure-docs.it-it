@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: overview
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 099f9b3769179076491c7c2098ec56faff9847dd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d868c064b96f58ab3febc1fd3b7f20b74d507cb0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039836"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437162"
 ---
 # <a name="what-is-azure-route-server-preview"></a>Che cos'è il server di route di Azure (anteprima)? 
 
@@ -37,7 +37,7 @@ Il server di route di Azure semplifica la configurazione, la gestione e la distr
 
 * Non è più necessario aggiornare manualmente le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md) ogni volta che l'appliance virtuale di sistema annuncia nuove route o ritira quelle obsolete. 
 
-* Non è più necessario configurare un servizio di bilanciamento del carico davanti all'appliance virtuale di sistema per motivi di resilienza o prestazioni. Quando si esegue il peering di più istanze dell'appliance virtuale di sistema con il server di route di Azure, è possibile configurare gli attributi BGP nell'appliance virtuale di Azure Questi attributi BGP consentono al server di routing di Azure quale istanza di appliance virtuale di Azure deve essere attiva o passiva. 
+* È possibile peering di più istanze dell'appliance virtuale di Azure con il server di route di Azure. È possibile configurare gli attributi BGP nell'appliance virtuale di sistema e, a seconda della progettazione (ad esempio, attivo-attivo per le prestazioni o attivo-passivo per la resilienza), lasciare che il server di route di Azure sappia quale istanza di appliance virtuale di sistema è attiva o quella passiva. 
 
 * L'interfaccia tra l'appliance virtuale di Azure e il server di route di Azure si basa su un protocollo standard comune. Fino a quando l'appliance virtuale di sistema supporta BGP, è possibile collegarlo al server di route di Azure. Per altre informazioni, vedere [protocolli di routing supportati da server di route](route-server-faq.md#protocol).
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8b2a61a92a25e1c0da9f85439438e75969fcfbf0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e86ea0d90ea267b1c9ceecc8fed6c3d7e5102eaf
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661019"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443574"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorare e visualizzare i log e le metriche per l'esecuzione di ML
 
@@ -78,20 +78,23 @@ Quando si usa **ScriptRunConfig**, è possibile usare ```run.wait_for_completion
 
 <a id="queryrunmetrics"></a>
 
-### <a name="logging-run-metrics"></a>Metrica di esecuzione della registrazione 
+## <a name="view-run-metrics"></a>Visualizzare le metriche di esecuzione
 
-Usare i metodi seguenti nelle API di registrazione per influenzare le visualizzazioni della metrica. Si notino i [limiti del servizio](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) per queste metriche registrate. 
+## <a name="via-the-sdk"></a>Tramite l'SDK
+È possibile visualizzare le metriche relative a un modello sottoposto a training usando ```run.get_metrics()```. Vedere l'esempio seguente. 
 
-|Valore registrato|Codice di esempio| Formattare nel portale|
-|----|----|----|
-|Registra una matrice di valori numerici| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|Grafico a linee a singola variabile|
-|Registra un valore numerico singolo con lo stesso nome di metrica usato più volte (come in un ciclo for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Grafico a linee a singola variabile|
-|Registra più volte una riga con due colonne numeriche|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Grafico a linee a due variabili|
-|Registra una tabella con due colonne numeriche|`run.log_table(name='Sine Wave', value=sines)`|Grafico a linee a due variabili|
+```python
+from azureml.core import Run
+run = Run.get_context()
+run.log('metric-name', metric_value)
 
-## <a name="query-run-metrics"></a>Eseguire query sulle metriche di esecuzione
+metrics = run.get_metrics()
+# metrics is of type Dict[str, List[float]] mapping mertic names
+# to a list of the values for that metric in the given run.
 
-È possibile visualizzare le metriche relative a un modello sottoposto a training usando ```run.get_metrics()```. Ad esempio, è possibile usarlo con l'esempio precedente per determinare il modello migliore cercando il modello con il valore medio di errore quadratico (MSE) più basso.
+metrics.get('metric-name')
+# list of metrics in the order they were recorded
+```
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 

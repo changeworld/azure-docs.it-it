@@ -139,7 +139,7 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
-    - name: Data
+    - name: Dati
       items:
         - name: Accesso ai dati
           href: concept-data.md
@@ -454,6 +454,8 @@
           href: how-to-understand-automated-ml.md
         - name: Usare il modello ONNX in un'applicazione .NET
           href: how-to-use-automl-onnx-model-dotnet.md
+        - name: Risolvere i problemi di Machine Learning automatici
+          href: how-to-troubleshoot-auto-ml.md
     - name: Distribuire e gestire modelli
       items:
         - name: Dove e come eseguire la distribuzione

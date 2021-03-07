@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: bccb6fa33007082737997c7282fb286c38e3bbd7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f19625f1d558071ccb29487efe56146756c7692c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466465"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437537"
 ---
 # <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Abilitare il registro contenitori perimetrale sul dispositivo GPU Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Questo articolo descrive come abilitare il registro contenitori perimetrale e usarlo dall'interno del cluster Kubernetes nel dispositivo Azure Stack Edge Pro. L'esempio usato nell'articolo descrive come eseguire il push di un'immagine da un registro di sistema di origine, in questo caso Microsoft container Registry, al registro di sistema nel dispositivo Azure Stack Edge, il registro contenitori perimetrale.
 
