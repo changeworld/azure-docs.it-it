@@ -3,25 +3,27 @@ title: Usare i tag degli indici BLOB per gestire e trovare i dati nell'archiviaz
 description: Vedere esempi di come usare i tag di indice BLOB per categorizzare, gestire ed eseguire query per gli oggetti BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/19/2020
+ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 32bb51751430dcd0208849f798d21f2b25e6b82b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95541250"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430871"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Usare i tag degli indici BLOB (anteprima) per gestire e trovare i dati nell'archiviazione BLOB di Azure
 
 I tag dell'indice BLOB categorizzano i dati nell'account di archiviazione usando gli attributi di tag chiave-valore. Questi tag vengono automaticamente indicizzati ed esposti come indice multidimensionale ricercabile per trovare facilmente i dati. Questo articolo illustra come impostare, ottenere e trovare i dati usando i tag indice BLOB.
 
-> [!NOTE]
-> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Canada centrale**, **Canada orientale**, **Francia centrale** e **Francia meridionale** . Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [gestire e trovare i dati BLOB di Azure con i tag di indice BLOB (anteprima)](storage-manage-find-blobs.md).
+> [!IMPORTANT]
+> I tag degli indici BLOB sono attualmente in **Anteprima** ed è disponibile nelle aree **Canada centrale**, **Canada orientale**, **Francia centrale** e **Francia meridionale** . Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali applicabili alle funzionalità di Azure disponibili in versione beta, di anteprima o non ancora rilasciate a livello generale.
+
+Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [gestire e trovare i dati BLOB di Azure con i tag di indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
