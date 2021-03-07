@@ -7,15 +7,17 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 02/14/2021
-ms.openlocfilehash: 7ca8a89cc93cc36d790eca7b19665e5bfed9695c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: e72e312e932e71d4dac8532983c2c96ba105ba3b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099104"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439477"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Il Centro sicurezza di Azure è disponibile rispetto ad Azure Defender abilitato
 Azure Defender è gratuito per i primi 30 giorni. Al termine dei 30 giorni, se si sceglie di continuare a usare il servizio, l'utilizzo inizierà a essere addebitato automaticamente.
+
+È possibile eseguire l'aggiornamento dalla pagina dei **prezzi & impostazioni** , come descritto in [Guida introduttiva: abilitare Azure Defender](enable-azure-defender.md). Per informazioni dettagliate sui prezzi nella valuta scelta e in base alla propria area, vedere [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="what-are-the-benefits-of-enabling-azure-defender"></a>Quali sono i vantaggi dell'abilitazione di Azure Defender?
 
@@ -70,14 +72,14 @@ Il Centro sicurezza prevede due offerte:
 ### <a name="how-do-i-enable-azure-defender-for-my-subscription"></a>Come abilitare Azure Defender per la sottoscrizione? 
 Per abilitare Azure Defender per la sottoscrizione, è possibile usare uno dei metodi seguenti: 
 
-|Metodo  |Istruzioni  |
-|---------|---------|
-|Pagine del Centro sicurezza di Azure nel portale di Azure|[Abilitare Azure Defender](enable-azure-defender.md)|
-|API REST|[API di prezzi](/rest/api/securitycenter/pricings)|
-|Interfaccia della riga di comando di Azure|[az security pricing](/cli/azure/security/pricing)|
-|PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
-|Criteri di Azure|[Prezzi del bundle](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json)|
-|||
+| Metodo                                          | Istruzioni                                                                                                                                       |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Pagine del Centro sicurezza di Azure nel portale di Azure | [Abilitare Azure Defender](enable-azure-defender.md)                                                                                                  |
+| API REST                                        | [API di prezzi](/rest/api/securitycenter/pricings)                                                                                                  |
+| Interfaccia della riga di comando di Azure                                       | [az security pricing](/cli/azure/security/pricing)                                                                                                 |
+| PowerShell                                      | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |
+| Criteri di Azure                                    | [Prezzi del bundle](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
+|                                                 |                                                                                                                                                    |
 
 ### <a name="can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription"></a>È possibile abilitare Azure Defender per i server in un subset di server nella sottoscrizione?
 No. Quando si abilita [Azure Defender per i server](defender-for-servers-introduction.md) in una sottoscrizione, verranno protetti dal servizio tutti i server al suo interno. 

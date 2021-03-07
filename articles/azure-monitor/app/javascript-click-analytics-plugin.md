@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: 5ad3e1a5a4ff47fe3d5fee8b8bc79235838995b8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e48d669321ad8c58681e8a92e68f2089962bdc17
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593632"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102429851"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Fare clic sul plug-in di analisi automatica della raccolta per Application Insights JavaScript SDK
 
@@ -315,4 +315,4 @@ appInsights.loadAppInsights();
 - Vedere il [repository GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) e il [pacchetto NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) per il plug-in di analisi automatica della raccolta dei clic.
 - Usare l' [analisi degli eventi in esperienza di utilizzo](usage-segmentation.md) per analizzare i primi clic e sezionare in base alle dimensioni disponibili.
 - Trovare fare clic su dati sotto il campo contenuto all'interno dell'attributo customDimensions nella tabella CustomEvents in [log Analytics](../logs/log-analytics-tutorial.md#write-a-query). Per ulteriori informazioni, vedere l' [app di esempio](https://go.microsoft.com/fwlink/?linkid=2152871) .
-- Compilare una [cartella di lavoro](../visualize/workbooks-overview.md) per creare visualizzazioni personalizzate dei dati di clic.
+- Compilare una [cartella di lavoro](../visualize/workbooks-overview.md) o un' [esportazione per Power bi](../logs/log-powerbi.md#integrating-queries) per creare visualizzazioni personalizzate dei dati di clic.

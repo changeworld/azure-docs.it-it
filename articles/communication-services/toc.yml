@@ -88,40 +88,40 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Concetti sulle chiamate vocali e video
           href: concepts/voice-video-calling/about-call-types.md
+        - name: Flussi di chiamate
+          href: concepts/call-flows.md
+        - name: Topologie del flusso di chiamate
+          href: concepts/detailed-call-flows.md
     - name: Framework di interfaccia utente
       items:
         - name: Panoramica del Framework dell'interfaccia utente
           href: concepts/ui-framework/ui-sdk-overview.md
         - name: Funzionalità del Framework dell'interfaccia utente
           href: concepts/ui-framework/ui-sdk-features.md
-    - name: Interoperabilità di Teams
-      href: concepts/teams-interop.md
+    - name: Dati e operazioni
+      items:
+        - name: Eventi del servizio (EventGrid)
+          href: concepts/event-handling.md
+        - name: Registrazione e diagnostica
+          href: concepts/logging-and-diagnostics.md
+        - name: Metriche
+          href: concepts/metrics.md
+        - name: Risoluzione dei problemi
+          href: concepts/troubleshooting-info.md
+    - name: SDK e API REST
+      href: concepts/sdk-options.md
     - name: Architettura client e server
       href: concepts/client-and-server-architecture.md
-    - name: Flussi di chiamate
-      href: concepts/call-flows.md
-    - name: Topologie del flusso di chiamate
-      href: concepts/detailed-call-flows.md
-    - name: Librerie client e API REST
-      href: concepts/sdk-options.md
-    - name: Modello di prezzi
-      href: concepts/pricing.md
-    - name: Privacy
-      href: concepts/privacy.md
     - name: Modello di identità
       href: concepts/identity-model.md
     - name: Authentication
       href: concepts/authentication.md
-    - name: Gestione degli eventi
-      href: concepts/event-handling.md
-    - name: Notifiche
+    - name: Privacy
+      href: concepts/privacy.md
+    - name: Notifiche push
       href: concepts/notifications.md
-    - name: Registrazione e diagnostica
-      href: concepts/logging-and-diagnostics.md
-    - name: Metriche
-      href: concepts/metrics.md
-    - name: Risoluzione dei problemi
-      href: concepts/troubleshooting-info.md
+    - name: Interoperabilità di Teams
+      href: concepts/teams-interop.md
     - name: Problemi noti
       href: concepts/known-issues.md
 - name: Esempi

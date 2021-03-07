@@ -1,7 +1,6 @@
 ---
 title: Creare criteri di sicurezza personalizzati nel Centro sicurezza di Azure | Microsoft Docs
 description: Definizioni di criteri personalizzati di Azure monitorate nel Centro sicurezza di Azure.
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: a39b79c6c209c0fc66edac846d5458475ec75810
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100866"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441058"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Creare iniziative e criteri di sicurezza personalizzati
 
@@ -23,6 +22,9 @@ Per semplificare la protezione dei sistemi e dell'ambiente in uso, il Centro sic
 Con questa funzionalità è possibile aggiungere iniziative *personalizzate* . Si riceverà quindi una serie di raccomandazioni nel caso in cui l'ambiente non segua i criteri creati. Eventuali iniziative personalizzate create verranno visualizzate insieme alle iniziative predefinite nel dashboard della conformità normativa, come descritto nell'esercitazione [Migliorare la conformità alle normative](security-center-compliance-dashboard.md).
 
 Come illustrato nella [documentazione sui criteri di Azure](../governance/policy/concepts/definition-structure.md#definition-location), quando si specifica una posizione per l'iniziativa personalizzata, è necessario indicare un gruppo di gestione o una sottoscrizione. 
+
+> [!TIP]
+> Per una panoramica dei concetti chiave di questa pagina, vedere [che cosa sono i criteri di sicurezza, le iniziative e i consigli?](security-policy-concept.md).
 
 ::: zone pivot="azure-portal"
 

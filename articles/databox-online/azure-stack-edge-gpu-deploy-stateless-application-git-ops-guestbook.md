@@ -1,21 +1,23 @@
 ---
-title: Distribuire l' `PHP Guestbook` app in Arc abilitato Kubernetes nel dispositivo GPU Pro Azure stack Edge | Microsoft Docs
+title: Distribuire l' `Guestbook` app php in Arc abilitato Kubernetes nel dispositivo GPU Pro Azure stack Edge | Microsoft Docs
 description: Viene descritto come distribuire un' `Guestbook` applicazione php senza stato con Redis usando GitOps in un cluster Kubernetes con Arc abilitato del dispositivo Azure stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: ba72617444a2c7ec30e4d1d25afe1edcda16ff35
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f47f795335204ecd0c74463b76583d7dd79f8532
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804888"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436431"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Distribuire un' `Guestbook` applicazione php senza stato con Redis on Arc abilitata per il cluster Kubernetes sulla GPU Pro Azure stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Questo articolo illustra come creare e distribuire una semplice applicazione Web multilivello con Kubernetes e Azure Arc. Questo esempio è costituito dai componenti seguenti:
 

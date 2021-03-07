@@ -4,6 +4,8 @@
   items:
     - name: Informazioni sulla soluzione Azure VMware
       href: introduction.md
+    - name: Aggiornamenti della piattaforma
+      href: azure-vmware-solution-platform-updates.md
 - name: Avvio rapido
   items:
     - name: 0 - Pianificare la distribuzione

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e4ae8a09a554afe232091b68888af17dfa096771
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024943"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426470"
 ---
 # <a name="what-is-custom-commands"></a>Che cosa sono i comandi personalizzati?
 
@@ -36,7 +36,7 @@ I candidati validi per i comandi personalizzati hanno un vocabolario fisso con s
 
 ## <a name="getting-started-with-custom-commands"></a>Introduzione ai comandi personalizzati
 
-Il nostro obiettivo con i comandi personalizzati è quello di ridurre il carico cognitivo per apprendere tutte le diverse tecnologie e concentrare la creazione dell'app per i comandi vocali. Primo passaggio per l'uso di comandi personalizzati per <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">creare una risorsa <span class="docon docon-navigate-external x-hidden-focus"></span> vocale di Azure </a>. È possibile creare l'app per i comandi personalizzati in speech studio e pubblicarla, dopo la quale un'applicazione su dispositivo può comunicare con l'app usando l'SDK di riconoscimento vocale.
+Il nostro obiettivo con i comandi personalizzati è quello di ridurre il carico cognitivo per apprendere tutte le diverse tecnologie e concentrare la creazione dell'app per i comandi vocali. Primo passaggio per l'uso di comandi personalizzati per <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">creare una risorsa vocale di Azure </a>. È possibile creare l'app per i comandi personalizzati in speech studio e pubblicarla, dopo la quale un'applicazione su dispositivo può comunicare con l'app usando l'SDK di riconoscimento vocale.
 
 #### <a name="authoring-flow-for-custom-commands"></a>Creazione di un flusso per i comandi personalizzati
    ![Creazione di un flusso per i comandi personalizzati](media/voice-assistants/custom-commands-flow.png "Flusso di creazione dei comandi personalizzati")

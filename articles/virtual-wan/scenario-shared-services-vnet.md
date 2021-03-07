@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8e0d05d2cb960e760809ab35a8f9e4ca04acf250
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461465"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442962"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scenario: routing ai servizi condivisi reti virtuali
 
@@ -30,9 +30,9 @@ Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul 
 
 | Da             | Con:   |*Reti virtuali isolato*|*VNet condiviso*|*Rami*|
 |---|---|---|---|---|
-|**Reti virtuali isolato**|&#8594;|        | Connessione diretta | Connessione diretta |
-|**Reti virtuali condiviso**  |&#8594;| Connessione diretta | Connessione diretta | Connessione diretta |
-|**Rami**      |&#8594;| Connessione diretta | Connessione diretta | Connessione diretta |
+|**Reti virtuali isolato**| ->|        | Connessione diretta | Connessione diretta |
+|**Reti virtuali condiviso**  |->| Connessione diretta | Connessione diretta | Connessione diretta |
+|**Rami**      |->| Connessione diretta | Connessione diretta | Connessione diretta |
 
 Ognuna delle celle della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga) comunica con una destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo). In questo scenario non sono presenti firewall o appliance virtuali di rete, quindi la comunicazione scorre direttamente sulla rete WAN virtuale, quindi la parola "Direct" nella tabella.
 
@@ -69,13 +69,13 @@ Per configurare lo scenario, prendere in considerazione i passaggi seguenti:
 
    * **Propagazione**
       * Per i **rami**, è possibile propagare le route a questa tabella di route, oltre a qualsiasi altra tabella di route già selezionata. A causa di questo passaggio, la tabella di route RT_SHARED apprenderà le route da tutte le connessioni ramo (VPN/ER/VPN utente).
-      * Per **reti virtuali**selezionare il **VNet dei servizi condivisi**. A causa di questo passaggio, RT_SHARED tabella di route apprenderà le route dalla connessione VNet dei servizi condivisi.
+      * Per **reti virtuali** selezionare il **VNet dei servizi condivisi**. A causa di questo passaggio, RT_SHARED tabella di route apprenderà le route dalla connessione VNet dei servizi condivisi.
 
 Questa operazione comporterà la configurazione del routing mostrata nella figura seguente:
 
-   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Servizi condivisi VNet" lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
+   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Diagramma per i servizi condivisi VNet." lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sulla rete WAN virtuale, vedere le [domande frequenti](virtual-wan-faq.md).
+* Per configurare usando un modello ARM, vedere [Guida introduttiva: indirizzare i servizi condivisi reti virtuali usando un modello ARM](quickstart-route-shared-services-vnet-template.md).
 * Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul routing di hub virtuali](about-virtual-hub-routing.md).

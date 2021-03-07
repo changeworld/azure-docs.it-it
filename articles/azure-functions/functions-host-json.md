@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 7ab60fb364eb3268a03c04bb4950251ae030f015
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 545b02ee8496c9530b263227d4138441f27f0cf9
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374049"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441704"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x e versioni successive 
 
@@ -345,7 +345,7 @@ Controlla i comportamenti di registrazione dell'app per le funzioni, tra cui App
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definisce il livello di registrazione dei file abilitato.  Le opzioni sono `never`, `always`, `debugOnly`. |
-|logLevel|n/d|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. Le versioni 2. x e successive seguono il layout ASP.NET Core per i filtri delle categorie di log. Questa impostazione consente di filtrare la registrazione per specifiche funzioni. Per altre informazioni, vedere [Filtro dei log](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) nella documentazione di ASP.NET Core. |
+|logLevel|n/d|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. Questa impostazione consente di filtrare la registrazione per specifiche funzioni. Per altre informazioni, vedere [configurare i livelli di registrazione](configure-monitoring.md#configure-log-levels). |
 |console|n/d| Impostazione di registrazione nella [console](#console). |
 |applicationInsights|n/d| Impostazione di [ApplicationInsights](#applicationinsights). |
 

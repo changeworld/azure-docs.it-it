@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/04/2021
-ms.openlocfilehash: 8b63565457498663250eb6ab5dc1361e43bbffaf
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.date: 03/04/2021
+ms.openlocfilehash: ec1ea7d727278076944b8cc11f47a1af587e6591
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585008"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440157"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Espressioni per la trasformazione dei dati nel flusso di dati per mapping
 
@@ -1196,7 +1196,74 @@ ___
 
 ## <a name="conversion-functions"></a>Funzioni di conversione
 
-Le funzioni di conversione vengono utilizzate per convertire i dati e i tipi di dati
+Le funzioni di conversione vengono utilizzate per convertire i dati e verificare i tipi di dati
+
+<code>isBoolean</code>
+<code><b>isBoolean(<value1> : string) => boolean</b></code><br/><br/>
+Verifica se il valore di stringa è un valore booleano in base alle regole di ``toBoolean()``
+* ``isBoolean('true') -> true``
+* ``isBoolean('no') -> true``
+* ``isBoolean('microsoft') -> false``
+
+<code>isByte</code>
+<code><b>isByte(<value1> : string) => boolean</b></code><br/><br/>
+Verifica se il valore di stringa è un valore byte dato un formato facoltativo in base alle regole di ``toByte()``
+* ``isByte('123') -> true``
+* ``isByte('chocolate') -> false``
+
+<code>isDate</code>
+<code><b>isDate (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+Controlla se la stringa della data di input è una data utilizzando un formato di data di input facoltativo. Fare riferimento a SimpleDateFormat di Java per i formati disponibili. Se il formato della data di input viene omesso, il formato predefinito è ``yyyy-[M]M-[d]d`` . I formati accettati sono ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``
+* ``isDate('2012-8-18') -> true``
+* ``isDate('12/18--234234' -> 'MM/dd/yyyy') -> false``
+
+<code>isShort</code>
+<code><b>isShort (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+I controlli del valore stringa sono un valore breve dato un formato facoltativo in base alle regole di ``toShort()``
+* ``isShort('123') -> true``
+* ``isShort('$123' -> '$###') -> true``
+* ``isShort('microsoft') -> false``
+
+<code>isInteger</code>
+<code><b>isInteger (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+I controlli del valore stringa sono un valore integer dato un formato facoltativo secondo le regole di ``toInteger()``
+* ``isInteger('123') -> true``
+* ``isInteger('$123' -> '$###') -> true``
+* ``isInteger('microsoft') -> false``
+
+<code>isLong</code>
+<code><b>isLong (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+I controlli del valore stringa sono un valore Long dato un formato facoltativo secondo le regole di ``toLong()``
+* ``isLong('123') -> true``
+* ``isLong('$123' -> '$###') -> true``
+* ``isLong('gunchus') -> false``
+
+<code>isFloat</code>
+<code><b>isFloat (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+I controlli del valore di stringa sono un valore float dato un formato facoltativo secondo le regole di ``toFloat()``
+* ``isFloat('123') -> true``
+* ``isFloat('$123.45' -> '$###.00') -> true``
+* ``isFloat('icecream') -> false``
+
+<code>isDouble</code>
+<code><b>isDouble (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+I controlli del valore stringa sono un valore Double dato un formato facoltativo secondo le regole di ``toDouble()``
+* ``isDouble('123') -> true``
+* ``isDouble('$123.45' -> '$###.00') -> true``
+* ``isDouble('icecream') -> false``
+
+<code>isDecimal</code>
+<code><b>isDecimal (<value1> : string) => boolean</b></code><br/><br/>
+I controlli del valore stringa sono un valore decimale dato un formato facoltativo secondo le regole di ``toDecimal()``
+* ``isDecimal('123.45') -> true``
+* ``isDecimal('12/12/2000') -> false``
+
+<code>isTimestamp</code>
+<code><b>isTimestamp (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+Controlla se la stringa della data di input è un timestamp usando un formato di timestamp di input facoltativo. Vedere SimpleDateFormat di Java per i formati disponibili. Se il timestamp viene omesso ``yyyy-[M]M-[d]d hh:mm:ss[.f...]`` , viene usato il criterio predefinito. È possibile passare un fuso orario facoltativo nel formato 'GMT', 'PST', 'UTC', 'America/Cayman'. Timestamp supporta la precisione fino a millisecondo con valore 999 per i formati disponibili in Java SimpleDateFormat.
+* ``isTimestamp('2016-12-31 00:12:00') -> true``
+* ``isTimestamp('2016-12-31T00:12:00' -> 'yyyy-MM-dd\\'T\\'HH:mm:ss' -> 'PST') -> true``
+* ``isTimestamp('2012-8222.18') -> false``
 
 ### <code>toBase64</code>
 <code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>

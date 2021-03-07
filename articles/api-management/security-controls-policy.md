@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità normativi di criteri di Azure per gestione API di Azure
 description: Elenca i controlli di conformità normativi di criteri di Azure disponibili per gestione API di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: sample
 author: dlepow
 ms.author: apimpm
 ms.service: api-management
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 8156c29ee74aee08581a44f87b37916cb68cdd37
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 70cb31691e4164b8f643bfc78319a909417a44ab
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092070"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440650"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-api-management"></a>Controlli di conformità normativi di criteri di Azure per gestione API di Azure
 

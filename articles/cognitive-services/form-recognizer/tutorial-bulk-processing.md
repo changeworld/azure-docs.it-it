@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: pafarley
-ms.openlocfilehash: d0c95312e1794e2f78bbbef217ef5530a993146d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5b220652009f54482c757f01232517569596c562
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040907"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423897"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-by-using-azure-data-factory"></a>Esercitazione: estrarre i dati del modulo in blocco usando Azure Data Factory
 
@@ -43,10 +43,11 @@ In questa esercitazione verranno illustrate le procedure per:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/cognitive-services/).
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" creare una risorsa di riconoscimento "  target="_blank"> del modulo creare una risorsa di riconoscimento del modulo <span class="docon docon-navigate-external x-hidden-focus"></span> </a> nella portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione della risorsa selezionare **Vai alla risorsa**.
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" creare una risorsa di riconoscimento "  target="_blank"> del modulo creare una risorsa di riconoscimento del modulo </a> nella portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione della risorsa selezionare **Vai alla risorsa**.
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Riconoscimento modulo. La chiave e l'endpoint verranno incollati nel codice più avanti in questa Guida introduttiva.
     * È possibile usare il piano tariffario gratuito (F0) per provare il servizio. Sarà quindi possibile eseguire l'aggiornamento in un secondo momento a un livello a pagamento per la produzione.
 * Un set di almeno cinque moduli dello stesso tipo. Se possibile, questo flusso di lavoro dovrebbe supportare set di documenti di grandi dimensioni. Vedere [creare un set di dati di training](./build-training-data-set.md) per suggerimenti e opzioni per riunire il set di dati di training. Per questa esercitazione, è possibile usare i file nella cartella Train del set di [dati di esempio](https://go.microsoft.com/fwlink/?linkid=2128080).
+
 
 ## <a name="project-architecture"></a>Architettura del progetto 
 

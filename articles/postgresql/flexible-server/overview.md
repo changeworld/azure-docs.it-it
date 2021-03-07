@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 03/03/2021
-ms.openlocfilehash: d36dcfccb6843947991b2548af6dd98b81adb40e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a080a3b536cb6e11a254f15d745334fbf17531e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049509"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439562"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Server flessibile di Database di Azure per PostgreSQL
 
@@ -102,7 +102,7 @@ Uno dei vantaggi offerti dall'esecuzione del carico di lavoro in Azure è la cop
 | Asia sud-orientale | :heavy_check_mark: | :heavy_check_mark: |
 | Giappone orientale | :heavy_check_mark: | :heavy_check_mark: | 
 
-Si continuerà ad aggiungere nuove aree geografiche. 
+Si continuerà ad aggiungere altre aree per il server flessibile.
 
 ## <a name="migration"></a>Migrazione
 
@@ -110,6 +110,16 @@ Il servizio esegue la versione community di PostgreSQL. Questo consente la compa
 
 - **Dump e ripristino**: per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, eseguire il dump e il ripristino usando strumenti della community come pg_dump e pg_restore può fornire una soluzione più rapida per la migrazione. Per ulteriori dettagli vedere [Eseguire la migrazione con dump e ripristino](../howto-migrate-using-dump-and-restore.md).
 - **Servizio Migrazione del database di Azure**: per migrazioni semplici e semplificate verso server flessibili con tempi di inattività minimi è possibile sfruttare il Servizio Migrazione del database di Azure. Vedere [Servizio Migrazione del database tramite portale](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) e [Servizio Migrazione del database tramite interfaccia della riga di comando](../../dms/tutorial-postgresql-azure-postgresql-online.md). È possibile eseguire la migrazione dal Database di Azure per PostgreSQL: da server singolo a server flessibile. Per informazioni dettagliate, vedere l'[articolo Servizio Migrazione del database](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md).
+
+## <a name="contacts"></a>Contatti
+Per eventuali domande o suggerimenti sul server flessibile database di Azure per PostgreSQL, inviare un messaggio di posta elettronica al team di database di Azure per PostgreSQL ([ @Ask Azure DB per PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Si noti che questo indirizzo di posta elettronica non è un alias del supporto tecnico.
+
+Inoltre, prendere in considerazione i seguenti punti di contatto in base alle specifiche esigenze:
+
+- Per contattare il supporto di Azure, [creare un ticket dal portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Per risolvere un problema relativo all'account, inviare una [richiesta di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) nel portale di Azure.
+- Per fornire commenti e suggerimenti o richiedere nuove funzionalità, creare una richiesta tramite [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

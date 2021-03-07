@@ -2,16 +2,16 @@
 title: Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI output
 description: Questo articolo descrive come usare identità gestite per autenticare il processo di analisi di flusso di Azure per Power BI output.
 ms.service: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: enkrumah
+ms.author: ebnkruma
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: bdc63765423f6ac269f1c66696717ffba12c8f16
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: b468df97f168562f4f5ce9e0e6d6e9a70835648b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183047"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436108"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI (anteprima)
 

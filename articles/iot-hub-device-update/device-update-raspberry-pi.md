@@ -1,17 +1,17 @@
 ---
 title: Esercitazione sull'aggiornamento del dispositivo per l'hub Azure. uso di Raspberry Pi 3 B + riferimento Yocto image | Microsoft Docs
 description: Introduzione all'aggiornamento del dispositivo per l'hub di Azure Internet con l'immagine Yocto di Raspberry Pi 3 B + Reference.
-author: vimeht
-ms.author: vimeht
+author: valls
+ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: bb992e4f33cc833411e7cce560f71adf1dc72076
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ca689df97e7268a5c0f7c0479e6514b98ffda9f2
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664880"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443455"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Esercitazione sull'aggiornamento del dispositivo per l'hub Azure. uso dell'immagine di riferimento di Raspberry Pi 3 B +
 
@@ -143,13 +143,11 @@ Usare tale numero di versione nel passaggio importa aggiornamento seguente.
 
 ## <a name="import-update"></a>Importa aggiornamento
 
-1. Selezionare l'opzione aggiornamenti del dispositivo in gestione automatica dispositivi dalla barra di spostamento a sinistra.
-
-2. Selezionare la scheda aggiornamenti.
-
-3. Selezionare "+ Importa nuovo aggiornamento".
-
-4. Selezionare l'icona della cartella o la casella di testo in "selezionare un file manifesto di importazione". Viene visualizzata una finestra di dialogo di selezione file. Selezionare il manifesto di importazione scaricato in precedenza. Selezionare quindi l'icona della cartella o la casella di testo in "selezionare uno o più file di aggiornamento". Viene visualizzata una finestra di dialogo di selezione file. Selezionare il file di aggiornamento del manifesto apt scaricato in precedenza.
+1. Creare un manifesto di importazione seguendo queste [istruzioni](import-update.md).
+2. Selezionare l'opzione aggiornamenti del dispositivo in gestione automatica dispositivi dalla barra di spostamento a sinistra.
+3. Selezionare la scheda aggiornamenti.
+4. Selezionare "+ Importa nuovo aggiornamento".
+5. Selezionare l'icona della cartella o la casella di testo in "selezionare un file manifesto di importazione". Viene visualizzata una finestra di dialogo di selezione file. Selezionare il manifesto di importazione creato in precedenza.  Selezionare quindi l'icona della cartella o la casella di testo in "selezionare uno o più file di aggiornamento". Viene visualizzata una finestra di dialogo di selezione file. Selezionare il file di aggiornamento che si desidera distribuire nei dispositivi Internet delle cose.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot che mostra la selezione del file di aggiornamento." lightbox="media/import-update/select-update-files.png":::
 

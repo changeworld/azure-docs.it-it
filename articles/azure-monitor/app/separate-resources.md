@@ -3,12 +3,12 @@ title: 'Come progettare la distribuzione di Application Insights: una o più ris
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3964cddcf27a4b2c7397b508ccb3cc8928bd04ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a60981e692a45dd3630073300b206289cfd2a30
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589536"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424666"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quante risorse Application Insights è necessario distribuire
 
@@ -32,6 +32,9 @@ Ogni risorsa di Application Insights viene fornita con metriche disponibili. Se 
 -   Se non è necessario gestire la fatturazione e le quote in modo diverso tra i componenti.
 -   Se è corretto avere una chiave API con lo stesso accesso ai dati di tutti i componenti e 10 chiavi API sono sufficienti per soddisfare le esigenze di tutti i componenti.
 -   Se è corretto avere le stesse impostazioni di rilevamento intelligente e di integrazione degli elementi di lavoro in tutti i ruoli.
+
+> [!NOTE]
+> Se si desidera consolidare più risorse di Application Insights, è possibile puntare i componenti dell'applicazione esistenti a una nuova risorsa Application Insights consolidata. I dati di telemetria archiviati nella risorsa precedente non verranno trasferiti alla nuova risorsa, quindi eliminare la risorsa precedente solo quando si dispone di dati di telemetria sufficienti nella nuova risorsa per la continuità aziendale.
 
 ### <a name="other-things-to-keep-in-mind"></a>Altri aspetti da considerare
 

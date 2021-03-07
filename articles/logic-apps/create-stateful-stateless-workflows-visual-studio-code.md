@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 0850830e6f8101feae80154a0e245196a690f276
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/05/2021
+ms.openlocfilehash: 941d866fbdea0efc5775bccd08e0235b1629fae0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050240"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440990"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creare flussi di lavoro con stato e senza stato in Visual Studio Code con l'estensione app per la logica di Azure (anteprima)
 
@@ -280,6 +280,7 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
    1. Sostituire il `AzureWebJobsStorage` valore della proprietà con la stringa di connessione dell'account di archiviazione salvata in precedenza, ad esempio:
 
       Prima di:
+
       ```json
       {
          "IsEncrypted": false,
@@ -291,6 +292,7 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
       ```
 
       Dopo:
+
       ```json
       {
          "IsEncrypted": false,
@@ -302,6 +304,22 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
       ```
 
    1. Al termine, assicurarsi di salvare le modifiche.
+
+<a name="enable-built-in-connector-authoring"></a>
+
+## <a name="enable-built-in-connector-authoring"></a>Abilitare la creazione di connettori incorporati
+
+È possibile creare connettori predefiniti per tutti i servizi necessari usando il [Framework di estendibilità della versione di anteprima](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Analogamente ai connettori incorporati, ad esempio il bus di servizio di Azure e SQL Server, questi connettori forniscono velocità effettiva più elevata, bassa latenza, connettività locale ed esecuzione nativa nello stesso processo del runtime di anteprima.
+
+La funzionalità di creazione è attualmente disponibile solo in Visual Studio Code, ma non è abilitata per impostazione predefinita. Per creare questi connettori, è necessario prima convertire il progetto da estensione basata su Bundle (Node.js) a NuGet basato su pacchetti (.NET).
+
+1. Nel riquadro di esplorazione, alla radice del progetto, spostare il puntatore del mouse su un'area vuota sotto tutti gli altri file e cartelle, aprire il menu di scelta rapida e selezionare **Converti in progetto di app per la logica basata su NuGet**.
+
+   ![Screenshot che mostra il riquadro di esplorazione con il menu di scelta rapida del progetto aperto da un'area vuota nella finestra del progetto.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
+
+1. Quando viene visualizzato il prompt, confermare la conversione del progetto.
+
+1. Per continuare, rivedere e seguire i passaggi descritti nell'articolo app per la [logica di Azure che eseguono l'estensibilità dei connettori incorporati in qualsiasi](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)posizione.
 
 <a name="open-workflow-definition-designer"></a>
 
@@ -1348,6 +1366,7 @@ Quando si tenta di avviare una sessione di debug, viene ricevuto l'errore **"err
 1. Nell'attività seguente, eliminare la riga, `"dependsOn: "generateDebugSymbols"` , insieme alla virgola che termina la riga precedente, ad esempio:
 
    Prima di:
+
    ```json
     {
       "type": "func",
@@ -1359,6 +1378,7 @@ Quando si tenta di avviare una sessione di debug, viene ricevuto l'errore **"err
    ```
 
    Dopo:
+
    ```json
     {
       "type": "func",

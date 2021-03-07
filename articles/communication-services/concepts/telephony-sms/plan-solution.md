@@ -10,21 +10,31 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 4ba8a6b530f3f3650959eac90bba5b05e3ac0643
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 8a811a033a2d6e2229c83899e237f996ccddd7b3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215409"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430412"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Tipi di numeri di telefono in Servizi di comunicazione di Azure
+
+
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
-> La disponibilità dei numeri di telefono è attualmente limitata alle sottoscrizioni di Azure con un indirizzo di fatturazione negli Stati Uniti. Per ulteriori informazioni, visitare la sezione [idoneità](#azure-subscriptions-eligibility) per la sottoscrizione di questo documento.
+> La disponibilità dei numeri di telefono è attualmente limitata alle sottoscrizioni di Azure a pagamento che dispongono di un indirizzo di fatturazione nelle risorse Stati Uniti e servizi di comunicazione che hanno un percorso dati negli Stati Uniti. Non è possibile acquisire i numeri di telefono per gli account di valutazione o usare i crediti gratuiti di Azure. Per ulteriori informazioni, visitare la sezione [idoneità](#azure-subscriptions-eligibility) per la sottoscrizione di questo documento.
+
 
 Servizi di comunicazione di Azure consente di usare i numeri di telefono per effettuare chiamate vocali e inviare messaggi SMS con la rete PSTN (Public Switched Telephone Network). In questo documento verranno esaminati i tipi di numero di telefono, le opzioni di configurazione e la disponibilità a livello di area per pianificare la soluzione di telefonia e SMS usando Servizi di comunicazione.
+
+## <a name="azure-subscriptions-eligibility"></a>Idoneità delle sottoscrizioni di Azure
+
+Per acquisire un numero di telefono, è necessario avere una sottoscrizione di Azure a pagamento. Non è possibile acquistare i numeri di telefono con account di valutazione o usando i crediti gratuiti di Azure. 
+
+La disponibilità dei numeri di telefono è attualmente limitata alle sottoscrizioni di Azure con un indirizzo di fatturazione nelle risorse Stati Uniti e servizi di comunicazione che hanno un percorso dati negli Stati Uniti.
+
 
 ## <a name="number-types-and-features"></a>Tipi di numeri e funzionalità
 Servizi di comunicazione offre due tipi di numero di telefono, ossia **numero locale** e **numero verde**. 
@@ -72,11 +82,6 @@ La tabella seguente illustra le località in cui è possibile acquisire i divers
 
 *Per altre informazioni sulle destinazioni e sui prezzi delle chiamate, vedere la [pagina dei prezzi](../pricing.md).
 
-## <a name="azure-subscriptions-eligibility"></a>Idoneità delle sottoscrizioni di Azure
-
-Per acquisire un numero di telefono, è necessario avere una sottoscrizione di Azure a pagamento. Non è possibile acquistare i numeri di telefono con account di valutazione o usando i crediti gratuiti di Azure. 
-
-Attualmente, la disponibilità dei numeri di telefono è limitata alle sottoscrizioni di Azure con un indirizzo di fatturazione nel Stati Uniti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

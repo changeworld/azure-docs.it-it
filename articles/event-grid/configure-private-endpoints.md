@@ -4,12 +4,12 @@ description: Questo articolo descrive come configurare gli endpoint privati per 
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f8e0cfc0a850ae15ea6d03ff6ca8b90003adbfc9
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: f8a9ac46596b1c2611ce9df387ac995e8149e7b9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916993"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425346"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurare gli endpoint privati per gli argomenti o i domini di griglia di eventi di Azure
 È possibile usare [endpoint privati](../private-link/private-endpoint-overview.md) per consentire l'ingresso di eventi direttamente dalla rete virtuale agli argomenti e ai domini in modo sicuro tramite un [collegamento privato](../private-link/private-link-overview.md) senza passare attraverso la rete Internet pubblica. L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della VNet per l'argomento o il dominio. Per informazioni più concettuali, vedere [sicurezza di rete](network-security.md).
@@ -26,7 +26,7 @@ In questa sezione viene illustrato come utilizzare il portale di Azure per crear
 2. Passare alla scheda **rete** della pagina dell'argomento. Selezionare **+ endpoint privato** sulla barra degli strumenti.
 
     ![Aggiungi endpoint privato](./media/configure-private-endpoints/add-button.png)
-2. Una pagina di **base** , attenersi alla seguente procedura: 
+2. Nella pagina **Informazioni di base** seguire questa procedura: 
     1. Selezionare una **sottoscrizione di Azure** in cui si vuole creare l'endpoint privato. 
     2. Selezionare un **gruppo di risorse di Azure** per l'endpoint privato. 
     3. Immettere un **nome** per l'endpoint. 
