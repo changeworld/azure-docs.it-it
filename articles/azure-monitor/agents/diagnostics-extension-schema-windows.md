@@ -5,12 +5,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 4b4b893b222a62619a36d59c2cf042f1aa5590bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 70b27fec07d074dadb413d1debb098e23b4d33b3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708629"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428729"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schema dell'estensione di diagnostica Windows
 Diagnostica di Azure estensione è un agente di monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle risorse di calcolo di Azure. Questo articolo descrive in dettaglio lo schema usato per la configurazione dell'estensione di diagnostica nelle macchine virtuali Windows e in altre risorse di calcolo.
@@ -556,7 +556,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
     <WadCfg>  
       <DiagnosticMonitorConfiguration overallQuotaInMB="10000">  
 
-        <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
+        <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzureMonitorSink">  
           <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
         </PerformanceCounters>  
 

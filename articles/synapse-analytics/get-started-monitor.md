@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 8c0cdcad9a7803e0d8063362ca62887990045c86
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 7e8525dbebb42e1f387ee8f0c192efd5e64c9453
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209815"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426041"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorare l'area di lavoro Synapse
 
@@ -30,7 +30,7 @@ Aprire Synapse Studio e passare all'hub **Monitoraggio**. Qui è possibile visua
 
 ## <a name="integration"></a>Integrazione
 
-1. Passare a **Integrazione > Pipeline**. Questa vista mostra quante volte una pipeline è stata eseguita nell'area di lavoro. 
+1. Passare a **Integration > esecuzione della pipeline**. Questa vista mostra quante volte una pipeline è stata eseguita nell'area di lavoro. 
 1. Trovare la pipeline eseguita nel passaggio precedente e fare clic su **Nome della pipeline** per visualizzare i dettagli.
 1. Fare clic su **Barra di navigazione** nella parte superiore di Synapse Studio e quindi fare clic su **Tutte le esecuzioni della pipeline** per tornare alla vista precedente.
 
@@ -45,8 +45,7 @@ Aprire Synapse Studio e passare all'hub **Monitoraggio**. Qui è possibile visua
 1. Passare a **attività > richieste SQL**.
 1. Verranno visualizzate le richieste SQL.
 1. Selezionare un **pool** da monitorare dal filtro del **pool** . È ora possibile vedere tutte le richieste SQL che sono in esecuzione o sono state eseguite nell'area di lavoro in tale pool.
-1. Trovare una richiesta SQL specifica e passare il puntatore del mouse sulla voce corrispondente. Mentre si passa il mouse, viene visualizzata un'icona di script SQL.
-1. Fare clic sull'icona per visualizzare il testo completo della richiesta SQL.
+1. Trovare una richiesta SQL specifica e fare clic sul collegamento **altro** per visualizzare il testo completo della richiesta SQL.
 
     > [!NOTE] 
     > Le richieste SQL inviate tramite Synapse Studio in un pool SQL dedicato (in precedenza SQL Data Warehouse) abilitato per l'area di lavoro possono essere visualizzate nell'hub Monitoraggio. Per tutte le altre attività di monitoraggio, è possibile accedere alle funzionalità del pool SQL dedicato (in precedenza SQL Data Warehouse) nel portale di Azure.

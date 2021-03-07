@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 000b91529b3b02f2c7d03b50ddc841c68625dada
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e758933b80efbf36dc263b7bd7d2d3c45a59a9f8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644804"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426791"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo articolo descrive i prerequisiti e i requisiti hardware per la connessione Azure Active Directory (Azure AD).
@@ -102,6 +102,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
 
 ### <a name="connectivity"></a>Connettività
 * Il server Azure AD Connect necessita della risoluzione DNS per Intranet e Internet. Il server DNS deve essere in grado di risolvere i nomi per gli endpoint locali di Active Directory e per gli endpoint di Azure AD.
+* Azure AD Connect richiede la connettività di rete a tutti i domini configurati
 * Se si dispone di firewall sulla Intranet ed è necessario aprire le porte tra i server Azure AD Connect e i controller di dominio, vedere [porte Azure ad Connect](reference-connect-ports.md) per ulteriori informazioni.
 * Se il proxy o il firewall limita gli URL a cui è possibile accedere, gli URL documentati in [URL e intervalli di indirizzi IP di Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) devono essere aperti. Vedere anche [gli URL di portale di Azure nel firewall o nel server proxy](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * Se si usa Microsoft Cloud in Germania o nel cloud Microsoft Azure per enti pubblici, vedere Considerazioni sulle [istanze del servizio di sincronizzazione Azure ad Connect](reference-connect-instances.md) per gli URL.

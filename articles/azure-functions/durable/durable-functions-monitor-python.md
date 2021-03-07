@@ -5,18 +5,22 @@ author: davidmrdavid
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 9083821fa03c09949daaf3166367489248a4d7d2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 62b3c9bb1c6fd53d9f11227a9d7e774d56859d04
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98029188"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434764"
 ---
 # <a name="monitor-scenario-in-durable-functions---github-issue-monitoring-sample"></a>Scenario di monitoraggio in Durable Functions-esempio di monitoraggio del problema di GitHub
 
 Il modello di monitoraggio fa riferimento a un processo ricorrente flessibile in un flusso di lavoro, ad esempio il polling finché vengono soddisfatte determinate condizioni. Questo articolo illustra un esempio che usa Funzioni durevoli per implementare il monitoraggio.
 
-[! INCLUDi funzioni permanenti-prerequisiti]
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Completare l'articolo introduttivo](quickstart-python-vscode.md)
+* [Clonare o scaricare il progetto di esempio da GitHub](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/)
+
 
 ## <a name="scenario-overview"></a>Panoramica dello scenario
 
@@ -45,7 +49,6 @@ Questo articolo descrive le funzioni seguenti nell'app di esempio:
 
 ### <a name="e3_monitor-orchestrator-function"></a>Funzione dell'agente di orchestrazione E3_Monitor
 
-# <a name="python"></a>[Python](#tab/python)
 
 La funzione **E3_Monitor** usa il codice *function.json* standard per le funzioni dell'agente di orchestrazione.
 
@@ -55,7 +58,6 @@ Di seguito è riportato il codice che implementa la funzione:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/\_\_init\_\_.py)]
 
----
 
 Le azioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 
@@ -73,7 +75,6 @@ Le azioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 
 In modo analogo agli altri esempi, le funzioni di attività helper sono normali funzioni che usano l'associazione di trigger `activityTrigger`. La funzione **E3_TooManyOpenIssues** ottiene un elenco di problemi attualmente aperti nel repository e determina se sono presenti "troppi" di essi: più di 3 come per l'esempio.
 
-# <a name="python"></a>[Python](#tab/python)
 
 Il codice *function.json* viene definito come segue:
 
@@ -83,13 +84,11 @@ Di seguito ne viene riportata l'implementazione.
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/\_\_init\_\_.py)]
 
----
 
 ### <a name="e3_sendalert-activity-function"></a>Funzione E3_SendAlert Activity
 
 La funzione **E3_SendAlert** usa l'associazione Twilio per inviare un messaggio SMS che informa l'utente finale che sono presenti almeno 3 problemi aperti in attesa di una risoluzione.
 
-# <a name="python"></a>[Python](#tab/python)
 
 Il codice *function.json* è semplice:
 
@@ -99,7 +98,6 @@ Di seguito è disponibile il codice che invia l'SMS:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_init\_\_.py)]
 
----
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 

@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: be7d477d08b025fd450bfa859e8eb677ba680143
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e074043cb685f60027d3c09ae7ad8dc17dded0df
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446367"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443404"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Risolvere i problemi di ordinamento di Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Questo articolo descrive come risolvere i problemi di ordinamento di Azure Stack Edge Pro.
 
@@ -33,7 +35,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ![Sottoscrizione o area non supportata](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
-**Soluzione suggerita:**  Assicurarsi di aver usato una sottoscrizione supportata, ad esempio [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp)o [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Le sottoscrizioni con pagamento in base al consumo non sono supportate. Per altre informazioni, vedere [prerequisiti per le risorse di Azure stack Edge](azure-stack-edge-deploy-prep.md#prerequisites).
+**Soluzione suggerita:**  Assicurarsi di aver usato una sottoscrizione supportata, ad esempio [Microsoft contratto Enterprise (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp)o [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Le sottoscrizioni con pagamento in base al consumo non sono supportate. Per altre informazioni, vedere [prerequisiti per le risorse di Azure stack Edge](azure-stack-edge-deploy-prep.md#prerequisites).
 
 È possibile che Microsoft possa consentire l'aggiornamento di un tipo di sottoscrizione caso per caso. Contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/) in modo che possa comprendere le proprie esigenze e modificare i limiti in modo appropriato.
 
@@ -45,7 +47,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 **Soluzione suggerita:** Per registrare il provider di risorse Azure Stack Edge, seguire questa procedura:
 
-1. In portale di Azure passare a **Home**  >  **sottoscrizioni** Home.
+1. In portale di Azure passare a   >  **sottoscrizioni** Home.
 
 2. Selezionare la sottoscrizione da usare per ordinare il dispositivo.
 

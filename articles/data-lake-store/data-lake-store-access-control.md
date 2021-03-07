@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: aa0da5721c577957b101ac8a2d9346c0536f0a88
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094863"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424139"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controllo di accesso in Azure Data Lake Storage Gen1
 
@@ -74,7 +74,7 @@ Di seguito sono riportati alcuni scenari comuni che consentono di comprendere qu
 | Lettura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Accoda a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | Elimina    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Creazione    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Crea    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Elenco      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | Elenco      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | Elenco      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
@@ -286,7 +286,11 @@ Nel portale di Azure passare a **Azure Active Directory-> applicazioni aziendali
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Data Lake Storage Gen1 supporta l'ereditarietà degli elenchi di controllo di accesso?
 
-No, ma gli ACL predefiniti possono essere usati per impostare gli ACL per i file e le cartelle figlio appena creati nella cartella padre.  
+No, ma gli ACL predefiniti possono essere usati per impostare gli ACL per i file e le cartelle figlio appena creati nella cartella padre.
+
+### <a name="what-are-the-limits-for-acl-entries-on-files-and-folders"></a>Quali sono i limiti per le voci ACL nei file e nelle cartelle?
+
+32 ACL possono essere impostati per ogni file e per ogni directory. Gli ACL di accesso e predefiniti hanno ciascuno il rispettivo limite di immissione di 32 ACL. Se possibile, utilizzare i gruppi di sicurezza per le assegnazioni ACL. Usando i gruppi, è meno probabile che superino il numero massimo di voci ACL per ogni file o directory.
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Dove è possibile reperire altre informazioni sul modello di controllo di accesso POSIX?
 
@@ -299,6 +303,6 @@ No, ma gli ACL predefiniti possono essere usati per impostare gli ACL per i file
 * [ACL POSIX in Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso di elenchi di controllo di accesso in Linux)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)

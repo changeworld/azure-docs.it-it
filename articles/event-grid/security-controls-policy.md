@@ -1,15 +1,15 @@
 ---
 title: Controlli di conformità normativi di criteri di Azure per griglia di eventi di Azure
 description: Elenca i controlli di conformità normativi di criteri di Azure disponibili per griglia di eventi di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 9548e08f02c078e45c3a92ed8f60de2b49b2adb8
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: f837d43d2a287e3b28e68321b81937de151f4dc4
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098113"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440635"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-grid"></a>Controlli di conformità normativi di criteri di Azure per griglia di eventi di Azure
 

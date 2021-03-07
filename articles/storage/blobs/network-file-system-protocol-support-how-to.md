@@ -9,16 +9,16 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: db946dcc0fc8571f7b6aa191909155baccf7d1a2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8ed63a508447104f9073c986debfae73ba7de89f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878579"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428644"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)
 
-È possibile montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure basata su Windows o Linux o un sistema Windows o Linux eseguito in locale usando il protocollo NFS 3,0. Questo articolo fornisce istruzioni dettagliate. Per altre informazioni sul supporto del protocollo NFS 3,0 nell'archivio BLOB, vedere [supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)](network-file-system-protocol-support.md).
+È possibile montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure basata su Linux o da un sistema Linux eseguito in locale usando il protocollo NFS 3,0. Questo articolo fornisce istruzioni dettagliate. Per altre informazioni sul supporto del protocollo NFS 3,0 nell'archivio BLOB, vedere [supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)](network-file-system-protocol-support.md).
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Passaggio 1: registrare la funzionalità del protocollo NFS 3,0 con la sottoscrizione
 
@@ -107,9 +107,7 @@ Creare un contenitore nell'account di archiviazione usando uno di questi strumen
 
 ## <a name="step-7-mount-the-container"></a>Passaggio 7: montare il contenitore
 
-Creare una directory nel sistema Windows o Linux e quindi montare un contenitore nell'account di archiviazione.
-
-### <a name="linux"></a>[Linux](#tab/linux)
+Creare una directory nel sistema Linux e quindi montare un contenitore nell'account di archiviazione.
 
 1. In un sistema Linux creare una directory.
 
@@ -126,32 +124,6 @@ Creare una directory nel sistema Windows o Linux e quindi montare un contenitore
    - Sostituire il `<storage-account-name>` segnaposto visualizzato in questo comando con il nome dell'account di archiviazione.  
 
    - Sostituire il `<container-name>` segnaposto con il nome del contenitore.
-
-
-### <a name="windows"></a>[Windows](#tab/windows)
-
-1. Aprire la finestra di dialogo **funzionalità Windows** e quindi attivare la funzionalità **client per NFS** . 
-
-   ![Funzionalità client per file System di rete](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
-
-2. Aprire una finestra del **prompt dei comandi** (cmd.exe). Quindi, montare un contenitore usando il comando [Mount](/windows-server/administration/windows-commands/mount) .
-
-   ```
-   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
-   ```
-
-   - Sostituire il `<storage-account-name>` segnaposto visualizzato in questo comando con il nome dell'account di archiviazione.  
-
-   - Sostituire il `<container-name>` segnaposto con il nome del contenitore.
-
-3. Se sono necessarie autorizzazioni di scrittura, potrebbe essere necessario modificare l'UID e il GID predefiniti usati da Windows per connettersi alla condivisione. A tale scopo, eseguire i seguenti comandi di PowerShell come amministratore:
-
-   ```
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
-   ```
-   
-   - Riavviare il servizio client NFS o riavviare il server dopo avere apportato questa modifica.
 
 ---
 

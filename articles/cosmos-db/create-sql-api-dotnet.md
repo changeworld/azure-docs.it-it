@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/21/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: aceb26604d67f42cdbbe1395e3a4b08675d70ea1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.openlocfilehash: 4c552e6ac195555990cdbbab44f16be32b7930c8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078527"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425312"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Guida introduttiva: Compilare un'app console .NET per gestire le risorse dell'API SQL di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,7 +37,7 @@ Azure Cosmos DB è il database NoSQL veloce di Microsoft con API aperte per qual
 * Eseguire una query sui dati 
 * eliminare il database
 
-[Documentazione di riferimento dell'API](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet&preserve-view=true) | [Codice sorgente della libreria](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[Documentazione di riferimento dell'API](/dotnet/api/microsoft.azure.cosmos) | [Codice sorgente della libreria](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,7 +56,7 @@ Se si dispone di una propria sottoscrizione di Azure o si è provveduto a creare
 
 È possibile usare Azure Cloud Shell per creare l'account Azure Cosmos. Azure Cloud Shell è una shell interattiva, autenticata e accessibile tramite browser per la gestione delle risorse di Azure. Offre la flessibilità necessaria per scegliere l'esperienza shell più adatta al proprio modo di lavorare, ovvero Bash o PowerShell. Per questo argomento di avvio rapido, scegliere **Bash**. Azure Cloud Shell richiede anche un account di archiviazione, che è possibile creare quando richiesto.
 
-Fare clic sul pulsante **Prova** accanto al codice riportato di seguito, scegliere la modalità **Bash** , selezionare **Crea un account di archiviazione** e accedere a Cloud Shell. Copiare e incollare il codice seguente in Azure Cloud Shell ed eseguirlo. Il nome dell'account Azure Cosmos deve essere globalmente univoco, pertanto assicurarsi di aggiornare il valore `mysqlapicosmosdb` prima di eseguire il comando.
+Fare clic sul pulsante **Prova** accanto al codice riportato di seguito, scegliere la modalità **Bash**, selezionare **Crea un account di archiviazione** e accedere a Cloud Shell. Copiare e incollare il codice seguente in Azure Cloud Shell ed eseguirlo. Il nome dell'account Azure Cosmos deve essere globalmente univoco, pertanto assicurarsi di aggiornare il valore `mysqlapicosmosdb` prima di eseguire il comando.
 
 ```azurecli-interactive
 
@@ -130,11 +130,11 @@ L'applicazione di esempio deve eseguire l'autenticazione all'account Azure Cosmo
 
 1. Accedere all'account Azure Cosmos.
 
-1. Aprire il riquadro **Chiavi** e copiare l' **URI** e la **CHIAVE PRIMARIA** dell'account. I valori dell'URI e delle chiavi verranno aggiunti a una variabile di ambiente nel passaggio successivo.
+1. Aprire il riquadro **Chiavi** e copiare l'**URI** e la **CHIAVE PRIMARIA** dell'account. I valori dell'URI e delle chiavi verranno aggiunti a una variabile di ambiente nel passaggio successivo.
 
 ### <a name="set-the-environment-variables"></a>Impostare le variabili di ambiente
 
-Dopo aver copiato l' **URI** e la **CHIAVE PRIMARIA** dell'account, salvarli in una nuova variabile di ambiente nel computer locale che esegue l'applicazione. Per impostare la variabile di ambiente, aprire una finestra della console ed eseguire il comando seguente. Assicurarsi di sostituire i valori `<Your_Azure_Cosmos_account_URI>` e `<Your_Azure_Cosmos_account_PRIMARY_KEY>`.
+Dopo aver copiato l'**URI** e la **CHIAVE PRIMARIA** dell'account, salvarli in una nuova variabile di ambiente nel computer locale che esegue l'applicazione. Per impostare la variabile di ambiente, aprire una finestra della console ed eseguire il comando seguente. Assicurarsi di sostituire i valori `<Your_Azure_Cosmos_account_URI>` e `<Your_Azure_Cosmos_account_PRIMARY_KEY>`.
 
 **Windows**
 
@@ -168,18 +168,18 @@ Prima di iniziare a compilare l'applicazione, verranno esaminati la gerarchia di
 
 Per altre informazioni sulla gerarchia delle diverse entità, vedere l'articolo sull'[uso di database, contenitori ed elementi in Azure Cosmos DB](account-databases-containers-items.md). Per interagire con queste risorse, si useranno le classi .NET seguenti:
 
-* [CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient?preserve-view=true&view=azure-dotnet): questa classe fornisce una rappresentazione logica lato client per il servizio Azure Cosmos DB. L'oggetto client viene usato per configurare ed eseguire richieste nel servizio.
+* [CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient): questa classe fornisce una rappresentazione logica lato client per il servizio Azure Cosmos DB. L'oggetto client viene usato per configurare ed eseguire richieste nel servizio.
 
-* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet&preserve-view=true): questo metodo crea (se non esiste) o ottiene (se esiste già) una risorsa database come operazione asincrona. 
+* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync): questo metodo crea (se non esiste) o ottiene (se esiste già) una risorsa database come operazione asincrona. 
 
-* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet&preserve-view=true): questo metodo crea (se non esiste) o ottiene (se esiste già) un contenitore come operazione asincrona. È possibile controllare il codice di stato della risposta per determinare se il contenitore è stato appena creato (201) o se è stato restituito un contenitore esistente (200). 
-* [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet&preserve-view=true): questo metodo crea un elemento nel contenitore. 
+* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync): questo metodo crea (se non esiste) o ottiene (se esiste già) un contenitore come operazione asincrona. È possibile controllare il codice di stato della risposta per determinare se il contenitore è stato appena creato (201) o se è stato restituito un contenitore esistente (200). 
+* [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync): questo metodo crea un elemento nel contenitore. 
 
-* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet&preserve-view=true) : questo metodo crea un elemento all'interno del contenitore se non esiste già oppure sostituisce l'elemento se è già esistente. 
+* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync) : questo metodo crea un elemento all'interno del contenitore se non esiste già oppure sostituisce l'elemento se è già esistente. 
 
-* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet&preserve-view=true) : questo metodo crea una query per gli elementi in un contenitore di un database di Azure Cosmos usando un'istruzione SQL contenente valori con parametri. 
+* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator) : questo metodo crea una query per gli elementi in un contenitore di un database di Azure Cosmos usando un'istruzione SQL contenente valori con parametri. 
 
-* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet&preserve-view=true): elimina il database specificato dall'account Azure Cosmos. Il metodo `DeleteAsync` elimina solo il database. L'eliminazione dell'istanza di `Cosmosclient` deve essere eseguita separatamente, nel metodo DeleteDatabaseAndCleanupAsync. 
+* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync): elimina il database specificato dall'account Azure Cosmos. Il metodo `DeleteAsync` elimina solo il database. L'eliminazione dell'istanza di `Cosmosclient` deve essere eseguita separatamente, nel metodo DeleteDatabaseAndCleanupAsync. 
 
  ## <a name="code-examples"></a><a id="code-examples"></a>Esempi di codice
 

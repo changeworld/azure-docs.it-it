@@ -6,16 +6,18 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: c621584fa1dbed06873ac0867e20201e94c4a757
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 585343137a4a8fd8a1fb591c640e1183d71c0fd3
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699682"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443098"
 ---
 # <a name="manage-device-event-alert-notifications-on-azure-stack-edge-pro-resources"></a>Gestire le notifiche di avviso per gli eventi di dispositivo sulle risorse Pro di Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Questo articolo descrive come creare regole di azione nel portale di Azure per attivare o disattivare le notifiche di avviso per gli eventi del dispositivo che si verificano all'interno di un gruppo di risorse, una sottoscrizione di Azure o una singola risorsa di Azure Stack Edge. Questo articolo si applica a tutti i modelli di Azure Stack Edge.  
 

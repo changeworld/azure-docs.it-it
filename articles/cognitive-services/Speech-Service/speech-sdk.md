@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 597a7c3954912a3a86b5db9f92ba75e8aaee63f6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601821"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434525"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
 
@@ -58,13 +58,14 @@ La **voce sintesi vocale** è disponibile nelle piattaforme seguenti:
 
 ### <a name="voice-assistants"></a>Assistenti vocali
 
-Gli [assistenti vocali](voice-assistants.md) che usano l'SDK di riconoscimento vocale consentono agli sviluppatori di creare interfacce di conversazione naturali e simili a quelle umane per le proprie applicazioni ed esperienze. Il servizio Voice Assistant fornisce un'interazione rapida e affidabile tra un dispositivo e un assistente. L'implementazione usa il canale di sintesi vocale diretta di bot Framework o il servizio di comandi personalizzati integrato per il completamento delle attività. Inoltre, gli assistenti vocali possono usare voci personalizzate create nel [portale vocale personalizzato](https://aka.ms/customvoice) per aggiungere un'esperienza di output vocale univoca.
+Gli [assistenti vocali](voice-assistants.md) che usano l'SDK di riconoscimento vocale consentono di creare interfacce di conversazione naturali e simili a quelle umane per le applicazioni e le esperienze. Il riconoscimento vocale fornisce un'interazione rapida e affidabile che include dati di sintesi vocale, sintesi vocale e conversazione in un'unica connessione. L'implementazione può usare il canale di sintesi vocale diretta di bot Framework o il servizio di comandi personalizzati integrato per il completamento delle attività. Inoltre, gli assistenti vocali possono usare voci personalizzate create nel [portale vocale personalizzato](https://aka.ms/customvoice) per aggiungere un'esperienza di output vocale univoca.
 
-Gli **assistenti vocali** sono disponibili nelle piattaforme seguenti:
+Il supporto dell' **Assistente vocale** è disponibile nelle piattaforme seguenti:
 
   - C++/Windows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
+  - Go
 
 #### <a name="keyword-spotting"></a>Individuazione di parole chiave
 
@@ -113,7 +114,7 @@ La **trascrizione del Call Center** è disponibile tramite il servizio batch Spe
 
 ### <a name="codec-compressed-audio-input"></a>Input audio compresso codec
 
-Molti dei linguaggi di programmazione dell'SDK vocale supportano i flussi di input audio compressi di codec. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usare formati <span class="docon docon-navigate-external x-hidden-focus"></span> di input audio compressi </a>.
+Molti dei linguaggi di programmazione dell'SDK vocale supportano i flussi di input audio compressi di codec. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usare formati di input audio compressi </a>.
 
 L' **input audio compresso codec** è disponibile nelle piattaforme seguenti:
 

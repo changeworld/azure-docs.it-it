@@ -1,25 +1,25 @@
 ---
-title: Dettagli della conformità con le normative per CIS Microsoft Azure Foundations Benchmark
-description: Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 02/09/2021
+title: Dettagli di conformità alle normative per CIS Microsoft Azure Foundations benchmark 1.1.0
+description: Informazioni dettagliate sull'iniziativa incorporata per la conformità normativa di CIS Microsoft Azure Foundations benchmark 1.1.0. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
+ms.date: 03/05/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 02976da72027f9e5c5396148cd15e361aaf20ab0
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 8ad263a4199bb0de88421254d5b537cb5b80732d
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099779"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437349"
 ---
-# <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark
+# <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Informazioni dettagliate sull'iniziativa incorporata per la conformità alle normative di CIS Microsoft Azure Foundations benchmark 1.1.0
 
-L'articolo seguente definisce il mapping dell'iniziativa predefinita di conformità alle normative di Criteri di Azure ai **domini di conformità** e ai **controlli** di CIS Microsoft Azure Foundations Benchmark.
-Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
+L'articolo seguente illustra in dettaglio come viene eseguito il mapping della definizione dell'iniziativa incorporata per la conformità alle normative di criteri di Azure ai domini e ai **controlli** di **conformità** in CIS Microsoft Azure fondazioni benchmark 1.1.0
+Per ulteriori informazioni su questo standard di conformità, vedere la pagina relativa al [benchmark di Microsoft Azure di CIS](https://www.cisecurity.org/benchmark/azure/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
-I mapping seguenti riguardano i controlli di **CIS Microsoft Azure Foundations Benchmark**. Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
+I mapping seguenti sono ai controlli **CIS Microsoft Azure Foundations benchmark 1.1.0** . Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
 Quindi, trovare e selezionare la definizione dell'iniziativa predefinita di conformità alle normative **CIS Microsoft Azure Foundations Benchmark 1.1.0**.
 
-Questa iniziativa predefinita viene distribuita come parte dell'[esempio di progetto CIS Microsoft Azure Foundations Benchmark](../../blueprints/samples/cis-azure-1-1-0.md).
+Questa iniziativa predefinita viene distribuita come parte dell'esempio di [progetto di benchmark 1.1.0 di CIS Microsoft Azure Foundations](../../blueprints/samples/cis-azure-1-1-0.md).
 
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../overview.md).
@@ -191,7 +191,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[È consigliabile abilitare le notifiche di posta elettronica al proprietario della sottoscrizione per gli avvisi con gravità alta](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b15565f-aa9e-48ba-8619-45960f2c314d) |Per garantire che i proprietari della sottoscrizione ricevano una notifica in caso di potenziale violazione della sicurezza nella sottoscrizione, impostare l'invio delle notifiche tramite posta elettronica ai proprietari della sottoscrizione per gli avvisi con gravità elevata nel Centro sicurezza. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Email_notification_to_subscription_owner.json) |
+|[È consigliabile abilitare le notifiche di posta elettronica al proprietario della sottoscrizione per gli avvisi con gravità alta](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b15565f-aa9e-48ba-8619-45960f2c314d) |Per garantire che i proprietari della sottoscrizione ricevano una notifica in caso di potenziale violazione della sicurezza nella sottoscrizione, impostare l'invio delle notifiche tramite posta elettronica ai proprietari della sottoscrizione per gli avvisi con gravità elevata nel Centro sicurezza. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Email_notification_to_subscription_owner.json) |
 
 ## <a name="storage-accounts"></a>Account di archiviazione
 
@@ -391,6 +391,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[I log delle risorse nel modulo di protezione hardware gestito Azure Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) |Per ricreare percorsi attività a scopo di analisi quando si verifica un evento imprevisto di sicurezza o quando la rete è compromessa, è possibile eseguire il controllo abilitando i log delle risorse nei HSM gestiti. Seguire le istruzioni riportate qui: [https://docs.microsoft.com/azure/key-vault/managed-hsm/logging](https://docs.microsoft.com/azure/key-vault/managed-hsm/logging) . |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_AuditDiagnosticLog_Audit.json) |
 |[I log delle risorse in Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Assicurarsi che esista un avviso del log attività per l'assegnazione di criteri di creazione
@@ -565,6 +566,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[Per Azure Key Vault HSM gestito deve essere abilitata la protezione ripulitura](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc39ba22d-4428-4149-b981-70acb31fc383) |L'eliminazione dannosa di un modulo di protezione hardware gestito da Azure Key Vault può causare una perdita di dati permanente. Un utente malintenzionato all'interno dell'organizzazione può potenzialmente eliminare ed eliminare Azure Key Vault HSM gestito. Il ripulitura della protezione protegge gli attacchi da insider applicando un periodo di conservazione obbligatorio per il modulo di protezione hardware gestito Azure Key Vault eliminato temporaneamente. Nessun utente all'interno dell'organizzazione o Microsoft potrà eliminare il modulo di protezione hardware Azure Key Vault gestito durante il periodo di memorizzazione dell'eliminazione temporanea. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_Recoverable_Audit.json) |
 |[Negli insiemi di credenziali delle chiavi deve essere abilitata la protezione dalla rimozione definitiva](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |L'eliminazione dolosa di un insieme di credenziali delle chiavi può causare la perdita permanente di dati. Un utente malintenzionato interno all'organizzazione può potenzialmente eliminare e rimuovere definitivamente gli insiemi di credenziali delle chiavi. La protezione dalla rimozione definitiva consente di rispondere a questi tipi di attacco imponendo un periodo di conservazione obbligatorio per gli insiemi di credenziali delle chiavi eliminati temporaneamente. Nessuno all'interno dell'organizzazione né Microsoft sarà in grado di rimuovere definitivamente gli insiemi di credenziali delle chiavi durante il periodo di conservazione associato all'eliminazione temporanea. |Audit, Deny, Disabled |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>Abilitare il controllo degli accessi in base al ruolo con il servizio Azure Kubernetes
@@ -621,9 +623,9 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Nell'app per le API è necessario usare un'identità gestita](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4d441f8-f9d9-4a9e-9cef-e82117cb3eef) |Usare un'identità gestita per la protezione avanzata dell'autenticazione |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_ApiApp_Audit.json) |
-|[Nell'app per le funzioni è necessario usare un'identità gestita](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0da106f2-4ca3-48e8-bc85-c638fe6aea8f) |Usare un'identità gestita per la protezione avanzata dell'autenticazione |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_FunctionApp_Audit.json) |
-|[Nell'app Web è necessario usare un'identità gestita](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2b9ad585-36bc-4615-b300-fd4435808332) |Usare un'identità gestita per la protezione avanzata dell'autenticazione |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_WebApp_Audit.json) |
+|[Nell'app per le API è necessario usare un'identità gestita](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4d441f8-f9d9-4a9e-9cef-e82117cb3eef) |Usare un'identità gestita per la protezione avanzata dell'autenticazione |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_ApiApp_Audit.json) |
+|[Nell'app per le funzioni è necessario usare un'identità gestita](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0da106f2-4ca3-48e8-bc85-c638fe6aea8f) |Usare un'identità gestita per la protezione avanzata dell'autenticazione |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_FunctionApp_Audit.json) |
+|[Nell'app Web è necessario usare un'identità gestita](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2b9ad585-36bc-4615-b300-fd4435808332) |Usare un'identità gestita per la protezione avanzata dell'autenticazione |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_WebApp_Audit.json) |
 
 ### <a name="ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>Assicurarsi che la "versione di PHP" sia la più recente, se usata per eseguire l'app Web
 

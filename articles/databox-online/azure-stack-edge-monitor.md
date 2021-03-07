@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 388be1b13f89a50bed003731c01c6ab6287faaf9
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: aae64cad3603725a4062d5afb42df974bbf8ac40
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491065"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438788"
 ---
 # <a name="monitor-your-azure-stack-edge-pro"></a>Monitorare il Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-mini-r-and-fpga-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
 Questo articolo descrive come monitorare il Azure Stack Edge Pro. Per monitorare il dispositivo, è possibile usare il portale di Azure o l'interfaccia utente Web locale. Usare il portale di Azure per visualizzare gli eventi del dispositivo, configurare e gestire gli avvisi e visualizzare le metriche. Usare l'interfaccia utente Web locale sul dispositivo fisico per visualizzare lo stato dell'hardware dei vari componenti del dispositivo.
 

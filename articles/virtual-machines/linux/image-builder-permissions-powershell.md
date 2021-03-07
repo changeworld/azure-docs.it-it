@@ -3,21 +3,25 @@ title: Configurare le autorizzazioni del servizio Generatore di immagini di Azur
 description: Configurare i requisiti per il servizio Generatore di immagini di VM di Azure, inclusi i privilegi e le autorizzazioni con PowerShell
 author: danielsollondon
 ms.author: danis
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 4b9cf3ffdb1fc6db9604098e8e5782317a8eb431
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f8793b6ea0ba454b66c525c2d53c1de2197d539
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695397"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440208"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>Configurare le autorizzazioni del servizio Generatore di immagini di Azure con PowerShell
 
-Il servizio Generatore di immagini di Azure richiede la configurazione di autorizzazioni e privilegi prima di creare un'immagine. Le sezioni seguenti illustrano in dettaglio come configurare possibili scenari usando PowerShell.
+Quando si esegue la registrazione in Azure Image Builder, si concede al servizio l'autorizzazione per creare, gestire ed eliminare un gruppo di risorse di staging (IT_*) e si acquisiscono i diritti per aggiungervi le risorse necessarie per la compilazione dell'immagine. Questo risultato si ottiene tramite un nome dell'entità servizio (SPN) di Azure Image Builder, reso disponibile nella sottoscrizione durante una registrazione completata.
+
+Per consentire a Image Builder per macchine virtuali di Azure di distribuire immagini nelle immagini gestite o in una raccolta immagini condivise, sarà necessario creare un'identità assegnata dall'utente di Azure con le autorizzazioni di lettura e scrittura di immagini. Se si accede ad archiviazione di Azure, sarà necessario disporre delle autorizzazioni per leggere i contenitori privati o pubblici.
+
+Prima di compilare un'immagine, è necessario configurare le autorizzazioni e i privilegi. Le sezioni seguenti illustrano in dettaglio come configurare possibili scenari usando PowerShell.
 
 > [!IMPORTANT]
 > Azure Image Builder è attualmente disponibile in anteprima pubblica.

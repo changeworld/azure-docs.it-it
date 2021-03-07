@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: c3384effc961c6c588bc2d7f4f75bc386d63076b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0a9615e6bcb350732ccd7b2cf27dad3b46a7e4b3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651579"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427012"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>Esercitazione: configurare GitHub AE per il provisioning utenti automatico
 
@@ -32,6 +32,7 @@ Questa esercitazione descrive i passaggi che è necessario eseguire sia in GitHu
 > * Creare utenti in GitHub AE
 > * Rimuovere gli utenti in GitHub AE quando non richiedono più l'accesso
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e GitHub AE
+> * Effettuare il provisioning di gruppi e appartenenze a gruppi in GitHub AE
 > * Single Sign-on per [GITHUB AE](./github-ae-tutorial.md) (scelta consigliata)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -59,7 +60,7 @@ Aggiungere GitHub AE dalla raccolta di applicazioni Azure AD per iniziare a gest
 
 Il servizio Azure AD provisioning consente di definire l'ambito di chi verrà eseguito il provisioning in base all'assegnazione all'applicazione e o in base agli attributi dell'utente e/o del gruppo. Se si sceglie di definire l'ambito di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile usare i [passaggi](../manage-apps/assign-user-or-group-access-portal.md) seguenti per assegnare utenti e/o gruppi all'applicazione. Se si sceglie di definire l'ambito di cui verrà eseguito il provisioning basato esclusivamente sugli attributi dell'utente e/o del gruppo, è possibile usare un filtro di ambito come descritto [qui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quando si assegnano utenti a GitHub AE, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
+* Quando si assegnano utenti e gruppi a GitHub AE, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
 
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e/o gruppi prima di distribuirlo a tutti. Quando l'ambito per il provisioning è impostato su utenti e/o gruppi assegnati, è possibile controllarlo assegnando uno o due utenti e/o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 

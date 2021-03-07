@@ -6,22 +6,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/07/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 25db4e7f3e4e1f7056979c4c40c6ffc61f340439
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: dd72865e35318c7ff43dc17b7c92b9cc2f3e9790
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345372"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436856"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-preview-release-notes"></a>Note sulla versione di Azure Stack Edge Pro con GPU Preview
+
+[!INCLUDE [applies-to-Pro-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
 
 Le note sulla versione seguenti identificano i problemi critici aperti e i problemi risolti per la versione di anteprima 2008 per i dispositivi Pro Azure Stack Edge con GPU.
 
 Le note sulla versione vengono aggiornate continuamente e i problemi che richiedono una soluzione alternativa vengono aggiunti man mano che vengono individuati. Prima di distribuire il dispositivo Azure Stack Edge Pro, esaminare attentamente le informazioni contenute nelle note sulla versione.
 
-Questo articolo si applica alla versione software seguente: **Azure stack Edge Pro 2008**. 
+Questo articolo si applica alla versione software seguente: **Azure stack Edge Pro 2008**.
 
 <!--- **2.1.1328.1904**-->
 
@@ -51,7 +53,7 @@ La tabella seguente fornisce un riepilogo dei problemi noti relativi al disposit
 |**10.**|Kubernetes |La porta 31000 è riservata per il dashboard di Kubernetes. Analogamente, nella configurazione predefinita, gli indirizzi IP 172.28.0.1 e 172.28.0.10 sono riservati rispettivamente per il servizio Kubernetes e per il servizio DNS di base.|Non usare IP riservati.|
 |**11.**|Kubernetes |Kubernetes attualmente non consente i servizi LoadBalancer multiprotocollo. Ad esempio, un servizio DNS che avrebbe dovuto rimanere in attesa su TCP e UDP. |Per ovviare a questa limitazione di Kubernetes con MetalLB, è possibile creare due servizi (uno per TCP, uno per UDP) nello stesso selettore di Pod. Questi servizi usano la stessa chiave di condivisione e spec. loadBalancerIP per condividere lo stesso indirizzo IP. Gli IP possono anche essere condivisi se si dispone di più servizi rispetto agli indirizzi IP disponibili. <br> Per altre informazioni, vedere [condivisione degli indirizzi IP](https://metallb.universe.tf/usage/#ip-address-sharing).|
 |**12.**|Cluster Kubernetes|I moduli esistenti di Azure IoT Edge Marketplace non vengono eseguiti nel cluster Kubernetes come piattaforma di hosting per IoT Edge sul dispositivo Azure Stack Edge.|I moduli dovranno essere modificati prima di essere distribuiti nel dispositivo Azure Stack Edge. Per altre informazioni, vedere Modificare Azure IoT Edge moduli da Marketplace per l'esecuzione nel dispositivo Azure Stack Edge.<!-- insert link-->|
-|**13.**|Kubernetes |I montaggi con binding basato su file non sono supportati con Azure IoT Edge in Kubernetes sul dispositivo Azure Stack Edge.|IoT Edge usa un livello di conversione per tradurre le `ContainerCreate` Opzioni nei costrutti Kubernetes. La creazione di `Binds` mappe per la directory hostPath o la creazione e quindi il montaggio di binding basati su file non possono essere associati a percorsi in IOT Edge contenitori.|
+|**13.**|Kubernetes |I montaggi con binding basato su file non sono supportati con Azure IoT Edge in Kubernetes sul dispositivo Azure Stack Edge.|IoT Edge usa un livello di conversione per tradurre le `ContainerCreate` Opzioni nei costrutti Kubernetes. La creazione di `Binds` mappe per la `hostpath` Directory o la creazione e quindi il montaggio di binding basati su file non possono essere associati a percorsi in IOT Edge contenitori.|
 |**14.**|Kubernetes |Se si importano certificati personalizzati per IoT Edge e si aggiungono quelli sul dispositivo Azure Stack Edge, i nuovi certificati non vengono selezionati come parte dell'aggiornamento dei grafici Helm.|Per aggirare questo problema, [connettersi all'interfaccia di PowerShell del dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md). Riavviare `iotedged` e `edgehub` pod.|
 |**15.**|Certificati |In alcuni casi, lo stato del certificato nell'interfaccia utente locale può richiedere alcuni secondi per l'aggiornamento. |Potrebbero essere interessati gli scenari seguenti nell'interfaccia utente locale.<ul><li>Colonna **stato** nella pagina **certificati** .</li><li>Riquadro **sicurezza** nella pagina attività **iniziali** .</li><li>Riquadro **configurazione** nella pagina **Panoramica** .</li></ul>  |
 

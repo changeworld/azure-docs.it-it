@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 7410fcbc890780281763a91f33525562e9de1853
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6b3c1ac2ea3625a768e16a3465230a5386c98ddc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182486"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423714"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizzare dati con Apache Spark
 
@@ -38,7 +38,7 @@ Questa esercitazione illustra i passaggi di base per caricare e analizzare i dat
     display(df.limit(10))
     ```
 1. Nel menu **Connetti a** del notebook scegliere il pool di Spark **Spark1** senza server creato in precedenza.
-1. Fare clic su **Esegui** nella cella
+1. Selezionare **Esegui** nella cella. Se necessario, sinapsi avvierà una nuova sessione di Spark per eseguire la cella. Se è necessaria una nuova sessione di Spark, la creazione iniziale richiederà circa due secondi. 
 1. Per vedere semplicemente lo schema del dataframe, eseguire una cella con il codice seguente:
     ```
 

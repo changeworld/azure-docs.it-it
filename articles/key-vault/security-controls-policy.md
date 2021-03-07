@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Azure Key Vault
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per Azure Key Vault. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: sample
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 6802f65fdcedc5b5120d91c41fb11a3d7ea906de
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 3da49840c1a43836036c8ba17024c5940f772c7b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095189"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436882"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-key-vault"></a>Controlli di conformità alle normative di Criteri di Azure per Azure Key Vault
 

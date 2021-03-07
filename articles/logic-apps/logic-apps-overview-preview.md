@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: ad059931d87603c957e446e82b894731dca984dd
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715208"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442741"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Panoramica: anteprima di app per la logica di Azure
 
@@ -118,9 +118,13 @@ Questa tabella specifica il comportamento del flusso di lavoro figlio a seconda 
 
 L'anteprima di app per la logica di Azure include molte funzionalità correnti e aggiuntive, ad esempio:
 
-* Crea app per la logica e i relativi flussi di lavoro da più di [390 connettori](/connectors/connector-reference/connector-reference-logicapps-connectors) per applicazioni SaaS (software-as-a-Service) e PaaS (Platform-as-a-Service) e per i servizi e i connettori per i sistemi locali.
+* Crea app per la logica e i relativi flussi di lavoro da più di [400 connettori](/connectors/connector-reference/connector-reference-logicapps-connectors) per applicazioni SaaS (software-as-a-Service) e PaaS (Platform-as-a-Service) e per i servizi e i connettori per i sistemi locali.
 
-  * Alcuni connettori gestiti come il bus di servizio di Azure, gli hub eventi di Azure e SQL Server vengono eseguiti in modo analogo ai trigger e alle azioni predefiniti che sono nativi del runtime di anteprima di app per la logica di Azure, ad esempio il trigger di richiesta e l'azione HTTP. Per altre informazioni, vedere [app per la logica di Azure che esegue l'estensibilità dei connettori incorporati in qualsiasi](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)posizione.
+  * Alcuni connettori gestiti, ad esempio il bus di servizio di Azure, Hub eventi di Azure, SQL Server e MQ, vengono eseguiti in modo analogo ai trigger e alle azioni predefiniti che sono nativi del runtime di anteprima di app per la logica di Azure, ad esempio il trigger di richiesta e l'azione HTTP.
+
+  * Creare connettori predefiniti per tutti i servizi necessari usando il [Framework di estendibilità della versione di anteprima](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Analogamente ai connettori predefiniti, ad esempio il bus di servizio di Azure e SQL Server, ma a differenza dei [connettori personalizzati](../connectors/apis-list.md#custom-apis-and-connectors) che non sono attualmente supportati per l'anteprima, questi connettori forniscono velocità effettiva più elevata, bassa latenza, connettività locale ed esecuzione nativa nello stesso processo del runtime di anteprima.
+
+    La funzionalità di creazione è attualmente disponibile solo in Visual Studio Code, ma non è abilitata per impostazione predefinita. Per creare questi connettori, [cambiare il progetto dall'estensione basata su Bundle (Node.js) a NuGet basato su pacchetti (.NET)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring). Per altre informazioni, vedere [app per la logica di Azure che esegue l'estensibilità dei connettori incorporati in qualsiasi](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)posizione.
 
   * È possibile usare le azioni B2B per operazioni liquide e operazioni XML senza un account di integrazione. Per utilizzare queste azioni, è necessario disporre di mappe liquide, mappe XML o XML Schema che è possibile caricare mediante le rispettive azioni nella portale di Azure o aggiungere alla cartella **elementi** del progetto Visual Studio Code utilizzando le rispettive cartelle **mappe** e **schemi** .
 
@@ -148,7 +152,7 @@ L'anteprima di app per la logica di Azure include molte funzionalità correnti e
 * Rigenerare le chiavi di accesso per le connessioni gestite usate da singoli flussi di lavoro in una risorsa di app per la **logica (anteprima)** . Per questa attività, [seguire la stessa procedura per la risorsa app per la **logica** , ma a livello di singolo flusso di lavoro](logic-apps-securing-a-logic-app.md#regenerate-access-keys), non a livello di risorsa dell'app per la logica.
 
 * Aggiungere i rami paralleli nella nuova finestra di progettazione attenendosi alla stessa procedura della finestra di progettazione non di anteprima.
- 
+
 Per altre informazioni, vedere la pagina relativa alle [funzionalità modificate, limitate, non disponibili e non supportate](#limited-unavailable-unsupported) e alla [pagina problemi noti dell'anteprima pubblica di app per la logica in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
@@ -193,8 +197,6 @@ Nell'anteprima di app per la logica di Azure queste funzionalità sono state mod
 
     * I [ *trigger* del gateway dati locale](../connectors/apis-list.md#on-premises-connectors) non sono disponibili, ma *sono* disponibili azioni del gateway.
 
-    * I [connettori personalizzati](../connectors/apis-list.md#custom-apis-and-connectors) non sono disponibili.
-
     * Azione incorporata, funzioni di Azure [-scegliere una funzione di Azure](logic-apps-azure-functions.md) è ora **operazioni di funzioni di Azure: chiamare una funzione di Azure**. Questa azione attualmente funziona solo per le funzioni create dal modello di **trigger http** .
 
       Nella portale di Azure è possibile selezionare una funzione trigger HTTP a cui si ha accesso creando una connessione tramite l'esperienza utente. Se si esamina la definizione JSON dell'azione della funzione nella visualizzazione codice o nel **workflow.js** file, l'azione fa riferimento alla funzione utilizzando un `connectionName` riferimento. Questa versione astrae le informazioni della funzione come una connessione, che è possibile trovare nel file **connections.js** del progetto, disponibile dopo la creazione di una connessione.
@@ -217,6 +219,8 @@ Nell'anteprima di app per la logica di Azure queste funzionalità sono state mod
     * Alcuni [trigger e azioni B2B predefiniti per gli account di integrazione](../connectors/apis-list.md#integration-account-connectors) non sono disponibili, ad esempio, le azioni di codifica e decodifica di **file flat** .
 
     * Azione incorporata, app per [la logica di Azure-scegliere un flusso di lavoro dell'app per la logica](logic-apps-http-endpoint.md) è ora **operazioni del flusso di lavoro: richiamare un flusso di lavoro in questa app flusso di lavoro**
+
+* I [connettori personalizzati](../connectors/apis-list.md#custom-apis-and-connectors) non sono attualmente supportati per l'anteprima.
 
 * **Disponibilità del piano di hosting**: se si crea un nuovo tipo di risorsa app per la **logica (anteprima)** nell'portale di Azure o si esegue la distribuzione da Visual Studio Code, è possibile usare solo il piano di hosting del servizio app o Premium in Azure. I piani di hosting a consumo non sono disponibili e non sono supportati per la distribuzione di questo tipo di risorsa. È possibile eseguire la distribuzione da Visual Studio Code a un contenitore Docker, ma non a un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 

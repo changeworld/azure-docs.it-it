@@ -1,6 +1,6 @@
 ---
 title: Supporto del file System di rete 3,0 nell'archivio BLOB di Azure (anteprima) | Microsoft Docs
-description: L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto consente ai client Windows e Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer in esecuzione in locale.
+description: L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto consente ai client Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer in esecuzione in locale.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
@@ -9,16 +9,16 @@ ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: a49c51d2afd464e7bea910ae0abe3dd02e939dbc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 22f4db04f37985e49065f80da6e4578ed71c5db1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718497"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428440"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)
 
-L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto fornisce la compatibilità di Linux file system alla scalabilità e ai prezzi di archiviazione degli oggetti e consente ai client Windows o Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale. 
+L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto fornisce la compatibilità di Linux file system alla scalabilità e ai prezzi di archiviazione degli oggetti e consente ai client Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale. 
 
 > [!NOTE]
 > Il supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure è in versione di anteprima pubblica. Supporta gli account di archiviazione GPV2 con prestazioni del livello standard nelle aree seguenti: Australia orientale, Corea centrale e Stati Uniti centro-meridionali. L'anteprima supporta anche il BLOB in blocchi con livello di prestazioni Premium in tutte le aree pubbliche.
@@ -46,7 +46,7 @@ Quando l'applicazione effettua una richiesta utilizzando il protocollo NFS 3,0, 
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Flusso di lavoro generale: montaggio di un contenitore dell'account di archiviazione
 
-I client Windows o Linux possono montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale. Per montare un contenitore dell'account di archiviazione, è necessario eseguire queste operazioni.
+I client Linux possono montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale. Per montare un contenitore dell'account di archiviazione, è necessario eseguire queste operazioni.
 
 1. Registrare la funzionalità del protocollo NFS 3,0 con la sottoscrizione.
 

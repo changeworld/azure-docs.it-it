@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a2732c3979998ea3429833f96056b88bc2dccf75
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fde473453aa79e0078765df394acdeb54b3c7fe9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050937"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433319"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
 Il cuore di Azure Digital gemelli è il [grafo gemello](concepts-twins-graph.md) che rappresenta l'intero ambiente. Il grafo gemello è costituito da singoli gemelli digitali connessi tramite **relazioni**. 
 
-Quando si ha un' [istanza di Azure Digital Twins](how-to-set-up-instance-portal.md) funzionante e si è configurato il codice di [autenticazione](how-to-authenticate-client.md) nell'app client, è possibile usare le [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) per creare, modificare ed eliminare i dispositivi gemelli digitali e le relative relazioni in un'istanza di Azure Digital gemelli. È anche possibile usare [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
+Quando si ha un' [istanza di Azure Digital Twins](how-to-set-up-instance-portal.md) funzionante e si è configurato il codice di [autenticazione](how-to-authenticate-client.md) nell'app client, è possibile usare le [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) per creare, modificare ed eliminare i dispositivi gemelli digitali e le relative relazioni in un'istanza di Azure Digital gemelli. È anche possibile usare [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
 Questo articolo è incentrato sulla gestione delle relazioni e del grafo nel suo complesso; per lavorare con singoli dispositivi gemelli digitali, vedere [*How-to: Manage Digital gemells*](how-to-manage-twin.md).
 
@@ -97,7 +97,7 @@ Di seguito è riportato un esempio in cui viene recuperato un elenco di relazion
 I dispositivi gemelli digitali di Azure hanno anche un'API che consente di trovare tutte le relazioni in **ingresso** per un dispositivo gemello specifico. Questa operazione è spesso utile per la navigazione inversa o quando si elimina un dispositivo gemello.
 
 >[!NOTE]
-> `IncomingRelationship` le chiamate non restituiscono il corpo completo della relazione. Per ulteriori informazioni sulla `IncomingRelationship` classe, vedere la relativa [documentazione di riferimento](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
+> `IncomingRelationship` le chiamate non restituiscono il corpo completo della relazione. Per ulteriori informazioni sulla `IncomingRelationship` classe, vedere la relativa [documentazione di riferimento](/dotnet/api/azure.digitaltwins.core.incomingrelationship).
 
 L'esempio di codice nella sezione precedente si è concentrato sull'individuazione delle relazioni in uscita da un dispositivo gemello. L'esempio seguente è strutturato in modo analogo, ma trova invece le relazioni in *ingresso* al dispositivo gemello. Questo esempio usa anche la chiamata SDK (evidenziata) all'interno di un metodo personalizzato che può essere visualizzato nel contesto di un programma più grande.
 
@@ -157,7 +157,7 @@ Il frammento di codice usa il [*Room.js*](https://github.com/Azure-Samples/digit
 Prima di eseguire l'esempio, eseguire le operazioni seguenti:
 1. Scaricare i file del modello, inserirli nel progetto e sostituire i `<path-to>` segnaposto nel codice riportato di seguito per indicare al programma dove trovarli.
 2. Sostituire il segnaposto `<your-instance-hostname>` con il nome host dell'istanza di Azure Digital gemelli.
-3. Aggiungere due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. La prima è il pacchetto per [Azure Digital Twins SDK per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), la seconda fornisce gli strumenti che consentono di eseguire l'autenticazione in Azure.
+3. Aggiungere due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. La prima è il pacchetto per [Azure Digital Twins SDK per .NET](/dotnet/api/overview/azure/digitaltwins/client), la seconda fornisce gli strumenti che consentono di eseguire l'autenticazione in Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
