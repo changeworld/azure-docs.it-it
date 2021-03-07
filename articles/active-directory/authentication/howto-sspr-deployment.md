@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce8aa5108b6998424b35e3f4ecac6b51e78f276b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173937"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424122"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Pianificare una distribuzione della reimpostazione della password self-service di Azure Active Directory
 
@@ -78,6 +78,7 @@ Per altre informazioni sui prezzi, vedere [Prezzi di Azure Active Directory](htt
 | Video| [Supportare gli utenti con una migliore scalabilità IT](https://youtu.be/g9RpRnylxS8) 
 | |[Che cos'è la reimpostazione della password self-service?](https://youtu.be/hc97Yx5PJiM)|
 | |[Distribuzione della reimpostazione della password self-service](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
+| |[Come abilitare e configurare SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
 | |[Come configurare la reimpostazione della password self-service per gli utenti in Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[Come preparare gli utenti a registrare le loro informazioni di sicurezza per Azure Active Directory](https://youtu.be/gXuh0XS18wA) |
 | Corsi online|[Managing Identities in Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) (Gestione delle identità in Microsoft Azure Active Directory). Usare la reimpostazione della password self-service per offrire agli utenti un'esperienza moderna e protetta. Vedere in particolare il modulo "[Managing Azure Active Directory Users and Groups](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)" (Gestione di utenti e gruppi di Azure Active Directory). |

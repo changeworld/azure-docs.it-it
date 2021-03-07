@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 7d48474d88a60c73f6094d3b9e65017c23404d8a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 53364009f9b9c041c39728e438c3e24eacfd1665
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144267"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435478"
 ---
 # <a name="412002-devicemessagelocklost"></a>412002 DeviceMessageLockLost
 
@@ -25,7 +25,7 @@ Quando si tenta di inviare un messaggio da cloud a dispositivo, la richiesta ha 
 
 ## <a name="cause"></a>Causa
 
-Quando un dispositivo riceve un messaggio da cloud a dispositivo dalla coda (ad esempio, usando), [`ReceiveAsync()`](/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) il messaggio viene bloccato dall'hub Internet per una durata di timeout del blocco di un minuto. Se il dispositivo tenta di completare il messaggio dopo la scadenza del timeout di blocco, l'hub Internet genera questa eccezione.
+Quando un dispositivo riceve un messaggio da cloud a dispositivo dalla coda (ad esempio, usando), [`ReceiveAsync()`](/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync) il messaggio viene bloccato dall'hub Internet per una durata di timeout del blocco di un minuto. Se il dispositivo tenta di completare il messaggio dopo la scadenza del timeout di blocco, l'hub Internet genera questa eccezione.
 
 ## <a name="solution"></a>Soluzione
 

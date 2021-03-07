@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 3395dc3010f7ae3aabadda8105c1765a9c300988
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 30b30697750a0b9068cfcde19ea4bf9c474f9ad9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201261"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424577"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
@@ -48,7 +48,7 @@ Per completare lo scenario, si dovrà interagire con i componenti dell'app di es
 
 Ecco i componenti implementati dall'app di esempio *AdtSampleApp* dello scenario edilizio:
 * Autenticazione del dispositivo 
-* Esempi di utilizzo di [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) (disponibili in *CommandLoop.cs*)
+* Esempi di utilizzo di [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) (disponibili in *CommandLoop.cs*)
 * Interfaccia console per chiamare l'API di Gemelli digitali di Azure
 * *SampleClientApp*: una soluzione di esempio di Gemelli digitali di Azure
 * *SampleFunctionsApp*: un'app di Funzioni di Azure che aggiorna il grafo di Gemelli digitali di Azure come risultato dei dati di telemetria provenienti da eventi dell'hub IoT e di Gemelli digitali di Azure

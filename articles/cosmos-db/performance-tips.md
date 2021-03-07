@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: 47e20e89c8eaef59b9acd6cf7e31244afd4bcf60
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 57b3d5853f83fc7ee75538d7966f5e20b1a64cd6
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359048"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428950"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET SDK v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -137,19 +137,19 @@ SQL .NET SDK 1.9.0 e versioni successive supportano le query parallele, che cons
 - `MaxDegreeOfParallelism` Controlla il numero massimo di partizioni su cui è possibile eseguire query in parallelo. 
 - `MaxBufferedItemCount` Controlla il numero di risultati prerecuperati.
 
-**_Ottimizzazione del grado di parallelismo_* _
+***Ottimizzazione del grado di parallelismo***
 
 La query parallela funziona eseguendo query su più partizioni in parallelo. Tuttavia, i dati di una singola partizione vengono recuperati in modo seriale rispetto alla query. L'impostazione di `MaxDegreeOfParallelism` [SDK v2](sql-api-sdk-dotnet.md) sul numero di partizioni ha la possibilità migliore di ottenere la query più efficiente, purché tutte le altre condizioni del sistema rimangano invariate. Se non si conosce il numero di partizioni, è possibile impostare il grado di parallelismo su un numero elevato. Il sistema sceglierà il numero minimo di partizioni, ovvero l'input fornito dall'utente, come grado di parallelismo.
 
 Le query parallele producono i maggiori vantaggi se i dati vengono distribuiti uniformemente tra tutte le partizioni rispetto alla query. Se la raccolta partizionata è partizionata in modo che tutti o la maggior parte dei dati restituiti da una query siano concentrati in poche partizioni (una partizione è il caso peggiore), tali partizioni faranno un collo di bottiglia delle prestazioni della query.
 
-_*_Ottimizzazione di MaxBufferedItemCount_*_
+***Ottimizzazione di MaxBufferedItemCount***
     
 La query parallela è progettata per la prelettura dei risultati mentre il client elabora il batch di risultati corrente. Il recupero preliminare consente di migliorare la latenza complessiva di una query. Il `MaxBufferedItemCount` parametro limita il numero di risultati prerecuperati. Impostare sul `MaxBufferedItemCount` numero previsto di risultati restituiti (o un numero più elevato) per consentire alla query di ricevere il vantaggio massimo dal recupero preliminare.
 
 Il recupero preliminare funziona allo stesso modo, indipendentemente dal grado di parallelismo, ed esiste un solo buffer per i dati di tutte le partizioni.  
 
-_ *Implementare backoff a intervalli di RetryAfter**
+**Implementare il backoff in corrispondenza di intervalli RetryAfter**
 
 Durante i test delle prestazioni, è necessario aumentare il carico fino a quando non viene limitata una piccola frequenza di richieste. Se le richieste sono limitate, l'applicazione client deve essere disattivata in caso di limitazione per l'intervallo tra tentativi specificato dal server. Il rispetto del backoff garantisce una quantità minima di tempo di attesa tra i tentativi. 
 
@@ -180,7 +180,7 @@ Per ridurre il numero di round trip di rete necessari per recuperare tutti i ris
 > [!NOTE] 
 > La `maxItemCount` proprietà non deve essere utilizzata solo per la paginazione. L'uso principale è quello di migliorare le prestazioni delle query riducendo il numero massimo di elementi restituiti in una singola pagina.  
 
-È anche possibile impostare le dimensioni della pagina usando gli SDK di Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) in `FeedOptions` consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale, a seconda delle dimensioni del documento. Ad esempio:
+È anche possibile impostare le dimensioni della pagina usando gli SDK di Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount) in `FeedOptions` consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale, a seconda delle dimensioni del documento. Ad esempio:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -215,7 +215,7 @@ Azure Cosmos DB offre un'ampia gamma di operazioni di database. Queste operazion
 
 Viene eseguito il provisioning della velocità effettiva in base al numero di [unità richiesta](request-units.md) impostate per ogni contenitore. Il consumo delle unità richiesta viene valutato come una frequenza al secondo. Le applicazioni che superano la frequenza di unità richiesta di cui è stato effettuato il provisioning per il contenitore sono limitate fino a quando la frequenza scende sotto il livello di provisioning per il contenitore. Se l'applicazione richiede un livello superiore di velocità effettiva, è possibile aumentare la velocità effettiva effettuando il provisioning di unità richiesta aggiuntive.
 
-La complessità di una query influiscono sul numero di unità richiesta utilizzate per un'operazione. Il numero di predicati, la natura dei predicati, il numero di funzioni definite dall'utente e le dimensioni del set di dati di origine influenzano tutti il costo delle operazioni di query.
+La complessità di una query influisce sul numero di unità richiesta usate per un'operazione. Il numero di predicati, la natura dei predicati, il numero di funzioni definite dall'utente e le dimensioni del set di dati di origine influenzano tutti il costo delle operazioni di query.
 
 Per misurare l'overhead di qualsiasi operazione (create, Update o DELETE), esaminare l'intestazione [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la proprietà equivalente `RequestCharge` in `ResourceResponse\<T>` o `FeedResponse\<T>` in .NET SDK) per misurare il numero di unità richiesta utilizzate dalle operazioni:
 

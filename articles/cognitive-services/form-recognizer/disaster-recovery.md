@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 0343402d92498bff56250027086cbf2ceb258f0f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808257"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427165"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Eseguire il backup e il ripristino dei modelli di riconoscimento moduli
 
@@ -28,7 +28,7 @@ Se l'app o l'azienda dipende dall'uso di un modello personalizzato di riconoscim
 
 ##  <a name="prerequisites"></a>Prerequisiti
 
-1. Risorse di Azure per il riconoscimento di due moduli in diverse aree di Azure. Se non sono disponibili, passare alla portale di Azure e <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" creare una nuova risorsa di riconoscimento del modulo " target="_blank"> creare una nuova risorsa di riconoscimento del modulo <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+1. Risorse di Azure per il riconoscimento di due moduli in diverse aree di Azure. Se non sono disponibili, passare alla portale di Azure e <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" creare una nuova risorsa di riconoscimento del modulo " target="_blank"> creare una nuova risorsa di riconoscimento del modulo </a> .
 1. La chiave della sottoscrizione, l'URL dell'endpoint e l'ID sottoscrizione della risorsa di riconoscimento del modulo. È possibile trovare questi valori nella scheda **Panoramica** della risorsa nel portale di Azure.
 
 

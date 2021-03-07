@@ -3,18 +3,18 @@ title: Fatture per la registrazione ad Azure Enterprise
 description: Questo articolo illustra come gestire la fattura della registrazione EA di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 90ae9bdcee5f5f4c4281f2c3f931389b2ebf9486
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 71ba1d6e1e45c5c2e72e2be620158b1aa4b71582
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598068"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430811"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione ad Azure Enterprise
 
@@ -98,29 +98,41 @@ Azure Enterprise Portal esclude con un filtro la visualizzazione delle registraz
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Modificare un numero di ordine di acquisto per una fattura per eccedenza futura
 
-Azure Enterprise Portal genera automaticamente un numero di ordine d'acquisto predefinito, a meno che l'amministratore aziendale non ne imposti uno prima della data della fattura. L'amministratore aziendale può aggiornare il numero di ordine d'acquisto fino a sette giorni dopo la ricezione di un messaggio di posta elettronica automatico di notifica della fattura.
+Azure Enterprise Portal genera automaticamente un numero di ordine d'acquisto predefinito, a meno che l'amministratore aziendale non ne imposti uno prima della data della fattura. L'amministratore aziendale può aggiornare il numero di ordine d'acquisto fino a sette giorni dopo la ricezione di un messaggio di posta elettronica automatico di notifica della fattura. 
 
-### <a name="to-update-the-azure-services-purchase-order-number"></a>Per aggiornare il numero di ordine di acquisto dei servizi di Azure:
+Per evitare la generazione automatica di numeri di ordine di acquisto ogni mese, è possibile bloccare il numero di ordine di acquisto. Vedere [numero di ordine di acquisto](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
+
+### <a name="update-the-azure-services-purchase-order-number"></a>Aggiornare il numero dell'ordine di acquisto dei servizi di Azure
 
 1. In Azure Enterprise Portal selezionare **Report** > **Usage Summary** (Riepilogo utilizzo).
 1. Nell'angolo superiore destro selezionare **Edit PO Numbers** (Modifica numeri ordini di acquisto).
 1. Selezionare il pulsante di opzione **Servizi di Azure**.
 1. Scegliere un intervallo di date dal menu a discesa del campo **Periodo di fatturazione**.
-
    È possibile modificare un numero di ordine d'acquisto nei sette giorni successivi alla ricezione di una notifica di fatturazione, ma prima di pagare la fattura.
 1. Immettere un nuovo numero di ordine d'acquisto nel campo **Numero di ordine di acquisto**.
 1. Selezionare **Salva** per inviare la modifica.
 
-### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Per aggiornare il numero di ordine d'acquisto di Azure Marketplace:
+### <a name="update-the-azure-marketplace-purchase-order-number"></a>Aggiornare il numero dell'ordine di acquisto di Azure Marketplace
 
 1. In Azure Enterprise Portal selezionare **Report** > **Usage Summary** (Riepilogo utilizzo).
 1. Nell'angolo superiore destro selezionare **Edit PO Numbers** (Modifica numeri ordini di acquisto).
 1. Selezionare il pulsante di opzione **Marketplace**.
-1. Scegliere un intervallo di date dal menu a discesa del campo **Periodo di fatturazione**.
-
-   È possibile modificare un numero di ordine d'acquisto nei sette giorni successivi alla ricezione di una notifica di fatturazione, ma prima di pagare la fattura.
+1. Scegliere un intervallo di date dal menu a discesa del campo **Periodo di fatturazione**.  
+    È possibile modificare un numero di ordine d'acquisto nei sette giorni successivi alla ricezione di una notifica di fatturazione, ma prima di pagare la fattura.
 1. Immettere un nuovo numero di ordine d'acquisto nel campo **Numero di ordine di acquisto**.
 1. Selezionare **Salva** per inviare la modifica.
+
+### <a name="lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles"></a>Blocca il numero di ordine di acquisto per impedire l'aggiornamento automatico nei prossimi cicli di fatturazione
+
+Dopo aver bloccato il numero di ordine di acquisto, rimane bloccato per tutte le nuove fatture e non è necessario aggiornare il numero di ordine di acquisto.
+
+1.  In Azure Enterprise Portal selezionare   >  **Riepilogo utilizzo** report.
+2.  Nell'angolo superiore destro selezionare **Edit PO Numbers** (Modifica numeri ordini di acquisto).
+3.  Digitare un nuovo numero di ordine di acquisto nel campo del **numero di ordine di acquisto** .
+4.  Selezionare la casella **blocca numero di ordine di acquisto** .
+5.  Selezionare **Salva** per inviare la modifica.  
+    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="Screenshot che mostra la casella Visualizza/modifica numeri di ordine di acquisto." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
+
 
 ## <a name="azure-enterprise-billing-frequency"></a>Frequenza di fatturazione di Azure Enterprise
 

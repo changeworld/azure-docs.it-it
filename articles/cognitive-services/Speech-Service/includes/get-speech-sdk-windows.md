@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 33cc9b52c4b687ca8147867b99dc70e8d71a9223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc4cc5063f72ff3f0db62cde79f7908add86166e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88944440"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434583"
 ---
 :::row:::
     :::column span="3":::
@@ -26,11 +26,11 @@ ms.locfileid: "88944440"
 
 ### <a name="system-requirements"></a>Requisiti di sistema
 
-Per Speech SDK in Windows è necessario il <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable per Visual Studio 2019 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> nel sistema.
+Per Speech SDK in Windows è necessario il <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable per Visual Studio 2019 </a> nel sistema.
 
-- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Installare per x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Installare per x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Installare per ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Installare per x86 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Installare per x64 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Installare per ARMx64 </a>
 
 ### <a name="c"></a>C#
 
@@ -49,7 +49,7 @@ I file Speech SDK richiesti possono essere distribuiti nella stessa directory de
 > A partire dalla versione 1.3.0, il file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fornito nelle versioni precedenti) non è più necessario. La funzionalità è ora integrata in Core SDK.
 
 > [!IMPORTANT]
-> Per il progetto C# Windows Forms app (.NET Framework), verificare che le librerie siano incluse nelle impostazioni di distribuzione del progetto. È possibile selezionare questa opzione in `Properties -> Publish Section` . Fai clic sul `Application Files` pulsante e trova le librerie corrispondenti dall'elenco di scorrimento verso il basso. Verificare che il valore sia impostato su `Included` . In Visual Studio il file verrà incluso quando il progetto viene pubblicato/distribuito.
+> Per il progetto C# Windows Form App (.NET Framework), verificare che le librerie siano incluse nelle impostazioni di distribuzione del progetto. È possibile selezionare questa opzione in `Properties -> Publish Section` . Fai clic sul `Application Files` pulsante e trova le librerie corrispondenti dall'elenco di scorrimento verso il basso. Verificare che il valore sia impostato su `Included` . In Visual Studio il file verrà incluso quando il progetto viene pubblicato/distribuito.
 
 ### <a name="c"></a>C++
 

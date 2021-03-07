@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: locale, OCR, Docker, contenitore
-ms.openlocfilehash: 93d59e78241dcc94785ca139818d72908c7184a4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c9e681e3c02cb65b2a54070cc778051a0e7ac53
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043916"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432554"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installare i contenitori Docker per l'OCR di lettura (anteprima) 
 
@@ -418,7 +418,7 @@ Quando l'immagine viene letta completamente, solo l'API restituisce una risposta
 
 L'oggetto di risposta JSON ha lo stesso oggetto grafico della versione asincrona. Se si è un utente JavaScript e si vuole usare l'indipendenza dai tipi, provare a usare TypeScript per eseguire il cast della risposta JSON.
 
-Per un esempio di utilizzo, vedere il <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">sandbox typescript qui <span class="docon docon-navigate-external x-hidden-focus"></span></a> e selezionare **Run (Esegui** ) per visualizzarne la semplicità d'uso.
+Per un esempio di utilizzo, vedere il <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">sandbox typescript qui</a> e selezionare **Run (Esegui** ) per visualizzarne la semplicità d'uso.
 
 ## <a name="stop-the-container"></a>Arrestare il contenitore
 

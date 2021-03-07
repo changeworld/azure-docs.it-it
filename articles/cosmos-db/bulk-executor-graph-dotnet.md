@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.author: chrande
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b31cb33e09158de5912132d0fb7bd31a62131181
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 15e94dac02770bf28aae4cbfc4e337cb68b8be40
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360514"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425324"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Uso della libreria .NET BulkExecutor per i grafi per eseguire operazioni in blocco nell'API Gremlin di Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -25,12 +25,12 @@ Diversamente dall'invio di query Gremlin a un database, in cui il comando viene 
 
 ## <a name="bulk-operations-with-graph-data"></a>Operazioni in blocco con dati sui grafi
 
-La [libreria BulkExecutor](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet) contiene uno spazio dei nomi `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` per fornire funzionalità per la creazione e l'importazione di oggetti grafo. 
+La [libreria BulkExecutor](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) contiene uno spazio dei nomi `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` per fornire funzionalità per la creazione e l'importazione di oggetti grafo. 
 
 Il processo seguente descrive come usare la migrazione dei dati per un contenitore di API Gremlin:
 1. Recuperare record dall'origine dati.
 2. Costruire oggetti `GremlinVertex` e `GremlinEdge` dai record ottenuti e aggiungerli in una struttura di dati `IEnumerable`. In questa parte dell'applicazione deve essere implementata la logica per rilevare e aggiungere relazioni, qualora l'origine dati non sia un database di grafi.
-3. Usare il [metodo Graph BulkImportAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?preserve-view=true&view=azure-dotnet) per inserire gli oggetti grafo nella raccolta.
+3. Usare il [metodo Graph BulkImportAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync) per inserire gli oggetti grafo nella raccolta.
 
 Questo meccanismo migliora l'efficienza della migrazione dei dati rispetto all'uso di un client Gremlin. Questo vantaggio è dovuto al fatto che per l'inserimento di dati con Gremlin l'applicazione deve inviare una query per volta e ogni query deve essere convalidata, valutata e quindi eseguita per creare i dati. La libreria BulkExecutor gestirà la convalida nell'applicazione e invierà più oggetti grafo per volta per ogni richiesta di rete.
 
@@ -79,7 +79,7 @@ Per altre informazioni sui parametri della libreria BulkExecutor, fare riferimen
 
 Deve essere creata un'istanza del payload in oggetti `GremlinVertex` e `GremlinEdge`. Ecco come possono essere creati questi oggetti:
 
-**Vertici** :
+**Vertici**:
 ```csharp
 // Creating a vertex
 GremlinVertex v = new GremlinVertex(
@@ -93,7 +93,7 @@ v.AddProperty("customProperty", "value");
 v.AddProperty("partitioningKey", "value");
 ```
 
-**Archi** :
+**Archi**:
 ```csharp
 // Creating an edge
 GremlinEdge e = new GremlinEdge(
@@ -160,4 +160,4 @@ Impostazione|Descrizione
 
 * Per informazioni sui dettagli del pacchetto NuGet e sulle note sulla versione di bulk Executor .NET Library, vedere [bulk Executor SDK Details](sql-api-sdk-bulk-executor-dot-net.md). 
 * Vedere [Suggerimenti per incrementare le prestazioni](./bulk-executor-dot-net.md#performance-tips) per ottimizzare ulteriormente l'utilizzo di BulkExecutor.
-* Vedere l'[articolo di riferimento su BulkExecutor.Graph](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet) per altre informazioni sulle classi e sui metodi definiti in questo spazio dei nomi.
+* Vedere l'[articolo di riferimento su BulkExecutor.Graph](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) per altre informazioni sulle classi e sui metodi definiti in questo spazio dei nomi.

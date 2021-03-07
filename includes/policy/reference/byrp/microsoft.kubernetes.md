@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a2bb88901ed82fccb61ef90b922ba98c31c9bfe7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 8acd244a2fada656ac457865fe8efd8659530d0e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100090472"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432885"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -39,5 +39,6 @@ ms.locfileid: "100090472"
 |[I cluster Kubernetes devono essere accessibili solo tramite HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |L'uso di HTTPS assicura l'autenticazione e protegge i dati in transito da attacchi di intercettazione a livello di rete. Questa funzionalità è attualmente disponibile a livello generale per il servizio Kubernetes (AKS) e in anteprima per il motore AKS e Azure Arc abilitato Kubernetes. Per ulteriori informazioni, visitare il [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) |Audit, Deny, Disabled |[5.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly.json) |
 |[Nei cluster Kubernetes il montaggio automatico delle credenziali API deve essere disabilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F423dd1ba-798e-40e4-9c4d-b6902674b423) |Disabilita il montaggio automatico delle credenziali API per impedire a una risorsa pod potenzialmente compromessa di eseguire i comandi dell'API sui cluster Kubernetes. Per istruzioni sull'utilizzo di questo criterio, vedere [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc). |Audit, Deny, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/BlockAutomountToken.json) |
 |[I cluster Kubernetes non devono consentire l'escalation dei privilegi dei contenitori](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) |Questo criterio non consente ai contenitori di usare l'escalation dei privilegi in un cluster Kubernetes. Questo criterio è disponibile a livello generale per il servizio Azure Kubernetes e in anteprima per il motore del servizio Azure Kubernetes e per Kubernetes con abilitazione di Azure Arc. Per istruzioni sull'uso di questo criterio, vedere [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc). |Audit, Deny, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilegeEscalation.json) |
+|[I cluster Kubernetes non devono concedere CAP_SYS_ADMIN funzionalità di sicurezza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd2e7ea85-6b44-4317-a0be-1b951587f626) |Per ridurre la superficie di attacco dei contenitori, limitare CAP_SYS_ADMIN funzionalità di Linux |Audit, Deny, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerDisallowedSysAdminCapability.json) |
 |[I cluster Kubernetes non devono usare funzionalità di sicurezza specifiche](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa27c700f-8a22-44ec-961c-41625264370b) |Blocca l'utilizzo di funzionalità di sicurezza specifiche nei cluster Kubernetes per impedire privilegi non concessi nella risorsa pod. Per istruzioni sull'utilizzo di questo criterio, vedere [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc). |Audit, Deny, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerDisallowedCapabilities.json) |
 |[I cluster Kubernetes non devono usare lo spazio dei nomi predefinito](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9f061a12-e40d-4183-a00e-171812443373) |Impedisce l'utilizzo dello spazio dei nomi predefinito nei cluster Kubernetes per proteggere dagli accessi non autorizzati per i tipi di risorse Mapping di configurazione Pod, Segreto, Servizio e Account del servizio. Per istruzioni sull'utilizzo di questo criterio, vedere [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc). |Audit, Deny, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/BlockDefaultNamespace.json) |

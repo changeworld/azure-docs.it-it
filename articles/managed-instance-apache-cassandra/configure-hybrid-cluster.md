@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: dac59fb5262cc55acfbabedd304913fc7ac57751
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 11daa548e90aa1906ba87e081fa1e0be6fe6aff8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748757"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430769"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>Guida introduttiva: configurare un cluster ibrido con Azure Istanza gestita per Apache Cassandra (anteprima)
 
@@ -39,20 +39,14 @@ Questa Guida introduttiva illustra come usare i comandi dell'interfaccia della r
    :::image type="content" source="./media/configure-hybrid-cluster/subnet.png" alt-text="Aggiungere una nuova subnet alla rete virtuale." lightbox="./media/configure-hybrid-cluster/subnet.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
-1. A questo punto verranno applicate alcune autorizzazioni speciali per la VNet e la subnet che Cassandra Istanza gestita richiede, usando l'interfaccia della riga di comando di Azure. Prima di tutto è necessario individuare `Resource ID` per la VNet esistente. Copiare l'output del valore da questo comando per un secondo momento, ovvero `Resource ID` .
+1. A questo punto verranno applicate alcune autorizzazioni speciali per la VNet e la subnet che Cassandra Istanza gestita richiede, usando l'interfaccia della riga di comando di Azure. Usare il `az role assignment create` comando, sostituendo `<subscription ID>` , `<resource group name>` , `<VNet name>` e `<subnet name>` con i valori appropriati:
 
    ```azurecli-interactive
-    # discover the vnet id
-    az network vnet show -n <your VNet name> -g <Resource Group Name> --query "id" --output tsv
+   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
    ```
 
-1. Si applicano ora le autorizzazioni speciali, passando l'output del comando precedente come parametro di ambito:
-
-   ```azurecli-interactive
-    az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope <Resource ID>
-   ```
-    > [!NOTE]
-    > I `assignee` `role` valori e precedenti sono rispettivamente un principio di servizio fisso e gli identificatori di ruolo. 
+   > [!NOTE]
+   > I `assignee` `role` valori e nel comando precedente sono rispettivamente un principio di servizio fisso e gli identificatori di ruolo.
 
 1. Successivamente, si configureranno le risorse per il cluster ibrido. Poiché si dispone già di un cluster, il nome del cluster sarà solo una risorsa logica per identificare il nome del cluster esistente. Assicurarsi di usare il nome del cluster esistente quando si definiscono le `clusterName` `clusterNameOverride` variabili e nello script seguente.
 

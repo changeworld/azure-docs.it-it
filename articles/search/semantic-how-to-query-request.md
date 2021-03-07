@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 7551ef88c2251b64cf6f6db1de4fed22db2c69e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: 8fdb6a53ed0fd64953b75238c3ba3df62c4b644e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693646"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432945"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Creare una query semantica in ricerca cognitiva
 
@@ -21,6 +21,8 @@ ms.locfileid: "101693646"
 > Il tipo di query semantico è disponibile in anteprima pubblica, disponibile tramite l'API REST di anteprima e portale di Azure. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Durante l'avvio dell'anteprima iniziale, non è previsto alcun addebito per la ricerca semantica. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
 
 In questo articolo viene illustrato come formulare una richiesta di ricerca che utilizza la classificazione semantica e produce didascalie e risposte semantiche.
+
+Le query semantiche tendono a funzionare in modo ottimale negli indici di ricerca che sono compilati con contenuto intensivo di testo, ad esempio file PDF o documenti con blocchi di testo di grandi dimensioni.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +40,7 @@ In questo articolo viene illustrato come formulare una richiesta di ricerca che 
 
 ## <a name="whats-a-semantic-query"></a>Che cos'è una query semantica?
 
-In ricerca cognitiva, una query è una richiesta con parametri che determina l'elaborazione di query e la forma della risposta. Una *query semantica* aggiunge parametri che richiamano l'algoritmo di riclassificazione semantico in grado di valutare il contesto e il significato dei risultati di corrispondenza e di innalzare di livello le corrispondenze più rilevanti.
+In ricerca cognitiva, una query è una richiesta con parametri che determina l'elaborazione di query e la forma della risposta. Una *query semantica* aggiunge parametri che richiamano il modello di reranking semantico in grado di valutare il contesto e il significato dei risultati di corrispondenza, promuovere corrispondenze più rilevanti alla parte superiore e restituire le risposte semantiche e le didascalie.
 
 La richiesta seguente è rappresentativa di una query semantica di base (senza risposte).
 
@@ -48,7 +50,7 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
     "search": " Where was Alan Turing born?",    
     "queryType": "semantic",  
     "searchFields": "title,url,body",  
-    "queryLanguage": "en-us",  
+    "queryLanguage": "en-us"  
 }
 ```
 
@@ -60,7 +62,7 @@ Solo le prime 50 corrispondenze dei risultati iniziali possono essere classifica
 
 La specifica completa dell'API REST è disponibile nella pagina [Cerca documenti (anteprima Rest)](/rest/api/searchservice/preview-api/search-documents).
 
-Le query semantiche sono destinate a domande aperte come "Qual è il migliore impianto per gli impollinatori" o "come friggere un uovo". Se si vuole che la risposta includa le risposte, è possibile aggiungere un **`answer`** parametro facoltativo nella richiesta.
+Le query semantiche forniscono didascalie ed evidenziazioni automatiche. Se si vuole che la risposta includa le risposte, è possibile aggiungere un **`answer`** parametro facoltativo nella richiesta. Questo parametro, più la costruzione della stringa di query stessa, produrrà una risposta nella risposta.
 
 Nell'esempio seguente viene usato l'indice Hotels-sample-per creare una richiesta di query semantica con le risposte semantiche e le didascalie:
 
@@ -82,37 +84,66 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ### <a name="formulate-the-request"></a>Formulare la richiesta
 
-1. Impostato **`"queryType"`** su "semantico" e **`"queryLanguage"`** su "en-US. Entrambi i parametri sono obbligatori.
+Questa sezione illustra i parametri di query necessari per la ricerca semantica.
 
-   QueryLanguage deve essere coerente con tutti gli [analizzatori di linguaggio](index-add-language-analyzers.md) assegnati alle definizioni di campo nello schema dell'indice. Se queryLanguage è "en-US", qualsiasi analizzatore di linguaggio deve essere anche una variante inglese ("en. Microsoft" o "en. Lucene"). Gli analizzatori indipendenti dal linguaggio, ad esempio parole chiave o semplici, non presentano conflitti con i valori queryLanguage.
+#### <a name="step-1-set-querytype-and-querylanguage"></a>Passaggio 1: impostare queryType e queryLanguage
 
-   In una richiesta di query, se si usa anche la [correzione ortografica](speller-how-to-add.md), il queryLanguage impostato viene applicato in modo analogo a correttore ortografico, risposte e didascalie. Nessun override per le singole parti. 
+Aggiungere i parametri seguenti al resto. Entrambi i parametri sono obbligatori.
 
-   Mentre il contenuto di un indice di ricerca può essere composto in più lingue, l'input della query è probabilmente in uno. Il motore di ricerca non verifica la compatibilità di queryLanguage, Language Analyzer e la lingua in cui è composto il contenuto. Assicurarsi quindi di definire l'ambito delle query in modo da evitare di produrre risultati non corretti.
+```json
+"queryType": "semantic",
+"queryLanguage": "en-us",
+```
+
+QueryLanguage deve essere coerente con tutti gli [analizzatori di linguaggio](index-add-language-analyzers.md) assegnati alle definizioni di campo nello schema dell'indice. Se queryLanguage è "en-US", qualsiasi analizzatore di linguaggio deve essere anche una variante inglese ("en. Microsoft" o "en. Lucene"). Gli analizzatori indipendenti dal linguaggio, ad esempio parole chiave o semplici, non presentano conflitti con i valori queryLanguage.
+
+In una richiesta di query, se si usa anche la [correzione ortografica](speller-how-to-add.md), il queryLanguage impostato viene applicato in modo analogo a correttore ortografico, risposte e didascalie. Nessun override per le singole parti. 
+
+Mentre il contenuto di un indice di ricerca può essere composto in più lingue, l'input della query è probabilmente in uno. Il motore di ricerca non verifica la compatibilità di queryLanguage, Language Analyzer e la lingua in cui è composto il contenuto. Assicurarsi quindi di definire l'ambito delle query in modo da evitare di produrre risultati non corretti.
 
 <a name="searchfields"></a>
 
-1. Set **`"searchFields"`** (facoltativo, ma consigliato).
+#### <a name="step-2-set-searchfields"></a>Passaggio 2: impostare searchFields
 
-   In una query semantica, l'ordine dei campi in "searchFields" riflette la priorità o l'importanza relativa del campo nelle classificazioni semantiche. Verranno utilizzati solo i campi stringa di primo livello (standalone o in una raccolta). Poiché searchFields ha altri comportamenti nelle query Lucene semplici e complete (in cui non esiste un ordine di priorità implicito), i campi e i sottocampi non di stringa non genereranno un errore, ma non verranno usati nella classificazione semantica.
+Questo parametro è facoltativo in quanto non si verifica alcun errore se si omette, ma è consigliabile fornire un elenco ordinato di campi per le didascalie e le risposte.
 
-   Quando si specifica searchFields, attenersi alle seguenti linee guida:
+Il parametro searchFields viene usato per identificare i passaggi da valutare per "somiglianza semantica" alla query. Per l'anteprima, non è consigliabile lasciare vuoto searchFields perché il modello richiede un hint per i campi più importanti da elaborare.
 
-   + I campi concisi, ad esempio HotelName o title, devono precedere i campi dettagliati come la descrizione.
+L'ordine di searchFields è critico. Se si usa già searchFields in query Lucene semplici o complete esistenti, assicurarsi di rivisitare questo parametro quando si passa a un tipo di query semantico.
 
-   + Se l'indice include un campo URL che è testuale (leggibile, ad esempio `www.domain.com/name-of-the-document-and-other-details` e non incentrato sul computer, ad esempio `www.domain.com/?id=23463&param=eis` ), inserire il secondo nell'elenco (inserire prima se non esiste alcun campo di titolo conciso).
+Seguire queste linee guida per garantire risultati ottimali quando si specificano due o più searchFields:
 
-   + Se è stato specificato un solo campo, questo verrà considerato come campo descrittivo per la classificazione semantica dei documenti.  
++ Includere solo i campi stringa e i campi stringa di primo livello nelle raccolte. Se si includono campi non di stringa o campi di livello inferiore in una raccolta, non si verifica alcun errore, ma questi campi non verranno usati nella classificazione semantica.
 
-   + Se non sono specificati campi, tutti i campi ricercabili verranno considerati per la classificazione semantica dei documenti. Tuttavia, questa operazione non è consigliata perché potrebbe non produrre i risultati più ottimali dall'indice di ricerca.
++ Il primo campo deve essere sempre conciso, ad esempio un titolo o un nome, idealmente inferiore a 25 parole.
 
-1. Rimuovere le **`"orderBy"`** clausole, se presenti in una richiesta esistente. Il Punteggio semantico viene usato per ordinare i risultati. Se si include la logica di ordinamento esplicita, viene restituito un errore HTTP 400.
++ Se l'indice include un campo URL che è testuale (leggibile, ad esempio `www.domain.com/name-of-the-document-and-other-details` e non incentrato sul computer, ad esempio `www.domain.com/?id=23463&param=eis` ), posizionarlo secondo nell'elenco o prima se non è presente alcun campo del titolo conciso.
 
-1. Facoltativamente, aggiungere **`"answers"`** set a "extractal" e specificare il numero di risposte se si desidera più di 1.
++ Seguire i campi in base ai campi descrittivi in cui è possibile trovare la risposta alle query semantiche, ad esempio il contenuto principale di un documento.
 
-1. Facoltativamente, personalizzare lo stile evidenziato applicato alle didascalie. Nelle didascalie viene applicata la formattazione dell'evidenziazione sui passaggi chiave del documento che riepilogano la risposta. Il valore predefinito è `<em>`. Se si desidera specificare il tipo di formattazione, ad esempio sfondo giallo, è possibile impostare highlightPreTag e highlightPostTag.
+Se viene specificato un solo campo, utilizzare un campo descrittivo in cui è possibile trovare la risposta alle query semantiche, ad esempio il contenuto principale di un documento. Scegliere un campo che fornisca contenuto sufficiente.
 
-1. Specificare tutti gli altri parametri desiderati nella richiesta. Parametri come il [correttore ortografico](speller-how-to-add.md), [SELECT](search-query-odata-select.md)e count migliorano la qualità della richiesta e la leggibilità della risposta.
+#### <a name="step-3-remove-orderby-clauses"></a>Passaggio 3: rimuovere le clausole orderBy
+
+Rimuovere eventuali clausole orderBy, se presenti in una richiesta esistente. Il Punteggio semantico viene usato per ordinare i risultati. Se si include la logica di ordinamento esplicita, viene restituito un errore HTTP 400.
+
+#### <a name="step-4-add-answers"></a>Passaggio 4: aggiungere risposte
+
+Facoltativamente, aggiungere "Answers" (risposte) se si desidera includere un'elaborazione aggiuntiva che fornisca una risposta. Le risposte e le didascalie sono formulate in base ai passaggi trovati nei campi elencati in searchFields. Assicurarsi di includere i campi con contenuto ricco in searchFields per ottenere le risposte e le didascalie migliori in una risposta.
+
+Sono presenti condizioni esplicite e implicite che producono risposte. 
+
++ Le condizioni esplicite includono l'aggiunta di "Answers = extractal". Inoltre, per specificare il numero di risposte restituite nella risposta complessiva, aggiungere "count" seguito da un numero: `"answers=extractive|count=3"` .  Il valore predefinito è uno. Il valore massimo è cinque.
+
++ Le condizioni implicite includono una costruzione di stringhe di query che si presta a una risposta. Una query composta da "quale hotel ha la stanza verde" è più probabile che venga "risposta" rispetto a una query composta da un'istruzione come "Hotel con Fancy interior". Come si può immaginare, la query non può essere specificata o null.
+
+Il punto importante da considerare è che se la query non sembra una domanda, l'elaborazione delle risposte viene ignorata, anche se è impostato il parametro "Answers".
+
+#### <a name="step-5-add-other-parameters"></a>Passaggio 5: aggiungere altri parametri
+
+Impostare gli eventuali altri parametri desiderati nella richiesta. Parametri come il [correttore ortografico](speller-how-to-add.md), [SELECT](search-query-odata-select.md)e count migliorano la qualità della richiesta e la leggibilità della risposta.
+
+Facoltativamente, è possibile personalizzare lo stile di evidenziazione applicato alle didascalie. Nelle didascalie viene applicata la formattazione dell'evidenziazione sui passaggi chiave del documento che riepilogano la risposta. Il valore predefinito è `<em>`. Se si desidera specificare il tipo di formattazione, ad esempio sfondo giallo, è possibile impostare highlightPreTag e highlightPostTag.
 
 ### <a name="review-the-response"></a>Esaminare la risposta
 

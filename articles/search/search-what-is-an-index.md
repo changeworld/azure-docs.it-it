@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: d0cc7630a3bea67a99c3cb65d2015e934e8ac2da
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 03/05/2021
+ms.openlocfilehash: 96594d573c308727217f537e5421dcb79f02c2ff
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539095"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433795"
 ---
 # <a name="creating-search-indexes-in-azure-cognitive-search"></a>Creazione di indici di ricerca in Azure ricerca cognitiva
 
@@ -61,7 +61,7 @@ Gli altri elementi sono compressi per brevità, ma i collegamenti seguenti posso
 
 ## <a name="choose-a-client"></a>Scegliere un client
 
-Sono disponibili diverse metodologie per la creazione di un indice di ricerca. È consigliabile usare le API portale di Azure o REST per i test iniziali di sviluppo e di prova.
+Esistono diversi modi per creare un indice di ricerca. Si consiglia di portale di Azure o SDK per i test iniziali di sviluppo e di prova.
 
 Durante lo sviluppo, pianificare le frequenti ricompilazioni. Poiché le strutture fisiche vengono create nel servizio, è necessario [eliminare e ricreare gli indici](search-howto-reindex.md) per la maggior parte delle modifiche apportate a una definizione di campo esistente. È possibile prendere in considerazione l'uso di un subset di dati per velocizzare le ricompilazioni.
 
@@ -110,7 +110,7 @@ Per ricerca cognitiva, gli SDK di Azure implementano le funzionalità disponibil
 
 Un documento di ricerca viene definito dalla `fields` raccolta. Sono necessari campi per query e chiavi. Probabilmente saranno necessari anche campi per supportare filtri, facet e ordinamenti. Potrebbero inoltre essere necessari campi per i dati che non vengono mai rilevati da un utente. ad esempio, è possibile che si desiderino campi per i margini di profitto o promozioni di marketing che è possibile utilizzare per modificare la classificazione di
 
-Un campo di tipo EDM. String deve essere designato come chiave del documento. Viene usato per identificare in modo univoco ogni documento di ricerca. È possibile recuperare un documento in base alla relativa chiave per popolare una pagina di dettagli.  
+Un campo di tipo EDM. String deve essere designato come chiave del documento. Viene usato per identificare in modo univoco ogni documento di ricerca e fa distinzione tra maiuscole e minuscole. È possibile recuperare un documento in base alla relativa chiave per popolare una pagina di dettagli.
 
 Se i dati in ingresso sono di natura gerarchica, assegnare il tipo di dati del [tipo complesso](search-howto-complex-data-types.md) per rappresentare le strutture nidificate. Il set di dati di esempio predefinito, Hotels, illustra i tipi complessi usando un indirizzo (contiene più sottocampi) che presenta una relazione uno-a-uno con ogni hotel e una raccolta complessa di chat, in cui più stanze sono associate a ogni hotel. 
 

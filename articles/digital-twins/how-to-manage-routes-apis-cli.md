@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 40cf83b0ca9e4c794979f2b20ddb73360758abc5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b0e440f9fe0b7ce1591318362ac0419b9aa01baf
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198541"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433302"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "102198541"
 
 Nei dispositivi gemelli digitali di Azure è possibile instradare le [notifiche degli eventi](how-to-interpret-event-data.md) ai servizi downstream o alle risorse di calcolo connesse. Questa operazione viene eseguita configurando prima di tutto gli **endpoint** che possono ricevere gli eventi. È quindi possibile creare  [**Route di eventi**](concepts-route-events.md) che specificano gli eventi generati dai dispositivi gemelli digitali di Azure che vengono recapitati a quali endpoint.
 
-Questo articolo illustra il processo di creazione di endpoint e route con le [API REST](/rest/api/azure-digitaltwins/), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)e l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
+Questo articolo illustra il processo di creazione di endpoint e route con le [API REST](/rest/api/azure-digitaltwins/), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client)e l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
 In alternativa, è anche possibile gestire gli endpoint e le route con la [portale di Azure](https://portal.azure.com). Per una versione di questo articolo che usa invece il portale, vedere [*How-to: Manage Endpoints and routes (Portal)*](how-to-manage-routes-portal.md).
 
@@ -208,7 +208,7 @@ Una route deve consentire la selezione di più notifiche e tipi di evento.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Creare route con le API e C# SDK
 
-Un modo per definire le route degli eventi è con le [API del piano dati](how-to-use-apis-sdks.md#overview-data-plane-apis). Gli esempi in questa sezione usano [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+Un modo per definire le route degli eventi è con le [API del piano dati](how-to-use-apis-sdks.md#overview-data-plane-apis). Gli esempi in questa sezione usano [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client).
 
 `CreateOrReplaceEventRouteAsync` è la chiamata SDK utilizzata per aggiungere una route dell'evento. Di seguito è riportato un esempio di utilizzo:
 

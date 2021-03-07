@@ -9,12 +9,12 @@ ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: ad660ee69bb568e1a76d59344cf31fbf044aaae9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581432"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430939"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
 
@@ -44,13 +44,13 @@ L'archiviazione non modificabile supporta le funzionalità seguenti:
 
 - **Supporto per tutti i livelli BLOB**: i criteri WORM sono indipendenti dal livello di Archiviazione BLOB di Azure e si applicano a tutti i livelli (ad accesso frequente, ad accesso sporadico e archivio). Gli utenti possono trasferire i dati nel livello con i costi ottimali per i carichi di lavoro, mantenendo al tempo stesso la non modificabilità dei dati.
 
-- **Configurazione a livello di contenitore**: gli utenti possono configurare criteri di conservazione basati sul tempo e tag di blocco a fini giudiziari a livello di contenitore. Grazie a semplici impostazioni a livello di contenitore, gli utenti possono creare e bloccare i criteri di conservazione basati sul tempo, estendere gli intervalli di conservazione, impostare e rimuovere i blocchi a fini giudiziari e così via. Questi criteri si applicano a tutti i BLOB nel contenitore, nuovi ed esistenti.
+- **Configurazione a livello di contenitore**: gli utenti possono configurare criteri di conservazione basati sul tempo e tag di blocco a fini giudiziari a livello di contenitore. Grazie a semplici impostazioni a livello di contenitore, gli utenti possono creare e bloccare i criteri di conservazione basati sul tempo, estendere gli intervalli di conservazione, impostare e rimuovere i blocchi a fini giudiziari e così via. Questi criteri si applicano a tutti i BLOB nel contenitore, nuovi ed esistenti. Per un account abilitato per HNS, questi criteri si applicano anche a tutte le directory in un contenitore.
 
 - **Supporto** per la registrazione di controllo: ogni contenitore include un log di controllo dei criteri. Mostra fino a sette comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati e contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per la durata del criterio, in conformità con le linee guida per le normative SEC 17a-4 (f). Il [log attività di Azure](../../azure-monitor/essentials/platform-logs-overview.md) Mostra un log più completo di tutte le attività del piano di controllo; Quando si abilitano i [log delle risorse di Azure](../../azure-monitor/essentials/platform-logs-overview.md) , le operazioni del piano dati vengono mantenute. È responsabilità dell'utente archiviare questi log in modo permanente, poiché potrebbero essere richiesti per scopi legali o di altro tipo.
 
 ## <a name="how-it-works"></a>Funzionamento
 
-L'archiviazione non modificabile per Archiviazione BLOB di Azure supporta due tipi di criteri non modificabili o WORM: conservazione basata sul tempo e blocchi a fini giudiziari. Quando si applica un criterio di conservazione basato sul tempo o un periodo di attesa legale a un contenitore, tutti i BLOB esistenti vengono spostati in uno stato non modificabile di un WORM in meno di 30 secondi. Tutti i nuovi BLOB caricati nel contenitore protetto da criteri si sposteranno anche in uno stato non modificabile. Quando tutti i BLOB sono in uno stato non modificabile, i criteri non modificabili vengono confermati e non sono consentite operazioni di sovrascrittura o eliminazione nel contenitore non modificabile.
+L'archiviazione non modificabile per Archiviazione BLOB di Azure supporta due tipi di criteri non modificabili o WORM: conservazione basata sul tempo e blocchi a fini giudiziari. Quando si applica un criterio di conservazione basato sul tempo o un periodo di attesa legale a un contenitore, tutti i BLOB esistenti vengono spostati in uno stato non modificabile di un WORM in meno di 30 secondi. Tutti i nuovi BLOB caricati nel contenitore protetto da criteri si sposteranno anche in uno stato non modificabile. Quando tutti i BLOB sono in uno stato non modificabile, i criteri non modificabili vengono confermati e non sono consentite operazioni di sovrascrittura o eliminazione nel contenitore non modificabile. Nel caso di un account abilitato per HNS, i BLOB non possono essere rinominati o spostati in una directory diversa.
 
 Anche l'eliminazione di contenitori e account di archiviazione non è consentita se in un contenitore sono presenti BLOB protetti da un blocco o un criterio basato sul tempo. Un criterio di conservazione legale proteggerà da BLOB, contenitori e dall'eliminazione dell'account di archiviazione. I criteri basati sul tempo sbloccato e bloccato proteggeranno dall'eliminazione dei BLOB per il periodo di tempo specificato. I criteri basati sul tempo sbloccato e bloccato proteggeranno dall'eliminazione del contenitore solo se nel contenitore esiste almeno un BLOB. Solo un contenitore con criteri basati sul tempo *bloccato* proteggerà da eliminazioni di account di archiviazione. i contenitori con criteri basati sul tempo sbloccati non offrono la protezione dell'eliminazione dell'account di archiviazione né la conformità.
 
@@ -175,6 +175,9 @@ Sì. Quando un criterio di conservazione basato sul tempo viene creato per la pr
 **È possibile usare l'eliminazione temporanea insieme ai criteri BLOB non modificabili?**
 
 Sì, se i requisiti di conformità consentono l'abilitazione dell'eliminazione temporanea. L' [eliminazione temporanea per l'archiviazione BLOB di Azure](./soft-delete-blob-overview.md) si applica a tutti i contenitori in un account di archiviazione indipendentemente da un criterio di conservazione legale o basato sul tempo. È consigliabile abilitare l'eliminazione temporanea per una protezione aggiuntiva prima di applicare e confermare eventuali criteri WORM non modificabili.
+
+**Per un account abilitato per HNS, è possibile rinominare o spostare un BLOB quando il BLOB si trova nello stato non modificabile?**
+No, sia il nome che la struttura di directory sono considerati importanti dati a livello di contenitore che non possono essere modificati una volta che i criteri non modificabili sono disponibili. La ridenominazione e lo spostamento sono disponibili solo per gli account abilitati per HNS in generale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

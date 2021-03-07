@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/22/2021
+ms.date: 03/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: 9d207e2ee0ddff49ab01094626b9af1c8505cb4e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: db7345906605ce117f0d57deb80f9d26ebf84179
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732488"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430523"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Esercitazione: Creare una connessione VNP utente usando la rete WAN virtuale di Azure
 
@@ -81,11 +81,9 @@ Una volta completata la configurazione del client, è possibile connettersi.
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Pulire le risorse
 
-Quando queste risorse non sono più necessarie, è possibile usare [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute. Sostituire "myResourceGroup" con il nome del gruppo di risorse specifico ed eseguire il comando di PowerShell seguente:
+Quando le risorse create non sono più necessarie, eliminarle. Alcune delle risorse WAN virtuali devono essere eliminate in un determinato ordine a causa delle dipendenze. Il completamento dell'eliminazione può richiedere circa 30 minuti.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
