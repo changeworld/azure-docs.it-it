@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 13598925702aeca4a06135a910e3be540083a2b6
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 8a65619d65e1a3655d3ef8a295749a705e6a79e1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211754"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431279"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendere e usare gli SDK per l'hub IoT di Azure
 
@@ -51,8 +51,8 @@ Azure IoT Hub SDK per dispositivi per .NET:
 
 * Scaricare da [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  Lo spazio dei nomi è Microsoft.Azure.Devices.Clients, che contiene i client per dispositivi hub IoT (DeviceClient, ModuleClient).
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-csharp)
-* [Informazioni di riferimento sulle API](/dotnet/api/microsoft.azure.devices?view=azure-dotnet&preserve-view=true)
-* [Riferimento al modulo](/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet&preserve-view=true)
+* [Informazioni di riferimento sulle API](/dotnet/api/microsoft.azure.devices)
+* [Riferimento al modulo](/dotnet/api/microsoft.azure.devices.client.moduleclient)
 
 
 SDK per dispositivi hub Azure Internet per Embedded C (ANSI C-C99):
@@ -153,7 +153,7 @@ SDK dei dispositivi di provisioning e di servizio di Azure per C#:
 
 * Scaricare l'[SDK per dispositivi](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/) e l'[SDK per il servizio](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) da NuGet.
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-csharp/)
-* [Informazioni di riferimento sulle API](/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet&preserve-view=true)
+* [Informazioni di riferimento sulle API](/dotnet/api/microsoft.azure.devices.provisioning.client)
 
 SDK dei dispositivi di provisioning e di servizio di Azure per C:
 

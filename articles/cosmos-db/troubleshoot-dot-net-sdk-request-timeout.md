@@ -4,17 +4,17 @@ description: Informazioni su come diagnosticare e correggere le eccezioni di tim
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/06/2020
+ms.date: 03/05/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c8d35f7c666562022f503b2777f30f84193d0231
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340499"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440004"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnosticare e risolvere i problemi relativi alle eccezioni di timeout della richiesta Azure Cosmos DB .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,8 +39,24 @@ Tutte le operazioni asincrone nell'SDK hanno un parametro CancellationToken faco
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 L'elenco seguente contiene le cause e le soluzioni note per le eccezioni di timeout della richiesta.
 
-### <a name="high-cpu-utilization"></a>Utilizzo CPU elevato
+### <a name="high-cpu-utilization"></a>Uso elevato della CPU
 Un utilizzo elevato della CPU è il caso più comune. Per una latenza ottimale, l'utilizzo della CPU deve essere approssimativamente del 40%. Usare 10 secondi come intervallo per monitorare l'utilizzo della CPU massimo (non medio). I picchi di CPU sono più comuni con le query tra partizioni in cui è possibile eseguire più connessioni per una singola query.
+
+Se l'errore contiene `TransportException` informazioni, può contenere anche `CPU History` :
+
+```
+CPU history: 
+(2020-08-28T00:40:09.1769900Z 0.114), 
+(2020-08-28T00:40:19.1763818Z 1.732), 
+(2020-08-28T00:40:29.1759235Z 0.000), 
+(2020-08-28T00:40:39.1763208Z 0.063), 
+(2020-08-28T00:40:49.1767057Z 0.648), 
+(2020-08-28T00:40:59.1689401Z 0.137), 
+CPU count: 8)
+```
+
+* Se le misurazioni della CPU sono superiori al 70%, il timeout è probabilmente causato dall'esaurimento della CPU. In questo caso la soluzione consiste nel ricercare l'origine dell'utilizzo elevato della CPU e ridurre l'uso o nel ridimensionare il computer a dimensioni di risorse più elevate.
+* Se le misurazioni della CPU non vengono eseguite ogni 10 secondi (ad esempio ci sono spazi vuoti o i tempi di misurazione indicano intervalli più lunghi tra le misurazioni), la causa è la scadenza del thread. In questo caso, la soluzione consiste nel ricercare l'origine della scadenza del thread (thread potenzialmente bloccati) o nel ridimensionare il computer a dimensioni di risorse più elevate.
 
 #### <a name="solution"></a>Soluzione:
 L'applicazione client che usa l'SDK deve essere aumentata o orizzontale.
