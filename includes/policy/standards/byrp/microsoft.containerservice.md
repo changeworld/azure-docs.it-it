@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 3b1f0ca0ae8d64363664edec4bff28d6a84187f6
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 0926fc792aa0b68bfb9ae7df99e9cb1f13269aa2
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093444"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437580"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark di sicurezza di Azure
 
@@ -52,9 +52,18 @@ Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure p
 |Protezione dei dati |4.6 |Usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse |[Nei servizi Kubernetes deve essere usato il controllo degli accessi in base al ruolo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |
 |Gestione delle vulnerabilità |5.3 |Distribuire una soluzione di gestione delle patch automatizzata per il software di terze parti |[I servizi Kubernetes devono essere aggiornati a una versione di Kubernetes non vulnerabile](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb893a29-21bb-418c-a157-e99480ec364c) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UpgradeVersion_KubernetesService_Audit.json) |
 
-## <a name="cis-microsoft-azure-foundations-benchmark"></a>CIS Microsoft Azure Foundations Benchmark
+## <a name="cis-microsoft-azure-foundations-benchmark-110"></a>CIS Microsoft Azure Foundations Benchmark 1.1.0
 
 Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure per tutti i servizi di Azure a questo standard di conformità, vedere [Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark 1.1.0](../../../../articles/governance/policy/samples/cis-azure-1-1-0.md).
+Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
+
+|Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Altre considerazioni sulla sicurezza |8.5 |Abilitare il controllo degli accessi in base al ruolo con il servizio Azure Kubernetes |[Nei servizi Kubernetes deve essere usato il controllo degli accessi in base al ruolo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |
+
+## <a name="cis-microsoft-azure-foundations-benchmark-130"></a>1.3.0 benchmark di base di CIS Microsoft Azure
+
+Per esaminare il modo in cui i criteri di Azure disponibili predefiniti per tutti i servizi di Azure vengono mappati a questo standard di conformità, vedere [conformità normativa ai criteri di Azure-Microsoft Azure benchmark di](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md)base di 1.3.0.
 Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |

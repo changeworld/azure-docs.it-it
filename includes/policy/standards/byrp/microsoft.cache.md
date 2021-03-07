@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 279dbd13eb41121e63fee96542474d0f6f820ec7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 337089a317abfb7d5135f493c3491bdbcab4acee
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100094194"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441678"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark di sicurezza di Azure
 
@@ -69,10 +69,10 @@ Per ulteriori informazioni su questo standard di conformità, vedere [ISO 27001:
 |Crittografia |10.1.1 |Criteri per l'utilizzo di controlli crittografici |[Devono essere abilitate solo le connessioni sicure alla cache di Azure per Redis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 |Sicurezza delle comunicazioni |13.2.1 |Procedure e criteri di trasferimento delle informazioni |[Devono essere abilitate solo le connessioni sicure alla cache di Azure per Redis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 
-## <a name="new-zealand-ism"></a>Nuova Zelanda ISM
+## <a name="new-zealand-ism-restricted"></a>New Zealand ISM con restrizioni
 
-Per esaminare il modo in cui i criteri di Azure disponibili predefiniti per tutti i servizi di Azure sono associati a questo standard di conformità, vedere la pagina relativa alla [conformità alle normative dei criteri di Azure-manuale sulla sicurezza delle informazioni](../../../../articles/governance/policy/samples/new-zealand-ism.md)
-Per altre informazioni su questo standard di conformità, vedere la pagina relativa al [manuale sulla sicurezza delle informazioni di New Zealand](https://www.nzism.gcsb.govt.nz/).
+Per esaminare il mapping tra i criteri di Azure disponibili predefiniti per tutti i servizi di Azure e questo standard di conformità, vedere [conformità alle normative di criteri di Azure-Nuova Zelanda ISM con restrizioni](../../../../articles/governance/policy/samples/new-zealand-ism.md).
+Per ulteriori informazioni su questo standard di conformità, vedere [New Zealand ISM Restricted](https://www.nzism.gcsb.govt.nz/).
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

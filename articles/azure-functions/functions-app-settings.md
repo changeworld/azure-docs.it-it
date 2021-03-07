@@ -3,12 +3,12 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6f77efc877f210455be6716f8159ee000241c62f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040346"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425703"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -159,11 +159,11 @@ Determina se la modifica nella portale di Azure è abilitata. I valori validi so
 
 ## <a name="functions_extension_version"></a>FUNCTIONS\_EXTENSION\_VERSION
 
-La versione del runtime di Funzioni da utilizzare in questa app per le funzioni. Una tilde con versione principale indica l’uso della versione più recente di quella versione principale (ad esempio, "~2"). Quando sono disponibili nuove versioni per la stessa versione principale, vengono installate automaticamente nell'app per le funzioni. Per aggiungere l'app a una versione specifica, utilizzare il numero di versione completo (ad esempio, "2.0.12345"). Il valore predefinito è "~2". Un valore di `~1` aggiunge l'app alla versione 1.x del runtime.
+Versione del runtime di funzioni che ospita l'app per le funzioni. Una tilde ( `~` ) con versione principale significa usare la versione più recente di quella versione principale (ad esempio, "~ 3"). Quando sono disponibili nuove versioni per la stessa versione principale, vengono installate automaticamente nell'app per le funzioni. Per aggiungere l'app a una versione specifica, usare il numero di versione completo (ad esempio, "3.0.12345"). Il valore predefinito è "~ 3". Un valore di `~1` aggiunge l'app alla versione 1.x del runtime. Per altre informazioni, vedere [Panoramica delle versioni del runtime per Funzioni di Azure](functions-versions.md).
 
 |Chiave|Valore di esempio|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~2|
+|FUNCTIONS\_EXTENSION\_VERSION|~3|
 
 ## <a name="functions_v2_compatibility_mode"></a>Modalità di compatibilità di funzioni \_ v2 \_ \_
 

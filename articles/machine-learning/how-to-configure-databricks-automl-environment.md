@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: daeb0d666c0dfb8306663da1d8d59dfba6adc359
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 43e503105eb9d59de5de2fe26e024cc473c61af6
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516924"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430497"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Configurare un ambiente di sviluppo con Azure Databricks e AutoML in Azure Machine Learning 
 
@@ -122,6 +122,16 @@ Per provarlo:
 + Informazioni su come [creare una pipeline con databricks come calcolo di training](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+* **Databricks Annulla un'esecuzione automatica di Machine Learning**: quando si usano le funzionalità automatiche di machine learning in Azure Databricks, per annullare un'esecuzione e avviare una nuova esecuzione dell'esperimento, riavviare il cluster di Azure Databricks.
+
+* **Databricks >10 iterazioni per Machine Learning automatico**: nelle impostazioni automatiche di Machine Learning, se sono presenti più di 10 iterazioni, impostare `show_output` su `False` quando si invia l'esecuzione.
+
+* **Widget databricks per Azure Machine Learning SDK e Machine Learning automatico**: il widget SDK Azure Machine Learning non è supportato in un notebook di databricks perché i notebook non possono analizzare i widget HTML. È possibile visualizzare il widget nel portale usando questo codice Python nella cella Azure Databricks notebook:
+
+    ```
+    displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+    ```
 
 * **Errore durante l'installazione dei pacchetti**
 

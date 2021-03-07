@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3a5c98b3fad76d2206d1fcba79663063e22ecdbc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a38af4c942de280e7b1c094885a1ede6774ead56
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737971"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433217"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
@@ -220,11 +220,11 @@ Una volta decisa una stringa di query, è possibile eseguirla effettuando una ch
 
 È possibile chiamare direttamente l'API o usare uno degli [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) disponibili per i dispositivi gemelli digitali di Azure.
 
-Il frammento di codice seguente illustra la chiamata [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) da un'app client:
+Il frammento di codice seguente illustra la chiamata [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) da un'app client:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-La query usata in questa chiamata restituisce un elenco di gemelli digitali, che l'esempio precedente rappresenta con gli oggetti [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) . Il tipo restituito dei dati per ogni query dipenderà dai termini specificati con l' `SELECT` istruzione:
+La query usata in questa chiamata restituisce un elenco di gemelli digitali, che l'esempio precedente rappresenta con gli oggetti [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin) . Il tipo restituito dei dati per ogni query dipenderà dai termini specificati con l' `SELECT` istruzione:
 * Le query che iniziano con restituiranno `SELECT * FROM ...` un elenco di gemelli digitali, che possono essere serializzati come `BasicDigitalTwin` oggetti o altri tipi di dispositivi gemelli digitali personalizzati che è possibile creare.
 * Le query che iniziano nel formato restituiranno `SELECT <A>, <B>, <C> FROM ...` un dizionario con chiavi `<A>` , `<B>` e `<C>` .
 * `SELECT`È possibile creare altri formati di istruzioni per restituire dati personalizzati. È possibile creare classi personalizzate per gestire set di risultati molto personalizzati. 

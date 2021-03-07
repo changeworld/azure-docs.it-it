@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cbab73a2fb3aecaacdfc92950c0d0b86edf775af
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: e20cd09ce3d9eb1937819da79cea17bdd14a07dc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653347"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433268"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
-Le entità nell'ambiente sono rappresentate da dispositivi [gemelli digitali](concepts-twins-graph.md). La gestione dei dispositivi gemelli digitali può includere la creazione, la modifica e la rimozione. Per eseguire queste operazioni, è possibile usare le [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
+Le entità nell'ambiente sono rappresentate da dispositivi [gemelli digitali](concepts-twins-graph.md). La gestione dei dispositivi gemelli digitali può includere la creazione, la modifica e la rimozione. Per eseguire queste operazioni, è possibile usare le [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
 Questo articolo è incentrato sulla gestione di dispositivi gemelli digitali; per lavorare con le relazioni e il [grafo gemello](concepts-twins-graph.md) nel suo complesso, vedere [*How-to: Manage The Twin Graph with Relationships*](how-to-manage-graph.md).
 
@@ -160,7 +160,7 @@ Di seguito è riportato un esempio di codice patch JSON. Questo documento sostit
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-È possibile creare patch usando il [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true)di Azure .NET SDK. Ecco un esempio.
+È possibile creare patch usando il [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument)di Azure .NET SDK. Ecco un esempio.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
@@ -227,7 +227,7 @@ Il frammento di codice usa il [Room.jsnella](https://github.com/Azure-Samples/di
 Prima di eseguire l'esempio, eseguire le operazioni seguenti:
 1. Scaricare il file del modello, inserirlo nel progetto e sostituire il `<path-to>` segnaposto nel codice seguente per indicare al programma dove trovarlo.
 2. Sostituire il segnaposto `<your-instance-hostname>` con il nome host dell'istanza di Azure Digital gemelli.
-3. Aggiungere due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. La prima è il pacchetto per [Azure Digital Twins SDK per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), la seconda fornisce gli strumenti che consentono di eseguire l'autenticazione in Azure.
+3. Aggiungere due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. La prima è il pacchetto per [Azure Digital Twins SDK per .NET](/dotnet/api/overview/azure/digitaltwins/client), la seconda fornisce gli strumenti che consentono di eseguire l'autenticazione in Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

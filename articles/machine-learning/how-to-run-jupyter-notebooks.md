@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: fe6fa5c9b05afd5479818fe9bb25e471665cb867
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fe3f2328bb1ec9e7bb2ef79c09a821412ce7f7e1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171467"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423986"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Eseguire Jupyter notebook nell'area di lavoro
 
@@ -273,7 +273,7 @@ Usando i tasti di scelta rapida seguenti, è possibile esplorare ed eseguire pi�
 
 * Se non è possibile connettersi a un notebook, assicurarsi che la comunicazione del socket Web **non** sia disabilitata. Per il funzionamento della funzionalità Jupyter dell'istanza di calcolo, è necessario abilitare la comunicazione WebSocket. Assicurarsi che la rete consenta le connessioni WebSocket a *. instances.azureml.net e *. instances.azureml.ms. 
 
-* Quando l'istanza di calcolo viene distribuita in un'area di lavoro di collegamento privato, è possibile [accedervi solo dall'interno della rete virtuale](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Se si usa un file host o DNS personalizzato, aggiungere una voce per <nome istanza <region>>. instances.azureml.ms con l'indirizzo IP privato dell'endpoint privato dell'area di lavoro. Per altre informazioni, vedere l'articolo [DNS personalizzato](./how-to-custom-dns.md?tabs=azure-cli) .
+* Quando l'istanza di calcolo viene distribuita in un'area di lavoro di collegamento privato, è possibile [accedervi solo dall'interno della rete virtuale](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Se si usa un file host o DNS personalizzato, aggiungere una voce per < nome istanza >. < Region >. instances.azureml.ms con l'indirizzo IP privato dell'endpoint privato dell'area di lavoro. Per altre informazioni, vedere l'articolo [DNS personalizzato](./how-to-custom-dns.md?tabs=azure-cli) .
     
 ## <a name="next-steps"></a>Passaggi successivi
 

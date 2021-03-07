@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 66de81387fe27bd2a81ebcfeab7d86aac7031ff1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368781"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425295"
 ---
 # <a name="azure-cognitive-services-security"></a>Sicurezza dei servizi cognitivi di Azure
 
@@ -29,13 +29,13 @@ Tutti gli endpoint di servizi cognitivi esposti tramite HTTP applicano TLS 1,2. 
 * Il linguaggio e la piattaforma usati per eseguire la chiamata HTTP devono specificare TLS 1,2 come parte della richiesta
   * A seconda del linguaggio e della piattaforma, la specifica di TLS viene eseguita in modo implicito o esplicito
 
-Per gli utenti .NET, prendere in considerazione le <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">procedure <span class="docon docon-navigate-external x-hidden-focus"></span> consigliate Transport Layer Security </a>.
+Per gli utenti .NET, prendere in considerazione le <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">procedure consigliate Transport Layer Security </a>.
 
 ## <a name="authentication"></a>Authentication
 
-Quando si discute dell'autenticazione, esistono diversi equivoci comuni. L'autenticazione e l'autorizzazione sono spesso confuse tra loro. L'identità è anche un componente principale della sicurezza. Un'identità è una raccolta di informazioni su un' <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entità <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. I provider di identità (IdP) forniscono identità ai servizi di autenticazione. L'autenticazione è l'azione di verifica dell'identità di un utente. L'autorizzazione è la specifica dei diritti di accesso e dei privilegi per le risorse per una determinata identità. Diverse offerte di servizi cognitivi includono il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Il controllo degli accessi in base al ruolo di Azure può essere usato per semplificare alcune delle cerimonie necessarie per la gestione manuale delle entità. Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure per le risorse di Azure](../role-based-access-control/overview.md).
+Quando si discute dell'autenticazione, esistono diversi equivoci comuni. L'autenticazione e l'autorizzazione sono spesso confuse tra loro. L'identità è anche un componente principale della sicurezza. Un'identità è una raccolta di informazioni su un' <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entità </a>. I provider di identità (IdP) forniscono identità ai servizi di autenticazione. L'autenticazione è l'azione di verifica dell'identità di un utente. L'autorizzazione è la specifica dei diritti di accesso e dei privilegi per le risorse per una determinata identità. Diverse offerte di servizi cognitivi includono il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Il controllo degli accessi in base al ruolo di Azure può essere usato per semplificare alcune delle cerimonie necessarie per la gestione manuale delle entità. Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure per le risorse di Azure](../role-based-access-control/overview.md).
 
-Per altre informazioni sull'autenticazione con chiavi di sottoscrizione, token di accesso e Azure Active Directory (AAD), vedere <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">autenticare le richieste ai servizi <span class="docon docon-navigate-external x-hidden-focus"></span> cognitivi di Azure</a>.
+Per altre informazioni sull'autenticazione con chiavi di sottoscrizione, token di accesso e Azure Active Directory (AAD), vedere <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">autenticare le richieste ai servizi cognitivi di Azure</a>.
 
 ## <a name="environment-variables-and-application-configuration"></a>Variabili di ambiente e configurazione dell'applicazione
 
@@ -76,7 +76,7 @@ Creare e assegnare la variabile di ambiente permanente, dato il valore.
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-In una nuova istanza di **Windows PowerShell** , leggere la variabile di ambiente.
+In una nuova istanza di **Windows PowerShell**, leggere la variabile di ambiente.
 
 ```powershell
 # Prints the env var value
@@ -113,7 +113,7 @@ Per ottenere una variabile di ambiente, è necessario leggerla in memoria. A sec
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Per altre informazioni, vedere <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` </a>.
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Per altre informazioni, vedere <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` </a>.
 
 ```cpp
 #include <stdlib.h>
@@ -147,7 +147,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-Per altre informazioni, vedere <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` </a>.
 
 ```java
 import java.lang.*;
@@ -164,7 +164,7 @@ public class Program {
 
 # <a name="nodejs"></a>[Node.js](#tab/node-js)
 
-Per altre informazioni, vedere <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` </a>.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -174,7 +174,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-Per altre informazioni, vedere <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` </a>.
 
 ```python
 import os
@@ -185,7 +185,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-Per altre informazioni, vedere <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per ulteriori informazioni, vedere <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` </a>.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable
@@ -201,7 +201,7 @@ NSString* value =
 
 Customer Lockbox è disponibile per questo servizio cognitivo:
 
-* Funzione di conversione
+* Traduttore
 
 Per i servizi seguenti, i tecnici Microsoft non accederanno ai dati dei clienti nel livello E0: 
 
@@ -211,7 +211,7 @@ Per i servizi seguenti, i tecnici Microsoft non accederanno ai dati dei clienti 
 * Personalizza esperienze
 
 > [!IMPORTANT]
-> Per il **riconoscimento dei moduli** , i tecnici Microsoft non accederanno ai dati dei clienti nelle risorse create dopo il 10 luglio 2020.
+> Per il **riconoscimento dei moduli**, i tecnici Microsoft non accederanno ai dati dei clienti nelle risorse create dopo il 10 luglio 2020.
 
 Per richiedere la possibilità di usare lo SKU E0, compilare e inviare il [modulo di richiesta](https://aka.ms/cogsvc-cmk). Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvata l'uso dello SKU di E0 con LUIS, sarà necessario creare una nuova risorsa dal portale di Azure e selezionare E0 come piano tariffario. Gli utenti non saranno in grado di eseguire l'aggiornamento da F0 al nuovo SKU di E0.
 

@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 1f16ef0ede25f17acb915a7812ae5b15b45f78a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4142542c9f17ae464a996df310c50d73d8711d8e
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899729"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438200"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-pro-gpu-device"></a>Distribuire un modulo Internet con GPU abilitato in Azure Stack dispositivo GPU Pro Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Questo articolo descrive come distribuire una GPU abilitata IoT Edge modulo sul dispositivo GPU Pro Azure Stack Edge. 
 
@@ -146,7 +148,7 @@ Prima di iniziare, verificare di avere:
 
 2. Scegliere la sottoscrizione e l'hub IoT che contiene il dispositivo IoT Edge che si vuole configurare. In questo caso, selezionare la sottoscrizione usata per distribuire il dispositivo Azure Stack Edge Pro e selezionare il dispositivo IoT Edge creato per il dispositivo Azure Stack Edge Pro. Questo errore si verifica quando si configura il calcolo tramite il portale di Azure nei passaggi precedenti.
 
-3. In Esplora VS Code espandere la sezione Hub Azure. In **dispositivi**dovrebbe essere visualizzato il dispositivo IOT Edge corrispondente al dispositivo Azure stack Edge Pro. 
+3. In Esplora VS Code espandere la sezione Hub Azure. In **dispositivi** dovrebbe essere visualizzato il dispositivo IOT Edge corrispondente al dispositivo Azure stack Edge Pro. 
 
     1. Selezionare il dispositivo, fare clic con il pulsante destro del mouse e scegliere **Avvia monitoraggio endpoint evento predefinito**.
   

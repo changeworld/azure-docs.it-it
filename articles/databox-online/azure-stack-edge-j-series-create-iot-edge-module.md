@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 2b29f6b400ba7b500e215caec4a2115a12b369fe
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7836e791f8515c2df89228c81419738adf27e47f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952200"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438916"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Sviluppare un modulo di IoT Edge C# per spostare i file in Azure Stack Edge Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Questo articolo illustra come creare un modulo di IoT Edge per la distribuzione con il dispositivo Azure Stack Edge Pro. Azure Stack Edge Pro è una soluzione di archiviazione che consente di elaborare i dati e inviarli attraverso la rete ad Azure.
 
@@ -77,7 +77,7 @@ Un Registro Azure Container è un registro Docker privato in Azure nel quale è 
 
       ![Creare un registro contenitori](./media/azure-stack-edge-j-series-create-iot-edge-module/create-container-registry-1.png)
  
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 5. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**.
 
     ![Ottenere le chiavi di accesso](./media/azure-stack-edge-j-series-create-iot-edge-module/get-access-keys-1.png)

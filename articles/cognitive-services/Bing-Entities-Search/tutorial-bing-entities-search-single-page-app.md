@@ -11,17 +11,17 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: f725a4095103a7dcfc3dcdbdcefdc84d16501632
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
-ms.translationtype: HT
+ms.openlocfilehash: f2c15221268635ca1892a9292d5b0c208c13dd34
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366534"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426808"
 ---
 # <a name="tutorial-single-page-web-app"></a>Esercitazione: App Web a singola pagina
 
 > [!WARNING]
-> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
 > Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
@@ -68,8 +68,8 @@ Per proseguire con l'esercitazione sono necessarie le chiavi di sottoscrizione p
 
 * Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * Dopo aver ottenuto la sottoscrizione di Azure:
-  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Creare una risorsa di Ricerca Bing"  target="_blank">Creare una risorsa di Ricerca Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
-  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Creare una risorsa di Visione artificiale"  target="_blank">Creare una risorsa di Mappe di Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Creare una risorsa di Ricerca Bing"  target="_blank">Creare una risorsa di Ricerca Bing </a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Creare una risorsa di Visione artificiale"  target="_blank">Creare una risorsa di Mappe di Bing </a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
 
 ## <a name="app-components"></a>Componenti dell'app
 
@@ -447,7 +447,7 @@ function renderSearchResults(results) {
 
 ## <a name="rendering-result-items"></a>Rendering degli elementi di risultati
 
-Nel codice JavaScript l'oggetto `searchItemRenderers` contiene i *renderer* : funzioni che generano codice HTML per ciascun tipo di risultato della ricerca.
+Nel codice JavaScript l'oggetto `searchItemRenderers` contiene i *renderer*: funzioni che generano codice HTML per ciascun tipo di risultato della ricerca.
 
 ```javascript
 searchItemRenderers = { 

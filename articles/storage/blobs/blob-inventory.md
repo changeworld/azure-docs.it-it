@@ -4,18 +4,18 @@ description: L'inventario di archiviazione di Azure è uno strumento che consent
 services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.date: 12/03/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: a41966c2b3ba73d7b68399b1b99d14313e220833
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 7972385ba017059407b994029c37f347b919cad3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257812"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435121"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Usare l'inventario BLOB di archiviazione di Azure per gestire i dati BLOB (anteprima)
 
@@ -24,6 +24,9 @@ La funzionalità di inventario BLOB di archiviazione di Azure offre una panorami
 ## <a name="availability"></a>Disponibilità
 
 L'inventario BLOB è supportato sia per gli account di archiviazione BLOB in blocchi per utilizzo generico versione 2 (GPv2) che per Premium. Questa funzionalità è supportata con o senza la funzionalità di [spazio dei nomi gerarchica](data-lake-storage-namespace.md) abilitata.
+
+> [!IMPORTANT]
+> L'inventario di Bob è attualmente disponibile in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali applicabili alle funzionalità di Azure disponibili in versione beta, di anteprima o non ancora rilasciate a livello generale.
 
 ### <a name="preview-regions"></a>Aree di anteprima
 

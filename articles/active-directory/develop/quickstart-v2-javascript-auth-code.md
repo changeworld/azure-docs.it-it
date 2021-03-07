@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 1af1c990c284c91d8bb8344834991c69ed6f00c5
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: a626ae1406a6ea4a83919f0fc3ee71ffaa5fbac2
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103635"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427046"
 ---
-# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Avvio rapido: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript con il flusso del codice di autorizzazione
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Guida introduttiva: accedere agli utenti e ottenere un token di accesso in una SPA JavaScript usando il flusso del codice di autenticazione con PKCE 
 
-In questa guida di avvio rapido si scarica e si esegue un esempio di codice di un'applicazione a pagina singola JavaScript che consente agli utenti di accedere e chiamare Microsoft Graph usando il flusso del codice di autorizzazione. L'esempio di codice dimostra come ottenere un token di accesso per chiamare l'API Microsoft Graph o qualsiasi API Web. 
+In questa Guida introduttiva viene scaricato ed eseguito un esempio di codice che illustra il modo in cui un'applicazione a pagina singola (SPA) JavaScript può accedere agli utenti e chiamare Microsoft Graph usando il flusso del codice di autorizzazione con la chiave di prova per lo scambio di codice (PKCE). L'esempio di codice dimostra come ottenere un token di accesso per chiamare l'API Microsoft Graph o qualsiasi API Web. 
 
 Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 

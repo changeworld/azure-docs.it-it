@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 12e57361b9e275fc441df27a3a1381989d48751c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ae2be8dbcb4839c7d16b864c484c3360fdcfe324
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788571"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425584"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Binding di output del bus di servizio di Azure per funzioni di Azure
 
@@ -429,7 +429,7 @@ Se è stato `isSessionsEnabled` impostato su `true` , `sessionHandlerOptions` ve
 |---------|---------|---------|
 |prefetchCount|0|Ottiene o imposta il numero di messaggi che possono essere richiesti simultaneamente dal ricevitore del messaggio.|
 |maxAutoRenewDuration|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.|
-|autoComplete|true|Indica se il trigger deve chiamare automaticamente complete dopo l'elaborazione o se il codice della funzione chiamerà manualmente il completamento.<br><br>L'impostazione di su `false` è supportata solo in C#.<br><br>Se impostato su `true` , il trigger completa automaticamente il messaggio se l'esecuzione della funzione viene completata correttamente e abbandona il messaggio in caso contrario.<br><br>Quando è impostato su `false` , si è responsabili della chiamata dei metodi [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) per completare, abbandonare o DeadLetter il messaggio. Se viene generata un'eccezione (e nessuno dei `MessageReceiver` metodi viene chiamato), il blocco rimane. Una volta scaduto il blocco, il messaggio viene nuovamente accodato con l' `DeliveryCount` incremento e il blocco viene rinnovato automaticamente.<br><br>Nelle funzioni non C #, le eccezioni nella funzione generano chiamate `abandonAsync` di runtime in background. Se non si verifica alcuna eccezione, `completeAsync` viene chiamato in background. |
+|autoComplete|true|Indica se il trigger deve chiamare automaticamente complete dopo l'elaborazione o se il codice della funzione chiamerà manualmente il completamento.<br><br>L'impostazione di su `false` è supportata solo in C#.<br><br>Se impostato su `true` , il trigger completa automaticamente il messaggio se l'esecuzione della funzione viene completata correttamente e abbandona il messaggio in caso contrario.<br><br>Quando è impostato su `false` , si è responsabili della chiamata dei metodi [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) per completare, abbandonare o DeadLetter il messaggio. Se viene generata un'eccezione (e nessuno dei `MessageReceiver` metodi viene chiamato), il blocco rimane. Una volta scaduto il blocco, il messaggio viene nuovamente accodato con l' `DeliveryCount` incremento e il blocco viene rinnovato automaticamente.<br><br>Nelle funzioni non C #, le eccezioni nella funzione generano chiamate `abandonAsync` di runtime in background. Se non si verifica alcuna eccezione, `completeAsync` viene chiamato in background. |
 |maxConcurrentCalls|16|Numero massimo di chiamate simultanee al callback che il message pump deve avviare per istanza ridimensionata. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente.|
 |maxConcurrentSessions|2000|Numero massimo di sessioni che possono essere gestite simultaneamente per istanza ridimensionata.|
 

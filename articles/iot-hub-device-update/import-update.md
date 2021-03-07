@@ -6,15 +6,15 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7f2353d9e87c35f01a9fd514df7cfb090a98bf27
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030733"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442945"
 ---
 # <a name="import-new-update"></a>Importa nuovo aggiornamento
-Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dispositivo per l'hub Internet.
+Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dispositivo per l'hub Internet. Se non è già stato fatto, assicurarsi di acquisire familiarità con i concetti di base dell' [importazione](import-concepts.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -59,9 +59,9 @@ Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dis
     | --------- | ----------- |
     | deviceManufacturer | Produttore del dispositivo con cui è compatibile l'aggiornamento, ad esempio contoso
     | deviceModel | Modello del dispositivo con cui è compatibile l'aggiornamento, ad esempio, tostapane
-    | updateProvider | Parte del provider dell'identità di aggiornamento, ad esempio fabrikam
-    | aggiornaname | Parte relativa al nome dell'identità di aggiornamento, ad esempio ImageUpdate
-    | updateVersion | Aggiornamento versione, ad esempio 2,0
+    | updateProvider | Entità che sta creando o direttamente responsabile dell'aggiornamento. Si tratta spesso di un nome della società.
+    | aggiornaname | Identificatore di una classe di aggiornamenti. La classe può essere qualsiasi cosa scelta. Si tratta spesso di un nome di dispositivo o modello.
+    | updateVersion | Numero di versione che distingue questo aggiornamento da altri che hanno lo stesso provider e lo stesso nome. È possibile che non corrisponda a una versione di un singolo componente software nel dispositivo.
     | updateType | <ul><li>Specificare `microsoft/swupdate:1` per l'aggiornamento delle immagini</li><li>Specificare `microsoft/apt:1` per l'aggiornamento del pacchetto</li></ul>
     | installedCriteria | <ul><li>Specificare il valore di SWVersion per il `microsoft/swupdate:1` tipo di aggiornamento</li><li>Specificare il valore consigliato per il `microsoft/apt:1` tipo di aggiornamento.
     | updateFilePath | Percorso dei file di aggiornamento nel computer

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/3/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 38754e0f43ceaf40411cd89b97d1c0bf5fe7eb99
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5549fc3b63b76c6158ae7399e6d94a43d2d4f28f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049254"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435189"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -150,6 +150,8 @@ Gli elementi seguenti non vengono sincronizzati, ma il resto del sistema continu
 ### <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud
 - Se un file a più livelli viene copiato in un'altra posizione usando Robocopy, il file risultante non è suddiviso in livelli. L'attributo offline potrebbe essere impostato perché Robocopy include erroneamente tale attributo nelle operazioni di copia.
 - Quando si copiano file tramite robocopy, usare l'opzione /MIR per conservare i timestamp dei file. In questo modo i file meno recenti verranno archiviati a livelli prima dei file aperti più di recente.
+    > [!Warning]  
+    > L'opzione Robocopy/B non è supportata con Sincronizzazione file di Azure. L'uso dell'opzione Robocopy/B con un endpoint del server Sincronizzazione file di Azure come origine può causare il danneggiamento del file.
 
 ## <a name="agent-version-10100"></a>Versione dell'agente 10.1.0.0
 Le note sulla versione seguenti sono relative alla versione 10.1.0.0 dell'agente Sincronizzazione file di Azure rilasciato il 5 giugno 2020. Queste note si aggiungono alle note sulla versione elencate per la versione 10.0.0.0 e 10.0.2.0.

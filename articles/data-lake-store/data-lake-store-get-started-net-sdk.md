@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5b2364328fc4e0103b969f94a4c877a388edb7c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2c4ed092604e9511023a7025a69dc7a78652ea56
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103612"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430480"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operazioni di gestione di account in Azure Data Lake Storage Gen1 con .NET SDK
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Per istruzioni su come eseguire le operazioni di gestione di dati in Data Lake S
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>Creare un'applicazione .NET
-1. In Visual Studio selezionare il menu **file** , **nuovo**e quindi **progetto**.
+1. In Visual Studio selezionare il menu **file** , **nuovo** e quindi **progetto**.
 2. Scegliere **app console (.NET Framework)** e quindi fare clic su **Avanti**.
 3. In **Nome del progetto** immettere `CreateADLApplication` e quindi selezionare **Crea**.
 
@@ -144,7 +144,7 @@ _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
 ## <a name="see-also"></a>Vedi anche
 * [Operazioni del file system in Data Lake Storage Gen1 con .NET SDK](data-lake-store-data-operations-net-sdk.md)
-* [Riferimento a .NET SDK di Data Lake Storage Gen1](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Riferimento a .NET SDK di Data Lake Storage Gen1](/dotnet/api/overview/azure/data-lake-store)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)

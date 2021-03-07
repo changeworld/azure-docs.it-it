@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 03/05/2021
 ms.author: duau
-ms.openlocfilehash: 8366978d50875389ce872c2d1402f0defa2a7371
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 336bd4aaf881b7315921ef374c92a2ac95ff3c8c
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539350"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431316"
 ---
 # <a name="configure-expressroute-global-reach-using-the-azure-portal"></a>Configurare ExpressRoute Copertura globale usando il portale di Azure
 
@@ -36,7 +36,7 @@ Prima di iniziare la configurazione, verificare i criteri seguenti:
    * Se la sottoscrizione è proprietaria di entrambi i circuiti, è possibile scegliere uno dei due circuiti per l'esecuzione della configurazione nelle sezioni seguenti.
    * Se i due circuiti si trovano in sottoscrizioni di Azure diverse, è necessaria l'autorizzazione di una delle due sottoscrizioni. Occorre quindi passare la chiave di autorizzazione quando si esegue il comando di configurazione nell'altra sottoscrizione di Azure.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-global-reach-list.png" alt-text="Elenco di circuiti ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-global-reach-list.png" alt-text="Screenshot dell'elenco dei circuiti ExpressRoute.":::
 
 ## <a name="enable-connectivity"></a>Abilitare la connettività
 
@@ -46,19 +46,19 @@ Abilitare la connettività tra le reti locali. Sono disponibili set distinti di 
 
 1. Selezionare la configurazione del peering **privato di Azure** . 
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-private-peering.png" alt-text="Panoramica del peering ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-private-peering.png" alt-text="Screenshot della pagina Panoramica di ExpressRoute.":::
 
-1. Selezionare la casella di controllo **abilita copertura globale** , quindi selezionare **Aggiungi copertura globale** per aprire la pagina *Aggiungi copertura globale* configurazione.
+1. Selezionare **aggiungi copertura globale** per aprire la pagina *Aggiungi copertura globale* di configurazione.
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/private-peering-enable-global-reach.png" alt-text="Abilitare la copertura globale dal peering privato":::
 
 1. Nella pagina *aggiungi copertura globale* configurazione assegnare un nome a questa configurazione. Selezionare il *circuito ExpressRoute* a cui si vuole connettere questo circuito e immettere in un **IPv4/29** per la *subnet copertura globale*. Gli indirizzi IP di questa subnet vengono usati per stabilire la connettività tra i due circuiti ExpressRoute. Non usare gli indirizzi in questa subnet nelle reti virtuali di Azure o nella rete locale. Selezionare **Aggiungi** per aggiungere il circuito alla configurazione del peering privato.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration.png" alt-text="Pagina di configurazione Copertura globale":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration.png" alt-text="Screenshot dell'aggiunta di Copertura globale nel peering privato.":::
 
 1. Selezionare **Save (Salva** ) per completare la configurazione del copertura globale. Al termine dell'operazione, si disporrà di connettività tra le due reti locali tramite entrambi i circuiti ExpressRoute.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-private-peering-configuration.png" alt-text="Salvataggio della configurazione del peering privato":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-private-peering-configuration.png" alt-text="Screenshot del salvataggio delle configurazioni del peering privato.":::
 
 ### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>Circuiti ExpressRoute in sottoscrizioni di Azure diverse
 
@@ -66,41 +66,41 @@ Se i due circuiti non sono nella stessa sottoscrizione di Azure, sarà necessari
 
 1. Generare una chiave di autorizzazione.
 
-   :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/create-authorization-expressroute-circuit.png" alt-text="Genera chiave di autorizzazione"::: 
+   :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/create-authorization-expressroute-circuit.png" alt-text="Screenshot della generazione della chiave di autorizzazione."::: 
 
    Prendere nota dell'ID risorsa del circuito 2 e della chiave di autorizzazione.
 
 1. Selezionare la configurazione del peering **privato di Azure** . 
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-private-peering.png" alt-text="Panoramica del peering Circuit 1":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-private-peering.png" alt-text="Screenshot del peering privato nella pagina di panoramica.":::
 
-1. Selezionare la casella di controllo **abilita copertura globale** , quindi selezionare **Aggiungi copertura globale** per aprire la pagina *Aggiungi copertura globale* configurazione.
+1. Selezionare **aggiungi copertura globale** per aprire la pagina *Aggiungi copertura globale* di configurazione.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/private-peering-enable-global-reach.png" alt-text="Abilitare la portata globale dal circuito 1":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/private-peering-enable-global-reach.png" alt-text="Screenshot dell'aggiunta di Copertura globale nel peering privato.":::
 
 1. Nella pagina *aggiungi copertura globale* configurazione assegnare un nome a questa configurazione. Selezionare la casella **riscatta autorizzazione** . Immettere la **chiave di autorizzazione** e l' **ID del circuito ExpressRoute** generati e ottenuti nel passaggio 1. Fornire quindi un **IPv4/29** per la *subnet copertura globale*. Gli indirizzi IP di questa subnet vengono usati per stabilire la connettività tra i due circuiti ExpressRoute. Non usare gli indirizzi in questa subnet nelle reti virtuali di Azure o nella rete locale. Selezionare **Aggiungi** per aggiungere il circuito alla configurazione del peering privato.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration-with-authorization.png" alt-text="Aggiungere Copertura globale con la chiave di autorizzazione":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration-with-authorization.png" alt-text="Screenshot dell'aggiunta di Copertura globale con la chiave di autorizzazione.":::
 
 1. Selezionare **Save (Salva** ) per completare la configurazione del copertura globale. Al termine dell'operazione, si disporrà di connettività tra le due reti locali tramite entrambi i circuiti ExpressRoute.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-private-peering-configuration.png" alt-text="Salvataggio della configurazione del peering privato nel circuito 1":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-private-peering-configuration.png" alt-text="Screenshot del salvataggio della configurazione del peering privato con Copertura globale.":::
 
 ## <a name="verify-the-configuration"></a>Verificare la configurazione
 
 Verificare la configurazione del Copertura globale selezionando il *peering privato* nella configurazione del circuito ExpressRoute. Una volta configurata correttamente, la configurazione deve essere simile a quanto segue:
 
-:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/verify-global-reach-configuration.png" alt-text="Verificare la configurazione del Copertura globale":::
+:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/verify-global-reach-configuration.png" alt-text="Screenshot della Copertura globale configurata.":::
 
 ## <a name="disable-connectivity"></a>Disabilitare la connettività
 
-Sono disponibili due opzioni per la disabilitazione della Copertura globale. Per disabilitare la connettività tra tutti i circuiti, deselezionare **abilita copertura globale** per disabilitare la connettività tra tutti i circuiti. Per disabilitare la connettività tra un singolo circuito, selezionare il pulsante Elimina accanto al *nome del copertura globale* per rimuovere la connettività tra di essi. Quindi selezionare **Save (Salva** ) per completare l'operazione.
+Per disabilitare la connettività tra un singolo circuito, selezionare il pulsante Elimina accanto al *nome del copertura globale* per rimuovere la connettività tra di essi. Quindi selezionare **Save (Salva** ) per completare l'operazione.
 
-:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/disable-global-reach-configuration.png" alt-text="Disabilitare la configurazione di Copertura globale":::
+:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/disable-global-reach-configuration.png" alt-text="Screenshot che illustra come disabilitare Copertura globale.":::
 
 Al termine dell'operazione, non sarà più disponibile una connettività tra la rete locale e i circuiti ExpressRoute.
 
 ## <a name="next-steps"></a>Passaggi successivi
-1. [Altre informazioni su Copertura globale di ExpressRoute](expressroute-global-reach.md)
-2. [Verifica della connettività di ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
-3. [Collegare un circuito ExpressRoute a una rete virtuale di Azure](expressroute-howto-linkvnet-arm.md)
+- [Altre informazioni su Copertura globale di ExpressRoute](expressroute-global-reach.md)
+- [Verifica della connettività di ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
+- [Collegare un circuito ExpressRoute a una rete virtuale di Azure](expressroute-howto-linkvnet-arm.md)

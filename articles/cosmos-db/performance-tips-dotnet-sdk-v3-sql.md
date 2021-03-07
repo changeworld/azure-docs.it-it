@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: f503f132794f6d04b587a78b8f838acba26f9ac3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 06fb087744ff4ecd96bee7a26e4a796e87866322
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032015"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433676"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -172,7 +172,7 @@ Le query parallele forniscono due parametri che è possibile ottimizzare per sod
 
 Durante i test delle prestazioni, è necessario aumentare il carico fino a quando non viene limitata una piccola frequenza di richieste. Se le richieste sono limitate, l'applicazione client deve disattivare la limitazione per l'intervallo tra tentativi specificato dal server. Il rispetto dei backoff contribuisce a garantire una quantità minima di tempo di attesa tra i tentativi. 
 
-Per ulteriori informazioni, vedere [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+Per ulteriori informazioni, vedere [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 È disponibile un meccanismo per la registrazione di ulteriori informazioni di diagnostica e la risoluzione dei problemi di latenza, come illustrato nell'esempio seguente. È possibile registrare la stringa di diagnostica per le richieste con una latenza di lettura più elevata. La stringa di diagnostica acquisita consentirà di comprendere il numero di volte in cui si è ricevuto un errore *429* per una determinata richiesta.
 
@@ -213,7 +213,7 @@ I costi associati a ognuna di queste operazioni variano a seconda della CPU, del
 
 Viene eseguito il provisioning della velocità effettiva in base al numero di [unità richiesta](request-units.md) impostate per ogni contenitore. Il consumo delle unità richiesta viene valutato come una tariffa di unità al secondo. Le applicazioni che superano la frequenza di unità richiesta di cui è stato effettuato il provisioning per il contenitore sono limitate fino a quando la frequenza scende sotto il livello di provisioning per il contenitore. Se l'applicazione richiede un livello superiore di velocità effettiva, è possibile aumentare la velocità effettiva effettuando il provisioning di unità richiesta aggiuntive.
 
-La complessità di una query influiscono sul numero di unità richiesta utilizzate per un'operazione. Il numero di predicati, la natura dei predicati, il numero di file UDF e le dimensioni del set di dati di origine influenzano tutti il costo delle operazioni di query.
+La complessità di una query influisce sul numero di unità richiesta usate per un'operazione. Il numero di predicati, la natura dei predicati, il numero di file UDF e le dimensioni del set di dati di origine influenzano tutti il costo delle operazioni di query.
 
 Per misurare l'overhead di qualsiasi operazione (create, Update o DELETE), esaminare l'intestazione [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la proprietà equivalente `RequestCharge` in `ResourceResponse\<T>` o `FeedResponse\<T>` in .NET SDK) per misurare il numero di unità richiesta utilizzate dalle operazioni:
 

@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 558df115043d76acf865f19611e8c4cd322e00a7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 22adccfc4adbb7f8b1c72d8b5705ec8fcdb9a375
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679714"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441092"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Come configurare l'indicizzazione di SharePoint online in ricerca cognitiva (anteprima)
 
@@ -23,6 +23,9 @@ ms.locfileid: "101679714"
 > La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > Questa funzionalità è disponibile nell' [API REST versione 2020-06-30-Preview](search-api-preview.md) . Attualmente non è disponibile alcun supporto per il portale o l'SDK.
+
+> [!NOTE]
+> SharePoint Online supporta un modello di autorizzazione granulare che determina l'accesso per singolo utente a livello di documento. L'indicizzatore di SharePoint Online non esegue il pull di queste autorizzazioni nell'indice di ricerca e ricerca cognitiva non supporta l'autorizzazione a livello di documento. Quando un documento viene indicizzato da SharePoint online in un servizio di ricerca, il contenuto è disponibile per tutti gli utenti che dispongono dell'accesso in lettura all'indice. Se sono necessarie autorizzazioni a livello di documento, è necessario esaminare i filtri di sicurezza per tagliare i risultati di contenuto non autorizzato. Per altre informazioni, vedere la pagina relativa all'eliminazione di [sicurezza con Active Directory identità](search-security-trimming-for-azure-search-with-aad.md).
 
 Questo articolo descrive come usare Azure ricerca cognitiva per indicizzare i documenti, ad esempio i file PDF, i documenti Microsoft Office e diversi altri formati comuni, archiviati nelle raccolte documenti di SharePoint online in un indice di ricerca cognitiva di Azure. In primo luogo, vengono illustrate le nozioni di base relative alla configurazione e alla configurazione dell'indicizzatore. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi.
 
