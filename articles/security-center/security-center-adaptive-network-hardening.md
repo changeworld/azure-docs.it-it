@@ -1,24 +1,18 @@
 ---
 title: Protezione avanzata della rete adattiva nel centro sicurezza di Azure | Microsoft Docs
 description: Informazioni su come usare i modelli di traffico effettivi per rafforzare le regole dei gruppi di sicurezza di rete (NSG) e migliorare ulteriormente il comportamento di sicurezza.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 09d62d23-ab32-41f0-a5cf-8d80578181dd
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 23cbabf1c4fb1433fa1201f77528db9d9f393ed5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 14523e814c85469aa02a860e87b86defd7823c16
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712148"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439596"
 ---
 # <a name="improve-your-network-security-posture-with-adaptive-network-hardening"></a>Migliorare il comportamento di sicurezza della rete con protezione avanzata della rete adattiva
 Informazioni su come configurare la protezione avanzata della rete adattiva nel centro sicurezza.

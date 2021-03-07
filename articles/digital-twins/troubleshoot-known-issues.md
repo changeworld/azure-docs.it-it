@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d7d97ca1eb590fb96789d439243dd04d6143a960
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 641b44a5e21e6646c07e6e1511e1c4ff01707f79
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203148"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434101"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemi noti nei dispositivi gemelli digitali di Azure
 
@@ -37,7 +37,7 @@ Questo articolo fornisce informazioni sui problemi noti associati ai dispositivi
 
 ## <a name="issue-with-interactive-browser-authentication-on-azureidentity-120"></a>Problemi con l'autenticazione interattiva del browser in Azure. identità 1.2.0
 
-**Descrizione del problema:** Quando si scrive il codice di autenticazione nelle applicazioni dei dispositivi gemelli digitali di Azure usando la versione **1.2.0** della **libreria [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)**, è possibile che si verifichino problemi con il metodo [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) . Si presenta come risposta di errore "Azure. Identity. AuthenticationFailedException" quando si tenta di eseguire l'autenticazione in una finestra del browser. È possibile che la finestra del browser non venga avviata completamente o che venga eseguita correttamente l'autenticazione dell'utente, mentre l'applicazione client ha ancora esito negativo con l'errore.
+**Descrizione del problema:** Quando si scrive il codice di autenticazione nelle applicazioni dei dispositivi gemelli digitali di Azure usando la versione **1.2.0** della **libreria [Azure. Identity](/dotnet/api/azure.identity)**, è possibile che si verifichino problemi con il metodo [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential) . Si presenta come risposta di errore "Azure. Identity. AuthenticationFailedException" quando si tenta di eseguire l'autenticazione in una finestra del browser. È possibile che la finestra del browser non venga avviata completamente o che venga eseguita correttamente l'autenticazione dell'utente, mentre l'applicazione client ha ancora esito negativo con l'errore.
 
 | Questa operazione ha effetto? | Causa | Soluzione |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ Questo articolo fornisce informazioni sui problemi noti associati ai dispositivi
 
 ## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Problema con l'autenticazione delle credenziali di Azure predefinita in Azure. identità 1.3.0
 
-**Descrizione del problema:** Quando si scrive il codice di autenticazione usando la versione **1.3.0** della libreria di **[identità di Azure](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)**, alcuni utenti hanno riscontrato problemi con il metodo [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) usato in molti esempi in questi documenti di Azure Digital gemelli. Si presenta come risposta di errore "Azure. Identity. AuthenticationFailedException: SharedTokenCacheCredential Authentication Failed" quando il codice tenta di eseguire l'autenticazione.
+**Descrizione del problema:** Quando si scrive il codice di autenticazione usando la versione **1.3.0** della libreria di **[identità di Azure](/dotnet/api/azure.identity)**, alcuni utenti hanno riscontrato problemi con il metodo [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) usato in molti esempi in questi documenti di Azure Digital gemelli. Si presenta come risposta di errore "Azure. Identity. AuthenticationFailedException: SharedTokenCacheCredential Authentication Failed" quando il codice tenta di eseguire l'autenticazione.
 
 | Questa operazione ha effetto? | Causa | Soluzione |
 | --- | --- | --- |

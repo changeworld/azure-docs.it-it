@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 11/12/2019
+ms.date: 03/05/2021
 ms.author: ajburnle
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51f1b122cb005f47e9816db3b403a35f4f502248
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996696"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426825"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Aggiungere o eliminare utenti tramite Azure Active Directory
 
@@ -74,6 +74,9 @@ Se l'ambiente usa sia Azure Active Directory (cloud) che Windows Server Active D
 
 Con il portale Azure Active Directory è possibile eliminare un utente esistente.
 
+>[!Note]
+>È necessario disporre di un'assegnazione di ruolo amministratore globale o amministratore utente per eliminare gli utenti nell'organizzazione. Gli amministratori globali possono eliminare qualsiasi utente che includa altri amministratori. Gli amministratori utente possono eliminare eventuali utenti non amministratori, amministratori del supporto tecnico e altri amministratori utenti. Per ulteriori informazioni, vedere [autorizzazioni per i ruoli di amministratore in Azure ad](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
+
 Per eliminare un utente, attenersi alla seguente procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando un account amministratore utente per l'organizzazione.
@@ -91,7 +94,7 @@ L'utente viene eliminato e non è più visualizzato nella pagina **Utenti - Tutt
 Quando un utente viene eliminato, le licenze utilizzate dall'utente vengono rese disponibili per altri utenti.
 
 >[!Note]
->È necessario utilizzare Windows Server Active Directory per aggiornare l'identità, le informazioni di contatto o le informazioni sui processi per gli utenti la cui origine di autorità è Windows Server Active Directory. Dopo aver completato l'aggiornamento, è necessario attendere il ciclo di sincronizzazione successivo prima di poter visualizzare le modifiche.
+>Per aggiornare l'identità, le informazioni di contatto o le informazioni sui processi per gli utenti la cui origine dell'autorità è Windows Server Active Directory, è necessario utilizzare Windows Server Active Directory. Dopo aver completato l'aggiornamento, è necessario attendere il completamento del ciclo di sincronizzazione successivo prima di visualizzare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

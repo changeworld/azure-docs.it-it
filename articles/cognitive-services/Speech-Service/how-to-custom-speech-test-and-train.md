@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: f7e29fab542db79b22a9ace7371bc22d3526ac33
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 15f0b01304f3333b8650ab2079cd56271d0095db
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710499"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424496"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -55,7 +55,7 @@ Quando si esegue il training di un nuovo modello, iniziare con il [testo correla
 I file devono essere raggruppati per tipo in un set di dati e caricati come file con estensione zip. Ogni set di dati può contenere solo un singolo tipo di dati.
 
 > [!TIP]
-> Per iniziare rapidamente, provare a usare i dati di esempio. Vedere questo repository GitHub per <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">i dati <span class="docon docon-navigate-external x-hidden-focus"></span> di esempio riconoscimento vocale personalizzato</a>
+> Per iniziare rapidamente, provare a usare i dati di esempio. Vedere questo repository GitHub per <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">i dati di esempio riconoscimento vocale personalizzato </a>
 
 > [!NOTE]
 > Non tutti i modelli di base supportano il training con audio. Se un modello di base non la supporta, il servizio di riconoscimento vocale utilizzerà solo il testo delle trascrizioni e ignorerà l'audio. Per un elenco dei modelli di base che supportano il training con dati audio, vedere Supporto per le [lingue](language-support.md#speech-to-text) . Anche se un modello di base supporta il training con dati audio, il servizio può usare solo parte dell'audio. Continuerà comunque a usare tutte le trascrizioni.
@@ -69,7 +69,7 @@ I file devono essere raggruppati per tipo in un set di dati e caricati come file
 
 ## <a name="upload-data"></a>Caricare i dati
 
-Per caricare i dati, passare a <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Dal portale fare clic su **Carica dati** per avviare la procedura guidata e creare il primo set di dati. Prima di poter caricare i dati, verrà richiesto di selezionare un tipo di dati vocale per il set di dati.
+Per caricare i dati, passare a <a href="https://speech.microsoft.com/customspeech" target="_blank">speech studio </a>. Dal portale fare clic su **Carica dati** per avviare la procedura guidata e creare il primo set di dati. Prima di poter caricare i dati, verrà richiesto di selezionare un tipo di dati vocale per il set di dati.
 
 ![Screenshot che evidenzia l'opzione di caricamento audio dal portale per la sintesi vocale.](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -101,7 +101,7 @@ Usare questa tabella per assicurarsi che i file audio siano formattati correttam
 > [!TIP]
 > Quando si caricano i dati di training e di test, le dimensioni del file zip non possono superare i 2 GB. Se sono necessari più dati per il training, suddividerli in più file con estensione zip e caricarli separatamente. Successivamente, è possibile scegliere di eseguire il training da *più* set di impostazioni. Tuttavia, è possibile eseguire il test solo da un *singolo* set di dati.
 
-Usare <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">Sox <span class="docon docon-navigate-external x-hidden-focus"></span> </a> per verificare le proprietà audio o convertire l'audio esistente nei formati appropriati. Di seguito sono riportati alcuni esempi di come è possibile eseguire ognuna di queste attività tramite la riga di comando di SoX:
+Usare <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">Sox </a> per verificare le proprietà audio o convertire l'audio esistente nei formati appropriati. Di seguito sono riportati alcuni esempi di come è possibile eseguire ognuna di queste attività tramite la riga di comando di SoX:
 
 | Attività | Descrizione | Comando SoX |
 |----------|-------------|-------------|
@@ -146,7 +146,7 @@ speech03.wav    the lazy dog was not amused
 
 Alle trascrizioni viene applicata la normalizzazione del testo in modo che possano essere elaborate dal sistema. Tuttavia, esistono alcune normalizzazioni importanti che devono essere eseguite prima di caricare i dati in speech studio. Per il linguaggio appropriato da usare quando si preparano le trascrizioni, vedere [come creare una trascrizione con etichetta umana](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Dopo aver raccolto i file audio e le trascrizioni corrispondenti, è possibile crearne un pacchetto come file con estensione zip prima del caricamento in <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech <span class="docon docon-navigate-external x-hidden-focus"></span> Studio </a>. Di seguito è riportato un esempio di set di dati con tre file audio e un file di trascrizione con etichetta umana:
+Dopo aver raccolto i file audio e le trascrizioni corrispondenti, è possibile crearne un pacchetto come file con estensione zip prima del caricamento in <a href="https://speech.microsoft.com/customspeech" target="_blank">speech studio </a>. Di seguito è riportato un esempio di set di dati con tre file audio e un file di trascrizione con etichetta umana:
 
 > [!div class="mx-imgBorder"]
 > ![Selezionare audio dal portale vocale](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -164,7 +164,7 @@ I nomi di prodotto o le funzionalità univoche devono includere dati di testo co
 | Frasi (espressioni) | Migliorare la precisione quando si riconoscono i nomi dei prodotti o il vocabolario specifico del settore all'interno del contesto di una frase. |
 | Pronunce | Migliorare la pronuncia di termini non comuni, acronimi o altre parole con pronunce non definite. |
 
-Le frasi possono essere fornite come un singolo file di testo o più file di testo. Per migliorare l'accuratezza, usare i dati di testo più vicini alle espressioni vocali previste. Le pronunce devono essere fornite come un singolo file di testo. Tutti gli elementi possono essere inclusi in un unico file zip e caricati in <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Le frasi possono essere fornite come un singolo file di testo o più file di testo. Per migliorare l'accuratezza, usare i dati di testo più vicini alle espressioni vocali previste. Le pronunce devono essere fornite come un singolo file di testo. Tutti gli elementi possono essere inclusi in un unico file zip e caricati in <a href="https://speech.microsoft.com/customspeech" target="_blank">speech studio </a>.
 
 Il training con testo correlato viene in genere completato entro pochi minuti.
 

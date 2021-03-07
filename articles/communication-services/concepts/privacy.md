@@ -8,16 +8,18 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8e08c531cd46d5112138a3feedf97b27307e3dca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f6e4218290de6ef41ef6eedc78b3b0b55ee322e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656194"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438558"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilità a livello di area e residenza dei dati
 
-I Servizi di comunicazione di Azure consentono di aiutare i clienti a soddisfare i requisiti in materia di privacy e dati personali. Gli sviluppatori che usano Servizi di comunicazione con una relazione diretta con gli utenti che usano l'applicazione sono potenzialmente il titolare del trattamento dei dati. Poiché i Servizi di comunicazione di Azure archiviano questi dati per conto dell'utente, è probabile che Azure sia il responsabile del trattamento dei dati. In questa pagina viene riepilogato il modo in cui il servizio conserva i dati e come è possibile identificare, esportare ed eliminare i dati.
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
+I Servizi di comunicazione di Azure consentono di aiutare i clienti a soddisfare i requisiti in materia di privacy e dati personali. Gli sviluppatori che usano Servizi di comunicazione con una relazione diretta con gli utenti che usano l'applicazione sono potenzialmente il titolare del trattamento dei dati. Poiché i servizi di comunicazione di Azure archiviano e crittografano i dati inattivi per conto dell'utente, è molto probabile che si tratta di un processore di questi dati. In questa pagina viene riepilogato il modo in cui il servizio conserva i dati e come è possibile identificare, esportare ed eliminare i dati.
 
 ## <a name="data-residency"></a>Residenza dei dati
 
@@ -63,7 +65,7 @@ I thread e i messaggi delle chat vengono conservati fino a quando non vengono el
 
 ### <a name="sms"></a>sms
 
-I messaggi SMS inviati e ricevuti sono temporaneamente elaborati dal servizio e non vengono conservati.
+I messaggi SMS inviati e ricevuti sono temporaneamente elaborati dal servizio e non vengono conservati. 
 
 ### <a name="pstn-voice-calling"></a>Chiamata vocale PSTN
 

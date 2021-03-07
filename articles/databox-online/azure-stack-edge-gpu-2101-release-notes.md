@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/08/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: eb01ae5e9c7e134e33460674eb2c44b710671a4a
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: e8005bbf0373c91cf9f3515059544b9af3d52384
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833355"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443795"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Note sulla versione di Azure Stack Edge 2101
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Le note sulla versione seguenti identificano i problemi critici aperti e i problemi risolti per la versione 2101 per i dispositivi Azure Stack Edge. Queste note sulla versione sono valide per Azure Stack GPU Pro Edge, Azure Stack Edge Pro R e i dispositivi Mini R Azure Stack Edge. Le funzionalità e i problemi che corrispondono a un modello specifico vengono chiamati laddove applicabile.
 
@@ -67,7 +69,7 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti rilevati dal
 |**6.**|Connessione NFS share|Se più processi eseguono la copia nella stessa condivisione e l' `nolock` attributo non viene utilizzato, è possibile che vengano visualizzati errori durante la copia.|L' `nolock` attributo deve essere passato al comando mount per copiare i file nella condivisione NFS. Ad esempio: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
 |**7.**|Cluster Kubernetes|Quando si applica un aggiornamento sul dispositivo che esegue un cluster kubernetes, le macchine virtuali kubernetes vengono riavviate e riavviate. In questo caso, solo i pod distribuiti con le repliche specificate vengono ripristinati automaticamente dopo un aggiornamento.  |Se sono stati creati singoli pod all'esterno di un controller di replica senza specificare un set di repliche, questi Pod non verranno ripristinati automaticamente dopo l'aggiornamento del dispositivo. Sarà necessario ripristinare i pod.<br>Un set di repliche sostituisce i pod eliminati o interrotti per qualsiasi motivo, ad esempio un errore del nodo o un aggiornamento del nodo di interruzione. Per questo motivo, è consigliabile usare un set di repliche anche se l'applicazione richiede un singolo POD.|
 |**8.**|Cluster Kubernetes|Kubernetes su Azure Stack Edge Pro è supportato solo con Helm V3 o versione successiva. Per altre informazioni, vedere [domande frequenti: rimozione di un timone](https://v3.helm.sh/docs/faq/).|
-|**9.**|Kubernetes con abilitazione di Azure Arc |Per la versione GA, Azure Arc Enabled Kubernetes viene aggiornato dalla versione 0.1.18 a 0.2.9. Poiché l'aggiornamento di Kubernetes abilitato per Azure Arc non è supportato nel dispositivo Azure Stack Edge, è necessario ridistribuire Azure Arc Enabled Kubernetes.|A tale scopo, seguire questa procedura:<ol><li>[Applicare gli aggiornamenti software e Kubernetes del dispositivo](azure-stack-edge-gpu-install-update.md).</li><li>Connettersi all' [interfaccia di PowerShell del dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>Rimuovere l'agente di Azure ARC esistente. Digitare: `Remove-HcsKubernetesAzureArcAgent`.</li><li>Distribuire [Azure Arc in una nuova risorsa](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). Non usare una risorsa di Azure ARC esistente.</li></ol>|
+|**9.**|Kubernetes con abilitazione di Azure Arc |Per la versione GA, Azure Arc Enabled Kubernetes viene aggiornato dalla versione 0.1.18 a 0.2.9. Poiché l'aggiornamento di Kubernetes abilitato per Azure Arc non è supportato nel dispositivo Azure Stack Edge, è necessario ridistribuire Azure Arc Enabled Kubernetes.|Seguire questa procedura:<ol><li>[Applicare gli aggiornamenti software e Kubernetes del dispositivo](azure-stack-edge-gpu-install-update.md).</li><li>Connettersi all' [interfaccia di PowerShell del dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>Rimuovere l'agente di Azure ARC esistente. Digitare: `Remove-HcsKubernetesAzureArcAgent`.</li><li>Distribuire [Azure Arc in una nuova risorsa](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). Non usare una risorsa di Azure ARC esistente.</li></ol>|
 |**10.**|Kubernetes con abilitazione di Azure Arc|Le distribuzioni di Azure Arc non sono supportate se il proxy Web è configurato sul dispositivo Azure Stack Edge Pro.||
 |**11.**|Kubernetes |La porta 31000 è riservata per il dashboard di Kubernetes. La porta 31001 è riservata al registro contenitori perimetrale. Analogamente, nella configurazione predefinita, gli indirizzi IP 172.28.0.1 e 172.28.0.10 sono riservati rispettivamente per il servizio Kubernetes e per il servizio DNS di base.|Non usare IP riservati.|
 |**12.**|Kubernetes |Kubernetes attualmente non consente i servizi LoadBalancer multiprotocollo. Ad esempio, un servizio DNS che avrebbe dovuto rimanere in attesa su TCP e UDP. |Per ovviare a questa limitazione di Kubernetes con MetalLB, è possibile creare due servizi (uno per TCP, uno per UDP) nello stesso selettore di Pod. Questi servizi usano la stessa chiave di condivisione e spec. loadBalancerIP per condividere lo stesso indirizzo IP. Gli IP possono anche essere condivisi se si dispone di più servizi rispetto agli indirizzi IP disponibili. <br> Per altre informazioni, vedere [condivisione degli indirizzi IP](https://metallb.universe.tf/usage/#ip-address-sharing).|

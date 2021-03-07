@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 137cff47d49be1405f60bc47cd16f7f027ab63a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19b3595228c29814e42af88696972fd81b156190
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320830"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443047"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Usare il dashboard di Kubernetes per monitorare il dispositivo GPU Pro Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Questo articolo descrive come accedere e usare il dashboard di Kubernetes per monitorare il dispositivo GPU Pro Azure Stack Edge. Per monitorare il dispositivo, è possibile usare i grafici in portale di Azure, visualizzare il dashboard di Kubernetes o eseguire `kubectl` comandi tramite l'interfaccia di PowerShell del dispositivo. 
 
@@ -51,7 +53,7 @@ Il dashboard Kubernetes è di sola *lettura* e viene eseguito nel nodo master Ku
     
     1. Selezionare **kubeconfig**. 
         ![Selezionare l'opzione kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
-    1. Selezionare i puntini di sospensione **...**. Individuare e selezionare il `kubeconfig` scaricato in precedenza nel sistema locale. Fare clic su **Accedi**.
+    1. Selezionare i puntini di sospensione **...**. Individuare e selezionare il `kubeconfig` scaricato in precedenza nel sistema locale. Selezionare **Accedi**.
         ![Passare al file kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
 6. È ora possibile visualizzare il dashboard di Kubernetes per il dispositivo Azure Stack Edge Pro in modalità di sola lettura.
@@ -93,7 +95,7 @@ Per visualizzare i log dei contenitori, seguire questa procedura nel Dashboard:
 
 1. Nel riquadro sinistro del Dashboard passare a **spazio dei nomi**. Filtrare in base allo spazio dei nomi in cui vengono distribuiti i moduli IoT Edge, in questo caso **iotedge**.
 1. Nel riquadro sinistro passare a **carichi di lavoro > Pod**.
-1. Nel riquadro di destra vengono visualizzati tutti i pod in esecuzione nel dispositivo. Identificare il pod in cui è in esecuzione il modulo per il quale si desidera visualizzare i log. Selezionare i puntini di sospensione verticali per il Pod identificato dall'utente e scegliere **registri**dal menu di scelta rapida.
+1. Nel riquadro di destra vengono visualizzati tutti i pod in esecuzione nel dispositivo. Identificare il pod in cui è in esecuzione il modulo per il quale si desidera visualizzare i log. Selezionare i puntini di sospensione verticali per il Pod identificato dall'utente e scegliere **registri** dal menu di scelta rapida.
 
     ![Visualizzare i log dei contenitori 1](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-container-logs-1.png)
 

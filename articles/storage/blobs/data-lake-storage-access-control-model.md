@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 9fa7f586db5a32640c16db5802b56d6481e8889d
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650389"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439290"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modello di controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -106,7 +106,7 @@ La tabella seguente illustra come combinare i ruoli di Azure e le voci ACL in mo
 
 
 > [!NOTE] 
-> Per visualizzare il contenuto di un contenitore in Azure Storage Explorer, le entità di sicurezza devono [accedere Storage Explorer tramite Azure ad](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad)e, come minimo, hanno accesso in lettura (R--) alla cartella radice ( `\` ) di un contenitore. Questo livello di autorizzazione offre la possibilità di elencare il contenuto della cartella radice. Se non si desidera che il contenuto della cartella radice sia visibile, è possibile assegnare il ruolo [lettore](../../role-based-access-control/built-in-roles.md#reader) . Con questo ruolo, saranno in grado di elencare i contenitori nell'account, ma non il contenuto del contenitore. È quindi possibile concedere l'accesso a directory e file specifici usando gli ACL.   
+> Per visualizzare il contenuto di un contenitore in Azure Storage Explorer, le entità di sicurezza devono [accedere Storage Explorer tramite Azure ad](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource)e, come minimo, hanno accesso in lettura (R--) alla cartella radice ( `\` ) di un contenitore. Questo livello di autorizzazione offre la possibilità di elencare il contenuto della cartella radice. Se non si desidera che il contenuto della cartella radice sia visibile, è possibile assegnare il ruolo [lettore](../../role-based-access-control/built-in-roles.md#reader) . Con questo ruolo, saranno in grado di elencare i contenitori nell'account, ma non il contenuto del contenitore. È quindi possibile concedere l'accesso a directory e file specifici usando gli ACL.   
 
 ## <a name="security-groups"></a>Gruppi di sicurezza
 

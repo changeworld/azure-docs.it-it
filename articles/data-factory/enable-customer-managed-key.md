@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 4e30ac2e6836b40ab0c0c2915eae48266cb4845c
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: c6c376e44c6135a800e6f7e281f8ea85b828329a
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199212"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443879"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Crittografare Azure Data Factory con le chiavi gestite dal cliente
 
@@ -102,9 +102,9 @@ Per altre informazioni sull'identità gestita assegnata dall'utente, vedere [tip
 1. Assicurarsi che l'identità gestita assegnata dall'utente (UA-MI) disponga delle autorizzazioni _Get_, _Unwrap Key_ e _Wrap Key_ per Key Vault
 
 1. Nella scheda __Avanzate__ selezionare la casella di controllo _Abilita crittografia utilizzando una chiave gestita_ 
-   :::image type="content" source="media/enable-customer-managed-key/06-uami-cmk.png" alt-text="dal cliente schermata della scheda avanzate per data factory esperienza di creazione in portale di Azure.":::
+   :::image type="content" source="media/enable-customer-managed-key/06-user-assigned-managed-identity.png" alt-text="dal cliente schermata della scheda avanzate per data factory esperienza di creazione in portale di Azure.":::
 
-1. Specificare l'URL per Key Vault
+1. Specificare l'URL per la chiave gestita dal cliente archiviata nel Key Vault
 
 1. Selezionare un'identità gestita assegnata dall'utente appropriata per l'autenticazione con Key Vault
 

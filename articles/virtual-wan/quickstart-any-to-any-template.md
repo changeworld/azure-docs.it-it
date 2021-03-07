@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: bf892a45ee6df2ab29a1b326a663dc41057c7ea6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: d31f490baec49e8e0b6fcf89caa8c19202fdf763
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509825"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431381"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>Guida introduttiva: creare una configurazione any-to-any usando un modello ARM
 
@@ -125,13 +125,7 @@ Il modello non configura tutte le impostazioni necessarie per una rete ibrida. �
 
 Quando le risorse create non sono più necessarie, eliminarle. Alcune delle risorse WAN virtuali devono essere eliminate in un determinato ordine a causa delle dipendenze. Il completamento dell'eliminazione può richiedere circa 30 minuti.
 
-1. Aprire la rete WAN virtuale creata.
-1. Selezionare un hub virtuale associato alla rete WAN virtuale per aprire la pagina Hub.
-1. Fare clic su **Elimina**. Eliminare tutte le entità (connessioni, gateway e così via) nell'hub. Il completamento di questa operazione può richiedere 30 minuti.
-1. È possibile eliminare l'hub a questo punto o eliminarlo in un secondo momento quando si elimina il gruppo di risorse.
-1. Ripetere la ripetizione per tutti gli hub associati alla rete WAN virtuale.
-1. Passare al gruppo di risorse nel portale di Azure.
-1. Selezionare **Elimina gruppo di risorse**. Verranno eliminati tutti gli elementi del gruppo di risorse, inclusi gli hub e la rete WAN virtuale.
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,18 +3,18 @@ title: Gestire e trovare i dati BLOB di Azure con i tag degli indici BLOB (antep
 description: Informazioni su come usare i tag degli indici BLOB per categorizzare, gestire ed eseguire query per oggetti BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bfaee493c25f882b8beeed565a155db93efd0083
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95523281"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431755"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gestire e trovare i dati BLOB di Azure con i tag degli indici BLOB (anteprima)
 
@@ -29,6 +29,9 @@ I tag di indice BLOB consentono di:
 
 Si consideri uno scenario in cui sono presenti milioni di BLOB nell'account di archiviazione, a cui è possibile accedere da molte applicazioni diverse. Si desidera trovare tutti i dati correlati da un singolo progetto. Non si è certi dell'ambito perché i dati possono essere distribuiti tra più contenitori con convenzioni di denominazione diverse. Tuttavia, le applicazioni caricano tutti i dati con tag basati sul progetto. Anziché cercare in milioni di BLOB e confrontare nomi e proprietà, è possibile usare `Project = Contoso` come criterio di individuazione. L'indice BLOB filtra tutti i contenitori nell'intero account di archiviazione per trovare rapidamente e restituire solo il set di BLOB 50 da `Project = Contoso` .
 
+> [!IMPORTANT]
+> I tag dell'indice BLOB sono attualmente in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali applicabili alle funzionalità di Azure disponibili in versione beta, di anteprima o non ancora rilasciate a livello generale.
+
 Per iniziare con esempi su come usare l'indice BLOB, vedere [usare i tag degli indici BLOB per gestire e trovare i dati](storage-blob-index-how-to.md).
 
 ## <a name="blob-index-tags-and-data-management"></a>Tag di indice BLOB e gestione dati
@@ -42,7 +45,6 @@ Considerare i seguenti cinque BLOB nell'account di archiviazione:
 - *Foto/bannerphoto.png*
 - *archivi/completati/2019review.pdf*
 - *log/2020/01/01/logfile.txt*
-
 
 Questi BLOB sono separati usando un prefisso di *contenitore/cartella virtuale/nome BLOB*. È possibile impostare un attributo di tag index `Project = Contoso` su questi cinque BLOB per categorizzarli insieme mantenendo al tempo stesso l'organizzazione del prefisso corrente. L'aggiunta di tag index Elimina la necessità di spostare i dati esponendo la possibilità di filtrare e trovare i dati mediante l'indice.
 
