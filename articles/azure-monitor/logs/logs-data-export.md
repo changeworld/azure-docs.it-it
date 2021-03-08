@@ -1,17 +1,18 @@
 ---
 title: Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 description: Log Analytics esportazione dei dati consente di esportare continuamente i dati delle tabelle selezionate dall'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta.
+ms.subservice: logs
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: f0bbe02576323342376ad155878d575c6403cf70
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 556570b02664a0afd01137f939bea67a1014b680
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048812"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449493"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -75,7 +76,7 @@ Log Analytics esportazione dei dati può scrivere BLOB di Accodamento in account
 I dati vengono inviati all'hub eventi in tempo quasi reale mentre raggiunge monitoraggio di Azure. Viene creato un hub eventi per ogni tipo di dati esportato con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un hub eventi denominato *am-SecurityEvent*. Se si vuole che i dati esportati raggiungano un hub eventi specifico o se si dispone di una tabella con un nome che supera il limite di 47 caratteri, è possibile specificare il nome dell'hub eventi ed esportare tutti i dati per le tabelle definite.
 
 > [!IMPORTANT]
-> Il [numero di hub eventi supportati per spazio dei nomi è 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Se si esportano più di 10 tabelle, specificare il nome dell'hub eventi per esportare tutte le tabelle nell'hub eventi. 
+> Il [numero di hub eventi supportati per spazio dei nomi è 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Se si esportano più di 10 tabelle, specificare il nome dell'hub eventi per esportare tutte le tabelle nell'hub eventi.
 
 Considerazioni:
 1. Lo SKU dell'hub eventi ' Basic ' supporta il [limite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) di dimensioni degli eventi inferiore e alcuni log nell'area di lavoro possono essere superati ed eliminati. È consigliabile usare l'hub eventi "standard" o "dedicato" come destinazione di esportazione.
@@ -113,10 +114,14 @@ Se l'account di archiviazione è stato configurato per consentire l'accesso da r
 
 [![Firewall e reti virtuali dell'account di archiviazione](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
-
 ### <a name="create-or-update-data-export-rule"></a>Crea o Aggiorna regola di esportazione dei dati
-Una regola di esportazione dei dati consente di definire i dati da esportare per un set di tabelle in una singola destinazione. È possibile creare una singola regola per ogni destinazione.
+Una regola di esportazione dei dati consente di definire le tabelle per le quali i dati vengono esportati e la destinazione. È possibile creare una singola regola per ogni destinazione.
 
+Se è necessario un elenco di tabelle nella configurazione di workapce per le regole di esportazione, eseguire questa query nell'area di lavoro.
+
+```kusto
+find where TimeGenerated > ago(24h) | distinct Type
+```
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
@@ -127,12 +132,6 @@ N/D
 N/D
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-Usare il comando dell'interfaccia della riga di comando seguente per visualizzare le tabelle nell'area di lavoro. Consente di copiare le tabelle desiderate e includere nella regola di esportazione dei dati.
-
-```azurecli
-az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
-```
 
 Usare il comando seguente per creare una regola di esportazione dei dati in un account di archiviazione usando l'interfaccia della riga di comando.
 

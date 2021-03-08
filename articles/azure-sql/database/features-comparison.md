@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
-ms.date: 02/21/2021
-ms.openlocfilehash: 75fc4166614862c5ac48a72bacb6b7b19019d003
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: 56f7a233e7098f18b727da3ce56c5fbe30a328a1
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691910"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447470"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Confronto tra le funzionalità: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -30,7 +30,11 @@ Il database SQL di Azure e SQL Istanza gestita condividono una codebase comune c
 - Funzionalità di sicurezza: [ruoli applicazione](/sql/relational-databases/security/authentication-access/application-roles), [maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking) ([vedere guida introduttiva](dynamic-data-masking-overview.md)), [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security)e rilevamento delle minacce. vedere le guide introduttive per il [database SQL](threat-detection-configure.md) e [SQL istanza gestita](../managed-instance/threat-detection-configure.md).
 - Funzionalità multimodello: [elaborazione di grafici](/sql/relational-databases/graphs/sql-graph-overview), [dati JSON](/sql/relational-databases/json/json-data-sql-server) ([vedere Guida introduttiva](json-features.md)), [OpenXML](/sql/t-sql/functions/openxml-transact-sql), [Spatial](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql)e [indici XML](/sql/t-sql/statements/create-xml-index-transact-sql).
 
-Azure gestisce i database e garantisce la disponibilità elevata. Alcune funzionalità che potrebbero influire sulla disponibilità elevata o non possono essere usate nel mondo PaaS hanno funzionalità limitate nel database SQL e in SQL Istanza gestita. Queste funzionalità sono descritte nelle tabelle seguenti. Se sono necessarie altre informazioni sulle differenze, è possibile trovarle nelle pagine separate per il [database SQL di Azure](../managed-instance/transact-sql-tsql-differences-sql-server.md) o [Azure SQL istanza gestita](../managed-instance/transact-sql-tsql-differences-sql-server.md).
+Azure gestisce i database e garantisce la disponibilità elevata. Alcune funzionalità che potrebbero influire sulla disponibilità elevata o non possono essere usate nel mondo PaaS hanno funzionalità limitate nel database SQL e in SQL Istanza gestita. Queste funzionalità sono descritte nelle tabelle seguenti.
+
+Se sono necessarie altre informazioni sulle differenze, è possibile trovarle nelle pagine separate:
+- [Database SQL di Azure](transact-sql-tsql-differences-sql-server.md)
+- [Istanza gestita di database SQL di Azure](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
 ## <a name="features-of-sql-database-and-sql-managed-instance"></a>Funzionalità del database SQL e di SQL Istanza gestita
 

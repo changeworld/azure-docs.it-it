@@ -1,5 +1,5 @@
 ---
-title: Aggiungere le risorse di Azure alla soluzione IoT
+title: 'Guida introduttiva: aggiungere risorse di Azure alla soluzione Internet delle cose'
 description: In questo avvio rapido sono disponibili informazioni su come configurare la soluzione IoT end-to-end con Azure Defender per IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 8912e8d66ae0cc1b5dba80ee9aabb0fbd288e3c6
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: afe62e5cf255df28ea395405fc894ec5c15bb18c
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809026"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449714"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>Avvio rapido: Configurare la soluzione Azure Defender per IoT
 
 Questo articolo descrive come eseguire la configurazione iniziale della soluzione di sicurezza IoT con Defender per IoT.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+nessuno
 
 ## <a name="what-is-defender-for-iot"></a>Che cos'è l'offerta Defender per IoT?
 

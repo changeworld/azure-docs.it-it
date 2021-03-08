@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 388d747da692160ab6d0a89c0c35de348d921486
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 983e0d34692d67302e11c35abac590fefd610b2e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016763"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449629"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -103,10 +103,10 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
   >
   > * **Impronta digitale**: MD5
   >
-  > Dopo aver aggiunto il trigger SFTP-SSH o l'azione desiderata per l'app per la logica, è necessario fornire le informazioni di connessione per il server SFTP. Quando si specifica la chiave privata SSH per questa connessione, **_non immettere o modificare manualmente la chiave_* _, il che potrebbe causare l'esito negativo della connessione. Al contrario, assicurarsi di _*_copiare la chiave_*_ dal file di chiave privata SSH e _*_incollare_*_ la chiave nei dettagli della connessione. 
+  > Dopo aver aggiunto il trigger SFTP-SSH o l'azione desiderata per l'app per la logica, è necessario fornire le informazioni di connessione per il server SFTP. Quando si specifica la chiave privata SSH per questa connessione, ***non immettere o modificare manualmente la chiave***, il che potrebbe causare l'esito negativo della connessione. Al contrario, assicurarsi di ***copiare la chiave*** dal file di chiave privata SSH e ***incollare*** la chiave nei dettagli della connessione. 
   > Per altre informazioni, vedere la sezione [connettersi a SFTP con SSH](#connect) più avanti in questo articolo.
 
-_ Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account SFPT. Per iniziare con un trigger SFTP-SSH, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione SFTP-SSH, avviare l'app per la logica con un altro trigger, ad esempio il trigger **Ricorrenza**.
 
@@ -170,7 +170,15 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
 ## <a name="considerations"></a>Considerazioni
 
-Questa sezione descrive le considerazioni da considerare per i trigger e le azioni di questo connettore.
+Questa sezione descrive le considerazioni da tenere presenti quando si usano i trigger e le azioni di questo connettore.
+
+<a name="different-folders-trigger-processing-file-storage"></a>
+
+### <a name="use-different-sftp-folders-for-file-upload-and-processing"></a>Usare cartelle SFTP diverse per il caricamento e l'elaborazione di file
+
+Sul server SFTP, assicurarsi di usare cartelle separate per la posizione in cui vengono archiviati i file caricati e la posizione in cui il trigger monitora tali file per l'elaborazione, il che significa che è necessario un modo per spostare i file tra tali cartelle. In caso contrario, il trigger non viene attivato e si comporta in modo imprevedibile, ad esempio ignorando un numero casuale di file elaborati dal trigger.
+
+Se si verifica questo problema, rimuovere i file dalla cartella monitorata dal trigger e utilizzare una cartella diversa per archiviare i file caricati.
 
 <a name="create-file"></a>
 
@@ -208,9 +216,9 @@ Per creare un file nel server SFTP, è possibile usare l'azione di **creazione f
 
    1. Selezionare **modifica**  >  **copia**.
 
-   1. Nell'azione o nel trigger SFTP-SSH aggiunto, incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe.  **_Assicurarsi di incollare_* la chiave. _*_Non immettere o modificare manualmente la chiave_*_.
+   1. Nell'azione o nel trigger SFTP-SSH aggiunto, incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe.  **_Assicurarsi di incollare_*_ The Key. _*_non immettere o modificare manualmente la chiave_**.
 
-1. Al termine dell'immissione dei dettagli della connessione, selezionare _ * crea * *.
+1. Al termine dell'immissione dei dettagli della connessione, selezionare **Crea**.
 
 1. Specificare ora i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 
@@ -230,7 +238,7 @@ Per eseguire l'override del comportamento adattivo predefinito usato per la sudd
 
 1. Al termine, selezionare **fine**.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 <a name="file-added-modified"></a>
 

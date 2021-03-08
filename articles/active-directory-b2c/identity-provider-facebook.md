@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e0e71bc0e3a81b5ab2f455224ed2ed4281532d55
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a43551adf8dbe1a03ac7f7b22d58d63aa8c2c503
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98952675"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448422"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Facebook tramite Azure Active Directory B2C
 
@@ -79,7 +79,11 @@ Per abilitare l'accesso per gli utenti con un account Facebook in Azure Active D
 1. Selezionare **Salva**.
 1. Per testare i criteri, selezionare **Esegui flusso utente**.
 1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
-1. Fare clic su **Esegui flusso utente**
+1. Selezionare il pulsante **Esegui flusso utente** .
+1. Dalla pagina di iscrizione o di accesso selezionare **Facebook** per accedere con l'account Facebook.
+
+Se il processo di accesso ha esito positivo, il browser viene reindirizzato a `https://jwt.ms` , che Visualizza il contenuto del token restituito da Azure ad B2C.
+
 
 ::: zone-end
 
@@ -118,7 +122,10 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
 1. Caricare il file *TrustFrameworkExtensions.xml* nel tenant.
 1. In **Criteri personalizzati** selezionare **B2C_1A_signup_signin**.
 1. Per **Seleziona applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
-1. Selezionare **Esegui ora** e quindi Facebook per accedere con Facebook e testare i criteri personalizzati.
+1. Selezionare il pulsante **Esegui adesso** .
+1. Dalla pagina di iscrizione o di accesso selezionare **Facebook** per accedere con l'account Facebook.
+
+Se il processo di accesso ha esito positivo, il browser viene reindirizzato a `https://jwt.ms` , che Visualizza il contenuto del token restituito da Azure ad B2C.
 
 ::: zone-end
 

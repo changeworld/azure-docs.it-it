@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e344d85bbdac92aa372fc5d5e59ef90b11dfac6c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 3082c249b04b5efc71187dd03515bc8c875b7c2f
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095732"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448592"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere AD FS come provider di identità SAML usando criteri personalizzati in Azure Active Directory B2C
 
@@ -71,10 +71,10 @@ Se si desidera che gli utenti possano accedere utilizzando un account di AD FS, 
     ```xml
     <ClaimsProvider>
       <Domain>contoso.com</Domain>
-      <DisplayName>Contoso AD FS</DisplayName>
+      <DisplayName>Contoso</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
-          <DisplayName>Contoso AD FS</DisplayName>
+          <DisplayName>Contoso</DisplayName>
           <Description>Login with your AD FS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
@@ -199,8 +199,10 @@ Aprire un browser e passare all'URL. Assicurarsi di digitare l'URL corretto e di
 1. Selezionare, ad esempio, i criteri di relying party `B2C_1A_signup_signin` .
 1. Per **applicazione** selezionare un'applicazione Web [registrata in precedenza](tutorial-register-applications.md). L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Selezionare il pulsante **Esegui adesso** .
+1. Dalla pagina di iscrizione o accesso selezionare **contoso ad FS** per accedere con Contoso ad FS provider di identità.
 
 Se il processo di accesso ha esito positivo, il browser viene reindirizzato a `https://jwt.ms` , che Visualizza il contenuto del token restituito da Azure ad B2C.
+
 ## <a name="troubleshooting-ad-fs-service"></a>Risoluzione dei problemi relativi al servizio AD FS  
 
 AD FS è configurato per l'utilizzo del registro applicazioni di Windows. Se si verificano problemi durante la configurazione di AD FS come provider di identità SAML usando criteri personalizzati in Azure AD B2C, è consigliabile controllare il registro eventi di AD FS:

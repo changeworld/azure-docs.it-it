@@ -8,16 +8,16 @@ author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2020
-ms.openlocfilehash: de8638cbb4e39ccf6013e5a8d596417401700c8d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4590396b0e867a3e545577767581dd1a951bfc50
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521595"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447385"
 ---
 # <a name="welcome-to-azure-defender-for-iot"></a>Benvenuti in Azure Defender
 
@@ -81,6 +81,6 @@ Rilevare minacce quali botnet, tentativi di forza bruta, minatori crittografici 
 
 Azure Defender per gli elementi micro Agent include il codice sorgente, quindi è possibile incorporare l'agente micro nel firmware o personalizzarlo in modo da includere solo ciò che è necessario. È anche disponibile come pacchetto binario o integrato direttamente in altre soluzioni Azure Internet. 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedi anche
 
 [Azure Defender per l'architettura dell'it](architecture.md)

@@ -1,6 +1,6 @@
 ---
-title: Panoramica degli agenti di sicurezza
-description: Comprendere l'architettura dell'agente di sicurezza per gli agenti usati nel servizio Azure Defender for Internet.
+title: 'Guida introduttiva: Panoramica degli agenti di sicurezza'
+description: In questa Guida introduttiva si apprenderà come comprendere l'architettura dell'agente di sicurezza per gli agenti usati in Azure Defender per il servizio Internet delle cose.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,19 +8,19 @@ author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: ff837fe88f878c522366b2b6bc19a1ef3954b667
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: aceeaec63eb637002352f5c503f57890033b0381
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820654"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449238"
 ---
-# <a name="security-agent-reference-architecture"></a>Architettura di riferimento dell'agente di sicurezza
+# <a name="quickstart-security-agent-reference-architecture"></a>Guida introduttiva: architettura di riferimento dell'agente di sicurezza
 
 Azure Defender per l'it fornisce un'architettura di riferimento per gli agenti di sicurezza che registrano, elaborano, aggregano e inviano i dati di sicurezza tramite l'hub Internet.
 
@@ -41,6 +41,10 @@ Defender for Internet Security Agents viene sviluppato come progetto open source
 - [Defender per l'agente basato su C](https://github.com/Azure/Azure-IoT-Security-Agent-C)
 - [Defender per l'agente basato su C#](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
+## <a name="prerequisites"></a>Prerequisiti
+
+nessuno
+
 ## <a name="agent-supported-platforms"></a>Piattaforme supportate dagli agenti
 
 Defender for Internet è dotato di diversi agenti di installazione per Windows a 32 bit e a 64 bit e lo stesso vale per 32 bit e 64 bit Linux. Verificare che sia installato il programma di installazione dell'agente corretto per ogni dispositivo in base alla tabella seguente:
@@ -57,8 +61,5 @@ In questo articolo è stata illustrata una panoramica di alto livello sull'archi
 
 Per continuare a usare Defender per la distribuzione di Internet delle cose, vedere gli articoli seguenti:
 
-- Informazioni sui [metodi di autenticazione dell'agente di sicurezza](concept-security-agent-authentication-methods.md)
-- Selezionare e distribuire un [agente di sicurezza](how-to-deploy-agent.md)
-- Esaminare il Defender per i [prerequisiti del sistema](quickstart-system-prerequisites.md) Internet delle cose
-- Informazioni su come [abilitare Defender per il servizio Internet delle cose nell'hub Internet delle](quickstart-onboard-iot-hub.md) cose
-- Altre informazioni sul servizio sono disponibili nella pagina [relativa alle domande frequenti su Defender](resources-frequently-asked-questions.md)
+> [!div class="nextstepaction"]
+> [metodi di autenticazione dell'agente di sicurezza](concept-security-agent-authentication-methods.md)

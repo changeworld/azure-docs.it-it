@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/08/2019
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8b71a7b8ab29e8083a5f119a41ef6de312518301
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9434bd4042798dc05a33401e1884e11a73774936
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388273"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448337"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con OpenID Connect tramite Azure Active Directory B2C
 
@@ -28,6 +28,7 @@ ms.locfileid: "85388273"
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C facendo clic sul filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 1. Selezionare **Provider di identità** e quindi selezionare **Nuovo provider di OpenID Connect**.
+1. Immettere un **Nome**. Ad esempio, immettere *Contoso*.
 
 ## <a name="configure-the-identity-provider"></a>Configurare il provider di identità
 
@@ -40,7 +41,7 @@ Per consentire agli utenti di accedere, il provider di identità richiederà agl
 > [!NOTE]
 > Il segreto client è facoltativo. Tuttavia, è necessario immettere un segreto client se si vuole usare il flusso del [codice di autorizzazione](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), che usa il segreto per scambiare il codice per il token.
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Ambito
 
 Gli ambiti definiscono le informazioni e le autorizzazioni che si intende raccogliere dal proprio provider di identità personalizzato. Le richieste di OpenID Connect devono contenere il `openid` valore dell'ambito per ricevere il token ID dal provider di identità. Senza il token ID, gli utenti non sono in grado di accedere ad Azure Active Directory B2C usando il provider di identità personalizzato. È possibile aggiungere altri ambiti separati da spazio. Fare riferimento alla documentazione del provider di identità personalizzato per vedere quale potrebbero essere altri ambiti disponibili.
 
@@ -71,3 +72,16 @@ Dopo che il provider di identità personalizzato reinvia un token ID ad Azure Ac
 * **Nome specificato**: immettere l'attestazione che fornisce il *nome* dell'utente.
 * **Cognome**: immettere l'attestazione che *fornisce il* cognome dell'utente.
 * **Posta elettronica**: immettere l'attestazione che fornisce l' *indirizzo di posta elettronica* dell'utente.
+
+## <a name="add-the-identity-provider-to-a-user-flow"></a>Aggiungere il provider di identità a un flusso utente 
+
+1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
+1. Fare clic sul flusso utente per cui si vuole aggiungere il provider di identità. 
+1. In provider di identità basati su **Social Network** selezionare il provider di identità aggiunto. Ad esempio, *Contoso*.
+1. Selezionare **Salva**.
+1. Per testare i criteri, selezionare **Esegui flusso utente**.
+1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
+1. Selezionare il pulsante **Esegui flusso utente** .
+1. Dalla pagina di iscrizione o di accesso selezionare il provider di identità a cui si vuole accedere. Ad esempio, *Contoso*.
+
+Se il processo di accesso ha esito positivo, il browser viene reindirizzato a `https://jwt.ms` , che Visualizza il contenuto del token restituito da Azure ad B2C.

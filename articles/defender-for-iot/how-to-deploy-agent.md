@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 2634ed819b8818632c58b9e471b0f26190e5f16b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 89ecf26778433a3f075f76905183f3fe866cb5db
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339966"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447266"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selezionare e distribuire un agente di sicurezza nel dispositivo Internet delle cose
 
@@ -28,11 +28,9 @@ Per altre informazioni, vedere [l'articolo relativo all'architettura di riferime
 Gli agenti vengono sviluppati come progetti open source e sono disponibili in due versioni: <br> [C](https://aka.ms/iot-security-github-c)e [C#](https://aka.ms/iot-security-github-cs).
 
 In questo articolo vengono illustrate le operazioni seguenti:
-
-> [!div class="checklist"]
-> * Confrontare le versioni degli agenti di sicurezza
-> * Individuare le piattaforme agente supportate
-> * Scegliere la versione corretta dell'agente per la soluzione
+- Confrontare le versioni degli agenti di sicurezza
+- Individuare le piattaforme agente supportate
+- Scegliere la versione corretta dell'agente per la soluzione
 
 ## <a name="understand-security-agent-options"></a>Informazioni sulle opzioni dell'agente di sicurezza
 

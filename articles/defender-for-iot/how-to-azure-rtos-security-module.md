@@ -4,44 +4,57 @@ description: Informazioni su come configurare e personalizzare il modulo di sicu
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: fb2b7810c0829859f4a104c62b6df2ca0495bac7
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.date: 03/07/2021
+ms.author: shhazam
+ms.openlocfilehash: 524286fa7a923485d0085fb63f3ef9669db1a4d5
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809202"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449816"
 ---
-# <a name="configure-and-customize-security-module-for-azure-rtos-preview"></a>Configurare e personalizzare il modulo di sicurezza per Azure RTO (anteprima)
+# <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-ga"></a>Configurare e personalizzare Defender-RTO-micro-Agent per Azure GA
+
+Questo articolo descrive come configurare Defender-RTO-micro-Agent per il dispositivo Azure per soddisfare i requisiti di rete, larghezza di banda e memoria.
+
+Dalla directory è necessario selezionare un file di distribuzione di destinazione con `*.dist` estensione `netxduo/addons/azure_iot/azure_iot_security_module/configs` .  
+
+Quando si usa un ambiente di compilazione CMake, è necessario impostare un parametro della riga di comando su `IOT_SECURITY_MODULE_DIST_TARGET` per il valore scelto. Ad esempio: `-DIOT_SECURITY_MODULE_DIST_TARGET=RTOS_BASE`.
+
+In una IAR o in un altro ambiente di compilazione non CMake, è necessario aggiungere il `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/` percorso ai percorsi inclusi noti. Ad esempio: `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/RTOS_BASE`.
 
 Usare il file seguente per configurare il comportamento del dispositivo.
 
-## <a name="azure_iot_security_moduleincasc_porth"></a>azure_iot_security_module/Inc/asc_port. h
+**netxduo/addons/azure_iot/azure_iot_security_module/Inc/configs/ \<target distribution> /asc_config. h**
 
- Il comportamento predefinito di ogni configurazione è disponibile nelle tabelle seguenti: 
+In un ambiente di compilazione CMake, è necessario modificare la configurazione predefinita modificando il `netxduo/addons/azure_iot/azure_iot_security_module/configs/<target distribution>.dist` file. Usare il formato CMake seguente `set(ASC_XXX ON)` o il file seguente `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/asc_config.h` per tutti gli altri ambienti. Ad esempio: `#define ASC_XXX`.
 
-### <a name="general"></a>Generale
+Il comportamento predefinito di ogni configurazione è disponibile nelle tabelle seguenti: 
 
-| Nome | Type | Predefinito | Dettagli |
-| - | - | - | - |
-| ASC_SECURITY_MODULE_ID | string | --- | Identificatore univoco del dispositivo  |
-| ASC_SECURITY_MODULE_PENDING_TIME  | Number | 300 | Tempo di attesa del modulo di sicurezza in secondi. Se il tempo supera la modifica dello stato da sospendere. |
-
-#### <a name="collection"></a>Raccolta
+## <a name="general"></a>Generale
 
 | Nome | Type | Predefinito | Dettagli |
 | - | - | - | - |
-| ASC_HIGH_PRIORITY_INTERVAL | Number | 10 | Intervallo di gruppi con priorità alta in secondi per gli agenti di raccolta. |
-| ASC_MEDIUM_PRIORITY_INTERVAL | Number | 30 | Intervallo del gruppo di priorità media degli agenti di raccolta in secondi. |
-| ASC_LOW_PRIORITY_INTERVAL | Number | 145.440  | Intervallo in secondi per il gruppo di agenti di raccolta con priorità bassa. |
+| ASC_SECURITY_MODULE_ID | string | Defender-molto-micro-Agent | Identificatore univoco del dispositivo.  |
+| SECURITY_MODULE_VERSION_ (PRINCIPALE) (MINORE) (PATCH)  | Number | 3.2.1 | Versione. |
+| ASC_SECURITY_MODULE_SEND_MESSAGE_RETRY_TIME  | Number  | 3 | Tempo necessario per l'invio del messaggio di sicurezza dopo un errore da parte di Defender-Internet. (in secondi) |
+| ASC_SECURITY_MODULE_PENDING_TIME  | Number | 300 | Tempo di attesa (in secondi) del Defender-Internet. Se viene superato il tempo, lo stato verrà modificato in Sospendi. |
+
+## <a name="collection"></a>Raccolta
+
+| Nome | Type | Predefinito | Dettagli |
+| - | - | - | - |
+| ASC_FIRST_COLLECTION_INTERVAL | Number  | 30  | Offset intervallo raccolta di avvio dell'agente di raccolta. Durante l'avvio, il valore verrà aggiunto alla raccolta del sistema per evitare di inviare messaggi da più dispositivi contemporaneamente.  |
+| ASC_HIGH_PRIORITY_INTERVAL | Number | 10 | Intervallo del gruppo con priorità alta dell'agente di raccolta (in secondi). |
+| ASC_MEDIUM_PRIORITY_INTERVAL | Number | 30 | Intervallo del gruppo di priorità media dell'agente di raccolta (in secondi). |
+| ASC_LOW_PRIORITY_INTERVAL | Number | 145.440  | Intervallo del gruppo con priorità bassa dell'agente di raccolta (in secondi). |
 
 #### <a name="collector-network-activity"></a>Attività di rete dell'agente di raccolta
 
@@ -49,34 +62,32 @@ Per personalizzare la configurazione dell'attività di rete dell'agente di racco
 
 | Nome | Type | Predefinito | Dettagli |
 | - | - | - | - |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_TCP_DISABLED | Boolean | false | Filtrare l' `TCP` attività di rete |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_UDP_DISABLED | Boolean | false | Filtrare `UDP` gli eventi di attività di rete |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_ICMP_DISABLED | Boolean | false | Filtrare `ICMP` gli eventi di attività di rete |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_CAPTURE_UNICAST_ONLY | Boolean | true | Acquisisci solo i pacchetti in ingresso unicast, quando è impostato su false Capture anche broadcast e multicast |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV4_OBJECTS_IN_CACHE | Number | 64 | Numero massimo di eventi di rete IPv4 da archiviare in memoria |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV6_OBJECTS_IN_CACHE | Number | 64  | Numero massimo di eventi di rete IPv6 da archiviare in memoria |
-
-
-## <a name="compile-flags"></a>Flag di compilazione
-I flag di compilazione consentono di eseguire l'override delle configurazioni predefinite.
+| ASC_COLLECTOR_NETWORK_ACTIVITY_TCP_DISABLED | Boolean | false | Filtra l' `TCP` attività di rete. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_UDP_DISABLED | Boolean | false | Filtra gli `UDP` eventi dell'attività di rete. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_ICMP_DISABLED | Boolean | false | Filtra gli `ICMP` eventi dell'attività di rete. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_CAPTURE_UNICAST_ONLY | Boolean | true | Acquisisce solo i pacchetti in ingresso unicast. Quando è impostato su false, acquisisce anche broadcast e multicast. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_SEND_EMPTY_EVENTS  | Boolean  | false  | Invia un evento vuoto dell'agente di raccolta. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV4_OBJECTS_IN_CACHE | Number | 64 | Numero massimo di eventi di rete IPv4 da archiviare in memoria. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV6_OBJECTS_IN_CACHE | Number | 64  | Numero massimo di eventi di rete IPv6 da archiviare in memoria. |
 
 ### <a name="collectors"></a>Raccolta
 | Nome | Type | Predefinito | Dettagli |
 | - | - | - | - |
-| collector_heartbeat_enabled | Boolean | ON | Abilitare l'agente di raccolta heartbeat |
-| collector_network_activity_enabled | Boolean | ON | Abilitare l'agente di raccolta attività di rete |
-| collector_system_information_enabled | Boolean | ON | Abilitare l'agente di raccolta informazioni di sistema |
+| ASC_COLLECTOR_HEARTBEAT_ENABLED | Boolean | ON | Abilita l'agente di raccolta heartbeat. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_ENABLED  | Boolean | ON | Abilita l'agente di raccolta attività di rete. |
+| ASC_COLLECTOR_SYSTEM_INFORMATION_ENABLED | Boolean | ON | Abilita l'agente di raccolta informazioni di sistema.  |
 
+Altri flag di configurazione sono avanzati e hanno funzionalità non supportate. Per modificare questo o per ulteriori informazioni, contattare il supporto tecnico.
+ 
 ## <a name="supported-security-alerts-and-recommendations"></a>Avvisi e raccomandazioni di sicurezza supportati
 
-Il modulo Security per Azure RTO supporta avvisi e raccomandazioni di sicurezza specifici. Assicurarsi di [rivedere e personalizzare i valori di avviso e raccomandazione pertinenti](concept-rtos-security-alerts-recommendations.md) per il servizio.
+Defender-RTO-micro-Agent per Azure supporta avvisi e raccomandazioni di sicurezza specifici. Assicurarsi di [rivedere e personalizzare i valori di avviso e raccomandazione pertinenti](concept-rtos-security-alerts-recommendations.md) per il servizio.
 
 ## <a name="log-analytics-optional"></a>Log Analytics (facoltativo)
 
-Sebbene sia facoltativo che non necessario, l'abilitazione e la configurazione di Log Analytics possono essere utili quando si desidera esaminare ulteriormente gli eventi e le attività del dispositivo. Per altre informazioni, vedere la pagina relativa alla configurazione e all'uso di [log Analytics con il servizio Defender for](how-to-security-data-access.md#log-analytics) Internet. 
+È possibile abilitare e configurare Log Analytics per esaminare gli eventi e le attività del dispositivo. Per altre informazioni, vedere l'articolo relativo alla configurazione e all'uso di [log Analytics con il servizio Defender for](how-to-security-data-access.md#log-analytics) Internet. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare e personalizzare il modulo di sicurezza per gli [avvisi di sicurezza e le raccomandazioni](concept-rtos-security-alerts-recommendations.md) di Azure RTO
 - Vedere il [modulo di sicurezza per l'API RTO di Azure](azure-rtos-security-module-api.md) in base alle esigenze.
-

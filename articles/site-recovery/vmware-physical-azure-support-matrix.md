@@ -3,12 +3,12 @@ title: Matrice di supporto per il ripristino di emergenza VMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 3b658a0dd2522b1ca1ad2d46b5f778351b271a27
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e025b1681306a3bb837a338655dc561e897226c2
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212425"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449255"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -295,10 +295,10 @@ Le macchine virtuali locali replicate in Azure devono soddisfare i requisiti del
 --- | --- | ---
 Sistema operativo guest | Verificare i [sistemi operativi supportati](#replicated-machines) per le macchine replicate. | Il controllo ha esito negativo se non supportato.
 Architettura del sistema operativo guest | 64 bit. | Il controllo ha esito negativo se non supportato.
-Dimensioni disco del sistema operativo | Fino a 2.048 GB. | Il controllo ha esito negativo se non supportato.
+Dimensioni disco del sistema operativo | Fino a 2.048 GB per i computer di generazione 1. <br> Fino a 4.095 GB per i computer di seconda generazione. | Il controllo ha esito negativo se non supportato.
 Conteggio dischi del sistema operativo | 1 </br> la partizione di avvio e di sistema in dischi diversi non è supportata | Il controllo ha esito negativo se non supportato.
 Conteggio dischi dati | 64 o un numero inferiore. | Il controllo ha esito negativo se non supportato.
-Dimensioni del disco dati | Fino a 8.192 GB durante la replica in un disco gestito (versione 9,26 e successive)<br> Fino a 4.095 GB durante la replica nell'account di archiviazione </br> Requisito dimensioni minime disco-almeno 1024 MB| Il controllo ha esito negativo se non supportato.
+Dimensioni del disco dati | Fino a 32.767 GB durante la replica in un disco gestito (versione 9,41 e successive)<br> Fino a 4.095 GB durante la replica nell'account di archiviazione </br> Requisito dimensioni minime disco-almeno 1024 MB| Il controllo ha esito negativo se non supportato.
 Schede di rete | Sono supportate più schede. |
 VHD condiviso | Non supportata. | Il controllo ha esito negativo se non supportato.
 Disco FC | Non supportata. | Il controllo ha esito negativo se non supportato.

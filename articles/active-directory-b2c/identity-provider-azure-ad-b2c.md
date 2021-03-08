@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ea4def3cfaa19e27dc05e955bf97b41976ec2190
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: c9a20305f05b285b29d4a5eaf75116c862f3a6d4
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953921"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448490"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Configurare l'iscrizione e l'accesso con un account di Azure AD B2C da un altro tenant Azure AD B2C
 
@@ -115,8 +115,10 @@ Per creare un'applicazione.
 1. Selezionare **Salva**.
 1. Per testare i criteri, selezionare **Esegui flusso utente**.
 1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
-1. Fare clic su **Esegui flusso utente**
-1. Dalla pagina iscrizione o accesso selezionare *Fabrikam* per accedere con l'altro tenant Azure ad B2C.
+1. Selezionare il pulsante **Esegui flusso utente** .
+1. Dalla pagina iscrizione o accesso selezionare **Fabrikam** per accedere con l'altro tenant Azure ad B2C.
+
+Se il processo di accesso ha esito positivo, il browser viene reindirizzato a `https://jwt.ms` , che Visualizza il contenuto del token restituito da Azure ad B2C.
 
 ::: zone-end
 
@@ -196,7 +198,7 @@ Per consentire agli utenti di eseguire l'accesso utilizzando un account di un al
     |TechnicalProfile\DisplayName|Questo valore verrà visualizzato sul pulsante di accesso nella schermata di accesso. Ad esempio, *Fabrikam*. |
     |Metadati \ client_id|L'identificatore dell'attestazione del provider di identità. Aggiornare l'ID client con l'ID applicazione creato in precedenza nell'altro tenant del Azure AD B2C.|
     |Metadata\METADATA|Un URL che punta a un documento di configurazione del provider di identità OpenID Connect, noto anche come endpoint di configurazione OpenID noto. Immettere l'URL seguente sostituendo `{tenant}` con il nome di dominio dell'altro tenant di Azure ad B2C (Fabrikam). Sostituire `{tenant}` con il nome dei criteri configurati nell'altro tenant e `{policy]` con il nome del criterio: `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/v2.0/.well-known/openid-configuration` . Ad esempio: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/B2C_1_susi/v2.0/.well-known/openid-configuration`.|
-    |CryptographicKeys| Aggiornare il valore di **ID riferimento archiviazione** con il nome della chiave dei criteri creata in precedenza. Ad esempio, `B2C_1A_FabrikamAppSecret`| 
+    |CryptographicKeys| Aggiornare il valore di **ID riferimento archiviazione** con il nome della chiave dei criteri creata in precedenza. Ad esempio: `B2C_1A_FabrikamAppSecret`.| 
     
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
@@ -221,7 +223,15 @@ Per consentire agli utenti di eseguire l'accesso utilizzando un account di un al
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+
+## <a name="test-your-custom-policy"></a>Testare i criteri personalizzati
+
+1. Selezionare, ad esempio, i criteri di relying party `B2C_1A_signup_signin` .
+1. Per **applicazione** selezionare un'applicazione Web [registrata in precedenza](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
+1. Selezionare il pulsante **Esegui adesso** .
+1. Dalla pagina iscrizione o accesso selezionare **Fabrikam** per accedere con l'altro tenant Azure ad B2C.
+
+Se il processo di accesso ha esito positivo, il browser viene reindirizzato a `https://jwt.ms` , che Visualizza il contenuto del token restituito da Azure ad B2C.
 
 ::: zone-end
 

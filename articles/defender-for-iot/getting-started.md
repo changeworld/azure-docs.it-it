@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva
-description: Iniziare a comprendere il flusso di lavoro di base per Defender per la distribuzione di Internet.
+title: 'Guida introduttiva: Guida introduttiva'
+description: In questa Guida introduttiva si apprenderà come iniziare a comprendere il flusso di lavoro di base per Defender per la distribuzione di Internet delle cose.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,25 +8,29 @@ author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/18/2021
 ms.author: shhazam
-ms.openlocfilehash: c224dc3f919471e769717f308aff9ae58630d421
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 487f9be432c908bf8ee1da858a9e45a18adffb8c
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712760"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447708"
 ---
-# <a name="get-started-with-defender-for-iot"></a>Inizia a usare Defender per le cose
+# <a name="quickstart-get-started-with-defender-for-iot"></a>Guida introduttiva: iniziare a usare Defender per l'it
 
 Questo articolo fornisce una panoramica dei passaggi da eseguire per configurare Azure Defender per l'it. Il processo richiede:
 
 - Registrare la sottoscrizione e i sensori in Azure Defender per il portale delle cose.
 - Installare il sensore e il software della console di gestione locale.
 - Eseguire l'attivazione iniziale del sensore e della console di gestione.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+nessuno
 
 ## <a name="permission-requirements"></a>Requisiti relativi alle autorizzazioni
 
@@ -43,7 +47,7 @@ La tabella seguente descrive le autorizzazioni di accesso degli utenti per gli s
 | Aggiornare i prezzi  |  |  ✓ | ✓ | ✓ |
 | Ripristina password  | ✓  |  ✓ | ✓ | ✓ |
 
-## <a name="1-identify-the-solution-infrastructure"></a>1. identificare l'infrastruttura della soluzione
+## <a name="identify-the-solution-infrastructure"></a>Identificare l'infrastruttura della soluzione
 
 **Chiarire le esigenze di configurazione della rete**
 
@@ -55,7 +59,7 @@ Azure Defender per Internet delle cose supporta le distribuzioni sia fisiche che
 
 Si consiglia di calcolare il numero approssimativo di dispositivi che verranno monitorati. Successivamente, quando si registra la sottoscrizione di Azure nel portale, verrà chiesto di immettere questo numero. I numeri possono essere aggiunti a intervalli di 1.000 secondi. Il numero di dispositivi monitorati è denominato dispositivi di cui è stato *eseguito il commit*.
 
-## <a name="2-register-with-azure-defender-for-iot"></a>2. registrazione con Azure Defender per l'it
+## <a name="register-with-azure-defender-for-iot"></a>Registrati con Azure Defender per l'it
 
 La registrazione include:
 
@@ -72,7 +76,7 @@ Per eseguire la registrazione:
 
 Per informazioni su come offboard una sottoscrizione, vedere [offboard a Subscription](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
 
-## <a name="3-install-and-set-up-the-on-premises-management-console"></a>3. installare e configurare la console di gestione locale
+## <a name="install-and-set-up-the-on-premises-management-console"></a>Installare e configurare la console di gestione locale
 
 Dopo aver acquisito il dispositivo della console di gestione locale:
 
@@ -88,7 +92,7 @@ Per installare e configurare:
 1. Installare il software della console di gestione locale. Per altre informazioni, vedere [Defender per l'installazione di](how-to-install-software.md)Internet.
 1. Attivare e configurare la console di gestione di. Per altre informazioni, vedere [attivare e configurare la console di gestione locale](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
-## <a name="4-onboard-a-sensor"></a>4. onboarding di un sensore
+## <a name="onboard-a-sensor"></a>Eseguire l'onboarding di un sensore
 
 Eseguire l'onboarding di un sensore eseguendo la registrazione con Azure Defender per l'IT e scaricando un file di attivazione del sensore:
 
@@ -103,7 +107,7 @@ Eseguire l'onboarding di un sensore eseguendo la registrazione con Azure Defende
 
 Per altre informazioni, vedere [onboarding and Manage Sensors in the Defender for tutto Portal](how-to-manage-sensors-on-the-cloud.md).
 
-## <a name="5-install-and-set-up-the-sensor"></a>5. installare e configurare il sensore
+## <a name="install-and-set-up-the-sensor"></a>Installare e configurare il sensore
 
 Scaricare il pacchetto ISO dal portale di Azure Defender per l'it, installare il software e configurare il sensore.
 
@@ -113,7 +117,7 @@ Scaricare il pacchetto ISO dal portale di Azure Defender per l'it, installare il
 1. Installare il software del sensore. Per altre informazioni, vedere [Defender per l'installazione di](how-to-install-software.md)Internet.
 1. Attivare e configurare il sensore. Per altre informazioni, vedere [accedere e attivare un sensore](how-to-activate-and-set-up-your-sensor.md).
 
-## <a name="6-connect-sensors-to-an-on-premises-management-console"></a>6. connettere i sensori a una console di gestione locale
+## <a name="connect-sensors-to-an-on-premises-management-console"></a>Connettere i sensori a una console di gestione locale
 
 Connettere i sensori alla console di gestione per verificare che:
 
@@ -125,12 +129,12 @@ Si consiglia di raggruppare più sensori monitorando le stesse reti in una zona.
 
 Per ulteriori informazioni, vedere [Connect Sensors to the on-premises Management Console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console).
 
-## <a name="7-populate-azure-sentinel-with-alert-information-optional"></a>7. popolare Azure Sentinel con le informazioni sugli avvisi (facoltativo)
+## <a name="populate-azure-sentinel-with-alert-information-optional"></a>Popolare Azure Sentinel con le informazioni sugli avvisi (facoltativo)
 
 Inviare informazioni sugli avvisi ad Azure Sentinel configurando Sentinel di Azure. Vedere [connettere i dati da Defender per le cose a sentinella di Azure](how-to-configure-with-sentinel.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Benvenuti in Azure Defender](overview.md)
-
-- [Azure Defender per l'architettura dell'it](architecture.md)
+> [!div class="nextstepaction"]
+> [Benvenuti in Azure Defender](overview.md) 
+>  [Azure Defender per l'architettura dell'it](architecture.md)

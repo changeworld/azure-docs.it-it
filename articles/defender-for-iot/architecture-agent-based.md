@@ -8,17 +8,17 @@ author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 3a7dabfed86dab463b38ae45278ead7f5acb5ef9
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 51b1f639ada01eda06bdf6c938eef7dce2a379fc
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521952"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448609"
 ---
 # <a name="agent-based-solution-for-device-builders"></a>Soluzione basata su agente per integratori di dispositivi
 
@@ -44,7 +44,7 @@ Il servizio Defender per gli avvisi e le raccomandazioni per l'it (output della 
 
 :::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="Architettura di micro Agent.":::
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedi anche
 
 [Domande frequenti su Defender](resources-frequently-asked-questions.md)
 
