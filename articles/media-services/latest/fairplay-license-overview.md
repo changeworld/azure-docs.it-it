@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 5a00ba8000f33e8e50b1a5d01f40a68a7fe2442d
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 187c1e60d97e0bebb3b6216b0055ddffe6e6cb4c
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956192"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454382"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Configurazione e requisiti della licenza Apple FairPlay
 
@@ -86,7 +86,7 @@ spc=<Base64 encoded SPC>
 > [!NOTE]
 > In genere è opportuno configurare le opzioni dei criteri FairPlay una sola volta, dato che sarà presente un solo set di certificazione e chiave privata dell'applicazione.
 
-L'esempio seguente usa [SDK .NET di Servizi multimediali](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) per configurare la licenza.
+L'esempio seguente usa [SDK .NET di Servizi multimediali](/dotnet/api/microsoft.azure.management.media.models) per configurare la licenza.
 
 ```csharp
 private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOptions()

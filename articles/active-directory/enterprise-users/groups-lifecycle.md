@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e40ad90910f7b2244401386fb01a4e4fefe03ca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4a2a69b5013ab8e1bc4637f21ce484a132d37834
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647405"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455713"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Microsoft 365
 
@@ -172,7 +172,7 @@ Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di P
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-I cmdlet seguenti possono essere usati per configurare i criteri in modo più dettagliato. Per ulteriori informazioni, vedere la [documentazione di PowerShell](/powershell/module/azuread/?branch=master&view=azureadps-2.0-preview#groups).
+I cmdlet seguenti possono essere usati per configurare i criteri in modo più dettagliato. Per ulteriori informazioni, vedere la [documentazione di PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview#groups).
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy

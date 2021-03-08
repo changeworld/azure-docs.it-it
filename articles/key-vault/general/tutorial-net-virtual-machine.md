@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 5d78299c4583251180b3fb9a902561406b849b4a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: a56c08e5bf6054d24af3ade571ec625969286a77
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201176"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455645"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale in .NET
 
@@ -145,7 +145,7 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-Aggiungere queste righe per aggiornare l'URI in modo che rispecchi il valore `vaultUri` dell'insieme di credenziali delle chiavi. Il codice seguente usa ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) per l'autenticazione all'insieme di credenziali delle chiavi, che usa il token dell'identità gestita dell'applicazione per l'autenticazione. Viene anche usato il backoff esponenziale per la ripetizione dei tentativi in caso di limitazione dell'insieme di credenziali delle chiavi.
+Aggiungere queste righe per aggiornare l'URI in modo che rispecchi il valore `vaultUri` dell'insieme di credenziali delle chiavi. Il codice seguente usa ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) per l'autenticazione all'insieme di credenziali delle chiavi, che usa il token dell'identità gestita dell'applicazione per l'autenticazione. Viene anche usato il backoff esponenziale per la ripetizione dei tentativi in caso di limitazione dell'insieme di credenziali delle chiavi.
 
 ```csharp
   class Program

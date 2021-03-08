@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 8c5b4eac17b4c7ae9b4081d0eb9118285dc74bd5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e32bf95ef52fdd081eeaa476f44bf5dab99657d6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030954"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452119"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.
@@ -650,7 +650,7 @@ Sebbene l'API dell'agente di raccolta dati debba coprire la maggior parte delle 
 |---|---|---|
 | [Eventi personalizzati](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): inserimento basato su SDK nativo in Application Insights | Application Insights, in genere instrumentato tramite un SDK all'interno dell'applicazione, offre la possibilità di inviare dati personalizzati tramite eventi personalizzati. | <ul><li> Dati generati all'interno dell'applicazione, ma non prelevati dall'SDK tramite uno dei tipi di dati predefiniti (richieste, dipendenze, eccezioni e così via).</li><li> Dati più spesso correlati ad altri dati dell'applicazione in Application Insights </li></ul> |
 | API dell'agente di raccolta dati nei log di monitoraggio di Azure | L'API dell'agente di raccolta dati nei log di monitoraggio di Azure è un modo completamente aperto per inserire i dati. I dati formattati in un oggetto JSON possono essere inviati qui. Una volta inviato, verrà elaborato e disponibile nei log per la correlazione con altri dati nei log o con altri dati Application Insights. <br/><br/> È abbastanza semplice caricare i dati come file in un BLOB BLOB di Azure, da dove questi file verranno elaborati e caricati in Log Analytics. Vedere [questo](./create-pipeline-datacollector-api.md) articolo per un'implementazione di esempio di una pipeline di questo tipo. | <ul><li> Dati non necessariamente generati all'interno di un'applicazione instrumentata all'interno Application Insights.</li><li> Gli esempi includono le tabelle di ricerca e dei fatti, i dati di riferimento, le statistiche pre-aggregate e così via. </li><li> Destinata ai dati a cui viene fatto riferimento incrociato rispetto ad altri dati di monitoraggio di Azure (Application Insights, altri tipi di dati di log, Centro sicurezza, informazioni dettagliate sul contenitore/VM e così via). </li></ul> |
-| [Esplora dati di Azure](/azure/data-explorer/ingest-data-overview) | Azure Esplora dati (ADX) è la piattaforma dati che permette di Application Insights l'analisi e i log di monitoraggio di Azure. Ora disponibile a livello generale ("GA"), l'uso della piattaforma dati nella sua forma non elaborata ti offre la flessibilità completa (ma richiede il sovraccarico della gestione) nel cluster (Kubernetes RBAC, tasso di conservazione, schema e così via). ADX offre molte [Opzioni](/azure/data-explorer/ingest-data-overview#ingestion-methods) di inserimento, tra cui file [CSV, TSV e JSON](/azure/kusto/management/mappings?branch=master) . | <ul><li> Dati che non verranno correlati a tutti gli altri dati in Application Insights o log. </li><li> I dati che richiedono funzionalità avanzate di inserimento o elaborazione non sono oggi disponibili nei log di monitoraggio di Azure. </li></ul> |
+| [Esplora dati di Azure](/azure/data-explorer/ingest-data-overview) | Azure Esplora dati (ADX) è la piattaforma dati che permette di Application Insights l'analisi e i log di monitoraggio di Azure. Ora disponibile a livello generale ("GA"), l'uso della piattaforma dati nella sua forma non elaborata ti offre la flessibilità completa (ma richiede il sovraccarico della gestione) nel cluster (Kubernetes RBAC, tasso di conservazione, schema e così via). ADX offre molte [Opzioni](/azure/data-explorer/ingest-data-overview#ingestion-methods) di inserimento, tra cui file [CSV, TSV e JSON](/azure/kusto/management/mappings) . | <ul><li> Dati che non verranno correlati a tutti gli altri dati in Application Insights o log. </li><li> I dati che richiedono funzionalità avanzate di inserimento o elaborazione non sono oggi disponibili nei log di monitoraggio di Azure. </li></ul> |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
