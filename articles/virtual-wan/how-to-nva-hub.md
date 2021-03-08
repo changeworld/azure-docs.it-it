@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 1f80da4014d4b6b27155db17d32800e54b51f40d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: f02edf8e192f4d32f8bd2583d46bbb17c86d2049
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258066"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454805"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Come creare un'appliance virtuale di rete in un hub WAN virtuale di Azure (anteprima)
 
@@ -22,6 +22,8 @@ Questo articolo illustra come usare la rete WAN virtuale per connettersi alle ri
 I passaggi descritti in questo articolo consentono di creare un'appliance virtuale di rete **WAN Barracuda CloudGen** nell'hub WAN virtuale. Per completare questo esercizio, è necessario disporre di un dispositivo di cloud locale Barracuda e di una licenza per l'appliance Barracuda CloudGen WAN distribuita nell'hub prima di iniziare.
 
 Per la documentazione sulla distribuzione di **Cisco SD-WAN** all'interno della rete WAN virtuale di Azure, vedere [Cisco Cloud OnRamp per più cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). 
+
+Per la documentazione sulla distribuzione di **VMware SD-WAN** all'interno di una rete WAN virtuale di Azure, vedere [la guida alla distribuzione di VMware SD-WAN nell'hub WAN virtuale](https://kb.vmware.com/s/article/82746)
 
 ## <a name="prerequisites"></a>Prerequisiti
 

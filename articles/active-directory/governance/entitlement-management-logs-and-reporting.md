@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b635a83c5ea1378a525ff607e5c6f2725337ad1a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577860"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453037"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Log di archiviazione e creazione di report su gestione entitlement di Azure AD in Monitoraggio di Azure
 
@@ -158,8 +158,7 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-È possibile eseguire nuovamente l'autenticazione e associare la sessione di PowerShell a tale sottoscrizione usando un comando come `Connect-AzAccount –Subscription $subs[0].id`. Per altre informazioni su come eseguire l'autenticazione in Azure da PowerShell, anche in modo non interattivo, vedere [Accedere con Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
-).
+È possibile eseguire nuovamente l'autenticazione e associare la sessione di PowerShell a tale sottoscrizione usando un comando come `Connect-AzAccount –Subscription $subs[0].id`. Per altre informazioni su come eseguire l'autenticazione in Azure da PowerShell, anche in modo non interattivo, vedere [Accedere con Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 Se nella sottoscrizione sono presenti più aree di lavoro Log Analytics, il cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) restituisce l'elenco delle aree di lavoro. Sarà quindi possibile trovare quella contenente i log Azure AD. Il campo `CustomerId` restituito da questo cmdlet corrisponde al valore dell'"ID area di lavoro" visualizzato nel portale di Azure nella panoramica dell'area di lavoro Log Analytics.
  

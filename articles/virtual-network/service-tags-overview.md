@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 1186715003abef387343bb2b6cb71d56490c519d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 18b79b105bcc4b5b0b65fc6f7d6b602ffff55561
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667845"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455823"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -131,7 +131,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 È possibile recuperare l'elenco corrente dei tag di servizio a livello di codice insieme ai dettagli dell'intervallo di indirizzi IP:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
 - [Interfaccia della riga di comando di Azure](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
@@ -153,7 +153,7 @@ Gli intervalli di indirizzi IP in questi file sono in notazione CIDR.
 
 ### <a name="tips"></a>Suggerimenti 
 - È possibile rilevare gli aggiornamenti da una pubblicazione alla successiva annotando un aumento dei valori *changeNumber* nel file JSON. In ogni sottosezione (ad esempio **storage.Westus**) è presente il valore *changeNumber* che viene incrementato quando si verificano modifiche. Il primo livello del valore *changeNumber* del file viene incrementato quando una delle sottosezioni viene modificata.
-- Per esempi di come analizzare le informazioni sui tag del servizio (ad esempio per ottenere tutti gli intervalli di indirizzi per l'archiviazione in WestUS), vedere la documentazione dell'[API di individuazione del tag del servizio in PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2).
+- Per esempi di come analizzare le informazioni sui tag del servizio (ad esempio per ottenere tutti gli intervalli di indirizzi per l'archiviazione in WestUS), vedere la documentazione dell'[API di individuazione del tag del servizio in PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag).
 - Quando vengono aggiunti nuovi indirizzi IP ai tag di servizio, non verranno usati in Azure per almeno una settimana. Questa operazione consente di aggiornare tutti i sistemi che potrebbero dover tenere traccia degli indirizzi IP associati ai tag del servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi

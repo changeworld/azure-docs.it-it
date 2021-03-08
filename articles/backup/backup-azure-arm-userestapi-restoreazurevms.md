@@ -4,12 +4,12 @@ description: Questo articolo illustra come gestire le operazioni di ripristino d
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 260c78af39c46e493ebb79c26ff1c55153a41c1d
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: da6b4cd6134f0cd1fd3d6e04e814bbf8aec9b07d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174023"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452153"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
@@ -31,7 +31,7 @@ All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario un
 
 ### <a name="responses"></a>Risposte
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -144,7 +144,7 @@ L'attivazione di qualsiasi operazione di ripristino è un' [operazione asincrona
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accettato    |
 
@@ -216,7 +216,7 @@ Se è necessario personalizzare la creazione di una macchina virtuale dai dati d
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare il ripristino di un disco da un backup di macchine virtuali di Azure.
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -278,7 +278,7 @@ Mentre i dischi di ripristino creano dischi dal punto di ripristino, Replace dis
 
 Per attivare una sostituzione del disco da un backup di VM di Azure, di seguito sono riportati i componenti del corpo della richiesta.
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -317,17 +317,7 @@ Come spiegato in [precedenza](#restore-operations), il corpo della richiesta seg
 
 ```json
 {
-  "parameters": {
-        "subscriptionId": "00000000-0000-0000-0000-000000000000",
-        "resourceGroupName": "testVaultRG",
-        "vaultName": "testVault",
-        "fabricName": "Azure",
-        "containerName": "IaasVMContainer;iaasvmcontainerv2;testRG;testVM",
-        "protectedItemName": "VM;iaasvmcontainerv2;testRG;testVM",
-        "recoveryPointId": "348916168024334",
-        "api-version": "2019-05-13",
-      "parameters": {
-        "properties": {
+  "properties": {
           "objectType":  "IaasVMRestoreRequest",
           "recoveryPointId": "348916168024334",
           "recoveryType": "AlternateLocation",
@@ -342,11 +332,8 @@ Come spiegato in [precedenza](#restore-operations), il corpo della richiesta seg
           "originalStorageAccountOption": false,
           "encryptionDetails": {
             "encryptionEnabled": false
-          }
-        }
-      }
-    }
-}
+     }
+ }
 ```
 
 La risposta deve essere gestita nello stesso modo [descritto in precedenza per il ripristino dei dischi](#responses).

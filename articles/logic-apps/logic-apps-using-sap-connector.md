@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/05/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 2820fe9d885187071924386ef71eb12fd42bbf01
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3e98dc36b3d58ce5289fccde7b5f5a49973c9de6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426451"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454227"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
@@ -30,7 +30,7 @@ Questo articolo illustra come è possibile accedere alle risorse SAP dalle app p
 
     * Se si esegue l'app per la logica in Azure multi-tenant, vedere i [prerequisiti multi-tenant](#multi-tenant-azure-prerequisites).
 
-    * Se l'app per la logica è in esecuzione in un ambiente del servizio di integrazione a livello Premium[ (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), vedere [prerequisiti di ISE](#ise-prerequisites).
+    * Se l'app per la logica è in esecuzione in un ambiente del servizio di integrazione a livello Premium [(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), vedere [prerequisiti di ISE](#ise-prerequisites).
 
 * Un [server applicazioni SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) o un [Server dei messaggi SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) a cui si vuole accedere dalle app per la logica. Per informazioni sui server SAP e sulle azioni SAP che è possibile usare con il connettore, vedere [compatibilità SAP](#sap-compatibility).
 
@@ -633,6 +633,14 @@ Per inviare IDocs da SAP all'app per la logica, è necessaria la configurazione 
     * Per la **destinazione RFC** immettere un nome.
     
     * Nella scheda **Impostazioni tecniche** , in **tipo di attivazione** selezionare **programma server registrato**. Per l' **ID del programma** immettere un valore. In SAP il trigger dell'app per la logica verrà registrato con questo identificatore.
+
+    > [!IMPORTANT]
+    > L' **ID del programma** SAP fa distinzione tra maiuscole e minuscole. Assicurarsi di usare in modo coerente lo stesso formato di case per l' **ID del programma** quando si configura l'app per la logica e il server SAP. In caso contrario, è possibile che vengano visualizzati gli errori seguenti in tRFC monitor (T-Code SM58) quando si tenta di inviare un IDoc a SAP:
+    >
+    > * **Impossibile trovare la funzione IDOC_INBOUND_ASYNCHRONOUS**
+    > * **Il client RFC non ABAP (tipo di partner) non è supportato**
+    >
+    > Per ulteriori informazioni su SAP, vedere le note seguenti (login required) <https://launchpad.support.sap.com/#/notes/2399329> e <https://launchpad.support.sap.com/#/notes/353597> .
     
     * Nella scheda **Unicode** , per **tipo di comunicazione con sistema di destinazione**, selezionare **Unicode**.
 
@@ -745,6 +753,14 @@ Per gli ambienti di produzione, è necessario creare due profili partner. Il pri
 Di seguito è riportato un esempio che illustra come estrarre singoli IDocs da un pacchetto usando la [ `xpath()` funzione](./workflow-definition-language-functions-reference.md#xpath):
 
 1. Prima di iniziare, è necessaria un'app per la logica con un trigger SAP. Se non si dispone già di questa app per la logica, seguire i passaggi precedenti in questo argomento per [configurare un'app per la logica con un trigger SAP](#receive-message-from-sap).
+
+    > [!IMPORTANT]
+    > L' **ID del programma** SAP fa distinzione tra maiuscole e minuscole. Assicurarsi di usare in modo coerente lo stesso formato di case per l' **ID del programma** quando si configura l'app per la logica e il server SAP. In caso contrario, è possibile che vengano visualizzati gli errori seguenti in tRFC monitor (T-Code SM58) quando si tenta di inviare un IDoc a SAP:
+    >
+    > * **Impossibile trovare la funzione IDOC_INBOUND_ASYNCHRONOUS**
+    > * **Il client RFC non ABAP (tipo di partner) non è supportato**
+    >
+    > Per ulteriori informazioni su SAP, vedere le note seguenti (login required) <https://launchpad.support.sap.com/#/notes/2399329> e <https://launchpad.support.sap.com/#/notes/353597> .
 
    Ad esempio:
 
@@ -1313,11 +1329,18 @@ Se si verifica un problema con IDocs duplicati inviati a SAP dall'app per la log
 
 ## <a name="known-issues-and-limitations"></a>Limitazioni e problemi noti
 
-Di seguito sono riportati i problemi e le limitazioni attualmente noti per il connettore SAP gestito (non ISE):
+Di seguito sono riportati i problemi e le limitazioni attualmente noti per il connettore SAP gestito (non ISE): 
 
-* Il trigger SAP non supporta i cluster di gateway dati. In alcuni casi di failover, il nodo del gateway dati che comunica con il sistema SAP potrebbe essere diverso dal nodo attivo, il che comporta un comportamento imprevisto. Per gli scenari di invio, sono supportati i cluster di gateway dati.
+* In generale, il trigger SAP non supporta i cluster di gateway dati. In alcuni casi di failover, il nodo del gateway dati che comunica con il sistema SAP potrebbe essere diverso dal nodo attivo, il che comporta un comportamento imprevisto.
+
+  * Per gli scenari di invio, sono supportati i cluster di gateway dati in modalità di failover. 
+
+  * I cluster di gateway dati in modalità di bilanciamento del carico non sono supportati da azioni SAP con stato. Queste azioni includono la creazione di una **sessione con stato**, la transazione di commit di una **transazione**, il **rollback della transazione**, la chiusura della sessione con **stato** e tutte le azioni che specificano un valore di **ID di sessione** . Le comunicazioni con stato devono rimanere nello stesso nodo del cluster del gateway dati. 
+
+  * Per le azioni SAP con stato, usare il gateway dati in modalità non cluster o in un cluster configurato solo per il failover.
 
 * Il connettore SAP attualmente non supporta le stringhe di route SAP. Il gateway dati locale deve esistere nella stessa rete LAN del sistema SAP a cui si desidera connettersi.
+
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 

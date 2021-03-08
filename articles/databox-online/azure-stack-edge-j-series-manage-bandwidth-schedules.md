@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b3ae2986b49cf6854e0d9a6b99aabdfc2dd6b713
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 29ac6976b6248f066f18f0ffcc8e03061ee74f77
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436652"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454416"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Usare il portale di Azure per gestire le pianificazioni della larghezza di banda sulla GPU Pro Azure Stack Edge 
 
@@ -44,7 +44,7 @@ Seguire questa procedura nel portale di Azure per aggiungere una pianificazione.
 
    1. Fornire il **giorno di inizio**, il **giorno di fine**, l'ora di **inizio** e l' **ora di fine** della pianificazione.
    2. Selezionare l'opzione **tutto il giorno** se la pianificazione deve essere eseguita tutto il giorno.
-   3. La **velocità della larghezza di banda** è la larghezza di banda in megabit al secondo (Mbps) usata dal dispositivo in operazioni che coinvolgono il cloud (sia uploads che download). Specificare un numero compreso tra 20 e 2.147.483.647 per questo campo.
+   3. La **velocità della larghezza di banda** è la larghezza di banda in megabit al secondo (Mbps) usata dal dispositivo in operazioni che coinvolgono il cloud (sia uploads che download). Specificare un numero compreso tra 64 e 2.147.483.647 per questo campo.
    4. Selezionare la **larghezza di banda illimitata** se non si desidera limitare il caricamento e il download della data.
    5. Selezionare **Aggiungi**.
 

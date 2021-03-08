@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 70f54fc111bfd9443f988619cb2b86303fd3f07b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: d223d2c6a83b1389cd70344efdb48c357dda4ac4
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443387"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454587"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Estensioni di PostgreSQL nel database di Azure per PostgreSQL-server flessibile
 
@@ -53,7 +53,7 @@ Le estensioni seguenti sono disponibili nel database di Azure per PostgreSQL-ser
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | tipo di dati per le strutture ad albero gerarchico|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | esaminare il contenuto delle pagine del database a un livello basso|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | esaminare la cache del buffer condivisa|
-> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.2             | Utilità di pianificazione dei processi per PostgreSQL|
+> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Utilità di pianificazione dei processi per PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | esaminare la mappa dello spazio disponibile (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | dati della relazione preriscaldati|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | tenere traccia delle statistiche di esecuzione di tutte le istruzioni SQL eseguite|
@@ -61,7 +61,6 @@ Le estensioni seguenti sono disponibili nel database di Azure per PostgreSQL-ser
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | esaminare la mappa di visibilità (VM) e le informazioni di visibilità a livello di pagina|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | fornisce funzionalità di controllo|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | funzioni di crittografia|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | Replica logica di PostgreSQL|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | Mostra informazioni di blocco a livello di riga|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Mostra statistiche a livello di tupla|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | Lingua procedurale PL/pgSQL|
@@ -104,7 +103,7 @@ Le estensioni seguenti sono disponibili nel database di Azure per PostgreSQL-ser
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | tipo di dati per le strutture ad albero gerarchico|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | esaminare il contenuto delle pagine del database a un livello basso|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | esaminare la cache del buffer condivisa|
-> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.2             | Utilità di pianificazione dei processi per PostgreSQL|
+> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Utilità di pianificazione dei processi per PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | esaminare la mappa dello spazio disponibile (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | dati della relazione preriscaldati|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | tenere traccia delle statistiche di esecuzione di tutte le istruzioni SQL eseguite|
@@ -112,7 +111,6 @@ Le estensioni seguenti sono disponibili nel database di Azure per PostgreSQL-ser
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | esaminare la mappa di visibilità (VM) e le informazioni di visibilità a livello di pagina|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | fornisce funzionalità di controllo|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | funzioni di crittografia|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | Replica logica di PostgreSQL|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Mostra informazioni di blocco a livello di riga|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Mostra statistiche a livello di tupla|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | Lingua procedurale PL/pgSQL|
@@ -134,6 +132,27 @@ Le estensioni seguenti sono disponibili nel database di Azure per PostgreSQL-ser
 
 Se si prevede di usare queste due estensioni, è consigliabile distribuire i server con l' [integrazione VNet](concepts-networking.md) . Per impostazione predefinita, l'integrazione VNet consente le connessioni tra i server di VNET. È anche possibile scegliere di usare i [gruppi di sicurezza di rete VNet](../../virtual-network/manage-network-security-group.md) per personalizzare l'accesso.
 
+## <a name="pg_cron"></a>pg_cron
+
+[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36) è un'utilità di pianificazione dei processi semplice basata su cron per PostgreSQL che viene eseguita all'interno del database come un'estensione. È possibile usare l'estensione pg_cron per eseguire attività di manutenzione pianificate in un database PostgreSQL. Ad esempio, è possibile eseguire un vuoto periodico di una tabella o rimuovere i vecchi processi di dati.
+
+`pg_cron` consente di eseguire più processi in parallelo, ma esegue al massimo un'istanza di un processo alla volta. Se una seconda esecuzione viene avviata prima del completamento della prima, la seconda esecuzione viene accodata e avviata non appena viene completata la prima esecuzione. Ciò garantisce che i processi vengano eseguiti esattamente il numero di volte pianificato e non vengono eseguiti contemporaneamente.
+
+Di seguito alcuni esempi:
+
+Per eliminare i dati obsoleti sabato alle ore 3:9.30 (GMT)
+```
+SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
+```
+Per eseguire il Vacuum ogni giorno alle 10:00 (GMT)
+```
+SELECT cron.schedule('0 10 * * *', 'VACUUM');
+```
+
+Per depianificare tutte le attività da pg_cron
+```
+SELECT cron.unschedule(jobid) FROM cron.job;
+```
 
 ## <a name="pg_prewarm"></a>pg_prewarm
 

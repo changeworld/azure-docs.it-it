@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 7e72f628bf328a3b93e81c60aa65b8c2495f7f2b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 86a373844b370cc9f9ce31dc65b2039a81279803
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095263"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454771"
 ---
 # <a name="what-is-azure-iot-hub"></a>Che cos'è l'hub IoT di Azure?
 
@@ -30,7 +30,7 @@ Le funzionalità dell'Hub IoT consentono di compilare soluzioni IoT scalabili co
 
 ## <a name="scale-your-solution"></a>Ridimensionare una soluzione
 
-L'hub IoT è adattabile a milioni di dispositivi simultaneamente connessi e a milioni di eventi al secondo per supportare i carichi di lavoro IoT del cliente. Per altre informazioni sul ridimensionamento dell'hub IoT, vedere [Ridimensionamento dell'hub IoT](iot-hub-scaling.md?branch=release-iotbasic). Per altre informazioni sui diversi livelli di servizio offerti dall'hub IoT e su come soddisfare al meglio le esigenze di scalabilità, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/iot-hub/).
+L'hub IoT è adattabile a milioni di dispositivi simultaneamente connessi e a milioni di eventi al secondo per supportare i carichi di lavoro IoT del cliente. Per altre informazioni sul ridimensionamento dell'hub IoT, vedere [Ridimensionamento dell'hub IoT](iot-hub-scaling.md). Per altre informazioni sui diversi livelli di servizio offerti dall'hub IoT e su come soddisfare al meglio le esigenze di scalabilità, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Proteggere le comunicazioni dell'utente
 

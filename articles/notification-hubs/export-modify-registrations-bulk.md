@@ -14,12 +14,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c0771864229c8a3918da076de48fb6e033d2cf5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73c19b72c75d9638213f3c813a708a272cbe2a1b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018179"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452340"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Esportare e importare in blocco le registrazioni di hub di notifica di Azure
 
@@ -33,7 +33,7 @@ Il supporto in batch è stato progettato per supportare processi a lunga esecuzi
 
 ## <a name="import"></a>Importa
 
-### <a name="set-up"></a>Configurare
+### <a name="set-up"></a>Configurazione
 
 In questa sezione si presuppone che siano presenti le entità seguenti:
 
@@ -127,7 +127,7 @@ Oltre agli URL di input e di output, in questo esempio viene creato un `Notifica
 - `ImportUpdateRegistrations`
 - `ImportDeleteRegistrations`
 
-Una volta completata la chiamata, il processo viene continuato dall'hub di notifica ed è possibile controllarne lo stato con la chiamata a [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
+Una volta completata la chiamata, il processo viene continuato dall'hub di notifica ed è possibile controllarne lo stato con la chiamata a [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync).
 
 Al termine del processo è possibile esaminare i risultati, verificando i file seguenti nella directory di output:
 

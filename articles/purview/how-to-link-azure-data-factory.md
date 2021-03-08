@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/03/2021
-ms.openlocfilehash: 6a71999f0896a5d056b7d0b38be4d494c347e9f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049373"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449612"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Come connettersi Azure Data Factory e Azure
 
@@ -123,12 +123,12 @@ L'integrazione tra Data Factory e la competenza supporta solo un subset dei sist
 | Database SQL di Azure \* | Sì | 
 | Istanza gestita SQL di Azure \* | Sì | 
 | Analisi delle sinapsi di Azure \* | Sì | 
-| Archiviazione tabelle di Azure \* | Sì |
-| SQL Server \* | Sì | 
+| Archiviazione tabelle di Azure | Sì |
 | Amazon S3 | Sì | 
 | Alveare \* | Sì | 
 | SAP ECC \* | Sì |
-| Tabella SAP \* | Sì |
+| Tabella SAP | Sì |
+| SQL Server \* | Sì | 
 | Teradata \* | Sì |
 
 *\* Azure competenze attualmente non supporta la query o la stored procedure per la derivazione o l'analisi. La derivazione è limitata solo alle origini tabella e vista.*
@@ -144,6 +144,7 @@ Attualmente, se si usano le funzionalità dell'attività di copia seguenti, la d
 - Copiare i dati in Azure sinapsi Analytics usando l'istruzione di base o di copia.
 - Impostazione di compressione per file binari, delimitati di testo, Excel, JSON e XML.
 - Opzioni di partizione di origine per database SQL di Azure, Azure SQL Istanza gestita, Azure sinapsi Analytics, SQL Server e tabella SAP.
+- Opzione di individuazione partizione di origine per archivi basati su file.
 - Copiare i dati nel sink basato su file con l'impostazione del numero massimo di righe per ogni file.
 - Aggiungere altre colonne durante la copia.
 

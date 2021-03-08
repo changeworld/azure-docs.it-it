@@ -120,7 +120,7 @@
     - name: Creare un hub di notifica tramite SDK
       items:
         - name: Creare un hub di notifica - .NET
-          href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+          href: /dotnet/api/overview/azure/notification-hubs
         - name: Creare un hub di notifica - Node.js
           href: notification-hubs-nodejs-push-notification-tutorial.md
         - name: Creare un hub di notifica - Java

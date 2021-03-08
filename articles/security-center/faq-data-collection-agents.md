@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: dc277d71f8f39b342095d0ac14b592eb866984d5
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 4ef01045d1ca16d0101cdd9ccfcd118231cd28de
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100526"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456114"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Domande frequenti sulla raccolta dati, gli agenti e le aree di lavoro
 
@@ -111,7 +111,7 @@ Per selezionare l'area di lavoro Log Analytics esistente:
 
 1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
 1. Selezionare la sottoscrizione pertinente.
-1. Aprire la pagina di **provisioning automatico** , s
+1. Aprire la pagina **provisioning automatico** .
 1. Per l'agente di Log Analytics selezionare **modifica configurazione**. 
 
     :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="Configurazione dell'agente Log Analytics da usare quando si usa la distribuzione automatica" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::

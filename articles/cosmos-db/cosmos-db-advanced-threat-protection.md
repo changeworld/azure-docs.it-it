@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: ea7524b32b7637aa7c36308f8b869aa5207c08a2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b73e7f8c13f621bc359a2ae79a725829420a3ecc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334413"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455596"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Advanced Threat Protection per Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,9 +34,9 @@ Per un'analisi completa degli avvisi di sicurezza, è consigliabile abilitare la
 
 Advanced Threat Protection per Azure Cosmos DB rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database. Può attualmente attivare gli avvisi seguenti:
 
-- **Accesso da una posizione insolita** : questo avviso viene attivato quando il modello di accesso a un account Azure Cosmos cambia oppure quando un utente si connette all'endpoint di Azure Cosmos DB da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o un'operazione di manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa da parte di un ex dipendente, un utente malintenzionato esterno e così via.
+- **Accesso da una posizione insolita**: questo avviso viene attivato quando il modello di accesso a un account Azure Cosmos cambia oppure quando un utente si connette all'endpoint di Azure Cosmos DB da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o un'operazione di manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa da parte di un ex dipendente, un utente malintenzionato esterno e così via.
 
-- **Estrazione insolita di dati** : questo avviso viene generato quando un client estrae una quantità insolita di dati da un account Azure Cosmos DB. Questo evento può essere il sintomo di un'esfiltrazione di dati eseguita per trasferire tutti i dati archiviati nell'account in un archivio dati esterno.
+- **Estrazione insolita di dati**: questo avviso viene generato quando un client estrae una quantità insolita di dati da un account Azure Cosmos DB. Questo evento può essere il sintomo di un'esfiltrazione di dati eseguita per trasferire tutti i dati archiviati nell'account in un archivio dati esterno.
 
 
 
@@ -52,7 +52,7 @@ Advanced Threat Protection per Azure Cosmos DB rileva le attività anomale che i
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png" alt-text="Configurare Advanced Threat Protection":::
 
-3. Nel pannello di configurazione **Sicurezza avanzata** :
+3. Nel pannello di configurazione **Sicurezza avanzata**:
 
     * Fare clic sull'opzione **Advanced Threat Protection** per impostarla su **ON**.
     * Fare clic su **Salva** per salvare i criteri di Advanced Threat Protection nuovi o aggiornati.   
@@ -68,9 +68,9 @@ Usare i comandi dell'API REST per creare, aggiornare o acquisire l'impostazione 
 
 Usare i cmdlet di PowerShell seguenti:
 
-* [Abilitare Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Ottenere Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Disabilitare Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Abilitare Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+* [Ottenere Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+* [Disabilitare Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ### <a name="arm-template"></a>[Modello ARM](#tab/arm-template)
 

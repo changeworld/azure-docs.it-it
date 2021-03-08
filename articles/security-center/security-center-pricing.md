@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 02/14/2021
-ms.openlocfilehash: e72e312e932e71d4dac8532983c2c96ba105ba3b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/08/2021
+ms.openlocfilehash: d45dae8b0b3725555bd83a05032339671a9595be
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439477"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454365"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Il Centro sicurezza di Azure è disponibile rispetto ad Azure Defender abilitato
 Azure Defender è gratuito per i primi 30 giorni. Al termine dei 30 giorni, se si sceglie di continuare a usare il servizio, l'utilizzo inizierà a essere addebitato automaticamente.
@@ -38,20 +38,16 @@ Il Centro sicurezza è disponibile in due modalità:
 
 ## <a name="faq---pricing-and-billing"></a>Domande frequenti - Prezzi e fatturazione 
 
-- [Il Centro sicurezza di Azure è disponibile rispetto ad Azure Defender abilitato](#azure-security-center-free-vs-azure-defender-enabled)
-  - [Quali sono i vantaggi dell'abilitazione di Azure Defender?](#what-are-the-benefits-of-enabling-azure-defender)
-  - [Domande frequenti - Prezzi e fatturazione](#faq---pricing-and-billing)
-    - [Come è possibile verificare chi nell'organizzazione ha abilitato le modifiche di Azure Defender nel Centro sicurezza di?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
-    - [Quali sono i piani offerti dal Centro sicurezza?](#what-are-the-plans-offered-by-security-center)
-    - [Come abilitare Azure Defender per la sottoscrizione?](#how-do-i-enable-azure-defender-for-my-subscription)
-    - [È possibile abilitare Azure Defender per i server in un subset di server nella sottoscrizione?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
-    - [Se si ha già una licenza di Microsoft Defender per endpoint, è possibile ottenere uno sconto per Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
-    - [Se nella sottoscrizione è abilitato Azure Defender per i server, sono previsti addebiti per i server non in esecuzione?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
-    - [Si riceveranno addebiti per i computer senza l'agente di Log Analytics installato?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
-    - [Se un agente di Log Analytics è associato a più aree di lavoro, l'addebito verrà applicato due volte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
-    - [Se l'agente di Log Analytics è associato a più aree di lavoro, la funzionalità gratuita di inserimento di 500 MB di dati è disponibile per tutte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
-    - [L'inserimento gratuito di 500 MB di dati viene calcolato per un'intera area di lavoro o rigorosamente per computer?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
-  - [Passaggi successivi](#next-steps)
+- [Come è possibile verificare chi nell'organizzazione ha abilitato le modifiche di Azure Defender nel Centro sicurezza di?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [Quali sono i piani offerti dal Centro sicurezza?](#what-are-the-plans-offered-by-security-center)
+- [Come abilitare Azure Defender per la sottoscrizione?](#how-do-i-enable-azure-defender-for-my-subscription)
+- [È possibile abilitare Azure Defender per i server in un subset di server nella sottoscrizione?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [Se si ha già una licenza di Microsoft Defender per endpoint, è possibile ottenere uno sconto per Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [Se nella sottoscrizione è abilitato Azure Defender per i server, sono previsti addebiti per i server non in esecuzione?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+- [Si riceveranno addebiti per i computer senza l'agente di Log Analytics installato?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+- [Se un agente di Log Analytics è associato a più aree di lavoro, l'addebito verrà applicato due volte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+- [Se l'agente di Log Analytics è associato a più aree di lavoro, la funzionalità gratuita di inserimento di 500 MB di dati è disponibile per tutte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+- [L'inserimento gratuito di 500 MB di dati viene calcolato per un'intera area di lavoro o rigorosamente per computer?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
 
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Come è possibile verificare chi nell'organizzazione ha abilitato le modifiche di Azure Defender nel Centro sicurezza di?
 Le sottoscrizioni di Azure possono avere più amministratori con le autorizzazioni per cambiare le impostazioni dei prezzi. Per individuare l'utente che ha apportato una modifica, usare il log attività di Azure.

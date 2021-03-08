@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 0221022c342735744d59f956d6047b4abf23b5cf
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 58f71ddc470c06e17ff73dd5681cd343bcf8ac7b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516516"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451898"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limiti nel database di Azure per PostgreSQL-server flessibile
 
@@ -68,7 +68,7 @@ Una connessione PostgreSQL, anche inattiva, può occupare circa 10 MB di memoria
 
 ### <a name="storage"></a>Archiviazione
 
-- Una volta configurata, non è possibile ridurre le dimensioni di archiviazione.
+- Una volta configurata, non è possibile ridurre le dimensioni di archiviazione. È necessario creare un nuovo server con le dimensioni di archiviazione desiderate ed eseguire il processo di dump e ripristino manuale per la migrazione dei database.
 - Attualmente la funzionalità di aumento automatico dell'archiviazione non è disponibile. Monitorare l'utilizzo e aumentare lo spazio di archiviazione a una dimensione superiore. 
 - Quando l'utilizzo dello spazio di archiviazione raggiunge il 95% o se la capacità disponibile è inferiore a 5 GiB, il server passa automaticamente alla modalità di sola **lettura** per evitare errori associati a situazioni complete del disco. 
 - Si consiglia di impostare le regole di avviso per `storage used` o `storage percent` quando superano determinate soglie, in modo da poter intervenire in modo proattivo, ad esempio aumentando le dimensioni di archiviazione. Ad esempio, è possibile impostare un avviso se la percentuale di archiviazione supera il 80% di utilizzo.

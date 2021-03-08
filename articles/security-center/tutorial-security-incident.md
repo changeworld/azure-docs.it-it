@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: aeabfb42d378f22ff660214517fea031d678b208
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 41f96202bffc0169be9705cd7e67c1eedbecbc05
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635575"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453445"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Esercitazione: Valutare, analizzare e rispondere agli avvisi di sicurezza
 Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence sulle minacce per segnalare attività potenzialmente dannose nelle risorse cloud. Nel Centro sicurezza è anche possibile integrare gli avvisi di altri prodotti e servizi di sicurezza. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione del potenziale problema di sicurezza. 
@@ -112,7 +112,7 @@ Se non si prevede di continuare o si vogliono disabilitare queste funzionalità:
 1. Selezionare la sottoscrizione pertinente.
 1. Per effettuare il downgrade, selezionare **Azure Defender - Off**.
 1. Per disabilitare il provisioning automatico, aprire la pagina **Raccolta dati** e disattivare l'opzione **Provisioning automatico**.
-4. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
 >[!NOTE]
 > La disabilitazione del provisioning automatico non implica la rimozione dell'agente di Log Analytics dalle macchine virtuali di Azure che contengono già l'agente. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.

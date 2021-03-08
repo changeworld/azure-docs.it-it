@@ -9,12 +9,12 @@ ms.date: 03/03/2021
 ms.author: cherylmc
 ms.custom: references_regions
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: 1e8a8aa632d4c91cdfc6753d988a439d2de8938e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d1f05e76768ffc8ce930d97573c7729b8e4afafe
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040541"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452748"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Posizioni dei partner e degli hub virtuali della rete WAN virtuale di Azure
 
@@ -61,7 +61,8 @@ Questi partner dispongono di offerte di **applicazioni gestite** ora disponibili
 |Partner|Guida alla configurazione/procedura/distribuzione|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guida alla distribuzione di Barracuda CloudGen WAN](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[Cisco Cloud Service Router (CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Durante l'anteprima pubblica della rete WAN Cisco Services (CSR) nell'hub VWAN, Cisco richiede che il cliente finale venga registrato come cliente Cisco EFT (Early Field Trial) inviando un messaggio di posta elettronica a vwan_public_preview@external.cisco.com e richiedendo la guida alla distribuzione di vManage. |
+|[Cisco Cloud Service Router (CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Durante l'anteprima pubblica della rete WAN Cisco Services (CSR) nell'hub VWAN, Cisco richiede che il cliente finale venga registrato come cliente Cisco EFT (Early Field Trial) inviando un messaggio di posta elettronica a vwan_public_preview@external.cisco.com e richiedendo la guida alla distribuzione di vManage. 
+|[SD-WAN VMware nell'hub WAN virtuale](https://kb.vmware.com/s/article/82746) | Durante l'anteprima pubblica di VMware SD-WAN nell'hub VWAN, VMware richiede che il cliente si registri inviando un messaggio di posta elettronica a vhubsupport@vmware.com . [VMware SD-WAN nella Guida alla distribuzione dell'hub WAN virtuale](https://kb.vmware.com/s/article/82746)|
 
 I partner seguenti sono disponibili per l'inclusione di appliance virtuale di rete nell'hub virtuale a breve in futuro: aviatrice, Citrix, VeloCloud e versa.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1cb5e99558d6bf1a5baa21d05d45415855c61cb5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7714b090399b0b184e2e216ff6da7b10f2bf4386
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745678"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452272"
 ---
 # <a name="webjobs-run-background-tasks-in-azure-app-service"></a>Processi Web: esecuzione di attività in background nel servizio app Azure
 
@@ -60,4 +60,4 @@ Sono supportati i tipi di file seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come [creare un processo Web](./webjobs-create-ieux.md)
-* Visualizzare la cronologia dei log dei processi Web] (./webjobs-create-ieux-View-log.MD)
+* Visualizzare la cronologia dei log dei [processi](./webjobs-create-ieux-view-log.md) Web

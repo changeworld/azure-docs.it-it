@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 1f619e1eac58f70642117dabafc266d1bc250609
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 59c000a816d55d248febb841b695d366cb9979cc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690414"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455230"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Panoramica della migrazione: SQL Server a SQL Istanza gestita
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ Alcune linee guida generali che consentono di scegliere il livello di servizio e
 È possibile scegliere risorse di calcolo e di archiviazione durante la distribuzione e quindi modificarle dopo aver usato il [portale di Azure](../../database/scale-resources.md) senza incorrere in tempi di inattività per l'applicazione. 
 
 > [!IMPORTANT]
-> Eventuali discrepanze nei [requisiti della rete virtuale dell'istanza gestita](../../managed-instance/connectivity-architecture-overview.md#network-requirements) possono impedire la creazione di nuove istanze o l'utilizzo di quelle esistenti. Altre informazioni sulla [creazione di nuove](../../managed-instance/virtual-network-subnet-create-arm-template.md)   reti e sulla configurazione di reti [esistenti](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data)   . 
+> Eventuali discrepanze nei [requisiti della rete virtuale dell'istanza gestita](../../managed-instance/connectivity-architecture-overview.md#network-requirements) possono impedire la creazione di nuove istanze o l'utilizzo di quelle esistenti. Altre informazioni sulla [creazione di nuove](../../managed-instance/virtual-network-subnet-create-arm-template.md)   reti e sulla configurazione di reti [esistenti](../../managed-instance/vnet-existing-add-subnet.md)   . 
 
 ### <a name="sql-server-vm-alternative"></a>Alternativa SQL Server VM
 

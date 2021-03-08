@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc87429f269fba5083b87e2c328f0e21de9707ff
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047082"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454348"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurare il ripristino di emergenza su larga scala per macchine virtuali VMware/server fisici
 
@@ -75,7 +75,7 @@ Usando le stime e le raccomandazioni raccolte, è possibile pianificare le risor
     - Quando si esegue il pianificatore, si specifica il RPO desiderato in minuti. I consigli indicano che la larghezza di banda necessaria per soddisfare il RPO 100% e il 90% del tempo. 
     - Le raccomandazioni relative alla larghezza di banda di rete prendono in considerazione la larghezza di banda necessaria per il numero totale di server di configurazione e server di elaborazione consigliati in Microsoft Planner.
 - Componenti di **base di Azure necessari**: prendere nota del numero di core necessari nell'area di Azure di destinazione, in base al numero di VM compatibili. Se non si dispone di un numero sufficiente di core, al failover Site Recovery non sarà in grado di creare le macchine virtuali di Azure necessarie.
-- **Dimensioni consigliate**per il batch di macchine virtuali: le dimensioni consigliate per il batch sono basate sulla possibilità di completare la replica iniziale per il batch entro 72 ore per impostazione predefinita, soddisfacendo al contempo un RPO del 100%. Il valore dell'ora può essere modificato.
+- **Dimensioni consigliate** per il batch di macchine virtuali: le dimensioni consigliate per il batch sono basate sulla possibilità di completare la replica iniziale per il batch entro 72 ore per impostazione predefinita, soddisfacendo al contempo un RPO del 100%. Il valore dell'ora può essere modificato.
 
 È possibile usare questi consigli per pianificare le risorse di Azure, la larghezza di banda di rete e l'invio in batch delle macchine virtuali.
 
@@ -85,7 +85,7 @@ Usando le stime e le raccomandazioni raccolte, è possibile pianificare le risor
 
 **Attività** | **Dettagli** | **Azione**
 --- | --- | ---
-**Controlla Core** | Se i core nella quota disponibile non equivalgono o superano il numero di destinazioni totali al momento del failover, i failover avranno esito negativo. | Per le macchine virtuali VMware, verificare di avere un numero sufficiente di core nella sottoscrizione di destinazione per soddisfare la raccomandazione Deployment Planner core.<br/><br/> Per i server fisici, verificare che i core di Azure soddisfino le stime manuali.<br/><br/> Per controllare le quote, nella **sottoscrizione**portale di Azure > fare clic su **utilizzo e quote**.<br/><br/> [Altre](../azure-portal/supportability/resource-manager-core-quotas-request.md) informazioni su come aumentare le quote.
+**Controlla Core** | Se i core nella quota disponibile non equivalgono o superano il numero di destinazioni totali al momento del failover, i failover avranno esito negativo. | Per le macchine virtuali VMware, verificare di avere un numero sufficiente di core nella sottoscrizione di destinazione per soddisfare la raccomandazione Deployment Planner core.<br/><br/> Per i server fisici, verificare che i core di Azure soddisfino le stime manuali.<br/><br/> Per controllare le quote, nella **sottoscrizione** portale di Azure > fare clic su **utilizzo e quote**.<br/><br/> [Altre](../azure-portal/supportability/resource-manager-core-quotas-request.md) informazioni su come aumentare le quote.
 **Verifica limiti failover** | Il numero di failover non deve superare Site Recovery limiti di failover. |  Se i failover superano i limiti, è possibile aggiungere sottoscrizioni ed eseguire il failover a più sottoscrizioni o aumentare la quota per una sottoscrizione. 
 
 
@@ -212,9 +212,9 @@ Per eseguire un failover su larga scala, si consiglia quanto segue:
 1. Creare piani di ripristino per il failover del carico di lavoro.
     - Ogni piano di ripristino può attivare il failover di un massimo di 100 computer.
     - [Ulteriori informazioni](recovery-plan-overview.md) sui piani di ripristino.
-2. Aggiungere gli script Runbook di automazione di Azure ai piani di ripristino per automatizzare le attività manuali in Azure. Le attività tipiche includono la configurazione di bilanciamento del carico, l'aggiornamento di DNS e così via. [Scopri di più](site-recovery-runbook-automation.md)
+2. Aggiungere gli script Runbook di automazione di Azure ai piani di ripristino per automatizzare le attività manuali in Azure. Le attività tipiche includono la configurazione di bilanciamento del carico, l'aggiornamento di DNS e così via. [Altre informazioni](site-recovery-runbook-automation.md)
 2. Prima del failover, preparare i computer Windows in modo che siano conformi all'ambiente Azure. I [limiti di failover](#plan-azure-subscriptions-and-quotas) sono maggiori per i computer conformi. [Altre](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) informazioni su manuali operativi.
-4.  Attivare il failover con il cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) di PowerShell, insieme a un piano di ripristino.
+4.  Attivare il failover con il cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob) di PowerShell, insieme a un piano di ripristino.
 
 
 
