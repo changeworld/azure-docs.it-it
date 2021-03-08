@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: 2a4040c056b9b3b3e82d394807a4381b888ca640
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 604af007e4549716edf8bac63b74351512b438a5
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102184219"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445320"
 ---
 Introduzione alla libreria client di Visione personalizzata per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per creare un modello di rilevamento oggetti. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'applicazione di riconoscimento immagini personalizzata.
 
@@ -31,7 +31,7 @@ Usare la libreria client di Visione personalizzata per Python per:
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
   * L'installazione di Python deve includere [PIP](https://pip.pypa.io/en/stable/). È possibile verificare se PIP è stato installato eseguendo `pip --version` nella riga di comando. Ottenere PIP installando la versione più recente di Python.
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="creare una risorsa Visione personalizzata"  target="_blank">creare una risorsa Visione personalizzata <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per creare la risorsa di training e di previsione e ottenere le chiavi e l'endpoint. Attendere che venga distribuita e fare clic sul pulsante **Vai alla risorsa**.
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title=" creare una risorsa di visione personalizzata creare una risorsa "  target="_blank"> Visione personalizzata </a> nel portale di Azure per creare una risorsa di training e stima e ottenere le chiavi e l'endpoint. Attendere che venga distribuita e fare clic sul pulsante **Vai alla risorsa**.
     * La chiave e l'endpoint delle risorse create sono necessari per connettere l'applicazione a Visione personalizzata. Le chiavi e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 

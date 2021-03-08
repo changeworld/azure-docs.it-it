@@ -9,17 +9,17 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 42ea166119d3cc405b3d73e184c44dbfd6708a97
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: c3269d771c43e6233459b9c194c1bab4f3602728
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231481"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444614"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services)
-* Una volta che si dispone di una sottoscrizione di Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Creare una risorsa di Advisor metriche"  target="_blank">creare una risorsa di Advisor metriche <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per distribuire l'istanza di Advisor metriche.  
+* Una volta che si dispone di una sottoscrizione di Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Creare una risorsa di Advisor metriche"  target="_blank">creare una risorsa di Advisor metriche </a> nel portale di Azure per distribuire l'istanza di Advisor metriche.  
 * La versione corrente di [cURL](https://curl.haxx.se/). In questo articolo vengono usate diverse opzioni della riga di comando, indicate nella [documentazione di cURL](https://curl.haxx.se/docs/manpage.html).
     * Negli esempi BASH seguenti viene usato il carattere di continuazione riga `\`. Se la console o il terminale usa un carattere di continuazione riga diverso, usare questo carattere.
 

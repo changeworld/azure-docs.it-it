@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/18/2020
 ms.author: mbullwin
-ms.openlocfilehash: a75962105a7640f4a3c73df80f5ba516565c7076
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
-ms.translationtype: HT
+ms.openlocfilehash: a7579bb53f82dfdfe82c4eba64d2c6984152c875
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705039"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444657"
 ---
 Questa guida di avvio rapido illustra come rilevare anomalie in un batch di dati di serie temporali usando il servizio Rilevamento anomalie e cURL.
 
@@ -18,7 +18,7 @@ Per informazioni generali sui concetti di Rilevamento anomalie, vedere l'articol
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services)
-- Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="creare una risorsa Rilevamento anomalie"  target="_blank">creare una risorsa Rilevamento anomalie <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Attendere che venga distribuita, quindi selezionare pulsante **Vai alla risorsa**.
+- Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="creare una risorsa Rilevamento anomalie"  target="_blank">creare una risorsa Rilevamento anomalie </a> nel portale di Azure per ottenere la chiave e l'endpoint. Attendere che venga distribuita, quindi selezionare pulsante **Vai alla risorsa**.
     - Per usare l'API REST, è necessario avere la chiave e l'indirizzo dell'endpoint della risorsa creata. 
     È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 

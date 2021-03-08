@@ -1,22 +1,22 @@
 ---
-author: priestlg
+author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/14/2020
-ms.author: v-grpr
-ms.openlocfilehash: bda52729707b3edfdd8e0a2b3159518af2e39e9a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.date: 03/05/2021
+ms.author: alkohli
+ms.openlocfilehash: 40e8f2d35c78f4f3809fa7d102f82a48b5eab0c7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003330"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445274"
 ---
 Prima di iniziare, verificare che:
 
 * Si abbia l'account di archiviazione di Microsoft Azure con credenziali di accesso, ad esempio il nome dell'account di archiviazione e la chiave di accesso.
 
 * La sottoscrizione usata per il servizio Data Box sia di uno dei tipi seguenti:
-  * Contratto Enterprise Microsoft. Altre informazioni sui [contratti Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
+  * Microsoft Customer Agreement (MCA) per le nuove sottoscrizioni o Microsoft Contratto Enterprise (EA) per le sottoscrizioni esistenti. Scopri di più su [MCA per le nuove sottoscrizioni](https://www.microsoft.com/licensing/how-to-buy/microsoft-customer-agreement) e le [sottoscrizioni EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
   * Cloud Solution Provider (CSP). Altre informazioni sul [programma Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-overview).
   * Microsoft Azure Sponsorship Altre informazioni sul [programma Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
   * Microsoft Partner Network (MPN). Altre informazioni su [Microsoft Partner Network](https://partner.microsoft.com/commercial#).

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 02/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 1054bec0daee55bac8892869a5f928b600e84d1e
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: c3d81e0de1c20e77278cb718fdcbc21eb6df455d
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101102887"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444725"
 ---
 <!-- markdownlint-disable MD024 -->
 > [!IMPORTANT]
@@ -27,7 +27,7 @@ ms.locfileid: "101102887"
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
 * [IDE di Visual Studio](https://visualstudio.microsoft.com/vs/) o la versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Un BLOB di Archiviazione di Azure contenente un set di dati di training. Consultare [Compilare un training set per un modello personalizzato](../../build-training-data-set.md) per suggerimenti e opzioni per la creazione di un set di dati di training. Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Train** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre *sample_data.zip*).
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="creare una risorsa di Riconoscimento modulo"  target="_blank">creare una risorsa di Riconoscimento modulo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="creare una risorsa di Riconoscimento modulo"  target="_blank">creare una risorsa di Riconoscimento modulo </a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
   * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Riconoscimento modulo. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
   * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
@@ -258,7 +258,7 @@ Per analizzare le fatture da un URL, usare il `StartRecognizeInvoicesFromUriAsyn
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
 
 > [!TIP]
-> È anche possibile analizzare le immagini della fattura locale. Vedere i metodi di [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet&preserve-view=true), ad esempio **StartRecognizeInvoices**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+> È anche possibile analizzare le immagini della fattura locale. Vedere i metodi di [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeInvoices**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti `RecognizedForm`, uno per ogni fattura presente nel documento inviato. Il codice seguente elabora la fattura in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
 
@@ -491,7 +491,7 @@ Per analizzare le ricevute da un URL, usare il `StartRecognizeReceiptsFromUri` m
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
 
 > [!TIP]
-> È anche possibile analizzare le immagini di ricezione locali. Vedere i metodi [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet&preserve-view=true), ad esempio **StartRecognizeReceipts**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+> È anche possibile analizzare le immagini di ricezione locali. Vedere i metodi [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeReceipts**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti `RecognizedReceipt`, uno per ogni pagina del documento inviato. Il codice seguente elabora una ricevuta in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
 
@@ -557,7 +557,7 @@ Per analizzare le schede business da un URL, utilizzare il `StartRecognizeBusine
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
 
 > [!TIP]
-> È anche possibile analizzare le immagini di ricezione locali. Vedere i metodi di [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet&preserve-view=true), ad esempio **StartRecognizeBusinessCards**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+> È anche possibile analizzare le immagini di ricezione locali. Vedere i metodi di [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeBusinessCards**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti `RecognizedForm`, uno per ogni biglietto presente nel documento. Il codice seguente elabora il biglietto da visita in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
 

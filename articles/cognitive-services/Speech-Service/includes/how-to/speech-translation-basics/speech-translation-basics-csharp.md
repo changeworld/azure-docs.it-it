@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3693dc77ec2aeb864f757b5377ba8683c856348c
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 5efe6e9cf3227857300d649a8c2ecb4973627335
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551951"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445646"
 ---
 Una delle funzionalità principali del servizio di riconoscimento vocale è la possibilità di riconoscere la voce umana e tradurla in altre lingue. Questa Guida introduttiva illustra come usare l'SDK di riconoscimento vocale nelle app e nei prodotti per eseguire la traduzione vocale di alta qualità. Questa Guida introduttiva illustra gli argomenti tra cui:
 
@@ -28,7 +28,7 @@ Questo articolo presuppone che si abbia un account Azure e una sottoscrizione de
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
-Prima di poter eseguire qualsiasi operazione, è necessario installare Speech SDK. A seconda della piattaforma, seguire le istruzioni <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">riportate nella sezione Get the <span class="docon docon-navigate-external x-hidden-focus"></span> Speech SDK</a> dell'articolo _About The Speech SDK_ .
+Prima di poter eseguire qualsiasi operazione, è necessario installare Speech SDK. A seconda della piattaforma, seguire le istruzioni <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">riportate nella sezione Get The Speech SDK</a> dell'articolo _About The Speech SDK_ .
 
 ## <a name="import-dependencies"></a>Importare le dipendenze
 

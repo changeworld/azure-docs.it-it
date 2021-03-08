@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: v-demjoh
 ms.custom: devx-track-js
-ms.openlocfilehash: 305536b8af9888e5fe3965cabd05f48ad4e93086
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 58faca3d3b1b3a190432e2000d8619fcac1712d8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750696"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445353"
 ---
 Una delle funzionalità principali del servizio di riconoscimento vocale è la possibilità di riconoscere la voce umana e tradurla in altre lingue. Questa Guida introduttiva illustra come usare l'SDK di riconoscimento vocale nelle app e nei prodotti per eseguire la traduzione vocale di alta qualità. Questa Guida introduttiva illustra gli argomenti tra cui:
 
@@ -28,16 +28,16 @@ Questo articolo presuppone che si abbia un account Azure e una sottoscrizione de
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
-Prima di poter eseguire qualsiasi operazione, è necessario installare <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK per JavaScript<span class="docon docon-navigate-external x-hidden-focus"></span></a>. A seconda della piattaforma, usare le istruzioni seguenti:
+Prima di poter eseguire qualsiasi operazione, è necessario installare <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK per JavaScript</a>. A seconda della piattaforma, usare le istruzioni seguenti:
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web browser <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web browser </a>
 
 A seconda dell'ambiente di destinazione, inoltre, usare una delle alternative seguenti:
 
 # <a name="script"></a>[script](#tab/script)
 
-Scaricare ed estrarre il file *microsoft.cognitiveservices.speech.sdk.bundle.js* di <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK per JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a> e inserirlo in una cartella accessibile per il file HTML.
+Scaricare ed estrarre il file <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">SDK di riconoscimento vocale per JavaScript</a> *microsoft.cognitiveservices.speech.sdk.bundle.js* e inserirlo in una cartella accessibile al file HTML.
 
 ```html
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
@@ -52,7 +52,7 @@ Scaricare ed estrarre il file *microsoft.cognitiveservices.speech.sdk.bundle.js*
 import * from "microsoft-cognitiveservices-speech-sdk";
 ```
 
-Per altre informazioni su `import`, vedere <a href="https://javascript.info/import-export" target="_blank">Export e import<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per altre informazioni su `import`, vedere <a href="https://javascript.info/import-export" target="_blank">Export e import</a>.
 
 # <a name="require"></a>[require](#tab/require)
 
@@ -60,7 +60,7 @@ Per altre informazioni su `import`, vedere <a href="https://javascript.info/impo
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-Per altre informazioni su `require`, vedere <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">Informazioni su require<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Per altre informazioni su `require`, vedere <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">Informazioni su require</a>.
 
 ---
 

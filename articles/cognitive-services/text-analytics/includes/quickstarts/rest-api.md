@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 12/01/2020
 ms.author: aahi
-ms.openlocfilehash: 31ad1c9c8429becf57358cb14683e69ab2b3d236
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
-ms.translationtype: HT
+ms.openlocfilehash: 17c24e19068c3d084da8a3c888729c2f78185c17
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505850"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444599"
 ---
 # <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
@@ -30,7 +30,7 @@ ms.locfileid: "97505850"
 ## <a name="prerequisites"></a>Prerequisiti
 
 * La versione corrente di [cURL](https://curl.haxx.se/).
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="creare una risorsa di Analisi del testo"  target="_blank">creare una risorsa di Analisi del testo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="creare una risorsa di Analisi del testo"  target="_blank">creare una risorsa di Analisi del testo </a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Analisi del testo. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 

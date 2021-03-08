@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 780da47e6f071d854a16ca1d1c5cd02dbdd6bef0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
-ms.translationtype: HT
+ms.openlocfilehash: f6bd0c13d5cbad802613e2bdea8fd6002f4deea2
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955646"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444946"
 ---
 Hub eventi organizza le sequenze di eventi in una o più partizioni. Man mano che arrivano, i nuovi eventi vengono aggiunti alla fine di questa sequenza. Una partizione può essere considerata come "registro commit".
 
@@ -57,4 +57,3 @@ Si potrebbe essere tentati di impostare il numero di partizioni sul valore massi
 
 Anche se è possibile, non è consigliabile inviare eventi direttamente alle partizioni. È invece possibile usare i costrutti più generici introdotti nella sezione [Autori di eventi](../articles/event-hubs/event-hubs-features.md#event-publishers). 
 
-Per altre informazioni sulle partizioni e il necessario equilibrio tra disponibilità e affidabilità, vedere la [Guida alla programmazione di Hub eventi](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) e l'articolo [Disponibilità e coerenza nell'Hub eventi](../articles/event-hubs/event-hubs-availability-and-consistency.md).

@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 11/09/2020
 ms.author: mbullwin
-ms.openlocfilehash: c0f2c9a6a9b17ce1979143840b0647e9af2183e7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 31cdb1529ce06906aef2f546ab1c173361e7d779
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356393"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445366"
 ---
 [Documentazione di riferimento](/dotnet/api/overview/azure/ai.metricsadvisor-readme-pre) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.AI.MetricsAdvisor) | [Esempi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples/README.md)
 
@@ -22,7 +22,7 @@ ms.locfileid: "96356393"
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
-* Una volta che si dispone di una sottoscrizione di Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Creare una risorsa di Advisor metriche"  target="_blank">creare una risorsa di Advisor metriche <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per distribuire l'istanza di Advisor metriche.  
+* Una volta che si dispone di una sottoscrizione di Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Creare una risorsa di Advisor metriche"  target="_blank">creare una risorsa di Advisor metriche </a> nel portale di Azure per distribuire l'istanza di Advisor metriche.  
 * Un database SQL con dati di serie temporali.
    
 > [!TIP]

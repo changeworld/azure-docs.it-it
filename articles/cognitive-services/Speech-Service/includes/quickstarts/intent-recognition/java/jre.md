@@ -6,18 +6,18 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: a895af0f1a10796ad49898e37551f37d38418784
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f98adc762e13da4b80e4eb7930334d17a54e9d08
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947820"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445732"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">Installare Speech SDK per l'ambiente di sviluppo e creare un progetto di esempio vuoto<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">Installare Speech SDK per l'ambiente di sviluppo e creare un progetto di esempio vuoto</a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Creare un'app LUIS per il riconoscimento delle finalità
 
@@ -72,9 +72,9 @@ Inserire questo codice sotto `IntentRecognizer`. Assicurarsi di sostituire `"You
 Questo esempio usa la funzione `addIntent()` per aggiungere le finalità singolarmente. Se si vogliono aggiungere tutte le finalità da un modello, usare `addAllIntents(model)` e passare il modello.
 
 > [!NOTE]
-> Speech SDK supporta solo gli endpoint LUIS v 2.0.
-> È necessario modificare manualmente l'URL dell'endpoint v 3.0 trovato nel campo della query di esempio per usare un modello di URL v 2.0.
-> Gli endpoint LUIS v 2.0 seguono sempre uno di questi due modelli:
+> Speech SDK supporta solo gli endpoint LUIS v2.0.
+> È necessario modificare manualmente l'URL dell'endpoint v3.0 trovato nel campo della query di esempio per usare un modello di URL v2.0.
+> Gli endpoint LUIS v2.0 seguono sempre uno di questi due modelli:
 > * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 > * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
