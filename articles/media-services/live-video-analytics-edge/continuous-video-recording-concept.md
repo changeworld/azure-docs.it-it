@@ -3,12 +3,12 @@ title: Registrazione video continua-Azure
 description: La registrazione video continua (CVR) si riferisce al processo di registrazione continua del video da un'origine video. In questo argomento viene illustrata la CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 04f09f1968e647c57ba0913a9e7f9e601d045771
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b25d74db279f8cfff68f08efeab2975484a0c5
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566696"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453751"
 ---
 # <a name="continuous-video-recording"></a>Registrazione continua di video  
 
@@ -19,7 +19,7 @@ ms.locfileid: "89566696"
 
 ## <a name="overview"></a>Panoramica
 
-La registrazione video continua (CVR) si riferisce al processo di registrazione continua del video da un'origine video. Analisi video in tempo reale su IoT Edge supporta la registrazione continua dei video, su base 24x7, da una fotocamera CCTV tramite un [grafico multimediale](media-graph-concept.md) costituito da un nodo di origine RTSP e da un nodo di sink di asset. Il diagramma seguente illustra una rappresentazione grafica di un grafico multimediale di questo tipo. La rappresentazione JSON della [topologia Graph](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) di tale grafico multimediale è disponibile [qui](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
+La registrazione video continua (CVR) si riferisce al processo di registrazione continua del video da un'origine video. Analisi video in tempo reale su IoT Edge supporta la registrazione continua dei video, su base 24x7, da una fotocamera CCTV tramite un [grafico multimediale](media-graph-concept.md) costituito da un nodo di origine RTSP e da un nodo di sink di asset. Il diagramma seguente illustra una rappresentazione grafica di un grafico multimediale di questo tipo. La rappresentazione JSON della [topologia Graph](media-graph-concept.md#media-graph-topologies-and-instances) di tale grafico multimediale è disponibile [qui](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Registrazione continua di video":::
@@ -53,7 +53,7 @@ La proprietà segmentLength garantisce che il modulo Edge caricherà il video al
 > [!NOTE]
 > Vedere l'articolo relativo alle registrazioni per la [riproduzione](playback-recordings-how-to.md) per l'effetto di segmentLength sulla riproduzione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Registrazione di video basata su eventi](event-based-video-recording-concept.md)
 * [Riproduzione del contenuto registrato](video-playback-concept.md)

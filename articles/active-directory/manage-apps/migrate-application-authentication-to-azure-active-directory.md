@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c1a0be0b7834632ba79af7dfe6c3a4fa25c0316
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ac3ea7ea6b3ed0bb8e1e9f7575b34f9dbf116a04
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645512"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453256"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Eseguire la migrazione dell'autenticazione dell'applicazione a Azure Active Directory
 
@@ -234,10 +234,10 @@ Nell'ambiente cloud è necessario avere una visibilità completa, controllare il
 
 - **API** : per le app connesse all'infrastruttura cloud, è possibile usare le API e gli strumenti di questi sistemi per iniziare a eseguire un inventario delle app ospitate. Nell'ambiente Azure:
 
-  - Usare il cmdlet [Get-AzureWebsite](/powershell/module/servicemanagement/azure/get-azurewebsite?view=azuresmps-4.0.0&redirectedfrom=MSDN&preserve-view=true)per ottenere informazioni su siti Web di Azure.
+  - Usare il cmdlet [Get-AzureWebsite](/powershell/module/servicemanagement/azure.service/get-azurewebsite) per ottenere informazioni su siti Web di Azure.
 
-  - Usare il cmdlet [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.2.0&preserve-view=true)per ottenere informazioni sulle app Web di Azure.
-
+  - Usare il cmdlet [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp) per ottenere informazioni sulle app Web di Azure.
+D
   - È possibile trovare tutte le app in esecuzione su Microsoft IIS dalla riga di comando di Windows usando [AppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools).
 
   - Usare [le applicazioni e le](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) [entità servizio](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) per ottenere informazioni su un'app e un'istanza di app in una directory in Azure ad.

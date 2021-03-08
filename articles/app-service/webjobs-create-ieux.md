@@ -10,16 +10,16 @@ ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 zone_pivot_groups: app-service-webjob
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4737f0f19acf199190df02386ecb2ece65fa571e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0d49323e2bc3c0522b1fb9ad49ffcc14f476e2dc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745667"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452799"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con processi Web nel servizio app Azure
 
-Il concetto di [attività in background](./webjobs-create-ieux-conceptual.md) in Azure viene fornito con i processi Web del servizio app Azure. Informazioni su come eseguire la distribuzione <abbr title="Programma o script nella stessa istanza di un'app Web, un'app per le API o un'app per dispositivi mobili.">Processi Web</abbr> usando il [portale di Azure](https://portal.azure.com) per caricare un eseguibile o uno script. 
+Il concetto di esecuzione di [attività in background](./webjobs-create-ieux-conceptual.md) in Azure è fornito con processi Web del servizio app Azure. Informazioni su come eseguire la distribuzione <abbr title="Programma o script nella stessa istanza di un'app Web, un'app per le API o un'app per dispositivi mobili.">Processi Web</abbr> usando il [portale di Azure](https://portal.azure.com) per caricare un eseguibile o uno script. 
 
 Tre processi Web supportati includono:
 

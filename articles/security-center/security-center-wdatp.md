@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 03/08/2021
 ms.author: memildin
-ms.openlocfilehash: 475c7671636d3aac036e3da1392fc2da9b0a001f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17e54dfc5c369a8cbb35db50ff2cbab131d34c2d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176468"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453768"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -38,7 +38,7 @@ Microsoft Defender for endpoint è una soluzione di sicurezza completa di endpoi
 | Stato della versione:                  | Disponibile a livello generale                                                                                                                                                                                                                                                                                      |
 | Prezzi:                        | Richiede [Azure Defender per server](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Piattaforme supportate:            |  • Macchine di Azure che eseguono Windows<br> • Computer Azure Arc che eseguono Windows|
-| Versioni supportate di Windows:  |  • **Disponibilità generale (GA):** rilevamento in Windows Server 2016, 2012 r2 e 2008 R2 SP1<br> • **Anteprima-** rilevamento in windows server 2019, [desktop virtuale Windows (Wvd)](../virtual-desktop/overview.md)e [Windows 10 Enterprise multisessione](../virtual-desktop/windows-10-multisession-faq.md) (in precedenza Enterprise for Virtual Desktops (EVD)<br>Il monitoraggio degli endpoint server tramite queste integrazioni è stato disabilitato per i clienti di Office 365 GCC|
+| Versioni supportate di Windows:  |  • **Disponibilità generale (GA):** rilevamento in Windows Server 2016, 2012 r2 e 2008 R2 SP1<br> • **Anteprima-** rilevamento in windows server 2019, [desktop virtuale Windows (Wvd)](../virtual-desktop/overview.md)e [Windows 10 Enterprise multisessione](../virtual-desktop/windows-10-multisession-faq.md) (in precedenza Enterprise for Virtual Desktops (EVD)|
 | Sistemi operativi non supportati:  |  • Windows 10 (diverso da EVD o WVD)<br> • Linux|
 | Autorizzazioni e ruoli obbligatori: | Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione** o **collaboratore della sottoscrizione**|
 | Cloud:                         | ![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi                                                        |

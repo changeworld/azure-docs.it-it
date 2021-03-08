@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d6f1746eee101a1dcf030e980c8a6469147a0166
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a82c2cdf7084b31eb6ba861e48ecffb81e6d1363
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362200"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453700"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Avvio rapido: Libreria client dei segreti di Azure Key Vault per .NET (SDK v4)
 
@@ -21,7 +21,7 @@ Introduzione alla libreria client dei segreti di Azure Key Vault per .NET. [Azur
 
 Risorse per la libreria client di Key Vault:
 
-[Documentazione di riferimento dell'API](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet&preserve-view=true) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+[Documentazione di riferimento dell'API](/dotnet/api/azure.security.keyvault.secrets) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
 Per altre informazioni su Key Vault e sui segreti, vedere:
 - [Panoramica di Key Vault](../general/overview.md)
@@ -252,4 +252,4 @@ Per altre informazioni su Key Vault e su come integrarlo nelle app, vedere gli a
 - Seguire un'[esercitazione sull'accesso a Key Vault da un'applicazione del servizio app](../general/tutorial-net-create-vault-azure-web-app.md)
 - Seguire un'[esercitazione sull'accesso a Key Vault da una macchina virtuale](../general/tutorial-net-virtual-machine.md)
 - Vedere la [Guida per gli sviluppatori per Azure Key Vault](../general/developers-guide.md)
-- Vedere [Panoramica della sicurezza di Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)

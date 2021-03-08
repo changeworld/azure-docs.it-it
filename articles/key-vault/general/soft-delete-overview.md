@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 331a7b1bef3621a080fe2fa891cf83565a1e55ac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7aeca89ed09182b7947b10f24c65b0cb58ed67ea
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702573"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452136"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
@@ -30,7 +30,7 @@ La funzionalità di eliminazione temporanea di Key Vault consente di recuperare 
 
 ## <a name="supporting-interfaces"></a>Supporto di interfacce
 
-La funzionalità di eliminazione temporanea è disponibile tramite l' [API REST](/rest/api/keyvault/), le interfacce dell'interfaccia della riga di comando di [Azure](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md)e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet&preserve-view=true) , oltre ai [modelli ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+La funzionalità di eliminazione temporanea è disponibile tramite l' [API REST](/rest/api/keyvault/), le interfacce dell'interfaccia della riga di comando di [Azure](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md)e [.NET/C#](/dotnet/api/microsoft.azure.keyvault) , oltre ai [modelli ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Scenari
 

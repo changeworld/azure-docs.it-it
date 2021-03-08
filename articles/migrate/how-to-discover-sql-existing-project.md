@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 3dc9b178b9aa22991230f4cc6a9d54b44cf09b4e
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ca0052eebd8d3c8e80943ca8c0e0346216436800
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098809"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452765"
 ---
 # <a name="discover-sql-server-instances-in-an-existing-project"></a>Individuare le istanze di SQL Server in un progetto esistente 
 
@@ -20,7 +20,7 @@ Questo articolo descrive come individuare SQL Server istanze e database in un pr
 L'individuazione SQL Server istanze e i database in esecuzione in computer locali consentono di identificare e adattare un percorso di migrazione ad Azure SQL. Il Azure Migrate Appliance esegue questa individuazione usando le credenziali di dominio o SQL Server le credenziali di autenticazione che hanno accesso alle istanze SQL Server e ai database in esecuzione nei server di destinazione. Questo processo di individuazione è senza agenti, ovvero non è installato alcun elemento nei server di destinazione.
 
 > [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato i [**prerequisiti**](how-to-discover-sql-existing-project.md) descritti in questo articolo.
+> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato i [**prerequisiti**](how-to-discover-sql-existing-project.md) descritti in questo articolo.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -44,7 +44,7 @@ L'individuazione SQL Server istanze e i database in esecuzione in computer local
     - Verificare che i servizi in esecuzione nell'appliance siano aggiornati alle versioni più recenti. A tale scopo, avviare Gestione configurazione Appliance dal server appliance e selezionare Visualizza servizi Appliance dal pannello imposta prerequisiti.
         - Il dispositivo e i relativi componenti vengono aggiornati automaticamente :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="controllare la versione dell'appliance":::
     - Nel pannello Manage credentials and Discovery Sources di gestione configurazione Appliance aggiungere il dominio o SQL Server credenziali di autenticazione con accesso sysadmin sull'istanza SQL Server e sui database da individuare. 
-    È possibile sfruttare la funzionalità di mapping automatico delle credenziali dell'appliance oppure eseguire manualmente il mapping delle credenziali al rispettivo server come indicato [qui](https://review.docs.microsoft.com/azure/migrate/tutorial-discover-vmware?branch=release-migrate-sql-scenario#start-continuous-discovery).
+    È possibile sfruttare la funzionalità di mapping automatico delle credenziali dell'appliance oppure eseguire manualmente il mapping delle credenziali al rispettivo server come indicato [qui](/azure/migrate/tutorial-discover-vmware#start-continuous-discovery).
         
     Alcuni punti da notare:
     - Verificare che l'inventario software sia già abilitato o fornire le credenziali di dominio o non di dominio per abilitare lo stesso. Per individuare le istanze di SQL Server, è necessario eseguire l'inventario software.

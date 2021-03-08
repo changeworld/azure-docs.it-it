@@ -4,12 +4,12 @@ description: Domande frequenti su Service Fabric, incluse funzionalità, casi d'
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 1655a8ed03b1f678cc5dba0a165e0bcca1d2517a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e03ccf432852a5fc9ee700ba0e39dfe2e64fcc9
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292859"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456097"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 
@@ -22,7 +22,7 @@ Esistono molte domande frequenti sulle caratteristiche e sulle modalità di uso 
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Come si esegue il roll back del certificato del cluster di Service Fabric?
 
-Il rollback di un aggiornamento dell'applicazione richiede il rilevamento degli errori di integrità prima che il quorum del cluster di Service Fabric esegua il commit della modifica; solo a questo punto sarà possibile eseguire il roll forward delle modifiche. Potrebbe essere necessario fare ripristinare il cluster da un tecnico dell'escalation tramite il servizio clienti se è stata introdotta una modifica di interruzione del certificato non monitorata.  [Aggiornamento dell'applicazione di Service Fabric](./service-fabric-application-upgrade.md?branch=master) applica i [Parametri di aggiornamento di un'applicazione](./service-fabric-application-upgrade-parameters.md?branch=master) e promette un aggiornamento con tempi di inattività pari a zero.  Dopo l'aggiornamento monitorato dell'applicazione consigliato, l'avanzamento automatico tramite domini di aggiornamento è basato sul superamento di controlli di integrità, eseguendo il rollback automaticamente se l'aggiornamento di un servizio predefinito non riesce.
+Il rollback di un aggiornamento dell'applicazione richiede il rilevamento degli errori di integrità prima che il quorum del cluster di Service Fabric esegua il commit della modifica; solo a questo punto sarà possibile eseguire il roll forward delle modifiche. Potrebbe essere necessario fare ripristinare il cluster da un tecnico dell'escalation tramite il servizio clienti se è stata introdotta una modifica di interruzione del certificato non monitorata.  [Aggiornamento dell'applicazione di Service Fabric](./service-fabric-application-upgrade.md) applica i [Parametri di aggiornamento di un'applicazione](./service-fabric-application-upgrade-parameters.md) e promette un aggiornamento con tempi di inattività pari a zero.  Dopo l'aggiornamento monitorato dell'applicazione consigliato, l'avanzamento automatico tramite domini di aggiornamento è basato sul superamento di controlli di integrità, eseguendo il rollback automaticamente se l'aggiornamento di un servizio predefinito non riesce.
  
 Se il cluster sfrutta ancora la proprietà di identificazione personale del certificato classica nel modello di gestione risorse, si consiglia di [modificare il cluster dall'identificazione personale del certificato a un nome comune](./service-fabric-cluster-change-cert-thumbprint-to-cn.md), per sfruttare le moderne funzionalità di gestione dei segreti.
 

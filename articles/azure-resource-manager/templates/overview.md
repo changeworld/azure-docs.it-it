@@ -2,13 +2,13 @@
 title: Panoramica dei modelli
 description: Vengono descritti i vantaggi dell'utilizzo di modelli di Azure Resource Manager (modelli ARM) per la distribuzione di risorse.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 7f850d06066a6892db9f17ae86a6bba9496bad58
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: 3a144b69f69c90b997b17d9526c9c3e0f259c554
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046381"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455736"
 ---
 # <a name="what-are-arm-templates"></a>Che cosa sono i modelli di Azure Resource Manager?
 
@@ -111,6 +111,15 @@ REQUEST BODY
 ```
 
 Si noti che il **apiVersion** impostato nel modello per la risorsa viene usato come versione dell'API per l'operazione Rest. È possibile distribuire ripetutamente il modello e avere la certezza che continuerà a funzionare. Con la stessa versione dell'API, non è necessario preoccuparsi delle modifiche di rilievo che potrebbero essere introdotte nelle versioni successive.
+
+Per distribuire un modello, usare una delle opzioni seguenti:
+
+* [Azure portal](deploy-portal.md)
+* [Interfaccia della riga di comando di Azure](deploy-cli.md)
+* [PowerShell](deploy-powershell.md)
+* [REST API](deploy-rest.md)
+* [Pulsante nel repository GitHub](deploy-to-azure-button.md)
+* [Azure Cloud Shell](deploy-cloud-shell.md)
 
 ## <a name="template-design"></a>Progettazione modello
 

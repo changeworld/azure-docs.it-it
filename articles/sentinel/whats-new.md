@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: c466d7717dd1dad0ea9ee3f44088d1400cee083f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: c24512ad38f9397c9a40a85489c45fcb0de906b3
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048183"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453802"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novità di Azure Sentinel
 
@@ -32,9 +32,26 @@ Le funzionalità indicate sono attualmente in anteprima. Le [condizioni aggiunti
 
 ## <a name="february-2021"></a>2021 febbraio
 
+- [Cartella di lavoro Cybersecurity Maturity Model Certification (CMMC)](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [Connettori dati di terze parti](#third-party-data-connectors)
 - [OFFRONO dati Insights nella pagina entità](#ueba-insights-in-the-entity-page)
 - [Ricerca di eventi imprevisti migliorata](#improved-incident-search)
+
+### <a name="cybersecurity-maturity-model-certification-cmmc-workbook"></a>Cartella di lavoro Cybersecurity Maturity Model Certification (CMMC)
+
+La cartella di lavoro CMMC di Azure Sentinel fornisce un meccanismo per visualizzare le query di log allineate ai controlli CMMC nel portfolio Microsoft, incluse le offerte di sicurezza Microsoft, Office 365, teams, Intune, desktop virtuale di Windows e molto altro ancora.
+
+La cartella di lavoro di CMMC consente a architetti, tecnici, analisti di sicurezza, Manager e professionisti IT di ottenere visibilità sulla sicurezza dei carichi di lavoro cloud. Sono inoltre disponibili suggerimenti per la selezione, la progettazione, la distribuzione e la configurazione delle offerte Microsoft per l'allineamento con i requisiti e le procedure di CMMC rispettivi.
+
+Anche se non è necessario conformarsi a CMMC, la cartella di lavoro di CMMC è utile per la creazione di centri operativi per la sicurezza, lo sviluppo di avvisi, la visualizzazione di minacce e la consapevolezza situazionale dei carichi di lavoro.
+
+Accedere alla cartella di lavoro di CMMC nell'area **cartelle di lavoro** di Azure Sentinel. Selezionare **modello**, quindi cercare **CMMC**.
+
+Per altre informazioni, vedere:
+
+- [Cartella di lavoro di Azure Sentinel Cybersecurity SCAD Model Certification (CMMC)](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
+- [Esercitazione: Visualizzare e monitorare i dati](tutorial-monitor-your-data.md)
+
 
 ### <a name="third-party-data-connectors"></a>Connettori dati di terze parti
 

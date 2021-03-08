@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b5139f75084eb0646db2fc8b05b04aaf3ddb2a12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 787cf922fcee0ee613fc0874a490830da9adf38a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010784"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455026"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnosticare le notifiche eliminate in hub di notifica di Azure
 
@@ -147,7 +147,7 @@ In Visual Studio è possibile connettersi ad Azure tramite Esplora server per vi
 
 È possibile visualizzare e gestire tutte le registrazioni nell'hub. Le registrazioni possono essere categorizzate in base alla piattaforma, alla registrazione nativa o del modello, al tag, all'identificatore del servizio di notifica push, all'ID registrazione e alla data di scadenza. È anche possibile modificare una registrazione in questa pagina. È particolarmente utile per la modifica dei tag.
 
-Fare clic con il pulsante destro del mouse sull'hub di notifica in **Esplora server**e selezionare **diagnostica**. 
+Fare clic con il pulsante destro del mouse sull'hub di notifica in **Esplora server** e selezionare **diagnostica**. 
 
 ![Esplora server di Visual Studio: menu diagnosi](./media/notification-hubs-push-notification-fixer/diagnose-menu.png)
 
@@ -297,5 +297,5 @@ Per ulteriori informazioni sull'accesso a livello di codice, vedere [accesso a l
 [View device registrations for notification hubs]: /previous-versions/windows/apps/dn792122(v=win.10)
 [Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs (Approfondimento: Visual Studio 2013 Update 2 RC e Azure SDK 2.3)
 [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ (Annuncio del rilascio di Visual Studio 2013 Update 3 e Azure SDK 2.4)
-[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
+[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend
 [Programmatic telemetry access]: /previous-versions/azure/azure-services/dn458823(v=azure.100)

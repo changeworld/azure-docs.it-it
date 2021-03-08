@@ -152,7 +152,7 @@
         - name: Gestione degli errori e tentativi di funzione
           href: functions-bindings-error-pages.md
           displayName: best practices
-        - name: Sicurezza
+        - name: Security
           href: security-concepts.md
           displayName: best practices
     - name: Confronto tra versioni di runtime
@@ -456,7 +456,7 @@
         - name: Java
           href: /java/api/overview/azure/functions/runtime
         - name: Python
-          href: /python/api/azure-functions/azure.functions?view=azure-python
+          href: /python/api/azure-functions/azure.functions
     - name: Informazioni di riferimento sulle impostazioni dell'app
       href: functions-app-settings.md
     - name: Trigger e associazioni

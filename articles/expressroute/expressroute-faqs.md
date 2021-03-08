@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 03/07/2021
 ms.author: duau
-ms.openlocfilehash: 1be7331b0c2309350316d1c88c54e6018400463c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 59194f8d7b1783867ab1422597b361aa3a4a2a60
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789348"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449867"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -40,9 +40,9 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi](https://azure.microsoft.co
 
 Sì, la larghezza di banda del circuito ExpressRoute è duplex. Se ad esempio si acquista un circuito ExpressRoute a 200 Mbps, si sta procurando 200 Mbps per il traffico in ingresso e 200 Mbps per il traffico in uscita.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Se si acquista un circuito ExpressRoute di una determinata larghezza di banda, la connessione VPN acquistata dal provider di servizi di rete deve essere della stessa velocità?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-private-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Se si paga per un circuito ExpressRoute di una determinata larghezza di banda, la connessione privata acquistata dal provider di servizi di rete deve avere la stessa velocità?
 
-No. È possibile acquistare una connessione VPN di qualsiasi velocità dal provider di servizi. Tuttavia, la connessione ad Azure è limitata alla larghezza di banda del circuito ExpressRoute acquistato.
+No. È possibile acquistare una connessione privata di qualsiasi velocità dal provider di servizi. Tuttavia, la connessione ad Azure è limitata alla larghezza di banda del circuito ExpressRoute acquistato.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Se si paga per un circuito ExpressRoute di una determinata larghezza di banda, è possibile usare più della larghezza di banda acquistata?
 
@@ -258,9 +258,13 @@ Se si pubblicano route predefinite, il traffico verso i servizi offerti tramite 
 
 Sì. Le macchine virtuali distribuite in reti virtuali connesse allo stesso circuito ExpressRoute possono comunicare tra loro. È consigliabile configurare il [peering di rete virtuale](../virtual-network/virtual-network-peering-overview.md) per facilitare questa comunicazione.
 
-### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>È possibile usare la connettività da sito per reti virtuali insieme a ExpressRoute?
+### <a name="can-i-set-up-a-site-to-site-vpn-connection-to-my-virtual-network-in-conjunction-with-expressroute"></a>È possibile configurare una connessione VPN da sito a sito alla rete virtuale insieme a ExpressRoute?
 
 Sì. ExpressRoute può coesistere con VPN da sito a sito. Vedere [Configurare connessioni coesistenti ExpressRoute e da sito a sito](expressroute-howto-coexist-resource-manager.md).
+
+### <a name="how-do-i-enable-routing-between-my-site-to-site-vpn-connection-and-my-expressroute"></a>Ricerca per categorie Abilita il routing tra la connessione VPN da sito a sito e la ExpressRoute?
+
+Se si vuole abilitare il routing tra il ramo connesso a Expressoute e il ramo connesso a una connessione VPN da sito a sito, è necessario configurare il [server di route di Azure](../route-server/expressroute-vpn-support.md).
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Perché esiste un indirizzo IP pubblico associato al gateway ExpressRoute in una rete virtuale?
 

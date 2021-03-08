@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 534f9e76cfca4037634cfca089f1131984456636
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f54156ed8cc4c049e10bada77a66eee084f7c5fb
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820705"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453275"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -74,8 +74,8 @@ Per installare il modulo Az o AzureRM in PowerShell 5.1, eseguire i passaggi seg
 
 1. Digitare **powershell** da un prompt dei comandi con privilegi elevati e premere INVIO.
 2. Installare il modulo Az o AzureRM più recente seguendo la documentazione:
-    - [Modulo Az (richiede .NET 4.7.2)](/powershell/azure/install-az-ps?viewFallbackFrom=azps-1.1.0)
-    - [Modulo AzureRM]( https://go.microsoft.com/fwlink/?linkid=856959)
+    - [Modulo Az (richiede .NET 4.7.2)](/powershell/azure/install-az-ps)
+    - [Modulo AzureRM](https://go.microsoft.com/fwlink/?linkid=856959)
 3. Eseguire il file ServerRegistration.exe e completare la registrazione guidata del server con un servizio di sincronizzazione archiviazione.
 
 <a id="server-already-registered"></a>**Registrazione server visualizza il messaggio seguente: "Il server è già registrato con un altro insieme di credenziali"** 

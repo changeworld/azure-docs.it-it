@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3c908fffe93d657662310d4e91ed25ae28ca6908
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: ebc12982bcc05c2d07f91fbc4d85afc170adf075
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429093"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453394"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Avvio rapido: Configurare Attestazione di Azure con Azure PowerShell
 
-Seguire la procedura seguente per creare e configurare un provider di attestazioni con Azure PowerShell. Per informazioni su come installare ed eseguire Azure PowerShell, vedere [Panoramica di Azure PowerShell](/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0).
+Seguire la procedura seguente per creare e configurare un provider di attestazioni con Azure PowerShell. Per informazioni su come installare ed eseguire Azure PowerShell, vedere [Panoramica di Azure PowerShell](/powershell/azure/).
 
 Tenere presente che PowerShell Gallery ha deprecato le versioni 1.0 e 1.1 di TLS (Transport Layer Security). È consigliabile usare TLS 1.2 o versione successiva. Di conseguenza, è possibile che si ricevano gli errori seguenti:
 

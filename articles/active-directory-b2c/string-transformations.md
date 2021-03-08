@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9cd5a62cd85687767497b142a30d31aa6dd00b77
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 85574b7d33af6d9abfe25f5af4d811255f08ce4b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175091"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452238"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -326,6 +326,77 @@ L'esempio seguente genera un valore intero casuale compreso tra 0 e 1000. Il val
     - **outputClaim**: OTP_853
 
 
+## <a name="formatlocalizedstring"></a>FormatLocalizedString
+
+Formattare più attestazioni in base a una stringa di formato localizzata specificata. Questa trasformazione usa il metodo C# `String.Format`.
+
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaims |  |string | Raccolta di attestazioni di input che funge da formato stringa {0} , {1} , {2} parametri. |
+| InputParameter | stringFormatId | string |  `StringId`Di una [stringa localizzata](localization.md).   |
+| OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
+
+> [!NOTE]
+> La dimensione massima consentita per il formato stringa è 4000.
+
+Per usare la trasformazione delle attestazioni FormatLocalizedString:
+
+1. Definire una [stringa di localizzazione](localization.md)e associarla a un [profilo tecnico autocertificato](self-asserted-technical-profile.md).
+1. L'oggetto `ElementType` dell'elemento `LocalizedString` deve essere impostato su `FormatLocalizedStringTransformationClaimType`.
+1. `StringId`È un identificatore univoco che viene definito e utilizzato in un secondo momento nella trasformazione delle attestazioni `stringFormatId` .
+1. Nella trasformazione di attestazioni specificare l'elenco di attestazioni da impostare con la stringa localizzata. Impostare quindi `stringFormatId` su `StringId` dell'elemento stringa localizzato. 
+1. In una trasformazione di attestazioni di input o di output di un [profilo tecnico autocertificato](self-asserted-technical-profile.md) o di un [controllo di visualizzazione](display-controls.md), creare un riferimento alla trasformazione di attestazioni.
+
+
+Nell'esempio seguente viene generato un messaggio di errore quando un account è già presente nella directory. Nell'esempio vengono definite le stringhe localizzate per l'inglese (impostazione predefinita) e lo spagnolo.
+
+```xml
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+      </LocalizedStrings>
+    </LocalizedResources>
+  <LocalizedResources Id="api.localaccountsignup.es">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+La trasformazione delle attestazioni crea un messaggio di risposta in base alla stringa localizzata. Il messaggio contiene l'indirizzo di posta elettronica dell'utente incorporato nella *ResponseMessge_EmailExists* Sting localizzata.
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+    - **attestazione**: sarah@contoso.com
+- Parametri di input:
+    - **StringFormat**: ResponseMessge_EmailExists
+- Attestazioni di output:
+  - **outputClaim**: il messaggio di posta elettronica ' sarah@contoso.com ' è già un account dell'organizzazione. Fare clic su Avanti per accedere con l'account.
+
+
 ## <a name="formatstringclaim"></a>FormatStringClaim
 
 Formatta un'attestazione in base alla stringa formato specificata. Questa trasformazione usa il metodo C# `String.Format`.
@@ -335,6 +406,9 @@ Formatta un'attestazione in base alla stringa formato specificata. Questa trasfo
 | InputClaim | inputClaim |string |Elemento ClaimType che funge come parametro {0} del formato della stringa. |
 | InputParameter | stringFormat | string | Formato della stringa, ad esempio il parametro {0}. Il parametro di input supporta [espressioni di trasformazione di attestazioni di stringa](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
+
+> [!NOTE]
+> La dimensione massima consentita per il formato stringa è 4000.
 
 Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con un parametro {0}. L'esempio seguente crea un elemento **userPrincipalName**. Tutti i profili tecnici di provider di identità social, ad esempio `Facebook-OAUTH`, chiamano **CreateUserPrincipalName** per generare un elemento **userPrincipalName**.
 
@@ -371,6 +445,9 @@ Formatta due attestazioni in base alla stringa di formato specificata. Questa tr
 | InputClaim | inputClaim | string | Elemento ClaimType che funge come parametro {1} del formato della stringa. |
 | InputParameter | stringFormat | string | Formato della stringa, ad esempio i parametri {0} e {1}. Il parametro di input supporta [espressioni di trasformazione di attestazioni di stringa](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
+
+> [!NOTE]
+> La dimensione massima consentita per il formato stringa è 4000.
 
 Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con due parametri, {0} e {1}. L'esempio seguente crea un elemento **displayName** con il formato specificato:
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: be3fd9b3d910e64245a1b52056499bbfba2e6379
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 81feb5b95578cedea7bf368aa1e0d6c2e9117077
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955852"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456012"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Disponibilità elevata con servizi multimediali e video on demand (VOD)
 
@@ -59,23 +59,23 @@ Questo diagramma di alto livello Mostra l'architettura dell'esempio fornito per 
 
 ### <a name="regions"></a>Regioni
 
-* [Creare](https://review.docs.microsoft.com/azure/media-services/latest/create-account-cli-how-to) due o più account di servizi multimediali di Azure. I due account devono trovarsi in aree diverse. Per altre informazioni, vedere [aree in cui viene distribuito il servizio servizi multimediali di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
-* Caricare i file multimediali nella stessa area da cui si prevede di inviare il processo. Per altre informazioni su come avviare la codifica, vedere [creare un input del processo da un URL HTTPS](https://review.docs.microsoft.com/azure/media-services/latest/job-input-from-http-how-to) o [creare un input del processo da un file locale](https://review.docs.microsoft.com/azure/media-services/latest/job-input-from-local-file-how-to).
-* Se è necessario inviare nuovamente il [processo](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept) a un'altra area, è possibile usare `JobInputHttp` o usare `Copy-Blob` per copiare i dati dal contenitore di asset di origine a un contenitore di asset nell'area alternativa.
+* [Creare](/azure/media-services/latest/create-account-cli-how-to) due o più account di servizi multimediali di Azure. I due account devono trovarsi in aree diverse. Per altre informazioni, vedere [aree in cui viene distribuito il servizio servizi multimediali di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
+* Caricare i file multimediali nella stessa area da cui si prevede di inviare il processo. Per altre informazioni su come avviare la codifica, vedere [creare un input del processo da un URL HTTPS](/azure/media-services/latest/job-input-from-http-how-to) o [creare un input del processo da un file locale](/azure/media-services/latest/job-input-from-local-file-how-to).
+* Se è necessario inviare nuovamente il [processo](/azure/media-services/latest/transforms-jobs-concept) a un'altra area, è possibile usare `JobInputHttp` o usare `Copy-Blob` per copiare i dati dal contenitore di asset di origine a un contenitore di asset nell'area alternativa.
 
 ### <a name="monitoring"></a>Monitoraggio
 
 * Sottoscrivere `JobStateChange` i messaggi in ogni account tramite griglia di eventi di Azure.
-    * [Registrarsi per gli eventi](https://review.docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events) tramite il portale di Azure o l'interfaccia della riga di comando (è anche possibile eseguire questa operazione con l'SDK di gestione di griglia di eventi)
+    * [Registrarsi per gli eventi](/azure/media-services/latest/reacting-to-media-services-events) tramite il portale di Azure o l'interfaccia della riga di comando (è anche possibile eseguire questa operazione con l'SDK di gestione di griglia di eventi)
     * Usare [Microsoft. Azure. EVENTGRID SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (che supporta gli eventi di servizi multimediali in modo nativo).
     * È anche possibile utilizzare gli eventi di griglia di eventi tramite funzioni di Azure.
 
     Per altre informazioni:
 
-    * Vedere l' [esempio di analisi audio](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept) che Mostra come monitorare un processo con griglia di eventi di Azure, inclusa l'aggiunta di un fallback nel caso in cui i messaggi di griglia di eventi di Azure vengano ritardati per qualche motivo.
-    * Esaminare gli [schemi di griglia di eventi di Azure per gli eventi di servizi multimediali](https://review.docs.microsoft.com/azure/media-services/latest/media-services-event-schemas).
+    * Vedere l' [esempio di analisi audio](/azure/media-services/latest/transforms-jobs-concept) che Mostra come monitorare un processo con griglia di eventi di Azure, inclusa l'aggiunta di un fallback nel caso in cui i messaggi di griglia di eventi di Azure vengano ritardati per qualche motivo.
+    * Esaminare gli [schemi di griglia di eventi di Azure per gli eventi di servizi multimediali](/azure/media-services/latest/media-services-event-schemas).
 
-* Quando si crea un [processo](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept):
+* Quando si crea un [processo](/azure/media-services/latest/transforms-jobs-concept):
     * Selezionare in modo casuale un account dall'elenco degli account attualmente in uso (questo elenco conterrà normalmente entrambi gli account, ma se vengono rilevati problemi potrebbe contenere un solo account). Se l'elenco è vuoto, viene generato un avviso in modo che un operatore possa esaminarlo.
     * Creare un record per tenere traccia di ogni processo in corso e dell'area/account usato.
 * Quando il `JobStateChange` gestore riceve una notifica che un processo ha raggiunto lo stato pianificato, registra la data e l'ora in cui viene inserito lo stato pianificato e l'area o l'account usato.

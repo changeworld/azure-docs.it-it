@@ -25,6 +25,8 @@
       href: tutorial-respond-threats-playbook.md
 - name: Concetti
   items:
+    - name: Classificazione dei dati tramite entità
+      href: entities-in-azure-sentinel.md
     - name: Gestire l'accesso
       items:
         - name: Autorizzazioni in Azure Sentinel
@@ -33,18 +35,20 @@
           href: resource-context-rbac.md
     - name: Rilevamento avanzato di attacchi in più fasi
       href: fusion.md
-    - name: Piattaforma di Machine Learning personale
-      href: bring-your-own-ml.md
-    - name: Estendere Azure Sentinel tra più aree di lavoro e tenant
-      href: extend-sentinel-across-workspaces-tenants.md
     - name: Identificare minacce avanzate con UEBA
       href: identify-threats-with-entity-behavior-analytics.md
     - name: Importare intelligence sulle minacce in Azure Sentinel
       href: import-threat-intelligence.md
+    - name: Piattaforma di Machine Learning personale
+      href: bring-your-own-ml.md
     - name: Integrare Microsoft 365 Defender con Azure Sentinel
       href: microsoft-365-defender-sentinel-integration.md
     - name: Usare dati esterni con le watchlist
       href: watchlists.md
+    - name: Assegnare autorizzazioni tramite ruoli
+      href: roles.md
+    - name: Estendere Azure Sentinel tra più aree di lavoro e tenant
+      href: extend-sentinel-across-workspaces-tenants.md
     - name: Normalizzare i dati tra le tabelle
       href: normalization.md
     - name: Sicurezza
@@ -84,7 +88,7 @@
               href: connect-office-365-advanced-threat-protection.md
             - name: Avvisi di Azure Defender del Centro sicurezza di Azure
               href: connect-azure-security-center.md
-            - name: Azure Defender (in precedenza Centro sicurezza di Azure) per IoT
+            - name: Defender for Internet (in precedenza ASC per l'it)
               href: connect-asc-iot.md
             - name: Protezione DDoS di Azure
               href: connect-azure-ddos-protection.md
@@ -242,12 +246,16 @@
           href: monitor-data-connector-health.md
     - name: Abilitare l'analisi del comportamento di utenti ed entità
       href: enable-entity-behavior-analytics.md
+    - name: Eseguire il mapping dei campi dati alle entità
+      href: map-data-fields-to-entities.md
     - name: Gestire più tenant (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Gestire eventi imprevisti in più aree di lavoro
       href: multiple-workspace-view.md
     - name: Configurare le chiavi gestite dal cliente
       href: customer-managed-keys.md
+    - name: Dettagli personalizzati della superficie negli avvisi
+      href: surface-custom-details-in-alerts.md
     - name: Creare eventi imprevisti dagli avvisi
       href: create-incidents-from-alerts.md
     - name: Gestire meglio il Centro operazioni di sicurezza con le metriche degli eventi imprevisti
@@ -265,10 +273,10 @@
           href: livestream.md
     - name: Rimuovere Azure Sentinel
       href: offboard.md
-    - name: Implementare RBAC avanzato
-      items: null
 - name: Riferimento
   items:
+    - name: Principali cartelle di lavoro di Azure Sentinel
+      href: top-workbooks.md
     - name: Ruoli del controllo degli accessi in base al ruolo di Azure
       items:
         - name: Tutti i ruoli di Azure
@@ -285,6 +293,8 @@
           href: watchlist-with-rest-api.md
     - name: Connettore per app per la logica di Azure Sentinel
       href: /connectors/azuresentinel/
+    - name: Riferimento alle entità
+      href: entities-reference.md
     - name: Schema di normalizzazione della rete
       href: normalization-schema.md
     - name: Riferimento allo schema dell'origine dati

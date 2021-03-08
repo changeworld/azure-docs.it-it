@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9367cf4324d577e4dd44cb9294a8b82b1bceaf74
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 7be6cf1df15d7afd7cb9447be68ff70ff7b14d03
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522954"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449221"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Guida alla risoluzione dei problemi dell'agente di sicurezza (Linux)
 
@@ -28,10 +28,9 @@ Azure Defender per l'agente di gestione delle cose inizia immediatamente dopo l'
 
 In questa guida alla risoluzione dei problemi si apprenderà come:
 
-> [!div class="checklist"]
-> * Verificare se l'agente di sicurezza è in esecuzione
-> * Ottenere gli errori dell'agente di sicurezza
-> * Comprendere e correggere gli errori dell'agente di sicurezza
+- Verificare se l'agente di sicurezza è in esecuzione
+- Ottenere gli errori dell'agente di sicurezza
+- Comprendere e correggere gli errori dell'agente di sicurezza
 
 ## <a name="validate-if-the-security-agent-is-running"></a>Verificare se l'agente di sicurezza è in esecuzione
 
@@ -108,4 +107,10 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Leggere la [Panoramica](overview.md) del servizio Defender for Internet. altre informazioni sull' [architettura](architecture.md) di Defender per l'architettura dei dati it abilitano il [servizio](quickstart-onboard-iot-hub.md) Defender for Internet. leggere le [domande frequenti](resources-frequently-asked-questions.md) sul servizio Defender for le [](concept-security-alerts.md) informazioni su come accedere ai [dati di sicurezza RAW](how-to-security-data-access.md) informazioni sulle [raccomandazioni](concept-recommendations.md)
+- Leggi la [Panoramica](overview.md) del servizio Defender for Internet
+- Scopri di più su Defender per l' [architettura dell'it](architecture.md)
+- Abilita il Defender per il [servizio](quickstart-onboard-iot-hub.md) Internet
+- Leggi le [domande frequenti](resources-frequently-asked-questions.md) sul servizio Defender for Internet
+- Informazioni su come accedere a [dati non elaborati sulla sicurezza](how-to-security-data-access.md)
+- Informazioni sulle [raccomandazioni](concept-recommendations.md)
+- Informazioni sugli [avvisi](concept-security-alerts.md) di sicurezza

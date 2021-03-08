@@ -5,13 +5,13 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: 8de819fc5444146f40a6a052cd51e6164cdfb230
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.date: 03/05/2021
+ms.openlocfilehash: 30579536b8051e9a045c217751871287636a3976
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653058"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454279"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Criteri di supporto di Azure Red Hat OpenShift
 
@@ -23,7 +23,7 @@ Alcune configurazioni per i cluster di Azure Red Hat OpenShift 4 possono influen
 ## <a name="cluster-configuration-requirements"></a>Requisiti di configurazione del cluster
 
 * Tutti gli operatori del cluster OpenShift devono rimanere in uno stato gestito. È possibile restituire l'elenco degli operatori del cluster eseguendo `oc get clusteroperators`.
-* Il cluster deve avere almeno due nodi del ruolo di lavoro. Non hanno macchie che impediscono la pianificazione dei componenti di OpenShift. Non ridimensionare i ruoli di lavoro del cluster a zero o tentare un arresto del cluster normale.
+* Il cluster deve avere un minimo di tre nodi di lavoro e tre nodi di gestione. Non hanno macchie che impediscono la pianificazione dei componenti di OpenShift. Non ridimensionare i ruoli di lavoro del cluster a zero o tentare un arresto del cluster normale.
 * Non rimuovere o modificare i servizi Prometheus e Alertmanager del cluster.
 * Non rimuovere le regole Alertmanager del servizio.
 * Non rimuovere o modificare i gruppi di sicurezza di rete.

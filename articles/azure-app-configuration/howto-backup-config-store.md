@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 39c50f539c04a6c49316f4541c759859be861f9d
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b3e0bcad7beccc31e1772fbb24ffad7f502b8140
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095518"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454244"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Eseguire il backup automatico degli archivi di configurazione delle app
 
@@ -137,7 +137,7 @@ Per semplificare l'avvio del backup dei dati, è stata [testata e pubblicata una
 
 Se il codice di esempio fornito in precedenza non soddisfa i requisiti, è anche possibile creare una funzione personalizzata. Per completare il backup, la funzione deve essere in grado di eseguire le attività seguenti:
 - Leggere periodicamente il contenuto della coda per verificare se contiene notifiche da griglia di eventi. Per informazioni dettagliate sull'implementazione, vedere l' [SDK della coda di archiviazione](../storage/queues/storage-quickstart-queues-dotnet.md) .
-- Se la coda contiene [notifiche degli eventi da griglia di eventi](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), estrarre tutte le informazioni univoche `<key, label>` dai messaggi di evento. La combinazione di chiave ed etichetta è l'identificatore univoco per le modifiche chiave-valore nell'archivio primario.
+- Se la coda contiene [notifiche degli eventi da griglia di eventi](./concept-app-configuration-event.md#event-schema), estrarre tutte le informazioni univoche `<key, label>` dai messaggi di evento. La combinazione di chiave ed etichetta è l'identificatore univoco per le modifiche chiave-valore nell'archivio primario.
 - Leggere tutte le impostazioni dall'archivio primario. Aggiornare solo le impostazioni nell'archivio secondario che hanno un evento corrispondente nella coda. Eliminare tutte le impostazioni dall'archivio secondario presenti nella coda ma non nell'archivio primario. È possibile usare [app Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) per accedere agli archivi di configurazione a livello di codice.
 - Eliminare i messaggi dalla coda se non si sono verificate eccezioni durante l'elaborazione.
 - Implementare la gestione degli errori in base alle esigenze. Fare riferimento all'esempio di codice precedente per visualizzare alcune eccezioni comuni che è possibile gestire.

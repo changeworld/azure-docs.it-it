@@ -258,6 +258,8 @@
         - name: Usare i modelli di Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
+        - name: Collegamento all'area di lavoro di Azure sinapsi Analytics
+          href: how-to-link-synapse-ml-workspaces.md
     - name: Creare e gestire risorse di calcolo
       items:
         - name: Istanza di calcolo
