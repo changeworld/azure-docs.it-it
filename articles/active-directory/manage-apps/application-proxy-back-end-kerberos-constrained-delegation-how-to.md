@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: 65d68924fbc3a777ef7ef59d2532a1ae20e23c48
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: b8562f3bdd82b5b0c2c1340f511f87ad90dfbe3b
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258219"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487951"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy
 
@@ -161,7 +161,7 @@ Se il problema persiste, contattare il supporto tecnico Microsoft creando un tic
 ## <a name="other-scenarios"></a>Altri scenari
 
 - Il proxy dell'applicazione Azure richiede un ticket Kerberos prima dell'invio della richiesta a un'applicazione. Alcune applicazioni di terze parti non sono simili a questo metodo di autenticazione. preferendo l'approccio più tradizionale delle negoziazioni. La prima richiesta è anonima, consentendo all'applicazione di rispondere con i tipi di autenticazione supportati tramite un codice 401. Questo tipo di negoziazione Kerberos può essere abilitato mediante i passaggi descritti in questo documento: [delega vincolata Kerberos per Single Sign-on](application-proxy-configure-single-sign-on-with-kcd.md).
-- L'autenticazione multihop viene generalmente usata negli scenari con applicazioni a livelli, con un back-end e un front-end che richiedono l'autenticazione, ad esempio SQL Server Reporting Services. Per configurare lo scenario a più hop, vedere l'articolo del supporto per la [delega vincolata Kerberos può richiedere la transizione del protocollo negli scenari con più hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- L'autenticazione multihop viene generalmente usata negli scenari con applicazioni a livelli, con un back-end e un front-end che richiedono l'autenticazione, ad esempio SQL Server Reporting Services. Per ulteriori informazioni, vedere [come configurare la delega vincolata Kerberos per le pagine proxy di registrazione Web](/troubleshoot/windows-server/identity/configure-kerberos-constrained-delegation).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

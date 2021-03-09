@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 733b2375a26b0157f88bc148b52932e2f3e3f2e2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368048"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488274"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Panoramica della migrazione: SQL Server al database SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -104,6 +104,7 @@ La tabella seguente elenca gli strumenti di migrazione consigliati:
 
 |Tecnologia | Descrizione|
 |---------|---------|
+| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure Migrate per Azure SQL ti permette di individuare e valutare le tue proprietà SQL per la scalabilità quando si usa VMware, fornendo consigli per la distribuzione di Azure SQL, dimensioni di destinazione e stime mensili. | 
 |[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb)|Il Data Migration Assistant è uno strumento desktop che fornisce valutazioni senza problemi di SQL Server e migrazioni al database SQL di Azure (sia dello schema che dei dati). Lo strumento può essere installato in un server locale o nel computer locale con connettività ai database di origine. Il processo di migrazione è uno spostamento di dati logici tra oggetti nel database di origine e di destinazione. </br> -Migrare i database singoli (schema e dati)|
 |[Servizio Migrazione del database di Azure (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)|Un servizio di Azure di terze parti in grado di eseguire la migrazione dei database di SQL Server al database SQL di Azure usando il portale di Azure o automatizzato con PowerShell. Il servizio DMS di Azure richiede la selezione di una rete virtuale di Azure preferita (VNet) durante il provisioning per garantire la connettività ai database di origine SQL Server. </br> -Migrare singoli database o su larga scala. |
 | | |

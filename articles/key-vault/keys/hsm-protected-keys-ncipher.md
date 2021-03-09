@@ -8,23 +8,24 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: 8a1f3b5e80152fb0fb9458aef0d3524dd2d6f5eb
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
-ms.translationtype: HT
+ms.openlocfilehash: 511544f81f6de887014545e3f4bbc7a4172fc91e
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092330"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488750"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importare chiavi con protezione HSM per Key Vault (nCipher)
+
+> [!WARNING]
+> Il metodo di importazione della chiave HSM descritto in questo documento è **deprecato** e non sarà supportato in futuro. Funziona solo con la famiglia nCipher nShield di HSM con firmware 12.40.2 o 12,50 con un hotfix. Si consiglia vivamente di usare un [nuovo metodo per importare chiavi HSM](hsm-protected-keys-byok.md) .
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Per una maggiore sicurezza, quando si usa l'insieme di credenziali delle chiavi di Azure è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. Questa modalità è spesso definita con il termine *Bring Your Own Key* o BYOK. Azure Key Vault usa i moduli di protezione hardware della famiglia di prodotti nCipher nShield (con convalida FIPS 140-2 Livello 2) per proteggere le chiavi.
 
-> [!NOTE]
-> Il metodo di importazione delle chiavi HSM descritto in questo documento è applicabile solo ai moduli di protezione hardware della famiglia di prodotti nCipher nShield. Per l'importazione di chiavi HSM da altri moduli di protezione hardware, [vedere qui](hsm-protected-keys-byok.md).
 
 Questo argomento include informazioni utili per pianificare, generare e quindi trasferire le proprie chiavi protette da HSM da usare con l'insieme di credenziali delle chiavi di Azure. 
 

@@ -424,6 +424,8 @@
               href: flexible-server/quickstart-create-server-arm-template.md
         - name: Connessione ed esecuzione di query
           items:
+            - name: Interfaccia della riga di comando di Azure
+              href: flexible-server/connect-azure-cli.md
             - name: Python
               href: flexible-server/connect-python.md
             - name: Java

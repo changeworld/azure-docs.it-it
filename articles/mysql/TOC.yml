@@ -173,7 +173,7 @@
             - name: Configurare l'interfaccia della riga di comando usingAzure collegamento privato
               href: howto-configure-privatelink-cli.md
               displayName: 'private link, private endpoint'
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Panoramica della sicurezza
           href: concepts-security.md
@@ -430,6 +430,8 @@
               href: flexible-server/quickstart-create-arm-template.md
         - name: Connessione ed esecuzione di query
           items:
+            - name: Interfaccia della riga di comando di Azure
+              href: flexible-server/connect-azure-cli.md
             - name: PHP
               href: flexible-server/connect-php.md
             - name: MySQL Workbench

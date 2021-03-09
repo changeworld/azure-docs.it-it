@@ -74,6 +74,8 @@
       href: public-ip-usage.md
     - name: Creare un tunnel IPSec
       href: create-ipsec-tunnel.md
+    - name: Cluster di failover di Windows Server
+      href: windows-server-failover-cluster.md
     - name: Integrazione nativa di Azure
       items:
         - name: Gestione API

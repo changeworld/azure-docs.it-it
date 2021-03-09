@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d045af3b170d585b4bf1f8c57b7ba924c6b30695
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124952"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489787"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Domande comuni sulla macchina virtuale in Azure Marketplace
 
@@ -49,6 +49,19 @@ Per altre informazioni, vedere questi articoli:
 Ogni volta che si tenta di creare un'immagine dai dischi rigidi virtuali, in Azure PowerShell viene visualizzato l'errore "Il disco rigido virtuale è già registrato con l'archivio immagini come risorsa". Non è stato creato alcun tipo di risorsa in precedenza, né è stata trovata alcuna immagine con questo nome in Azure. Come posso risolvere il problema?
 
 Questo problema si verifica in genere se l'utente ha creato una macchina virtuale da un disco rigido virtuale con un blocco. Accertarsi che da questo disco rigido virtuale non sia allocata alcuna macchina virtuale, quindi ripetere l'operazione. Se il problema persiste, aprire un ticket di supporto. Vedere [Supporto per il Centro per i partner](support.md).
+
+## <a name="how-do-i-test-a-hidden-preview-image"></a>Ricerca per categorie testare un'immagine di anteprima nascosta?
+
+È possibile distribuire immagini di anteprima nascoste usando i modelli di avvio rapido.
+Per distribuire un'immagine di anteprima Linux, 
+1. Vai a questo [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)e seleziona "Distribuisci in Azure". Questa operazione dovrebbe portare a portale di Azure
+2. In portale di Azure selezionare "modifica modello".
+3. Nel modello JSON cercare imageReference e aggiornare publisherID, IDOfferta, skuId e la versione dell'immagine. Per testare l'immagine di anteprima, aggiungere "-PREVIEW" a IDOfferta.
+ ![image](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
+4. Fare clic su Salva.
+5. Compilare il resto dei dettagli. Esaminare e creare
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

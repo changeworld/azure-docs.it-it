@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 3e98dc36b3d58ce5289fccde7b5f5a49973c9de6
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: b9238d099c7b33e904c2fc8de3c4fc08369f1f36
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454227"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489838"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
@@ -752,7 +752,7 @@ Per gli ambienti di produzione, è necessario creare due profili partner. Il pri
 
 Di seguito è riportato un esempio che illustra come estrarre singoli IDocs da un pacchetto usando la [ `xpath()` funzione](./workflow-definition-language-functions-reference.md#xpath):
 
-1. Prima di iniziare, è necessaria un'app per la logica con un trigger SAP. Se non si dispone già di questa app per la logica, seguire i passaggi precedenti in questo argomento per [configurare un'app per la logica con un trigger SAP](#receive-message-from-sap).
+1. Prima di iniziare, è necessaria un'app per la logica con un trigger SAP. Se non è già presente nell'app per la logica, seguire i passaggi precedenti in questo argomento per [configurare un'app per la logica con un trigger SAP](#receive-message-from-sap).
 
     > [!IMPORTANT]
     > L' **ID del programma** SAP fa distinzione tra maiuscole e minuscole. Assicurarsi di usare in modo coerente lo stesso formato di case per l' **ID del programma** quando si configura l'app per la logica e il server SAP. In caso contrario, è possibile che vengano visualizzati gli errori seguenti in tRFC monitor (T-Code SM58) quando si tenta di inviare un IDoc a SAP:
@@ -765,6 +765,14 @@ Di seguito è riportato un esempio che illustra come estrarre singoli IDocs da u
    Ad esempio:
 
    ![Aggiungere il trigger SAP all'app per la logica](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. [Aggiungere un'azione di risposta all'app per la logica](/azure/connectors/connectors-native-reqres#add-a-response-action) per rispondere immediatamente con lo stato della richiesta SAP. È consigliabile aggiungere questa azione subito dopo il trigger, per liberare il canale di comunicazione con il server SAP. Scegliere uno dei seguenti codici di stato ( `statusCode` ) da usare nell'azione di risposta:
+
+    * **202 accettato**, ovvero la richiesta è stata accettata per l'elaborazione, ma l'elaborazione non è ancora stata completata.
+
+    * **204 nessun contenuto**, che indica che il server ha completato correttamente la richiesta e che non sono presenti contenuti aggiuntivi da inviare nel corpo del payload della risposta. 
+
+    * **200 OK**. Questo codice di stato contiene sempre un payload, anche se il server genera un corpo di payload di lunghezza zero. 
 
 1. Ottenere lo spazio dei nomi radice dal IDoc XML che l'app per la logica riceve da SAP. Per estrarre questo spazio dei nomi dal documento XML, aggiungere un passaggio per la creazione di una variabile di stringa locale e archiviare tale spazio dei nomi utilizzando un' `xpath()` espressione:
 

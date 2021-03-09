@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 01/06/2021
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 7fedd45585698aef9248318a1b055cb656f25d02
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 6bdb167990afeb5c1b6c68185f24a8f930287bed
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335129"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487900"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuire i dati a livello globale con Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -21,9 +21,9 @@ Le applicazioni moderne devono garantire velocità di risposta elevate ed essere
 
 Azure Cosmos DB è un sistema di database distribuito a livello globale che consente di leggere e scrivere dati dalle repliche locali del database. Azure Cosmos DB replica in modo trasparente i dati in tutte le aree associate all'account Cosmos. Azure Cosmos DB è un servizio di database distribuito a livello globale e progettato per garantire bassa latenza, scalabilità elastica della velocità effettiva, semantica ben definita per la coerenza dei dati e disponibilità elevata. In breve, se l'applicazione richiede tempi di risposta rapidi in qualsiasi parte del mondo, se è necessario che sia sempre online e necessiti di scalabilità illimitata e elastica della velocità effettiva e dello spazio di archiviazione, è necessario compilare l'applicazione in Azure Cosmos DB.
 
-È possibile configurare i propri database in modo che siano distribuiti a livello globale e disponibili in una delle aree di Azure. Per ridurre la latenza, posizionare i dati vicino a quello in cui si trovano gli utenti. La scelta delle aree necessarie dipende la portata globale dell'applicazione e dalla posizione degli utenti. Cosmos DB replica in modo trasparente i dati in tutte le aree associate all'account Cosmos. Offre una singola immagine di sistema per il database e i contenitori Azure Cosmos distribuiti a livello globale, consentendo così all'applicazione di leggere e scrivere in locale. 
+È possibile configurare i propri database in modo che siano distribuiti a livello globale e disponibili in una delle aree di Azure. Per ridurre la latenza, posizionare i dati vicino a quello in cui si trovano gli utenti. La scelta delle aree necessarie dipende la portata globale dell'applicazione e dalla posizione degli utenti. Cosmos DB replica in modo trasparente i dati in tutte le aree associate all'account Cosmos. Offre una singola immagine di sistema per il database e i contenitori Azure Cosmos distribuiti a livello globale, consentendo così all'applicazione di leggere e scrivere in locale.
 
-Con Azure Cosmos DB è possibile aggiungere o rimuovere le aree associate all'account in qualsiasi momento. Non è necessario sospendere l'esecuzione o ridistribuire l'applicazione per aggiungere o rimuovere un'area. Continua a essere a disponibilità elevata sempre a causa delle funzionalità multihoming fornite dal servizio in modo nativo.
+Con Azure Cosmos DB è possibile aggiungere o rimuovere le aree associate all'account in qualsiasi momento. Non è necessario sospendere l'esecuzione o ridistribuire l'applicazione per aggiungere o rimuovere un'area.
 
 :::image type="content" source="./media/distribute-data-globally/deployment-topology.png" alt-text="Topologia di distribuzione a disponibilità elevata" border="false":::
 
@@ -35,7 +35,7 @@ Con Azure Cosmos DB è possibile aggiungere o rimuovere le aree associate all'ac
 - Disponibilità in lettura e scrittura pari al 99,999% in tutto il mondo.
 - Letture e scritture gestite in meno di 10 millisecondi nel 99% dei casi.
 
-Usando le API multihosting di Azure Cosmos DB, l'applicazione è a conoscenza dell'area più vicina e può inviare richieste a tale area. L'area più vicina viene identificata senza che sia necessario apportare modifiche alla configurazione. Quando si aggiungono e rimuovono aree da e verso l'account Azure Cosmos, l'applicazione non deve essere ridistribuita o sospesa, ma continua a essere a disponibilità elevata in qualsiasi momento.
+Quando si aggiungono e rimuovono aree da e verso l'account Azure Cosmos, l'applicazione non deve essere ridistribuita o sospesa, ma continua a essere a disponibilità elevata in qualsiasi momento.
 
 **Compilare applicazioni a reattività elevata.** L'applicazione può eseguire operazioni di lettura e scrittura quasi in tempo reale su tutte le aree selezionate per il database. Azure Cosmos DB gestisce internamente la replica dei dati tra le aree con garanzie del livello di coerenza del livello selezionato.
 

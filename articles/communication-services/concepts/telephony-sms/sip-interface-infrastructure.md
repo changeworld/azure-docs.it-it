@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 432a9dab851bda65ecf8736d725b08c5e726ac16
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a94aa0a0deea14cca2b558c602ff7e35ca0ba81f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659257"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487382"
 ---
 # <a name="sip-interface-infrastructure-requirements"></a>Requisiti dell'infrastruttura dell'interfaccia SIP 
 
@@ -158,12 +158,12 @@ L'intervallo di porte dei processori di contenuti multimediali è illustrato nel
 
 ## <a name="media-traffic-media-processors-geography"></a>Traffico multimediale: media processor geography
 
-Il traffico multimediale viene trasmesso tramite componenti denominati processori di contenuti multimediali. I processori di contenuti multimediali sono posizionati negli stessi data center dei proxy SIP. Sono inoltre disponibili processori di contenuti multimediali aggiuntivi per ottimizzare il flusso multimediale. Ad esempio, non è disponibile un componente proxy SIP in Australia (flussi SIP con Singapore o Hong Kong), ma il processore di contenuti multimediali è disponibile localmente in Australia. La necessità di processori di contenuti multimediali in locale è determinata dalla latenza che si verifica inviando il traffico a distanza prolungata, ad esempio da Australia a Singapore o Hong Kong. Anche se la latenza nell'esempio di traffico proveniente dall'Australia alla Hong Kong o a Singapore è accettabile per mantenere una valida qualità delle chiamate per il traffico SIP, per il traffico multimediale in tempo reale non lo è.
+Il traffico multimediale viene trasmesso tramite componenti denominati processori di contenuti multimediali. I processori di contenuti multimediali sono posizionati negli stessi data center dei proxy SIP. Sono inoltre disponibili processori di contenuti multimediali aggiuntivi per ottimizzare il flusso multimediale. Ad esempio, non è disponibile un componente proxy SIP in Australia (flussi SIP con Singapore o Hong Kong SAR), ma il processore di contenuti multimediali è disponibile localmente in Australia. La necessità di processori di contenuti multimediali in locale è determinata dalla latenza che si verifica inviando il traffico a distanza prolungata, ad esempio da Australia a Singapore o Hong Kong SAR. Anche se la latenza nell'esempio di traffico proveniente dall'Australia alla RAS di Hong Kong o a Singapore è accettabile per mantenere una valida qualità delle chiamate per il traffico SIP, per il traffico multimediale in tempo reale non lo è.
 
 Percorsi in cui vengono distribuiti sia il proxy SIP che i componenti del processore multimediale:
 - US (due negli Stati Uniti occidentali e nei data center degli Stati Uniti orientali)
 - Europa (Data Center di Amsterdam e Dublino)
-- Asia (Singapore e Data Center di Hong Kong)
+- Asia (Singapore e Data Center SAR di Hong Kong)
 - Australia (Data Center dell'Australia orientale e sudorientale)
 
 Percorsi in cui vengono distribuiti solo i processori di contenuti multimediali (flussi SIP tramite il data center più vicino elencato sopra):

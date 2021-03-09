@@ -5,15 +5,15 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 01/06/2021
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fedcdd55a465f5c09c331a0fa917811c349b15b1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 019ca26143a4879efafa973299703f0abcb21162
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097227"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488087"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -143,7 +143,6 @@ Di seguito sono indicati i fattori più comuni che influiscono sulle prestazioni
 | Velocità effettiva con provisioning | Misurare le unità di richieste per ogni query e assicurarsi di disporre della velocità effettiva con provisioning richiesta per le query. | 
 | Partizionamento e chiavi di partizione | Favorire le query con il valore della chiave di partizione nella clausola del filtro per una latenza bassa. |
 | Opzioni per SDK e query | Seguire le procedure consigliate dell'SDK come la connettività diretta e ottimizzare le opzioni di esecuzione delle query sul lato client. |
-| Latenza di rete | Tenere conto del sovraccarico di rete nella misurazione e usare API multihosting per eseguire la lettura dall'area più vicina. |
 | Criterio di indicizzazione | Assicurarsi di disporre dei percorsi/criteri di indicizzazione necessari per la query. |
 | Metriche di esecuzione delle query | Analizzare le metriche di esecuzione delle query per identificare le potenziali riscritture di forme di dati e query.  |
 

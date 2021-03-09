@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 234a0137f0a9487a56b3e0343eaea375d2f9a1af
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043015"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487118"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Esecuzione di query in Azure ricerca cognitiva
 
@@ -24,10 +24,11 @@ In ricerca cognitiva, una query è una specifica completa di un'operazione di ro
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "searchFields": "Description, Address/City, Tags",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
+    "queryType": "simple",
+    "searchMode": "all",
+    "search": "restaurant +view",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "top": "10",
     "count": "true",
     "orderby": "Rating desc"
@@ -38,9 +39,11 @@ I parametri utilizzati durante l'esecuzione della query includono:
 
 + **`queryType`** imposta il parser, che è il [parser di query semplice predefinito](search-query-simple-examples.md) (ottimale per la ricerca full-text) o il [parser di query Lucene completo](search-query-lucene-examples.md) usato per i costrutti di query avanzati, come le espressioni regolari, la ricerca di prossimità, la ricerca fuzzy e il carattere jolly, per citarne alcuni.
 
++ **`searchMode`** Specifica se le corrispondenze sono basate su criteri "tutti" o "any" nell'espressione. Il valore predefinito è any.
+
 + **`search`** fornisce i criteri di corrispondenza, in genere termini interi o frasi, con o senza operatori. Qualsiasi campo attribuito come *ricercabile* nello schema dell'indice è un candidato per questo parametro.
 
-+ **`searchFields`** vincola l'esecuzione di query a campi ricercabili specifici.
++ **`searchFields`** vincola l'esecuzione di query a campi ricercabili specifici. Durante lo sviluppo, è utile usare lo stesso elenco di campi per la selezione e la ricerca. In caso contrario, una corrispondenza potrebbe essere basata sui valori di campo che non è possibile visualizzare nei risultati, creando incertezze sul motivo per cui è stato restituito il documento.
 
 Parametri usati per la modellazione della risposta:
 
@@ -114,4 +117,4 @@ Per un'analisi più approfondita dell'implementazione di query, vedere gli esemp
 
 + [Esempi di query semplici](search-query-simple-examples.md)
 + [Esempi di query con sintassi Lucene per la compilazione di query avanzate](search-query-lucene-examples.md)
-+ [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)
++ [Funzionamento della ricerca full-text in Azure ricerca cognitiva](search-lucene-query-architecture.md)git

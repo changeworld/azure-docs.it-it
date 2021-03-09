@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 4c2d1cd1c73b377d85501fd31d0f5a1893df5183
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185479"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487424"
 ---
 # <a name="camera-placement-guide"></a>Guida al posizionamento della fotocamera
 
@@ -72,12 +72,12 @@ Usare la tabella seguente per determinare la distanza della fotocamera dal punto
 
 | Altezza della fotocamera | Distanza da fotocamera a punto focale (min/max) |  
 | ------------- | ---------------------------------------- |  
-| 8'            | 10'-13'                                  |  
-| 10           | 7'-13'                                   |  
-| 12           | 10'-17'                                  |  
-| 14           | 11'-18'                                  |  
-| 16           | 12'-22'                                  |  
-| 20           | 15'-30'                                  |  
+| 8'            | 4.6'-8'                                  |  
+| 10           | 5.8'-10'                                 |  
+| 12           | 7'-12'                                   |  
+| 14           | 8'-14''                                  |  
+| 16           | 9.2'-16'                                 |  
+| 20           | 11.5'-20'                                |  
 
 La figura seguente simula le visualizzazioni della fotocamera dalle distanze più vicine tra la fotocamera e il punto focale.
 
@@ -91,15 +91,9 @@ Questa sezione descrive gli intervalli di montaggio dell'angolo della fotocamera
 
 ### <a name="line-configuration"></a>Configurazione linea
 
-La tabella seguente illustra le raccomandazioni per le fotocamere configurate per l'operazione **cognitiveservices. Vision. spatialanalysis-personcrossingline** . Per il rilevamento della maschera dei visi, +/-30 gradi è l'angolo di montaggio della fotocamera ottimale per l'altezza della fotocamera compreso tra 8 e 12.
+Per l'operazione **cognitiveservices. Vision. spatialanalysis-personcrossingline** , +/-5 ° è l'angolo di montaggio della fotocamera ottimale per ottimizzare la precisione.
 
-| Altezza della fotocamera | Distanza da fotocamera a punto focale | Angolo di montaggio della fotocamera ottimale (min/max) |  
-| ------------- | ------------------------------ | ------------------------------------------ |  
-| 8'            | 9                             | +/-40 °                                     |  
-| 10           | 10                            | +/-30 °                                     |  
-| 12           | 13                            | +/-20 °                                     |  
-| 16           | 18                            | +/-10 °                                     |  
-| 20           | 22                            | +/-10 °                                     |  
+Per il rilevamento della maschera dei visi, +/-30 gradi è l'angolo di montaggio della fotocamera ottimale per l'altezza della fotocamera compreso tra 8 e 12.
 
 La figura seguente simula le visualizzazioni della fotocamera usando le raccomandazioni per gli angoli di montaggio più a sinistra (-) e a destra (+) per l'uso di **cognitiveservices. Vision. spatialanalysis-personcrossingline** per eseguire il conteggio delle entrate in modo portabile.
 

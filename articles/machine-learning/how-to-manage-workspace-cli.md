@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/30/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 8ea3f36d4e63b3439691772c25e7b3af77dcdb02
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: b6b23e792aaef4d70e9ffc9be3667f0abef49e81
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210037"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489549"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 
@@ -148,7 +148,7 @@ L'output di questo comando è simile al codice JSON seguente:
 ### <a name="virtual-network-and-private-endpoint"></a>Rete virtuale e endpoint privato
 
 > [!IMPORTANT]
-> L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici o Azure Cina 21Vianet.
+> L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici.
 
 Se si vuole limitare l'accesso all'area di lavoro a una rete virtuale, è possibile usare i parametri seguenti:
 

@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: f8ceacf88968d884de666b764c1037db9e63450f
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: d64dfdad0c51950228288b704b3fdb7579496abb
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214916"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488070"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -285,7 +285,7 @@ Impostando il `vnetOption` valore del parametro su `new` o `existing` , è possi
 Se le risorse associate non sono dietro una rete virtuale, è possibile impostare il parametro **privateEndpointType** su `AutoAproval` o `ManualApproval` per distribuire l'area di lavoro dietro un endpoint privato. Questa operazione può essere eseguita per le aree di lavoro nuove ed esistenti. Quando si aggiorna un'area di lavoro esistente, compilare i parametri del modello con le informazioni dell'area di lavoro esistente.
 
 > [!IMPORTANT]
-> L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici o Azure Cina 21Vianet.
+> L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
 

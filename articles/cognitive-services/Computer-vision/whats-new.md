@@ -10,16 +10,25 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738226"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487101"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novità di Visione artificiale
 
 Ecco cosa c'è di nuovo nel servizio. Le novità possono essere note sulla versione, video, post di blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere aggiornati sul servizio.
+
+## <a name="march-2021"></a>Marzo 2021
+
+### <a name="computer-vision-32-public-preview-update"></a>Aggiornamento dell'anteprima pubblica di Visione artificiale 3,2
+
+L'anteprima pubblica di API Visione artificiale v 3.2 è stata aggiornata. La versione di anteprima include tutte le funzionalità Visione artificiale insieme alle API di lettura e analisi aggiornate.
+
+> [!div class="nextstepaction"]
+> [Vedere Visione artificiale versione 3.2 Public Preview 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 ## <a name="february-2021"></a>2021 febbraio
 
@@ -34,7 +43,7 @@ L'anteprima pubblica dell'API v 3.2 di Visione artificiale, disponibile come ser
 [Altre](concept-recognizing-text.md) informazioni sull'API Read.
 
 > [!div class="nextstepaction"]
-> [Usare l'anteprima pubblica dell'API v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+> [Usare l'anteprima pubblica dell'API v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 
 ## <a name="january-2021"></a>Gennaio 2021

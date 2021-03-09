@@ -12,12 +12,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
 ms.date: 03/08/2021
-ms.openlocfilehash: 56f7a233e7098f18b727da3ce56c5fbe30a328a1
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 8c98ce661e7bb753d4e62d1eaf98702de91c5106
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447470"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489770"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Confronto tra le funzionalità: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -33,8 +33,8 @@ Il database SQL di Azure e SQL Istanza gestita condividono una codebase comune c
 Azure gestisce i database e garantisce la disponibilità elevata. Alcune funzionalità che potrebbero influire sulla disponibilità elevata o non possono essere usate nel mondo PaaS hanno funzionalità limitate nel database SQL e in SQL Istanza gestita. Queste funzionalità sono descritte nelle tabelle seguenti.
 
 Se sono necessarie altre informazioni sulle differenze, è possibile trovarle nelle pagine separate:
-- [Database SQL di Azure](transact-sql-tsql-differences-sql-server.md)
-- [Istanza gestita di database SQL di Azure](../managed-instance/transact-sql-tsql-differences-sql-server.md)
+- [Confronto tra il database SQL di Azure e SQL Server](transact-sql-tsql-differences-sql-server.md)
+- [Differenze tra Istanza gestita di Azure SQL e SQL Server](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
 ## <a name="features-of-sql-database-and-sql-managed-instance"></a>Funzionalità del database SQL e di SQL Istanza gestita
 

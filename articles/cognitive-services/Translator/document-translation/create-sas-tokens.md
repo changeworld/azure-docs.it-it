@@ -5,19 +5,19 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
-ms.openlocfilehash: 104329928c507c288537704fbbef4e35b65cb445
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: e40fc569ad1c8ec5894f06915422bea37cfc40ee
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739437"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489634"
 ---
-# <a name="create-sas-tokens-for-document-translation"></a>Creare token SAS per la traduzione dei documenti
+# <a name="create-sas-tokens-for-document-translation-processing"></a>Creare token SAS per l'elaborazione della traduzione di documenti
 
 In questo articolo si apprenderà come creare token di firma di accesso condiviso (SAS) usando il Azure Storage Explorer o l'portale di Azure. Un token di firma di accesso condiviso fornisce l'accesso sicuro e delegato alle risorse nell'account di archiviazione di Azure.
 
-## <a name="create-sas-tokens-with-azure-storage-explorer"></a>Creare token SAS con Azure Storage Explorer
+## <a name="create-your-sas-tokens-with-azure-storage-explorer"></a>Creare i token di firma di accesso condiviso con Azure Storage Explorer
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -65,7 +65,7 @@ In questo articolo si apprenderà come creare token di firma di accesso condivis
 ## <a name="create-sas-tokens-for-blobs-in-the-azure-portal"></a>Creare token SAS per i BLOB nel portale di Azure
 
 > [!NOTE]
-> La creazione di token SAS per i contenitori direttamente nel portale di Azure non è attualmente supportata. Tuttavia, è possibile creare un token SAS con [**Azure Storage Explorer**](#create-sas-tokens-with-azure-storage-explorer) o completare l'attività [a livello di codice](../../../storage/blobs/sas-service-create.md).
+> La creazione di token SAS per i contenitori direttamente nel portale di Azure non è attualmente supportata. Tuttavia, è possibile creare un token SAS con [**Azure Storage Explorer**](#create-your-sas-tokens-with-azure-storage-explorer) o completare l'attività [a livello di codice](../../../storage/blobs/sas-service-create.md).
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="prerequisites"></a>Prerequisiti
@@ -74,7 +74,7 @@ Per iniziare, è necessario:
 
 * Un [**account Azure**](https://azure.microsoft.com/free/cognitive-services/)attivo.  Se non si dispone di un account, è possibile [**creare un account gratuito**](https://azure.microsoft.com/free/).
 * Una risorsa del servizio di [**conversione**](https://ms.portal.azure.com/#create/Microsoft) (**non** una risorsa multiservizio Servizi cognitivi).  *Vedere* [creare una nuova risorsa di Azure](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
-* Un [**account di archiviazione BLOB di Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). L'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione.
+* Un [**account di archiviazione BLOB di Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Si creeranno contenitori per archiviare e organizzare i dati BLOB nell'account di archiviazione.
 
 ### <a name="create-your-tokens"></a>Creare i token
 

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 34b37fde83ca957e7c90302561589e2568beb59b
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 752f38c0a44d40f2bf7e7b5961dca7743fbf4b76
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215052"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488036"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurare il collegamento privato di Azure per un'area di lavoro Azure Machine Learning
 
@@ -36,7 +36,7 @@ Il collegamento privato di Azure consente di connettersi all'area di lavoro usan
 * È necessario disporre di una rete virtuale esistente in cui creare l'endpoint privato. Prima di aggiungere l'endpoint privato, è inoltre necessario [disabilitare i criteri di rete per gli endpoint privati](../private-link/disable-private-endpoint-network-policy.md) .
 ## <a name="limitations"></a>Limitazioni
 
-* L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici o Azure Cina 21Vianet.
+* L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici.
 * Se si Abilita l'accesso pubblico per un'area di lavoro protetta con collegamento privato e si usa Azure Machine Learning Studio sulla rete Internet pubblica, alcune funzionalità come la finestra di progettazione potrebbero non riuscire ad accedere ai dati. Questo problema si verifica quando i dati vengono archiviati in un servizio protetto dietro la VNet. Ad esempio un account di archiviazione di Azure.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Creare un'area di lavoro che usa un endpoint privato

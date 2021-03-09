@@ -10,17 +10,17 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 70287a837b17268f2cddebfb2cf3344a8fe66ffe
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b4f058d9829a23748b8ef61daea5b3f12ce5fedf
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445230"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489719"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di:
-- Creare un account Azure con una sottoscrizione attiva. Per informazioni dettagliate, vedere [Creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Installare [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
+- Creare un account Azure con una sottoscrizione attiva. Per informazioni dettagliate, vedere [Creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Installare [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 - Creare una risorsa di Servizi di comunicazione di Azure. Per informazioni dettagliate, vedere [Creare una risorsa di comunicazione di Azure](../../create-communication-resource.md). Per questa guida di avvio rapido sarà necessario registrare l'**endpoint** della risorsa.
 - Un [token di accesso utente](../../access-tokens.md). Assicurarsi di impostare l'ambito su "chat" e prendere nota della stringa del token, nonché della stringa userId.
 
@@ -47,7 +47,7 @@ Installare la libreria client di chat per la comunicazione di Azure per .NET
 
 ```PowerShell
 dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
-``` 
+```
 
 ## <a name="object-model"></a>Modello a oggetti
 
@@ -60,7 +60,7 @@ Le classi seguenti gestiscono alcune delle principali funzionalità della librer
 
 ## <a name="create-a-chat-client"></a>Creare un client di chat
 
-Per creare un client di chat, è necessario usare l'endpoint di servizi di comunicazione e il token di accesso generato nell'ambito dei passaggi dei prerequisiti. È necessario usare la classe `CommunicationIdentityClient` dalla libreria client `Administration` per creare un utente e generare un token da passare al client di chat.
+Per creare un client di chat, è necessario usare l'endpoint di servizi di comunicazione e il token di accesso generato nell'ambito dei passaggi dei prerequisiti. È necessario usare la `CommunicationIdentityClient` classe dalla libreria client di identità per creare un utente ed emettere un token da passare al client di chat.
 
 Vedere altre informazioni sui [token di accesso utente](../../access-tokens.md).
 
@@ -95,7 +95,7 @@ Usare il `createChatThread` metodo in chatClient per creare un thread di chat
 - Usare `topic` per specificare un argomento per questa chat. L'argomento può essere aggiornato dopo la creazione del thread di chat usando la funzione `UpdateTopic`.
 - Usare la proprietà `participants` per passare un elenco di oggetti `ChatParticipant` da aggiungere al thread di chat. L'oggetto `ChatParticipant` viene inizializzato con un oggetto `CommunicationIdentifier`. `CommunicationIdentifier` può essere di tipo `CommunicationUserIdentifier` `MicrosoftTeamsUserIdentifier` o `PhoneNumberIdentifier` . Per ottenere un `CommunicationIdentifier` oggetto, ad esempio, è necessario passare un ID di accesso creato seguendo le istruzioni per [creare un utente](../../access-tokens.md#create-an-identity)
 
-L'oggetto Response del metodo createChatThread contiene i dettagli di chatThread. Per interagire con le operazioni del thread di chat, ad esempio l'aggiunta di partecipanti, l'invio di un messaggio, l'eliminazione di un messaggio e così via, è necessario creare un'istanza del client chatThreadClient utilizzando il metodo GetChatThreadClient sul client ChatClient. 
+L'oggetto Response del `createChatThread` metodo contiene i `chatThread` Dettagli. Per interagire con le operazioni del thread di chat, ad esempio l'aggiunta di partecipanti, l'invio di un messaggio, l'eliminazione di un messaggio e così via, è `chatThreadClient` necessario creare un'istanza del client utilizzando il `GetChatThreadClient` metodo nel `ChatClient` client.
 
 ```csharp
 var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))

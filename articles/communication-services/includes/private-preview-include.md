@@ -4,13 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: fcab628c79f32b89da945a519f36bb8c912cde21
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.custom: private_preview
+ms.openlocfilehash: 511656e1f904db6e65c98b9b6da950324164e2d8
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944237"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487381"
 ---
 > [!IMPORTANT]
-> La funzionalità descritta in questo documento è attualmente disponibile in anteprima privata.
+> La funzionalità descritta in questo documento è attualmente disponibile in anteprima privata. L'anteprima privata include l'accesso alle librerie client e alla documentazione a scopo di test non ancora disponibili pubblicamente.
 > Richiedere di diventare un early adopter compilando il modulo per l'[accesso in anteprima a Servizi di comunicazione di Azure](https://aka.ms/ACS-EarlyAdopter).

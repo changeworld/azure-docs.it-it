@@ -5,13 +5,13 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
-ms.openlocfilehash: 886889ef9a42e358fca22a9d86955a23c5419dfa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738158"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486659"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Introduzione alla conversione di documenti (anteprima)
 
@@ -19,27 +19,27 @@ ms.locfileid: "101738158"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+> [!NOTE]
+> In genere, quando si crea una risorsa di servizi cognitivi nella portale di Azure, è possibile scegliere di creare una chiave di sottoscrizione multiservizio o una chiave di sottoscrizione a servizio singolo. Tuttavia, la traduzione dei documenti è attualmente supportata solo nella risorsa Translator (Single-Service) e **non** è inclusa nella risorsa Servizi cognitivi (multiservizio).
+
 Per iniziare, è necessario:
 
 * Un [**account Azure**](https://azure.microsoft.com/free/cognitive-services/)attivo.  Se non si dispone di un account, è possibile [**creare un account gratuito**](https://azure.microsoft.com/free/).
 
-* Una risorsa del servizio di [**conversione**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**non** una risorsa Servizi cognitivi). 
+* Una risorsa del servizio di [**conversione**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**non** una risorsa Servizi cognitivi).
 
-* Un [**account di archiviazione BLOB di Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). L'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione.
+* Un [**account di archiviazione BLOB di Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Si creeranno contenitori per archiviare e organizzare i dati BLOB nell'account di archiviazione.
 
 * Un [**modulo di traduzione documenti completato (anteprima)**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) per consentire alla sottoscrizione di Azure di usare la nuova funzionalità di traduzione dei documenti.
-
-> [!NOTE]
-> La traduzione dei documenti è attualmente supportata solo nella risorsa di conversione (a servizio singolo), **non** nella risorsa Servizi cognitivi (multiservizio).
 
 ## <a name="get-your-custom-domain-name-and-subscription-key"></a>Ottenere il nome di dominio personalizzato e la chiave di sottoscrizione
 
 > [!IMPORTANT]
 >
-> * Non è possibile usare l'endpoint trovato nelle chiavi di risorsa portale di Azure e nella pagina dell' _endpoint_ né nell'endpoint di conversione globale, `api.cognitive.microsofttranslator.com` per eseguire richieste HTTP alla conversione dei documenti.
+> * Non si userà l'endpoint trovato nella portale di Azure le chiavi di risorsa e la pagina dell' _endpoint_ né l'endpoint di conversione globale, `api.cognitive.microsofttranslator.com` per eseguire richieste HTTP alla conversione dei documenti.
 > * **Tutte le richieste API al servizio di traduzione documenti richiedono un endpoint del dominio personalizzato**.
 
-### <a name="what-is-the-custom-domain-endpoint"></a>Che cos'è l'endpoint del dominio personalizzato? 
+### <a name="what-is-the-custom-domain-endpoint"></a>Che cos'è l'endpoint del dominio personalizzato?
 
 L'endpoint del dominio personalizzato è un URL formattato con il nome della risorsa, il nome host e le sottodirectory di Translator:
 
@@ -72,9 +72,9 @@ Le richieste al servizio di conversione richiedono una chiave di sola lettura pe
 * **Contenitore di destinazione**. Questo è il contenitore in cui verranno archiviati i file tradotti (obbligatorio).  
 * **Contenitore Glossario**. Questo contenitore consente di caricare i file di glossario (facoltativo).  
 
-*Vedere* **creare token di accesso SAS per la traduzione dei documenti**
+### <a name="create-sas-access-tokens-for-document-translation"></a>**Creare token di accesso SAS per la traduzione dei documenti**
 
-Gli elementi `sourceUrl` , `targetUrl` e facoltativi `glossaryUrl`  devono includere un token di firma di accesso condiviso (SAS), aggiunto come stringa di query. Il token può essere assegnato al contenitore o a BLOB specifici.
+Gli elementi `sourceUrl` , `targetUrl` e facoltativi `glossaryUrl`  devono includere un token di firma di accesso condiviso (SAS), aggiunto come stringa di query. Il token può essere assegnato al contenitore o a BLOB specifici. *Vedere* [**creare token SAS per il processo di traduzione dei documenti**](create-sas-tokens.md).
 
 * Il contenitore o il BLOB di **origine** deve avere designato l'accesso in  **lettura** ed **elenco** .
 * Il contenitore o il BLOB di **destinazione** deve avere l'accesso in  **scrittura** ed **elenco** designato.
@@ -271,7 +271,9 @@ Le intestazioni seguenti sono incluse in ogni richiesta dell'API di conversione 
 
 > [!IMPORTANT]
 >
-> Per gli esempi di codice riportati di seguito, potrebbe essere necessario aggiornare i campi seguenti, a seconda dell'operazione:
+> Per gli esempi di codice riportati di seguito, è necessario impostare come hardcoded la chiave e l'endpoint, se indicati; Ricordarsi di rimuovere la chiave dal codice al termine dell'operazione senza pubblicarla.  Vedere [sicurezza dei servizi cognitivi di Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) per informazioni su come archiviare in modo sicuro le credenziali e accedervi.
+>
+> Potrebbe essere necessario aggiornare i campi seguenti, a seconda dell'operazione:
 >>>
 >> * `endpoint`
 >> * `subscriptionKey`
@@ -280,13 +282,18 @@ Le intestazioni seguenti sono incluse in ogni richiesta dell'API di conversione 
 >> * `glossaryURL`
 >> * `id`  (ID processo)
 >>
-> Posizione in cui trovare il `id` valore:
-> * È possibile trovare il processo `id`  nel valore dell'URL dell'intestazione della risposta del metodo Post `Operation-Location`  . L'ultimo parametro dell'URL è il processo dell'operazione **`id`** .  
-> * È anche possibile usare una richiesta GET Jobs per recuperare il processo `id`  per un'operazione di conversione di documenti.
+
+#### <a name="locating--the-id-value"></a>Individuazione del `id` valore
+
+* Il processo è presente `id`  nel valore di URL intestazione risposta metodo Post `Operation-Location`  . L'ultimo parametro dell'URL è il processo dell'operazione **`id`** :
+
+|**Intestazione risposta**|**URL risultato**|
+|-----------------------|----------------|
+Operation-Location   | https://<<span>nome della risorsa>. cognitiveservices.Azure.com/translator/text/batch/V1.0-Preview.1/Batches/9dce0aa9-78dc-41BA-8cae-2e2f3c2ff8ec</span>
+
+* È anche possibile usare una richiesta **Get Jobs** per recuperare un processo di conversione dei documenti `id` .
+
 >
-> Per gli esempi di codice riportati di seguito, è necessario impostare come hardcoded la chiave e l'endpoint, se indicati; Ricordarsi di rimuovere la chiave dal codice al termine dell'operazione senza pubblicarla.  
->
-> Vedere [sicurezza dei servizi cognitivi di Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) per informazioni su come archiviare in modo sicuro le credenziali e accedervi.
 
 ## <a name="_post-document-translation_-request"></a>_Invia richiesta di traduzione documento_
 

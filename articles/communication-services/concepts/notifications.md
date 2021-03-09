@@ -9,14 +9,17 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 88948f757c41550124acf20ac1cf0e33cdb3e5ba
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 88a5ad66cb401715790bcff8c773e6d7881b103d
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660158"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487696"
 ---
 # <a name="communication-services-notifications"></a>Notifiche di Servizi di comunicazione
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 Le librerie client Chat e Chiamate di Servizi di comunicazione creano un canale di messaggistica in tempo reale che consente di eseguire il push dei messaggi di segnalazione nei client connessi in modo efficiente e affidabile. In questo modo è possibile integrare funzionalità avanzate di comunicazione in tempo reale nelle applicazioni senza la necessità di implementare una logica di polling HTTP complessa. Nelle applicazioni per dispositivi mobili però questo canale di segnalazione rimane connesso solo quando l'applicazione è attiva in primo piano. Per consentire agli utenti di ricevere chiamate in arrivo o messaggi di chat mentre l'applicazione è in background, occorre usare le notifiche push.
 

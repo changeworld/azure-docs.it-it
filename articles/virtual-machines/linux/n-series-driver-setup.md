@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/11/2019
 ms.author: vikancha
-ms.openlocfilehash: 766f6cb0515f45fa11ee26ba23e79ae51fff5ce3
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 333d4327e233d8101ece9f4272357a43cec47e56
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436091"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489821"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
@@ -45,7 +45,12 @@ Quindi eseguire i comandi di installazione specifici per la distribuzione.
 
 ### <a name="ubuntu"></a>Ubuntu 
 
-1. Scaricare e installare i driver CUDA dal sito Web NVIDIA. Ad esempio, per Ubuntu 16.04 LTS:
+1. Scaricare e installare i driver CUDA dal sito Web NVIDIA. 
+    > [!NOTE]
+   >  L'esempio seguente illustra il percorso del pacchetto CUDA per Ubuntu 16,04. Sostituire il percorso specifico della versione che si intende usare. 
+   >  
+   >  Visitare il [area Download NVIDIA] ( https://developer.download.nvidia.com/compute/cuda/repos/) per il percorso completo specifico per ogni versione. 
+   > 
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
    wget -O /tmp/${CUDA_REPO_PKG} https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
@@ -59,6 +64,7 @@ Quindi eseguire i comandi di installazione specifici per la distribuzione.
    ```
 
    L'installazione può richiedere alcuni minuti.
+ 
 
 2. Per installare facoltativamente il toolkit di CUDA completo, digitare:
 

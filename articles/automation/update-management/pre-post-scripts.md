@@ -3,14 +3,14 @@ title: Gestire pre-script e post-script nella distribuzione di Gestione aggiorna
 description: Questo articolo descrive come configurare e gestire pre-script e post-script per le distribuzioni di aggiornamento.
 services: automation
 ms.subservice: update-management
-ms.date: 12/17/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3ca1dec1b6139f3192edb09f8748c8f23a9d399e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ce60c773626d951062de3cc830b898e3b875f3cb
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701502"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485538"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gestire pre-script e post-script
 
@@ -19,6 +19,8 @@ I pre-script e i post-script sono runbook da eseguire nell'account di Automazion
 ## <a name="pre-script-and-post-script-requirements"></a>Requisiti di pre-script e post-script
 
 Per usare un runbook come pre-script o post-script, è necessario importarlo nell'account di Automazione e [pubblicare il runbook](../manage-runbooks.md#publish-a-runbook).
+
+Attualmente, solo i manuali operativi PowerShell e Python 2 sono supportati come script pre/post. Altri tipi di Runbook, come Python 3, grafico, flusso di lavoro PowerShell, flusso di lavoro PowerShell grafico non sono attualmente supportati come script pre/post.
 
 ## <a name="pre-script-and-post-script-parameters"></a>Parametri di pre-script e post-script
 
@@ -91,9 +93,6 @@ Un esempio completo con tutte le proprietà è disponibile in: [Ottenere la conf
 > [!NOTE]
 > L'oggetto `SoftwareUpdateConfigurationRunContext` può contenere voci duplicate per i computer. Questo può causare l'esecuzione di pre-script e post-script più volte nello stesso computer. Per ovviare a questo comportamento, usare `Sort-Object -Unique` per selezionare solo nomi di VM univoci.
 
-> [!NOTE]
-> Attualmente solo manuali operativi di PowerShell sono supportati come script pre/post. Altri tipi di Runbook, ad esempio Python, grafico, flusso di lavoro PowerShell, flusso di lavoro PowerShell grafico non sono attualmente supportati come script pre/post.
-
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Usare pre-script o post-script in una distribuzione
 
 Per usare un pre-script o un post-script in una distribuzione di aggiornamento, iniziare creando una distribuzione di aggiornamento. Selezionare **Pre-script e post-script**. Verrà visualizzata la pagina **Selezionare i pre-script e i post-script**.
@@ -120,7 +119,7 @@ Selezionando l'esecuzione della distribuzione di aggiornamento, vengono visualiz
 
 ## <a name="stop-a-deployment"></a>Arrestare una distribuzione
 
-Se si vuole arrestare una distribuzione in base a un pre-script, è necessario [generare](../automation-runbook-execution.md#throw) un'eccezione. In caso contrario, la distribuzione e il post-script saranno ancora in esecuzione. Il frammento di codice seguente illustra come generare un'eccezione.
+Se si vuole arrestare una distribuzione in base a un pre-script, è necessario [generare](../automation-runbook-execution.md#throw) un'eccezione. In caso contrario, la distribuzione e il post-script saranno ancora in esecuzione. Il frammento di codice seguente mostra come generare un'eccezione usando PowerShell.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -134,6 +133,8 @@ foreach($summary in $finalStatus)
     }
 }
 ```
+
+In Python 2 la gestione delle eccezioni viene gestita in un blocco [try](https://www.python-course.eu/exception_handling.php) .
 
 ## <a name="interact-with-machines"></a>Interagire con i computer
 
@@ -169,6 +170,13 @@ if (<My custom error logic>)
     #Throw an error to fail the patch deployment.
     throw "There was an error, abort deployment"
 }
+```
+
+In Python 2, se si desidera generare un errore quando si verifica una determinata condizione, utilizzare un'istruzione [Raise](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement) .
+
+```python
+If (<My custom error logic>)
+   raise Exception('Something happened.')
 ```
 
 ## <a name="samples"></a>Esempi

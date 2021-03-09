@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 41293f96246dd4badab000c4e7f936d825e7665a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9eebc77c5b3d9402c766320fddfdaf05d50b574f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691128"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485402"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione Server 4,0): funzionalità e sintassi supportate
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,6 +24,9 @@ Usando l'API di Azure Cosmos DB per MongoDB è possibile sfruttare i noti vantag
 ## <a name="protocol-support"></a>Protocolli supportati
 
 Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi all'API di Cosmos DB per MongoDB. Quando si usa l'API di Azure Cosmos DB per gli account MongoDB, le versioni 3.6 + degli account hanno l'endpoint nel formato `*.mongo.cosmos.azure.com` mentre la versione 3,2 degli account ha l'endpoint nel formato `*.documents.azure.com` .
+
+> [!NOTE]
+> Questo articolo elenca solo i comandi server supportati e non le funzioni wrapper lato client. Le funzioni wrapper lato client come `deleteMany()` e `updateMany()` utilizzano internamente i comandi server `delete()` e `update()`. Le funzioni che utilizzano i comandi server supportati sono compatibili con l'API di Azure Cosmos DB per MongoDB.
 
 ## <a name="query-language-support"></a>Linguaggi di query supportati
 

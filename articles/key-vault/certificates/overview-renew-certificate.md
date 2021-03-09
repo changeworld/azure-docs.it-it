@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 0720e6b55cec8150eea9d41ca89b2c9b21a0bc94
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
-ms.translationtype: HT
+ms.openlocfilehash: c7948230164258aa785f3dd6c1f487c51ece9333
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287682"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487186"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Rinnovare i certificati di Azure Key Vault
 
@@ -73,7 +73,10 @@ Per altre informazioni sulla creazione di una nuova richiesta di firma del certi
 Azure Key Vault gestisce anche il rinnovo automatico dei certificati autofirmati. Per altre informazioni sulla modifica dei criteri di rilascio e sull'aggiornamento degli attributi del ciclo di vita di un certificato, vedere [Configurare la rotazione automatica dei certificati in Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
 ## <a name="troubleshoot"></a>Risolvere problemi
-Se lo stato del certificato rilasciato è *Disabilitato* nel portale di Azure, passare a **Operazione relativa al certificato** per visualizzare il messaggio di errore del certificato.
+* Se lo stato del certificato rilasciato è *Disabilitato* nel portale di Azure, passare a **Operazione relativa al certificato** per visualizzare il messaggio di errore del certificato.
+* Tipo di errore "il CSR usato per ottenere il certificato è già stato usato. Provare a generare un nuovo certificato con un nuovo CSR ".
+  Passare alla sezione "criteri avanzati" del certificato e verificare se l'opzione **"Riutilizza chiave al rinnovo"** è disattivata.
+
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: cc2a641cb017edace24db5df69bc4adf3a607524
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: d95da29b732e2d520b3413628c9b4a1c403abed6
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797883"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488232"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guida alla migrazione: SQL Server di SQL Server in macchine virtuali di Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -58,6 +58,8 @@ Per altri strumenti di individuazione, vedere [Servizi e strumenti](../../../dms
 
 
 ### <a name="assess"></a>Valutare
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Dopo aver individuato tutte le origini dati, usare il [Data Migration Assistant (DMA)](/sql/dma/dma-overview) per valutare le istanze di SQL Server locali che eseguono la migrazione a un'istanza di SQL Server nella macchina virtuale di Azure per comprendere i gap tra le istanze di origine e di destinazione. 
 
@@ -109,7 +111,7 @@ Per le funzionalità deprecate, è possibile scegliere di eseguire i database ut
 > Non tutte le versioni di SQL Server supportano tutte le modalità di compatibilità. Verificare che la [versione di SQL Server di destinazione](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) supporti la compatibilità del database scelta. Ad esempio, SQL Server 2019 non supporta i database con compatibilità di livello 90 (SQL Server 2005). Questi database richiedono almeno un aggiornamento al livello di compatibilità 100.
 >
 
-## <a name="migrate"></a>Migrazione
+## <a name="migrate"></a>Migrate
 
 Dopo aver completato i passaggi di pre-migrazione, è possibile eseguire la migrazione dei database e dei componenti utente. Eseguire la migrazione dei database usando il [metodo di migrazione](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)preferito.  
 
@@ -123,7 +125,7 @@ Per eseguire una migrazione standard mediante backup e ripristino, attenersi all
 1. Sospendere/arrestare le applicazioni che utilizzano database destinati alla migrazione. 
 1. Verificare che i database utente siano inattivi usando la [modalità utente singolo](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
 1. Eseguire un backup completo del database su una posizione locale.
-1. Copiare i file di backup locali nella macchina virtuale usando desktop remoto, [Azure Esplora dati](/azure/data-explorer/data-explorer-overview)o l' [utilità da riga di comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (> i backup di 2 TB consigliati).
+1. Copiare i file di backup locali nella macchina virtuale usando desktop remoto, [Azure Esplora dati](/azure/data-explorer/data-explorer-overview)o l' [utilità da riga di comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (> i backup da 2 TB consigliati).
 1. Ripristinare i backup completi del database nel SQL Server nella macchina virtuale di Azure.
 
 ### <a name="log-shipping--minimize-downtime"></a>Log shipping (riduzione del tempo di inattività)
@@ -133,7 +135,7 @@ Per eseguire una migrazione del tempo di inattività minimo utilizzando backup, 
 1. Configurare la connettività per SQL Server di destinazione in una macchina virtuale di Azure, in base alle esigenze. Vedere [Connettersi a una macchina virtuale di SQL Server in Azure (Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Verificare che i database utente locali da migrare siano in un modello di recupero con registrazione completa o con registrazione minima delle operazioni bulk.
 1. Eseguire un backup completo del database in un percorso locale e modificare tutti i processi di backup completo del database esistenti per usare [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) parola chiave per mantenere la catena di log.
-1. Copiare i file di backup locali nella macchina virtuale usando desktop remoto, [Azure Esplora dati](/azure/data-explorer/data-explorer-overview)o l' [utilità da riga di comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (è consigliabile >backup da 1 TB).
+1. Copiare i file di backup locali nella macchina virtuale usando desktop remoto, [Azure Esplora dati](/azure/data-explorer/data-explorer-overview)o l' [utilità da riga di comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (>i backup da 1 TB consigliati).
 1. Ripristinare i backup completi del database nel SQL Server nella macchina virtuale di Azure.
 1. Configurare [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) tra il database locale e SQL Server di destinazione nella macchina virtuale di Azure. Assicurarsi di non reinizializzare i database perché questa operazione è già stata completata nei passaggi precedenti.
 1. **Passare** al server di destinazione. 

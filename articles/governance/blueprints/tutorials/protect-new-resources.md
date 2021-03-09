@@ -1,25 +1,25 @@
 ---
 title: 'Esercitazione: Proteggere le nuove risorse con blocchi'
 description: Questa esercitazione illustra come usare i blocchi delle risorse in Azure Blueprints in modalità Sola lettura e Non eliminare per proteggere le risorse appena distribuite.
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.topic: tutorial
-ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915408"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485742"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Esercitazione: Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints
 
-Il [blocco delle risorse](../concepts/resource-locking.md) di Azure Blueprints consente di proteggere le risorse appena distribuite da eventuali manomissioni, anche da parte di un account con il ruolo _Proprietario_. È possibile aggiungere questo tipo di protezione nelle definizioni del progetto delle risorse create da un artefatto del modello di Azure Resource Manager.
+Il [blocco delle risorse](../concepts/resource-locking.md) di Azure Blueprints consente di proteggere le risorse appena distribuite da eventuali manomissioni, anche da parte di un account con il ruolo _Proprietario_. È possibile aggiungere questo tipo di protezione nelle definizioni del progetto delle risorse create da un artefatto del modello di Azure Resource Manager. Il blocco di risorse del progetto viene impostato durante l'assegnazione del progetto.
 
 In questa esercitazione si completeranno i passaggi seguenti:
 
 > [!div class="checklist"]
 > - Creare una definizione di progetto
 > - Contrassegnare la definizione di progetto come **pubblicato**
-> - Assegnare la definizione del progetto a una sottoscrizione esistente
+> - Assegnare la definizione del progetto a una sottoscrizione esistente (**impostare i blocchi delle risorse**)
 > - Esaminare il nuovo gruppo di risorse
 > - Annullare l'assegnazione del progetto per rimuovere i blocchi
 
@@ -56,6 +56,9 @@ Creare prima la definizione di progetto.
    1. Selezionare la riga **Aggiungi artefatto** sotto la voce **RGtoLock**.
    1. Selezionare **Modello di Azure Resource Manager** in **Tipo di artefatto**, impostare **Nome visualizzato dell'artefatto** su **Account di archiviazione** e lasciare vuoto il campo **Descrizione**.
    1. Nella scheda **Modello** incollare il modello di Resource Manager seguente nella casella dell'editor. Dopo aver incollato il modello, selezionare **Aggiungi** per aggiungere l'artefatto al progetto.
+
+      > [!NOTE]
+      > Questo passaggio definisce le risorse da distribuire che vengono bloccate dal blocco delle risorse del progetto, ma non include i blocchi delle risorse del progetto. I blocchi delle risorse del progetto vengono impostati come parametro dell'assegnazione del progetto.
 
    ```json
    {
@@ -142,6 +145,9 @@ Dopo aver pubblicato la definizione di progetto, è possibile assegnarla a una s
    - **Blocca assegnazione**
 
      Selezionare la modalità di blocco del progetto **Sola lettura**. Per altre informazioni, vedere [Blueprints resource locking](../concepts/resource-locking.md) (Blocco delle risorse del progetto).
+
+     > [!NOTE]
+     > Questo passaggio consente di configurare il blocco di risorse Blueprint sulle risorse appena distribuite.
 
    - **Identità gestita**
 

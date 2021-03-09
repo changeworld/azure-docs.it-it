@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 3278c9956dd5017572f063059250c97727656923
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 44a838bdce4721d24bd0bdbb45ac7b36ceb34e71
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252373"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488370"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare l'accesso Single Sign-On (SSO) basato su SAML per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -39,7 +39,7 @@ Per configurare l'accesso SSO per un'applicazione aggiunta al tenant di Azure AD
 
 ## <a name="enable-single-sign-on-for-an-app"></a>Abilitare l'accesso Single Sign-On per un'app
 
-Una volta completata l'aggiunta di un'applicazione al tenant di Azure AD, viene visualizzata la pagina di panoramica. Se si configura un'applicazione già aggiunta, consultare il primo argomento di avvio rapido, che illustra come visualizzare le applicazioni aggiunte al tenant. 
+Una volta completata l'aggiunta di un'applicazione al tenant di Azure AD, viene visualizzata la pagina di panoramica. Se si configura un'applicazione già aggiunta, consultare il primo argomento di avvio rapido, che illustra come visualizzare le applicazioni aggiunte al tenant.
 
 Per configurare l'accesso Single Sign-On per un'applicazione:
 

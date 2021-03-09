@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 2/19/2021
 ms.author: cavoeg
-ms.openlocfilehash: 675030ac47cb26e817a9ef7ee51999f25020f292
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9ed78baed35312b9a33c71a3e49b7e9dca22eb9f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712700"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487220"
 ---
 # <a name="how-to-export-fhir-data"></a>Come esportare i dati di FHIR
 
@@ -38,6 +38,13 @@ Quando i dati vengono esportati, viene creato un file separato per ogni tipo di 
 
 Inoltre, il controllo dello stato di esportazione tramite l'URL restituito dall'intestazione Location durante l'accodamento è supportato insieme all'annullamento del processo di esportazione effettivo.
 
+### <a name="exporting-fhir-data-to-adls-gen2"></a>Esportazione dei dati di FHIR in ADLS Gen2
+
+Attualmente sono supportati $export per gli account di archiviazione ADLS Gen2 abilitati, con la limitazione seguente:
+
+- L'utente non può utilizzare ancora gli [spazi dei nomi gerarchici](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) ; non esiste un modo per indirizzare l'esportazione a una sottodirectory specifica all'interno del contenitore. Viene fornita solo la possibilità di fare riferimento a un contenitore specifico (in cui viene creata una nuova cartella per ogni esportazione).
+
+- Una volta completata l'esportazione, non viene mai eseguita alcuna esportazione in tale cartella, perché le esportazioni successive nello stesso contenitore si troveranno all'interno di una cartella appena creata.
 
 
 ## <a name="settings-and-parameters"></a>Impostazioni e parametri

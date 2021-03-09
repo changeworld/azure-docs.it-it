@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: b471e113a7e5ae2277e275d53ff8ac8ca9187d1d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 23b534f1ccbd51b028beeee173e5c3e0accd47a3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731225"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486183"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic-saas"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con PrinterLogic SaaS
 
@@ -37,10 +37,10 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* PrinterLogic SaaS supporta l'accesso SSO avviato da **SP e IDP**
-* PrinterLogic SaaS supporta il provisioning utenti **JIT**
+* Il protocollo SaaS PrinterLogic supporta SSO avviato da **SP e IDP** .
+* SaaS PrinterLogic supporta il provisioning degli utenti **just-in-Time** .
 
-## <a name="adding-printerlogic-saas-from-the-gallery"></a>Aggiunta di PrinterLogic SaaS dalla raccolta
+## <a name="add-printerlogic-saas-from-the-gallery"></a>Aggiungere PrinterLogic SaaS dalla raccolta
 
 Per configurare l'integrazione di PrinterLogic SaaS in Azure AD, è necessario aggiungere PrinterLogic SaaS dalla raccolta all'elenco di app SaaS gestite.
 
@@ -146,17 +146,16 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 #### <a name="sp-initiated"></a>Avviato da SP:
 
-* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di AskYourTeam, in cui è possibile avviare il flusso di accesso.  
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso SaaS PrinterLogic, in cui è possibile avviare il flusso di accesso.  
 
-* Passare direttamente all'URL di accesso di AskYourTeam e avviare il flusso di accesso da questa posizione.
+* Passare direttamente all'URL di accesso SaaS di PrinterLogic e avviare il flusso di accesso da qui.
 
 #### <a name="idp-initiated"></a>Avviato da IDP:
 
-* Dopo aver fatto clic su **Testa l'applicazione** nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di AskYourTeam per cui si è configurato l'accesso SSO 
+* Fare clic su **test questa applicazione** in portale di Azure e si dovrebbe accedere automaticamente al SaaS PrinterLogic per il quale si configura l'accesso SSO. 
 
-È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di AskYourTeam in App personali, se è stato configurato in modalità SP, si dovrebbe essere reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso; se invece è configurato in modalità IDP, si dovrebbe accedere automaticamente all'istanza di AskYourTeam per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
-
+È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro PrinterLogic SaaS in app personali, se configurato in modalità SP, si verrà reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso e, se configurato in modalità IDP, si dovrebbe accedere automaticamente al SaaS PrinterLogic per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato AskYourTeam, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato AskYourTeam, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -4,15 +4,15 @@ description: "Servizi per l'immissione sul mercato: in questa sezione vengono de
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/13/2021
+ms.date: 03/03/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 07535add495484abae06fc6ac8ac435d84bccc52
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 06f98a8e303d2ff692c0f84314e639c2a51cbcc1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246248"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489476"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del marketplace commerciale
 
@@ -38,7 +38,7 @@ Si otterrà supporto per la comprensione delle risorse disponibili e per l'imple
 
 Descrizioni dettagliate di tutti i vantaggi del programma sono disponibili in questa [presentazione del programma Rewards Program](https://aka.ms/marketplacerewards).
 
-Iniziare è facile:
+## <a name="getting-started-is-easy"></a>Iniziare è facile:
 
 1. Pubblicare un'offerta in Microsoft AppSource o in Azure Marketplace.
 2. Passare a [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) in Partner Center e selezionare **registra in Marketplace Rewards Program**.
@@ -49,19 +49,19 @@ Iniziare è facile:
     1. Indicare il telefono di contatto e la lingua preferita per questo contatto di marketing. Al termine dell'immissione di queste informazioni, selezionare **Assegna utente**.
     1. Dopo avere aggiornato il contatto marketing, selezionare **Attiva** per il vantaggio che si vuole iniziare a usare. Una volta attivato un vantaggio, il contatto di marketing sarà contattato da un membro del team Rewards entro una settimana.
 
-### <a name="technical-benefits"></a>Vantaggi tecnici
+> [!NOTE]
+> Se l'offerta è rimasta live per più di quattro settimane e non si è ricevuto alcun messaggio, eseguire una ricerca nel Centro per i partner per verificare chi è il proprietario dell'offerta all'interno dell'organizzazione, che dovrebbe aver ricevuto la comunicazione ed essere a conoscenza dei passaggi successivi.
 
-1. Puoi usare i tuoi vantaggi tecnici per richiedere assistenza tecnica durante le fasi di sviluppo di attività di pre-vendita, progettazione, distribuzione e sviluppo di soluzioni cloud e ibride. Per richiedere assistenza, compilare il modulo di richiesta e quindi selezionare **Invia richiesta**.
-2. Quando i vantaggi di Azure Sponsorship vengono sbloccati, si riceve un messaggio di posta elettronica che illustra come usarli.
-
->[!NOTE]
->Se l'offerta è rimasta live per più di quattro settimane e non si è ricevuto alcun messaggio, eseguire una ricerca nel Centro per i partner per verificare chi è il proprietario dell'offerta all'interno dell'organizzazione, che dovrebbe aver ricevuto la comunicazione ed essere a conoscenza dei passaggi successivi.<br><br>Se non è possibile determinare il proprietario o se il proprietario ha lasciato l'azienda, è possibile generare un ticket di supporto in [Guida e supporto tecnico](https://aka.ms/marketplacepublishersupport).
+Se non è possibile determinare il proprietario o se il proprietario ha lasciato l'azienda, è possibile generare un ticket di supporto in [Guida e supporto tecnico](https://aka.ms/marketplacepublishersupport).
 
 L'ambito delle attività disponibili si espande Man mano che si aumentano le offerte nel Marketplace commerciale. Per tutte le inserzioni viene inviato un messaggio di posta elettronica self-service relativo alle risorse e alle procedure consigliate con un livello di base di promozione e raccomandazioni per l'ottimizzazione.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Vantaggi in termini di inserzione, valutazione e consulenza
 
-Se si pubblica un modello di verifica, un'implementazione o un workshop di valutazione o di consulenza, verrà assegnato per tre mesi un engagement manager, che presterà supporto nell'ambito del piano di immissione sul mercato. È possibile ripetere questo engagement di tre mesi per ogni nuova offerta pubblicata, per promuoverne il successo fin dall'inizio.
+Ogni volta che si esegue la pubblicazione in Microsoft AppSource o in Azure Marketplace, sarà possibile accedere a un nuovo set di vantaggi. Quando l'offerta diventa disponibile, vai al [centro](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fdashboard%2Fmpn%2Fmembership%2Fbenefits%2Fcommercialmarketplace&data=04%7C01%7Cv-kilieb%40microsoft.com%7C3b13a8a6e41a47d6d96008d8c7cb3b50%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637479022971578374%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=MF1ZlPX9M5JiJZE2e%2B6kXEsRX1klB5hTcSqcHYDjZq8%3D&reserved=0) per i partner per attivare i vantaggi tecnici, di marketing e vendite idonei.
+
+> [!NOTE]
+> Tutti i vantaggi di valutazione e consulenza scadono dopo 3 mesi.
 
 La tabella seguente riepiloga i requisiti di idoneità per le offerte list, Trial e Consulting:
 

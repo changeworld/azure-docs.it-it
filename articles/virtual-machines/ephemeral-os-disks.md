@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9c13a914a002f63f3c0d5bd988b0d76b951586dd
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 814824fb6708abaf549bb3de19b4aced4774a244
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124687"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485759"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Dischi del sistema operativo temporaneo per le macchine virtuali di Azure
 
@@ -247,7 +247,7 @@ R: i dischi temporanei non supportano:
 
 > [!NOTE]
 > 
-> Il disco temporaneo non sarà accessibile tramite il portale. Quando si accede al disco temporaneo, è possibile che venga visualizzato l'errore "risorsa non trovata" o "404".
+> Il disco temporaneo non sarà accessibile tramite il portale. Si riceverà l'errore "risorsa non trovata" o "404" durante l'accesso al disco temporaneo previsto.
 > 
  
 ## <a name="next-steps"></a>Passaggi successivi

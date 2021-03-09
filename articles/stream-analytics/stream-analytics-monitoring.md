@@ -5,14 +5,14 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/21/2018
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d3558511721a91c3a195cb510a1a00d5d8a9a51
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726768"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487879"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
 
@@ -30,7 +30,7 @@ Verrà visualizzata la finestra mostrata di seguito:
 | ---------------------- | ---------------------------------------- |
 | Eventi di input con backlog       | Numero di eventi di input con backlog. Un valore diverso da zero per questa metrica implica che il processo non è in grado di rimanere aggiornato con il numero di eventi in arrivo. Se il valore aumenta lentamente o in modo coerente con un numero diverso da zero, è necessario aumentare il numero di istanze del processo. Per altre informazioni, visitare [Informazioni sulle unità di flusso e su come modificarle](stream-analytics-streaming-unit-consumption.md). |
 | Errori di conversione dati | Numero di eventi di output che non è stato possibile convertire nello schema di output previsto. Criteri di errore possono essere modificati in "Drop" (rilascia) per rimuovere gli eventi che verificano questo scenario. |
-| % Di utilizzo CPU (anteprima)       | Percentuale di CPU utilizzata dal processo. Se questa metrica è costantemente superiore al 80%, potrebbe significare che il processo ha un collo di bottiglia nell'utilizzo della CPU e probabilmente causerà il backlog degli eventi di input. È possibile aumentare il numero di unità di streaming allocate al processo per attenuare tali problemi. |
+| % Di utilizzo CPU (anteprima)       | Percentuale di CPU utilizzata dal processo. Anche se questo valore è molto elevato (90% o superiore), non è necessario aumentare il numero di unità di streaming in base a questa sola metrica. Se aumenta il numero di eventi di input con backlog o di ritardo della filigrana, è possibile usare questa metrica% di utilizzo della CPU per determinare se la CPU è il collo di bottiglia. È possibile che questa metrica includa picchi intermittenti. È consigliabile eseguire test di ridimensionamento per determinare il limite superiore del processo dopo il quale gli input ricevono un ritardo o un ritardo della filigrana a causa del collo di bottiglia della CPU. |
 | Eventi di input anticipati       | Eventi il cui timestamp di applicazione è precedente all'ora di arrivo di più di 5 minuti. |
 | Richieste di funzioni non riuscite | Numero di chiamate non riuscite alla funzione di Azure Machine Learning (se presente). |
 | Eventi di funzioni        | Numero di chiamate inviate alla funzione di Azure Machine Learning (se presente). |

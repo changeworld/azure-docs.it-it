@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 19a5d223b587e47c562977cc9fea34f990eb0e46
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: edd2ec633bd78ce1a596782deab57105e9d7f1c3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370819"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487747"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
@@ -37,6 +37,21 @@ Se la licenza scade, il proxy di applicazione verrà disabilitato automaticament
 Assicurarsi di avere almeno una licenza Azure AD Premium P1 o P2 e un connettore proxy di applicazione Azure AD installato. Dopo aver installato correttamente il primo connettore, il servizio proxy applicazione Azure AD verrà abilitato automaticamente.
 
 ## <a name="connector-configuration"></a>Configurazione del connettore
+
+### <a name="why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version"></a>Perché il connettore usa ancora una versione precedente e non è stato aggiornato automaticamente alla versione più recente?
+
+È possibile che il servizio di aggiornamento non funzioni correttamente o che non siano disponibili nuovi aggiornamenti che il servizio può installare.
+
+Il servizio di aggiornamento è integro se è in esecuzione e non sono presenti errori registrati nel registro eventi (registri applicazioni e servizi-> Microsoft-> AadApplicationProxy-> Updater-> admin). 
+
+> [!IMPORTANT]
+> Per l'aggiornamento automatico vengono rilasciate solo le versioni principali. Si consiglia di aggiornare manualmente il connettore con una pianificazione regolare. Per ulteriori informazioni sulle nuove versioni, il tipo di versione (download, aggiornamento automatico), correzioni di bug e nuove funzionalità, vedere [Azure ad proxy di applicazione: cronologia delle versioni](application-proxy-release-version-history.md).
+
+Per aggiornare manualmente un connettore:
+
+-  Scaricare la versione più recente del connettore. (Il proxy di applicazione è presente nel portale di Azure. È anche possibile trovare il collegamento in [Azure ad proxy di applicazione: cronologia delle versioni](application-proxy-release-version-history.md).
+-   Il programma di installazione riavvia i servizi del connettore del proxy di applicazione Azure AD. In alcuni casi, potrebbe essere necessario riavviare il server se il programma di installazione non è in grado di sostituire tutti i file. Per questo motivo, è consigliabile chiudere tutte le applicazioni, ad esempio Visualizzatore eventi, prima di iniziare l'aggiornamento.
+-   Eseguire il programma di installazione. Il processo di aggiornamento è rapido e non richiede l'immissione di credenziali e il connettore non verrà riregistrato.
 
 ### <a name="can-application-proxy-connector-services-run-in-a-different-user-context-than-the-default"></a>I servizi del connettore proxy di applicazione possono essere eseguiti in un contesto utente diverso da quello predefinito?
 

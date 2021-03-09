@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: 86807899c06cb333238344b7168b5675e8f2e9a3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a7e709ba9a4de5ff77524a2d2b1b64a5933131a2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "100366586"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489413"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importare chiavi con protezione HSM in Key Vault
 
@@ -33,7 +33,7 @@ Il trasferimento delle chiavi con protezione HSM in Key Vault è supportato tram
 
 |Nome produttore|Tipo di fornitore|Modelli di moduli di protezione hardware supportati|Metodo di trasferimento supportato per le chiavi HSM|
 |---|---|---|---|
-|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Produttore,<br/>modulo di protezione hardware come servizio|<ul><li>Famiglia di moduli di protezione hardware nShield</li><li>nShield come servizio</ul>|**Metodo 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (con attestazione avanzata per l'importazione di chiavi e la convalida dei moduli di protezione hardware)<br/>**Metodo 2:** [Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md) |
+|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Produttore,<br/>modulo di protezione hardware come servizio|<ul><li>Famiglia di moduli di protezione hardware nShield</li><li>nShield come servizio</ul>|**Metodo 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (deprecato)<br/>**Metodo 2:** [usare il nuovo metodo BYOK](hsm-protected-keys-byok.md) (scelta consigliata)|
 |Thales|Produttore|<ul><li>Famiglia di prodotti Luna HSM 7 con firmware con versione 7.3 o successiva</li></ul>| [Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
 |Fortanix|Produttore,<br/>modulo di protezione hardware come servizio|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
 |Marvell|Produttore|Moduli di protezione hardware di All LiquidSecurity con<ul><li>Firmware con versione 2.0.4 o successiva</li><li>Firmware con versione 3.2 o successiva</li></ul>|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|

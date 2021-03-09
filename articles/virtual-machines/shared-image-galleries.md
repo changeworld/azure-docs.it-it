@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: baba35bd29ec6708aca77bd9c6d74401a365014a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 9a5bc0620468980da68e1b92f758d5f3862ac7d3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091890"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487254"
 ---
 # <a name="shared-image-galleries-overview"></a>Informazioni generali sulle raccolte di immagini condivise
 
@@ -104,7 +104,7 @@ Le macchine virtuali specializzate non sono state sottoposte a un processo per r
 
 ## <a name="regional-support"></a>Supporto a livello di area
 
-Tutte le aree pubbliche possono essere aree di destinazione, tuttavia per la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia aggiunta all'elenco elementi consentiti. per richiedere che una sottoscrizione venga aggiunta all'elenco elementi consentiti, visitare: https://azure.microsoft.com/global-infrastructure/australia/contact/
+Tutte le aree pubbliche possono essere aree di destinazione, tuttavia per la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia aggiunta all'elenco elementi consentiti. per richiedere che una sottoscrizione venga aggiunta all'elenco elementi consentiti, visitare: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
 
 ## <a name="limits"></a>Limiti 
 
@@ -325,4 +325,3 @@ Inoltre, è possibile pubblicare e contrassegnare la domanda con `azure-virtual-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come distribuire immagini condivise usando l' [interfaccia](shared-images-cli.md) della riga di comando di Azure o [PowerShell](shared-images-powershell.md).
-

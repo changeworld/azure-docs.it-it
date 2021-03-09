@@ -3,14 +3,14 @@ title: Automazione di Azure - Panoramica di Gestione aggiornamenti
 description: Questo articolo fornisce una panoramica della funzionalità Gestione aggiornamenti che implementa gli aggiornamenti per computer Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 01/22/2021
+ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8c25e54143f0a0815a523bb923b7a7442de2a3d2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0a79be9d879e9ccb7ae4583d0674cf2bb23aafa4
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587869"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485674"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -78,7 +78,7 @@ Nella tabella seguente sono elencati i sistemi operativi supportati per la valut
 |Windows Server 2008 R2 (RTM e SP1 Standard)| Gestione aggiornamenti supporta le valutazioni e l'applicazione di patch per questo sistema operativo. Il ruolo di [lavoro ibrido per Runbook](../automation-windows-hrw-install.md) è supportato per Windows Server 2008 R2. |
 |CentOS 6 e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede `yum` per restituire i dati sulla sicurezza che non sono disponibili nelle release RTM di CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione in CentOS, vedere [Classificazioni degli aggiornamenti in Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
-|SUSE Linux Enterprise Server 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
+|SUSE Linux Enterprise Server 12, 15 e 15,1 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. Per SUSE 15. x, Python 3 è necessario nel computer.      |
 |Ubuntu 14,04 LTS, 16,04 LTS e 18,04 LTS (x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
 
 > [!NOTE]

@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: cf05d5f93180db91658d0e94a23359edd5b0f7ad
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 86b2dbe6a28d1440f93788eb40e133d9b62d3f0c
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663636"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489430"
 ---
 # <a name="device-update-security-model"></a>Modello di sicurezza per l'aggiornamento del dispositivo
 
@@ -54,7 +54,7 @@ La presenza di chiavi radice e firma consente a Microsoft di eseguire periodicam
 
 ### <a name="json-web-signature-jws"></a>Firma Web JSON (JWS, JSON Web Signature)
 
-`updateManifestSignature`Viene utilizzato per garantire che le informazioni contenute all'interno di `updateManifest` non siano state manomesse. `updateManifestSignature`Viene generato utilizzando una firma Web JSON con chiavi Web JSON, consentendo la verifica dell'origine. La firma è una stringa con codifica Base64Url con tre sezioni delineate da ".".  Fare riferimento ai metodi helper jws_util. h per l'analisi e la verifica di chiavi e token JSON.
+`updateManifestSignature`Viene utilizzato per garantire che le informazioni contenute all'interno di `updateManifest` non siano state manomesse. `updateManifestSignature`Viene generato utilizzando una firma Web JSON con chiavi Web JSON, consentendo la verifica dell'origine. La firma è una stringa con codifica Base64Url con tre sezioni delineate da ".".  Fare riferimento ai [metodi helper jws_util. h](https://github.com/Azure/iot-hub-device-update/tree/main/src/utils/jws_utils) per l'analisi e la verifica di chiavi e token JSON.
 
 La firma Web JSON è uno [standard IETF proposto](https://tools.ietf.org/html/rfc7515) ampiamente usato per la firma di contenuto con strutture di dati basate su JSON. Si tratta di un modo per garantire l'integrità dei dati verificando la firma dei dati. Per ulteriori informazioni, vedere la [RFC 7515](https://www.rfc-editor.org/info/rfc7515)relativa alla firma Web JSON (JWS).
 

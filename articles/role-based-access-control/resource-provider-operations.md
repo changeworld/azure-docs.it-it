@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 1ee422d4c040e8546135981e0640484acc997b0a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c91172ff110b950335c66f2c0ea9ac59c37e0a76
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718727"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487852"
 ---
 # <a name="azure-resource-provider-operations"></a>Operazioni del provider di risorse di Azure
 
@@ -50,6 +50,7 @@ Fare clic sul nome del provider di risorse nella tabella seguente per visualizza
 | [Microsoft. StorageSync](#microsoftstoragesync) |
 | [Microsoft.StorSimple](#microsoftstorsimple) |
 | **Web** |
+| [Microsoft.AppPlatform](#microsoftappplatform) |
 | [Microsoft.CertificateRegistration](#microsoftcertificateregistration) |
 | [Microsoft.DomainRegistration](#microsoftdomainregistration) |
 | [Microsoft.Maps](#microsoftmaps) |
@@ -2047,6 +2048,62 @@ Servizio di Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft.StorSimple/operations/read | Elenca o ottiene le operazioni |
 
 ## <a name="web"></a>Web
+
+### <a name="microsoftappplatform"></a>Microsoft.AppPlatform
+
+Servizio di Azure: [cloud Spring di Azure](../spring-cloud/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Azione | Descrizione |
+> | --- | --- |
+> | Microsoft. AppPlatform/Register/Action | Registrare la sottoscrizione per il provider di risorse Microsoft. AppPlatform |
+> | Microsoft. AppPlatform/Annulla registrazione/azione | Annulla la registrazione della sottoscrizione dal provider di risorse Microsoft. AppPlatform |
+> | Microsoft. AppPlatform/locations/checkNameAvailability/Action | Controllare la disponibilità del nome della risorsa |
+> | Microsoft. AppPlatform/locations/operationResults/Spring/Read | Risultato dell'operazione di lettura della risorsa |
+> | Microsoft. AppPlatform/locations/operationStatus/operationId/Read | Lettura dello stato dell'operazione sulle risorse |
+> | Microsoft. AppPlatform/Operations/Read | Elenca le operazioni disponibili di Microsoft Azure Spring cloud |
+> | Microsoft. AppPlatform/SKU/lettura | Elenca gli SKU disponibili di Microsoft Azure Spring cloud |
+> | Microsoft. AppPlatform/Spring/Write | Creare o aggiornare un'istanza specifica del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/Delete | Eliminare un'istanza specifica del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/Read | Ottenere le istanze del servizio cloud Spring di Azure |
+> | Microsoft. AppPlatform/Spring/enableTestEndpoint/Action | Abilitare la funzionalità dell'endpoint di test per una specifica istanza del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/disableTestEndpoint/Action | Disabilitare la funzionalità dell'endpoint di test per una specifica istanza del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/listTestKeys/Action | Elencare le chiavi di test per un'istanza specifica del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/regenerateTestKey/Action | Rigenera la chiave di test per una specifica istanza del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/Apps/Write | Crea o aggiorna l'applicazione per una specifica istanza del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/Apps/Delete | Eliminare l'applicazione per una specifica istanza del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/Apps/Read | Ottenere le applicazioni per una specifica istanza del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/Apps/getResourceUploadUrl/Action | Ottenere l'URL di caricamento delle risorse di una specifica applicazione cloud Microsoft Azure Spring |
+> | Microsoft. AppPlatform/Spring/Apps/validateDomain/Action | Convalidare il dominio personalizzato per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/bindings/Write | Creare o aggiornare l'associazione per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/bindings/Delete | Eliminare l'associazione per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/bindings/Read | Ottenere i binding per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/distribuzioni/scrittura | Creare o aggiornare la distribuzione per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/Distributions/Delete | Eliminare la distribuzione per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/distribuzioni/lettura | Ottenere le distribuzioni per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/distribuzioni/avvio/azione | Avviare la distribuzione per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/distributes/Stop/Action | Arrestare la distribuzione per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/Deployments/restart/Action | Riavviare la distribuzione per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/Deployments/getLogFileUrl/Action | Ottenere l'URL del file di log di una specifica distribuzione di applicazioni cloud di Microsoft Azure Spring |
+> | Microsoft. AppPlatform/Spring/Apps/Deployments/SKU/Read | Elenca gli SKU disponibili per la distribuzione di un'applicazione |
+> | Microsoft. AppPlatform/Spring/Apps/Domains/Write | Creare o aggiornare il dominio personalizzato per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/Domains/Delete | Eliminare il dominio personalizzato per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Apps/Domains/Read | Ottenere i domini personalizzati per un'applicazione specifica |
+> | Microsoft. AppPlatform/Spring/Certificates/Write | Creare o aggiornare il certificato per una specifica istanza del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/Certificates/Delete | Eliminare il certificato per una specifica istanza del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/Certificates/Read | Ottenere i certificati per una specifica istanza del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/configServers/Read | Ottenere il server di configurazione per un'istanza specifica del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/configServers/Write | Creare o aggiornare il server di configurazione per un'istanza specifica del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/Deployments/Read | Ottenere le distribuzioni per una specifica istanza del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/Detectors/Read | Ottenere i rilevatori per un'istanza specifica del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/monitoringSettings/Read | Ottenere l'impostazione di monitoraggio per un'istanza specifica del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/monitoringSettings/Write | Crea o aggiorna l'impostazione di monitoraggio per un'istanza specifica del servizio cloud di Azure Spring |
+> | **DataAction** | **Descrizione** |
+> | Microsoft. AppPlatform/Spring/configService/Read | Leggere il contenuto di configurazione (ad esempio, Application. YAML) per un'istanza specifica del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/eurekaService/Read | Leggere le informazioni di registrazione delle app utente per un'istanza specifica del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/eurekaService/Write | Scrivere le informazioni di registrazione delle app utente per un'istanza specifica del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/eurekaService/Delete | Eliminare le informazioni di registrazione dell'app utente per un'istanza specifica del servizio cloud di Azure Spring |
+> | Microsoft. AppPlatform/Spring/logstreamService/Read | Leggere il log di streaming dell'app utente per un'istanza specifica del servizio cloud di Azure Spring |
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
@@ -7176,7 +7233,7 @@ Servizio di Azure: [identità gestite per le risorse di Azure](../active-directo
 > | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Elimina l'identità assegnata a un utente esistente |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/assign/action | Azione di controllo degli accessi in base al ruolo per l'assegnazione dell'identità assegnata di un utente esistente a una risorsa |
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -10443,7 +10500,7 @@ Servizio di Azure: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/delete | Eliminazione di un'impostazione di diagnostica |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Lettura delle categorie di un'impostazione di diagnostica |
 
-## <a name="other"></a>Altro
+## <a name="other"></a>Altri
 
 ### <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
 

@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
-ms.openlocfilehash: d8763a794d2fb96d0c464fb1249b9eb400fd23e7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d542e2b4e5db86fd3354514790e718f0694a09a5
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339870"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489753"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gestire un account Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -198,7 +198,7 @@ Vedere [impostare priorità di failover con l'interfaccia della riga di comando 
 
 Vedere [impostare la priorità di failover con PowerShell](manage-with-powershell.md#modify-failover-priority)
 
-## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a><a id="manual-failover"></a>Eseguire il failover manuale su un account Azure Cosmos
+## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a><a id="manual-failover"></a>Eseguire un failover manuale per un account Azure Cosmos
 
 > [!IMPORTANT]
 > Affinché questa operazione abbia esito positivo, è necessario configurare l'account Azure Cosmos per il failover manuale.
@@ -206,7 +206,7 @@ Vedere [impostare la priorità di failover con PowerShell](manage-with-powershel
 Il processo di esecuzione di un failover manuale prevede la modifica dell'area di scrittura dell'account (priorità di failover = 0) mediante l'impostazione di un'altra area configurata per l'account.
 
 > [!NOTE]
-> Non è possibile eseguire manualmente il failover degli account con più aree di scrittura. Per le applicazioni che usano l'SDK di Azure Cosmos, l'SDK rileverà quando un'area diventa non disponibile e quindi eseguirà automaticamente il reindirizzamento all'area successiva più vicina, se nell'SDK viene usata l'API multihosting.
+> Non è possibile eseguire manualmente il failover degli account con più aree di scrittura. Per le applicazioni che usano Azure Cosmos SDK, l'SDK rileva quando un'area non è più disponibile, quindi reindirizza automaticamente all'area successiva più vicina.
 
 ### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Portale di Azure
 

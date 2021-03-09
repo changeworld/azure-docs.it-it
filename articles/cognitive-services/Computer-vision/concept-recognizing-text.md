@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 2833fd44b75f4bebf41b5100eb2350ca69436520
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e0247560afa8229f4fa5c25ec7dfbbca4f7defb2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362795"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486099"
 ---
 # <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
 
@@ -133,17 +133,17 @@ Vedere l'esempio seguente di una risposta JSON riuscita:
 ```
 
 ## <a name="natural-reading-order-output-latin-only"></a>Output dell'ordine di lettura naturale (solo alfabeto latino)
-Con l' [API di lettura 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)specificare l'ordine in cui vengono restituite le righe di testo con il `readingOrder` parametro di query. Usare `natural` per un output dell'ordine di lettura più semplice, come illustrato nell'esempio seguente. Questa funzionalità è supportata solo per le lingue latine.
+Con l' [API di lettura 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)specificare l'ordine in cui vengono restituite le righe di testo con il `readingOrder` parametro di query. Usare `natural` per un output dell'ordine di lettura più semplice, come illustrato nell'esempio seguente. Questa funzionalità è supportata solo per le lingue latine.
 
 :::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="Esempio di ordine di lettura OCR":::
 
 ## <a name="handwritten-classification-for-text-lines-latin-only"></a>Classificazione manoscritta per le righe di testo (solo alfabeto latino)
-La risposta dell' [API Read 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) include la classificazione di ogni riga di testo con stile di grafia o meno, insieme a un punteggio di confidenza. Questa funzionalità è supportata solo per le lingue latine. Nell'esempio seguente viene illustrata la classificazione manoscritta per il testo nell'immagine.
+La risposta dell' [API Read 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) include la classificazione di ogni riga di testo con stile di grafia o meno, insieme a un punteggio di confidenza. Questa funzionalità è supportata solo per le lingue latine. Nell'esempio seguente viene illustrata la classificazione manoscritta per il testo nell'immagine.
 
 :::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="Esempio di classificazione della grafia OCR":::
 
 ## <a name="select-pages-or-page-ranges-for-text-extraction"></a>Seleziona pagine o intervalli di pagine per l'estrazione del testo
-Con l' [API di anteprima di lettura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), per documenti di grandi dimensioni, usare il `pages` parametro di query per specificare i numeri di pagina o gli intervalli di pagine per estrarre il testo solo dalle pagine. Nell'esempio seguente viene illustrato un documento con 10 pagine, con il testo estratto per entrambi i casi, tutte le pagine (1-10) e le pagine selezionate (3-6).
+Con l' [API di anteprima di lettura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), per documenti di grandi dimensioni, usare il `pages` parametro di query per specificare i numeri di pagina o gli intervalli di pagine per estrarre il testo solo dalle pagine. Nell'esempio seguente viene illustrato un documento con 10 pagine, con il testo estratto per entrambi i casi, tutte le pagine (1-10) e le pagine selezionate (3-6).
 
 :::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Output pagine selezionate":::
 
@@ -166,4 +166,4 @@ L' [API OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/com
 
 - Introduzione all' [API REST di visione artificiale o alle guide introduttive della libreria client](./quickstarts-sdk/client-library.md).
 - Informazioni sull' [API REST di lettura 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Informazioni sull' [API REST di lettura 3,2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) con supporto per un totale di 73 lingue.
+- Informazioni sull' [API REST di lettura 3,2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) con supporto per un totale di 73 lingue.

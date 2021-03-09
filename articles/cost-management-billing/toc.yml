@@ -292,6 +292,8 @@
           href: manage/mca-check-azure-credits-balance.md
         - name: Eseguire la migrazione da API EA ad API MCA
           href: costs/migrate-cost-management-api.md
+        - name: Assegnare ruoli ai nomi SPN
+          href: manage/assign-roles-azure-service-principals.md
     - name: Acquistare e amministrare prenotazioni
       items:
         - name: Decidere cosa acquistare
