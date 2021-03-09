@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 01/20/2021
 ms.author: mjbrown
-ms.openlocfilehash: 393b5988c65b0c3f0ade85f014b1bd9f7d38abdc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a0bd1c732a23ca123c391521f5895eb4dcb8c879
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679341"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503386"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-gremlin-api"></a>Esempi di Azure PowerShell per l'API Gremlin di Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
-La tabella seguente contiene collegamenti a script di Azure PowerShell comunemente usati per Azure Cosmos DB. Usare i collegamenti a destra per passare agli esempi specifici delle API. Gli esempi comuni sono uguali per tutte le API. Per tutti i cmdlet di PowerShell per Azure Cosmos DB sono disponibili pagine di riferimento nelle [informazioni di riferimento su Azure PowerShell](/powershell/module/az.cosmosdb). Il `Az.CosmosDB` modulo fa ora parte del `Az` modulo. [Scaricare e installare](/powershell/azure/install-az-ps?preserve-view=true&view=azps-5.4.0) la versione più recente di AZ Module per ottenere i cmdlet di Azure Cosmos DB. È anche possibile ottenere la versione più recente dal [PowerShell Gallery](https://www.powershellgallery.com/packages/Az/5.4.0). È anche possibile creare una copia tramite fork di questi esempi di PowerShell per Cosmos DB dal repository GitHub, nella pagina degli [esempi di PowerShell per Cosmos DB in GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
+La tabella seguente contiene collegamenti a script di Azure PowerShell comunemente usati per Azure Cosmos DB. Usare i collegamenti a destra per passare agli esempi specifici delle API. Gli esempi comuni sono uguali per tutte le API. Per tutti i cmdlet di PowerShell per Azure Cosmos DB sono disponibili pagine di riferimento nelle [informazioni di riferimento su Azure PowerShell](/powershell/module/az.cosmosdb). Il `Az.CosmosDB` modulo fa ora parte del `Az` modulo. [Scaricare e installare](/powershell/azure/install-az-ps) la versione più recente di AZ Module per ottenere i cmdlet di Azure Cosmos DB. È anche possibile ottenere la versione più recente dal [PowerShell Gallery](https://www.powershellgallery.com/packages/Az/5.4.0). È anche possibile creare una copia tramite fork di questi esempi di PowerShell per Cosmos DB dal repository GitHub, nella pagina degli [esempi di PowerShell per Cosmos DB in GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
 
 ## <a name="common-samples"></a>Esempi comuni
 

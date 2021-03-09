@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 03/07/2021
 ms.author: banders
-ms.openlocfilehash: 0f30c90bf81a837b1e78ca5f91450cf085cc91bc
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e7f5370e1e387947d196959fef31043ea8f4d3bd
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102495144"
+ms.locfileid: "102508521"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Assegnare ruoli ai nomi dell'entità servizio Contratto Enterprise di Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "102495144"
 Prima di iniziare, assicurarsi di avere familiarità con gli articoli seguenti:
 
 - [Ruoli Enterprise Agreement](understand-ea-roles.md)
-- [Accedere con Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-5.5.0&preserve-view=true)
+- [Accedere con Azure PowerShell](/powershell/azure/authenticate-azureps)
 - [Come chiamare le API REST con il post](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
 ## <a name="create-and-authenticate-your-service-principal"></a>Creare e autenticare l'entità servizio
@@ -89,7 +89,7 @@ Il parametro è l'ID dell'account di fatturazione. È possibile trovarlo nella p
 
 **billingRoleAssignmentName**
 
-Il parametro è un GUID univoco che è necessario fornire. È possibile generare un GUID usando il comando [New-GUID di](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) PowerShell.
+Il parametro è un GUID univoco che è necessario fornire. È possibile generare un GUID usando il comando [New-GUID di](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell.
 
 In alternativa, è possibile usare il sito Web [GUID/UUID generator](https://guidgenerator.com/) per generare un GUID univoco.
 
@@ -141,7 +141,7 @@ Si tratta dell'ID account di fatturazione. È possibile trovarlo nella portale d
 
 **billingRoleAssignmentName**
 
-Il parametro è un GUID univoco che è necessario fornire. È possibile generare un GUID usando il comando [New-GUID di](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) PowerShell.
+Il parametro è un GUID univoco che è necessario fornire. È possibile generare un GUID usando il comando [New-GUID di](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell.
 
 In alternativa, è possibile usare il sito Web [GUID/UUID generator](https://guidgenerator.com/) per generare un GUID univoco.
 
@@ -199,7 +199,7 @@ Il parametro è l'ID dell'account di fatturazione. È possibile trovarlo nella p
 
 **billingRoleAssignmentName**
 
-Il parametro è un GUID univoco che è necessario fornire. È possibile generare un GUID usando il comando [New-GUID di](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) PowerShell.
+Il parametro è un GUID univoco che è necessario fornire. È possibile generare un GUID usando il comando [New-GUID di](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell.
 
 In alternativa, è possibile usare il sito Web [GUID/UUID generator](https://guidgenerator.com/) per generare un GUID univoco.
 **enrollmentAccountName**

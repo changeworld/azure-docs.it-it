@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 610f0a9692c18afbd7bb446959b09bac14d6f629
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461837"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507620"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e l'interfaccia della riga di comando di Azure: abilitare Transparent Data Encryption con chiave gestita dal cliente da Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -79,7 +79,7 @@ Per aggiungere autorizzazioni al server in un modulo di protezione hardware gest
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Aggiungere la chiave di Key Vault al server e impostare la protezione TDE
 
-- Usare il cmdlet [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) per recuperare l'ID chiave da Key Vault
+- Usare il cmdlet [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) per recuperare l'ID chiave da Key Vault
 - Usare il cmdlet [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) per aggiungere la chiave dal Key Vault al server.
 - Usare il cmdlet [set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) per impostare la chiave come protezione Transparent Data Encryption per tutte le risorse del server.
 - Usare il cmdlet [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) per verificare che la protezione Transparent Data Encryption sia stata configurata come previsto.

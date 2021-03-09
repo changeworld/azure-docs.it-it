@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 464439516ee86d2fb6f900c3fcaf179095192acf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a15517c7c34d39dfb1de237d19e84c40bf834ea
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498881"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500105"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Controllo di sicurezza: inventario e gestione delle risorse
 
@@ -30,7 +30,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 - [Come creare query con Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md)
 

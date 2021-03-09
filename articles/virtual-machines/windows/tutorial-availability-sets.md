@@ -1,22 +1,22 @@
 ---
-title: 'Esercitazione: Disponibilità elevata per le VM Windows in Azure'
-description: In questa esercitazione si apprenderà come usare Azure PowerShell per distribuire macchine virtuali a disponibilità elevata nei set di disponibilità
+title: Distribuire le macchine virtuali in un set di disponibilità usando Azure PowerShell
+description: Informazioni su come usare Azure PowerShell per distribuire macchine virtuali a disponibilità elevata nei set di disponibilità
 services: virtual-machines-windows
-author: cynthn
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.topic: tutorial
-ms.date: 11/30/2018
-ms.author: cynthn
+author: mimckitt
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e1c9cf0a60446fba6fae5c850231b0805e7ea135
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 90f57e48ef8cd2f71eea7a5c2b98fda83f282203
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736653"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509099"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Esercitazione: Creare e distribuire macchine virtuali a disponibilità elevata con Azure PowerShell
+# <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-powershell"></a>Creare e distribuire le macchine virtuali in un set di disponibilità usando Azure PowerShell
 
 Questa esercitazione illustra come aumentare la disponibilità e l'affidabilità delle macchine virtuali (VM) usando set di disponibilità. I set di disponibilità garantiscono che le VM vengano distribuite in Azure tra più nodi hardware isolati all'interno di un cluster. 
 
@@ -28,14 +28,6 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Controllare le dimensioni delle macchine virtuali disponibili
 > * Selezionare Azure Advisor
 
-
-## <a name="availability-set-overview"></a>Informazioni generali sui set di disponibilità
-
-Un set di disponibilità è una funzionalità di raggruppamento logico che consente di isolare le risorse VM tra loro quando vengono distribuite. Azure garantisce che le VM inserite all'interno di un set di disponibilità vengano eseguite tra più server fisici, rack di calcolo, unità di archiviazione e commutatori di rete. Eventuali errori hardware o software interessano solo un subset delle VM e nel complesso la soluzione rimane operativa. I set di disponibilità sono essenziali per creare soluzioni cloud affidabili.
-
-Si consideri una soluzione tipica basata su macchine virtuali, in cui si hanno quattro server Web front-end e due macchine virtuali back-end. Con Azure può essere opportuno definire due set di disponibilità prima di distribuire le VM: uno per il livello Web e un altro per il livello back-end. Quando si crea una nuova VM, si specifica il set di disponibilità come parametro. Azure garantisce che le VM siano isolate in più risorse hardware fisiche. Se l'hardware fisico su cui è in esecuzione uno dei server ha un problema, le altre istanze dei server rimangono in esecuzione perché si trovano in risorse hardware diverse.
-
-È consigliabile usare i set di disponibilità quando si vogliono distribuire soluzioni affidabili basate su macchine virtuali in Azure.
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 

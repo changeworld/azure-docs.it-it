@@ -10,12 +10,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8813b2cad5800bd4ede6e64119117df57c230fdc
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 32777d9f8313457036b103777f251329687b3997
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071222"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508011"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
@@ -160,7 +160,7 @@ Azure ML offre la possibilità di tenere traccia dell'audit trail end-to-end di 
 > [!TIP]
 > Sebbene alcune informazioni sui modelli e i set di dati vengano acquisiti automaticamente, è possibile aggiungere altre informazioni usando i __tag__. Quando si cercano i modelli e i set di impostazioni registrati nell'area di lavoro, è possibile usare i tag come filtro.
 >
-> L'associazione di un set di dati a un modello registrato è un passaggio facoltativo. Per informazioni sul riferimento a un set di dati durante la registrazione di un modello, vedere il riferimento alla classe del [modello](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py) .
+> L'associazione di un set di dati a un modello registrato è un passaggio facoltativo. Per informazioni sul riferimento a un set di dati durante la registrazione di un modello, vedere il riferimento alla classe del [modello](/python/api/azureml-core/azureml.core.model%28class%29) .
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notifica, automazione e avviso per gli eventi nel ciclo di vita ML

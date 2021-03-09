@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: a33ba6813b4a67de7f46f3576a44fa7411278ba7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 861463b13c6ce8b29911432ad96f98fed527745b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031787"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501057"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Esercitazione: Usare un'identità gestita per richiamare Funzioni di Azure da un'app di Azure Spring Cloud
 
@@ -175,4 +175,4 @@ Questo esempio richiama la funzione attivata tramite HTTP chiedendo prima di tut
 
 * [Come abilitare l'identità gestita assegnata dal sistema per l'applicazione Azure Spring Cloud](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
 * [Altre informazioni sulle identità gestite per le risorse di Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Configurare un'applicazione client daemon per le chiamate da servizio a servizio](../app-service/configure-authentication-provider-aad.md#configure-a-daemon-client-application-for-service-to-service-calls)
+* [Configurare le app client per accedere al servizio app](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)

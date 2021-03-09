@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 1a73b56c5ed8b15b9bbcf344e91fdd5fdf4b78cc
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 609649c533b184b2ccc3d3a5fee79d75d1b66f5b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592196"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506685"
 ---
 # <a name="azure-queue-storage-reference"></a>Informazioni di riferimento sull'archiviazione code di Azure
 
@@ -25,7 +25,7 @@ La tabella seguente elenca i riferimenti e la documentazione di esempio per le A
 
 |  Versione  | Documentazione di riferimento | Pacchetto | Avvio rapido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Spazio dei nomi Azure. storage. Queues](/dotnet/api/azure.storage.queues) | [Pacchetto (NuGet)](https://www.nuget.org/packages/azure.storage.queues/) | [Guida introduttiva: libreria client di archiviazione code di Azure V12 per .NET](./storage-quickstart-queues-dotnet.md) |
+| 12.x | [Spazio dei nomi Azure. storage. Queues](/dotnet/api/azure.storage.queues) | [Pacchetto (NuGet)](https://www.nuget.org/packages/azure.storage.queues/) | [Avvio rapido: Libreria client di Archiviazione code di Azure v12 per .NET](./storage-quickstart-queues-dotnet.md) |
 | 11. x | [Spazio dei nomi Microsoft. Azure. storage. Queue](/dotnet/api/microsoft.azure.storage.queue) | [Pacchetto (NuGet)](https://www.nuget.org/packages/microsoft.azure.storage.queue/) | [Guida introduttiva: Usare Azure Storage SDK v11 per .NET per gestire una coda](./storage-quickstart-queues-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>Gestione dello spazio di archiviazione
@@ -50,7 +50,7 @@ La tabella seguente elenca i riferimenti e la documentazione di esempio per le A
 
 |  Versione  | Documentazione di riferimento | Pacchetto | Avvio rapido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Libreria client di archiviazione code di Azure V12 per Java](/java/api/overview/azure/storage-queue-readme) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Guida introduttiva: libreria client di archiviazione code di Azure V12 per Java](./storage-quickstart-queues-java.md) |
+| 12.x | [Libreria client di archiviazione code di Azure V12 per Java](/java/api/overview/azure/storage-queue-readme) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Avvio rapido: Libreria client di Archiviazione code di Azure v12 per Java](./storage-quickstart-queues-java.md) |
 | 8. x | [`com.microsoft.azure.storage.queue` namespace](/java/api/com.microsoft.azure.storage.queue) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Avvio rapido: Gestire i BLOB con Java v8 SDK](../blobs/storage-quickstart-blobs-java-legacy.md) |
 
 ### <a name="storage-management"></a>Gestione dello spazio di archiviazione
@@ -67,7 +67,7 @@ La tabella seguente elenca i riferimenti e la documentazione di esempio per le A
 
 |  Versione  | Documentazione di riferimento | Pacchetto | Avvio rapido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Libreria client di archiviazione di Azure V12 per Python](/azure/developer/python/sdk/storage/overview) | [Pacchetto (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Guida introduttiva: libreria client di archiviazione code di Azure V12 per Python](./storage-quickstart-queues-python.md) |
+| 12.x | [Libreria client di archiviazione di Azure V12 per Python](/azure/developer/python/sdk/storage/overview) | [Pacchetto (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Avvio rapido: Libreria client di archiviazione code di Azure v12 per Python](./storage-quickstart-queues-python.md) |
 | 2.x | [Libreria client di archiviazione di Azure V2 per Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Pacchetto (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Come usare l'archiviazione code di Azure versione 2.1 da Python](./storage-python-how-to-use-queue-storage.md) |
 
 ## <a name="javascript-client-libraries"></a>Librerie client JavaScript
@@ -76,7 +76,7 @@ La tabella seguente elenca i riferimenti e la documentazione di esempio per le A
 
 |  Versione  | Documentazione di riferimento | Pacchetto | Avvio rapido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Libreria client di archiviazione code di Azure V12 per JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Guida introduttiva: libreria client di archiviazione code di Azure V12 per JavaScript](./storage-quickstart-queues-nodejs.md) |
+| 12.x | [Libreria client di archiviazione code di Azure V12 per JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Avvio rapido: Libreria client di Archiviazione code di Azure v12 per JavaScript](./storage-quickstart-queues-nodejs.md) |
 | 10.x | [`@azure/storage-queue`](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Usare l'archiviazione code di Azure per creare ed eliminare code da Node.js](./storage-nodejs-how-to-use-queues.md) |
 
 ## <a name="rest-apis"></a>API REST
@@ -85,7 +85,7 @@ La tabella seguente elenca i riferimenti e la documentazione di esempio per le A
 
 | Documentazione di riferimento | Panoramica |
 | ----------------------- | -------- |
-| [Riferimento all'API REST di archiviazione di Accodamento](/rest/api/storageservices/queue-service-rest-api) | [Concetti relativi all'archiviazione code](/rest/api/storageservices/queue-service-concepts) |
+| [Riferimento all'API REST di archiviazione di Accodamento](/rest/api/storageservices/queue-service-rest-api) | [Concetti relativi ad Archiviazione code](/rest/api/storageservices/queue-service-concepts) |
 
 ### <a name="other-rest-reference"></a>Altri riferimenti REST
 
@@ -107,7 +107,7 @@ La tabella seguente contiene collegamenti alla versione più recente del contenu
 
 | Versione | Piattaforma |
 | ------- | -------- |
-|  4.x | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  4.x | [PowerShell](/powershell/module/az.storage/?view=azps-4.8.0&preserve-view=true) |
 |  3.x | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
 |  2.x | [PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 

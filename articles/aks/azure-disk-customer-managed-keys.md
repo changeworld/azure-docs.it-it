@@ -4,12 +4,12 @@ description: Bring your own key (BYOK) per crittografare i dischi dati e del sis
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 60a7e36039500ccb8a46fd1f5998c23c37174689
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4b1c311132cc812ccb2bbbc95c4b7414b108008c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728136"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499204"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Usare le chiavi personalizzate (BYOK) con i dischi di Azure in Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ Quando vengono aggiunti nuovi pool di nodi al cluster creato in precedenza, la c
 La chiave di crittografia del disco del sistema operativo verrà usata per crittografare il disco dati se non viene fornita la chiave per il disco dati da v 1.17.2 ed è anche possibile crittografare i dischi dati AKS con le altre chiavi.
 
 > [!IMPORTANT]
-> Assicurarsi di disporre delle credenziali AKS appropriate. L'entità servizio dovrà avere accesso come collaboratore al gruppo di risorse in cui viene distribuito il diskencryptionset. In caso contrario, si otterrà un errore che indica che l'entità servizio non ha le autorizzazioni.
+> Assicurarsi di disporre delle credenziali AKS appropriate. L'identità gestita dovrà avere accesso come collaboratore al gruppo di risorse in cui viene distribuito il diskencryptionset. In caso contrario, si otterrà un errore che indica che l'identità gestita non dispone delle autorizzazioni.
 
 ```azurecli-interactive
 # Retrieve your Azure Subscription Id from id property as shown below

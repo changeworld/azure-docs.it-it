@@ -5,12 +5,12 @@ description: Informazioni su come installare e configurare un controller di ingr
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 58cda3f2bfc76f00deaa85347c059040e39f9ef5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fa6572ddc694cb892f48cb3e618c176f087524f6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729014"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506566"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso con un indirizzo IP pubblico statico nel servizio Azure Kubernetes
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> I comandi precedenti creano un indirizzo IP che verrà eliminato se si elimina il cluster AKS. In alternativa, è possibile creare un indirizzo IP in un gruppo di risorse diverso, che può essere gestito separatamente dal cluster AKS. Se si crea un indirizzo IP in un gruppo di risorse diverso, assicurarsi che l'entità servizio usata dal cluster AKS disponga di autorizzazioni delegate per l'altro gruppo di risorse, ad esempio *collaboratore rete*. Per altre informazioni, vedere [usare un indirizzo IP pubblico statico e un'etichetta DNS con il servizio di bilanciamento del carico AKS][aks-static-ip].
+> I comandi precedenti creano un indirizzo IP che verrà eliminato se si elimina il cluster AKS. In alternativa, è possibile creare un indirizzo IP in un gruppo di risorse diverso, che può essere gestito separatamente dal cluster AKS. Se si crea un indirizzo IP in un gruppo di risorse diverso, verificare che l'identità del cluster usata dal cluster AKS disponga di autorizzazioni delegate per l'altro gruppo di risorse, ad esempio *collaboratore rete*. Per altre informazioni, vedere [usare un indirizzo IP pubblico statico e un'etichetta DNS con il servizio di bilanciamento del carico AKS][aks-static-ip].
 
 A questo punto distribuire il grafico *ingress nginx* con Helm. Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
 

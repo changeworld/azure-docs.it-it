@@ -10,12 +10,12 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: afb985ecbe91835369738966e39e751f06f8d796
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 622ebfed8294dbcb441aa509fc4f6ba75114f28d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571329"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499357"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Raccomandazioni sulla sicurezza per le macchine virtuali in Azure
 
@@ -33,7 +33,7 @@ Per informazioni generali sul centro sicurezza di Azure, vedere informazioni sul
 | Quando si compilano immagini di VM personalizzate, applicare gli aggiornamenti più recenti. | Prima di creare immagini, installare gli aggiornamenti più recenti per il sistema operativo e per tutte le applicazioni che faranno parte dell'immagine.  | - |
 | mantenere aggiornate le VM. | È possibile usare la soluzione [Gestione aggiornamenti](../automation/update-management/overview.md) in automazione di Azure per gestire gli aggiornamenti del sistema operativo per i computer Windows e Linux in Azure. | [Sì](../security-center/asset-inventory.md) |
 | Eseguire il backup delle macchine virtuali. | [Backup di Azure](../backup/backup-overview.md) consente di proteggere i dati dell'applicazione e prevede costi operativi minimi. Gli errori delle applicazioni possono danneggiare i dati e gli errori umani possono comportare l'introduzione di bug nelle applicazioni. Backup di Azure protegge le macchine virtuali che eseguono Windows e Linux. | - |
-| Usare più macchine virtuali per una maggiore resilienza e disponibilità. | Se la macchina virtuale esegue applicazioni che devono essere a disponibilità elevata, usare più macchine virtuali o [set di disponibilità](./manage-availability.md). | - |
+| Usare più macchine virtuali per una maggiore resilienza e disponibilità. | Se la macchina virtuale esegue applicazioni che devono essere a disponibilità elevata, usare più macchine virtuali o [set di disponibilità](./availability.md). | - |
 | Adottare una strategia di continuità aziendale e ripristino di emergenza (BCDR). | Azure Site Recovery consente di scegliere tra diverse opzioni progettate per supportare la continuità aziendale. Supporta diversi scenari di replica e failover. Per ulteriori informazioni, vedere  [informazioni su Site Recovery](../site-recovery/site-recovery-overview.md). | - |
 
 ## <a name="data-security"></a>Sicurezza dei dati

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3ba69a6ddf38083e5665e20081f5f909b7100024
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420870"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508487"
 ---
 # <a name="convert-to-dataset"></a>Eseguire la conversione in set di dati
 
@@ -35,18 +35,18 @@ Si consiglia di salvare i dati nel formato del set di dati se è stato eseguito 
 
 2. Connetterlo a qualsiasi modulo che restituisce un set di dati.   
 
-    Fino a quando i dati sono [tabulari](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py), è possibile convertirli in un set di dati. Sono inclusi i dati caricati tramite l' [importazione dati](import-data.md), i dati creati tramite [immissione manuale dei dati](enter-data-manually.md)o i set di dati trasformati tramite [Applica trasformazione](apply-transformation.md).
+    Fino a quando i dati sono [tabulari](/python/api/azureml-core/azureml.data.tabulardataset), è possibile convertirli in un set di dati. Sono inclusi i dati caricati tramite l' [importazione dati](import-data.md), i dati creati tramite [immissione manuale dei dati](enter-data-manually.md)o i set di dati trasformati tramite [Applica trasformazione](apply-transformation.md).
 
 3.  Nell'elenco a discesa **azione** indicare se si desidera eseguire una pulizia dei dati prima di salvare il set di dati:  
   
-    - **None** : usare i dati così come sono.  
+    - **None**: usare i dati così come sono.  
   
-    - **SetMissingValue** : impostare un valore specifico su un valore mancante nel set di dati. Il segnaposto predefinito è il carattere punto interrogativo (?), ma è possibile usare l'opzione  **Custom missing value** per immettere un valore diverso. Ad esempio, se si immette un **taxi** per un **valore mancante personalizzato** , tutte le istanze di **taxi** nel set di dati verranno modificate nel valore mancante.
+    - **SetMissingValue**: impostare un valore specifico su un valore mancante nel set di dati. Il segnaposto predefinito è il carattere punto interrogativo (?), ma è possibile usare l'opzione  **Custom missing value** per immettere un valore diverso. Ad esempio, se si immette un **taxi** per un **valore mancante personalizzato**, tutte le istanze di **taxi** nel set di dati verranno modificate nel valore mancante.
   
-    - **ReplaceValues** : usare questa opzione per specificare un singolo valore esatto da sostituire con qualsiasi altro valore esatto. È possibile sostituire i valori mancanti o i valori personalizzati impostando il metodo **Replace** :
+    - **ReplaceValues**: usare questa opzione per specificare un singolo valore esatto da sostituire con qualsiasi altro valore esatto. È possibile sostituire i valori mancanti o i valori personalizzati impostando il metodo **Replace** :
 
-      - **Mancante** : selezionare questa opzione per sostituire i valori mancanti nel set di dati di input. Per **nuovo valore** , immettere il valore con cui sostituire i valori mancanti.
-      - **Personalizzata** : selezionare questa opzione per sostituire i valori personalizzati nel set di dati di input. Per **valore personalizzato** , immettere il valore che si desidera trovare. Se, ad esempio, i dati contengono la stringa `obs` usata come segnaposto per i valori mancanti, immettere `obs` . Per **nuovo valore** , immettere il nuovo valore con cui sostituire la stringa originale.
+      - **Mancante**: selezionare questa opzione per sostituire i valori mancanti nel set di dati di input. Per **nuovo valore**, immettere il valore con cui sostituire i valori mancanti.
+      - **Personalizzata**: selezionare questa opzione per sostituire i valori personalizzati nel set di dati di input. Per **valore personalizzato**, immettere il valore che si desidera trovare. Se, ad esempio, i dati contengono la stringa `obs` usata come segnaposto per i valori mancanti, immettere `obs` . Per **nuovo valore**, immettere il nuovo valore con cui sostituire la stringa originale.
   
     Si noti che l'operazione **ReplaceValues** si applica solo alle corrispondenze esatte. Ad esempio, queste stringhe non saranno interessate: `obs.` , `obsolete` .  
  

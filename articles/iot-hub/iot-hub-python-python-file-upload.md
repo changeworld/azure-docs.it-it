@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 1112df382fb10051ac06c4461a9e4328e1663388
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 77d51b2c839a64567838fa4d6308d203a6bb8b82
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139315"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501142"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Caricare i file dal dispositivo al cloud con l'hub Internet (Python)
 
@@ -109,7 +109,7 @@ In questa sezione viene creata l'app del dispositivo per caricare un file nell'h
             return (False, ex)
     ```
 
-    Questa funzione analizza la struttura *blob_info* passata al suo interno per creare un URL che usa per inizializzare un oggetto [Azure. storage. blob. BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Quindi carica il file nell'archivio BLOB di Azure usando questo client.
+    Questa funzione analizza la struttura *blob_info* passata al suo interno per creare un URL che usa per inizializzare un oggetto [Azure. storage. blob. BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient). Quindi carica il file nell'archivio BLOB di Azure usando questo client.
 
 1. Aggiungere il codice seguente per connettere il client e caricare il file:
 
@@ -211,4 +211,4 @@ Per altre informazioni sull'archiviazione BLOB di Azure, vedere i collegamenti s
 
 * [Documentazione su archiviazione BLOB di Azure](../storage/blobs/index.yml)
 
-* [Documentazione su archiviazione BLOB di Azure per l'API Python](/python/api/overview/azure/storage-blob-readme?view=azure-python)
+* [Documentazione su archiviazione BLOB di Azure per l'API Python](/python/api/overview/azure/storage-blob-readme)

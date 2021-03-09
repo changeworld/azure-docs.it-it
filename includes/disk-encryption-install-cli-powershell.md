@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: be6de283ed230a6e6a6b4986abb0a36386e36925
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 4c168738c0396b83412f9ed8c27fe3b2db9918d7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211992"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511084"
 ---
 La funzionalità Crittografia dischi di Azure può essere abilitata e gestita tramite l'[interfaccia della riga di comando di Azure](/cli/azure) e [Azure PowerShell](/powershell/azure/new-azureps-module-az). A tale scopo, è necessario installare gli strumenti localmente e connettersi alla sottoscrizione di Azure.
 
@@ -47,13 +47,13 @@ Il [modulo az di Azure PowerShell](/powershell/azure/new-azureps-module-az) offr
 
 Se è già installato in locale, assicurarsi di usare la versione più recente di Azure PowerShell SDK per configurare Crittografia dischi di Azure. Scaricare la versione più recente di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-Per [accedere all'account di Azure con Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), usare il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0).
+Per [accedere all'account di Azure con Azure PowerShell](/powershell/azure/authenticate-azureps), usare il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ```powershell
 Connect-AzAccount
 ```
 
-Se si hanno più sottoscrizioni e si vuole specificarne una, usare il cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) per elencarle, seguito dal cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0):
+Se si hanno più sottoscrizioni e si vuole specificarne una, usare il cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) per elencarle, seguito dal cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext):
 
 ```powershell
 Set-AzContext -Subscription -Subscription <SubscriptionId>

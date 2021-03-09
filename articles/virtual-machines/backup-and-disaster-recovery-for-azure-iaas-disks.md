@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e5ae08c23748e55a8c3b75eb8fb9c112684f022e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969705"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507907"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e ripristino di emergenza per dischi IaaS di Azure
 
@@ -48,7 +48,7 @@ Grazie a questa architettura, Azure ha offerto in modo costante una durabilità 
 
 Gli errori hardware localizzati nell'host di calcolo o nella piattaforma di archiviazione a volte possono provocare la mancata disponibilità temporanea della VM coperta dal [Contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) per la disponibilità delle macchine virtuali. Azure offre anche un Contratto di servizio leader di settore per singole istanze di macchine virtuali che usano unità SSD Premium di Azure.
 
-Per proteggere i carichi di lavoro dell'applicazione dall'inattività causata dalla mancata disponibilità temporanea di un disco o di una VM, i clienti possono usare i [set di disponibilità](./manage-availability.md). Due o più macchine virtuali in un set di disponibilità offrono la ridondanza per l'applicazione. Azure crea quindi queste VM e questi dischi in domini di errore separati con diverso tipo di alimentazione, diverse risorse di rete e diversi componenti del server.
+Per proteggere i carichi di lavoro dell'applicazione dall'inattività causata dalla mancata disponibilità temporanea di un disco o di una VM, i clienti possono usare i [set di disponibilità](./availability.md). Due o più macchine virtuali in un set di disponibilità offrono la ridondanza per l'applicazione. Azure crea quindi queste VM e questi dischi in domini di errore separati con diverso tipo di alimentazione, diverse risorse di rete e diversi componenti del server.
 
 A causa di questi domini di errore separati, gli errori hardware localizzati in genere non interessano più VM contemporaneamente nello stesso set. La presenza di domini di errore separati offre una disponibilità elevata per l'applicazione. È consigliabile usare i set di disponibilità quando è necessaria la disponibilità elevata. La sezione successiva prende in esame l'aspetto del ripristino di emergenza.
 

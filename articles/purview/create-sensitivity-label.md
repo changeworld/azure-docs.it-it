@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/19/2021
-ms.openlocfilehash: bcfe26bc6f637dd140776df98f8267c4c43684ba
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/09/2021
+ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049543"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502447"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etichettare automaticamente i dati in ambito Azure
 
@@ -114,6 +114,14 @@ Ad esempio:
 Quando si estende l'assegnazione di etichette alle risorse in Azure, è possibile selezionare le etichette che si vuole rendere disponibili in ambito. Per altre informazioni, vedere [Creating New Sensitivity labels o Modifying existing labels](#creating-new-sensitivity-labels-or-modifying-existing-labels).
 ### <a name="creating-new-sensitivity-labels-or-modifying-existing-labels"></a>Creazione di nuove etichette di riservatezza o modifica di etichette esistenti
 
+Quando si usano le etichette di riservatezza per le app di Office in Windows, macOS, iOS e Android, gli utenti visualizzano le nuove etichette entro quattro ore e entro un'ora per Office sul Web. Tuttavia, consentire fino a 24 ore per la replica delle modifiche in tutte le app e i servizi.
+
+> [!IMPORTANT]
+> Non eliminare un'etichetta, a meno che non si sia a conoscenza dell'effetto degli utenti. Per ulteriori informazioni, vedere [rimozione ed eliminazione di etichette](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) nella documentazione di Microsoft 365.
+>
+
+**Per creare nuove etichette di riservatezza o modificare le etichette esistenti**:
+
 1. Aprire il [Centro sicurezza e conformità Microsoft 365](https://protection.office.com/homepage). 
 
 1. In **soluzioni** selezionare **Information Protection**, quindi selezionare **Crea un'etichetta**. 
@@ -152,10 +160,6 @@ Quando si estende l'assegnazione di etichette alle risorse in Azure, è possibil
 
     Per ulteriori informazioni, vedere la pagina relativa alla [priorità delle etichette (Order Matters)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) nella documentazione Microsoft 365.
 
-> [!IMPORTANT]
-> Non eliminare un'etichetta, a meno che non si sia a conoscenza dell'effetto degli utenti. 
->
-> Per ulteriori informazioni, vedere [rimozione ed eliminazione di etichette](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) nella documentazione di Microsoft 365.
 
 Continuare analizzando [i dati per applicare automaticamente le etichette](#scan-your-data-to-apply-labels-automatically)e quindi:
 

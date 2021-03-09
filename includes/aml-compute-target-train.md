@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere file
 description: File di inclusione
 services: machine-learning
 author: sdgilley
@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/17/2020
-ms.openlocfilehash: 87b1f4ab7b7091970d7bb76ae1e00b06549fb0b4
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
-ms.translationtype: HT
+ms.openlocfilehash: 081eea7842652884363603bc5ba742ba48539f85
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96152578"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503616"
 ---
-**Le destinazioni di calcolo possono essere riutilizzate per più processi di training**. Ad esempio, dopo aver collegato una macchina virtuale remota all'area di lavoro, è possibile riutilizzarla per più processi. Per le pipeline di Machine Learning, usare il [passaggio della pipeline](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) appropriato per ogni destinazione di calcolo.
+**Le destinazioni di calcolo possono essere riutilizzate per più processi di training**. Ad esempio, dopo aver collegato una macchina virtuale remota all'area di lavoro, è possibile riutilizzarla per più processi. Per le pipeline di Machine Learning, usare il [passaggio della pipeline](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) appropriato per ogni destinazione di calcolo.
 
 Per la maggior parte dei processi, è possibile usare qualsiasi risorsa seguente come destinazione di calcolo. Non tutte le risorse possono essere usate per Machine Learning automatizzato, pipeline di Machine Learning o progettazione.
 

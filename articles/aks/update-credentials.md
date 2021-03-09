@@ -5,16 +5,16 @@ description: Informazioni su come aggiornare o reimpostare l'entità servizio o 
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 84cadc54a11c2e57d73fd1f06e98deb3d599d648
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389009"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501176"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Aggiornare o ruotare le credenziali per il servizio Azure Kubernetes (AKS)
 
-Per impostazione predefinita, i cluster del servizio Azure Kubernetes vengono creati con un'entità servizio che dispone di una data di scadenza di un anno. Se la data di scadenza è prossima, è possibile reimpostare le credenziali per estendere l'entità servizio per un ulteriore periodo di tempo. È anche possibile aggiornare, o alternare, le credenziali come parte di criteri di sicurezza definiti. Questo articolo illustra come aggiornare le credenziali per un cluster del servizio Azure Kubernetes.
+I cluster AKS creati con un'entità servizio hanno una data di scadenza di un anno. Se la data di scadenza è prossima, è possibile reimpostare le credenziali per estendere l'entità servizio per un ulteriore periodo di tempo. È anche possibile aggiornare, o alternare, le credenziali come parte di criteri di sicurezza definiti. Questo articolo illustra come aggiornare le credenziali per un cluster del servizio Azure Kubernetes.
 
 È anche possibile che sia stato [integrato il cluster AKS con Azure Active Directory][aad-integration]e usarlo come provider di autenticazione per il cluster. In tal caso, sono disponibili altre 2 identità create per il cluster, l'app Server AAD e l'app client AAD. è anche possibile reimpostare le credenziali.
 

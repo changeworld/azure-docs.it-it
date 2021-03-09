@@ -6,12 +6,12 @@ ms.author: crtreasu
 ms.date: 02/17/2021
 ms.topic: best-practice
 ms.service: azure-object-anchors
-ms.openlocfilehash: 5b84bfae4a338a15b75e4f61114869aab1e94f87
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: da3be6e3d97e50b27ded29ba017164fdbd9a0a5b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746027"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503046"
 ---
 # <a name="best-practices"></a>Procedure consigliate
 
@@ -28,6 +28,8 @@ Per ottenere risultati ottimali, è consigliabile provare alcuni di questi passa
 - Il servizio di conversione del modello potrebbe richiedere molto tempo per elaborare un modello di grandi dimensioni (livello di dettaglio) elevato. Per l'efficacia è possibile pre-elaborare il modello 3D per rimuovere i visi interni.
 
 ## <a name="detection"></a>Rilevamento
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Mixed-Reality/Azure-Object-Anchors-Detection-and-Alignment-Best-Practices/player]
 
 - L'SDK di runtime specificato richiede un'area di ricerca fornita dall'utente per cercare e rilevare gli oggetti fisici. L'area di ricerca può essere un rettangolo di delimitazione, una sfera, una vista tronco o qualsiasi combinazione di essi. Per evitare un falso rilevamento, è preferibile impostare un'area di ricerca sufficientemente grande da coprire l'oggetto. Quando si usano le app di esempio fornite, è possibile basarsi su un lato dell'oggetto a circa 2 metri dalla superficie più vicina e avviare l'app.
 - Prima di avviare l'app degli oggetti Anchor in un dispositivo HoloLens 2, rimuovere gli ologrammi nella vicinanza dell'area di lavoro tramite le impostazioni principali dei dispositivi tramite ***le impostazioni >ologrammi >di sistema***

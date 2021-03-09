@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: b8697e64eac69af8b8552f01fb6a03da0488a7cc
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 3d30d506ae3b49b2e247ee77ef17d101f94854c7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210096"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501014"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Creare e configurare un insieme di credenziali delle chiavi per Crittografia dischi di Azure
 
@@ -36,7 +36,7 @@ Per completare i passaggi descritti in questo articolo, è possibile usare l'[in
 
 ### <a name="connect-to-your-azure-account"></a>Connettersi all'account di Azure
 
-Prima di usare l'interfaccia della riga di comando di Azure o Azure PowerShell, è necessario connettersi alla sottoscrizione di Azure. A questo scopo, è possibile [eseguire l'accesso con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli), [eseguire l'accesso con Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0) oppure specificare le credenziali del portale di Azure quando richiesto.
+Prima di usare l'interfaccia della riga di comando di Azure o Azure PowerShell, è necessario connettersi alla sottoscrizione di Azure. A questo scopo, è possibile [eseguire l'accesso con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli), [eseguire l'accesso con Azure PowerShell](/powershell/azure/authenticate-azureps) oppure specificare le credenziali del portale di Azure quando richiesto.
 
 ```azurecli-interactive
 az login

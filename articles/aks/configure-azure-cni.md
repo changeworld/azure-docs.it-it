@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions
-ms.openlocfilehash: 6c0cc1c8da6fddfad6d3f70c88860ddcdd35a11a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ef9e3689f5846ddfc66c47a15967a18fc6550d35
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182418"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504253"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
@@ -24,10 +24,9 @@ Questo articolo illustra come usare le funzionalità di rete di *Azure CNI* per 
 
 * La rete virtuale per il cluster servizio Azure Kubernetes deve consentire la connettività Internet in uscita.
 * I cluster AKS non possono usare `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` o `192.0.2.0/24` per l'intervallo di indirizzi del servizio Kubernetes, l'intervallo di indirizzi pod o l'intervallo di indirizzi della rete virtuale del cluster.
-* L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
+* L'identità del cluster usata dal cluster AKS deve avere almeno le autorizzazioni di [collaboratore rete](../role-based-access-control/built-in-roles.md#network-contributor) nella subnet nella rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
-* Anziché un'entità servizio, è possibile utilizzare l'identità gestita assegnata dal sistema per le autorizzazioni. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
 * La subnet assegnata al pool di nodi AKS non può essere una [subnet delegata](../virtual-network/subnet-delegation-overview.md).
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Pianificare l'indirizzamento IP per il cluster

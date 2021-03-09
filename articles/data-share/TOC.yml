@@ -25,7 +25,7 @@
       displayName: 'Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription'
 - name: Concetti
   items:
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Panoramica della sicurezza
           href: security.md
@@ -73,7 +73,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/datashare
     - name: Azure PowerShell
-      href: /powershell/module/az.datashare/?view=azps-2.6.0
+      href: /powershell/module/az.datashare/
     - name: API REST
       href: /rest/api/datashare
     - name: Interfaccia della riga di comando di Azure

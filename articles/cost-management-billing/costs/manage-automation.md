@@ -3,17 +3,17 @@ title: Gestire i costi di Azure con l'automazione
 description: Questo articolo illustra come gestire i costi di Azure con l'automazione.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/06/2021
+ms.date: 03/08/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 02215bace693ac5ac36f9fc29758215d45b23eb1
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: f5cebffeaba1ce198be347758004068e8c03133b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051786"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499680"
 ---
 # <a name="manage-costs-with-automation"></a>Gestire i costi con l'automazione
 
@@ -46,6 +46,8 @@ Se il set di dati sui costi è di piccole dimensioni, provare a usare l'[API Det
 ## <a name="automate-retrieval-with-usage-details-api"></a>Automatizzare il recupero con l'API Dettagli utilizzo
 
 L'[API Dettagli utilizzo ](/rest/api/consumption/usageDetails) offre un modo semplice per ottenere dati sui costi non elaborati e non aggregati corrispondenti alla fattura di Azure. L'API è utile quando l'organizzazione necessita di una soluzione di recupero dei dati a livello di codice. È consigliabile usare l'API per l'analisi di set di dati sui costi di dimensioni ridotte. Nel caso di set di dati più grandi, è invece consigliabile usare le altre soluzioni identificate in precedenza. I dati in Dettagli utilizzo vengono forniti per ogni contatore al giorno. Vengono usati per il calcolo della fattura mensile. La versione disponibile a livello generale di queste API è `2019-10-01`. Usare `2019-04-01-preview` per accedere alla versione di anteprima per la prenotazione e gli acquisti in Azure Marketplace con le API.
+
+Se si desidera ottenere grandi quantità di dati esportati a intervalli regolari, vedere Recupero di set di dati a [costo elevato ricorrenti con le esportazioni](ingest-azure-usage-at-scale.md).
 
 ### <a name="usage-details-api-suggestions"></a>Suggerimenti per l'API Dettagli utilizzo
 
@@ -101,81 +103,19 @@ Se sono necessari i costi effettivi per dimostrare gli acquisti accumulati, impo
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
 ```
 
-## <a name="retrieve-large-cost-datasets-recurringly-with-exports"></a>Recuperare in modo ricorrente set di dati sui costi di grandi dimensioni con Esportazioni
-
-È possibile esportare regolarmente grandi quantità di dati con esportazioni da Gestione costi. L'esportazione è la modalità consigliata per recuperare i dati dei costi non aggregati. Soprattutto quando i file di utilizzo sono troppo grandi per essere chiamati e scaricati in modo affidabile usando l'API Dettagli utilizzo. I dati esportati vengono inseriti nell'account di archiviazione di Azure scelto. Da qui è possibile caricarli nei propri sistemi e analizzarli in base alle esigenze. Per configurare le esportazioni nel portale di Azure, vedere [Esportare dati](tutorial-export-acm-data.md).
-
-Se si vogliono automatizzare le esportazioni in diversi ambiti, la richiesta di API di esempio nella sezione successiva è un buon punto di partenza. È possibile usare l'API Esportazioni per creare esportazioni automatiche nell'ambito della configurazione generale dell'ambiente. Le esportazioni automatiche consentono di ottenere i dati necessari. È possibile usarle nei sistemi della propria organizzazione man mano che si espande l'utilizzo di Azure.
-
-### <a name="common-export-configurations"></a>Configurazioni di esportazione comuni
-
-Prima di creare la prima esportazione, considerare lo scenario e le opzioni di configurazione necessarie per abilitarlo. Considerare le opzioni di esportazione seguenti:
-
-- **Ricorrenza**: determina la frequenza con cui viene eseguito il processo di esportazione e quando si inserisce un file nell'account di archiviazione di Azure. Scegliere tra Ogni giorno, Ogni settimana e Ogni mese. Provare a configurare la ricorrenza in modo che corrisponda a quella dei processi di importazione dei dati usati dal sistema interno dell'organizzazione.
-- **Periodo di ricorrenza**: determina per quanto tempo rimane valida l'esportazione. I file vengono esportati solo durante il periodo di ricorrenza.
-- **Intervallo di tempo**: determina la quantità di dati generati dall'esportazione in una determinata esecuzione. Le opzioni comuni sono MonthToDate e WeekToDate.
-- **StartDate**: configura quando avviare la pianificazione dell'esportazione. L'esportazione viene creata in base alla data di inizio indicata in StartDate e successivamente in base alla ricorrenza.
-- **Tipo**: sono disponibili tre tipi di esportazione:
-  - ActualCost: mostra l'utilizzo totale e i costi per il periodo specificato, man mano che vengono accumulati e visualizzati nella fattura.
-  - AmortizedCost: mostra l'utilizzo totale e i costi per il periodo specificato, con ammortamento applicato ai costi di acquisto della prenotazione applicabili.
-  - Usage: tutte le esportazioni create prima del 20 luglio 2020 sono di tipo Usage. Aggiornare tutte le esportazioni pianificate come ActualCost o AmortizedCost.
-- **Colonne**: definisce i campi dati da includere nel file di esportazione. Corrispondono ai campi disponibili nell'API Dettagli utilizzo. Per altre informazioni, vedere [API Dettagli utilizzo](/rest/api/consumption/usagedetails/list).
-
-### <a name="create-a-daily-month-to-date-export-for-a-subscription"></a>Creare un'esportazione giornaliera da inizio mese per una sottoscrizione
-
-URL richiesta: `PUT https://management.azure.com/{scope}/providers/Microsoft.CostManagement/exports/{exportName}?api-version=2020-06-01`
-
-```json
-{
-  "properties": {
-    "schedule": {
-      "status": "Active",
-      "recurrence": "Daily",
-      "recurrencePeriod": {
-        "from": "2020-06-01T00:00:00Z",
-        "to": "2020-10-31T00:00:00Z"
-      }
-    },
-    "format": "Csv",
-    "deliveryInfo": {
-      "destination": {
-        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/{yourStorageAccount} ",
-        "container": "{yourContainer}",
-        "rootFolderPath": "{yourDirectory}"
-      }
-    },
-    "definition": {
-      "type": "ActualCost",
-      "timeframe": "MonthToDate",
-      "dataSet": {
-        "granularity": "Daily",
-        "configuration": {
-          "columns": [
-            "Date",
-            "MeterId",
-            "ResourceId",
-            "ResourceLocation",
-            "Quantity"
-          ]
-        }
-      }
-    }
-}
-```
-
-### <a name="automate-alerts-and-actions-with-budgets"></a>Automatizzare gli avvisi e le azioni con i budget
+## <a name="automate-alerts-and-actions-with-budgets"></a>Automatizzare gli avvisi e le azioni con i budget
 
 Esistono sono due componenti essenziali per massimizzare il valore del proprio investimento nel cloud. Uno è la creazione automatica del budget. L'altro è la configurazione dell'orchestrazione basata sui costi in risposta agli avvisi del budget. Esistono diversi modi per automatizzare la creazione del budget di Azure. Diverse risposte agli avvisi si verificano quando vengono superate le soglie di avviso configurate.
 
 Le sezioni seguenti includono le opzioni disponibili e forniscono richieste API di esempio per iniziare a usare l'automazione del budget.
 
-#### <a name="how-costs-are-evaluated-against-your-budget-threshold"></a>Come vengono valutati i costi rispetto alla soglia del budget
+### <a name="how-costs-are-evaluated-against-your-budget-threshold"></a>Come vengono valutati i costi rispetto alla soglia del budget
 
 I costi vengono valutati rispetto alla soglia del budget una volta al giorno. Quando si crea un nuovo budget o il giorno del ripristino del budget, i costi saranno zero/null rispetto alla soglia perché la valutazione potrebbe non essersi verificata.
 
 Quando Azure rileva che i costi hanno superato la soglia, viene attivata una notifica entro l'ora del periodo di rilevamento.
 
-#### <a name="view-your-current-cost"></a>Visualizzare il costo corrente
+### <a name="view-your-current-cost"></a>Visualizzare il costo corrente
 
 Per visualizzare i costi correnti, è necessario effettuare una chiamata GET usando l'[API di query](/rest/api/cost-management/query).
 
@@ -185,7 +125,7 @@ Una chiamata GET all'API dei budget non restituirà i costi correnti indicati ne
 
 È possibile automatizzare la creazione del budget usando l'[API dei budget](/rest/api/consumption/budgets). È anche possibile creare un budget con un [modello di budget](quick-create-budget-template.md). I modelli rappresentano un modo semplice per standardizzare le distribuzioni di Azure garantendo al contempo la corretta configurazione e applicazione del controllo dei costi.
 
-#### <a name="supported-locales-for-budget-alert-emails"></a>Impostazioni locali supportate per i messaggi di posta elettronica di avviso relativi ai budget
+### <a name="supported-locales-for-budget-alert-emails"></a>Impostazioni locali supportate per i messaggi di posta elettronica di avviso relativi ai budget
 
 Con i budget si riceve un avviso quando i costi superano una soglia impostata. È possibile impostare un massimo di cinque destinatari di posta elettronica per ogni budget. I destinatari ricevono i messaggi di posta elettronica di avviso entro 24 ore dal superamento della soglia del budget. È però possibile che il destinatario debba ricevere un messaggio di posta elettronica in una lingua diversa. Con l'API dei budget è possibile usare i codici di impostazioni cultura della lingua seguenti. Per definire le impostazioni cultura, usare il parametro `locale` come descritto nell'esempio seguente.
 
@@ -249,7 +189,7 @@ Lingue supportate dalle impostazioni cultura:
 | pt-pt | Portoghese (Portogallo) |
 | sv-se | Svedese (Svezia) |
 
-#### <a name="common-budgets-api-configurations"></a>Configurazioni comuni dell'API dei budget
+### <a name="common-budgets-api-configurations"></a>Configurazioni comuni dell'API dei budget
 
 Esistono diversi modi per configurare un budget nell'ambiente Azure. Considerare prima lo scenario e quindi identificare le opzioni di configurazione che lo abilitano. Esaminare le opzioni seguenti:
 

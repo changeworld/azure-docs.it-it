@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 98ac373f0a9b46cbe51b60401fb83c5e910a96e8
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: c11176f0c7760e76b755406bda96b72b302f8857
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214950"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506940"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creare un cluster di elaborazione di Azure Machine Learning
 
@@ -34,7 +34,7 @@ In questo articolo viene spiegato come:
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
-* Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
+* Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
 ## <a name="what-is-a-compute-cluster"></a>Che cos'è un cluster di calcolo?
 
@@ -58,7 +58,7 @@ I cluster di calcolo possono eseguire processi in modo sicuro in un [ambiente di
 > I cluster possono in genere essere ridimensionati fino a 100 nodi, purché si disponga di una quota sufficiente per il numero di core necessari. Per impostazione predefinita, i cluster sono impostati con la comunicazione tra i nodi abilitata, ad esempio per supportare i processi MPI. È tuttavia possibile ridimensionare i cluster a migliaia di nodi semplicemente [generando un ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)e richiedendo di consentire l'elenco della sottoscrizione o dell'area di lavoro o di un cluster specifico per la disabilitazione della comunicazione tra nodi. 
 
 
-## <a name="create"></a>Crea
+## <a name="create"></a>Create
 
 **Tempo stimato**: circa 5 minuti.
 
@@ -80,7 +80,7 @@ Per creare una risorsa permanente di ambiente di calcolo di Machine Learning in 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-Durante la creazione di un ambiente di calcolo di Machine Learning è anche possibile configurare diverse proprietà avanzate. Le proprietà consentono di creare un cluster permanente di dimensione fissa o all'interno di una Rete virtuale di Azure esistente nella sottoscrizione.  Per informazioni dettagliate, consultare [AmlCompute class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) (Classe AmlCompute).
+Durante la creazione di un ambiente di calcolo di Machine Learning è anche possibile configurare diverse proprietà avanzate. Le proprietà consentono di creare un cluster permanente di dimensione fissa o all'interno di una Rete virtuale di Azure esistente nella sottoscrizione.  Per informazioni dettagliate, consultare [AmlCompute class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) (Classe AmlCompute).
 
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)

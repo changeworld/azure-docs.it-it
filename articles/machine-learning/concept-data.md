@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 1c2a917712cbde95fda9321e56fe1c033ad444aa
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 601be8409db22162a410d481e6609d378718a7b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659716"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503590"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 
@@ -67,7 +67,7 @@ Servizi di archiviazione basati su cloud supportati in Azure che possono essere 
 + Database di Azure per MySQL
 
 >[!TIP]
-> La funzionalità disponibile a livello generale per la creazione di archivi dati richiede l'autenticazione basata su credenziali per l'accesso ai servizi di archiviazione, ad esempio un'entità servizio o un token di firma di accesso condiviso (SAS). È possibile accedere a queste credenziali da utenti che dispongono dell'accesso in *lettura* all'area di lavoro. <br><br>Se si tratta di un problema,  [creare un archivio dati che usa l'accesso ai dati basato su identità ai servizi di archiviazione (anteprima)](how-to-identity-based-data-access.md). Questa funzionalità è una funzionalità di anteprima [sperimentale](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) e può cambiare in qualsiasi momento.
+> La funzionalità disponibile a livello generale per la creazione di archivi dati richiede l'autenticazione basata su credenziali per l'accesso ai servizi di archiviazione, ad esempio un'entità servizio o un token di firma di accesso condiviso (SAS). È possibile accedere a queste credenziali da utenti che dispongono dell'accesso in *lettura* all'area di lavoro. <br><br>Se si tratta di un problema,  [creare un archivio dati che usa l'accesso ai dati basato su identità ai servizi di archiviazione (anteprima)](how-to-identity-based-data-access.md). Questa funzionalità è una funzionalità di anteprima [sperimentale](/python/api/overview/azure/ml/#stable-vs-experimental) e può cambiare in qualsiasi momento.
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>Riferimenti ai dati nell'archiviazione con DataSet
@@ -86,9 +86,9 @@ I set di dati possono essere creati da file locali, URL pubblici, set di dati [a
 
 Sono disponibili 2 tipi di set di impostazioni: 
 
-+ Un [filedataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) fa riferimento a uno o più file negli archivi dati o negli URL pubblici. Se i dati sono già puliti e pronti per l'uso negli esperimenti di training, è possibile [scaricare o montare i file](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a cui fa riferimento filedatasets nella destinazione di calcolo.
++ Un [filedataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset) fa riferimento a uno o più file negli archivi dati o negli URL pubblici. Se i dati sono già puliti e pronti per l'uso negli esperimenti di training, è possibile [scaricare o montare i file](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a cui fa riferimento filedatasets nella destinazione di calcolo.
 
-+ Un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) rappresenta i dati in formato tabulare analizzando il file o l'elenco di file fornito. È possibile caricare un TabularDataset in un dataframe Pandas o Spark per eseguire ulteriori operazioni di manipolazione e pulizia. Per un elenco completo dei formati di dati da cui è possibile creare TabularDatasets, vedere la [classe TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
++ Un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) rappresenta i dati in formato tabulare analizzando il file o l'elenco di file fornito. È possibile caricare un TabularDataset in un dataframe Pandas o Spark per eseguire ulteriori operazioni di manipolazione e pulizia. Per un elenco completo dei formati di dati da cui è possibile creare TabularDatasets, vedere la [classe TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Le funzionalità di set di impostazioni aggiuntive sono disponibili nella documentazione seguente:
 

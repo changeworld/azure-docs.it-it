@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b635a83c5ea1378a525ff607e5c6f2725337ad1a
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 4c5ab92fcc1d70d12e37ae351e768514b4e7522f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453037"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501703"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Log di archiviazione e creazione di report su gestione entitlement di Azure AD in Monitoraggio di Azure
 
@@ -130,7 +130,7 @@ Per impostare l'assegnazione di ruolo e creare una query, eseguire i passaggi se
 
 ### <a name="install-azure-powershell-module"></a>Installare il modulo Azure PowerShell
 
-Una volta eseguita l'assegnazione di ruolo appropriata, avviare PowerShell e [installare il modulo di Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0) (se non è già stato fatto), digitando:
+Una volta eseguita l'assegnazione di ruolo appropriata, avviare PowerShell e [installare il modulo di Azure PowerShell](/powershell/azure/install-az-ps) (se non è già stato fatto), digitando:
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser
@@ -168,8 +168,7 @@ $wks | ft CustomerId, Name
 ```
 
 ### <a name="send-the-query-to-the-log-analytics-workspace"></a>Inviare la query all'area di lavoro Log Analytics
-Infine, dopo aver identificato un'area di lavoro, è possibile usare [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) per inviare una query Kusto a tale area di lavoro. Queste query sono scritte nel [linguaggio di query Kusto](/azure/kusto/query/).
+Infine, dopo aver identificato un'area di lavoro, è possibile usare [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) per inviare una query Kusto a tale area di lavoro. Queste query sono scritte nel [linguaggio di query Kusto](/azure/kusto/query/).
  
 Ad esempio, è possibile recuperare l'intervallo di date dei record degli eventi di controllo dall'area di lavoro Log Analytics, con i cmdlet di PowerShell per inviare una query come la seguente:
  

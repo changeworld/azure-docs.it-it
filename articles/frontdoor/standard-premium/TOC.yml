@@ -11,6 +11,10 @@
   items:
     - name: Creare una porta anteriore standard/Premium-Portal
       href: create-front-door-portal.md
+- name: Esempi
+  items:
+    - name: Modelli di Gestione risorse
+      href: resource-manager-template-samples.md
 - name: Concetti
   items:
     - name: Domande frequenti su Front Door

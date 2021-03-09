@@ -11,19 +11,21 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 242fd57cbdbc9ef01ba28bea25d1aad4c6a17377
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: acd8df620e23ee4ebc103d8910c6443f47ffa141
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453377"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503828"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Connetti pool di Apache Spark (basati su Azure sinapsi Analytics) per data wrangling (anteprima)
 
 Questo articolo illustra come aggiungere e avviare un pool di Apache Spark basato su [Azure sinapsi Analytics](/synapse-analytics/overview-what-is.md) per data wrangling su larga scala. 
 
+Questo articolo contiene informazioni aggiuntive per l'esecuzione interattiva di data wrangling attività all'interno di una sessione sinapsi dedicata in un notebook di Jupyter. Se si preferisce usare pipeline di Azure Machine Learning, vedere [How to use Apache Spark (Powered by Azure sinapsi Analytics) nella pipeline di Machine Learning (anteprima)](how-to-use-synapsesparkstep.md).
+
 >[!IMPORTANT]
-> L'integrazione di Azure Machine Learning e Azure sinapsi Analytics è in anteprima. Le funzionalità illustrate in questo articolo usano il `azureml-synapse` pacchetto che contiene funzionalità di anteprima [sperimentale](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) che possono cambiare in qualsiasi momento.
+> L'integrazione di Azure Machine Learning e Azure sinapsi Analytics è in anteprima. Le funzionalità illustrate in questo articolo usano il `azureml-synapse` pacchetto che contiene funzionalità di anteprima [sperimentale](/python/api/overview/azure/ml/#stable-vs-experimental) che possono cambiare in qualsiasi momento.
 
 ## <a name="azure-machine-learning-and-azure-synapse-analytics-integration-preview"></a>Integrazione di Azure Machine Learning e analisi sinapsi di Azure (anteprima)
 
@@ -37,11 +39,13 @@ L'integrazione di Azure sinapsi Analytics con Azure Machine Learning (anteprima)
 
 * [Creare Apache Spark pool con portale di Azure, strumenti Web o sinapsi Studio](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
-* [Installare il Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), che include il `azureml-synapse` pacchetto (anteprima). 
-    * È anche possibile installarlo autonomamente, ma è compatibile solo con le versioni 1,20 o successive dell'SDK. 
-        ```python
-        pip install azureml-synapse
-        ```
+* [Configurare l'ambiente di sviluppo](how-to-configure-environment.md) per installare il Azure Machine Learning SDK oppure usare un' [istanza di calcolo Azure Machine Learning](concept-compute-instance.md#create) con l'SDK già installato. 
+
+* Installare il `azureml-synapse` pacchetto (anteprima) con il codice seguente:
+
+  ```python
+  pip install azureml-synapse
+  ```
 
 * [Collegare Azure machine learning area di lavoro e l'area di lavoro di Azure sinapsi Analytics](how-to-link-synapse-ml-workspaces.md).
 
@@ -56,7 +60,7 @@ Visualizzare tutti i servizi collegati associati all'area di lavoro di machine l
 LinkedService.list(ws)
 ```
 
-In questo esempio viene recuperato un servizio collegato esistente, `synapselink1` , dall'area `ws` di lavoro,, con il [`get()`](/python/api/azureml-core/azureml.core.linkedservice?preserve-view=true&view=azure-ml-py#get-workspace--name-) metodo.
+In questo esempio viene recuperato un servizio collegato esistente, `synapselink1` , dall'area `ws` di lavoro,, con il [`get()`](/python/api/azureml-core/azureml.core.linkedservice#get-workspace--name-) metodo.
 ```python
 linked_service = LinkedService.get(ws, 'synapselink1')
 ```
@@ -108,7 +112,7 @@ attach_config = SynapseCompute.attach_configuration(linked_service, #Linked syna
                                                     pool_name="<Synapse Spark pool name>") #Name of Synapse spark pool 
 
 synapse_compute = ComputeTarget.attach(workspace= ws,                
-                                       name='<Synapse Spark pool alias in Azure ML>', 
+                                       name="<Synapse Spark pool alias in Azure ML>", 
                                        attach_configuration=attach_config
                                       )
 
@@ -180,7 +184,7 @@ Il codice seguente illustra come leggere i dati da un **Archivio BLOB di Azure**
 
 # setup access key or SAS token
 sc._jsc.hadoopConfiguration().set("fs.azure.account.key.<storage account name>.blob.core.windows.net", "<access key>")
-sc._jsc.hadoopConfiguration().set("fs.azure.sas.<container name>.<storage account name>.blob.core.windows.net", "sas token")
+sc._jsc.hadoopConfiguration().set("fs.azure.sas.<container name>.<storage account name>.blob.core.windows.net", "<sas token>")
 
 # read from blob 
 df = spark.read.option("header", "true").csv("wasbs://demo@dprepdata.blob.core.windows.net/Titanic.csv")
@@ -295,4 +299,3 @@ input1 = train_ds.as_mount()
 
 * Eseguire [il training di un modello](how-to-set-up-training-targets.md).
 * [Eseguire il training con Azure Machine Learning DataSet](how-to-train-with-datasets.md)
-* [Creare un set di dati di Azure Machine Learning](how-to-create-register-datasets.md).

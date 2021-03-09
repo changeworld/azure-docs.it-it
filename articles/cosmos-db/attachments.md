@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 55d110501d5e0273ebf8cbc666920cacb87cf5cf
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 455fdc7615e0909189f311755571d02a9acca24e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434985"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501992"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Allegati Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB allegati sono elementi speciali che contengono riferimenti a metadati associati con un BLOB o un file multimediale esterno.
 
@@ -40,6 +40,11 @@ Gli allegati gestiti di Azure Cosmos DB sono distinti dal supporto per gli eleme
 - Gli allegati non sono supportati in tutte le versioni degli SDK del Azure Cosmos DB.
 - Gli allegati gestiti sono limitati a 2 GB di spazio di archiviazione per ogni account di database.
 - Gli allegati gestiti non sono compatibili con la distribuzione globale di Azure Cosmos DB e non vengono replicati tra le aree.
+
+> [!NOTE]
+> Azure Cosmos DB API per MongoDB versione 3,2 utilizza gli allegati gestiti per GridFS, che sono quindi soggetti alle stesse limitazioni degli allegati gestiti di Azure Cosmos DB.
+>
+> È consigliabile che gli sviluppatori utilizzino il set di funzionalità MongoDB GridFS per eseguire l'aggiornamento a Azure Cosmos DB API per MongoDB versione 3,6 o successiva, che è disaccoppiata dagli allegati e offre un'esperienza più avanzata e affidabile. In alternativa, gli sviluppatori che usano il set di funzionalità di MongoDB GridFS devono considerare anche l'uso dell'archiviazione BLOB di Azure, che è progettato per l'archiviazione di contenuto BLOB e offre funzionalità espanse a costi inferiori rispetto a GridFS.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>Migrazione degli allegati all'archivio BLOB di Azure
 

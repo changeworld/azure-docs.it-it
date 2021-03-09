@@ -3,12 +3,12 @@ title: Usare gli strumenti da riga di comando per avviare e arrestare le macchin
 description: Informazioni su come usare gli strumenti da riga di comando per avviare e arrestare le macchine virtuali in Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 2b9be3d09c488fdae211d81daf88e8807bc7b4dc
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 2ddc1620cf86fa203b2f0e31359f9fd262df8916
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201193"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499544"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Usare gli strumenti da riga di comando per avviare e arrestare Azure DevTest Labs macchine virtuali
 Questo articolo illustra come usare Azure PowerShell o l'interfaccia della riga di comando di Azure per avviare o arrestare le macchine virtuali in un Lab in Azure DevTest Labs. È possibile creare script PowerShell/CLI per automatizzare queste operazioni. 
@@ -29,7 +29,7 @@ Tuttavia, in alcuni scenari potrebbe essere necessario automatizzare l'avvio e l
 > [!NOTE]
 > Lo script seguente usa il Azure PowerShell AZ Module. 
 
-Lo script di PowerShell seguente avvia una macchina virtuale in un Lab. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) è lo stato attivo principale per questo script. Il parametro **resourceId** è l'ID di risorsa completo per la macchina virtuale nel Lab. Il parametro **Action** è il punto in cui vengono impostate le opzioni di **avvio** o di **arresto** a seconda di ciò che è necessario.
+Lo script di PowerShell seguente avvia una macchina virtuale in un Lab. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) è lo stato attivo principale per questo script. Il parametro **resourceId** è l'ID di risorsa completo per la macchina virtuale nel Lab. Il parametro **Action** è il punto in cui vengono impostate le opzioni di **avvio** o di **arresto** a seconda di ciò che è necessario.
 
 ```powershell
 # The id of the subscription

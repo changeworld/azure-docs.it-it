@@ -2,18 +2,18 @@
 title: includere file
 description: includere file
 services: virtual-machines
-author: styli365
+author: rishabv90
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/05/2020
-ms.author: sttsinar
+ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: 3d78441e56e23cf49b09073fdf88bef4b3434da9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: fc61c111291f9862f71f9a81828fa0fa828ab2ad
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102473897"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510617"
 ---
 Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente. Le dimensioni isolate si trovano in un ambiente di generazione hardware specifico e verranno deprecate quando la generazione dell'hardware viene ritirata.
 
@@ -42,12 +42,12 @@ Le dimensioni delle VM isolate hanno una durata limitata dell'hardware. Azure em
 
 | Dimensione | Data di ritiro isolamento | 
 | --- | --- |
-| Standard_DS15_v2 | 15 maggio 2020 |
-| Standard_D15_v2  | 15 maggio 2020 |
-| Standard_G5  | 15 febbraio 2021 |
-| Standard_GS5  | 15 febbraio 2021 |
-| Standard_E64i_v3  | 15 febbraio 2021 |
-| Standard_E64is_v3  | 15 febbraio 2021 |
+| Standard_DS15_v2 | 15 maggio 2021 |
+| Standard_D15_v2  | 15 maggio 2021 |
+| Standard_G5  | 15 febbraio 2022 |
+| Standard_GS5  | 15 febbraio 2022 |
+| Standard_E64i_v3  | 15 febbraio 2022 |
+| Standard_E64is_v3  | 15 febbraio 2022 |
 
 
 ## <a name="faq"></a>Domande frequenti
@@ -71,8 +71,8 @@ Le dimensioni delle VM isolate hanno una durata limitata dell'hardware. Azure em
  
 | Data | Azione |
 |---|---| 
-| 15 maggio 2019<sup>1</sup> | Annuncio ritiro isolamento D/DS15_v2| 
-| 15 maggio 2020 | Garanzia di isolamento D/DS15_v2 rimossa| 
+| 15 maggio 2020<sup>1</sup> | Annuncio ritiro isolamento D/DS15_v2| 
+| 15 maggio 2021 | Garanzia di isolamento D/DS15_v2 rimossa| 
 
 <sup>1</sup> il cliente esistente che usa queste dimensioni riceverà un messaggio di posta elettronica con istruzioni dettagliate sui passaggi successivi.  
 
@@ -81,8 +81,8 @@ Le dimensioni delle VM isolate hanno una durata limitata dell'hardware. Azure em
  
 | Data | Azione |
 |---|---|
-| 15 febbraio 2020<sup>1</sup> | Avviso di ritiro dell'isolamento G5/GS5/E64i_v3/E64is_v3 |
-| 15 febbraio 2021 | Garanzia di isolamento G5/GS5/E64i_v3/E64is_v3 rimossa |
+| 15 febbraio 2021<sup>1</sup> | Avviso di ritiro dell'isolamento G5/GS5/E64i_v3/E64is_v3 |
+| 15 febbraio 2022 | Garanzia di isolamento G5/GS5/E64i_v3/E64is_v3 rimossa |
 
 <sup>1</sup> il cliente esistente che usa queste dimensioni riceverà un messaggio di posta elettronica con istruzioni dettagliate sui passaggi successivi.  
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: fcb2ee164a7e574ed470c8daf33cab9c9defcf00
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: ad0c0023965b68c24d17e1e540b7758115650ecd
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445750"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510735"
 ---
 Una delle principali funzionalità del servizio Voce è la possibilità di riconoscere e trascrivere la voce umana, ovvero di convertire la voce in testo scritto. Questa guida di avvio rapido illustra come usare Speech SDK in app e prodotti per eseguire la conversione della voce in testo scritto di alta qualità.
 

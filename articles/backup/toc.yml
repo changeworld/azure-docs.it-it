@@ -366,7 +366,7 @@
           href: monitor-azure-backup-with-backup-explorer.md
         - name: Uso del portale di Azure
           href: backup-azure-monitoring-built-in-monitor.md
-        - name: Uso di Monitoraggio di Azure
+        - name: Uso dei log di monitoraggio di Azure
           href: backup-azure-monitoring-use-azuremonitor.md
     - name: Report
       items:
@@ -374,10 +374,14 @@
           items:
             - name: Configurare report di Backup di Azure
               href: configure-reports.md
+            - name: Inviare i report di backup di Azure
+              href: backup-reports-email.md
         - name: Configurare eventi di diagnostica per insiemi di credenziali di Servizi di ripristino
           items:
             - name: Uso delle impostazioni di diagnostica per gli insiemi di credenziali di Servizi di ripristino
               href: backup-azure-diagnostic-events.md
+            - name: Utilizzo delle funzioni di sistema
+              href: backup-reports-system-functions.md
             - name: Modello di dati di Log Analytics per eventi di diagnostica specifici delle risorse
               href: backup-azure-reports-data-model.md
             - name: Modello di dati di Log Analytics per Backup di Azure (modalità Diagnostica di Azure)
@@ -418,7 +422,7 @@
               href: backup-azure-arm-userestapi-managejobs.md
         - name: Modelli di Gestione risorse
           href: backup-rm-template-samples.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Panoramica
           href: security-overview.md
