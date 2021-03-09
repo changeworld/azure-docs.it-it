@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 71ddb1217be7fe3e1254e0d49e1f40c43a55a3f0
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502417"
+ms.locfileid: "102521748"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Anteprima: modalità di orchestrazione per i set di scalabilità di macchine virtuali in Azure 
 
@@ -128,7 +128,7 @@ Nella tabella seguente vengono confrontati la modalità di orchestrazione flessi
 |         Avvisi di Azure  |            No  |            Sì  |            Sì  |
 |         Informazioni dettagliate macchina virtuale  |            No  |            Sì  |            Sì  |
 |         Backup di Azure  |            Sì  |            Sì  |            Sì  |
-|         Azure Site Recovery  |            Sì, solo PowerShell  |            Sì  |            Sì  |
+|         Azure Site Recovery  |            No  |            No  |            Sì  |
 |         Aggiungi/Rimuovi macchina virtuale esistente al gruppo  |            No  |            No  |            No  | 
 
 

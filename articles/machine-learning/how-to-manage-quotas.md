@@ -11,12 +11,12 @@ ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: aa25a81068b25b7b8696a7472eb04542e8bb1a60
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4e61a15b86d1d2d05889253f615eec0865c87a70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878953"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520388"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 
@@ -189,7 +189,6 @@ Azure Machine Learning crea risorse nella sottoscrizione (Customer), ma alcuni s
  Negli scenari seguenti potrebbe essere necessario richiedere una quota di quote nella sottoscrizione di proprietà di Microsoft:
 
 * Area di lavoro abilitata per il collegamento privato di Azure con una chiave gestita dal cliente (CMK)
-* Registro Azure Container per l'area di lavoro dietro alla rete virtuale
 * Collegamento di un cluster del servizio Azure Kubernetes abilitato per il collegamento privato all'area di lavoro
 
 Per richiedere una concessione per questi scenari, attenersi alla procedura seguente:

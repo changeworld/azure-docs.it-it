@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 4193e58c28b481297df38bca8f18d2ea766ce886
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 534870e6bd67b7aa5273289f3154a794a2b9bd22
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443132"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519011"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Usare i certificati con Azure Stack dispositivo GPU Pro Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Questo articolo descrive i tipi di certificati che possono essere installati nel dispositivo Azure Stack Edge Pro. Nell'articolo sono inoltre inclusi i dettagli di ogni tipo di certificato insieme alla procedura per l'installazione e l'identificazione della data di scadenza. 
+Questo articolo descrive i tipi di certificati che possono essere installati nel dispositivo Azure Stack Edge Pro. Nell'articolo sono inoltre inclusi i dettagli di ogni tipo di certificato insieme alla procedura per l'installazione e l'identificazione della data di scadenza.  
 
 ## <a name="about-certificates"></a>Informazioni sui certificati
 
@@ -400,7 +400,7 @@ Il backup del file con estensione pfx è ora salvato nel percorso selezionato ed
 
 ## <a name="supported-certificate-algorithms"></a>Algoritmi di certificato supportati
 
- Con il dispositivo Azure Stack Edge Pro sono supportati solo i certificati RSA (Rivest-Shamir-Adleman). Se vengono usati i certificati ECDSA (ellittica Digital Signature Algorithm), il comportamento del dispositivo è indeterminato.
+ Con il dispositivo Azure Stack Edge Pro sono supportati solo i certificati RSA (Rivest-Shamir-Adleman). I certificati ECDSA (Digital Signature Algorithm) a curva ellittica non sono supportati.
 
  I certificati che contengono una chiave pubblica RSA sono detti certificati RSA. I certificati che contengono una chiave pubblica di crittografia a curva ellittica (ECC) vengono definiti certificati ECDSA (algoritmo di firma digitale a curva ellittica). 
 

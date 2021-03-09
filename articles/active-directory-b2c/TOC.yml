@@ -237,7 +237,7 @@
         - name: Configurare l'accesso condizionale
           href: conditional-access-user-flow.md
     - name: Configurare il controllo dell'accesso in base all'età
-      href: basic-age-gating.md
+      href: age-gating.md
     - name: Connettori API (anteprima)
       items:
         - name: Panoramica

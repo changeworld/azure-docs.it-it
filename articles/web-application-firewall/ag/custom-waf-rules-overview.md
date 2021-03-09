@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd917bcf54022564640d22a5968738c27f75ff38
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81383819"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519045"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regole personalizzate per il Web Application Firewall V2 in applicazione Azure gateway
 
@@ -26,7 +26,7 @@ Le regole personalizzate supportano l'uso della logica di composizione per appor
 
 Condizioni di corrispondenza diverse all'interno della stessa regola vengono sempre composte mediante **e**. Ad esempio, bloccare il traffico da un indirizzo IP specifico e solo se viene usato un determinato browser.
 
-Se si desiderano **o** due condizioni diverse, le due condizioni devono essere in regole diverse. È ad esempio possibile bloccare il traffico da un indirizzo IP specifico o bloccare il traffico se utilizzano un browser specifico.
+Se si desidera utilizzare **o** tra due condizioni diverse, è necessario che le due condizioni siano in regole diverse. È ad esempio possibile bloccare il traffico da un indirizzo IP specifico o bloccare il traffico se utilizzano un browser specifico.
 
 > [!NOTE]
 > Il numero massimo di regole personalizzate di WAF è 100. Per altre informazioni sui limiti del gateway applicazione, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
@@ -144,7 +144,7 @@ Nega la condizione corrente.
 
 Elenco di stringhe con i nomi delle trasformazioni da eseguire prima che venga tentata la corrispondenza. Queste possono essere le trasformazioni seguenti:
 
-- Lettere minuscole
+- Minuscole
 - Taglio
 - UrlDecode
 - UrlEncode 

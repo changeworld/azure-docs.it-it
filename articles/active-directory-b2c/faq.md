@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cef2636aeecf78a12c48b31b384af2cf76903879
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 722f3158c8eca4cec4dbf23658f9d8d4cb68c3ed
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102498830"
+ms.locfileid: "102517991"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti
 
@@ -145,13 +145,13 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Eliminare tutti i **flussi utente (criteri)** nel tenant del Azure ad B2C.
+1. Eliminare tutti i **provider di identità** nel tenant del Azure ad B2C.
 1. Selezionare **registrazioni app**, quindi selezionare la scheda **tutte le applicazioni** .
 1. Eliminare tutte le applicazioni registrate.
 1. Eliminare **B2C-Extensions-app**.
 1. In **Gestisci** selezionare **Utenti**.
 1. Selezionare a sua volta ciascun utente (escludere l'utente *amministratore della sottoscrizione* con cui si è attualmente connessi). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
-1. In **Gestisci** selezionare **impostazioni utente**.
 1. In **Gestisci** selezionare **Proprietà**
 1. In **Gestione degli accessi per le risorse di Azure** selezionare **Sì** e quindi selezionare **Salva**.
 1. Disconnettersi dal portale di Azure e quindi accedere di nuovo per aggiornare l'accesso.

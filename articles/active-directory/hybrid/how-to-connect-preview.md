@@ -16,19 +16,19 @@ ms.date: 05/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b543cf4655d0b961a144e9180385a532ae4216d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d48cd8f95ecaf3e537a5221d766af150a51aa31
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657097"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517685"
 ---
 # <a name="more-details-about-features-in-preview"></a>Altre informazioni sulle funzionalità in anteprima
 Questo argomento descrive come usare le funzionalità attualmente in anteprima.
 
-## <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API dell'endpoint Sync V2 di Azure AD Connect (anteprima pubblica) 
+## <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API dell'endpoint Servizio di sincronizzazione Azure AD Connect v2
 
-È stato distribuito un nuovo endpoint (API) per Azure AD Connect che consente di migliorare le prestazioni delle operazioni del servizio di sincronizzazione per Azure Active Directory. Usando il nuovo endpoint V2, si verificherà un notevole miglioramento delle prestazioni di esportazione e importazione in Azure AD. Questo nuovo endpoint supporta anche i gruppi di sincronizzazione con fino a 250.000 membri. L'uso di questo endpoint consente inoltre di eseguire il writeback Microsoft 365 gruppi unificati, senza limite di appartenenza massimo, al Active Directory locale quando il writeback del gruppo è abilitato. Per altre informazioni, vedere [API dell'endpoint Sync V2 di Azure AD Connect (anteprima pubblica)](how-to-connect-sync-endpoint-api-v2.md).
+È stato distribuito un nuovo endpoint (API) per Azure AD Connect che consente di migliorare le prestazioni delle operazioni del servizio di sincronizzazione per Azure Active Directory. Usando il nuovo endpoint V2, si verificherà un notevole miglioramento delle prestazioni di esportazione e importazione in Azure AD. Questo nuovo endpoint supporta anche i gruppi di sincronizzazione con fino a 250.000 membri. L'uso di questo endpoint consente inoltre di eseguire il writeback Microsoft 365 gruppi unificati, senza limite di appartenenza massimo, al Active Directory locale quando il writeback del gruppo è abilitato. Per ulteriori informazioni, vedere [Azure ad Connect API endpoint Sync V2](how-to-connect-sync-endpoint-api-v2.md).
 
 ## <a name="user-writeback"></a>Writeback degli utenti
 > [!IMPORTANT]

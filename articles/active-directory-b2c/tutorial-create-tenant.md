@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb680221447594b4784f61112655d507397b1c00
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 673e2260f358332de00a15b29729f14d62fe82a4
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648850"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518008"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Esercitazione: Creare un tenant di Azure Active Directory B2C
 
@@ -23,6 +23,8 @@ Prima che le applicazioni possano interagire con Azure Active Directory B2C (Azu
 
 > [!NOTE]
 > È possibile creare fino a 20 tenant per sottoscrizione. Questo limite consente di proteggere le risorse dalle minacce, ad esempio gli attacchi Denial of Service, e viene applicato sia nel portale di Azure che nell'API di creazione del tenant sottostante. Se è necessario creare più di 20 tenant, contattare il [supporto tecnico Microsoft](support-options.md).
+> 
+> Se si vuole riusare un nome di tenant che in precedenza si è tentato di eliminare, ma viene visualizzato l'errore "già in uso da un'altra directory" quando si immette il nome di dominio, è necessario [seguire questa procedura per eliminare prima di tutto il tenant](https://docs.microsoft.com/azure/active-directory-b2c/faq?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). È necessario un ruolo di almeno amministratore della sottoscrizione. Dopo l'eliminazione del tenant, potrebbe essere necessario disconnettersi e accedere di nuovo prima di poter riutilizzare il nome di dominio.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 

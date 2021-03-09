@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: bc8d14f3d4621a41c2d2845802313033d0809b4b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 40065189f3c1dd52f462985aef344e9cbeb12f0b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442129"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522377"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Distribuire un'applicazione Kubernetes senza stato tramite kubectl sul dispositivo GPU Azure Stack Edge Pro
 
@@ -27,7 +27,7 @@ Prima di poter creare un cluster Kubernetes e usare lo `kubectl` strumento da ri
 
 - Si dispone di credenziali di accesso a un dispositivo Azure Stack Edge Pro a 1 nodo.
 
-- Windows PowerShell 5,0 o versione successiva è installato in un sistema client Windows per accedere al dispositivo Azure Stack Edge Pro. È possibile avere anche un altro client con un sistema operativo supportato. Questo articolo descrive la procedura quando si usa un client Windows. Per scaricare la versione più recente di Windows PowerShell, vedere [installazione di Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
+- Windows PowerShell 5,0 o versione successiva è installato in un sistema client Windows per accedere al dispositivo Azure Stack Edge Pro. È possibile avere anche un altro client con un sistema operativo supportato. Questo articolo descrive la procedura quando si usa un client Windows. Per scaricare la versione più recente di Windows PowerShell, vedere [installazione di Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
 
 - Il calcolo è abilitato nel dispositivo Azure Stack Edge Pro. Per abilitare il calcolo, passare alla pagina **calcolo** nell'interfaccia utente locale del dispositivo. Selezionare quindi un'interfaccia di rete che si vuole abilitare per il calcolo. Selezionare **Abilita**. L'abilitazione dei risultati di calcolo nella creazione di un commutire virtuale sul dispositivo in tale interfaccia di rete. Per altre informazioni, vedere [abilitare la rete di calcolo nel Azure stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 

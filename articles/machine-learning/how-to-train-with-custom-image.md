@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ad86ebdbef8bf8c8ec00e54e15b751fd2285ad68
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 03400173dd35660d6e7a98500b831a7c6aa4ebd7
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601347"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521171"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Eseguire il training di un modello usando un'immagine Docker personalizzata
 
@@ -32,7 +32,7 @@ Eseguire il codice in uno degli ambienti seguenti:
   * Nel repository di [esempi](https://github.com/Azure/azureml-examples)Azure Machine Learning trovare un notebook completato passando alla directory **Notebooks**  >  **fastai**  >  **Train-Pets-resnet34. ipynb** . 
 * Il proprio server Jupyter Notebook:
   * Creare un [file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
-  * Installare [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
+  * Installare [Azure Machine Learning SDK](/python/api/overview/azure/ml/install). 
   * Creare un [Registro contenitori di Azure](../container-registry/index.yml) o un altro registro Docker disponibile su Internet.
 
 ## <a name="set-up-a-training-experiment"></a>Configurare un esperimento di training
@@ -41,7 +41,7 @@ In questa sezione si configura l'esperimento di training inizializzando un'area 
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) oggetto.
+L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) oggetto.
 
 Creare un `Workspace` oggetto dal config.jssul file creato come [prerequisito](#prerequisites).
 
@@ -169,7 +169,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning esegue gli script di training copiando l'intera directory di origine. Se si dispone di dati sensibili che non si desidera caricare, utilizzare un [file con estensione ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o non includerlo nella directory di origine. È invece possibile accedere ai dati usando un [Archivio](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py)dati.
+> Azure Machine Learning esegue gli script di training copiando l'intera directory di origine. Se si dispone di dati sensibili che non si desidera caricare, utilizzare un [file con estensione ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o non includerlo nella directory di origine. È invece possibile accedere ai dati usando un [Archivio](/python/api/azureml-core/azureml.data)dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato eseguito il training di un modello usando un'immagine Docker personalizzata. Per ulteriori informazioni su Azure Machine Learning, vedere gli altri articoli:

@@ -10,23 +10,23 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 472bc66c75881d622e8ecfe23031f58db773a919
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739587"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518926"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creare e gestire aree di lavoro Azure Machine Learning 
 
-Questo articolo illustra come creare, visualizzare ed eliminare [**Azure Machine Learning aree di lavoro**](concept-workspace.md) per [Azure Machine Learning](overview-what-is-azure-ml.md), usando il portale di Azure o l' [SDK per Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)
+Questo articolo illustra come creare, visualizzare ed eliminare [**Azure Machine Learning aree di lavoro**](concept-workspace.md) per [Azure Machine Learning](overview-what-is-azure-ml.md), usando il portale di Azure o l' [SDK per Python](/python/api/overview/azure/ml/)
 
 Poiché le esigenze cambiano o i requisiti per l'aumento dell'automazione, è anche possibile creare ed eliminare aree di lavoro [usando l'interfaccia della](reference-azure-machine-learning-cli.md)riga di comando o [tramite l'estensione vs code](tutorial-setup-vscode-extension.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
-* Se si usa Python SDK, [installare l'SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* Se si usa Python SDK, [installare l'SDK](/python/api/overview/azure/ml/install).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -34,7 +34,7 @@ Poiché le esigenze cambiano o i requisiti per l'aumento dell'automazione, è an
 
 Per impostazione predefinita, la creazione di un'area di lavoro crea anche un Container Registry di Azure (ACR).  Poiché ACR attualmente non supporta i caratteri Unicode nei nomi dei gruppi di risorse, usare un gruppo di risorse che non contiene questi caratteri.
 
-## <a name="create-a-workspace"></a>Crea un'area di lavoro
+## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -111,7 +111,7 @@ Per impostazione predefinita, la creazione di un'area di lavoro crea anche un Co
                              exist_ok=False)
    ```
 
-Per ulteriori informazioni, vedere informazioni di [riferimento sull'SDK dell'area di lavoro](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py).
+Per ulteriori informazioni, vedere informazioni di [riferimento sull'SDK dell'area di lavoro](/python/api/azureml-core/azureml.core.workspace.workspace).
 
 In caso di problemi di accesso alla sottoscrizione, vedere [configurare l'autenticazione per Azure Machine Learning risorse e flussi di lavoro](how-to-setup-authentication.md), nonché l' [autenticazione in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
@@ -134,13 +134,13 @@ In caso di problemi di accesso alla sottoscrizione, vedere [configurare l'autent
    Campo|Descrizione 
    ---|---
    Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
-   Sottoscrizione |Selezionare la sottoscrizione di Azure da usare.
-   Gruppo di risorse | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
-   Area | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
+   Subscription |Selezionare la sottoscrizione di Azure da usare.
+   Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
+   Region | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
    | Account di archiviazione | Account di archiviazione predefinito per l'area di lavoro. Per impostazione predefinita, ne viene creato uno nuovo. |
    | Key Vault | Azure Key Vault utilizzata dall'area di lavoro. Per impostazione predefinita, ne viene creato uno nuovo. |
    | Application Insights | Istanza di Application Insights per l'area di lavoro. Per impostazione predefinita, ne viene creato uno nuovo. |
-   | Registro Container | Container Registry di Azure per l'area di lavoro. Per impostazione predefinita, un nuovo _non_ viene creato inizialmente per l'area di lavoro. Viene invece creato quando necessario durante la creazione di un'immagine Docker durante il training o la distribuzione. |
+   | Registro contenitori | Container Registry di Azure per l'area di lavoro. Per impostazione predefinita, un nuovo _non_ viene creato inizialmente per l'area di lavoro. Viene invece creato quando necessario durante la creazione di un'immagine Docker durante il training o la distribuzione. |
 
    :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configurare l'area di lavoro.":::
 
@@ -167,7 +167,7 @@ In caso di problemi di accesso alla sottoscrizione, vedere [configurare l'autent
 
 # <a name="python"></a>[Python](#tab/python)
 
-Il Azure Machine Learning Python SDK fornisce la classe [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?preserve-view=true&view=azure-ml-py) , che può essere usata con [Workspace. Create ()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) per creare un'area di lavoro con un endpoint privato. Questa classe richiede una rete virtuale esistente.
+Il Azure Machine Learning Python SDK fornisce la classe [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) , che può essere usata con [Workspace. Create ()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) per creare un'area di lavoro con un endpoint privato. Questa classe richiede una rete virtuale esistente.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -201,7 +201,7 @@ Per altre informazioni, vedere [configurazione DNS dell'endpoint privato di Azur
 
 Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. È consigliabile consentire al centro sicurezza di Azure di analizzare le risorse e seguire le indicazioni. Per altre informazioni, vedere  [azure container Registry Image Scan by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services Integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
-### <a name="advanced"></a>Avanzate
+### <a name="advanced"></a>Avanzato
 
 Per impostazione predefinita, i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft.
 
@@ -374,7 +374,7 @@ Nella [portale di Azure](https://portal.azure.com/)selezionare **Elimina**  nell
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * **Browser supportati in Azure Machine Learning Studio**: si consiglia di usare il browser più aggiornato compatibile con il sistema operativo. Sono supportati i browser seguenti:
-  * Microsoft Edge (il nuovo Microsoft Edge, la versione più recente. Non legacy Microsoft Edge)
+  * Microsoft Edge (il nuovo Microsoft Edge, ultima versione. Non una versione legacy di Microsoft Edge)
   * Safari (versione più recente, solo Mac)
   * Chrome (versione più recente)
   * Firefox (versione più recente)
@@ -398,7 +398,7 @@ L'area di lavoro di Azure Machine Learning usa il Registro Azure Container (ACR)
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Esempi di creazione di un'area di lavoro:
 * Usare portale di Azure per [creare un'istanza di calcolo e un'area di lavoro](tutorial-1st-experiment-sdk-setup.md)

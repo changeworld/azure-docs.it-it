@@ -11,19 +11,19 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 02/22/2021
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: dbfb4ea729b8360c7065d75cb3efbaf42b82c0da
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 68d07481e228b1d1b2f4571a783f925add261cff
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663143"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520014"
 ---
 # <a name="connect-to-storage-with-identity-based-data-access-preview"></a>Connettersi all'archiviazione con accesso ai dati basato su identità (anteprima)
 
 >[!IMPORTANT]
-> Le funzionalità presentate in questo articolo sono in anteprima e devono essere considerate funzionalità di anteprima [sperimentali](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) che possono cambiare in qualsiasi momento.
+> Le funzionalità presentate in questo articolo sono in anteprima e devono essere considerate funzionalità di anteprima [sperimentali](/python/api/overview/azure/ml/#stable-vs-experimental) che possono cambiare in qualsiasi momento.
 
-In questo articolo si apprenderà come connettersi ai servizi di archiviazione in Azure con l'accesso ai dati basato su identità e Azure Machine Learning archivi dati tramite l' [SDK Azure Machine Learning Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).  
+In questo articolo si apprenderà come connettersi ai servizi di archiviazione in Azure con l'accesso ai dati basato su identità e Azure Machine Learning archivi dati tramite l' [SDK Azure Machine Learning Python](/python/api/overview/azure/ml/intro).  
 
 In genere, gli archivi dati utilizzano l'accesso ai dati basato su credenziali per verificare di disporre dell'autorizzazione per accedere al servizio di archiviazione. Mantengono le informazioni di connessione, ad esempio l'ID sottoscrizione e l'autorizzazione del token, nel [Key Vault](https://azure.microsoft.com/services/key-vault/) associato all'area di lavoro. Quando si crea un archivio dati che usa l'accesso ai dati basato su identità, viene usato l'account di accesso di Azure ([token Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)) per confermare di avere l'autorizzazione per accedere al servizio di archiviazione. In questo scenario non viene salvata alcuna credenziale di autenticazione e solo le informazioni sull'account di archiviazione vengono archiviate nell'archivio dati. 
 
@@ -67,7 +67,7 @@ Alcuni scenari di apprendimento automatico coinvolgono modelli di training con d
     - [Azure Data Lake generazione 2](../storage/blobs/data-lake-storage-introduction.md)
     - [Database SQL di Azure](../azure-sql/database/sql-database-paas-overview.md)
 
-- [SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+- [SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/install).
 
 - Un'area di lavoro di Azure Machine Learning.
   
@@ -105,7 +105,7 @@ Nel codice seguente si noti l'assenza di parametri di autenticazione, ad esempio
 
 ### <a name="azure-blob-container"></a>Contenitore BLOB di Azure
 
-Per registrare un contenitore BLOB di Azure come archivio dati, usare [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
+Per registrare un contenitore BLOB di Azure come archivio dati, usare [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
 Il codice seguente crea e registra l' `credentialless_blob` archivio dati nell' `ws` area di lavoro e lo assegna alla variabile, `blob_datastore` . Questo archivio dati accede al `my_container_name` contenitore BLOB nell'account di `my-account-name` archiviazione.
 
@@ -119,7 +119,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### <a name="azure-data-lake-storage-generation-1"></a>Azure Data Lake Storage generazione 1
 
-Per un archivio dati Azure Data Lake Storage generazione 1 (ADLS gen 1), usare [register_azure_data_lake ()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) per registrare un archivio dati che si connette a una risorsa di archiviazione di Azure datalake di generazione 1.
+Per un archivio dati Azure Data Lake Storage generazione 1 (ADLS gen 1), usare [register_azure_data_lake ()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) per registrare un archivio dati che si connette a una risorsa di archiviazione di Azure datalake di generazione 1.
 
 Il codice seguente crea e registra l' `credentialless_adls1` archivio dati nell' `workspace` area di lavoro e lo assegna alla variabile, `adls_dstore` . Questo archivio dati accede all' `adls_storage` account di archiviazione Azure Data Lake Store.
 
@@ -133,7 +133,7 @@ adls_dstore = Datastore.register_azure_data_lake(workspace = workspace,
 
 ### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Gen2
 
-Per un archivio dati di Azure Data Lake Storage generazione 2 (ADLS gen 2), usare [register_azure_data_lake_gen2 ()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) per registrare un archivio dati che si connette a una risorsa di archiviazione di Azure datalake gen 2.
+Per un archivio dati di Azure Data Lake Storage generazione 2 (ADLS gen 2), usare [register_azure_data_lake_gen2 ()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) per registrare un archivio dati che si connette a una risorsa di archiviazione di Azure datalake gen 2.
 
 Il codice seguente crea e registra l' `credentialless_adls2` archivio dati nell' `ws` area di lavoro e lo assegna alla variabile, `adls2_dstore` . Questo archivio dati accede al file system `tabular` nell'account di `myadls2` archiviazione.  
 

@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 8941a7f7a27f6ffe58cda3f0bf2c6833ec226783
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: d1c4defc53c4af0fb481a57c0a455e987fdd480a
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102456285"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519997"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Collegare le aree di lavoro Azure Machine Learning e di analisi delle sinapsi di Azure (anteprima)
 
@@ -29,7 +29,7 @@ Con l'area di lavoro di Azure Machine Learning collegata all'area di lavoro di A
 È anche possibile collegare le aree di lavoro e collegare un pool di Spark di sinapsi a un singolo [modello di Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json).
 
 >[!IMPORTANT]
-> Il Azure Machine Learning e l'integrazione di sinapsi di Azure sono in anteprima pubblica. Le funzionalità presentate dal `azureml-synapse` pacchetto sono funzionalità di [Anteprima sperimentale](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) e possono cambiare in qualsiasi momento.
+> Il Azure Machine Learning e l'integrazione di sinapsi di Azure sono in anteprima pubblica. Le funzionalità presentate dal `azureml-synapse` pacchetto sono funzionalità di [Anteprima sperimentale](/python/api/overview/azure/ml/#stable-vs-experimental) e possono cambiare in qualsiasi momento.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,7 +39,7 @@ Con l'area di lavoro di Azure Machine Learning collegata all'area di lavoro di A
 
 * [Creare Apache Spark pool con portale di Azure, strumenti Web o sinapsi Studio](/synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
-* Installare il [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+* Installare il [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)
 
 * Accesso a [Azure Machine Learning Studio](https://ml.azure.com/).
 
@@ -51,7 +51,7 @@ Con l'area di lavoro di Azure Machine Learning collegata all'area di lavoro di A
 >
 > Se non si è un **proprietario** e si è solo un **collaboratore** all'area di lavoro sinapsi, è possibile usare solo i servizi collegati esistenti. Vedere come [recuperare e usare un servizio collegato esistente](how-to-data-prep-synapse-spark-pool.md#get-an-existing-linked-service).
 
-Il codice seguente usa le [`LinkedService`](/python/api/azureml-core/azureml.core.linked_service.linkedservice?preserve-view=true&view=azure-ml-py) classi e [`SynapseWorkspaceLinkedServiceConfiguration`](/python/api/azureml-core/azureml.core.linked_service.synapseworkspacelinkedserviceconfiguration?preserve-view=true&view=azure-ml-py) per,
+Il codice seguente usa le [`LinkedService`](/python/api/azureml-core/azureml.core.linked_service.linkedservice) classi e [`SynapseWorkspaceLinkedServiceConfiguration`](/python/api/azureml-core/azureml.core.linked_service.synapseworkspacelinkedserviceconfiguration) per,
 
 * Collegare l'area di lavoro di Machine Learning `ws` con l'area di lavoro di Azure sinapsi.
 * Registrare l'area di lavoro sinapsi con Azure Machine Learning come servizio collegato.

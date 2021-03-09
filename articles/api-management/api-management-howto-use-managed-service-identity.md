@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 03/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 8ec0f8cf090b3ae85a8602fb39cb07f03a417133
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 98237efae89e7d88dd23cb7e8fc9f7e9f05bca70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605599"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521544"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Usare identità gestite in gestione API di Azure
 
@@ -263,6 +263,19 @@ L'esempio seguente mostra un modello di Azure Resource Manager che contiene i pa
 ### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Eseguire l'autenticazione al back-end usando un'identità di gestione API
 
 È possibile usare l'identità assegnata dal sistema per autenticare il back-end tramite il criterio di [autenticazione gestito dall'identità](api-management-authentication-policies.md#ManagedIdentity) .
+
+### <a name="connect-to-azure-resources-behind-ip-firewall-using-system-assigned-managed-identity"></a><a name="apim-as-trusted-service"></a>Connettersi alle risorse di Azure dietro il firewall IP usando l'identità gestita assegnata dal sistema
+
+
+Gestione API è un servizio Microsoft attendibile per le risorse seguenti. Ciò consente al servizio di connettersi alle risorse seguenti protette da un firewall. Dopo aver assegnato in modo esplicito il ruolo Azure appropriato all' [identità gestita assegnata dal sistema](../active-directory/managed-identities-azure-resources/overview.md) per l'istanza di tale risorsa, l'ambito di accesso per l'istanza corrisponde al ruolo di Azure assegnato all'identità gestita.
+
+
+|Servizio di Azure | Collegamento|
+|---|---|
+|Archiviazione di Azure | [Accesso attendibile ad Azure-Storage](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
+|Bus di servizio di Azure | [Accesso attendibile ad Azure-Service-Bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
+|Hub eventi di Azure | [Hub-Event-Access-to-Azure](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Creare un'identità gestita assegnata dall'utente
 

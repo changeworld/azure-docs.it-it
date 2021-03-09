@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 455fdc7615e0909189f311755571d02a9acca24e
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a8e968d05a1f844a79d2e42d10c323ed4c392424
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102501992"
+ms.locfileid: "102521221"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Allegati Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
@@ -42,9 +42,9 @@ Gli allegati gestiti di Azure Cosmos DB sono distinti dal supporto per gli eleme
 - Gli allegati gestiti non sono compatibili con la distribuzione globale di Azure Cosmos DB e non vengono replicati tra le aree.
 
 > [!NOTE]
-> Azure Cosmos DB API per MongoDB versione 3,2 utilizza gli allegati gestiti per GridFS, che sono quindi soggetti alle stesse limitazioni degli allegati gestiti di Azure Cosmos DB.
+> Azure Cosmos DB API per MongoDB versione 3,2 utilizza gli allegati gestiti per GridFS ed è soggetta alle stesse limitazioni.
 >
-> È consigliabile che gli sviluppatori utilizzino il set di funzionalità MongoDB GridFS per eseguire l'aggiornamento a Azure Cosmos DB API per MongoDB versione 3,6 o successiva, che è disaccoppiata dagli allegati e offre un'esperienza più avanzata e affidabile. In alternativa, gli sviluppatori che usano il set di funzionalità di MongoDB GridFS devono considerare anche l'uso dell'archiviazione BLOB di Azure, che è progettato per l'archiviazione di contenuto BLOB e offre funzionalità espanse a costi inferiori rispetto a GridFS.
+> È consigliabile che gli sviluppatori utilizzino il set di funzionalità MongoDB GridFS per eseguire l'aggiornamento a Azure Cosmos DB API per MongoDB versione 3,6 o successiva, che è disaccoppiata dagli allegati e offre un'esperienza migliore. In alternativa, gli sviluppatori che usano il set di funzionalità di MongoDB GridFS devono considerare anche l'uso dell'archiviazione BLOB di Azure, che è progettato per l'archiviazione di contenuto BLOB e offre funzionalità espanse a costi inferiori rispetto a GridFS.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>Migrazione degli allegati all'archivio BLOB di Azure
 

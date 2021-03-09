@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 02/25/2021
-ms.openlocfilehash: 2c61cfaf0e97f7d483239a23e5eea52b51c6a126
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 44ccf6b6d2459b87040fcac7d9cdcd336cc7b82f
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690210"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522037"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretazione del modello in Azure Machine Learning (anteprima)
 
@@ -39,7 +39,7 @@ L'abilitazione della funzionalità di spiegazione di un modello di apprendimento
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretabilità con Azure Machine Learning
 
-Le classi di interpretazione del modello vengono rese disponibili tramite il pacchetto SDK seguente: (informazioni su come [installare i pacchetti SDK per Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
+Le classi di interpretazione del modello vengono rese disponibili tramite il pacchetto SDK seguente: (informazioni su come [installare i pacchetti SDK per Azure Machine Learning](/python/api/overview/azure/ml/install))
 
 * `azureml.interpret`, contiene funzionalità supportate da Microsoft.
 

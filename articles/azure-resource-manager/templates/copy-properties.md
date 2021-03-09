@@ -3,12 +3,12 @@ title: Definire più istanze di una proprietà
 description: Usare l'operazione di copia in un modello di Azure Resource Manager (modello ARM) per eseguire un'iterazione più volte durante la creazione di una proprietà in una risorsa.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 446a303104e6b538129cd22d1f1fbbba6282b2ee
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 958deba6152ffa3bcb1d2d79cd026c0cb2eebcbe
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905928"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521662"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iterazione delle proprietà nei modelli ARM
 
@@ -64,7 +64,7 @@ Nell'esempio seguente viene illustrato come applicare `copy` alla `dataDisks` Pr
       "type": "int",
       "minValue": 0,
       "maxValue": 16,
-      "defaultValue": 16,
+      "defaultValue": 3,
       "metadata": {
         "description": "The number of dataDisks to create."
       }
@@ -254,7 +254,7 @@ L' `copy` elemento è una matrice, quindi è possibile specificare più di una p
 
 Nell'esempio seguente viene illustrato uno scenario comune per la creazione di più di un valore per una proprietà.
 
-|Modello  |Description  |
+|Modello  |Descrizione  |
 |---------|---------|
 |[Distribuzione VM con un numero variabile di dischi dati](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuisce più dischi dati con una macchina virtuale. |
 

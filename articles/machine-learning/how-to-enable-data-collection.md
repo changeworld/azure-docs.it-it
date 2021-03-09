@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: fc890dbaf717d3eb9ec87afcb69c87e80c7f14bc
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: f42a2f9e606eaa0475f2e35c479e99545ecf8193
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680968"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521901"
 ---
 # <a name="collect-data-from-models-in-production"></a>Raccogliere dati dai modelli nell'ambiente di produzione
 
@@ -65,11 +65,11 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 
 - È necessario un cluster AKS. Per informazioni su come crearne uno e distribuirlo, vedere [How to deploy and where](how-to-deploy-and-where.md).
 
-- [Configurare l'ambiente](how-to-configure-environment.md) e installare l' [SDK di monitoraggio Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+- [Configurare l'ambiente](how-to-configure-environment.md) e installare l' [SDK di monitoraggio Azure Machine Learning](/python/api/overview/azure/ml/install).
 
 ## <a name="enable-data-collection"></a>Abilitare la raccolta dati
 
-È possibile abilitare la [raccolta dei dati](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py) indipendentemente dal modello distribuito tramite Azure Machine Learning o altri strumenti.
+È possibile abilitare la [raccolta dei dati](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector) indipendentemente dal modello distribuito tramite Azure Machine Learning o altri strumenti.
 
 Per abilitare la raccolta dei dati, è necessario:
 
@@ -203,7 +203,7 @@ Per abilitare la raccolta dei dati, è necessario:
 
     [![Creazione della tabella databricks](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. Aggiornare il percorso dei dati. Esempio:
+1. Aggiornare il percorso dei dati. Ecco un esempio:
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 
