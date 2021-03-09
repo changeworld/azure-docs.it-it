@@ -9,14 +9,17 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ef013d97be8a5decbee46d25752ced7bd622a646
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9611a854c6dad29842f1652580da5fd1d449cb3f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657775"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485836"
 ---
 # <a name="chat-client-library-overview"></a>Panoramica della libreria client di chat
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Le librerie client di chat di Servizi di comunicazione di Azure possono essere usate per aggiungere chat in tempo reale ed elaborate alle applicazioni.
 
@@ -52,7 +55,7 @@ Nell'elenco seguente viene presentato il set di funzionalità attualmente dispon
 |                    | Monitorare la qualità e lo stato delle richieste API effettuate dall'app e configurare gli avvisi tramite il portale                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |Funzionalità aggiuntive | Usare le [API Servizi cognitivi](../../../cognitive-services/index.yml) insieme alla libreria client di chat per abilitare le funzionalità intelligenti, *traduzione della lingua e analisi del sentiment del messaggio in arrivo in un client, conversione della voce in testo scritto per scrivere un messaggio mentre il membro parla e così via.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
-* * Il pacchetto di segnalazione proprietario viene implementato usando i socket Web. Verrà eseguito il fallback al polling lungo se i socket Web non sono supportati.
+* * Il pacchetto di segnalazione proprietario viene implementato utilizzando i socket Web. Verrà eseguito il fallback al polling lungo se i socket Web non sono supportati.
 
 ## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Supporto della libreria client di chat JavaScript per sistema operativo e browser
 

@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: duau
-ms.openlocfilehash: 994fdf3f929f1f64ab4a064d7f2bd24c19322629
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6eed0ed3e936b0e9a534c82a3105c2ed37cab3d5
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679703"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485420"
 ---
 # <a name="azure-route-server-preview-faq"></a>Domande frequenti sul server di route di Azure (anteprima)
 
@@ -70,7 +70,7 @@ Il server di route di Azure presenta i limiti seguenti (per distribuzione).
 | Numero di route che ogni peer BGP può annunciare al server di route di Azure | 200 |
 | Numero di route che il server di route di Azure può pubblicizzare per ExpressRoute o gateway VPN | 200 |
 
-Per altre informazioni, vedere [diagnosticare un problema di routing di una macchina virtuale di Azure](../virtual-network/diagnose-network-routing-problem.md).
+Se l'appliance virtuale di virtuali annuncia più route rispetto al limite, la sessione BGP verrà eliminata. Se si verifica questo problema per il gateway e il server di route di Azure, si perderà la connettività dalla rete locale ad Azure. Per altre informazioni, vedere [diagnosticare un problema di routing di una macchina virtuale di Azure](../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

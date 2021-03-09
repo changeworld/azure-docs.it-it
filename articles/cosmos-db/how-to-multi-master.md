@@ -5,20 +5,20 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
-ms.openlocfilehash: 6f71f4c0ec353f36614ea6dcabf4d698b31baacb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 08d50b18605fd833e6b0efca987338d0ca1eef8d
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336727"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488512"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurare Scritture in più aree nelle applicazioni che usano Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Dopo aver creato un account con più aree di scrittura abilitate, è necessario apportare due modifiche nell'applicazione a ConnectionPolicy per DocumentClient per abilitare le Scritture in più aree e le funzionalità multihosting in Azure Cosmos DB. In ConnectionPolicy, impostare UseMultipleWriteLocations su true e passare il nome dell'area in cui viene distribuita l'applicazione su SetCurrentLocation. Questo popolerà la proprietà PreferredLocations in base alla prossimità geografica della posizione passata. Se viene aggiunta una nuova area all'account in un secondo momento, l'applicazione non deve essere aggiornata o ridistribuita, ma rileverà automaticamente l'area più vicina ed eseguirà l'homing automatico su di essa in caso di eventi a livello di area.
+Dopo aver creato un account con più aree di scrittura abilitate, è necessario apportare due modifiche nell'applicazione a ConnectionPolicy per il client Cosmos per abilitare le Scritture in più aree in Azure Cosmos DB. All'interno di ConnectionPolicy impostare UseMultipleWriteLocations su true e passare il nome dell'area in cui l'applicazione viene distribuita in ApplicationRegion. Questo popolerà la proprietà PreferredLocations in base alla prossimità geografica della posizione passata. Se viene aggiunta una nuova area all'account in un secondo momento, l'applicazione non deve essere aggiornata o ridistribuita, ma rileverà automaticamente l'area più vicina ed eseguirà l'homing automatico su di essa in caso di eventi a livello di area.
 
 > [!Note]
 > Gli account Cosmos inizialmente configurati con un'area di scrittura singola possono essere configurati su più aree di scrittura con tempi di inattività pari a Per altre informazioni, consultare [Configurare più aree di scrittura](how-to-manage-database-account.md#configure-multiple-write-regions)
@@ -126,7 +126,7 @@ const client = new CosmosClient({
 });
 ```
 
-## <a name="python-sdk"></a><a id="python"></a>Python SDK
+## <a name="python-sdk"></a><a id="python"></a>SDK Python
 
 Per abilitare le Scritture in più aree dell'applicazione, impostare `connection_policy.UseMultipleWriteLocations` su `true` . Inoltre, impostare `connection_policy.PreferredLocations` sull'area in cui viene distribuita l'applicazione e in cui viene replicato Cosmos DB.
 

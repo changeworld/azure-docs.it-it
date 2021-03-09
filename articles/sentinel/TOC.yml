@@ -66,40 +66,46 @@
               href: connect-aws.md
             - name: Azure Active Directory
               href: connect-azure-active-directory.md
-            - name: Office 365 (con Teams incluso)
-              href: connect-office-365.md
-            - name: Dynamics 365 (novità!)
-              href: connect-dynamics-365.md
-            - name: Cloud App Security
-              href: connect-cloud-app-security.md
             - name: Azure Activity Log
               href: connect-azure-activity.md
             - name: Azure AD Identity Protection
               href: connect-azure-ad-identity-protection.md
-            - name: Azure Information Protection
-              href: connect-azure-information-protection.md
-            - name: Microsoft 365 Defender
-              href: connect-microsoft-365-defender.md
-            - name: Microsoft Defender for Endpoint (in precedenza Microsoft Defender Advanced Threat Protection)
-              href: connect-microsoft-defender-advanced-threat-protection.md
-            - name: Microsoft Defender for Identity (in precedenza Azure ATP)
-              href: connect-azure-atp.md
-            - name: Microsoft Defender for Office 365 (in precedenza Office 365 ATP)
-              href: connect-office-365-advanced-threat-protection.md
             - name: Avvisi di Azure Defender del Centro sicurezza di Azure
               href: connect-azure-security-center.md
-            - name: Defender for Internet (in precedenza ASC per l'it)
-              href: connect-asc-iot.md
             - name: Protezione DDoS di Azure
               href: connect-azure-ddos-protection.md
             - name: Firewall di Azure
               href: connect-azure-firewall.md
-            - name: Web application firewall (WAF) di Azure
-              href: connect-azure-waf.md
+            - name: Azure Information Protection
+              href: connect-azure-information-protection.md
+            - name: Insieme di credenziali chiave di Azure
+              href: connect-azure-key-vault.md
+            - name: Servizio Azure Kubernetes
+              href: connect-azure-kubernetes-service.md
             - name: Log di database SQL di Azure
               href: connect-azure-sql-logs.md
+            - name: Web application firewall (WAF) di Azure
+              href: connect-azure-waf.md
+            - name: Defender for Internet (in precedenza ASC per l'it)
+              href: connect-asc-iot.md
             - name: Domain Name Server
               href: connect-dns.md
+            - name: Dynamics 365 (novità!)
+              href: connect-dynamics-365.md
+            - name: Microsoft 365 Defender
+              href: connect-microsoft-365-defender.md
+              expanded: true
+              items:
+                - name: Cloud App Security
+                  href: connect-cloud-app-security.md
+                - name: Microsoft Defender for Endpoint (in precedenza Microsoft Defender Advanced Threat Protection)
+                  href: connect-microsoft-defender-advanced-threat-protection.md
+                - name: Microsoft Defender for Identity (in precedenza Azure ATP)
+                  href: connect-azure-atp.md
+                - name: Microsoft Defender for Office 365 (in precedenza Office 365 ATP)
+                  href: connect-office-365-advanced-threat-protection.md
+            - name: Office 365 (con Teams incluso)
+              href: connect-office-365.md
             - name: Windows Firewall
               href: connect-windows-firewall.md
             - name: Eventi di sicurezza di Windows

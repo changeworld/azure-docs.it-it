@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: c24512ad38f9397c9a40a85489c45fcb0de906b3
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 66294e3c59c2252042e30864dd220683106cd574
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453802"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485385"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novità di Azure Sentinel
 
@@ -29,6 +29,32 @@ Le funzionalità indicate sono attualmente in anteprima. Le [condizioni aggiunti
 >
 > È anche possibile contribuire. Partecipa alla [community GitHub di Azure Sentinel Threat Hunters](https://github.com/Azure/Azure-Sentinel/wiki).
 > 
+
+## <a name="march-2021"></a>Marzo 2021
+
+- [Integrazione di Microsoft 365 Defender Incident](#microsoft-365-defender-incident-integration) (anteprima pubblica)
+- [Nuovi connettori del servizio Microsoft con criteri di Azure](#new-microsoft-service-connectors-using-azure-policy)
+
+### <a name="microsoft-365-defender-incident-integration"></a>Integrazione di Microsoft 365 Defender Incident
+
+L'integrazione degli eventi imprevisti [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) di Azure Sentinel consente di trasmettere tutti gli eventi imprevisti M365D in Sentinel di Azure e di mantenerli sincronizzati tra entrambi i portali. Gli eventi imprevisti di M365D (precedentemente noto come Microsoft Threat Protection o MTP) includono tutti gli avvisi, le entità e le informazioni rilevanti associate, fornendo un contesto sufficiente per eseguire la valutazione e l'analisi preliminare in Sentinel di Azure. Una volta in Sentinel, gli eventi imprevisti rimarranno sincronizzati in modo bidirezionale con M365D, consentendo di sfruttare i vantaggi di entrambi i portali nell'analisi degli eventi imprevisti.
+
+L'uso di Azure Sentinel e Microsoft 365 Defender insieme ti offre il meglio di entrambi i mondi. Si ottiene l'ampia gamma di informazioni che un SIEM offre all'intera organizzazione le risorse di informazioni, oltre alla profondità della potenza investigativa personalizzata e personalizzata offerta da un XDR per proteggere le risorse di Microsoft 365, entrambe coordinate e sincronizzate per un'operazione SOC senza problemi.
+
+Per altre informazioni, vedere [Microsoft 365 Defender Integration with Azure Sentinel](microsoft-365-defender-sentinel-integration.md).
+
+### <a name="new-microsoft-service-connectors-using-azure-policy"></a>Nuovi connettori del servizio Microsoft con criteri di Azure
+
+[Criteri di Azure](../governance/policy/overview.md) è un servizio di Azure che consente di usare i criteri per applicare e controllare le proprietà di una risorsa. L'uso dei criteri garantisce che le risorse siano conformi agli standard di governance IT.
+
+Tra le proprietà delle risorse che possono essere controllate dai criteri sono la creazione e la gestione dei log di diagnostica e di controllo. Azure Sentinel ora usa i criteri di Azure per consentire all'utente di applicare un set comune di impostazioni dei log di diagnostica a tutte le risorse (correnti e future) di un determinato tipo di cui si vuole inserire i log in Sentinel di Azure. Grazie ai criteri di Azure, non sarà più necessario impostare la risorsa Impostazioni log di diagnostica per risorsa.
+
+I connettori basati su criteri di Azure sono ora disponibili per i servizi di Azure seguenti:
+- [Azure Key Vault](connect-azure-key-vault.md) (anteprima pubblica)
+- [Servizio Azure Kubernetes](connect-azure-kubernetes-service.md) (anteprima pubblica)
+- Server/database SQL di Azure (GA)
+
+I clienti potranno comunque inviare i log manualmente per le istanze specifiche e non devono usare il motore dei criteri.
 
 ## <a name="february-2021"></a>2021 febbraio
 
@@ -86,7 +112,7 @@ La nostra raccolta di integrazioni di terze parti continua a crescere, con trent
 - [Endpoint Protection Symantec](connect-data-sources.md)
 - [Thycotic Secret Server](connect-thycotic-secret-server.md)
 - [Micro XDR tendenza](connect-data-sources.md)
-- [VMWare ESXi](connect-vmware-esxi.md)
+- [VMware ESXi](connect-vmware-esxi.md)
 
 ### <a name="ueba-insights-in-the-entity-page"></a>OFFRONO dati Insights nella pagina entità
 

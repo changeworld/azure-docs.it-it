@@ -9,16 +9,15 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: 4fda626581265b4b1f6541a3b453b164ccd27963
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4acc1cb93fb04ba190173fea05805a1a4b833ffc
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690448"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488767"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Avvio rapido: Ottenere un numero di telefono tramite il portale di Azure
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Introduzione a Servizi di comunicazione di Azure, con l'acquisto di un numero di telefono tramite il portale di Azure.
@@ -40,15 +39,15 @@ Passare al pannello **Numeri di telefono** nel menu della risorsa.
 
 :::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Screenshot che mostra la pagina di numeri di telefono della risorsa di Servizi di comunicazione.":::
 
-Premere il pulsante **Ottieni** per avviare la procedura guidata. La procedura guidata del pannello **Numeri di telefono** include una serie di domande che aiutano a scegliere il numero di telefono più adatto allo specifico scenario. 
+Premere il pulsante **Ottieni** per avviare la procedura guidata. La procedura guidata del pannello **Numeri di telefono** include una serie di domande che aiutano a scegliere il numero di telefono più adatto allo specifico scenario.
 
-Sarà prima di tutto necessario scegliere il **paese/area geografica** in cui effettuare il provisioning del numero di telefono. Dopo aver selezionato il paese/area geografica, è necessario selezionare il **Caso d'uso** più adatto alle esigenze. 
+Sarà prima di tutto necessario scegliere il **paese/area geografica** in cui effettuare il provisioning del numero di telefono. Dopo aver selezionato il paese/area geografica, è necessario selezionare il **Caso d'uso** più adatto alle esigenze.
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Screenshot che mostra la visualizzazione per ottenere i numeri di telefono.":::
 
 ### <a name="select-your-phone-number-features"></a>Selezionare le funzionalità dei numeri di telefono
 
-La configurazione del numero di telefono è suddivisa in due passaggi: 
+La configurazione del numero di telefono è suddivisa in due passaggi:
 
 1. La selezione del [tipo di numero](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
 2. La selezione delle [funzionalità del numero](../../concepts/telephony-sms/plan-solution.md#phone-number-features-in-azure-communication-services)

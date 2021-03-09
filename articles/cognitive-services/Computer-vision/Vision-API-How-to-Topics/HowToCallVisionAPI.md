@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3a9ef3fb009cfb91b20ac7492be193286e2f0410
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: abb367b64da0811a1ff46efe60b60485375f809f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432537"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486064"
 ---
 # <a name="call-the-computer-vision-api"></a>Chiamare l'API Visione artificiale
 
@@ -254,4 +254,4 @@ Questi errori sono identici a quelli di vision.analyze, con l'aggiunta dell'erro
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per usare l'API REST, vedere [Informazioni di riferimento per l'API Visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b).
+Per usare l'API REST, vedere [Informazioni di riferimento per l'API Visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).

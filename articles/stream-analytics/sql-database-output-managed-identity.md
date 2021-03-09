@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 4246ad48624eb0ca53fbe6bb747f02daa32119bf
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: e491c421f4af256b2e74fa61eb442d269bdb9e34
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432452"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487917"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Usare le identità gestite per accedere al database SQL di Azure o a Azure sinapsi Analytics da un processo di analisi di flusso di Azure (anteprima)
 
@@ -52,6 +52,8 @@ Per usare questa funzionalità, è necessario quanto segue:
 - Un pool SQL di Azure sinapsi Analytics.
 
 - Un account di archiviazione di Azure [configurato per il processo di analisi di flusso](azure-synapse-analytics-output.md).
+
+- Nota: il file MSI di archiviazione dell'account di analisi di flusso integrato con sinapsi SQL MSI non è attualmente disponibile.
 
 ---
 
@@ -171,7 +173,7 @@ In alternativa, è possibile fare clic con il pulsante destro del mouse sul data
 Per esaminare tutte le autorizzazioni aggiunte all'utente *ASA_JOB_NAME* , eseguire il comando seguente in SSMS nel database pertinente: 
 
 ```sql
-SELECT dprin.name, dbprin.type_desc, dbperm.permission_name, dbperm.state_desc, dbperm.class_desc, object_name(dbperm.major_id) 
+SELECT dbprin.name, dbprin.type_desc, dbperm.permission_name, dbperm.state_desc, dbperm.class_desc, object_name(dbperm.major_id) 
 FROM sys.database_principals dbprin 
 LEFT JOIN sys.database_permissions dbperm 
 ON dbperm.grantee_principal_id = dbprin.principal_id 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 8fdb6a53ed0fd64953b75238c3ba3df62c4b644e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7f7a09b9e20b461a8a1e448bf4a7b0747a35fbb1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432945"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487146"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Creare una query semantica in ricerca cognitiva
 
@@ -177,7 +177,7 @@ Nella tabella seguente vengono riepilogati i parametri di query utilizzati in un
 | queryType | string | I valori validi includono semplice, completo e semantico. Per le query semantiche è necessario un valore "semantico". |
 | queryLanguage | string | Obbligatorio per le query semantiche. Attualmente, viene implementato solo "en-US". |
 | searchFields | string | Elenco delimitato da virgole di campi disponibili per la ricerca. Facoltativo ma consigliato. Specifica i campi in base ai quali si verifica la classificazione semantica. </br></br>Diversamente dai tipi di query semplici e completi, l'ordine in cui vengono elencati i campi determina la precedenza.|
-| risposte |string | Campo facoltativo per specificare se le risposte semantiche sono incluse nel risultato. Attualmente, viene implementato solo "estrazione". È possibile configurare le risposte per restituire un massimo di cinque. Questo esempio è "estrazione|Count3 "' Mostra un conteggio di tre risposte. Il valore predefinito è 1.|
+| risposte |string | Campo facoltativo per specificare se le risposte semantiche sono incluse nel risultato. Attualmente, viene implementato solo "estrazione". È possibile configurare le risposte per restituire un massimo di cinque. Il valore predefinito è uno. Questo esempio mostra un conteggio di tre risposte: "estrazione \| Count3". |
 
 ## <a name="query-with-search-explorer"></a>Eseguire query con Esplora ricerche
 
@@ -186,7 +186,7 @@ La query seguente è destinata all'indice di esempio degli Alberghi predefiniti,
 ### <a name="with-querytypesemantic"></a>With queryType = Semantic
 
 ```json
-search=I want a nice hotel on the water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
+search=nice hotel on water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
 ```
 
 I primi risultati sono i seguenti.

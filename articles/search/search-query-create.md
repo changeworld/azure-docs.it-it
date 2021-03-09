@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: b013c66feefade077c85194ba3b1ff04ff4c4aa5
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5a89e9ae05b0733c865d537ffeb1714d3b3ebef1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99536833"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489362"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Creazione di query in Azure ricerca cognitiva
 
@@ -21,18 +21,21 @@ Se si compila una query per la prima volta, in questo articolo vengono descritti
 
 ## <a name="whats-a-query-request"></a>Che cos'è una richiesta di query?
 
-Una query è una richiesta di sola lettura per la raccolta docs di un singolo indice di ricerca. Specifica un oggetto ' queryType ' e un'espressione di query anche se il parametro ' Search '. L'espressione di query potrebbe avere termini di ricerca, una frase racchiusa tra virgolette e operatori.
+Una query è una richiesta di sola lettura per la raccolta docs di un singolo indice di ricerca. Specifica che un parametro ' Search ' contiene l'espressione di query, costituita da termini, frasi racchiuse tra virgolette e operatori.
 
-Una query può anche avere ' count ' per restituire il numero di corrispondenze trovate nell'indice,' Select ' per scegliere i campi restituiti nei risultati della ricerca è OrderBy ' per ordinare i risultati. L'esempio seguente fornisce un'idea generale di una richiesta di query mostrando un subset dei parametri disponibili. Per altre informazioni sulla composizione di query, vedere [tipi di query e composizioni](search-query-overview.md) e [cercare documenti (REST)](/rest/api/searchservice/search-documents).
+I parametri aggiuntivi forniscono una maggiore definizione della query e della risposta. Ad esempio,' searchFields ' consente l'esecuzione di query in campi specifici,' Select ' specifica i campi che vengono restituiti nei risultati è count ' restituisce il numero di corrispondenze trovate nell'indice.
+
+L'esempio seguente fornisce un'idea generale di una richiesta di query mostrando un subset dei parametri disponibili. Per altre informazioni sulla composizione di query, vedere [tipi di query e composizioni](search-query-overview.md) e [cercare documenti (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
-    "count": "true",
-    "orderby": "Rating desc"
+    "search": "NY +view",
+    "queryType": "simple",
+    "searchMode": "all",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "count": "true"
 }
 ```
 

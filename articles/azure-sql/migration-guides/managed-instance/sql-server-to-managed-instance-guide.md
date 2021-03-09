@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 67f5665225bc1297d0eb1b1e1da954fb47660dee
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358895"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488954"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guida alla migrazione: SQL Server a SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -57,6 +57,8 @@ In alternativa, utilizzare [Microsoft Assessment and Planning Toolkit (il "MAP
 Per ulteriori informazioni sugli strumenti disponibili per la fase di individuazione, vedere la pagina relativa ai [Servizi e agli strumenti disponibili per gli scenari di migrazione dei dati](../../../dms/dms-tools-matrix.md). 
 
 ### <a name="assess"></a>Valutare 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Dopo aver individuato le origini dati, valutare eventuali istanze di SQL Server locali di cui è possibile eseguire la migrazione in Azure SQL Istanza gestita per identificare i blocchi di migrazione o i problemi di compatibilità. 
 
