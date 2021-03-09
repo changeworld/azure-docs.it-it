@@ -5,14 +5,14 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 11/11/2020
 ms.author: baanders
-ms.openlocfilehash: 887d185249f96b5d3be4aab6a96aa3c6c4a85690
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02f6c59a76a3fdb7bd4360570b29d7b40a1aff8d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231413"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473707"
 ---
-Questo articolo illustra come completare diverse operazioni di gestione usando l' [ **SDK** di .NET per dispositivi digitali gemelli di Azure (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true). È anche possibile creare queste stesse chiamate di gestione usando gli SDK di altri linguaggi descritti in [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](../articles/digital-twins/how-to-use-apis-sdks.md).
+Questo articolo illustra come completare diverse operazioni di gestione usando l' [ **SDK** di .NET per dispositivi digitali gemelli di Azure (C#)](/dotnet/api/overview/azure/digitaltwins/management). È anche possibile creare queste stesse chiamate di gestione usando gli SDK di altri linguaggi descritti in [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](../articles/digital-twins/how-to-use-apis-sdks.md).
 
 > [!TIP] 
 > Tenere presente che tutti i metodi SDK sono disponibili in versioni sincrone e asincrone. Per le chiamate di paging, i metodi asincroni restituiscono `AsyncPageable<T>` mentre le versioni sincrone restituiscono `Pageable<T>` .
