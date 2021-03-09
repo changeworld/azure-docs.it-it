@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 18f76480d1327d6ab41c475395a689f8024d7b25
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f2b01b7a04958c4bd1f97332b54a1ff4fc32356
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369026"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522326"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Esercitazione: Eseguire uno script "Hello world!" di Python t (parte 2 di 4)
 
@@ -92,7 +92,7 @@ Ecco come funziona lo script di controllo:
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) si connette all'area di lavoro di Azure Machine Learning in modo che sia possibile comunicare con le risorse di Azure Machine Learning.
+      [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) si connette all'area di lavoro di Azure Machine Learning in modo che sia possibile comunicare con le risorse di Azure Machine Learning.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -100,7 +100,7 @@ Ecco come funziona lo script di controllo:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) consente di organizzare in modo semplice più esecuzioni sotto un singolo nome. Più avanti si vedrà come gli esperimenti consentano di confrontare facilmente le metriche di decine di esecuzioni.
+      [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment) consente di organizzare in modo semplice più esecuzioni sotto un singolo nome. Più avanti si vedrà come gli esperimenti consentano di confrontare facilmente le metriche di decine di esecuzioni.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -108,7 +108,7 @@ Ecco come funziona lo script di controllo:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) esegue il wrapping del codice `hello.py` e lo passa all'area di lavoro. Come indicato dal nome, è possibile usare questa classe per _configurare_ la modalità di _esecuzione_ dello _script_ in Azure Machine Learning. Specifica inoltre la destinazione di calcolo in cui verrà eseguito lo script. In questo codice la destinazione è il cluster di elaborazione creato nell'[esercitazione relativa alla configurazione](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) esegue il wrapping del codice `hello.py` e lo passa all'area di lavoro. Come indicato dal nome, è possibile usare questa classe per _configurare_ la modalità di _esecuzione_ dello _script_ in Azure Machine Learning. Specifica inoltre la destinazione di calcolo in cui verrà eseguito lo script. In questo codice la destinazione è il cluster di elaborazione creato nell'[esercitazione relativa alla configurazione](tutorial-1st-experiment-sdk-setup-local.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -116,7 +116,7 @@ Ecco come funziona lo script di controllo:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Invia lo script. Questo invio è denominato [run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py). Un oggetto run incapsula una singola esecuzione del codice. Usare un oggetto run per monitorare lo stato dello script, acquisire l'output, analizzare i risultati, visualizzare le metriche e altro ancora.
+       Invia lo script. Questo invio è denominato [run](/python/api/azureml-core/azureml.core.run%28class%29). Un oggetto run incapsula una singola esecuzione del codice. Usare un oggetto run per monitorare lo stato dello script, acquisire l'output, analizzare i risultati, visualizzare le metriche e altro ancora.
    :::column-end:::
 :::row-end:::
 :::row:::

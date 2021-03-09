@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c8027b62c0c463e134817f589ba3e1957cea5b39
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a6d099e8d267c9fe03e0bb676276e7a4ab8157ab
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679574"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521527"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Risoluzione dei problemi di Azure Percept DK (Dev Kit)
 
@@ -60,9 +60,9 @@ Per ulteriori informazioni sui comandi di Azure IoT Edge, vedere la [documentazi
 |Azure IoT Edge          |```sudo journalctl -u iotedge -f``` |visualizzare i log di Azure IoT Edge Security Manager |
 |Azure IoT Edge          |```sudo systemctl restart iotedge``` |riavviare il daemon di sicurezza di Azure IoT Edge |
 |Azure IoT Edge          |```sudo iotedge list```           |elencare i moduli di Azure IoT Edge distribuiti |
-|Altro             |```df [option] [file]```          |Visualizza informazioni sullo spazio disponibile/totale nei file system specificati |
-|Altro             |```ip route get 1.1.1.1```        |visualizzare le informazioni sull'interfaccia e sull'IP del dispositivo |
-|Altro             |```ip route get 1.1.1.1 \| awk '{print $7}'``` <br> ```ifconfig [interface]``` |Visualizza solo l'indirizzo IP del dispositivo |
+|Altri             |```df [option] [file]```          |Visualizza informazioni sullo spazio disponibile/totale nei file system specificati |
+|Altri             |```ip route get 1.1.1.1```        |visualizzare le informazioni sull'interfaccia e sull'IP del dispositivo |
+|Altri             |```ip route get 1.1.1.1 \| awk '{print $7}'``` <br> ```ifconfig [interface]``` |Visualizza solo l'indirizzo IP del dispositivo |
 
 
 I ```journalctl``` comandi di Wi-Fi possono essere combinati nel comando singolo seguente:
@@ -95,7 +95,7 @@ Sono presenti tre piccoli LED nella parte superiore dell'alloggiamento della lav
 |LED             |State      |Descrizione                      |
 |----------------|-----------|---------------------------------|
 |LED 1 (hub tutto) |On (tinta unita) |Il dispositivo è connesso a un hub Internet. |
-|LED 2 (Wi-Fi)   |Lampeggio lento |Autenticazione del dispositivo in corso. |
+|LED 2 (Wi-Fi)   |Lampeggio lento |Il dispositivo è pronto per essere configurato con Wi-Fi Easy Connect e annuncia la sua presenza a uno strumento di configurazione. |
 |LED 2 (Wi-Fi)   |Lampeggio rapido |L'autenticazione è riuscita, l'associazione del dispositivo è in corso. |
 |LED 2 (Wi-Fi)   |On (tinta unita) |Autenticazione e associazione sono state completate. il dispositivo è connesso a una rete Wi-Fi. |
 |LED 3           |N/D         |Il LED non è in uso. |

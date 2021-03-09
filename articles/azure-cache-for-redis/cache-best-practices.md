@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 4e209bfe5e3856f3847b0c24852c487a92c8f182
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 84a6bba390b0f6b101bd8243cf47b79af9618999
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454737"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521646"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedure consigliate per Cache di Azure per Redis 
 Seguendo queste procedure consigliate, è possibile ottimizzare le prestazioni e l'uso conveniente della cache di Azure per l'istanza di Redis.
@@ -30,6 +30,8 @@ Seguendo queste procedure consigliate, è possibile ottimizzare le prestazioni e
  * **Individuare l'istanza della cache e l'applicazione nella stessa area.**  La connessione a una cache in un'area diversa può aumentare in modo significativo la latenza e ridurre l'affidabilità.  Sebbene sia possibile connettersi dall'esterno di Azure, non è consigliabile, *soprattutto quando si usa Redis come cache*.  Se si usa Redis solo come archivio chiave/valore, la latenza potrebbe non essere la preoccupazione principale. 
 
  * **Riutilizza le connessioni.**  La creazione di nuove connessioni è costosa e aumenta la latenza, quindi è possibile riutilizzare le connessioni il più possibile. Se si sceglie di creare nuove connessioni, assicurarsi di chiudere le connessioni precedenti prima di rilasciarle (anche in managed memory linguaggi come .NET o Java).
+
+* **Usare il pipelining.**  Provare a scegliere un client Redis che supporta il [pipelining di redis](https://redis.io/topics/pipelining) per ottimizzare l'uso della rete per ottenere la velocità effettiva migliore possibile.
 
  * **Configurare la libreria client per l'uso di un *timeout di connessione* di almeno 15 secondi**, in modo da consentirne la connessione anche in condizioni di CPU più elevate.  Un valore di timeout di connessione ridotto non garantisce che la connessione venga stabilita in tale intervallo di tempo.  Se si verificano problemi (CPU client elevata, CPU server elevata e così via), un breve valore di timeout della connessione provocherà un tentativo di connessione non riuscito. Questo comportamento spesso peggiora negativamente.  Anziché aiutare, i timeout più brevi aggravano il problema forzando il sistema a riavviare il processo di tentativo di riconnessione, che può causare un ciclo di *tentativi di > di connessione->* . È in genere consigliabile lasciare il timeout della connessione a 15 secondi o superiore. È preferibile lasciare che il tentativo di connessione abbia esito positivo dopo 15 o 20 secondi rispetto a quando non si riesce rapidamente a riprovare. Un ciclo di ripetizione dei tentativi può causare un periodo di tempo più lungo rispetto a quando si lascia che il sistema riprenda inizialmente più a lungo.  
      > [!NOTE]

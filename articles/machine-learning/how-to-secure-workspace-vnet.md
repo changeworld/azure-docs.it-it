@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 083d750db0db050265c93cc658d4f3b6556b850d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6d23b0204cc597898eb2202a329d93ff349f8c13
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176213"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518535"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteggere un'area di lavoro Azure Machine Learning con reti virtuali
 
@@ -65,7 +65,7 @@ Azure Machine Learning supporta gli account di archiviazione configurati per l'u
 >
 > Quando si crea un'area di lavoro, viene eseguito automaticamente il provisioning dell'account di archiviazione predefinito.
 >
-> Per gli account di archiviazione non predefiniti, il parametro `storage_account` nella funzione [`Workspace.create()` ](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true)consente di specificare un account di archiviazione personalizzato in base all'ID risorsa di Azure.
+> Per gli account di archiviazione non predefiniti, il parametro `storage_account` nella funzione [`Workspace.create()` ](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)consente di specificare un account di archiviazione personalizzato in base all'ID risorsa di Azure.
 
 Per usare un account di archiviazione di Azure per l'area di lavoro in una rete virtuale, seguire questa procedura:
 
@@ -195,8 +195,6 @@ Per usare Container Registry di Azure all'interno di una rete virtuale, è neces
 
     Quando Registro Azure Container è in una rete virtuale, Azure Machine Learning non può usarlo per compilare direttamente le immagini Docker. In questo caso viene usato il cluster di elaborazione per compilare le immagini.
 
-* Prima di usare ACR con Azure Machine Learning in una rete virtuale, è necessario aprire un evento imprevisto di supporto per abilitare questa funzionalità. Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
 Una volta soddisfatti questi requisiti, attenersi alla procedura seguente per abilitare Azure Container Registry.
 
 1. Trovare il nome del Container Registry di Azure per l'area di lavoro, usando uno dei metodi seguenti:
@@ -232,66 +230,7 @@ Una volta soddisfatti questi requisiti, attenersi alla procedura seguente per ab
     > [!IMPORTANT]
     > L'account di archiviazione, il cluster di elaborazione e Registro Azure Container devono essere tutti nella stessa subnet della rete virtuale.
     
-    Per altre informazioni, vedere il riferimento per il metodo [update()](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true).
-
-1. Applicare il modello di Azure Resource Manager seguente. che consente all'area di lavoro di comunicare con Registro Azure Container.
-
-    ```json
-    {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "keyVaultArmId": {
-        "type": "string"
-        },
-        "workspaceName": {
-        "type": "string"
-        },
-        "containerRegistryArmId": {
-        "type": "string"
-        },
-        "applicationInsightsArmId": {
-        "type": "string"
-        },
-        "storageAccountArmId": {
-        "type": "string"
-        },
-        "location": {
-        "type": "string"
-        }
-    },
-    "resources": [
-        {
-        "type": "Microsoft.MachineLearningServices/workspaces",
-        "apiVersion": "2019-11-01",
-        "name": "[parameters('workspaceName')]",
-        "location": "[parameters('location')]",
-        "identity": {
-            "type": "SystemAssigned"
-        },
-        "sku": {
-            "tier": "basic",
-            "name": "basic"
-        },
-        "properties": {
-            "sharedPrivateLinkResources":
-    [{"Name":"Acr","Properties":{"PrivateLinkResourceId":"[concat(parameters('containerRegistryArmId'), '/privateLinkResources/registry')]","GroupId":"registry","RequestMessage":"Approve","Status":"Pending"}}],
-            "keyVault": "[parameters('keyVaultArmId')]",
-            "containerRegistry": "[parameters('containerRegistryArmId')]",
-            "applicationInsights": "[parameters('applicationInsightsArmId')]",
-            "storageAccount": "[parameters('storageAccountArmId')]"
-        }
-        }
-    ]
-    }
-    ```
-
-    Questo modello crea un _endpoint privato_ per l'accesso alla rete dall'area di lavoro a ACR. La schermata seguente mostra un esempio di questo endpoint privato.
-
-    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Impostazioni endpoint privato ACR":::
-
-    > [!IMPORTANT]
-    > Non eliminare questo endpoint. Se si elimina accidentalmente, è possibile applicare nuovamente il modello in questo passaggio per crearne uno nuovo.
+    Per altre informazioni, vedere il riferimento per il metodo [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: 30a511caec82ead406f0a80f107e4261a707bfdb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
-ms.translationtype: HT
+ms.openlocfilehash: 8d246f06db9fc9f4e6916ea69ec49ddaf8cf0667
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040174"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519776"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Importare un file BACPAC in un database in Database SQL di Azure o in Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,13 +52,13 @@ Per eseguire la migrazione di un database in un'[istanza gestita di SQL di Azure
 
    ![Importazione database 2](./media/database-import/sql-server-import-database-settings.png)
 
-1. Fare clic su **OK** .
+1. Fare clic su **OK**.
 
-1. Per monitorare lo stato di avanzamento dell'importazione, aprire la pagina del server del database e in **Impostazioni** selezionare **Cronologia importazioni/esportazioni** . Se l'operazione ha esito positivo, l'importazione visualizzerà lo stato **Completato** .
+1. Per monitorare lo stato di avanzamento dell'importazione, aprire la pagina del server del database e in **Impostazioni** selezionare **Cronologia importazioni/esportazioni**. Se l'operazione ha esito positivo, l'importazione visualizzerà lo stato **Completato**.
 
    ![Stato di importazione del database](./media/database-import/sql-server-import-database-history.png)
 
-1. Per verificare che il database sia attivo sul server, selezionare **Database SQL** e verificare che il nuovo database sia **Online** .
+1. Per verificare che il database sia attivo sul server, selezionare **Database SQL** e verificare che il nuovo database sia **Online**.
 
 ## <a name="using-sqlpackage"></a>Uso di SqlPackage
 
@@ -68,7 +68,7 @@ Per la scalabilità e le prestazioni, è consigliabile usare SqlPackage, anzich�
 
 Il modello di provisioning basato su unità di elaborazione di database supporta valori per le dimensioni massime del database specifici per ogni livello. Quando si importa un database [usare uno di questi valori supportati](/sql/t-sql/statements/create-database-transact-sql). 
 
-Il comando di SqlPackage seguente importa il database **AdventureWorks2008R2** dall'archivio locale in un server SQL logico denominato **mynewserver20170403** . Crea un nuovo database denominato **myMigratedDatabase** con un livello di servizio **Premium** e un obiettivo di servizio **P6** . Modificare questi valori in base alle esigenze specifiche dell'ambiente.
+Il comando di SqlPackage seguente importa il database **AdventureWorks2008R2** dall'archivio locale in un server SQL logico denominato **mynewserver20170403**. Crea un nuovo database denominato **myMigratedDatabase** con un livello di servizio **Premium** e un obiettivo di servizio **P6**. Modificare questi valori in base alle esigenze specifiche dell'ambiente.
 
 ```cmd
 sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=<migratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
@@ -144,6 +144,15 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 > [!TIP]
 > Per un altro esempio di script, vedere [Importare un database da un file BACPAC](scripts/import-from-bacpac-powershell.md).
+
+## <a name="cancel-the-import-request"></a>Annulla la richiesta di importazione
+
+Usare l' [API operazioni database-Annulla](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) o il [comando PowerShell Stop-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity?view=azps-5.5.0). di seguito è riportato un esempio di comando di PowerShell.
+
+```cmd
+Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
+```
+
 
 ## <a name="limitations"></a>Limitazioni
 

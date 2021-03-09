@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 13d5c02fbb4ae06c7a5279ab7c5d3af90c263f71
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992047"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521068"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Crittografia dei dati con Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning usa un'ampia gamma di servizi di archiviazione dati di Az
 ## <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
 > [!IMPORTANT]
-> Se l'area di lavoro contiene dati sensibili, è consigliabile impostare il [flag hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) durante la sua creazione. Il `hbi_workspace` flag può essere impostato solo quando viene creata un'area di lavoro. Non può essere modificato per un'area di lavoro esistente.
+> Se l'area di lavoro contiene dati sensibili, è consigliabile impostare il [flag hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) durante la sua creazione. Il `hbi_workspace` flag può essere impostato solo quando viene creata un'area di lavoro. Non può essere modificato per un'area di lavoro esistente.
 
 Il `hbi_workspace` flag controlla la quantità di [dati raccolti da Microsoft per scopi diagnostici](#microsoft-collected-data) e Abilita la [crittografia aggiuntiva negli ambienti gestiti da Microsoft](../security/fundamentals/encryption-atrest.md). Consente inoltre di abilitare le azioni seguenti:
 
@@ -68,7 +68,7 @@ Per abilitare il provisioning di un'istanza di Cosmos DB nella sottoscrizione co
     * `cmk_keyvault`: questo parametro è l'ID della risorsa dell'insieme di credenziali delle chiavi nella sottoscrizione. L'insieme di credenziali delle chiavi deve trovarsi nella stessa area e nella stessa sottoscrizione che verrà usata per l'area di lavoro di Azure Machine Learning. 
     
         > [!NOTE]
-        > Questa istanza dell'insieme di credenziali delle chiavi può essere diversa dall'insieme di credenziali delle chiavi creato da Azure Machine Learning durante il provisioning dell'area di lavoro. Se si desidera usare la stessa istanza dell'insieme di credenziali delle chiavi per l'area di lavoro, passare lo stesso insieme di credenziali delle chiavi durante il provisioning dell'area di lavoro usando il [parametro key_vault](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
+        > Questa istanza dell'insieme di credenziali delle chiavi può essere diversa dall'insieme di credenziali delle chiavi creato da Azure Machine Learning durante il provisioning dell'area di lavoro. Se si desidera usare la stessa istanza dell'insieme di credenziali delle chiavi per l'area di lavoro, passare lo stesso insieme di credenziali delle chiavi durante il provisioning dell'area di lavoro usando il [parametro key_vault](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -105,7 +105,7 @@ Per usare la chiave durante la distribuzione di un modello in un'istanza di cont
 
 Per altre informazioni sulla creazione e l'uso di una configurazione di distribuzione, vedere gli articoli seguenti:
 
-* Riferimento di [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* Riferimento di [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
 * [Dove e come eseguire la distribuzione](how-to-deploy-and-where.md)
 * [Distribuire un modello a Istanze di Azure Container](how-to-deploy-azure-container-instance.md)
 
@@ -148,7 +148,7 @@ Per proteggere le chiamate esterne effettuate all'endpoint di assegnazione dei p
 
 Microsoft può raccogliere informazioni di identificazione non relative all'utente, come i nomi delle risorse, ad esempio il nome del set di dati o il nome dell'esperimento di Machine Learning, o le variabili di ambiente del processo per scopi diagnostici. Tutti questi dati vengono archiviati usando le chiavi gestite da Microsoft nell'archiviazione ospitata in sottoscrizioni di proprietà di Microsoft e seguono l'[informativa sulla privacy standard e gli standard di gestione dei dati di Microsoft](https://privacy.microsoft.com/privacystatement).
 
-Microsoft consiglia anche di non archiviare informazioni sensibili, quali i segreti della chiave dell'account, nelle variabili di ambiente. Le variabili di ambiente vengono registrate, crittografate e archiviate da Microsoft. Analogamente, quando si assegna un nome a [run_id](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py), evitare di inserire informazioni sensibili, quali nomi utente o nomi di progetti segreti. Queste informazioni potrebbero essere visualizzate nei log di telemetria accessibili ai tecnici del supporto tecnico Microsoft.
+Microsoft consiglia anche di non archiviare informazioni sensibili, quali i segreti della chiave dell'account, nelle variabili di ambiente. Le variabili di ambiente vengono registrate, crittografate e archiviate da Microsoft. Analogamente, quando si assegna un nome a [run_id](/python/api/azureml-core/azureml.core.run%28class%29), evitare di inserire informazioni sensibili, quali nomi utente o nomi di progetti segreti. Queste informazioni potrebbero essere visualizzate nei log di telemetria accessibili ai tecnici del supporto tecnico Microsoft.
 
 È possibile rifiutare esplicitamente la raccolta dei dati di diagnostica impostando il parametro `hbi_workspace` su `TRUE` durante il provisioning dell'area di lavoro. Questa funzionalità è supportata quando si usa Python SDK di Azure ML, l'interfaccia della riga di comando, le API REST o i modelli di Azure Resource Manager.
 

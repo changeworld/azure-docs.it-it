@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: d7a0832fd15df402c88e1ba565c90a24e0d6eb8a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a91a4f3a2e686c8d502093dc41520df32b313209
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692420"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520635"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 
@@ -136,7 +136,7 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
     ------|------
     Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche dei modelli](how-to-configure-auto-train.md#primary-metric).
     Modello esplicativo migliore | Selezionare questa opzione per abilitare o disabilitare, in modo da visualizzare le spiegazioni per il modello migliore consigliato. <br> Questa funzionalità non è attualmente disponibile per [determinati algoritmi di previsione](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
-    Algoritmo bloccato| Selezionare gli algoritmi da escludere dal processo di training. <br><br> Consentire gli algoritmi è disponibile solo per gli [esperimenti SDK](how-to-configure-auto-train.md#supported-models). <br> Vedere i [modelli supportati per ogni tipo di attività](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
+    Algoritmo bloccato| Selezionare gli algoritmi da escludere dal processo di training. <br><br> Consentire gli algoritmi è disponibile solo per gli [esperimenti SDK](how-to-configure-auto-train.md#supported-models). <br> Vedere i [modelli supportati per ogni tipo di attività](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Exit criterion (Esci da criterio)| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Durata del processo di training (ore)* : per quanto tempo consentire l'esecuzione del processo di training. <br> *Soglia di punteggio metrica*:  punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo del necessario al processo di training.
     Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. <br> [Altre informazioni sulla convalida incrociata](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>La previsione supporta solo la convalida incrociata k-fold.
     Concorrenza| *Numero massimo di iterazioni simultanee*: numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più volte del numero specificato di iterazioni. Altre informazioni sul modo in cui Machine Learning esegue [più esecuzioni figlio nei cluster](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).

@@ -2,17 +2,17 @@
 title: Cluster di failover di Windows Server in Azure rete VSAN soluzione VMware con dischi condivisi nativi
 description: Configurare Windows Server failover cluster (WSFC) in una soluzione VMware di Azure e sfruttare le soluzioni che richiedono la funzionalità WSFC.
 ms.topic: how-to
-ms.date: 03/08/2021
-ms.openlocfilehash: 84bb846cd3fb6dd1b138308670db7ccf122b2187
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/09/2021
+ms.openlocfilehash: d667eef00fcad0e3f5243c6ab580e2e8371c6793
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102491298"
+ms.locfileid: "102518994"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Cluster di failover di Windows Server in Azure rete VSAN soluzione VMware con dischi condivisi nativi
 
-Questo articolo illustra la procedura dettagliata per la configurazione di Windows Server failover cluster in una soluzione VMware di Azure. L'implementazione in questo articolo è per il modello di prova e per scopi pilota.
+Questo articolo illustra la procedura dettagliata per la configurazione di Windows Server failover cluster in una soluzione VMware di Azure. L'implementazione in questo articolo è per il modello di prova e per scopi pilota. È consigliabile usare una configurazione cluster-in-a-Box (CIB) fino a quando non sono disponibili criteri di posizionamento.
 
 Windows Server failover cluster (WSFC), noto in precedenza come servizio cluster di servizi Microsoft (MSCS), è una funzionalità del sistema operativo Windows Server. WSFC è una funzionalità cruciale per l'azienda e per molte applicazioni è necessario. WSFC, ad esempio, è necessario per le configurazioni seguenti:
 
@@ -143,7 +143,7 @@ Le attività seguenti non sono supportate e possono causare il failover del nodo
         
       - **Convalidare la comunicazione di rete**. Il test di convalida del cluster genererà un avviso che indica che è disponibile una sola interfaccia di rete per ogni nodo del cluster. È possibile ignorare questo avviso. La soluzione VMware di Azure fornisce la disponibilità e le prestazioni necessarie, perché i nodi sono connessi a uno dei segmenti NSX-T. Tuttavia, conserva questo elemento come parte del test di convalida del cluster, in quanto convaliderà altri aspetti della comunicazione di rete.
 
-16. Creare una regola DRS per separare le VM WSFC tra i nodi della soluzione VMware di Azure. Usare le regole seguenti: un'affinità da host a macchina virtuale e una regola di anti-affinità da macchina virtuale a macchina virtuale. In questo modo i nodi del cluster non verranno eseguiti nello stesso host della soluzione VMware di Azure.
+16. Creare una regola DRS per inserire le VM WSFC negli stessi nodi della soluzione VMware di Azure. A tale scopo, è necessaria una regola di affinità da host a macchina virtuale. In questo modo, i nodi del cluster vengono eseguiti nello stesso host della soluzione VMware di Azure. Anche in questo caso, questa operazione è a scopo pilota fino a quando non sono disponibili criteri di posizionamento.
 
     >[!NOTE]
     > A tale proposito è necessario creare un ticket di richiesta di supporto. L'organizzazione del supporto tecnico di Azure sarà in grado di semplificare questa operazione.

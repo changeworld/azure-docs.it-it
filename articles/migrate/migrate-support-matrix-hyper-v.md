@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 4407f9544a7d3a19e3ff7d404669fdb27b881d30
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc7be5c6c5dda8c5065330f819f646f4abd08994
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590633"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521357"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matrice di supporto per la valutazione di Hyper-V
 
@@ -39,7 +39,7 @@ Per configurare la valutazione della macchina virtuale Hyper-V, creare un proget
 | :-------------------       | :------------------- |
 | **Host Hyper-V**       | L'host Hyper-V può essere autonomo o distribuito in un cluster.<br/><br/> L'host Hyper-V può eseguire Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2. Sono supportate anche l'installazione dei componenti di base del server di questi sistemi operativi. <br/>Non è possibile valutare le macchine virtuali presenti negli host Hyper-V che eseguono Windows Server 2012.
 | **Autorizzazioni**           | Sono necessarie autorizzazioni di amministratore per l'host Hyper-V. <br/> Se non si desidera assegnare autorizzazioni di amministratore, creare un account utente locale o di dominio e aggiungere l'account utente a questi gruppi: utenti di gestione remota, amministratori di Hyper-V e performance monitor. |
-| **Comunicazione remota di PowerShell**   | La [comunicazione remota di PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) deve essere abilitata in ogni host Hyper-V. |
+| **Comunicazione remota di PowerShell**   | La [comunicazione remota di PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting) deve essere abilitata in ogni host Hyper-V. |
 | **Replica Hyper-V**       | Se si usa la replica Hyper-V (o sono presenti più macchine virtuali con gli stessi identificatori di VM) e si individuano le VM originali e replicate usando Azure Migrate, la valutazione generata da Azure Migrate potrebbe non essere accurata. |
 
 

@@ -8,16 +8,16 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805530"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517872"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Risoluzione dei problemi di sincronizzazione cloud
 
-La sincronizzazione cloud tocca molti aspetti diversi e presenta diverse dipendenze. Questo ampio ambito può dare luogo a diversi problemi. Questo articolo consente di risolvere questi problemi. Vengono presentate le aree tipiche in cui concentrarsi, come raccogliere informazioni aggiuntive e le varie tecniche che è possibile utilizzare per tenere traccia dei problemi.
+La sincronizzazione cloud riguarda numerosi fattori e ha varie dipendenze diverse. L'ampiezza di questo ambito può comportare diversi problemi. Questo articolo consente di risolvere questi problemi. Illustra le aree più comuni su cui concentrarsi, come raccogliere informazioni aggiuntive e le diverse tecniche che si possono usare per tenere traccia dei problemi.
 
 
 ## <a name="common-troubleshooting-areas"></a>Aree comuni per la risoluzione dei problemi
@@ -120,7 +120,7 @@ Quando si installa l'agente di provisioning cloud, è possibile che venga ricevu
 
 Questo problema in genere è dovuto al fatto che l'agente non è in grado di eseguire gli script di registrazione di PowerShell a causa dei criteri di esecuzione di PowerShell locali.
 
-Per risolvere questo problema, modificare i criteri di esecuzione di PowerShell nel server. È necessario che i criteri computer e utente siano impostati come *undefined* o *RemoteSigned*. Se sono impostati come *senza restrizioni*, verrà visualizzato questo errore. Per altre informazioni, vedere [criteri di esecuzione di PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Per risolvere questo problema, modificare i criteri di esecuzione di PowerShell nel server. È necessario che i criteri computer e utente siano impostati come *undefined* o *RemoteSigned*. Se sono impostati come *senza restrizioni*, verrà visualizzato questo errore. Per altre informazioni, vedere [criteri di esecuzione di PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
 
 ### <a name="log-files"></a>File di registro
 

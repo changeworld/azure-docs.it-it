@@ -823,8 +823,8 @@
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
     - name: Informazioni sui riavvii delle VM
       href: understand-vm-reboots.md
-    - name: Stati e ciclo di vita
-      href: states-lifecycle.md
+    - name: Stati e fatturazione
+      href: states-billing.md
     - name: Aree di Azure
       href: regions.md
 - name: Dischi
@@ -1355,7 +1355,7 @@
             - name: Domande frequenti sulla disponibilità generale
               href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Domande frequenti
-              href: ../azure-monitor/faq.md
+              href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context
             - name: Abilitare il monitoraggio
               items:
                 - name: Abilitare il monitoraggio - Panoramica

@@ -1,18 +1,20 @@
 ---
 title: Distribuire le risorse con PowerShell e il modello
-description: Usare Azure Resource Manager e Azure PowerShell per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
+description: Usare Azure Resource Manager e Azure PowerShell per distribuire le risorse in Azure. Le risorse sono definite in un modello di Gestione risorse o in un file bicipite.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: efefb6706794bc2488aa4d4fef6c4ecc082b41a7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/04/2021
+ms.openlocfilehash: 784f17566ce4fb19a7ec5e3fd4a504d7c25f90fe
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881266"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521629"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell
 
-Questo articolo illustra come usare Azure PowerShell con i modelli di Azure Resource Manager (modelli ARM) per distribuire le risorse in Azure. Se non si ha familiarità con i concetti relativi alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica della distribuzione dei modelli](overview.md).
+Questo articolo illustra come usare Azure PowerShell con modelli di Azure Resource Manager (modelli ARM) o file bicipite per distribuire le risorse in Azure. Se non si ha familiarità con i concetti relativi alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica della distribuzione di modelli](overview.md) o Panoramica di [bicipiti](bicep-overview.md).
+
+Per distribuire i file bicipite, è necessario [Azure PowerShell versione 5.6.0 o successiva](/powershell/azure/install-az-ps).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,13 +34,13 @@ La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizion
 - Per eseguire la distribuzione in un **gruppo di risorse**, usare [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
   ```azurepowershell
-  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template-or-bicep>
   ```
 
 - Per eseguire la distribuzione in una **sottoscrizione**, usare [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment) , che è un alias del `New-AzDeployment` cmdlet:
 
   ```azurepowershell
-  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
@@ -46,7 +48,7 @@ La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizion
 - Per eseguire la distribuzione in un **gruppo di gestione**, usare [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
   ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   Per altre informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [Creare risorse a livello di gruppo di gestione](deploy-to-management-group.md).
@@ -54,7 +56,7 @@ La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizion
 - Per eseguire la distribuzione in un **tenant**, usare [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
   ```azurepowershell
-  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   Per altre informazioni sulle distribuzioni a livello di tenant, vedere [Creare risorse a livello di tenant](deploy-to-tenant.md).
@@ -89,7 +91,7 @@ Quando si specifica un nome univoco per ogni distribuzione, è possibile eseguir
 
 Per evitare conflitti con le distribuzioni simultanee e per garantire voci univoche nella cronologia di distribuzione, assegnare a ogni distribuzione un nome univoco.
 
-## <a name="deploy-local-template"></a>Distribuire un modello locale
+## <a name="deploy-local-template-or-bicep-file"></a>Distribuire un modello locale o un file bicipite
 
 È possibile distribuire un modello dal computer locale o da uno archiviato esternamente. In questa sezione viene descritta la distribuzione di un modello locale.
 
@@ -99,18 +101,21 @@ Se si esegue la distribuzione in un gruppo di risorse che non esiste, creare il 
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-Per distribuire un modello locale, usare il `-TemplateFile` parametro nel comando di distribuzione. Nell'esempio seguente viene anche illustrato come impostare un valore di parametro che deriva dal modello.
+Per distribuire un modello locale o un file bicipite, usare il `-TemplateFile` parametro nel comando Deployment. Nell'esempio seguente viene anche illustrato come impostare un valore di parametro che deriva dal modello.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json
+  -TemplateFile <path-to-template-or-bicep>
 ```
 
 Il completamento della distribuzione può richiedere diversi minuti.
 
 ## <a name="deploy-remote-template"></a>Distribuisci modello remoto
+
+> [!NOTE]
+> Attualmente, Azure PowerShell non supporta la distribuzione di file del bicipite remoto. Per distribuire un file bicipite remoto, usare l'interfaccia della riga di comando per compilare prima il file bicipite in un modello JSON.
 
 Anziché archiviare i modelli ARM nel computer locale, è preferibile archiviarli in una posizione esterna. ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
 
@@ -145,6 +150,8 @@ Per ulteriori informazioni, vedere [utilizzare il percorso relativo per i modell
 
 ## <a name="deploy-template-spec"></a>Distribuire la specifica di modello
 
+> [!NOTE]
+> Attualmente, Azure PowerShell non supporta la creazione di specifiche di modello fornendo file bicipite. Tuttavia, è possibile creare un file bicipite con la risorsa [Microsoft. resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) per distribuire una specifica del modello. Ecco un [esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 Anziché distribuire un modello locale o remoto, è possibile creare una [specifica del modello](template-specs.md). La specifica del modello è una risorsa nella sottoscrizione di Azure che contiene un modello ARM. Consente di condividere in modo sicuro il modello con gli utenti dell'organizzazione. Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per concedere l'accesso alla specifica del modello. Questa funzionalità è attualmente disponibile in anteprima.
 
 Gli esempi seguenti illustrano come creare e distribuire una specifica del modello.
@@ -187,7 +194,7 @@ Per passare i parametri inline, specificare i nomi del parametro con il comando 
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleString "inline string" `
   -exampleArray $arrayParam
 ```
@@ -197,7 +204,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleString $(Get-Content -Path c:\MyTemplates\stringcontent.txt -Raw) `
   -exampleArray $arrayParam
 ```
@@ -211,13 +218,13 @@ $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
 $hash2 = @{ Name = "secondSubnet"; AddressPrefix = "10.0.1.0/24"}
 $subnetArray = $hash1, $hash2
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleArray $subnetArray
 ```
 
 ### <a name="parameter-files"></a>File dei parametri
 
-Invece di passare i parametri come valori inline nello script, può risultare più facile usare un file JSON che contenga i valori dei parametri. Il file dei parametri può essere un file locale o un file esterno con un URI accessibile.
+Invece di passare i parametri come valori inline nello script, può risultare più facile usare un file JSON che contenga i valori dei parametri. Il file dei parametri può essere un file locale o un file esterno con un URI accessibile. Il modello ARM e il file bicipite usano file di parametri JSON.
 
 Per altre informazioni sul file dei parametri, vedere [Creare il file di parametri di Resource Manager](parameter-files.md).
 
@@ -225,7 +232,7 @@ Per passare un file di parametri locale, usare il `TemplateParameterFile` parame
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 

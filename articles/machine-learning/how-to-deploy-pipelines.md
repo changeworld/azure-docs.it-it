@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: 5dc14873f8863332d37a6ced6ce4013e76640dea
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: efedb21a1ec1ed53a8c6bfadf337d23a89c04383
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879394"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520177"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Pubblicare e monitorare le pipeline di Machine Learning
 
@@ -38,7 +38,7 @@ Le pipeline di Machine Learning sono flussi di lavoro riutilizzabili per le atti
 
 Una volta che la pipeline è in esecuzione, è possibile pubblicare una pipeline in modo che venga eseguita con input diversi. Affinché l'endpoint REST di una pipeline già pubblicata accetti parametri, è necessario configurare la pipeline in modo `PipelineParameter` che usi oggetti per gli argomenti che variano.
 
-1. Per creare un parametro per la pipeline, usare un oggetto [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?preserve-view=true&view=azure-ml-py) con un valore predefinito.
+1. Per creare un parametro per la pipeline, usare un oggetto [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter) con un valore predefinito.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -76,7 +76,7 @@ Tutte le pipeline pubblicate hanno un endpoint REST Con l'endpoint della pipelin
 > [!IMPORTANT]
 > Se si usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso alla pipeline, [impostare le autorizzazioni per lo scenario della pipeline (training o assegnazione del punteggio)](how-to-assign-roles.md#common-scenarios).
 
-Per richiamare l'esecuzione della pipeline precedente, è necessario un token di intestazione di autenticazione Azure Active Directory. Il recupero di un token di questo tipo è descritto nel riferimento alla [classe AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) e nell' [autenticazione in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
+Per richiamare l'esecuzione della pipeline precedente, è necessario un token di intestazione di autenticazione Azure Active Directory. Il recupero di un token di questo tipo è descritto nel riferimento alla [classe AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) e nell' [autenticazione in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -360,10 +360,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-È possibile abilitarla di nuovo con `p.enable()` . Per altre informazioni, vedere riferimento alla [classe PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?preserve-view=true&view=azure-ml-py) .
+È possibile abilitarla di nuovo con `p.enable()` . Per altre informazioni, vedere riferimento alla [classe PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Usare [questi notebook di Jupyter in GitHub](https://aka.ms/aml-pipeline-readme) per esplorare più in dettaglio le pipeline di Machine Learning.
-- Vedere la Guida di riferimento per l'SDK per il pacchetto [azureml-Pipelines-Core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e il pacchetto [azureml-Pipelines-Steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) .
+- Vedere la Guida di riferimento per l'SDK per il pacchetto [azureml-Pipelines-Core](/python/api/azureml-pipeline-core/) e il pacchetto [azureml-Pipelines-Steps](/python/api/azureml-pipeline-steps/) .
 - Vedere le [procedure](how-to-debug-pipelines.md) consigliate per il debug e la risoluzione dei problemi relativi alle pipeline.

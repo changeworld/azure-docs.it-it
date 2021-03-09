@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 98ea51957014a4e9d83f27adefd86d8d0708b500
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9df8a67fd3dfbf23986f1cc5ed18392463fc7ecb
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503182"
+ms.locfileid: "102522207"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -32,12 +32,7 @@ Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Ge
 
 * Per usare un modello da un'interfaccia della riga di comando, è necessario [Azure PowerShell](/powershell/azure/) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-* Per alcuni scenari è necessario aprire un ticket di supporto. Questi scenari sono:
-
-    * __Area di lavoro abilitata per il collegamento privato con una chiave gestita dal cliente__
-    * __Registro Azure Container per l'area di lavoro dietro alla rete virtuale__
-
-    Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+* Per alcuni scenari è necessario aprire un ticket di supporto. Ad esempio, usando un'area di lavoro con collegamento privato abilitato con una chiave gestita dal cliente. Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="limitations"></a>Limitazioni
 

@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 2d6c76a15ee62c26e0d0261c6b0d2d1e27443a40
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526239"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518044"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -30,6 +30,10 @@ I [criteri personalizzati](custom-policy-overview.md) sono file di configurazion
 - In assenza di un tenant, [creare un tenant di Azure AD B2C](tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
 - [Registrare l'applicazione](tutorial-register-applications.md) nel tenant creato in modo che possa comunicare con Azure AD B2C.
 - Completare la procedura descritta in [Configurare l'iscrizione e l'accesso con un account Facebook](identity-provider-facebook.md) per configurare un'applicazione Facebook. Sebbene la disponibilità di un'applicazione Facebook non sia un requisito da soddisfare per poter usare criteri personalizzati, viene usata in questa procedura dettagliata per dimostrare come abilitare l'accesso dai social network nei criteri personalizzati.
+
+> [!TIP]
+> Questo articolo illustra come configurare manualmente il tenant. È possibile automatizzare l'intero processo da questo articolo. L'automazione consente di distribuire il Azure AD B2C [Starter Pack SocialAndLocalAccountsWithMFA](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), che fornirà i percorsi di iscrizione e accesso, di reimpostazione della password e di modifica del profilo. Per automatizzare la procedura dettagliata riportata di seguito, visitare l' [app di installazione Framework dell'esperienza](https://aka.ms/iefsetup) e seguire le istruzioni.
+
 
 ## <a name="add-signing-and-encryption-keys"></a>Aggiungere le chiavi di firma e di crittografia
 

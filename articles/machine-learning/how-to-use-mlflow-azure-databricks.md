@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 9e0102cdb7e8494a8540b1970932f0d9f7f39fde
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: a894a46ce7c78b65dde80c52f9516fcbe4d27bcb
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912918"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521000"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Tenere traccia degli esperimenti Azure Databricks ML con MLflow e Azure Machine Learning (anteprima)
 
@@ -35,7 +35,7 @@ Vedere la pagina relativa [all'esecuzione di esperimenti con MLflow e Azure Mach
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Installare il pacchetto `azureml-mlflow`. 
-    * Questo pacchetto introduce automaticamente il `azureml-core` [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), che fornisce la connettività per MLflow per accedere all'area di lavoro.
+    * Questo pacchetto introduce automaticamente il `azureml-core` [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install), che fornisce la connettività per MLflow per accedere all'area di lavoro.
 * Un' [area di lavoro Azure Databricks e un cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 * [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).
     * Vedere le [autorizzazioni di accesso necessarie per eseguire le operazioni di MLflow con l'area di lavoro](how-to-assign-roles.md#mlflow-operations).

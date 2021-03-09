@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201890"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522394"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -164,7 +164,7 @@ Viene visualizzato l'output seguente:
     WSManStackVersion              3.0
 ```
 
-Se la versione di Windows PowerShell è inferiore a 6.2.4, è necessario aggiornarla. Per installare la versione più recente di PowerShell, vedere [Installare Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
+Se la versione di Windows PowerShell è inferiore a 6.2.4, è necessario aggiornarla. Per installare la versione più recente di PowerShell, vedere [Installare Azure PowerShell](/powershell/scripting/install/installing-powershell).
 
 **Installare i moduli di Azure PowerShell e Data Box**
 
@@ -355,22 +355,34 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     ![Opzioni di Bring your own password (Usa la password personalizzata) per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
    - Per usare la propria password per il nuovo dispositivo, per **Set preference for the device password** (Imposta preferenza per la password del dispositivo) selezionare **Use your own password** (Usa password personale) e digitare una password che soddisfi i requisiti di sicurezza.
+     
+     La password deve essere di tipo alfanumerico e contenere da 12 a 15 caratteri, con almeno una lettera maiuscola, una lettera minuscola, un carattere speciale e un numero. 
+
+     - Sono consentiti i caratteri speciali: @ #-$% ^! + = ; : _ ( )
+     - Caratteri non consentiti: I, L o 0
    
      ![Opzioni per l'uso di una password del dispositivo personalizzata nella schermata Sicurezza per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
  - Per usare le proprie password per le condivisioni:
 
-   - Per **Set preference for share passwords** (Imposta preferenze per le password delle condivisioni) selezionare **Use your own passwords** (Usa password personali) e quindi **Select passwords for the shares** (Seleziona password per le condivisioni).
+   1. Per **Set preference for share passwords** (Imposta preferenze per le password delle condivisioni) selezionare **Use your own passwords** (Usa password personali) e quindi **Select passwords for the shares** (Seleziona password per le condivisioni).
      
-        ![Opzioni per l'uso di una password personalizzata per la condivisione nella schermata Sicurezza per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+       ![Opzioni per l'uso di una password personalizzata per la condivisione nella schermata Sicurezza per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-    - Digitare una password per ogni account di archiviazione incluso nell'ordine. La password verrà usata in tutte le condivisioni per l'account di archiviazione.
-     
-        Per usare la stessa password per tutti gli account di archiviazione, selezionare **Copia in tutte**. Al termine, selezionare **Salva**.
-     
-        ![Schermata per l'immissione delle password per le condivisioni per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+    1. Digitare una password per ogni account di archiviazione incluso nell'ordine. La password verrà usata in tutte le condivisioni per l'account di archiviazione.
+    
+       La password deve essere di tipo alfanumerico e contenere da 12 a 64 caratteri, con almeno una lettera maiuscola, una lettera minuscola, un carattere speciale e un numero.
 
-       Nella schermata **Sicurezza** è possibile usare **View or change passwords** (Visualizza o cambia password) per cambiare le password.
+       - Sono consentiti i caratteri speciali: @ #-$% ^! + = ; : _ ( )
+       - Caratteri non consentiti: I, L o 0
+     
+    1. Per usare la stessa password per tutti gli account di archiviazione, selezionare **Copia in tutte**. 
+
+    1. Al termine, selezionare **Salva**.
+     
+       ![Schermata per l'immissione delle password per le condivisioni per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+    Nella schermata **Sicurezza** è possibile usare **View or change passwords** (Visualizza o cambia password) per cambiare le password.
 
 16. In **Sicurezza**, se si vuole abilitare la crittografia doppia basata su software, espandere **Double-encryption (for highly secure environments)** (Crittografia doppia per ambienti altamente sicuri) e selezionare **Abilita crittografia doppia per l'ordine**.
 

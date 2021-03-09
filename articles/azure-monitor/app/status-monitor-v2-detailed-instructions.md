@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2a955273c01d8c0d865aabd91bb1bfcce70fd373
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29922f088a51e4876e5e2ec8fe87c3bbce4482f3
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587374"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521680"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (denominato in precedenza Status Monitor v2): istruzioni dettagliate
 
@@ -29,7 +29,7 @@ Per iniziare, è necessaria una chiave di strumentazione. Per altre informazioni
 PowerShell richiede autorizzazioni a livello di amministratore per apportare modifiche al computer.
 ### <a name="execution-policy"></a>Criteri di esecuzione
 - Descrizione: per impostazione predefinita, l'esecuzione degli script di PowerShell è disabilitata. È consigliabile consentire gli script RemoteSigned solo per l'ambito corrente.
-- Riferimento: [informazioni sui criteri di esecuzione](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) e [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6).
+- Riferimento: [informazioni sui criteri di esecuzione](/powershell/module/microsoft.powershell.core/about/about_execution_policies) e [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 - Comando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` .
 - Parametro facoltativo:
     - `-Force`. Ignora la richiesta di conferma.
@@ -71,14 +71,14 @@ Queste istruzioni sono state scritte e testate in un computer che esegue Windows
 Questa procedura consente di preparare il server per scaricare i moduli da PowerShell Gallery.
 
 > [!NOTE] 
-> PowerShell Gallery è supportato in Windows 10, Windows Server 2016 e PowerShell 6.
+> PowerShell Gallery è supportato in Windows 10, Windows Server 2016 e PowerShell 6 +.
 > Per informazioni sulle versioni precedenti, vedere [installazione di PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 
 1. Eseguire PowerShell come amministratore con criteri di esecuzione elevati.
 2. Installare il provider di pacchetti NuGet.
     - Descrizione: è necessario che questo provider interagisca con i repository basati su NuGet come PowerShell Gallery.
-    - Riferimento: [Install-PackageProvider](/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
+    - Riferimento: [Install-PackageProvider](/powershell/module/packagemanagement/install-packageprovider).
     - Comando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201` .
     - Parametri facoltativi:
         - `-Proxy`. Specifica un server proxy per la richiesta.
@@ -98,7 +98,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
 
 3. Configurare PowerShell Gallery come repository attendibile.
     - Descrizione: per impostazione predefinita, PowerShell Gallery è un repository non attendibile.
-    - Riferimento: [set-PSRepository](/powershell/module/powershellget/set-psrepository?view=powershell-6).
+    - Riferimento: [set-PSRepository](/powershell/module/powershellget/set-psrepository).
     - Comando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted` .
     - Parametro facoltativo:
         - `-Proxy`. Specifica un server proxy per la richiesta.
@@ -144,7 +144,7 @@ Con questa procedura viene scaricato il modulo AZ. ApplicationMonitor da PowerSh
 1. Verificare che siano soddisfatti tutti i prerequisiti per PowerShell Gallery.
 2. Eseguire PowerShell come amministratore con criteri di esecuzione elevati.
 3. Installare il modulo AZ. ApplicationMonitor.
-    - Riferimento: [install-module](/powershell/module/powershellget/install-module?view=powershell-6).
+    - Riferimento: [install-module](/powershell/module/powershellget/install-module).
     - Comando: `Install-Module -Name Az.ApplicationMonitor` .
     - Parametri facoltativi:
         - `-Proxy`. Specifica un server proxy per la richiesta.
@@ -170,7 +170,7 @@ Per altre informazioni, vedere [installazione di un modulo di PowerShell](/power
 #### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Decomprimere nupkg come file zip usando Expand-Archive (v 1.0.1.0)
 
 - Descrizione: la versione di base di Microsoft. PowerShell. Archive (v 1.0.1.0) non può decomprimere i file nupkg. Rinominare il file con l'estensione zip.
-- Riferimento: [expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
+- Riferimento: [expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive).
 - Comando:
 
     ```console
@@ -184,7 +184,7 @@ Per altre informazioni, vedere [installazione di un modulo di PowerShell](/power
 #### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Decomprimere nupkg usando Expand-Archive (v 1.1.0.0)
 
 - Descrizione: usare una versione corrente di Expand-Archive per decomprimere i file nupkg senza modificare l'estensione.
-- Riferimento: [expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) e [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
+- Riferimento: [expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive) e [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - Comando:
 
     ```console
@@ -197,7 +197,7 @@ Per altre informazioni, vedere [installazione di un modulo di PowerShell](/power
 Installare il modulo PowerShell scaricato manualmente in una directory di PowerShell, in modo che possa essere individuato dalle sessioni di PowerShell.
 Per altre informazioni, vedere [installazione di un modulo di PowerShell](/powershell/scripting/developer/module/installing-a-powershell-module).
 
-Se si sta installando il modulo in un'altra directory, importare manualmente il modulo usando [Import-Module](/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
+Se si sta installando il modulo in un'altra directory, importare manualmente il modulo usando [Import-Module](/powershell/module/microsoft.powershell.core/import-module).
 
 > [!IMPORTANT] 
 > Le dll vengono installate tramite percorsi relativi.

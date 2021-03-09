@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: ded7b24461fdcdbc3d020a487cafc20620633097
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: bc075e5074fe39ad38e45235af932b40fef78fce
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019721"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521867"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Avvio rapido: Configurare i log dei flussi dei gruppi di sicurezza di rete con un modello di Resource Manager
 
@@ -82,7 +82,7 @@ Per una panoramica completa delle proprietà dell'oggetto flusso dei log dei gru
 
 Se si usano i modelli di Resource Manager per la prima volta, vedere gli articoli seguenti per altre informazioni:
 
-- [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+- [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 - [Esercitazione: Creare e distribuire il primo modello di Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 L'esempio seguente è un modello completo. È anche la versione più semplice del modello. L'esempio contiene i parametri minimi passati per configurare i log dei flussi dei gruppi di sicurezza di rete. Per altri esempi, vedere l'articolo introduttivo [Configurare i log dei flussi dei gruppi di sicurezza di rete da un modello di Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md).
@@ -145,7 +145,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 Sono disponibili due opzioni per verificare se la distribuzione è riuscita:
 
 - La console di PowerShell mostra `ProvisioningState` con lo stato `Succeeded`.
-- Visitare la [pagina del portale relativa ai log dei flussi dei gruppi di sicurezza di rete](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) per confermare le modifiche. 
+- Visitare la [pagina del portale relativa ai log dei flussi dei gruppi di sicurezza di rete](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) per confermare le modifiche.
 
 Se si sono verificati problemi durante la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di Azure con Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 

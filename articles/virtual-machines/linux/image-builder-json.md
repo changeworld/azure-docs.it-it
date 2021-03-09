@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: eb02bff77ffedc0a1f2fee0a186d544c39374dbf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a3138da0ecbcabaeb7ef910975afc3b7005e5b50
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693867"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519708"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di Image Builder di Azure 
 
@@ -391,7 +391,7 @@ Proprietà customize:
 - **validExitCodes** - codici validi e facoltativi che possono essere restituiti dallo script o dal comando inline. In questo modo si eviterà l'errore segnalato dello script o del comando inline.
 - **runElevated** - valore facoltativo, booleano, supporto per l'esecuzione di comandi e script con autorizzazioni elevate.
 - **sha256Checksum** - valore di checksum sha256 del file, viene generato in locale, quindi Image Builder lo genera e lo verifica.
-    * Per generare sha256Checksum, usare il comando [Get-hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6) di PowerShell in Windows
+    * Per generare sha256Checksum, usare il comando [Get-hash](/powershell/module/microsoft.powershell.utility/get-filehash) di PowerShell in Windows
 
 
 ### <a name="file-customizer"></a>Funzione di personalizzazione File
@@ -456,7 +456,7 @@ Proprietà customize:
 - **updateLimit** - facoltativo, definisce il numero di aggiornamenti che è possibile installare, valore predefinito 1000.
  
 > [!NOTE]
-> Il Windows Update verbi può avere esito negativo se sono presenti riavvii di Windows in attesa o se le installazioni dell'applicazione sono ancora in esecuzione, in genere è possibile che questo errore venga visualizzato nel file customization. log `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . È consigliabile prendere in considerazione l'aggiunta di un riavvio di Windows e/o consentire alle applicazioni un tempo sufficiente per completare le installazioni usando i comandi [Sleep] o Wait ( https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) nei comandi o negli script inline prima di eseguire Windows Update.
+> Il Windows Update verbi può avere esito negativo se sono presenti riavvii di Windows in attesa o se le installazioni dell'applicazione sono ancora in esecuzione, in genere è possibile che questo errore venga visualizzato nel file customization. log `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Si consiglia vivamente di prendere in considerazione l'aggiunta di un riavvio di Windows e/o di consentire alle applicazioni un tempo sufficiente per completare le installazioni usando i comandi di [sospensione](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) o attesa nei comandi o negli script inline prima di eseguire Windows Update.
 
 ### <a name="generalize"></a>Generalizzazione 
 Per impostazione predefinita, Image Builder di Azure eseguirà anche il codice di "deprovisioning" alla fine di ogni fase di personalizzazione dell'immagine, in modo da "generalizzare" l'immagine. La generalizzazione è un processo in cui l'immagine è configurata in modo da poter essere riutilizzata per creare più macchine virtuali. Per le macchine virtuali Windows, Image Builder di Azure usa Sysprep. Per Linux, Image Builder di Azure esegue "waagent-deprovision". 

@@ -11,12 +11,12 @@ author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 06/11/2020
 ms.custom: deploy
-ms.openlocfilehash: e1eebf88b72c87ce9db02760c5c44a0aa25c57cc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9336dbd4d5615a93bbc029ba51b561b18f5a1c15
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305921"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521986"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Distribuire un modello da usare con Ricerca cognitiva
 
@@ -25,7 +25,7 @@ Questo articolo illustra come usare Azure Machine Learning per distribuire un mo
 
 Ricerca cognitiva esegue l'elaborazione del contenuto sul contenuto eterogeneo, per renderlo queryable da esseri umani o da applicazioni. Questo processo può essere migliorato usando un modello distribuito da Azure Machine Learning.
 
-Azure Machine Learning possibile distribuire un modello sottoposto a training come servizio Web. Il servizio Web viene quindi incorporato in una ricerca cognitiva _skill_ , che diventa parte della pipeline di elaborazione.
+Azure Machine Learning possibile distribuire un modello sottoposto a training come servizio Web. Il servizio Web viene quindi incorporato in una ricerca cognitiva _skill_, che diventa parte della pipeline di elaborazione.
 
 > [!IMPORTANT]
 > Le informazioni contenute in questo articolo sono specifiche per la distribuzione del modello. Vengono fornite informazioni sulle configurazioni di distribuzione supportate che consentono di utilizzare il modello in ricerca cognitiva.
@@ -46,7 +46,7 @@ Quando si distribuisce un modello per l'uso con ricerca cognitiva di Azure, la d
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
-* Ambiente di sviluppo Python con Azure Machine Learning SDK installato. Per ulteriori informazioni, vedere [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
+* Ambiente di sviluppo Python con Azure Machine Learning SDK installato. Per ulteriori informazioni, vedere [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).  
 
 * Modello registrato. Se non si dispone di un modello, utilizzare il notebook di esempio all'indirizzo [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill) .
 
@@ -75,7 +75,7 @@ except:
 
 ## <a name="create-a-kubernetes-cluster"></a>Creare un cluster Kubernetes
 
-**Tempo stimato** : circa 20 minuti.
+**Tempo stimato**: circa 20 minuti.
 
 Un cluster Kubernetes è un set di istanze di macchine virtuali, denominate nodi, che vengono usate per l'esecuzione di applicazioni in contenitori.
 
@@ -241,7 +241,7 @@ aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                        max_request_wait_time=5000)
 ```
 
-Per ulteriori informazioni, vedere la documentazione di riferimento per [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
+Per ulteriori informazioni, vedere la documentazione di riferimento per [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
 
 ## <a name="define-the-inference-configuration"></a>Definire la configurazione dell'inferenza
 
@@ -252,7 +252,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-Per ulteriori informazioni, vedere la documentazione di riferimento per [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
+Per ulteriori informazioni, vedere la documentazione di riferimento per [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig).
 
 ## <a name="deploy-the-model"></a>Distribuire il modello
 
@@ -277,7 +277,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-Per ulteriori informazioni, vedere la documentazione di riferimento per il [modello](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
+Per ulteriori informazioni, vedere la documentazione di riferimento per il [modello](/python/api/azureml-core/azureml.core.model.model).
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Eseguire una query di esempio per il servizio
 

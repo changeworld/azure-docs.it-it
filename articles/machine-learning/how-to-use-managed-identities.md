@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 014c592713a8568b3bbc7e8e536f81b203271ccc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a7efd57100ad89fa9824b7a635e11698515e13ae
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388074"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521017"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Usare identità gestite con Azure Machine Learning (anteprima)
 
@@ -38,7 +38,7 @@ In questo articolo si apprenderà come usare le identità gestite per:
 
 - Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 - Estensione dell'interfaccia della riga [di comando di Azure per servizio Machine Learning](reference-azure-machine-learning-cli.md)
-- [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?view=azure-ml-py).
+- [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 - Per assegnare i ruoli, è necessario che l'account di accesso per la sottoscrizione di Azure disponga del ruolo di [operatore di identità gestito](../role-based-access-control/built-in-roles.md#managed-identity-operator) o di un altro ruolo che conceda le azioni necessarie, ad esempio __owner__.
 - È necessario avere familiarità con la creazione e l'utilizzo di [identità gestite](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -107,7 +107,7 @@ Per accedere all'area di lavoro ACR, creare un cluster di calcolo di Machine Lea
 
 # <a name="python"></a>[Python](#tab/python)
 
-Quando si crea un cluster di calcolo con [AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py), usare il `identity_type` parametro per impostare il tipo di identità gestito.
+Quando si crea un cluster di calcolo con [AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration), usare il `identity_type` parametro per impostare il tipo di identità gestito.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -191,7 +191,7 @@ In questo scenario, Azure Machine Learning servizio compila l'ambiente di traini
 
         L'ID di risorsa UAI è l'ID risorsa di Azure dell'identità assegnata dall'utente, nel formato `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAI name>` .
 
-1. Specificare l'ID di registro esterno e l'ID client dell' __identità gestita assegnata dall'utente__ nelle connessioni dell'area di lavoro usando [Workspace.set_Connection metodo](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-):
+1. Specificare l'ID di registro esterno e l'ID client dell' __identità gestita assegnata dall'utente__ nelle connessioni dell'area di lavoro usando [Workspace.set_Connection metodo](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-):
 
     ```python
     workspace.set_connection(
@@ -211,7 +211,7 @@ env = Environment(name="my-env")
 env.docker.base_image = "<acr url>/my-repo/my-image:latest"
 ```
 
-Facoltativamente, è possibile specificare l'URL della risorsa di identità gestita e l'ID client nella definizione di ambiente stessa usando [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity?view=azure-ml-py). Se si usa l'identità del registro di sistema in modo esplicito, sostituisce le connessioni all'area di lavoro specificate in precedenza
+Facoltativamente, è possibile specificare l'URL della risorsa di identità gestita e l'ID client nella definizione di ambiente stessa usando [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity). Se si usa l'identità del registro di sistema in modo esplicito, sostituisce le connessioni all'area di lavoro specificate in precedenza
 
 ```python
 from azureml.core.container_registry import RegistryIdentity

@@ -11,16 +11,16 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: ee41ae2a705ceaa0e9742c91552d6bdae26820ce
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b5511c8ecc33238e0409b5ee4c1c7a11adddeac5
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690278"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522156"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Risoluzione dei problemi relativi a ParallelRunStep
 
-In questo articolo si apprenderà come risolvere i problemi quando si ottengono errori usando la classe [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) di [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+In questo articolo si apprenderà come risolvere i problemi quando si ottengono errori usando la classe [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) di [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 
 Per suggerimenti generali sulla risoluzione dei problemi di una pipeline, vedere [risoluzione dei problemi relativi alle pipeline di Machine Learning](how-to-debug-pipelines.md).
 
@@ -212,7 +212,7 @@ def run(mini_batch):
 
 L'utente può passare i dati di riferimento allo script usando side_inputs parametro di ParalleRunStep. Tutti i set di impostazioni specificati come side_inputs verranno montati in ogni nodo di lavoro. L'utente può ottenere la posizione del montaggio passando un argomento.
 
-Costruire un [set](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) di dati contenente i dati di riferimento e registrarli con l'area di lavoro. Passarlo al parametro `side_inputs` di `ParallelRunStep`. Inoltre, è possibile aggiungere il percorso nella `arguments` sezione per accedere facilmente al percorso montato:
+Costruire un [set](/python/api/azureml-core/azureml.core.dataset.dataset) di dati contenente i dati di riferimento e registrarli con l'area di lavoro. Passarlo al parametro `side_inputs` di `ParallelRunStep`. Inoltre, è possibile aggiungere il percorso nella `arguments` sezione per accedere facilmente al percorso montato:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -262,6 +262,6 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 
 * Vedere questi [notebook di Jupyter che dimostrano pipeline Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
-* Vedere le informazioni di riferimento su SDK per il pacchetto [azureml-pipeline-Steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) . Visualizzare la [documentazione](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?preserve-view=true&view=azure-ml-py) di riferimento per la classe ParallelRunStep.
+* Vedere le informazioni di riferimento su SDK per il pacchetto [azureml-pipeline-Steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) . Visualizzare la [documentazione](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) di riferimento per la classe ParallelRunStep.
 
 * Seguire l' [esercitazione avanzata](tutorial-pipeline-batch-scoring-classification.md) sull'uso di pipeline con ParallelRunStep. Nell'esercitazione viene illustrato come passare un altro file come input laterale.

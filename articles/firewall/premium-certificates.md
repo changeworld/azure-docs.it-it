@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/09/2021
 ms.author: victorh
-ms.openlocfilehash: 31948d5e98ea3024c838bf0fa4b05609a5662ec5
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 621bf6138e4336c63ca137a6a8c54f77a4a99d61
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485521"
+ms.locfileid: "102520286"
 ---
 # <a name="azure-firewall-premium-preview-certificates"></a>Certificati di anteprima Premium di Azure firewall 
 
@@ -96,7 +96,7 @@ Per configurare un certificato della CA nei criteri Premium del firewall, selezi
 Per testare e verificare l'ispezione TLS, è possibile usare gli script seguenti per creare una CA radice autofirmata e una CA intermedia.
 
 > [!IMPORTANT]
-> Per la produzione, è consigliabile usare l'infrastruttura a chiave pubblica aziendale per creare un certificato CA intermedio. Un'infrastruttura PKI aziendale sfrutta l'infrastruttura esistente e gestisce la distribuzione della CA radice in tutti i computer degli endpoint.
+> Per la produzione, è consigliabile usare l'infrastruttura a chiave pubblica aziendale per creare un certificato CA intermedio. Un'infrastruttura PKI aziendale sfrutta l'infrastruttura esistente e gestisce la distribuzione della CA radice in tutti i computer degli endpoint. Per altre informazioni, vedere [distribuire e configurare i certificati della CA globale (Enterprise) per Azure firewall Preview](premium-deploy-certificates-enterprise-ca.md).
 
 Sono disponibili due versioni di questo script:
 - uno script bash `cert.sh` 

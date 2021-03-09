@@ -13,12 +13,12 @@ ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 9ae5d2279baab69d762a71b2f6400009747c16fe
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: acce282dcaac971716a97d7722543d78e28b7a34
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584214"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517668"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Risolvere i problemi di verifica dell'autore
 Se non si riesce a completare il processo o si verifica un comportamento imprevisto con la [Verifica dell'editore](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o si verifica un comportamento imprevisto: 
@@ -241,7 +241,7 @@ Quando viene effettuata una richiesta di aggiunta di un server di pubblicazione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se sono state esaminate tutte le informazioni precedenti e si riceve ancora un errore da Microsoft Graph, raccogliere quante più informazioni possibili tra quelle indicate di seguito relative alla richiesta non riuscita e [contattare il supporto tecnico Microsoft](developer-support-help-options.md#open-a-support-request).
+Se sono state esaminate tutte le informazioni precedenti e si riceve ancora un errore da Microsoft Graph, raccogliere quante più informazioni possibili tra quelle indicate di seguito relative alla richiesta non riuscita e [contattare il supporto tecnico Microsoft](developer-support-help-options.md#create-an-azure-support-request).
 
 - Timestamp 
 - CorrelationId 

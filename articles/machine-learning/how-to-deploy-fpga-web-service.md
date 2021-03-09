@@ -11,16 +11,16 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: 39c7d980bf9a90e5f72dfc9366d0ec44204b1ed2
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e6a58a6555602af2494683037721a1f83e7ea33c
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212791"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519317"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Distribuire modelli di Machine Learning in FPGA (Field-Programmable Gate Array) con Azure Machine Learning 
 
-In questo articolo vengono fornite informazioni sugli FPGA e su come distribuire i modelli ML in una scheda Azure FPGA usando il [pacchetto python dei modelli con accelerazione hardware](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py) da [Azure Machine Learning](overview-what-is-azure-ml.md).
+In questo articolo vengono fornite informazioni sugli FPGA e su come distribuire i modelli ML in una scheda Azure FPGA usando il [pacchetto python dei modelli con accelerazione hardware](/python/api/azureml-accel-models/azureml.accel) da [Azure Machine Learning](overview-what-is-azure-ml.md).
 
 ## <a name="what-are-fpgas"></a>Che cosa sono gli FPGA?
 Un circuito FPGA contiene un array di blocchi programmabili per la logica e una gerarchia di interconnessioni riconfigurabili. Le interconnessioni consentono di configurare questi blocchi in diversi modi dopo la produzione. I circuiti FPGA offrono una combinazione di programmabilità e prestazioni superiore agli altri chip. 
@@ -56,7 +56,7 @@ La **famiglia di macchine virtuali di Azure PBS** contiene Intel ARRIA 10 FPGA. 
 
 ## <a name="deploy-models-on-fpgas"></a>Distribuire modelli in dispositivi FPGA
 
-È possibile distribuire un modello come servizio Web in FPGA con [Azure Machine Learning modelli con accelerazione hardware](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py). L'uso di FPGA fornisce un'inferenza di latenza estremamente bassa, anche con una singola dimensione del batch. 
+È possibile distribuire un modello come servizio Web in FPGA con [Azure Machine Learning modelli con accelerazione hardware](/python/api/azureml-accel-models/azureml.accel). L'uso di FPGA fornisce un'inferenza di latenza estremamente bassa, anche con una singola dimensione del batch. 
 
 In questo esempio viene creato un grafico TensorFlow per pre-elaborare l'immagine di input, impostarla come featurizer usando ResNet 50 in un FPGA, quindi eseguire le funzionalità tramite un classificatore sottoposto a training sul set di dati improprio. Quindi, il modello viene distribuito in un cluster AKS.
 
@@ -80,7 +80,7 @@ In questo esempio viene creato un grafico TensorFlow per pre-elaborare l'immagin
 
 ### <a name="define-the-tensorflow-model"></a>Definire il modello TensorFlow
 
-Per iniziare, usare l' [SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) per creare una definizione del servizio. Una definizione del servizio è un file che descrive una pipeline di grafici (input, utilità di funzioni e classificatore) basata su TensorFlow. Il comando di distribuzione comprime la definizione e i grafici in un file ZIP e carica il file ZIP nell'archiviazione BLOB di Azure. Il DNN è già distribuito per l'esecuzione nell'FPGA.
+Per iniziare, usare l' [SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/intro) per creare una definizione del servizio. Una definizione del servizio è un file che descrive una pipeline di grafici (input, utilità di funzioni e classificatore) basata su TensorFlow. Il comando di distribuzione comprime la definizione e i grafici in un file ZIP e carica il file ZIP nell'archiviazione BLOB di Azure. Il DNN è già distribuito per l'esecuzione nell'FPGA.
 
 1. Carica Azure Machine Learning area di lavoro
 

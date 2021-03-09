@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88eae702782e2f1af9c20797676214db458c2adc
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eeede88bfbe024a66e40270240d32488e581dd77
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937632"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517702"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -37,7 +37,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 ## <a name="sso-via-primary-refresh-token-vs-seamless-sso"></a>SSO tramite token di aggiornamento primario e accesso SSO facile
 
-Per Windows 10, è consigliabile usare SSO tramite il token di aggiornamento primario (PRT). Per Windows 7 e 8,1 è consigliabile usare seamless SSO.
+Per Windows 10, Windows Server 2016 e versioni successive, è consigliabile usare SSO tramite il token di aggiornamento primario (PRT). Per Windows 7 e 8,1 è consigliabile usare seamless SSO.
 Seamless SSO richiede che il dispositivo dell'utente sia aggiunto a un dominio, ma non viene usato in Windows 10 [Azure ad dispositivi aggiunti](../devices/concept-azure-ad-join.md) o [ibridi Azure ad aggiunti](../devices/concept-azure-ad-join-hybrid.md). Single Sign-on Azure AD aggiunto, Azure AD ibrido e Azure AD dispositivi registrati funziona in base al [token di aggiornamento primario (PRT)](../devices/concept-primary-refresh-token.md)
 
 L'accesso SSO tramite PRT funziona dopo che i dispositivi sono stati registrati con Azure AD per i dispositivi ibridi Azure AD aggiunti, Azure AD dispositivi registrati in join o personali tramite Aggiungi account aziendale o dell'Istituto di istruzione. Per altre informazioni sul funzionamento di SSO con Windows 10 con PRT, vedere: [token di aggiornamento primario (PRT) e Azure ad](../devices/concept-primary-refresh-token.md)

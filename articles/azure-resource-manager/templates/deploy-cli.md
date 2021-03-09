@@ -2,19 +2,19 @@
 title: Distribuire le risorse con l'interfaccia della riga di comando di Azure
 description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure. Le risorse sono definite in un modello di Gestione risorse o in un file bicipite.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 547b860869738f3cfe12d6a22262829ef132a671
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/04/2021
+ms.openlocfilehash: d0c48a5cf05d6cec495a7a96e181910a0849a1ac
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741124"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521697"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra come usare l'interfaccia della riga di comando di Azure con modelli di Azure Resource Manager (modelli ARM) o file bicipite per distribuire le risorse in Azure. Se non si ha familiarità con i concetti relativi alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica della distribuzione di modelli](overview.md) o Panoramica di [bicipiti](bicep-overview.md).
 
-I comandi di distribuzione modificati nell'interfaccia della riga di comando di Azure versione 2.2.0. Gli esempi in questo articolo richiedono l'interfaccia della riga di comando di Azure versione 2.2.0 o successiva.
+I comandi di distribuzione modificati nell'interfaccia della riga di comando di Azure versione 2.2.0. Gli esempi in questo articolo richiedono l'interfaccia della riga di comando di Azure versione 2.2.0 o successiva. Per distribuire i file bicipite, è necessaria l'interfaccia della riga di comando di [Azure versione 2.20.0 o successiva](/cli/azure/install-azure-cli).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -85,7 +85,7 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 ## <a name="deploy-remote-template"></a>Distribuisci modello remoto
 
 > [!NOTE]
-> Attualmente, l'interfaccia della riga di comando di Azure non supporta la distribuzione dei file di rimozione
+> Attualmente l'interfaccia della riga di comando di Azure non supporta la distribuzione di file bicipiti. Per distribuire un file bicipite remoto, usare l'interfaccia della riga di comando per compilare prima il file bicipite in un modello JSON.
 
 Anziché archiviare i modelli ARM nel computer locale, è preferibile archiviarli in una posizione esterna. ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
 
@@ -148,7 +148,7 @@ Per evitare conflitti con le distribuzioni simultanee e per garantire voci univo
 ## <a name="deploy-template-spec"></a>Distribuire la specifica di modello
 
 > [!NOTE]
-> Attualmente, l'interfaccia della riga di comando di Azure non supporta la creazione di specifiche di modello fornendo file bicipite. Tuttavia, è possibile creare un modello ARM o un file bicipite con la risorsa [Microsoft. resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) per distribuire una specifica del modello. Ecco un [esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
+> Attualmente, l'interfaccia della riga di comando di Azure non supporta la creazione di specifiche di modello fornendo file bicipite. Tuttavia, è possibile creare un file bicipite con la risorsa [Microsoft. resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) per distribuire una specifica del modello. Ecco un [esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 
 Anziché distribuire un modello locale o remoto, è possibile creare una [specifica del modello](template-specs.md). La specifica del modello è una risorsa nella sottoscrizione di Azure che contiene un modello ARM. Consente di condividere in modo sicuro il modello con gli utenti dell'organizzazione. Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per concedere l'accesso alla specifica del modello. Questa funzionalità è attualmente disponibile in anteprima.
 

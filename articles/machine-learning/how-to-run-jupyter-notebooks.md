@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: fe3f2328bb1ec9e7bb2ef79c09a821412ce7f7e1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102423986"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518722"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Eseguire Jupyter notebook nell'area di lavoro
 
@@ -115,7 +115,7 @@ Per eseguire un notebook o uno script Python, connettersi prima di tutto a un' [
 
 ### <a name="view-logs-and-output"></a>Visualizzare i log e l'output
 
-Usare i [widget del notebook](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) per visualizzare lo stato di avanzamento dell'esecuzione e dei log. Il widget è asincrono e offre gli aggiornamenti fino al termine del training. I widget di Azure Machine Learning sono supportati anche in Jupyter e JupterLab.
+Usare i [widget del notebook](/python/api/azureml-widgets/azureml.widgets) per visualizzare lo stato di avanzamento dell'esecuzione e dei log. Il widget è asincrono e offre gli aggiornamenti fino al termine del training. I widget di Azure Machine Learning sono supportati anche in Jupyter e JupterLab.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Schermata: widget del notebook di Jupyter ":::
 

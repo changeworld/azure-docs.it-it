@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: f9f25ec2dd8fb8b859f7863c1e695e22cb9a9cec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575073"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521340"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitoraggio del riferimento ai dati di Azure Machine Learning
 
@@ -88,7 +88,7 @@ Azure Machine Learning presenta le dimensioni seguenti associate alle metriche.
 | NodeId | ID del nodo creato in cui è in esecuzione il processo. Disponibile solo per CpuUtilization e GpuUtilization. |
 | RunId | ID dell'esecuzione/processo. Disponibile solo per CpuUtilization e GpuUtilization. |
 | ComputeType | Tipo di calcolo utilizzato dall'esecuzione. Disponibile solo per esecuzioni completate, esecuzioni non riuscite e Esecuzioni avviate. |
-| PipelineStepType | Tipo di [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) utilizzato nell'esecuzione. Disponibile solo per esecuzioni completate, esecuzioni non riuscite e Esecuzioni avviate. |
+| PipelineStepType | Tipo di [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep) utilizzato nell'esecuzione. Disponibile solo per esecuzioni completate, esecuzioni non riuscite e Esecuzioni avviate. |
 | PublishedPipelineId | ID della pipeline pubblicata utilizzata nell'esecuzione. Disponibile solo per esecuzioni completate, esecuzioni non riuscite e Esecuzioni avviate. |
 | RunType | Tipo di esecuzione. Disponibile solo per esecuzioni completate, esecuzioni non riuscite e Esecuzioni avviate. |
 

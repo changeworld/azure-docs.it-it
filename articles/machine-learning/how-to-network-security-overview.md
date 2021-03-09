@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 1309ad1b3e3f6bd6f9b543959220bf71c569f083
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175006"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518679"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 
@@ -69,9 +69,14 @@ Nelle cinque sezioni successive viene illustrato come proteggere lo scenario di 
 Usare la procedura seguente per proteggere l'area di lavoro e le risorse associate. Questi passaggi consentono ai servizi di comunicare nella rete virtuale.
 
 1. Creare un' [area di lavoro privata abilitata](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) per il collegamento per abilitare la comunicazione tra VNet e l'area di lavoro.
-1. Aggiungere Azure Key Vault alla rete virtuale con un [endpoint del servizio](../key-vault/general/overview-vnet-service-endpoints.md) o un [endpoint privato](../key-vault/general/private-link-service.md). Impostare Key Vault su ["Consenti ai servizi Microsoft attendibili di ignorare questo firewall"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Aggiungere l'account di archiviazione di Azure alla rete virtuale con un [endpoint del servizio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [endpoint privato](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
-1. [Configurare container Registry di Azure per l'uso di un endpoint privato](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+1. Aggiungere i servizi seguenti alla rete _virtuale usando un_ endpoint del __servizio__ o un __endpoint privato__. È inoltre necessario consentire ai servizi Microsoft attendibili di accedere a questi servizi:
+    
+    | Servizio | Informazioni sugli endpoint | Consenti informazioni attendibili |
+    | ----- | ----- | ----- |
+    | __Azure Key Vault__| [Endpoint di servizio](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Endpoint privato](../key-vault/general/private-link-service.md) | [Consenti ai servizi Microsoft attendibili di ignorare questo firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Account di archiviazione di Azure__ | [Endpoint di servizio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)</br>[Endpoint privato](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints) | [Concessione dell'accesso ai servizi di Azure attendibili](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Registro Azure Container__ | [Endpoint di servizio](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)</br>[Endpoint privato](../container-registry/container-registry-private-link.md) | [Consenti servizi attendibili](../container-registry/allow-access-trusted-services.md) |
+
 
 ![Diagramma dell'architettura che mostra il modo in cui l'area di lavoro e le risorse associate comunicano tra di loro sugli endpoint di servizio o privati all'interno di un VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e80f33e6c36e1525eff954376d17c8a8b76204cb
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 807174fdbede2e4631b3ca1df7220904038da4c8
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796024"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518297"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Eseguire il training di modelli Scikit-learn su larga scala con Azure Machine Learning
 
@@ -35,7 +35,7 @@ Eseguire questo codice in uno degli ambienti seguenti:
 
  - Server Jupyter Notebook personale
 
-    - [Installare Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0).
+    - [Installare Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.13.0).
     - [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
 
 ## <a name="set-up-the-experiment"></a>Configurare l'esperimento
@@ -44,7 +44,7 @@ Questa sezione Configura l'esperimento di training caricando i pacchetti Python 
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) oggetto.
+L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) oggetto.
 
 Creare un oggetto dell'area di lavoro dal `config.json` file creato nella [sezione Prerequisiti](#prerequisites).
 
@@ -162,7 +162,7 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Registrare il modello nell'area di lavoro con il codice seguente. Specificando i parametri `model_framework` , `model_framework_version` e `resource_configuration` , la distribuzione del modello senza codice diventa disponibile. La distribuzione del modello senza codice consente di distribuire direttamente il modello come servizio Web dal modello registrato e l' [`ResourceConfiguration`](/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?preserve-view=true&view=azure-ml-py) oggetto definisce la risorsa di calcolo per il servizio Web.
+Registrare il modello nell'area di lavoro con il codice seguente. Specificando i parametri `model_framework` , `model_framework_version` e `resource_configuration` , la distribuzione del modello senza codice diventa disponibile. La distribuzione del modello senza codice consente di distribuire direttamente il modello come servizio Web dal modello registrato e l' [`ResourceConfiguration`](/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration) oggetto definisce la risorsa di calcolo per il servizio Web.
 
 ```Python
 from azureml.core import Model
@@ -181,7 +181,7 @@ Il modello appena registrato può essere distribuito esattamente come qualsiasi 
 
 ### <a name="preview-no-code-model-deployment"></a>Anteprima Distribuzione del modello senza codice
 
-Anziché la route di distribuzione tradizionale, è anche possibile usare la funzionalità di distribuzione senza codice (anteprima) per Scikit-learn. La distribuzione del modello senza codice è supportata per tutti i tipi di modello Scikit-learn predefiniti. Registrando il modello come illustrato in precedenza con i `model_framework` `model_framework_version` parametri, e `resource_configuration` , è possibile usare semplicemente la [`deploy()`](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) funzione statica per distribuire il modello.
+Anziché la route di distribuzione tradizionale, è anche possibile usare la funzionalità di distribuzione senza codice (anteprima) per Scikit-learn. La distribuzione del modello senza codice è supportata per tutti i tipi di modello Scikit-learn predefiniti. Registrando il modello come illustrato in precedenza con i `model_framework` `model_framework_version` parametri, e `resource_configuration` , è possibile usare semplicemente la [`deploy()`](/python/api/azureml-core/azureml.core.model%28class%29#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) funzione statica per distribuire il modello.
 
 ```python
 web_service = Model.deploy(ws, "scikit-learn-service", [model])

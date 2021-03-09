@@ -1,18 +1,18 @@
 ---
 title: Come utilizzare parametri ed espressioni in Azure Data Factory
 description: In questo articolo vengono fornite informazioni sulle espressioni e sulle funzioni che è possibile utilizzare per la creazione di entità data factory.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 9cf37d554081ddd300a3ea4c16e2f167c5b98895
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/08/2020
+ms.openlocfilehash: 4aa8a0790e7f5812e8c6a70eab1718f92a5e00d0
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510496"
+ms.locfileid: "102520303"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Come utilizzare parametri, espressioni e funzioni in Azure Data Factory
 
@@ -21,7 +21,11 @@ ms.locfileid: "102510496"
 > * [Versione corrente](how-to-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questo articolo si concentra principalmente sull'apprendimento di concetti con esempi ed esercitazioni sull'esplorazione della possibilità di creare pipeline di dati con parametri all'interno Azure Data Factory. La parametrizzazione e le espressioni dinamiche sono aggiunte significative ad ADF, perché possono risparmiare molto tempo e consentire una soluzione di estrazione, trasformazione, caricamento (ETL) o estrazione, caricamento e trasformazione (ELT) molto più flessibile, riducendo in modo significativo il costo della manutenzione della soluzione e velocizzando l'implementazione delle nuove funzionalità nelle pipeline esistenti. Questi miglioramenti sono dovuti al fatto che la parametrizzazione riduce al minimo la quantità di codice hardware e aumenta il numero di oggetti e processi riutilizzabili in una soluzione.
+In questo documento si incentrerà principalmente sull'apprendimento di concetti fondamentali con diversi esempi per esplorare la possibilità di creare pipeline di dati con parametri all'interno Azure Data Factory. La parametrizzazione e le espressioni dinamiche sono aggiunte significative ad ADF, perché possono risparmiare molto tempo e consentire una soluzione di estrazione, trasformazione, caricamento (ETL) o estrazione, caricamento e trasformazione (ELT) molto più flessibile, riducendo in modo significativo il costo della manutenzione della soluzione e velocizzando l'implementazione delle nuove funzionalità nelle pipeline esistenti. Questi miglioramenti sono dovuti al fatto che la parametrizzazione riduce al minimo la quantità di codice hardware e aumenta il numero di oggetti e processi riutilizzabili in una soluzione.
+
+## <a name="azure-data-factory-ui-and-parameters"></a>Interfaccia utente e parametri di Azure data factory
+
+Se non si ha familiarità con l'uso dei parametri di data factory di Azure nell'interfaccia utente di ADF, vedere interfaccia utente di [Data Factory per i servizi collegati con parametri](https://docs.microsoft.comazure/data-factory/parameterize-linked-services#data-factory-ui)  e [interfaccia utente di data factory per la pipeline basata sui metadati con parametri](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) per la spiegazione visiva.
 
 ## <a name="parameter-and-expression-concepts"></a>Concetti relativi a parametri ed espressioni 
 
@@ -39,7 +43,7 @@ Ad esempio:
 "name": "@pipeline().parameters.password"
 ```
 
-Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se un valore JSON è un'espressione, il corpo dell'espressione viene estratto rimuovendo il simbolo di chiocciola (\@). Se è necessaria una stringa letterale che inizia con \@, occorre che la stringa sia preceduta da un carattere di escape \@\@. L'esempio seguente illustra la modalità di valutazione delle espressioni.  
+Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Qui, *password* è un parametro della pipeline nell'espressione. Se un valore JSON è un'espressione, il corpo dell'espressione viene estratto rimuovendo il simbolo di chiocciola (\@). Se è necessaria una stringa letterale che inizia con \@, occorre che la stringa sia preceduta da un carattere di escape \@\@. L'esempio seguente illustra la modalità di valutazione delle espressioni.  
   
 |Valore JSON|Risultato|  
 |----------------|------------|  
@@ -301,13 +305,20 @@ Queste funzioni sono utili all'interno delle condizioni e possono essere usate p
 | [ticks](control-flow-expression-language-functions.md#ticks) | Restituisce il valore della proprietà `ticks` per un timestamp specificato. |
 | [utcNow](control-flow-expression-language-functions.md#utcNow) | Restituisce il timestamp corrente come stringa. |
 
-## <a name="detailed-azure-data-factory-copy-pipeline-with-parameters"></a>Pipeline di copia dettagliata di Azure data factory con parametri 
+## <a name="detailed-examples-for-practice"></a>Esempi dettagliati per le procedure
+
+### <a name="detailed-azure-data-factory-copy-pipeline-with-parameters"></a>Pipeline di copia dettagliata di Azure data factory con parametri 
 
 Questa esercitazione relativa al passaggio di un [parametro di copia della pipeline di Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) illustra come passare i parametri tra una pipeline e un'attività, nonché tra le attività.
 
-## <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>Mappa dettagliata della pipeline del flusso di dati con parametri 
+### <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>Mappa dettagliata della pipeline del flusso di dati con parametri 
 
 Per un esempio completo su come usare i parametri nel flusso di dati, seguire il [mapping del flusso di dati con parametri](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) .
+
+### <a name="detailed-metadata-driven-pipeline-with-parameters"></a>Pipeline dettagliata basata sui metadati con parametri
+
+Per altre informazioni su come usare i parametri per progettare pipeline basate sui metadati, seguire la [pipeline basata sui metadati con parametri](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization) . Si tratta di un caso d'uso comune per i parametri.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco di variabili di sistema che è possibile usare nelle espressioni, vedere [Variabili di sistema](control-flow-system-variables.md).

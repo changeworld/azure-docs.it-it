@@ -11,12 +11,12 @@ ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 47d2c8865109e8ef43317b3c4a19c36e692aff91
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 2966b685e1904102467bf16994ea781556544047
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218843"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519198"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servizio a prestazioni elevate con il server di inferenza Triton (anteprima) 
 
@@ -36,7 +36,7 @@ Triton è un Framework *ottimizzato per l'inferenza*. Offre un utilizzo migliore
 
 * Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiarità con le [modalità di distribuzione di un modello](how-to-deploy-and-where.md) con Azure Machine Learning.
-* [SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/?view=azure-ml-py) **o** l'interfaccia della riga di comando di [Azure](/cli/azure/) e l' [estensione Machine Learning](reference-azure-machine-learning-cli.md).
+* [SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/) **o** l'interfaccia della riga di comando di [Azure](/cli/azure/) e l' [estensione Machine Learning](reference-azure-machine-learning-cli.md).
 * Installazione funzionante di Docker per i test locali. Per informazioni sull'installazione e la convalida di Docker, vedere [orientamento e configurazione](https://docs.docker.com/get-started/) nella documentazione di Docker.
 
 ## <a name="architectural-overview"></a>Panoramica dell'architettura
@@ -134,7 +134,7 @@ model = Model.register(
 )
 
 ```
-Per ulteriori informazioni, vedere la documentazione relativa alla [classe del modello](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
+Per ulteriori informazioni, vedere la documentazione relativa alla [classe del modello](/python/api/azureml-core/azureml.core.model.model).
 
 ---
 
@@ -276,7 +276,7 @@ Una configurazione di inferenza consente di usare uno script di immissione, nonc
 > [!IMPORTANT]
 > È necessario specificare l' `AzureML-Triton` [ambiente curato](./resource-curated-environments.md).
 >
-> L'esempio di codice Python viene clonato `AzureML-Triton` in un altro ambiente denominato `My-Triton` . Il codice dell'interfaccia della riga di comando di Azure usa anche questo ambiente. Per ulteriori informazioni sulla clonazione di un ambiente, vedere la Guida di riferimento a [Environment. Clone ()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) .
+> L'esempio di codice Python viene clonato `AzureML-Triton` in un altro ambiente denominato `My-Triton` . Il codice dell'interfaccia della riga di comando di Azure usa anche questo ambiente. Per ulteriori informazioni sulla clonazione di un ambiente, vedere la Guida di riferimento a [Environment. Clone ()](/python/api/azureml-core/azureml.core.environment.environment#clone-new-name-) .
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
 
@@ -337,7 +337,7 @@ Per informazioni su come creare un client che invii le richieste di inferenza al
 
 ### <a name="setting-the-number-of-workers"></a>Impostazione del numero di ruoli di lavoro
 
-Per impostare il numero di ruoli di lavoro nella distribuzione, impostare la variabile di ambiente `WORKER_COUNT` . Poiché è presente un oggetto [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) denominato `env` , è possibile eseguire le operazioni seguenti:
+Per impostare il numero di ruoli di lavoro nella distribuzione, impostare la variabile di ambiente `WORKER_COUNT` . Poiché è presente un oggetto [Environment](/python/api/azureml-core/azureml.core.environment.environment) denominato `env` , è possibile eseguire le operazioni seguenti:
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"

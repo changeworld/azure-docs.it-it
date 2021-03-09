@@ -99,6 +99,8 @@
       href: firewall-workbook.md
     - name: Distribuire e configurare il firewall Premium
       href: premium-deploy.md
+    - name: Distribuire i certificati della CA globale (Enterprise) per Premium
+      href: premium-deploy-certificates-enterprise-ca.md
     - name: Eseguire la migrazione ad Azure Firewall Premium
       href: premium-migrate.md
 - name: Informazioni di riferimento

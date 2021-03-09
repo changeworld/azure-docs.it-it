@@ -10,16 +10,16 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 0f27688e31f772cc8d784371aa570d55c41f5695
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 195942d1787cdef51ee480fa5c5595db99bc7c78
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131815"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522088"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Risoluzione dei problemi relativi alle pipeline di Machine Learning
 
-Questo articolo illustra come risolvere i problemi quando si verificano errori durante l'esecuzione di una [pipeline di Machine Learning](concept-ml-pipelines.md) in [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) e in [Azure machine learning designer](./concept-designer.md). 
+Questo articolo illustra come risolvere i problemi quando si verificano errori durante l'esecuzione di una [pipeline di Machine Learning](concept-ml-pipelines.md) in [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) e in [Azure machine learning designer](./concept-designer.md). 
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 
@@ -192,7 +192,7 @@ La tabella seguente fornisce informazioni per diverse opzioni di debug per le pi
 
 | Libreria                    | Type   | Esempio                                                          | Destination                                  | Risorse                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | Metrica | `run.log(name, val)`                                             | Interfaccia utente del portale di Azure Machine Learning             | [Come tenere traccia degli esperimenti](how-to-track-experiments.md)<br>[Classe azureml. Core. Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
+| Azure Machine Learning SDK | Metrica | `run.log(name, val)`                                             | Interfaccia utente del portale di Azure Machine Learning             | [Come tenere traccia degli esperimenti](how-to-track-experiments.md)<br>[Classe azureml. Core. Run](/python/api/azureml-core/azureml.core.run%28class%29)                                                                                                                                                 |
 | Stampa/registrazione Python    | Log    | `print(val)`<br>`logging.info(message)`                          | Log driver, progettazione Azure Machine Learning | [Come tenere traccia degli esperimenti](how-to-track-experiments.md)<br><br>[Registrazione Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus Python          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights-TRACES                | [Debug delle pipeline in Application Insights](./how-to-log-pipelines-application-insights.md)<br><br>[Esportatori di Monitoraggio di Azure per OpenCensus](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Cookbook per la registrazione di Python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
@@ -244,7 +244,7 @@ Quando si invia un'esecuzione della pipeline e si rimane nella pagina di creazio
 1. Nel riquadro destro del modulo andare alla scheda  **output + log** .
 1. Espandere il riquadro destro e selezionare il **70_driver_log.txt** per visualizzare il file nel browser. È anche possibile scaricare i log localmente.
 
-    ![Riquadro di output espanso nella finestra di progettazione](./media/how-to-debug-pipelines/designer-logs.png)? View = Azure-ml-py&Preserve-View = true)? View = Azure-ml-py&Preserve-View = true)
+    ![Riquadro di output espanso nella finestra di progettazione](./media/how-to-debug-pipelines/designer-logs.png)
 
 ### <a name="get-logs-from-pipeline-runs"></a>Ottenere i log dalle esecuzioni di pipeline
 
@@ -274,6 +274,6 @@ In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del cod
 
 * Per un esempio completo che illustra l'apprendimento automatico automatico in pipeline di ML, vedere usare Machine Learning [automatiche in una pipeline Azure Machine Learning in Python](how-to-use-automlstep-in-pipelines.md).
 
-* Vedere le informazioni di riferimento su SDK per il pacchetto [azureml-Pipelines-Core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e il pacchetto [azureml-Pipelines-Steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) .
+* Vedere le informazioni di riferimento su SDK per il pacchetto [azureml-Pipelines-Core](/python/api/azureml-pipeline-core/) e il pacchetto [azureml-Pipelines-Steps](/python/api/azureml-pipeline-steps/) .
 
 * Vedere l'elenco di [eccezioni e codici di errore della finestra di progettazione](algorithm-module-reference/designer-error-codes.md).

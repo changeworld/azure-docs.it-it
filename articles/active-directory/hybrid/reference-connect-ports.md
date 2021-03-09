@@ -16,12 +16,12 @@ ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da318840426d1c0b94eab06b89ff3152df9d26fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 681d92ed162feff0510067556d7eeaa47b12d988
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80331100"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520031"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
 Il documento seguente è un riferimento tecnico per fornire informazioni sulle porte e i protocolli necessari per l'implementazione di una soluzione ibrida di gestione delle identità. Usare la figura riportata di seguito e vedere la tabella corrispondente.
@@ -39,7 +39,7 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 | LDAP |389 (TCP/UDP) |Usato per l'importazione di dati da Active Directory. I dati vengono crittografati con la firma e il sigillo Kerberos. |
 | SMB | 445 (TCP) |Usato dall'accesso Single Sign-On facile per creare un account computer nella foresta di Active Directory. |
 | LDAP/SSL |636 (TCP/UDP) |Usato per l'importazione di dati da Active Directory. Il trasferimento dati è firmato e crittografato. Utilizzato solo se si utilizza TLS. |
-| RPC |49152-65535 (porta RPC alta casuale) (TCP) |Usato durante la configurazione iniziale di Azure AD Connect quando si esegue l'associazione alla foresta Active Directory e durante la sincronizzazione della password. Per altre informazioni, vedere gli articoli [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) e [KB224196](https://support.microsoft.com/kb/224196). |
+| RPC |49152-65535 (porta RPC alta casuale) (TCP) |Usato durante la configurazione iniziale di Azure AD Connect quando si esegue l'associazione alla foresta Active Directory e durante la sincronizzazione della password. Se la porta dinamica è stata modificata, è necessario aprire la porta. Per altre informazioni, vedere gli articoli [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) e [KB224196](https://support.microsoft.com/kb/224196). |
 |WinRM  | 5985 (TCP) |Usato solo se si sta installando AD FS con gMSA by Azure AD Connect procedura guidata|
 |Servizi Web di servizi di dominio Active Directory | 9389 (TCP) |Usato solo se si sta installando AD FS con gMSA by Azure AD Connect procedura guidata |
 

@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml, contperf-fy21q2
-ms.openlocfilehash: b62ed4c0b661ebc725bd4cd3737249d91e48c43e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5a3d16445c5a4276f07f4ed502b9830a10c4ff72
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656840"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518909"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Rileva Drift dei dati (anteprima) nei set di dati
 
@@ -43,7 +43,7 @@ Per creare il monitoraggio viene usato un [set di dati di Azure Machine Learning
 Per creare e usare i monitoraggi del set di dati, è necessario:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
-* [SDK Azure Machine Learning per Python installato](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), che include il pacchetto azureml-DataSets.
+* [SDK Azure Machine Learning per Python installato](/python/api/overview/azure/ml/install), che include il pacchetto azureml-DataSets.
 * Dati strutturati (tabulari) con un timestamp specificato nel percorso del file, nel nome del file o nella colonna nei dati.
 
 ## <a name="what-is-data-drift"></a>Che cos'è la deriva dei dati?
@@ -107,7 +107,7 @@ Per il set di `timeseries` dati di destinazione è necessario impostare il tratt
 # <a name="python"></a>[Python](#tab/python)
 <a name="sdk-dataset"></a>
 
-Il [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metodo della classe [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  definisce la colonna timestamp per il set di dati.
+Il [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metodo della classe [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  definisce la colonna timestamp per il set di dati.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -135,7 +135,7 @@ dset = dset.register(ws, 'target')
 ```
 
 > [!TIP]
-> Per un esempio completo dell'uso del `timeseries` tratto dei set di impostazioni, vedere il [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la documentazione di [DataSets SDK](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+> Per un esempio completo dell'uso del `timeseries` tratto dei set di impostazioni, vedere il [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la documentazione di [DataSets SDK](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -355,7 +355,7 @@ Limitazioni e problemi noti per i monitoraggi della deriva dei dati:
     1. Nella scheda **monitoraggi set di dati** selezionare il collegamento esperimento per controllare lo stato dell'esecuzione.  Questo collegamento si trova all'estrema destra della tabella.
     1. Se l'esecuzione è stata completata correttamente, controllare i registri driver per vedere quante metriche sono state generate o se sono presenti messaggi di avviso.  Trovare i log dei driver nella scheda **output + logs** dopo aver fatto clic su un esperimento.
 
-* Se la `backfill()` funzione SDK non genera l'output previsto, la causa potrebbe essere un problema di autenticazione.  Quando si crea il calcolo da passare a questa funzione, non usare `Run.get_context().experiment.workspace.compute_targets` .  Usare invece [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) come il seguente per creare il calcolo passato a tale `backfill()` funzione: 
+* Se la `backfill()` funzione SDK non genera l'output previsto, la causa potrebbe essere un problema di autenticazione.  Quando si crea il calcolo da passare a questa funzione, non usare `Run.get_context().experiment.workspace.compute_targets` .  Usare invece [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication) come il seguente per creare il calcolo passato a tale `backfill()` funzione: 
 
   ```python
    auth = ServicePrincipalAuthentication(

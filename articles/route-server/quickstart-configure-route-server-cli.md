@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: c24d88e47569da430153dedfd1ff68a584083775
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ef41c52fa1b63094d952dc34f81db36f7aeaac95
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695244"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521289"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Guida introduttiva: creare e configurare un server di route usando l'interfaccia della riga 
 
@@ -56,8 +56,8 @@ az account set --subscription "<subscription ID>"
 Prima di poter creare un server di route di Azure, è necessaria una rete virtuale per ospitare la distribuzione. Usare il comando seguente per creare un gruppo di risorse e una rete virtuale. Se si dispone già di una rete virtuale, è possibile passare alla sezione successiva.
 
 ```azurecli-interactive
-az group create -n “RouteServerRG” -l “westus” 
-az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --address-prefix “10.0.0.0/16” 
+az group create -n "RouteServerRG" -l "westus" 
+az network vnet create -g "RouteServerRG" -n "myVirtualNetwork" --address-prefix "10.0.0.0/16" 
 ``` 
 
 ### <a name="add-a-subnet"></a>Aggiungere una subnet 
@@ -65,13 +65,13 @@ az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --addres
 1. Aggiungere una subnet denominata *RouteServerSubnet* per distribuire il server di route di Azure in. Questa subnet è una subnet dedicata solo per il server di route di Azure. Il valore di RouteServerSubnet deve essere/27 o un prefisso più breve (ad esempio/26,/25) oppure verrà visualizzato un messaggio di errore quando si aggiunge il server di route di Azure.
 
     ```azurecli-interactive 
-    az network vnet subnet create -g “RouteServerRG” --vnet-name “myVirtualNetwork” --name “RouteServerSubnet” --address-prefix “10.0.0.0/24”  
+    az network vnet subnet create -g "RouteServerRG" --vnet-name "myVirtualNetwork" --name "RouteServerSubnet" --address-prefix "10.0.0.0/24"  
     ``` 
 
 1. Ottenere l'ID RouteServerSubnet. Per visualizzare l'ID risorsa di tutte le subnet nella rete virtuale, usare questo comando: 
 
     ```azurecli-interactive 
-    subnet_id = $(az network vnet subnet show -n “RouteServerSubnet” --vnet-name “myVirtualNetwork” -g “RouteServerRG” --query id -o tsv) 
+    subnet_id = $(az network vnet subnet show -n "RouteServerSubnet" --vnet-name "myVirtualNetwork" -g "RouteServerRG" --query id -o tsv) 
     ``` 
 
 L'ID RouteServerSubnet è simile a quello riportato di seguito: 
@@ -83,7 +83,7 @@ L'ID RouteServerSubnet è simile a quello riportato di seguito:
 Creare il server di route con questo comando: 
 
 ```azurecli-interactive
-az network routeserver create -n “myRouteServer” -g “RouteServerRG” --hosted-subnet $subnet_id  
+az network routeserver create -n "myRouteServer" -g "RouteServerRG" --hosted-subnet $subnet_id  
 ``` 
 
 Il percorso deve corrispondere al percorso della rete virtuale. HostedSubnet è l'ID RouteServerSubnet ottenuto nella sezione precedente. 
@@ -94,7 +94,7 @@ Usare il comando seguente per stabilire il peering dal server di route all'appli
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name “myRouteServer” -g “RouteServerRG” --peer-ip “nva_ip” --peer-asn “nva_asn” -n “NVA1_name” 
+az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
 
 ``` 
 
@@ -104,7 +104,7 @@ Per configurare il peering con diversi appliance virtuale di sistema o un'altra 
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name “myRouteServer” -g “RouteServerRG” --peer-ip “nva_ip” --peer-asn “nva_asn” -n “NVA2_name” 
+az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
 ``` 
 
 ## <a name="complete-the-configuration-on-the-nva"></a>Completare la configurazione nell'appliance virtuale di dispositivo 
@@ -112,7 +112,7 @@ az network routeserver peering create --routeserver-name “myRouteServer” -g 
 Per completare la configurazione nell'appliance virtuale di dispositivo e abilitare le sessioni BGP, sono necessari l'IP e l'ASN del server di route di Azure. È possibile ottenere queste informazioni usando questo comando: 
 
 ```azurecli-interactive 
-az network routeserver show -g “RouteServerRG” -n “myRouteServer” 
+az network routeserver show -g "RouteServerRG" -n "myRouteServer" 
 ``` 
 
 L'output contiene le informazioni seguenti. 
@@ -143,14 +143,14 @@ Se si dispone di un gateway ExpressRoute e di un gateway VPN di Azure nella stes
 1. Per abilitare lo scambio di route tra il server di route di Azure e i gateway, usare questo comando:
 
 ```azurecli-interactive 
-az network routeserver update -g “RouteServerRG” -n “myRouteServer” --allow-b2b-traffic true 
+az network routeserver update -g "RouteServerRG" -n "myRouteServer" --allow-b2b-traffic true 
 
 ``` 
 
 2. Per disabilitare lo scambio di route tra il server di route di Azure e i gateway, usare questo comando:
 
 ```azurecli-interactive
-az network routeserver update -g “RouteServerRG” -n “myRouteServer” --allow-b2b-traffic false 
+az network routeserver update -g "RouteServerRG" -n "myRouteServer" --allow-b2b-traffic false 
 ``` 
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi 
@@ -169,13 +169,13 @@ Se il server di route di Azure non è più necessario, usare questi comandi per 
 1. Rimuovere il peering BGP tra il server di route di Azure e un appliance virtuale di Azure con questo comando:
 
 ```azurecli-interactive
-az network routeserver peering delete --routeserver-name “myRouteServer” -g “RouteServerRG” -n “NVA2_name” 
+az network routeserver peering delete --routeserver-name "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
 ``` 
 
 2. Rimuovere il server di route di Azure con questo comando: 
 
 ```azurecli-interactive 
-az network routeserver delete -n “myRouteServer” -g “RouteServerRG” 
+az network routeserver delete -n "myRouteServer" -g "RouteServerRG" 
 ``` 
 
 ## <a name="next-steps"></a>Passaggi successivi

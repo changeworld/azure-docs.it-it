@@ -8,12 +8,12 @@ ms.date: 01/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 778d82cd36e1f7389a443630f0982dd8774fe3ee
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b085b9991175d8cd43e2dac0db80c5af4e703c34
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509201"
+ms.locfileid: "102521238"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Come creare una condivisione NFS
 Le condivisioni file di Azure sono condivisioni file completamente gestite che si trovano nel cloud. Questo articolo illustra la creazione di una condivisione file che usa il protocollo NFS. Per altre informazioni su entrambi i protocolli, vedere [protocolli di condivisione file di Azure](storage-files-compare-protocols.md).
@@ -192,7 +192,7 @@ Ora che è stato creato un account filestorage e configurato la rete, è possibi
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Per aggiornare la versione di PowerShell, vedere [aggiornamento di Windows PowerShell esistente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell)
+   Per aggiornare la versione di PowerShell, vedere [aggiornamento di Windows PowerShell esistente](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
     
 1. Installare la versione più recente del modulo PowershellGet.
 
