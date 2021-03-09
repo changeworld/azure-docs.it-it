@@ -4,12 +4,12 @@ description: Informazioni su come abilitare e configurare dischi ultra in un clu
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: d66b806adb7285e0ce2a21d8fe9254b3dbe89bcb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: c743162ed3f75386287e050443e82069e797ced9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178848"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502570"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Usare i dischi di Azure ultra in Azure Kubernetes Service (anteprima)
 
@@ -84,7 +84,7 @@ Se si desidera creare cluster senza supporto per dischi Ultra, è possibile omet
 
 ## <a name="enable-ultra-disks-on-an-existing-cluster"></a>Abilitare i dischi ultra in un cluster esistente
 
-È possibile abilitare i dischi Ultra nei cluster esistenti aggiungendo un nuovo pool di nodi al cluster che supporta dischi Ultra. Configurare un nuovo pool di nodi per usare la crittografia basata su host usando il `--aks-custom-headers` flag.
+È possibile abilitare i dischi Ultra nei cluster esistenti aggiungendo un nuovo pool di nodi al cluster che supporta dischi Ultra. Configurare un nuovo pool di nodi per l'uso di dischi Ultra usando il `--aks-custom-headers` flag.
 
 ```azurecli
 az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true

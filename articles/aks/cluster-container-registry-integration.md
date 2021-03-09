@@ -5,18 +5,18 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 01/08/2021
-ms.openlocfilehash: fd599c69b3072831461acc94827d97c4520292e9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 19ece696dabc81e643e8a904d506d22e40eaa099
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182452"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499153"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes
 
 Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è necessario definire un meccanismo di autenticazione. Questa operazione viene implementata come parte dell'interfaccia della riga di comando e del portale concedendo le autorizzazioni necessarie al record di verifica. Questo articolo fornisce esempi per la configurazione dell'autenticazione tra questi due servizi di Azure. 
 
-Con l'interfaccia della riga di comando di Azure è possibile configurare l'integrazione da AKS a ACR con pochi semplici comandi. Questa integrazione consente di assegnare il ruolo AcrPull all'entità servizio associata al cluster AKS.
+Con l'interfaccia della riga di comando di Azure è possibile configurare l'integrazione da AKS a ACR con pochi semplici comandi. Questa integrazione consente di assegnare il ruolo AcrPull all'identità gestita associata al cluster AKS.
 
 > [!NOTE]
 > Questo articolo descrive l'autenticazione automatica tra AKS e ACR. Se è necessario eseguire il pull di un'immagine da un registro esterno privato, usare un [segreto di pull dell'immagine][Image Pull Secret].
@@ -28,11 +28,11 @@ Gli esempi presentano i requisiti seguenti:
 * **Proprietario** o ruolo di **amministratore dell'account di Azure** nella sottoscrizione di **Azure**
 * Versione 2.7.0 o successiva dell'interfaccia della riga di comando di Azure
 
-Per evitare di dover usare un **proprietario** o un ruolo di **amministratore dell'account di Azure** , è possibile configurare manualmente un'entità servizio o usare un'entità servizio esistente per autenticare ACR da AKS. Per altre informazioni, vedere [Autenticazione al Registro Azure Container con entità servizio](../container-registry/container-registry-auth-service-principal.md) o [Eseguire l'autenticazione da Kubernetes con un segreto per il pull](../container-registry/container-registry-auth-kubernetes.md).
+Per evitare di dover usare un **proprietario** o un ruolo di **amministratore dell'account di Azure** , è possibile configurare manualmente un'identità gestita o usare un'identità gestita esistente per autenticare ACR da AKS. Per altre informazioni, vedere [usare un'identità gestita di Azure per l'autenticazione in un registro contenitori di Azure](../container-registry/container-registry-authentication-managed-identity.md).
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Creare un nuovo cluster AKS con l'integrazione con ACR
 
-È possibile configurare l'integrazione di AKS e ACR durante la creazione iniziale del cluster AKS.  Per consentire a un cluster AKS di interagire con ACR, viene usata un' **entità servizio** Azure Active Directory. Il seguente comando dell'interfaccia della riga di comando consente di autorizzare un registro di sistema esistente nella sottoscrizione e di configurare il ruolo **ACRPull** appropriato per l'entità servizio. Specificare i valori validi per i parametri indicati di seguito.
+È possibile configurare l'integrazione di AKS e ACR durante la creazione iniziale del cluster AKS.  Per consentire a un cluster AKS di interagire con ACR, viene usata un' **identità gestita** Azure Active Directory. Il comando dell'interfaccia della riga di comando seguente consente di autorizzare un registro di sistema esistente nella sottoscrizione e di configurare il ruolo **ACRPull** appropriato per l'identità gestita. Specificare i valori validi per i parametri indicati di seguito.
 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique

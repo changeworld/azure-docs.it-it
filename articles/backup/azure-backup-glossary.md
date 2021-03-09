@@ -3,12 +3,12 @@ title: Glossario di backup di Azure
 description: Questo articolo definisce i termini utili per l'uso con backup di Azure.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 5b575e0f56c9cf39987e9e77850ab1d9b2e80d93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723915"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502026"
 ---
 # <a name="azure-backup-glossary"></a>Glossario di backup di Azure
 
@@ -51,14 +51,14 @@ Backup di Azure offre tre tipi di replica per assicurare la disponibilità eleva
 
 [Archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md#locally-redundant-storage) replica i dati di backup tre volte (crea tre copie dei dati di backup) in un'unità di scala di archiviazione in un Data Center. Tutte le copie dei dati di backup sono presenti all'interno della stessa area. CON ridondanza locale è un'opzione a basso costo per la protezione dei dati di backup da errori hardware locali.
 
-### <a name="grs"></a>Archiviazione con ridondanza geografica
+### <a name="grs"></a>ARCHIVIAZIONE CON RIDONDANZA GEOGRAFICA
 
 L'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage) è l'opzione di replica predefinita e consigliata. GRS replica i dati di backup in un'area secondaria a centinaia di chilometri di distanza dalla posizione primaria dei dati di origine. GRS costa più di con ridondanza locale, ma GRS offre un livello di durabilità superiore per i dati di backup, anche in caso di interruzione a livello di area.
 
 >[!NOTE]
 >Per gli insiemi di credenziali GRS con la funzionalità di ripristino tra aree abilitata, l'archivio di backup viene aggiornato da GRS a RA-GRS (Read-Access Geo-Redundant Storage).
 
-### <a name="zrs"></a>Archiviazione con ridondanza della zona
+### <a name="zrs"></a>ZRS
 
 L' [archiviazione con ridondanza della zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica i dati di backup nelle [zone di disponibilità](../availability-zones/az-overview.md#availability-zones), garantendo la residenza e la resilienza dei dati di backup nella stessa area. Quindi, i carichi di lavoro critici che richiedono la [residenza dei dati](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) possono essere sottoposti a backup in ZRS.
 
@@ -299,6 +299,18 @@ Esegue il backup dei file del sistema operativo. Questo backup consente di esegu
 ## <a name="tenant"></a>Tenant
 
 Un tenant è una rappresentazione di un'organizzazione. È un'istanza dedicata di Azure AD che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft, come l'iscrizione ad Azure, Microsoft Intune o Microsoft 365.
+
+## <a name="tier"></a>Livello
+
+Backup di Azure supporta attualmente i livelli di archiviazione di backup seguenti:
+
+### <a name="snapshot-tier"></a>Livello snapshot
+
+(Termine specifico del carico di lavoro) Nella prima fase del backup della macchina virtuale, lo snapshot viene archiviato insieme al disco. Questo tipo di archiviazione viene definito livello snapshot. I ripristini del livello snapshot sono più veloci (rispetto al ripristino da un insieme di credenziali) perché eliminano il tempo di attesa per la copia degli snapshot dall'insieme di credenziali prima di attivare l'operazione di ripristino.
+
+### <a name="vault-standard-tier"></a>Livello Vault-Standard
+
+I dati di backup per tutti i carichi di lavoro supportati da backup di Azure vengono archiviati negli insiemi di credenziali che contengono l'archiviazione di backup, un set di scalabilità automatica di account di archiviazione gestiti da backup di Azure. Il livello Vault-Standard è un livello di archiviazione online che consente di archiviare una copia isolata dei dati di backup in un tenant gestito da Microsoft, creando così un ulteriore livello di protezione. Per i carichi di lavoro in cui è supportato il livello snapshot, esiste una copia dei dati di backup sia nel livello snapshot che nel livello standard dell'insieme di credenziali. Insieme di credenziali: il livello standard garantisce che i dati di backup siano disponibili anche se l'origine dati di cui viene eseguito il backup viene eliminata o compromessa.
 
 ## <a name="unmanaged-disk"></a>Dischi non gestiti
 

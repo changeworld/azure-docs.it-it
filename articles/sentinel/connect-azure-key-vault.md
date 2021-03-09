@@ -8,14 +8,14 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 03/07/2021
 ms.author: yelevin
-ms.openlocfilehash: 56587ae91de086cccb7cc85c125f935be2a56f73
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 00e634ec62d1fda4b1f2763a8c69b8e950d54beb
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102491282"
+ms.locfileid: "102505189"
 ---
-# <a name="connect-azure-key-vault-diagnostics-and-auditing-logs"></a>Connetti Azure Key Vault diagnostica e log di controllo
+# <a name="connect-azure-key-vault-diagnostics-logs"></a>Connetti Azure Key Vault log di diagnostica
 
 Azure Key Vault è un servizio cloud per archiviare e accedere in modo sicuro ai segreti. Un segreto è qualsiasi elemento a cui si vuole controllare rigorosamente l'accesso, ad esempio chiavi API, password, certificati o chiavi crittografiche.
 

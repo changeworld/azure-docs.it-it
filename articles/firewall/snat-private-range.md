@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: victorh
-ms.openlocfilehash: 0df91680dadbc4ac19299a4df48a585a11f044e8
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c425afc314435c38d15d53ab0c38dcd48e35a40b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072242"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508929"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Intervalli di indirizzi IP privati SNAT del firewall di Azure
 
@@ -58,7 +58,7 @@ New-AzFirewall @azFw
 > [!NOTE]
 > IANAPrivateRanges viene espansa alle impostazioni predefinite correnti nel firewall di Azure mentre gli altri intervalli vengono aggiunti. Per mantenere il valore predefinito di IANAPrivateRanges nella specifica dell'intervallo privato, è necessario che rimanga nella `PrivateRange` specifica, come illustrato negli esempi seguenti.
 
-Per ulteriori informazioni, vedere [New-AzFirewall](/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
+Per ulteriori informazioni, vedere [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
 
 ### <a name="existing-firewall"></a>Firewall esistente
 

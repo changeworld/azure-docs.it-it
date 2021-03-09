@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 554c815e6384115d56611e497f49a2c97ed15e38
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0e2230bdcf2b2f4358db4a0d600506b711f39c45
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461440"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508232"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Connettersi ai dati con Azure Machine Learning Studio
 
@@ -31,7 +31,7 @@ La tabella seguente definisce e riepiloga i vantaggi degli archivi dati e dei se
 
 Per informazioni sul modo in cui gli archivi dati e i set di dati si adattano al flusso di lavoro di accesso ai dati complessivo di Azure Machine Learning, vedere l'articolo [accesso sicuro ai dati](concept-data.md#data-workflow) .
 
-Per un'esperienza di Code First, vedere gli articoli seguenti per usare [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) per:
+Per un'esperienza di Code First, vedere gli articoli seguenti per usare [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/) per:
 * [Connettersi ai servizi di archiviazione di Azure con gli archivi dati](how-to-access-data.md). 
 * [Creare Azure Machine Learning set di impostazioni](how-to-create-register-datasets.md). 
 

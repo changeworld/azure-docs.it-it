@@ -15,12 +15,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7914f924492264810acd929cc7d422e0cc780a89
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: f0b7e04becd42180df3393d7036294c1629cdc21
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358793"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499493"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Come usare la portale di Azure per eseguire il provisioning di una macchina virtuale Windows con SQL Server
 
@@ -105,7 +105,7 @@ Nella scheda **Dischi** configurare le opzioni dei dischi.
 * In **Avanzate** selezionare **Sì** sotto **Usa il servizio Managed Disks**.
 
    > [!NOTE]
-   > Per SQL Server è consigliabile usare Managed Disks. Managed Disks gestisce automaticamente le risorse di archiviazione. Inoltre, quando le macchine virtuali con Managed Disks sono nello stesso set di disponibilità, Azure distribuisce le risorse di archiviazione in modo da garantire la ridondanza appropriata. Per altre informazioni, vedere [Panoramica del servizio Managed Disks](../../../virtual-machines/managed-disks-overview.md). Per informazioni dettagliate sull'uso di Managed Disks in un set di disponibilità, vedere [Usare Managed Disks per le macchine virtuali nel set di disponibilità](../../../virtual-machines/manage-availability.md).
+   > Per SQL Server è consigliabile usare Managed Disks. Managed Disks gestisce automaticamente le risorse di archiviazione. Inoltre, quando le macchine virtuali con Managed Disks sono nello stesso set di disponibilità, Azure distribuisce le risorse di archiviazione in modo da garantire la ridondanza appropriata. Per altre informazioni, vedere [Panoramica del servizio Managed Disks](../../../virtual-machines/managed-disks-overview.md). Per informazioni dettagliate sull'uso di Managed Disks in un set di disponibilità, vedere [Usare Managed Disks per le macchine virtuali nel set di disponibilità](../../../virtual-machines/availability.md).
 
 ![Impostazioni dei dischi della macchina virtuale SQL](./media/create-sql-vm-portal/azure-sqlvm-disks.png)
   

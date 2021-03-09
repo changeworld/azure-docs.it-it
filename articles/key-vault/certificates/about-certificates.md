@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
-ms.translationtype: HT
+ms.openlocfilehash: b410dc89b286ef830f0d5b6a9c33fe77d380f5d1
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919931"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507212"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informazioni sui certificati di Azure Key Vault
 
@@ -91,7 +91,7 @@ I criteri dei certificati contengono informazioni su come creare e gestire la du
 
 Quando viene creato un certificato di Key Vault completamente nuovo, è necessario specificare i criteri. I criteri specificano come creare questa versione o la versione successiva del certificato di Key Vault. Dopo aver definito i criteri, non sarà necessario ripetere la procedura per le successive operazioni di creazione delle versioni future. È presente una sola istanza dei criteri per tutte le versioni di un certificato di Key Vault.  
 
-In generale, i criteri dei certificati contengono le informazioni seguenti, le cui definizioni sono disponibili [qui](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0):  
+In generale, i criteri dei certificati contengono le informazioni seguenti, le cui definizioni sono disponibili [qui](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy):  
 
 -   Proprietà del certificato X509: nome del soggetto, nomi alternativi del soggetto e altre proprietà usate per creare una richiesta di certificato x509.  
 -   Proprietà della chiave: contiene i campi relativi al tipo di chiave, alla lunghezza della chiave, nonché all'esportabilità e il campo ReuseKeyOnRenewal. Questi campi indicare all’insieme di credenziali delle chiavi come generare una chiave. 

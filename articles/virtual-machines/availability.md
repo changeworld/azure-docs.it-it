@@ -1,78 +1,62 @@
 ---
-title: Opzioni di disponibilità
-description: Informazioni sulle funzionalità di disponibilità per l'esecuzione di macchine virtuali in Azure
-author: cynthn
-ms.author: cynthn
+title: Opzioni di disponibilità per le macchine virtuali di Azure
+description: Informazioni sulle opzioni di disponibilità per l'esecuzione di macchine virtuali in Azure
+author: mimckitt
+ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 0af9d27561649a559913912165e63e913a32ff2e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/08/2021
+ms.reviewer: cynthn
+ms.openlocfilehash: 1ea87d40430dbf3edabd557b80ab1456b49f4605
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178287"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507875"
 ---
-# <a name="availability-options-for-virtual-machines-in-azure"></a>Opzioni di disponibilità per le macchine virtuali in Azure
+# <a name="availability-options-for-azure-virtual-machines"></a>Opzioni di disponibilità per le macchine virtuali di Azure
+Questo articolo offre una panoramica delle opzioni di disponibilità per le macchine virtuali (VM) di Azure.
 
-Questo articolo fornisce una panoramica delle funzionalità di disponibilità delle macchine virtuali (VM) di Azure.
+## <a name="availability-zones"></a>Zone di disponibilità
 
-## <a name="high-availability"></a>Disponibilità elevata
+[Zone di disponibilità](../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context) espande il livello di controllo necessario per mantenere la disponibilità delle applicazioni e dei dati nelle macchine virtuali. Una zona di disponibilità è una zona fisicamente separata all'interno di un'area di Azure. Esistono tre zone di disponibilità per ogni area di Azure supportata. 
 
-I carichi di lavoro vengono in genere distribuiti tra macchine virtuali diverse per ottenere velocità effettiva elevata, prestazioni e creazione di ridondanza in caso di conseguenze di una macchina virtuale a causa di un aggiornamento o di un altro evento. 
+Ogni zona di disponibilità può contare su risorse di alimentazione, rete e raffreddamento a sé. Progettando le soluzioni per l'uso di macchine virtuali replicate in zone, è possibile proteggere le app e i dati dalla perdita di un data center. Se una zona è compromessa, le app e i dati replicati diventano immediatamente disponibili in un'altra zona. 
 
-Sono disponibili alcune opzioni offerte da Azure per ottenere la disponibilità elevata. Si esamineranno prima di tutto i costrutti di base. 
-
-### <a name="availability-zones"></a>Zone di disponibilità
-
-Le [zone di disponibilità](../availability-zones/az-overview.md) consentono di ampliare il livello di controllo per gestire la disponibilità di applicazioni e dati nelle macchine virtuali. Una zona di disponibilità è una zona fisicamente separata all'interno di un'area di Azure. Esistono tre zone di disponibilità per ogni area di Azure supportata. 
-
-Ogni zona di disponibilità può contare su risorse di alimentazione, rete e raffreddamento a sé. Progettando le soluzioni in modo che usino VM replicate nelle zone, è possibile proteggere app e dati dalla perdita di un data center. Se una zona è compromessa, le app e i dati replicati diventano immediatamente disponibili in un'altra zona. 
-
-![Zone di disponibilità](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
-
-Altre informazioni sulla distribuzione di una macchina virtuale [Windows](./windows/create-powershell-availability-zone.md) o [Linux](./linux/create-cli-availability-zone.md) in una zona di disponibilità.
-
-
-### <a name="fault-domains"></a>Domini di errore
-
-Un dominio di errore è un raggruppamento logico di tutto l'hardware sottostante che condivide una fonte di alimentazione e uno switch di rete comuni, come a un rack in un datacenter locale. 
-
-### <a name="update-domains"></a>Domini di aggiornamento
-
-Un dominio di aggiornamento è un gruppo logico di hardware sottostante che può essere sottoposto a manutenzione oppure riavviato nello stesso momento. 
-
-Questo approccio garantisce che almeno un'istanza dell'applicazione rimanga in esecuzione durante gli interventi di manutenzione periodica della piattaforma Azure. L'ordine dei domini di aggiornamento da riavviare potrebbe non proseguire in sequenza durante la manutenzione, ma viene riavviato un solo dominio di aggiornamento alla volta.
+## <a name="availability-sets"></a>Set di disponibilità
+Un [set di disponibilità](availability-set-overview.md) è un raggruppamento logico di macchine virtuali che consente ad Azure di comprendere come viene compilata l'applicazione per garantire ridondanza e disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Non è previsto alcun costo per il set di disponibilità, si paga solo per ogni istanza di macchina virtuale creata.
 
 
 ## <a name="virtual-machines-scale-sets"></a>Set di scalabilità di macchine virtuali 
 
-I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di macchine virtuali con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. I set di scalabilità garantiscono una disponibilità elevata per le applicazioni e consentono di gestire, configurare e aggiornare in modo centralizzato molte macchine virtuali. È consigliabile creare due o più macchine virtuali all'interno di un set di scalabilità per fornire un'applicazione a disponibilità elevata e per soddisfare il [99,95% del contratto](https://azure.microsoft.com/support/legal/sla/virtual-machines/)di base di Azure. Non sono previsti costi per il set di scalabilità, ma si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](./disks-types.md#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure. Le macchine virtuali in un set di scalabilità possono essere distribuite in più domini di aggiornamento e domini di errore per massimizzare la disponibilità e la resilienza a causa di interruzioni del data center e di eventi di manutenzione pianificata o non pianificata. Le macchine virtuali in un set di scalabilità possono anche essere distribuite in una singola zona di disponibilità o in un'area geografica. Le opzioni di distribuzione della zona di disponibilità possono variare in base alla modalità di orchestrazione.
+I [set di scalabilità di macchine virtuali di Azure](../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context) consentono di creare e gestire un gruppo di VM con carico bilanciato. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o in base a una pianificazione definita. I set di scalabilità garantiscono una disponibilità elevata per le applicazioni e consentono di gestire, configurare e aggiornare in modo centralizzato molte macchine virtuali. È consigliabile creare due o più macchine virtuali all'interno di un set di scalabilità per fornire un'applicazione a disponibilità elevata e per soddisfare il [99,95% del contratto](https://azure.microsoft.com/support/legal/sla/virtual-machines/)di base di Azure. Non sono previsti costi per il set di scalabilità, ma si paga solo per ogni istanza di macchina virtuale creata.
 
-**Domini di errore e domini di aggiornamento**
+Le macchine virtuali in un set di scalabilità possono anche essere distribuite in una singola zona di disponibilità o in un'area geografica. Le opzioni di distribuzione della zona di disponibilità possono variare in base alla [modalità di orchestrazione](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context).
 
-I set di scalabilità di macchine virtuali semplificano la progettazione per la disponibilità elevata allineando domini di errore e domini di aggiornamento. È necessario definire solo il numero di domini di errore per il set di scalabilità. Il numero di domini di errore disponibili per i set di scalabilità può variare in base all'area. Vedere [gestire la disponibilità delle macchine virtuali in Azure](./manage-availability.md).
-
-**Modalità di orchestrazione per i set di scalabilità**
-
-I set di scalabilità di macchine virtuali consentono di avere un maggiore controllo sulle modalità di gestione delle istanze di macchine virtuali da parte del set di scalabilità. È possibile abilitare una modalità di orchestrazione uniforme o flessibile nel set di scalabilità. L'orchestrazione uniforme è ottimizzata per carichi di lavoro senza stato su larga scala con istanze identiche. L'orchestrazione flessibile (anteprima) è destinata alla disponibilità elevata su larga scala con tipi di macchina virtuale identici o multipli. Altre informazioni su queste [modalità di orchestrazione](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) e su come abilitarle.
+## <a name="load-balancer"></a>Bilanciamento del carico
+Combinare la [Azure Load Balancer](../load-balancer/load-balancer-overview.md) con una zona di disponibilità o un set di disponibilità per ottenere la massima resilienza dell'applicazione. Il servizio di bilanciamento del carico distribuisce il traffico tra più macchine virtuali ed è incluso nelle macchine virtuali di livello Standard. Non tutti i livelli delle macchine virtuali includono Azure Load Balancer. Per altre informazioni sul bilanciamento del carico delle macchine virtuali, vedere **bilanciamento del carico delle macchine virtuali** per [Linux](linux/tutorial-load-balancer.md) o [Windows](windows/tutorial-load-balancer.md).
 
 
-## <a name="availability-sets"></a>Set di disponibilità
-Un set di disponibilità è un raggruppamento logico di macchine virtuali che permette ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Non è previsto alcun costo per il set di disponibilità, si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](./disks-types.md#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure.
+## <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
+Archiviazione di Azure archivia sempre più copie dei dati in modo che siano protetti da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione e forti calamità naturali. La ridondanza garantisce che l'account di archiviazione soddisfi gli obiettivi di disponibilità e durabilità anche in caso di errori.
 
-In un set di disponibilità, le macchine virtuali vengono distribuite automaticamente in questi domini di errore. Questo approccio consente di limitare l'impatto di eventuali guasti dell'hardware fisico, interruzioni di rete o interruzioni dell'alimentazione.
+Quando si decide quale opzione di ridondanza è migliore per lo scenario in uso, considerare i compromessi tra i costi più bassi e la disponibilità più elevata. Ecco i fattori che consentono di determinare l'opzione di ridondanza da scegliere:
+- Modalità di replica dei dati nell'area primaria
+- Se i dati vengono replicati in una seconda area geograficamente distante rispetto all'area primaria, per la protezione da emergenze a livello di area
+- Se l'applicazione richiede l'accesso in lettura ai dati replicati nell'area secondaria se l'area primaria, per un qualsiasi motivo, non è più disponibile
 
-Le VM che usano [Azure Managed Disks](./faq-for-disks.md) sono allineate con i domini di errore dei dischi gestiti quando si usa un set di disponibilità gestito. Questo allineamento garantisce che tutti i dischi gestiti collegati a una VM siano nello stesso dominio di errore dei dischi gestiti. 
+Per altre informazioni, vedere [ridondanza di archiviazione di Azure](../storage/common/storage-redundancy.md)
 
-In un set di disponibilità gestito possono essere create solo VM con dischi gestiti. Il numero di domini di errore dei dischi gestiti varia in base all'area: due o tre domini di errore di dischi gestiti per area. Sono disponibili altre informazioni su questi domini di errore dei dischi gestiti per le [VM Linux](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) o le [VM Windows](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+## <a name="azure-site-recovery"></a>Azure Site Recovery
+Un'organizzazione deve adottare una strategia di continuità aziendale e ripristino di emergenza (BCDR) che garantisce la sicurezza dei dati e le app e i carichi di lavoro online, quando si verificano interruzioni pianificate e non pianificate.
 
-![Set di disponibilità gestito](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) garantisce la continuità aziendale mantenendo le app aziendali e i carichi di lavoro in esecuzione durante le interruzioni. Site Recovery replica i carichi di lavoro in esecuzione su macchine fisiche e virtuali (VM) da un sito primario in una località secondaria. Quando si verifica un'interruzione nel sito primario, viene eseguito il failover nella località secondaria, da dove è possibile accedere alle app. Quando la località primaria è di nuovo disponibile, è possibile eseguire il failback.
 
-
-Anche le VM all'interno di un set di disponibilità vengono distribuite automaticamente tra i domini di aggiornamento. 
-
-![Set di disponibilità](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+Site Recovery può gestire la replica per:
+- Replica di VM di Azure tra aree di Azure.
+- VM locali, Azure Stack macchine virtuali e server fisici.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora è possibile iniziare a usare le funzionalità di ridondanza e disponibilità per compilare l'ambiente Azure. Per altre informazioni, vedere le [procedure consigliate per la disponibilità di Azure](/azure/architecture/checklist/resiliency-per-service).
+- [Creare una macchina virtuale in una zona di disponibilità](/linux/create-cli-availability-zone.md)
+- [Creare una macchina virtuale in un set di disponibilità](/linux/tutorial-availability.md)
+- [Creare un set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/quick-create-portal.md)

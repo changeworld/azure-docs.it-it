@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: e18c09130fcbcdbb470abc19d76bdf2ccfef0775
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 554730919d4226c07e099d5e457cd0fd20dbad30
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175712"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511130"
 ---
 Il servizio metadati dell'istanza di Azure (IMDS) fornisce informazioni sulle istanze di macchine virtuali attualmente in esecuzione. È possibile usarlo per gestire e configurare le macchine virtuali.
 Queste informazioni includono lo SKU, l'archiviazione, le configurazioni di rete e gli eventi di manutenzione imminenti. Per un elenco completo dei dati disponibili, vedere [riepilogo categorie endpoint](#endpoint-categories).
@@ -329,7 +329,7 @@ Suddivisione schema:
 
 **Calcolo**
 
-| Data | Descrizione | Versione introdotta |
+| Dati | Descrizione | Versione introdotta |
 |------|-------------|--------------------|
 | `azEnvironment` | Ambiente di Azure in cui è in esecuzione la macchina virtuale | 2018-10-01
 | `customData` | Questa funzionalità è attualmente disabilitata. Questa documentazione verrà aggiornata quando diventerà disponibile | 2019-02-01
@@ -345,8 +345,8 @@ Suddivisione schema:
 | `osType` | Linux o Windows | 2017-04-02
 | `placementGroupId` | [Gruppo di posizionamento](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) del set di scalabilità di macchine virtuali | 2017-08-01
 | `plan` | [Piano](/rest/api/compute/virtualmachines/createorupdate#plan) che contiene il nome, il prodotto e il server di pubblicazione per una macchina virtuale se si tratta di un'immagine di Azure Marketplace | 2018-04-02
-| `platformUpdateDomain` |  [Dominio di aggiornamento](../articles/virtual-machines/manage-availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
-| `platformFaultDomain` | [Dominio di errore](../articles/virtual-machines/manage-availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
+| `platformUpdateDomain` |  [Dominio di aggiornamento](../articles/virtual-machines/availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
+| `platformFaultDomain` | [Dominio di errore](../articles/virtual-machines/availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
 | `priority` | Priorità della macchina virtuale. Per ulteriori informazioni, vedere le [VM spot](../articles/virtual-machines/spot-vms.md) | 2020-12-01
 | `provider` | Provider della macchina virtuale | 2018-10-01
 | `publicKeys` | [Raccolta di chiavi pubbliche](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assegnate alla macchina virtuale e ai percorsi | 2018-04-02
@@ -413,7 +413,7 @@ Dati | Descrizione |
 
 **Network**
 
-| Data | Descrizione | Versione introdotta |
+| Dati | Descrizione | Versione introdotta |
 |------|-------------|--------------------|
 | `ipv4.privateIpAddress` | Indirizzo IPv4 locale della macchina virtuale | 2017-04-02
 | `ipv4.publicIpAddress` | Indirizzo IPv4 pubblico della macchina virtuale | 2017-04-02
@@ -933,7 +933,7 @@ Per le macchine virtuali create con il modello di distribuzione classica, solo i
 
 Il documento decodificato contiene i campi seguenti:
 
-| Data | Descrizione | Versione introdotta |
+| Dati | Descrizione | Versione introdotta |
 |------|-------------|--------------------|
 | `licenseType` | Tipo di licenza per [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit). Questa funzionalità è disponibile solo per le macchine virtuali abilitate per vantaggio Azure Hybrid. | 2020-09-01
 | `nonce` | Stringa che può essere fornita facoltativamente con la richiesta. Se non `nonce` è stato specificato alcun parametro, viene utilizzato il timestamp UTC (Coordinated Universal Time) corrente. | 2018-10-01

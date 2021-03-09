@@ -3,12 +3,12 @@ title: Automatizzare l'aggiunta di un utente del Lab in Azure DevTest Labs | Mic
 description: Questo articolo illustra come automatizzare l'aggiunta di un utente a un Lab in Azure DevTest Labs usando modelli di Azure Resource Manager, PowerShell e l'interfaccia della riga di comando.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 61853efacc5974b81d46b2b8cca0f2796672d72d
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 6dddf06289da79e16cbd7e64869fa77f0a40dd22
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327961"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508827"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatizzare l'aggiunta di un utente del Lab in un Lab in Azure DevTest Labs
 Azure DevTest Labs consente di creare rapidamente ambienti di sviluppo e test Self-Service usando il portale di Azure. Tuttavia, se si dispone di più team e di diverse istanze di DevTest Labs, l'automazione del processo di creazione può risparmiare tempo. [Azure Resource Manager modelli](https://github.com/Azure/azure-devtestlab/tree/master/Environments) consentono di creare Lab, macchine virtuali del Lab, immagini personalizzate, formule e aggiungere utenti in modo automatico. Questo articolo è incentrato soprattutto sull'aggiunta di utenti a un'istanza di DevTest Labs.
@@ -100,7 +100,7 @@ L'ID di definizione del ruolo è l'identificatore di stringa per la definizione 
 
 L'ID sottoscrizione viene ottenuto tramite la `subscription().subscriptionId` funzione di modello.  
 
-È necessario ottenere la definizione di ruolo per il `DevTest Labs User` ruolo predefinito. Per ottenere il GUID per il ruolo [utente DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user) , è possibile usare l' [API REST assegnazioni di ruolo](/rest/api/authorization/roleassignments) o il cmdlet [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition?view=azps-1.8.0) .
+È necessario ottenere la definizione di ruolo per il `DevTest Labs User` ruolo predefinito. Per ottenere il GUID per il ruolo [utente DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user) , è possibile usare l' [API REST assegnazioni di ruolo](/rest/api/authorization/roleassignments) o il cmdlet [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) .
 
 ```powershell
 $dtlUserRoleDefId = (Get-AzRoleDefinition -Name "DevTest Labs User").Id
@@ -123,7 +123,7 @@ $userObjectId = (Get-AzureRmADUser -UserPrincipalName ‘email@company.com').Id
 
 È anche possibile usare i cmdlet di Azure Active Directory PowerShell che includono [Get-MsolUser](/powershell/module/msonline/get-msoluser?view=azureadps-1.0), [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0)e [Get-MsolServicePrincipal](/powershell/module/msonline/get-msolserviceprincipal?view=azureadps-1.0).
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Ambito
 Scope specifica la risorsa o il gruppo di risorse a cui deve essere applicata l'assegnazione di ruolo. Per le risorse, l'ambito è nel formato: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}` . Il modello usa la `subscription().subscriptionId` funzione per compilare la `subscription-id` parte e la `resourceGroup().name` funzione di modello per compilare la `resource-group-name` parte. L'uso di queste funzioni significa che il Lab a cui si sta assegnando un ruolo deve esistere nella sottoscrizione corrente e nello stesso gruppo di risorse in cui viene eseguita la distribuzione del modello. L'ultima parte, `resource-name` , è il nome del Lab. Questo valore viene ricevuto tramite il parametro di modello in questo esempio. 
 
 Ambito del ruolo nel modello: 

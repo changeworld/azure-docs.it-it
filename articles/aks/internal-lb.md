@@ -5,12 +5,12 @@ description: Informazioni su come creare e usare un servizio di bilanciamento de
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: ec8fd1f1b32d5bba6dc4dc756e1f95f4a74f9a96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c2c0866aa9a721a73e1eb8fa230f0022cf6b8ca
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87285884"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505631"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico interno con il servizio Azure Kubernetes
 
@@ -23,11 +23,11 @@ Per limitare l'accesso alle applicazioni nel servizio Azure Kubernetes, è possi
 
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-L'entità servizio cluster AKS necessita dell'autorizzazione per gestire le risorse di rete se si usa una subnet o un gruppo di risorse esistente. Per informazioni, vedere [usare la rete kubenet con gli intervalli di indirizzi IP in Azure Kubernetes Service (AKS)][use-kubenet] o [configurare la rete di Azure CNI in Azure KUBERNETES Service (AKS)][advanced-networking]. Se si configura il servizio di bilanciamento del carico per usare un [indirizzo IP in un'altra subnet][different-subnet], assicurarsi che l'entità servizio del cluster AKS disponga anche dell'accesso in lettura a tale subnet.
+L'identità del cluster del cluster AKS richiede l'autorizzazione per gestire le risorse di rete se si usa una subnet o un gruppo di risorse esistente. Per informazioni, vedere [usare la rete kubenet con gli intervalli di indirizzi IP in Azure Kubernetes Service (AKS)][use-kubenet] o [configurare la rete di Azure CNI in Azure KUBERNETES Service (AKS)][advanced-networking]. Se si configura il servizio di bilanciamento del carico per usare un [indirizzo IP in un'altra subnet][different-subnet], assicurarsi che l'identità del cluster AKS disponga anche dell'accesso in lettura a tale subnet.
 
-Anziché un'entità servizio, è anche possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md). Per altre informazioni sulle autorizzazioni, vedere [Delegare l'accesso del servizio Azure Kubernetes ad altre risorse di Azure][aks-sp].
+Per altre informazioni sulle autorizzazioni, vedere [Delegare l'accesso del servizio Azure Kubernetes ad altre risorse di Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Creare un bilanciamento del carico interno
 
@@ -110,7 +110,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Può essere necessario concedere all'entità servizio per il cluster servizio Azure Kubernetes il ruolo *Collaboratore di rete* per il gruppo di risorse in cui vengono distribuite le risorse della rete virtuale di Azure. Visualizzare l'entità servizio con [az servizio Azure Kubernetes show][az-aks-show], ad esempio `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Per creare un'assegnazione di ruolo, usare il comando [az role assignment create][az-role-assignment-create].
+> Potrebbe essere necessario concedere l'identità del cluster per il cluster AKS il ruolo *collaboratore rete* al gruppo di risorse in cui vengono distribuite le risorse della rete virtuale di Azure. Visualizzare l'identità del cluster con [AZ AKS Show][az-aks-show], ad esempio `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"` . Per creare un'assegnazione di ruolo, usare il comando [az role assignment create][az-role-assignment-create].
 
 ## <a name="specify-a-different-subnet"></a>Specificare una subnet diversa
 

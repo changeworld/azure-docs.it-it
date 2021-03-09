@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: b985399eb89ae7bbf73d280775157207498f0080
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c939c1d061f4e01a00bc2b886056e42f0b059ad5
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100645466"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511046"
 ---
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -19,7 +19,7 @@ ms.locfileid: "100645466"
 Per installare l’interfaccia della riga di comando di Voce su Windows, seguire questa procedura:
 
 1. In Windows è necessaria la versione di [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) per la piattaforma in uso. La prima volta che si esegue questa installazione può essere necessario riavviare il sistema.
-1. Installare [.NET Core 3,1 SDK](/dotnet/core/install/linux).
+1. Installare [.NET Core 3,1 SDK](/dotnet/core/install/windows).
 2. Installare l'interfaccia della riga di comando vocale usando NuGet immettendo questo comando:
 
    ```console
@@ -52,7 +52,7 @@ Le distribuzioni di Linux seguenti sono supportate per le architetture x64 che u
 
 Per installare l’interfaccia della riga di comando di Voce su Linux su una CPU x64, seguire questa procedura:
 
-1. Installare [.NET Core 3,1](/dotnet/core/install/linux).
+1. Installare [.NET Core 3,1 SDK](/dotnet/core/install/linux).
 2. Installare l'interfaccia della riga di comando vocale usando NuGet immettendo questo comando:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
@@ -67,7 +67,7 @@ Digitare `spx` per visualizzare la guida per l'interfaccia della riga di comando
 
 Seguire questa procedura per installare l'interfaccia della riga di comando di Voce in un contenitore Docker:
 
-1. <a href="https://www.docker.com/get-started" target="_blank">Installare Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> per la piattaforma se non è già stato fatto.
+1. <a href="https://www.docker.com/get-started" target="_blank">Installare Docker Desktop</a> per la piattaforma se non è già stato fatto.
 2. In un nuovo prompt dei comandi o terminale digitare questo comando: 
    ```console   
    docker pull msftspeech/spx

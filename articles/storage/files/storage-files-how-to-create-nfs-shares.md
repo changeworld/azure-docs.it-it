@@ -8,12 +8,12 @@ ms.date: 01/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 2ff669d0ff3bde791de9bc7773e13d880762f898
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 778d82cd36e1f7389a443630f0982dd8774fe3ee
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214423"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509201"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Come creare una condivisione NFS
 Le condivisioni file di Azure sono condivisioni file completamente gestite che si trovano nel cloud. Questo articolo illustra la creazione di una condivisione file che usa il protocollo NFS. Per altre informazioni su entrambi i protocolli, vedere [protocolli di condivisione file di Azure](storage-files-compare-protocols.md).
@@ -208,7 +208,7 @@ Ora che è stato creato un account filestorage e configurato la rete, è possibi
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Per altre informazioni su come installare i moduli di PowerShell, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0&preserve-view=true)
+   Per altre informazioni su come installare i moduli di PowerShell, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps)
    
 1. Per creare una condivisione file Premium con il modulo Azure PowerShell, usare il cmdlet [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) .
 

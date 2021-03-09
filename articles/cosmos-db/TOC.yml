@@ -921,7 +921,7 @@
         - name: REST (piano di gestione)
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modello di Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
@@ -1039,7 +1039,7 @@
         - name: Provider di risorse REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modello di Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
 - name: API di MongoDB
@@ -1170,7 +1170,7 @@
         - name: Provider di risorse REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modello di Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
 - name: API Gremlin
@@ -1248,7 +1248,7 @@
         - name: Intestazioni della risposta
           href: gremlin-headers.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Provider di risorse REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Modello di Resource Manager
@@ -1334,7 +1334,7 @@
         - name: Python
           href: table-sdk-python.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: API REST dell'archivio tabelle
           href: /rest/api/storageservices/table-service-rest-api
 - name: Guide pratiche
@@ -1391,7 +1391,7 @@
               href: continuous-backup-restore-template.md
         - name: Gestire il backup periodico
           href: configure-periodic-backup-restore.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Configurare il firewall IP
           href: how-to-configure-firewall.md

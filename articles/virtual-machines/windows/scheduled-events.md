@@ -11,12 +11,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0dcfdfbd480cdc708fced38d421b7588c5224a52
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3a388ade2b44260bfa21e22866d85a46e482bc97
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673313"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499952"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Windows
 
@@ -137,7 +137,7 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
 | EventId | Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: per la macchina virtuale è pianificata una pausa di pochi secondi. La CPU e la connettività di rete possono essere sospese, ma la memoria o i file aperti non subiranno conseguenze.<li>`Reboot`: per la macchina virtuale è pianificato un riavvio (la memoria non permanente andrà persa). <li>`Redeploy`: per la macchina virtuale è pianificato uno spostamento in un altro nodo (i dischi temporanei andranno persi). <li>`Preempt`: la macchina virtuale spot viene eliminata (i dischi temporanei andranno perduti). <li> `Terminate`: per la macchina virtuale è pianificata l'eliminazione. |
 | ResourceType | Tipo di risorsa interessata dall'evento. <br><br> Valori: <ul><li>`VirtualMachine`|
-| Risorse| Elenco di risorse interessate dall'evento. L'elenco contiene sicuramente i computer al massimo di un [dominio di aggiornamento](../manage-availability.md), ma potrebbe non contenere tutti i computer del dominio. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Risorse| Elenco di risorse interessate dall'evento. L'elenco contiene sicuramente i computer al massimo di un [dominio di aggiornamento](../availability.md), ma potrebbe non contenere tutti i computer del dominio. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Stato dell'evento. <br><br> Valori: <ul><li>`Scheduled`: l'avvio dell'evento è pianificato dopo la data e l'ora specificate nella proprietà `NotBefore`.<li>`Started`: l'evento è stato avviato.</ul> Lo stato `Completed` o simile non viene mai restituito. Al termine dell'evento, quest'ultimo non viene più restituito.
 | NotBefore| Tempo al termine del quale l'evento può essere avviato. <br><br> Esempio: <br><ul><li> Lun 19 set 2016 18:29:47 GMT  |
 | Descrizione | Descrizione dell'evento. <br><br> Esempio: <br><ul><li> Il server host è in fase di manutenzione. |

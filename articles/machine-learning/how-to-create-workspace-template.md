@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: d64dfdad0c51950228288b704b3fdb7579496abb
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 98ea51957014a4e9d83f27adefd86d8d0708b500
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488070"
+ms.locfileid: "102503182"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -30,7 +30,7 @@ Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Ge
 
 * Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Per usare un modello da un'interfaccia della riga di comando, è necessario [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* Per usare un modello da un'interfaccia della riga di comando, è necessario [Azure PowerShell](/powershell/azure/) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 * Per alcuni scenari è necessario aprire un ticket di supporto. Questi scenari sono:
 

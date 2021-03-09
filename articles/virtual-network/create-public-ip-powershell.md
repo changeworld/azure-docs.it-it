@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: f61d45b6c46830064c3b58608e2eca0787d559c2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f81e76e32bc0a50b945c54cdfcac0575540484bc
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675123"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502434"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>Guida introduttiva: creare un indirizzo IP pubblico usando Azure PowerShell
 
@@ -51,7 +51,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 # <a name="standard-sku---using-zones"></a>[**SKU standard-uso di zone**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
->Il comando seguente funziona per AZ. Network Module Version 4.5.0 o versioni successive.  Per ulteriori informazioni sui moduli di PowerShell attualmente in uso, vedere la documentazione di [PowerShellGet](/powershell/module/powershellget/?view=powershell-7.1).
+>Il comando seguente funziona per AZ. Network Module Version 4.5.0 o versioni successive.  Per ulteriori informazioni sui moduli di PowerShell attualmente in uso, vedere la documentazione di [PowerShellGet](/powershell/module/powershellget/).
 
 Usare [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) per creare un indirizzo IP pubblico con ridondanza della zona standard denominato **myStandardZRPublicIP** in **myResourceGroup**.
 
@@ -89,7 +89,7 @@ Si noti che le opzioni precedenti per le zone sono selezioni valide solo nelle a
 # <a name="standard-sku---no-zones"></a>[**SKU standard-nessuna zona**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->Il comando seguente funziona per AZ. Network Module Version 4.5.0 o versioni successive.  Per ulteriori informazioni sui moduli di PowerShell attualmente in uso, vedere la documentazione di [PowerShellGet](/powershell/module/powershellget/?view=powershell-7.1).
+>Il comando seguente funziona per AZ. Network Module Version 4.5.0 o versioni successive.  Per ulteriori informazioni sui moduli di PowerShell attualmente in uso, vedere la documentazione di [PowerShellGet](/powershell/module/powershellget/).
 
 Usare [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) per creare un indirizzo IP pubblico standard come risorsa non di zona denominata **myStandardPublicIP** in **myResourceGroup**.
 

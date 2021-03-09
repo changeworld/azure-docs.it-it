@@ -5,35 +5,31 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 3d1e0eb90005abf69d90b46acc59e0258c9914c6
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 377b7fd44b4f5afa2fd3892d9cb920484bc11c0b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630031"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509439"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurare un'app del servizio app o di Funzioni di Azure per l'uso dell'account di accesso di Azure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Questo articolo illustra come configurare il servizio app di Azure o Funzioni di Azure per l'uso di Azure Active Directory (Azure AD) come provider di autenticazione.
+Questo articolo illustra come configurare l'autenticazione per app Azure servizio o funzioni di Azure in modo che l'app esegua l'accesso degli utenti con Azure Active Directory (Azure AD) come provider di autenticazione.
 
-> [!NOTE]
-> Il flusso di impostazioni rapide configura una registrazione dell'applicazione AAD V1. Se si vuole usare [Azure Active Directory v 2.0](../active-directory/develop/v2-overview.md) (incluso [MSAL](../active-directory/develop/msal-overview.md)), seguire le [istruzioni per la configurazione avanzata](#advanced).
-
-Seguire queste procedure consigliate per la configurazione dell'app e dell'autenticazione:
-
-- Assegnare a ogni app del servizio app le autorizzazioni specifiche e il consenso.
-- Configurare ogni app del servizio app con la relativa registrazione.
-- Evitare la condivisione delle autorizzazioni tra ambienti usando registrazioni di app separate per slot di distribuzione distinti. Quando si esegue il test di nuovo codice, questa procedura consente di evitare problemi che influiscono sull'app di produzione.
-
-> [!NOTE]
-> Questa funzionalità non è attualmente disponibile nel piano a consumo per Linux per Funzioni di Azure
+Questa funzionalità non è attualmente disponibile nel piano a consumo di Linux per funzioni di Azure.
 
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Configurazione con impostazioni rapide
 
+L'opzione **Express** è progettata per semplificare l'abilitazione dell'autenticazione e richiede solo pochi clic.
+
+Le impostazioni rapide creeranno automaticamente una registrazione dell'applicazione che usa l'endpoint Azure Active Directory V1. Per usare [Azure Active Directory v 2.0](../active-directory/develop/v2-overview.md) (incluso [MSAL](../active-directory/develop/msal-overview.md)), seguire le [istruzioni di configurazione avanzate](#advanced).
+
 > [!NOTE]
 > L'opzione **Rapida** non è disponibile per i cloud per enti pubblici.
+
+Per abilitare l'autenticazione con l'opzione **Express** , seguire questa procedura:
 
 1. Nel [Azure portal] cercare e selezionare **Servizi app**, quindi selezionare la propria app.
 2. Nel riquadro di spostamento sinistro selezionare **Autenticazione/Autorizzazione** > **Sì**.
@@ -58,27 +54,24 @@ Per un esempio di configurazione di Azure AD account di accesso per un'app Web c
 
 ## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>Configurazione con impostazioni avanzate
 
-È possibile configurare manualmente le impostazioni dell'app se si vuole usare una registrazione di app di un tenant diverso di Azure AD. Per completare questa configurazione personalizzata:
-
-1. Creare una registrazione in Azure AD.
-2. Fornire alcuni dettagli sulla registrazione al servizio app.
+Affinché Azure AD funga da provider di autenticazione per l'app, è necessario registrarvi l'app. L'opzione Express esegue questa operazione automaticamente. L'opzione Avanzate consente di registrare manualmente l'app, personalizzando la registrazione e inserendo manualmente i dettagli di registrazione nel servizio app. Questa operazione è utile, ad esempio, se si vuole usare la registrazione di un'app da un tenant di Azure AD diverso da quello in cui si trova il servizio app.
 
 ### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"> </a>Creare una registrazione in Azure AD per l'app del servizio app
 
-Per configurare l'app del servizio app, è necessario avere le informazioni seguenti:
+Prima di tutto si creerà la registrazione dell'app. A tale scopo, raccogliere le informazioni seguenti, che sarà necessario in un secondo momento quando si configura l'autenticazione nell'app del servizio app:
 
 - ID client
 - ID tenant
 - Segreto client (facoltativo)
 - URI dell'ID applicazione
 
-Eseguire la procedura seguente:
+Per registrare l'app, seguire questa procedura:
 
 1. Accedere al [Azure portal], cercare e selezionare **Servizi app** e quindi selezionare la propria app. Prendere nota dell'**URL** dell'app. Verrà usato per configurare la registrazione dell'app di Azure Active Directory.
-1. Selezionare **Azure Active Directory** > **Registrazioni app** > **Nuova registrazione**.
+1. Dal menu del portale selezionare **Azure Active Directory**, quindi passare alla scheda **registrazioni app** e selezionare **nuova registrazione**.
 1. Nella pagina **Registra un'applicazione** immettere un valore per **Nome** per la registrazione dell'app.
 1. In **URI di reindirizzamento** selezionare **Web** e digitare `<app-url>/.auth/login/aad/callback`. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Selezionare **REGISTRA**.
+1. Selezionare **Registra**.
 1. Una volta creata la registrazione dell'app, copiare i valori di **ID applicazione (client)** e **ID della directory (tenant)** , che serviranno più avanti.
 1. Selezionare **Autenticazione**. In **Concessione implicita** abilitare **Token ID** per consentire gli accessi utente OpenID Connect dal servizio app.
 1. (Facoltativo) Selezionare **Personalizzazione**. In **URL pagina iniziale** immettere l'URL dell'app del servizio app e selezionare **Salva**.
@@ -113,9 +106,13 @@ Eseguire la procedura seguente:
 
 È ora possibile usare Azure Active Directory per l'autenticazione nell'app del servizio app.
 
-## <a name="configure-a-native-client-application"></a>Configurare un'applicazione client nativa
+## <a name="configure-client-apps-to-access-your-app-service"></a>Configurare le app client per accedere al servizio app
 
-È possibile registrare client nativi per consentire l'autenticazione alle API Web ospitate nell'app usando una libreria client, ad esempio **Active Directory Authentication Library**.
+Nella sezione precedente è stato registrato il servizio app o la funzione di Azure per autenticare gli utenti. Questa sezione illustra come registrare le app native client o daemon in modo che possano richiedere l'accesso alle API esposte dal servizio app per conto di utenti o se stesse. Il completamento dei passaggi descritti in questa sezione non è necessario se si desidera autenticare gli utenti.
+
+### <a name="native-client-application"></a>Applicazione client nativa
+
+È possibile registrare i client nativi per richiedere l'accesso alle API dell'app del servizio app per conto di un utente connesso.
 
 1. Nel [Azure portal] selezionare **Active Directory** > **Registrazioni app** > **Nuova registrazione**.
 1. Nella pagina **Registra un'applicazione** immettere un valore per **Nome** per la registrazione dell'app.
@@ -129,9 +126,9 @@ Eseguire la procedura seguente:
 1. Selezionare la registrazione creata in precedenza per l'app del servizio app. Se la registrazione dell'app non è visibile, verificare di aver aggiunto l'ambito **user_impersonation** in [Creare una registrazione di app in Azure AD per l'app del servizio app](#register).
 1. Selezionare **user_impersonation** in **Autorizzazioni delegate**, quindi selezionare **Aggiungi autorizzazioni**.
 
-È stata configurata un'applicazione client nativa che può accedere all'app del servizio app per conto dell'utente.
+A questo punto è stata configurata un'applicazione client nativa che può richiedere l'accesso all'app del servizio app per conto di un utente.
 
-## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>Configurare un'applicazione client daemon per le chiamate da servizio a servizio
+### <a name="daemon-client-application-service-to-service-calls"></a>Applicazione client daemon (chiamate da servizio a servizio)
 
 L'applicazione può acquisire un token per chiamare un'API Web ospitata nel servizio app o nell'app per le funzioni per conto di se stessa (non per conto di un utente). Questo scenario è utile per le applicazioni daemon non interattive che eseguono attività senza un utente connesso. Usa la concessione di [credenziali client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) OAuth 2.0 standard.
 
@@ -155,6 +152,14 @@ Al momento, questo consente a _qualsiasi_ applicazione client nel tenant di Azur
 1. All'interno del servizio app di destinazione o del codice dell'app per le funzioni, è ora possibile verificare che i ruoli previsti siano presenti nel token. Questa operazione non viene eseguita dall'autenticazione/autorizzazione del servizio app. Per altre informazioni, vedere [Accedere alle attestazioni utente](app-service-authentication-how-to.md#access-user-claims).
 
 È stata configurata un'applicazione client daemon che può accedere all'app del servizio app usando la propria identità.
+
+## <a name="best-practices"></a>Procedure consigliate
+
+Indipendentemente dalla configurazione usata per configurare l'autenticazione, le procedure consigliate seguenti consentiranno di rendere più sicure le applicazioni e il tenant:
+
+- Assegnare a ogni app del servizio app le autorizzazioni specifiche e il consenso.
+- Configurare ogni app del servizio app con la relativa registrazione.
+- Evitare la condivisione delle autorizzazioni tra ambienti usando registrazioni di app separate per slot di distribuzione distinti. Quando si esegue il test di nuovo codice, questa procedura consente di evitare problemi che influiscono sull'app di produzione.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Passaggi successivi
 

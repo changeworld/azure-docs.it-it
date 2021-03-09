@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2020
 ms.author: damendo
-ms.openlocfilehash: d500420893fc92e75c4d6f32f42e9f1d92c87b68
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 5feef79a08789ad381b0c93cb938abd9effdfcc8
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218707"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502009"
 ---
 # <a name="introduction-to-network-configuration-diagnostics-in-azure-network-watcher"></a>Introduzione alla diagnostica della configurazione di rete in Azure Network Watcher
 
@@ -40,5 +40,5 @@ Per un determinato flusso, lo strumento NCD esegue una simulazione del flusso e 
 
 Usare la diagnostica della configurazione di rete tramite altre interfacce
  - [REST API](/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
- - [PowerShell](/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
+ - [PowerShell](/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic)
  - [Interfaccia della riga di comando di Azure](/cli/azure/network/watcher#az_network_watcher_run_configuration_diagnostic)

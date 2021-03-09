@@ -4,12 +4,12 @@ description: Creare e gestire un'entità servizio di Azure Active Directory per 
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: b7f8060666612049026f2602ab7c8511aea22757
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: b4b5b3eedb2e63686e1bb26580ea653e3a50a910
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475438"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507824"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
 
@@ -128,7 +128,7 @@ Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le
 - Se non si passa in modo specifico un'entità servizio nei comandi aggiuntivi dell'interfaccia della riga di comando di AKS, viene usata l'entità servizio predefinita presente in `~/.azure/aksServicePrincipal.json` .  
 - Facoltativamente, è anche possibile rimuovere il aksServicePrincipal.jsnel file e AKS creerà una nuova entità servizio.
 - Quando si elimina un cluster servizio Azure Kubernetes creato da [az servizio Azure Kubernetes create][az-aks-create], l'entità servizio creata automaticamente non viene eliminata.
-    - Per eliminare l'entità servizio, eseguire una query per il cluster *servicePrincipalProfile. ClientID* e quindi eliminare con [AZ ad SP Delete] [AZ-ad-SP-Delete]. Sostituire il gruppo di risorse e i nomi di cluster seguenti con i propri valori:
+    - Per eliminare l'entità servizio, eseguire una query per il cluster *servicePrincipalProfile. ClientID* e quindi eliminare con [AZ ad SP Delete][az-ad-sp-delete]. Sostituire il gruppo di risorse e i nomi di cluster seguenti con i propri valori:
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
@@ -162,6 +162,7 @@ Per informazioni su come aggiornare le credenziali, vedere [aggiornare o ruotare
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [acr-intro]: ../container-registry/container-registry-intro.md
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-delete]: /cli/azure/ad/sp#az_ad_sp_delete
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [service-principal]:../active-directory/develop/app-objects-and-service-principals.md

@@ -1,18 +1,19 @@
 ---
 title: Aree di Azure
 description: Informazioni sulle aree per l'esecuzione di macchine virtuali in Azure.
-author: cynthn
-ms.author: cynthn
+author: mimckitt
+ms.author: mimckitt
+ms.reviewer: cynthnn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/28/2019
-ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 3/8/2021
+ms.openlocfilehash: e874a76cc447158127da8482f23bf03d56961818
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650554"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504610"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Aree per le macchine virtuali in Azure
 
@@ -45,7 +46,7 @@ Esempi di coppie di aree includono:
 
 | Primaria | Secondari |
 |:--- |:--- |
-| Stati Uniti Occidentali |Stati Uniti orientali |
+| Stati Uniti occidentali |Stati Uniti orientali |
 | Europa settentrionale |Europa occidentale |
 | Asia sud-orientale |Asia orientale |
 
@@ -58,11 +59,11 @@ Alcuni servizi o funzionalità delle VM sono disponibili solo in determinate are
 Conoscere le aree geografiche di Azure diventa importante quando si considerano le opzioni disponibili per la replica dell'archiviazione. A seconda del tipo di archiviazione, sono disponibili opzioni di replica diverse.
 
 **Azure Managed Disks**
-* Archiviazione con ridondanza locale (LRS)
+* Archiviazione con ridondanza locale
   * I dati vengono replicati tre volte all'interno dell'area in cui è stato creato l'account di archiviazione.
 
 **Dischi basati su account di archiviazione**
-* Archiviazione con ridondanza locale (LRS)
+* Archiviazione con ridondanza locale
   * I dati vengono replicati tre volte all'interno dell'area in cui è stato creato l'account di archiviazione.
 * Archiviazione con ridondanza della zona (ZRS)
   * I dati vengono replicati tre volte in due o tre strutture distribuite in un'area sola o in due aree.

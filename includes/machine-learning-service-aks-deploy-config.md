@@ -4,14 +4,14 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 95422ace63c9f79583de5a2c86d777ad4d0a8834
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: e17f14d3acf8d74d1715d14fbd914ee536d29931
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025931"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511065"
 ---
-Le voci del documento `deploymentconfig.json` vengono mappate ai parametri di [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
+Le voci del documento `deploymentconfig.json` vengono mappate ai parametri di [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration). La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
 
 | Entità JSON | Parametro per il metodo | Descrizione |
 | ----- | ----- | ----- |

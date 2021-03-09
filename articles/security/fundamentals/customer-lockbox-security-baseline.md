@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b58d96adba690084580fe11b42253a1e77370379
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fb0b976c8759eb77aa2240f95fadbd41e5d9596a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595606"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504917"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Baseline della sicurezza di Azure per Customer Lockbox per Microsoft Azure
 
@@ -525,7 +525,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Azure R
 
 * [Come creare query con Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-* [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Informazioni sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md)
 

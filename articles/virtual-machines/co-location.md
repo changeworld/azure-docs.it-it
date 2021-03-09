@@ -1,24 +1,20 @@
 ---
-title: Condivisione percorso di macchine virtuali
-description: Informazioni su come condividere il percorso delle risorse delle macchine virtuali di Azure per migliorare la latenza.
+title: Gruppi di selezione host di prossimità
+description: Informazioni sull'uso dei gruppi di posizionamento di prossimità in Azure.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 3/07/2021
 ms.reviewer: zivr
-ms.openlocfilehash: e193b7d084723ad50ddc0d1a40e0b6c8a111af73
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 584d98c93083bc0b203276c8eda2801841da3ad7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924279"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507858"
 ---
-# <a name="co-locate-resources-for-improved-latency"></a>Condividere il percorso tra le risorse per una latenza ottimale
-
-Quando si distribuisce l'applicazione in Azure, la distribuzione di istanze tra aree o zone di disponibilità crea una latenza di rete che può influisca sulle prestazioni complessive dell'applicazione. 
-
-## <a name="proximity-placement-groups"></a>Gruppi di selezione host di prossimità
+# <a name="proximity-placement-groups"></a>Gruppi di selezione host di prossimità
 
 L'inserimento di macchine virtuali in una singola area riduce la distanza fisica tra le istanze. L'inserimento di tali elementi all'interno di una singola zona di disponibilità li rende anche fisicamente più vicini. Tuttavia, man mano che il footprint di Azure cresce, una singola zona di disponibilità può estendersi su più data center fisici, causando una latenza di rete che influisca sull'applicazione. 
 

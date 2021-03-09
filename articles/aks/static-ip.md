@@ -5,12 +5,12 @@ description: Informazioni su come creare e usare un indirizzo IP statico con il 
 services: container-service
 ms.topic: article
 ms.date: 11/14/2020
-ms.openlocfilehash: 22fd099633556fa9ddce575c2ac238b4950667cb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 102df48ca22fb996e0f4d9c402b8ce8f0fa80f2c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651890"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509473"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usare un indirizzo IP pubblico statico e un'etichetta DNS con il servizio di bilanciamento del carico di Azure Kubernetes Service (AKS)
 
@@ -63,16 +63,14 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Creare un servizio usando l'indirizzo IP statico
 
-Prima di creare un servizio, assicurarsi che l'entità servizio usata dal cluster AKS disponga di autorizzazioni delegate per l'altro gruppo di risorse. Ad esempio:
+Prima di creare un servizio, assicurarsi che l'identità del cluster usata dal cluster AKS disponga di autorizzazioni delegate per l'altro gruppo di risorse. Ad esempio:
 
 ```azurecli-interactive
 az role assignment create \
-    --assignee <SP Client ID> \
+    --assignee <Client ID> \
     --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
-
-In alternativa, è possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni anziché l'entità servizio. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
 
 > [!IMPORTANT]
 > Se l'indirizzo IP in uscita è stato personalizzato, assicurarsi che l'identità del cluster disponga delle autorizzazioni per l'IP pubblico in uscita e per l'indirizzo IP pubblico in ingresso.

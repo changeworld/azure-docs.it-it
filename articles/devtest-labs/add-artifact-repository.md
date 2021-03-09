@@ -3,12 +3,12 @@ title: Aggiungere un repository di artefatti al Lab in Azure DevTest Labs | Micr
 description: Informazioni su come specificare il repository di artefatti per il Lab in Azure DevTest Labs per archiviare gli strumenti non disponibili nel repository di artefatti pubblici.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: da4e345b18a46226853d71bbf66af0487f1a761f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512012"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502196"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Aggiungere un repository di artefatti al Lab in DevTest Labs
 DevTest Labs consente di specificare un elemento da aggiungere a una macchina virtuale al momento della creazione della macchina virtuale o dopo la creazione della macchina virtuale. Questo artefatto potrebbe essere uno strumento o un'applicazione che si vuole installare nella macchina virtuale. Gli artefatti vengono definiti in un file JSON caricato da un repository di GitHub o Azure DevOps git.
@@ -48,7 +48,7 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
    2. Nell'elenco **organizzazione** selezionare **tutte le organizzazioni accessibili**.
    3. Nell'elenco **scadenza (UTC)** selezionare **90 giorni** o un periodo di scadenza definito personalizzato.
    4. Consente di selezionare l'opzione di **accesso completo** per gli ambiti.
-   5. Selezionare **Create** (Crea).
+   5. Selezionare **Crea**.
 9. Il nuovo token verrà visualizzato nell'elenco **Token di accesso personali**. Selezionare **Copia token** e quindi salvare il valore del token da usare in un momento successivo.
 10. Passare alla sezione Connettere il lab al repository .
 
@@ -183,7 +183,7 @@ New-AzResourceGroupDeployment `
 Al termine dell'New-AzResourceGroupDeployment, il comando restituisce informazioni importanti come lo stato di provisioning (dovrebbe essere Succeeded) ed eventuali output per il modello.
 
 ## <a name="use-azure-powershell"></a>Usare Azure PowerShell
-Questa sezione fornisce uno script di PowerShell di esempio che può essere usato per aggiungere un repository di artefatti a un Lab. Se non si ha Azure PowerShell, vedere [come installare e configurare Azure PowerShell](/powershell/azure/?view=azps-1.2.0) per istruzioni dettagliate per l'installazione.
+Questa sezione fornisce uno script di PowerShell di esempio che può essere usato per aggiungere un repository di artefatti a un Lab. Se non si ha Azure PowerShell, vedere [come installare e configurare Azure PowerShell](/powershell/azure/) per istruzioni dettagliate per l'installazione.
 
 ### <a name="full-script"></a>Script completo
 Di seguito è riportato lo script completo, inclusi alcuni messaggi e commenti dettagliati:

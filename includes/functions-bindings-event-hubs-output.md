@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 11ad3bdcaa40c479c9358fd623edf0e6fdafa0d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: dadd86521a7b6c20dab2ed036555b798b869344c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002077"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510726"
 ---
 È possibile usare l'associazione di output di Hub eventi per scrivere eventi in un flusso di eventi. Per scrivere eventi in un hub eventi, è necessario disporre dell'autorizzazione di invio.
 
@@ -274,7 +274,7 @@ Sono disponibili due opzioni per la restituzione dell'output di un messaggio del
 
 - **Valore restituito**: impostare la proprietà `name` in *function.json* su `$return`. Con questa configurazione, il valore restituito della funzione viene salvato in modo permanente come messaggio dell'hub eventi.
 
-- **Imperativo**: passare un valore al metodo [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [Out](/python/api/azure-functions/azure.functions.out?view=azure-python). Il valore passato a `set` viene salvato in modo permanente come messaggi dell'hub eventi.
+- **Imperativo**: passare un valore al metodo [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) del parametro dichiarato come tipo [Out](/python/api/azure-functions/azure.functions.out). Il valore passato a `set` viene salvato in modo permanente come messaggi dell'hub eventi.
 
 # <a name="java"></a>[Java](#tab/java)
 

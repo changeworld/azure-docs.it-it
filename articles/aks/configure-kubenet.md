@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 564ebfd0a0a8aa8500b38edbc37c9a42b02b06ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 639bed3dcd8f3f443b73f51efb60e7c8aeaa00a0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735166"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504219"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Usare funzionalità di rete kubenet con i propri intervalli di indirizzi IP nel servizio Azure Kubernetes
 
@@ -25,7 +25,7 @@ Questo articolo illustra come usare le funzionalità di rete *kubenet* per crear
 * La rete virtuale per il cluster servizio Azure Kubernetes deve consentire la connettività Internet in uscita.
 * Non creare più di un cluster servizio Azure Kubernetes nella stessa subnet.
 * I cluster AKS non possono usare `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` o `192.0.2.0/24` per l'intervallo di indirizzi del servizio Kubernetes, l'intervallo di indirizzi pod o l'intervallo di indirizzi della rete virtuale del cluster.
-* L'entità servizio usata dal cluster AKS deve avere almeno un ruolo di [collaboratore rete](../role-based-access-control/built-in-roles.md#network-contributor) nella subnet nella rete virtuale. È inoltre necessario disporre delle autorizzazioni appropriate, ad esempio il proprietario della sottoscrizione, per creare un'entità servizio e assegnare le autorizzazioni. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
+* L'identità del cluster usata dal cluster AKS deve avere almeno un ruolo di [collaboratore rete](../role-based-access-control/built-in-roles.md#network-contributor) nella subnet nella rete virtuale. È inoltre necessario disporre delle autorizzazioni appropriate, ad esempio il proprietario della sottoscrizione, per creare un'identità del cluster e assegnarle le autorizzazioni. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 

@@ -4,12 +4,12 @@ description: Informazioni su come creare manualmente un volume con i dischi di A
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: d44c8a7241308c26a3f1148ec70a7a5730dd0c89
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 7d8a038926fc6bf3234b43a82c0259ba633df11e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900845"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506651"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume con i dischi di Azure nel servizio Azure Kubernetes
 
@@ -28,9 +28,9 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 ## <a name="create-an-azure-disk"></a>Creare un disco di Azure
 
-Quando si crea un disco di Azure da usare con il servizio Azure Kubernetes, è possibile creare la risorsa disco nel gruppo di risorse del **nodo** . Questo approccio consente al cluster del servizio Azure Kubernetes di accedere e gestire la risorsa disco. Se invece si crea il disco in un gruppo di risorse separato, è necessario fornire all'entità servizio del servizio Azure Kubernetes per il cluster il ruolo `Contributor` al gruppo di risorse del disco. In alternativa, è possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni anziché l'entità servizio. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
+Quando si crea un disco di Azure da usare con il servizio Azure Kubernetes, è possibile creare la risorsa disco nel gruppo di risorse del **nodo**. Questo approccio consente al cluster del servizio Azure Kubernetes di accedere e gestire la risorsa disco. Se invece si crea il disco in un gruppo di risorse distinto, è necessario concedere all'identità gestita di Azure Kubernetes Service (AKS) il ruolo del cluster al `Contributor` gruppo di risorse del disco.
 
-Per questo articolo, creare il disco nel gruppo di risorse del nodo. Per prima cosa, ottenere il nome del gruppo di risorse con il comando [az servizio Azure Kubernetes show][az-aks-show] e aggiungere il parametro di query `--query nodeResourceGroup`. L'esempio seguente ottiene il gruppo di risorse del nodo per il nome del cluster servizio Azure Kubernetes *myservizio Azure KubernetesCluster* nel gruppo di risorse denominato *myResourceGroup* :
+Per questo articolo, creare il disco nel gruppo di risorse del nodo. Per prima cosa, ottenere il nome del gruppo di risorse con il comando [az servizio Azure Kubernetes show][az-aks-show] e aggiungere il parametro di query `--query nodeResourceGroup`. L'esempio seguente ottiene il gruppo di risorse del nodo per il nome del cluster servizio Azure Kubernetes *myservizio Azure KubernetesCluster* nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -38,7 +38,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-A questo punto creare un disco con il comando [az disk create][az-disk-create]. Specificare il nome del gruppo di risorse del nodo ottenuto nel comando precedente e quindi un nome per la risorsa disco, ad esempio *myAKSDisk* . Nell'esempio seguente viene creato un disco da *20* GiB e viene restituito l'ID del disco dopo la creazione. Se è necessario creare un disco da usare con i contenitori di Windows Server, aggiungere il `--os-type windows` parametro per formattare correttamente il disco.
+A questo punto creare un disco con il comando [az disk create][az-disk-create]. Specificare il nome del gruppo di risorse del nodo ottenuto nel comando precedente e quindi un nome per la risorsa disco, ad esempio *myAKSDisk*. Nell'esempio seguente viene creato un disco da *20* GiB e viene restituito l'ID del disco dopo la creazione. Se è necessario creare un disco da usare con i contenitori di Windows Server, aggiungere il `--os-type windows` parametro per formattare correttamente il disco.
 
 ```azurecli-interactive
 az disk create \

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 62a5a5307e704b22a2c9ead197dae3360d5d03b1
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 79d21549e7234e4ee342776466f8d3d8ced5f08c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214797"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508810"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -110,7 +110,7 @@ Il proprietario della risorsa di collegamento privato può eseguire le azioni se
 > Solo un endpoint privato in uno stato approvato può inviare il traffico a una risorsa del collegamento privato specificata. 
 
 ### <a name="connecting-using-alias"></a>Connessione tramite alias
-L'alias è un moniker univoco generato quando il proprietario del servizio crea il servizio di collegamento privato in relazione a un servizio di bilanciamento del carico standard. Il proprietario del servizio può condividere tale alias con i relativi consumer offline. I consumer possono richiedere una connessione al servizio di collegamento privato usando l'URI della risorsa o l'alias. Se si desidera connettersi tramite alias, è necessario creare un endpoint privato tramite il metodo di approvazione manuale della connessione. Per usare il metodo di approvazione manuale della connessione, impostare il parametro della richiesta manuale su true durante la creazione del flusso di endpoint privato. Per informazioni dettagliate, vedere [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) e [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create). 
+L'alias è un moniker univoco generato quando il proprietario del servizio crea il servizio di collegamento privato in relazione a un servizio di bilanciamento del carico standard. Il proprietario del servizio può condividere tale alias con i relativi consumer offline. I consumer possono richiedere una connessione al servizio di collegamento privato usando l'URI della risorsa o l'alias. Se si desidera connettersi tramite alias, è necessario creare un endpoint privato tramite il metodo di approvazione manuale della connessione. Per usare il metodo di approvazione manuale della connessione, impostare il parametro della richiesta manuale su true durante la creazione del flusso di endpoint privato. Per informazioni dettagliate, vedere [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) e [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create). 
 
 ## <a name="dns-configuration"></a>Configurazione del DNS 
 Quando ci si connette a una risorsa di collegamento privato usando un nome di dominio completo (FQDN) come parte della stringa di connessione, è importante configurare correttamente le impostazioni DNS per la risoluzione nell'indirizzo IP privato allocato. I servizi di Azure esistenti potrebbero avere già una configurazione DNS da usare per la connessione tramite un endpoint pubblico. Per connettersi usando l'endpoint privato, è necessario ignorarla. 
