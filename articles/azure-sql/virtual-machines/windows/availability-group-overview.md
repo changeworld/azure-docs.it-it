@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d879039e6d3ad94e55ed7f7bd283f8b99a5b2161
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8bbd56499c9b62248662fc5e8df0d5b3e1b672d4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042454"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504168"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Gruppi di disponibilità AlwaysOn per SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Il diagramma seguente illustra un gruppo di disponibilità per SQL Server in Mac
 
 ## <a name="vm-redundancy"></a>Ridondanza di VM 
 
-Per aumentare la ridondanza e la disponibilità elevata, le VM di SQL Server devono trovarsi nello stesso [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) o in [zone di disponibilità](../../../availability-zones/az-overview.md) diverse.
+Per aumentare la ridondanza e la disponibilità elevata, le VM di SQL Server devono trovarsi nello stesso [set di disponibilità](../../../virtual-machines/availability-set-overview.md) o in [zone di disponibilità](../../../availability-zones/az-overview.md) diverse.
 
 L'inserimento di un set di VM nello stesso set di disponibilità protegge un data center dalle interruzioni causate da errori delle apparecchiature (le VM all'interno di un set di disponibilità non condividono risorse) o da aggiornamenti (le VM all'interno di un set di disponibilità non vengono aggiornate contemporaneamente). Le zone di disponibilità offrono protezione dagli errori di un intero data center, con ogni zona che rappresenta un set di data center all'interno di un'area.  Inserendo le risorse in zone di disponibilità diverse, ci si assicura che nessuna interruzione a livello di data center porti tutte le VM offline.
 

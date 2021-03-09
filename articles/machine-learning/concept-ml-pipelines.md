@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 8b5e74d12af92b5d300e638bee27020a5af5383c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 584e421b6beac0e4ecfab5b3e3cb735b8465e1b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690380"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503522"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Che cosa sono le pipeline Azure Machine Learning?
 
@@ -79,7 +79,7 @@ Quando si crea ed esegue un `Pipeline` oggetto, si verificano i passaggi di alto
 
 ## <a name="building-pipelines-with-the-python-sdk"></a>Creazione di pipeline con Python SDK
 
-In [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), una pipeline è un oggetto Python definito nel `azureml.pipeline.core` modulo. Un oggetto [pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?preserve-view=true&view=azure-ml-py) contiene una sequenza ordinata di uno o più oggetti [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py) . La `PipelineStep` classe è astratta e i passaggi effettivi saranno di sottoclassi come [EstimatorStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?preserve-view=true&view=azure-ml-py), [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?preserve-view=true&view=azure-ml-py)o [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py). La classe [ModuleStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?preserve-view=true&view=azure-ml-py) include una sequenza riutilizzabile di passaggi che possono essere condivisi tra le pipeline. Un oggetto `Pipeline` viene eseguito come parte di un oggetto `Experiment` .
+In [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install), una pipeline è un oggetto Python definito nel `azureml.pipeline.core` modulo. Un oggetto [pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) contiene una sequenza ordinata di uno o più oggetti [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep) . La `PipelineStep` classe è astratta e i passaggi effettivi saranno di sottoclassi come [EstimatorStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep), [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep)o [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep). La classe [ModuleStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep) include una sequenza riutilizzabile di passaggi che possono essere condivisi tra le pipeline. Un oggetto `Pipeline` viene eseguito come parte di un oggetto `Experiment` .
 
 Una pipeline di Azure Machine Learning è associata a un'area di lavoro Azure Machine Learning e un passaggio della pipeline è associato a una destinazione di calcolo disponibile all'interno dell'area di lavoro. Per altre informazioni, vedere [creare e gestire aree di lavoro Azure Machine Learning nell'portale di Azure](./how-to-manage-workspace.md) o informazioni sulle [destinazioni di calcolo in Azure Machine Learning](./concept-compute-target.md).
 
@@ -123,7 +123,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-Il frammento inizia con gli oggetti Azure Machine Learning comuni, un oggetto, un oggetto `Workspace` `Datastore` , un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)e un oggetto `Experiment` . Quindi, il codice crea gli oggetti da conservare `input_data` e `prepped_data_path` . `input_data`È un'istanza di [filedataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) e `prepped_data_path` è un'istanza di [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Per `OutputFileDatasetConfig` il comportamento predefinito, è necessario copiare l'output nell' `workspaceblobstore` archivio dati sotto il percorso `/dataset/{run-id}/{output-name}` , dove `run-id` è l'ID dell'esecuzione ed `output-name` è un valore generato automaticamente se non specificato dallo sviluppatore.
+Il frammento inizia con gli oggetti Azure Machine Learning comuni, un oggetto, un oggetto `Workspace` `Datastore` , un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget)e un oggetto `Experiment` . Quindi, il codice crea gli oggetti da conservare `input_data` e `prepped_data_path` . `input_data`È un'istanza di [filedataset](/python/api/azureml-core/azureml.data.filedataset) e `prepped_data_path` è un'istanza di [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig). Per `OutputFileDatasetConfig` il comportamento predefinito, è necessario copiare l'output nell' `workspaceblobstore` archivio dati sotto il percorso `/dataset/{run-id}/{output-name}` , dove `run-id` è l'ID dell'esecuzione ed `output-name` è un valore generato automaticamente se non specificato dallo sviluppatore.
 
 Il codice di preparazione dei dati (non visualizzato) scrive file delimitati in `prepped_data_path` . Questi output del passaggio di preparazione dei dati vengono passati `prepped_data` al passaggio di training. 
 
@@ -162,6 +162,6 @@ Azure Machine Learning pipeline sono una potente funzionalità che inizia a prod
 
 + Informazioni su come [eseguire stime batch su dati di grandi dimensioni](tutorial-pipeline-batch-scoring-classification.md ).
 
-+ Vedere la documentazione di riferimento dell'SDK per i [passaggi](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py)relativi a pipeline [Core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e pipeline.
++ Vedere la documentazione di riferimento dell'SDK per i [passaggi](/python/api/azureml-pipeline-steps/)relativi a pipeline [Core](/python/api/azureml-pipeline-core/) e pipeline.
 
 + Provare ad esempio Jupyter Notebooks che illustrano [pipeline Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Informazioni su come [eseguire i notebook per esplorare questo servizio](samples-notebooks.md).

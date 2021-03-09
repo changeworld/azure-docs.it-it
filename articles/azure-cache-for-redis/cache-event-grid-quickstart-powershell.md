@@ -6,12 +6,12 @@ author: curib
 ms.author: cauribeg
 ms.topic: quickstart
 ms.service: cache
-ms.openlocfilehash: 0ab959d531ff1080e5e6a640410b4955e4cfeff7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6c3b433a8e433f39b723a7155bb6de116857efca
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101652199"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508164"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-powershell"></a>Guida introduttiva: eseguire il routing della cache di Azure per gli eventi Redis all'endpoint Web con PowerShell
 
@@ -73,7 +73,7 @@ New-AzRedisCache
    [-Confirm]
    [<CommonParameters>]
 ```
-Per ulteriori informazioni sulla creazione di un'istanza della cache in PowerShell, vedere il [riferimento Azure PowerShell](/powershell/module/az.rediscache/new-azrediscache?view=azps-5.2.0). 
+Per ulteriori informazioni sulla creazione di un'istanza della cache in PowerShell, vedere il [riferimento Azure PowerShell](/powershell/module/az.rediscache/new-azrediscache). 
 
 ## <a name="create-a-message-endpoint"></a>Creare un endpoint del messaggio
 
@@ -132,7 +132,7 @@ Import-AzRedisCache
       [-Confirm]
       [<CommonParameters>]
 ```
-Per ulteriori informazioni sull'importazione in PowerShell, vedere il [riferimento Azure PowerShell](/powershell/module/az.rediscache/import-azrediscache?view=azps-5.2.0). 
+Per ulteriori informazioni sull'importazione in PowerShell, vedere il [riferimento Azure PowerShell](/powershell/module/az.rediscache/import-azrediscache). 
 
 È stato attivato l'evento e Griglia di eventi ha inviato il messaggio all'endpoint configurato al momento della sottoscrizione. Visualizzare l'app Web per vedere l'evento appena inviato.
 

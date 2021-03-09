@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 4443ccfe8d570e50352cbb70c83d6094132038cc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f4d870f458607ceb0f05812b5c0c066ce810448e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736896"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508317"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuità aziendale e HADR per la SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -106,7 +106,7 @@ La macchina virtuale, l'archiviazione e la rete di Azure hanno caratteristiche o
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nodi a disponibilità elevata in un set di disponibilità
 I set di disponibilità in Azure consentono di collocare i nodi a disponibilità elevata in domini di errore e domini di aggiornamento separati. La piattaforma Azure assegna un dominio di aggiornamento e un dominio di errore a ogni macchina virtuale nel set di disponibilità. Questa configurazione all'interno di un data center garantisce che durante un evento di manutenzione pianificato o non pianificato sia disponibile almeno una macchina virtuale e soddisfi il contratto di sicurezza di Azure del 99,95%. 
 
-Per configurare un'installazione a disponibilità elevata, inserire tutte le macchine virtuali SQL Server coinvolte nello stesso set di disponibilità per evitare perdite di dati o applicazioni durante un evento di manutenzione. Solo i nodi dello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Per altre informazioni, vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per configurare un'installazione a disponibilità elevata, inserire tutte le macchine virtuali SQL Server coinvolte nello stesso set di disponibilità per evitare perdite di dati o applicazioni durante un evento di manutenzione. Solo i nodi dello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Per altre informazioni, vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nodi a disponibilità elevata in una zona di disponibilità
 Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati dagli errori dei data center assicurando che almeno una macchina virtuale sia disponibile e soddisfi il contratto di assistenza di Azure del 99,99%. 

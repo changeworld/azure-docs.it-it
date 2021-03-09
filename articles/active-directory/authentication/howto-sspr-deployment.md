@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8aa5108b6998424b35e3f4ecac6b51e78f276b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424122"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500513"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Pianificare una distribuzione della reimpostazione della password self-service di Azure Active Directory
 
@@ -25,7 +25,7 @@ ms.locfileid: "102424122"
 >
 > **Se si è un utente finale ed è necessario tornare al proprio account, passare a [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
-La [reimpostazione della password self-service](https://www.youtube.com/watch?v=tnb2Qf4hTP8) è una funzionalità di Azure Active Directory (AD) che consente agli utenti di reimpostare le proprie password senza l'assistenza del personale IT. Gli utenti possono sbloccare l'account rapidamente e continuare a lavorare indipendentemente da dove si trovano o dall'ora del giorno. Consentendo ai dipendenti di sbloccare autonomamente l'account, l'organizzazione può ridurre il tempo non produttivo e i costi di supporto elevati legati ai problemi più comuni correlati alle password.
+La [reimpostazione della password self-service](https://www.youtube.com/watch?v=pS3XwfxJrMo) è una funzionalità di Azure Active Directory (AD) che consente agli utenti di reimpostare le proprie password senza l'assistenza del personale IT. Gli utenti possono sbloccare l'account rapidamente e continuare a lavorare indipendentemente da dove si trovano o dall'ora del giorno. Consentendo ai dipendenti di sbloccare autonomamente l'account, l'organizzazione può ridurre il tempo non produttivo e i costi di supporto elevati legati ai problemi più comuni correlati alle password.
 
 La reimpostazione della password self-service offre le funzionalità chiave seguenti:
 

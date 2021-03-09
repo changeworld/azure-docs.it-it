@@ -27,12 +27,12 @@
         - name: Onboarding in Defender per la soluzione basata su agenti it
           displayName: 'IoT Hub, existing, enable'
           href: quickstart-onboard-iot-hub.md
-        - name: Installare Defender per gli agenti Internet
+        - name: Installare Defender per gli agenti Internet (anteprima)
           displayName: 'package, authentication, methods, certificate, authenticate, version'
           href: quickstart-standalone-agent-binary-installation.md
-        - name: Creare un modulo gemello di Defender Internet Agent
+        - name: Creare un modulo gemello di Defender Internet Agent (anteprima)
           href: quickstart-create-micro-agent-module-twin.md
-        - name: Crea il Defender per l'agente di Internet delle cose dal codice sorgente
+        - name: Compilare il Defender per l'agente Internet per le cose dal codice sorgente (anteprima)
           displayName: 'baseline, configuration, customize, distribution'
           href: quickstart-building-the-defender-micro-agent-from-source.md
         - name: Configurare il modulo di sicurezza per Azure RTO
@@ -56,18 +56,18 @@
           href: concept-key-concepts.md
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
-        - name: Panoramica sul portfolio degli agenti e supporto del sistema operativo
+        - name: Panoramica sul portfolio degli agenti e supporto del sistema operativo (anteprima)
           displayName: 'standalone agent, micro agent, RTOS'
           href: concept-agent-portfolio-overview-os-support.md
-        - name: Panoramica di micro Agent autonomo
+        - name: Panoramica di micro Agent autonomo (anteprima)
           displayName: 'endpoint, posture, distribution, flexible, model'
           href: concept-standalone-micro-agent-overview.md
-        - name: Autenticazione degli agenti di sicurezza
+        - name: Autenticazione dell'agente di sicurezza (anteprima)
           displayName: 'connection string, certificate, authentication'
           href: concept-security-agent-authentication.md
         - name: Comportamento di sicurezza-benchmark CIS
           href: concept-security-posture.md
-        - name: Aggregazione di eventi
+        - name: Aggregazione di eventi (anteprima)
           displayName: 'process events, network connection'
           href: concept-event-aggregation.md
         - name: Avvisi predefiniti per l'hub Internet
@@ -297,7 +297,7 @@
               href: how-to-investigate-device.md
 - name: Risoluzione dei problemi
   items:
-    - name: Risoluzione dei problemi relativi all'agente micro Defender
+    - name: Risoluzione dei problemi relativi all'agente Micro-Internet Defender (anteprima)
       displayName: 'service status, review logs'
       href: troubleshoot-defender-micro-agent.md
 - name: Supporto e ritiro delle funzionalità

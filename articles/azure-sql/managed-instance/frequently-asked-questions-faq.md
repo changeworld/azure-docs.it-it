@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 9e8ef5bf9d5d8000bfdd581cd7e9ae1a1a775fc9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17e97503996b53868f12e74ed5a38dba63285426
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178134"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503199"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -102,7 +102,7 @@ Sì, è possibile. Per istruzioni, vedere [spostare le risorse tra le aree](../d
 
 **Come è possibile eliminare la Istanza gestita?**
 
-È possibile eliminare le istanze gestite tramite portale di Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), l' [interfaccia](/cli/azure/sql/mi#az-sql-mi-delete) della riga di comando di Azure o le [API REST di gestione risorse](/rest/api/sql/managedinstances/delete).
+È possibile eliminare le istanze gestite tramite portale di Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), l' [interfaccia](/cli/azure/sql/mi#az-sql-mi-delete) della riga di comando di Azure o le [API REST di gestione risorse](/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo è necessario per creare o aggiornare un'istanza o per ripristinare un database?**
 

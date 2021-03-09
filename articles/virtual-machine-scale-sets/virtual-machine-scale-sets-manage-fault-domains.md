@@ -9,17 +9,17 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 5a71a6bce6d0e1a41201e0d7395110a6ac64db8c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 8c114d6260cf81bcc4fb256fc8a09947ab9ce1d8
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102209748"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502485"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Scelta del numero corretto dei domini di errore per set di scalabilità di macchine virtuali
 I set di scalabilità di macchine virtuali vengono creati con cinque domini di errore per impostazione predefinita in aree di Azure senza zone. Per le aree che supportano la distribuzione di zona dei set di scalabilità di macchine virtuali e questa opzione è selezionata, il valore predefinito del numero di domini di errore è 1 per ogni zona. FD = 1 questo caso implica che le istanze di macchine virtuali che appartengono al set di scalabilità verranno distribuite tra molti rack nel modo più efficiente possibile.
 
-È inoltre possibile considerare di allineare il numero di domini di errore del set di scalabilità con il numero di domini di errore di Managed Disks. Questo allineamento consente di evitare la perdita di quorum se un intero dominio di errore di Managed Disks si arresta. Il numero di domini di errore può essere minore o uguale al numero di domini di errore di Managed Disks disponibili in ognuna delle aree. Consultare questo [documento](../virtual-machines/manage-availability.md) per conoscere il numero di domini di errore di Managed Disks per area.
+È inoltre possibile considerare di allineare il numero di domini di errore del set di scalabilità con il numero di domini di errore di Managed Disks. Questo allineamento consente di evitare la perdita di quorum se un intero dominio di errore di Managed Disks si arresta. Il numero di domini di errore può essere minore o uguale al numero di domini di errore di Managed Disks disponibili in ognuna delle aree. Consultare questo [documento](../virtual-machines/availability.md) per conoscere il numero di domini di errore di Managed Disks per area.
 
 ## <a name="rest-api"></a>API REST
 È possibile impostare la proprietà `properties.platformFaultDomainCount` su 1, 2 o 3 (il valore predefinito è 3 Se non è specificato). La documentazione per questa API REST è disponibile [qui](/rest/api/compute/virtualmachinescalesets/createorupdate).

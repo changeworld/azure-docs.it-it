@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: e753d810bbc2ed1079b58d20a0659bf5e2219d11
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671899"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505903"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guida alla pianificazione e all'implementazione della piattaforma di business intelligence SAP BusinessObjects in Azure
 
@@ -222,7 +222,7 @@ La piattaforma SAP BI contiene molti componenti diversi e durante la progettazio
 
 Anche il numero di domini di aggiornamento e di errore che possono essere usati da un set di disponibilità di Azure all'interno di un'unità di scala di Azure è finito. Quindi, se si continua ad aggiungere macchine virtuali a un singolo set di disponibilità, due o più macchine virtuali finiranno nello stesso dominio di errore o di aggiornamento. Per altre informazioni, vedere la sezione [set di disponibilità di Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#azure-availability-sets) del documento relativo alla pianificazione e implementazione di macchine virtuali di Azure per SAP.
 
-Per comprendere il concetto di set di disponibilità di Azure e il modo in cui i set di disponibilità sono correlati ai domini di errore e di aggiornamento, vedere [Manage Availability](../../manage-availability.md) article.
+Per comprendere il concetto di set di disponibilità di Azure e il modo in cui i set di disponibilità sono correlati ai domini di errore e di aggiornamento, vedere [Manage Availability](../../availability.md) article.
 
 > [!Important]
 > I concetti di zone di disponibilità di Azure e di set di disponibilità di Azure si escludono a vicenda. Ciò significa che è possibile distribuire due o più macchine virtuali in una zona di disponibilità specifica o in un set di disponibilità di Azure, ma non in entrambi.

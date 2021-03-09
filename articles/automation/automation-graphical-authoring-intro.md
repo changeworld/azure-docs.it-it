@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bbac794263fec176e03c7148d860c479a2ed9d39
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051582"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501229"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Creare runbook grafici in Automazione di Azure
 
@@ -61,7 +61,7 @@ Selezionare un'attività nel canvas per configurarne le proprietà e i parametri
 
 Un set di parametri definisce i parametri obbligatori e facoltativi che accetteranno i valori per un cmdlet specifico. Tutti i cmdlet dispongono di almeno un set di parametri, altri ne hanno più di uno. Se un cmdlet ha più set di parametri, sarà necessario selezionare quello da usare prima di configurare i parametri. È possibile modificare il set di parametri usato da un'attività selezionando **Set di parametri** e scegliendo un altro set. In questo caso, i valori dei parametri già configurati vengono persi.
 
-Nell'esempio seguente il cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) dispone di tre set di parametri. L'esempio usa un set denominato **ListVirtualMachineInResourceGroupParamSet**, con un solo parametro facoltativo, per restituire tutte le macchine virtuali in un gruppo di risorse. L'esempio usa anche il set di parametri **GetVirtualMachineInResourceGroupParamSet** per specificare la macchina virtuale da restituire. Questo set ha due parametri obbligatori e un parametro facoltativo.
+Nell'esempio seguente il cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm) dispone di tre set di parametri. L'esempio usa un set denominato **ListVirtualMachineInResourceGroupParamSet**, con un solo parametro facoltativo, per restituire tutte le macchine virtuali in un gruppo di risorse. L'esempio usa anche il set di parametri **GetVirtualMachineInResourceGroupParamSet** per specificare la macchina virtuale da restituire. Questo set ha due parametri obbligatori e un parametro facoltativo.
 
 ![Parameter Set](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -435,4 +435,4 @@ Pubblicare un runbook grafico aprendolo per la modifica e quindi facendo clic su
 * Per iniziare a usare i runbook grafici, vedere [Esercitazione: creare un runbook grafico](learn/automation-tutorial-runbook-graphical.md).
 * Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md).
 * Per informazioni su come eseguire l'autenticazione usando l'account RunAs di Automazione, vedere [Account RunAs](automation-security-overview.md#run-as-account).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/#automation).

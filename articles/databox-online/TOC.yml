@@ -313,7 +313,7 @@
     - name: Riferimenti condivisi
       items:
         - name: Azure PowerShell
-          href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+          href: /powershell/module/az.stackedge/#stack_edge
         - name: API REST
           href: /rest/api/databoxedgegateway
         - name: .NET SDK
@@ -406,7 +406,7 @@
     - name: Informazioni di riferimento
       items:
         - name: Azure PowerShell
-          href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+          href: /powershell/module/az.stackedge/#stack_edge
         - name: API REST
           href: /rest/api/databoxedgegateway
         - name: .NET SDK

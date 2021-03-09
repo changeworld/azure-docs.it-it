@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 33672e90406b94a1b5788803911c072cdc2577f7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 785c87e8136430557af819cd8c7ab1db8f54c060
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186389"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507722"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
 
@@ -41,12 +41,12 @@ Risorse di calcolo fornite da [Servizio app di Azure](app-service/overview.md) p
 
 ## <a name="availability-set"></a>set di disponibilità
 Raccolta di macchine virtuali gestite insieme per offrire ridondanza delle applicazioni e affidabilità. Durante un evento di manutenzione pianificato o non pianificato, l'uso di un set di disponibilità assicura la disponibilità di almeno una macchina virtuale.  
-Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>modello di distribuzione classica di Azure
 Uno dei due [modelli di distribuzione](./azure-resource-manager/management/deployment-models.md) usati per la distribuzione delle risorse in Azure. Il nuovo modello è Azure Resource Manager. Alcuni servizi di Azure supportano solo il modello di sviluppo di Resource Manager, alcuni supportano solo il modello di sviluppo classico e alcuni supportano entrambi. La documentazione per ogni servizio di Azure specifica i modelli supportati.
 
-## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>interfaccia della riga di comando di Azure (CLI)
+## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Interfaccia della riga di comando di Azure (CLI)
 Interfaccia della riga di comando che può essere usata per la gestione dei servizi di Azure da PC Windows, OSX e Linux.  Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando. Vedere [Interfaccia della riga di comando di Azure](/cli/azure)
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
@@ -58,7 +58,7 @@ Uno dei due [modelli di distribuzione](./azure-resource-manager/management/deplo
 
 ## <a name="fault-domain"></a>dominio di errore
 Raccolta di macchine virtuali di un set di disponibilità nelle quali può verificarsi un errore contemporaneamente. Un esempio è un gruppo di macchine virtuali in un rack che condividono un'unità di alimentazione e un commutatore di rete comune. In Azure, le macchine virtuali di un set di disponibilità vengono suddivise automaticamente su più domini di errore.  
-Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ## <a name="geo"></a>area geografica
 Limite definito per la residenza dei dati che contiene in genere due o più aree. I limiti possono essere compresi all'interno o superare i confini nazionali e sono influenzati dalla regolamentazione fiscale. Ogni area geografica include almeno un'area. Asia Pacifico e Giappone sono esempi di aree geografiche. Chiamata anche *geografia*.  
@@ -94,7 +94,7 @@ Portale Web sicuro usato per la distribuzione e la gestione dei servizi di Azure
 Area all'interno di un'area geografica che non supera i confini nazionali e include uno o più data center. I prezzi, i servizi regionali e i tipi di offerta sono resi disponibili a livello di area. Un'area viene in genere associata a un'altra area, che può trovarsi a centinaia di chilometri di distanza. Le coppie di aree possono essere usate come meccanismo per il ripristino di emergenza e gli scenari a disponibilità elevata. Chiamata anche genericamente *posizione*.  
 Vedere [Aree di Azure](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>Risorsa
+## <a name="resource"></a>risorse
 Elemento incluso nella soluzione Azure. Ogni servizio di Azure consente di distribuire diversi tipi di risorse, ad esempio database o macchine virtuali.   
 Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/management/overview.md)
 
@@ -102,7 +102,7 @@ Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/management/
 Contenitore in Resource Manager che include le risorse correlate di un'applicazione. Il gruppo di risorse può includere tutte le risorse di un'applicazione o solo le risorse raggruppate logicamente. È possibile decidere come si desidera allocare le risorse a gruppi di risorse nel modo appropriato per l'organizzazione.  
 Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/management/overview.md)
 
-## <a name="resource-manager-template"></a><a name="arm-template"></a>Modello di Gestione risorse
+## <a name="resource-manager-template"></a><a name="arm-template"></a>Modello di Resource Manager
 File JSON che definisce in modo dichiarativo una o più risorse di Azure e che definisce le dipendenze tra le risorse distribuite. Il modello può essere usato per distribuire le risorse in modo coerente e ripetuto.  
 Vedere [Creazione di modelli di Azure Resource Manager](./azure-resource-manager/templates/template-syntax.md)
 
@@ -135,7 +135,7 @@ Vedere [Uso dei tag per organizzare le risorse di Azure](./azure-resource-manage
 
 ## <a name="update-domain"></a>dominio di aggiornamento
 Raccolta di macchine virtuali di un set di disponibilità che vengono aggiornate contemporaneamente. Le macchine virtuali nello stesso dominio di aggiornamento vengono riavviate contemporaneamente durante la manutenzione pianificata. Azure non riavvia mai più di un dominio di aggiornamento alla volta.  
-Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Vedere [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-machine"></a><a name="vm"></a>macchina virtuale
 Implementazione del software di un computer fisico che esegue un sistema operativo. È possibile eseguire più macchine virtuali contemporaneamente nello stesso hardware. In Azure sono disponibili macchine virtuali di dimensioni diverse.  
@@ -153,7 +153,7 @@ Vedere [Panoramica di Rete virtuale](virtual-network/virtual-networks-overview.m
 ## <a name="web-app"></a>app Web
 Nome alternativo per [app del servizio app](#app-service-app).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Inizia a usare Azure](https://azure.microsoft.com/get-started/)
 * [Centro risorse cloud](https://azure.microsoft.com/resources/)  

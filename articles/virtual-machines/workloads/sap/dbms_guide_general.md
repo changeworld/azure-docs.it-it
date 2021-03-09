@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 470b6b0c871d91a2a8a584a6efd04605e0afcf88
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e978baa556f1bc1cfea0ccd5abbbf92dc77b1622
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666845"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504015"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -265,7 +265,7 @@ Sono disponibili altri metodi di ridondanza. Per altre informazioni, vedere [Rep
 
 
 ## <a name="vm-node-resiliency"></a>Resilienza del nodo della VM
-Azure offre molti contratti di servizio per macchine virtuali. Per altre informazioni, vedere la versione più recente del [Contratto di Servizio per Macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Poiché il livello DBMS è essenziale per la disponibilità in un sistema SAP, è necessario comprendere i set di disponibilità, zone di disponibilità e gli eventi di manutenzione. Per altre informazioni su questi concetti, vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure](../../manage-availability.md) e [Gestire la disponibilità delle macchine virtuali Linux in Azure](../../manage-availability.md).
+Azure offre molti contratti di servizio per macchine virtuali. Per altre informazioni, vedere la versione più recente del [Contratto di Servizio per Macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Poiché il livello DBMS è essenziale per la disponibilità in un sistema SAP, è necessario comprendere i set di disponibilità, zone di disponibilità e gli eventi di manutenzione. Per altre informazioni su questi concetti, vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure](../../availability.md) e [Gestire la disponibilità delle macchine virtuali Linux in Azure](../../availability.md).
 
 La raccomandazione di base per gli scenari DBMS di produzione con un carico di lavoro SAP è di:
 

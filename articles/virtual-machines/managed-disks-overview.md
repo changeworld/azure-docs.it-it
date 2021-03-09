@@ -1,5 +1,5 @@
 ---
-title: Panoramica dell'archiviazione su disco di Azure
+title: Panoramica di archiviazione su disco di Azure
 description: Panoramica di Azure Managed disks, che gestisce gli account di archiviazione quando si usano le macchine virtuali.
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 6c9b4a9ee1a778ba7a534377f8b2abe9d9a7e18a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627816"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504731"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduzione ad Azure Managed Disks
 
@@ -35,7 +35,7 @@ L'uso dei dischi gestiti permette di creare fino a 50.000 **dischi** di macchine
 
 ### <a name="integration-with-availability-sets"></a>Integrazione con set di disponibilità
 
-I dischi gestiti vengono integrati con una maggiore affidabilità per i set di disponibilità, così che i dischi delle [macchine virtuali in un set di disponibilità](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) siano sufficientemente isolati gli uni dagli altri per evitare singoli punti di errore. I dischi vengono automaticamente posizionati in unità di scala di archiviazione diverse (timbri). Se uno stamp non riesce a causa di un errore hardware o software, hanno esito negativo solo le istanze delle macchine virtuali con dischi in tali stamp. Si prenda ad esempio un'applicazione in esecuzione in cinque macchine virtuali, a loro volta inserite in un set di disponibilità. I dischi di tali macchine virtuali non vengono tutti archiviati nello stesso stamp. In caso di inattività di uno stamp, quindi, le altre istanze dell'applicazione continuano l'esecuzione.
+I dischi gestiti vengono integrati con una maggiore affidabilità per i set di disponibilità, così che i dischi delle [macchine virtuali in un set di disponibilità](./availability-set-overview.md) siano sufficientemente isolati gli uni dagli altri per evitare singoli punti di errore. I dischi vengono automaticamente posizionati in unità di scala di archiviazione diverse (timbri). Se uno stamp non riesce a causa di un errore hardware o software, hanno esito negativo solo le istanze delle macchine virtuali con dischi in tali stamp. Si prenda ad esempio un'applicazione in esecuzione in cinque macchine virtuali, a loro volta inserite in un set di disponibilità. I dischi di tali macchine virtuali non vengono tutti archiviati nello stesso stamp. In caso di inattività di uno stamp, quindi, le altre istanze dell'applicazione continuano l'esecuzione.
 
 ### <a name="integration-with-availability-zones"></a>Integrazione con zone di disponibilità
 
@@ -100,7 +100,7 @@ Questo disco ha una capacità massima di 4.095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporaneo
 
-La maggior parte delle macchine virtuali contiene un disco temporaneo, che non è un disco gestito. Il disco temporaneo fornisce l'archiviazione a breve termine per le applicazioni e i processi ed è destinato solo a archiviare i dati, ad esempio file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](./manage-availability.md#understand-vm-reboots---maintenance-vs-downtime) o la [ridistribuzione di una VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un riavvio standard della VM, i dati sul disco temporaneo rimarranno in modo permanente. Per altre informazioni sulle macchine virtuali senza dischi temporanei, vedere dimensioni delle macchine virtuali [di Azure senza dischi temporanei locali](azure-vms-no-temp-disk.md).
+La maggior parte delle macchine virtuali contiene un disco temporaneo, che non è un disco gestito. Il disco temporaneo fornisce l'archiviazione a breve termine per le applicazioni e i processi ed è destinato solo a archiviare i dati, ad esempio file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](./understand-vm-reboots.md) o la [ridistribuzione di una VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un riavvio standard della VM, i dati sul disco temporaneo rimarranno in modo permanente. Per altre informazioni sulle macchine virtuali senza dischi temporanei, vedere dimensioni delle macchine virtuali [di Azure senza dischi temporanei locali](azure-vms-no-temp-disk.md).
 
 Nelle VM Linux di Azure il disco temporaneo è in genere /dev/sdb e nelle VM Windows è D: per impostazione predefinita. Il disco temporaneo non viene crittografato dalla crittografia lato server a meno che non si abiliti la crittografia a livello di host.
 

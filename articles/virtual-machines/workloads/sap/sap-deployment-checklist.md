@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40d22a410054f17676c4d9db639fd5e32da18531
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 51bfd632e854132be27a7b971cf03e9fe5b00138
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665981"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504304"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -138,7 +138,7 @@ Si consiglia di configurare e convalidare una soluzione HADR completa e la proge
         - Se si usa Azure Load Balancer insieme ai sistemi operativi guest Linux, verificare che il parametro di rete Linux **net.IPv4.tcp_timestamps** sia impostato su **0**. Questa raccomandazione è in conflitto con le raccomandazioni nelle versioni precedenti di [SAP nota #2382421](https://launchpad.support.sap.com/#/notes/2382421). La nota SAP è ora aggiornata per indicare che questo parametro deve essere impostato su **0** per funzionare con i bilanciamenti del carico di Azure.
         - Per ottenere una latenza di rete ottimale, provare a usare i [gruppi di posizionamento prossimità di Azure](../../co-location.md) Per altre informazioni, vedere [gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
    4. Distribuzioni a disponibilità elevata e di ripristino di emergenza.
-        - Se si distribuisce il livello applicazione SAP senza definire una zona di disponibilità di Azure specifica, assicurarsi che tutte le macchine virtuali che eseguono istanze di finestra di dialogo SAP o istanze middleware di un singolo sistema SAP vengano distribuite in un [set di disponibilità](../../manage-availability.md).
+        - Se si distribuisce il livello applicazione SAP senza definire una zona di disponibilità di Azure specifica, assicurarsi che tutte le macchine virtuali che eseguono istanze di finestra di dialogo SAP o istanze middleware di un singolo sistema SAP vengano distribuite in un [set di disponibilità](../../availability-set-overview.md).
         - Se non è necessaria la disponibilità elevata per i servizi SAP Central e DBMS, è possibile distribuire queste macchine virtuali nello stesso set di disponibilità del livello applicazione SAP.
         - Se si proteggono i servizi SAP Central e il livello DBMS per la disponibilità elevata tramite la replica passiva, inserire i due nodi per i servizi SAP Central in un set di disponibilità separato e i due nodi DBMS in un altro set di disponibilità.
         - Se si distribuisce in zone di disponibilità di Azure, non è possibile usare i set di disponibilità. Tuttavia, è necessario assicurarsi di distribuire i nodi di servizi centrali attivi e passivi in due zone di disponibilità diversi. Usare zone di disponibilità con la latenza più bassa tra di essi.

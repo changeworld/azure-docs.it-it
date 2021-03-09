@@ -3,12 +3,12 @@ title: Modello di dati di Monitoraggio di Azure
 description: In questo articolo si apprenderanno i dettagli del modello di dati di Log Analytics di Monitoraggio di Azure per i dati di Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 2d2146612763bac39eb636bb7da522586a0daee2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586775"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500989"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 
@@ -18,7 +18,8 @@ Usare il modello di dati di Log Analytics per creare avvisi personalizzati da Lo
 
 > [!NOTE]
 >
-> Questo modello di dati si riferisce alla modalità Diagnostica di Azure di invio degli eventi di diagnostica a Log Analytics. Per conoscere il modello di dati per la nuova modalità specifica della risorsa, è possibile fare riferimento all'articolo seguente: [Modello di dati per gli eventi di diagnostica di Backup di Azure](./backup-azure-reports-data-model.md)
+> * Questo modello di dati si riferisce alla modalità Diagnostica di Azure di invio degli eventi di diagnostica a Log Analytics. Per conoscere il modello di dati per la nuova modalità specifica della risorsa, è possibile fare riferimento all'articolo seguente: [Modello di dati per gli eventi di diagnostica di Backup di Azure](./backup-azure-reports-data-model.md)
+> * Per la creazione di visualizzazioni di report personalizzate, si consiglia di usare le [funzioni di sistema nei log di monitoraggio di Azure](backup-reports-system-functions.md) invece di usare le tabelle non elaborate elencate di seguito.
 
 ## <a name="using-azure-backup-data-model"></a>Uso del modello di dati di Backup di Azure
 

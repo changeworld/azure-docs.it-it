@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 869c4ac5cde7d1e50be0f2f738d8a0ce6de5e625
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951717"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508743"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Esercitazione: prerequisiti per la creazione di gruppi di disponibilità in SQL Server in macchine virtuali di Azure
 
@@ -145,7 +145,7 @@ La tabella seguente riepiloga le impostazioni di configurazione della rete:
 
 ## <a name="create-availability-sets"></a>Creare set di disponibilità
 
-Prima di creare le macchine virtuali, è necessario creare i set di disponibilità. I set di disponibilità riducono il tempo di inattività per gli eventi di manutenzione sia pianificati che non pianificati. Un set di disponibilità di Azure è un gruppo logico di risorse che Azure inserisce in domini di errore e domini di aggiornamento fisici. Un dominio di errore assicura che i membri del set di disponibilità dispongano di risorse di alimentazione e di rete separate. Un dominio di aggiornamento assicura che i membri del set di disponibilità non vengano disattivati contemporaneamente per la manutenzione. Per altre informazioni, vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Prima di creare le macchine virtuali, è necessario creare i set di disponibilità. I set di disponibilità riducono il tempo di inattività per gli eventi di manutenzione sia pianificati che non pianificati. Un set di disponibilità di Azure è un gruppo logico di risorse che Azure inserisce in domini di errore e domini di aggiornamento fisici. Un dominio di errore assicura che i membri del set di disponibilità dispongano di risorse di alimentazione e di rete separate. Un dominio di aggiornamento assicura che i membri del set di disponibilità non vengano disattivati contemporaneamente per la manutenzione. Per altre informazioni, vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Sono necessari due set di disponibilità, uno per i controller di dominio e il secondo per le VM di SQL Server.
 
@@ -205,7 +205,7 @@ La tabella seguente descrive le impostazioni per queste due macchine:
 | **Account di archiviazione di diagnostica** |*Creato automaticamente* |
 
    >[!IMPORTANT]
-   >È possibile inserire una VM in un set di disponibilità solo in fase di creazione. Non è possibile modificare il set di disponibilità dopo che la VM è stata creata. Vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/manage-availability.md).
+   >È possibile inserire una VM in un set di disponibilità solo in fase di creazione. Non è possibile modificare il set di disponibilità dopo che la VM è stata creata. Vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/availability.md).
 
 Azure crea le macchine virtuali.
 
@@ -383,7 +383,7 @@ Prima di procedere, considerare le seguenti decisioni di progettazione.
 
 * **Archiviazione - Azure Managed Disks**
 
-   Per l'archiviazione delle macchine virtuali, usare Azure Managed Disks. Microsoft consiglia Managed Disks per le macchine virtuali di SQL Server. Managed Disks gestisce automaticamente le risorse di archiviazione. Inoltre, quando le macchine virtuali con Managed Disks sono nello stesso set di disponibilità, Azure distribuisce le risorse di archiviazione in modo da garantire la ridondanza appropriata. Per altre informazioni, vedere [Panoramica di Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Per informazioni dettagliate sui dischi gestiti in un set di disponibilità, vedere [Usare Managed Disks per le macchine virtuali nel set di disponibilità](../../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Per l'archiviazione delle macchine virtuali, usare Azure Managed Disks. Microsoft consiglia Managed Disks per le macchine virtuali di SQL Server. Managed Disks gestisce automaticamente le risorse di archiviazione. Inoltre, quando le macchine virtuali con Managed Disks sono nello stesso set di disponibilità, Azure distribuisce le risorse di archiviazione in modo da garantire la ridondanza appropriata. Per altre informazioni, vedere [Panoramica di Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Per informazioni dettagliate sui dischi gestiti in un set di disponibilità, vedere [Usare Managed Disks per le macchine virtuali nel set di disponibilità](../../../virtual-machines/availability.md).
 
 * **Rete - Indirizzi IP privati nell'ambiente di produzione**
 

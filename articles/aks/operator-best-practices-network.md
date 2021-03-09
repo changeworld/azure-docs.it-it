@@ -5,12 +5,12 @@ description: Informazioni sulle procedure consigliate per l'operatore del cluste
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: f004e0e78d7a626f878ba3651e4c6078f9cd21e8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2bd332dbf9412f5c42e77b14ada3aab67ec8b66a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366569"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508589"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
 
@@ -43,11 +43,11 @@ Container Networking Interface (CNI) è un protocollo indipendente dal fornitore
 
 Un vantaggio rilevante della rete CNI di Azure per la produzione è il modello di rete che consente di separare il controllo e la gestione delle risorse. Dal punto di vista della sicurezza, è spesso preferibile che siano team diversi a gestire e proteggere tali risorse. Le funzionalità di rete Azure CNI consentono di connettersi a risorse Azure esistenti, a risorse locali o ad altri servizi direttamente tramite gli indirizzi IP assegnati a ogni pod.
 
-Quando si usano le funzionalità di rete Azure CNI, la risorsa di rete virtuale si trova in un gruppo di risorse separato rispetto al cluster del servizio Azure Kubernetes. Delegare le autorizzazioni per consentire all'entità servizio del servizio Azure Kubernetes di accedere e gestire queste risorse. L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
+Quando si usano le funzionalità di rete Azure CNI, la risorsa di rete virtuale si trova in un gruppo di risorse separato rispetto al cluster del servizio Azure Kubernetes. Delegare le autorizzazioni per l'identità del cluster AKS per accedere e gestire queste risorse. L'identità del cluster usata dal cluster AKS deve avere almeno le autorizzazioni di [collaboratore rete](../role-based-access-control/built-in-roles.md#network-contributor) nella subnet nella rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-Per altre informazioni sulla delega dell'entità servizio del servizio Azure Kubernetes, vedere [Delegare l'accesso ad altre risorse di Azure][sp-delegation]. Anziché un'entità servizio, è anche possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
+Per impostazione predefinita, AKS usa un'identità gestita per la relativa identità del cluster, ma è possibile usare un'entità servizio. Per altre informazioni sulla delega dell'entità servizio del servizio Azure Kubernetes, vedere [Delegare l'accesso ad altre risorse di Azure][sp-delegation]. Per altre informazioni sulle identità gestite, vedere [usare identità gestite](use-managed-identity.md).
 
 Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti per il numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete kubenet che con quelle Azure CNI. Per gestire gli eventi di scalabilità orizzontale o gli aggiornamenti del cluster, sono necessari anche indirizzi IP aggiuntivi disponibili per l'uso nella subnet assegnata. Questo spazio degli indirizzi aggiuntivo è particolarmente importante se si usano i contenitori di Windows Server, perché i pool di nodi richiedono un aggiornamento per applicare le patch di sicurezza più recenti. Per altre informazioni sui nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
 

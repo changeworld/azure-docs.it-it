@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: e00496ad623d534e1fbdcb60f22a1e36f77c4212
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5f8f72ec296be3127a2f8c1ddc87d883d7e2deed
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806173"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504576"
 ---
 # <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Usare Site Recovery per eseguire la migrazione ad archiviazione Premium
 
@@ -165,7 +165,7 @@ Seguire [Configurare le impostazioni di replica](../../site-recovery/vmware-azur
 
    ![Abilitare il riquadro di replica con l'origine selezionata][13]
 
-Quando si progetta l'ambiente di Archiviazione di Azure, è consigliabile usare account di archiviazione distinti per ogni VM in un set di disponibilità. È consigliabile seguire le procedure consigliate nel livello di archiviazione per [usare più account di archiviazione per ogni set di disponibilità](../manage-availability.md). Distribuire i dischi delle VM in più account di archiviazione consente di migliorare la disponibilità di archiviazione e di suddividere le operazioni di I/O nell'infrastruttura di archiviazione di Azure.
+Quando si progetta l'ambiente di Archiviazione di Azure, è consigliabile usare account di archiviazione distinti per ogni VM in un set di disponibilità. È consigliabile seguire le procedure consigliate nel livello di archiviazione per [usare più account di archiviazione per ogni set di disponibilità](../availability.md). Distribuire i dischi delle VM in più account di archiviazione consente di migliorare la disponibilità di archiviazione e di suddividere le operazioni di I/O nell'infrastruttura di archiviazione di Azure.
 
 Se le macchine virtuali sono in un set di disponibilità, invece di replicare i dischi di tutte le macchine virtuali in un account di archiviazione, è consigliabile eseguire più volte la migrazione di più macchine virtuali, in modo che le macchine virtuali nello stesso set di disponibilità non condividano un solo account di archiviazione. Usare il riquadro **Abilitazione della replica** per configurare contemporaneamente un account di archiviazione di destinazione per ogni VM.
  

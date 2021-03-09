@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.custom: mvc, seo-javascript-october2019, contperfq3
-ms.openlocfilehash: 63d23b01eddc70dedd849560248dd053c80e0037
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 5f758c0bc50b2d4f22b3dbf0efaa4ecbc3f334cb
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181415"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507807"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes usando il portale di Azure
 
@@ -47,13 +47,11 @@ Per creare un cluster del servizio Azure Kubernetes, seguire questa procedura:
 
 4. Nella pagina **Pool di nodi** mantenere le opzioni predefinite. Nella parte inferiore della schermata fare clic su **Successivo: Autenticazione**.
     > [!CAUTION]
-    > Quando si creano nuove entità servizio AAD, queste potrebbero propagarsi e diventare disponibili dopo diversi minuti, causando errori di entità servizio non trovata e di convalida nel portale di Azure. Se si raggiunge questo problema, vedere [risolvere i problemi comuni del servizio Kubernetes di Azure](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) per la mitigazione.
+    > La creazione di una nuova identità del cluster può richiedere più minuti per propagarsi e diventare disponibile, causando errori di convalida e non trovati nell'entità servizio in portale di Azure. Se si raggiunge questo problema, vedere [risolvere i problemi comuni del servizio Kubernetes di Azure](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) per la mitigazione.
 
 5. Nella pagina **Autenticazione** configurare le opzioni seguenti:
-    - Creare una nuova entità servizio lasciando il campo **Entità servizio** impostato su **(novità) entità servizio predefinita**. In alternativa, si può scegliere *Configura entità servizio* per usarne una esistente. Se si usa un'entità servizio esistente, è necessario specificarne l'ID client e il segreto.
+    - Creare una nuova identità del cluster lasciando il campo **Authentication** con l' **identità gestita System-Assinged**. In alternativa, è possibile scegliere l' **entità servizio** per l'uso di un'entità servizio. Selezionare *(nuovo) entità servizio predefinita* per creare un'entità servizio predefinita o *configurare un'entità servizio* per utilizzarne una esistente. Se si usa un'entità servizio esistente, è necessario specificarne l'ID client e il segreto.
     - Abilitare l'opzione per il controllo degli accessi in base al ruolo di Kubernetes, per ottenere un controllo più capillare sull'accesso alle risorse Kubernetes distribuite nel cluster del servizio Azure Kubernetes.
-
-    In alternativa è possibile usare un'identità gestita anziché un'entità servizio. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
 
 Per impostazione predefinita, viene usata la rete di livello *Basic* e Monitoraggio di Azure per i contenitori è abilitato. Una volta completata la convalida, selezionare **Rivedi e crea** e quindi **Crea**.
 

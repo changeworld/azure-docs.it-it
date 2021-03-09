@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 889c25fd1402c4438ff648afce64905de112c8db
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: d8a6fd458cdcf79cdeb693b25acf72d4ec48def7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215545"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507518"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Usare l'archiviazione BLOB di Azure per la conversione dei modelli
 
@@ -65,7 +65,7 @@ Per iniziare a convertire un modello, è necessario caricarlo, usando una delle 
 
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) : una comoda interfaccia utente per caricare, scaricare e gestire i file nell'archivio BLOB di Azure
 - [Riga di comando di Azure](../../../storage/blobs/storage-quickstart-blobs-cli.md)
-- [Modulo di Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Modulo di Azure PowerShell](/powershell/azure/install-az-ps)
   - vedere gli [script di PowerShell di esempio](../../samples/powershell-example-scripts.md)
 - [Uso di un SDK di archiviazione (Python, C#...)](../../../storage/index.yml)
 - [Uso delle API REST di archiviazione di Azure](/rest/api/storageservices/blob-service-rest-api)

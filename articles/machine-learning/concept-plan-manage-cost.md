@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: be8b11b6ddf715e5d6226372e8d03b42dec5fc7d
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 6f4a8e4b8cbc35dca9f48bbec84e9023e82f6a84
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215987"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501636"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Pianificare e gestire i costi per Azure Machine Learning
 
@@ -121,7 +121,7 @@ I cluster AmlCompute sono progettati per la scalabilità dinamica in base al car
 + Se si esegue una sperimentazione meno iterativa, ridurre questo tempo per risparmiare sui costi.
 + Se si esegue una sperimentazione di sviluppo/test altamente iterativa, potrebbe essere necessario aumentare il tempo in modo che non si paghi per la scalabilità costante verso l'alto e verso il basso dopo ogni modifica apportata allo script o all'ambiente di training.
 
-I cluster AmlCompute possono essere configurati per i requisiti di carico di lavoro modificabili in portale di Azure, usando la [classe AMLCOMPUTE SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py), l'interfaccia della riga di comando di [AmlCompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), con le [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+I cluster AmlCompute possono essere configurati per i requisiti di carico di lavoro modificabili in portale di Azure, usando la [classe AMLCOMPUTE SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute), l'interfaccia della riga di comando di [AmlCompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), con le [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300

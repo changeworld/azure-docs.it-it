@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: philmea
-ms.openlocfilehash: 832147fd06dbc7439500b911efbbde6d9b1d81fd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a870b72d1dda04ab29dbb5f056873d47f888b837
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123063"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501368"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gestire IoT Central da Azure PowerShell
 
@@ -28,10 +28,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+
 Se si preferisce eseguire Azure PowerShell nel computer locale, vedere [Install the Azure PowerShell module](/powershell/azure/install-az-ps) (Installare il modulo Azure PowerShell). Quando si esegue Azure PowerShell in locale, usare il cmdlet **Connect-AzAccount** per accedere ad Azure prima di eseguire i cmdlet illustrati in questo articolo.
 
 > [!TIP]
-> Se è necessario eseguire i comandi di PowerShell in una sottoscrizione di Azure diversa, vedere [modificare la sottoscrizione attiva](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription).
+> Se è necessario eseguire i comandi di PowerShell in una sottoscrizione di Azure diversa, vedere [modificare la sottoscrizione attiva](/powershell/azure/manage-subscriptions-azureps#change-the-active-subscription).
 
 ## <a name="install-the-iot-central-module"></a>Installare il modulo IoT Central
 
@@ -70,7 +72,7 @@ Lo script crea prima un gruppo di risorse nell'area Stati Uniti orientali per l'
 |Parametro         |Descrizione |
 |------------------|------------|
 |ResourceGroupName |Gruppo di risorse che contiene l'applicazione. Questo gruppo di risorse deve già esistere nella sottoscrizione. |
-|Location |Per impostazione predefinita, questo cmdlet usa la località definita per il gruppo di risorse. Attualmente, è possibile creare un'applicazione IoT Central in **Australia**, **Asia Pacifico**, **Europa**, **Stati Uniti**, **Regno Unito**e geografia del **Giappone** . |
+|Location |Per impostazione predefinita, questo cmdlet usa la località definita per il gruppo di risorse. Attualmente, è possibile creare un'applicazione IoT Central in **Australia**, **Asia Pacifico**, **Europa**, **Stati Uniti**, **Regno Unito** e geografia del **Giappone** . |
 |Nome              |Nome dell'applicazione nel portale di Azure. |
 |Sottodominio         |Sottodominio nell'URL dell'applicazione. In questo esempio l'URL dell'applicazione è `https://mysubdomain.azureiotcentral.com`. |
 |Sku               |Attualmente, è possibile usare **ST1** o **ST2**. Vedere [Prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |

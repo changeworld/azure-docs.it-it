@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: 3c73d1652d4fdaa34fa65e7186298bafc0a905a9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: f8a852a8c4197169061a9c7633f4f363ad057337
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453241"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505801"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Risolvere i problemi relativi al mapping dei flussi di dati in Azure Data Factory
 
@@ -245,3 +245,4 @@ Per ulteriori informazioni sulla risoluzione dei problemi, vedere le risorse seg
 *  [Video di Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Forum Stack Overflow per Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informazioni su Twitter su Data Factory](https://twitter.com/hashtag/DataFactory)
+

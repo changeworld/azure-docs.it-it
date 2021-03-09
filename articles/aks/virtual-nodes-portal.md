@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4c67d3608d2128385c273425ea495a02fa5a8c45
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 06a3e7263b2e03cfc37f7ba3c733e07536b5d473
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180905"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501805"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali nel portale di Azure
 
@@ -64,7 +64,7 @@ Nella pagina **Ridimensiona** selezionare *Abilitato* in **Nodi virtuali**.
 
 ![Creare un cluster del servizio Azure Kubernetes e abilitare i nodi virtuali](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
-Per impostazione predefinita viene creata un'entità servizio di Azure Active Directory. Questa entità servizio viene usata per le comunicazioni e l'integrazione del cluster con altri servizi di Azure. In alternativa, è possibile usare un'identità gestita per le autorizzazioni anziché un'entità servizio. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
+Per impostazione predefinita, viene creata un'identità del cluster. Questa identità del cluster viene usata per la comunicazione del cluster e l'integrazione con altri servizi di Azure. Per impostazione predefinita, questa identità del cluster è un'identità gestita. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md). È anche possibile usare un'entità servizio come identità del cluster.
 
 Il cluster è configurato anche per le funzionalità di rete avanzate. I nodi virtuali sono configurati per l'uso della relativa subnet di rete virtuale di Azure. La subnet include autorizzazioni delegate per la connessione delle risorse di Azure nel cluster del servizio Azure Kubernetes. Se non è già presente una subnet delegata, il portale di Azure crea e configura la rete virtuale di Azure e la subnet per l'uso dei nodi virtuali.
 

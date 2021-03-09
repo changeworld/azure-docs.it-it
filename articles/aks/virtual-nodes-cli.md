@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: af8403f80f7282207ee1bc6b2f81da0d83d264e0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d1021352f3555f49b165eed60214e11b1a8d07d9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180939"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508181"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -86,7 +86,7 @@ az network vnet subnet create \
 
 ## <a name="create-a-service-principal-or-use-a-managed-identity"></a>Creare un'entità servizio o usare un'identità gestita
 
-Per consentire a un cluster servizio Azure Kubernetes di interagire con altre risorse di Azure viene usata un'entità servizio di Azure Active Directory. Questa entità servizio può essere creata automaticamente dall'interfaccia della riga di comando di Azure o dal portale di Azure oppure è possibile crearne una in anticipo e assegnarle autorizzazioni aggiuntive. In alternativa, è possibile usare un'identità gestita per le autorizzazioni anziché un'entità servizio. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
+Per consentire a un cluster AKS di interagire con altre risorse di Azure, viene usata un'identità del cluster. Questa identità del cluster può essere creata automaticamente dall'interfaccia della riga di comando di Azure o dal portale oppure è possibile crearne una prima e assegnare autorizzazioni aggiuntive. Per impostazione predefinita, questa identità del cluster è un'identità gestita. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md). È anche possibile usare un'entità servizio come identità del cluster. I passaggi seguenti illustrano come creare e assegnare manualmente l'entità servizio al cluster.
 
 Creare un'entità servizio usando il comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Il parametro `--skip-assignment` limita l'assegnazione di autorizzazioni aggiuntive.
 

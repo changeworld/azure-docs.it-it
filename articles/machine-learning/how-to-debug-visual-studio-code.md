@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: e572f1f6a9452ccab9deddb62a5e219a81df5d47
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 783b5afdaef369582614cde3525f7968fdb5e567
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739995"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508640"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Debug interattivo con Visual Studio Code
 
@@ -339,7 +339,7 @@ Salvare il `ip_address` valore. Verranno usate nella sezione successiva.
 In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del codice Python contenuto nella distribuzione del modello. Ad esempio, se lo script di immissione ha esito negativo e il motivo non può essere determinato da una registrazione aggiuntiva. Usando VS Code e debugpy, è possibile connettersi al codice in esecuzione all'interno del contenitore docker.
 
 > [!IMPORTANT]
-> Questo metodo di debug non funziona quando si usano `Model.deploy()` e `LocalWebservice.deploy_configuration` per distribuire un modello localmente. Al contrario, è necessario creare un'immagine usando il metodo [Model.package()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
+> Questo metodo di debug non funziona quando si usano `Model.deploy()` e `LocalWebservice.deploy_configuration` per distribuire un modello localmente. Al contrario, è necessario creare un'immagine usando il metodo [Model.package()](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-).
 
 Per le distribuzioni di servizi Web locali è necessaria un'installazione Docker funzionante nel sistema locale. Per altre informazioni sull'uso di Docker, vedere la [Documentazione di Docker](https://docs.docker.com/). Si noti che quando si lavora con le istanze di calcolo, Docker è già installato.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 850b590ae8aeab822367714fb9a56661306c2387
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 318afced85f3cca0a450d77f8be7b2a1d6c388ed
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518692"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504934"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurare le destinazioni di calcolo per il training e la distribuzione dei modelli
 
@@ -43,7 +43,7 @@ Per usare le destinazioni di calcolo gestite da Azure Machine Learning, vedere:
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
-* Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
+* Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -60,7 +60,7 @@ Con Azure Machine Learning è possibile eseguire il training del modello in un'a
 
 Quando si usa il computer locale per il **Training**, non è necessario creare una destinazione di calcolo.  È sufficiente [inviare l'esecuzione del training](how-to-set-up-training-targets.md) dal computer locale.
 
-Quando si usa il computer locale per l' **inferenza**, è necessario che Docker sia installato. Per eseguire la distribuzione, utilizzare [LocalWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-port-none-) per definire la porta che il servizio Web utilizzerà. Usare quindi il normale processo di distribuzione come descritto in [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
+Quando si usa il computer locale per l' **inferenza**, è necessario che Docker sia installato. Per eseguire la distribuzione, utilizzare [LocalWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) per definire la porta che il servizio Web utilizzerà. Usare quindi il normale processo di distribuzione come descritto in [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Macchine virtuali remote
 
@@ -325,7 +325,7 @@ Per un esempio più dettagliato, vedere un [notebook di esempio](https://aka.ms/
 > Non creare più allegati simultanei nello stesso Anna dall'area di lavoro. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
 
 > [!TIP]
-> Le pipeline di Azure Machine Learning possono funzionare solo con i dati archiviati nell'archivio dati predefinito dell'account Data Lake Analytics. Se i dati che è necessario utilizzare si trova in un archivio non predefinito, è possibile utilizzare un oggetto [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?preserve-view=true&view=azure-ml-py) per copiare i dati prima del training.
+> Le pipeline di Azure Machine Learning possono funzionare solo con i dati archiviati nell'archivio dati predefinito dell'account Data Lake Analytics. Se i dati che è necessario utilizzare si trova in un archivio non predefinito, è possibile utilizzare un oggetto [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep) per copiare i dati prima del training.
 
 ## <a name="azure-container-instance"></a><a id="aci"></a>Istanza di contenitore di Azure
 

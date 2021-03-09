@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7f2353d9e87c35f01a9fd514df7cfb090a98bf27
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 6502728a14ea825fadfde107e61f235db5619ae0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442945"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507280"
 ---
 # <a name="import-new-update"></a>Importa nuovo aggiornamento
 Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dispositivo per l'hub Internet. Se non è già stato fatto, assicurarsi di acquisire familiarità con i concetti di base dell' [importazione](import-concepts.md).
@@ -57,8 +57,8 @@ Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dis
 
     | Parametro | Descrizione |
     | --------- | ----------- |
-    | deviceManufacturer | Produttore del dispositivo con cui è compatibile l'aggiornamento, ad esempio contoso
-    | deviceModel | Modello del dispositivo con cui è compatibile l'aggiornamento, ad esempio, tostapane
+    | deviceManufacturer | Produttore del dispositivo con cui è compatibile l'aggiornamento, ad esempio contoso. Deve corrispondere alla [proprietà del dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) del _produttore_
+    | deviceModel | Modello del dispositivo con cui è compatibile l'aggiornamento, ad esempio, tostapane. Deve corrispondere alla [proprietà del dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) _modello_
     | updateProvider | Entità che sta creando o direttamente responsabile dell'aggiornamento. Si tratta spesso di un nome della società.
     | aggiornaname | Identificatore di una classe di aggiornamenti. La classe può essere qualsiasi cosa scelta. Si tratta spesso di un nome di dispositivo o modello.
     | updateVersion | Numero di versione che distingue questo aggiornamento da altri che hanno lo stesso provider e lo stesso nome. È possibile che non corrisponda a una versione di un singolo componente software nel dispositivo.
