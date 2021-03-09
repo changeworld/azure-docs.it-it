@@ -4,12 +4,12 @@ description: La creazione del cluster non è riuscita a causa di domini di error
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/09/2019
-ms.openlocfilehash: 3f7d866d1c9b8c8437bc0f84acca47e0b8631895
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ed9e98750a469f78855096c3149254cf92c2788f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98939052"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501346"
 ---
 # <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>Scenario: la creazione del cluster non è riuscita a causa di `not sufficient fault domains in region` in Azure HDInsight
 
@@ -23,7 +23,7 @@ Viene visualizzato un messaggio di errore simile a `not sufficient fault domains
 
 Un dominio di errore è un raggruppamento logico dell'hardware sottostante in un data center di Azure. Ogni dominio di errore condivide una fonte di alimentazione e un commutatore di rete comuni. Le macchine virtuali e i dischi gestiti che implementano i nodi in un cluster HDInsight sono distribuiti tra i domini di errore. Questa architettura limita il potenziale impatto dei guasti dell'hardware fisico.
 
-Ogni area di Azure include un numero specifico di domini di errore. Per un elenco di domini e per il numero di domini di errore che contengono, vedere la documentazione relativa ai [set di disponibilità](../../virtual-machines/manage-availability.md).
+Ogni area di Azure include un numero specifico di domini di errore. Per un elenco di domini e per il numero di domini di errore che contengono, vedere la documentazione relativa ai [set di disponibilità](../../virtual-machines/availability.md).
 
 In HDInsight è necessario eseguire il provisioning dei cluster Kafka in un'area con almeno tre domini di errore.
 

@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 22b22cf364f4422c358fc71db74465b839ddae45
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: f88b6bd79e1004c108ef868f910a4e5a974cc08a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454969"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508538"
 ---
 # <a name="advanced-entry-script-authoring"></a>Creazione avanzata di script di immissione
 
@@ -291,7 +291,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-Quando si registra un modello, è necessario specificare un nome di modello utilizzato per la gestione del modello nel registro di sistema. Usare questo nome con il metodo [Model.get_model_path ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) per recuperare il percorso del file del modello o dei file nel file system locale. Se si registra una cartella o una raccolta di file, questa API restituisce il percorso della directory che contiene tali file.
+Quando si registra un modello, è necessario specificare un nome di modello utilizzato per la gestione del modello nel registro di sistema. Usare questo nome con il metodo [Model.get_model_path ()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) per recuperare il percorso del file del modello o dei file nel file system locale. Se si registra una cartella o una raccolta di file, questa API restituisce il percorso della directory che contiene tali file.
 
 Quando si registra un modello, è necessario assegnargli un nome. Il nome corrisponde alla posizione in cui viene inserito il modello, localmente o durante la distribuzione del servizio.
 

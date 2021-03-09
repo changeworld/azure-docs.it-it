@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a452a056ff2bdbad5d2e461716ee1a56d36c8523
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 3ebff5a40528e9e3ea0e75c4b51529638de34b5d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897561"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505767"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Domande frequenti su servizi multimediali V3
 
@@ -25,6 +25,14 @@ ms.locfileid: "98897561"
 Questo articolo fornisce le risposte alle domande frequenti su servizi multimediali di Azure V3.
 
 ## <a name="general"></a>Generale
+
+### <a name="does-media-services-store-any-customer-data-outside-of-the-service-region"></a>Servizi multimediali archivia i dati dei clienti all'esterno dell'area del servizio?
+
+- I clienti alleghino i propri account di archiviazione all'account di servizi multimediali di Azure.  Tutti i dati di asset vengono archiviati in questi account di archiviazione associati e il cliente controlla il percorso e il tipo di replica dell'archiviazione.
+- I dati aggiuntivi associati all'account di servizi multimediali, incluse le chiavi di crittografia del contenuto, le chiavi di verifica del token, gli URL JobInputHttp e altri metadati dell'entità, vengono archiviati nell'archivio di proprietà di Microsoft all'interno dell'area selezionata per l'account di servizi multimediali.
+    - A causa dei [requisiti di residenza dei dati](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brasile meridionale e Asia sudorientale, i dati dell'account aggiuntivi vengono archiviati in una modalità con ridondanza della zona ed è contenuto in una singola area. Per l'Asia sudorientale, tutti i dati dell'account aggiuntivi vengono archiviati a Singapore e per il Brasile meridionale, i dati vengono archiviati in Brasile.
+    - In aree diverse dall'Asia meridionale e sudorientale, i dati dell'account aggiuntivi possono anche essere archiviati nell'archiviazione di proprietà di Microsoft nell' [area abbinata](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+- Servizi multimediali di Azure è un servizio a livello di area e non fornisce la [disponibilità elevata](media-services-high-availability-encoding.md) o la replica dei dati. I clienti che necessitano di queste funzionalità sono vivamente invitati a creare una soluzione usando gli account di servizi multimediali in più aree.  Un esempio che illustra come creare una soluzione per la disponibilità elevata con il video di servizi multimediali su richiesta è disponibile come guida.
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Quali sono le limitazioni portale di Azure per Media Services V3?
 

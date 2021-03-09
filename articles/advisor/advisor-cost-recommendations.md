@@ -3,12 +3,12 @@ title: Ridurre i costi del servizio con Azure Advisor
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 767c82c818535304552c1c98ff50a252acc0d08a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 346b790c6970abc8670661e1ec180662957af47d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458509"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503375"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Ridurre i costi del servizio usando Azure Advisor
 
@@ -21,7 +21,7 @@ Sebbene in alcuni scenari applicativi possa verificarsi un utilizzo ridotto lega
 Le azioni consigliate vengono arrestate o ridimensionate, specifiche della risorsa valutata.
 
 Il modello di valutazione avanzata in Advisor considera la chiusura di macchine virtuali quando tutte queste istruzioni sono vere: 
-- P95th del valore massimo del valore massimo di utilizzo della CPU è inferiore al 3%. 
+- P95th del valore massimo di utilizzo della CPU è inferiore al 3%. 
 - L'utilizzo della rete è inferiore al 2% per un periodo di sette giorni.
 - Il numero di richieste di memoria è inferiore ai valori soglia
 

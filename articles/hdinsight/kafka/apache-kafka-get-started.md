@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 9bb981b5a1d6ecb9e0c20748983a36ef3acfa001
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 102bb1a7bf1bd3cb799d52ce13045e01a2a34297
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932902"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505257"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Avvio rapido: Creare cluster Apache Kafka in HDInsight di Azure usando il portale di Azure
 
@@ -58,7 +58,7 @@ Per creare un cluster Apache Kafka in HDInsight seguire questa procedura:
 
     Ogni area (posizione) di Azure fornisce _domini di errore_. Un dominio di errore è un raggruppamento logico dell'hardware sottostante in un data center di Azure. Ogni dominio di errore condivide una fonte di alimentazione e un commutatore di rete comuni. Le macchine virtuali e i dischi gestiti che implementano i nodi in un cluster HDInsight sono distribuiti tra i domini di errore. Questa architettura limita il potenziale impatto dei guasti dell'hardware fisico.
 
-    Per la disponibilità elevata dei dati, selezionare una posizione (area) contenente __tre domini di errore__. Per informazioni sul numero di domini di errore in un'area, vedere il documento [Disponibilità delle macchine virtuali Linux](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+    Per la disponibilità elevata dei dati, selezionare una posizione (area) contenente __tre domini di errore__. Per informazioni sul numero di domini di errore in un'area, vedere il documento [Disponibilità delle macchine virtuali Linux](../../virtual-machines/availability.md).
 
     Fare clic sul pulsante **Avanti: Archiviazione>>** per passare alle impostazioni di archiviazione.
 
@@ -215,7 +215,7 @@ Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è pos
         
         * Nelle aree con tre domini di errore, il fattore di replica 3 consente di distribuire le repliche tra i domini di errore. Nelle aree con due domini di errore, il fattore di replica 4 distribuisce le repliche uniformemente tra i domini.
         
-        * Per informazioni sul numero di domini di errore in un'area, vedere il documento [Disponibilità delle macchine virtuali Linux](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+        * Per informazioni sul numero di domini di errore in un'area, vedere il documento [Disponibilità delle macchine virtuali Linux](../../virtual-machines/availability.md).
 
         * Apache Kafka non rileva i domini di errore di Azure. Quando si creano le repliche di partizione per gli argomenti, è possibile che le repliche non vengano distribuite in modo corretto per la disponibilità elevata.
 

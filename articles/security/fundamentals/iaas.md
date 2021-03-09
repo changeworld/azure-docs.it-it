@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: e7e8d51b8227acd033c95583d6e61d78a56d62a3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6f073777930b4d026d826d2c3586e0886f906206
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590286"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503080"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 Questo articolo descrive le procedure consigliate per la sicurezza delle macchine virtuali e dei sistemi operativi.
@@ -63,7 +63,7 @@ Gli amministratori e i coamministratori della sottoscrizione possono modificare 
 Le organizzazioni che controllano l'accesso alle VM e la loro configurazione migliorano la sicurezza complessiva delle VM.
 
 ## <a name="use-multiple-vms-for-better-availability"></a>Usare più VM per una maggiore disponibilità
-Se la VM esegue applicazioni critiche che richiedono un'elevata disponibilità, è consigliabile usare più VM. Per una migliore disponibilità, usare un [set di disponibilità](../../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) o le [zone](../../availability-zones/az-overview.md)di disponibilità.
+Se la VM esegue applicazioni critiche che richiedono un'elevata disponibilità, è consigliabile usare più VM. Per una migliore disponibilità, usare un [set di disponibilità](../../virtual-machines/availability-set-overview.md) o le [zone](../../availability-zones/az-overview.md)di disponibilità.
 
 Un set di disponibilità è un raggruppamento logico che è possibile usare in Azure per garantire che le risorse delle macchine virtuali inserite dall'utente siano isolate tra loro quando vengono distribuite all'interno di un data center di Azure. Azure garantisce che le macchine virtuali inserite all'interno di un set di disponibilità vengano eseguite tra più server fisici, rack di calcolo, unità di archiviazione e commutatori di rete. In caso di guasto hardware o errore software in Azure, viene interessato solo un subset delle macchine virtuali. L'applicazione nel suo complesso rimarrà disponibile per i clienti. I set di disponibilità sono una funzionalità essenziale da sfruttare quando si vogliono creare soluzioni cloud affidabili.
 

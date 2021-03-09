@@ -1,18 +1,18 @@
 ---
-title: 'Guida introduttiva: Creare Apache Kafka con Azure PowerShell - HDInsight'
+title: 'Guida introduttiva: creare Apache Kafka con Azure PowerShell-HDInsight'
 description: Questa guida di avvio rapido illustra come creare un cluster Apache Kafka in Azure HDInsight tramite Azure PowerShell. Illustra inoltre gli argomenti, i sottoscrittori e i consumer di Kafka.
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 74fa512711dfb9226fcc88d949f5ddfeb0f9812b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f993ffa8d0d141d04ad399c5d1d4f0fc28cc82ac
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942630"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505138"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Guida introduttiva: Creare cluster Apache Kafka in Azure HDInsight usando PowerShell
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Guida introduttiva: creare cluster Apache Kafka in Azure HDInsight usando PowerShell
 
 [Apache Kafka](https://kafka.apache.org/) è una piattaforma di streaming open source distribuita. Viene spesso usata come broker di messaggi perché offre funzionalità simili a una coda messaggi di pubblicazione/sottoscrizione. 
 
@@ -247,7 +247,7 @@ Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è pos
         
         Nelle aree con tre domini di errore, il fattore di replica 3 consente di distribuire le repliche tra i domini di errore. Nelle aree con due domini di errore, il fattore di replica 4 distribuisce le repliche uniformemente tra i domini.
         
-        Per informazioni sul numero di domini di errore in un'area, vedere il documento [Disponibilità delle macchine virtuali Linux](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+        Per informazioni sul numero di domini di errore in un'area, vedere il documento [Disponibilità delle macchine virtuali Linux](../../virtual-machines/availability.md).
 
         Kafka non rileva i domini di errore di Azure. Quando si creano le repliche di partizione per gli argomenti, è possibile che le repliche non vengano distribuite in modo corretto per la disponibilità elevata.
 

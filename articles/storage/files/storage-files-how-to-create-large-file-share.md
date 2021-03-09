@@ -8,12 +8,12 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 118c08c8ede369eecd86fe8e6db24473b67ff306
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: c22b3f3164cbb7c1a7ed150d093f77777c7b1023
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214440"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501295"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Abilitare e creare condivisioni file di grandi dimensioni
 
@@ -23,7 +23,7 @@ Quando si abilitano condivisioni file di grandi dimensioni nell'account di archi
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](/cli/azure/install-azure-cli).
-- Se si intende usare il modulo Azure PowerShell, [installare la versione più recente](/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Se si intende usare il modulo Azure PowerShell, [installare la versione più recente](/powershell/azure/install-az-ps).
 
 ## <a name="restrictions"></a>Restrizioni
 
@@ -76,7 +76,7 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Installare prima [di tutto la versione più recente di PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0) in modo da poter abilitare le condivisioni file di grandi dimensioni.
+Installare prima [di tutto la versione più recente di PowerShell](/powershell/azure/install-az-ps) in modo da poter abilitare le condivisioni file di grandi dimensioni.
 
 Per creare un account di archiviazione con condivisioni file di grandi dimensioni abilitata, usare il comando seguente. Sostituire `<yourStorageAccountName>` , `<yourResourceGroup>` e `<yourDesiredRegion>` con le informazioni.
 

@@ -1,28 +1,23 @@
 ---
-title: 'Esercitazione: Disponibilità elevata per le macchine virtuali Linux in Azure'
+title: Distribuire le macchine virtuali in un set di disponibilità usando l'interfaccia della riga di comando
 description: In questa esercitazione si apprenderà come usare l'interfaccia della riga di comando di Azure per distribuire macchine virtuali a disponibilità elevata nei set di disponibilità
 documentationcenter: ''
-services: virtual-machines-linux
-author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.topic: tutorial
-ms.date: 01/17/2020
-ms.author: cynthn
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4b3817bd33c72ce6d1c3426aa8379101c84f5bc5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
-ms.translationtype: HT
+services: virtual-machines
+author: mimckitt
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 6a54e0d808ef734a26a0fa309bd7367e73316856
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961511"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507066"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Esercitazione: Creare e distribuire macchine virtuali a disponibilità elevata con l'interfaccia della riga di comando di Azure
+# <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Creare e distribuire macchine virtuali in un set di disponibilità usando l'interfaccia della riga di comando di Azure
 
 In questa esercitazione si apprenderà come aumentare la disponibilità e l'affidabilità delle soluzioni delle proprie macchine virtuali in Azure tramite una funzionalità denominata set di disponibilità. I set di disponibilità assicurano che le macchine virtuali distribuite in Azure vengano distribuite tra più cluster hardware isolati. Questa operazione assicura che, se si verifica un errore hardware o software all'interno di Azure, solo un subset delle macchine virtuali viene interessato e che nel complesso la soluzione rimane disponibile e operativa.
 
@@ -36,13 +31,6 @@ In questa esercitazione verranno illustrate le procedure per:
 Questa esercitazione usa l'interfaccia della riga di comando all'interno di [Azure Cloud Shell](../../cloud-shell/overview.md), che viene costantemente aggiornato alla versione più recente. Per aprire Cloud Shell, selezionare **Prova** nella parte superiore di qualsiasi blocco di codice.
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
-
-## <a name="overview"></a>Panoramica
-
-Un set di disponibilità è una funzionalità di raggruppamento logico che è possibile usare in Azure per garantire che le risorse delle macchine virtuali al suo interno siano isolate le une dalle altre quando vengono distribuite in un data center di Azure. Azure garantisce che le macchine virtuali inserite all'interno di un set di disponibilità vengano eseguite tra più server fisici, rack di calcolo, unità di archiviazione e commutatori di rete. In caso di guasto hardware o errore software in Azure, viene interessato solo un subset delle macchine virtuali. L'applicazione nel suo complesso rimarrà attiva e disponibile per i clienti. I set di disponibilità sono una funzionalità essenziale da sfruttare quando si vogliono creare soluzioni cloud affidabili.
-
-Si consideri una soluzione tipica basata su macchine virtuali, in cui sono disponibili quattro server Web front-end e vengono usate due macchine virtuali di back-end che ospitano un database. Con Azure è possibile definire due set di disponibilità prima di distribuire le macchine virtuali: un set di disponibilità per il livello "Web" e un set di disponibilità per il livello "database". Quando si crea una nuova macchina virtuale, è quindi possibile specificare il set di disponibilità come parametro per il comando az vm create. Azure garantisce automaticamente che le macchine virtuali create all'interno del set di disponibilità vengano isolate tramite installazione in più risorse hardware fisiche. Se l'hardware fisico in cui è in esecuzione una delle macchine virtuali dei server di database o dei server Web presenta un problema, le altre istanze delle macchine virtuali dei server Web e di database rimangono in esecuzione, perché si trovano all'interno di risorse hardware diverse.
-
 
 ## <a name="create-an-availability-set"></a>Creare un set di disponibilità
 
@@ -116,5 +104,5 @@ Passare all'esercitazione successiva per informazioni sui set di scalabilità di
 > [Creare un set di scalabilità di macchine virtuali](tutorial-create-vmss.md)
 
 * Per altre informazioni sulle zone di disponibilità, vedere la [documentazione delle zone di disponibilità](../../availability-zones/az-overview.md).
-* Altre informazioni sui set di disponibilità e sulle zone di disponibilità sono disponibili [qui](../manage-availability.md).
+* Altre informazioni sui set di disponibilità e sulle zone di disponibilità sono disponibili [qui](../availability.md).
 * Per provare le zone di disponibilità, vedere [Creare una macchina virtuale Linux in una zona di disponibilità con l'interfaccia della riga di comando di Azure](./create-cli-availability-zone.md)

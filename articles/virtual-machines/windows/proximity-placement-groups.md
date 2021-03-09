@@ -1,22 +1,22 @@
 ---
-title: 'PowerShell: usare i gruppi di posizionamento di prossimità'
+title: Creare un gruppo di posizionamento di prossimità usando Azure PowerShell
 description: Informazioni sulla creazione e l'uso di gruppi di posizionamento di prossimità con Azure PowerShell.
 services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/27/2020
+ms.date: 3/8/2021
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 742ce6e9937fbe0f67e61b7b96b1289030e7e148
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 26921b3d102032cb36f47c3be7a79c2b596a1d0c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677206"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503675"
 ---
-# <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Distribuire macchine virtuali in gruppi di posizionamento di prossimità usando PowerShell
+# <a name="deploy-vms-to-proximity-placement-groups-using-azure-powershell"></a>Distribuire macchine virtuali in gruppi di posizionamento vicini usando Azure PowerShell
 
 
 Per ottenere le macchine virtuali il più vicino possibile, ottenendo la latenza più bassa possibile, è consigliabile distribuirle all'interno di un [gruppo di posizionamento di prossimità](../co-location.md#proximity-placement-groups).

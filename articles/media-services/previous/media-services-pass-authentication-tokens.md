@@ -4,7 +4,7 @@ description: Informazioni su come inviare i token di autenticazione dal client a
 services: media-services
 keywords: protezione del contenuto, Digital Rights Management, autenticazione del token
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
@@ -13,15 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+ms.date: 03/08/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 498e6d9e38468b126dbe10e0d0f59f54f1816ff0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9007672f9a3e505578459f63a185c8751051ce0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261040"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507960"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Informazioni sul passaggio dei token al servizio di distribuzione delle chiavi di Servizi multimediali di Azure da parte dei client
 
@@ -55,8 +55,6 @@ Questa opzione è utilizzata esclusivamente per l'acquisizione della licenza Pla
     </CustomData>
     ```
     Inserire il token di autenticazione nell'elemento Token.
-
-- Tramite una playlist HTTP Live Streaming (HLS) alternativa. Se è necessario configurare l'autenticazione del token per AES + HLS la riproduzione su iOS/Safari, non esiste un modo per l'invio diretto nel token. Per ulteriori informazioni, vedere il [post di blog](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) su come alternare la playlist per abilitare questo scenario.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,14 +3,18 @@ title: Modello di dati per gli eventi di diagnostica di backup di Azure
 description: Questo modello di dati è in riferimento alla modalità specifica della risorsa di invio di eventi di diagnostica a Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0d75af6d2b41aad0b5f821dd1f6409b30f7ca531
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173976"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499595"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modello di dati per gli eventi di diagnostica di backup di Azure
+
+> [!NOTE]
+>
+> Per la creazione di visualizzazioni di report personalizzate, si consiglia di usare le [funzioni di sistema nei log di monitoraggio di Azure](backup-reports-system-functions.md) invece di usare le tabelle non elaborate elencate di seguito.
 
 ## <a name="coreazurebackup"></a>CoreAzureBackup
 
@@ -55,7 +59,7 @@ Questa tabella fornisce informazioni sulle entità di backup di base, ad esempio
 | ResourceGroupName                 | Testo          | Gruppo di risorse della risorsa (ad esempio, l'insieme di credenziali di servizi di ripristino) per i dati raccolti |
 | schemaVersion                     | Testo          | Questo campo indica la versione corrente dello schema. È **v2** |
 | SecondaryBackupProtectionState    | Text          | Indica se la protezione secondaria è abilitata per l'elemento di backup  |
-| Stato                             | Testo          | Stato dell'oggetto elemento di backup. Ad esempio Active o Deleted |
+| State                             | Testo          | Stato dell'oggetto elemento di backup. Ad esempio Active o Deleted |
 | StorageReplicationType            | Testo          | Tipo di replica di archiviazione per l'insieme di credenziali. Ad esempio, georidondante |
 | SubscriptionId                    | Text          | Identificatore della sottoscrizione della risorsa, ad esempio l'insieme di credenziali di servizi di ripristino, per cui vengono raccolti i dati |
 | VaultName                         | Text          | Nome dell'insieme di credenziali                                            |
@@ -88,7 +92,7 @@ Questa tabella offre dettagli sui campi relativi agli avvisi.
 | ProtectedContainerUniqueId     | Testo          | Identificatore univoco del server protetto associato all'avviso |
 | RecommendedAction              | Text          | Azione consigliata per risolvere l'avviso                      |
 | schemaVersion                  | Text          | Versione corrente dello schema, ad esempio **V2**            |
-| Stato                          | Text          | Stato corrente dell'oggetto avviso, ad esempio Active o Deleted |
+| State                          | Text          | Stato corrente dell'oggetto avviso, ad esempio Active o Deleted |
 | StorageUniqueId                | Text          | ID univoco usato per identificare l'entità di archiviazione                |
 | VaultUniqueId                  | Testo          | ID univoco usato per identificare l'insieme di credenziali correlato all'avviso    |
 | SourceSystem                   | Text          | Sistema di origine dei dati correnti - Azure                    |
@@ -108,7 +112,7 @@ Questa tabella illustra i campi di base correlati alle istanze protette.
 | ProtectedContainerUniqueId     | Testo          | ID univoco per identificare il contenitore protetto in cui viene eseguito il processo |
 | ProtectedInstanceCount         | Testo          | Conteggio delle istanze protette per l'elemento di backup associato o il contenitore protetto in tale data e ora |
 | schemaVersion                  | Text          | Versione corrente dello schema, ad esempio **V2**            |
-| Stato                          | Testo          | Stato dell'oggetto elemento di backup, ad esempio Active, Deleted |
+| State                          | Testo          | Stato dell'oggetto elemento di backup, ad esempio Active, Deleted |
 | VaultUniqueId                  | Testo          | Identificatore univoco dell'insieme di credenziali protetto associato all'istanza protetta |
 | SourceSystem                   | Text          | Sistema di origine dei dati correnti - Azure                    |
 
@@ -139,7 +143,7 @@ Questa tabella offre dettagli sui campi relativi al processo.
 | RecoveryJobLocation            | Testo          | Il percorso in cui è stato archiviato il punto di ripristino da ripristinare |
 | RecoveryLocationType           | Testo          | Tipo di percorso di ripristino                                |
 | schemaVersion                  | Text          | Versione corrente dello schema, ad esempio **V2**            |
-| Stato                          | Testo          | Stato corrente dell'oggetto processo, ad esempio Active, Deleted |
+| State                          | Testo          | Stato corrente dell'oggetto processo, ad esempio Active, Deleted |
 | VaultUniqueId                  | Testo          | Identificatore univoco dell'insieme di credenziali protetto associato al processo |
 | SourceSystem                   | Text          | Sistema di origine dei dati correnti - Azure                    |
 
@@ -162,7 +166,7 @@ Questa tabella offre dettagli sui campi relativi al criterio.
 | DiffBackupDaysOfTheWeek         | Testo           | Giorni della settimana per i backup differenziali per SQL nel backup di macchine virtuali di Azure |
 | DiffBackupFormat                | Testo           | Formato per i backup differenziali per SQL nel backup di macchine virtuali di Azure   |
 | DiffBackupRetentionDuration     | Numero decimale | Durata di conservazione per i backup differenziali per SQL nel backup di macchine virtuali di Azure |
-| DiffBackupTime                  | Ora           | Tempo per i backup differenziali per SQL nel backup di macchine virtuali di Azure     |
+| DiffBackupTime                  | Tempo           | Tempo per i backup differenziali per SQL nel backup di macchine virtuali di Azure     |
 | LogBackupFrequency              | Numero decimale | Frequenza per i backup dei log per SQL                            |
 | LogBackupRetentionDuration      | Numero decimale | Durata del periodo di memorizzazione per i backup del log per SQL nel backup di macchine virtuali di Azure |
 | MonthlyRetentionDaysOfTheMonth  | Testo           | Settimane del mese in cui è configurata la conservazione mensile.  Ad esempio, First, Last |
@@ -177,7 +181,7 @@ Questa tabella offre dettagli sui campi relativi al criterio.
 | RetentionDuration               | Testo           | Durata di mantenimento dei backup configurati                    |
 | RetentionType                   | Testo           | Tipo di conservazione                                            |
 | schemaVersion                   | Testo           | Questo campo indica la versione corrente dello schema, ovvero **v2** |
-| Stato                           | Testo           | Stato corrente dell'oggetto criterio. Ad esempio, Active, Deleted |
+| State                           | Testo           | Stato corrente dell'oggetto criterio. Ad esempio, Active, Deleted |
 | SynchronisationFrequencyPerDay  | Numero intero   | Numero di volte in un giorno in cui è stato sincronizzato un backup di file per SC DPM e MAB |
 | VaultUniqueId                   | Testo           | ID univoco dell'insieme di credenziali a cui appartiene questo criterio          |
 | WeeklyRetentionDaysOfTheWeek    | Text           | Giorni della settimana selezionati per il mantenimento dati settimanale               |
@@ -207,7 +211,7 @@ Questa tabella offre dettagli sui campi relativi all'archiviazione.
 | PreferredWorkloadOnVolume      | Testo          | Carico di lavoro per il quale il volume è la risorsa di archiviazione preferita      |
 | ProtectedContainerUniqueId     | Testo          | Identificatore univoco del contenitore protetto associato all'elemento di backup |
 | schemaVersion                  | Testo          | Versione dello schema. Ad esempio, **v2**                   |
-| Stato                          | Testo          | Stato dell'oggetto elemento di backup. Ad esempio, Active, Deleted |
+| State                          | Testo          | Stato dell'oggetto elemento di backup. Ad esempio, Active, Deleted |
 | StorageAllocatedInMBs          | Number        | Dimensioni dello spazio di archiviazione allocato dall'elemento di backup corrispondente nello spazio di archiviazione corrispondente di tipo Disk |
 | StorageConsumedInMBs           | Number        | Dimensioni dello spazio di archiviazione utilizzato dall'elemento di backup corrispondente nell'archivio corrispondente |
 | StorageName                    | Testo          | Nome dell'entità di archiviazione. Ad esempio, E:\                      |
@@ -236,7 +240,7 @@ A ogni record delle tabelle precedenti è associato un **nome dell'operazione**.
 | AddonAzureBackupStorage | Archiviazione | Rappresenta un record contenente tutti i dettagli di un'entità di archiviazione specificata. Ad esempio, nome archiviazione, tipo e così via. |
 | AddonAzureBackupStorage | StorageAssociation | Rappresenta un mapping tra un elemento di backup e l'archiviazione cloud totale utilizzata dall'elemento di backup. |
 | AddonAzureBackupProtectedInstance | ProtectedInstance | Rappresenta un record contenente il numero di istanze protette per ogni contenitore o elemento di backup. Per il backup delle macchine virtuali di Azure, il numero di istanze protette è disponibile a livello di elemento di backup, per altri carichi di lavoro è disponibile a livello di contenitore protetto. |
-| AddonAzureBackupPolicy | Policy |  Rappresenta un record contenente tutti i dettagli dei criteri di backup e conservazione. Ad esempio, ID, nome, impostazioni di conservazione e così via. |
+| AddonAzureBackupPolicy | Criteri |  Rappresenta un record contenente tutti i dettagli dei criteri di backup e conservazione. Ad esempio, ID, nome, impostazioni di conservazione e così via. |
 | AddonAzureBackupPolicy | PolicyAssociation | Rappresenta un mapping tra un elemento di backup e i criteri di backup applicati. |   
 
 Spesso è necessario eseguire join tra tabelle diverse, nonché set di record diversi che fanno parte della stessa tabella, differenziati in base al nome dell'operazione, per ottenere tutti i campi necessari per l'analisi. Vedere le [query di esempio](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries) per iniziare. 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: de3d9aa60322cc3e6e189f6f16c35d6f42c0cf61
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880945"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500411"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -41,13 +41,13 @@ Ognuno di questi metodi consente l'uso di diversi tipi di risorse di calcolo per
 
 Azure Machine Learning SDK per Python consente di creare ed eseguire flussi di lavoro di Machine Learning con Azure Machine Learning. È possibile interagire con il servizio da una sessione interattiva di Python, notebook Jupyter, Visual Studio Code o altro IDE.
 
-* [Informazioni su Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
-* [Installare/aggiornare l'SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+* [Informazioni su Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/intro)
+* [Installare/aggiornare l'SDK](/python/api/overview/azure/ml/install)
 * [Configurare un ambiente di sviluppo per Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Configurazione di esecuzione
 
-È possibile definire un processo di training generico con Azure Machine Learning usando [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). Viene quindi usata la configurazione di esecuzione dello script, insieme agli script di training per eseguire il training di un modello su una destinazione di calcolo.
+È possibile definire un processo di training generico con Azure Machine Learning usando [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig). Viene quindi usata la configurazione di esecuzione dello script, insieme agli script di training per eseguire il training di un modello su una destinazione di calcolo.
 
 È possibile iniziare con una configurazione di esecuzione per il computer locale e quindi passare a una configurazione per una destinazione di calcolo basata sul cloud in base alle proprie esigenze. Modificando la destinazione di calcolo, si modifica solo la configurazione di esecuzione in uso. Un'esecuzione registra inoltre le informazioni sul processo di training, ad esempio input, output e log.
 

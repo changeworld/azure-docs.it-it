@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 70178a955fe4afcfc0c695d34e3c1466773d802d
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e6cd816858efb3487fad5ca03959abfb24e7dbe4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054077"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505495"
 ---
 # <a name="azure-blob-storage-reference"></a>Riferimento all'archivio BLOB di Azure
 
@@ -107,7 +107,7 @@ La tabella seguente contiene collegamenti alla versione più recente del contenu
 
 | Versione | Piattaforma |
 | ------- | -------- |
-|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.8.0&preserve-view=true) |
 |  3.x  | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
 |  2.x  | [PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 

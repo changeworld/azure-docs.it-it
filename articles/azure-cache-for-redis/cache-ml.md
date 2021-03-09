@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 83fc88a57a1cdbec35a8f939a81698799d290d70
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ec8943bc73cac2020350dd4916f040f031cd842b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183625"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499697"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Distribuire un modello di Machine Learning in funzioni di Azure con cache di Azure per Redis 
 
@@ -128,7 +128,7 @@ Per altre informazioni sullo script di immissione, vedere definire il codice di 
 Queste entità sono incapsulate in una __configurazione di inferenza__. La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
 
 > [!IMPORTANT]
-> Quando si crea una configurazione di inferenza da usare con funzioni di Azure, è necessario usare un oggetto [Environment](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) . Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
+> Quando si crea una configurazione di inferenza da usare con funzioni di Azure, è necessario usare un oggetto [Environment](/python/api/azureml-core/azureml.core.environment%28class%29) . Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -161,7 +161,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Creare l'immagine
 
-Per creare l'immagine Docker distribuita in funzioni di Azure, usare [azureml. contrib. Functions. Package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) o la funzione specifica del pacchetto per il trigger che si vuole usare. Il frammento di codice seguente illustra come creare un nuovo pacchetto con un trigger HTTP dal modello e dalla configurazione dell'inferenza:
+Per creare l'immagine Docker distribuita in funzioni di Azure, usare [azureml. contrib. Functions. Package](/python/api/azureml-contrib-functions/azureml.contrib.functions) o la funzione specifica del pacchetto per il trigger che si vuole usare. Il frammento di codice seguente illustra come creare un nuovo pacchetto con un trigger HTTP dal modello e dalla configurazione dell'inferenza:
 
 > [!NOTE]
 > Il frammento di codice presuppone che `model` contenga un modello registrato e che `inference_config` contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
@@ -317,5 +317,5 @@ Dopo qualche istante, il gruppo di risorse e tutte le risorse che contiene vengo
 
 * Scopri di più su [cache di Azure per Redis](./cache-overview.md)
 * Informazioni su come configurare l'app per le [funzioni](../azure-functions/functions-create-function-linux-custom-image.md) nella documentazione di funzioni.
-* [Riferimento API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
+* [Riferimento API](/python/api/azureml-contrib-functions/azureml.contrib.functions) 
 * Creare un' [app Python che usa cache di Azure per Redis](./cache-python-get-started.md)

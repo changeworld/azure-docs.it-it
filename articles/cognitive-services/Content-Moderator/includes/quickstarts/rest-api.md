@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: include
 ms.date: 12/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 4c7aa1db2c7f475025585b9d93636243ba9ae3fe
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 859c57fb6caeee730d5ba937bacf5d29a25ca173
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444714"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510787"
 ---
 Introduzione all'API REST Content Moderator di Azure. 
 
@@ -32,7 +32,7 @@ Usare l'API REST Content Moderator per:
 * Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="creare una risorsa Content Moderator"  target="_blank">creare una risorsa Content Moderator </a> nel portale di Azure per ottenere la chiave e l'endpoint. Attendere che venga distribuita e fare clic sul pulsante **Vai alla risorsa**.
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione a Content Moderator. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
-* [PowerShell versione 6.0 +](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1)o un'applicazione della riga di comando simile.
+* [PowerShell versione 6.0 +](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)o un'applicazione della riga di comando simile.
 
 
 ## <a name="moderate-text"></a>Moderare il testo

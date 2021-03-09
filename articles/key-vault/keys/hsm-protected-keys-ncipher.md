@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: 511544f81f6de887014545e3f4bbc7a4172fc91e
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: f7761cf011a3a678bb7609e1063ac6ebec90d395
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488750"
+ms.locfileid: "102499187"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importare chiavi con protezione HSM per Key Vault (nCipher)
 
@@ -63,7 +63,7 @@ Nella tabella seguente sono elencati i prerequisiti relativi alla modalità BYOK
 | Sottoscrizione di Azure |Per creare un insieme di credenziali delle chiavi di Azure, è necessaria una sottoscrizione di Azure: [Iscriversi per una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) |
 | È inoltre necessario il livello di servizio Premium dell'insieme di credenziali delle chiavi di Azure per supportare chiavi HSM protette. |Per altre informazioni su livelli di servizio e funzionalità per l'insieme di credenziali delle chiavi di Azure, vedere il sito Web relativo ai [prezzi dell'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/pricing/details/key-vault/). |
 | moduli di protezione hardware nCipher nShield, smart card e software di supporto |È necessario avere l'accesso ai moduli di protezione hardware nCipher e avere una conoscenza a livello operativo dei moduli di protezione hardware nCipher nShield. Per l'elenco dei modelli compatibili o per acquistare un modulo di protezione hardware qualora non se ne sia già in possesso, vedere [Modulo di protezione hardware nCipher nShield](https://go.ncipher.com/rs/104-QOX-775/images/nCipher_nShield_Family_Brochure.pdf?_ga=2.106120835.1607422418.1590478092-577009923.1587131206). |
-| Componenti hardware e software seguenti:<ol><li>Una workstation x64 offline con Windows 7 come versione minima del sistema operativo Windows e software nCipher nShield con versione minima 11.50.<br/><br/>Se questa workstation esegue Windows 7, è necessario [installare Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Una workstation connessa a Internet con sistema operativo Windows 7 o versione successiva e con [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) **1.1.0** o versione successiva installato.</li><li>Unità USB o un altro dispositivo di archiviazione portatile con almeno 16 MB di spazio disponibile.</li></ol> |Per motivi di sicurezza, si consiglia che la prima workstation non sia connessa a una rete. Questa indicazione tuttavia non viene applicata a livello di codice.<br/><br/>Nelle istruzioni seguenti questa workstation viene indicata come workstation disconnessa.</p></blockquote><br/>Inoltre, se la chiave del tenant è destinata a una rete di produzione, è consigliabile usare una seconda workstation separata per scaricare il set di strumenti e caricare la chiave del tenant. A scopo di test è comunque possibile usare la prima workstation.<br/><br/>Nelle istruzioni seguenti la seconda workstation viene indicata come workstation connessa a Internet.</p></blockquote><br/> |
+| Componenti hardware e software seguenti:<ol><li>Una workstation x64 offline con Windows 7 come versione minima del sistema operativo Windows e software nCipher nShield con versione minima 11.50.<br/><br/>Se questa workstation esegue Windows 7, è necessario [installare Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Una workstation connessa a Internet con sistema operativo Windows 7 o versione successiva e con [Azure PowerShell](/powershell/azure/) **1.1.0** o versione successiva installato.</li><li>Unità USB o un altro dispositivo di archiviazione portatile con almeno 16 MB di spazio disponibile.</li></ol> |Per motivi di sicurezza, si consiglia che la prima workstation non sia connessa a una rete. Questa indicazione tuttavia non viene applicata a livello di codice.<br/><br/>Nelle istruzioni seguenti questa workstation viene indicata come workstation disconnessa.</p></blockquote><br/>Inoltre, se la chiave del tenant è destinata a una rete di produzione, è consigliabile usare una seconda workstation separata per scaricare il set di strumenti e caricare la chiave del tenant. A scopo di test è comunque possibile usare la prima workstation.<br/><br/>Nelle istruzioni seguenti la seconda workstation viene indicata come workstation connessa a Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Generare e trasferire la chiave al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure
 

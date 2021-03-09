@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1ea67fa4ae925e04415fe358175c1dea3b0f03e3
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 545331fdea56aef3d7b9dac8062d4fc2d6891254
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428797"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501568"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless in Azure Synapse Analytics
 
@@ -104,7 +104,7 @@ Per accedere all'account di archiviazione protetto da firewall tramite l'identit
 
 Seguire questa procedura per configurare il firewall dell'account di archiviazione e aggiungere un'eccezione per l'area di lavoro di Synapse.
 
-1. Aprire o [installare PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
+1. Aprire o [installare PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows)
 2. Installare il modulo AZ. Storage 3.4.0 e AZ. sinapsi 0.7.0: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.4.0

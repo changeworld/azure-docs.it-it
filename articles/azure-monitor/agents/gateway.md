@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 2c8b77e480f3a4f9ba342c6793a708ca6723ec34
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bae48dc78eb6973e5bce4d535091bc330c4c897f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036572"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509031"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
 
@@ -205,7 +205,7 @@ Per informazioni su come progettare e distribuire un cluster di bilanciamento de
 Per informazioni su come progettare e distribuire un Azure Load Balancer, vedere [che cos'è Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Per distribuire un servizio di bilanciamento del carico di base, seguire i passaggi illustrati in questa [Guida introduttiva](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , esclusi i passaggi descritti nella sezione **creare server back-end**.   
 
 > [!NOTE]
-> Per configurare la Azure Load Balancer usando lo **SKU Basic**, è necessario che le macchine virtuali di Azure appartengano a un set di disponibilità. Per altre informazioni sui set di disponibilità, vedere [gestire la disponibilità delle macchine virtuali Windows in Azure](../../virtual-machines/manage-availability.md). Per aggiungere macchine virtuali esistenti a un set di disponibilità, fare riferimento a [imposta Azure Resource Manager set di disponibilità della macchina](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)virtuale.
+> Per configurare la Azure Load Balancer usando lo **SKU Basic**, è necessario che le macchine virtuali di Azure appartengano a un set di disponibilità. Per altre informazioni sui set di disponibilità, vedere [gestire la disponibilità delle macchine virtuali Windows in Azure](../../virtual-machines/availability.md). Per aggiungere macchine virtuali esistenti a un set di disponibilità, fare riferimento a [imposta Azure Resource Manager set di disponibilità della macchina](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)virtuale.
 > 
 
 Dopo aver creato il servizio di bilanciamento del carico, è necessario creare un pool back-end che distribuisce il traffico a uno o più server gateway. Seguire i passaggi descritti nella sezione dell'articolo introduttivo [creare risorse per il servizio di bilanciamento del carico](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  

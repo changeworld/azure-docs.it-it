@@ -586,6 +586,8 @@
           href: control-flow-system-variables.md
         - name: Impostazione dei parametri per i flussi di dati di mapping
           href: parameters-data-flow.md
+        - name: Come parametrizzare
+          href: how-to-expression-language-functions.md
     - name: Sicurezza
       items:
         - name: Considerazioni relative alla sicurezza per lo spostamento dei dati

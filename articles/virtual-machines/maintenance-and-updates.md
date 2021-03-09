@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 3cf126caaaa0c518574418aca194ebd82cc4d6b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 51df72e31acaadc83f4c094b99fa938377e5f023
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972068"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500003"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenzione per macchine virtuali in Azure
 
@@ -23,7 +23,7 @@ Gli aggiornamenti influiscono raramente sulle macchine virtuali ospitate. Nel ca
 - Se l'aggiornamento non richiede il riavvio, durante l'aggiornamento dell'host la macchina virtuale viene sospesa o migrata in tempo reale su un host già aggiornato. 
 - Se un intervento di manutenzione richiede il riavvio, si riceve una notifica relativa alla manutenzione pianificata. Azure offre anche una finestra temporale in cui avviare la manutenzione manualmente, in un momento opportuno per l'utente. La finestra di manutenzione automatica è in genere di 35 giorni, a meno che l'intervento non sia urgente. Azure investe in tecnologie che consentano di ridurre i casi in cui la manutenzione pianificata della piattaforma richiede il riavvio delle macchine virtuali. Per istruzioni sulla gestione della manutenzione pianificata, vedere Gestire gli avvisi relativi alla manutenzione pianificata usando l'[interfaccia della riga di comando](maintenance-notifications-cli.md) di Azure, [PowerShell](maintenance-notifications-powershell.md) o il [portale](maintenance-notifications-portal.md).
 
-Questa pagina descrive come Azure esegue entrambi i tipi di manutenzione. Per altre informazioni sugli eventi non pianificati (interruzioni), vedere  [Gestire la disponibilità delle macchine virtuali per Windows](./manage-availability.md) o l'articolo corrispondente per [Linux](./manage-availability.md).
+Questa pagina descrive come Azure esegue entrambi i tipi di manutenzione. Per altre informazioni sugli eventi non pianificati (interruzioni), vedere [gestire la disponibilità delle macchine virtuali per Windows](./availability.md) o l'articolo corrispondente per [Linux](./availability.md).
 
 È possibile ottenere notifiche sulla manutenzione programmata direttamente nella macchina virtuale tramite [Eventi pianificati per Windows](./windows/scheduled-events.md) o [Linux](./linux/scheduled-events.md).
 
@@ -87,7 +87,7 @@ All'interno di un set di disponibilità, le singole macchine virtuali vengono di
 
 I *set di scalabilità* delle macchine virtuali sono una risorsa di calcolo di Azure che consente di distribuire e gestire un set di macchine virtuali identiche come una singola risorsa. Il set di scalabilità viene distribuito automaticamente nei domini di aggiornamento, ad esempio le macchine virtuali in un set di disponibilità. Come con i set di disponibilità, anche con i set di scalabilità viene aggiornato un solo dominio di aggiornamento per volta durante la manutenzione pianificata.
 
-Per altre informazioni sulla configurazione delle macchine virtuali per la disponibilità elevata, vedere  [Gestire la disponibilità delle macchine virtuali per Windows](./manage-availability.md) o l'articolo corrispondente per [Linux](./manage-availability.md).
+Per altre informazioni sulla configurazione delle macchine virtuali per la disponibilità elevata, vedere [gestire la disponibilità delle macchine virtuali per Windows](./availability.md) o l'articolo corrispondente per [Linux](./availability.md).
 
 #### <a name="availability-zones"></a>Zone di disponibilità
 

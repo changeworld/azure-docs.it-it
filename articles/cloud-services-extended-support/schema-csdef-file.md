@@ -8,12 +8,12 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: ab85067184ebe5b34097a3c81aa521d509ae4b9a
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d9bf1b54f1bfeebacbb406a50c8496817857204c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744603"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507569"
 ---
 # <a name="azure-cloud-services-extended-support-definition-schema-csdef-file"></a>Schema di definizione di servizi cloud di Azure (supporto esteso) (file csdef)
 
@@ -68,8 +68,8 @@ La tabella seguente descrive gli attributi dell'elemento `ServiceDefinition`.
 | name                    |Obbligatorio. Il nome del servizio. Il nome deve essere univoco all'interno dell'account del servizio.|
 | topologyChangeDiscovery | facoltativo. Specifica il tipo di notifica di modifica della topologia. I valori possibili sono:<br /><br /> -   `Blast` - Invia l'aggiornamento appena possibile a tutte le istanze del ruolo. Se si sceglie l'opzione, il ruolo deve essere in grado di gestire l'aggiornamento della topologia senza necessità di riavvio.<br />-   `UpgradeDomainWalk` - Invia l'aggiornamento a ogni istanza del ruolo in modo sequenziale dopo che l'istanza precedente ha accettato correttamente l'aggiornamento.|
 | schemaVersion           | facoltativo. Specifica la versione dello schema di definizione del servizio. La versione dello schema consente a Visual Studio di selezionare gli strumenti SDK corretti da usare per la convalida dello schema se più di una versione dell'SDK è installata side-by-side.|
-| upgradeDomainCount      | facoltativo. Specifica il numero di domini di aggiornamento in cui vengono allocati i ruoli nel servizio. Le istanze del ruolo vengono allocate a un dominio di aggiornamento quando viene distribuito il servizio. Per altre informazioni, vedere [aggiornare un ruolo o una distribuzione del servizio cloud](sample-update-cloud-service.md) e [gestire la disponibilità delle macchine virtuali](../virtual-machines/manage-availability.md) è possibile specificare fino a 20 domini di aggiornamento. Il numero predefinito di domini di aggiornamento è 5.|
+| upgradeDomainCount      | facoltativo. Specifica il numero di domini di aggiornamento in cui vengono allocati i ruoli nel servizio. Le istanze del ruolo vengono allocate a un dominio di aggiornamento quando viene distribuito il servizio. Per altre informazioni, vedere [aggiornare un ruolo o una distribuzione del servizio cloud](sample-update-cloud-service.md) e [gestire la disponibilità delle macchine virtuali](../virtual-machines/availability.md) è possibile specificare fino a 20 domini di aggiornamento. Il numero predefinito di domini di aggiornamento è 5.|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Schema di configurazione di servizi cloud di Azure (supporto esteso) (file cscfg)](schema-cscfg-file.md).

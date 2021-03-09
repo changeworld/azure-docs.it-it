@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 2b45bd2e2b9ad971891cbcb944286f40b4f66883
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 43d3da49688a7daeb3ea4e0c1c3dba505dcd3b59
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216955"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508334"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Aggiungere o rimuovere interfacce di rete da macchine virtuali
 
@@ -143,7 +143,7 @@ Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificar
 
 - È possibile controllare l'interfaccia di rete a cui si invia il traffico in uscita. Tuttavia, per impostazione predefinita, una macchina virtuale Invia tutto il traffico in uscita all'indirizzo IP assegnato alla configurazione IP primaria dell'interfaccia di rete primaria.
 
-- In passato, tutte le macchine virtuali nello stesso set di disponibilità dovevano avere una o più interfacce di rete. Ora possono esistere macchine virtuali con un numero qualsiasi di interfacce di rete nello stesso set di disponibilità, fino al numero supportato dalla dimensione della macchina virtuale. Una macchina virtuale può essere aggiunta a un set di disponibilità solo in fase di creazione. Per altre informazioni sui set di disponibilità, vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure](../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+- In passato, tutte le macchine virtuali nello stesso set di disponibilità dovevano avere una o più interfacce di rete. Ora possono esistere macchine virtuali con un numero qualsiasi di interfacce di rete nello stesso set di disponibilità, fino al numero supportato dalla dimensione della macchina virtuale. Una macchina virtuale può essere aggiunta a un set di disponibilità solo in fase di creazione. Per altre informazioni sui set di disponibilità, vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure](../virtual-machines/availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 - È possibile connettere le interfacce di rete nella stessa macchina virtuale a subnet diverse all'interno di una rete virtuale. Tuttavia, le interfacce di rete devono essere tutte connesse alla stessa rete virtuale.
 

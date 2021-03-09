@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 080666c9857c1a3dc509ca980bc85b1dc11b5975
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: ff67ac4be32142848a12185199d63db5a14e6c34
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214287"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501856"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Ripristini automatici delle istanze per i set di scalabilità di macchine virtuali di Azure
 
@@ -278,7 +278,7 @@ az vmss set-orchestration-service-state \
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Usare il cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) con il parametro *InstanceView* per visualizzare il *ServiceState* per le riparazioni automatiche dell'istanza.
+Usare il cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) con il parametro *InstanceView* per visualizzare il *ServiceState* per le riparazioni automatiche dell'istanza.
 
 ```azurepowershell-interactive
 Get-AzVmss `

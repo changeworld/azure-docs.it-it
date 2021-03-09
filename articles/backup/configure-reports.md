@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710618"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509370"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -22,8 +22,8 @@ Oggi Backup di Azure offre una soluzione per la creazione di report che usa i [l
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
-- I report di Backup sono supportati per Macchine virtuali di Azure, SQL in Macchine virtuali di Azure, SAP HANA in Macchine virtuali di Azure, l'agente di Servizi di ripristino di Microsoft Azure (MARS), il server di Backup di Microsoft Azure e System Center Data Protection Manager (DPM). Per il backup di condivisioni file di Azure, vengono visualizzati i dati per tutti i record creati il 1 ° giugno 2020.
-- Per il backup di condivisioni file di Azure, i dati nelle istanze protette non sono attualmente visualizzati nei report (il valore predefinito è zero per tutti gli elementi di backup).
+- I report di Backup sono supportati per Macchine virtuali di Azure, SQL in Macchine virtuali di Azure, SAP HANA in Macchine virtuali di Azure, l'agente di Servizi di ripristino di Microsoft Azure (MARS), il server di Backup di Microsoft Azure e System Center Data Protection Manager (DPM). Per il backup di condivisioni file di Azure, vengono visualizzati i dati per i record creati il 1 ° giugno 2020.
+- Per il backup di condivisioni file di Azure, vengono visualizzati i dati nelle istanze protette per i record creati dopo il 1 ° febbraio 2021 (il valore predefinito è zero per i record meno recenti).
 - Per i carichi di lavoro DPM, i report di Backup sono supportati per DPM versione 5.1.363.0 e successive e per l'agente MARS versione 2.0.9127.0 e successive.
 - Per i carichi di lavoro del server di Backup di Microsoft Azure, i report di Backup sono supportati per il server di Backup di Microsoft Azure versione 13.0.415.0 e successive e per l'agente MARS versione 2.0.9170.0 e successive.
 - I report di Backup possono essere visualizzati per tutti gli elementi di backup, gli insiemi di credenziali, le sottoscrizioni e le aree, purché i relativi dati vengano inviati a un'area di lavoro Log Analytics a cui l'utente può accedere. Per visualizzare i report relativi a un set di insiemi di credenziali, è sufficiente avere accesso in lettura all'area di lavoro Log Analytics a cui gli insiemi di credenziali inviano i dati. Non è necessario avere accesso ai singoli insiemi di credenziali.
@@ -142,17 +142,31 @@ Il filtro del **tipo di gestione di backup** nella parte superiore della scheda 
 
 ###### <a name="policy-adherence"></a>Conformità dei criteri
 
-Utilizzando questa scheda è possibile stabilire se per tutte le istanze di backup è stato eseguito almeno un backup di ogni giorno. È possibile visualizzare la conformità dei criteri in base al periodo di tempo o all'istanza di backup.
+Utilizzando questa scheda è possibile stabilire se per tutte le istanze di backup è stato eseguito almeno un backup di ogni giorno. Per gli elementi con criteri di backup settimanali, è possibile utilizzare questa scheda per determinare se per tutte le istanze di backup è stato eseguito almeno un backup a settimana.
+
+Sono disponibili due tipi di visualizzazioni di conformità dei criteri:
+
+* **Conformità dei criteri in base al periodo di tempo**: utilizzando questa visualizzazione, è possibile identificare il numero di elementi con almeno un backup riuscito in un determinato giorno e il numero di backup non riusciti in quel giorno. È possibile fare clic su una riga per visualizzare i dettagli di tutti i processi di backup che sono stati attivati nel giorno selezionato. Si noti che se si aumenta l'intervallo di tempo a un valore maggiore, ad esempio gli ultimi 60 giorni, viene eseguito il rendering della griglia nella visualizzazione settimanale e viene visualizzato il conteggio di tutti gli elementi per i quali è stato eseguito almeno un backup completato ogni giorno della settimana specificata. Analogamente, è disponibile una visualizzazione mensile per intervalli di tempo maggiori.
+
+Nel caso di elementi sottoposti a backup settimanale, questa griglia consente di identificare tutti gli elementi per i quali è stato eseguito almeno un backup nella settimana specificata. Per un intervallo di tempo maggiore, ad esempio gli ultimi 120 giorni, viene eseguito il rendering della griglia nella visualizzazione mensile e viene visualizzato il conteggio di tutti gli elementi per i quali è stato eseguito almeno un backup completato in ogni settimana del mese specificato. Per informazioni dettagliate sulle visualizzazioni giornaliere, settimanali e mensili, vedere [convenzioni usate nei report di backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) .
+
+![Conformità dei criteri per periodo di tempo](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
+
+* **Conformità dei criteri per istanza di backup**: utilizzando questa visualizzazione, è possibile rispettare i criteri di conformità a livello di istanza di backup. Una cella che è verde indica che l'istanza di backup ha almeno un backup completato nel giorno specificato. Una cella rossa indica che l'istanza di backup non ha ancora eseguito un backup corretto nel giorno specificato. Le aggregazioni giornaliere, settimanali e mensili seguono lo stesso comportamento dell'aderenza ai criteri in base alla visualizzazione del periodo di tempo. È possibile fare clic su una riga qualsiasi per visualizzare tutti i processi di backup nell'istanza di backup specificata nell'intervallo di tempo selezionato.
+
+![Conformità dei criteri per istanza di backup](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
 
 ###### <a name="email-azure-backup-reports"></a>Inviare i report di backup di Azure
 
 Utilizzando la funzionalità **report di posta elettronica** disponibile nei report di backup, è possibile creare attività automatizzate per ricevere report periodici tramite posta elettronica. Questa funzionalità funziona distribuendo un'app per la logica nell'ambiente Azure che esegue query sui dati dalle aree di lavoro selezionate della Log Analytics (LA), in base agli input forniti.
 
-Una volta creata l'app per la logica, è necessario autorizzare le connessioni ai log di monitoraggio di Azure e a Office 365. A tale scopo, passare a **app** per la logica nella portale di Azure e cercare il nome dell'attività creata. Selezionando la voce di menu **connessioni API** si apre l'elenco delle connessioni API che è necessario autorizzare.
+Una volta creata l'app per la logica, è necessario autorizzare le connessioni ai log di monitoraggio di Azure e a Office 365. A tale scopo, passare a **app** per la logica nella portale di Azure e cercare il nome dell'attività creata. Selezionando la voce di menu **connessioni API** si apre l'elenco delle connessioni API che è necessario autorizzare. [Altre informazioni su come configurare i messaggi di posta elettronica e risolvere i problemi](backup-reports-email.md).
 
 ###### <a name="customize-azure-backup-reports"></a>Personalizzare i report di backup di Azure
 
-I report di backup usano funzioni nei log di monitoraggio di Azure. Queste funzioni operano sui dati nelle tabelle di backup di Azure non elaborate in LA e restituiscono dati formattati che consentono di recuperare facilmente le informazioni di tutte le entità correlate al backup, usando query semplici.
+I report di backup usano [funzioni di sistema nei log di monitoraggio di Azure](backup-reports-system-functions.md). Queste funzioni operano sui dati nelle tabelle di backup di Azure non elaborate in LA e restituiscono dati formattati che consentono di recuperare facilmente le informazioni di tutte le entità correlate al backup, usando query semplici. 
+
+Per creare cartelle di lavoro di creazione di report personalizzate utilizzando i report di backup come base, è possibile passare a report di backup, fare clic su **modifica** nella parte superiore del report e visualizzare/modificare le query utilizzate nei report. Per ulteriori informazioni su come creare report personalizzati, fare riferimento alla [documentazione di cartelle di lavoro di Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) . 
 
 ## <a name="export-to-excel"></a>Eseguire l'esportazione in Excel
 
@@ -175,6 +189,8 @@ Se si usa [Azure Lighthouse](../lighthouse/index.yml) con accesso delegato alle 
 - Il report mostra i dettagli dei processi (a parte i processi di log) *attivati* nell'intervallo di tempo selezionato.
 - I valori visualizzati per **Archiviazione cloud** e **Istanze protette** sono alla *fine* dell'intervallo di tempo selezionato.
 - Gli elementi di backup visualizzati nei report sono gli elementi presenti alla *fine* dell'intervallo di tempo selezionato. Gli elementi di backup eliminati durante l'intervallo di tempo selezionato non vengono visualizzati. La stessa convenzione è valida anche per i criteri di backup.
+- Se l'intervallo di tempo selezionato si estende su un periodo di 30 giorni di minore, viene eseguito il rendering dei grafici nella visualizzazione giornaliera, in cui è presente un punto dati per ogni giorno. Se l'intervallo di tempo si estende su un punto maggiore di 30 giorni e minore o uguale a 90 giorni, viene eseguito il rendering dei grafici nella visualizzazione settimanale. Per intervalli di tempo maggiori, il rendering dei grafici viene eseguito in visualizzazione mensile. L'aggregazione dei dati settimanali o mensili aiuta a migliorare le prestazioni delle query e a semplificare la leggibilità dei dati nei grafici.
+- Le griglie di conformità dei criteri seguono anche una logica di aggregazione simile, come descritto in precedenza. Tuttavia, esistono alcune differenze minime. La prima differenza è che, per gli elementi con criteri di backup settimanali, non è disponibile alcuna visualizzazione giornaliera (sono disponibili solo visualizzazioni settimanali e mensili). Inoltre, nelle griglie per gli elementi con criteri di backup settimanali, un'month ' viene considerato come periodo di 4 settimane (28 giorni) e non per 30 giorni, per eliminare le settimane parziali dalla considerazione.
 
 ## <a name="query-load-times"></a>Tempi di caricamento delle query
 

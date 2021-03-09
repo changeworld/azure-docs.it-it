@@ -1,22 +1,22 @@
 ---
-title: Creare una VM Windows in zone con la portale di Azure
+title: Creare una VM con zone con la portale di Azure
 description: Creare una VM Windows in una zona di disponibilità con il portale di Azure
 documentationcenter: virtual-machines
-author: cynthn
-ms.service: virtual-machines-windows
+author: mimckitt
+ms.service: virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure
-ms.date: 03/27/2018
-ms.author: cynthn
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 339c093e5444839f9b106cd08980438a864c0474
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c7f135d4033a31f855342c172d73f51478931ab
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87828915"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501686"
 ---
-# <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Creare una macchina virtuale Windows in una zona di disponibilità con il portale di Azure
+# <a name="create-a-virtual-machine-in-an-availability-zone-using-the-azure-portal"></a>Creare una macchina virtuale in una zona di disponibilità usando il portale di Azure
 
 Questo articolo descrive come usare il portale di Azure per creare una macchina virtuale Linux in una zona di disponibilità di Azure. Una [zona di disponibilità](../../availability-zones/az-overview.md) è una zona fisicamente separata in un'area di Azure. Usare le zone di disponibilità per proteggere app e dati da un poco probabile errore o perdita di un intero data center.
 
@@ -40,7 +40,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Selezionare una dimensione di VM](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. In **Impostazioni**  >  **disponibilità elevata**selezionare una delle zone numerate dall'elenco a discesa **zona di disponibilità** , mantenere le impostazioni predefinite rimanenti e fare clic su **OK**.
+5. In **Impostazioni**  >  **disponibilità elevata** selezionare una delle zone numerate dall'elenco a discesa **zona di disponibilità** , mantenere le impostazioni predefinite rimanenti e fare clic su **OK**.
 
     ![Selezionare una zona di disponibilità](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 

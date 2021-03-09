@@ -280,28 +280,26 @@
           href: ./linux/spot-template.md
         - name: Codici di errore
           href: error-codes-spot.md
-    - name: Opzioni di acquisto
+    - name: Vantaggio Azure Hybrid
       items:
-        - name: Vantaggio Azure Hybrid
+        - name: Linux
+          href: ./linux/azure-hybrid-benefit-linux.md
+        - name: Windows
           items:
-            - name: Linux
-              href: ./linux/azure-hybrid-benefit-linux.md
-            - name: Windows
-              items:
-                - name: Usare la licenza con il vantaggio Azure Hybrid
-                  href: ./windows/hybrid-use-benefit-licensing.md
-                - name: Usare diritti di hosting multi-tenant per Windows 10
-                  href: ./windows/windows-desktop-multitenant-hosting-deployment.md
-        - name: Istanze riservate
-          items:
-            - name: Pagare in anticipo le VM
-              href: ./prepay-reserved-vm-instances.md
-            - name: Pagare in anticipo gli host dedicati
-              href: prepay-dedicated-hosts-reserved-instances.md
-            - name: Cosa sono le prenotazioni di Azure?
-              href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
-            - name: Flessibilità delle dimensioni istanza di VM
-              href: reserved-vm-instance-size-flexibility.md
+            - name: Usare la licenza con il vantaggio Azure Hybrid
+              href: ./windows/hybrid-use-benefit-licensing.md
+            - name: Usare diritti di hosting multi-tenant per Windows 10
+              href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+    - name: Istanze riservate
+      items:
+        - name: Pagare in anticipo le VM
+          href: ./prepay-reserved-vm-instances.md
+        - name: Pagare in anticipo gli host dedicati
+          href: prepay-dedicated-hosts-reserved-instances.md
+        - name: Cosa sono le prenotazioni di Azure?
+          href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
+        - name: Flessibilità delle dimensioni istanza di VM
+          href: reserved-vm-instance-size-flexibility.md
     - name: Creare macchine virtuali Linux
       items:
         - name: Distribuzioni approvate
@@ -736,7 +734,7 @@
               href: ./windows/image-builder.md
         - name: PowerShell
           href: ./windows/image-builder-powershell.md
-        - name: Sicurezza
+        - name: Security
           items:
             - name: Controlli di sicurezza in base a Criteri di Azure
               href: ./security-controls-policy-image-builder.md
@@ -783,41 +781,52 @@
           href: ./windows/build-image-with-packer.md
 - name: Disponibilità e scalabilità
   items:
-    - name: Set di scalabilità
-      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
-    - name: Disponibilità
+    - name: Panoramica
       href: availability.md
-    - name: Co-location
-      href: co-location.md
-    - name: Prestazioni di rete
-      href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
-    - name: Stati e ciclo di vita
-      href: states-lifecycle.md
-    - name: Autoscale
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-    - name: Disponibilità elevata
-      href: manage-availability.md
     - name: Set di disponibilità
       items:
-        - name: Linux
+        - name: Panoramica
+          href: availability-set-overview.md
+        - name: CLI
           href: ./linux/tutorial-availability-sets.md
-        - name: Windows
-          items:
-            - name: Creare un set di disponibilità
-              href: ./windows/tutorial-availability-sets.md
-            - name: Modificare il set di disponibilità
-              href: ./windows/change-availability-set.md
-    - name: Creare un gruppo di selezione host di prossimità
-      displayName: PPG aligned colocation co-location
+        - name: PowerShell
+          href: ./windows/tutorial-availability-sets.md
+        - name: Modificare un set di disponibilità
+          href: ./windows/change-availability-set.md
+    - name: Zone di disponibilità
       items:
+        - name: Panoramica
+          href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
+        - name: CLI
+          href: ./linux/create-cli-availability-zone.md
+        - name: PowerShell
+          href: ./windows/create-powershell-availability-zone.md
+        - name: Portale
+          href: ./windows/create-portal-availability-zone.md
+    - name: Gruppi di posizionamento di prossimità
+      items:
+        - name: Panoramica
+          href: co-location.md
         - name: CLI
           href: ./linux/proximity-placement-groups.md
-        - name: Portale
-          href: ./windows/proximity-placement-groups-portal.md
         - name: PowerShell
           href: ./windows/proximity-placement-groups.md
-    - name: Creare una macchina virtuale in una zona di disponibilità
-      href: ./linux/create-cli-availability-zone.md
+        - name: Portale
+          href: ./windows/proximity-placement-groups-portal.md
+    - name: Set di scalabilità di macchine virtuali
+      items:
+        - name: Panoramica
+          href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+        - name: Autoscale
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
+        - name: Modalità di orchestrazione
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+    - name: Informazioni sui riavvii delle VM
+      href: understand-vm-reboots.md
+    - name: Stati e ciclo di vita
+      href: states-lifecycle.md
+    - name: Aree di Azure
+      href: regions.md
 - name: Dischi
   items:
     - name: Introduzione ai dischi gestiti
@@ -1133,7 +1142,7 @@
       href: ./linux/azure-dns.md
     - name: Usare un DNS interno
       href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
-- name: Sicurezza
+- name: Security
   items:
     - name: Panoramica
       href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context

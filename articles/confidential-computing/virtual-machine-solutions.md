@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: de7eaf40271965d48dc0507e0335e6924bdfb73f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 3e55ae476becca23e6ea23fdc9c5fc7ec72b68ef
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204185"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509150"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluzioni nelle macchine virtuali di Azure
 
@@ -76,7 +76,7 @@ Seguire un'esercitazione introduttiva per distribuire una macchina virtuale dell
 
 Quando si usano le macchine virtuali in Azure, si è responsabili dell'implementazione di una soluzione a disponibilità elevata e con ripristino di emergenza per evitare i tempi di inattività. 
 
-Confidential computing di Azure non supporta al momento la ridondanza della zona tramite zone di disponibilità. Per garantire la massima disponibilità e ridondanza per l'elaborazione riservata, usare i [set di disponibilità](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). A causa delle restrizioni hardware, i set di disponibilità per le istanze di elaborazione riservata possono avere un massimo di 10 domini di aggiornamento. 
+Confidential computing di Azure non supporta al momento la ridondanza della zona tramite zone di disponibilità. Per garantire la massima disponibilità e ridondanza per l'elaborazione riservata, usare i [set di disponibilità](../virtual-machines/availability-set-overview.md). A causa delle restrizioni hardware, i set di disponibilità per le istanze di elaborazione riservata possono avere un massimo di 10 domini di aggiornamento. 
 
 ## <a name="deployment-with-azure-resource-manager-arm-template"></a>Distribuzione con il modello di Azure Resource Manager (ARM)
 

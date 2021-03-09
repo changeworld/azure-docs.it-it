@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: lajanuar
-ms.openlocfilehash: 47082bd6a441bc857022c960abe3169995074dde
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 445fdea4cb92ed8080528a41cf19ad774751b9ce
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444508"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511135"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -187,7 +187,7 @@ Questa sezione illustra come analizzare ed estrarre campi comuni dalle fatture d
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_invoice)]
 
 > [!TIP]
-> È anche possibile analizzare le immagini della fattura locale. Vedere i metodi [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true), ad esempio `begin_recognize_invoices`. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
+> È anche possibile analizzare le immagini della fattura locale. Vedere i metodi [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), ad esempio `begin_recognize_invoices`. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -335,7 +335,7 @@ Questa sezione illustra come analizzare ed estrarre i campi comuni dalle ricevut
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
 > [!TIP]
-> È anche possibile analizzare le immagini di ricezione locali. Vedere i metodi [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true), ad esempio `begin_recognize_receipts`. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
+> È anche possibile analizzare le immagini di ricezione locali. Vedere i metodi [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), ad esempio `begin_recognize_receipts`. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 ### <a name="output"></a>Output
 
@@ -368,7 +368,7 @@ In questa sezione viene illustrato come analizzare ed estrarre campi comuni da s
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
 
 > [!TIP]
-> È inoltre possibile analizzare le immagini della scheda business locale. Vedere i metodi [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true), ad esempio `begin_recognize_business_cards`. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
+> È inoltre possibile analizzare le immagini della scheda business locale. Vedere i metodi [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), ad esempio `begin_recognize_business_cards`. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 

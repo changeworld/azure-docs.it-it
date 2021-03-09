@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a8e0ddcd77c26a00cf784fb8c2372734314dc0bb
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: c39169c0531a73bd00db7de5fe393ef8c51c8c96
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250639"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509422"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio Azure Kubernetes
 
@@ -35,7 +35,7 @@ I cluster del servizio Azure Kubernetes possono usare il controllo degli accessi
 
 Creare un cluster servizio Azure Kubernetes usando [az servizio Azure Kubernetes create][]. L'esempio seguente crea un cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Questo gruppo di risorse è stato creato nell'area *eastus* durante l'[esercitazione precedente][aks-tutorial-prepare-acr]. Nell'esempio seguente non viene specificata alcuna area, di conseguenza anche il cluster del servizio Azure Kubernetes viene creato nell'area *eastus*. Per altre informazioni sui limiti delle risorse e sulla disponibilità delle aree per il servizio contenitore di Azure, vedere [quote, restrizioni per le dimensioni delle macchine virtuali e disponibilità di aree in Azure Kubernetes Service (AKS)][quotas-skus-regions] .
 
-Per consentire a un cluster del servizio Azure Kubernetes di interagire con altre risorse di Azure viene creata automaticamente un'entità servizio di Azure Active Directory dal momento che non ne è stata specificata una. A questo punto a tale entità servizio viene [concesso il diritto di eseguire il pull delle immagini ][container-registry-integration] dall'istanza di Registro Azure Container creata nell'esercitazione precedente. Per eseguire correttamente il comando, è necessario avere un **proprietario** o un ruolo di **amministratore dell'account di Azure** nella sottoscrizione di Azure.
+Per consentire a un cluster AKS di interagire con altre risorse di Azure, viene creata automaticamente un'identità del cluster, poiché non ne è stata specificata una. A questo punto, all'identità del cluster viene [concesso il diritto di eseguire il pull delle immagini][container-registry-integration] dall'istanza di Azure container Registry (ACR) creata nell'esercitazione precedente. Per eseguire correttamente il comando, è necessario avere un **proprietario** o un ruolo di **amministratore dell'account di Azure** nella sottoscrizione di Azure.
 
 ```azurecli
 az aks create \

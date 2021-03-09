@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db2715f0827203dac505fa4dc15c22bdab953010
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 7dfad71d05a882e3a3941a96e12489adb5fb3234
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120216"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500530"
 ---
 # <a name="user-profile-attributes"></a>Attributi del profilo utente
 
@@ -69,8 +69,8 @@ La tabella seguente illustra gli attributi del [tipo di risorsa utente](/graph/a
 |passwordPolicies     |string|Criteri della password. Stringa costituita da nomi di criteri diversi separati da virgola. Ad esempio, "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persisted, Output|
 |physicalDeliveryOfficeName (officeLocation)|string|Posizione dell'ufficio nel luogo di lavoro dell'utente. Lunghezza massima 128.|Sì|No|Persisted, Output|
 |postalCode      |string|Il CAP dell'indirizzo postale dell'utente. Il CAP è specifico del Paese/della regione dell'utente. Nel Stati Uniti, questo attributo contiene il CAP. Lunghezza massima 40.|Sì|No|Persisted, Output|
-|preferredLanguage    |string|Lingua preferita per l'utente. Deve seguire il codice ISO 639-1. Esempio: "en-US".|No|No|Persisted, Output|
-|refreshTokensValidFromDateTime|Datetime|Tutti i token di aggiornamento emessi prima di questa ora non sono validi; quando si usa un token di aggiornamento non valido per acquisire un nuovo token di accesso, le applicazioni riportano un errore. In tal caso, l'applicazione dovrà acquisire un nuovo token di aggiornamento effettuando una richiesta all'endpoint di autorizzazione. Di sola lettura.|No|No|Output|
+|preferredLanguage    |string|Lingua preferita per l'utente. Il formato della lingua preferita è basato su RFC 4646. Il nome è una combinazione di un codice di impostazioni cultura minuscole ISO 639 2-lettera associato al linguaggio e un codice di sottocultura in maiuscolo di una lettera ISO 3166 2 associato al paese o all'area geografica. Esempio: "en-US" o "es-ES".|No|No|Persisted, Output|
+|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|Datetime|Tutti i token di aggiornamento emessi prima di questa ora non sono validi; quando si usa un token di aggiornamento non valido per acquisire un nuovo token di accesso, le applicazioni riportano un errore. In tal caso, l'applicazione dovrà acquisire un nuovo token di aggiornamento effettuando una richiesta all'endpoint di autorizzazione. Di sola lettura.|No|No|Output|
 |signInNames ([Identità](#identities-attribute)) |string|Nome di accesso univoco dell'utente dell'account locale di qualsiasi tipo nella directory. Usare questo attributo per ottenere un utente con valore di accesso senza specificare il tipo di account locale.|No|No|Input|
 |signInNames.userName ([Identità](#identities-attribute)) |string|Nome utente univoco dell'utente dell'account locale nella directory. Usare questo attributo per creare o ottenere un utente con un nome utente di accesso specifico. Specificando questo valore solo in PersistedClaims durante l'operazione Patch, gli altri tipi di valori signInNames vengono rimossi. Per aggiungere un nuovo tipo di signInNames, è necessario salvare anche in modo permanente il valore signInNames esistente.|No|No|Input, Persisted, Output|
 |signInNames.phoneNumber ([Identità](#identities-attribute)) |string|Numero di telefono univoco dell'utente dell'account locale nella directory. Usare questo attributo per creare o ottenere un utente con un numero di telefono di accesso specifico. Se si specifica questo attributo solo in PersistedClaims durante l'operazione patch, gli altri tipi di signInNames vengono rimossi. Per aggiungere un nuovo tipo di signInNames, è necessario salvare anche in modo permanente il valore signInNames esistente.|No|No|Input, Persisted, Output|
