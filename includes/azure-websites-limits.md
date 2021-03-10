@@ -3,13 +3,13 @@ author: rothja
 ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
-ms.author: jroth
-ms.openlocfilehash: 71782661fd960cae3248005a8b90944eff9bef45
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.author: msangapu
+ms.openlocfilehash: bcbbd133c71b2917b73c200c4453ea57385fcaf1
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024318"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102532681"
 ---
 | Risorsa | Gratuito | Condiviso | Basic | Standard | Premium (v1-v3) | Isolato </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "98024318"
 | Larghezza di banda |165 MB |Illimitato, [trasferimento dei dati tariffe](https://azure.microsoft.com/pricing/details/data-transfers/) applicate |Illimitato, [trasferimento dei dati tariffe](https://azure.microsoft.com/pricing/details/data-transfers/) applicate |Illimitato, [trasferimento dei dati tariffe](https://azure.microsoft.com/pricing/details/data-transfers/) applicate |Illimitato, [trasferimento dei dati tariffe](https://azure.microsoft.com/pricing/details/data-transfers/) applicate |Illimitato, [trasferimento dei dati tariffe](https://azure.microsoft.com/pricing/details/data-transfers/) applicate |
 | Architettura dell'applicazione |32 bit |32 bit |32 bit/64 bit |32 bit/64 bit |32 bit/64 bit |32 bit/64 bit |
 | Web Socket per ogni istanza<sup>7</sup> |5 |35 |350 |Nessuna limitazione |Nessuna limitazione |Nessuna limitazione |
-| Connessioni IP | 600 | 600 | Dipende dalle dimensioni dell'istanza<sup>8</sup> | Dipende dalle dimensioni dell'istanza<sup>8</sup> | Dipende dalle dimensioni dell'istanza<sup>8</sup> | 16.000 |
+| Connessioni IP in uscita per istanza | 600 | 600 | Dipende dalle dimensioni dell'istanza<sup>8</sup> | Dipende dalle dimensioni dell'istanza<sup>8</sup> | Dipende dalle dimensioni dell'istanza<sup>8</sup> | 16.000 |
 | [Connessioni di debugger](../articles/app-service/troubleshoot-dotnet-visual-studio.md) simultanee per applicazione |1 |1 |1 |5 |5 |5 |
 | Certificati del servizio app per sottoscrizione<sup>9</sup>| Non supportate | Non supportate |10 |10 |10 |10 |
 | Domini personalizzati per applicazione</a> |0 (solo sottodominio azurewebsites.net)|500 |500 |500 |500 |500 |
