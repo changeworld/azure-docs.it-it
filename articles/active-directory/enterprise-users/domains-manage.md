@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b8867a137e38e7400da877f4c239e517cbebe05
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 47c991457925664c82baed1a47d89f77a323ff45
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859981"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561535"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
 
@@ -111,7 +111,7 @@ Se si riscontra che una o più condizioni non sono state soddisfatte, eseguire l
 Per completare la maggior parte delle attività di gestione per i nomi di dominio in Azure Active Directory, è anche possibile usare Microsoft PowerShell oppure usare l'API Microsoft Graph per eseguire attività a livello di codice.
 
 * [Uso di PowerShell per gestire i nomi di dominio in Azure AD](/powershell/module/azuread/#domains&preserve-view=true)
-* [Tipo di risorsa di dominio](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
+* [Tipo di risorsa di dominio](/graph/api/resources/domain)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

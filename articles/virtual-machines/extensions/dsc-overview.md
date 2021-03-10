@@ -1,7 +1,7 @@
 ---
 title: Panoramica di DSC (Desired State Configuration) per Azure
 description: Informazioni sull'uso del gestore dell'estensione di Microsoft Azure per PowerShell DSC (Desired State Configuration). L'articolo include prerequisiti, architettura e cmdlet.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: mgoedtel
 manager: evansma
@@ -9,20 +9,21 @@ editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 17ada83f6fa1b57f8dd72d591b6625f25e9a2388
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dcdc325633aff5ab828cb1c82f4bb2d8becee967
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955855"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560039"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
@@ -51,7 +52,7 @@ Questa guida presuppone che si abbia familiarità con i concetti seguenti:
 - **Nodo**: destinazione di una configurazione DSC. In questo documento, *node* fa sempre riferimento a una VM di Azure.
 - **Dati di configurazione**: file con estensione psd1 con i dati ambientali di una configurazione.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 L'estensione DSC di Azure usa il framework dell'agente VM di Azure per recapitare, applicare e generare report sulle configurazioni DSC in esecuzione nelle VM di Azure. L'estensione DSC accetta un documento di configurazione e un set di parametri. Se non viene fornito alcun file, uno [script di configurazione predefinito](#default-configuration-script) viene incorporato con l'estensione. Lo script di configurazione predefinito viene usato solo per l'impostazione dei metadati in [Gestione configurazione locale](/powershell/scripting/dsc/managing-nodes/metaConfig).
 

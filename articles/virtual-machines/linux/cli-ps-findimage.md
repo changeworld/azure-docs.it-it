@@ -2,16 +2,18 @@
 title: Selezionare immagini di VM Linux con l'interfaccia della riga di comando di Azure
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per determinare il server di pubblicazione, l'offerta, la SKU e la versione delle immagini di macchine virtuali del Marketplace.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: imaging
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 8954ad03bd5f539e9dcfbb4249f4e7cc1cf0bc7f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.collection: linux
+ms.openlocfilehash: efa0b91c9c0e43104f36017c3b1a1f3167190d63
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685124"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562810"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Trovare immagini di macchine virtuali Linux in Azure Marketplace con l'interfaccia della riga di comando di Azure
 

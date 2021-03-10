@@ -5,21 +5,21 @@ author: roygara
 ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 3882aae0fb1ecf330917f886555208c3937dd9a5
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b5f58b549fc9d879f6c2e5515c679d82c3ff44e4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358219"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560362"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Usare il portale di Azure per abilitare la crittografia doppia per i dischi gestiti
 
 Archiviazione su disco di Azure supporta la crittografia doppia per i dischi gestiti. Per informazioni di carattere generale sulla crittografia dei dati inattivi, oltre ad altri tipi di crittografia del disco gestito, vedere la sezione relativa alla crittografia [a doppio](disk-encryption.md#double-encryption-at-rest) inattivo dell'articolo crittografia del disco.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 1. Accedere al [portale di Azure](https://aka.ms/diskencryptionupdates).
 
@@ -61,7 +61,7 @@ Archiviazione su disco di Azure supporta la crittografia doppia per i dischi ges
     ![Screenshot dell'autorizzazione riuscita e dell'assegnazione di ruolo per l'insieme di credenziali delle chiavi.](media/virtual-machines-disks-double-encryption-at-rest-portal/disk-encryption-notification-success.png)
 
 1. Passare al disco.
-1. Selezionare **crittografia**.
+1. Selezionare **Crittografia**.
 1. Per **tipo di crittografia** selezionare **crittografia doppia con chiavi gestite dalla piattaforma e gestite dal cliente**.
 1. Selezionare il set di crittografia del disco.
 1. Selezionare **Salva**.

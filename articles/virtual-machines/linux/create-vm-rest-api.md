@@ -2,16 +2,17 @@
 title: Creare una VM Linux con l'API REST
 description: Informazioni su come creare una macchina virtuale Linux in Azure che usa l'autenticazione SSH e Managed Disks tramite l'API REST di Azure.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: b3eeaf5f343b6026e02d17e4d3bd90dba4b991c4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 519939445e67f0f993662e2faf506eb186686156
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737046"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554565"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
 
@@ -54,7 +55,7 @@ Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Com
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-| Nome                       | Obbligatoria | Type                                                                                | Descrizione  |
+| Nome                       | Obbligatoria | Tipo                                                                                | Descrizione  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | posizione                   | True     | string                                                                              | Percorso della risorsa. |
 | name                       |          | string                                                                              | Nome della macchina virtuale. |
@@ -128,7 +129,7 @@ Per un elenco completo delle definizioni disponibili nel corpo della richiesta, 
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di una macchina virtuale:
 
-| Nome        | Type                                                                              | Descrizione |
+| Nome        | Tipo                                                                              | Descrizione |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 - OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creato | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Data di creazione     |

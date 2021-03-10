@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9107ef6100a3c362eae982412d54a981851bcb42
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712513"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561399"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Esercitazione: Creare un servizio di Azure Load Balancer tra più aree usando il portale di Azure
 
@@ -200,9 +200,6 @@ In questa esercitazione:
 * È stata creata una regola di bilanciamento del carico.
 * È stato testato il servizio di bilanciamento del carico.
 
-Per altre informazioni sul bilanciamento del carico tra più aree, vedere [Servizio di bilanciamento del carico tra più aree (anteprima)](cross-region-overview.md).
-
-
-Passare all'articolo successivo per informazioni su come:
+Per ulteriori informazioni sul bilanciamento del carico tra aree, vedere:
 > [!div class="nextstepaction"]
-> [Bilanciare il carico delle macchine virtuali tra zone di disponibilità](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Bilanciamento del carico tra aree (anteprima)](cross-region-overview.md)

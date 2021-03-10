@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bba64f8c07545107d57f79ae94dab96e517815f
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: ceea2dbcf408b6b35ef7c26580278d3979244119
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900706"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551539"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificare e risolvere i problemi relativi alle licenze per un gruppo in Azure Active Directory
 
@@ -106,7 +106,7 @@ Se si usa Exchange Online, alcuni utenti dell'organizzazione potrebbero non esse
 > ```
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Per altre informazioni su questo problema, vedere [Messaggio di errore "indirizzo proxy < indirizzo > è già in uso" in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L'articolo include anche informazioni su [come connettersi a Exchange Online usando PowerShell remoto](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps).
+> Per altre informazioni su questo problema, vedere [Messaggio di errore "indirizzo proxy < indirizzo > è già in uso" in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L'articolo include anche informazioni su [come connettersi a Exchange Online usando PowerShell remoto](/powershell/exchange/connect-to-exchange-online-powershell).
 
 Dopo aver risolto i problemi di indirizzo proxy per gli utenti interessati, forzare l'elaborazione delle licenze nel gruppo per assicurarsi che ora sia possibile applicarle.
 

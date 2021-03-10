@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 49d37a5537ada260eae453bbb5f81716d42657a5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917801"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565822"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server la migrazione dell'istanza ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,6 +59,26 @@ Se sono stati risolti tutti i blocchi di migrazione identificati e si continua l
 - Le nuove funzionalità di, ad esempio Transparent Database Encryption (Transparent Database Encryption) o i gruppi di failover automatico potrebbero avere un effetto sull'utilizzo di CPU e IO.
 
 SQL Istanza gestita garantisce la disponibilità del 99,99% anche negli scenari critici, quindi il sovraccarico causato da queste funzionalità non può essere disabilitato. Per ulteriori informazioni, vedere [le cause principali che potrebbero causare diverse prestazioni in SQL Server e istanza gestita SQL di Azure](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
+
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>In-Memory OLTP (tabelle con ottimizzazione per la memoria)
+
+SQL Server fornisce In-Memory funzionalità OLTP che consente l'utilizzo di tabelle ottimizzate per la memoria, tipi di tabella ottimizzata per la memoria e moduli SQL compilati in modo nativo per l'esecuzione di carichi di lavoro con requisiti di elaborazione transazionale a bassa latenza e velocità effettiva elevata. 
+
+> [!IMPORTANT]
+> In-Memory OLTP è supportato solo nel livello di business critical in Istanza gestita SQL di Azure (e non è supportato nel livello per utilizzo generico).
+
+Se le tabelle ottimizzate per la memoria o i tipi di tabella ottimizzata per la memoria sono presenti nel SQL Server locale e si sta cercando di eseguire la migrazione ad Azure SQL Istanza gestita, è necessario effettuare una delle seguenti operazioni:
+
+- Scegliere business critical livello per il Istanza gestita SQL di Azure di destinazione che supporti In-Memory OLTP o
+- Se si vuole eseguire la migrazione a per utilizzo generico livello in Istanza gestita SQL di Azure, rimuovere le tabelle ottimizzate per la memoria, i tipi di tabella ottimizzata per la memoria e i moduli SQL compilati in modo nativo che interagiscono con gli oggetti ottimizzati per la memoria prima di migrare i database. La query T-SQL seguente può essere usata per identificare tutti gli oggetti che devono essere rimossi prima della migrazione al livello per utilizzo generico:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+Per altre informazioni sulle tecnologie in memoria, vedere [ottimizzare le prestazioni usando le tecnologie in memoria nel database SQL di Azure e in Azure sql istanza gestita](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview)
 
 ### <a name="create-a-performance-baseline"></a>Creare una baseline per le prestazioni
 

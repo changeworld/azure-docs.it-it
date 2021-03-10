@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 171e858ef06228f2bf5ef5dea662de00143a0567
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 51814ba36eec7b1f7d8b95ce80210d93b4cbec3f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441942"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564221"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 
@@ -206,7 +206,7 @@ Sincronizzazione file di Azure non supporta la deduplicazione dei dati e il clou
 - Se si abilita la deduplicazione in un volume dopo aver abilitato il cloud a livelli, il processo iniziale di ottimizzazione di Deduplicazione dati ottimizzerà i file nel volume che non sono già suddivisi in livelli. L'effetto sul cloud a livelli sarà il seguente:
     - Il criterio di spazio disponibile continuerà a suddividere i file in livelli in base allo spazio libero nel volume usando la mappa termica.
     - Il criterio di data ignorerà la suddivisione in livelli di file che altrimenti sarebbero stati idonei, a causa del processo di ottimizzazione di Deduplicazione dati che accede ai file.
-- Per i processi di ottimizzazione di Deduplicazione dati, la suddivisione nel cloud a livelli con i criteri di data verrà ritardata in base all'impostazione [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps&preserve-view=true), se il file non è già suddiviso in livelli. 
+- Per i processi di ottimizzazione di Deduplicazione dati, la suddivisione nel cloud a livelli con i criteri di data verrà ritardata in base all'impostazione [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume), se il file non è già suddiviso in livelli. 
     - Esempio: Se l'impostazione MinimumFileAgeDays è sette giorni e il criterio di data del cloud a livelli è 30 giorni, il criterio di data suddividerà i file in livelli dopo 37 giorni.
     - Nota: quando un file è suddiviso in livelli da Sincronizzazione file di Azure, il processo di ottimizzazione di Deduplicazione dati ignorerà il file.
 - Se un server che esegue Windows Server 2012 R2 con l'agente di Sincronizzazione file di Azure installato viene aggiornato a Windows Server 2016 o Windows Server 2019, è necessario eseguire i passaggi seguenti per supportare la deduplicazione dei dati e il cloud a livelli nello stesso volume:  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: bed1c8fd77e84c69571cfad7dd6b7eeb6607209f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f1bce5c0ecdab4a9c96c3f2cc0e9734247bdfd66
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808038"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566346"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Risoluzione dei problemi di distribuzione del dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
@@ -189,7 +189,7 @@ Quando si configurano le interfacce di rete per una prima distribuzione del disp
    * Se l'interfaccia è integra ma non abilitata, come stato **ifIndex** viene visualizzato **NotPresent**.
    * Se l'interfaccia non esiste, non viene visualizzata nell'elenco. L'interfaccia utente del servizio Gestione dispositivi StorSimple viene comunque visualizzata con uno stato di errore.
 
-Per altre informazioni su come usare questo cmdlet, vedere [Get-NetAdapter](/powershell/module/netadapter/get-netadapter?view=win10-ps&preserve-view=true) nella Guida di riferimento ai cmdlet di Windows PowerShell.
+Per altre informazioni su come usare questo cmdlet, vedere [Get-NetAdapter](/powershell/module/netadapter/get-netadapter) nella Guida di riferimento ai cmdlet di Windows PowerShell.
 
 Nelle sezioni seguenti vengono forniti alcuni esempi di output della `Get-NetAdapter` cmdlet.
 

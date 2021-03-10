@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 707d624c47c536e00e98910a8902772703733515
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009484"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558764"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Distribuzione senza tempi di inattività per Durable Functions
 
@@ -111,7 +111,7 @@ public static async Task<IActionResult> StatusCheck(
 }
 ```
 
-Configurare quindi il Gate di gestione temporanea in modo che attenda che non siano in esecuzione orchestrazioni. Per altre informazioni, vedere [Release Deployment Control Using Gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)
+Configurare quindi il Gate di gestione temporanea in modo che attenda che non siano in esecuzione orchestrazioni. Per altre informazioni, vedere [Release Deployment Control Using Gates](/azure/devops/pipelines/release/approvals/gates)
 
 ![Attività di controllo di distribuzione](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
 

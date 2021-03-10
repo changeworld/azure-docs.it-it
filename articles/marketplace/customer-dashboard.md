@@ -1,5 +1,5 @@
 ---
-title: Dashboard dei clienti in Microsoft Commercial Marketplace Analytics nel centro per i partner, Azure Marketplace e Microsoft AppSource
+title: Dashboard Customers in Microsoft Commercial Marketplace Analytics nel centro per i partner, in Azure Marketplace e Microsoft AppSource
 description: Informazioni su come accedere alle informazioni sui clienti, incluse le tendenze di crescita, usando il dashboard Customers in analisi del Marketplace commerciale.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: c5c50787ef3e287d164e051ece26da4e83199d47
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954278"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555636"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Dashboard dei clienti in analisi del Marketplace commerciale
 
@@ -25,7 +25,7 @@ Per accedere al dashboard Customers in Partner Center, in **Marketplace commerci
 
 ## <a name="customers-dashboard"></a>Dashboard Clienti
 
-Il dashboard Customers Visualizza i dati per i clienti che hanno acquisito le offerte. Si possono visualizzare rappresentazioni grafiche degli elementi seguenti:
+Il dashboard Customers Visualizza i dati per i clienti che hanno acquisito le offerte. È possibile visualizzare rappresentazioni grafiche degli elementi seguenti:
 
 - Tendenza dei clienti attivi e agitati
 - Tendenza alla crescita dei clienti, inclusi i clienti esistenti, nuovi e in varianza
@@ -142,28 +142,28 @@ Tenere presente quanto segue:
 
 _**Tabella 1: dizionario dei termini dati**_
 
-| Nome colonna | Nome attributo | Definizione |
-| ------------ | ------------- | ------------- |
-| ID sottoscrizione Marketplace | ID sottoscrizione Marketplace | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta del Marketplace commerciale. Per le offerte di infrastruttura, si tratta del GUID della sottoscrizione di Azure del cliente. Per le offerte SaaS, questo viene visualizzato come zeri perché gli acquisti SaaS non richiedono una sottoscrizione di Azure. |
-| DateAcquired | Date Acquired | La prima data in cui il cliente ha acquistato eventuali offerte pubblicate. |
-| DateLost | Date Lost | Ultima data in cui il cliente ha annullato l'ultima delle offerte acquistate in precedenza. |
-| Provider Name | Provider Name | Nome del provider associato alla relazione tra Microsoft e il cliente. Se il cliente è di tipo Enterprise tramite rivenditore, sarà il rivenditore. Se è coinvolto un provider di soluzioni cloud (CSP), sarà il CSP. |
-| Posta elettronica del provider | Posta elettronica del provider | Indirizzo di posta elettronica del provider associato alla relazione tra Microsoft e il cliente. Se il cliente è di tipo Enterprise tramite rivenditore, sarà il rivenditore. Se è coinvolto un provider di soluzioni cloud (CSP), sarà il CSP. |
-| FirstName | Customer First Name | Il primo nome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente. |
-| LastName | Customer Last Name | Cognome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente. |
-| Email | Customer Email | Indirizzo di posta elettronica fornito dal cliente finale. Il messaggio di posta elettronica potrebbe essere diverso dall'indirizzo di posta elettronica nella sottoscrizione di Azure di un cliente. |
-| Customer Company Name | Customer Company Name | Nome dell'azienda fornito dal cliente. Il nome può essere diverso da quello della città nella sottoscrizione di Azure di un cliente. |
-| CustomerCity | Città del cliente | Nome della città fornito dal cliente. La città potrebbe essere diversa da quella della città nella sottoscrizione di Azure di un cliente. |
-| Customer Postal Code | Customer Postal Code | Codice postale fornito dal cliente. Il codice può essere diverso dal codice postale fornito nella sottoscrizione di Azure di un cliente. |
-| CustomerCommunicationCulture | Customer Communication Language | Lingua di comunicazione preferita dal cliente. |
-| CustomerCountryRegion | Paese/Area geografica del cliente | Nome del paese o dell'area geografica specificato dal cliente. Il paese/area geografica può essere diverso da quello del paese nella sottoscrizione di Azure di un cliente. |
-| AzureLicenseType | Azure License Type | Tipo di contratto di licenza usato dai clienti per acquistare Azure. Noto anche come _canale_. I valori possibili sono:<ul><li>Provider di soluzioni cloud</li><li>Enterprise</li><li>Enterprise tramite rivenditore</li><li>Con pagamento in base al consumo</li></ul> |
-| PromotionalCustomers | Is Promotional Contact Opt In (Consenso esplicito contatti promozionali) | Indica se il cliente ha acconsentito esplicitamente ai contatti promozionali da parte degli editori. Al momento l'opzione non è presentata ai clienti, pertanto è stato indicato "No" a livello generale. Una volta distribuita questa funzionalità, l'aggiornamento verrà avviato di conseguenza. |
-| CustomerState | Customer State | Stato di residenza fornito dal cliente. Lo stato potrebbe essere diverso da quello fornito nella sottoscrizione di Azure di un cliente. |
-| CommerceRootCustomer | Cliente radice commerciale | Un ID account di fatturazione può essere associato a più ID cliente.<br>Una combinazione di ID account di fatturazione e ID cliente può essere associata a più sottoscrizioni di Marketplace commerciali.<br>Il cliente radice commerciale indica il nome del cliente della sottoscrizione. |
-| Customer Id | Customer ID | Identificatore univoco assegnato a un cliente. Un cliente può avere zero o più sottoscrizioni di Azure Marketplace. |
-| ID account di fatturazione | ID account di fatturazione | Identificatore dell'account in cui viene generata la fatturazione. Mappare l' **ID dell'account di fatturazione** a **CustomerID** per connettere il report delle transazioni di pagamento ai report relativi a clienti, ordini e utilizzo. |
-||||
+| Nome colonna in<br>interfaccia utente | Nome attributo | Definizione | Nome colonna a livello di codice<br>report di Access |
+| ------------ | ------------- | ------------- | ------------- |
+| ID sottoscrizione Marketplace | ID sottoscrizione Marketplace | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta del Marketplace commerciale. Per le offerte di infrastruttura, si tratta del GUID della sottoscrizione di Azure del cliente. Per le offerte SaaS, questo viene visualizzato come zeri perché gli acquisti SaaS non richiedono una sottoscrizione di Azure. | MarketplaceSubscriptionId |
+| DateAcquired | Date Acquired | La prima data in cui il cliente ha acquistato eventuali offerte pubblicate. | DateAcquired |
+| DateLost | Date Lost | Ultima data in cui il cliente ha annullato l'ultima delle offerte acquistate in precedenza. | DateLost |
+| Provider Name | Provider Name | Nome del provider associato alla relazione tra Microsoft e il cliente. Se il cliente è di tipo Enterprise tramite rivenditore, sarà il rivenditore. Se è coinvolto un provider di soluzioni cloud (CSP), sarà il CSP. | ProviderName |
+| Posta elettronica del provider | Posta elettronica del provider | Indirizzo di posta elettronica del provider associato alla relazione tra Microsoft e il cliente. Se il cliente è di tipo Enterprise tramite rivenditore, sarà il rivenditore. Se è coinvolto un provider di soluzioni cloud (CSP), sarà il CSP. | ProviderEmail |
+| FirstName | Customer First Name | Il primo nome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente. | FirstName |
+| LastName | Customer Last Name | Cognome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente. | LastName |
+| E-mail | Customer Email | Indirizzo di posta elettronica fornito dal cliente finale. Il messaggio di posta elettronica potrebbe essere diverso dall'indirizzo di posta elettronica nella sottoscrizione di Azure di un cliente. | E-mail |
+| Customer Company Name | Customer Company Name | Nome dell'azienda fornito dal cliente. Il nome può essere diverso da quello della città nella sottoscrizione di Azure di un cliente. | Nome CustomerCompany |
+| CustomerCity | Città del cliente | Nome della città fornito dal cliente. La città potrebbe essere diversa da quella della città nella sottoscrizione di Azure di un cliente. | CustomerCity |
+| Customer Postal Code | Customer Postal Code | Codice postale fornito dal cliente. Il codice può essere diverso dal codice postale fornito nella sottoscrizione di Azure di un cliente. | Codice CustomerPostal |
+| CustomerCommunicationCulture | Customer Communication Language | Lingua di comunicazione preferita dal cliente. | CustomerCommunicationCulture |
+| CustomerCountryRegion | Paese/Area geografica del cliente | Nome del paese o dell'area geografica specificato dal cliente. Il paese/area geografica può essere diverso da quello del paese nella sottoscrizione di Azure di un cliente. | CustomerCountryRegion |
+| AzureLicenseType | Azure License Type | Tipo di contratto di licenza usato dai clienti per acquistare Azure. Noto anche come _canale_. I valori possibili sono:<ul><li>Provider di soluzioni cloud</li><li>Enterprise</li><li>Enterprise tramite rivenditore</li><li>Con pagamento in base al consumo</li></ul> | AzureLicenseType |
+| PromotionalCustomers | Is Promotional Contact Opt In (Consenso esplicito contatti promozionali) | Indica se il cliente ha acconsentito esplicitamente ai contatti promozionali da parte degli editori. Al momento l'opzione non è presentata ai clienti, pertanto è stato indicato "No" a livello generale. Una volta distribuita questa funzionalità, l'aggiornamento verrà avviato di conseguenza. | PromotionalCustomers |
+| CustomerState | Customer State | Stato di residenza fornito dal cliente. Lo stato potrebbe essere diverso da quello fornito nella sottoscrizione di Azure di un cliente. | CustomerState |
+| CommerceRootCustomer | Cliente radice commerciale | Un ID account di fatturazione può essere associato a più ID cliente.<br>Una combinazione di ID account di fatturazione e ID cliente può essere associata a più sottoscrizioni di Marketplace commerciali.<br>Il cliente radice commerciale indica il nome del cliente della sottoscrizione. | CommerceRootCustomer |
+| Customer ID | Customer ID | Identificatore univoco assegnato a un cliente. Un cliente può avere zero o più sottoscrizioni di Azure Marketplace. | CustomerId |
+| ID account di fatturazione | ID account di fatturazione | Identificatore dell'account in cui viene generata la fatturazione. Mappare l' **ID dell'account di fatturazione** a **CustomerID** per connettere il report delle transazioni di pagamento ai report relativi a clienti, ordini e utilizzo. | BillingAccountId |
+|||||
 
 ### <a name="customers-page-filters"></a>Filtri della pagina dei clienti
 

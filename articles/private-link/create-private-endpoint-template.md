@@ -1,19 +1,19 @@
 ---
-title: Creare un endpoint privato in collegamento privato di Azure
+title: Guida introduttiva-creare un endpoint privato usando un modello ARM
 description: In questo argomento di avvio rapido si usa un modello di Azure Resource Manager per creare un endpoint privato.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: e80adc16e08e676ac2daabec01a11c10d537c547
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705810"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562946"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Avvio rapido: Creare un endpoint privato con un modello di Azure Resource Manager
 
@@ -137,4 +137,6 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su [Collegamento privato di Azure](private-link-overview.md).
+Per altre informazioni sui servizi che supportano un endpoint privato, vedere:
+> [!div class="nextstepaction"]
+> [Disponibilità del collegamento privato](private-link-overview.md#availability)

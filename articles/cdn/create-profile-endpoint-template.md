@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Creare un profilo e un endpoint - Modello di Resource Manager'
 titleSuffix: Azure Content Delivery Network
-description: Informazioni su come creare un profilo e un endpoint della rete CDN di Azure usando un modello di Resource Manager
+description: In questa Guida introduttiva viene illustrato come creare un profilo di rete per la distribuzione di contenuti di Azure ed endpoint un modello di Gestione risorse
 services: cdn
 author: asudbring
 manager: KumudD
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: b215dfff3bf62b67b89aa260b0134381de6edeae
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
-ms.translationtype: HT
+ms.openlocfilehash: a36484bea3a2bc9caadc5cf4482aae3bea84eafa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695721"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560464"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Avvio rapido: Creare un profilo e un endpoint della rete CDN di Azure - Modello di Resource Manager
 
@@ -107,7 +107,7 @@ Quando il gruppo di risorse e tutte le risorse al suo interno non sono più nece
 
 ### <a name="powershell"></a>PowerShell
 
-Quando il gruppo di risorse e tutte le risorse al suo interno non sono più necessari, usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) per rimuoverli.
+Quando il gruppo di risorse e tutte le risorse al suo interno non sono più necessari, usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuoverli.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN
@@ -126,5 +126,5 @@ In questo argomento di avvio rapido sono stati creati questi componenti:
 
 Per altre informazioni su Rete CDN di Azure e Azure Resource Manager, continuare con gli articoli seguenti.
 
-* Leggere una [panoramica di Rete CDN di Azure](cdn-overview.md)
-* Vedere altre informazioni su [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+> [!div class="nextstepaction"]
+> [Esercitazione: usare la rete CDN per gestire il contenuto statico da un'app Web](cdn-add-to-web-app.md)

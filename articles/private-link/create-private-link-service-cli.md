@@ -1,20 +1,20 @@
 ---
-title: Creazione di un servizio di collegamento privato di Azure tramite l'interfaccia della riga di comando
-description: Informazioni su come creare un servizio di collegamento privato Azure con l'interfaccia della riga di comando di Azure
+title: "Guida introduttiva: creare un servizio di collegamento privato di Azure usando l'interfaccia della riga"
+description: Questa Guida introduttiva illustra come creare un servizio di collegamento privato di Azure usando l'interfaccia della riga di comando di Azure
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-ms.openlocfilehash: 27ce0b2646b6c380e86b377d3dba287f7791794e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 76fd959c28203132be4695031d96315f258cf53f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653731"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563082"
 ---
-# <a name="create-a-private-link-service-using-azure-cli"></a>Creare un servizio di collegamento privato usando l'interfaccia della riga di comando
+# <a name="quickstart-create-a-private-link-service-using-azure-cli"></a>Guida introduttiva: creare un servizio di collegamento privato usando l'interfaccia della riga di comando
 
 Introduzione alla creazione di un servizio Collegamento privato che fa riferimento al proprio servizio.  Assegnare l'accesso con collegamento privato al servizio o alla risorsa distribuita dietro un'istanza di Azure Load Balancer Standard.  Gli utenti del servizio hanno accesso privato dalla loro rete virtuale.
 

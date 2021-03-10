@@ -10,19 +10,19 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.openlocfilehash: a8080720480beaeb7bc8692f2dcddddad5da0e3c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461378"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548462"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabelle di metadati condivisi di Azure Synapse Analytics
 
 
 Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle basate su Parquet tra i pool di Apache Spark e il pool SQL serverless.
 
-Dopo la creazione di un database tramite un processo Spark, è possibile aggiungervi tabelle create con Spark che usano Parquet come formato di archiviazione. Queste tabelle diventeranno immediatamente disponibili per l'esecuzione di query da parte di qualsiasi pool di Spark dell'area di lavoro di Azure Synapse. Possono essere usate anche da qualsiasi processo Spark che disponga delle autorizzazioni necessarie.
+Dopo la creazione di un database tramite un processo Spark, è possibile aggiungervi tabelle create con Spark che usano Parquet come formato di archiviazione. I nomi delle tabelle verranno convertiti in lettere minuscole e dovranno essere sottoposti a query usando il nome minuscolo. Queste tabelle diventeranno immediatamente disponibili per l'esecuzione di query da parte di qualsiasi pool di Spark dell'area di lavoro di Azure Synapse. Possono essere usate anche da qualsiasi processo Spark che disponga delle autorizzazioni necessarie.
 
 Le tabelle Spark create, gestite ed esterne vengono rese disponibili anche come tabelle esterne con lo stesso nome nel database sincronizzato corrispondente nel pool SQL serverless. La sezione [Esposizione di una tabella di Spark in SQL](#expose-a-spark-table-in-sql) fornisce informazioni dettagliate sulla sincronizzazione delle tabelle.
 
@@ -32,7 +32,7 @@ Poiché le tabelle vengono sincronizzate con il pool SQL serverless in modo asin
 
 Usare Spark per gestire i database creati in Spark. Ad esempio, è possibile eliminare un database tramite un processo del pool di Apache Spark serverless creare al suo interno tabelle da Spark.
 
-Se si creano oggetti in un database del pool SQL serverless o si prova a eliminare un database, l'operazione riesce, ma il database Spark originale rimarrà inalterato.
+Se si creano oggetti in tale database da un pool SQL senza server o si tenta di eliminare il database, l'operazione avrà esito negativo. Il database Spark originale non può essere modificato tramite un pool SQL senza server.
 
 ## <a name="expose-a-spark-table-in-sql"></a>Esposizione di una tabella Spark in SQL
 
@@ -101,17 +101,17 @@ In questo scenario si ha un database Spark denominato `mytestdb`. Vedere [Creare
 Creare una tabella di Spark gestita con SparkSQL eseguendo il comando seguente:
 
 ```sql
-    CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
+    CREATE TABLE mytestdb.myparquettable(id int, name string, birthdate date) USING Parquet
 ```
 
-Questo comando crea la tabella `myParquetTable` nel database `mytestdb`. Dopo una breve attesa, la tabella viene visualizzata nel pool SQL serverless. Ad esempio, eseguire l'istruzione seguente dal pool SQL serverless.
+Questo comando crea la tabella `myparquettable` nel database `mytestdb`. I nomi delle tabelle verranno convertiti in caratteri minuscoli. Dopo una breve attesa, la tabella viene visualizzata nel pool SQL serverless. Ad esempio, eseguire l'istruzione seguente dal pool SQL serverless.
 
 ```sql
     USE mytestdb;
     SELECT * FROM sys.tables;
 ```
 
-Verificare che `myParquetTable` sia incluso nei risultati.
+Verificare che `myparquettable` sia incluso nei risultati.
 
 >[!NOTE]
 >Una tabella il cui formato di archiviazione non è Parquet non verrà sincronizzata.
@@ -136,13 +136,13 @@ var schema = new StructType
     );
 
 var df = spark.CreateDataFrame(data, schema);
-df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
+df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myparquettable");
 ```
 
 È ora possibile leggere i dati dal pool SQL serverless come segue:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myparquettable WHERE name = 'Alice';
 ```
 
 Si dovrebbe ottenere la riga seguente come risultato:
@@ -160,26 +160,26 @@ In questo esempio si crea una tabella Spark esterna sui file di dati in formato 
 Ad esempio, con SparkSQL eseguire:
 
 ```sql
-CREATE TABLE mytestdb.myExternalParquetTable
+CREATE TABLE mytestdb.myexternalparquettable
     USING Parquet
     LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
 Sostituire il segnaposto `<fs>` con il nome del file system predefinito dell'area di lavoro e il segnaposto `<synapse_ws>` con il nome dell'area di lavoro di Synapse usata per eseguire questo esempio.
 
-L'esempio precedente crea la tabella `myExtneralParquetTable` nel database `mytestdb`. Dopo una breve attesa, la tabella viene visualizzata nel pool SQL serverless. Ad esempio, eseguire l'istruzione seguente dal pool SQL serverless.
+L'esempio precedente crea la tabella `myextneralparquettable` nel database `mytestdb`. Dopo una breve attesa, la tabella viene visualizzata nel pool SQL serverless. Ad esempio, eseguire l'istruzione seguente dal pool SQL serverless.
 
 ```sql
 USE mytestdb;
 SELECT * FROM sys.tables;
 ```
 
-Verificare che `myExternalParquetTable` sia incluso nei risultati.
+Verificare che `myexternalparquettable` sia incluso nei risultati.
 
 È ora possibile leggere i dati dal pool SQL serverless come segue:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myexternalparquettable WHERE name = 'Alice';
 ```
 
 Si dovrebbe ottenere la riga seguente come risultato:

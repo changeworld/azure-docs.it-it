@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1ac17c93bdf95e36f68af678d2ee38b896ef1e7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 5712448c8c5248d3c84ce43f8a41c669355f1d43
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979743"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565734"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Esercitazione: Spostare macchine virtuali tra aree
 
@@ -40,6 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 **Requisito** | **Descrizione**
 --- | ---
+**Supporto di Resource Mover** | [Esaminare](common-questions.md) le aree supportate e altre domande comuni.
 **Autorizzazioni di sottoscrizione** | Verificare di disporre dell'accesso *proprietario* per la sottoscrizione contenente le risorse che si desidera spostare<br/><br/> **Perché è necessario l'accesso del proprietario?** La prima volta che si aggiunge una risorsa per una coppia di origine e destinazione specifica in una sottoscrizione di Azure, Spostamento risorse crea un'[identità gestita assegnata dal sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (nota in precedenza come identità del servizio gestita) che viene considerata attendibile dalla sottoscrizione. Per creare l'identità e assegnarle il ruolo richiesto (Collaboratore o Amministratore Accesso utenti nella sottoscrizione di origine), l'account usato per aggiungere le risorse deve avere le autorizzazioni di *Proprietario* nella sottoscrizione. [Altre informazioni](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sui ruoli di Azure.
 **Supporto per macchine virtuali** |  Controllare che le macchine virtuali da spostare siano supportate.<br/><br/> - [Verificare](support-matrix-move-region-azure-vm.md#windows-vm-support) le VM Windows supportate.<br/><br/> - [Verificare](support-matrix-move-region-azure-vm.md#linux-vm-support) le VM Linux e le versioni del kernel supportate.<br/><br/> -Controllare le impostazioni di [calcolo](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [archiviazione](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings)e [rete](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) supportate.
 **Sottoscrizione di destinazione** | La sottoscrizione nell'area di destinazione richiede una quota sufficiente per creare le risorse che si stanno muovendo nell'area di destinazione. Se non è disponibile alcuna quota, [richiedere limiti aggiuntivi](../azure-resource-manager/management/azure-subscription-service-limits.md).

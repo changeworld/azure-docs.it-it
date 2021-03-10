@@ -1,26 +1,19 @@
 ---
-title: 'Avvio rapido: Integrare un account di archiviazione di Azure con la rete CDN di Azure'
-description: Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure per distribuire contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di BLOB da Archiviazione di Azure.
+title: 'Guida introduttiva: Integrare un account di archiviazione di Azure con la rete CDN di Azure'
+description: Questa Guida introduttiva illustra come usare la rete per la distribuzione di contenuti (CDN) di Azure per distribuire contenuto a larghezza di banda elevata tramite la memorizzazione nella cache di BLOB da archiviazione di Azure.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 7cd1c6b0b11ba291a36f49a2a9990a2755cdd74b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018614"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561926"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Guida introduttiva: Integrare un account di archiviazione di Azure con la rete CDN di Azure
 
@@ -123,9 +116,6 @@ Nei passaggi precedenti sono stati creati un profilo e un endpoint della rete CD
 3. Per eliminare l'account di archiviazione, selezionarlo dal dashboard, e quindi scegliere **Elimina** dal menu in alto.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-> [!div class="nextstepaction"]
-> [Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md)
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Usare la rete CDN per il contenuto statico del server da un'app Web](cdn-add-to-web-app.md)

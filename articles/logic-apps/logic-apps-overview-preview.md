@@ -1,28 +1,28 @@
 ---
 title: Panoramica di App per la logica di Azure (anteprima)
-description: L'anteprima di app per la logica di Azure è una soluzione cloud per la creazione di flussi di lavoro con stato e senza stato automatizzati che integrano app, dati, servizi e sistemi con codice minimo per scenari di livello aziendale.
+description: App per la logica di Azure Preview è una soluzione cloud per la creazione di flussi di lavoro automatizzati, a tenant singolo, con stato e senza stato che integrano app, dati, servizi e sistemi con codice minimo per scenari di livello aziendale.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: ad059931d87603c957e446e82b894731dca984dd
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/08/2021
+ms.openlocfilehash: d53a36d99c9a54fdfef7baceb50edb4e8f5ae4c8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442741"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561858"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Panoramica: anteprima di app per la logica di Azure
 
 > [!IMPORTANT]
 > Questa funzionalità è in anteprima pubblica, viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Con l'anteprima di app per la logica di Azure è possibile creare soluzioni di automazione e integrazione tra app, dati, servizi cloud e sistemi creando ed eseguendo app per la logica che includono flussi di lavoro con [ *stato* e senza stato](#stateful-stateless) usando il nuovo tipo di risorsa app per la **logica (anteprima)** . Con questo nuovo tipo di app per la logica è possibile creare più flussi di lavoro basati sul runtime di anteprima di app per la logica di Azure riprogettato, che offre portabilità, migliori prestazioni e flessibilità per la distribuzione e l'esecuzione in diversi ambienti host, non solo Azure, ma anche contenitori docker.
+Con l'anteprima di app per la logica di Azure puoi creare soluzioni di automazione e integrazione tra app, dati, servizi cloud e sistemi creando ed eseguendo app per la logica a tenant singolo con il nuovo tipo di risorsa app per la **logica (anteprima)** . Con questo tipo di app per la logica a tenant singolo, è in grado di compilare più flussi di lavoro con [ *stato* e senza  stato](#stateful-stateless) basati sul runtime di anteprima di app per la logica di Azure riprogettato, che offre portabilità, migliori prestazioni e flessibilità per la distribuzione e l'esecuzione in diversi ambienti host, tra cui non solo Azure, ma anche contenitori docker.
 
-Come è possibile? Il runtime riprogettato usa il [modello di estendibilità di funzioni di Azure](../azure-functions/functions-bindings-register.md) ed è ospitato come estensione nel runtime di funzioni di Azure. Questa architettura significa che è possibile eseguire il nuovo tipo di app per la logica ovunque sia in esecuzione funzioni di Azure. È possibile ospitare il runtime riprogettato in quasi tutte le topologie di rete e scegliere le dimensioni di calcolo disponibili per gestire il carico di lavoro necessario per i flussi di lavoro. Per altre informazioni, vedere [Introduzione a funzioni di Azure](../azure-functions/functions-overview.md) e [trigger e associazioni di funzioni di Azure](../azure-functions/functions-triggers-bindings.md).
+Come è possibile? Il runtime riprogettato usa il [modello di estendibilità di funzioni di Azure](../azure-functions/functions-bindings-register.md) ed è ospitato come estensione nel runtime di funzioni di Azure. Questa architettura significa che è possibile eseguire il tipo di app per la logica a tenant singolo ovunque sia in esecuzione funzioni di Azure. È possibile ospitare il runtime riprogettato in quasi tutte le topologie di rete e scegliere le dimensioni di calcolo disponibili per gestire il carico di lavoro necessario per i flussi di lavoro. Per altre informazioni, vedere [Introduzione a funzioni di Azure](../azure-functions/functions-overview.md) e [trigger e associazioni di funzioni di Azure](../azure-functions/functions-triggers-bindings.md).
 
-È possibile creare la risorsa app per la **logica (anteprima)** [avviando la portale di Azure](create-stateful-stateless-workflows-azure-portal.md) o [creando un progetto in Visual Studio Code con l'estensione app per la logica di Azure (anteprima)](create-stateful-stateless-workflows-visual-studio-code.md). Inoltre, in Visual Studio Code, è possibile compilare *ed eseguire localmente* i flussi di lavoro nell'ambiente di sviluppo. Indipendentemente dal fatto che si usi il portale o Visual Studio Code, è possibile distribuire ed eseguire il nuovo tipo di app per la logica negli stessi tipi di ambienti host.
+È possibile creare la risorsa app per la **logica (anteprima)** [avviando la portale di Azure](create-stateful-stateless-workflows-azure-portal.md) o [creando un progetto in Visual Studio Code con l'estensione app per la logica di Azure (anteprima)](create-stateful-stateless-workflows-visual-studio-code.md). Inoltre, in Visual Studio Code, è possibile compilare *ed eseguire localmente* i flussi di lavoro nell'ambiente di sviluppo. Indipendentemente dal fatto che si usi il portale o Visual Studio Code, è possibile distribuire ed eseguire il tipo di app per la logica a tenant singolo negli stessi tipi di ambienti host.
 
 In questa panoramica vengono illustrate le aree seguenti:
 
@@ -48,7 +48,7 @@ Per ulteriori informazioni, vedere gli argomenti seguenti:
 
 ## <a name="how-does-azure-logic-apps-preview-differ"></a>Differenze tra le app per la logica di Azure e l'anteprima
 
-Il runtime di anteprima di app per la logica di Azure usa l'estendibilità di [funzioni di Azure](../azure-functions/functions-overview.md) ed è ospitato come estensione nel runtime di funzioni di Azure. Questa architettura significa che è possibile eseguire il nuovo tipo di app per la logica ovunque sia in esecuzione funzioni di Azure. È possibile ospitare il runtime di anteprima di app per la logica di Azure in quasi tutte le topologie di rete desiderate e scegliere le dimensioni di calcolo disponibili per gestire il carico di lavoro necessario per il flusso di lavoro. Per altre informazioni sull'estendibilità di funzioni di Azure, vedere [Webjobs SDK: creazione di binding di input e output personalizzati](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
+Il runtime di anteprima di app per la logica di Azure usa l'estendibilità di [funzioni di Azure](../azure-functions/functions-overview.md) ed è ospitato come estensione nel runtime di funzioni di Azure. Questa architettura significa che è possibile eseguire il tipo di app per la logica a tenant singolo ovunque sia in esecuzione funzioni di Azure. È possibile ospitare il runtime di anteprima di app per la logica di Azure in quasi tutte le topologie di rete desiderate e scegliere le dimensioni di calcolo disponibili per gestire il carico di lavoro necessario per il flusso di lavoro. Per altre informazioni sull'estendibilità di funzioni di Azure, vedere [Webjobs SDK: creazione di binding di input e output personalizzati](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 Con questo nuovo approccio, il runtime di anteprima di app per la logica di Azure e i flussi di lavoro sono entrambi parte dell'app che è possibile raggruppare. Questa funzionalità consente di distribuire ed eseguire i flussi di lavoro semplicemente copiando gli artefatti nell'ambiente host e avviando l'app. Questo approccio offre inoltre un'esperienza più standardizzata per la creazione di pipeline di distribuzione per i progetti di flusso di lavoro per l'esecuzione di test e convalide necessari prima di distribuire le modifiche negli ambienti di produzione. Per altre informazioni, vedere [app per la logica di Azure in esecuzione in un ambiente di esecuzione approfondita](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
@@ -57,15 +57,17 @@ Nella tabella seguente vengono brevemente riepilogate le differenze nel modo in 
 | Ambiente | Condivisione e utilizzo delle risorse |
 |-------------|----------------------------------|
 | App per la logica di Azure (multi-tenant) | I flussi *di lavoro dei clienti in più tenant* condividono la stessa elaborazione (calcolo), archiviazione, rete e così via. |
-| App per la logica di Azure (anteprima) | I flussi *di lavoro nella stessa app per la logica* condividono la stessa elaborazione (calcolo), archiviazione, rete e così via. |
+| App per la logica di Azure (anteprima, tenant singolo) | I flussi *di lavoro nella stessa app per la logica e un singolo tenant* condividono la stessa elaborazione (calcolo), archiviazione, rete e così via. |
 | Ambiente del servizio di integrazione (non disponibile in anteprima) | I flussi di lavoro nello *stesso ambiente* condividono la stessa elaborazione (calcolo), archiviazione, rete e così via. |
 ||||
 
-Nel frattempo, è comunque possibile creare il tipo di app per la logica originale nel portale di Azure e in Visual Studio Code usando l'estensione originale app per la logica di Azure. Sebbene le esperienze di sviluppo differiscano tra i tipi di app per la logica originali e nuovi, la sottoscrizione di Azure può includere entrambi i tipi. È possibile visualizzare e accedere a tutte le app per la logica distribuite nella sottoscrizione di Azure, ma le app sono organizzate nelle rispettive categorie e sezioni.
+Nel frattempo, è comunque possibile creare il tipo di app per la logica multi-tenant nel portale di Azure e in Visual Studio Code usando l'estensione multi-tenant di app per la logica di Azure. Sebbene le esperienze di sviluppo differiscano tra i tipi di app per la logica multi-tenant e a tenant singolo, la sottoscrizione di Azure può includere entrambi i tipi. È possibile visualizzare e accedere a tutte le app per la logica distribuite nella sottoscrizione di Azure, ma le app sono organizzate nelle rispettive categorie e sezioni.
 
 <a name="stateful-stateless"></a>
 
 ## <a name="stateful-and-stateless-workflows"></a>Flussi di lavoro con stato e senza stato
+
+Con il tipo di app per la logica a tenant singolo, è possibile creare questi tipi di flusso di lavoro all'interno della stessa app per la logica:
 
 * *Con stato*
 
@@ -149,9 +151,9 @@ L'anteprima di app per la logica di Azure include molte funzionalità correnti e
 
   * [App per la logica di Azure in esecuzione ovunque e possibilità di rete con app per la logica di Azure Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
 
-* Rigenerare le chiavi di accesso per le connessioni gestite usate da singoli flussi di lavoro in una risorsa di app per la **logica (anteprima)** . Per questa attività, [seguire la stessa procedura per la risorsa app per la **logica** , ma a livello di singolo flusso di lavoro](logic-apps-securing-a-logic-app.md#regenerate-access-keys), non a livello di risorsa dell'app per la logica.
+* Rigenerare le chiavi di accesso per le connessioni gestite usate dai singoli flussi di lavoro nella risorsa app per la logica a tenant singolo **(anteprima)** . Per questa attività, [seguire la stessa procedura per la risorsa app per la **logica** multi-tenant, ma a livello di singolo flusso di lavoro](logic-apps-securing-a-logic-app.md#regenerate-access-keys), non a livello di risorsa dell'app per la logica.
 
-* Aggiungere i rami paralleli nella nuova finestra di progettazione attenendosi alla stessa procedura della finestra di progettazione non di anteprima.
+* Aggiungere rami paralleli nella finestra di progettazione a tenant singolo attenendosi alla stessa procedura della finestra di progettazione multi-tenant.
 
 Per altre informazioni, vedere la pagina relativa alle [funzionalità modificate, limitate, non disponibili e non supportate](#limited-unavailable-unsupported) e alla [pagina problemi noti dell'anteprima pubblica di app per la logica in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
@@ -159,14 +161,14 @@ Per altre informazioni, vedere la pagina relativa alle [funzionalità modificate
 
 ## <a name="pricing-model"></a>Modello di prezzi
 
-Quando si crea il nuovo tipo di app per la logica nella portale di Azure o si distribuisce da Visual Studio Code, è necessario scegliere un piano di hosting, ovvero [servizio app o Premium](../azure-functions/functions-scale.md), per l'app per la logica da usare. Questo piano determina il modello di determinazione dei prezzi applicabile all'esecuzione dell'app per la logica. Se si seleziona il piano di servizio app, è necessario anche scegliere un piano [tariffario](../app-service/overview-hosting-plans.md).
+Quando si crea il tipo di app per la logica a tenant singolo nel portale di Azure o si distribuisce da Visual Studio Code, è necessario scegliere un piano di hosting, ovvero [servizio app o Premium](../azure-functions/functions-scale.md), per l'app per la logica da usare. Questo piano determina il modello di determinazione dei prezzi applicabile all'esecuzione dell'app per la logica. Se si seleziona il piano di servizio app, è necessario anche scegliere un piano [tariffario](../app-service/overview-hosting-plans.md).
 
 I flussi di lavoro con *stato* usano l' [archiviazione esterna](../azure-functions/storage-considerations.md#storage-account-requirements), quindi i [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) si applicano alle transazioni di archiviazione eseguite dal runtime di anteprima di app per la logica di Azure Ad esempio, le code vengono utilizzate per la pianificazione, mentre le tabelle e i BLOB vengono utilizzati per l'archiviazione degli Stati del flusso di lavoro.
 
 > [!NOTE]
 > Durante l'anteprima pubblica, l'esecuzione di app per la logica nel servizio app non comporta costi *aggiuntivi* oltre il piano selezionato.
 
-Per ulteriori informazioni sui modelli di determinazione prezzi applicabili a questo nuovo tipo di risorsa, consultare gli argomenti seguenti:
+Per ulteriori informazioni sui modelli di determinazione prezzi applicabili al tipo di risorsa a tenant singolo, esaminare gli argomenti seguenti:
 
 * [Ridimensionamento e hosting di Funzioni di Azure](../azure-functions/functions-scale.md)
 * [Aumentare le prestazioni di un'app nel servizio app di Azure](../app-service/manage-scale-up.md)
@@ -202,9 +204,9 @@ Nell'anteprima di app per la logica di Azure queste funzionalità sono state mod
       Nella portale di Azure è possibile selezionare una funzione trigger HTTP a cui si ha accesso creando una connessione tramite l'esperienza utente. Se si esamina la definizione JSON dell'azione della funzione nella visualizzazione codice o nel **workflow.js** file, l'azione fa riferimento alla funzione utilizzando un `connectionName` riferimento. Questa versione astrae le informazioni della funzione come una connessione, che è possibile trovare nel file **connections.js** del progetto, disponibile dopo la creazione di una connessione.
 
       > [!NOTE]
-      > Nella versione di anteprima, l'azione funzione supporta solo l'autenticazione della stringa di query. App per la logica di Azure Preview ottiene la chiave predefinita dalla funzione quando si effettua la connessione, archivia tale chiave nelle impostazioni dell'app e usa la chiave per l'autenticazione quando si chiama la funzione.
+      > Nella versione a tenant singolo l'azione della funzione supporta solo l'autenticazione della stringa di query. App per la logica di Azure Preview ottiene la chiave predefinita dalla funzione quando si effettua la connessione, archivia tale chiave nelle impostazioni dell'app e usa la chiave per l'autenticazione quando si chiama la funzione.
       >
-      > Come per la versione originale, se si rinnova questa chiave, ad esempio tramite l'esperienza funzioni di Azure nel portale, l'azione funzione non funziona più a causa della chiave non valida. Per risolvere il problema, è necessario ricreare la connessione alla funzione che si vuole chiamare o aggiornare le impostazioni dell'app con la nuova chiave.
+      > Come per la versione multi-tenant, se si rinnova questa chiave, ad esempio tramite l'esperienza funzioni di Azure nel portale, l'azione funzione non funziona più a causa della chiave non valida. Per risolvere il problema, è necessario ricreare la connessione alla funzione che si vuole chiamare o aggiornare le impostazioni dell'app con la nuova chiave.
 
     * L'azione predefinita, il codice [inline-Execute JavaScript code](logic-apps-add-run-inline-code.md) è ora **operazioni di codice inline: Esegui JavaScript** inline.
 
@@ -222,7 +224,7 @@ Nell'anteprima di app per la logica di Azure queste funzionalità sono state mod
 
 * I [connettori personalizzati](../connectors/apis-list.md#custom-apis-and-connectors) non sono attualmente supportati per l'anteprima.
 
-* **Disponibilità del piano di hosting**: se si crea un nuovo tipo di risorsa app per la **logica (anteprima)** nell'portale di Azure o si esegue la distribuzione da Visual Studio Code, è possibile usare solo il piano di hosting del servizio app o Premium in Azure. I piani di hosting a consumo non sono disponibili e non sono supportati per la distribuzione di questo tipo di risorsa. È possibile eseguire la distribuzione da Visual Studio Code a un contenitore Docker, ma non a un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+* **Disponibilità del piano di hosting**: se si crea il tipo di risorsa app per la logica a tenant singolo **(anteprima)** nell'portale di Azure o si esegue la distribuzione da Visual Studio Code, è possibile usare solo il piano di hosting del servizio app o Premium in Azure. I piani di hosting a consumo non sono disponibili e non sono supportati per la distribuzione di questo tipo di risorsa. È possibile eseguire la distribuzione da Visual Studio Code a un contenitore Docker, ma non a un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 * **Debug dei punti di interruzione in Visual Studio Code**: Sebbene sia possibile aggiungere e utilizzare i punti di interruzione all'interno del **workflow.jssu** file per un flusso di lavoro, i punti di interruzione sono supportati solo per le azioni in questo momento, non per i trigger. Per altre informazioni, vedere [creare flussi di lavoro con stato e senza stato in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
 
@@ -233,6 +235,17 @@ Nell'anteprima di app per la logica di Azure queste funzionalità sono state mod
    * Per visualizzare la cronologia di esecuzione, aprire il flusso di lavoro nell'app per la logica. Nel menu flusso di lavoro, in **sviluppatore** selezionare **monitoraggio**.
 
    * Per esaminare la cronologia dei trigger, aprire il flusso di lavoro nell'app per la logica. Nel menu flusso di lavoro, in **sviluppatore** selezionare **cronologia trigger**.
+
+<a name="firewall-permissions"></a>
+
+## <a name="permit-traffic-in-strict-network-and-firewall-scenarios"></a>Consentire il traffico in scenari di rete e firewall rigorosi
+
+Se l'ambiente presenta requisiti di rete rigidi o firewall che limitano il traffico, è necessario consentire l'accesso per qualsiasi connessione trigger o azione nei flussi di lavoro delle app per la logica.
+
+Per trovare i nomi di dominio completi (FQDN) per queste connessioni, esaminare le sezioni corrispondenti in questi argomenti:
+
+* [Autorizzazioni del firewall per app per la logica a tenant singolo-Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#firewall-setup)
+* [Autorizzazioni del firewall per app per la logica a tenant singolo-portale di Azure](create-stateful-stateless-workflows-azure-portal.md#firewall-setup)
 
 <a name="limits"></a>
 

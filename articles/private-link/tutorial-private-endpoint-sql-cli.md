@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Connettersi a un server di Azure SQL con un endpoint privato di Azure - Interfaccia della riga di comando di Azure'
+title: 'Esercitazione: connettersi a un server SQL di Azure usando un endpoint privato di Azure-interfaccia della riga di comando di Azure'
 description: Questa esercitazione illustra come creare un server di Azure SQL con un endpoint privato usando l'interfaccia della riga di comando di Azure
 services: private-link
 author: asudbring
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ab530817e912495049ad3fe8b36f9a5fad47eb2c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 998b52a23894dcb7fa08b2c0fd42e4ef8e3678ae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096582"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554990"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Esercitazione: Connettersi a un server di Azure SQL con un endpoint privato di Azure - Interfaccia della riga di comando di Azure
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Esercitazione: connettersi a un server SQL di Azure usando un endpoint privato di Azure-interfaccia della riga di comando di Azure
 
 Un endpoint privato di Azure è il blocco costitutivo fondamentale del collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con le risorse collegamento privato.
 
@@ -328,8 +328,6 @@ In questa esercitazione sono stati creati i componenti seguenti:
 
 La macchina virtuale è stata usata per testare la connettività in modo sicuro al server SQL tramite l'endpoint privato.
 
-Come passaggio successivo, potrebbe essere interessante anche l' [app Web con connettività privata allo](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) scenario di architettura del database SQL di Azure, che connette un'applicazione Web all'esterno della rete virtuale all'endpoint privato di un database.
-
-Informazioni su come creare un servizio Collegamento privato:
+Come passaggio successivo, potrebbe essere interessante anche l' **app Web con connettività privata allo** scenario di architettura del database SQL di Azure, che connette un'applicazione Web all'esterno della rete virtuale all'endpoint privato di un database.
 > [!div class="nextstepaction"]
-> [Creare un servizio Collegamento privato](create-private-link-service-portal.md)
+> [App Web con connettività privata al database SQL di Azure](/azure/architecture/example-scenario/private-web-app/private-web-app)

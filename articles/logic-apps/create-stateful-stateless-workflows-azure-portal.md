@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: ff938d29d998b6fcf0b2cfae72a9a9e685a10dc5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736356"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563956"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Creare flussi di lavoro con stato e senza stato nel portale di Azure con app per la logica di Azure Preview
 
@@ -236,7 +236,33 @@ Prima di poter aggiungere un trigger a un flusso di lavoro vuoto, assicurarsi ch
 
 1. Salvare il lavoro. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
-Quindi, per testare il flusso di lavoro, attivare manualmente un'esecuzione.
+1. Se l'ambiente presenta requisiti di rete rigidi o firewall che limitano il traffico, è necessario impostare le autorizzazioni per qualsiasi trigger o connessione di azione esistente nel flusso di lavoro. Per trovare il completo 
+
+   In caso contrario, per testare il flusso di lavoro, [attivare manualmente un'esecuzione](#trigger-workflow).
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>Trovare i nomi di dominio per l'accesso al firewall
+
+Prima di distribuire l'app per la logica ed eseguire il flusso di lavoro nel portale di Azure, se l'ambiente presenta requisiti di rete rigidi o firewall che limitano il traffico, è necessario configurare le autorizzazioni di rete o firewall per qualsiasi connessione trigger o azione nei flussi di lavoro presenti nell'app per la logica.
+
+Per trovare i nomi di dominio completi (FQDN) per queste connessioni, attenersi alla procedura seguente:
+
+1. Nel menu dell'app per la logica, in **flussi di lavoro**, selezionare **connessioni**. Nella scheda **connessioni API** selezionare il nome della risorsa della connessione, ad esempio:
+
+   ![Screenshot che mostra il menu portale di Azure e app per la logica con il nome della risorsa di connessione "Connections" e "offic365" selezionato.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connections.png)
+
+1. Espandere il browser in modo sufficientemente ampio, in modo che quando viene visualizzata la **visualizzazione JSON** nell'angolo superiore destro del browser, selezionare **visualizzazione JSON**.
+
+   ![Screenshot che mostra il riquadro di connessione API e portale di Azure con la "visualizzazione JSON" selezionata.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-view-json.png)
+
+1. Trovare, copiare e salvare il `connectionRuntimeUrl` valore della proprietà in un punto sicuro per poter configurare il firewall con queste informazioni.
+
+   ![Screenshot che mostra il valore della proprietà "connectionRuntimeUrl" selezionato.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-runtime-url.png)
+
+1. Per ogni connessione, ripetere i passaggi pertinenti.
+
+<a name="trigger-workflow"></a>
 
 ## <a name="trigger-the-workflow"></a>Attivare il flusso di lavoro
 

@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 723f46652643883dc8e718468a9ca9eead50e1aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 078331c35c76a3cda97398b1a487933a3f0f5ab8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856025"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559308"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-starter"></a>Esercitazione: Distribuire un'app ASP.NET Core in Azure Service Fabric usando Azure DevOps Starter
 
@@ -121,7 +121,7 @@ DevOps Starter crea e configura automaticamente i passaggi necessari per la dist
 
 A questo punto, si è pronti per collaborare con un team a un'app usando un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web. Ogni modifica al repository Git avvia una compilazione e una versione distribuisce le modifiche in Azure. Seguire la procedura in questa sezione o usare altre tecniche per eseguire il commit delle modifiche nel repository. Ad esempio, è possibile clonare il repository Git nello strumento o nell'IDE preferito e quindi eseguire il push delle modifiche in questo repository.
 
-1. Nel menu di Azure DevOps, selezionare **Codice** > **File**e quindi passare al repository.
+1. Nel menu di Azure DevOps, selezionare **Codice** > **File** e quindi passare al repository.
 
 1. Passare alla directory *Views\Home*, selezionare i puntini di sospensione (...) accanto al file *Index.cshtml* e scegliere **Modifica**.
 
@@ -158,4 +158,4 @@ Facoltativamente, è possibile modificare questa pipeline di integrazione contin
 Per altre informazioni su Service Fabric e sui microservizi, vedere:
 
 > [!div class="nextstepaction"]
-> [Usare un approccio ai microservizi per la compilazione di applicazioni](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Usare un approccio ai microservizi per la compilazione di applicazioni](/azure/devops/pipelines/release/define-multistage-release-process)

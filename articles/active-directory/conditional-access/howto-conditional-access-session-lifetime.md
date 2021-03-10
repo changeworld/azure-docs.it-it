@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 205136437fa1a2a33b3b337f5cc9f2dde283faef
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 6116ab543d6dfc886e44206c2a60e4456b39fbc9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491941"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558186"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurare la gestione delle sessioni di autenticazione con l'accesso condizionale
 
@@ -37,7 +37,7 @@ Frequenza di accesso consente di definire il periodo di tempo prima che un utent
 
 La configurazione predefinita di Azure Active Directory (Azure AD) per la frequenza di accesso dell'utente è una finestra in sequenza di 90 giorni. La richiesta di credenziali da parte degli utenti è spesso un'operazione sensata, ma può essere riattiva: gli utenti che hanno eseguito il training per immettere le proprie credenziali senza pensare possono fornirli involontariamente a una richiesta di credenziali dannose.
 
-Potrebbe sembrare allarmante non chiedere a un utente di eseguire l'accesso, in realtà qualsiasi violazione dei criteri IT revoca la sessione. Alcuni esempi includono (senza limitazioni) una modifica della password, un dispositivo incompliant o la disabilitazione dell'account. È anche possibile revocare in modo esplicito le [sessioni degli utenti usando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true). Il Azure AD configurazione predefinita è "non richiedere agli utenti di fornire le proprie credenziali se il comportamento di sicurezza delle sessioni non è cambiato".
+Potrebbe sembrare allarmante non chiedere a un utente di eseguire l'accesso, in realtà qualsiasi violazione dei criteri IT revoca la sessione. Alcuni esempi includono (senza limitazioni) una modifica della password, un dispositivo incompliant o la disabilitazione dell'account. È anche possibile revocare in modo esplicito le [sessioni degli utenti usando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). Il Azure AD configurazione predefinita è "non richiedere agli utenti di fornire le proprie credenziali se il comportamento di sicurezza delle sessioni non è cambiato".
 
 L'impostazione della frequenza di accesso funziona con le app che hanno implementato i protocolli OAUTH2 o OIDC in base agli standard. La maggior parte delle app Microsoft native per Windows, Mac e dispositivi mobili, incluse le applicazioni Web seguenti sono conformi all'impostazione.
 

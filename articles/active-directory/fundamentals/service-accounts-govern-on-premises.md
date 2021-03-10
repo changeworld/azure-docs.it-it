@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fdfa1f449a0b65861ee09f2e78055a606c99d3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 36ad7cf7fe2ca1ddcb592e895014b1d956e55e1b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649207"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557370"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Governare gli account di servizio locali
 
@@ -64,7 +64,7 @@ Usare le impostazioni seguenti con gli account utente usati come account del ser
 
 *  **LogonWorkstations**: limitare le autorizzazioni per la posizione in cui l'account del servizio può accedere. Se viene eseguito localmente in un computer e accede solo a risorse in tale computer, limitarlo alla registrazione in qualsiasi altra posizione.
 
-* [**Impossibile modificare la password**](/powershell/module/addsadministration/set-aduser?view=win10-ps): evitare che l'account del servizio modifichi la propria password impostando il parametro su false.
+* [**Impossibile modificare la password**](/powershell/module/addsadministration/set-aduser): evitare che l'account del servizio modifichi la propria password impostando il parametro su false.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>Creazione di un processo di gestione del ciclo di vita
@@ -84,7 +84,7 @@ Usare il processo seguente per la gestione del ciclo di vita degli account del s
 
 Raccogliere le informazioni aziendali rilevanti per ogni account del servizio. Nella tabella seguente sono riportate le informazioni minime da raccogliere, ma è necessario raccogliere tutti gli elementi necessari per creare il business case per l'esistenza degli account.
 
-| Data| Dettagli |
+| Dati| Dettagli |
 | - | - |
 | Proprietario| Utente o gruppo che è responsabile dell'account del servizio |
 | Scopo| Scopo dell'account del servizio |
@@ -114,7 +114,7 @@ Archiviare le informazioni raccolte in un'applicazione di tipo CMDB. Oltre alle 
 
 Si consideri un account del servizio utilizzato per eseguire un sito Web e disponga dei privilegi per connettersi a uno o più database SQL. Le informazioni archiviate in CMDB per questo account del servizio potrebbero essere:
 
-|Data | Dettagli|
+|Dati | Dettagli|
 | - | - |
 | Proprietario, Vice| John Bloom, Anna Mayers |
 | Scopo| Eseguire la pagina Web HR e connettersi a HR-databases. Può rappresentare l'utente finale durante l'accesso ai database. |
@@ -151,9 +151,9 @@ Creare un account del servizio solo dopo aver documentato le informazioni rileva
 
 * [Scadenza dell'account](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * Per tutti gli account utente usati come account del servizio, definire una data di fine realistica e definita da usare. Impostare questa opzione con il flag "scadenza account". Per ulteriori informazioni, vedere[ set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * Per tutti gli account utente usati come account del servizio, definire una data di fine realistica e definita da usare. Impostare questa opzione con il flag "scadenza account". Per ulteriori informazioni, vedere[ set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
-* Accedi a ([LogonWorkstation](/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* Accedi a ([LogonWorkstation](/powershell/module/addsadministration/set-aduser))
 
 * Requisiti dei [criteri password](../../active-directory-domain-services/password-policy.md)
 
