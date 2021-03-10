@@ -1,23 +1,24 @@
 ---
 title: Sincronizzazione dell'ora per le macchine virtuali Linux in Azure
 description: Sincronizzazione dell'ora per le macchine virtuali Linux.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 399022c1ef740865e4b2f7b82e2175e748a2a925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18c8570a8066985cab5263c4779787062dc32d75
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306957"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552644"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronizzazione dell'ora per le macchine virtuali Linux in Azure
 
@@ -114,7 +115,7 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 
 ### <a name="check-for-ptp-clock-source"></a>Verifica origine Clock PTP
 
-Con le versioni più recenti di Linux è disponibile un'origine di orologio PTP (Precision Time Protocol) come parte del provider VMICTimeSync. Nelle versioni più datate di Red Hat Enterprise Linux o CentOS 7.x i [servizi di integrazione Linux](https://github.com/LIS/lis-next) possono essere scaricati e usati per installare il driver aggiornato. Quando l'origine clock di PTP è disponibile, il dispositivo Linux avrà il formato/dev/PTP*x*. 
+Con le versioni più recenti di Linux è disponibile un'origine di orologio PTP (Precision Time Protocol) come parte del provider VMICTimeSync. Nelle versioni più datate di Red Hat Enterprise Linux o CentOS 7.x i [servizi di integrazione Linux](https://github.com/LIS/lis-next) possono essere scaricati e usati per installare il driver aggiornato. Quando l'origine clock di PTP è disponibile, il dispositivo Linux avrà il formato/dev/PTP *x*. 
 
 Verificare quali origini di orologio PTP sono disponibili.
 

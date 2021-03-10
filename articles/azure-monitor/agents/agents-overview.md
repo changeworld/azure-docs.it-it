@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: b8cfb483f2b06c072707c57ff45b7ad995a22eb4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a2f6023b86b96266be8e625fd5b0d6625500e3fc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034439"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551471"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -152,10 +152,10 @@ Le tabelle seguenti elencano i sistemi operativi supportati dagli agenti di moni
 
 ### <a name="linux"></a>Linux
 
-| Sistema operativo | Agente di Monitoraggio di Azure | Agente di Log Analytics | Dependency Agent | Estensione di Diagnostica | 
+| Sistema operativo | Agente di monitoraggio di Azure <sup>1</sup> | Agente di Log Analytics <sup>1</sup> | Dependency Agent | Estensione diagnostica <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                        |   | X |   |   |
-| CentOS Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X | X |   |
+| CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
 | CentOS Linux 7                                              | X | X | X | X |
 | CentOS Linux 6                                              |   | X |   |   |
 | CentOS Linux 6.5 +                                           |   | X | X | X |
@@ -164,26 +164,28 @@ Le tabelle seguenti elencano i sistemi operativi supportati dagli agenti di moni
 | Debian 8                                                    |   | X | X |   |
 | Debian 7                                                    |   |   |   | X |
 | OpenSUSE 13.1+                                              |   |   |   | X |
-| Oracle Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X |   |   |
+| Oracle Linux 8                                              | X <sup>3</sup> | X |   |   |
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
-| Server Red Hat Enterprise Linux 8 <sup>1</sup> <sup>2</sup> | X | X | X |   |
+| Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7 +                        |   | X | X | X |
-| SUSE Linux Enterprise Server 15,2 <sup>1</sup> <sup>2</sup> | X |   |   |   |
-| SUSE Linux Enterprise Server 15,1 <sup>1</sup> <sup>2</sup> | X | X |   |   |
+| SUSE Linux Enterprise Server 15,2                           | X <sup>3</sup> |   |   |   |
+| SUSE Linux Enterprise Server 15,1                           | X <sup>3</sup> | X |   |   |
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 20,04 LTS <sup>1</sup>                               | X | X | X |   |
+| Ubuntu 20.04 LTS                                            | X | X | X |   |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |
 | Ubuntu 14,04 LTS                                            |   | X |   | X |
 
-<sup>1</sup> richiede che Python 3 sia installato nel computer.
+<sup>1</sup> richiede che Python (2 o 3) sia installato nel computer.
 
-<sup>2</sup> problema noto durante la raccolta di eventi syslog. Attualmente sono supportati solo i dati sulle prestazioni.
+<sup>2</sup> richiede che Python 2 sia installato nel computer.
+
+<sup>3</sup> problema noto durante la raccolta di eventi syslog. Attualmente sono supportati solo i dati sulle prestazioni.
 #### <a name="dependency-agent-linux-kernel-support"></a>Supporto del kernel Linux di Dependency Agent
 
 Poiché Dependency Agent funziona a livello di kernel, il supporto dipende anche dalla versione del kernel. La tabella seguente elenca la versione principale e secondaria del sistema operativo Linux e le versioni del kernel supportate per Dependency Agent.

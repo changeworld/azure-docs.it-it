@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9089fee7565633b198043efeed929fc7446437d5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458296"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553936"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di informazioni dettagliate sul marketplace nell'analisi per il marketplace commerciale
 
@@ -103,6 +103,19 @@ Questa tabella fornisce una visualizzazione elenco delle visite alle pagine e de
 
 > [!TIP]
 > È possibile usare l'icona di download nell'angolo in alto a destra di qualsiasi widget per scaricare i dati. È possibile inviare commenti e suggerimenti su ognuno dei widget facendo clic sull'icona "thumbs up" o "thumbs down".
+
+| Nome colonna in<br>interfaccia utente | Nome attributo | Definizione | Nome colonna a livello di codice<br>report di Access |
+| ------------ | ------------- | ------------- | ------------- |
+| Data | Data di visita | La data di visita della pagina e/o la generazione di eventi Click di CTA nella pagina dell'offerta in Azure Marketplace e/o AppSource. | Data |
+| Nome offerta | Nome offerta | Nome dell'offerta del Marketplace commerciale. | OfferName |
+| Dominio di riferimento | Dominio di riferimento | Nome del dominio di riferimento da cui si è verificata la visita della pagina. Se non sono stati acquisiti domini di riferimento per la visita della pagina, la voce corrispondente è "dominio di riferimento non presente". |  ReferralDomain |
+| Nome paese | Nome paese | Nome del paese da cui si è verificata la visita della pagina. | CountryName |
+| Visite di pagina | Visite di pagina | Numero di visite di pagina associate al nome dell'offerta per una data specifica. | PageVisits |
+| Ottieni subito | Ottieni subito | Il numero di clic per la CTA "Get it Now" nella pagina dell'offerta per una data specifica. | GetItNow |
+| Contattami | Contattami | Il numero di clic per la CTA "Contattatemi" nella pagina dell'offerta per una data specifica. | ContactMe |
+| Test drive | Test drive | Il numero di clic per il CTA "test drive" nella pagina dell'offerta per una data specifica. | TestDrive |
+| Versione di valutazione gratuita | Versione di valutazione gratuita | Il numero di clic per la versione di valutazione gratuita del CTA nella pagina dell'offerta per una data specifica. | FreeTrial |
+|||||
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: ce37ee51e549a2bd6f2747f28af8c038c39d8f1f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 66853b580ba1b619bf4cc995e05bd3cfaff07cfb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656836"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565870"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Test di codice di data science su Azure con il processo di data science per i team e Azure DevOps Services
 Questo articolo include le linee guida preliminari per il test del codice in un flusso di lavoro di data science. Il test offre ai data scientist un metodo sistematico ed efficiente per il controllo della qualità e del risultato previsto del codice. Viene usato un [progetto TDSP (Team Data Science Process) che usa il set di dati sul reddito degli adulti UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) pubblicato in precedenza per illustrare la modalità di esecuzione del test del codice. 
@@ -124,7 +124,7 @@ Usare la procedura seguente per configurare ed eseguire il test di codice e una 
 
     ![Elenco di modelli e pulsante "Processo vuoto"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Assegnare un nome alla compilazione e selezionare l'agente. È possibile scegliere il valore predefinito qui se si vuole usare un DSVM per completare il processo di compilazione. Per altre informazioni sull'impostazione degli agenti, vedere [Build and release agents](/azure/devops/pipelines/agents/agents?view=vsts) (Agenti di compilazione e versione).
+    d. Assegnare un nome alla compilazione e selezionare l'agente. È possibile scegliere il valore predefinito qui se si vuole usare un DSVM per completare il processo di compilazione. Per altre informazioni sull'impostazione degli agenti, vedere [Build and release agents](/azure/devops/pipelines/agents/agents) (Agenti di compilazione e versione).
     
     ![Compilazione e selezioni degli agenti](./media/code-test/select_agent.PNG)
 

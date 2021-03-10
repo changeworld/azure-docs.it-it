@@ -1,5 +1,5 @@
 ---
-title: Competenze cognitive per l'estrazione di documenti (anteprima)
+title: Abilità cognitiva di estrazione documenti
 titleSuffix: Azure Cognitive Search
 description: Estrae il contenuto da un file all'interno della pipeline di arricchimento. Questa competenza è attualmente disponibile in anteprima pubblica.
 manager: nitinme
@@ -8,17 +8,14 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: d6dd2b891cb3bf9ebb5442f541021c20a34ce1a1
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 144e8058e640f98dc6b0ef60534405525532b00e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474847"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547867"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Abilità cognitiva di estrazione documenti
-
-> [!IMPORTANT] 
-> Questa competenza è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Attualmente non è disponibile alcun portale o supporto per .NET SDK.
 
 L'abilità di **estrazione dei documenti** estrae il contenuto da un file all'interno della pipeline di arricchimento. In questo modo è possibile sfruttare i vantaggi del passaggio di estrazione del documento che in genere si verifica prima dell'esecuzione delle competenze con i file che possono essere generati da altre competenze.
 

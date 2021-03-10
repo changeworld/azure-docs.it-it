@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4a874e6f1e026a1888b9039799be71c95f040ac6
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 27056f39885949d52c9fcc0d1472033cfc8f9aa0
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202349"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554871"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Eseguire la migrazione a condivisioni file di Azure
 
@@ -81,13 +81,12 @@ Uno scenario senza collegamento non dispone ancora di una guida alla migrazione 
 | Source (Sorgente) | Destinazione: </br>Distribuzione ibrida | Destinazione: </br>Distribuzione solo cloud |
 |:---|:--|:--|
 | | Combinazione di strumenti:| Combinazione di strumenti: |
-| Windows Server 2012 R2 e versioni successive | <ul><li>[Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)</li><li>[Sincronizzazione file di Azure e Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Sincronizzazione file di Azure e file con pre-seeding nel cloud](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li></ul> | <ul><li>Sincronizzazione file di Azure</li><li>Sincronizzazione file di Azure e Data Box</li><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li><li>RoboCopy</li></ul> |
-| Windows Server 2012 e versioni precedenti | <ul><li>Sincronizzazione file di Azure e Data Box</li><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li></ul> | <ul><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li><li>RoboCopy</li></ul> |
-| Archiviazione collegata alla rete (NAS) | <ul><li>[Sincronizzazione file di Azure e RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
-| Linux o Samba | <ul><li>[Sincronizzazione file di Azure e RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
-| Appliance cloud Microsoft Azure StorSimple 8100 o Appliance cloud StorSimple 8600 | <ul><li>[Appliance cloud Sincronizzazione file di Azure e StorSimple 8020](storage-files-migration-storsimple-8000.md)</li></ul> | |
-| Appliance cloud StorSimple 1200 | <ul><li>[Sincronizzazione file di Azure](storage-files-migration-storsimple-1200.md)</li></ul> | |
-| | | |
+| Windows Server 2012 R2 e versioni successive | <ul><li>[Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)</li><li>[Sincronizzazione file di Azure e Azure DataBox](storage-sync-offline-data-transfer.md)</li></ul> | <ul><li>Tramite RoboCopy in una condivisione file di Azure montata</li><li>Tramite Sincronizzazione file di Azure</li></ul> |
+| Windows Server 2012 e versioni precedenti | <ul><li>Tramite DataBox e Sincronizzazione file di Azure al sistema operativo server recente</li><li>Tramite il servizio migrazione archiviazione al server recente con Sincronizzazione file di Azure, quindi caricare</li></ul> | <ul><li>Tramite il servizio migrazione archiviazione al server recente con Sincronizzazione file di Azure</li><li>Tramite RoboCopy in una condivisione file di Azure montata</li></ul> |
+| Archiviazione collegata alla rete (NAS) | <ul><li>[Tramite caricamento Sincronizzazione file di Azure](storage-files-migration-nas-hybrid.md)</li><li>[Tramite DataBox + Sincronizzazione file di Azure](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>Tramite RoboCopy in una condivisione file di Azure montata</li></ul> |
+| Linux/Samba | <ul><li>[Sincronizzazione file di Azure e RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Tramite RoboCopy in una condivisione file di Azure montata</li></ul> |
+| Appliance cloud Microsoft Azure StorSimple 8100 o Appliance cloud StorSimple 8600 | <ul><li>[Tramite il servizio cloud di migrazione dei dati dedicato](storage-files-migration-storsimple-8000.md)</li></ul> | |
+| Appliance cloud StorSimple 1200 | <ul><li>[Tramite Sincronizzazione file di Azure](storage-files-migration-storsimple-1200.md)</li></ul> | |
 
 ## <a name="migration-toolbox"></a>Casella degli strumenti migrazione
 
@@ -120,9 +119,9 @@ La tabella seguente classifica gli strumenti Microsoft e la relativa idoneità c
 |![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supportata. Le condivisioni file di Azure possono essere montate come unità di rete. | Fedeltà completa * |
 |![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Sincronizzazione file di Azure | Integrato in modo nativo nelle condivisioni file di Azure. | Fedeltà completa * |
 |![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Servizio di migrazione della risorsa di archiviazione | Supportato indirettamente. Le condivisioni file di Azure possono essere montate come unità di rete nei server di destinazione SMS. | Fedeltà completa * |
-|![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, versione 10,4 o successiva| Supportata. | Fedeltà completa * |
-|![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Supportata. | DataBox supporta ora completamente i metadati. [Data Box può essere usato anche in combinazione con sincronizzazione file di Azure](storage-sync-offline-data-transfer.md). |
-|![Non completamente consigliato](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer, versione 1,14 | Supportata. | Non copia gli ACL. Supporta i timestamp.  |
+|![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy </br>versione 10,6 | Supportata. | Non supporta la copia dell'ACL radice di origine, altrimenti la fedeltà completa. * </br>[Informazioni su come usare AzCopy con le condivisioni file di Azure](../common/storage-use-azcopy-files.md) |
+|![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Supportata. | DataBox supporta completamente i metadati. |
+|![Non completamente consigliato](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer </br>versione 1,14 | Supportata. | Non copia gli ACL. Supporta i timestamp.  |
 |![Non consigliata](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supportata. | Non copia i metadati. |
 |||||
 
@@ -149,7 +148,7 @@ La versione testata dello strumento è la versione 4.4.1. È compatibile con i f
 1. Creare un piano per la distribuzione di condivisioni file di Azure (solo cloud o ibrido) desiderato.
 1. Esaminare l'elenco delle guide alla migrazione disponibili per trovare la guida dettagliata corrispondente all'origine e alla distribuzione delle condivisioni file di Azure.
 
-Di seguito sono riportate altre informazioni sulle tecnologie File di Azure citate in questo articolo:
+Ulteriori informazioni sulle tecnologie File di Azure citate in questo articolo:
 
 * [Panoramica della condivisione file di Azure](storage-files-introduction.md)
 * [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

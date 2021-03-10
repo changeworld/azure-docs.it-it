@@ -3,18 +3,18 @@ title: Risolvere i problemi relativi alle immagini condivise in Azure
 description: Informazioni su come risolvere i problemi relativi alle raccolte di immagini condivise.
 author: olayemio
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 12430a23e207513914c03f960fa46734993220d2
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: d80caf767d923ce2539ca254a8312371155a3104
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487169"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553732"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Risolvere i problemi delle raccolte di immagini condivise in Azure
 

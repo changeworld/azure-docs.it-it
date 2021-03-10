@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: bc761d0bf4001fb1e3fb757b9be9e1e19689913d
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b524869998dd2464ed359ec61ce655a807899aaa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202995"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565717"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Creare sottoscrizioni di Azure a livello di codice con API in anteprima
 
@@ -190,7 +190,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `EnrollmentAccountObjectId`      | Sì       | string | ID oggetto dell'account di registrazione con cui la sottoscrizione viene creata e a cui viene addebitata. Il valore è un GUID che si ottiene da `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | No       | string | ID oggetto di un utente da aggiungere come proprietario con Controllo degli accessi in base al ruolo di Azure nella sottoscrizione al momento della creazione.  |
 | `OwnerSignInName`    | No       | string | Indirizzo di posta elettronica di un utente da aggiungere come proprietario con Controllo degli accessi in base al ruolo di Azure nella sottoscrizione al momento della creazione. È possibile usare il parametro anziché `OwnerObjectId`.|
-| `OwnerApplicationId` | No       | string | ID applicazione di un'entità servizio da aggiungere come proprietario con Controllo degli accessi in base al ruolo di Azure nella sottoscrizione al momento della creazione. È possibile usare il parametro anziché `OwnerObjectId`. Quando si usa il parametro, l'entità servizio deve avere [accesso in lettura alla directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
+| `OwnerApplicationId` | No       | string | ID applicazione di un'entità servizio da aggiungere come proprietario con Controllo degli accessi in base al ruolo di Azure nella sottoscrizione al momento della creazione. È possibile usare il parametro anziché `OwnerObjectId`. Quando si usa il parametro, l'entità servizio deve avere [accesso in lettura alla directory](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Per visualizzare un elenco completo di tutti i parametri, vedere [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
 
@@ -211,7 +211,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `enrollment-account-object-id`      | Sì       | string | ID oggetto dell'account di registrazione con cui la sottoscrizione viene creata e a cui viene addebitata. Il valore è un GUID che si ottiene da `az billing enrollment-account list`. |
 | `owner-object-id`      | No       | string | ID oggetto di un utente da aggiungere come proprietario con Controllo degli accessi in base al ruolo di Azure nella sottoscrizione al momento della creazione.  |
 | `owner-upn`    | No       | string | Indirizzo di posta elettronica di un utente da aggiungere come proprietario con Controllo degli accessi in base al ruolo di Azure nella sottoscrizione al momento della creazione. È possibile usare il parametro anziché `owner-object-id`.|
-| `owner-spn` | No       | string | ID applicazione di un'entità servizio da aggiungere come proprietario con Controllo degli accessi in base al ruolo di Azure nella sottoscrizione al momento della creazione. È possibile usare il parametro anziché `owner-object-id`. Quando si usa il parametro, l'entità servizio deve avere [accesso in lettura alla directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
+| `owner-spn` | No       | string | ID applicazione di un'entità servizio da aggiungere come proprietario con Controllo degli accessi in base al ruolo di Azure nella sottoscrizione al momento della creazione. È possibile usare il parametro anziché `owner-object-id`. Quando si usa il parametro, l'entità servizio deve avere [accesso in lettura alla directory](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Per visualizzare un elenco completo di tutti i parametri, vedere [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create).
 

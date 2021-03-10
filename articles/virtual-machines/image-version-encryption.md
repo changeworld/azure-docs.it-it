@@ -3,17 +3,17 @@ title: Anteprima - Creare una versione di immagine crittografata con le chiavi p
 description: Creare una versione di immagine in una raccolta di immagini condivise usando chiavi di crittografia gestite dal cliente.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: f8ea2224020e6fa6c5dae135dc575cc77510efd5
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 258d8ab6ab23a95d73b8ed0c2549f373cf097674
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123939"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554089"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Anteprima: Usare le chiavi gestite dal cliente per crittografare le immagini
 

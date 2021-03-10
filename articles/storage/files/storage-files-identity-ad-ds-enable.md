@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 948b30cbf37ae5f4f357860569579d8591412414
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5ee4481b3151e28d5d37760e486a43adbc194994
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630397"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553222"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte 1: abilitare l'autenticazione di servizi di dominio Active Directory per le condivisioni file di Azure 
 
@@ -41,7 +41,7 @@ L'account di Active Directory Domain Services creato dal cmdlet rappresenta l'ac
 Sostituire i valori segnaposto con quelli personalizzati nei parametri riportati di seguito prima di eseguirli in PowerShell.
 > [!IMPORTANT]
 > Il cmdlet Domain Join creerà un account AD per rappresentare l'account di archiviazione (condivisione file) in Active Directory. È possibile scegliere di eseguire la registrazione come account computer o account di accesso al servizio. per informazioni dettagliate, vedere le [domande frequenti](./storage-files-faq.md#security-authentication-and-access-control) . Per gli account computer, esiste una scadenza della password predefinita impostata in Active Directory a 30 giorni. Analogamente, è possibile che l'account di accesso del servizio disponga di una data di scadenza della password predefinita impostata sul dominio AD o sull'unità organizzativa (OU).
-> Per entrambi i tipi di account, è consigliabile verificare la scadenza della password configurata nell'ambiente di Active Directory e pianificare [l'aggiornamento della password dell'identità dell'account di archiviazione](storage-files-identity-ad-ds-update-password.md) dell'account di Active Directory prima della validità massima della password. È possibile prendere [in considerazione la creazione di una nuova unità organizzativa ad (OU) in Active Directory e la](/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) disabilitazione dei criteri di scadenza delle password per [account computer](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) o account di accesso del servizio di conseguenza. 
+> Per entrambi i tipi di account, è consigliabile verificare la scadenza della password configurata nell'ambiente di Active Directory e pianificare [l'aggiornamento della password dell'identità dell'account di archiviazione](storage-files-identity-ad-ds-update-password.md) dell'account di Active Directory prima della validità massima della password. È possibile prendere [in considerazione la creazione di una nuova unità organizzativa ad (OU) in Active Directory e la](/powershell/module/addsadministration/new-adorganizationalunit) disabilitazione dei criteri di scadenza delle password per [account computer](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) o account di accesso del servizio di conseguenza. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -89,7 +89,7 @@ Se lo script è già stato eseguito `Join-AzStorageAccountForAuth` correttamente
 
 ### <a name="checking-environment"></a>Controllo dell'ambiente
 
-Prima di tutto, è necessario controllare lo stato dell'ambiente. In particolare, è necessario controllare se [Active Directory PowerShell](/powershell/module/addsadministration/?view=win10-ps) è installato e se la shell viene eseguita con privilegi di amministratore. Verificare quindi se è installato il [modulo Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0), se non lo è installarlo. Al termine di questi controlli, controllare i servizi di dominio Active Directory per verificare se è presente un [account computer](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (impostazione predefinita) o un [account di accesso al servizio](/windows/win32/ad/about-service-logon-accounts) che è già stato creato con SPN/UPN come "CIFS/your-storage-account-name-here. file. Core. Windows. NET". Se l'account non esiste, crearne uno come descritto nella sezione seguente.
+Prima di tutto, è necessario controllare lo stato dell'ambiente. In particolare, è necessario controllare se [Active Directory PowerShell](/powershell/module/addsadministration/) è installato e se la shell viene eseguita con privilegi di amministratore. Verificare quindi se è installato il [modulo Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0), se non lo è installarlo. Al termine di questi controlli, controllare i servizi di dominio Active Directory per verificare se è presente un [account computer](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (impostazione predefinita) o un [account di accesso al servizio](/windows/win32/ad/about-service-logon-accounts) che è già stato creato con SPN/UPN come "CIFS/your-storage-account-name-here. file. Core. Windows. NET". Se l'account non esiste, crearne uno come descritto nella sezione seguente.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Creazione manuale di un'identità che rappresenta l'account di archiviazione nell'annuncio
 

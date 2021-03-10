@@ -4,16 +4,16 @@ description: Scopri in che modo puoi pagare in anticipo i piani software per ris
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 5a4f7de0cacb17087e346123f53dad45ae1de357
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 136207afef3fef9266fadcea1e67bb0aa6a38a32
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602613"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549754"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pagare in anticipo i piani software di Azure
 
@@ -31,8 +31,8 @@ Quando si usa il pagamento anticipato per l'utilizzo del software SUSE e RedHat 
 2. Fare clic su **Aggiungi** e quindi selezionare il piano software che si desidera acquistare.
 Compilare i campi obbligatori. Qualsiasi VM SUSE Linux o macchina virtuale RedHat che corrisponde agli attributi di ciò che si acquista ottiene lo sconto. Il numero effettivo di distribuzioni a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
 3. Selezionare una sottoscrizione. Viene usato per pagare il piano.
-Il metodo di pagamento della sottoscrizione viene addebitato ai costi iniziali per la prenotazione. Il tipo di sottoscrizione deve essere un Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P).
-    - Per una sottoscrizione Enterprise, gli addebiti vengono dedotti dal saldo prepagato di Azure per la registrazione (denominato in precedenza impegno monetario) o addebitato come eccedenza.
+Il metodo di pagamento della sottoscrizione viene addebitato ai costi iniziali per la prenotazione. Il tipo di sottoscrizione deve essere un Contratto Enterprise (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P).
+    - Per le sottoscrizioni Enterprise, gli addebiti vengono dedotti dal saldo del pagamento anticipato di Azure (in precedenza detto impegno monetario) oppure applicati come eccedenza.
     - Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sul metodo di pagamento con carta di credito o fatturazione della sottoscrizione.
 4. Selezionare un ambito. L'ambito può coprire una o più sottoscrizioni (ambito condiviso).
     - Singola sottoscrizione: lo sconto del piano viene applicato all'utilizzo corrispondente nella sottoscrizione.

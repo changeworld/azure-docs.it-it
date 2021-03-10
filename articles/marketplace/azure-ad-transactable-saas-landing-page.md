@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 04137fef640da46ca8876811e127e109a8c3d445
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4bfc29472373a53bcebb2ba59134d1f3702d4793
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348305"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549873"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Creazione della pagina di destinazione per l'offerta SaaS transazionale nel Marketplace commerciale
 
@@ -54,7 +54,7 @@ Il primo passaggio per usare l'identità è assicurarsi che la pagina di destina
 
 Per iniziare, seguire le istruzioni per la [registrazione di una nuova applicazione](../active-directory/develop/quickstart-register-app.md). Per consentire agli utenti di altre aziende di visitare l'app, è necessario scegliere una delle opzioni multi-tenant quando viene richiesto chi può usare l'applicazione.
 
-Se si intende eseguire una query sull'API Microsoft Graph, [configurare la nuova applicazione per accedere alle API Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Quando si selezionano le autorizzazioni API per l'applicazione, il valore predefinito di **User. Read** è sufficiente per raccogliere informazioni di base sull'acquirente per rendere il processo di onboarding uniforme e automatico. Non richiedere alcuna autorizzazione dell'API con etichetta **richiede il consenso dell'amministratore** , poiché in questo modo tutti gli utenti non amministratori non possono visitare la pagina di destinazione.
+Se si intende eseguire una query sull'API Microsoft Graph, [configurare la nuova applicazione per accedere alle API Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Quando si selezionano le autorizzazioni API per l'applicazione, il valore predefinito di **User. Read** è sufficiente per raccogliere informazioni di base sull'acquirente per rendere il processo di onboarding uniforme e automatico. Non richiedere alcuna autorizzazione dell'API con etichetta **richiede il consenso dell'amministratore**, poiché in questo modo tutti gli utenti non amministratori non possono visitare la pagina di destinazione.
 
 Se è necessario disporre di autorizzazioni elevate come parte del processo di caricamento o provisioning, provare a usare la funzionalità di [consenso incrementale](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) di Azure ad in modo che tutti gli acquirenti inviati dal Marketplace possano interagire inizialmente con la pagina di destinazione.
 
@@ -62,7 +62,7 @@ Se è necessario disporre di autorizzazioni elevate come parte del processo di c
 
 Sono state fornite diverse app di esempio che implementano un sito Web semplice con Azure AD account di accesso abilitato. Dopo che l'applicazione è stata registrata in Azure AD, il pannello **avvio rapido** offre un elenco di tipi di applicazioni comuni e stack di sviluppo, come illustrato nella figura 1. Scegliere quella corrispondente all'ambiente e seguire le istruzioni per il download e l'installazione.
 
-**_Figura 1: pannello Guida introduttiva nella portale di Azure_* _
+***Figura 1: pannello Guida introduttiva nella portale di Azure***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Viene illustrato il pannello avvio rapido nel portale di Azure.":::
 
@@ -109,7 +109,7 @@ Come parte del flusso di [OpenID Connect](../active-directory/develop/v2-protoco
 
 ## <a name="use-the-microsoft-graph-api"></a>Usare l'API Microsoft Graph
 
-Il token ID contiene informazioni di base per identificare l'acquirente, ma il processo di attivazione potrebbe richiedere dettagli aggiuntivi, ad esempio la società dell'acquirente, per completare il processo di onboarding. Usare l' [API Microsoft Graph](/graph/use-the-api) per richiedere queste informazioni per evitare di imporre all'utente di immettere nuovamente i dettagli. Per impostazione predefinita, le autorizzazioni standard _ *User. Read* * includono le informazioni seguenti.
+Il token ID contiene informazioni di base per identificare l'acquirente, ma il processo di attivazione potrebbe richiedere dettagli aggiuntivi, ad esempio la società dell'acquirente, per completare il processo di onboarding. Usare l' [API Microsoft Graph](/graph/use-the-api) per richiedere queste informazioni per evitare di imporre all'utente di immettere nuovamente i dettagli. Per impostazione predefinita, le autorizzazioni **utente standard. Read** includono le informazioni seguenti.
 
 | Valore | Descrizione |
 | ------------ | ------------- |
@@ -122,7 +122,7 @@ Il token ID contiene informazioni di base per identificare l'acquirente, ma il p
 | surname | Cognome dell'utente. |
 |||
 
-È possibile selezionare proprietà aggiuntive, ad esempio il nome della società dell'utente o la località dell'utente (paese), da includere nella richiesta. Per altri dettagli, vedere [proprietà per il tipo di risorsa utente](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties) .
+È possibile selezionare proprietà aggiuntive, ad esempio il nome della società dell'utente o la località dell'utente (paese), da includere nella richiesta. Per altri dettagli, vedere [proprietà per il tipo di risorsa utente](/graph/api/resources/user#properties) .
 
 La maggior parte delle app registrate con Azure AD concedere autorizzazioni delegate per la lettura delle informazioni dell'utente dal tenant Azure AD della propria azienda. Qualsiasi richiesta di Microsoft Graph per tali informazioni deve essere accompagnata da un token di accesso per l'autenticazione. I passaggi specifici per generare il token di accesso variano a seconda dello stack di tecnologia in uso, ma il codice di esempio conterrà un esempio. Per altre informazioni, vedere [ottenere l'accesso per conto di un utente](/graph/auth-v2-user).
 

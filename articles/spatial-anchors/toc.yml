@@ -107,6 +107,8 @@
       href: concepts/logging-diagnostics.md
     - name: Rilocalizzazione grossolana
       href: concepts/coarse-reloc.md
+    - name: Individuare la strategia di ancoraggio
+      href: concepts/anchor-locate-strategy.md
 - name: Riferimenti
   items:
     - name: SDK per Unity

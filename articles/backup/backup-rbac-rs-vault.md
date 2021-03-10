@@ -3,13 +3,13 @@ title: Gestire i backup con il controllo degli accessi in base al ruolo di Azure
 description: Usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle operazioni di gestione di backup nell'insieme di credenziali di servizi
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 0dd8d08c4ee79082f47929cf7d453f3f4bbd60ee
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 03/09/2021
+ms.openlocfilehash: 179cb6efcff4bcf50a64a6d58f861622e853b02b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090880"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553409"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo di accesso in base al ruolo di Azure per gestire i punti di ripristino di backup di Azure
 
@@ -28,26 +28,28 @@ Per definire ruoli personalizzati per un maggiore controllo, vedere How to [Buil
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mapping dei ruoli predefiniti di Backup per azioni di gestione di backup
 
+### <a name="minimum-role-requirements-for-azure-vm-backup"></a>Requisiti minimi del ruolo per il backup delle macchine virtuali di Azure
+
 La tabella seguente acquisisce le azioni di gestione del backup e il ruolo di Azure minimo corrispondente necessario per eseguire tale operazione.
 
-| Operazione di gestione | Ruolo minimo di Azure obbligatorio | Ambito necessario |
-| --- | --- | --- |
-| Creare un insieme di credenziali di Servizi di ripristino | Collaboratore di backup | Gruppo di risorse contenente l'insieme di credenziali |
-| Abilitare il backup di VM di Azure | Operatore di backup | Gruppo di risorse contenente l'insieme di credenziali |
-| | Collaboratore macchine virtuali | Risorsa della VM |
-| Backup su richiesta della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
-| Ripristino della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
-| | Autore di contributi | Gruppo di risorse in cui verrà distribuita la VM |
-| | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
+| Operazione di gestione | Ruolo minimo di Azure obbligatorio | Ambito necessario | Alternativa |
+| --- | --- | --- | --- |
+| Creare un insieme di credenziali di Servizi di ripristino | Collaboratore di backup | Gruppo di risorse contenente l'insieme di credenziali |   |
+| Abilitare il backup di VM di Azure | Operatore di backup | Gruppo di risorse contenente l'insieme di credenziali |   |
+| | Collaboratore macchine virtuali | Risorsa della VM |  In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
+| Backup su richiesta della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |   |
+| Ripristino della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |   |
+| | Autore di contributi | Gruppo di risorse in cui verrà distribuita la VM |   In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. resources/subscriptions/resourceGroups/Write Microsoft. DomainRegistration/Domains/Write, Microsoft. Compute/virtualMachines/Write Microsoft. Network/virtualNetworks/Read Microsoft. Network/virtualNetworks/Subnets/join/Action | 
+| | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |   In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
 | Ripristinare dischi non gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
-| | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
-| | Collaboratore account di archiviazione | Risorsa account di archiviazione in cui i dischi saranno ripristinati |
+| | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup | In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
+| | Collaboratore account di archiviazione | Risorsa account di archiviazione in cui i dischi saranno ripristinati |   In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. storage/storageAccounts/Write |
 | Ripristinare dischi gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
-| | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
-| | Collaboratore account di archiviazione | Account di archiviazione temporaneo selezionato come parte del ripristino per contenere i dati dall'insieme di credenziali prima di convertirli in dischi gestiti |
-| | Autore di contributi | Gruppo di risorse in cui verranno ripristinati i dischi gestiti |
+| | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |    In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
+| | Collaboratore account di archiviazione | Account di archiviazione temporaneo selezionato come parte del ripristino per contenere i dati dall'insieme di credenziali prima di convertirli in dischi gestiti |   In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. storage/storageAccounts/Write |
+| | Autore di contributi | Gruppo di risorse in cui verranno ripristinati i dischi gestiti | In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. resources/subscriptions/resourceGroups/Write|
 | Ripristinare singoli file dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
-| | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
+| | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup | In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
 | Creare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
 | Modificare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
 | Eliminare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
@@ -58,7 +60,25 @@ La tabella seguente acquisisce le azioni di gestione del backup e il ruolo di Az
 > [!IMPORTANT]
 > Se si specifica collaboratore macchina virtuale in un ambito di risorse VM e si seleziona **backup** come parte delle impostazioni della macchina virtuale, verrà visualizzata la schermata **Abilita backup** , anche se è già stato eseguito il backup della macchina virtuale. Questo perché la chiamata per verificare lo stato del backup funziona solo a livello di sottoscrizione. Per evitare questo problema, passare all'insieme di credenziali e aprire la visualizzazione dell'elemento di backup della VM o specificare il ruolo Collaboratore macchina virtuale a livello di sottoscrizione.
 
-## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisiti minimi del ruolo per il backup della condivisione file di Azure
+### <a name="minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups"></a>Requisiti minimi del ruolo per i backup del carico di lavoro di Azure (backup del database SQL e HANA)
+
+La tabella seguente acquisisce le azioni di gestione del backup e il ruolo di Azure minimo corrispondente necessario per eseguire tale operazione.
+
+| Operazione di gestione | Ruolo minimo di Azure obbligatorio | Ambito necessario | Alternativa |
+| --- | --- | --- | --- |
+| Creare un insieme di credenziali di Servizi di ripristino | Collaboratore di backup | Gruppo di risorse contenente l'insieme di credenziali |   |
+| Abilitare il backup dei database SQL e/o HANA | Operatore di backup | Gruppo di risorse contenente l'insieme di credenziali |   |
+| | Collaboratore macchine virtuali | Risorsa macchina virtuale in cui è installato il database |  In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
+| Backup su richiesta del database | Operatore di backup | Insieme di credenziali dei servizi di ripristino |   |
+| Ripristina database o Ripristina come file | Operatore di backup | Insieme di credenziali dei servizi di ripristino |   |
+| | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |   In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
+| | Collaboratore macchine virtuali | VM di destinazione in cui verrà ripristinato il database o verranno creati i file |   In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
+| Creare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
+| Modificare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
+| Eliminare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
+| Interrompere il backup (con o senza conservazione dei dati) in operazioni di backup di VM | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
+
+### <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisiti minimi del ruolo per il backup della condivisione file di Azure
 
 La tabella seguente acquisisce le azioni di gestione del backup e il ruolo corrispondente necessari per eseguire l'operazione di condivisione file di Azure.
 

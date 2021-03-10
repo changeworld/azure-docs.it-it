@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 077730d63d388566bd842a4ba185bd5fd6637043
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.openlocfilehash: d76c4206ca39518c3a09d27ee470c05db108ae6d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588999"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551882"
 ---
 # <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Configurare una pipeline CI/CD per un'app Java con Azure DevOps Starter
 
@@ -131,4 +131,4 @@ Quando non servono più, è possibile eliminare il Servizio app di Azure e altre
 Quando è stato configurato il processo di CI/CD, sono state create automaticamente pipeline di compilazione e di versione. È possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. Per altre informazioni sulla pipeline CI/CD, vedere:
 
 > [!div class="nextstepaction"]
-> [Personalizzare il processo di distribuzione continua](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalizzare il processo di distribuzione continua](/azure/devops/pipelines/release/define-multistage-release-process)

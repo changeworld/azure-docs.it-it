@@ -1,7 +1,7 @@
 ---
 title: Distribuire Micro Focus Enterprise Server 5,0 a AKS | Microsoft Docs
 description: Riospitare i carichi di lavoro mainframe IBM z/OS usando l'ambiente di sviluppo e test con Micro Focus in macchine virtuali (VM) di Azure.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: maggsl
 ms.author: edprice
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e5b3857c2252a939080206fb1f92cc422f326fc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87042549"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564357"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Distribuire Micro Focus Enterprise Server 5,0 ad AKS
 
@@ -39,7 +39,7 @@ Pronto? Ora si può iniziare.
 
 ## <a name="create-the-azure-container-registry"></a>Creare il Container Registry di Azure
 
-Dalla portale di Azure selezionare **Crea una risorsa** nell'angolo in alto a sinistra. Dal dashboard del Marketplace selezionare **contenitori,** quindi **container Registry**. In questo modo si passa al riquadro **Crea registro contenitori** in cui è necessario compilare il **nome del registro di sistema**, la **sottoscrizione di Azure**, il **gruppo di risorse**e la **località**. Il **nome del registro di sistema** deve essere risolto, quindi deve essere univoco. Selezionare il **gruppo di risorse** usato dal post di Blog precedente e lo stesso **percorso**corrispondente. Selezionare **Abilita** per **utente amministratore** e di **base** per lo **SKU**. Una volta completate tutte le operazioni, selezionare **Crea**.
+Dalla portale di Azure selezionare **Crea una risorsa** nell'angolo in alto a sinistra. Dal dashboard del Marketplace selezionare **contenitori,** quindi **container Registry**. In questo modo si passa al riquadro **Crea registro contenitori** in cui è necessario compilare il **nome del registro di sistema**, la **sottoscrizione di Azure**, il **gruppo di risorse** e la **località**. Il **nome del registro di sistema** deve essere risolto, quindi deve essere univoco. Selezionare il **gruppo di risorse** usato dal post di Blog precedente e lo stesso **percorso** corrispondente. Selezionare **Abilita** per **utente amministratore** e di **base** per lo **SKU**. Una volta completate tutte le operazioni, selezionare **Crea**.
 
 ![Crea interfaccia del registro contenitori](media/deploy-image-1.png)
 
@@ -71,7 +71,7 @@ Dopo aver eseguito l'accesso, aprire un prompt dei comandi e avviare i comandi d
 
 -   **Immagini Docker** : Mostra un elenco di tutte le immagini attualmente installate nella macchina virtuale. Prendere nota della **micromessa a fuoco/es-acctdemo,** perché si tratta di quello che verrà usato.
 
--   **Docker login acrmf50.azurecr.io** : il formato corretto qui è *Docker login \<registry name\> *. Sostituire il nome usato durante la creazione del registro di sistema.
+-   **Docker login acrmf50.azurecr.io** : il formato corretto qui è *Docker login \<registry name\>*. Sostituire il nome usato durante la creazione del registro di sistema.
 
     -   Sono necessari il **nome utente** e la **password** copiati dal portale di Azure. Il risultato dovrebbe essere simile all'immagine seguente.
 
@@ -85,7 +85,7 @@ Dopo aver eseguito l'accesso, aprire un prompt dei comandi e avviare i comandi d
 
     ![Schermata del prompt dei comandi dell'amministratore](media/deploy-image-4.png)
 
-Tornare ora alla portale di Azure, in modo specifico per il **repository**. Nel menu per il **repository** **selezionare repository e verrà**visualizzato **es-acctdemo** . A questo punto, creare il cluster AKS.
+Tornare ora alla portale di Azure, in modo specifico per il **repository**. Nel menu per il **repository** **selezionare repository e verrà** visualizzato **es-acctdemo** . A questo punto, creare il cluster AKS.
 
 ## <a name="create-the-azure-kubernetes-aks-cluster"></a>Creare il cluster Azure Kubernetes (AKS)
 

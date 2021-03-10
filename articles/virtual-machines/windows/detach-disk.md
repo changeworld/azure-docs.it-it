@@ -2,18 +2,19 @@
 title: Scollegare un disco dati da una macchina virtuale Windows - Azure
 description: Scollegare un disco dati da una macchina virtuale in Azure usando il modello di distribuzione Resource Manager.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 509b6efbbd8f40b0787ea2cc9a4bdc1b3370a0f0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 24c95d486ce77028a2c49917d8f98de23a3a8315
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044358"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552134"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
 

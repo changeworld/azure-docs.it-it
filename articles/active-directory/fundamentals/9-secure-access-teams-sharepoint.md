@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 218208891cccb4f606a574a9c1c09f30c4ac0b11
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f373c849cd542769fec7a10f20dad04e742c9591
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725079"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565139"
 ---
 # <a name="secure-external-access-to-microsoft-teams-sharepoint-and-onedrive-for-business"></a>Sicurezza dell'accesso esterno a Microsoft teams, SharePoint e OneDrive for business 
 
@@ -90,7 +90,7 @@ Per ulteriori informazioni sulla gestione dell'accesso esterno nei team, vedere 
 
 * [Gestire l'accesso esterno in Microsoft Teams](/microsoftteams/manage-external-access)
 
-* [Modelli di identità Microsoft 365 e Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Modelli di identità Microsoft 365 e Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity)
 
 * [Modelli di identità e autenticazione per Microsoft Teams](/MicrosoftTeams/identify-models-authentication)
 

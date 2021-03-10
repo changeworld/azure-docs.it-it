@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 202f2190e68b89d790c628248ae89f0cb274ff76
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 266142240ba9e892c905ac8aa6521da5a14c4c3d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725212"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554021"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. creare un piano di sicurezza per l'accesso esterno 
 
@@ -132,7 +132,7 @@ Sebbene i criteri vengano personalizzati in base alle proprie esigenze, tenere p
 
    * Se si usano [organizzazioni connesse](../governance/entitlement-management-organization.md) per raggruppare tutti gli utenti da un singolo partner, pianificare le verifiche regolari con il titolare dell'azienda e il rappresentante del partner.
 
-* **Gruppi di Microsoft 365**. Impostare [criteri di scadenza](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) dei gruppi per Microsoft 365 gruppi a cui gli utenti esterni vengono invitati. 
+* **Gruppi di Microsoft 365**. Impostare [criteri di scadenza](/microsoft-365/solutions/microsoft-365-groups-expiration-policy) dei gruppi per Microsoft 365 gruppi a cui gli utenti esterni vengono invitati. 
 
 * **Altre opzioni**. Se gli utenti esterni possono accedere al di fuori dei pacchetti di accesso alla gestione dei diritti o dei gruppi di Microsoft 365, configurare il processo di business da verificare quando gli account devono essere resi inattivi o eliminati. Ad esempio:
 

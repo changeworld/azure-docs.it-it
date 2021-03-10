@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a5c6545c634d14b5bd1d6dbb47f878f6f4f5f0b6
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 3dfb2cd445edf33ed8db4807efcc2e6326f838ab
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502825"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549006"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Baseline della sicurezza di Azure per IP pubblico di Azure
 
@@ -114,9 +114,9 @@ L'IP pubblico stesso non genera log relativi al traffico di rete diverso dal pia
 
 I ruoli predefiniti di Azure di inventario o di query sono disponibili per determinate risorse tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o l'portale di Azure.
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

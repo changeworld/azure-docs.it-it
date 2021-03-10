@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/09/2021
 ms.author: b-juche
-ms.openlocfilehash: 2cb0e3829011ca9bd0f2b6f36ebf3e6744a180ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d9d56a7f6d1e265508081f735e2dbc379f195fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713406"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552032"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -147,6 +147,16 @@ Verificare che `CaseSensitiveLookup` sia abilitato nel client Windows per veloci
 2. Montare il volume nel server Windows.   
     Esempio:   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
+
+### <a name="how-does-azure-netapp-files-support-nfsv41-file-locking"></a>In che modo Azure NetApp Files supporta il blocco di file NFSv 4.1? 
+
+Per i client NFSv 4.1, Azure NetApp Files supporta il meccanismo di blocco di file NFSv 4.1 che mantiene lo stato di tutti i blocchi di file in un modello basato sul lease. 
+
+Per RFC 3530, Azure NetApp Files definisce un singolo periodo di lease per tutto lo stato utilizzato da un client NFS. Se il client non rinnova il lease entro il periodo definito, tutti gli Stati associati al lease del client verranno rilasciati dal server.  
+
+Se, ad esempio, un client che monta un volume non risponde o si arresta in modo anomalo oltre i timeout, i blocchi verranno rilasciati. Il client può rinnovare il lease in modo esplicito o implicito eseguendo operazioni come la lettura di un file.   
+
+Un periodo di tolleranza definisce un periodo di elaborazione speciale in cui i client possono provare a recuperare il proprio stato di blocco durante il ripristino del server. Il timeout predefinito per i lease è 30 secondi con un periodo di tolleranza di 45 secondi. Dopo tale periodo di tempo, il lease del client verrà rilasciato.   
 
 ## <a name="smb-faqs"></a>Domande frequenti su SMB
 

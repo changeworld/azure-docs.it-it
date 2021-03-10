@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Informazioni su come configurare l'integrazione continua/distribuzione continua con Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
-ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 142f01a04066b919a81e1ad1ea95efa31f51f6ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017781"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548734"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
 
@@ -28,7 +28,7 @@ Anche se questo articolo usa Azure DevOps, gli stessi concetti si applicano a si
 ## <a name="prerequisites"></a>Prerequisiti
 * Cluster del servizio Azure Kubernetes con Azure Dev Spaces abilitato
 * [Interfaccia della riga di comando di Azure Dev Spaces installata](upgrade-tools.md)
-* [Organizzazione di Azure DevOps con un progetto](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* [Organizzazione di Azure DevOps con un progetto](/azure/devops/user-guide/sign-up-invite-teammates)
 * [Registro Azure Container](../../container-registry/container-registry-get-started-azure-cli.md)
     * Dettagli sull'[account amministratore](../../container-registry/container-registry-authentication.md#admin-account) del Registro Azure Container disponibili
 * [Autorizzare il cluster del servizio Azure Kubernetes a eseguire il pull dal Registro Azure Container](../../aks/cluster-container-registry-integration.md)
@@ -70,7 +70,7 @@ Opzione da disabilitare:
 > [!Note]
 > La funzionalità di anteprima _Nuova esperienza di creazione pipeline YAML_ di Azure DevOps è al momento in conflitto con la creazione di pipeline di compilazione predefinite. È necessario disabilitarla per il momento, per distribuire la pipeline di compilazione predefinita.
 
-Nel ramo _azds_updates_ è stato incluso un semplice [schema YAML di Azure Pipelines](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) che definisce i passaggi di compilazione necessari per *mywebapi* e *webfrontend*.
+Nel ramo _azds_updates_ è stato incluso un semplice [schema YAML di Azure Pipelines](/azure/devops/pipelines/yaml-schema?tabs=schema) che definisce i passaggi di compilazione necessari per *mywebapi* e *webfrontend*.
 
 A seconda del linguaggio scelto, lo schema YAML della pipeline è stato archiviato in un percorso simile a: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
@@ -101,7 +101,7 @@ A questo punto, è stata creata una soluzione CI che compilerà automaticamente 
 1. Per la **versione predefinita**, scegliere **più recente dal ramo predefinito della pipeline di compilazione con i tag**.
 1. Lasciare i **tag** vuoti.
 1. Impostare **Alias di origine** su `drop`. Il valore dell' **alias di origine** viene usato dalle attività di rilascio predefinite, quindi deve essere impostato.
-1. Scegliere **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 1. Fare ora clic sull'icona del fulmine sull'origine dell'elemento `drop` appena creato, come illustrato sotto:
 
     ![Configurazione della distribuzione continua dell'elemento della versione](../media/common/release-artifact-cd-setup.png)

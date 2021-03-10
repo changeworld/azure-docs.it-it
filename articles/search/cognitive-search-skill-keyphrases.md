@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2fdebffbf9643febc08cba997b3a5a5fc4bb5998
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8aafb08ff0ccc9391071f796450e69f87de279ba
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652314"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547833"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Competenza Estrazione frasi chiave della ricerca cognitiva
 
@@ -41,6 +41,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 |---------------------|-------------|
 | `defaultLanguageCode` | (Facoltativo) Il codice lingua da applicare ai documenti che non specificano in modo esplicito una lingua.  Se il codice lingua predefinito non è specificato, Inglese (en) verrà usato come il codice lingua predefinito. <br/> Vedere l'[elenco completo delle lingue supportate](../cognitive-services/text-analytics/language-support.md). |
 | `maxKeyPhraseCount`   | (Facoltativo) Il numero massimo di frasi chiave da produrre. |
+| `modelVersion`   | Opzionale Versione del modello da utilizzare quando si chiama il servizio Analisi del testo. Per impostazione predefinita, la versione più recente disponibile quando non viene specificata. Si consiglia di non specificare questo valore a meno che non sia assolutamente necessario. Per ulteriori informazioni, vedere [controllo delle versioni dei modelli nella API analisi del testo](../cognitive-services/text-analytics/concepts/model-versioning.md) . |
 
 ## <a name="skill-inputs"></a>Input competenze
 
@@ -109,8 +110,8 @@ Per l'esempio precedente, l'output delle competenze verrà scritto in un nuovo n
 
 È possibile utilizzare "Document/myKeyPhrases" come input in altre competenze o come origine di un mapping di [campi di output](cognitive-search-output-field-mapping.md).
 
-## <a name="errors-and-warnings"></a>Errori e avvisi
-Se si fornisce un codice lingua non supportato, viene generato un errore e le frasi chiave non vengono estratte.
+## <a name="warnings"></a>Avvisi
+Se si fornisce un codice lingua non supportato, viene generato un avviso e non vengono estratte le frasi chiave.
 Se il testo è vuoto, verrà generato un avviso.
 Se il testo contiene più di 50.000 caratteri, verranno analizzati solo i primi 50.000 caratteri e verrà generato un avviso.
 
