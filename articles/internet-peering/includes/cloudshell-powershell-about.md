@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 607cb824a50da3778ebe34f184abc0dc97c15961
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d125471d4a6c68aff12921a8524a91ef75b6c51a
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025479"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102532524"
 ---
 Per eseguire i cmdlet, è possibile usare Azure Cloud Shell, una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Selezionare **copia** per copiare il codice e incollarlo in cloud Shell. Quindi premere **invio** per eseguirlo. Esistono diversi modi per avviare Cloud Shell:
 
@@ -29,4 +29,4 @@ Se non si vuole usare Azure Cloud Shell, è possibile installare PowerShell in l
 
 Per trovare la versione di PowerShell che si sta eseguendo localmente, usare il cmdlet **' get-module-listavailable AZ '** . Per aggiornare, vedere [Installare il modulo Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Per ulteriori informazioni, vedere [come installare e configurare Azure PowerShell](/powershell/azure/azurerm/overview).
 
-Se si usa PowerShell in macOS, seguire la procedura descritta in [installazione di PowerShell in MacOS.](/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6)
+Se si usa PowerShell in macOS, seguire la procedura descritta in [installazione di PowerShell in MacOS.](/powershell/scripting/install/installing-powershell-core-on-macos)
