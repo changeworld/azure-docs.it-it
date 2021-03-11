@@ -7,21 +7,30 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 73dc2520fbe970123a52133cb00909fea190610a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 86e79302716fa502d8562dd563b0a5c5fb220a67
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202672"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547553"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Eseguire la migrazione da Network Attached Storage (NAS) a una distribuzione cloud ibrida con Sincronizzazione file di Azure
+
+Questo articolo di migrazione è uno dei numerosi che coinvolgono le parole chiave NAS e Sincronizzazione file di Azure. Controllare se questo articolo è applicabile al proprio scenario:
+
+> [!div class="checklist"]
+> * Origine dati: archiviazione collegata alla rete (NAS)
+> * Route di migrazione: &rArr; &rArr; caricamento e sincronizzazione di Windows Server NAS con le condivisioni file di Azure
+> * Caching dei file locali: Sì, l'obiettivo finale è una distribuzione Sincronizzazione file di Azure.
+
+Se lo scenario è diverso, esaminare la [tabella delle guide alla migrazione](storage-files-migration-overview.md#migration-guides).
 
 Sincronizzazione file di Azure funziona nei percorsi DAS (Direct Attached Storage) e non supporta la sincronizzazione con i percorsi di archiviazione collegata alla rete (NAS).
 Questo fatto rende necessario eseguire la migrazione dei file e in questo articolo viene illustrata la pianificazione e l'esecuzione di una migrazione di questo tipo.
 
 ## <a name="migration-goals"></a>Obiettivi della migrazione
 
-L'obiettivo è spostare le condivisioni presenti sul dispositivo NAS in un server Windows. Usare quindi Sincronizzazione file di Azure per una distribuzione cloud ibrida. Questa migrazione deve essere eseguita in modo da garantire l'integrità dei dati di produzione e la disponibilità durante la migrazione. Il secondo richiede il mantenimento del tempo di inattività minimo, in modo che possa rientrare o solo leggermente più di una normale finestra di manutenzione.
+L'obiettivo è spostare le condivisioni presenti sul dispositivo NAS in un server Windows. Usare quindi Sincronizzazione file di Azure per una distribuzione cloud ibrida. In genere, le migrazioni devono essere eseguite in modo da garantire l'integrità dei dati di produzione e la relativa disponibilità durante la migrazione. Il secondo richiede il mantenimento del tempo di inattività minimo, in modo che possa rientrare o solo leggermente più di una normale finestra di manutenzione.
 
 ## <a name="migration-overview"></a>Panoramica della migrazione
 
@@ -45,12 +54,12 @@ Come indicato nell' [articolo Panoramica della migrazione](storage-files-migrati
 * Creare una macchina virtuale di Windows Server 2019, almeno 2012R2, come macchina virtuale o server fisico. È supportato anche un cluster di failover di Windows Server.
 * Effettuare il provisioning o aggiungere l'archiviazione collegata direttamente (DAS rispetto a NAS, che non è supportata).
 
-    Se si usa la funzionalità di suddivisione in [livelli cloud](storage-sync-cloud-tiering-overview.md) di sincronizzazione file di Azure, la quantità di spazio di archiviazione di cui si effettua il provisioning può essere inferiore a quella attualmente in uso nel dispositivo NAS.
+    La quantità di spazio di archiviazione di cui si effettua il provisioning può essere inferiore a quella attualmente in uso nel dispositivo NAS. Questa scelta di configurazione richiede anche l'uso della funzionalità di suddivisione in [livelli cloud](storage-sync-cloud-tiering-overview.md) di sincronizzazione file di Azure.
     Tuttavia, quando si copiano i file dallo spazio NAS più ampio al volume di Windows Server più piccolo in una fase successiva, sarà necessario lavorare in batch:
 
     1. Spostare un set di file che si integrano sul disco
     2. consente di attivare la sincronizzazione file e la suddivisione in livelli nel cloud
-    3. Quando viene creato più spazio libero nel volume, procedere con il batch successivo di file. 
+    3. Quando viene creato più spazio libero nel volume, procedere con il batch successivo di file. In alternativa, rivedere il comando RoboCopy nella prossima [sezione di Robocopy](#phase-7-robocopy) per l'uso del nuovo `/LFSM` Switch. L'uso di `/LFSM` può semplificare notevolmente i processi di Robocopy, ma non è compatibile con altri commutatori Robocopy da cui dipende.
     
     È possibile evitare questo approccio di invio in batch eseguendo il provisioning dello spazio equivalente nel server Windows che i file occupano sul dispositivo NAS. Si consideri la deduplicazione su NAS/Windows. Se non si vuole eseguire il commit permanente di questa quantità elevata di spazio di archiviazione in Windows Server, è possibile ridurre le dimensioni del volume dopo la migrazione e prima di modificare i criteri di suddivisione in livelli nel cloud. Che consente di creare una cache locale più piccola delle condivisioni file di Azure.
 
@@ -108,76 +117,7 @@ Il comando RoboCopy seguente consente di copiare i file dalla risorsa di archivi
 Se è stato effettuato il provisioning di una quantità minore di spazio di archiviazione nel server Windows rispetto a quella dei file, è stata configurata la suddivisione in livelli nel cloud. Con l'esaurimento del volume locale di Windows Server, la suddivisione in [livelli cloud](storage-sync-cloud-tiering-overview.md) verrà avviata e i file di livello che sono già stati sincronizzati correttamente. La suddivisione in livelli cloud genererà spazio sufficiente per continuare la copia dal dispositivo NAS. La suddivisione in livelli nel cloud viene controllata una volta all'ora per vedere cosa è stato sincronizzato e liberare spazio su disco per raggiungere lo spazio disponibile nel volume del 99%.
 È possibile che RoboCopy sposti i file più velocemente di quanto sia possibile sincronizzare al cloud e al livello localmente, esaurendo così lo spazio su disco locale. RoboCopy avrà esito negativo. Si consiglia di usare le condivisioni in una sequenza che lo impedisce. Ad esempio, non avviare i processi RoboCopy per tutte le condivisioni contemporaneamente o solo le condivisioni che rientrano nella quantità corrente di spazio disponibile sul server Windows, per citarne alcune.
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Sfondo:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Consente a RoboCopy di eseguire multithread. Il valore predefinito è 8, Max è 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      Restituisce lo stato del file di LOG come UNICODE (sovrascrive il log esistente).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Output nella finestra della console. Utilizzato in combinazione con l'output in un file di log.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      / B
-   :::column-end:::
-   :::column span="1":::
-      Esegue RoboCopy nella stessa modalità usata da un'applicazione di backup. Consente a RoboCopy di spostare i file che l'utente corrente non dispone delle autorizzazioni per.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Consente a di eseguire questo comando RoboCopy più volte, in sequenza nella stessa destinazione/destinazione. Identifica gli elementi che sono stati copiati in precedenza e li omette. Verranno elaborate solo le modifiche, le aggiunte e le "*eliminazioni*", che si sono verificate dall'ultima esecuzione. Se il comando non è stato eseguito in precedenza, non viene omesso nulla. Il flag */Mir* è un'ottima opzione per le posizioni di origine che vengono ancora utilizzate e modificate in modo attivo.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      fedeltà della copia del file (il valore predefinito è/COPY: DAT), flag di copia: D = dati, A = attributi, T = timestamp, S = Security = ACL NTFS, O = informazioni sul proprietario, U = informazioni sul controllo
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      COPIA tutte le informazioni sul file (equivalente a/COPY: DATSOU)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      fedeltà per la copia delle directory (il valore predefinito è/DCOPY: DA), i flag di copia: D = dati, A = attributi, T = timestamp
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>Fase 8: riduzione dell'utente
 
@@ -196,7 +136,7 @@ La seconda volta che verrà completata più velocemente, perché è necessario s
 
 Ripetere questa procedura fino a quando non si è soddisfatti del tempo necessario per completare un RoboCopy per una posizione specifica all'interno di una finestra accettabile per i tempi di inattività.
 
-Quando si considera il tempo di inattività accettabile e si è pronti a portare offline il percorso NAS: per consentire l'accesso utente offline, è possibile modificare gli ACL nella radice della condivisione in modo che gli utenti non possano più accedere al percorso o eseguire qualsiasi altro passaggio appropriato che impedisce la modifica del contenuto in questa cartella nel server NAS.
+Quando si considera il tempo di inattività accettabile, è necessario rimuovere l'accesso utente alle condivisioni basate su NAS. Questa operazione può essere eseguita da qualsiasi passaggio che impedisce agli utenti di modificare la struttura di file e cartelle e il contenuto. Un esempio consiste nel puntare la DFS-Namespace a una posizione non esistente o modificare gli ACL radice nella condivisione.
 
 Eseguire un ultimo round RoboCopy. Rileverà le modifiche che potrebbero essere state perse.
 Il tempo necessario per il passaggio finale dipende dalla velocità dell'analisi RoboCopy. È possibile stimare l'intervallo di tempo (uguale al tempo di inattività) misurando il tempo impiegato per l'esecuzione precedente.

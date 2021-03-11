@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2a5c3c107f9a574842c469c5535992c66f37414b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 4951e86b7fd14809811ebc2cb8e50442a8d28248
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428116"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609464"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -23,6 +23,7 @@ ms.locfileid: "102428116"
 |[I certificati devono usare i tipi di chiave consentiti](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1151cede-290b-4ba0-8b38-0ad145ac888f) |Consente di gestire i requisiti di conformità aziendali limitando i tipi di chiave consentiti per i certificati. |Audit, Deny, Disabled |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_AllowedKeyTypes.json) |
 |[Per i certificati che usano la crittografia a curva ellittica sono necessari nomi di curva consentiti](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd78111f-4953-4367-9fd5-7e08808b54bf) |Consente di gestire i nomi di curva ellittica consentiti per i certificati ECC archiviati nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [https://aka.ms/akvpolicy](https://aka.ms/akvpolicy). |Audit, Deny, Disabled |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_EC_AllowedCurveNames.json) |
 |[I certificati che usano la crittografia RSA devono avere le dimensioni minime della chiave specificate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee51871-e572-4576-855c-047c820360f0) |Consente di gestire i requisiti di conformità aziendali specificando le dimensioni minime della chiave per i certificati RSA archiviati nell'insieme di credenziali delle chiavi. |Audit, Deny, Disabled |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_RSA_MinimumKeySize.json) |
+|[Distribuisci: configura le impostazioni di diagnostica per Azure Key Vault nell'area di lavoro Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F951af2fa-529b-416e-ab6e-066fd85ac459) |Distribuisce le impostazioni di diagnostica per Azure Key Vault per eseguire lo streaming dei log delle risorse in un'area di lavoro di Log Analytics quando vengono creati o aggiornati eventuali Key Vault mancanti per queste impostazioni di diagnostica. |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/DataConnectorsAzureKeyVault_PolicyAssignment.json) |
 |[Distribuisci: configura le impostazioni di diagnostica in un'area di lavoro di Log Analytics da abilitare in Azure Key Vault HSM gestito](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb3884c81-31aa-473d-a9bb-9466fe0ec2a0) |Distribuisce le impostazioni di diagnostica per Azure Key Vault HSM gestito da trasmettere in un'area di lavoro di Log Analytics a livello di area quando viene creato o aggiornato un modulo di protezione hardware gestito da Azure Key Vault che non contiene queste impostazioni di diagnostica. |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ManagedHsm_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
 |[Distribuisci: configura le impostazioni di diagnostica in un hub eventi da abilitare in Azure Key Vault HSM gestito](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6d2c800-5230-4a40-bff3-8268b4987d42) |Distribuisce le impostazioni di diagnostica per Azure Key Vault HSM gestito da trasmettere a un hub eventi a livello di area quando viene creato o aggiornato un modulo di protezione hardware gestito da Azure Key Vault che non contiene queste impostazioni di diagnostica. |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_DiagnosticLog_Deploy.json) |
 |[Distribuisci le impostazioni di diagnostica per Key Vault nell'hub eventi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fed7c8c13-51e7-49d1-8a43-8490431a0da2) |Distribuisce le impostazioni di diagnostica per Key Vault per lo streaming in un hub eventi a livello di area quando viene creato o aggiornato un Key Vault in cui manca questa impostazione di diagnostica. |deployIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_DiagnosticLog_Deploy.json) |

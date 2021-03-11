@@ -2,18 +2,19 @@
 title: 'Avvio rapido: Usare un modello di Resource Manager per creare una VM Windows'
 description: Questo argomento di avvio rapido illustra come usare un modello di Resource Manager per creare una macchina virtuale Windows
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: ded59b2f517c5b109dfd00bde2fb73f8351bf821
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: b2856c51ccc31b57ea567c5d0940cd260797f770
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88649670"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560753"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Avvio rapido: Creare una macchina virtuale Windows con un modello di Resource Manager
 
@@ -63,7 +64,7 @@ Nel modello sono definite diverse risorse:
     - **Password amministratore**: specificare una password da usare per l'account amministratore. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
     - **Prefisso etichetta DNS**: immettere un identificatore univoco da usare come parte dell'etichetta DNS.
     - **Versione del sistema operativo Windows**: selezionare la versione di Windows da eseguire nella macchina virtuale.
-    - **Dimensioni della macchina virtuale**: selezionare le [dimensioni ](../sizes.md) da usare per la macchina virtuale.
+    - **Dimensioni della macchina virtuale**: selezionare le [dimensioni](../sizes.md) da usare per la macchina virtuale.
     - **Località**: il valore predefinito è la stessa località del gruppo di risorse, se esiste già.
 1. Selezionare **Rivedi e crea**. Al termine della convalida, selezionare **Crea** per creare e distribuire la VM.
 

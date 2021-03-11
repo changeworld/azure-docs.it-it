@@ -2,14 +2,14 @@
 title: Procedure consigliate per migliorare le prestazioni con il bus di servizio di Azure
 description: Descrive come usare il bus di servizio per ottimizzare le prestazioni durante gli scambi di messaggi negoziati.
 ms.topic: article
-ms.date: 01/15/2021
+ms.date: 03/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c775555f82258c532d72917220129e3913ad314
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 10435f74cfb7c87ccb28b64e1b3f136add1dc927
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102456046"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561875"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
 
@@ -44,17 +44,22 @@ Per ulteriori informazioni sul supporto della piattaforma .NET Standard minima, 
 # <a name="azuremessagingservicebus-sdk"></a>[Azure. Messaging. ServiceBus SDK](#tab/net-standard-sdk-2)
 Gli oggetti del bus di servizio che interagiscono con il servizio, ad esempio [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver)e [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), devono essere registrati per l'inserimento di dipendenze come singleton (o per cui è stata creata un'istanza una volta e condivise). ServiceBusClient può essere registrato per l'inserimento di dipendenze con il [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
 
-Si consiglia di non chiudere o eliminare questi oggetti dopo l'invio o la ricezione di ogni messaggio. La chiusura o l'eliminazione degli oggetti specifici dell'entità (ServiceBusSender/Receiver/Processor) comporta la rimozione del collegamento al servizio del bus di servizio. L'eliminazione del ServiceBusClient comporta la chiusura della connessione al servizio del bus di servizio. La creazione di una connessione è un'operazione dispendiosa che è possibile evitare riutilizzando lo stesso ServiceBusClient e creando gli oggetti specifici dell'entità necessari dalla stessa istanza di ServiceBusClient. È possibile usare gli oggetti del client per operazioni asincrone simultanee e da più thread.
+Si consiglia di non chiudere o eliminare questi oggetti dopo l'invio o la ricezione di ogni messaggio. La chiusura o l'eliminazione degli oggetti specifici dell'entità (ServiceBusSender/Receiver/Processor) comporta la rimozione del collegamento al servizio del bus di servizio. L'eliminazione del ServiceBusClient comporta la chiusura della connessione al servizio del bus di servizio. 
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft. Azure. ServiceBus SDK](#tab/net-standard-sdk)
 
-Gli oggetti client del bus di servizio, ad esempio le implementazioni di [`IQueueClient`][QueueClient] o [`IMessageSender`][MessageSender] , devono essere registrati per l'inserimento di dipendenze come singleton (o per cui è stata creata un'istanza una volta e condivise). Si consiglia di non chiudere le factory di messaggistica, la coda, l'argomento o i client di sottoscrizione dopo l'invio di un messaggio e quindi ricrearli quando si invia il messaggio successivo. La chiusura di una factory di messaggistica comporta l'eliminazione della connessione al servizio del bus di servizio. Quando si ricrea la factory viene stabilita una nuova connessione. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare gli oggetti del client per operazioni asincrone simultanee e da più thread.
+Gli oggetti client del bus di servizio, ad esempio le implementazioni di [`IQueueClient`][QueueClient] o [`IMessageSender`][MessageSender] , devono essere registrati per l'inserimento di dipendenze come singleton (o per cui è stata creata un'istanza una volta e condivise). Si consiglia di non chiudere le factory di messaggistica, la coda, l'argomento o i client di sottoscrizione dopo l'invio di un messaggio e quindi ricrearli quando si invia il messaggio successivo. La chiusura di una factory di messaggistica comporta l'eliminazione della connessione al servizio del bus di servizio. Quando si ricrea la factory viene stabilita una nuova connessione. 
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure. ServiceBus SDK](#tab/net-framework-sdk)
 
-Gli oggetti client del bus di servizio, ad esempio `QueueClient` o `MessageSender` , vengono creati tramite un oggetto [MessagingFactory][MessagingFactory] , che fornisce anche la gestione interna delle connessioni. Si consiglia di non chiudere le factory di messaggistica, la coda, l'argomento o i client di sottoscrizione dopo l'invio di un messaggio e quindi ricrearli quando si invia il messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare gli oggetti del client per operazioni asincrone simultanee e da più thread.
+Gli oggetti client del bus di servizio, ad esempio `QueueClient` o `MessageSender` , vengono creati tramite un oggetto [MessagingFactory][MessagingFactory] , che fornisce anche la gestione interna delle connessioni. Si consiglia di non chiudere le factory di messaggistica, la coda, l'argomento o i client di sottoscrizione dopo l'invio di un messaggio e quindi ricrearli quando si invia il messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. 
 
 ---
+
+La nota seguente si applica a tutti gli SDK:
+
+> [!NOTE]
+> Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare gli oggetti del client per operazioni asincrone simultanee e da più thread.
 
 ## <a name="concurrent-operations"></a>Operazioni simultanee
 Operazioni quali invio, ricezione, eliminazione e così via derivano da qualche tempo. Questa volta include il tempo impiegato dal servizio del bus di servizio per elaborare l'operazione e la latenza della richiesta e della risposta. Per aumentare il numero di operazioni per volta, è necessario eseguire le operazioni contemporaneamente.

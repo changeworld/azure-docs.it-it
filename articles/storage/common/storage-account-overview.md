@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5cf43310c68c8446b9465a39d85f84c8273a68d8
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 24d955b0d1c53f57f5927f9e893b6ecd75fb3ca8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051225"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561892"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
@@ -71,7 +71,7 @@ Gli account di archiviazione per utilizzo generico v2 supportano le funzionalit�
 - Tabelle
 
 > [!NOTE]
-> Per la maggior parte degli scenari è consigliabile usare un account di archiviazione per utilizzo generico v2. È possibile eseguire facilmente l'aggiornamento di un account di archiviazione per utilizzo generico v1 o un account di archiviazione BLOB a un account per utilizzo generico v2, senza tempi di inattività e senza la necessità copiare i dati.
+> Per la maggior parte degli scenari è consigliabile usare un account di archiviazione per utilizzo generico v2. È possibile eseguire facilmente l'aggiornamento di un account di archiviazione per utilizzo generico v1 o un account di archiviazione BLOB a un account per utilizzo generico v2, senza tempi di inattività e senza la necessità copiare i dati. Tuttavia, l'aggiornamento non può essere annullato.
 >
 > Per altre informazioni sull'aggiornamento a un account per utilizzo generico v2, vedere [Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2](storage-account-upgrade.md).
 
@@ -87,13 +87,18 @@ Gli account di archiviazione per utilizzo generico V1 forniscono l'accesso a tut
 - Code
 - Tabelle
 
-Microsoft consiglia gli account per utilizzo generico V2 per la maggior parte degli scenari. Per questi scenari, è possibile usare account generali V1:
+Per questi scenari, è possibile usare account generali V1:
 
 - Le applicazioni richiedono il modello di distribuzione classica di Azure. Gli account per utilizzo generico v2 e gli account di archiviazione BLOB supportano solo il modello di distribuzione Azure Resource Manager.
 
 - Le applicazioni sono a elevato utilizzo di transazioni o usano una larghezza di banda di replica geografica significativa, ma non richiedono una capacità elevata. In questo caso, un account per utilizzo generico v1 può essere la scelta più economica.
 
 - Si usa una versione dell' [API REST dei servizi di archiviazione](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) precedente alla 2014-02-14 o una libreria client con una versione precedente alla 4. x. Non è possibile aggiornare l'applicazione.
+
+> [!NOTE]
+> Sebbene Microsoft consigli gli account per utilizzo generico V2 per la maggior parte degli scenari, Microsoft continuerà a supportare gli account per utilizzo generico V1 per i clienti nuovi ed esistenti. È possibile creare account di archiviazione per utilizzo generico V1 in nuove aree ogni volta che archiviazione di Azure è disponibile in tali aree. Microsoft non ha attualmente un piano per deprecare il supporto per gli account per utilizzo generico V1 e fornirà almeno un preavviso di un anno prima di deprecare le funzionalità di archiviazione di Azure. Microsoft continuerà a fornire aggiornamenti della sicurezza per gli account per utilizzo generico V1, ma per questo tipo di account non è previsto alcun nuovo sviluppo di funzionalità.
+>
+> A partire dal 1 ° ottobre 2020, i prezzi per gli account per utilizzo generico V1 nelle nuove aree di archiviazione di Azure equivalgono ai prezzi per gli account per utilizzo generico V2 in tali aree. I prezzi nelle aree di archiviazione di Azure esistenti non sono stati modificati. Per informazioni dettagliate sui prezzi per gli account per utilizzo generico V1 in un'area specifica, vedere la pagina dei prezzi di archiviazione di Azure. Scegliere l'area geografica e quindi selezionare **altro** accanto a offerte per i **prezzi**.
 
 ### <a name="blockblobstorage-accounts"></a>Account BlockBlobStorage
 

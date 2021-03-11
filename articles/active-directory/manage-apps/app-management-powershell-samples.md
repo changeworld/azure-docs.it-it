@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 02/18/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: e63931f62398e1344d001bedb27cc8d0d776bef1
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 46297f7f0f648c8bebc887a9093e25dfea99f695
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102185398"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561501"
 ---
 # <a name="azure-active-directory-powershell-examples-for-application-management"></a>Esempi di Azure Active Directory PowerShell per la gestione delle applicazioni
 
@@ -24,9 +24,12 @@ La tabella seguente include collegamenti a esempi di script di PowerShell per la
 - [PowerShell per AzureAD V2 per il modulo Graph](/powershell/azure/active-directory/install-adv2) o,
 - [AzureAD V2 PowerShell per la versione di anteprima del modulo Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), salvo diversa indicazione.
 
-Per ulteriori informazioni sui cmdlet utilizzati in questi esempi, vedere [applicazioni](/powershell/module/azuread/?view=azureadps-2.0#applications&preserve-view=true).
+Per ulteriori informazioni sui cmdlet utilizzati in questi esempi, vedere [applicazioni](/powershell/module/azuread/#applications).
 
 | Collegamento | Descrizione |
 |---|---|
 |**Script di gestione delle applicazioni**||
-| [Esportare tutte le registrazioni, i segreti e i certificati dell'app](scripts/powershell-export-all-app-registrations-secrets-and-certs.md) | Esporta tutte le registrazioni, i segreti e i certificati delle app per le app specificate nella directory. |
+| [Esportare segreti e certificati (registrazioni per l'app)](scripts/powershell-export-all-app-registrations-secrets-and-certs.md) | Esportare i segreti e i certificati per le registrazioni di app in Azure Active Directory tenant. |
+| [Esportare segreti e certificati (app aziendali)](scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md) | Esportare i segreti e i certificati per le app aziendali in Azure Active Directory tenant. |
+| [Esporta segreti e certificati in scadenza](scripts/powershell-export-apps-with-expriring-secrets.md) | Esporta app con segreti e certificati in scadenza nel tenant Azure Active Directory. |
+| [Esporta segreti e certificati che scadono oltre la data richiesta](scripts/powershell-export-apps-with-secrets-beyond-required.md) | Esporta app con segreti e certificati che scadono oltre la data richiesta nel tenant Azure Active Directory. |

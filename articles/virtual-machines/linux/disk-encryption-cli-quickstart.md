@@ -3,17 +3,18 @@ title: Creare e crittografare una macchina virtuale Linux con l'interfaccia dell
 description: In questa guida introduttiva si apprenderà come usare l'interfaccia della riga di comando di Azure per creare e crittografare una macchina virtuale Linux
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: disks
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: addfa90f5ec793600072aaaaf2786cfe3d5dad38
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b600c895f98c46dbaafce7deef86bbbee8f57c99
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737016"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561042"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>Guida introduttiva: Creare e crittografare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 

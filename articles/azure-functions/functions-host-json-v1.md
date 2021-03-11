@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 588ab6723015f34d15e4a46ec4f7324302b13b81
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 48dba50b384731befdc7fba7c418e542994cedd9
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832824"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608955"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 
@@ -149,7 +149,7 @@ Impostazioni di configurazione per il [trigger e le associazioni Azure Cosmos DB
 
 ## <a name="eventhub"></a>eventHub
 
-Impostazioni di configurazione per i [trigger e le associazioni di Hub eventi](functions-bindings-event-hubs-trigger.md#functions-1x).
+Impostazioni di configurazione per i [trigger e le associazioni di Hub eventi](functions-bindings-event-hubs.md#functions-1x).
 
 ## <a name="functions"></a>functions
 
@@ -189,7 +189,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
-|Enabled|True|Indica se la funzionalità è abilitata. | 
+|Enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
 |healthCheckWindow|2 minuti|Finestra temporale scorrevole usata in combinazione con l'impostazione `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Numero massimo di volte in cui il controllo dell'integrità può non riuscire prima che venga avviato un riciclo host.| 
@@ -314,7 +314,7 @@ Impostazione di configurazione per i [trigger e le associazioni dei bus di servi
 |maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. | 
 |prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.| 
 |autoRenewTimeout|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.|
-|autoComplete|True|Se il valore è true, il trigger completerà automaticamente l'elaborazione del messaggio in caso di esecuzione corretta dell'operazione. Quando è false, è responsabilità della funzione completare il messaggio prima della restituzione.|
+|autoComplete|true|Se il valore è true, il trigger completerà automaticamente l'elaborazione del messaggio in caso di esecuzione corretta dell'operazione. Quando è false, è responsabilità della funzione completare il messaggio prima della restituzione.|
 
 ## <a name="singleton"></a>singleton
 

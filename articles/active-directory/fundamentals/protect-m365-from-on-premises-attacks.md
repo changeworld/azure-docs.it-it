@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9913132ca6ff3ce2840b55aa771f7bd9be2404ea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e6d548f4d792d8980e2aa5040b09530eaf7868c4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650975"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609907"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protezione Microsoft 365 da attacchi locali
 
@@ -69,7 +69,7 @@ Per risolvere i vettori di minacce descritti in precedenza, è consigliabile ris
 
     Questi account amministratore sono account con restrizioni sull'utilizzo. *Nessun account locale deve avere privilegi amministrativi in Microsoft 365.* 
 
-    Per ulteriori informazioni, vedere la [Panoramica dei ruoli di amministratore Microsoft 365](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide). Vedere anche [ruoli per Microsoft 365 in Azure ad](../roles/m365-workload-docs.md).
+    Per ulteriori informazioni, vedere la [Panoramica dei ruoli di amministratore Microsoft 365](/microsoft-365/admin/add-users/about-admin-roles). Vedere anche [ruoli per Microsoft 365 in Azure ad](../roles/m365-workload-docs.md).
 
 1. **Gestire i dispositivi da Microsoft 365.** Usare Azure AD join e la gestione di dispositivi mobili (MDM) basata sul cloud per eliminare le dipendenze dall'infrastruttura di gestione dei dispositivi locale. Queste dipendenze possono compromettere i controlli dispositivo e sicurezza.
 
@@ -151,7 +151,7 @@ Quando viene usato per eseguire il provisioning di account ibridi, il sistema Az
 
 I gruppi di cloud consentono di separare la collaborazione e l'accesso dall'infrastruttura locale.
 
-* **Collaborazione**: usare gruppi di Microsoft 365 e Microsoft teams per la collaborazione moderna. Rimuovere le autorizzazioni dalle liste di distribuzione locali e [aggiornare le liste di distribuzione per Microsoft 365 gruppi in Outlook](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide).
+* **Collaborazione**: usare gruppi di Microsoft 365 e Microsoft teams per la collaborazione moderna. Rimuovere le autorizzazioni dalle liste di distribuzione locali e [aggiornare le liste di distribuzione per Microsoft 365 gruppi in Outlook](/office365/admin/manage/upgrade-distribution-lists).
 
 * **Accesso**: usare gruppi di sicurezza o gruppi di Microsoft 365 Azure ad per autorizzare l'accesso alle applicazioni in Azure ad.
 * **Licenze di office 365**: usare le licenze basate sui gruppi per eseguire il provisioning in Office 365 usando gruppi solo cloud. Questo metodo separa il controllo dell'appartenenza al gruppo dall'infrastruttura locale.
@@ -203,9 +203,9 @@ Usare Azure AD l'accesso condizionale per interpretare i segnali e usarli per pr
 
 * Usare l'accesso condizionale per [bloccare i protocolli di autenticazione legacy](../conditional-access/howto-conditional-access-policy-block-legacy.md) laddove possibile. Inoltre, disabilitare i protocolli di autenticazione legacy a livello di applicazione usando una configurazione specifica dell'applicazione.
 
-   Per ulteriori informazioni, vedere [protocolli di autenticazione legacy](../fundamentals/auth-sync-overview.md). In alternativa, vedere dettagli specifici per [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) e [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
+   Per ulteriori informazioni, vedere [protocolli di autenticazione legacy](../fundamentals/auth-sync-overview.md). In alternativa, vedere dettagli specifici per [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) e [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant).
 
-* Implementare le configurazioni consigliate [per l'identità e l'accesso ai dispositivi](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide).
+* Implementare le configurazioni consigliate [per l'identità e l'accesso ai dispositivi](/microsoft-365/security/office-365-security/identity-access-policies).
 
 * Se si usa una versione di Azure AD che non include l'accesso condizionale, assicurarsi di usare le [impostazioni predefinite di sicurezza di Azure ad](../fundamentals/concept-fundamentals-security-defaults.md).
 

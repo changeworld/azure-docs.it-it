@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb168610f10ac336084ac04c19679d26fc913e0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2d9d63c7a703987d7b17e6e03d8b5596d5f1dfa5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725245"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560617"
 ---
 # <a name="securing-external-access-with-groups"></a>Sicurezza dell'accesso esterno con i gruppi 
 
@@ -54,7 +54,7 @@ Quando si sviluppa la strategia di gruppo per proteggere l'accesso esterno alle 
 
    * Per *impostazione predefinita, tutti gli utenti possono creare gruppi e gruppi M365 aperti per l'aggiunta a tutti gli utenti (interni ed esterni) del tenant*. 
 
-      * [È possibile limitare la creazione di gruppi di Microsoft 365](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) ai membri di un particolare gruppo di sicurezza. Usare Windows PowerShell per configurare questa impostazione. 
+      * [È possibile limitare la creazione di gruppi di Microsoft 365](/microsoft-365/solutions/manage-creation-of-groups) ai membri di un particolare gruppo di sicurezza. Usare Windows PowerShell per configurare questa impostazione. 
 
 * **Chi deve essere in grado di invitare persone ai gruppi?** Tutti i membri del gruppo possono aggiungere altri membri oppure solo i proprietari del gruppo possono aggiungere membri?
 
@@ -150,13 +150,13 @@ Le organizzazioni ibride hanno sia un'infrastruttura locale che un'infrastruttur
 
 ## <a name="microsoft-365-groups"></a>Gruppi di Microsoft 365
 
-I [gruppi di Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) sono il servizio di appartenenza di base che guida tutti gli accessi in M365. È possibile crearli dal [portale di Azure](https://portal.azure.com/)o dal portale di [M365](https://admin.microsoft.com/). Quando viene creato un gruppo di M365, si concede l'accesso a un gruppo di risorse usate per collaborare. Per un elenco completo di queste risorse, vedere [Panoramica dei gruppi di Microsoft 365 per gli amministratori](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) .
+I [gruppi di Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups) sono il servizio di appartenenza di base che guida tutti gli accessi in M365. È possibile crearli dal [portale di Azure](https://portal.azure.com/)o dal portale di [M365](https://admin.microsoft.com/). Quando viene creato un gruppo di M365, si concede l'accesso a un gruppo di risorse usate per collaborare. Per un elenco completo di queste risorse, vedere [Panoramica dei gruppi di Microsoft 365 per gli amministratori](/microsoft-365/admin/create-groups/office-365-groups) .
 
 I gruppi di M365 presentano le sfumature seguenti per i loro ruoli
 
 * **Proprietari** : i proprietari del gruppo possono aggiungere o rimuovere membri e avere autorizzazioni univoche, ad esempio la possibilità di eliminare conversazioni dalla posta in arrivo condivisa o modificare le impostazioni del gruppo. I proprietari del gruppo possono rinominare il gruppo, aggiornare la descrizione o l'immagine e altro ancora.
 
-* **Membri** -i membri possono accedere a tutti gli elementi del gruppo ma non possono modificare le impostazioni del gruppo. Per impostazione predefinita, i membri del gruppo possono invitare i Guest a partecipare al gruppo, sebbene sia possibile [controllare tale impostazione](/microsoft-365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide).
+* **Membri** -i membri possono accedere a tutti gli elementi del gruppo ma non possono modificare le impostazioni del gruppo. Per impostazione predefinita, i membri del gruppo possono invitare i Guest a partecipare al gruppo, sebbene sia possibile [controllare tale impostazione](/microsoft-365/admin/create-groups/manage-guest-access-in-groups).
 
 * **Guest** : il gruppo Guest è membro esterno all'organizzazione. Per impostazione predefinita, i guest sono limitati alle funzionalità dei team.
 

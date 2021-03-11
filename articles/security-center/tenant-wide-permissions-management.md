@@ -6,20 +6,17 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/25/2021
-ms.openlocfilehash: b3ddbdf04dc736b6f78a04dc6bb2bc484e67f70f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/11/2021
+ms.openlocfilehash: 0a24546579df020dcb7c7a9b01ee3d181226d2df
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107687"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617489"
 ---
 # <a name="grant-and-request-tenant-wide-visibility"></a>Concedere e richiedere visibilità a livello di tenant
 
 Un utente con il ruolo di Azure Active Directory (AD) dell' **amministratore globale** potrebbe avere responsabilità a livello di tenant, ma non dispone delle autorizzazioni di Azure per visualizzare le informazioni a livello di organizzazione nel centro sicurezza di Azure. L'elevazione delle autorizzazioni è necessaria perché le assegnazioni di ruolo Azure AD non concedono l'accesso alle risorse di Azure. 
-
-> [!TIP]
-> Altre informazioni sull'elevazione delle autorizzazioni per il ruolo di amministratore globale in [elevate Access per gestire tutti i gruppi di gestione e le sottoscrizioni di Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Concedere autorizzazioni a livello di tenant a se stessi
 
@@ -45,6 +42,14 @@ Per assegnare autorizzazioni a livello di tenant:
 1. Disconnettersi dal portale di Azure, quindi riconnettersi.
 
 1. Dopo avere ottenuto l'accesso con privilegi elevati, aprire o aggiornare il Centro sicurezza di Azure per verificare di avere visibilità su tutte le sottoscrizioni nel tenant di Azure AD. 
+
+Il processo semplice precedente esegue automaticamente una serie di operazioni:
+
+1. Le autorizzazioni dell'utente sono temporaneamente elevate.
+1. Usando le nuove autorizzazioni, l'utente viene assegnato al ruolo Azure RBAC desiderato nel gruppo di gestione radice.
+1. Le autorizzazioni elevate vengono rimosse.
+
+Per altri dettagli sul processo di elevazione dei Azure AD, vedere [elevare l'accesso per gestire tutti i gruppi di gestione e le sottoscrizioni di Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 
 ## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Richiedere autorizzazioni a livello di tenant quando il proprio non è sufficiente

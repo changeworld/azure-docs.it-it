@@ -1,23 +1,23 @@
 ---
 title: "Esercitazione: Gestire le macchine virtuali con l'interfaccia della riga di comando"
 description: Questa esercitazione descrive come usare l'interfaccia della riga di comando di Azure per gestire le macchine virtuali di Azure applicando controllo degli accessi in base al ruolo, criteri, blocchi e tag di Azure.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: tfitzmac
 manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 695bf57e120889207151209702c16d456da79385
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c724f41172ef675f94139cea0ed77fc0232b126b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736769"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561762"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Esercitazione: Informazioni sulla gestione di macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 

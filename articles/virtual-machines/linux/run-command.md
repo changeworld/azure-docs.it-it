@@ -3,17 +3,18 @@ title: Eseguire script della shell in una macchina virtuale Linux in Azure
 description: In questo argomento viene descritto come eseguire script all'interno di una macchina virtuale Linux di Azure usando la funzionalità Esegui comando
 services: automation
 ms.service: virtual-machines
+ms.collection: linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 73dd15a5eed3e27d9b72bc0357e35901c04ba7a2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737864"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552933"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Eseguire script della shell nella macchina virtuale Linux usando Esegui comando
 
@@ -21,7 +22,7 @@ La funzionalità Esegui comando usa l'agente di macchine virtuali per eseguire g
 
 ## <a name="benefits"></a>Vantaggi
 
-È possibile accedere alle macchine virtuali in diversi modi. La funzionalità Esegui comando può eseguire script nelle macchine virtuali in modalità remota, tramite l'agente per la macchina virtuale. Può essere usato tramite il portale di Azure, l'[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o l'[interfaccia della riga di comando di Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) per le macchine virtuali Linux.
+È possibile accedere alle macchine virtuali in diversi modi. Esegui comando può eseguire gli script nelle macchine virtuali in modalità remota tramite l'agente di macchine virtuali. Può essere usato tramite il portale di Azure, l'[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o l'[interfaccia della riga di comando di Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) per le macchine virtuali Linux.
 
 Questa funzionalità è utile in tutti gli scenari in cui si vuole eseguire uno script all'interno di una macchina virtuale. È uno dei pochi modi per risolvere e correggere i problemi in una macchina virtuale che non ha la porta RDP o SSH aperta a causa di una configurazione non corretta della rete o dell'utente amministratore.
 

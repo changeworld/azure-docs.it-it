@@ -175,10 +175,10 @@
 - name: Informazioni di riferimento
   items:
     - name: API Graph
-      href: /graph/api/resources/azure-ad-overview?view=graph-rest-1.0
+      href: /graph/api/resources/azure-ad-overview
     - name: Interfaccia della riga di comando di Azure AD
       href: /cli/azure/ad
     - name: Azure AD PowerShell per Graph
-      href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+      href: /powershell/azure/active-directory/install-adv2
     - name: Limiti dei servizi di Azure AD
       href: directory-service-limits-restrictions.md

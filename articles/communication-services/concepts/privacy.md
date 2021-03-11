@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 50b8bc0882a5a219e70a44fdefe7dff30ae9e0ae
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 6fbc20ec7145a474d9f3aada153f2d012aba34f8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487645"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561348"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilità a livello di area e residenza dei dati
 
@@ -81,6 +81,6 @@ I Servizi di comunicazione di Azure trasmetteranno i dati di registrazione di Mo
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Richieste dei soggetti interessati di Azure per GDPR e CCPA](/microsoft-365/compliance/gdpr-dsr-azure?preserve-view=true&view=o365-worldwide)
+- [Richieste dei soggetti interessati di Azure per GDPR e CCPA](/microsoft-365/compliance/gdpr-dsr-azure)
 - [Centro protezione Microsoft](https://www.microsoft.com/trust-center/privacy/data-location)
 - [Mappa interattiva di Azure - Dove risiedono i dati dei clienti?](https://azuredatacentermap.azurewebsites.net/)
