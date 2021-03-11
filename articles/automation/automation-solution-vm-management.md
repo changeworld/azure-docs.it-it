@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9a5427f7c3a057f291067ac83d3d9032d7e693d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732276"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559359"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Panoramica di Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
-Il Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionalità avvia o arresta le VM di Azure abilitate. Consente di avviare o arrestare computer in base a pianificazioni definite dall'utente, fornisce informazioni dettagliate tramite i log di Monitoraggio di Azure e invia messaggi di posta elettronica facoltativi usando i [gruppi di azioni](../azure-monitor/alerts/action-groups.md). Questa funzionalità può essere abilitata sia in Azure Resource Manager che nelle macchine virtuali classiche per la maggior parte degli scenari. 
+Il Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionalità avvia o arresta le VM di Azure abilitate. Consente di avviare o arrestare computer in base a pianificazioni definite dall'utente, fornisce informazioni dettagliate tramite i log di Monitoraggio di Azure e invia messaggi di posta elettronica facoltativi usando i [gruppi di azioni](../azure-monitor/alerts/action-groups.md). Questa funzionalità può essere abilitata sia in Azure Resource Manager che nelle macchine virtuali classiche per la maggior parte degli scenari.
 
 Questa funzionalità Usa il cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) per avviare le macchine virtuali. USA [Stop-AzVM](/powershell/module/az.compute/stop-azvm) per arrestare le macchine virtuali.
 
@@ -34,6 +34,9 @@ La funzionalità corrente presenta le limitazioni seguenti:
 
 - Gestisce macchine virtuali in qualsiasi area, ma può essere usata solo nella stessa sottoscrizione dell'account di Automazione di Azure.
 - È disponibile in Azure e Azure per enti pubblici per tutte le aree che supportano un'area di lavoro Log Analytics, un account di Automazione di Azure e Avvisi. Le aree di Azure per enti pubblici attualmente non supportano funzionalità di posta elettronica.
+
+> [!NOTE]
+> Prima di installare questa versione, è opportuno conoscere la [versione successiva](https://github.com/microsoft/startstopv2-deployments), disponibile in anteprima in questo momento.  Questa nuova versione (v2) offre tutte le stesse funzionalità di questo, ma è progettata per sfruttare la tecnologia più recente in Azure. Aggiunge alcune delle funzionalità comunemente richieste dei clienti, ad esempio il supporto di più sottoscrizioni da un'unica istanza di avvio/arresto.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

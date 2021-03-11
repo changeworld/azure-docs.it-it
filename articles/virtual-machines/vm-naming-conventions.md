@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 13894e534dc8d6dd89baf75ea2bd3b6500b718f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98d35821c884ba25a109f929556087ff6ecba0ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650962"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551015"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Convenzioni di denominazione per le dimensioni delle macchine virtuali di Azure
 
@@ -21,13 +21,14 @@ Questa pagina descrive le convenzioni di denominazione usate per le macchine vir
 
 ## <a name="naming-convention-explanation"></a>Spiegazione della convenzione di denominazione
 
-**[Famiglia]**  +  **[Sottofamiglia *]**  +  **[# di vCPU]**  +  **[Funzionalità additive]**  +  **[Tipo di acceleratore *]**  +  **[Versione]**
+**[Famiglia]**  +  **[Sottofamiglia *]**  +  **[# di vCPU]**  +  **[VCPU vincolato *]**  +  **[Funzionalità additive]**  +  **[Tipo di acceleratore *]**  +  **[Versione]**
 
 |valore | Spiegazione|
 |---|---|
 | Famiglia | Indica la serie di famiglie di macchine virtuali| 
 | * Sottofamiglia | Usato solo per differenziazioni specifiche delle macchine virtuali|
 | n. di vCPU| Indica il numero di vCPU della macchina virtuale |
+| * VCPU vincolato| Usato solo per alcune dimensioni di macchine virtuali. Indica il numero di vCPU per le [dimensioni in grado di vCPU vincolate](https://docs.microsoft.com/azure/virtual-machines/constrained-vcpu) |
 | Funzionalità additive | Una o più lettere minuscole indicano funzionalità additive, ad esempio: <br> a = processore basato su AMD <br> d = disco (il disco temporaneo locale è presente); per le macchine virtuali di Azure più recenti, vedere [Ddv4 e serie Ddsv4](./ddv4-ddsv4-series.md) <br> h = ibernazione in grado di supportare <br> i = dimensioni isolate <br> l = memoria insufficiente; quantità inferiore di memoria rispetto alle dimensioni a elevato utilizzo di memoria <br> m = elevato utilizzo di memoria; maggiore quantità di memoria in una determinata dimensione <br> t = memoria minima; quantità minima di memoria in una determinata dimensione <br> r = RDMA in grado di supportare <br> s = archiviazione Premium, incluso possibile uso di [ultra SSD](./disks-types.md#ultra-disk) (Nota: alcune dimensioni più recenti senza l'attributo s possono comunque supportare l'archiviazione Premium, ad esempio M128, m64 e così via).<br> |
 | * Tipo di acceleratore | Indica il tipo di acceleratore hardware negli SKU specializzati/GPU. Solo i nuovi SKU specializzati/GPU avviati dal terzo trimestre 2020 avranno il tasto di scelta rapida hardware nel nome. |
 | Versione | Indica la versione della serie della famiglia di VM |
@@ -65,6 +66,16 @@ Questa pagina descrive le convenzioni di denominazione usate per le macchine vir
 | Funzionalità additive | a = processore basato su AMD <br> s = archiviazione Premium in grado di supportare |
 | Tipo di acceleratore | T4 |
 | Versione | v3 |
+
+### <a name="example-4-m8-2ms_v2-constrained-vcpu"></a>Esempio 4: M8-2ms_v2 (vCPU vincolato)
+
+|valore | Spiegazione|
+|---|---|
+| Famiglia | M | 
+| n. di vCPU | 8 |
+| numero di vCPU vincolati (effettivi) | 2 |
+| Funzionalità additive | m = utilizzo intensivo della memoria <br> s = archiviazione Premium in grado di supportare |
+| Versione | v2 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

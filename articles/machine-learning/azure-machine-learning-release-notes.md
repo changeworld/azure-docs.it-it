@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: b61337f29eac11ca3fb45056b9348fbc70956b53
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8c876a09c77a2ed5441a2f40acc2da508697febb
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521204"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608683"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -59,8 +59,8 @@ __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggi
   + [Terminale nativo (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Gli utenti possono ora accedere a un terminale integrato e all'operazione git tramite il terminale integrato.
   + [Frammenti di codice notebook (anteprima)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Gli estratti di codice comuni di Azure ML sono ora disponibili a portata di mano. Passare al pannello frammenti di codice, accessibile tramite la barra degli strumenti o attivare il menu frammenti di codice in-code con CTRL + barra spaziatrice.  
   + [Tasti di scelta rapida](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Parità completa con tasti di scelta rapida disponibili in Jupyter. 
-  + Indica i parametri della cella. Mostra gli utenti con celle in un notebook sono celle del parametro e possono eseguire notebook con parametri tramite [Papermill](https://github.com/nteract/papermill) nell'istanza di calcolo.
-  + Gestione sessioni terminal e kernel: gli utenti saranno in grado di gestire tutti i kernel e le sessioni terminal in esecuzione nel calcolo.
+  + Indica i parametri della cella. Mostra gli utenti quali celle di un notebook sono celle di parametri e possono eseguire notebook con parametri tramite [Papermill](https://github.com/nteract/papermill) nell'istanza di calcolo.
+  + Gestione sessioni terminal e kernel: gli utenti saranno in grado di gestire tutti i kernel e le sessioni terminal in esecuzione sul proprio calcolo.
   + Pulsante condivisione. Gli utenti possono ora condividere qualsiasi file in Esplora file del notebook facendo clic con il pulsante destro del mouse sul file e usando il pulsante Condividi.
 
 

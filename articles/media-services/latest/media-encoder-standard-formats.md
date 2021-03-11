@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: f6e9c0a3d9100bc447314f5874107363c6bf5d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0cf89a755090010bb80507c52f90baa2a4e804a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289444"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617625"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Formati e codec standard del codificatore
 
@@ -98,7 +98,7 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 
 | Formato file | Codec video | Codec audio |
 | --- | --- | --- |
-| MP4 <br/><br/> (multi-bitrate MP4 container inclusi) |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/> (multi-bitrate MP4 container inclusi) |H. 264 (High, Main e Baseline Profile), HEVC (H. 265) a 8 bit |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="next-steps"></a>Passaggi successivi

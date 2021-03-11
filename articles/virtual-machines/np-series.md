@@ -3,16 +3,16 @@ title: Serie NP-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie NP.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: hpc
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 4fe6df5a9eabc6e5088618039fdea450ee8314ce
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 09adb19623ea866091e1b949e78263661eddbb52
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693850"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551148"
 ---
 # <a name="np-series-preview"></a>Serie NP (anteprima) 
 Le macchine virtuali serie NP sono basate su [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGA per accelerare i carichi di lavoro, tra cui l'inferenza di Machine Learning, la transcodifica video e la ricerca di database & Analytics. Le macchine virtuali della serie NP sono basate anche su CPU Intel Xeon 8171M (Skylake) con tutta la velocità di clock di base Turbo 3,2 GHz.
