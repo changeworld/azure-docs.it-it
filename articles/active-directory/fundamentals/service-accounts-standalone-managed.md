@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d081754616b40a21b3b842758844eb13e2752569
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e2b3079407774c3d36fe5515b39e964018f9087e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650958"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548853"
 ---
 # <a name="securing-standalone-managed-service-accounts"></a>Protezione degli account dei servizi gestiti autonomi
 
@@ -44,7 +44,7 @@ sMSAs offrono una maggiore sicurezza rispetto agli account utente usati come acc
 
    * Il nome DNS del computer host è stato modificato.
 
-   * Quando si aggiungono o si rimuovono parametri Sam-AccountName o DNS-hostname aggiuntivi tramite [PowerShell](/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
+   * Quando si aggiungono o si rimuovono parametri Sam-AccountName o DNS-hostname aggiuntivi tramite [PowerShell](/powershell/module/addsadministration/set-adserviceaccount)
 
 ## <a name="when-to-use-smsas"></a>Quando usare sMSAs
 

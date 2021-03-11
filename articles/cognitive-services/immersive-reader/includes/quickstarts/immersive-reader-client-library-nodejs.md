@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js
-ms.openlocfilehash: c34ed97339076a4412f8b6bf36ddf342205c88be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: ffef03457f9d3faf385bd0a924474dfa6efc4121
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377590"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619241"
 ---
 Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è stato progettato per l'inclusività e implementa tecniche comprovate per migliorare la comprensione della lettura per nuovi lettori, studenti di lingue e persone con differenze di apprendimento, come la dislessia. È possibile usare lo strumento di lettura immersiva nelle applicazioni per isolare il testo stimolare l'attenzione, visualizzare immagini per le parole di uso comune, evidenziare parti del discorso, leggere il testo selezionato ad alta voce, tradurre parole e frasi in tempo reale e altro ancora.
 
@@ -128,7 +128,7 @@ L'endpoint API **GetTokenAndSubdomain** deve essere protetto tramite una forma d
 
 ## <a name="add-sample-content"></a>Aggiungere contenuto di esempio
 
-Nell'app Web verranno ora aggiunti alcuni contenuti di esempio. Aprire_views\index.pug_ e sostituire il codice generato automaticamente con questo codice di esempio:
+Nell'app Web verranno ora aggiunti alcuni contenuti di esempio. Aprire _views\index.pug_ e sostituire il codice generato automaticamente con questo codice di esempio:
 
 ```pug
 doctype html
@@ -256,4 +256,5 @@ Quando si fa clic sul pulsante "Strumento di lettura immersiva", verrà avviato 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](../../reference.md)
+> [!div class="nextstepaction"]
+> [Creare una risorsa e configurare AAD](../../how-to-create-immersive-reader.md)

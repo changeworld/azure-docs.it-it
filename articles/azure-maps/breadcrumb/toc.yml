@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+    - name: Internet delle cose
+      tocHref: /azure/iot-fundamentals/
+      topicHref: /azure/iot-fundamentals/index
+      items:
+        - name: Mappe di Azure
+          tocHref: /azure/azure-maps/
+          topicHref: /azure/azure-maps/index/
+        - name: Mappe di Azure
+          tocHref: /azure/iot-fundamentals/
+          topicHref: /azure/azure-maps/index

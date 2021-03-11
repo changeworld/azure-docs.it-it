@@ -2,18 +2,18 @@
 title: includere file
 description: File di inclusione
 services: active-directory
-author: barclayn
+author: ajburnle
 ms.service: active-directory
 ms.topic: include
 ms.date: 12/07/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9c91eb6cfa18c5302a83347f671e4552befcf3e2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193927"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623205"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Creare una o più verifiche di accesso
 
@@ -38,6 +38,7 @@ ms.locfileid: "102193927"
     > [!NOTE]
     > - I ruoli selezionati qui includono sia i [ruoli permanenti che idonei](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
     > - Se si seleziona più di un ruolo, vengono create più verifiche di accesso. Se ad esempio si selezionano cinque ruoli, vengono create cinque verifiche di accesso separate.
+    > - Per i ruoli con i gruppi assegnati, l'accesso di ogni gruppo collegato al ruolo in fase di revisione verrà esaminato come parte della verifica di accesso.
 
     Se si sta creando una verifica di accesso dei **ruoli di Azure AD**, di seguito è riportato un esempio dell'elenco Verifica l'appartenenza.
 
@@ -52,8 +53,8 @@ ms.locfileid: "102193927"
     ![Elenco dei revisori degli utenti o membri selezionati (autonomo)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **Utenti selezionati**: usare questa opzione quando non è noto chi abbia bisogno dell'accesso. Con questa opzione è possibile assegnare l'esecuzione della revisione a un proprietario delle risorse o a un gestore del gruppo.
-    - **Membri (autonomo)** : usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni di ruolo.
-    - **Manager** : usare questa opzione per fare in modo che il responsabile dell'utente riveda l'assegnazione di ruolo. Quando si seleziona Manager, sarà anche possibile specificare un revisore di fallback. Ai revisori di fallback viene richiesto di esaminare un utente quando l'utente non dispone di un responsabile specificato nella directory.
+    - **Membri (autonomo)** : usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni di ruolo. Quando questa opzione è selezionata, i gruppi assegnati al ruolo non faranno parte della verifica.
+    - **Manager** : usare questa opzione per fare in modo che il responsabile dell'utente riveda l'assegnazione di ruolo. Quando si seleziona Manager, sarà anche possibile specificare un revisore di fallback. Ai revisori di fallback viene richiesto di esaminare un utente quando l'utente non dispone di un responsabile specificato nella directory. I gruppi assegnati al ruolo verranno esaminati dal revisore del fallback se ne viene selezionato uno. 
 
 ### <a name="upon-completion-settings"></a>Impostazioni al completamento
 

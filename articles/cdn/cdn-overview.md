@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: b0c8170947b59b3d40a388642dac3df772238197
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.openlocfilehash: 54ee903b490e10f7ea4ca3bca91f742b5811404d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778329"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563303"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Definizione di rete per la distribuzione di contenuti
 Una rete per la distribuzione di contenuti (CDN) è una rete di server distribuita in grado di fornire contenuti Web agli utenti in modo efficiente. Per ridurre al minimo la latenza, le reti CDN archiviano il contenuto memorizzato nella cache in server perimetrali presenti in località POP (Point of Presence) prossime agli utenti finali. 
@@ -74,8 +74,7 @@ La rete CDN di Azure offre le funzionalità chiave seguenti:
 Per un elenco completo delle funzionalità supportate da ogni prodotto della rete CDN di Azure, vedere [Compare Azure CDN product features](cdn-features.md) (Confrontare le funzionalità dei prodotti della rete CDN di Azure).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Per iniziare a usare la rete CDN, vedere [Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
 - Gestire gli endpoint della rete CDN con il [portale di Microsoft Azure](https://portal.azure.com) o [PowerShell](cdn-manage-powershell.md).
 - Informazioni su come automatizzare la rete CDN di Azure con [.NET](cdn-app-dev-net.md) o [Node.js](cdn-app-dev-node.md).
-- Per vedere la rete CDN di Azure in azione, guardare i [video della rete CDN di Azure](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
-- Per informazioni sulle funzionalità più recenti della rete CDN di Azure, vedere il [blog della rete CDN Azure](https://azure.microsoft.com/blog/tag/azure-cdn/).

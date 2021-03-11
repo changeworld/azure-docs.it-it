@@ -3,16 +3,17 @@ title: Controllo di manutenzione per macchine virtuali di Azure con CLI
 description: Informazioni su come controllare quando viene applicata la manutenzione alle VM di Azure usando il controllo di manutenzione e l'interfaccia della riga di comando.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: d94cd649df9da6b36ac484d4fc1e6acef7a21bb7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9425759de1e08bc83cac80cd1b56c602edb59fb1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026166"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562963"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Controllare gli aggiornamenti con il controllo manutenzione e l'interfaccia della riga di comando di Azure
 
@@ -63,7 +64,7 @@ az maintenance configuration create \
 > [!IMPORTANT]
 > La **durata** della manutenzione deve essere maggiore di *2 ore* . È necessario impostare la **ricorrenza** di manutenzione almeno una volta in 35 giorni.
 
-La ricorrenza di manutenzione può essere espressa come giornaliera, settimanale o mensile. Ad esempio:
+La ricorrenza di manutenzione può essere espressa come giornaliera, settimanale o mensile. Di seguito sono riportati alcuni esempi:
 - **Daily**-Maintenance-Window-reiterazione-ogni: "Day" **o** "3days"
 - **settimanale**-manutenzione-finestra-recidiva-ogni: "3Weeks" **o** "settimana sabato, domenica"
 - **mensile**-manutenzione-finestra-recidiva-ogni: "month day23, day24" **o** "month Last Sunday" **o** "month Fourth Monday"

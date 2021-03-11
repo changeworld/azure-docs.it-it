@@ -4,12 +4,12 @@ description: Informazioni su come ruotare i certificati in un cluster Azure Kube
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 1871a8deed4d189534915a9b46b6ace071c1126c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fa26762c54ad54835b174b8d814a2e77cb38b885
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181772"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619036"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Ruotare i certificati in Azure Kubernetes Service (AKS)
 
@@ -28,8 +28,6 @@ AKS genera e usa i certificati, le autorità di certificazione e gli account di 
 * Il server dell'API AKS crea un'autorità di certificazione (CA) denominata CA del cluster.
 * Il server API dispone di una CA del cluster, che firma i certificati per la comunicazione unidirezionale dal server API a kubelets.
 * Ogni kubelet crea anche una richiesta di firma del certificato (CSR), firmata dalla CA del cluster, per la comunicazione dalla kubelet al server API.
-* L'archivio del valore della chiave ETCD dispone di un certificato firmato dalla CA del cluster per la comunicazione da ETCD al server API.
-* L'archivio del valore della chiave ETCD crea una CA che firma i certificati per autenticare e autorizzare la replica dei dati tra le repliche ETCD nel cluster AKS.
 * L'aggregatore di API usa la CA del cluster per emettere certificati per la comunicazione con altre API. L'aggregatore di API può anche avere una propria autorità di certificazione per emettere tali certificati, ma attualmente usa la CA del cluster.
 * Ogni nodo utilizza un token dell'account di servizio (SA), firmato dalla CA del cluster.
 * Il `kubectl` client dispone di un certificato per comunicare con il cluster AKS.

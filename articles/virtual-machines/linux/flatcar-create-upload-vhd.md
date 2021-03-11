@@ -3,17 +3,18 @@ title: Creare e caricare un disco rigido virtuale del contenitore pianale per l'
 description: Informazioni su come creare e caricare un disco rigido virtuale contenente un sistema operativo pianale container Linux.
 author: marga-kinvolk
 ms.author: danis
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 555e53899ed78a5200009d04659e974f8157057e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d8be9493b7a312270301e3520f301f797fe2167
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87268240"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565292"
 ---
 # <a name="using-a-prebuilt-flatcar-image-for-azure"></a>Uso di un'immagine pianale predefinita per Azure
 
@@ -21,7 +22,7 @@ ms.locfileid: "87268240"
 
 - [stabile](https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 - [beta](https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
-- [alpha](https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
+- [Alfa](https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 - [bordo](https://edge.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 
 Questa immagine è già stata completamente configurata e ottimizzata per l'esecuzione in Azure. È sufficiente decomprimerlo.

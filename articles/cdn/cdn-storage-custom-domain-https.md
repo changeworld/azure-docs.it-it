@@ -1,26 +1,20 @@
 ---
-title: Accedere ai BLOB di archiviazione con un dominio personalizzato della rete CDN di Azure tramite HTTPS
-description: Informazioni su come aggiungere un dominio personalizzato della rete CDN di Azure e abilitare HTTPS nel dominio per l'endpoint di archiviazione BLOB personalizzato.
+title: 'Esercitazione: Accedere ai BLOB di archiviazione con un dominio personalizzato della rete CDN di Azure tramite HTTPS'
+description: Informazioni su come aggiungere un dominio personalizzato della rete CDN di Azure e abilitare HTTPS in tale dominio per l'endpoint di archiviazione BLOB personalizzato.
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 6061de0a330518baaa829a9a1c8a05f196d68dcb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.openlocfilehash: 296a51edf024551a03330f4843690e97c6abd47d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777844"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564884"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Esercitazione: Accedere ai BLOB di archiviazione con un dominio personalizzato della rete CDN di Azure tramite HTTPS
 
@@ -28,13 +22,13 @@ Dopo aver integrato l'account di archiviazione di Azure con Rete di distribuzion
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di completare la procedura descritta in questa esercitazione, è necessario integrare l'account di archiviazione di Azure con la rete CDN di Azure. Per altre informazioni, vedere [Avvio rapido: Integrare un account di archiviazione di Azure con la rete CDN di Azure](cdn-create-a-storage-account-with-cdn.md).
+Prima di completare la procedura descritta in questa esercitazione, è necessario integrare l'account di archiviazione di Azure con la rete CDN di Azure. Per altre informazioni, vedere [Guida introduttiva: Integrare un account di archiviazione di Azure con la rete CDN di Azure](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="add-a-custom-domain"></a>Aggiungere un dominio personalizzato
-Quando si crea un endpoint della rete CDN nel profilo, il nome dell'endpoint, corrispondente a un sottodominio di azureedge.net, viene incluso nell'URL per la distribuzione del contenuto CDN per impostazione predefinita. È anche possibile scegliere di associare un dominio personalizzato a un endpoint della rete CDN. Grazie a questa opzione, si distribuisce il contenuto con un dominio personalizzato nell'URL invece che con un nome di endpoint. Per aggiungere un dominio personalizzato all'endpoint, seguire le istruzioni riportate nell'esercitazione [Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure](cdn-map-content-to-custom-domain.md).
+Quando si crea un endpoint della rete CDN nel profilo, il nome dell'endpoint, corrispondente a un sottodominio di azureedge.net, viene incluso nell'URL per la distribuzione del contenuto CDN per impostazione predefinita. È anche possibile scegliere di associare un dominio personalizzato a un endpoint della rete CDN. Grazie a questa opzione, si distribuisce il contenuto con un dominio personalizzato nell'URL invece che con un nome di endpoint. Per aggiungere un dominio personalizzato all'endpoint, seguire le istruzioni in questa esercitazione: [Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure](cdn-map-content-to-custom-domain.md).
 
 ## <a name="configure-https"></a>Configurare HTTPS
-Usando il protocollo HTTPS nel dominio personalizzato, ci si assicura che i dati vengano recapitati in modo sicuro su Internet tramite crittografia TLS/SSL. Quando il browser è connesso a un sito Web tramite HTTPS, convalida il certificato di sicurezza del sito Web e verifica che sia emesso da un'autorità di certificazione legittima. Per configurare HTTPS nel dominio personalizzato, seguire le istruzioni riportate nell'esercitazione [Configurare HTTPS in un dominio personalizzato della rete CDN di Azure](cdn-custom-ssl.md).
+Usando il protocollo HTTPS nel dominio personalizzato, ci si assicura che i dati vengano recapitati in modo sicuro su Internet tramite crittografia TLS/SSL. Quando il browser è connesso a un sito Web tramite HTTPS, convalida il certificato di sicurezza del sito Web e verifica che sia emesso da un'autorità di certificazione legittima. Per configurare HTTPS nel dominio personalizzato, seguire le istruzioni riportate in questa esercitazione: [Configurare HTTPS in un dominio personalizzato della rete CDN di Azure](cdn-custom-ssl.md).
 
 ## <a name="shared-access-signatures"></a>Firme di accesso condiviso
 Se l'endpoint di archiviazione BLOB è configurato per non consentire l'accesso anonimo in lettura, è necessario fornire un token di [firma di accesso condiviso](cdn-sas-storage-support.md) in ogni richiesta effettuata al dominio personalizzato. Per impostazione predefinita, gli endpoint di archiviazione BLOB non consentono l'accesso anonimo in lettura. Per altre informazioni sulla firma di accesso condiviso, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../storage/blobs/anonymous-read-access-configure.md).

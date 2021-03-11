@@ -10,12 +10,12 @@ ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4e6dac1ab7350caeb29e23b21eace433568b38ea
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: da869091fb1f7bf31a29ba1bc6db8c1c42254dc4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031634"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618084"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Ripristino temporizzato per BLOB in blocchi
 
@@ -47,7 +47,7 @@ L'operazione **Restore Ranges BLOB** restituisce un ID di ripristino che identif
 > Quando l'account di archiviazione viene replicato geograficamente, è possibile che le operazioni di lettura dalla posizione secondaria continuino durante l'operazione di ripristino.
 
 > [!CAUTION]
-> Il ripristino temporizzato supporta solo il ripristino di operazioni su BLOB in blocchi. Non è possibile ripristinare le operazioni su contenitori. Se si elimina un contenitore dall'account di archiviazione chiamando l'operazione [Delete Container](/rest/api/storageservices/delete-container) , il contenitore non può essere ripristinato con un'operazione di ripristino. Anziché eliminare un intero contenitore, eliminare i singoli BLOB se si desidera ripristinarli in un secondo momento.
+> Il ripristino temporizzato supporta il ripristino in base alle operazioni eseguite solo sui BLOB in blocchi. Non è possibile ripristinare le operazioni che hanno agito sui contenitori. Se ad esempio si elimina un contenitore dall'account di archiviazione chiamando l'operazione [Delete Container](/rest/api/storageservices/delete-container) , il contenitore non può essere ripristinato con un'operazione di ripristino temporizzato. Anziché eliminare un intero contenitore, eliminare i singoli BLOB se si desidera ripristinarli in un secondo momento.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Prerequisiti per il ripristino temporizzato
 

@@ -1,19 +1,19 @@
 ---
-title: Creare un servizio Collegamento privato in Collegamento privato di Azure
+title: 'Guida introduttiva: creare un servizio di collegamento privato nel collegamento privato di Azure'
 description: In questo argomento di avvio rapido si usa un modello di Azure Resource Manager (modello di Resource Manager) per creare un servizio Collegamento privato.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: dce80d70af7cd711cf852a60b98ad65b6d21117f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 34993ad3d3d0494f89bd264a8b7194f52129ad7c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705249"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555058"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Avvio rapido: Creare un servizio Collegamento privato con un modello di Resource Manager
 
@@ -112,4 +112,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su [Collegamento privato di Azure](private-link-overview.md).
+
+Per altre informazioni sui servizi che supportano un endpoint privato, vedere:
+> [!div class="nextstepaction"]
+> [Disponibilità del collegamento privato](private-link-overview.md#availability)

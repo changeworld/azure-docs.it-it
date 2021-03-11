@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/21/2021
 ms.author: raynew
-ms.openlocfilehash: a75cd3c5dbf205f49aa606bfe96623a61bce39db
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: e900250aea84b4a9c9112fa54632a2be8b9cb49c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007057"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564272"
 ---
 # <a name="common-questions"></a>Domande frequenti
 
@@ -24,6 +24,15 @@ Questo articolo risponde a domande comuni su [Azure Resource Mover](overview.md)
 ### <a name="can-i-move-resources-across-any-regions"></a>È possibile spostare le risorse in tutte le aree?
 
 Attualmente, è possibile spostare le risorse da qualsiasi area pubblica di origine a qualsiasi area pubblica di destinazione, a seconda dei [tipi di risorse disponibili in tale area](https://azure.microsoft.com/global-infrastructure/services/). Il trasferimento delle risorse nelle aree di Azure per enti pubblici non è attualmente supportato.
+
+### <a name="what-regions-are-currently-supported"></a>Quali sono le aree attualmente supportate?
+
+Il motore di risorse di Azure è attualmente disponibile come indicato di seguito:
+
+**Supporto** | **Dettagli**
+--- | ---
+Supporto per l'operazione di spostamento | Le risorse di Azure supportate per lo spostamento con il motore di risorse possono essere spostate da qualsiasi area pubblica a un'altra area pubblica.
+Supporto metadati |  Le aree supportate per l'archiviazione dei metadati relativi ai computer da spostare includono East Uniti, Europa settentrionale, Asia sudorientale, Giappone orientale, Regno Unito meridionale e Australia orientale come aree dei metadati. <br/><br/> Lo stato di trasferimento delle risorse all'interno dell'area di Azure Cina è supportato anche con l'area metadati Cina North2.
 
 ### <a name="what-resources-can-i-move-across-regions-using-resource-mover"></a>Quali risorse è possibile spostare tra le aree usando il motore di risorse?
 
@@ -44,15 +53,14 @@ Non è possibile selezionare dischi come risorse per lo spostamento tra le aree.
 
 ### <a name="what-does-it-mean-to-move-a-resource-group"></a>Cosa si intende per spostare un gruppo di risorse?
 
-Quando si seleziona una risorsa per lo spostamento, il gruppo di risorse corrispondente viene aggiunto automaticamente per lo spostamento. Questa operazione è necessaria perché la risorsa di destinazione deve essere inserita in un gruppo di risorse come se fosse nella destinazione. È possibile scegliere di personalizzare e fornire un gruppo di risorse exsiting, una volta aggiunto per lo spostamento. Si noti che lo spostamento di un gruppo di risorse **non** significa che tutte le risorse nel gruppo di risorse di origine verranno spostate.
+Quando si seleziona una risorsa per lo spostamento, il gruppo di risorse corrispondente viene aggiunto automaticamente per lo spostamento. In questo modo, la risorsa di destinazione può essere inserita in un gruppo di risorse. È possibile scegliere di personalizzare e fornire un gruppo di risorse esistente dopo che è stato aggiunto per lo spostamento. Lo spostamento di un gruppo di risorse non significa che tutte le risorse nel gruppo di risorse di origine verranno spostate.
 
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>È possibile spostare le risorse tra le sottoscrizioni quando si spostano in aree diverse?
 
 È possibile modificare la sottoscrizione dopo aver spostato le risorse nell'area di destinazione. [Altre](../azure-resource-manager/management/move-resource-group-and-subscription.md) informazioni sullo stato di trasferimento delle risorse in una sottoscrizione diversa. 
 
-### <a name="does-azure-resource-move-service-store-customer-data"></a>Il servizio di spostamento delle risorse di Azure archivia i dati dei clienti? 
-No. Il servizio di spostamento delle risorse non archivia i dati dei clienti, ma archivia solo le informazioni sui metadati che facilitano il rilevamento e lo stato di avanzamento delle risorse selezionate per lo spostamento da parte del cliente.
-
+### <a name="does-azure-resource-mover-store-customer-data"></a>Azure Resource Mover archivia i dati dei clienti? 
+No. Il servizio Resource Mover non archivia i dati dei clienti, ma archivia solo le informazioni sui metadati che facilitano il rilevamento e lo stato delle risorse spostate.
 
 ### <a name="where-is-the-metadata-for-moving-across-regions-stored"></a>Dove vengono archiviati i metadati per lo stato di trasferimento tra aree?
 
@@ -85,13 +93,15 @@ Quando si aggiungono risorse nell'hub di Spostamento risorse nel portale, le aut
 > [!IMPORTANT]
 > Si consiglia vivamente di non modificare o rimuovere le assegnazioni di ruolo Identity. 
 
-### <a name="what-should-i-do-if-i-dont-have-permissions-to-assign-role-identity"></a>Cosa fare se non si hanno le autorizzazioni per assegnare l'identità del ruolo?
+### <a name="what-if-i-dont-have-permissions-to-assign-role-identity"></a>Cosa accade se non si hanno le autorizzazioni per assegnare l'identità del ruolo?
+
+Esistono due motivi per cui è possibile che non si disponga delle autorizzazioni.
 
 **Possibile causa** | **Consiglio**
 --- | ---
 Quando si aggiunge una risorsa per la prima volta, non si è un *collaboratore* e un *amministratore di accesso utente* (o *proprietario*). | Utilizzare un account con autorizzazioni *collaboratore* e *amministratore accesso utenti* (o *proprietario*) per la sottoscrizione.
 L'identità gestita del motore di risorse non ha il ruolo richiesto. | Aggiungere i ruoli "collaboratore" e "amministratore accesso utenti".
-L'identità gestita del motore di risorse è stata reimpostata su *None*. | Riabilitare un'identità assegnata dal sistema nell' **identità** di spostamento della raccolta >. In alternativa, aggiungere di nuovo la risorsa in **Aggiungi risorse**, che esegue la stessa operazione.  
+L'identità gestita del motore di risorse è stata reimpostata su *None*. | Riabilitare un'identità assegnata dal sistema nelle impostazioni di spostamento della raccolta > **identità**. In alternativa, in **Aggiungi risorse** aggiungere di nuovo la risorsa, che esegue la stessa operazione.  
 La sottoscrizione è stata spostata in un tenant diverso. | Disabilitare e quindi abilitare l'identità gestita per la raccolta di spostamento.
 
 ### <a name="how-can-i-do-multiple-moves-together"></a>Come è possibile eseguire più spostamenti contemporaneamente?
@@ -100,7 +110,7 @@ Modificare le combinazioni di origine/destinazione in base alle esigenze usando 
 
 ### <a name="what-happens-when-i-remove-a-resource-from-a-list-of-move-resources"></a>Cosa accade quando si rimuove una risorsa da un elenco di risorse di spostamento?
 
-È possibile rimuovere le risorse aggiunte all'elenco di spostamento. Il comportamento quando si rimuove una risorsa dall'elenco dipende dallo stato della risorsa. [Altre informazioni](remove-move-resources.md#vm-resource-state-after-removing)
+È possibile rimuovere le risorse aggiunte all'elenco di spostamento. Il comportamento di rimozione esatto dipende dallo stato della risorsa. [Altre informazioni](remove-move-resources.md#vm-resource-state-after-removing)
 
 
 

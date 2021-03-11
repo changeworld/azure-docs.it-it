@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali della soluzione VMware di Azure c
 description: Configurare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali usando server di Backup di Azure.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: ea2164ba19703660e54879c25b975342d824662c
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 163065556b7dbc979d68613744ea827c209d9fda
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585025"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618917"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali della soluzione VMware di Azure con server di Backup di Azure
 
@@ -73,7 +73,7 @@ In VMware 6,7 in poi è stato abilitato TLS come protocollo di comunicazione.
 
 1. Copiare le impostazioni del registro di sistema seguenti e incollarle nel blocco note. Quindi salvare il file come TLS. REG senza l'estensione txt.
 
-   ```text
+   ```
    
    Windows Registry Editor Version 5.00
    

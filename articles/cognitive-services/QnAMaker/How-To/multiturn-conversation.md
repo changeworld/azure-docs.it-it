@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: cef2e2ca9c7ad4640014d9b5a9a7da42d308ef7c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 313d1a390c30e7e5612b8d9bab7783b6698c35fd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605145"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618492"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più turni di una conversazione
 
@@ -108,7 +108,7 @@ Aggiungere una richiesta di completamento a una coppia di domande e risposte esi
 1. Nella riga per la **disconnessione** selezionare **Aggiungi richiesta di completamento** nella colonna **risposta** .
 1. Nei campi della finestra popup della **richiesta di completamento** immettere i valori seguenti:
 
-    |Campo|valore|
+    |Campo|Valore|
     |--|--|
     |Testo visualizzato|Immettere **Disattiva il dispositivo**. Si tratta di un testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto| Selezionare questa casella di controllo. Viene restituita una risposta solo se la domanda specifica il contesto.|
@@ -143,7 +143,7 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
 1. Nella colonna **risposta** per questa domanda selezionare **Aggiungi richiesta di completamento**.
 1. In **prompt di completamento (anteprima)** creare una nuova richiesta di completamento immettendo i valori seguenti:
 
-    |Campo|valore|
+    |Campo|Valore|
     |--|--|
     |Testo visualizzato|*Creare un account di Windows*. Testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto|Selezionare questa casella di controllo. Questa risposta viene restituita solo se la domanda specifica il contesto.|
@@ -363,7 +363,7 @@ QnA Maker supporta il controllo della versione includendo passaggi di conversazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle conversazioni contestuali da questo [esempio di finestra di dialogo](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) o altre informazioni sulla [progettazione di bot concettuali per conversazioni a più turni](/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Altre informazioni sulle conversazioni contestuali da questo [esempio di finestra di dialogo](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) o altre informazioni sulla [progettazione di bot concettuali per conversazioni a più turni](/azure/bot-service/bot-builder-conversations).
 
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione di una knowledge base](../Tutorials/migrate-knowledge-base.md)

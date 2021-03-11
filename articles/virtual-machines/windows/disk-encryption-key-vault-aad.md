@@ -2,18 +2,18 @@
 title: Creare e configurare un insieme di credenziali delle chiavi per crittografia dischi di Azure con Azure AD (versione precedente)
 description: Questo articolo illustra come creare e configurare un insieme di credenziali delle chiavi per crittografia dischi di Azure con Azure AD.
 author: msmbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: fd239b52e647d7a0dfa3b60ee1dc31ea7005311b
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 878828a40f7a14fe8bb5728ac06585e6aca2eec8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805956"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555483"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure con Azure AD (versione precedente)
 

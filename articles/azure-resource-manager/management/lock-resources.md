@@ -2,14 +2,14 @@
 title: Bloccare le risorse per impedire modifiche
 description: Impedire agli utenti di aggiornare o eliminare le risorse di Azure applicando un blocco per tutti gli utenti e i ruoli.
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/09/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6df6aec06fadaacc6b1d08ed9ee33b72c5971359
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 28c31681b8fbe981cd51db294c91276dfd65d71f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369476"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619172"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste
 
@@ -33,6 +33,10 @@ I blocchi di Resource Manager si applicano solo alle operazioni che si verifican
 L'applicazione di blocchi può causare risultati imprevisti perché alcune operazioni che non sembrano modificare la risorsa richiedono effettivamente azioni bloccate dal blocco. I blocchi impediscono qualsiasi operazione che richiede una richiesta POST all'API Azure Resource Manager. Alcuni esempi comuni delle operazioni bloccate dai blocchi sono:
 
 * Un blocco di sola lettura in un **account di archiviazione** impedisce agli utenti di elencare le chiavi dell'account. L'operazione di [elenco delle chiavi](/rest/api/storagerp/storageaccounts/listkeys) di archiviazione di Azure viene gestita tramite una richiesta post per proteggere l'accesso alle chiavi dell'account, che forniscono l'accesso completo ai dati nell'account di archiviazione. Quando si configura un blocco di sola lettura per un account di archiviazione, gli utenti che non dispongono delle chiavi dell'account devono usare Azure AD credenziali per accedere ai dati di BLOB o di Accodamento. Un blocco di sola lettura impedisce anche l'assegnazione di ruoli di controllo degli accessi in base al ruolo di Azure con ambito dell'account di archiviazione o di un contenitore di dati (contenitore BLOB o coda).
+
+* Un blocco non può essere eliminato in un **account di archiviazione** non impedisce l'eliminazione o la modifica dei dati all'interno di tale account. Questo tipo di blocco protegge solo l'account di archiviazione da eliminare e non protegge i dati BLOB, di Accodamento, di tabelle o di file all'interno di tale account di archiviazione. 
+
+* Un blocco di sola lettura in un **account di archiviazione** non impedisce l'eliminazione o la modifica dei dati all'interno di tale account. Questo tipo di blocco protegge solo l'account di archiviazione da eliminare o modificare e non protegge i dati BLOB, di Accodamento, di tabelle o di file all'interno di tale account di archiviazione. 
 
 * Un blocco di sola lettura applicato a una risorsa **Servizio app** impedisce a Visual Studio Server Explorer di visualizzare i file della risorsa perché questa interazione richiede l'accesso in scrittura.
 

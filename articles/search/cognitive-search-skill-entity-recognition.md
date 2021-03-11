@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: ddfca965ea32ca726df39f894ba45f9580225d9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3300d68c6356cb7cdd56a9ad79eb0ac011942eb2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542462"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547901"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competenza cognitiva Riconoscimento delle entità
 
@@ -53,7 +53,7 @@ I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi
 ## <a name="skill-outputs"></a>Output competenze
 
 > [!NOTE]
-> non tutte le categorie di entità sono supportate per tutte le lingue. I `"Person"` `"Location"` `"Organization"` tipi di categoria di entità, e sono supportati per l'elenco completo delle lingue precedenti. Solo _de_, _en_, _es_, _fr_e _zh-Hans_ supportano l'estrazione dei `"Quantity"` `"Datetime"` tipi,, `"URL"` e `"Email"` . Per ulteriori informazioni, vedere [supporto per lingue e aree per la API analisi del testo](../cognitive-services/text-analytics/language-support.md).  
+> non tutte le categorie di entità sono supportate per tutte le lingue. I `"Person"` `"Location"` `"Organization"` tipi di categoria di entità, e sono supportati per l'elenco completo delle lingue precedenti. Solo _de_, _en_, _es_, _fr_ e _zh-Hans_ supportano l'estrazione dei `"Quantity"` `"Datetime"` tipi,, `"URL"` e `"Email"` . Per ulteriori informazioni, vedere [supporto per lingue e aree per la API analisi del testo](../cognitive-services/text-analytics/language-support.md).  
 
 | Nome output      | Descrizione                   |
 |---------------|-------------------------------|
@@ -189,8 +189,8 @@ I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi
 
 Si noti che gli offset restituiti per le entità nell'output di questa competenza vengono restituiti direttamente dalla [API analisi del testo](../cognitive-services/text-analytics/overview.md), il che significa che se li si usa per eseguire l'indicizzazione nella stringa originale, è necessario usare la classe [StringInfo](/dotnet/api/system.globalization.stringinfo) in .NET per estrarre il contenuto corretto.  [Altre informazioni sono disponibili qui.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
-## <a name="error-cases"></a>Casi di errore
-Se il codice della lingua per il documento non è supportato, viene restituito un errore e non vengono estratte entità.
+## <a name="warning-cases"></a>Casi di avviso
+Se il codice della lingua per il documento non è supportato, viene restituito un avviso e non viene estratta alcuna entità.
 
 ## <a name="see-also"></a>Vedere anche
 
