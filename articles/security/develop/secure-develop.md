@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576617"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548445"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Sviluppare applicazioni sicure in Azure
 In questo articolo vengono presentati i controlli e le attività di sicurezza da prendere in considerazione quando si sviluppano applicazioni per il cloud. Vengono analizzate le domande e i concetti di sicurezza da considerare durante le fasi di implementazione e verifica di Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)). L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per sviluppare un'applicazione più protetta.
@@ -34,7 +34,7 @@ Si supponga che l'applicazione verrà usata in modi in cui non era previsto usar
 
 ### <a name="perform-code-reviews"></a>Eseguire revisioni del codice
 
-Prima di archiviare il codice, eseguire [revisioni del codice](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) per aumentare la qualità complessiva del codice e ridurre il rischio di creare bug. È possibile usare [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) per gestire il processo di revisione del codice.
+Prima di archiviare il codice, eseguire [revisioni del codice](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) per aumentare la qualità complessiva del codice e ridurre il rischio di creare bug. È possibile usare [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) per gestire il processo di revisione del codice.
 
 ### <a name="perform-static-code-analysis"></a>Eseguire l'analisi codice statico
 

@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 6a1af644bbd88af5c513ed9a43ce154f285c06df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 7e85b698e1b3c3a1c3e8730ab85e8b72b7b0d9f6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856008"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548479"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Esercitazione: Distribuire un'app ASP.NET e il codice di un database SQL di Azure usando Azure DevOps Starter
 
@@ -111,7 +111,7 @@ DevOps Starter crea e configura automaticamente i passaggi necessari per la dist
   
 1. Accanto alla casella **Valore**, selezionare l'icona del lucchetto, immettere la nuova password e quindi selezionare **Salva**.
 
-1. A sinistra, selezionare **Attività**e quindi selezionare l'ambiente. Le attività sono le operazioni eseguite dal processo di distribuzione e sono raggruppate in fasi. Questa pipeline di versione prevede un'unica fase, che contiene un'attività *Distribuzione servizio app di Azure* e *Distribuzione database SQL di Azure*.
+1. A sinistra, selezionare **Attività** e quindi selezionare l'ambiente. Le attività sono le operazioni eseguite dal processo di distribuzione e sono raggruppate in fasi. Questa pipeline di versione prevede un'unica fase, che contiene un'attività *Distribuzione servizio app di Azure* e *Distribuzione database SQL di Azure*.
 
 1. Selezionare l'attività *Esegui attività SQL di Azure* ed esaminare le diverse proprietà usate per la distribuzione SQL. In **Pacchetto di distribuzione**, l'attività usa un file *DACPAC SQL*.
 
@@ -190,7 +190,7 @@ Facoltativamente, è possibile modificare queste pipeline di compilazione e di v
 Per altre informazioni sulla pipeline CI/CD, vedere:
 
 > [!div class="nextstepaction"]
-> [Definire la pipeline di distribuzione continua (CD) in più fasi](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definire la pipeline di distribuzione continua (CD) in più fasi](/azure/devops/pipelines/release/define-multistage-release-process)
 
 ## <a name="videos"></a>Video
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2a73208ef7014c1f21c78485fc613a26ce3bfc76
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: cc3498c6d8f385bcf63aa7860edd12f9bf343fb8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397162"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552559"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Instradare il traffico Web in base all'URL tramite Azure PowerShell
 
@@ -85,8 +85,8 @@ $pip = New-AzPublicIpAddress `
 In questa sezione verranno create risorse che supportano il gateway applicazione e infine verrà creato quest'ultimo. Le risorse create includono:
 
 - *Configurazioni IP e porta* front-end: associa la subnet creata in precedenza al gateway applicazione e assegna una porta da usare per l'accesso.
-- *Pool predefinito* : tutti i gateway applicazione devono avere almeno un pool back-end di server.
-- *Listener e regola predefiniti* : il listener predefinito è in ascolto del traffico sulla porta assegnata e la regola predefinita invia il traffico al pool predefinito.
+- *Pool predefinito*: tutti i gateway applicazione devono avere almeno un pool back-end di server.
+- *Listener e regola predefiniti*: il listener predefinito è in ascolto del traffico sulla porta assegnata e la regola predefinita invia il traffico al pool predefinito.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Creare le configurazioni IP e la porta front-end
 
@@ -312,7 +312,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Creare set di scalabilità di macchine virtuali
 
-In questo esempio si creano tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. I set di scalabilità creati sono denominati *myvmss1* , *myvmss2* e *myvmss3*. Il set di scalabilità viene assegnato al pool back-end quando si configurano le impostazioni IP.
+In questo esempio si creano tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. I set di scalabilità creati sono denominati *myvmss1*, *myvmss2* e *myvmss3*. Il set di scalabilità viene assegnato al pool back-end quando si configurano le impostazioni IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -358,7 +358,7 @@ for ($i=1; $i -le 3; $i++)
   $vmssConfig = New-AzVmssConfig `
     -Location eastus `
     -SkuCapacity 2 `
-    -SkuName Standard_DS2 `
+    -SkuName Standard_DS2_v2 `
     -UpgradePolicyMode Automatic
 
   Set-AzVmssStorageProfile $vmssConfig `

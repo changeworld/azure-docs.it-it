@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: cc0028a8c7d6d15277c3789118b13b80ed4306ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1ec4e26e266a1777857fe0e890b093f60a3597f0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596632"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612525"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Creare, modificare o eliminare una rete virtuale
 
@@ -53,7 +53,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
      > Se una rete virtuale include intervalli di indirizzi che si sovrappongono a un'altra rete virtuale o a una rete locale, non è possibile connettere le due reti. Prima di definire un intervallo di indirizzi, tenere conto della possibilità che in futuro sia necessario connettere la rete virtuale ad altre reti virtuali o locali. Microsoft consiglia di configurare gli intervalli di indirizzi della rete virtuale con lo spazio degli indirizzi privato o lo spazio di indirizzi pubblico di proprietà dell'organizzazione.
      >
 
-     - **Nome subnet**: il nome della subnet deve essere univoco all'interno della rete virtuale. Dopo la creazione della subnet non è possibile modificarne il nome. Al momento della creazione di una rete virtuale il portale richiede la definizione di una subnet, anche se una rete virtuale non deve necessariamente avere una o più subnet. Quando si crea una rete virtuale nel portale, è possibile definire una sola subnet. Dopo la creazione della rete virtuale è possibile aggiungerne altre. Per aggiungere una subnet a una rete virtuale, vedere [Aggiungere, modificare o eliminare le subnet di rete virtuale](virtual-network-manage-subnet.md). Per creare una rete virtuale con più subnet, è possibile usare l'interfaccia della riga di comando di Azure o PowerShell.
+     - **Nome subnet**: il nome della subnet deve essere univoco all'interno della rete virtuale. Dopo la creazione della subnet non è possibile modificarne il nome. Al momento della creazione di una rete virtuale il portale richiede la definizione di una subnet, anche se una rete virtuale non deve necessariamente avere una o più subnet. Nel portale è possibile definire una o più subnet quando si crea una rete virtuale. Dopo la creazione della rete virtuale è possibile aggiungerne altre. Per aggiungere una subnet a una rete virtuale, vedere [Aggiungere, modificare o eliminare le subnet di rete virtuale](virtual-network-manage-subnet.md). Per creare una rete virtuale con più subnet, è possibile usare l'interfaccia della riga di comando di Azure o PowerShell.
 
        >[!TIP]
        >Talvolta gli amministratori creano subnet diverse per filtrare o controllare il routing del traffico tra queste. Prima di definire le subnet, tenere conto dell'eventuale necessità di filtrare e instradare il traffico tra le subnet stesse. Per altre informazioni sull'applicazione di filtri al traffico tra le subnet, vedere [Gruppi di sicurezza di rete](./network-security-groups-overview.md). Azure effettua il routing automatico del traffico tra le subnet. È tuttavia possibile eseguire l'override delle route predefinite di Azure. Per altre informazioni sul routing del traffico delle subnet predefinito, vedere [Routing del traffico di rete virtuale](virtual-networks-udr-overview.md).

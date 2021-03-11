@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7118ff589e580fd3aa1f693e72152f1ad4c18e10
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 47b4f36aec9a906317a9704a7d73bf66385d9e88
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979879"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552117"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Esercitazione: Concedere l'accesso agli utenti e chiamare un'API protetta da un'app WebAssembly Blazor
 
@@ -49,7 +49,7 @@ Dopo la registrazione, in **Gestisci** selezionare   >  **concessione implicita 
 Per creare l'app sono necessari i modelli di Blazor più recenti. È possibile installarli dall'interfaccia della riga di comando di .NET Core con il comando seguente:
 
 ```dotnetcli
-dotnet new --install Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.1
+dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.6.0
 ```
 
 Eseguire quindi il comando seguente per creare l'applicazione. Sostituire i segnaposto nel comando con le informazioni appropriate nella pagina di panoramica dell'app ed eseguire il comando in una shell dei comandi. Il percorso di output specificato con l'opzione `-o|--output` consente di creare una cartella di progetto se non esiste e viene incluso nel nome dell'app.

@@ -3,12 +3,12 @@ title: Matrice di supporto di MAB & System Center DPM
 description: Questo articolo riepiloga il supporto di backup di Azure quando si usa Backup di Microsoft Azure Server (MAB) o System Center DPM per eseguire il backup delle risorse locali e delle macchine virtuali di Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: aaa68dba0bbd1f3f5ffb5480a2bdb0a48ae85656
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: e888b43ea5641f1943a096f045747d547c52fcfa
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986057"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609754"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -60,9 +60,9 @@ DPM/MAB può essere distribuito come riepilogato nella tabella seguente.
 
 **Distribuzione** | **Supporto** | **Dettagli**
 --- | --- | ---
-**Distribuito in locale** | Server fisico<br/><br/>Macchina virtuale Hyper-V<br/><br/> Macchina virtuale VMware | Per altri dettagli, vedere la [matrice di protezione](backup-mabs-protection-matrix.md) . 
+**Distribuito in locale** | Server fisico, ma non in un cluster fisico.<br/><br/>Macchina virtuale Hyper-V. È possibile distribuire MAB come macchina guest in un hypervisor o un cluster autonomo. Non può essere distribuita in un nodo di un cluster o di un hypervisor autonomo. Il server di Backup di Azure è progettato per l'esecuzione su un server dedicato a un solo scopo.<br/><br/> Come macchina virtuale Windows in un ambiente VMware. | I server MAB locali non sono in grado di proteggere i carichi di lavoro basati su Azure. <br><br> Per altre informazioni, vedere [matrice di protezione](backup-mabs-protection-matrix.md).
 **Distribuito come macchina virtuale di Azure Stack** | Solo server di Backup di Microsoft Azure | Non è possibile usare DPM per eseguire il backup di macchine virtuali di Azure Stack.
-**Distribuito come macchina virtuale di Azure** | Protegge le macchine virtuali e i carichi di lavoro di Azure in esecuzione in tali macchine virtuali | DPM/MAB in esecuzione in Azure non può eseguire il backup dei computer locali.
+**Distribuito come macchina virtuale di Azure** | Protegge le macchine virtuali e i carichi di lavoro di Azure in esecuzione in tali macchine virtuali | DPM/MAB in esecuzione in Azure non può eseguire il backup dei computer locali. Può proteggere solo i carichi di lavoro in esecuzione nelle macchine virtuali IaaS di Azure.
 
 ## <a name="supported-mabs-and-dpm-operating-systems"></a>Sistemi operativi supportati per il server di Backup di Microsoft Azure e DPM
 
@@ -87,6 +87,9 @@ Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno d
 **Archiviazione** | Modern backup storage (MBS) è supportato da DPM 2016/MAB V2 e versioni successive. Non è disponibile per il server di Backup di Microsoft Azure v1.
 **Aggiornamento del server di Backup di Microsoft Azure** | È possibile installare direttamente il server di Backup di Microsoft Azure v3 oppure eseguire l'aggiornamento dal server di Backup di Microsoft Azure v2 al server di Backup di Microsoft Azure v3. [Altre informazioni](backup-azure-microsoft-azure-backup.md#upgrade-mabs)
 **Spostamento del server di Backup di Microsoft Azure** | Se si usa MBS, è possibile spostare il server di Backup di Microsoft Azure in un nuovo server conservando l'archivio.<br/><br/> Il server deve avere lo stesso nome dell'originale. Non è possibile cambiare il nome se si intende mantenere lo stesso pool di archiviazione e usare lo stesso database del server di Backup di Microsoft Azure per archiviare i punti di ripristino dei dati.<br/><br/> È necessario un backup del database MAB perché sarà necessario ripristinarlo.
+
+>[!NOTE]
+>La ridenominazione del server DPM/MAB non è supportata.
 
 ## <a name="mabs-support-on-azure-stack"></a>Supporto per il server di Backup di Microsoft Azure in Azure Stack
 
@@ -168,11 +171,19 @@ Nessuna connettività per più di 15 giorni | Scaduta/sottoposta a deprovisionin
 |Requisito |Dettagli |
 |---------|---------|
 |Dominio    | Il server DPM/MAB deve trovarsi in un dominio Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012.        |
-|Trust tra domini   |  DPM/MAB supporta la protezione dei dati tra foreste, a condizione che si stabilisca una relazione di trust bidirezionale a livello di foresta tra le foreste separate.   <BR><BR>   DPM/MAB può proteggere i server e le workstation tra domini, all'interno di una foresta che abbia una relazione di trust bidirezionale con il dominio del server DPM/MAB. Per proteggere i computer in gruppi di lavoro o domini non trusted, vedere [eseguire il backup e il ripristino dei carichi di lavoro in gruppi di lavoro e domini non trusted.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
+|Trust tra domini   |  DPM/MAB supporta la protezione dei dati tra foreste, a condizione che si stabilisca una relazione di trust bidirezionale a livello di foresta tra le foreste separate.   <BR><BR>   DPM/MAB può proteggere i server e le workstation tra domini, all'interno di una foresta che abbia una relazione di trust bidirezionale con il dominio del server DPM/MAB. Per proteggere i computer in gruppi di lavoro o domini non trusted, vedere [eseguire il backup e il ripristino dei carichi di lavoro in gruppi di lavoro e domini non trusted.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains) <br><br> Per eseguire il backup di cluster di server Hyper-V, è necessario che si trovino nello stesso dominio del server MAB o in un dominio trusted o figlio. È possibile eseguire il backup di server e cluster in un dominio non trusted o in un carico di lavoro usando l'autenticazione NTLM o del certificato per un singolo server o l'autenticazione del certificato solo per un cluster.  |
 
 ## <a name="dpmmabs-storage-support"></a>Supporto dell'archiviazione per DPM o il server di Backup di Microsoft Azure
 
 I dati di cui viene eseguito il backup in DPM/MAB vengono archiviati nell'archiviazione su disco locale.
+
+Le unità USB o rimovibili non sono supportate.
+
+La compressione NTFS non è supportata nei volumi DPM/MAB.
+
+BitLocker può essere abilitato solo dopo aver aggiunto il disco al pool di archiviazione. Non abilitare BitLocker prima di aggiungerlo.
+
+Archiviazione collegata alla rete (NAS) non è supportata per l'uso nel pool di archiviazione DPM.
 
 **Archiviazione** | **Dettagli**
 --- | ---
@@ -199,6 +210,38 @@ Per informazioni sui vari server e carichi di lavoro che è possibile proteggere
 
 - I carichi di lavoro del cluster sottoposti a backup da DPM/MAB devono trovarsi nello stesso dominio di DPM/MAB o in un dominio figlio o trusted.
 - È possibile usare l'autenticazione NTLM/del certificato per eseguire il backup dei dati in gruppi di lavoro o domini non attendibili.
+
+## <a name="deduplicated-volumes-support"></a>Supporto di volumi deduplicati
+
+>[!NOTE]
+> Il supporto della deduplicazione per MAB dipende dal supporto del sistema operativo.
+
+### <a name="for-ntfs-volumes"></a>Per i volumi NTFS
+
+| Sistema operativo del server protetto  | Sistema operativo del server MAB  | Versione di MAB  | Deduplicazione supportata |
+| ------------------------------------------ | ------------------------------------- | ------------------ | -------------------- |
+| Windows Server 2019                       | Windows Server 2019                  | Server di Backup di Microsoft Azure v3            | S                    |
+| Windows Server 2016                       | Windows Server 2019                  | Server di Backup di Microsoft Azure v3            | Y*                   |
+| Windows Server 2012 R2                    | Windows Server 2019                  | Server di Backup di Microsoft Azure v3            | N                    |
+| Windows Server 2012                       | Windows Server 2019                  | Server di Backup di Microsoft Azure v3            | N                    |
+| Windows Server 2019                       | Windows Server 2016                  | Server di Backup di Microsoft Azure v3            | Y * *                  |
+| Windows Server 2016                       | Windows Server 2016                  | Server di Backup di Microsoft Azure v3            | S                    |
+| Windows Server 2012 R2                    | Windows Server 2016                  | Server di Backup di Microsoft Azure v3            | S                    |
+| Windows Server 2012                       | Windows Server 2016                  | Server di Backup di Microsoft Azure v3            | S                    |
+
+- \* Quando si protegge un volume di WS 2016 NTFS deduplicato con MAB V3 in esecuzione su WS 2019, è possibile che i recuperi siano interessati. È stata rilevata una correzione per eseguire i recuperi in modo non duplicato. Rivolgersi al supporto di MAB se è necessaria questa correzione in MAB V3 UR1.
+- \** Quando si protegge un volume di WS 2019 NTFS deduplicato con MAB V3 in WS 2016, i backup e i ripristini non saranno deduplicati. Ciò significa che i backup utilizzeranno più spazio sul server MAB rispetto al volume NTFS originale deduplicato.
+
+**Problema**: se si aggiorna il sistema operativo server protetto da windows server 2016 a windows server 2019, il backup del volume NTFS deduplicato verrà influenzato a causa delle modifiche apportate alla logica di deduplicazione.
+
+**Soluzione temporanea**: contattare il supporto di MAB nel caso in cui sia necessaria questa correzione per la UR1 di MAB V3.
+
+### <a name="for-refs-volumes"></a>Per i volumi ReFS
+
+>[!NOTE]
+> Sono stati identificati alcuni problemi relativi ai backup di volumi ReFS deduplicati. Questi problemi verranno risolti a breve e questa sezione verrà aggiornata non appena sarà disponibile una correzione. Fino ad allora, viene rimosso il supporto per il backup dei volumi ReFS deduplicati da MAB V3.
+>
+> MAB V3 UR1 e versioni successive continua a supportare la protezione e il ripristino di volumi ReFS normali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

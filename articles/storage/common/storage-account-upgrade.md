@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/09/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 50a0894898dcdc817ee253ad326b88a9bb61b9d6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 85520032e9bc63b6296e40dd1c1055e36762dcc8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357365"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555007"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 
@@ -24,6 +24,15 @@ L'aggiornamento a un account di archiviazione per utilizzo generico V2 dagli acc
 
 > [!IMPORTANT]
 > L'aggiornamento di un account di archiviazione BLOB o per utilizzo generico V1 a utilizzo generico V2 è permanente e non può essere annullato.
+
+> [!NOTE]
+> Sebbene Microsoft consigli gli account per utilizzo generico V2 per la maggior parte degli scenari, Microsoft continuerà a supportare gli account per utilizzo generico V1 per i clienti nuovi ed esistenti. È possibile creare account di archiviazione per utilizzo generico V1 in nuove aree ogni volta che archiviazione di Azure è disponibile in tali aree. Microsoft non ha attualmente un piano per deprecare il supporto per gli account per utilizzo generico V1 e fornirà almeno un preavviso di un anno prima di deprecare le funzionalità di archiviazione di Azure. Microsoft continuerà a fornire aggiornamenti della sicurezza per gli account per utilizzo generico V1, ma per questo tipo di account non è previsto alcun nuovo sviluppo di funzionalità.
+>
+> A partire dal 1 ° ottobre 2020, i prezzi per gli account per utilizzo generico V1 nelle nuove aree di archiviazione di Azure equivalgono ai prezzi per gli account per utilizzo generico V2 in tali aree. I prezzi nelle aree di archiviazione di Azure esistenti non sono stati modificati. Per informazioni dettagliate sui prezzi per gli account per utilizzo generico V1 in un'area specifica, vedere la pagina dei prezzi di archiviazione di Azure. Scegliere l'area geografica e quindi selezionare **altro** accanto a offerte per i **prezzi**.
+
+## <a name="upgrade-an-account"></a>Aggiornare un account
+
+Per aggiornare un account di archiviazione BLOB o V1 di uso generico a un account per utilizzo generico V2, usare portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -47,6 +56,7 @@ Chiamare quindi il comando seguente per aggiornare l'account, sostituendo il nom
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
+
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per aggiornare un account per utilizzo generico v1 a un account per utilizzo generico v2 con l'interfaccia della riga di comando di Azure, installare prima l'ultima versione dell'interfaccia della riga di comando di Azure. Per informazioni sull'installazione dell'interfaccia della riga di comando, vedere [Install the Azure CLI 2.0](/cli/azure/install-azure-cli) (Installare l'interfaccia della riga di comando di Azure 2.0).

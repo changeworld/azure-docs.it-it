@@ -2,17 +2,19 @@
 title: Baseline della sicurezza di Azure per macchine virtuali Linux
 description: La linea di base di sicurezza macchine virtuali Linux fornisce indicazioni e risorse procedurali per l'implementazione delle raccomandazioni di sicurezza specificate nel benchmark di sicurezza di Azure.
 author: msmbaldwin
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e1569cf4c7e91fd0c90d407846a9165d4b7b3776
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fdf3c1e012a017d59fef91add8b86b0b3e1cdcd4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592950"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552845"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Linux
 

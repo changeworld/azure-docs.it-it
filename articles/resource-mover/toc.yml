@@ -14,6 +14,8 @@
       href: tutorial-move-region-virtual-machines.md
     - name: Spostare le macchine virtuali di Azure crittografate in un'altra area
       href: tutorial-move-region-encrypted-virtual-machines.md
+    - name: Spostare le risorse tra aree con PowerShell
+      href: tutorial-move-region-powershell.md
     - name: Spostare le risorse SQL in un'altra area
       href: tutorial-move-region-sql.md
 - name: Concetti
@@ -28,8 +30,6 @@
   items:
     - name: Spostarsi tra aree
       items:
-        - name: Spostarsi tra aree con PowerShell
-          href: move-region-powershell.md
         - name: Spostare VM di Azure in zone di disponibilità
           href: move-region-availability-zone.md
         - name: Spostarsi tra aree (dal gruppo di risorse)

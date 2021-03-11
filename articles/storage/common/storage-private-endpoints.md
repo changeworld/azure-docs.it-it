@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7af2e6794d0d2f37c342a86b2f36b94c9601cc7e
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 16d3d50d5ade298e2ca22f271466c70e74724381
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617256"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613562"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Usare endpoint privati per archiviazione di Azure
 
@@ -49,9 +49,15 @@ I proprietari dell'account di archiviazione possono gestire le richieste di cons
 > [!NOTE]
 > Quando si copiano i BLOB tra gli account di archiviazione, il client deve avere accesso di rete a entrambi gli account. Se quindi si sceglie di usare un collegamento privato per un solo account (origine o destinazione), assicurarsi che il client disponga dell'accesso di rete all'altro account. Per informazioni su altri modi per configurare l'accesso alla rete, vedere [configurare i firewall e le reti virtuali di archiviazione di Azure](storage-network-security.md?toc=/azure/storage/blobs/toc.json). 
 
-### <a name="private-endpoints-for-azure-storage"></a>Endpoint privati per archiviazione di Azure
+<a id="private-endpoints-for-azure-storage"></a>
 
-Quando si crea l'endpoint privato, è necessario specificare l'account di archiviazione e il servizio di archiviazione a cui si connette. È necessario un endpoint privato separato per ogni servizio di archiviazione in un account di archiviazione a cui è necessario accedere, ovvero [BLOB](../blobs/storage-blobs-overview.md), [Data Lake storage Gen2](../blobs/data-lake-storage-introduction.md), [file](../files/storage-files-introduction.md), [Code](../queues/storage-queues-introduction.md), [tabelle](../tables/table-storage-overview.md)o [siti web statici](../blobs/storage-blob-static-website.md).
+## <a name="creating-a-private-endpoint"></a>Creazione di un endpoint privato
+
+Quando si crea un endpoint privato, è necessario specificare l'account di archiviazione e il servizio di archiviazione a cui si connette. 
+
+È necessario un endpoint privato separato per ogni risorsa di archiviazione a cui è necessario accedere, ovvero [BLOB](../blobs/storage-blobs-overview.md), [Data Lake storage Gen2](../blobs/data-lake-storage-introduction.md), [file](../files/storage-files-introduction.md), [Code](../queues/storage-queues-introduction.md), [tabelle](../tables/table-storage-overview.md)o [siti web statici](../blobs/storage-blob-static-website.md). Nell'endpoint privato i servizi di archiviazione sono definiti come la **risorsa secondaria di destinazione** dell'account di archiviazione associato. 
+
+Se si crea un endpoint privato per la risorsa di archiviazione Data Lake Storage Gen2, è necessario crearne uno anche per la risorsa di archiviazione BLOB. Ciò è dovuto al fatto che le operazioni destinate all'endpoint Data Lake Storage Gen2 potrebbero essere reindirizzate all'endpoint BLOB. Creando un endpoint privato per entrambe le risorse, si garantisce che le operazioni possano essere completate correttamente.
 
 > [!TIP]
 > Creare un endpoint privato separato per l'istanza secondaria del servizio di archiviazione per migliorare le prestazioni di lettura sugli account RA-GRS.
@@ -64,20 +70,22 @@ Per informazioni più dettagliate sulla creazione di un endpoint privato per l'a
 - [Connettersi privatamente a un account di archiviazione dall'esperienza dell'account di archiviazione nell'portale di Azure](../../private-link/tutorial-private-endpoint-storage-portal.md)
 - [Creare un endpoint privato usando il centro collegamenti privati nel portale di Azure](../../private-link/create-private-endpoint-portal.md)
 - [Creare un endpoint privato con l'interfaccia della riga di comando di Azure](../../private-link/create-private-endpoint-cli.md)
-- [Creare un endpoint privato usando Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+- [Creare un endpoint privato con Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
-### <a name="connecting-to-private-endpoints"></a>Connessione agli endpoint privati
+<a id="connecting-to-private-endpoints"></a>
+
+## <a name="connecting-to-a-private-endpoint"></a>Connessione a un endpoint privato
 
 I client in un VNet che usa l'endpoint privato devono usare la stessa stringa di connessione per l'account di archiviazione, perché i client si connettono all'endpoint pubblico. Si fa affidamento sulla risoluzione DNS per instradare automaticamente le connessioni da VNet all'account di archiviazione tramite un collegamento privato.
 
 > [!IMPORTANT]
-> Usare la stessa stringa di connessione per connettersi all'account di archiviazione usando endpoint privati, come si farebbe diversamente. Non connettersi all'account di archiviazione usando l'URL del sottodominio '*privatelink*'.
+> Usare la stessa stringa di connessione per connettersi all'account di archiviazione usando endpoint privati, come si farebbe diversamente. Non connettersi all'account di archiviazione usando il relativo `privatelink` URL di sottodominio.
 
 Per impostazione predefinita, viene creata una [zona DNS privata](../../dns/private-dns-overview.md) collegata a VNet con gli aggiornamenti necessari per gli endpoint privati. Tuttavia, se si usa il proprio server DNS, potrebbe essere necessario apportare altre modifiche alla configurazione DNS. La sezione sulle [modifiche DNS](#dns-changes-for-private-endpoints) riportata di seguito descrive gli aggiornamenti necessari per gli endpoint privati.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Modifiche DNS per gli endpoint privati
 
-Quando si crea un endpoint privato, il record di risorse DNS CNAME per l'account di archiviazione viene aggiornato a un alias in un sottodominio con il prefisso '*privatelink*'. Per impostazione predefinita, si crea anche una [zona DNS privata](../../dns/private-dns-overview.md), che corrisponde al sottodominio "*privatelink*", con i record di risorse DNS a per gli endpoint privati.
+Quando si crea un endpoint privato, il record di risorse DNS CNAME per l'account di archiviazione viene aggiornato a un alias in un sottodominio con il prefisso `privatelink` . Per impostazione predefinita, si crea anche una [zona DNS privata](../../dns/private-dns-overview.md), corrispondente al `privatelink` sottodominio, con i record di risorse DNS a per gli endpoint privati.
 
 Quando si risolve l'URL dell'endpoint di archiviazione dall'esterno del VNet con l'endpoint privato, questo viene risolto nell'endpoint pubblico del servizio di archiviazione. Quando viene risolto da VNet che ospita l'endpoint privato, l'URL dell'endpoint di archiviazione viene risolto nell'indirizzo IP dell'endpoint privato.
 
@@ -87,7 +95,7 @@ Per l'esempio illustrato in precedenza, i record di risorse DNS per l'account di
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
-| \<storage service public endpoint\>                   | Una     | \<storage service public IP address\>                 |
+| \<storage service public endpoint\>                   | A     | \<storage service public IP address\>                 |
 
 Come indicato in precedenza, è possibile negare o controllare l'accesso per i client esterni a VNet tramite l'endpoint pubblico usando il firewall di archiviazione.
 
@@ -96,25 +104,25 @@ I record di risorse DNS per StorageAccountA, in caso di risoluzione da parte di 
 | Nome                                                  | Type  | valore                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | Una     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
 Questo approccio consente di accedere all'account di archiviazione **usando la stessa stringa di connessione** per i client in VNet che ospitano gli endpoint privati, nonché i client esterni al VNet.
 
 Se si usa un server DNS personalizzato nella rete, i client devono essere in grado di risolvere il nome di dominio completo per l'endpoint dell'account di archiviazione nell'indirizzo IP dell'endpoint privato. È necessario configurare il server DNS per delegare il sottodominio di collegamento privato alla zona DNS privata per la VNet o configurare i record A per "*StorageAccountA.privatelink.blob.Core.Windows.NET*" con l'indirizzo IP dell'endpoint privato.
 
 > [!TIP]
-> Quando si usa un server DNS personalizzato o locale, è necessario configurare il server DNS per risolvere il nome dell'account di archiviazione nel sottodominio "privatelink" all'indirizzo IP dell'endpoint privato. A tale scopo, è possibile delegare il sottodominio "privatelink" alla zona DNS privata del VNet o configurare la zona DNS nel server DNS e aggiungere i record A DNS.
+> Quando si usa un server DNS personalizzato o locale, è necessario configurare il server DNS per risolvere il nome dell'account di archiviazione nel `privatelink` sottodominio per l'indirizzo IP dell'endpoint privato. A tale scopo, è possibile delegare il `privatelink` sottodominio alla zona DNS privata del VNet o configurare la zona DNS nel server DNS e aggiungere i record A DNS.
 
-I nomi di zona DNS consigliati per gli endpoint privati per i servizi di archiviazione sono:
+I nomi di zona DNS consigliati per gli endpoint privati per i servizi di archiviazione e le risorse secondarie di destinazione dell'endpoint associate sono:
 
-| Servizio di archiviazione        | Nome zona                            |
-| :--------------------- | :----------------------------------- |
-| Servizio BLOB           | `privatelink.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
-| Servizio file           | `privatelink.file.core.windows.net`  |
-| Servizio di accodamento          | `privatelink.queue.core.windows.net` |
-| Servizio tabelle          | `privatelink.table.core.windows.net` |
-| Siti Web statici        | `privatelink.web.core.windows.net`   |
+| Servizio di archiviazione        | Sottorisorsa di destinazione | Nome zona                            |
+| :--------------------- | :------------------ | :----------------------------------- |
+| Servizio BLOB           | blob                | `privatelink.blob.core.windows.net`  |
+| Data Lake Storage Gen2 | DFS                 | `privatelink.dfs.core.windows.net`   |
+| Servizio file           | file                | `privatelink.file.core.windows.net`  |
+| Servizio di accodamento          | coda               | `privatelink.queue.core.windows.net` |
+| Servizio tabelle          | table               | `privatelink.table.core.windows.net` |
+| Siti Web statici        | Web                 | `privatelink.web.core.windows.net`   |
 
 Per ulteriori informazioni sulla configurazione del server DNS per supportare endpoint privati, fare riferimento agli articoli seguenti:
 
@@ -137,7 +145,7 @@ Questo vincolo è il risultato delle modifiche DNS apportate quando l'account a2
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regole del gruppo di sicurezza di rete per le subnet con endpoint privati
 
-Attualmente, non è possibile configurare le regole del [gruppo di sicurezza di rete](../../virtual-network/network-security-groups-overview.md) (NSG) e le route definite dall'utente per gli endpoint privati. Le regole NSG applicate alla subnet che ospita l'endpoint privato vengono applicate solo ad altri endpoint (ad esempio, NIC) rispetto all'endpoint privato. Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.
+Attualmente, non è possibile configurare le regole del [gruppo di sicurezza di rete](../../virtual-network/network-security-groups-overview.md) (NSG) e le route definite dall'utente per gli endpoint privati. Le regole NSG applicate alla subnet che ospita l'endpoint privato non vengono applicate all'endpoint privato. Vengono applicati solo ad altri endpoint (ad esempio, controller di interfaccia di rete). Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

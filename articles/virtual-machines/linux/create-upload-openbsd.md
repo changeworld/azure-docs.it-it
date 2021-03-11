@@ -2,16 +2,17 @@
 title: Creare e caricare un'immagine di OpenBSD
 description: Informazioni su come creare e caricare un disco rigido virtuale (VHD) che contiene il sistema operativo OpenBSD per creare una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 author: gbowerman
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
-ms.openlocfilehash: efa38384778bb63857d3c867d74ace7f4f199118
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3437fcd2d1d521aad237ecf6d3f7937b4835d376
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685090"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554599"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Creare e caricare un'immagine disco OpenBSD in Azure
 Questo articolo descrive come creare e caricare un disco rigido virtuale (VHD) che contiene il sistema operativo OpenBSD. Dopo il caricamento, è possibile usarlo come immagine personalizzata per creare una macchina virtuale in Azure tramite l'interfaccia della riga di comando di Azure.
@@ -87,7 +88,7 @@ Ora è possibile arrestare la macchina virtuale.
 
 
 ## <a name="prepare-the-vhd"></a>Preparare il disco rigido virtuale
-Il formato VHDX non è supportato in Azure, solo nei **VHD fissi**. È possibile convertire il disco in formato VHD fisso tramite la console di gestione di Hyper-V o il cmdlet [convert-vhd](/powershell/module/hyper-v/convert-vhd?view=win10-ps) di PowerShell. Di seguito è riportato un esempio.
+Il formato VHDX non è supportato in Azure, solo nei **VHD fissi**. È possibile convertire il disco in formato VHD fisso tramite la console di gestione di Hyper-V o il cmdlet [convert-vhd](/powershell/module/hyper-v/convert-vhd) di PowerShell. Di seguito è riportato un esempio.
 
 ```powershell
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed

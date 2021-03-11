@@ -11,12 +11,12 @@ ms.date: 08/03/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: how-to, tracking-python, deploy
-ms.openlocfilehash: 6043ea4e1366890033571c2ba78ecdb2e59f64e1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9de971639e22f9656ea75dc64993ac5881efbffb
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325211"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609414"
 ---
 # <a name="continuously-deploy-models"></a>Modelli di distribuzione continua
 
@@ -30,13 +30,13 @@ Questo articolo presuppone che sia già stato registrato un modello nell'area di
 
 È possibile distribuire i modelli in modo continuo usando l'estensione Machine Learning per [Azure DevOps](https://azure.microsoft.com/services/devops/). È possibile usare l'estensione Machine Learning per Azure DevOps per attivare una pipeline di distribuzione quando viene registrato un nuovo modello di apprendimento automatico in un'area di lavoro di Azure Machine Learning.
 
-1. Iscriversi a [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), che rende possibile l'integrazione e il recapito continui dell'applicazione in qualsiasi piattaforma o cloud. Si noti che Azure Pipelines non è uguale [Machine Learning pipeline](concept-ml-pipelines.md#compare).
+1. Iscriversi a [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up), che rende possibile l'integrazione e il recapito continui dell'applicazione in qualsiasi piattaforma o cloud. Si noti che Azure Pipelines non è uguale [Machine Learning pipeline](concept-ml-pipelines.md#compare).
 
-1. [Creare un progetto DevOps di Azure.](/azure/devops/organizations/projects/create-project?view=azure-devops)
+1. [Creare un progetto DevOps di Azure.](/azure/devops/organizations/projects/create-project)
 
 1. Installare l' [estensione Machine Learning per Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList).
 
-1. Usare le connessioni al servizio per configurare una connessione dell'entità servizio all'area di lavoro Azure Machine Learning in modo che sia possibile accedere agli elementi. Passare a Impostazioni progetto, selezionare **connessioni al servizio** e quindi selezionare **Azure Resource Manager** :
+1. Usare le connessioni al servizio per configurare una connessione dell'entità servizio all'area di lavoro Azure Machine Learning in modo che sia possibile accedere agli elementi. Passare a Impostazioni progetto, selezionare **connessioni al servizio** e quindi selezionare **Azure Resource Manager**:
 
     [![Selezionare Azure Resource Manager](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
 

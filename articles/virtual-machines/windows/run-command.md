@@ -3,18 +3,19 @@ title: Eseguire gli script di PowerShell in una macchina virtuale Windows in Azu
 description: In questo argomento viene descritto come eseguire gli script di PowerShell all'interno di una macchina virtuale Windows di Azure usando la funzionalità Esegui comando
 services: automation
 ms.service: virtual-machines
+ms.collection: windows
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: eac6201f45b11cae223e2293644bd9d0144e6e31
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: e2cd8ee4095db235215a2beaa68975e819b474c1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203355"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560685"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Windows usando Esegui comando
 

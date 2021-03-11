@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178369"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623561"
 ---
 ## <a name="disk-level-bursting"></a>Espansione a livello di disco
 
@@ -147,7 +147,7 @@ Quando la macchina virtuale viene avviata, il numero di picchi di 1.280 MB/s ver
 
 Al termine dell'avvio, un'applicazione con un carico di lavoro non critico viene avviata. Questa applicazione richiede 15 MB/s che vengono distribuiti in modo uniforme in tutti i dischi.
 
-![L'applicazione invia una richiesta per 15 MB/s di velocità effettiva alla macchina virtuale, la macchina virtuale riceve una richiesta e invia ogni disco una richiesta per 5 MB/s, ogni disco restituisce 5 MB/s, la macchina virtuale restituisce 15 MB/s per l'applicazione.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![L'applicazione invia una richiesta per 15 MB/s di velocità effettiva alla macchina virtuale, la macchina virtuale riceve una richiesta e invia ogni disco una richiesta per 5 MB/s, ogni disco restituisce 5 MB/s di risposte, la VM restituisce 15 MB/s per l'applicazione.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
 Quindi, l'applicazione deve elaborare un processo in batch che richiede 360 MB/s. Il Standard_L8s_v2 si rompe per soddisfare questa richiesta e quindi le richieste. Solo 20 MB/s sono necessari per il disco del sistema operativo. I restanti 340 MB/s vengono gestiti dai dischi dati P4 con picchi.
 

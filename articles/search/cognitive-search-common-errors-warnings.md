@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 6625cd5ad91826ac5cdf8ec63382e9f94d8a2c08
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 3ba0abe8510291351c10ba085ba7e42b8197d886
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895940"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553239"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Risoluzione di errori e avvisi comuni dell'indicizzatore in Azure ricerca cognitiva
 
@@ -34,7 +34,7 @@ A partire dalla versione dell'API `2019-05-06` , gli errori e gli avvisi dell'in
 
 | Proprietà | Descrizione | Esempio |
 | --- | --- | --- |
-| Key | ID del documento interessato dall'errore o dall'avviso. | https: \/ /coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
+| key | ID del documento interessato dall'errore o dall'avviso. | https: \/ /coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
 | name | Nome dell'operazione che descrive la posizione in cui si è verificato l'errore o l'avviso. Questa operazione viene generata dalla struttura seguente: [Category]. [Subcategory]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName arricchimento. WebApiSkill. My SkillName Projection. SearchIndex. OutputFieldMapping. myOutputFieldName Projection. SearchIndex. MergeOrUpload. Setindexname Projection. KnowledgeStore. Table. TableName |
 | message | Descrizione di alto livello dell'errore o dell'avviso. | Non è stato possibile eseguire l'abilità perché la richiesta dell'API Web non è riuscita. |
 | dettagli | Eventuali dettagli aggiuntivi che possono essere utili per diagnosticare il problema, ad esempio la risposta WebApi se l'esecuzione di un'abilità personalizzata non è riuscita. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 origine, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... Rest della traccia dello stack... |
@@ -236,6 +236,8 @@ Se si vuole fornire un valore predefinito in caso di input mancante, è possibil
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Avviso: l'input skill ' codiceLingua ' ha i seguenti codici di lingua ' X, Y, Z ', almeno uno dei quali non è valido.
 Uno o più valori passati nell' `languageCode` input facoltativo di una competenza downstream non sono supportati. Questo problema può verificarsi se si passa l'output del [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) alle competenze successive e l'output è costituito da più lingue rispetto a quelle supportate nelle competenze downstream.
+
+Si noti che è possibile che venga visualizzato anche un avviso simile a questo se `countryHint` viene passato un input non valido a LanguageDetectionSkill. In tal caso, verificare che il campo che si sta utilizzando dall'origine dati per tale input contenga codici di paese validi per la lettera ISO 3166-1 Alpha-2 2. Se alcune sono valide e alcune non sono valide, continuare con le linee guida seguenti, ma sostituire `languageCode` con `countryHint` e `defaultLanguageCode` con `defaultCountryHint` in base al caso d'uso.
 
 Se si è certi che il set di dati si trova in una sola lingua, è necessario rimuovere il [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) e l' `languageCode` input di competenze e usare il `defaultLanguageCode` parametro skill per tale skill, supponendo che la lingua sia supportata per tale competenza.
 

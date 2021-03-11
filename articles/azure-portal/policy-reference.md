@@ -1,15 +1,15 @@
 ---
 title: Definizioni predefinite dei criteri per portale di Azure
 description: Elenca le definizioni dei criteri predefiniti di criteri di Azure per portale di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3fe0be670ebbc08c7412289a964299a0fec25f56
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: de58fe15e7d7149f9a41248565a0814e84a6ef76
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425457"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619062"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-portal"></a>Definizioni predefinite dei criteri di Azure per portale di Azure
 

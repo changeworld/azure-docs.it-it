@@ -76,7 +76,7 @@
     - name: Baseline di sicurezza di Azure Bastion
       href: ../../bastion/security-baseline.md
     - name: Baseline di sicurezza di Azure Bot Network
-      href: /azure/bot-service/security-baseline?view=azure-bot-service-4.0
+      href: /azure/bot-service/security-baseline
     - name: Baseline di sicurezza di Cache di Azure per Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Baseline di sicurezza di Ricerca cognitiva di Azure

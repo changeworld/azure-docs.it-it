@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 80cd1a4c92441fb17ce0a66814ff0a39a92fb287
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b179ac555ea86aff381c1217e834b8d0aa85e8c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005568"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561705"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop-classic"></a>Pubblicare app predefinite in desktop virtuale di Windows (versione classica)
 
@@ -25,7 +25,7 @@ Questo articolo descrive come pubblicare app nell'ambiente desktop virtuale di W
 Per pubblicare un'app predefinita:
 
 1. Connettersi a una delle macchine virtuali nel pool host.
-2. Ottenere il **packageFamilyName** dell'app che si vuole pubblicare seguendo le istruzioni riportate in [questo articolo](/powershell/module/appx/get-appxpackage?view=win10-ps/).
+2. Ottenere il **packageFamilyName** dell'app che si vuole pubblicare seguendo le istruzioni riportate in [questo articolo](/powershell/module/appx/get-appxpackage).
 3. Infine, eseguire il cmdlet seguente con `<PackageFamilyName>` sostituito dal **packageFamilyName** trovato nel passaggio precedente:
 
    ```powershell

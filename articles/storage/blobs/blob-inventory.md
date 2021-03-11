@@ -10,12 +10,12 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 7972385ba017059407b994029c37f347b919cad3
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: a625ad780d01f3d19d26f2b9626ead3ae455b86b
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435121"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631473"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Usare l'inventario BLOB di archiviazione di Azure per gestire i dati BLOB (anteprima)
 
@@ -205,4 +205,5 @@ Evento di esempio:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Gestire il ciclo di vita dell'archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)
+- [Calcolare il conteggio e le dimensioni totali dei BLOB per ogni contenitore](calculate-blob-count-size.md)
+- [Gestire il ciclo di vita dell'archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)

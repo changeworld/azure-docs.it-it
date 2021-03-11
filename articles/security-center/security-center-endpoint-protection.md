@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 778feda8d72101d4ae2a0f0c27549701dfb53340
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1ce20deed8b26dc5f5bebf4656dd3f1c370d766f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341414"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561229"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Valutazione e raccomandazioni di Endpoint Protection nel centro sicurezza di Azure
 
@@ -29,9 +29,9 @@ Il Centro sicurezza di Azure fornisce valutazioni dell'integrità delle versioni
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) viene eseguito e il risultato è **AMServiceEnabled: false**
+* Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) viene eseguito e il risultato è **AMServiceEnabled: false**
 
-* Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) viene eseguito e si verifica una delle condizioni seguenti:
+* Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) viene eseguito e si verifica una delle condizioni seguenti:
 
   * Una delle proprietà seguenti è false:
 

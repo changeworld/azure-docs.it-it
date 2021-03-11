@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: e41d2e531a051738a31325b4ea33961bfb39e7f9
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 3292f337a39e2adb7dc5e78f12785ead8759f5d1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808019"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611947"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 
@@ -29,7 +29,7 @@ Dopo aver letto l'articolo, l'utente sarà in grado di:
 
 > [!NOTE]
 > * I cmdlet di Windows PowerShell per StorSimple consentono di gestire il dispositivo StorSimple da una console seriale o in remoto tramite la comunicazione remota di Windows PowerShell. Per ulteriori informazioni su ciascuno dei singoli cmdlet che può essere utilizzato in questa interfaccia andare alla [documentazione di riferimento dei cmdlet di Windows PowerShell per StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps&preserve-view=true).
-> * I cmdlet StorSimple di Azure PowerShell sono una raccolta di diversi cmdlet che consentono di automatizzare le attività StorSimple a livello di servizio e di migrazione dalla riga di comando. Per ulteriori informazioni sui cmdlet di Azure PowerShell per StorSimple, andare alla [documentazione di riferimento dei cmdlet di Azure StorSimple](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0&preserve-view=true#azure).
+> * I cmdlet StorSimple di Azure PowerShell sono una raccolta di diversi cmdlet che consentono di automatizzare le attività StorSimple a livello di servizio e di migrazione dalla riga di comando. Per ulteriori informazioni sui cmdlet di Azure PowerShell per StorSimple, andare alla [documentazione di riferimento dei cmdlet di Azure StorSimple](/powershell/module/servicemanagement/azure.service/#azure).
 
 
 È possibile accedere a Windows PowerShell per StorSimple utilizzando uno dei metodi seguenti:

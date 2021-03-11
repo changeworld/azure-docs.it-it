@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 020ba74948a062d23d61272ee912eb3364180f1e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429263"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617999"
 ---
 # <a name="microsoft-azure-attestation"></a>Attestazione di Microsoft Azure 
 
@@ -78,10 +78,10 @@ Il servizio di [continuità aziendale e ripristino di emergenza](../best-practic
 I cluster distribuiti in due aree operano in modo indipendente in circostanze normali. Nel caso di errori o interruzioni in un'area, si verifica quanto segue:
 
 - Il servizio di continuità aziendale e ripristino di emergenza di Attestazione di Azure fornirà il failover immediato per cui i clienti non devono eseguire altri interventi per il ripristino
-- Il servizio [Gestione traffico di Azure](../traffic-manager/index.yml) per l'area rileverà che il probe di integrità è danneggiato e sposterà l'endpoint in un'area abbinata
+- [Gestione traffico di Azure](../traffic-manager/index.yml) per l'area rileva che il probe di integrità è danneggiato e passa l'endpoint a un'area abbinata
 - Le connessioni esistenti non funzioneranno e riceveranno un errore interno del server o problemi di timeout
-- Tutte le operazioni del piano di controllo verranno bloccate. I clienti non saranno in grado di creare provider di attestazioni né di aggiornare i criteri nell'area primaria
-- Tutte le operazioni del piano dati, incluse le chiamate di attestazioni, continueranno a funzionare nell'area primaria
+- Tutte le operazioni del piano di controllo verranno bloccate. I clienti non saranno in grado di creare provider di attestazione nell'area primaria
+- Tutte le operazioni del piano dati, incluse le chiamate di attestazione e la configurazione dei criteri, verranno gestite dall'area secondaria. I clienti possono continuare a lavorare sulle operazioni del piano dati con l'URI originale corrispondente all'area primaria
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sui [concetti di base di Attestazione di Azure](basic-concepts.md)

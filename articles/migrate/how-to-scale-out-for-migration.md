@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048013"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612066"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Ridimensionare la migrazione senza agenti di macchine virtuali VMware in Azure
 
@@ -147,10 +147,10 @@ Per completare la registrazione del dispositivo con scalabilità orizzontale, fa
 1. Nella finestra popup aperta nel passaggio precedente, selezionare il percorso del file zip di configurazione copiato e fare clic su **Salva**.
 
 Una volta che i file sono stati importati correttamente, la registrazione del dispositivo con scalabilità orizzontale verrà completata e verrà visualizzato il timestamp dell'ultima importazione completata correttamente. È anche possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
-:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Importazione riuscita":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Screenshot mostra la registrazione dell'appliance con scalabilità orizzontale con Azure Migrate progetto.":::
 
 A questo punto è necessario rivalidare che l'appliance con scalabilità orizzontale sia in grado di connettersi al server vCenter. Fare clic su **riconvalida** per convalidare server vCenter connettività dal dispositivo con scalabilità orizzontale.
-:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importazione riuscita":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Screenshot mostra le credenziali di visualizzazione e le origini di individuazione da convalidare.":::
 
 > [!IMPORTANT]
 > Se si modificano le credenziali di server vCenter nell'appliance principale, assicurarsi di importare di nuovo i file di configurazione nell'appliance con scalabilità orizzontale per ottenere la configurazione più recente e continuare le repliche in corso.<br/> Se il dispositivo con scalabilità orizzontale non è più necessario, assicurarsi di disabilitare l'appliance con scalabilità orizzontale. [**Scopri di più**](./common-questions-appliance.md) su come disabilitare l'appliance con scalabilità orizzontale quando non è necessario.
