@@ -3,12 +3,12 @@ title: Configurare i criteri di conservazione in Azure DevTest Labs | Microsoft 
 description: Informazioni su come configurare un criterio di conservazione, pulire la factory e ritirare le immagini obsolete da DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476054"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550026"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configurare i criteri di conservazione in Azure DevTest Labs
 In questo articolo viene illustrata l'impostazione di un criterio di conservazione, la pulizia della Factory e il ritiro di immagini obsolete da tutti gli altri laboratori DevTest nell'organizzazione. 
@@ -57,14 +57,14 @@ Ora che è stata completata la definizione di compilazione, accodare una nuova c
 
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 A questo punto è disponibile una factory di immagini in esecuzione che può generare e distribuire immagini personalizzate nei Lab su richiesta. A questo punto, è sufficiente configurare correttamente le immagini e identificare i Lab di destinazione. Come indicato nell'articolo precedente, il **Labs.js** nel file che si trova nella cartella di **configurazione** specifica quali immagini devono essere rese disponibili in ogni Lab di destinazione. Quando si aggiungono altri DevTest Labs alla propria organizzazione, è sufficiente aggiungere una voce nel Labs.jsper il nuovo Lab.
 
 Anche l'aggiunta di una nuova immagine alla Factory è semplice. Per includere una nuova immagine nella Factory, aprire il [portale di Azure](https://portal.azure.com), passare a Factory DevTest Labs, selezionare il pulsante per aggiungere una VM e scegliere l'immagine e gli artefatti del Marketplace desiderati. Anziché selezionare il pulsante **Crea per creare** la nuova macchina virtuale, selezionare **Visualizza Azure Resource Manager modello**"e salvare il modello come file con estensione JSON in un punto qualsiasi all'interno della cartella **GoldenImages** nel repository. Alla successiva esecuzione della factory di immagini verrà creata l'immagine personalizzata.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-1. [Pianificare la compilazione o la versione](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) per eseguire periodicamente la factory di immagini. Aggiorna regolarmente le immagini generate in base alle impostazioni predefinite.
+1. [Pianificare la compilazione o la versione](/azure/devops/pipelines/build/triggers?tabs=designer) per eseguire periodicamente la factory di immagini. Aggiorna regolarmente le immagini generate in base alle impostazioni predefinite.
 2. Crea più immagini d'oro per la tua Factory. È anche possibile [creare elementi per creare](devtest-lab-artifact-author.md) script per altre parti delle attività di configurazione della macchina virtuale e includere gli artefatti nelle immagini Factory.
 4. Creare una [compilazione o una versione separata](/azure/devops/pipelines/overview?view=azure-devops-2019) per eseguire lo script **DistributeImages** separatamente. È possibile eseguire questo script quando si apportano modifiche a Labs.jsin e si ottengono immagini copiate nei Lab di destinazione senza dover ricreare tutte le immagini.
 

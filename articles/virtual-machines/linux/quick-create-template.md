@@ -2,18 +2,19 @@
 title: 'Avvio rapido: Usare un modello di Resource Manager per creare una VM Ubuntu Linux'
 description: Questo argomento di avvio rapido illustra come usare un modello di Resource Manager per creare una macchina virtuale Linux
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: bd22d20703dc72e220f9b479b4a4005033f964ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 97a9d3632cb0e78b899844b1aaa84a030c6da23e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88649772"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549618"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Avvio rapido: Creare una macchina virtuale Ubuntu Linux con un modello di Resource Manager
 
@@ -65,7 +66,7 @@ Nel modello sono definite diverse risorse:
     - **Prefisso etichetta DNS**: immettere un identificatore univoco da usare come parte dell'etichetta DNS.
     - **Versione del sistema operativo Ubuntu**: selezionare la versione di Ubuntu da eseguire nella macchina virtuale.
     - **Località**: il valore predefinito è la stessa località del gruppo di risorse, se esiste già.
-    - **Dimensioni della macchina virtuale**: selezionare le [dimensioni ](../sizes.md) da usare per la macchina virtuale.
+    - **Dimensioni della macchina virtuale**: selezionare le [dimensioni](../sizes.md) da usare per la macchina virtuale.
     - **Nome rete virtuale**: il nome da usare per la rete virtuale.
     - **Nome subnet**: il nome della subnet che dovrà essere usata dalla VM.
     - **Nome del gruppo di sicurezza di rete**: il nome per il gruppo di sicurezza di rete.

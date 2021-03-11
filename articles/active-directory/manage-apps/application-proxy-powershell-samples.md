@@ -12,16 +12,16 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 117b4fec13c22ffb2f3163d50be44734d24ef3fa
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: aeff14e1676389eb2204cad45ea7b00d5aa9796b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259102"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566652"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Esempi di Azure AD PowerShell per Azure AD Application Proxy
 
-La tabella seguente include collegamenti a esempi di script di Azure PowerShell per Azure AD Application Proxy. Per questi esempi è necessario il [modulo AzureAD V2 PowerShell per Graph](/powershell/azure/active-directory/install-adv2) o la [versione di anteprima del modulo AzureAD V2 PowerShell per Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), se non diversamente specificato.
+La tabella seguente include collegamenti a esempi di script di Azure PowerShell per Azure AD Application Proxy. Per questi esempi è necessario il [modulo AzureAD V2 PowerShell per Graph](/powershell/azure/active-directory/install-adv2) o la [versione di anteprima del modulo AzureAD V2 PowerShell per Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), se non diversamente specificato.
 
 
 Per altre informazioni sui cmdlet usati in questi esempi, vedere [Gestione delle applicazioni di Application Proxy](/powershell/module/azuread/#application_proxy_application_management) e [Gestione dei connettori di Application Proxy](/powershell/module/azuread/#application_proxy_connector_management).

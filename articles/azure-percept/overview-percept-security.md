@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: a08876cde9fac64c3a361b469049b4e33678a86f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 6a3049709c6c094f722a8132ee4c4b2051e24d95
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098146"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616690"
 ---
 # <a name="azure-percept-security-overview"></a>Panoramica della sicurezza di Azure Percept
 
@@ -37,7 +37,7 @@ I dispositivi Azure Percept usano il trust radice hardware per proteggere il fir
 
 ### <a name="iot-edge"></a>IoT Edge
 
-Azure Percept DK si connette ad Azure Percept studio con sicurezza aggiuntiva e altri servizi di Azure che usano il protocollo TLS (Transport Layer Security). Azure Percept DK è un dispositivo abilitato per la Azure IoT Edge. IoT Edge Runtime è una raccolta di programmi che trasformano un dispositivo in un dispositivo IoT Edge. Collettivamente, i componenti di runtime IoT Edge consentono IoT Edge ai dispositivi di ricevere il codice per l'esecuzione al perimetro e di comunicare i risultati. Azure Percept DK usa i contenitori Docker per isolare i carichi di lavoro IoT Edge dal sistema operativo host e dalle applicazioni abilitate per Edge. Per ulteriori informazioni sul Framework di sicurezza di Azure IoT Edge, vedere [IOT Edge Security Manager](https://docs.microsoft.com/azure/iot-edge/iot-edge-security-manager?view=iotedge-2018-06).
+Azure Percept DK si connette ad Azure Percept studio con sicurezza aggiuntiva e altri servizi di Azure che usano il protocollo TLS (Transport Layer Security). Azure Percept DK è un dispositivo abilitato per la Azure IoT Edge. IoT Edge Runtime è una raccolta di programmi che trasformano un dispositivo in un dispositivo IoT Edge. Collettivamente, i componenti di runtime IoT Edge consentono IoT Edge ai dispositivi di ricevere il codice per l'esecuzione al perimetro e di comunicare i risultati. Azure Percept DK usa i contenitori Docker per isolare i carichi di lavoro IoT Edge dal sistema operativo host e dalle applicazioni abilitate per Edge. Per ulteriori informazioni sul Framework di sicurezza di Azure IoT Edge, vedere [IOT Edge Security Manager](https://docs.microsoft.com/azure/iot-edge/iot-edge-security-manager).
 
 ### <a name="device-update-for-iot-hub"></a>Aggiornamento del dispositivo per l'hub Internet
 
@@ -57,7 +57,7 @@ Questo elenco di controllo è un punto di partenza per le regole del firewall:
 |*. auth.azureperceptdk.azure.net|   443|    Autenticazione e autorizzazione di Azure DK SOM|
 |*. auth.projectsantacruz.azure.net| 443|    Autenticazione e autorizzazione di Azure DK SOM|
 
-Esaminare inoltre l'elenco delle [connessioni utilizzate da Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/production-checklist?view=iotedge-2018-06#allow-connections-from-iot-edge-devices).
+Esaminare inoltre l'elenco delle [connessioni utilizzate da Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/production-checklist#allow-connections-from-iot-edge-devices).
 
 <!---
 ## Additional Recommendations for Deployment to Production

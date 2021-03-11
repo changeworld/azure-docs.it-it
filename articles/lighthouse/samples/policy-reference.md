@@ -1,15 +1,15 @@
 ---
 title: Definizioni di criteri predefiniti per Azure Lighthouse
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Lighthouse. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 192b7dfe4b9a823f23875dafa8e2e4efd6b5ce3b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: cd62888f51b874161c3bafccaaa49b48d1d092cb
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425151"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617022"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-lighthouse"></a>Definizioni predefinite di Criteri di Azure per Azure Lighthouse
 
