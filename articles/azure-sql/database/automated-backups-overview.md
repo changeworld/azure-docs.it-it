@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 11/18/2020
-ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/10/2021
+ms.openlocfilehash: 5879c9107a0ab5a2ef150d119e8b5ac8e16ac01d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690618"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609924"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -140,9 +140,12 @@ Per database SQL e Istanza gestita SQL è possibile configurare la conservazione
 
 Per ulteriori informazioni su LTR, vedere [conservazione dei backup a lungo termine](long-term-retention-overview.md).
 
-## <a name="storage-costs"></a>Costi di archiviazione
+## <a name="backup-storage-costs"></a>Costi di archiviazione di backup
 
 Il prezzo per l'archiviazione dei backup varia a seconda del modello di acquisto (DTU o vCore), dell'opzione di ridondanza dell'archiviazione di backup scelta e anche della propria area. Per i prezzi, l'archiviazione di backup viene addebitata per GB/mese, vedere la pagina dei prezzi del [database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) e la pagina dei [prezzi di Azure SQL istanza gestita](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) .
+
+> [!NOTE]
+> Con la fattura di Azure viene visualizzata solo l'eccedenza di archiviazione di backup utilizzata, non l'intero consumo di archiviazione di backup. In uno scenario ipotetico, ad esempio, se è stato effettuato il provisioning di 4 TB di archiviazione dei dati, si otterrà 4 TB di spazio di archiviazione di backup gratuito. Se è stato usato il totale di 5.8 TB di spazio di archiviazione di backup, la fattura di Azure mostrerà solo 1,8 TB, perché viene addebitato solo lo spazio di archiviazione di backup in eccesso.
 
 ### <a name="dtu-model"></a>Modello DTU
 
@@ -446,7 +449,7 @@ Un elenco completo delle definizioni dei criteri predefinite per il database SQL
 Per applicare i requisiti di residenza dei dati a livello organizzativo, questi criteri possono essere assegnati a una sottoscrizione. Una volta assegnate a livello di sottoscrizione, gli utenti nella sottoscrizione specificata non saranno in grado di creare un database o un'istanza gestita con archiviazione di backup con ridondanza geografica tramite portale di Azure o Azure PowerShell. 
 
 > [!IMPORTANT]
-> I criteri di Azure non vengono applicati durante la creazione di un database tramite T-SQL. Per applicare la residenza dei dati durante la creazione di un database con T-SQL, [usare ' local ' o ' zone ' come input per BACKUP_STORAGE_REDUNDANCY il parametro nell'istruzione create database](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
+> I criteri di Azure non vengono applicati durante la creazione di un database tramite T-SQL. Per applicare la residenza dei dati durante la creazione di un database con T-SQL, [usare ' local ' o ' zone ' come input per BACKUP_STORAGE_REDUNDANCY il parametro nell'istruzione create database](/sql/t-sql/statements/create-database-transact-sql#create-database-using-zone-redundancy-for-backups).
 
 Informazioni su come assegnare criteri usando il [portale di Azure](../../governance/policy/assign-policy-portal.md) o [Azure PowerShell](../../governance/policy/assign-policy-powershell.md)
 
@@ -458,4 +461,5 @@ Informazioni su come assegnare criteri usando il [portale di Azure](../../govern
 - Ulteriori informazioni su come [ripristinare un database a un momento specifico tramite PowerShell](scripts/restore-database-powershell.md).
 - Per informazioni su come configurare, gestire e ripristinare dalla conservazione a lungo termine dei backup automatici nell'archivio BLOB di Azure usando il portale di Azure, vedere [gestire la conservazione dei backup a lungo termine usando il portale di Azure](long-term-backup-retention-configure.md).
 - Per informazioni su come configurare, gestire e ripristinare dalla conservazione a lungo termine dei backup automatici nell'archivio BLOB di Azure tramite PowerShell, vedere [gestire la conservazione dei backup a lungo termine usando PowerShell](long-term-backup-retention-configure.md).
+- Per informazioni sull'utilizzo dell'archiviazione di backup in Istanza gestita SQL di Azure, vedere l'articolo [relativo all'utilizzo dell'archiviazione di backup su istanza gestita illustrato](https://aka.ms/mi-backup-explained).
 - Per informazioni su come ottimizzare la conservazione e i costi di archiviazione dei backup per Istanza gestita SQL di Azure, vedere [ottimizzazione dei costi di archiviazione di backup in istanza gestita](https://aka.ms/mi-backup-tuning).

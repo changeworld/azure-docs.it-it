@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 200cfbcaf8da3a2129daa59299f098ce94f5fab2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: f6e77b69bf85d65bc759aea83c40f1e08c17ebd8
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429507"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611131"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -21,3 +21,4 @@ ms.locfileid: "102429507"
 |[\[Anteprima \] : i servizi collegati Azure Data Factory devono usare l'autenticazione dell'identità gestita assegnata dal sistema quando è supportata](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff78ccdb4-7bf4-4106-8647-270491d2978a) |L'utilizzo dell'identità gestita assegnata dal sistema durante la comunicazione con gli archivi dati tramite servizi collegati evita l'utilizzo di credenziali meno protette, ad esempio password o stringhe di connessione. |Audit, Deny, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/LinkedService_All_Auth_Audit_except_MSI.json) |
 |[\[Anteprima \] : Azure Data Factory dovrebbe usare un repository Git per il controllo del codice sorgente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77d40665-3120-4348-b539-3192ec808307) |Abilitare il controllo del codice sorgente nelle data factory per ottenere funzionalità come il rilevamento delle modifiche, la collaborazione, l'integrazione continua e la distribuzione. |Audit, Deny, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/Factory_None_GIT_Audit.json) |
 |[L'accesso alla rete pubblica in Azure Data Factory deve essere disabilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cf164be-6819-4a50-b8fa-4bcaa4f98fb6) |La disabilitazione della proprietà di accesso alla rete pubblica migliora la sicurezza garantendo che sia possibile accedere al Azure Data Factory solo da un endpoint privato. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/DataFactory_PublicNetworkAccess_Audit.json) |
+|[SQL Server Integration Services Runtime di integrazione in Azure Data Factory devono essere aggiunti a una rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0088bc63-6dee-4a9c-9d29-91cfdc848952) |La distribuzione di rete virtuale di Azure offre sicurezza e isolamento avanzati per i runtime di integrazione di SQL Server Integration Services in Azure Data Factory, nonché subnet, criteri di controllo di accesso e altre funzionalità per limitare ulteriormente l'accesso. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Factory/SSISIR_JoinVirtualNetwork_Audit.json) |

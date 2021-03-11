@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: e28bd5b5caca259201758f0c633b2120a411f422
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 65c0d80394317c2b2bfbf621d3cc2ad0c2e3448a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007449"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618407"
 ---
 # <a name="long-audio-api"></a>API Long audio
 
@@ -47,6 +47,13 @@ Quando si prepara il file di testo, verificare che:
 * Contiene più di 400 caratteri per testo normale o 400 [caratteri fatturabili](./text-to-speech.md#pricing-note) per il testo SSML e meno di 10.000 paragrafi
   * Per testo normale, ogni paragrafo viene **separato premendo l'** esempio di [input di testo normale](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * Per il testo SSML, ogni elemento SSML è considerato un paragrafo. Le parti SSML devono essere separate da paragrafi diversi, [ad esempio visualizzare input di testo SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
+
+## <a name="sample-code"></a>Codice di esempio
+Il resto di questa pagina si focalizzerà su Python, ma il codice di esempio per l'API Long audio è disponibile su GitHub per i linguaggi di programmazione seguenti:
+
+* [Codice di esempio: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
+* [Codice di esempio: C #](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
+* [Codice di esempio: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
 
 ## <a name="python-example"></a>Esempio in Python
 
@@ -411,7 +418,7 @@ La tabella seguente illustra in dettaglio i messaggi e i codici di risposta HTTP
 
 | API | Codice di stato HTTP | Descrizione | Soluzione |
 |-----|------------------|-------------|----------|
-| Crea | 400 | La sintesi vocale non è abilitata in questa area. | Modificare la chiave di sottoscrizione vocale con un'area supportata. |
+| Create | 400 | La sintesi vocale non è abilitata in questa area. | Modificare la chiave di sottoscrizione vocale con un'area supportata. |
 |        | 400 | Per questa area è valida solo la sottoscrizione vocale **standard** . | Modificare la chiave di sottoscrizione vocale nel piano tariffario "standard". |
 |        | 400 | Superare il limite di richieste 20.000 per l'account Azure. Rimuovere alcune richieste prima di inviarne di nuove. | Il server manterrà fino a 20.000 richieste per ogni account Azure. Eliminare alcune richieste prima di inviarne di nuove. |
 |        | 400 | Non è possibile usare questo modello nella sintesi vocale: {modelID}. | Verificare che lo stato di {modelID} sia corretto. |
@@ -456,10 +463,3 @@ Sono supportati formati di output audio flessibili. È possibile generare output
 * audio-24kHz-48kbitrate-mono-MP3
 * audio-24kHz-96kbitrate-mono-MP3
 * audio-24kHz-160kbitrate-mono-MP3
-
-## <a name="sample-code"></a>Codice di esempio
-Il codice di esempio per l'API Long audio è disponibile su GitHub.
-
-* [Codice di esempio: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
-* [Codice di esempio: C #](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
-* [Codice di esempio: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)

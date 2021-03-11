@@ -4,12 +4,12 @@ description: Funzionalità Ripristino istantaneo di Azure e domande frequenti pe
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 3448b162c17dec2ab5b7637a3527d1c470bd415c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96014449"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618577"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -67,7 +67,7 @@ Nella portale di Azure è possibile visualizzare un campo aggiunto nel riquadro 
 
 ![Funzionalità Ripristino istantaneo](./media/backup-azure-vms/instant-restore-capability.png)
 
-### <a name="using-powershell"></a>Uso di PowerShell
+### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 >[!NOTE]
 > Da AZ PowerShell versione 1.6.0 in poi, è possibile aggiornare il periodo di conservazione degli snapshot di ripristino istantaneo nei criteri usando PowerShell
@@ -112,7 +112,13 @@ Il nuovo modello non consente l'eliminazione del punto di ripristino (livello 2)
 
 ### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>Perché lo snapshot esiste ancora, anche dopo il periodo di conservazione impostato nei criteri di backup?
 
-Se il punto di ripristino dispone di uno snapshot ed è il punto di ripristino più recente disponibile, viene mantenuto fino al successivo backup completato. Questo è in base ai criteri designati "Garbage Collection" (GC). Impone che sia sempre presente almeno un punto di ripristino più recente, nel caso in cui tutti i backup successivi abbiano esito negativo a causa di un problema nella macchina virtuale. Negli scenari normali, i punti di ripristino vengono puliti al massimo 24 ore dopo la scadenza.
+Se il punto di ripristino dispone di uno snapshot ed è il punto di ripristino più recente disponibile, viene mantenuto fino al successivo backup completato. Questo è in base ai criteri designati "Garbage Collection" (GC). Impone che sia sempre presente almeno un punto di ripristino più recente, nel caso in cui tutti i backup successivi abbiano esito negativo a causa di un problema nella macchina virtuale. Negli scenari normali, i punti di ripristino vengono puliti al massimo 24 ore dopo la scadenza. In rari scenari, potrebbero essere presenti uno o due snapshot aggiuntivi in base al carico più pesante del Garbage Collector (GC).
+
+### <a name="why-do-i-see-more-snapshots-than-my-retention-policy"></a>Perché vengono visualizzati più snapshot rispetto ai criteri di conservazione?
+
+In uno scenario in cui un criterio di conservazione è impostato su "1", è possibile trovare due snapshot. Questa operazione impone che sia sempre presente almeno un punto di ripristino più recente, nel caso in cui tutti i backup successivi abbiano esito negativo a causa di un problema nella macchina virtuale. Questo può causare la presenza di due snapshot.<br></br>Quindi, se i criteri sono per gli snapshot "n", è possibile trovare gli snapshot "n + 1" in momenti. È anche possibile trovare gli snapshot "n + 1 + 2" Se si verifica un ritardo nel Garbage Collection. Questa situazione può verificarsi in momenti rari nei casi seguenti:
+- Si puliscono gli snapshot, che hanno superato la conservazione.
+- Il Garbage Collector (GC) nel back-end è sottoposto a un carico elevato.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Non è necessaria la funzionalità di ripristino immediato. Può essere disabilitato?
 
@@ -120,5 +126,5 @@ La funzionalità di ripristino istantaneo è abilitata per tutti e non può esse
 
 ### <a name="is-it-safe-to-restart-the-vm-during-the-transfer-process-which-can-take-many-hours-will-restarting-the-vm-interrupt-or-slow-down-the-transfer"></a>Il riavvio della macchina virtuale durante il processo di trasferimento può richiedere diverse ore? Riavviare l'interrupt della macchina virtuale o rallentare il trasferimento?
 
-Sì, è sicuro e non c'è assolutamente alcun effetto sulla velocità di trasferimento dei dati.
+Sì, è sicuro e non ci sono assolutamente effetti sulla velocità di trasferimento dei dati.
 

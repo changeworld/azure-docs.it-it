@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: f3c9f8f78f17153c3d2eb7b014cf616253b3c0c9
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523941"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618254"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gestire la console di gestione locale
 
@@ -415,7 +415,21 @@ Nella procedura seguente viene descritto come aggiornare la versione del softwar
 
 1. Selezionare il file scaricato dalla pagina Defender for Internet **Updates** .
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="mail-server-settings"></a>Impostazioni del server di posta
+
+Definire le impostazioni del server di posta SMTP per la console di gestione locale.
+
+Per definire:
+
+1. Accedere all'interfaccia della riga di comando per la gestione locale con credenziali amministrative.
+1. Digitare ```nano /var/cyberx/properties/remote-interfaces.properties```.
+1. Premere INVIO. Vengono visualizzati i messaggi di richiesta seguenti.
+```mail.smtp_server= ```
+```mail.port=25 ```
+```mail.sender=```
+1. Immettere il nome del server SMTP e il mittente e premere INVIO.
+
+## <a name="see-also"></a>Vedi anche
 
 [Gestire i sensori dalla console di gestione](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

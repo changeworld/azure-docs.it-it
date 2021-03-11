@@ -2,19 +2,20 @@
 title: Panoramica del provisioning di Linux
 description: Panoramica della procedura per importare le immagini di VM Linux o crearne di nuove da usare in Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 6dafa400f2ce2421db6775084befc0abeab70a04
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87080149"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563218"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Provisioning di macchine virtuali Linux in Azure
 Quando si crea una VM da un'immagine generalizzata (raccolta immagini condivise o immagine gestita), il piano di controllo consentirà di creare una VM e di passarvi parametri e impostazioni. Questo processo è detto *provisioning* della VM. Durante il provisioning, la piattaforma rende disponibili alla macchina virtuale i valori dei parametri necessari per la creazione (nome host, nome utente, password, chiavi SSH, dati personalizzati) all'avvio. 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b447873df882847f052125254ea52b5ae6ab9ec4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 95274f42da7f6cac9b193504df834232d7c0eb90
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644868"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609991"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Aggiungere un flusso di lavoro di approvazione personalizzato all'iscrizione self-service
 
@@ -156,7 +156,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-PENDING"
 }
 ```
 
@@ -168,7 +167,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-DENIED"
 }
 ```
 
@@ -244,7 +242,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-REQUESTED"
 }
 ```
 
@@ -256,7 +253,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-AUTO-DENIED"
 }
 ```
 
@@ -268,12 +264,12 @@ L'oggetto `userMessage` nella risposta viene visualizzato all'utente, ad esempio
 
 Dopo aver ottenuto l'approvazione manuale, il sistema di approvazione personalizzato crea un account [utente](/graph/azuread-users-concept-overview) usando [Microsoft Graph](/graph/use-the-api). Il modo in cui il sistema di approvazione effettua il provisioning dell'account utente dipende dal provider di identità usato dall'utente.
 
-### <a name="for-a-federated-google-or-facebook-user"></a>Per un utente di Google o Facebook federato
+### <a name="for-a-federated-google-or-facebook-user-and-email-one-time-passcode"></a>Per un utente di Google o Facebook federato e un codice di posta elettronica monouso
 
 > [!IMPORTANT]
-> Il sistema di approvazione deve verificare in modo esplicito che `identities` `identities[0]` e `identities[0].issuer` siano presenti e che sia `identities[0].issuer` uguale a "Facebook" o "Google" per usare questo metodo.
+> Il sistema di approvazione deve verificare in modo esplicito che `identities` `identities[0]` e `identities[0].issuer` siano presenti e che sia `identities[0].issuer` uguale a' Facebook ',' Google ' o ' mail ' per usare questo metodo.
 
-Se l'utente ha effettuato l'accesso con un account Google o Facebook, è possibile usare l' [API di creazione dell'utente](/graph/api/user-post-users?tabs=http).
+Se l'utente ha effettuato l'accesso con un account Google o Facebook o un indirizzo di posta elettronica monouso, è possibile usare l' [API di creazione dell'utente](/graph/api/user-post-users?tabs=http).
 
 1. Il sistema di approvazione USA riceve la richiesta HTTP dal flusso utente.
 
@@ -331,9 +327,9 @@ Content-type: application/json
 | \<otherBuiltInAttribute>                            | No       | Altri attributi predefiniti, ad esempio `displayName` , `city` e altri. I nomi dei parametri sono gli stessi dei parametri inviati dal connettore API.                            |
 | \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Attributi personalizzati relativi all'utente. I nomi dei parametri sono gli stessi dei parametri inviati dal connettore API.                                                            |
 
-### <a name="for-a-federated-azure-active-directory-user"></a>Per un utente Azure Active Directory federato
+### <a name="for-a-federated-azure-active-directory-user-or-microsoft-account-user"></a>Per un utente Azure Active Directory federato o un utente account Microsoft
 
-Se un utente accede con un account di Azure Active Directory federato, è necessario usare l' [API di invito](/graph/api/invitation-post) per creare l'utente e, facoltativamente, l' [API di aggiornamento utente](/graph/api/user-update) per assegnare altri attributi all'utente.
+Se un utente accede con un account di Azure Active Directory federato o con un account Microsoft, è necessario usare l' [API di invito](/graph/api/invitation-post) per creare l'utente e, facoltativamente, l'API di [aggiornamento utente](/graph/api/user-update) per assegnare altri attributi all'utente.
 
 1. Il sistema di approvazione riceve la richiesta HTTP dal flusso utente.
 

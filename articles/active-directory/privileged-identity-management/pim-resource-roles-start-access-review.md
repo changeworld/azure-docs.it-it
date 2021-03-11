@@ -11,30 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 02/11/2021
+ms.date: 03/09/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f05ca02068c82a3839b22b698e49a7be818a56
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4276b48584ecbad91794de58abafd7e3367f6877
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370547"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564034"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Creare una verifica di accesso dei ruoli delle risorse di Azure in Privileged Identity Management
 
-Accesso ai ruoli delle risorse di Azure con privilegi per i dipendenti cambiano nel tempo. Per ridurre i rischi associati alle assegnazioni di ruolo obsolete, è necessario esaminare periodicamente l'accesso. È possibile usare Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per creare verifiche di accesso per i ruoli delle risorse di Azure con privilegi. È anche possibile configurare le verifiche di accesso periodiche che vengono eseguite automaticamente.
+La necessità di accedere ai ruoli delle risorse di Azure con privilegi dai dipendenti cambia nel tempo. Per ridurre i rischi associati alle assegnazioni di ruolo obsolete, è necessario esaminare periodicamente l'accesso. È possibile usare Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per creare verifiche di accesso per l'accesso con privilegi ai ruoli delle risorse di Azure. È anche possibile configurare le verifiche di accesso periodiche che vengono eseguite automaticamente. Questo articolo descrive come creare una o più verifiche di accesso.
 
-Questo articolo descrive come creare una o più verifiche di accesso per i ruoli delle risorse di Azure con privilegi.
-
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisite-role"></a>Ruolo prerequisiti
 
  Per creare le verifiche di accesso, è necessario essere assegnati al ruolo di Azure [proprietario](../../role-based-access-control/built-in-roles.md#owner) o [amministratore accesso utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator) per la risorsa.
 
 ## <a name="open-access-reviews"></a>Apri verifiche di accesso
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo Amministratore dei ruoli con privilegi.
+1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente assegnato a uno dei ruoli prerequisiti.
 
 1. Aprire **Azure ad Privileged Identity Management**.
 

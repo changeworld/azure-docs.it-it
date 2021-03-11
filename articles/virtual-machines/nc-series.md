@@ -3,16 +3,16 @@ title: Serie NC-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie NC.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: hpc
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: c3899e9a38aee9531d61678c77ab3d54d5220100
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a5f4f2d36e50c9948ec85683ffe11686a3084133
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670278"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562504"
 ---
 # <a name="nc-series"></a>Serie NC
 

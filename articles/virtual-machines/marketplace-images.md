@@ -3,18 +3,18 @@ title: Specificare le informazioni sul piano di acquisto del Marketplace utilizz
 description: Informazioni su come specificare i dettagli del piano di acquisto di Azure Marketplace durante la creazione di immagini in una raccolta di immagini condivise.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2a971f6e56f441ab05a6a9b483eeef990d3ea31f
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9df1f6b02e6572c8f2153016c0142912e24fcfe8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903752"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562538"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>Fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini
 

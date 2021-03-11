@@ -7,26 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/22/2021
+ms.date: 03/09/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 893bf37a5a4c8a314e5182bf2ac4bc28502b98d9
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: e17d08d09814c135af3e0b4fc299b6e6f42326d4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98699440"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549890"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Che cos'è la ricerca cognitiva di Azure?
 
 Ricerca cognitiva di Azure ([precedentemente nota come "Ricerca di Azure"](whats-new.md#new-service-name)) è un servizio di ricerca cloud che offre agli sviluppatori le API e gli strumenti per creare un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. 
 
+La ricerca è fondamentale per qualsiasi app che supporti il contenuto agli utenti, con scenari comuni, tra cui ricerca di cataloghi o documenti, ricerca di siti di e-commerce o Knowledge mining per data science. Le API e l'architettura di ricerca cognitiva semplificano l'operazione di aggiunta di un recupero sofisticato di informazioni a qualsiasi soluzione.
+
 Un servizio di ricerca dispone dei componenti seguenti:
 
 + Motore di ricerca per la ricerca full-text
 + Archiviazione permanente di contenuti indicizzati di proprietà dell'utente
-+ API per l'indicizzazione e l'esecuzione di query
-+ [Arricchimenti facoltativi basati su intelligenza artificiale](cognitive-search-concept-intro.md), creazione di contenuto ricercabile da immagini, testo non elaborato, file di applicazioni
-+ Integrazione facoltativa con altri servizi di Azure per dati, Machine Learning/intelligenza artificiale e sicurezza
++ API per l'indicizzazione e l'esecuzione di query sul contenuto
++ [Arricchimenti facoltativi basati su intelligenza artificiale](cognitive-search-concept-intro.md), creazione di contenuto ricercabile da immagini, testo non strutturato non elaborato, file applicazione
++ Integrazione facoltativa con altri servizi di Azure per dati, Machine Learning/intelligenza artificiale, monitoraggio e sicurezza
++ Implementazione facoltativa della [ricerca semantica (anteprima)](semantic-search-overview.md) per una maggiore pertinenza
 
 A un'architettura, un servizio di ricerca si trova tra gli archivi dati esterni che contengono i dati non indicizzati e l'app client che invia richieste di query a un indice di ricerca e gestisce la risposta.
 
@@ -74,8 +77,9 @@ Per un'esplorazione end-to-end delle principali funzionalità di ricerca, seguir
 
 1. [**Eseguire query su un indice**](search-query-overview.md) usando [Esplora ricerche](search-explorer.md) nel portale, l'[API REST](search-get-started-rest.md), [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search) o un altro SDK.
 
-> [!TIP]
-> Ridurre al minimo i passaggi iniziando dalla [**procedura guidata Importa dati**](search-get-started-portal.md) e da un'origine dati di Azure per creare, caricare ed eseguire query su un indice in pochi minuti.
+Per l'esplorazione iniziale, iniziare con la [**procedura guidata Importa dati**](search-get-started-portal.md) e un'origine dati di Azure incorporata per creare, caricare ed eseguire query su un indice in pochi minuti.
+
+Per assistenza con soluzioni complesse o personalizzate, [**rivolgersi a un partner**](resource-partners-knowledge-mining.md) con competenze approfondite nella tecnologia ricerca cognitiva.
 
 ## <a name="compare-search-options"></a>Confrontare le opzioni di ricerca
 

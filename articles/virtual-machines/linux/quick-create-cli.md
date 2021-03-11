@@ -2,7 +2,8 @@
 title: "Guida introduttiva: Usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale Linux"
 description: In questa guida introduttiva si apprenderà come usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale Linux
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -14,12 +15,12 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: 78ecd052c071835ef488882979a3bc5306c35365
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: fd411255247e6a37b857ac11c1b0abbd4558d02a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87488977"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549771"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Guida introduttiva: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: f42db48e0fa0e85d919d6894e5476b7ef5380698
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8cdf95dd3c0e801896328136b15e4bd4efe53005
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089293"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563813"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Esercitazione: Proteggere un database nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -146,7 +146,7 @@ Per informazioni sulla configurazione di Azure AD, vedere:
 - [Aggiungere un nome di dominio personalizzato ad Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure supporta la federazione con AD di Windows Server](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Amministrare la directory di Azure AD](../../active-directory/fundamentals/active-directory-whatis.md)
-- [Gestire Azure AD con PowerShell](/powershell/azure/?view=azureadps-2.0)
+- [Gestire Azure AD con PowerShell](/powershell/azure/)
 - [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>Gestire l'accesso al database

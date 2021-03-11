@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7924b06b9056a53fa9861fcd0df516845662b34b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 113c8adccc5e8b1c3321569f32ca3fb33423ccd8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341567"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562878"
 ---
 # <a name="access-built-in-metrics"></a>Accedere alle metriche predefinite
 
@@ -44,7 +44,9 @@ Accedere alle metriche dall'host esponendo ed eseguendo il mapping della porta m
 Scegliere numeri di porta host diversi e univoci se si esegue il mapping degli endpoint della metrica edgeHub e edgeAgent.
 
 > [!NOTE]
-> Se si vuole disabilitare la metrica, impostare la `MetricsEnabled` variabile di ambiente su `false` per **edgeAgent**.
+> La variabile di ambiente `httpSettings__enabled` non deve essere impostata su `false` affinché le metriche predefinite siano disponibili per la raccolta.
+>
+> Le variabili di ambiente che possono essere usate per disabilitare le metriche sono elencate nel [documento del repository Azure/iotedge](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
 
 ## <a name="available-metrics"></a>Metriche disponibili
 
@@ -62,7 +64,7 @@ I quantili specificati per l'istogramma e la metrica di riepilogo predefiniti so
 
 Il modulo **edgeHub** produce le metriche seguenti:
 
-| Name | Dimensioni | Descrizione |
+| Nome | Dimensioni | Descrizione |
 |-|-|-|
 | `edgehub_gettwin_total` | `source` (origine operazione)<br> `id` (ID modulo) | Tipo: contatore<br> Numero totale di chiamate a gettwin |
 | `edgehub_messages_received_total` | `route_output` (output del messaggio inviato)<br> `id` | Tipo: contatore<br> Numero totale di messaggi ricevuti dai client |
@@ -85,7 +87,7 @@ Il modulo **edgeHub** produce le metriche seguenti:
 
 Il modulo **edgeAgent** produce le metriche seguenti:
 
-| Name | Dimensioni | Descrizione |
+| Nome | Dimensioni | Descrizione |
 |-|-|-|
 | `edgeAgent_total_time_running_correctly_seconds` | `module_name` | Tipo: misuratore<br> La quantità di tempo durante la quale il modulo è stato specificato nella distribuzione e si trova nello stato in esecuzione |
 | `edgeAgent_total_time_expected_running_seconds` | `module_name` | Tipo: misuratore<br> Periodo di tempo durante il quale il modulo è stato specificato nella distribuzione |

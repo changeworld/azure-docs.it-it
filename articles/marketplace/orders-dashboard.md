@@ -1,5 +1,5 @@
 ---
-title: Dashboard degli ordini del centro per i partner in analisi del Marketplace commerciale, Microsoft AppSource e Azure Marketplace
+title: Dashboard degli ordini del centro per i partner in analisi del Marketplace commerciale | Microsoft AppSource e Azure Marketplace
 description: Informazioni su come accedere ai report analitici sugli ordini di offerte del Marketplace commerciale in un formato grafico e scaricabile.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: ed12e470f3f3d8c1035c1e4e2e0fa7a3b33e2369
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955026"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561382"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard degli ordini nell'analisi per il marketplace commerciale
 
@@ -73,7 +73,7 @@ Le offerte SaaS possono usare uno dei due modelli di determinazione prezzi con o
 - **Per utente**: consentire l'accesso all'offerta con un prezzo basato sul numero di utenti che possono accedere all'offerta o occupare le postazioni. Con questo modello basato sull'utilizzo, è possibile impostare il numero minimo e massimo di utenti supportati dal piano. È possibile creare più piani per configurare punti di prezzo diversi in base al numero di utenti. Questi campi sono facoltativi. Se viene lasciato deselezionato, il numero di utenti verrà interpretato come non avente un limite (minimo 1 e massimo di quanti ne può supportare il servizio). Questi campi possono essere modificati come parte di un aggiornamento del piano.
 - **Fatturazione a consumo**: oltre ai prezzi forfettari. Con questo modello di determinazione dei prezzi, è possibile definire facoltativamente piani a consumo che usano l'API del servizio di misurazione del Marketplace per addebitare ai clienti l'utilizzo non coperto dalla tariffa fissa.
 
-Per altri dettagli sulla fatturazione basata su sede, sito e misurazione, vedere [How to plan an Saas offer for the Commercial Marketplace](plan-saas-offer.md).
+Per altri dettagli su sede, sito e fatturazione a consumo, vedere [How to plan an Saas offer for the Commercial Marketplace](plan-saas-offer.md).
 
 ### <a name="orders-by-offers-and-skus"></a>Ordini per offerte e SKU
 
@@ -111,32 +111,32 @@ Nella tabella Order Details viene visualizzato un elenco numerato dei 1.000 ordi
 - Applicare i filtri alla tabella **Order Details** per visualizzare solo i dati a cui si è interessati. Filtra per paese/area geografica, tipo di licenza di Azure, tipo di licenza per Marketplace commerciale, tipo di offerta, stato dell'ordine, tracce gratuite, ID sottoscrizione del Marketplace commerciale, ID cliente e nome della società.
 - Quando un ordine viene acquistato da un cliente protetto, le informazioni in **Orders detailed data** vengono mascherate (* * * * * * * * * * * *).
 
-**_Tabella 1: dizionario dei termini di dati_* _
+***Tabella 1: dizionario dei termini dati***
 
-| Nome colonna | Nome attributo | Definizione |
-| ------------ | ------------- | ------------- |
-| ID sottoscrizione Marketplace | ID sottoscrizione Marketplace | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta del Marketplace commerciale. Per le offerte di infrastruttura, si tratta del GUID della sottoscrizione di Azure del cliente. Per le offerte SaaS, questo viene visualizzato come zeri perché gli acquisti SaaS non richiedono una sottoscrizione di Azure. |
-| MonthStartDate | Data di inizio del mese | Data di inizio del mese rappresenta il mese di acquisto. |
-| Tipo di offerta | Tipo di offerta | Tipo di offerta di Marketplace commerciale. |
-| Azure License Type | Azure License Type | Tipo di contratto di licenza usato dai clienti per acquistare Azure. È detto anche canale. I valori possibili sono:<ul><li>Provider di soluzioni cloud</li><li>Enterprise</li><li>Enterprise tramite rivenditore</li><li>Con pagamento in base al consumo</li></ul> |
-| Marketplace License Type | Marketplace License Type | Metodo di fatturazione dell'offerta del Marketplace commerciale. I diversi valori sono:<ul><li>Fatturazione tramite Azure</li><li>Bring your own License</li><li>Gratuito</li><li>Microsoft As Reseller</li></ul> |
-| SKU | SKU | Piano associato all'offerta |
-| Customer Country | Paese/Area geografica del cliente | Nome del paese o dell'area geografica specificato dal cliente. Il paese/area geografica può essere diverso da quello del paese nella sottoscrizione di Azure di un cliente. |
-| Anteprima SKU | Anteprima SKU | Il valore indica se lo SKU è stato contrassegnato come "Anteprima". Il valore sarà "Sì" se lo SKU è stato contrassegnato di conseguenza e solo le sottoscrizioni di Azure autorizzate dal partner possono distribuire e usare questa immagine. Il valore sarà "No" se lo SKU non è stato identificato come "Anteprima". |
-| ID ordine | ID dell'ordine | Identificatore univoco dell'ordine del cliente per il servizio del Marketplace commerciale. Le offerte basate sull'utilizzo di macchine virtuali non sono associate a un ordine. |
-| Order Quantity | Order Quantity | Numero di asset associati all'ID ordine per gli ordini attivi |
-| Nome dell'istanza cloud | Nome dell'istanza cloud | Microsoft Cloud in cui sono state distribuite le macchine virtuali. |
-| Nuovo cliente | Nuovo cliente | Il valore indica se un nuovo cliente ha acquisito una o più offerte per la prima volta. Il valore sarà "Sì" se l'acquisto rientra nello stesso mese del calendario per "Data acquisizione". Il valore sarà "No" Se il cliente ha acquistato una delle offerte prima del mese del calendario indicato. |
-| Order Status | Order Status | Stato di un ordine del Marketplace commerciale al momento dell'ultimo aggiornamento dei dati. |
-| Order Cancel Date | Order Cancel Date | Data in cui l'ordine del Marketplace commerciale è stato annullato. |
-| Customer Company Name | Customer Company Name | Nome dell'azienda fornito dal cliente. Il nome può essere diverso da quello della città nella sottoscrizione di Azure di un cliente. |
-| Order Purchase Date | Order Purchase Date | Data di creazione dell'ordine del Marketplace commerciale. |
-| Nome offerta | Nome offerta | Nome dell'offerta del Marketplace commerciale. |
-| Trial End Date | Trial End Date | Data di scadenza del periodo di valutazione per questo ordine. |
-| Customer Id | Customer ID | Identificatore univoco assegnato a un cliente. Un cliente può avere zero o più sottoscrizioni di Azure Marketplace. |
-| ID account di fatturazione | ID account di fatturazione | Identificatore dell'account in cui viene generata la fatturazione. Mappa _ *ID account di fatturazione** a **CustomerID** per connettere il report delle transazioni di pagamento con i report relativi a clienti, ordini e utilizzo. |
-| AssetCount | Conteggio asset | Numero di asset associati all'ID dell'ordine. |
-||||
+| Nome colonna in<br>interfaccia utente | Nome attributo | Definizione | Nome colonna a livello di codice<br>report di Access |
+| ------------ | ------------- | ------------- | ------------- |
+| ID sottoscrizione Marketplace | ID sottoscrizione Marketplace | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta del Marketplace commerciale. Per le offerte di infrastruttura, si tratta del GUID della sottoscrizione di Azure del cliente. Per le offerte SaaS, questo viene visualizzato come zeri perché gli acquisti SaaS non richiedono una sottoscrizione di Azure. | ID sottoscrizione Marketplace |
+| MonthStartDate | Data di inizio del mese | Data di inizio del mese rappresenta il mese di acquisto. Il formato è aaaa-mm-gg. | MonthStartDate |
+| Tipo di offerta | Tipo di offerta | Tipo di offerta di Marketplace commerciale. | OfferType |
+| Azure License Type | Azure License Type | Tipo di contratto di licenza usato dai clienti per acquistare Azure. È detto anche canale. I valori possibili sono:<ul><li>Provider di soluzioni cloud</li><li>Enterprise</li><li>Enterprise tramite rivenditore</li><li>Con pagamento in base al consumo</li></ul> | AzureLicenseType |
+| Marketplace License Type | Marketplace License Type | Metodo di fatturazione dell'offerta del Marketplace commerciale. I diversi valori sono:<ul><li>Fatturazione tramite Azure</li><li>Bring your own License</li><li>Gratuito</li><li>Microsoft As Reseller</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | Piano associato all'offerta | SKU |
+| Customer Country | Paese/Area geografica del cliente | Nome del paese o dell'area geografica specificato dal cliente. Il paese/area geografica può essere diverso da quello del paese nella sottoscrizione di Azure di un cliente. | CustomerCountry |
+| Anteprima SKU | Anteprima SKU | Il valore indica se lo SKU è stato contrassegnato come "Anteprima". Il valore sarà "Sì" se lo SKU è stato contrassegnato di conseguenza e solo le sottoscrizioni di Azure autorizzate dal partner possono distribuire e usare questa immagine. Il valore sarà "No" se lo SKU non è stato identificato come "Anteprima". | IsPreviewSKU |
+| ID dell'ordine | ID dell'ordine | Identificatore univoco dell'ordine del cliente per il servizio del Marketplace commerciale. Le offerte basate sull'utilizzo di macchine virtuali non sono associate a un ordine. | OrderId |
+| Order Quantity | Order Quantity | Numero di asset associati all'ID ordine per gli ordini attivi | OrderQuantity |
+| Nome dell'istanza cloud | Nome dell'istanza cloud | Microsoft Cloud in cui sono state distribuite le macchine virtuali. | CloudInstanceName |
+| Nuovo cliente | Nuovo cliente | Il valore indica se un nuovo cliente ha acquisito una o più offerte per la prima volta. Il valore sarà "Sì" se l'acquisto rientra nello stesso mese del calendario per "Data acquisizione". Il valore sarà "No" Se il cliente ha acquistato una delle offerte prima del mese del calendario indicato. | IsNewCustomer |
+| Order Status | Order Status | Stato di un ordine del Marketplace commerciale al momento dell'ultimo aggiornamento dei dati. | OrderStatus |
+| Order Cancel Date | Order Cancel Date | Data in cui l'ordine del Marketplace commerciale è stato annullato. | OrderCancelDate |
+| Customer Company Name | Customer Company Name | Nome dell'azienda fornito dal cliente. Il nome può essere diverso da quello della città nella sottoscrizione di Azure di un cliente. | CustomerCompanyName |
+| Order Purchase Date | Order Purchase Date | Data di creazione dell'ordine del Marketplace commerciale. Il formato è aaaa-mm-gg. | OrderPurchaseDate |
+| Nome offerta | Nome offerta | Nome dell'offerta del Marketplace commerciale. | OfferName |
+| Trial End Date | Trial End Date | Data di scadenza del periodo di valutazione per questo ordine. | TrialEndDate |
+| Customer ID | Customer ID | Identificatore univoco assegnato a un cliente. Un cliente può avere zero o più sottoscrizioni di Azure Marketplace. | CustomerId |
+| ID account di fatturazione | ID account di fatturazione | Identificatore dell'account in cui viene generata la fatturazione. Mappare l' **ID dell'account di fatturazione** a **CustomerID** per connettere il report delle transazioni di pagamento ai report relativi a clienti, ordini e utilizzo. | BillingAccountId |
+| AssetCount | Conteggio asset | Numero di asset associati all'ID dell'ordine. | Deprecato |
+|||||
 
 ### <a name="orders-page-filters"></a>Filtri pagina ordini
 

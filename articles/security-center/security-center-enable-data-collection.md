@@ -7,19 +7,19 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: d9d0739704a9f5f16bdbde80661192b2f1ca9bb1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 17f3440df4fa88995f2148680aba926207a0e46b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099421"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561263"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Configurare il provisioning automatico per agenti ed estensioni dal centro sicurezza di Azure
 
-Il Centro sicurezza raccoglie i dati dalle risorse usando l'agente o le estensioni rilevanti per tale risorsa e il tipo di raccolta dati abilitata. Usare il precedures di seguito per assicurarsi che la risorsa abbia il necessario in questo articolo descrive come configurare il provisioning automatico dell'agente di Log Analytics e di altri agenti ed estensioni usati dal centro sicurezza di Azure
+Il Centro sicurezza di Azure raccoglie i dati dalle risorse usando l'agente o le estensioni rilevanti per tale risorsa e il tipo di raccolta dati abilitata. Usare le procedure riportate di seguito per assicurarsi che le risorse dispongano degli agenti e delle estensioni necessari usati dal centro sicurezza.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
+Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="availability"></a>Disponibilità
 
@@ -35,7 +35,9 @@ Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di
 
 Il Centro sicurezza raccoglie i dati dalle macchine virtuali (VM) di Azure, dai set di scalabilità di macchine virtuali, dai contenitori IaaS e dai computer non Azure (inclusi quelli locali) per monitorare le vulnerabilità e le minacce per la sicurezza. 
 
-La raccolta dei dati è fondamentale per ottenere visibilità sugli aggiornamenti mancanti, le impostazioni di sicurezza del sistema operativo non configurate correttamente, lo stato della protezione degli endpoint e la protezione dell'integrità e dalle minacce. La raccolta dei dati è necessaria solo per le risorse di calcolo (macchine virtuali, set di scalabilità di macchine virtuali, contenitori IaaS e computer non di Azure). È possibile usufruire dei vantaggi del Centro sicurezza di Azure anche se non si esegue il provisioning di agenti. La sicurezza sarà tuttavia limitata e le funzionalità sopra elencate non saranno supportate.  
+La raccolta dei dati è fondamentale per ottenere visibilità sugli aggiornamenti mancanti, le impostazioni di sicurezza del sistema operativo non configurate correttamente, lo stato della protezione degli endpoint e la protezione dell'integrità e dalle minacce. La raccolta dei dati è necessaria solo per le risorse di calcolo, ad esempio macchine virtuali, set di scalabilità di macchine virtuali, contenitori IaaS e computer non Azure. 
+
+È possibile trarre vantaggio dal centro sicurezza di Azure anche se non si effettua il provisioning degli agenti. Tuttavia, si disporrà di una sicurezza limitata e le funzionalità elencate in precedenza non sono supportate.  
 
 I dati vengono raccolti tramite:
 
@@ -51,7 +53,7 @@ Le estensioni e gli agenti descritti in questa pagina *possono* essere installat
 È consigliabile abilitare il provisioning automatico, anche se è disabilitato per impostazione predefinita.
 
 ## <a name="how-does-auto-provisioning-work"></a>Come funziona il provisioning automatico?
-Le impostazioni del provisioning automatico del Centro sicurezza includono un interruttore per ogni tipo di estensione supportata. Quando si abilita il provisioning automatico di un'estensione, si assegna il criterio **DeployIfNotExists** appropriato per assicurarsi che il provisioning dell'estensione venga effettuato in tutte le risorse attuali e future di quel tipo.
+Le impostazioni del provisioning automatico del Centro sicurezza includono un interruttore per ogni tipo di estensione supportata. Quando si Abilita il provisioning automatico di un'estensione, si assegnano i criteri di **distribuzione appropriati se non esistono** . Questo tipo di criterio garantisce che l'estensione venga sottoposta a provisioning in tutte le risorse esistenti e future di quel tipo.
 
 > [!TIP]
 > Per altre informazioni sugli effetti di Criteri di Azure, incluso DeployIfNotExists, vedere [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md).
@@ -162,7 +164,7 @@ Per determinare gli eventi associati alle opzioni **Comuni** e **Minimi**, abbia
 - **Minimi**: assicurarsi che questo insieme includa solo gli eventi che potrebbero indicare una violazione riuscita ed eventi importanti con un volume molto basso. Ad esempio, questo insieme contiene gli accessi utente riusciti e non (ID evento 4624, 4625), ma non contiene le disconnessioni (importanti per il controllo ma non per il rilevamento) e ha un volume relativamente alto. La maggior parte del volume di dati di questo insieme è composto da eventi di accesso e da eventi di creazione del processo (ID evento 4688).
 - **Comuni**: fornire un audit trail completo degli utenti in questo insieme. Ad esempio, questo insieme contiene sia gli accessi utente che le disconnessioni dell'utente (ID evento 4634). Sono incluse azioni di controllo quali modifiche al gruppo di sicurezza, operazioni Kerberos del controller del dominio principale e altri eventi consigliati dalle organizzazioni del settore.
 
-Gli eventi che hanno un volume molto basso sono stati inclusi nell'insieme Comuni. Questo insieme è stato scelto perché l'obiettivo è quello di ridurre il volume, non di filtrare eventi specifici.
+Gli eventi con un volume molto basso sono stati inclusi nel set comune, perché la motivazione principale per sceglierlo su tutti gli eventi consiste nel ridurre il volume e non filtrare eventi specifici.
 
 Di seguito è riportata una suddivisione completa degli ID di eventi di sicurezza e App Locker per ogni insieme:
 
@@ -282,4 +284,4 @@ Per disattivare il provisioning automatico di un agente:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa pagina ha illustrato come abilitare il provisioning automatico per l'agente Log Analytics e altre estensioni del Centro sicurezza. Viene inoltre descritto come definire un'area di lavoro Log Analytics in cui archiviare i dati raccolti. Entrambe le operazioni sono necessarie per consentire la raccolta dei dati. L'archiviazione dei dati in Log Analytics, indipendentemente dal fatto che si usi un'area di lavoro nuova o esistente, può comportare costi aggiuntivi. Per informazioni dettagliate sui prezzi nella valuta scelta e in base alla propria area, vedere [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+Questa pagina ha illustrato come abilitare il provisioning automatico per l'agente Log Analytics e altre estensioni del Centro sicurezza. Viene inoltre descritto come definire un'area di lavoro Log Analytics in cui archiviare i dati raccolti. Entrambe le operazioni sono necessarie per consentire la raccolta dei dati. L'archiviazione dei dati in Log Analytics, sia che si usi un'area di lavoro nuova o esistente, potrebbe comportare più costi per l'archiviazione dei dati. Per informazioni dettagliate sui prezzi nella valuta scelta e in base alla propria area, vedere [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).

@@ -2,19 +2,19 @@
 title: Calcolare i punteggi di benchmark per le macchine virtuali Windows di Azure
 description: Confrontare i punteggi di benchmark di SPECint calcolo per le macchine virtuali di Azure che eseguono Windows Server.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: sizes
+ms.service: virtual-machines
+ms.subservice: azure-compute-unit
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: b354f6f121e6a055e7db07a587936f3eaff94c33
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bf809b695e8df14288c2c55e580ee76d37f487d4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201570"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550774"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcolare i punteggi di benchmark per le VM Windows
 I punteggi di benchmark SPECInt seguenti mostrano le prestazioni di calcolo per le VM di Azure selezionate che eseguono Windows Server. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Linux](../linux/compute-benchmark-scores.md).

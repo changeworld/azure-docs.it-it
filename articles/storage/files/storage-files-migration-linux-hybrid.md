@@ -7,14 +7,23 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: f95585237bbee743083b855dd78cc850c4daffe8
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: ff26318cafdf493579961fc718643f831ae9efeb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202689"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564255"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Eseguire la migrazione da Linux a una distribuzione cloud ibrida con Sincronizzazione file di Azure
+
+Questo articolo di migrazione è uno dei numerosi che coinvolgono le parole chiave NFS e Sincronizzazione file di Azure. Controllare se questo articolo è applicabile al proprio scenario:
+
+> [!div class="checklist"]
+> * Origine dati: archiviazione collegata alla rete (NAS)
+> * Route di migrazione: server Linux con SAMBA &rArr; Windows Server 2012R2 o versione successiva &rArr; con le condivisioni file di Azure
+> * Caching dei file locali: Sì, l'obiettivo finale è una distribuzione Sincronizzazione file di Azure.
+
+Se lo scenario è diverso, esaminare la [tabella delle guide alla migrazione](storage-files-migration-overview.md#migration-guides).
 
 Sincronizzazione file di Azure funziona nelle istanze di Windows Server con l'archiviazione diretta (DAS). Non supporta la sincronizzazione da e verso client Linux o una condivisione SMB (Server Message Block) remota o NFS (Network File System).
 
@@ -22,13 +31,13 @@ Di conseguenza, la trasformazione dei servizi file in una distribuzione ibrida r
 
 ## <a name="migration-goals"></a>Obiettivi della migrazione
 
-L'obiettivo è spostare le condivisioni presenti sul server Samba Linux in un'istanza di Windows Server. Usare quindi Sincronizzazione file di Azure per una distribuzione cloud ibrida. Questa migrazione deve essere eseguita in modo da garantire l'integrità dei dati di produzione e la disponibilità durante la migrazione. Il secondo richiede il mantenimento del tempo di inattività minimo, in modo che possa rientrare o solo leggermente più di una normale finestra di manutenzione.
+L'obiettivo è spostare le condivisioni presenti sul server Samba Linux in un'istanza di Windows Server. Usare quindi Sincronizzazione file di Azure per una distribuzione cloud ibrida. Questa migrazione deve essere eseguita in modo da garantire l'integrità dei dati e della disponibilità di produzione durante la migrazione. Il secondo richiede il mantenimento del tempo di inattività minimo, in modo che possa rientrare o solo leggermente più di una normale finestra di manutenzione.
 
 ## <a name="migration-overview"></a>Panoramica della migrazione
 
 Come indicato nell' [articolo Panoramica della migrazione](storage-files-migration-overview.md)di file di Azure, è importante usare lo strumento di copia e l'approccio corretti. Il server Samba Linux espone le condivisioni SMB direttamente nella rete locale. Robocopy, integrato in Windows Server, è il modo migliore per spostare i file in questo scenario di migrazione.
 
-Se non si esegue Samba sul server Linux e si vuole eseguire la migrazione delle cartelle in una distribuzione ibrida in Windows Server, è possibile usare gli strumenti di copia di Linux anziché Robocopy. In tal caso, tenere presenti le funzionalità di fedeltà dello strumento Copia file. Vedere la [sezione Nozioni di base sulla migrazione](storage-files-migration-overview.md#migration-basics) nell'articolo Panoramica della migrazione per informazioni su cosa cercare in uno strumento di copia.
+Se non si esegue Samba sul server Linux e si vuole eseguire la migrazione delle cartelle in una distribuzione ibrida in Windows Server, è possibile usare gli strumenti di copia di Linux anziché Robocopy. Tenere presente le funzionalità di fedeltà dello strumento di copia. Vedere la [sezione Nozioni di base sulla migrazione](storage-files-migration-overview.md#migration-basics) nell'articolo Panoramica della migrazione per informazioni su cosa cercare in uno strumento di copia.
 
 ## <a name="phase-1-identify-how-many-azure-file-shares-you-need"></a>Fase 1: identificare il numero di condivisioni file di Azure necessarie
 
@@ -39,11 +48,13 @@ Se non si esegue Samba sul server Linux e si vuole eseguire la migrazione delle 
 * Creare un'istanza di Windows Server 2019 come macchina virtuale o server fisico. Windows Server 2012 R2 è il requisito minimo. È supportato anche un cluster di failover di Windows Server.
 * Effettuare il provisioning o aggiungere l'archiviazione diretta (DAS). L'archiviazione NAS (Network Attached Storage) non è supportata.
 
-  La quantità di spazio di archiviazione di cui si esegue il provisioning può essere inferiore a quella attualmente in uso nel server Samba di Linux, se si usa la funzionalità di suddivisione in [livelli sincronizzazione file di Azure cloud](storage-sync-cloud-tiering-overview.md) . Tuttavia, quando si copiano i file dal più ampio spazio del server Samba Linux al volume di Windows Server più piccolo in una fase successiva, sarà necessario lavorare in batch:
+  La quantità di spazio di archiviazione di cui si esegue il provisioning può essere inferiore a quella attualmente in uso nel server Samba di Linux, se si usa la funzionalità di suddivisione in [livelli sincronizzazione file di Azure cloud](storage-sync-cloud-tiering-overview.md) . 
+
+La quantità di spazio di archiviazione di cui si esegue il provisioning può essere inferiore a quella attualmente in uso nel server Samba Linux. Questa scelta di configurazione richiede anche l'uso della funzionalità di suddivisione in [livelli cloud](storage-sync-cloud-tiering-overview.md) di sincronizzazione file di Azure. Tuttavia, quando si copiano i file dal più ampio spazio del server Samba Linux al volume di Windows Server più piccolo in una fase successiva, sarà necessario lavorare in batch:
 
   1. Spostare un set di file che si integrano sul disco.
   2. Consente di attivare la sincronizzazione file e la suddivisione in livelli nel cloud.
-  3. Quando viene creato più spazio libero nel volume, procedere con il batch successivo di file. 
+  3. Quando viene creato più spazio libero nel volume, procedere con il batch successivo di file. In alternativa, rivedere il comando RoboCopy nella prossima [sezione di Robocopy](#phase-7-robocopy) per l'uso del nuovo `/LFSM` Switch. L'uso di `/LFSM` può semplificare notevolmente i processi di Robocopy, ma non è compatibile con altri commutatori Robocopy da cui dipende.
     
   È possibile evitare questo approccio di invio in batch eseguendo il provisioning dello spazio equivalente nell'istanza di Windows Server che i file occupano sul server Samba Linux. Si consiglia di abilitare la deduplicazione in Windows. Se non si vuole eseguire il commit permanente di questa quantità elevata di memoria nell'istanza di Windows Server, è possibile ridurre le dimensioni del volume dopo la migrazione e prima di modificare i criteri di suddivisione in livelli nel cloud. Che consente di creare una cache locale più piccola delle condivisioni file di Azure.
 
@@ -100,78 +111,9 @@ Il comando Robocopy seguente consente di copiare i file dalla risorsa di archivi
 
 Se è stato effettuato il provisioning di una quantità minore di spazio di archiviazione nell'istanza di Windows Server rispetto a quella dei file sul server Samba Linux, è stata configurata la suddivisione in livelli nel cloud. Con l'esaurimento del volume locale di Windows Server, la suddivisione in [livelli cloud](storage-sync-cloud-tiering-overview.md) viene avviata e i file di livello già sincronizzati. La suddivisione in livelli cloud genererà spazio sufficiente per continuare la copia dal server Samba Linux. La suddivisione in livelli nel cloud viene verificata una volta all'ora per vedere cosa è stato sincronizzato e liberare spazio su disco per raggiungere i criteri del 99% di spazio disponibile per un volume.
 
-È possibile che Robocopy sposti i file più velocemente di quanto sia possibile sincronizzare al cloud e al livello localmente, causando un esaurimento dello spazio su disco locale. Robocopy avrà quindi esito negativo. Si consiglia di usare le condivisioni in una sequenza che impedisce il problema. Si consideri, ad esempio, di non avviare i processi Robocopy per tutte le condivisioni contemporaneamente. In alternativa, provare a trasferire le condivisioni che rientrano nella quantità corrente di spazio disponibile nell'istanza di Windows Server. Se il processo Robocopy ha esito negativo, è sempre possibile eseguire di nuovo il comando finché si usa l'opzione di mirroring/ripulitura seguente:
+È possibile che Robocopy sposti i file più velocemente di quanto sia possibile sincronizzare al cloud e al livello localmente, causando un esaurimento dello spazio su disco locale. Robocopy avrà quindi esito negativo. Si consiglia di usare le condivisioni in una sequenza che impedisce il problema. Si consideri, ad esempio, di non avviare i processi Robocopy per tutte le condivisioni contemporaneamente. In alternativa, provare a trasferire le condivisioni che rientrano nella quantità corrente di spazio disponibile nell'istanza di Windows Server. Se il processo Robocopy ha esito negativo, è sempre possibile eseguire di nuovo il comando fino a quando si usa l'opzione di mirroring/ripulitura seguente:
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Sfondo:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Consente a Robocopy di eseguire multithread. Il valore predefinito è 8, il valore massimo è 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      Restituisce lo stato di un file di log come Unicode (sovrascrive il log esistente).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Restituisce un output in una finestra della console. Utilizzato in combinazione con l'output in un file di log.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      / B
-   :::column-end:::
-   :::column span="1":::
-      Esegue Robocopy nella stessa modalità utilizzata da un'applicazione di backup. Consente a Robocopy di spostare i file che l'utente corrente non dispone delle autorizzazioni per.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Consente l'esecuzione di questo comando Robocopy più volte, in sequenza, sulla stessa destinazione/destinazione. Identifica e omette gli elementi che sono stati copiati in precedenza. Verranno elaborate solo le modifiche, le aggiunte e le eliminazioni che si sono verificate dall'ultima esecuzione. Se il comando non è stato eseguito in precedenza, non viene omesso nulla. Il flag **/Mir** è un'ottima opzione per le posizioni di origine che vengono ancora utilizzate e modificate in modo attivo.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      Fedeltà della copia del file (il valore predefinito è/COPY: DAT). I flag di copia sono: D = dati, A = attributi, T = timestamp, S = Security = ACL NTFS, O = informazioni sul proprietario, U = informazioni di controllo.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      COPIARE tutte le informazioni sul file (equivalente a/COPY: DATSOU).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      Fedeltà per la copia delle directory (il valore predefinito è/DCOPY: DA). I flag di copia sono: D = data, A = Attributes, T = timestamp.
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>Fase 8: riduzione dell'utente
 

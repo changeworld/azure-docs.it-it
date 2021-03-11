@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 0c1273f4a2025658520118ed843d90b3378a129f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4cf3709574e2055f40759fd2d7026c93ac9db098
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577879"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608020"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Abilitare la registrazione delle risorse in gestione traffico di Azure
 
@@ -39,14 +39,14 @@ I log delle risorse di gestione traffico di Azure possono fornire informazioni s
 
 2. **Abilitare la registrazione delle risorse per il profilo di gestione traffico:**
 
-    Abilitare la registrazione delle risorse per il profilo di gestione traffico usando l'ID ottenuto nel passaggio precedente con [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). Il comando seguente consente di archiviare i log dettagliati relativi al profilo di Gestione traffico in uno specifico account di archiviazione di Azure. 
+    Abilitare la registrazione delle risorse per il profilo di gestione traffico usando l'ID ottenuto nel passaggio precedente con [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). Il comando seguente consente di archiviare i log dettagliati relativi al profilo di Gestione traffico in uno specifico account di archiviazione di Azure. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Verificare le impostazioni di diagnostica:**
 
-      Verificare le impostazioni di diagnostica per il profilo di Gestione traffico con [Get-AzDiagnosticSetting](/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). Il comando seguente consente di visualizzare le categorie registrate per una risorsa.
+      Verificare le impostazioni di diagnostica per il profilo di Gestione traffico con [Get-AzDiagnosticSetting](/powershell/module/az.monitor/get-azdiagnosticsetting). Il comando seguente consente di visualizzare le categorie registrate per una risorsa.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>

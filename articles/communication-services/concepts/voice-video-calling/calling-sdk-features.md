@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/04/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fe1e08434a9137fced3dc8aa061affc2d6580b67
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: a26f1a297837a01089783b1e920d1a6a17bc6cdc
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489277"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618322"
 ---
 # <a name="calling-client-library-overview"></a>Panoramica della libreria client per le chiamate
 
@@ -86,7 +86,7 @@ La tabella seguente rappresenta il set di browser supportati attualmente disponi
 | Windows * * *                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
-* Le versioni di Safari 13.1 + sono supportate. 
+* Le versioni di Safari 13.1 + sono supportate, 1:1 le chiamate non sono supportate in Safari. 
 
 * * Safari 14 +/macOS 11 + necessario per il supporto video in uscita. 
 
