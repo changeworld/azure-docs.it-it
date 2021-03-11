@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 306da8dae31c2bbdb487e7128e3a2e24424c239d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: a1b37ed1d15282224cc7de61ec6f8a98a4bbf732
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743390"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610502"
 ---
 # <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Gestire i servizi cloud (versione classica) nell'portale di Azure
 
@@ -81,7 +81,7 @@ Esistono due prerequisiti chiave per lo scambio corretto di distribuzioni:
 
 - Se si vuole usare un indirizzo IP statico per lo slot di produzione, è necessario riservarne uno anche per lo slot di staging. In caso contrario, lo scambio ha esito negativo.
 
-- Tutte le istanze dei ruoli devono essere in esecuzione prima di poter eseguire lo scambio. È possibile controllare lo stato delle istanze nel pannello **Panoramica** del portale di Azure. In alternativa, è possibile usare il comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0&preserve-view=true) in Windows PowerShell.
+- Tutte le istanze dei ruoli devono essere in esecuzione prima di poter eseguire lo scambio. È possibile controllare lo stato delle istanze nel pannello **Panoramica** del portale di Azure. In alternativa, è possibile usare il comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole) in Windows PowerShell.
 
 Si noti che anche gli aggiornamenti del sistema operativo guest e le operazioni di correzione del servizio possono ostacolare il corretto scambio delle distribuzioni. Per altre informazioni, vedere [Risolvere eventuali problemi di distribuzione dei servizi cloud](cloud-services-troubleshoot-deployment-problems.md).
 

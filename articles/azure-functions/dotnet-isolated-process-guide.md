@@ -5,18 +5,20 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: ab89c012c985afa8d7375ff94d0f55b0ea6941cc
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: ffdb146b26e83e1973c1d1bfee130eabfa09ea6a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449459"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613953"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guida per l'esecuzione di funzioni in .NET 5,0 in Azure
 
-_Il supporto per .NET 5,0 è attualmente in fase di anteprima._
-
 Questo articolo è un'introduzione all'uso di C# per sviluppare funzioni di processo isolate .NET, che eseguono out-of-process in funzioni di Azure. L'esecuzione out-of-process consente di separare il codice di funzione dal runtime di funzioni di Azure. Fornisce inoltre un modo per creare ed eseguire funzioni destinate alla versione corrente di .NET 5,0. 
+
+| Guida introduttiva | Concetti| Esempi |
+|--|--|--| 
+| <ul><li>[Uso di Visual Studio Code](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)</li><li>[Uso degli strumenti da riga di comando](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)</li><li>[Con Visual Studio](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs)</li></ul> | <ul><li>[Opzioni di hosting](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Esempi di riferimento](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
 Se non è necessario supportare .NET 5,0 o eseguire le funzioni out-of-process, potrebbe essere necessario [sviluppare funzioni della libreria di classi C#](functions-dotnet-class-library.md).
 
@@ -80,11 +82,12 @@ Il codice seguente illustra un esempio di `HostBuilder` pipeline:
 
 L'accesso alla pipeline del generatore host significa che è possibile impostare qualsiasi configurazione specifica dell'app durante l'inizializzazione. Queste configurazioni si applicano all'app per le funzioni in esecuzione in un processo separato. Per apportare modifiche all'host di funzioni o al trigger e alla configurazione dell'associazione, sarà comunque necessario utilizzare il [host.jssu file](functions-host-json.md).      
 
-Nell'esempio seguente viene illustrato come aggiungere la configurazione `args` , che vengono lette come argomenti della riga di comando: 
+<!--The following example shows how to add configuration `args`, which are read as command-line arguments: 
  
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_app" :::
 
-Il `ConfigureAppConfiguration` metodo viene usato per configurare il resto del processo di compilazione e dell'applicazione. Questo esempio usa anche un [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), che rende più semplice l'aggiunta di più elementi di configurazione. Poiché `ConfigureAppConfiguration` restituisce la stessa istanza di [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true) , è anche possibile chiamarla più volte per aggiungere più elementi di configurazione. È possibile accedere al set completo di configurazioni sia da [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) che da [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
+The `ConfigureAppConfiguration` method is used to configure the rest of the build process and application. This example also uses an [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), which makes it easier to add multiple configuration items. Because `ConfigureAppConfiguration` returns the same instance of [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), you can also just call it multiple times to add multiple configuration items.-->  
+È possibile accedere al set completo di configurazioni sia da [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) che da [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
 
 Per ulteriori informazioni sulla configurazione, vedere la pagina relativa alla [configurazione in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
 
@@ -98,13 +101,13 @@ Nell'esempio seguente viene inserita una dipendenza del servizio singleton:
 
 Per altre informazioni, vedere [inserimento delle dipendenze in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
-### <a name="middleware"></a>Middleware
+<!--### Middleware
 
-.NET isolated supporta anche la registrazione del middleware, usando un modello simile a quello esistente in ASP.NET. Questo modello offre la possibilità di inserire la logica nella pipeline di chiamata e prima e dopo l'esecuzione delle funzioni.
+.NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
 
-Anche se il set di registrazioni middleware completo di API non è ancora esposto, è supportata la registrazione del middleware ed è stato aggiunto un esempio all'applicazione di esempio nella cartella middleware.
+While the full middleware registration set of APIs is not yet exposed, we do support middleware registration and have added an example to the sample application under the Middleware folder.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::-->
 
 ## <a name="execution-context"></a>Contesto di esecuzione
 
@@ -180,12 +183,15 @@ Questa sezione descrive lo stato corrente delle differenze funzionali e comporta
 | Funzioni permanenti | [Supportato](durable/durable-functions-overview.md) | Non supportato | 
 | Associazioni imperative | [Supportato](functions-dotnet-class-library.md#binding-at-runtime) | Non supportato |
 | function.jssull'artefatto | Generato | Non generato |
-| Configurazione | [host.json](functions-host-json.md) | [host.jssu](functions-host-json.md) e l' [inizializzazione personalizzata](#configuration) |
+| Configurazione | [host.json](functions-host-json.md) | [host.jssu](functions-host-json.md) e l'inizializzazione personalizzata |
 | Inserimento di dipendenze | [Supportato](functions-dotnet-dependency-injection.md)  | [Supportato](#dependency-injection) |
-| Middleware | Non supportato | [Supporto](#middleware) |
+| Middleware | Non supportato | Supportato |
 | Ore di inizio a freddo | Typical (Tipica) | Più a lungo, a causa dell'avvio JIT. Eseguire in Linux anziché Windows per ridurre i potenziali ritardi. |
 | ReadyToRun | [Supportato](functions-dotnet-class-library.md#readytorun) | _TBD_ |
 
+## <a name="known-issues"></a>Problemi noti
+
+Per informazioni sulle soluzioni alternative per conoscere i problemi relativi all'esecuzione di funzioni di processo con isolamento .NET, vedere [la pagina relativa ai problemi noti](https://aka.ms/AAbh18e). Per segnalare problemi, [creare un problema in questo repository GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/new/choose).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,30 +1,26 @@
 - name: Documentazione dello strumento di lettura immersiva
   href: index.yml
-- name: Cos'è lo strumento di lettura immersiva?
-  href: Overview.md
-- name: Guida rapida
-  href: ./quickstarts/client-libraries.md
-- name: Esercitazioni
+- name: Panoramica
   items:
-    - name: Avviare lo strumento di lettura immersiva (Android)
-      href: tutorial-android.md
-    - name: Avviare lo strumento di lettura immersiva (iOS)
-      href: tutorial-ios.md
-    - name: Avviare lo strumento di lettura immersiva (Python)
-      href: tutorial-python.md
-    - name: Usare più risorse dello strumento di lettura immersiva
-      href: tutorial-multiple-resources.md
+    - name: Panoramica sul lettore immersivo
+      href: Overview.md
+    - name: Lingue supportate
+      href: language-support.md
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/'
+    - name: Note sulla versione
+      href: release-notes.md
+- name: Guida introduttiva ai Reader immersivi
+  href: ./quickstarts/client-libraries.md
 - name: Procedure
   items:
     - name: Creare una risorsa dello strumento di lettura immersiva
       href: how-to-create-immersive-reader.md
-    - name: Impostare i criteri per i cookie
-      href: how-to/set-cookie-policy.md
-    - name: Visualizzare operazioni matematiche
-      href: how-to/display-math.md
-    - name: Avviare lo strumento di lettura immersiva con contenuto HTML
-      href: how-to-launch-with-html.md
-    - name: Personalizzare il pulsante dello strumento di lettura immersiva
+    - name: Avviare lo strumento di lettura immersiva
+      href: how-to-launch-immersive-reader.md
+    - name: Preparare il contenuto HTML
+      href: how-to-prepare-html.md
+    - name: Modificare il pulsante di avvio del lettore immersivo
       href: how-to-customize-launch-button.md
     - name: Memorizzare il token di autenticazione nella cache
       href: how-to-cache-token.md
@@ -32,21 +28,23 @@
       href: how-to-configure-read-aloud.md
     - name: Configurare la traduzione
       href: how-to-configure-translation.md
+    - name: Visualizzare operazioni matematiche
+      href: how-to/display-math.md
+    - name: Impostare i criteri per i cookie
+      href: how-to/set-cookie-policy.md
     - name: Archiviare le preferenze utente
       href: how-to-store-user-preferences.md
+    - name: Usare più risorse dello strumento di lettura immersiva
+      href: how-to-multiple-resources.md
 - name: Informazioni di riferimento
   items:
     - name: JavaScript SDK
       href: reference.md
-    - name: Note sulla versione
-      href: release-notes.md
 - name: Risorse
   items:
+    - name: Supporto locale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
-    - name: Roadmap per Azure
+    - name: Aggiornamenti di Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Lingue supportate
-      href: language-support.md
-    - name: Disponibilità a livello di area
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

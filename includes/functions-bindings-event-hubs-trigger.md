@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 0cd514c852e13b83a679821ca2d940e4ed112bd8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.openlocfilehash: 145db7693db126d4e114e8c8a885ea7fd7809e69
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95560186"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608912"
 ---
 Usare il trigger di funzioni per rispondere a un evento inviato a un flusso di eventi di Hub eventi. Per configurare il trigger è necessario avere accesso in lettura all'hub eventi sottostante. Quando la funzione viene attivata, il messaggio passato alla funzione viene tipizzato come stringa.
 
@@ -360,9 +360,59 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**eventHubName** |**EventHubName** | Funzioni 2.x e versioni successive. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. È possibile farvi riferimento tramite le [impostazioni dell'app](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
 |**consumerGroup** |**ConsumerGroup** | Proprietà facoltativa usata per impostare il [gruppo di consumer](../articles/event-hubs/event-hubs-features.md#event-consumers) usato per effettuare la sottoscrizione agli eventi nell'hub. Se omessa, al suo posto viene usato il gruppo di consumer `$Default`. |
 |**cardinality** | n/d | Usata per tutti i linguaggi diversi da C#. Impostare su `many` per abilitare l'invio in batch.  Se omessa o impostata su `one`, alla funzione viene passato un singolo messaggio.<br><br>In C# questa proprietà viene assegnata automaticamente ogni volta che il trigger ha una matrice per il tipo.|
-|**connection** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo [spazio dei nomi](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.|
+|**connection** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo [spazio dei nomi](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.<br><br>Se si usa [la versione 5. x o una versione successiva dell'estensione](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), anziché una stringa di connessione, è possibile fornire un riferimento a una sezione di configurazione che definisce la connessione. Vedere [connessioni](../articles/azure-functions/functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+## <a name="usage"></a>Uso
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Predefinito
+
+È possibile usare i tipi di parametro seguenti per l'hub eventi di attivazione:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` -Le proprietà predefinite di EventData vengono fornite nell'oggetto per lo [spazio dei nomi Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### <a name="additional-types"></a>Tipi aggiuntivi 
+Le app che usano la versione 5.0.0 o successiva dell'estensione dell'hub eventi usano il `EventData` tipo in [Azure. Messaging. EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) anziché quello nello [spazio dei nomi Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Questa versione Elimina il supporto per il `Body` tipo legacy a favore dei tipi seguenti:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
+
+### <a name="default"></a>Predefinito
+
+È possibile usare i tipi di parametro seguenti per l'hub eventi di attivazione:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` -Le proprietà predefinite di EventData vengono fornite nell'oggetto per lo [spazio dei nomi Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### <a name="additional-types"></a>Tipi aggiuntivi 
+Le app che usano la versione 5.0.0 o successiva dell'estensione dell'hub eventi usano il `EventData` tipo in [Azure. Messaging. EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) anziché quello nello [spazio dei nomi Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Questa versione Elimina il supporto per il `Body` tipo legacy a favore dei tipi seguenti:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="java"></a>[Java](#tab/java)
+
+Per informazioni dettagliate, vedere l' [esempio di trigger](#example) Java.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Per informazioni dettagliate, vedere l' [esempio di trigger](#example) JavaScript.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Per informazioni dettagliate, vedere l' [esempio di trigger](#example) Python.
+
+
+---
+
 
 ## <a name="event-metadata"></a>Metadati di evento
 
@@ -379,10 +429,3 @@ Il trigger di Hub eventi fornisce diverse [proprietà di metadati](../articles/a
 |`SystemProperties`|`IDictionary<String,Object>`|Le proprietà di sistema, inclusi di dati dell'evento.|
 
 Vedere gli [esempi di codice](#example) che usano queste proprietà in precedenza in questo articolo.
-
-## <a name="hostjson-properties"></a>Proprietà di host.json
-<a name="host-json"></a>
-
-Il file [host.json](../articles/azure-functions/functions-host-json.md#eventhub) contiene le impostazioni che controllano il comportamento del trigger per Hub eventi. La configurazione varia a seconda della versione di Funzioni di Azure.
-
-[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]

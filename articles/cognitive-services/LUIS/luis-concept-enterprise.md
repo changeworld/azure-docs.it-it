@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b8110323afda2ad445ffe279030ee7f3035e2b71
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 3f52dc502233cbab42ae5decff70b77c41c38e0e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455400"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609686"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Strategie aziendali per un'app LUIS
 Rivedere queste strategie di progettazione per l'app aziendale.
@@ -48,10 +48,10 @@ Se l'app deve prevedere un'ampia varietà di espressioni utente, è consigliabil
 Pianificare una [revisione periodica delle espressioni endpoint](luis-how-to-review-endpoint-utterances.md) per l'apprendimento attivo, ad esempio ogni due settimane, rieseguire il training e ripubblicare. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Quando è necessario disporre di più di 500 finalità
-Supponiamo che tu stia sviluppando un assistente di Office con oltre 500 di intenti. Se 200 finalità sono correlate alla pianificazione di riunioni, 200 riguardano i promemoria, 200 il recupero di informazioni sui colleghi e 200 l'invio di messaggi di posta elettronica, raggruppare le finalità in modo che ciascun gruppo si trovi in una singola app, quindi creare un'app di livello superiore contenente ciascuna finalità. Usare il [modello di invio](#dispatch-tool-and-model) per compilare l'app di livello superiore. Modificare quindi il bot per usare la chiamata a cascata, come illustrato nell' [esercitazione del modello dispatch](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0). 
+Supponiamo che tu stia sviluppando un assistente di Office con oltre 500 di intenti. Se 200 finalità sono correlate alla pianificazione di riunioni, 200 riguardano i promemoria, 200 il recupero di informazioni sui colleghi e 200 l'invio di messaggi di posta elettronica, raggruppare le finalità in modo che ciascun gruppo si trovi in una singola app, quindi creare un'app di livello superiore contenente ciascuna finalità. Usare il [modello di invio](#dispatch-tool-and-model) per compilare l'app di livello superiore. Modificare quindi il bot per usare la chiamata a cascata, come illustrato nell' [esercitazione del modello dispatch](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Quando è necessario combinare più app LUIS e QnA Maker
-Se sono disponibili diverse app LUIS e QnA Maker che devono rispondere a un bot, usare il [modello dispatch](#dispatch-tool-and-model) per compilare l'app di livello superiore.  Modificare quindi il bot per usare la chiamata a cascata, come illustrato nell' [esercitazione del modello dispatch](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0). 
+Se sono disponibili diverse app LUIS e QnA Maker che devono rispondere a un bot, usare il [modello dispatch](#dispatch-tool-and-model) per compilare l'app di livello superiore.  Modificare quindi il bot per usare la chiamata a cascata, come illustrato nell' [esercitazione del modello dispatch](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## <a name="dispatch-tool-and-model"></a>Modello e strumento recapito
 Usare lo strumento da riga di comando [Dispatch][dispatch-tool], disponibile in [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), per combinare più app LUIS e/o QnA Maker in un'app LUIS padre. Questo approccio consente di disporre di un dominio padre, inclusi tutti i soggetti e i domini di soggetti figlio diversi in app separate. 
@@ -62,7 +62,7 @@ Il dominio padre è indicato in LUIS con una versione denominata `Dispatch` nell
 
 Il bot della chat riceve l'espressione, quindi invia all'app LUIS padre per la stima. Il primo intento stimato dall'app padre determina quale app LUIS child viene chiamata Next. La chat bot invia l'espressione all'app figlio per una stima più specifica.
 
-Informazioni su questa gerarchia di chiamate dall'[esercitazione dell'applicazione di recapito](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0) Bot Builder v4.  
+Informazioni su questa gerarchia di chiamate dall'[esercitazione dell'applicazione di recapito](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs) Bot Builder v4.  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Limiti di finalità nel modello recapito
 Al massimo un'applicazione di recapito dispone di 500 origini di recapito, equivalenti a 500 finalità. 
@@ -70,7 +70,7 @@ Al massimo un'applicazione di recapito dispone di 500 origini di recapito, equiv
 ## <a name="more-information"></a>Ulteriori informazioni
 
 * [SDK del Framework bot](https://github.com/Microsoft/botframework)
-* [Esercitazione sul modello di invio](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0)
+* [Esercitazione sul modello di invio](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs)
 * [INTERFACCIA della riga di comando dispatch](https://github.com/Microsoft/botbuilder-tools)
 * Esempio di bot modello di invio- [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 

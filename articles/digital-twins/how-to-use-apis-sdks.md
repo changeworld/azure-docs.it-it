@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b9804e119f5b5cfbee1a61eabf217dad7dbf5500
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: cab32a6c2835dc283a169f58c79ff54e7925467b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507229"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554242"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -122,18 +122,21 @@ Vedere l' [*esercitazione: scrivere codice di un'app client*](tutorial-code.md) 
 Gli helper di serializzazione sono funzioni di supporto disponibili nell'SDK per creare o deserializzare rapidamente i dati gemelli per l'accesso alle informazioni di base. Poiché i metodi di Core SDK restituiscono i dati gemelli come JSON per impostazione predefinita, può essere utile usare queste classi helper per suddividere ulteriormente i dati gemelli.
 
 Le classi helper disponibili sono:
-* `BasicDigitalTwin`: Rappresenta i dati principali di un dispositivo gemello digitale
-* `BasicRelationship`: Rappresenta i dati principali di una relazione
-* `UpdateOperationUtility`: Rappresenta le informazioni sulla patch JSON usate nelle chiamate di aggiornamento
-* `WriteableProperty`: Rappresenta i metadati della proprietà
+* `BasicDigitalTwin`: Rappresenta genericamente i dati principali di un dispositivo gemello digitale
+* `BasicDigitalTwinComponent`: Rappresenta in modo generico un componente nelle `Contents` proprietà di un oggetto `BasicDigitalTwin`
+* `BasicRelationship`: Rappresenta genericamente i dati principali di una relazione
+* `DigitalTwinsJsonPropertyName`: Contiene le costanti di stringa da usare per la serializzazione e la deserializzazione JSON per i tipi di dispositivi gemelli digitali personalizzati
 
 ##### <a name="deserialize-a-digital-twin"></a>Deserializzare un dispositivo gemello digitale
 
-È sempre possibile deserializzare i dati gemelli usando la libreria JSON preferita, ad esempio `System.Test.Json` o `Newtonsoft.Json` . Per l'accesso di base a un dispositivo gemello, le classi helper lo rendono leggermente più pratico.
+È sempre possibile deserializzare i dati gemelli usando la libreria JSON preferita, ad esempio `System.Text.Json` o `Newtonsoft.Json` . Per l'accesso di base a un dispositivo gemello, le classi helper possono renderle più convenienti.
 
 La `BasicDigitalTwin` classe helper consente inoltre di accedere alle proprietà definite nel dispositivo gemello, tramite un `Dictionary<string, object>` . Per elencare le proprietà del dispositivo gemello, è possibile usare:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+
+> [!NOTE]
+> `BasicDigitalTwin` utilizza `System.Text.Json` gli attributi. Per utilizzare con la `BasicDigitalTwin` [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true), è necessario inizializzare il client con il costruttore predefinito oppure, se si desidera personalizzare l'opzione del serializzatore, utilizzare [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
 
 ##### <a name="create-a-digital-twin"></a>Creare un dispositivo gemello digitale
 

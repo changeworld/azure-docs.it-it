@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e94b14584f8eece3d772f67b680df4a2ffb8b5cd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016634"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603228"
 ---
 Per il momento, i dischi Ultra presentano limitazioni aggiuntive, come indicato di seguito:
 
@@ -39,7 +39,7 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
 |Australia centrale    |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
 |Australia orientale     |Tre zone di disponibilità         |
 |Asia sud-orientale    |Tre zone di disponibilità        |
-|Canada centrale *     |Tre zone di disponibilità          |
+|Canada centrale     |Tre zone di disponibilità          |
 |Stati Uniti centrali     |Tre zone di disponibilità          |
 |Stati Uniti orientali     |Tre zone di disponibilità          |
 |Stati Uniti orientali 2     |Tre zone di disponibilità         |
@@ -48,9 +48,7 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
 |Europa settentrionale    |Tre zone di disponibilità        |
 |Regno Unito meridionale    |Tre zone di disponibilità        |
 |Europa occidentale    | Tre zone di disponibilità|
-|West US 2    |Tre zone di disponibilità|
-
-\* Contattare il supporto tecnico di Azure per ottenere l'accesso ai zone di disponibilità per questa area.
+|Stati Uniti occidentali 2    |Tre zone di disponibilità|
 
 - Sono supportate solo nelle serie di macchine virtuali seguenti:
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)

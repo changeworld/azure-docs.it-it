@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c9453f2fc5803fb6ce09d8749cbf7fa1c7c2ec46
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17c73257db371bbec0c72a23b1303847a8d14102
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174829"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607918"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definire attributi personalizzati in Azure Active Directory B2C
 
@@ -30,6 +30,8 @@ La directory di Azure AD B2C include un [set predefinito di attributi](user-prof
 * Un'applicazione per il cliente deve salvare in modo permanente un attributo **LoyaltyId** .
 * Un provider di identità ha un identificatore utente univoco, **uniqueUserGUID**, che deve essere reso permanente.
 * Un percorso utente personalizzato deve salvare in modo permanente lo stato dell'utente, **migrationStatus**, per l'uso di altre logiche.
+
+I termini *proprietà di estensione*, *attributo personalizzato* e *attestazione personalizzata* fanno riferimento allo stesso concetto nel contesto di questo articolo. Il nome varia in base al contesto, ad esempio applicazione, oggetto o criteri.
 
 Azure AD B2C consente di estendere il set di attributi archiviati in ogni account utente. Questi attributi possono anche essere scritti e letti usando l'[API Microsoft Graph](microsoft-graph-operations.md).
 
@@ -66,11 +68,7 @@ Dopo aver creato un nuovo utente usando un flusso utente, che usa l'attributo pe
 
 ## <a name="azure-ad-b2c-extensions-app"></a>App Azure AD B2C Extensions
 
-Gli attributi di estensione possono essere registrati solo in un oggetto applicazione, anche se possono contenere dati per un utente. L'attributo di estensione è associato all'applicazione denominata b2c-extensions-app. Non modificare questa applicazione, perché viene usata da Azure AD B2C per archiviare i dati utente. Questa applicazione è reperibile in Azure AD B2C, registrazioni per l'app.
-
-I termini *proprietà di estensione*, *attributo personalizzato* e *attestazione personalizzata* fanno riferimento allo stesso concetto nel contesto di questo articolo. Il nome varia in base al contesto, ad esempio applicazione, oggetto o criteri.
-
-## <a name="get-the-application-properties"></a>Ottenere le proprietà dell'applicazione
+Gli attributi di estensione possono essere registrati solo in un oggetto applicazione, anche se possono contenere dati per un utente. L'attributo di estensione è associato all'applicazione denominata `b2c-extensions-app` . Non modificare questa applicazione, perché viene usata da Azure AD B2C per archiviare i dati utente. Questa applicazione è reperibile in Azure AD B2C, registrazioni per l'app. Ottenere le proprietà dell'applicazione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
@@ -80,14 +78,6 @@ I termini *proprietà di estensione*, *attributo personalizzato* e *attestazione
 1. Copiare negli Appunti e salvare gli identificatori seguenti:
     * **ID applicazione**. Esempio: `11111111-1111-1111-1111-111111111111`.
     * **ID oggetto**. Esempio: `22222222-2222-2222-2222-222222222222`.
-
-## <a name="using-custom-attribute-with-ms-graph-api"></a>Uso di un attributo personalizzato con MS API Graph
-
-L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nel API Graph vengono denominati usando la convenzione `extension_ApplicationClientID_attributename` , dove è l'ID dell'applicazione `ApplicationClientID` **(client)** dell' `b2c-extensions-app` applicazione. Si noti che l' **ID dell'applicazione (client)** come è rappresentato nel nome dell'attributo di estensione non include trattini. Ad esempio:
-
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-``` 
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -172,6 +162,14 @@ Nell'esempio seguente viene illustrato l'utilizzo di un attributo personalizzato
 ```
 
 ::: zone-end
+
+## <a name="using-custom-attribute-with-ms-graph-api"></a>Uso di un attributo personalizzato con MS API Graph
+
+L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nel API Graph vengono denominati usando la convenzione `extension_ApplicationClientID_attributename` , dove è l'ID dell'applicazione `ApplicationClientID` **(client)** dell' `b2c-extensions-app` applicazione. Si noti che l' **ID dell'applicazione (client)** come è rappresentato nel nome dell'attributo di estensione non include trattini. Ad esempio:
+
+```json
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId": "212342" 
+``` 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

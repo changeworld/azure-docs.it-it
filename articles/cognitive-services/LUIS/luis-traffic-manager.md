@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: 6fc5bea71909d0e17b4ef0256ab0cad644dacbb3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37c4bd2af080a76e93bc9599f06e4d502985979f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95993823"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609652"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usare Gestione traffico di Microsoft Azure per gestire la quota di endpoint tra le chiavi
 Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi).
@@ -102,7 +102,7 @@ La creazione del profilo di Gestione traffico per l'area Stati Uniti orientali p
     |-Type|ExternalEndpoints|Per altre informazioni, vedere [Endpoint di Gestione traffico][traffic-manager-endpoints] |
     |-Target|eastus.api.cognitive.microsoft.com|Questo è il dominio per l'endpoint LUIS.|
     |-EndpointLocation|"eastus"|Area dell'endpoint|
-    |-EndpointStatus|Attivato|Abilitare l'endpoint al momento della creazione|
+    |-EndpointStatus|Abilitato|Abilitare l'endpoint al momento della creazione|
 
     Una risposta con esito positivo ha un aspetto simile al seguente:
 
@@ -171,7 +171,7 @@ Per creare il profilo di Gestione traffico per l'area Stati Uniti occidentali, s
     |-Type|ExternalEndpoints|Per altre informazioni, vedere [Endpoint di Gestione traffico][traffic-manager-endpoints] |
     |-Target|westus.api.cognitive.microsoft.com|Questo è il dominio per l'endpoint LUIS.|
     |-EndpointLocation|"westus"|Area dell'endpoint|
-    |-EndpointStatus|Attivato|Abilitare l'endpoint al momento della creazione|
+    |-EndpointStatus|Abilitato|Abilitare l'endpoint al momento della creazione|
 
     Una risposta con esito positivo ha un aspetto simile al seguente:
 
@@ -237,7 +237,7 @@ Creare il profilo di Gestione traffico padre e collegare ad esso i due profili d
     |-TrafficManagerProfile|$parentprofile|Profilo a cui assegnare a questo endpoint|
     |-Type|NestedEndpoints|Per ulteriori informazioni, vedere [Add-AzTrafficManagerEndpointConfig](/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$eastprofile.Id|ID del profilo figlio|
-    |-EndpointStatus|Attivato|Stato dell'endpoint dopo l'aggiunta al padre|
+    |-EndpointStatus|Abilitato|Stato dell'endpoint dopo l'aggiunta al padre|
     |-EndpointLocation|"eastus"|[Nome dell'area di Azure](https://azure.microsoft.com/global-infrastructure/regions/) della risorsa|
     |-MinChildEndpoints|1|Numero minimo per gli endpoint figlio|
 
@@ -274,7 +274,7 @@ Creare il profilo di Gestione traffico padre e collegare ad esso i due profili d
     |-TrafficManagerProfile|$parentprofile|Profilo a cui assegnare a questo endpoint|
     |-Type|NestedEndpoints|Per ulteriori informazioni, vedere [Add-AzTrafficManagerEndpointConfig](/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$westprofile.Id|ID del profilo figlio|
-    |-EndpointStatus|Attivato|Stato dell'endpoint dopo l'aggiunta al padre|
+    |-EndpointStatus|Abilitato|Stato dell'endpoint dopo l'aggiunta al padre|
     |-EndpointLocation|"westus"|[Nome dell'area di Azure](https://azure.microsoft.com/global-infrastructure/regions/) della risorsa|
     |-MinChildEndpoints|1|Numero minimo per gli endpoint figlio|
 
@@ -371,7 +371,7 @@ Rimuovere le due chiavi endpoint LUIS, i tre profili di Gestione traffico e il g
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le opzioni del [middleware](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler&view=azure-bot-service-4.0) in BotFramework v4 per comprendere come aggiungere questo codice di gestione del traffico a un bot BotFramework.
+Esaminare le opzioni del [middleware](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler) in BotFramework v4 per comprendere come aggiungere questo codice di gestione del traffico a un bot BotFramework.
 
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
 [traffic-manager-docs]: ../../traffic-manager/index.yml

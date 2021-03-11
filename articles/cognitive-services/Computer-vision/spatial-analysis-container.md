@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 9989c6ea6b75203d43c37854caef7fdcbc321779
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1a107f812ceb46649126bdbefcf3b828e1938ff3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519028"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612899"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
 
@@ -306,7 +306,7 @@ Installare la versione di 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Registrare quindi il computer host come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una stringa di [connessione](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06).
+Registrare quindi il computer host come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una stringa di [connessione](../../iot-edge/how-to-register-device.md).
 
 È necessario connettere il dispositivo IoT Edge all'hub Azure. È necessario copiare la stringa di connessione dal dispositivo IoT Edge creato in precedenza. In alternativa, è possibile eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
@@ -468,7 +468,7 @@ Installare la versione di 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Registrare quindi la macchina virtuale come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una [stringa di connessione](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06).
+Registrare quindi la macchina virtuale come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una [stringa di connessione](../../iot-edge/how-to-register-device.md).
 
 È necessario connettere il dispositivo IoT Edge all'hub Azure. È necessario copiare la stringa di connessione dal dispositivo IoT Edge creato in precedenza. In alternativa, è possibile eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 

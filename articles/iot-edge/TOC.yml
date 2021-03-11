@@ -101,7 +101,7 @@
       href: offline-capabilities.md
     - name: Dispositivo IoT Edge come gateway
       href: iot-edge-as-gateway.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Sicurezza in Azure IoT Edge
           href: security.md
@@ -258,7 +258,7 @@
 - name: Risorse
   items:
     - name: Opzioni di supporto tecnico e assistenza
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
     - name: Servizi di Azure IoT
       items:
         - name: Hub IoT

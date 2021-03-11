@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 9d6bb9da67f66f46e5c72d5d64b8b6c111c98e08
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 63538661cceb7e1bdd4151a3592ccbd4de0033b0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215358"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612015"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows-preview"></a>Che cos'è Azure IoT Edge per Linux in Windows (anteprima)
 
@@ -52,13 +52,11 @@ Per esempi che illustrano la comunicazione tra le applicazioni Windows e i modul
 
 IoT Edge per Linux in Windows è attualmente disponibile in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). I processi di installazione e gestione possono essere diversi rispetto alle funzionalità disponibili a livello generale.
 
-Attualmente, IoT Edge per Linux in Windows utilizza la versione di anteprima di Windows insider dell'interfaccia di amministrazione di Windows. Per ulteriori informazioni sul programma Windows Insider e per eseguire la registrazione, vedere [che cos'è il programma Windows Insider?](https://insider.windows.com/about-windows-insider-program).
-
 ## <a name="support"></a>Supporto
 
 Usare i canali di supporto e feedback IoT Edge per ottenere assistenza con IoT Edge per Linux in Windows.
 
-**Segnalazione di bug** : i bug possono essere segnalati nella [pagina problemi](https://github.com/azure/iotedge/issues) del IOT Edge progetto open source. 
+**Segnalazione di bug** : i bug possono essere segnalati nella [pagina problemi](https://github.com/azure/iotedge/issues) del IOT Edge progetto open source. È possibile segnalare i bug correlati a Azure IoT Edge per Linux in Windows nella [pagina relativa ai problemi di iotedge-eFlow](https://github.com/azure/iotedge-eflow/issues).
 
 **Team di supporto tecnico Microsoft**: gli utenti con un [piano di supporto](https://azure.microsoft.com/support/plans/) possono rivolgersi al team di supporto tecnico Microsoft creando un ticket di supporto dal [portale di Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

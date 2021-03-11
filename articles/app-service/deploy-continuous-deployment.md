@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 8dc290ed59a7738a1e2263b4203ab0d5be338ec8
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 5af8294518759181326e7736ef755f0a83581014
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122273"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564961"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
 
@@ -160,7 +160,7 @@ Per le app di Windows, è possibile configurare manualmente la distribuzione con
 
 ## <a name="more-resources"></a>Altre risorse
 
-* [Distribuire da Azure Pipelines a servizi app Azure](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true)
+* [Distribuire da Azure Pipelines a servizi app Azure](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps)
 * [Esaminare i problemi comuni con la distribuzione continua](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Usare Azure PowerShell](/powershell/azure/)
 * [Progetto Kudu](https://github.com/projectkudu/kudu/wiki)

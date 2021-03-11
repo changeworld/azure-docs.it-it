@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 82de73944bd833ec5f921e07a29960ac6d175f8d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710669"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609788"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -72,6 +72,7 @@ Se si vuole eseguire il backup di computer Linux, sono supportati gli scenari se
 Backup di macchine virtuali di Azure per Linux con l'agente di macchine virtuali di Azure per Linux | Backup coerente con i file.<br/><br/> Backup coerenti con le app tramite [script personalizzati](backup-azure-linux-app-consistent.md).<br/><br/> Durante il ripristino è possibile creare una nuova macchina virtuale, ripristinare un disco e usarlo per creare una macchina virtuale oppure ripristinare un disco e usarlo per sostituire un disco in una macchina virtuale esistente. È anche possibile ripristinare cartelle e file singoli.
 Backup di macchine virtuali di Azure per Linux con l'agente di Servizi di ripristino di Microsoft Azure | Non supportato.<br/><br/> L'agente MARS può essere installato solo in computer Windows.
 Backup di macchine virtuali di Azure per Linux con DPM o il server di Backup di Microsoft Azure | Non supportato.
+Eseguire il backup di macchine virtuali Linux di Azure con punti di montaggio Docker | Attualmente, backup di Azure non supporta l'esclusione dei punti di montaggio Docker poiché questi vengono montati in percorsi diversi ogni volta.
 
 ## <a name="operating-system-support-linux"></a>Supporto dei sistemi operativi (Linux)
 
@@ -170,6 +171,7 @@ Archiviazione condivisa| Il backup di macchine virtuali con Volume condiviso clu
 [Dischi condivisi](../virtual-machines/disks-shared-enable.md) | Non supportato.
 Dischi Ultra SSD | Non supportata. Per ulteriori informazioni, vedere queste [limitazioni](selective-disk-backup-restore.md#limitations).
 [Dischi temporanei](../virtual-machines/managed-disks-overview.md#temporary-disk) | I dischi temporanei non vengono sottoposti a backup da backup di Azure.
+Dischi NVMe/temporanei | Non supportata.
 
 ## <a name="vm-network-support"></a>Supporto della rete delle macchine virtuali
 
