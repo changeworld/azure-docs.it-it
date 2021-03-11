@@ -2,18 +2,19 @@
 title: Domande frequenti - Crittografia dischi di Azure per macchine virtuali Linux
 description: Questo articolo fornisce le risposte alle domande frequenti su Crittografia dischi di Microsoft Azure per le macchine virtuali IaaS Linux.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: disks
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d62195759de2d43e863c1cb2c4c3ef911bb52c6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6a85af1a5e0603d78dc9bc233fef56417e19c50e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498524"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553086"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Domande frequenti su Crittografia dischi di Azure per le macchine virtuali Linux
 
@@ -31,7 +32,7 @@ Crittografia dischi di Azure per VM Linux è presente con disponibilità general
 
 ## <a name="what-user-experiences-are-available-with-azure-disk-encryption"></a>Quali esperienze utente sono disponibili con Crittografia dischi di Azure?
 
-La versione GA di Crittografia dischi di Azure supporta i modelli di Azure Resource Manager, Azure PowerShell e l'interfaccia della riga di comando di Azure. La presenza di diverse esperienze utente consente una maggiore flessibilità. Per abilitare la crittografia dei dischi delle macchine virtuali sono disponibili tre diverse opzioni. Per altre informazioni sull'esperienza utente e indicazioni dettagliate per Crittografia dischi di Azure, vedere gli [Scenari di Crittografia dischi di Azure per macchine virtuali Linux](disk-encryption-linux.md).
+La versione GA di Crittografia dischi di Azure supporta i modelli di Azure Resource Manager, Azure PowerShell e l'interfaccia della riga di comando di Azure. La presenza di diverse esperienze utente consente una maggiore flessibilità. Sono disponibili tre diverse opzioni per l'abilitazione della crittografia del disco per le macchine virtuali. Per altre informazioni sull'esperienza utente e indicazioni dettagliate per Crittografia dischi di Azure, vedere gli [Scenari di Crittografia dischi di Azure per macchine virtuali Linux](disk-encryption-linux.md).
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Quanto costa Crittografia dischi di Azure?
 

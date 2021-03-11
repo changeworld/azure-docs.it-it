@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 02/22/2020
 ms.author: raynew
-ms.openlocfilehash: 63548e2bf470c012e0dd8a5f879a51eeb631f453
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 25311e93e1081b3c7638c275c39153b2c357048d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459280"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559121"
 ---
 # <a name="manage-move-collections-and-resource-groups"></a>Gestire le raccolte di spostamento e i gruppi di risorse
 
@@ -39,70 +39,111 @@ Questo articolo descrive come rimuovere risorse da una raccolta di spostamento o
 
 ## <a name="remove-a-resource-powershell"></a>Rimuovere una risorsa (PowerShell)
 
-Rimuovere una risorsa (in questo esempio i computer PSDemoVM) da una raccolta usando PowerShell, come indicato di seguito:
+Usando i cmdlet di PowerShell è possibile rimuovere una singola risorsa da un oggetto MoveCollection oppure rimuovere più risorse.
+
+### <a name="remove-a-single-resource"></a>Rimuovere una singola risorsa
+
+Rimuovere una risorsa (in questo esempio la rete virtuale *psdemorm-VNET*) come indicato di seguito:
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus -Name PSDemoVM
+Remove-AzResourceMoverMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -Name "psdemorm-vnet"
 ```
-**Output previsto**
+**Output dopo l'esecuzione del cmdlet**
 
-![Testo di output dopo la rimozione di una risorsa da una raccolta di spostamento](./media/remove-move-resources/remove-resource.png)
+![Testo di output dopo la rimozione di una risorsa da una raccolta di spostamento](./media/remove-move-resources/powershell-remove-single-resource.png)
 
-## <a name="remove-a-collection-powershell"></a>Rimuovere una raccolta (PowerShell)
+### <a name="remove-multiple-resources"></a>Rimuovere più risorse
 
-Rimuovere un'intera raccolta di spostamento usando PowerShell, come indicato di seguito:
+Rimuovere più risorse come segue:
 
-1. Seguire le istruzioni riportate sopra per rimuovere le risorse nella raccolta usando PowerShell.
-2. Eseguire:
+1. Convalidare le dipendenze:
+
+    ````azurepowershell-interactive
+    $resp = Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('psdemorm-vnet') -ValidateOnly
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing multiple resources from a move collection](./media/remove-move-resources/remove-multiple-validate-dependencies.png)
+
+2. Retrieve the dependent resources that need to be removed (along with our example virtual network psdemorm-vnet):
+
+    ````azurepowershell-interactive
+    $resp.AdditionalInfo[0].InfoMoveResource
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing multiple resources from a move collection](./media/remove-move-resources/remove-multiple-get-dependencies.png)
+
+
+3. Remove all resources, along with the virtual network:
+
+    
+    ````azurepowershell-interactive
+    Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('PSDemoVM','psdemovm111', 'PSDemoRM-vnet','PSDemoVM-nsg')
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing all resources from a move collection](./media/remove-move-resources/remove-multiple-all.png)
+
+
+## Remove a collection (PowerShell)
+
+Remove an entire move collection from the subscription, as follows:
+
+1. Follow the instructions above to remove resources in the collection using PowerShell.
+2. Run:
 
     ```azurepowershell-interactive
-    # Remove a resource using the resource ID
-    Remove-AzResourceMoverMoveCollection -SubscriptionId <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus -MoveCollectionName MoveCollection-centralus-westcentralus
+    Remove-AzResourceMoverMoveCollection -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"
     ```
-    **Output previsto**
+
+    **Output after running cmdlet**
     
-    ![Testo di output dopo la rimozione di una raccolta di spostamento](./media/remove-move-resources/remove-collection.png)
+    ![Output text after removing a move collection](./media/remove-move-resources/remove-collection.png)
 
-## <a name="vm-resource-state-after-removing"></a>Stato delle risorse della macchina virtuale dopo la rimozione
+## VM resource state after removing
 
-Cosa accade quando si rimuove una risorsa della macchina virtuale da una raccolta di spostamento dipende dallo stato della risorsa, come riepilogato nella tabella.
+What happens when you remove a VM resource from a move collection depends on the resource state, as summarized in the table.
 
-###  <a name="remove-vm-state"></a>Rimuovere lo stato della macchina virtuale
-**Stato risorsa** | **VM** | **Rete**
+###  Remove VM state
+**Resource state** | **VM** | **Networking**
 --- | --- | --- 
-**Aggiunta per spostare la raccolta** | Elimina dalla raccolta di spostamento. | Elimina dalla raccolta di spostamento. 
-**Dipendenze risolte/preparate in sospeso** | Elimina dalla raccolta di spostamento  | Elimina dalla raccolta di spostamento. 
-**Preparazione in corso**<br/> (o qualsiasi altro stato in corso) | L'operazione di eliminazione non riesce con errore.  | L'operazione di eliminazione non riesce con errore.
-**Preparazione non riuscita** | Elimina dalla raccolta di spostamento.<br/>Eliminare qualsiasi elemento creato nell'area di destinazione, inclusi i dischi di replica. <br/><br/> Le risorse dell'infrastruttura create durante lo spostamento devono essere eliminate manualmente. | Elimina dalla raccolta di spostamento.  
-**Inizio spostamento in sospeso** | Elimina dalla raccolta di spostamento.<br/><br/> Eliminare tutti gli elementi creati nell'area di destinazione, inclusi i dischi della macchina virtuale, di replica e così via.  <br/><br/> Le risorse dell'infrastruttura create durante lo spostamento devono essere eliminate manualmente. | Elimina dalla raccolta di spostamento.
-**Spostamento avvio non riuscito** | Elimina dalla raccolta di spostamento.<br/><br/> Eliminare tutti gli elementi creati nell'area di destinazione, inclusi i dischi della macchina virtuale, di replica e così via.  <br/><br/> Le risorse dell'infrastruttura create durante lo spostamento devono essere eliminate manualmente. | Elimina dalla raccolta di spostamento.
-**Commit in sospeso** | Si consiglia di annullare lo spostamento in modo che le risorse di destinazione vengano eliminate per prime.<br/><br/> La risorsa torna allo stato di **inizio spostamento in sospeso** ed è possibile continuare da questa posizione. | Si consiglia di annullare lo spostamento in modo che le risorse di destinazione vengano eliminate per prime.<br/><br/> La risorsa torna allo stato di **inizio spostamento in sospeso** ed è possibile continuare da questa posizione. 
-**Commit non riuscito** | Si consiglia di eliminare il in modo che le risorse di destinazione vengano eliminate per prime.<br/><br/> La risorsa torna allo stato di **inizio spostamento in sospeso** ed è possibile continuare da questa posizione. | Si consiglia di annullare lo spostamento in modo che le risorse di destinazione vengano eliminate per prime.<br/><br/> La risorsa torna allo stato di **inizio spostamento in sospeso** ed è possibile continuare da questa posizione.
-**Eliminazione completata** | La risorsa torna allo stato di **inizio spostamento in sospeso** .<br/><br/> Viene eliminato dalla raccolta di spostamento, insieme a qualsiasi elemento creato nella macchina virtuale di destinazione, nei dischi di replica, nel Vault e così via.  <br/><br/> Le risorse dell'infrastruttura create durante lo spostamento devono essere eliminate manualmente. <br/><br/> Le risorse dell'infrastruttura create durante lo spostamento devono essere eliminate manualmente. |  La risorsa torna allo stato di **inizio spostamento in sospeso** .<br/><br/> Viene eliminato dalla raccolta Move.
-**Eliminazione non riuscita** | Si consiglia di eliminare gli spostamenti in modo che le risorse di destinazione vengano eliminate per prime.<br/><br/> Successivamente, la risorsa torna allo stato di **inizio spostamento in sospeso** ed è possibile continuare da questa posizione. | Si consiglia di eliminare gli spostamenti in modo che le risorse di destinazione vengano eliminate per prime.<br/><br/> Successivamente, la risorsa torna allo stato di **inizio spostamento in sospeso** ed è possibile continuare da questa posizione.
-**Elimina origine in sospeso** | Eliminato dalla raccolta di spostamento.<br/><br/> Non elimina tutti gli oggetti creati nell'area di destinazione.  | Eliminato dalla raccolta di spostamento.<br/><br/> Non elimina tutti gli oggetti creati nell'area di destinazione.
-**Eliminazione origine non riuscita** | Eliminato dalla raccolta di spostamento.<br/><br/> Non elimina tutti gli oggetti creati nell'area di destinazione. | Eliminato dalla raccolta di spostamento.<br/><br/> Non elimina tutti gli oggetti creati nell'area di destinazione.
+**Added to move collection** | Delete from move collection. | Delete from move collection. 
+**Dependencies resolved/prepare pending** | Delete from move collection  | Delete from move collection. 
+**Prepare in progress**<br/> (or any other state in progress) | Delete operation fails with error.  | Delete operation fails with error.
+**Prepare failed** | Delete from the move collection.<br/>Delete anything created in the target region, including replica disks. <br/><br/> Infrastructure resources created during the move need to be deleted manually. | Delete from the move collection.  
+**Initiate move pending** | Delete from move collection.<br/><br/> Delete anything created in the target region, including VM, replica disks etc.  <br/><br/> Infrastructure resources created during the move need to be deleted manually. | Delete from move collection.
+**Initiate move failed** | Delete from move collection.<br/><br/> Delete anything created in the target region, including VM, replica disks etc.  <br/><br/> Infrastructure resources created during the move need to be deleted manually. | Delete from move collection.
+**Commit pending** | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. 
+**Commit failed** | We recommend that you discard the  so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there.
+**Discard completed** | The resource goes back to the **Initiate move pending** state.<br/><br/> It's deleted from the move collection, along with anything created at target - VM, replica disks, vault etc.  <br/><br/> Infrastructure resources created during the move need to be deleted manually. <br/><br/> Infrastructure resources created during the move need to be deleted manually. |  The resource goes back to the **Initiate move pending** state.<br/><br/> It's deleted from the move collection.
+**Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there.
+**Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.  | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
+**Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
 
-## <a name="sql-resource-state-after-removing"></a>Stato della risorsa SQL dopo la rimozione
+## SQL resource state after removing
 
-Cosa accade quando si rimuove una risorsa SQL di Azure da una raccolta di spostamento dipende dallo stato della risorsa, come riepilogato nella tabella.
+What happens when you remove an Azure SQL resource from a move collection depends on the resource state, as summarized in the table.
 
-**Stato risorsa** | **SQL** 
+**Resource state** | **SQL** 
 --- | --- 
-**Aggiunta per spostare la raccolta** | Elimina dalla raccolta di spostamento. 
-**Dipendenze risolte/preparate in sospeso** | Elimina dalla raccolta di spostamento 
-**Preparazione in corso**<br/> (o qualsiasi altro stato in corso)  | L'operazione di eliminazione non riesce con errore. 
-**Preparazione non riuscita** | Elimina dalla raccolta di spostamento<br/><br/>Eliminare qualsiasi elemento creato nell'area di destinazione. 
-**Inizio spostamento in sospeso** |  Elimina dalla raccolta di spostamento<br/><br/>Eliminare qualsiasi elemento creato nell'area di destinazione. Il database SQL esiste a questo punto e verrà eliminato. 
-**Spostamento avvio non riuscito** | Elimina dalla raccolta di spostamento<br/><br/>Eliminare qualsiasi elemento creato nell'area di destinazione. Il database SQL esiste a questo punto e deve essere eliminato. 
-**Commit in sospeso** | Si consiglia di annullare lo spostamento in modo che le risorse di destinazione vengano eliminate per prime.<br/><br/> La risorsa torna allo stato di **inizio spostamento in sospeso** ed è possibile continuare da questa posizione.
-**Commit non riuscito** | Si consiglia di annullare lo spostamento in modo che le risorse di destinazione vengano eliminate per prime.<br/><br/> La risorsa torna allo stato di **inizio spostamento in sospeso** ed è possibile continuare da questa posizione. 
-**Eliminazione completata** |  La risorsa torna allo stato di **inizio spostamento in sospeso** .<br/><br/> Viene eliminato dalla raccolta di spostamento, insieme a qualsiasi elemento creato nella destinazione, inclusi i database SQL. 
-**Eliminazione non riuscita** | Si consiglia di eliminare gli spostamenti in modo che le risorse di destinazione vengano eliminate per prime.<br/><br/> Successivamente, la risorsa torna allo stato di **inizio spostamento in sospeso** ed è possibile continuare da questa posizione. 
-**Elimina origine in sospeso** | Eliminato dalla raccolta di spostamento.<br/><br/> Non elimina tutti gli oggetti creati nell'area di destinazione. 
-**Eliminazione origine non riuscita** | Eliminato dalla raccolta di spostamento.<br/><br/> Non elimina tutti gli oggetti creati nell'area di destinazione. 
+**Added to move collection** | Delete from move collection. 
+**Dependencies resolved/prepare pending** | Delete from move collection 
+**Prepare in progress**<br/> (or any other state in progress)  | Delete operation fails with error. 
+**Prepare failed** | Delete from move collection<br/><br/>Delete anything created in the target region. 
+**Initiate move pending** |  Delete from move collection<br/><br/>Delete anything created in the target region. The SQL database exists at this point and will be deleted. 
+**Initiate move failed** | Delete from move collection<br/><br/>Delete anything created in the target region. The SQL database exists at this point and must be deleted. 
+**Commit pending** | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there.
+**Commit failed** | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. 
+**Discard completed** |  The resource goes back to the **Initiate move pending** state.<br/><br/> It's deleted from the move collection, along with anything created at target, including SQL databases. 
+**Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. 
+**Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
+**Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
 
-## <a name="next-steps"></a>Passaggi successivi
+## Next steps
 
-Provare a [trasferire una macchina virtuale](tutorial-move-region-virtual-machines.md) in un'altra area con il motore di risorse.
+Try [moving a VM](tutorial-move-region-virtual-machines.md) to another region with Resource Mover.

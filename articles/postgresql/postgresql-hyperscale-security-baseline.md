@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 19935037e98bbc7ce9c4152b034b664d802a8f3a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c373bb172be01594bb5642a626cad24838b66ea2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588290"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607986"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Baseline della sicurezza di Azure per database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -544,9 +544,9 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 **Linee guida**: se si usano definizioni personalizzate di criteri di Azure per le istanze di iperscalabilità (CITUS) e le risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
+- [Documentazione di Azure Repos](/azure/devops/repos/index)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

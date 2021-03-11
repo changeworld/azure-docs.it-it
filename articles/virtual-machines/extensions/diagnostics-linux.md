@@ -1,21 +1,19 @@
 ---
 title: Calcolo di Azure-estensione di diagnostica Linux 4,0
 description: Come configurare l'estensione di diagnostica Linux di Azure (LAD) 4,0 per raccogliere le metriche e registrare gli eventi dalle macchine virtuali Linux in esecuzione in Azure.
-services: virtual-machines-linux
-author: axayjo
-manager: gwallace
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 02/05/2021
-ms.author: akjosh
-ms.openlocfilehash: 741db5ea10847e2fe6711e7ca01d65efb1f09dea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4c4851ab28e5da74e7f1fa36f087ecfdabb1c638
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667306"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560124"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Usare l'estensione di diagnostica Linux 4,0 per monitorare le metriche e i log
 

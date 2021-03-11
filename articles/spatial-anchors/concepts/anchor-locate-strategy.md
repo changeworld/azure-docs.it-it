@@ -8,18 +8,18 @@ ms.author: pamistel
 ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 409498201ac94882f1a28917693ffd3a65631fc7
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 43273ccd7c882bbac6cbc68d359db4ecb100800e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102583789"
+ms.locfileid: "102617404"
 ---
 # <a name="understanding-the-anchorlocatecriteria-class"></a>Informazioni sulla classe AnchorLocateCriteria
 In questo articolo vengono illustrate le diverse opzioni che è possibile usare quando si eseguono query su un ancoraggio. Si passerà alla classe AnchorLocateCriteria, alle opzioni e alle combinazioni di opzioni valide.
 
 ## <a name="anchor-locate-criteria"></a>Individuare i criteri di ancoraggio
-La [classe AnchorLocateCriteria](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria?view=spatialanchors-dotnet) consente di eseguire query sul servizio per gli ancoraggi creati in precedenza. Un oggetto AnchorLocateCriteria può essere usato per Watcher in qualsiasi momento. Ogni oggetto AnchorLocateCriteria deve includere **esattamente una** delle proprietà seguenti: [identificatori](#identifiers), [NearAnchor](#nearanchor)o [NearDevice](#neardevice). Se lo si desidera, è possibile impostare proprietà aggiuntive, ad esempio [strategie](#strategy), [BypassCache](#bypasscache)e [RequestedCategories](#requestedcategories) . 
+La [classe AnchorLocateCriteria](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) consente di eseguire query sul servizio per gli ancoraggi creati in precedenza. Un oggetto AnchorLocateCriteria può essere usato per Watcher in qualsiasi momento. Ogni oggetto AnchorLocateCriteria deve includere **esattamente una** delle proprietà seguenti: [identificatori](#identifiers), [NearAnchor](#nearanchor)o [NearDevice](#neardevice). Se lo si desidera, è possibile impostare proprietà aggiuntive, ad esempio [strategie](#strategy), [BypassCache](#bypasscache)e [RequestedCategories](#requestedcategories) . 
 
 ### <a name="properties"></a>Proprietà
 Definire **esattamente una** delle proprietà seguenti nel Watcher:

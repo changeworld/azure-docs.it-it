@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 18127da3064a7eac3e6bfdc0692972d4194119cc
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: eb72c34489755dad17700a16a5109824ad892e83
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102508300"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553273"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Come codificare con una trasformazione personalizzata-.NET
 
@@ -44,7 +44,7 @@ Clonare nel computer un repository GitHub contenente l'esempio .NET Core complet
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
  ```
  
-L'esempio di set di impostazioni personalizzato si trova nella [codifica con un set di impostazioni personalizzato usando](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset) la cartella .NET.
+L'esempio di set di impostazioni personalizzato si trova nella [codifica con un set di impostazioni personalizzato usando](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_H264) la cartella .NET.
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Creare una trasformazione con un set di impostazioni personalizzato
 

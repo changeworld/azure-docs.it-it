@@ -6,7 +6,7 @@
       href: cdn-overview.md
     - name: Confrontare le funzionalità del prodotto
       href: cdn-features.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Integrare un account di archiviazione
       href: cdn-create-a-storage-account-with-cdn.md
@@ -27,15 +27,13 @@
       href: cdn-custom-ssl.md
     - name: Impostare le regole di memorizzazione nella cache
       href: cdn-caching-rules-tutorial.md
-    - name: Applicare HTTPS usando il motore regole standard
-      href: cdn-standard-rules-engine.md
 - name: Esempi
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
 - name: Concetti
   items:
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -76,6 +74,8 @@
           href: cdn-improve-performance.md
         - name: Endpoint multiorigine
           href: endpoint-multiorigin.md
+        - name: Applicare HTTPS usando il motore regole standard
+          href: cdn-standard-rules-engine.md
         - name: Controllare il comportamento di memorizzazione nella cache
           items:
             - name: Controllare il comportamento di memorizzazione nella cache con regole di memorizzazione nella cache

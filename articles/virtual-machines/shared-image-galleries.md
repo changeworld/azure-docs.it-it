@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 225aca8c4695db33e504a5857acb856f4e01d1f1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551063"
+ms.locfileid: "102609142"
 ---
 # <a name="shared-image-galleries-overview"></a>Informazioni generali sulle raccolte di immagini condivise
 
@@ -104,7 +104,7 @@ Le macchine virtuali specializzate non sono state sottoposte a un processo per r
 
 ## <a name="regional-support"></a>Supporto a livello di area
 
-Tutte le aree pubbliche possono essere aree di destinazione, tuttavia per la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia aggiunta all'elenco elementi consentiti. per richiedere che una sottoscrizione venga aggiunta all'elenco elementi consentiti, visitare: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
+Tutte le aree pubbliche possono essere aree di destinazione, ma per determinate aree è necessario che i clienti attraversino un processo di richiesta per ottenere l'accesso. Per richiedere l'aggiunta di una sottoscrizione all'elenco Consenti per un'area, ad esempio Australia centrale o Australia centrale 2, inviare [una richiesta di accesso](/troubleshoot/azure/general/region-access-request-process)
 
 ## <a name="limits"></a>Limiti 
 

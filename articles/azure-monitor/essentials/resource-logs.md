@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
-ms.openlocfilehash: cb4f1ecdada68218c104558a85277417641906f6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2435e4ed16889d9d4701b6047c0a1f602ee7ae91
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033013"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558696"
 ---
 # <a name="azure-resource-logs"></a>Log delle risorse di Azure
 I log delle risorse di Azure sono [log di piattaforma](../essentials/platform-logs-overview.md) che forniscono informazioni dettagliate sulle operazioni eseguite all'interno di una risorsa di Azure. Il contenuto dei log delle risorse varia in base al servizio di Azure e al tipo di risorsa. I log delle risorse non vengono raccolti per impostazione predefinita. È necessario creare un'impostazione di diagnostica per ogni risorsa di Azure per inviare i log delle risorse a un'area di lavoro Log Analytics da usare con i [log di monitoraggio di Azure](../logs/data-platform-logs.md), Hub eventi di Azure da inoltrare all'esterno di Azure o ad archiviazione di Azure per l'archiviazione.
@@ -28,11 +28,11 @@ Vedere [creare le impostazioni di diagnostica per inviare le metriche e i log de
 
 [Creare un'impostazione di diagnostica](../essentials/diagnostic-settings.md) per inviare i log delle risorse a un'area di lavoro log Analytics. Questi dati vengono archiviati in tabelle come descritto in [struttura dei log di monitoraggio di Azure](../logs/data-platform-logs.md). Le tabelle utilizzate dai log delle risorse dipendono dal tipo di raccolta utilizzata dalla risorsa:
 
-- Diagnostica di Azure: tutti i dati scritti sono nella tabella _AzureDiagnostics_ .
+- Diagnostica di Azure: tutti i dati scritti sono nella tabella [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) .
 - Specifica della risorsa: i dati vengono scritti in una singola tabella per ogni categoria della risorsa.
 
 ### <a name="azure-diagnostics-mode"></a>Modalità diagnostica di Azure 
-In questa modalità, tutti i dati di qualsiasi impostazione di diagnostica verranno raccolti nella tabella _AzureDiagnostics_ . Questo è il metodo legacy attualmente usato dalla maggior parte dei servizi di Azure. Poiché più tipi di risorse inviano i dati alla stessa tabella, il relativo schema corrisponde al superset degli schemi di tutti i diversi tipi di dati raccolti.
+In questa modalità, tutti i dati di qualsiasi impostazione di diagnostica verranno raccolti nella tabella [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) . Questo è il metodo legacy attualmente usato dalla maggior parte dei servizi di Azure. Poiché più tipi di risorse inviano i dati alla stessa tabella, il relativo schema corrisponde al superset degli schemi di tutti i diversi tipi di dati raccolti. Per informazioni dettagliate sulla struttura di questa tabella e sul relativo funzionamento con questo numero potenzialmente elevato di colonne, vedere la Guida di [riferimento a AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) .
 
 Si consideri l'esempio seguente in cui le impostazioni di diagnostica vengono raccolte nella stessa area di lavoro per i tipi di dati seguenti:
 
@@ -95,16 +95,6 @@ La maggior parte delle risorse di Azure scriverà i dati nell'area di lavoro in 
 È possibile modificare un'impostazione di diagnostica esistente in modalità specifica della risorsa. In questo caso, i dati già raccolti rimarranno nella tabella _AzureDiagnostics_ fino a quando non vengono rimossi in base all'impostazione di conservazione per l'area di lavoro. I nuovi dati verranno raccolti nella tabella dedicata. Utilizzare l'operatore [Union](/azure/kusto/query/unionoperator) per eseguire query sui dati in entrambe le tabelle.
 
 Continua a guardare il Blog sugli [aggiornamenti di Azure per gli](https://azure.microsoft.com/updates/) annunci relativi ai servizi di Azure che supportano la modalità Resource-Specific.
-
-### <a name="column-limit-in-azurediagnostics"></a>Limite di colonne in AzureDiagnostics
-È previsto un limite di proprietà di 500 per qualsiasi tabella nei log di monitoraggio di Azure. Una volta raggiunto questo limite, le righe contenenti dati con qualsiasi proprietà al di fuori della prima 500 verranno eliminate in fase di inserimento. La tabella *AzureDiagnostics* è particolarmente soggetta a questo limite, perché include le proprietà per tutti i servizi di Azure che scrivono.
-
-Se si raccolgono i log delle risorse da più servizi, _AzureDiagnostics_ può superare questo limite e i dati verranno persi. Fino a quando tutti i servizi di Azure non supportano la modalità specifica della risorsa, è necessario configurare le risorse per la scrittura in più aree di lavoro per ridurre la possibilità di raggiungere il limite di 500 colonne.
-
-### <a name="azure-data-factory"></a>Azure Data Factory
-Azure Data Factory, a causa di un set dettagliato di log, è un servizio noto per la scrittura di un numero elevato di colonne e che può causare il superamento del limite di _AzureDiagnostics_ . Per tutte le impostazioni di diagnostica configurate prima dell'abilitazione della modalità specifica della risorsa, sarà presente una nuova colonna creata per ogni parametro utente denominato in modo univoco su qualsiasi attività. Verranno create altre colonne a causa della natura dettagliata degli input e degli output delle attività.
- 
-È necessario eseguire la migrazione dei log per usare la modalità specifica della risorsa appena possibile. Se non è possibile eseguire questa operazione immediatamente, un'alternativa provvisoria consiste nell'isolare i log Azure Data Factory nella propria area di lavoro per ridurre al minimo la possibilità che questi registri abbiano un effetto sugli altri tipi di log raccolti nelle aree di lavoro.
 
 
 ## <a name="send-to-azure-event-hubs"></a>Invia a hub eventi di Azure

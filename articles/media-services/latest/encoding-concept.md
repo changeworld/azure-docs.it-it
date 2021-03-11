@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 84caa287803fa64b12d9da4c2afb1f8dd1418e13
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 6a486057a265b02ce30059940c8c98837ec43f8e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455281"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617642"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codifica di video e audio con servizi multimediali
 
@@ -95,20 +95,25 @@ Servizi multimediali supporta i set di impostazioni di codifica predefiniti segu
 
 [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) viene usato per configurare un set di impostazioni predefinito per la codifica del video di input con il codificatore Standard.
 
-Attualmente sono supportati i set di impostazioni seguenti:
+Sono attualmente supportati i set di impostazioni predefiniti seguenti:
 
 - **EncoderNamedPreset. AACGoodQualityAudio**: produce un singolo file MP4 contenente solo audio stereo codificato a 192 kbps.
-- **EncoderNamedPreset. AdaptiveStreaming** (scelta consigliata): per altre informazioni, vedere [generazione automatica di una scala a bitrate](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset. ContentAwareEncoding**: espone un set di impostazioni per la codifica compatibile con il contenuto. Dato qualsiasi contenuto di input, il servizio tenta di determinare automaticamente il numero ottimale di livelli e le impostazioni di velocità in bit e risoluzione appropriate per il recapito tramite flusso adattivo. Gli algoritmi sottostanti continueranno a evolversi nel tempo. L'output conterrà file MP4 con interfoliazione video e audio. Per altre informazioni, vedere [codifica compatibile](content-aware-encoding.md)con i contenuti.
-
+- **EncoderNamedPreset. AdaptiveStreaming** (scelta consigliata): supporta la codifica a bitrate adattivo H. 264. Per altre informazioni, vedere [Codificare con una tabella di coppie velocità in bit-risoluzione generata automaticamente](autogen-bitrate-ladder.md).
+- **EncoderNamerPreset. H265AdaptiveStreaming** : simile al set di impostazioni AdaptiveStreaming, ma usa il codec HEVC (H. 265). Produce un set di file MP4 allineati GOP con audio AAC stereo e video H. 265. Genera automaticamente una scala a bitrate in base alla risoluzione di input, alla velocità in bit e alla frequenza dei fotogrammi. Il set di impostazioni generato automaticamente non supererà mai la risoluzione di input. Ad esempio, se l'input è 720p, l'output rimarrà 720p al massimo.
+- **EncoderNamedPreset. ContentAwareEncoding**: espone un set di impostazioni per la codifica compatibile con il contenuto H. 264. Dato qualsiasi contenuto di input, il servizio tenta di determinare automaticamente il numero ottimale di livelli e le impostazioni di velocità in bit e risoluzione appropriate per il recapito tramite flusso adattivo. Gli algoritmi sottostanti continueranno a evolversi nel tempo. L'output conterrà file MP4 con interfoliazione video e audio. Per altre informazioni, vedere [codifica compatibile](content-aware-encoding.md)con i contenuti.
+- **EncoderNamedPreset. H265ContentAwareEncoding**: espone un set di impostazioni per la codifica compatibile con il contenuto HEVC (H. 265). Produce un set di MP4s allineati a GOP utilizzando la codifica compatibile con il contenuto. Dato un contenuto di input, il servizio esegue un'analisi leggera iniziale del contenuto di input e usa i risultati per determinare il numero ottimale di livelli, le impostazioni di velocità in bit e risoluzione appropriate per il recapito tramite flusso adattivo. Questo set di impostazioni è particolarmente efficace per i video con complessità bassa e media, in cui i file di output saranno a velocità in bit inferiori, ma con una qualità che offre agli utenti un'esperienza ottimale. L'output conterrà file MP4 con interfoliazione video e audio.
   > [!NOTE]
-  > Assicurarsi di usare **ContentAwareEncoding** non ContentAwareEncodingExperimental.
+  > Assicurarsi di usare **ContentAwareEncoding** not ContentAwareEncodingExperimental, che ora è deprecata
+
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: genera un set di otto file MP4 allineati al GOP, con velocità compresa tra 6000 e 400 kbps e audio AAC stereo. La risoluzione parte da 1080p e può scendere fino a 360p.
 - **EncoderNamedPreset. H264MultipleBitrate720p**: genera un set di sei file MP4 allineati al GOP, con velocità compresa tra 3400 e 400 kbps e audio AAC stereo. La risoluzione parte da 720p e può scendere fino a 360p.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: genera un set di cinque file MP4 allineati al GOP, con velocità compresa tra 1600 e 400 kbps e audio AAC stereo. La risoluzione parte da 480p e può scendere fino a 360p.
 - **EncoderNamedPreset. H264SingleBitrate1080p**: genera un file MP4 in cui il video è codificato con il codec H. 264 a 6750 kbps e un'altezza immagine di 1080 pixel e l'audio stereo è codificato con il codec AAC-LC a 64 kbps.
 - **EncoderNamedPreset. H264SingleBitrate720p**: genera un file MP4 in cui il video è codificato con il codec H. 264 a 4500 kbps e un'altezza immagine di 720 pixel e l'audio stereo è codificato con il codec AAC-LC a 64 kbps.
 - **EncoderNamedPreset. H264SingleBitrateSD**: genera un file MP4 in cui il video è codificato con il codec H. 264 a 2200 kbps e un'altezza immagine di 480 pixel e l'audio stereo è codificato con il codec AAC-LC a 64 kbps.
+- **EncoderNamedPreset. H265SingleBitrate720P**: produce un file MP4 in cui il video è codificato con il codec HEVC (H. 265) a 1800 Kbps e un'altezza immagine di 720 pixel e l'audio stereo è codificato con il codec AAC-LC a 128 kbps.
+- **EncoderNamedPreset. H265SingleBitrate1080p**: produce un file MP4 in cui il video è codificato con il codec HEVC (H. 265) a 3500 Kbps e un'altezza immagine di 1080 pixel e l'audio stereo è codificato con il codec AAC-LC a 128 kbps.
+- **EncoderNamedPreset. H265SingleBitrate4K**: produce un file MP4 in cui il video è codificato con il codec HEVC (H. 265) a 9500 Kbps e un'altezza immagine di 2160 pixel e l'audio stereo è codificato con il codec AAC-LC a 128 kbps.
 
 Per visualizzare l'elenco dei set di impostazioni più aggiornati, vedere set di [impostazioni predefiniti da usare per la codifica di video](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
@@ -135,6 +140,7 @@ Servizi multimediali supporta in modo completo la personalizzazione di tutti i v
 - [Personalizzare le impostazioni predefinite con l'interfaccia della riga di comando](custom-preset-cli-howto.md)
 - [Personalizzare i set di impostazioni con REST](custom-preset-rest-howto.md)
 
+
 ## <a name="preset-schema"></a>Schema preimpostato
 
 In servizi multimediali V3 i set di impostazioni sono entità fortemente tipizzate nell'API stessa. È possibile trovare la definizione dello schema per questi oggetti in [Open API Specification (o spavalderia)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). È anche possibile visualizzare le definizioni di set di impostazioni (ad esempio **StandardEncoderPreset**) nell' [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) (o altri documenti di riferimento di Media Services V3 SDK).
@@ -142,6 +148,7 @@ In servizi multimediali V3 i set di impostazioni sono entità fortemente tipizza
 ## <a name="scaling-encoding-in-v3"></a>Ridimensionamento della codifica nella versione v3
 
 Per ridimensionare l'elaborazione di contenuti multimediali, vedere [ridimensionare con CLI](media-reserved-units-cli-how-to.md).
+Per gli account creati con la versione **2020-05-01** dell'API o tramite il portale di Azure, le unità di ridimensionamento e media reserved unit non sono più necessarie. Il ridimensionamento sarà automatico e gestito internamente dal servizio.
 
 ## <a name="billing"></a>Fatturazione
 

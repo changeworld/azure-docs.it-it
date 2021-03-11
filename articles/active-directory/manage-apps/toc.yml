@@ -38,8 +38,14 @@
       items:
         - name: Panoramica degli esempi di gestione delle app
           href: app-management-powershell-samples.md
-        - name: 'Esporta tutte le registrazioni, i segreti e i certificati per le app'
+        - name: Esportare segreti e certificati (registrazioni per l'app)
           href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+        - name: Esportare segreti e certificati (app aziendali)
+          href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+        - name: Esporta segreti e certificati in scadenza
+          href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+        - name: Esporta segreti e certificati che scadono oltre la data richiesta
+          href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
     - name: Esempi di PowerShell per proxy app
       href: application-proxy-powershell-samples.md
 - name: Concetti
@@ -111,7 +117,7 @@
           href: application-proxy-connectors.md
         - name: Gruppi di connettori
           href: application-proxy-connector-groups.md
-        - name: Sicurezza
+        - name: Security
           href: application-proxy-security.md
         - name: Topologia di rete
           href: application-proxy-network-topology.md

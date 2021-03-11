@@ -1,25 +1,26 @@
 ---
 title: Ridimensionare un disco del sistema operativo con una partizione GPT
 description: Questo articolo fornisce istruzioni su come ridimensionare un disco del sistema operativo con una partizione GPT (GUID Partition Table) in Linux.
-services: virtual-machines-linux
-documentationcenter: ''
+services: virtual-machines
+ms.topic: article
 author: kailashmsft
 manager: dcscontentpm
 editor: ''
 tags: ''
-ms.service: security
-ms.topic: troubleshooting
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: ab83a3b11aebdc9fed450410aa1f9bee2d25c4bb
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 46b6ceff74dd3a296d26cc018b380c1c3f76664c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900672"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552950"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Ridimensionare un disco del sistema operativo con una partizione GPT
 

@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5b8842718aa2d9f90ac06283abc5fe2fdd925cb
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c7246511a88e2d2756a8ef56c5adf51ddbfd3e58
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95997002"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560532"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurare una pipeline CI/CD con l'attività di compilazione Azure Cosmos DB Emulator in Azure DevOps
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,13 +33,13 @@ Per usare l'attività di compilazione, è innanzitutto necessario installarla ne
 Successivamente, scegliere l'organizzazione in cui installare l'estensione. 
 
 > [!NOTE]
-> Per installare un'estensione in un'organizzazione di Azure DevOps, è necessario essere proprietario dell'account o amministratore della raccolta di progetti. Se non si dispone di autorizzazioni, ma si è membri dell'account, in alternativa è possibile richiedere delle estensioni. [Altre informazioni.](/azure/devops/marketplace/faq-extensions?preserve-view=true&view=vsts)
+> Per installare un'estensione in un'organizzazione di Azure DevOps, è necessario essere proprietario dell'account o amministratore della raccolta di progetti. Se non si dispone di autorizzazioni, ma si è membri dell'account, in alternativa è possibile richiedere delle estensioni. [Altre informazioni.](/azure/devops/marketplace/faq-extensions)
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Scegliere un'organizzazione di Azure DevOps in cui installare un'estensione":::
 
 ## <a name="create-a-build-definition"></a>Creare una definizione di compilazione
 
-Ora che l'estensione è installata, accedere all'organizzazione di Azure DevOps e trovare il progetto nel dashboard dei progetti. È possibile aggiungere una [pipeline di compilazione](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts) al progetto o modificarne una esistente. Se si ha già una pipeline di compilazione, è possibile passare direttamente alla sezione [Aggiungere l'attività di compilazione dell'emulatore a una definizione di compilazione](#addEmulatorBuildTaskToBuildDefinition).
+Ora che l'estensione è installata, accedere all'organizzazione di Azure DevOps e trovare il progetto nel dashboard dei progetti. È possibile aggiungere una [pipeline di compilazione](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav) al progetto o modificarne una esistente. Se si ha già una pipeline di compilazione, è possibile passare direttamente alla sezione [Aggiungere l'attività di compilazione dell'emulatore a una definizione di compilazione](#addEmulatorBuildTaskToBuildDefinition).
 
 1. Per creare una nuova definizione di compilazione, passare alla scheda **Compilazioni** in Azure DevOps. Selezionare **+ Nuovo** \> **Nuova pipeline di compilazione**
 
@@ -52,7 +52,7 @@ Ora che l'estensione è installata, accedere all'organizzazione di Azure DevOps 
 3. Selezionare infine il modello desiderato per la pipeline di compilazione. In questa esercitazione viene selezionato il modello **ASP.NET**. A questo punto è disponibile una pipeline di compilazione che può essere configurata per usare l'attività di compilazione Azure Cosmos DB emulatore. 
 
 > [!NOTE]
-> Il pool di agenti da selezionare per questa integrazione continua deve avere Docker per Windows installato, a meno che l'installazione non venga eseguita manualmente in un'attività precedente come parte dell'integrazione continua. Per un elenco di pool di agenti tra cui scegliere, vedere l'articolo [Agenti ospitati da Microsoft](/azure/devops/pipelines/agents/hosted?preserve-view=true&tabs=yaml&view=azure-devops). È consigliabile iniziare con `Hosted VS2017`.
+> Il pool di agenti da selezionare per questa integrazione continua deve avere Docker per Windows installato, a meno che l'installazione non venga eseguita manualmente in un'attività precedente come parte dell'integrazione continua. Per un elenco di pool di agenti tra cui scegliere, vedere l'articolo [Agenti ospitati da Microsoft](/azure/devops/pipelines/agents/hosted?tabs=yaml). È consigliabile iniziare con `Hosted VS2017`.
 
 Azure Cosmos DB emulatore non supporta attualmente il pool di agenti VS2019 ospitati. Tuttavia, l'emulatore viene già installato con VS2019 e per usarlo è possibile avviarlo con i cmdlet di PowerShell seguenti. Se si verificano problemi durante l'uso di VS2019, rivolgersi al team di [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) per assistenza:
 
