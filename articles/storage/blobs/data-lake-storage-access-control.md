@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: d8ef616ef059424846d5c42a91262881b8f6d30b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4d75e60d0e497dcdd2aa121f8da73f11a7e2af5b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701808"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015217"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Elenchi di controllo di accesso (ACL) in Azure Data Lake Storage Gen2
 
@@ -206,7 +206,7 @@ Per un nuovo contenitore di Data Lake Storage Gen2, la maschera per l'ACL di acc
 |--|--|--|
 |utente proprietario|`rwx`|`r-w`|
 |gruppo proprietario|`r-x`|`r--`|
-|Altro|`---`|`---`|
+|Altri|`---`|`---`|
 
 File non ricevono il bit X perché è irrilevante per i file in un sistema solo di archiviazione. 
 
@@ -285,7 +285,7 @@ Le assegnazioni di ruolo di Azure ereditano. Le assegnazioni scorrono dalle riso
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 supporta l'ereditarietà degli elenchi di controllo di accesso?
 
-Gli ACL predefiniti possono essere usati per impostare gli ACL per le nuove sottodirectory figlio e i file creati nella directory padre. Per aggiornare gli ACL per gli elementi figlio esistenti, è necessario aggiungere, aggiornare o rimuovere gli ACL in modo ricorsivo per la gerarchia di directory desiderata. Per altre informazioni, vedere [impostare elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake storage Gen2](#set-access-control-lists). 
+Gli ACL predefiniti possono essere usati per impostare gli ACL per le nuove sottodirectory figlio e i file creati nella directory padre. Per aggiornare gli ACL per gli elementi figlio esistenti, è necessario aggiungere, aggiornare o rimuovere gli ACL in modo ricorsivo per la gerarchia di directory desiderata. Per istruzioni, vedere la sezione [How to set ACL](#set-access-control-lists) di questo articolo. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quali autorizzazioni sono necessarie per eliminare in modo ricorsivo una directory e il relativo contenuto?
 

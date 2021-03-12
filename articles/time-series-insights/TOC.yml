@@ -180,7 +180,7 @@
 - name: Risorse
   items:
     - name: Opzioni di supporto tecnico e assistenza
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/time-series-insights/toc.json&bc=/azure/time-series-insights/breadcrumb/toc.json
     - name: Richieste di dati del cliente
       href: time-series-insights-customer-data-requests.md
     - name: Risorse per sviluppatori

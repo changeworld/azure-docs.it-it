@@ -106,9 +106,7 @@
           href: service-fabric-tutorial-standalone-clean-up.md
 - name: Procedure consigliate
   items:
-    - name: Panoramica delle procedure consigliate per Service Fabric
-      href: service-fabric-best-practices-overview.md
-    - name: Security
+    - name: Sicurezza
       href: service-fabric-best-practices-security.md
     - name: Rete
       href: service-fabric-best-practices-networking.md

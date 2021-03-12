@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 2fd8911ca11ee6dfcf795347e1fe7f2c36a2b636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/11/2021
+ms.openlocfilehash: 4f03236176acea14bed2dfaac53b1a1e6cf7a1e2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716526"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197864"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -333,6 +333,10 @@ Di seguito è riportata una spiegazione del modo in cui viene costruito il model
 #### <a name="datasets"></a>Set di dati
 
 * Sebbene la personalizzazione specifica del tipo sia disponibile per i set di dati, è possibile fornire la configurazione senza avere esplicitamente una configurazione a livello di \*. Nell'esempio precedente, vengono parametrizzate tutte le proprietà del set di dati in `typeProperties`.
+
+> [!NOTE]
+> Gli **avvisi e le matrici di Azure** se configurati per una pipeline non sono attualmente supportati come parametri per le distribuzioni ARM. Per riapplicare gli avvisi e le matrici nel nuovo ambiente, seguire [Data Factory monitoraggio, avvisi e matrici.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> 
 
 ### <a name="default-parameterization-template"></a>Modello di parametrizzazione predefinito
 
@@ -678,6 +682,8 @@ Se si usa l'integrazione di Git con la data factory e si dispone di una pipeline
 -   Non è possibile pubblicare da rami privati.
 
 -   Non è attualmente possibile ospitare progetti in Bitbucket.
+
+-   Attualmente non è possibile esportare e importare avvisi e matrici come parametri. 
 
 ## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a>Script pre-distribuzione e post-distribuzione
 

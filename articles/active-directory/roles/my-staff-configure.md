@@ -1,5 +1,5 @@
 ---
-title: Usare il personale per delegare la gestione degli utenti (anteprima)-Azure AD | Microsoft Docs
+title: Usare il personale per delegare la gestione degli utenti-Azure AD | Microsoft Docs
 description: Delegare la gestione degli utenti tramite il personale e le unità amministrative
 services: active-directory
 documentationcenter: ''
@@ -9,28 +9,26 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 03/11/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 501fe17734be1e73ffc516a7b94300445c331e86
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 1a380c8a3d766c3c11d8cba1148383d924f65a1b
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090944"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224997"
 ---
-# <a name="manage-your-users-with-my-staff-preview"></a>Gestisci gli utenti con il personale (anteprima)
+# <a name="manage-your-users-with-my-staff"></a>Gestisci gli utenti con il personale
 
-Il personale IT consente di delegare a una figura di autorità, ad esempio un responsabile del negozio o un responsabile del team, le autorizzazioni per garantire che i membri del personale siano in grado di accedere ai propri account Azure AD. Anziché affidarsi a un helpdesk centrale, le organizzazioni possono delegare attività comuni, come la reimpostazione delle password o la modifica dei numeri di telefono a un Team Manager. Con il personale, un utente che non può accedere al proprio account può riottenere l'accesso con pochi clic, senza richiedere supporto tecnico o personale IT.
+Il personale IT consente di delegare le autorizzazioni a una figura di autorità, ad esempio un responsabile del negozio o un responsabile del team, per garantire che i membri del personale siano in grado di accedere ai propri account Azure AD. Anziché affidarsi a un helpdesk centrale, le organizzazioni possono delegare attività comuni, come la reimpostazione delle password o la modifica dei numeri di telefono a un Team Manager locale. Con il personale, un utente che non può accedere al proprio account può riottenere l'accesso con pochi clic, senza richiedere supporto tecnico o personale IT.
 
-Prima di configurare il personale per la propria organizzazione, è consigliabile consultare questa documentazione e la [documentazione dell'utente](../user-help/my-staff-team-manager.md) per assicurarsi di comprendere la funzionalità e l'effetto di questa funzionalità per gli utenti. È possibile sfruttare la documentazione dell'utente per eseguire il training e preparare gli utenti per la nuova esperienza e contribuire a garantire una corretta implementazione.
-
-L'autenticazione basata su SMS per gli utenti è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+Prima di configurare il personale per la propria organizzazione, è consigliabile consultare questa documentazione e la [documentazione dell'utente](../user-help/my-staff-team-manager.md) per assicurarsi di comprenderne il funzionamento e il modo in cui influisca sugli utenti. È possibile sfruttare la documentazione dell'utente per eseguire il training e preparare gli utenti per la nuova esperienza e contribuire a garantire una corretta implementazione.
 
 ## <a name="how-my-staff-works"></a>Funzionamento del personale
 
-Il personale si basa su unità amministrative (AUs), ovvero un contenitore di risorse che possono essere usate per limitare l'ambito del controllo amministrativo di un'assegnazione di ruolo. Nel personale, gli AUs vengono usati per definire un subset di utenti di un'organizzazione, ad esempio uno Store o un reparto. Quindi, ad esempio, un Team Manager può essere assegnato a un ruolo il cui ambito è uno o più AUs. Nell'esempio seguente all'utente è stato concesso il ruolo di amministratore dell'autenticazione e le tre unità di gestione sono l'ambito del ruolo. Per ulteriori informazioni sulle unità amministrative, vedere [gestione delle unità amministrative in Azure Active Directory](administrative-units.md).
+Il personale si basa su unità amministrative, ovvero un contenitore di risorse che possono essere usate per limitare l'ambito del controllo amministrativo di un'assegnazione di ruolo. Per ulteriori informazioni, vedere [gestione delle unità amministrative in Azure Active Directory](administrative-units.md). Nel personale, le unità amministrative possono essere usate per contenere un gruppo di utenti in uno Store o un reparto. Un Team Manager può quindi essere assegnato a un ruolo amministrativo in un ambito di una o più unità.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -43,7 +41,7 @@ Per completare le procedure descritte in questo articolo, sono necessari i privi
 
   * Se necessario, [creare un tenant di Azure Active Directory](../fundamentals/sign-up-organization.md) o [associare una sottoscrizione di Azure al proprio account](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 * Per abilitare l'autenticazione basata su SMS, è necessario disporre dei privilegi di *amministratore globale* nel tenant di Azure ad.
-* A ogni utente abilitato nei criteri del metodo di autenticazione tramite SMS deve essere concessa una licenza, anche a chi non usa questo metodo. Ogni utente abilitato deve avere una delle seguenti Azure AD o licenze Microsoft 365:
+* Ogni utente abilitato nei criteri del metodo di autenticazione tramite SMS deve essere concesso in licenza, anche se non lo usa. Ogni utente abilitato deve avere una delle seguenti Azure AD o licenze Microsoft 365:
 
   * [Azure AD Premium P1 o P2](https://azure.microsoft.com/pricing/details/active-directory/)
   * [Microsoft 365 (M365) F1 o F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
@@ -51,7 +49,7 @@ Per completare le procedure descritte in questo articolo, sono necessari i privi
 
 ## <a name="how-to-enable-my-staff"></a>Come abilitare il personale
 
-Una volta configurata la funzionalità AUs, è possibile applicare questo ambito agli utenti che accedono al personale. Solo gli utenti a cui è assegnato un ruolo amministrativo possono accedere al personale. Per abilitare il personale, attenersi alla procedura seguente:
+Una volta configurate le unità amministrative, è possibile applicare questo ambito agli utenti che accedono al personale. Solo gli utenti a cui è assegnato un ruolo amministrativo possono accedere al personale. Per abilitare il personale, attenersi alla procedura seguente:
 
 1. Accedere al portale di Azure come amministratore utente.
 2. Passare a **Azure Active Directory**  >  **impostazioni utente le**  >  **anteprime** delle funzionalità utente  >  **Gestisci le impostazioni di anteprima delle funzionalità utente**.
@@ -64,40 +62,37 @@ Una volta configurata la funzionalità AUs, è possibile applicare questo ambito
 
 È possibile proteggere il portale personale usando Azure AD i criteri di accesso condizionale. Usare questa funzionalità per attività come la richiesta di autenticazione a più fattori prima di accedere al personale.
 
-Si consiglia vivamente di proteggere il personale utilizzando [Azure ad criteri di accesso condizionale](../conditional-access/index.yml). Per applicare un criterio di accesso condizionale al personale, è necessario creare manualmente l'entità servizio personale con PowerShell.
+Si consiglia vivamente di proteggere il personale utilizzando [Azure ad criteri di accesso condizionale](../conditional-access/index.yml). Per applicare un criterio di accesso condizionale al personale, è prima necessario visitare il sito personale per alcuni minuti per effettuare automaticamente il provisioning dell'entità servizio nel tenant per l'uso da parte dell'accesso condizionale.
 
-### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Applicare un criterio di accesso condizionale al personale
+L'entità servizio verrà visualizzata quando si crea un criterio di accesso condizionale che si applica all'applicazione cloud personale.
 
-1. Installare i [cmdlet di PowerShell per Microsoft Graph beta](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
-1. Eseguire i comandi seguenti:
-
-   ```powershell
-   Connect-Graph -Scopes "Directory.AccessAsUser.All"
-   New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
-   ```
-1. Creare criteri di accesso condizionale che si applicano all'applicazione cloud personale.
-
-    ![Creare un criterio di accesso condizionale per l'app personale](./media/my-staff-configure/conditional-access.png)
+![Creare un criterio di accesso condizionale per l'app personale](./media/my-staff-configure/conditional-access.png)
 
 ## <a name="using-my-staff"></a>Uso del personale
 
-Quando un utente passa al personale, vengono visualizzati i nomi delle [unità amministrative](administrative-units.md) su cui dispongono di autorizzazioni amministrative. Nella [documentazione dell'utente personale](../user-help/my-staff-team-manager.md)viene usato il termine "location" per fare riferimento a unità amministrative. Se le autorizzazioni di un amministratore non hanno un ambito AU, le autorizzazioni si applicano all'intera organizzazione. Una volta abilitato il personale, gli utenti che sono abilitati e a cui è stato assegnato un ruolo amministrativo possono accedervi tramite [https://mystaff.microsoft.com](https://mystaff.microsoft.com) . Possono selezionare un AU per visualizzare gli utenti in tale AU e selezionare un utente per aprire il proprio profilo.
+Quando un utente passa al personale, vengono visualizzati i nomi delle [unità amministrative](administrative-units.md) su cui dispongono di autorizzazioni amministrative. Nella [documentazione dell'utente personale](../user-help/my-staff-team-manager.md)viene usato il termine "location" per fare riferimento a unità amministrative. Se le autorizzazioni di un amministratore non hanno un ambito di unità amministrativa, le autorizzazioni si applicano all'intera organizzazione. Una volta abilitato il personale, gli utenti che sono abilitati e a cui è stato assegnato un ruolo amministrativo possono accedervi tramite [https://mystaff.microsoft.com](https://mystaff.microsoft.com) . Possono selezionare un'unità amministrativa per visualizzare gli utenti in tale unità e selezionare un utente per aprire il proprio profilo.
 
 ## <a name="reset-a-users-password"></a>Reimpostare la password di un utente
 
+Prima di poter riposare le password per gli utenti locali, è necessario soddisfare le condizioni dei prerequisiti seguenti. Per istruzioni dettagliate, vedere [abilitare la reimpostazione della password self-service](../authentication/tutorial-enable-sspr-writeback.md) .
+
+* Configurare le autorizzazioni per il writeback delle password
+* Abilitare il writeback delle password in Azure AD Connect
+* Abilitazione del writeback delle password in Azure AD reimpostazione della password self-service (SSPR)
+
 I ruoli seguenti sono autorizzati a reimpostare la password di un utente:
 
-- [Amministratore autenticazione](permissions-reference.md#authentication-administrator)
-- [Amministratore di autenticazione con privilegi](permissions-reference.md#privileged-authentication-administrator)
-- [Amministratore globale](permissions-reference.md#global-administrator)
-- [Amministratore helpdesk](permissions-reference.md#helpdesk-administrator)
-- [Amministratore utenti](permissions-reference.md#user-administrator)
-- [Amministratore password](permissions-reference.md#password-administrator)
+* [Amministratore autenticazione](permissions-reference.md#authentication-administrator)
+* [Amministratore di autenticazione con privilegi](permissions-reference.md#privileged-authentication-administrator)
+* [Amministratore globale](permissions-reference.md#global-administrator)
+* [Amministratore helpdesk](permissions-reference.md#helpdesk-administrator)
+* [Amministratore utenti](permissions-reference.md#user-administrator)
+* [Amministratore password](permissions-reference.md#password-administrator)
 
 Dal **personale**, aprire il profilo di un utente. Selezionare **Reimposta password**.
 
-- Se l'utente è solo cloud, è possibile visualizzare una password temporanea che è possibile assegnare all'utente.
-- Se l'utente viene sincronizzato dall'Active Directory locale, è possibile immettere una password che soddisfi i criteri AD locali. È quindi possibile assegnare la password all'utente.
+* Se l'utente è solo cloud, è possibile visualizzare una password temporanea che è possibile assegnare all'utente.
+* Se l'utente viene sincronizzato dall'Active Directory locale, è possibile immettere una password che soddisfi i criteri AD locali. È quindi possibile assegnare la password all'utente.
 
     ![Indicatore di stato della reimpostazione della password e notifica](./media/my-staff-configure/reset-password.png)
 
@@ -107,23 +102,23 @@ L'utente dovrà modificare la password al successivo accesso.
 
 Dal **personale**, aprire il profilo di un utente.
 
-- Selezionare la sezione **Aggiungi numero di telefono** per aggiungere un numero di telefono per l'utente
-- Selezionare **modifica numero di telefono** per modificare il numero di telefono
-- Selezionare **Rimuovi numero di telefono** per rimuovere il numero di telefono dell'utente
+* Selezionare la sezione **Aggiungi numero di telefono** per aggiungere un numero di telefono per l'utente
+* Selezionare **modifica numero di telefono** per modificare il numero di telefono
+* Selezionare **Rimuovi numero di telefono** per rimuovere il numero di telefono dell'utente
 
 A seconda delle impostazioni, l'utente può quindi usare il numero di telefono configurato per accedere con SMS, eseguire l'autenticazione a più fattori ed eseguire la reimpostazione della password self-service.
 
 Per gestire il numero di telefono di un utente, è necessario disporre di uno dei ruoli seguenti:
 
-- [Amministratore autenticazione](permissions-reference.md#authentication-administrator)
-- [Amministratore di autenticazione con privilegi](permissions-reference.md#privileged-authentication-administrator)
-- [Amministratore globale](permissions-reference.md#global-administrator)
+* [Amministratore autenticazione](permissions-reference.md#authentication-administrator)
+* [Amministratore di autenticazione con privilegi](permissions-reference.md#privileged-authentication-administrator)
+* [Amministratore globale](permissions-reference.md#global-administrator)
 
 ## <a name="search"></a>Cerca
 
-È possibile cercare gli AUs e gli utenti dell'organizzazione usando la barra di ricerca del personale. È possibile eseguire ricerche in tutte le unità di analisi e tutti gli utenti dell'organizzazione, ma è possibile apportare modifiche solo agli utenti che si trovano in un'unità di analisi per cui sono state concesse le autorizzazioni di amministratore.
+È possibile cercare unità amministrative e utenti nell'organizzazione usando la barra di ricerca del personale. È possibile eseguire ricerche in tutte le unità amministrative e gli utenti dell'organizzazione, ma è possibile apportare modifiche solo agli utenti che si trovano in un'unità amministrativa a cui sono state concesse le autorizzazioni di amministratore.
 
-È anche possibile cercare un utente all'interno di un AU. A tale scopo, usare la barra di ricerca nella parte superiore dell'elenco di utenti.
+È anche possibile cercare un utente all'interno di un'unità amministrativa. A tale scopo, usare la barra di ricerca nella parte superiore dell'elenco di utenti.
 
 ## <a name="audit-logs"></a>Log di controllo
 

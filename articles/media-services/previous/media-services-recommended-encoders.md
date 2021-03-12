@@ -3,18 +3,18 @@ title: Informazioni sui codificatori consigliati da Servizi multimediali di Azur
 description: Questo articolo elenca i codificatori locali consigliati da servizi multimediali di Azure.
 services: media-services
 keywords: codifica; codificatori; media
-author: dbgeorge
+author: IngridAtMicrosoft
 manager: johndeu
 ms.author: johndeu
-ms.date: 03/20/2019
+ms.date: 03/10/2021
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 11456a8dc55a98778bf44225bf659e506e2d3a3f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 98d78a105bf06a2e49dee0b8c2be710b220a0023
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510057"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009437"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificatori locali consigliati
 

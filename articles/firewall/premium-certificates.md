@@ -7,12 +7,12 @@ services: firewall
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: victorh
-ms.openlocfilehash: 621bf6138e4336c63ca137a6a8c54f77a4a99d61
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 47ebc752dedd72bbdedc02908911f1686584acda
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520286"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615500"
 ---
 # <a name="azure-firewall-premium-preview-certificates"></a>Certificati di anteprima Premium di Azure firewall 
 
@@ -111,7 +111,8 @@ Gli script generano i seguenti file:
 
 > [!IMPORTANT]
 > rootCA. Key deve essere archiviato in un percorso offline sicuro. Gli script generano un certificato con validità di 1024 giorni.
-
+> Gli script richiedono l'installazione di file binari OpenSSL nel computer locale. Per ulteriori informazioni, vedere https://www.openssl.org/.
+> 
 Una volta creati i certificati, è necessario distribuirli nei percorsi seguenti:
 - rootCA. CRT-Distribuisci in computer endpoint (solo certificato pubblico).
 - interCA. pfx: importa come certificato in un Key Vault e assegna ai criteri del firewall.

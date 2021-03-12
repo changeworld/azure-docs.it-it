@@ -136,8 +136,10 @@
       items:
         - name: Ridimensionare un cluster del servizio Azure Container
           href: scale-cluster.md
-        - name: Arrestare un cluster del servizio Azure Kubernetes (anteprima)
+        - name: Arrestare un cluster AKS
           href: start-stop-cluster.md
+        - name: Usare la manutenzione pianificata (anteprima)
+          href: planned-maintenance.md
         - name: Aggiornare un cluster del servizio Azure Container
           href: upgrade-cluster.md
         - name: Usare il contratto di servizio relativo al tempo di attività

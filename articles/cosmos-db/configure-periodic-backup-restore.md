@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 185320868c491d98df5fb6e31d9a627157431944
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 69a9f0a82f5c19504564825e47f69ab8414e0909
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527528"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565836"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configurare Azure Cosmos DB account con backup periodico
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,7 +33,7 @@ Azure Cosmos DB esegue automaticamente il backup dei dati a intervalli regolari.
 
 ## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>Modificare l'intervallo di backup e il periodo di memorizzazione
 
-Azure Cosmos DB esegue automaticamente un backup completo dei dati ogni 4 ore e in qualsiasi momento, vengono archiviati i due backup più recenti. Questa configurazione è l'opzione predefinita e viene offerta senza costi aggiuntivi. È possibile modificare l'intervallo di backup e il periodo di memorizzazione predefiniti durante la creazione dell'account Azure Cosmos o dopo la creazione dell'account. La configurazione del backup è impostata a livello di account Azure Cosmos e deve essere eseguita in ogni account. Dopo aver configurato le opzioni di backup per un account, questo viene applicato a tutti i contenitori all'interno dell'account. Al momento è possibile modificare le opzioni di backup solo dal portale di Azure.
+Azure Cosmos DB esegue automaticamente un backup completo dei dati ogni 4 ore e in qualsiasi momento, vengono archiviati i due backup più recenti. Questa configurazione è l'opzione predefinita e viene offerta senza costi aggiuntivi. L'intervallo di backup e il periodo di conservazione predefiniti possono essere modificati durante o dopo la creazione dell'account Azure Cosmos. La configurazione del backup è impostata a livello di account Azure Cosmos e deve essere eseguita in ogni account. Dopo aver configurato le opzioni di backup per un account, questo viene applicato a tutti i contenitori all'interno dell'account. Al momento è possibile modificare le opzioni di backup solo dal portale di Azure.
 
 Se i dati sono stati eliminati o danneggiati in modo accidentale, **prima di creare una richiesta di supporto per il ripristino dei dati, assicurarsi di aumentare la conservazione del backup per l'account per almeno sette giorni. È consigliabile aumentare la conservazione entro 8 ore da questo evento.** In questo modo, il team di Azure Cosmos DB avrà tempo a sufficienza per ripristinare l'account.
 
@@ -115,7 +115,7 @@ Se si effettua il provisioning della velocità effettiva a livello di database, 
 Le entità che fanno parte del ruolo [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), proprietario o collaboratore possono richiedere un ripristino o modificare il periodo di memorizzazione.
 
 ## <a name="understanding-costs-of-extra-backups"></a>Informazioni sui costi dei backup aggiuntivi
-Sono disponibili due backup gratuiti e i backup aggiuntivi vengono addebitati in base ai prezzi basati sull'area per l'archiviazione di backup descritti in [prezzi di archiviazione di backup](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Ad esempio, se la conservazione dei backup è configurata su 240 ore, ovvero 10 giorni e intervallo di backup a 24 ore. Questo implica 10 copie dei dati di backup. Supponendo 1 TB di dati negli Stati Uniti occidentali 2, il sarebbe 1000 * 0,12 ~ $120 per l'archiviazione di backup in un determinato mese. 
+Sono disponibili due backup gratuiti e i backup aggiuntivi vengono addebitati in base ai prezzi basati sull'area per l'archiviazione di backup descritti in [prezzi di archiviazione di backup](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Ad esempio, se la conservazione dei backup è configurata su 240 ore, ovvero 10 giorni e intervallo di backup a 24 ore. Questo implica 10 copie dei dati di backup. Supponendo 1 TB di dati negli Stati Uniti occidentali 2, il costo sarà di 0,12 * 1000 * 8 per l'archiviazione di backup in un determinato mese. 
 
 
 ## <a name="options-to-manage-your-own-backups"></a>Opzioni per la gestione dei backup

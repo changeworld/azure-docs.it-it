@@ -1,14 +1,14 @@
 ---
 title: Indice degli esempi di progetto
 description: Indice di esempi di conformità e standard per la distribuzione di ambienti, criteri ed elementi di base di Cloud Adoptions Framework con Azure Blueprints.
-ms.date: 02/08/2020
+ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: c64bc02c1dea4e2c53d4ff195add2ac7fa57874f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0873de5879a40b13bea03c97e0b78d146f0d6696
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370955"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200982"
 ---
 # <a name="azure-blueprints-samples"></a>Esempi di Azure Blueprints
 
@@ -22,7 +22,8 @@ La tabella seguente include collegamenti a esempi per Azure Blueprints. Ogni ese
 | [Azure Security Benchmark](./azure-security-benchmark.md) | Fornisce misure di tutela per la conformità ad [Azure Security Benchmark](../../../security/benchmarks/overview.md). |
 | [Azure Security benchmark Foundation](./azure-security-benchmark-foundation/index.md) | Distribuisce e configura Azure Security benchmark Foundation. |
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Fornisce misure di tutela per la conformità a Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
-| [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1-1-0.md)| Fornisce un set di criteri per garantire la conformità alle raccomandazioni di CIS Microsoft Azure Foundations Benchmark. |
+| [1.3.0 di base di Microsoft Azure CIS per le fondamenta v](./cis-azure-1-3-0.md)| Fornisce un set di criteri per garantire la conformità con i consigli di 1.3.0 di base di CIS Microsoft Azure Foundations benchmark v. |
+| [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)| Fornisce un set di criteri che consentono di conformarsi alle raccomandazioni di base di CIS Microsoft Azure Foundations benchmark v 1.1.0. |
 | [DoD Impact Level 4](./dod-impact-level-4/index.md) | Fornisce un set di criteri per garantire la conformità a DoD Impact Level 4. |
 | [DoD Impact Level 5](./dod-impact-level-5/index.md) | Fornisce un set di criteri per garantire la conformità a DoD Impact Level 5. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | Fornisce un set di criteri per garantire la conformità a FedRAMP Moderate. |

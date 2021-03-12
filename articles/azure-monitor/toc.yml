@@ -475,8 +475,6 @@
           items:
             - name: Gestire gli avvisi per le metriche
               href: alerts/alerts-metric.md
-            - name: Disponibilità
-              href: app/monitor-web-app-availability.md
             - name: Usare soglie dinamiche
               href: alerts/alerts-dynamic-thresholds.md
             - name: Avvisi singoli per più serie temporali

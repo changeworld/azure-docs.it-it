@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di Resource Graph e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
-ms.date: 01/14/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 137b5c40097d7de82e156b4a0869d7257d3e9964
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: f6cb13814fe725ff0253a0a5bf0098f0080fa407
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624759"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633802"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -32,7 +32,9 @@ Il grafico risorse fornisce diverse tabelle per i dati archiviati su Azure Resou
 |ResourceContainers |Sì |Include i dati e i tipi di risorsa delle sottoscrizioni (in anteprima, `Microsoft.Resources/subscriptions`) e dei gruppi di risorse (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AdvisorResources |Sì (anteprima) |Include le risorse _relative_ a `Microsoft.Advisor`. |
 |AlertsManagementResources |Sì (anteprima) |Include le risorse _relative_ a `Microsoft.AlertsManagement`. |
+|ExtendedLocationResources |No |Include le risorse _relative_ a `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |No |Include le risorse _relative_ a `Microsoft.GuestConfiguration`. |
+|KubernetesConfigurationResources |No |Include le risorse _relative_ a `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Partial, join solo _a_ . (anteprima) |Include le risorse _relative_ a `Microsoft.Maintenance`. |
 |PatchAssessmentResources|No |Include risorse _correlate_ alla valutazione delle patch per le macchine virtuali di Azure. |
 |PatchInstallationResources|No |Include risorse _correlate_ all'installazione delle patch per macchine virtuali di Azure. |
@@ -40,6 +42,7 @@ Il grafico risorse fornisce diverse tabelle per i dati archiviati su Azure Resou
 |RecoveryServicesResources |Partial, join solo _a_ . (anteprima) |Include le risorse _correlate_ a `Microsoft.DataProtection` e `Microsoft.RecoveryServices` . |
 |SecurityResources |Partial, join solo _a_ . (anteprima) |Include le risorse _relative_ a `Microsoft.Security`. |
 |ServiceHealthResources |No |Include le risorse _relative_ a `Microsoft.ResourceHealth`. |
+|WorkloadMonitorResources |No |Include le risorse _relative_ a `Microsoft.WorkloadMonitor`. |
 
 Per un elenco completo, inclusi i tipi di risorse, vedere informazioni di [riferimento: tabelle e tipi di risorse supportati](../reference/supported-tables-resources.md).
 

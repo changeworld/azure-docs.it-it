@@ -3,12 +3,12 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7423157abbc0833394af055f5e31f724caa10b46
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728213"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224708"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -24,7 +24,7 @@ Questo articolo aiuta a comprendere il processo di creazione di endpoint privati
 - Una connessione a un endpoint privato per il backup usa un totale di 11 indirizzi IP privati nella subnet, inclusi quelli usati da backup di Azure per l'archiviazione. Questo numero può essere maggiore (fino a 25) per determinate aree di Azure. Si consiglia quindi di avere un numero sufficiente di indirizzi IP privati disponibili quando si tenta di creare endpoint privati per il backup.
 - Mentre un insieme di credenziali di servizi di ripristino viene usato da (entrambi) backup di Azure e Azure Site Recovery, questo articolo illustra l'uso degli endpoint privati solo per il backup di Azure.
 - Azure Active Directory attualmente non supporta endpoint privati. Gli indirizzi IP e i nomi di dominio completi necessari per il funzionamento di Azure Active Directory in un'area dovranno quindi consentire l'accesso in uscita dalla rete protetta durante l'esecuzione del backup dei database in macchine virtuali di Azure e di backup con l'agente MARS. È anche possibile usare i tag NSG e i tag del firewall di Azure per consentire l'accesso ai Azure AD, come applicabile.
-- Le reti virtuali con criteri di rete non sono supportate per gli endpoint privati. Prima di continuare, è necessario disabilitare i criteri di rete.
+- Le reti virtuali con criteri di rete non sono supportate per gli endpoint privati. Prima di continuare, è necessario [disabilitare i criteri di rete](https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy) .
 - È necessario registrare di nuovo il provider di risorse di servizi di ripristino con la sottoscrizione, se è stato registrato prima del 1 2020 maggio. Per registrare di nuovo il provider, passare alla sottoscrizione nel portale di Azure, passare a provider di **risorse** nella barra di spostamento a sinistra, quindi selezionare **Microsoft. RecoveryServices** e selezionare **Re-Register**.
 - Il [ripristino tra aree](backup-create-rs-vault.md#set-cross-region-restore) per SQL e i backup di database SAP Hana non sono supportati se l'insieme di credenziali ha endpoint privati abilitati.
 - Quando si sposta un insieme di credenziali di servizi di ripristino che usa già endpoint privati in un nuovo tenant, è necessario aggiornare l'insieme di credenziali di servizi di ripristino per ricreare e riconfigurare l'identità gestita dell'insieme di credenziali e creare nuovi endpoint privati in base alle esigenze (che dovrebbero trovarsi nel nuovo tenant). Se questa operazione non viene eseguita, le operazioni di backup e ripristino inizieranno a non riuscire. Inoltre, le autorizzazioni di controllo degli accessi in base al ruolo impostate nella sottoscrizione dovranno essere riconfigurate.
@@ -297,6 +297,10 @@ Quando si usa l'agente MARS per eseguire il backup delle risorse locali, assicur
 
 Tuttavia, se si rimuovono endpoint privati per l'insieme di credenziali dopo la registrazione di un agente MARS, sarà necessario registrare di nuovo il contenitore con l'insieme di credenziali. Non è necessario arrestare la protezione dati.
 
+## <a name="deleting-private-endpoints"></a>Eliminazione di EndPoint privati
+
+Vedere [questa sezione](https://docs.microsoft.com/rest/api/virtualnetwork/privateendpoints/delete) per informazioni su come eliminare gli endpoint privati.
+
 ## <a name="additional-topics"></a>Argomenti aggiuntivi
 
 ### <a name="create-a-recovery-services-vault-using-the-azure-resource-manager-client"></a>Creare un insieme di credenziali di servizi di ripristino tramite il client Azure Resource Manager
@@ -554,4 +558,4 @@ R. Dopo aver seguito il processo descritto in questo articolo, non è necessario
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere le informazioni su tutte le [funzionalità di sicurezza di backup di Azure](security-overview.md)
+- Leggere le informazioni su tutte le [funzionalità di sicurezza di backup di Azure](security-overview.md).

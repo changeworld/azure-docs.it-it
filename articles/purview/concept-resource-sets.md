@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 39a1400bfe642672ba276686851d4f0edebbeb00
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cbf070dce056795ad8e4a5f3e4d609e7d36d631e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387853"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200822"
 ---
 # <a name="understanding-resource-sets"></a>Informazioni sui set di risorse
 
@@ -21,7 +21,7 @@ Questo articolo illustra come Azure asset usa i set di risorse per eseguire il m
 
 I sistemi di elaborazione dati su larga scala in genere archiviano una singola tabella su un disco come più file. Questo concetto è rappresentato in Azure ambito usando i set di risorse. Un set di risorse è un singolo oggetto nel catalogo che rappresenta un numero elevato di asset nello spazio di archiviazione.
 
-Si supponga, ad esempio, che il cluster Spark abbia reso permanente un frame di dati in un'origine dati Gen2 di Azure Datal Lake Storage (ADLS). Sebbene in Spark la tabella abbia un aspetto simile a una singola risorsa logica, sul disco sono probabilmente presenti migliaia di file parquet, ciascuno dei quali rappresenta una partizione del contenuto del frame di dati totale. I dati e i dati del log Web hanno la stessa sfida. Si supponga di avere un sensore che restituisce i file di log più volte al secondo. Non sarà necessario molto tempo fino a quando non si dispone di centinaia di migliaia di file di log da quel singolo sensore.
+Si supponga, ad esempio, che il cluster Spark abbia reso permanente un frame di dati in un'origine dati di Azure Data Lake Storage (ADLS) Gen2. Sebbene in Spark la tabella abbia un aspetto simile a una singola risorsa logica, sul disco sono probabilmente presenti migliaia di file parquet, ciascuno dei quali rappresenta una partizione del contenuto del frame di dati totale. I dati e i dati del log Web hanno la stessa sfida. Si supponga di avere un sensore che restituisce i file di log più volte al secondo. Non sarà necessario molto tempo fino a quando non si dispone di centinaia di migliaia di file di log da quel singolo sensore.
 
 Per risolvere il problema del mapping di un numero elevato di asset di dati a una singola risorsa logica, Azure ambito usa i set di risorse.
 

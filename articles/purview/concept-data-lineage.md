@@ -7,16 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: ceb30cee194994e5b31db312f191194932c937b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 476355f41de5e0e6aaffdedea8947cab5221767a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554102"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200738"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Derivazione dei dati in Azure competenza Data Catalog client
 
-Questo articolo fornisce una panoramica della derivazione dei dati in Azure Data Catalog. Viene inoltre illustrato il modo in cui i sistemi dati possono integrarsi con il catalogo per acquisire la derivazione dei dati. La competenza può acquisire la derivazione per i dati in diverse parti dell'organizzazione dei dati e a diversi livelli di preparazione, tra cui:
+Questo articolo fornisce una panoramica della derivazione dei dati in Azure Data Catalog. Viene inoltre illustrato il modo in cui i sistemi dati possono integrarsi con il catalogo per acquisire la derivazione dei dati. Le competenze possono acquisire la derivazione dei dati in diverse parti del patrimonio di dati dell'organizzazione e a diversi livelli di preparazione, tra cui:
 
 - Dati completamente non elaborati gestiti da diverse piattaforme
 - Dati trasformati e preparati
@@ -65,6 +65,6 @@ La derivazione è una funzionalità fondamentale del Data Catalog di competenza 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: creare un account Azure per la competenza nel portale di Azure](create-catalog-portal.md)
-* [Guida introduttiva: creare un account Azure per la competenza usando Azure PowerShell CLI di Azure](create-catalog-powershell.md)
+* [Avvio rapido: Creare un account Azure Purview nel portale di Azure](create-catalog-portal.md)
+* [Avvio rapido: Creare un account Azure Purview mediante Azure PowerShell o l'interfaccia della riga di comando di Azure](create-catalog-powershell.md)
 * [Guida introduttiva: usare ambito studio](use-purview-studio.md)

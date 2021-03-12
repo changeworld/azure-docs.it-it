@@ -8,14 +8,16 @@ ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef3f09648e0d9101d07c6d8941ee7f79ae97b2b8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9248c9578d94b000c04c82b33eeeb089e55a26ef
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048033"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200303"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, si distribuiscono i moduli nei dispositivi per consentirne l'uso a livello perimetrale. Se si hanno più moduli che interagiscono per raccogliere ed elaborare dati, è possibile distribuirli contemporaneamente e dichiarare le regole di routing che li connettono.
 
@@ -108,7 +110,7 @@ Verificare che il modulo sia distribuito nell'hub Internet delle cose nel portal
 1. Nel riquadro sinistro, in **gestione automatica dispositivi**, selezionare **IOT Edge**.
 1. Selezionare il dispositivo IoT Edge per ricevere la distribuzione.
 1. Sulla barra superiore selezionare **Imposta moduli**.
-1. Nella sezione **moduli IOT Edge** fare clic su **Aggiungi**e selezionare **modulo Marketplace** dal menu a discesa.
+1. Nella sezione **moduli IOT Edge** fare clic su **Aggiungi** e selezionare **modulo Marketplace** dal menu a discesa.
 
 ![Aggiungere un modulo nell'hub Internet](./media/how-to-deploy-modules-portal/iothub-add-module.png)
 

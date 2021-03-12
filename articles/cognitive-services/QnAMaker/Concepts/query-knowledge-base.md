@@ -3,12 +3,12 @@ title: Eseguire una query sulla Knowledge base-QnA Maker
 description: È necessario pubblicare una Knowledge base. Una volta pubblicato, la Knowledge base viene sottoposta a query nell'endpoint di stima di runtime tramite l'API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: c723d1446c90290929bc8cad066b4744e284f3f4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820382"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008672"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Eseguire una query sulla Knowledge base per le risposte
 
@@ -84,10 +84,9 @@ Una query utente è la domanda che l'utente finale chiede alla Knowledge base, a
     "userId": "sd53lsY="
 }
 ```
+Per controllare la risposta, impostare proprietà quali [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [Top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)e [strictFilters](../how-to/query-knowledge-base-with-metadata.md).
 
-Per controllare la risposta, impostare proprietà quali [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [Top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)e [strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
-
-Usare il [contesto di conversazione](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) con la funzionalità a più [turni](../how-to/multiturn-conversation.md) per continuare la conversazione per ridefinire le domande e le risposte, per trovare la risposta corretta e finale.
+Usare il [contesto di conversazione](../how-to/query-knowledge-base-with-metadata.md) con la funzionalità a più [turni](../how-to/multiturn-conversation.md) per continuare la conversazione per ridefinire le domande e le risposte, per trovare la risposta corretta e finale.
 
 ### <a name="the-response-from-a-call-to-generate-an-answer"></a>Risposta da una chiamata per generare una risposta
 

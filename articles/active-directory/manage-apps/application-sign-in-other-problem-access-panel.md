@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2a0411e97f78104de1356d482e4e43a42701c073
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a54c7d6cc4ccf1d9f42702be030598ad1edfab24
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687625"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225150"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Risolvere i problemi di accesso a un'applicazione da Azure AD app personali
 
@@ -148,7 +148,7 @@ Questo perché le app attualmente leggono fino a 999 assegnazioni di ruolo app p
 Per verificare se un utente ha più di 999 assegnazioni di ruolo app, seguire questa procedura:
 1. Installare il modulo [**Microsoft. Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell.
 2. Eseguire `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`.
-3. Eseguire `(Get-MgUserAppRoleAssignment -UserId "<userId>" -Top 999).Count` per determinare il numero di assegnazioni di ruolo dell'app che l'utente ha attualmente concesso.
+3. Eseguire `(Get-MgUserAppRoleAssignment -UserId "<user-id>" -PageSize 999).Count` per determinare il numero di assegnazioni di ruolo dell'app che l'utente ha attualmente concesso.
 4. Se il risultato è 999, l'utente avrà probabilmente più di 999 assegnazioni di ruoli dell'app.
 
 ### <a name="check-a-users-assigned-licenses"></a>Controllare le licenze assegnate di un utente

@@ -4,14 +4,14 @@ description: Informazioni su come creare ed eseguire il debug di funzioni C# usa
 ms.date: 03/03/2021
 ms.topic: how-to
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 70eacc5ec7f6adb65ba6e01c55acc6c6e3075ca9
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 9751d5d354d738a64d6b02e8153464491d78ec14
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102584139"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201382"
 ---
-# <a name="develop-and-publish-net-5-function-using-azure-functions"></a>Sviluppare e pubblicare la funzione .NET 5 con funzioni di Azure 
+# <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Sviluppare e pubblicare funzioni .NET 5 con funzioni di Azure 
 
 Questo articolo illustra come usare le funzioni C# con .NET 5,0, che vengono eseguite out-of-process dal runtime di funzioni di Azure. Si apprenderà come creare, eseguire il debug in locale e pubblicare queste funzioni di elaborazione .NET isolata in Azure. In Azure queste funzioni vengono eseguite in un processo isolato che supporta .NET 5,0. Per altre informazioni, vedere [la guida per l'esecuzione di funzioni in .net 5,0 in Azure](dotnet-isolated-process-guide.md).
 
@@ -152,7 +152,7 @@ A questo punto, è possibile eseguire il `func start` comando dalla radice della
  
 1. Nell'output del runtime di funzioni di Azure prendere nota dell'ID processo del processo host a cui si collegherà un debugger. Si noti anche l'URL della funzione locale.
 
-1. Scegliere **Connetti a processo** dal menu **debug** in Visual Studio, individuare il processo di dotnet.exe corrispondente all'ID del processo e selezionare **Connetti**. 
+1. Scegliere **Connetti a processo** dal menu **debug** in Visual Studio, individuare il processo che corrisponde all'ID del processo e selezionare **Connetti**. 
     
     :::image type="content" source="media/dotnet-isolated-process-developer-howtos/attach-to-process.png" alt-text="Connessione del debugger al processo host di funzioni":::    
 

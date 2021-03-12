@@ -2,7 +2,7 @@
 title: Panoramica di servizi multimediali di Azure V3: Descrizione di servizi multimediali di Azure: Panoramica generale di servizi multimediali di Azure V3 con collegamenti a guide introduttive, esercitazioni ed esempi di codice.
 Servizi: Media-Services documentationcenter: na Author: IngridAtMicrosoft Manager: FEMila Editor:'' Tags:'' keywords: Servizi multimediali di Azure, Stream, broadcast, Live, offline
 
-ms. Service: Media-Services ms. DevLang: più ms. Topic: Panoramica ms.tgt_pltfrm: più ms. workload: media ms. Date: 08/31/2020 ms. Author: inhenkel ms. Custom: MVC
+ms. Service: Media-Services ms. DevLang: più ms. Topic: Panoramica ms.tgt_pltfrm: più ms. workload: media ms. Date: 3/10/2021 ms. Author: inhenkel ms. Custom: MVC
 #<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>Finalità del cliente: uno sviluppatore o un provider di contenuti, desidero codificare, trasmettere (su richiesta o Live), analizzare i contenuti multimediali in modo che i clienti possano: visualizzare il contenuto di una vasta gamma di browser e dispositivi, ottenere informazioni preziose dai contenuti registrati.
 ---
 
@@ -13,9 +13,6 @@ ms. Service: Media-Services ms. DevLang: più ms. Topic: Panoramica ms.tgt_pltfr
 Servizi multimediali di Azure è una piattaforma basata su cloud che consente di creare soluzioni che offrono streaming video di alta qualità, migliorano accessibilità e distribuzione, analizzano il contenuto e molto altro ancora. Servizi multimediali consente agli sviluppatori di app, ai call center, alle agenzie governative o alle società di intrattenimento di creare app che offrono esperienze multimediali di qualità eccezionale a numerosi destinatari sui browser e sui dispositivi mobili moderni più diffusi.
 
 Gli SDK di Servizi multimediali v3 sono basati sulla [specifica OpenAPI (Swagger) per Servizi multimediali v3](https://aka.ms/ams-v3-rest-sdk).
-
-> [!NOTE]
-> Attualmente, è possibile usare il [portale di Azure](https://portal.azure.com/) per gestire gli [eventi live](live-events-outputs-concept.md) si Servizi multimediali v3, visualizzare (non gestire) gli [asset](assets-concept.md) v3 e [ottenere informazioni sull'accesso alle API](./access-api-howto.md). Per tutte le altre attività di gestione, ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md), usare l'[API REST](/rest/api/media/), l'[interfaccia della riga di comando](/cli/azure/ams) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

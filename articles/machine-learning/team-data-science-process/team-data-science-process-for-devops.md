@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a84942337b3c8eb5f7509f61f9ba5bcd564d8bb3
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: ceac1e7b5e8efa7e87ecf6e1f4c9dd8286c87e98
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653079"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614072"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Team Data Science Process per le operazioni di sviluppo
 
@@ -62,7 +62,7 @@ La tabella seguente fornisce linee guida basate su livelli che consentono di com
 |  |  | [Questa risorsa illustra come codificare e creare esperimenti di analisi predittiva usando lo strumento di Azure Machine Learning Studio basato sul Web (classico)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) | Azure Machine Learning Studio (versione classica) | Esperto | Sviluppo di software |
 |  |  | [Questo riferimento contiene un elenco e un collegamento a tutti gli strumenti di sviluppo nella macchina virtuale di data science in Azure](../data-science-virtual-machine/overview.md) | Macchina virtuale di data science | Esperto | Sviluppo di software, data science |
 |  |  | [Leggere e comprendere ognuno dei riferimenti in questo Centro protezione di Azure per la sicurezza, la privacy e la conformità - MOLTO importante](https://azure.microsoft.com/support/trust-center/) | Sicurezza di Azure | Intermedio | Esperienza di architettura di sistema, esperienza di sviluppo della sicurezza |
-|  | Compilare | [Questo corso illustra l'abilitazione delle procedure DevOps con la compilazione codespace di Visual Studio](https://mva.microsoft.com/training-courses/enabling-devops-practices-with-visual-studio-online-build-12478?l=ipCj6MuNB_6305094681) | Codespace di Visual Studio | Esperto | Sviluppo di software, familiarità con un SDLC |
+|  | Compilazione | [Questo corso illustra l'abilitazione delle procedure DevOps con la compilazione codespace di Visual Studio](https://mva.microsoft.com/training-courses/enabling-devops-practices-with-visual-studio-online-build-12478?l=ipCj6MuNB_6305094681) | Codespace di Visual Studio | Esperto | Sviluppo di software, familiarità con un SDLC |
 |  |  | [Questo riferimento illustra le modalità di compilazione disponibili in Visual Studio](/previous-versions/visualstudio/visual-studio-2015/ide/compiling-and-building-in-visual-studio) | Visual Studio | Intermedio | Sviluppo di software, familiarità con un SDLC |
 |  |  | [Questo riferimento spiega in che modo orchestrare i processi come le compilazioni del software con i runbook](/system-center/orchestrator/automate-runbooks) | System Center | Esperto | Esperienza con System Center Orchestrator |
 |  | Test | [Usare questo riferimento per comprendere come usare il codespace di Visual Studio per la gestione dei test case](http://www.almguide.com/2014/07/visual-studio-online-test-case-management/) | Codespace di Visual Studio | Esperto | Sviluppo di software, familiarità con un SDLC |
@@ -74,10 +74,10 @@ La tabella seguente fornisce linee guida basate su livelli che consentono di com
 |  |  | [Questo riferimento spiega come creare una pipeline di dati per la soluzione, che può essere salvata come modello JSON sotto forma di "pacchetto"](../../data-factory/v1/data-factory-introduction.md) | Azure Data Factory | Intermedio | Conoscenze generali di elaborazione, esperienza di progetti di dati |
 |  |  | [Questo argomento descrive la struttura di un modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) | Azure Resource Manager | Intermedio | Familiarità con la piattaforma Microsoft Azure |
 |  |  | [DSC è una piattaforma di gestione di PowerShell che consente di gestire l'infrastruttura IT e di sviluppo con la configurazione come codice, salvata come pacchetto. Questo riferimento è una panoramica di questo argomento](/powershell/scripting/dsc/overview/overview) | PowerShell Desired State Configuration | Intermedio | Codifica in PowerShell, familiarità con le architetture enterprise, creazione di script |
-|  | Versione | [Questo articolo di riferimento principale presenta concetti relativi alla compilazione, al test e al rilascio per gli ambienti CI/CD](/azure/devops/pipelines/?view=azure-devops) | Codespace di Visual Studio | Esperto | Sviluppo di software, familiarità con gli ambienti CI/CD, familiarità con un SDLC |
+|  | Versione | [Questo articolo di riferimento principale presenta concetti relativi alla compilazione, al test e al rilascio per gli ambienti CI/CD](/azure/devops/pipelines/) | Codespace di Visual Studio | Esperto | Sviluppo di software, familiarità con gli ambienti CI/CD, familiarità con un SDLC |
 |  |  | [Usare questo riferimento precedente per i runbook per automatizzare la gestione del rilascio tramite System Center](/system-center/orchestrator/automate-runbooks) | System Center | Esperto | Esperienza con System Center Orchestrator |
 |  |  | [Questo articolo consente di determinare l'opzione migliore per distribuire i file per l'app Web, il back-end dell'app per dispositivi mobili o l'app per le API nel Servizio app di Azure. L'articolo descrive quindi le risorse appropriate, con istruzioni sulle procedure specifiche per l'opzione scelta.](../../app-service/deploy-local-git.md) | Distribuzione di Microsoft Azure | Intermedio | Sviluppo di software, esperienza con la piattaforma Microsoft Azure |
-|  | Monitorare | [Questo riferimento illustra Application Insights e come aggiungerlo alle soluzioni di analisi avanzata](../../azure-monitor/app/app-insights-overview.md) | Application Insights | Intermedio | Sviluppo di software, familiarità con la piattaforma Microsoft Azure |
+|  | Monitoraggio | [Questo riferimento illustra Application Insights e come aggiungerlo alle soluzioni di analisi avanzata](../../azure-monitor/app/app-insights-overview.md) | Application Insights | Intermedio | Sviluppo di software, familiarità con la piattaforma Microsoft Azure |
 |  |  | [Questo argomento illustra i concetti di base di Operations Manager per l'amministratore che gestisce l'infrastruttura di Operations Manager e l'operatore che monitora e supporta la soluzione di analisi avanzata](/previous-versions/system-center/system-center-2012-R2/hh230741(v=sc.12)) | System Center | Esperto | Familiarità con il monitoraggio aziendale, System Center Operations Manager |
 |  |  | [Questo post di blog spiega come usare Azure Data Factory per monitorare e gestire la pipeline di analisi avanzata](https://azure.microsoft.com/blog/azure-data-factory-updates-monitoring-and-management-enhancements/) | Azure Data Factory | Intermedio | Familiarità con Azure Data Factory |
 |  |  | [Questo video mostra come monitorare un log con i log di monitoraggio di Azure](https://channel9.msdn.com/Shows/Data-Exposed/Enterprise-HDInsight-Monitoring-with-Operations-Management-Suite) | Log di Azure, PowerShell | Esperto | Familiarità con la piattaforma Azure |

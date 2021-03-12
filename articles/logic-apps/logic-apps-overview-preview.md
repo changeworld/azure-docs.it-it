@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: d53a36d99c9a54fdfef7baceb50edb4e8f5ae4c8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.date: 03/10/2021
+ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561858"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636336"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Panoramica: anteprima di app per la logica di Azure
 
@@ -59,7 +59,7 @@ Nella tabella seguente vengono brevemente riepilogate le differenze nel modo in 
 | App per la logica di Azure (multi-tenant) | I flussi *di lavoro dei clienti in più tenant* condividono la stessa elaborazione (calcolo), archiviazione, rete e così via. |
 | App per la logica di Azure (anteprima, tenant singolo) | I flussi *di lavoro nella stessa app per la logica e un singolo tenant* condividono la stessa elaborazione (calcolo), archiviazione, rete e così via. |
 | Ambiente del servizio di integrazione (non disponibile in anteprima) | I flussi di lavoro nello *stesso ambiente* condividono la stessa elaborazione (calcolo), archiviazione, rete e così via. |
-||||
+|||
 
 Nel frattempo, è comunque possibile creare il tipo di app per la logica multi-tenant nel portale di Azure e in Visual Studio Code usando l'estensione multi-tenant di app per la logica di Azure. Sebbene le esperienze di sviluppo differiscano tra i tipi di app per la logica multi-tenant e a tenant singolo, la sottoscrizione di Azure può includere entrambi i tipi. È possibile visualizzare e accedere a tutte le app per la logica distribuite nella sottoscrizione di Azure, ma le app sono organizzate nelle rispettive categorie e sezioni.
 
@@ -122,7 +122,10 @@ L'anteprima di app per la logica di Azure include molte funzionalità correnti e
 
 * Crea app per la logica e i relativi flussi di lavoro da più di [400 connettori](/connectors/connector-reference/connector-reference-logicapps-connectors) per applicazioni SaaS (software-as-a-Service) e PaaS (Platform-as-a-Service) e per i servizi e i connettori per i sistemi locali.
 
-  * Alcuni connettori gestiti, ad esempio il bus di servizio di Azure, Hub eventi di Azure, SQL Server e MQ, vengono eseguiti in modo analogo ai trigger e alle azioni predefiniti che sono nativi del runtime di anteprima di app per la logica di Azure, ad esempio il trigger di richiesta e l'azione HTTP.
+  * Alcuni connettori gestiti sono ora disponibili come versioni predefinite, che vengono eseguite in modo analogo ai trigger e alle azioni predefiniti, ad esempio il trigger di richiesta e l'azione HTTP, eseguiti in modo nativo nel runtime di anteprima di app per la logica di Azure. Ad esempio, questi nuovi connettori predefiniti includono il bus di servizio di Azure, Hub eventi di Azure, SQL Server e MQ.
+
+    > [!NOTE]
+    > Per il connettore SQL Server incorporato, solo l'azione **Esegui query** può connettersi direttamente alle reti virtuali di Azure senza richiedere il [gateway dati locale](logic-apps-gateway-connection.md).
 
   * Creare connettori predefiniti per tutti i servizi necessari usando il [Framework di estendibilità della versione di anteprima](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Analogamente ai connettori predefiniti, ad esempio il bus di servizio di Azure e SQL Server, ma a differenza dei [connettori personalizzati](../connectors/apis-list.md#custom-apis-and-connectors) che non sono attualmente supportati per l'anteprima, questi connettori forniscono velocità effettiva più elevata, bassa latenza, connettività locale ed esecuzione nativa nello stesso processo del runtime di anteprima.
 

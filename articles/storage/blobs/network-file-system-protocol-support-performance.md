@@ -9,12 +9,12 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: f8a780afba1f5703fbe457e113ed1b455f1e9b64
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3b596d14ea770bfcd7560903a234d2ab77b66201
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745415"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614327"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Considerazioni sulle prestazioni di Network File System (NFS) 3,0 nell'archivio BLOB di Azure (anteprima)
 
@@ -35,7 +35,7 @@ Il grafico seguente mostra come aumenta la larghezza di banda Man mano che si ag
 Il grafico seguente mostra questo stesso effetto se applicato a un account che usa il livello di prestazioni Premium.
 
 > [!div class="mx-imgBorder"]
-> ![Prestazioni standard](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
+> ![Prestazioni Premium](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
 
 ## <a name="use-premium-performance-tier-for-small-scale-applications"></a>Usare il livello di prestazioni Premium per le applicazioni su scala ridotta
 

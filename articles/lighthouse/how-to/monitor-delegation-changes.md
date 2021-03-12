@@ -1,20 +1,20 @@
 ---
 title: Monitorare le modifiche della delega nel tenant di gestione
 description: Informazioni su come monitorare l'attività di delega dai tenant del cliente al tenant di gestione.
-ms.date: 01/27/2021
+ms.date: 02/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 3bf6cc044d807d0c830b15c6d9c9a6d507f1a54f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8bd9e89039c114f3d1088df44198fe00c69bbf82
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593139"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199066"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche della delega nel tenant di gestione
 
 Come provider di servizi, è opportuno tenere presente quando le sottoscrizioni dei clienti o i gruppi di risorse vengono delegati al tenant tramite [Azure Lighthouse](../overview.md)o quando le risorse delegate in precedenza vengono rimosse.
 
-Nel tenant di gestione, il [log attività di Azure](../../azure-monitor/essentials/platform-logs-overview.md) tiene traccia dell'attività di delega a livello di tenant. Questa attività registrata include tutte le deleghe aggiunte o rimosse da tutti i tenant del cliente.
+Nel tenant di gestione, il [log attività di Azure](../../azure-monitor/essentials/platform-logs-overview.md) tiene traccia dell'attività di delega a livello di tenant. Questa attività registrata include le deleghe aggiunte o rimosse dai tenant del cliente.
 
 In questo argomento vengono illustrate le autorizzazioni necessarie per monitorare l'attività di delega al tenant (in tutti i clienti). Include anche uno script di esempio che mostra un metodo per l'esecuzione di query e la creazione di report su questi dati.
 

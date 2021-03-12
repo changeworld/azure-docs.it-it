@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.author: memildin
-ms.openlocfilehash: da2201931c92939029724b1086589803845109a7
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 7080f79ca85a401ddcd3d421bb4a0292994508dd
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439630"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636675"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -36,6 +36,7 @@ Gli aggiornamenti di marzo includono:
 - [Cartelle di lavoro di monitoraggio di Azure integrate nel centro sicurezza e tre modelli forniti](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)
 - [Il dashboard conformità normativa include ora i report di controllo di Azure (anteprima)](#regulatory-compliance-dashboard-now-includes-azure-audit-reports-preview)
 - [Aggiornamenti ai criteri per la distribuzione dell'automazione dei flussi di lavoro](#updates-to-the-policies-for-deploying-workflow-automation)
+- [Due consigli legacy non scrivono più dati direttamente nel log attività di Azure](#two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log)
 
 
 ### <a name="azure-firewall-management-integrated-into-security-center"></a>Gestione del firewall di Azure integrata nel centro sicurezza
@@ -113,6 +114,19 @@ Sono disponibili due aggiornamenti per le funzionalità di questi criteri:
 Introduzione ai [modelli di automazione dei flussi di lavoro](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 
 Altre informazioni su come [automatizzare le risposte ai trigger del Centro sicurezza](workflow-automation.md).
+
+
+### <a name="two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log"></a>Due consigli legacy non scrivono più dati direttamente nel log attività di Azure 
+
+Il Centro sicurezza passa i dati per quasi tutte le raccomandazioni sulla sicurezza a Azure Advisor che, a sua volta, li scrive nel [log attività di Azure](../azure-monitor/essentials/activity-log.md).
+
+Per due consigli, i dati vengono scritti simultaneamente direttamente nel log attività di Azure. Con questa modifica, il Centro sicurezza interrompe la scrittura dei dati per queste raccomandazioni di sicurezza legacy direttamente nel log attività. Al contrario, i dati vengono esportati in Azure Advisor come per tutti gli altri consigli.
+
+Le due raccomandazioni legacy sono:
+- È consigliabile risolvere i problemi di integrità di Endpoint Protection nei computer
+- Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
+
+Se è stato effettuato l'accesso alle informazioni per questi due consigli nella categoria "raccomandazione di tipo TaskDiscovery" del log attività, questo non è più disponibile.
 
 
 

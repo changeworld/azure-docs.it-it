@@ -1,17 +1,17 @@
 ---
 title: Codici di errore client per l'aggiornamento del dispositivo per l'hub Azure Microsoft Docs
 description: Questo documento fornisce una tabella di codici di errore client per diversi componenti di aggiornamento del dispositivo.
-author: lichris
+author: chrisjlin
 ms.author: lichris
 ms.date: 2/18/2021
 ms.topic: reference
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 5251d0cb09e40305d1efd89c31d3af0fa36ad385
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: dbdddc7cee0c3664a83501ba619a38e1cc44e1f3
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663648"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200346"
 ---
 # <a name="device-update-for-iot-hub-error-codes"></a>Aggiornamento del dispositivo per i codici di errore dell'hub
 
@@ -59,26 +59,19 @@ La rappresentazione esadecimale senza segno di `-536870781` è `FFFFFFFF E000008
 ## <a name="delivery-optimization-agent"></a>Agente di ottimizzazione recapito
 La tabella seguente elenca i codici di errore relativi al componente di ottimizzazione recapito del client di aggiornamento del dispositivo. Il componente DO è responsabile del download del contenuto di aggiornamento nel dispositivo Internet delle cose.
 
-Per ottenere il codice di errore è possibile esaminare le eccezioni generate in risposta a una chiamata API.
+Per ottenere il codice di errore è possibile esaminare le eccezioni generate in risposta a una chiamata API. Tutti i codici di errore possono essere identificati dal prefisso 0x80D0.
 
 | Codice di errore  | Errore stringa                       | Tipo                 | Descrizione |
 |-------------|------------------------------------|----------------------|-------------|
 | 0x80D01001L | DO_E_NO_SERVICE                    | n/d                  | Ottimizzazione recapito non è in grado di fornire il servizio |
 | 0x80D02002L | DO_E_DOWNLOAD_NO_PROGRESS          | Scarica processo         | Il download di un file non è stato rilevato entro il periodo definito |
-| 0x80D02003L | DO_E_JOB_NOT_FOUND                 | Scarica processo         | Il processo non è stato trovato |
-| 0x80D02005L | DO_E_NO_DOWNLOADS                  | Scarica processo         | Nessun download attualmente esistente |
-| 0x80D0200CL | DO_E_JOB_TOO_OLD                   | Scarica processo         | Il processo non è stato completato o è stato annullato prima di raggiungere la soglia di validità massima |
 | 0x80D02011L | DO_E_UNKNOWN_PROPERTY_ID           | Scarica processo         | SetProperty () o GetProperty () chiamato con un ID di proprietà sconosciuto |
 | 0x80D02012L | DO_E_READ_ONLY_PROPERTY            | Scarica processo         | Impossibile chiamare SetProperty () su una proprietà di sola lettura |
 | 0x80D02013L | DO_E_INVALID_STATE                 | Scarica processo         | L'azione richiesta non è consentita nello stato del processo corrente. È possibile che il processo sia stato annullato o completato. Si trova ora in uno stato di sola lettura. |
 | 0x80D02018L | DO_E_FILE_DOWNLOADSINK_UNSPECIFIED | Scarica processo         | Non è possibile avviare un download perché non è stato specificato alcun sink di download (file locale o interfaccia di flusso) |
 | 0x80D02200L | DO_E_DOWNLOAD_NO_URI               | Interfaccia IDODownload| Il download è stato avviato senza fornire un URI |
 | 0x80D03805L | DO_E_BLOCKED_BY_NO_NETWORK         | Condizioni transitorie | Il download è stato sospeso a causa di una perdita di connettività di rete |
-| 0x80D05001L | DO_E_HTTP_BLOCKSIZE_MISMATCH       | HTTP                 | Il server HTTP ha restituito una risposta con dimensione dei dati diversa da quella richiesta |
-| 0x80D05002L | DO_E_HTTP_CERT_VALIDATION          | HTTP                 | Convalida del certificato del server HTTP non riuscita |
-| 0x80D05010L | DO_E_INVALID_RANGE                 | HTTP                 | L'intervallo di byte specificato non è valido |
-| 0x80D05011L | DO_E_INSUFFICIENT_RANGE_SUPPORT    | HTTP                 | Il server non supporta il protocollo HTTP necessario. L'ottimizzazione recapito richiede che il server supporti l'intestazione di protocollo intervallo |
-| 0x80D05012L | DO_E_OVERLAPPING_RANGES            | HTTP                 | L'elenco di intervalli di byte contiene alcuni intervalli sovrapposti, che non sono supportati |
+
 ## <a name="device-update-content-service"></a>Servizio contenuto aggiornamento dispositivo
 La tabella seguente elenca i codici di errore relativi al componente del servizio contenuto del servizio di aggiornamento del dispositivo. Il componente del servizio contenuto è responsabile della gestione dell'importazione del contenuto degli aggiornamenti.
 

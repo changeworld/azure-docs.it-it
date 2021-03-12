@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 6455e4c9fa9460e47e3be7c860f89be540a514b0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 240d3872536e6974d7f65eed22dace6816844e9e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453071"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200199"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gestire l'accesso, l'alimentazione e la modalità di connettività per il Azure Stack Edge Pro
 
@@ -103,7 +103,7 @@ Oltre alla modalità predefinita con connessione completa, il dispositivo può e
 
 - **Completamente connesso** : questa è la normale modalità predefinita in cui il dispositivo funziona. In questa modalità sono abilitati sia il caricamento del cloud che il download dei dati. Per gestire il dispositivo, è possibile usare il portale di Azure o l'interfaccia utente Web locale.
 
-- **Parzialmente disconnesso** : in questa modalità, il dispositivo non è in grado di caricare o scaricare dati di condivisione, tuttavia può essere gestito tramite il portale di Azure.
+- **Parzialmente connesso** : in questa modalità, il dispositivo non è in grado di caricare o scaricare dati di condivisione, tuttavia può essere gestito tramite il portale di Azure.
 
     Questa modalità viene in genere usata in caso di rete satellitare a consumo e l'obiettivo consiste nel ridurre al minimo il consumo di larghezza di banda di rete. Può comunque avvenire un uso di rete minimo per le operazioni di monitoraggio del dispositivo.
 

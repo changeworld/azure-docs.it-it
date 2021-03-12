@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 855765648d68756598f2942e0c994fa939bcbda0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 679df881e928825496a03b2fef7c9374d61593f7
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695669"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199979"
 ---
 # <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Accedere all'archiviazione esterna tramite il pool SQL serverless in Azure Synapse Analytics
 
-Questo documento descrive come leggere i dati dai file archiviati in Archiviazione di Azure nel pool SQL serverless. Per accedere alle risorse di archiviazione, sono disponibili le opzioni seguenti:
+Questo articolo descrive in che modo gli utenti possono leggere i dati dai file archiviati in archiviazione di Azure in un pool SQL senza server. Per accedere alle risorse di archiviazione, sono disponibili le opzioni seguenti:
 
 - Funzione [OPENROWSET](develop-openrowset.md) che abilita l'esecuzione di query ad hoc sui file in Archiviazione di Azure.
 - [Tabella esterna](develop-tables-external-tables.md) che è una struttura di dati predefinita basata su un set di file esterni.
