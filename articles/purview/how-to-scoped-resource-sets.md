@@ -1,5 +1,5 @@
 ---
-title: 'Procedura: creare una configurazione di set di risorse con ambito'
+title: Come creare una configurazione di set di risorse con ambito
 description: Informazioni su come creare una regola di configurazione di un set di risorse con ambito per sovrascrivere il modo in cui gli asset vengono raggruppati in set di risorse
 author: djpmsft
 ms.author: daperlov
@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: 8d7d482f38d58c8d6a8959acb51c94c0fb814697
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 10e925a84dbe187ccdf5e444cb8b3dd4b7bb4676
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668436"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608003"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>Creare regole di configurazione di set di risorse con ambito
 
@@ -24,20 +24,29 @@ Quando si esegue l'analisi di un account di archiviazione, Azure per la competen
 
 Attenersi alla procedura seguente per creare una nuova configurazione del set di risorse con ambito:
 
-1. Passare al centro di gestione. Selezionare **set di risorse con ambito** dal menu. Fare clic su **+ nuovo** per creare un nuovo set di regole di configurazione.
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Crea nuova regola set di risorse con ambito" border="true":::
+1. Passare al centro di gestione. Selezionare **set di risorse con ambito** dal menu. Selezionare **+ nuovo** per creare un nuovo set di regole di configurazione.
 
-1. Immettere l'ambito della configurazione del set di risorse con ambito. Selezionare il tipo di account di archiviazione e il nome dell'account di archiviazione in cui si vuole creare un set di regole. Ogni set di regole viene applicato in relazione a un ambito del percorso della cartella specificato nel campo **percorso cartella** . 
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Crea nuova regola set di risorse con ambito" border="true":::
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Crea nuova regola set di risorse con ambito" border="true":::
+
+1. Immettere l'ambito della configurazione del set di risorse con ambito. Selezionare il tipo di account di archiviazione e il nome dell'account di archiviazione in cui si vuole creare un set di regole. Ogni set di regole viene applicato in relazione a un ambito del percorso della cartella specificato nel campo **percorso cartella** .
+
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Creare configurazioni di set di risorse con ambito" border="true":::
 
 1. Per immettere una regola per un ambito di configurazione, selezionare **+ nuova regola**.
+
 1. Immettere nei campi seguenti per creare una regola:
-    1. **Nome regola:** Nome della regola di configurazione. Questo campo non ha alcun effetto sugli asset a cui si applica la regola.
-    1. **Nome completo:** Percorso completo che usa una combinazione di testo, sostituzioni dinamiche e sostituzioni statiche per la corrispondenza degli asset con la regola di configurazione. Questo percorso è relativo all'ambito della regola di configurazione. Per istruzioni dettagliate su come specificare nomi completi, vedere la sezione [sintassi](#syntax) riportata di seguito. 
-    1. **Nome visualizzato:** Nome visualizzato dell'asset. Questo campo è facoltativo. Usare il testo normale e le sostituzioni statiche per personalizzare la modalità di visualizzazione di un asset nel catalogo. Per istruzioni più dettagliate, vedere la sezione [sintassi](#syntax) riportata di seguito.
-    1. Non **raggruppare come set di risorse:** Se abilitata, la risorsa corrispondente non verrà raggruppata in un set di risorse. 
-        :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Crea nuova regola set di risorse con ambito" border="true"::: 
-1. Salvare la regola facendo clic su **Aggiungi**. 
+
+   1. **Nome regola:** Nome della regola di configurazione. Questo campo non ha alcun effetto sugli asset a cui si applica la regola.
+
+   1. **Nome completo:** Percorso completo che usa una combinazione di testo, sostituzioni dinamiche e sostituzioni statiche per la corrispondenza degli asset con la regola di configurazione. Questo percorso è relativo all'ambito della regola di configurazione. Per istruzioni dettagliate su come specificare nomi completi, vedere la sezione [sintassi](#syntax) riportata di seguito.
+
+   1. **Nome visualizzato:** Nome visualizzato dell'asset. Questo campo è facoltativo. Usare il testo normale e le sostituzioni statiche per personalizzare la modalità di visualizzazione di un asset nel catalogo. Per istruzioni più dettagliate, vedere la sezione [sintassi](#syntax) riportata di seguito.
+
+   1. Non **raggruppare come set di risorse:** Se abilitata, la risorsa corrispondente non verrà raggruppata in un set di risorse.
+
+      :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Crea nuova regola di configurazione." border="true":::
+
+1. Salvare la regola facendo clic su **Aggiungi**.
 
 ## <a name="scoped-resource-set-syntax"></a><a name="syntax"></a> Sintassi del set di risorse con ambito
 
@@ -69,21 +78,23 @@ Di seguito sono riportati i tipi disponibili che possono essere usati nei sostit
 | ---- | --------- |
 | string | Una serie di uno o più caratteri Unicode, inclusi i delimitatori come spazi. |
 | INT | Una serie di uno o più caratteri ASCII 0-9, può essere 0 con prefisso (ad esempio, 0001). |
-| guid | Una serie di una rappresentazione di stringa 32 o 8-4-4-4-12 di un UUID come defineddefa in https://tools.ietf.org/html/rfc4122 |
-| Data | Una serie di 6 o 8 0-9 caratteri ASCII con separatori facoltativi: AAAAMMGG, aaaa-mm-gg, AAMMGG, yy-mm-gg, specificato in https://tools.ietf.org/html/rfc3339 |
-| time | Una serie di 4 o 6 0-9 caratteri ASCII con separatori facoltativi: HHmm, HH: mm, HHmmss, HH: mm: SS specificati in https://tools.ietf.org/html/rfc3339 |
-|  timestamp | Una serie di 12 o 14 0-9 caratteri ASCII con separatori facoltativi: aaaa-mm-ggThh: mm, yyyyMMddhhmm, aaaa-mm-ggThh: mm: SS, ad aaaammgghhmmss specificato in https://tools.ietf.org/html/rfc3339 |
+| guid | Una serie di una rappresentazione di stringa 32 o 8-4-4-4-12 di un UUID come defineddefa in [RFC 4122](https://tools.ietf.org/html/rfc4122). |
+| Data | Una serie di 6 o 8 0-9 caratteri ASCII con separatori facoltativi: AAAAMMGG, aaaa-mm-gg, AAMMGG, yy-mm-gg, specificato in [RFC 3339](https://tools.ietf.org/html/rfc3339). |
+| time | Una serie di 4 o 6 0-9 caratteri ASCII con separatori facoltativi: HHmm, HH: mm, HHmmss, HH: mm: SS specificati in [RFC 3339](https://tools.ietf.org/html/rfc3339). |
+|  timestamp | Una serie di 12 o 14 0-9 caratteri ASCII con separatori facoltativi: aaaa-mm-ggThh: mm, yyyyMMddhhmm, aaaa-mm-ggThh: mm: SS, ad aaaammgghhmmss specificato in [RFC 3339](https://tools.ietf.org/html/rfc3339). |
 | boolean | Può contenere ' true ' o ' false ', senza distinzione tra maiuscole e minuscole. |
-| d'acquisto | Una serie di 0 o più caratteri ASCII 0-9, può essere 0 con prefisso (ad esempio, 0001), seguito facoltativamente da un punto ' .' e una serie di uno o più caratteri ASCII 0-9, può essere di 0 postfixed (ad esempio, 100) | 
+| d'acquisto | Una serie di 0 o più caratteri ASCII 0-9, può essere 0 con prefisso (ad esempio, 0001) e, facoltativamente, un punto ' .' e una serie di uno o più caratteri ASCII 0-9, può essere di 0 postfixed (ad esempio, 100) |
 | hex | Una serie di uno o più caratteri ASCII dal set 0-1 e A-F, il valore può essere con prefisso 0 |
-| locale | Stringa che corrisponde alla sintassi specificata in https://tools.ietf.org/html/rfc5646 |
+| locale | Stringa che corrisponde alla sintassi specificata in [RFC 5646](https://tools.ietf.org/html/rfc5646). |
 
-## <a name="order-of-scoped-resource-set-rules-getting-applied"></a>Ordine di applicazione delle regole del set di risorse con ambito.
+## <a name="order-of-scoped-resource-set-rules-getting-applied"></a>Ordine di applicazione delle regole del set di risorse con ambito
 
 Di seguito è riportato l'ordine delle operazioni per applicare le regole del set di risorse con ambito:
 
-1. Gli ambiti più specifici hanno la priorità se un asset corrisponde a due regole. Ad esempio, le regole in un ambito `container/folder` verranno applicate prima delle regole nell'ambito `container` . 
+1. Gli ambiti più specifici hanno la priorità se un asset corrisponde a due regole. Ad esempio, le regole in un ambito `container/folder` verranno applicate prima delle regole nell'ambito `container` .
+
 1. Ordine delle regole all'interno di un ambito specifico. Questa operazione può essere modificata in UX.
+
 1. Se un asset non corrisponde a una regola specificata, viene applicata l'euristica predefinita del set di risorse.
 
 ## <a name="examples"></a>Esempi
@@ -95,16 +106,16 @@ Estrazione dei dati SAP in carichi completi e Delta
 #### <a name="inputs"></a>Input
 
 File:
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
-#### <a name="scoped-resource-set-rule"></a>Regola set di risorse con ambito 
+#### <a name="scoped-resource-set-rule"></a>Regola set di risorse con ambito
 
-**Ambito:**https://myazureblob.blob.core.windows.net/bar/
+**Ambito:**`https://myazureblob.blob.core.windows.net/bar/`
 
 **Nome visualizzato:** ' Cliente esterno '
 
@@ -112,7 +123,7 @@ File:
 
 **Set di risorse:** true
 
-#### <a name="output"></a>Output 
+#### <a name="output"></a>Output
 
 Un asset del set di risorse
 
@@ -124,17 +135,18 @@ Un asset del set di risorse
 
 Dati relativi alle cose nel formato avro
 
-#### <a name="inputs"></a>Input 
+#### <a name="inputs"></a>Input
 
 File:
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rules"></a>Regole set di risorse con ambito 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Ambito:**https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rules"></a>Regole set di risorse con ambito
+
+**Ambito:**`https://myazureblob.blob.core.windows.net/bar/`
 
 Regola 1
 
@@ -150,11 +162,11 @@ Regola 2
 
 **Nome completo:**`raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-#### <a name="resource-set-true"></a>*Set di risorse: true* 
+#### <a name="resource-set-true"></a>*Set di risorse: true*
 
-#### <a name="outputs"></a>Output 
+#### <a name="outputs"></a>Output
 
-2 set di risorse 
+2 set di risorse
 
 Set di risorse 1
 
@@ -172,17 +184,18 @@ Set di risorse 2
 
 Dati relativi alle cose nel formato avro
 
-#### <a name="inputs"></a>Input 
+#### <a name="inputs"></a>Input
 
 File:
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rule"></a>Regola set di risorse con ambito 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Ambito:**https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rule"></a>Regola set di risorse con ambito
+
+**Ambito:**`https://myazureblob.blob.core.windows.net/bar/`
 
 **Nome visualizzato:** ' Computer-{{MachineID}}'
 
@@ -190,7 +203,7 @@ File:
 
 **Set di risorse:** true
 
-#### <a name="outputs"></a>Output 
+#### <a name="outputs"></a>Output
 
 Set di risorse 1
 
@@ -208,25 +221,26 @@ Set di risorse 2
 
 Non raggruppare in set di risorse
 
-#### <a name="inputs"></a>Input 
+#### <a name="inputs"></a>Input
 
 File:
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rule"></a>Regola set di risorse con ambito 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Ambito:**https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rule"></a>Regola set di risorse con ambito
 
-**Nome visualizzato:** ' Computer-{{MachineID}}'
+**Ambito:**`https://myazureblob.blob.core.windows.net/bar/`
+
+**Nome visualizzato:**`Machine-{{machineid}}`
 
 **Nome completo:**`raw/machinename-{{machineid:int}}/{{:date}}/{{:time}}-{{:int}}.avro`
 
 **Set di risorse:** false
 
-#### <a name="outputs"></a>Output 
+#### <a name="outputs"></a>Output
 
 4 Asset singoli
 

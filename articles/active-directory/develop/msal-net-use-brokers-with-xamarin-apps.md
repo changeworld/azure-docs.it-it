@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6958302a429fd88d4e26087b860b7f473bf4a1f9
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 226e94510709b37a7e6b1aae90a7e0ec5b4222b9
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103992"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199584"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usare Microsoft Authenticator o Portale aziendale Intune nelle applicazioni Novell
 
@@ -326,6 +326,8 @@ La barra () davanti `/` alla firma nel `android:path` valore è **obbligatoria**
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
 
+Per ulteriori informazioni sulla configurazione dell'applicazione per il supporto del browser di sistema e di Android 11, vedere [aggiornare il manifesto Android per il supporto browser del sistema](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support).
+
 In alternativa, è possibile configurare MSAL per eseguire il fallback al browser incorporato, che non si basa su un URI di reindirizzamento:
 
 ```csharp
@@ -344,22 +346,22 @@ Ecco alcuni suggerimenti per evitare problemi quando si implementa l'autenticazi
 
     Esempio: se si installa per la prima volta Microsoft Authenticator e quindi si installa Portale aziendale Intune, l'autenticazione negoziata verrà eseguita *solo* sul Microsoft Authenticator.
 - **Log** : se si verifica un problema con l'autenticazione negoziata, la visualizzazione dei log del broker può aiutare a diagnosticare la causa.
-  - Visualizza log Microsoft Authenticator:
+  - Ottenere i log Microsoft Authenticator:
 
     1. Selezionare il pulsante di menu nell'angolo in alto a destra dell'app.
-    1. Selezionare la **Guida**  >  **Invia log**  >  **Visualizza log**.
-    1. Selezionare **copia tutto** per copiare i log del broker negli Appunti del dispositivo.
+    1. Selezionare **Invia commenti e suggerimenti**  >  **con problemi**.
+    1. In **che cosa si sta tentando di eseguire?** selezionare un'opzione e aggiungere una descrizione.
+    1. Per inviare i log, selezionare la freccia nell'angolo superiore destro dell'app.
 
-    Il modo migliore per eseguire il debug con questi log è inviare un messaggio di posta elettronica a se stessi e visualizzarli nel computer di sviluppo. Potrebbe risultare più semplice analizzare i log nel computer invece che nel dispositivo stesso. È anche possibile usare un editor di test in Android per salvare i log come file di testo e quindi usare un cavo USB per copiare il file in un computer.
+    Dopo aver inviato i log, viene visualizzata una finestra di dialogo con l'ID evento imprevisto. Registrare l'ID evento imprevisto e includerlo quando si richiede assistenza.
 
-  - Visualizza log Portale aziendale Intune:
+  - Ottenere i log Portale aziendale Intune:
 
-    1. Selezionare il pulsante di menu nell'angolo in alto a sinistra dell'app
-    1. Selezionare **Impostazioni**  >  **dati di diagnostica**
-    1. Selezionare **copia log** per copiare i log del broker nella scheda SD del dispositivo.
-    1. Connettere il dispositivo a un computer usando un cavo USB per visualizzare i log nel computer di sviluppo.
+    1. Selezionare il pulsante di menu nell'angolo superiore sinistro dell'app.
+    1. Selezionare la **Guida**  >  **posta elettronica supporto tecnico**.
+    1. Per inviare i log, selezionare **carica solo log**.
 
-    Dopo aver creato i log, è possibile cercarli per i tentativi di autenticazione tramite l'ID di correlazione. L'ID di correlazione è associato a ogni richiesta di autenticazione. Per trovare gli errori restituiti dall'endpoint di autenticazione della piattaforma di identità Microsoft, cercare `AADSTS` .
+    Dopo aver inviato i log, viene visualizzata una finestra di dialogo con l'ID evento imprevisto. Registrare l'ID evento imprevisto e includerlo quando si richiede assistenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

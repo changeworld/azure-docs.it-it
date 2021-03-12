@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: d94bedad1ba7a2c6d814021b733404ccc58148ed
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: db3f188cc796642285d9b082b46371879491c632
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424683"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225235"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Guida introduttiva: creare un cluster Azure Istanza gestita per Apache Cassandra dall'portale di Azure (anteprima)
  
@@ -70,7 +70,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
    ```
 
    > [!NOTE]
-   > I `assignee` `role` valori e nel comando precedente sono rispettivamente un principio di servizio fisso e gli identificatori di ruolo.
+   > I valori `assignee` e `role` nel comando precedente sono valori fissi, immettere questi valori esattamente come indicato nel comando. In caso contrario, si verificheranno errori durante la creazione del cluster. Se si verificano errori durante l'esecuzione di questo comando, è possibile che non si disponga delle autorizzazioni per eseguirlo, rivolgersi all'amministratore per ottenere le autorizzazioni.
 
 1. A questo punto, dopo aver completato la rete, fare clic su **Verifica + crea**  >  **creazione**
 

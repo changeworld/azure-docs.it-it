@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 57c83a94925e94088085efacf1192416f63e6383
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593953"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232036"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flussi di lavoro di GitHub Actions per App Web statiche di Azure (anteprima)
 
@@ -152,7 +152,7 @@ La distribuzione chiama sempre `npm install` prima di qualsiasi comando personal
 
 | Comando            | Descrizione |
 |---------------------|-------------|
-| `app_build_command` | Definisce un comando personalizzato da eseguire durante la distribuzione dell'applicazione per contenuti statici.<br><br>Ad esempio, per configurare una build di produzione per un'applicazione angolare, creare uno script NPM denominato `build-prod` da eseguire `ng build --prod` e immettere `npm run build-prod` come comando personalizzato. Se lasciato vuoto, il flusso di lavoro tenterà di eseguire i comandi `npm run build` o `npm run build:Azure`.  |
+| `app_build_command` | Definisce un comando personalizzato da eseguire durante la distribuzione dell'applicazione per contenuti statici.<br><br>Ad esempio, per configurare una build di produzione per un'applicazione angolare, creare uno script NPM denominato `build-prod` da eseguire `ng build --prod` e immettere `npm run build-prod` come comando personalizzato. Se lasciato vuoto, il flusso di lavoro tenterà di eseguire i comandi `npm run build` o `npm run build:azure`.  |
 | `api_build_command` | Definisce un comando personalizzato da eseguire durante la distribuzione dell'applicazione per le API di Funzioni di Azure. |
 
 ## <a name="route-file-location"></a>Percorso file di route

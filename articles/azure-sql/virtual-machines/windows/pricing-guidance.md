@@ -16,12 +16,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bd58f18959df3aa290083f907be8ab703366a7c6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d980b92bc4effc58ef84ef6ec70c3908f575e484
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360102"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615602"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Linee guida sui prezzi per SQL Server nelle macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -97,10 +97,7 @@ Per creare una macchina virtuale di Azure che esegue SQL Server 2017 con una di 
 
 ## <a name="bring-your-own-license-byol"></a><a id="byol"></a> Bring Your Own License (BYOL)
 
-**Bringing Your Own License per SQL Server attraverso Mobilità delle licenze**, o **BYOL**, indica l'utilizzo di un contratto multilicenza di SQL Server esistente con Software Assurance in una VM di Azure. Per una macchina virtuale di SQL Server che usa l'opzione BYOL sarà addebitato solo il costo di esecuzione della macchina virtuale e non la licenza di SQL Server, dato che le licenze e Software Assurance sono già stati acquisiti tramite un programma di contratto multilicenza.
-
-> [!IMPORTANT]
-> Le immagini BYOL richiedono un contratto Enterprise con Software Assurance. Non sono disponibili come parte di Azure Cloud Solution Partner (CSP) in questo momento. I clienti CSP possono usare la propria licenza distribuendo un'immagine con pagamento in base al consumo e quindi abilitando il [Vantaggio Azure Hybrid](licensing-model-azure-hybrid-benefit-ahb-change.md).
+**Bringing Your Own License per SQL Server attraverso Mobilità delle licenze**, o **BYOL**, indica l'utilizzo di un contratto multilicenza di SQL Server esistente con Software Assurance in una VM di Azure. Una macchina virtuale SQL Server che usa BYOL viene addebitata solo per il costo di esecuzione della macchina virtuale, non per le licenze SQL Server, dal momento che sono già state acquisite licenze e Software Assurance tramite un programma per contratti multilicenza o tramite un partner Cloud Solution Partner (CSP).
 
 > [!NOTE]
 > Le immagini BYOL sono attualmente disponibili solo per le macchine virtuali Windows. È tuttavia possibile installare manualmente SQL Server in una macchina virtuale solo Linux. Vedere le linee guida nella [SQL Server domande frequenti su una macchina virtuale Linux](../linux/frequently-asked-questions-faq.md).

@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/06/2018
+ms.date: 3/12/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 633885bb1062edac8226c073768ffdeba84fcb55
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9adc4c92e3e637b9d3e18249b5de00782a94baab
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012632"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232886"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>.NET SDK per la gestione: impostare ed eseguire processi di analisi tramite l'API di Analisi di flusso di Azure per .NET
 Informazioni su come impostare ed eseguire processi di analisi tramite l'API di Analisi di flusso per .NET usando Management .NET SDK. Impostare un progetto, creare origini di input e output, trasformazioni e avviare e arrestare i processi. Per i processi di analisi, è possibile trasmettere i dati di flusso dall'archiviazione BLOB o da un hub eventi.
@@ -207,6 +207,12 @@ Il metodo **TestConnection** verifica se il processo di Analisi di flusso è in 
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
+Il risultato della chiamata TestConnection è un oggetto *ResourceTestResult* che contiene due proprietà:
+
+- *stato*: può essere una delle seguenti stringhe: ["TestNotAttempted", "TestSucceeded", "TestFailed"]
+- *errore*: è di tipo errorResponse contenente le proprietà seguenti:
+   - *Code*: proprietà obbligatoria di tipo String. Il valore è standard System .NET. HttpStatusCode ricevuto durante il test.
+   - *Message*: proprietà obbligatoria di tipo String che rappresenta l'errore. 
 
 ## <a name="create-a-stream-analytics-output-target"></a>Creare una destinazione di output di Analisi di flusso
 La creazione di una destinazione di output è simile alla creazione di un'origine di input di Analisi di flusso. Analogamente alle origini di input, le destinazioni di output sono legate a un processo specifico. Per usare la stessa destinazione di output per processi diversi, è necessario chiamare nuovamente il metodo e specificare un nome diverso.

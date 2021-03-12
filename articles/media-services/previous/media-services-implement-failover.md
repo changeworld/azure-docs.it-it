@@ -3,7 +3,7 @@ title: Implementare lo streaming del failover con Servizi multimediali di Azure 
 description: Questo articolo illustra come implementare uno scenario di streaming di failover con servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68cd107b2606643d712c4de94b6d1a82e8ee614a
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657261"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011936"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementare lo streaming del failover con servizi multimediali V2
 
@@ -755,7 +755,7 @@ Nell'esempio riportato in questo argomento viene illustrato il Clear streaming. 
 
 Per altre informazioni sulla protezione del contenuto, vedere [usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Usare i webhook di Azure per monitorare le notifiche dei processi di servizi multimediali](media-services-dotnet-check-job-progress-with-webhooks.md)
 

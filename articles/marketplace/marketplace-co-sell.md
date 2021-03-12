@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 3/08/2021
-ms.openlocfilehash: d3759590cdd926b5e144cdc11761630a0aba4e29
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 7d1d4a1a89931e3ded8274a4731aa3606695771b
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563779"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199879"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Panoramica della co-selling con i team di vendita Microsoft e i partner
 
@@ -46,8 +46,8 @@ Stato di co-selling per Azure:
 - Co-selling IP di Azure incentivate
 
 Co-selling degli Stati per le applicazioni aziendali
-- App biz ISV Connect standard
-- App biz ISV Connect Premium  
+- App biz ISV Connect standard o Premium Incentive standard
+- App biz ISV Connect standard o Premium Incentive Premium  
 
 Per informazioni dettagliate sui requisiti per ottenere questi stati di co-selling, vedere [requisiti di co-selling](co-sell-requirements.md).
 
@@ -74,12 +74,12 @@ Per questi tipi di offerta è possibile applicare lo stato di incentivo standard
 - Dynamics 365 per Customer Engagement & PowerApps
 - Dynamics 365 per le operazioni
 
-Le offerte che raggiungono lo stato di incentivate o di app biz per gli _indirizzi IP di Azure_ e le _app biz standard o Premium_ ottengono questi vantaggi per il Marketplace commerciale:
+Le offerte che raggiungono lo stato _incentivate di co-selling IP di Azure_ ottengono questi vantaggi per il Marketplace commerciale:
 
 - Il costo del servizio Marketplace è ridotto dal 20% al 10%. Questo sconto si applica alla soluzione di infrastruttura distribuita come servizio (IaaS) o alla soluzione SaaS (Software as a Service) venduta attraverso il Marketplace commerciale. Per ulteriori informazioni, vedere la pagina relativa alle [tariffe del servizio Marketplace commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - I partner Cloud Solution Provider (CSP) ricevono un incentivo del 10% per la vendita della soluzione IaaS o dell'offerta SaaS. Per ulteriori informazioni sul programma CSP, vedere il [programma Cloud Solution Provider](cloud-solution-providers.md).
 - Le vendite dell'offerta tramite il Marketplace commerciale contribuiranno al consumo di Azure per i clienti. I clienti idonei vedranno l'offerta contrassegnata come **vantaggio Azure idoneo** per portale di Azure. Per altre informazioni, vedere il vantaggio relativo all'impegno per il [consumo di Azure](azure-consumption-commitment-benefit.md).
-- Le offerte che raggiungono lo stato Premium di _Azure_ per le app incentivate o biz per le app di Azure _Connect standard o Premium_ riceveranno una notifica **per le soluzioni preferite Microsoft** nella pagina di presentazione dell'offerta negli archivi online. Il badge promuove la qualità, le prestazioni e la capacità di un'offerta di soddisfare le esigenze dei clienti in una determinata area verticale o della soluzione.
+- Offerte che consentono di ottenere le app incentivate o biz di Azure per la condivisione di risorse di _Azure_ _, con incentivi standard o Premium._ lo stato riceverà una notifica **per le soluzioni preferite Microsoft** nella pagina di presentazione dell'offerta negli archivi online. Il badge promuove la qualità, le prestazioni e la capacità di un'offerta di soddisfare le esigenze dei clienti in una determinata area verticale o della soluzione.
 
 Per informazioni su come ottenere lo stato di incentivate di co-selling pronto e co-selling, vedere [co-selling Ready and Co-sell incentivate requirements](co-sell-requirements.md).
 

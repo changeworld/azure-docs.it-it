@@ -3,7 +3,7 @@ title: Questo articolo illustra come ritagliare video con Media Encoder Standard
 description: Il ritaglio è il processo di selezione di una finestra rettangolare all'interno del fotogramma video per codificare solo i pixel all'interno di quella finestra. Questo articolo illustra come ritagliare i video con Media Encoder Standard.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 4264d1c0d83f14da02b26107d336521250fcf13b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a15e57884f85e2d56b77c3e5eec1267133fe96d
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257858"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016730"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Ritagliare video con Media Encoder Standard
 
@@ -141,7 +141,7 @@ Alla funzionalità di ritaglio si applicano le limitazioni seguenti. Se queste l
 3. Il ritaglio si applica a video acquisiti in modalità orizzontale, ovvero non è applicabile a video registrati con uno smartphone con orientamento verticale
 4. Il ritaglio funziona in modo ottimale con video progressivo acquisito con pixel quadrati
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire il feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Passaggio successivo

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: a124f576b2540399d27fcd97e0e58476dba4ba4b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 883b76929ac3310dd3089ecb088a4691adbb4ca1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492812"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010355"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Eseguire il backup e il ripristino in Database di Azure per MySQL
 
@@ -86,7 +86,17 @@ Sono disponibili due tipi di ripristino:
 - Il **ripristino temporizzato** è disponibile con l'opzione di ridondanza dei backup e crea un nuovo server nella stessa area del server originale utilizzando la combinazione di backup completi e del log delle transazioni.
 - Il **ripristino geografico** è disponibile solo se il server è stato configurato per l'archiviazione con ridondanza geografica e consente di ripristinare il server in un'area diversa usando il backup più recente adottato.
 
-Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni dei database, le dimensioni dei log delle transazioni, la larghezza di banda di rete e il numero totale di database ripristinati contemporaneamente nella stessa area. Il tempo di recupero di solito è inferiore a 12 ore.
+Il tempo stimato per il ripristino del server dipende da diversi fattori:
+* Dimensioni dei database
+* Il numero dei log delle transazioni interessate
+* La quantità di attività che deve essere ripetuta per il ripristino al punto di ripristino
+* La larghezza di banda di rete se il ripristino avviene in un'area diversa
+* Il numero di richieste simultanee di ripristino in corso di elaborazione nell'area di destinazione
+* Presenza della chiave primaria nelle tabelle del database. Per un ripristino più rapido, è consigliabile aggiungere la chiave primaria per tutte le tabelle del database. Per verificare se le tabelle contengono la chiave primaria, è possibile usare la query seguente:
+```sql
+select tab.table_schema as database_name, tab.table_name from information_schema.tables tab left join information_schema.table_constraints tco on tab.table_schema = tco.table_schema and tab.table_name = tco.table_name and tco.constraint_type = 'PRIMARY KEY' where tco.constraint_type is null and tab.table_schema not in('mysql', 'information_schema', 'performance_schema', 'sys') and tab.table_type = 'BASE TABLE' order by tab.table_schema, tab.table_name;
+```
+Per un database di grandi dimensioni o molto attive, il ripristino potrebbe richiedere diverse ore. Se si verifica un'interruzione prolungata in un'area, è possibile che venga avviato un numero elevato di richieste di ripristino geografico per il ripristino di emergenza. Quando sono presenti molte richieste, il tempo di ripristino per i singoli database può aumentare. La maggior parte dei ripristini di database è terminata in meno di 12 ore.
 
 > [!IMPORTANT]
 > I server eliminati possono essere ripristinati solo entro **cinque giorni** dall'eliminazione dopo il quale vengono eliminati i backup. È possibile accedere al backup del database e ripristinarlo solo dalla sottoscrizione di Azure che ospita il server. Per ripristinare un server eliminato, vedere la [procedura documentata](howto-restore-dropped-server.md). Per proteggere le risorse del server, post-distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare [blocchi di gestione](../azure-resource-manager/management/lock-resources.md).

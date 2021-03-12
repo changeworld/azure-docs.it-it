@@ -3,7 +3,7 @@ title: Caricare file in un account di Servizi multimediali mediante REST | Micro
 description: Informazioni su come ottenere contenuti multimediali in servizi multimediali tramite la creazione e il caricamento di asset con REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 49863bec4cbd367b6b309ef5a79e7287cb53ee5b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 9f27a427df07302840ce719d35c7876f9dc17dbf
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042968"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012939"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Caricare file in un account di Servizi multimediali mediante REST
 
@@ -73,10 +73,10 @@ Per la procedura di configurazione di Postman per questa esercitazione, vedere [
     Per ottenere i valori per le prime cinque variabili, vedere [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
     ![Screenshot che mostra l'icona "COG" selezionata in alto a destra e le prime cinque variabili selezionate dalla scheda "ambienti di gestione".](./media/media-services-rest-upload-files/postman-import-env.png)
-2. Specificare il valore per la variabile di ambiente **MediaFileName** .
+2. Specificare il valore per la variabile di ambiente **MediaFileName**.
 
     Specificare il nome file del file multimediale che si intende caricare. In questo esempio verrà usato il file BigBuckBunny.mp4. 
-3. Esaminare il file **AzureMediaServices.postman_environment.json** . Si noterà che quasi tutte le operazioni nella raccolta eseguono uno script "test". Gli script accettano alcuni valori restituito dalla risposta e impostano le variabili di ambiente appropriate.
+3. Esaminare il file **AzureMediaServices.postman_environment.json**. Si noterà che quasi tutte le operazioni nella raccolta eseguono uno script "test". Gli script accettano alcuni valori restituito dalla risposta e impostano le variabili di ambiente appropriate.
 
     Ad esempio, la prima operazione ottiene un token di accesso e lo imposta nella variabile di ambiente **AccessToken** che viene usata in tutte le altre operazioni.
 
@@ -90,13 +90,13 @@ Per la procedura di configurazione di Postman per questa esercitazione, vedere [
         ]
     }
     ```
-4. A sinistra della finestra di **posting** fare clic su **1. Ottenere il token di autenticazione AAD**  ->  **Get Azure ad token per l'entità servizio** .
+4. A sinistra della finestra di **posting** fare clic su **1. Ottenere il token di autenticazione AAD**  ->  **Get Azure ad token per l'entità servizio**.
 
     La parte URL viene compilata con la variabile di ambiente **AzureADSTSEndpoint** (precedentemente nell'esercitazione si impostano i valori delle variabili di ambiente che supportano la raccolta).
 
     ![Screenshot che mostra "1. Ottenere un token di autenticazione A D: ottenere un token di Azure A D per l'entità servizio "selezionato dalla finestra" post "e il pulsante" Invia "selezionato.](./media/media-services-rest-upload-files/postment-get-token.png)
 
-5. Fare clic su **Invia** .
+5. Fare clic su **Invia**.
 
     Si noterà che la risposta contiene "access_token". Lo script "test" accetta questo valore e imposta la variabile di ambiente **AccessToken** (come descritto in precedenza). Se si esaminano le variabili di ambiente, si noterà che questa variabile contiene ora il valore del token di accesso (bearer token) usato nel resto delle operazioni. 
 
@@ -113,8 +113,8 @@ Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criter
 
 ### <a name="create-an-access-policy"></a>Creare i criteri di accesso
 
-1. Selezionare **AccessPolicy**  ->  **Crea AccessPolicy per il caricamento** .
-2. Fare clic su **Invia** .
+1. Selezionare **AccessPolicy**  ->  **Crea AccessPolicy per il caricamento**.
+2. Fare clic su **Invia**.
 
     ![Screenshot che mostra "AccessPolicy-crea AccessPolicy per il caricamento" selezionato dal menu a sinistra e il pulsante "Invia" selezionato.](./media/media-services-rest-upload-files/postman-access-policy.png)
 
@@ -126,16 +126,16 @@ Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criter
 
 Un [Asset](/rest/api/media/operations/asset) è un contenitore di più tipi o set di oggetti in servizi multimediali, tra cui video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi. Nell'API REST, la creazione di un asset richiede l'invio di una richiesta POST a Servizi multimediali e l'inserimento di tutte le informazioni sulle proprietà relative all'asset nel corpo della richiesta.
 
-Una delle proprietà che è possibile aggiungere quando si crea un asset è **Options** . È possibile specificare una delle opzioni di crittografia seguenti: **None** (impostazione predefinita, non viene usata alcuna crittografia), **StorageEncrypted** (per contenuto che è stato pre-crittografato con crittografia di archiviazione lato client), **CommonEncryptionProtected** o **EnvelopeEncryptionProtected** . Se è presente un asset crittografato, è necessario configurare un criterio di recapito. Per altre informazioni, vedere [configurazione dei criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
+Una delle proprietà che è possibile aggiungere quando si crea un asset è **Options**. È possibile specificare una delle opzioni di crittografia seguenti: **None** (impostazione predefinita, non viene usata alcuna crittografia), **StorageEncrypted** (per contenuto che è stato pre-crittografato con crittografia di archiviazione lato client), **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. Se è presente un asset crittografato, è necessario configurare un criterio di recapito. Per altre informazioni, vedere [configurazione dei criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
 
-Se l'asset è crittografato, è necessario creare un'entità **ContentKey** e collegarla all'asset, come descritto nell'articolo [Creazione di entità ContentKey mediante REST](media-services-rest-create-contentkey.md). Dopo il caricamento dei file nell'asset è necessario aggiornare le proprietà di crittografia nell'entità **AssetFile** con i valori ottenuti durante la crittografia dell'entità **Asset** . Effettuare questa operazione usando la richiesta HTTP **MERGE** . 
+Se l'asset è crittografato, è necessario creare un'entità **ContentKey** e collegarla all'asset, come descritto nell'articolo [Creazione di entità ContentKey mediante REST](media-services-rest-create-contentkey.md). Dopo il caricamento dei file nell'asset è necessario aggiornare le proprietà di crittografia nell'entità **AssetFile** con i valori ottenuti durante la crittografia dell'entità **Asset**. Effettuare questa operazione usando la richiesta HTTP **MERGE** . 
 
 In questo esempio viene creato un asset non crittografato. 
 
 ### <a name="create-an-asset"></a>Creare un asset
 
-1. Selezionare **Asset**  ->  **Crea asset** .
-2. Fare clic su **Invia** .
+1. Selezionare **Asset**  ->  **Crea asset**.
+2. Fare clic su **Invia**.
 
     ![Screenshot che mostra "asset-crea asset" selezionato dal menu "raccolte" e il pulsante "Invia" selezionato.](./media/media-services-rest-upload-files/postman-create-asset.png)
 
@@ -165,8 +165,8 @@ Considerazioni applicabili:
 
 ### <a name="create-a-sas-locator"></a>Creare un localizzatore di firma di accesso condiviso
 
-1. Selezionare **Locator**  ->  **create SAS Locator** .
-2. Fare clic su **Invia** .
+1. Selezionare **Locator**  ->  **create SAS Locator**.
+2. Fare clic su **Invia**.
 
     Lo script "test" crea l'URl di caricamento sulla base del nome del file multimediale specificato e delle informazioni del localizzatore di firma di accesso condiviso e imposta la variabile di ambiente appropriata.
 
@@ -186,16 +186,16 @@ Dopo aver creato l'URL di caricamento, è necessario scrivere codice usando dire
 
 A titolo di esempio verrà usato Postman per caricare un file MP4 di piccole dimensioni. Il caricamento di file binari tramite Postman potrebbe essere soggetto a limitazioni relative alle dimensioni file.
 
-La richiesta di caricamento non fa parte della raccolta **AzureMedia** . 
+La richiesta di caricamento non fa parte della raccolta **AzureMedia**. 
 
 Creare e configurare una nuova richiesta:
 1. Premere **+** per creare una nuova scheda di richiesta.
 2. Selezionare l'operazione **PUT** e incollare **{{UploadURL}}** nell'URL.
-2. Lasciare invariata la scheda **Autorizzazione** (non impostarla su **Bearer Token** ).
-3. Nella scheda **Intestazioni** specificare "x-ms-blob-type" in **Chiave** e "BlockBlob" in **Valore** .
-2. Nella scheda **Corpo** fare clic su **binario** .
-4. Scegliere il file con il nome specificato nella variabile di ambiente **MediaFileName** .
-5. Fare clic su **Invia** .
+2. Lasciare invariata la scheda **Autorizzazione** (non impostarla su **Bearer Token**).
+3. Nella scheda **Intestazioni** specificare "x-ms-blob-type" in **Chiave** e "BlockBlob" in **Valore**.
+2. Nella scheda **Corpo** fare clic su **binario**.
+4. Scegliere il file con il nome specificato nella variabile di ambiente **MediaFileName**.
+5. Fare clic su **Invia**.
 
     ![Screenshot che mostra la scheda "(carica R L)" selezionata.](./media/media-services-rest-upload-files/postman-upload-file.png)
 
@@ -203,8 +203,8 @@ Creare e configurare una nuova richiesta:
 
 Dopo aver caricato il file è necessario creare nell'asset i metadati per il file multimediale caricato nella risorsa di archiviazione BLOB associata all'asset.
 
-1. Selezionare **AssetFiles**  ->  **CreateFileInfos** .
-2. Fare clic su **Invia** .
+1. Selezionare **AssetFiles**  ->  **CreateFileInfos**.
+2. Fare clic su **Invia**.
 
     ![Caricare un file](./media/media-services-rest-upload-files/postman-create-file-info.png)
 

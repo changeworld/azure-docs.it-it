@@ -191,6 +191,8 @@
       href: ../../iot-hub/security-baseline.md
     - name: Baseline di sicurezza di Key Vault
       href: ../../key-vault/general/security-baseline.md
+    - name: Baseline per la sicurezza di calcolo Linux
+      href: ../../governance/policy/samples/guest-configuration-baseline-linux.md?toc=/azure/security/benchmarks/toc.json
     - name: Baseline di App per la logica
       href: ../../logic-apps/security-baseline.md
     - name: Baseline di Microsoft Cloud App Security
@@ -229,6 +231,8 @@
       href: ../../virtual-wan/security-baseline.md
     - name: Baseline di sicurezza del gateway VPN
       href: ../../vpn-gateway/security-baseline.md
+    - name: Baseline della sicurezza di calcolo di Windows
+      href: ../../governance/policy/samples/guest-configuration-baseline-windows.md?toc=/azure/security/benchmarks/toc.json
     - name: Linea di base di sicurezza per desktop virtuali Windows
       href: ../../virtual-desktop/security-baseline.md
 - name: Risorse

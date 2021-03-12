@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: c28790b2ef423a3d0f996d7c6030b04198756eb1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054855"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607612"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Risolvere i problemi di connettività SMTP in uscita in Azure
 
@@ -76,6 +76,10 @@ Per le sottoscrizioni dei seguenti tipi creati dopo il 15 novembre 2017, saranno
 Se si vuole essere in grado di inviare messaggi di posta elettronica da macchine virtuali di Azure direttamente a provider di posta elettronica esterni, senza usare un inoltro SMTP autenticato, è possibile effettuare una richiesta aprendo un caso di supporto usando il tipo di problema seguente: la connettività di  >  **rete virtuale** tecnica  >    >  **non può inviare messaggi di posta elettronica (SMTP/porta 25)**. Assicurarsi di aggiungere i dettagli sul motivo per cui la distribuzione deve inviare messaggi di posta elettronica direttamente ai provider di posta anziché usare un inoltro autenticato. Le richieste verranno esaminate e approvate a discrezione di Microsoft. Le richieste verranno concesse solo dopo il completamento di ulteriori controlli anti-frode. 
 
 Dopo che una sottoscrizione è stata esentata e le macchine virtuali sono state arrestate e riavviate nella portale di Azure, tutte le macchine virtuali della sottoscrizione verranno esentate in futuro. L'esenzione si applica solo alla sottoscrizione richiesta e solo al traffico delle macchine virtuali indirizzato direttamente a Internet.
+
+## <a name="changing-subscription-type"></a>Modifica del tipo di sottoscrizione
+
+Se si modifica il tipo di sottoscrizione o il provider di soluzioni cloud o la sottoscrizione con pagamento in base al consumo è approvata, è necessario arrestare, deallocare e quindi riavviare la VM per rendere effettive le nuove regole. Analogamente, se si dispone di un tipo di sottoscrizione consentito per impostazione predefinita e si passa a un tipo di sottoscrizione non consentito, la porta 25 potrebbe quindi essere bloccata a causa delle modifiche apportate alla distribuzione.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

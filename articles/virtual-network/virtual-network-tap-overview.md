@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 8347dcd60dcdfbf03f52e25eb24744909c69465a
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 6160dd09edc57f2f52306d4dad0dde413fff0616
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804871"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617183"
 ---
 # <a name="virtual-network-tap"></a>TAP di rete virtuale
 > [!IMPORTANT]
-> L'anteprima di TAP per la rete virtuale è attualmente in attesa in tutte le aree di Azure. È possibile inviare un messaggio di posta elettronica all'indirizzo <azurevnettap@microsoft.com> con l'ID sottoscrizione e si riceverà una notifica per gli aggiornamenti futuri dell'anteprima. Nel frattempo, è possibile usare soluzioni basate su agenti o di appliance virtuale di rete che forniscono funzionalità di visibilità di rete e di tocco tramite le [soluzioni dei partner broker di pacchetti](#virtual-network-tap-partner-solutions) disponibili nelle [offerte di Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
+> L'anteprima di TAP per la rete virtuale è attualmente in attesa in tutte le aree di Azure. È possibile inviare un messaggio di posta elettronica all'indirizzo <azurevnettap@microsoft.com> con l'ID sottoscrizione e si riceverà una notifica per gli aggiornamenti futuri dell'anteprima. Nel frattempo, è possibile usare soluzioni basate su agenti o di appliance virtuale di rete che forniscono funzionalità di visibilità di rete e di tocco tramite le [soluzioni dei partner broker di pacchetti](#virtual-network-tap-partner-solutions) disponibili nelle [offerte di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
 
 Un TAP (Terminal Access Point) di rete virtuale di Azure consente di trasmettere il traffico di rete della macchina virtuale come flusso continuo a un agente di raccolta di pacchetti di rete o a uno strumento di analisi. Lo strumento di raccolta dati o analisi viene fornito da un partner di [appliance virtuale di rete](https://azure.microsoft.com/solutions/network-appliances/) . Per un elenco delle soluzioni dei partner convalidate per l'uso con un TAP di rete virtuale, vedere le [soluzioni dei partner](#virtual-network-tap-partner-solutions).
 L'immagine seguente illustra come funziona un TAP di rete virtuale. È possibile aggiungere una configurazione di TAP in un'[interfaccia di rete](virtual-network-network-interface.md) collegata a una macchina virtuale distribuita nella rete virtuale. La destinazione è un indirizzo IP di rete virtuale nella stessa rete virtuale dell'interfaccia di rete monitorata o una rete [virtuale con peering](virtual-network-peering-overview.md). La soluzione dell'agente di raccolta per il TAP di rete virtuale può essere distribuita dietro un bilanciamento del carico interno di Azure per garantire disponibilità elevata.
@@ -64,6 +64,7 @@ Gli account usati per applicare la configurazione TAP alle interfacce di rete de
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/marketplace-azure)
+- [Sicurezza NoName](https://nonamesecurity.com/)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
 - [RSA NetWitness® Platform](https://www.rsa.com/content/dam/en/solution-brief/rsa-netwitness-platform-overview-for-federal-agencies.pdf)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)

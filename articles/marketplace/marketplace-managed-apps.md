@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: d4fb3354b7035149b80191528b2f5335b593b764
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 09badebab86da8e4fd8d35307aa6648a26e91821
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433551"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232257"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guida alla pubblicazione per le applicazioni gestite di Azure
 
@@ -33,8 +33,8 @@ Usare il tipo di offerta di applicazione gestita nelle condizioni seguenti:
 |Requisiti |Dettagli  |
 |---------|---------|
 |Una sottoscrizione di Azure | Le applicazioni gestite devono essere distribuite nella sottoscrizione di un cliente, ma possono essere gestite da terze parti. |
-|Fatturazione e misurazione    |  Le risorse vengono fornite nella sottoscrizione di Azure di un cliente. Le macchine virtuali che usano il modello di pagamento con pagamento in base al consumo vengono sottoposte a transazione con il cliente tramite Microsoft e fatturate tramite la sottoscrizione di Azure del cliente. <br><br> Per le macchine virtuali con licenza Bring-Your-Own, Microsoft addebita tutti i costi di infrastruttura sostenuti per la sottoscrizione del cliente, ma è possibile effettuare direttamente le spese di licenza software con il cliente.        |
-|Un disco rigido virtuale (VHD) compatibile con Azure    |   Le macchine virtuali devono essere compilate in Windows o Linux.<br><br>Per altre informazioni sulla creazione di un disco rigido virtuale Linux, vedere [Distribuzioni di Linux approvate in Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Per ulteriori informazioni sulla creazione di un disco rigido virtuale di Windows, vedere [creare un'offerta di applicazione Azure](./create-new-azure-apps-offer.md). |
+|Fatturazione e misurazione    |  Le risorse vengono fornite nella sottoscrizione di Azure di un cliente. Le risorse di Azure che usano il modello di pagamento con pagamento in base al consumo vengono sottoposte a transazione con il cliente tramite Microsoft e fatturate tramite la sottoscrizione di Azure del cliente. <br><br> Per le risorse di Azure con licenza Bring-Your-Own, Microsoft addebita tutti i costi di infrastruttura sostenuti per la sottoscrizione del cliente, ma è possibile effettuare direttamente le spese di licenza software con il cliente.        |
+|Un pacchetto di applicazione gestita di Azure    |   Il modello di Azure Resource Manager configurato e creare la definizione dell'interfaccia utente che verrà usata per distribuire l'applicazione nella sottoscrizione del cliente.<br><br>Per ulteriori informazioni sulla creazione di un'applicazione gestita, vedere [Cenni preliminari sulle applicazioni gestite](../azure-resource-manager/managed-applications/publish-service-catalog-app.md).|
 
 ---
 

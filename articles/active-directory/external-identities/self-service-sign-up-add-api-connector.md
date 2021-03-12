@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f190b8ffbb98c6ff5465af869305de4c9135cc3f
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 703e3b4c951bc4c3a22f82b9faa31789d1abf868
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102610102"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008723"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Aggiungere un connettore API a un flusso utente
 
@@ -59,12 +59,12 @@ Per creare un certificato, è possibile usare [Azure Key Vault](../../key-vault/
 
 Per app Azure servizio e funzioni di Azure, vedere [configurare l'autenticazione reciproca TLS](../../app-service/app-service-web-configure-tls-mutual-auth.md) per informazioni su come abilitare e convalidare il certificato dall'endpoint API.
 
-È consigliabile impostare gli avvisi di promemoria per la scadenza del certificato. Per caricare un nuovo certificato in un connettore API esistente, selezionare il connettore API in **tutti i connettori API** e fare clic su **Carica nuovo connettore**. Il certificato caricato più di recente che non è scaduto ed è oltre la data di inizio verrà usato automaticamente da Azure Active Directory.
+È consigliabile impostare gli avvisi di promemoria per la scadenza del certificato. Per caricare un nuovo certificato in un connettore API esistente, selezionare il connettore API in **tutti i connettori API** e fare clic su **Carica nuovo certificato**. Il certificato caricato più di recente che non è scaduto ed è oltre la data di inizio verrà usato automaticamente da Azure Active Directory.
 
 ### <a name="api-key"></a>Chiave API
-Alcuni servizi utilizzano un meccanismo di "chiave API" per rendere più difficile l'accesso agli endpoint HTTP durante lo sviluppo. Per [funzioni di Azure](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), è possibile eseguire questa operazione includendo `code` come parametro di query nell' **URL dell'endpoint**. Ad esempio, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
+Alcuni servizi usano un meccanismo di "chiave API" per offuscare l'accesso agli endpoint HTTP durante lo sviluppo. Per [funzioni di Azure](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), è possibile eseguire questa operazione includendo `code` come parametro di query nell' **URL dell'endpoint**. Ad esempio, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
 
-Non si tratta di un meccanismo da usare da solo nell'ambiente di produzione. Pertanto, la configurazione per l'autenticazione di base o di certificato è sempre obbligatoria. Se si vuole implementare un metodo di autenticazione (non consigliato) a scopo di sviluppo, è possibile scegliere l'autenticazione di base e usare i valori temporanei per `username` e `password` che l'API può ignorare mentre si implementa l'autorizzazione nell'API.
+Non si tratta di un meccanismo da usare da solo nell'ambiente di produzione. Pertanto, la configurazione per l'autenticazione di base o di certificato è sempre obbligatoria. Se non si vuole implementare alcun metodo di autenticazione (scelta non consigliata) a scopo di sviluppo, è possibile scegliere l'autenticazione di base e usare i valori temporanei per `username` e `password` che l'API può ignorare mentre si implementa l'autorizzazione nell'API.
 
 ## <a name="the-request-sent-to-your-api"></a>La richiesta inviata all'API
 Un connettore API si materializza come una richiesta **http post** , inviando attributi utente ("claims") come coppie chiave-valore in un corpo JSON. Gli attributi vengono serializzati in modo analogo alle proprietà [Microsoft Graph](/graph/api/resources/user#properties) utente. 
@@ -76,7 +76,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -138,7 +138,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -189,7 +189,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",

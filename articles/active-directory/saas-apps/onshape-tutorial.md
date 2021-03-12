@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 5d1c4d05748fd9efdc51e18396c8df14e12df63d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2ead9bd72691dc120afb60c025ce563684716038
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102185404"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199331"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onshape"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con OnShape
 
@@ -74,26 +74,12 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella portale di Azure nella pagina di integrazione dell'applicazione **OnShape** trovare la sezione **Gestisci** e selezionare **Single Sign-on**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
-
-   ![Modificare la configurazione SAML di base](common/edit-urls.png)
-
-1. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure.
-
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
-
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.onshape.com`
-
-    > [!NOTE]
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di OnShape](mailto:support@onshape.com) . È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
-
-1. Fare clic su **Salva**.
-
+1. Se viene richiesto di salvare l'impostazione Single Sign-On, selezionare **Sì**. 
 1. L'applicazione OnShape prevede un formato specifico per le asserzioni SAML. è quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
     ![image](common/default-attributes.png)
 
-1. Oltre a quanto sopra, l'applicazione OnShape prevede che venga restituito un numero maggiore di attributi nella risposta SAML, indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
+1. Oltre a quanto sopra, l'applicazione OnShape prevede che vengano passati altri attributi riportati di seguito nella risposta SAML. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
     
     | Nome |  Attributo di origine|
     | --------------- | --------- |
@@ -102,7 +88,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | companyName | <COMPANY_NAME> |
 
     > [!NOTE]
-    > Modificare il valore dell'attestazione "companyName" con il prefisso "dominio". Ad esempio, se il cliente accede all'applicazione onform usando un URL come https://acme.onshape.com , il prefisso del dominio è "Acme". Il valore dell'attributo deve essere solo il prefisso, non l'intero nome DNS.
+    > È _necessario_ modificare il valore dell'attributo **CompanyName** sul prefisso del *dominio* dell'organizzazione OnShape. Se ad esempio si accede all'applicazione onform usando un URL come `https://acme.onshape.com` , il prefisso del dominio è *ACME*. Il valore dell'attributo deve essere solo il prefisso, non l'intero nome DNS.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -137,7 +123,7 @@ In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On conced
 
 ## <a name="configure-onshape-sso"></a>Configura SSO OnShape
 
-Per configurare Single Sign-On sul lato **onforme** , è necessario inviare il **file XML dei metadati di Federazione** scaricato e gli URL copiati appropriati da portale di Azure al [team di supporto di OnFormat](mailto:support@onshape.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per informazioni su come configurare Single Sign-On sul lato **OnFormat** , vedere l'articolo relativo all' [integrazione con Microsoft Azure ad](https://cad.onshape.com/help/Content/MS_AzureAD.htm).
 
 ### <a name="create-onshape-test-user"></a>Crea utente test OnShape
 

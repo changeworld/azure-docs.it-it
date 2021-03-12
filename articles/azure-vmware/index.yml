@@ -6,15 +6,15 @@ metadata:
   description: Informazioni su come usare la soluzione Azure VMware per distribuire un cloud privato VMware in Azure
   ms.service: azure-vmware
   ms.topic: landing-page
-  author: dikamath
-  ms.author: dikamath
-  ms.date: 11/19/2020
-  ms.openlocfilehash: 7bff439db0b9567292707efeac085f8537de33a5
-  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+  author: shortpatti
+  ms.author: v-patsho
+  ms.date: 03/12/2021
+  ms.openlocfilehash: 9014dbbfdb9d1f0ef4af975da917abdcf71d8b2a
+  ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/10/2021
-  ms.locfileid: "102612134"
+  ms.lasthandoff: 03/12/2021
+  ms.locfileid: "103232954"
 landingContent:
 - title: Informazioni sulla soluzione Azure VMware
   linkLists:
@@ -140,11 +140,11 @@ landingContent:
     links:
     - text: Playlist
       url: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
-    - text: Demistificazione del DNS e della comunicazione sicura
+    - text: Integrazione con il servizio di Azure
       url: https://youtu.be/m26iLu6DHbU
-    - text: Integrare con il gateway applicazione di Azure
+    - text: Integrazione con applicazione Azure gateway
       url: https://youtu.be/BoQYvqzb6Y8
-    - text: Migrazione e pianificazione della capacità
+    - text: Pianificazione della migrazione e della capacità
       url: https://youtu.be/NoNG-hkksrA
 - title: Risoluzione dei problemi
   linkLists:
