@@ -3,13 +3,13 @@ title: Usare Azure Active Directory identità gestite da Pod nel servizio Azure 
 description: Informazioni su come usare le identità gestite gestite da Pod di AAD in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/01/2020
-ms.openlocfilehash: e7c8a96ad012afdcd724a4a242c27018563f3a10
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 3/12/2021
+ms.openlocfilehash: 8b94c859800c3757842ad56df6e20f215bb13a7d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176315"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233497"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Usare Azure Active Directory identità gestite da Pod nel servizio Azure Kubernetes (anteprima)
 
@@ -24,13 +24,13 @@ Azure Active Directory le identità gestite da Pod usano le primitive Kubernetes
 
 È necessario che sia installata la seguente risorsa:
 
-* INTERFACCIA della riga di comando di Azure, versione 2.8.0 o successiva
-* La `azure-preview` versione dell'estensione 0.4.68 o versioni successive
+* INTERFACCIA della riga di comando di Azure, versione 2.20.0 o successiva
+* La `azure-preview` versione dell'estensione 0.5.5 o versioni successive
 
 ### <a name="limitations"></a>Limitazioni
 
-* Sono consentite al massimo 50 identità pod per un cluster.
-* Per un cluster sono consentite al massimo 50 eccezioni di identità pod.
+* Sono consentite al massimo 200 identità pod per un cluster.
+* Per un cluster sono consentite al massimo 200 eccezioni di identità pod.
 * Le identità gestite da Pod sono disponibili solo nei pool di nodi Linux.
 
 ### <a name="register-the-enablepodidentitypreview"></a>Registrare il `EnablePodIdentityPreview`
@@ -66,6 +66,21 @@ Usare [AZ AKS Get-credentials][az-aks-get-credentials] per accedere al cluster A
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+```
+## <a name="create-an-aks-cluster-with-kubenet-network-plugin"></a>Creare un cluster AKS con il plug-in di rete Kubenet
+
+Creare un cluster AKS con il plug-in di rete Kubenet e l'identità gestita da Pod abilitata.
+
+```azurecli-interactive
+az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
+
+## <a name="update-an-existing-aks-cluster-with-kubenet-network-plugin"></a>Aggiornare un cluster AKS esistente con il plug-in di rete Kubenet
+
+Aggiornare un cluster AKS esistente con il plug-in di rete Kubnet per includere l'identità gestita da Pod.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
 ```
 
 ## <a name="create-an-identity"></a>Creare un'identità

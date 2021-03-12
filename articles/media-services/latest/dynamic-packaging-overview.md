@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9be00fd89234be0a8b5740af9e12811f36a47619
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 4f4f53d4a20397f38b565cb73e74b01d15cc3022
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092330"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633054"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
 
@@ -27,9 +27,6 @@ ms.locfileid: "101092330"
 Servizi multimediali di Microsoft Azure può essere usato per codificare molti formati di file di origini multimediali. Tali formati vengono distribuiti tramite protocolli di streaming diversi, con o senza protezione del contenuto, per raggiungere tutti i dispositivi principali, ad esempio dispositivi iOS e Android. Tali client supportano protocolli diversi. iOS, ad esempio, richiede che i flussi vengano distribuiti nel formato HLS (HTTP Live Streaming), mentre i dispositivi Android supportano HLS e MPEG DASH.
 
 In Servizi multimediali un [endpoint di streaming](streaming-endpoint-concept.md) (origine) rappresenta un servizio di generazione e creazione di pacchetti dinamici (just-in-time) in grado di distribuire contenuti live e on demand direttamente a un'app di riproduzione client. Usa uno dei protocolli multimediali comuni di streaming indicati nella sezione seguente. La *creazione dinamica dei pacchetti* è una funzionalità standard di tutti gli endpoint di streaming.
-
-> [!NOTE]
-> È possibile usare il [portale di Azure](https://portal.azure.com/) per gestire gli [eventi live](live-events-outputs-concept.md) v3, visualizzare gli [asset](assets-concept.md) v3 e ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione, ad esempio trasformazioni e processi, usare l'[API REST](/rest/api/media/), l'[interfaccia della riga di comando](/cli/azure/ams) oppure uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Per preparare i file di origine per la distribuzione
 

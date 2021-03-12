@@ -3,15 +3,15 @@ title: Dimensionare gli host di sessioni con Automazione di Azure - Azure
 description: Come dimensionare automaticamente gli host di sessioni di Desktop virtuale Windows con Automazione di Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f60341ea51f1cf4e856b1b4598887da3dc37ebb2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078555"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613120"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Dimensionare gli host di sessioni con Automazione di Azure
 
@@ -52,6 +52,9 @@ Tuttavia, lo strumento presenta anche le limitazioni seguenti:
 - Questa soluzione si applica solo alle VM host sessione multisessione in pool.
 - Questa soluzione gestisce le macchine virtuali in qualsiasi area, ma può essere usata solo nella stessa sottoscrizione dell'account di automazione di Azure e dell'app per la logica di Azure.
 - Il runtime massimo di un processo in Runbook è di 3 ore. Se l'avvio o l'arresto delle macchine virtuali nel pool host richiede più tempo, il processo avrà esito negativo. Per informazioni dettagliate, vedere [risorse condivise](../automation/automation-runbook-execution.md#fair-share).
+- Per il corretto funzionamento dell'algoritmo di ridimensionamento, è necessario accendere almeno una macchina virtuale o un host di sessione.
+- Lo strumento di ridimensionamento non supporta il ridimensionamento in base alla CPU o alla memoria.
+- Il ridimensionamento funziona solo con gli host esistenti nel pool host. Lo strumento di ridimensionamento non supporta il ridimensionamento di nuovi host di sessione.
 
 >[!NOTE]
 >Lo strumento di scalabilità controlla la modalità di bilanciamento del carico del pool host attualmente in fase di ridimensionamento. Lo strumento usa la modalità di bilanciamento del carico con prima larghezza per le ore di picco e di minore utilizzo.

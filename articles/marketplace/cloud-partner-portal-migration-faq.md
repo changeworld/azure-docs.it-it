@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 091feacceb510038786ae487c0895f9ff1e47aba
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e071692a1c6fe423b048dab884164d9b3c98f1fd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880339"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613613"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Domande frequenti sulla transizione dalla portale Cloud Partner al centro per i partner
 
@@ -22,7 +22,7 @@ Il portale Cloud Partner è passato al centro per i partner. Il centro per i par
 
 È possibile continuare a lavorare nel centro per i partner:
 
-| Area<img src="" width=200px> | Modifiche |
+| Area | Modifiche |
 | --- | --- |
 | Account | Non è necessario creare un nuovo account del centro per i partner; è possibile usare le credenziali di portale Cloud Partner esistenti per accedere al centro per i partner, in cui si gestirà l'account, gli utenti, le autorizzazioni e la fatturazione. Il contratto di pubblicazione e le informazioni sul profilo della società vengono migrati al nuovo account del centro per i partner, insieme alle informazioni sul profilo di pagamento, agli account utente e alle autorizzazioni e alle offerte attive. Per altre informazioni, vedere [gestire l'account del Marketplace commerciale nel centro per i partner](partner-center-portal/manage-account.md). |
 | Offrire un'esperienza di gestione di pubblicazione e offerta | I dati dell'offerta sono stati spostati dal portale Cloud Partner al centro per i partner. Ora potrai accedere alle tue offerte nel centro per i partner, che offre un'esperienza utente migliorata e un'interfaccia intuitiva. Informazioni su come [aggiornare un'offerta esistente nel Marketplace commerciale](partner-center-portal/update-existing-offer.md). |
@@ -41,7 +41,7 @@ No, l'account verrà mantenuto. Ciò significa che se si è un partner esistente
 
 Di seguito sono riportati i collegamenti al centro per i partner per le pagine utilizzate comunemente nella portale Cloud Partner. Se sono stati salvati i collegamenti portale Cloud Partner come segnalibri, sarà necessario aggiornarli.
 
-| Pagina del portale per Cloud Partner <img src="" width=100px>| Collegamento alla pagina portale Cloud Partner | Collegamento alla pagina del centro per i partner |
+| Pagina del portale per Cloud Partner | Collegamento alla pagina portale Cloud Partner | Collegamento alla pagina del centro per i partner |
 | --- | --- | --- |
 | Pagina Tutte le offerte | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
 | Pagina Tutti gli autori | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/publishers/list](https://partner.microsoft.com/dashboard/account/v3/publishers/list) |
@@ -75,7 +75,7 @@ Tutti i tipi di offerta precedentemente supportati nel portale Cloud Partner son
 
 Per i tipi di offerta supportati nel centro per i partner, tutte le offerte sono state spostate indipendentemente dallo stato; sono state spostate anche le offerte Draft, delist e Preview.
 
-| Tipo di offerta <img src="" width=150px>| Spostati nel centro per i partner? <img src="" width=100px>| Passaggi successivi |
+| Tipo di offerta | Spostati nel centro per i partner? | Passaggi successivi |
 | --- | --- | --- |
 | SaaS | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [pianificare un'offerta SaaS per il Marketplace commerciale](plan-saas-offer.md). |
 | Macchina virtuale | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [pianificare un'offerta di macchina virtuale](marketplace-virtual-machines.md). |
@@ -181,7 +181,7 @@ L'ID offerta è ora visualizzato sulla barra di spostamento a sinistra dell'offe
 
 Le API portale Cloud Partner sono integrate con il centro per i partner e continueranno a funzionare. La transizione al centro per i partner introduce piccole modifiche. Esaminare la tabella seguente per assicurarsi che il codice continui a funzionare nel centro per i partner.
 
-| API <img src="" width=100px>| Descrizione delle modifiche | Impatto |
+| API | Descrizione delle modifiche | Impatto |
 | --- | --- | --- |
 | Pubblicazione POST, GoLive, annullamento | Per le offerte migrate, l'intestazione della risposta avrà un formato diverso ma continuerà a funzionare allo stesso modo, indicando un percorso relativo per recuperare lo stato dell'operazione. | Quando si inviano le richieste POST corrispondenti per un'offerta, l'intestazione Location avrà uno dei due formati a seconda dello stato di migrazione dell'offerta: <ul><li>Offerte senza migrazione: `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Offerte migrate: `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | Operazione GET | Per le offerte che in precedenza supportavano un campo "Notification-email" nella risposta, questo campo sarà deprecato e non verrà più restituito per le offerte migrate. | Per le offerte migrate, non verranno più inviate notifiche all'elenco dei messaggi di posta elettronica specificati nelle richieste. Al contrario, il servizio API si allineerà con il processo di posta elettronica di notifica nel Centro per i partner per inviare messaggi di posta elettronica. In particolare, le notifiche dello stato di avanzamento dell'operazione verranno inviate all'indirizzo di posta elettronica impostato nella sezione informazioni di contatto del venditore delle impostazioni dell'account nel centro per i partner.<br><br>Verificare che l'indirizzo di posta elettronica impostato nella sezione informazioni di contatto del venditore nelle [impostazioni dell'account](https://partner.microsoft.com/dashboard/account/management) nel centro partner sia corretto per la ricezione delle notifiche. |

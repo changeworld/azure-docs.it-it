@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9abed17f5a3d23f811c7cec0d4fd31e4433f651d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: df90857bf30b6fff3c18faf126efabe8c959c0c6
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177021"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633428"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -211,7 +211,7 @@ Per altre informazioni, vedere [automatizzare il provisioning degli utenti in ap
  
 10 Azure AD ruoli predefiniti sono stati rinominati in modo che siano allineati nell'interfaccia di [amministrazione di Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), nel portale di [Azure ad](https://portal.azure.com/)e [Microsoft Graph](https://developer.microsoft.com/graph/). Per ulteriori informazioni sui nuovi ruoli, fare riferimento alle [autorizzazioni del ruolo amministratore in Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
-![Tabella dei nuovi nomi di ruolo](media/whats-new/roles-table-rbac.png)
+![Tabella che mostra i nomi dei ruoli in MS API Graph e il portale di Azure e il nome finale proposto tra API, portale di Azure e Mac.](media/whats-new/roles-table-rbac.png)
 
 ---
 
@@ -413,7 +413,7 @@ Per elencare l'applicazione nella raccolta di app Azure AD, vedere qui i dettagl
 **Categoria di servizio:** Gestione degli accessi degli utenti  
 **Funzionalità del prodotto:** Gestione dei diritti
  
-Un'opzione aggiuntiva quando si seleziona responsabili approvazione è ora disponibile nella gestione dei diritti. Se si seleziona "responsabile come responsabile approvazione" per il primo responsabile approvazione, sarà disponibile un'altra opzione, ovvero "secondo livello gestione come responsabile approvazione alternativo", disponibile per scegliere nel campo responsabile approvazione alternativo. Se si seleziona questa opzione, è necessario aggiungere un responsabile approvazione del fallback per inviare la richiesta a nel caso in cui il sistema non riesca a trovare il gestore di secondo livello. [Scopri di più](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
+Un'opzione aggiuntiva quando si seleziona responsabili approvazione è ora disponibile nella gestione dei diritti. Se si seleziona "responsabile come responsabile approvazione" per il primo responsabile approvazione, sarà disponibile un'altra opzione, ovvero "secondo livello gestione come responsabile approvazione alternativo", disponibile per scegliere nel campo responsabile approvazione alternativo. Se si seleziona questa opzione, è necessario aggiungere un responsabile approvazione del fallback per inviare la richiesta a nel caso in cui il sistema non riesca a trovare il gestore di secondo livello. [Altre informazioni](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
  
 ---
 
@@ -968,7 +968,7 @@ Per informazioni su come usare la funzionalità, vedere comprendere il modo in c
  
 Alcuni ruoli predefiniti di Azure Active Directory (AD) hanno nomi diversi da quelli visualizzati nell'interfaccia di amministrazione di Microsoft 365, nel portale di Azure AD e Microsoft Graph. Questa incoerenza può causare problemi nei processi automatizzati. Con questo aggiornamento, verranno rinominati 10 nomi di ruolo per renderli coerenti. Nella tabella seguente sono presenti i nuovi nomi di ruolo:
 
-![Tabella dei nuovi nomi di ruolo](media/whats-new/azure-role.png)
+![Tabella che mostra i nomi dei ruoli in MS API Graph e il portale di Azure e il nuovo nome del ruolo proposto nell'interfaccia di amministrazione di M365, portale di Azure e API.](media/whats-new/azure-role.png)
 
 ---
 
@@ -1024,7 +1024,7 @@ Azure AD Connect aggiornamento dell'anteprima pubblica del provisioning nel clou
 
 - Esperienza di mapping degli attributi tramite portale di Azure
 
-    Con questa funzionalità gli amministratori IT possono eseguire il mapping degli attributi utente, gruppo o contatto da AD a Azure AD usando diversi tipi di mapping attualmente presenti. Il mapping degli attributi è una funzionalità usata per standardizzare i valori degli attributi che fluiscono da Active Directory a Azure Active Directory. È possibile determinare se eseguire direttamente il mapping del valore dell'attributo come da AD a Azure AD o utilizzare espressioni per trasformare i valori dell'attributo durante il provisioning degli utenti. [Scopri di più](../cloud-sync/how-to-attribute-mapping.md)
+    Con questa funzionalità gli amministratori IT possono eseguire il mapping degli attributi utente, gruppo o contatto da AD a Azure AD usando diversi tipi di mapping attualmente presenti. Il mapping degli attributi è una funzionalità usata per standardizzare i valori degli attributi che fluiscono da Active Directory a Azure Active Directory. È possibile determinare se eseguire direttamente il mapping del valore dell'attributo come da AD a Azure AD o utilizzare espressioni per trasformare i valori dell'attributo durante il provisioning degli utenti. [Altre informazioni](../cloud-sync/how-to-attribute-mapping.md)
 
 - Esperienza utente di test o provisioning su richiesta
 

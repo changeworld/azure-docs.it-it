@@ -3,7 +3,7 @@ title: Telemetria di Servizi multimediali di Azure | Documentazione Microsoft
 description: Questo articolo fornisce una panoramica dei dati di telemetria Servizi multimediali di Microsoft Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: 4bf9a96d7ffc3b939abe8cfb889c5bd49fee09cc
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: b17b5901248056f6000710fa25d2ea1e9df2e2a5
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694606"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009091"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria di Servizi multimediali di Azure  
 
@@ -75,12 +75,12 @@ Ciò dovrebbe garantire l'efficienza di molte query comuni:
 
 I dati di telemetria sono archiviati tutti insieme nella tabella "TelemetryMetrics20160321" dove "20160321" è la data di creazione della tabella. Il sistema di telemetria crea una nuova tabella per ogni giornata alle ore 00:00 UTC. In questa tabella vengono archiviati i valori ricorrenti, come la velocità in bit delle operazioni di inserimento in un determinato intervallo di tempo, i byte inviati e così via. 
 
-Proprietà|valore|Esempi/note
+Proprietà|Valore|Esempi/note
 ---|---|---
 PartitionKey|{ID account}_{ID entità}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>L'ID dell'account viene incluso nella chiave di partizione per semplificare i flussi di lavoro in quei casi in cui nello stesso account di archiviazione scrivono più account di Servizi multimediali.
 RowKey|{secondi a mezzanotte}_{valore casuale}|01688_00199<br/><br/>La chiave di riga inizia con il numero di secondi che mancano alla mezzanotte per consentire le principali query di stile all'interno di una partizione. Per altre informazioni, vedere [questo](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) articolo. 
 Timestamp|Data/ora|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Type|Tipo di entità che fornisce i dati di telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Il tipo di evento è semplicemente un valore stringa.
+Tipo|Tipo di entità che fornisce i dati di telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Il tipo di evento è semplicemente un valore stringa.
 Nome|Nome dell'evento di telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|L'ora (UTC) in cui si è verificato l'evento di telemetria|2016-09-09T22:42:36.924Z<br/><br/>L'ora osservata è fornita dall'entità che invia i dati di telemetria (ad esempio un canale). Poiché possono esserci problemi di sincronizzazione tra i componenti, questo valore è approssimativo
 ServiceID|{ID servizio}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -96,12 +96,12 @@ Esistono tre tipi di dati di telemetria specifici di entità inseriti con la seg
 
 **Endpoint di streaming**
 
-Proprietà|valore|Esempi
+Proprietà|Valore|Esempio
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Type|Type|StreamingEndpoint
+Tipo|Tipo|StreamingEndpoint
 Nome|Nome|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -115,12 +115,12 @@ E2ELatency|Latenza end-to-end media|250
 
 **Canale live**
 
-Proprietà|valore|Esempi/note
+Proprietà|Valore|Esempi/note
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Type|Type|Canale
+Tipo|Tipo|Canale
 Nome|Nome|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -140,12 +140,12 @@ Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingC
 
 **Archivio Live**
 
-Proprietà|valore|Esempi/note
+Proprietà|Valore|Esempi/note
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Type|Type|Archiviazione
+Tipo|Tipo|Archiviazione
 Nome|Nome|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e

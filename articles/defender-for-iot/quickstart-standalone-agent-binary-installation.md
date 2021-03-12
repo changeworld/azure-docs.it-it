@@ -1,27 +1,27 @@
 ---
-title: Installare Defender per gli agenti Internet
+title: Installare Defender per gli agenti Internet (anteprima)
 titleSuffix: Azure Defender for IoT
 description: Informazioni su come installare e autenticare Defender micro Agent.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 3/3/2021
+ms.date: 3/9/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: ccf28c47e2e1438a141e2497da70d32c1832ddb9
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 8984b1dbcb9a6aca6d313d8195a75093ae421bbd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120437"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611676"
 ---
-# <a name="install-defender-for-iot-micro-agent"></a>Installare Defender per gli agenti Internet 
+# <a name="install-defender-for-iot-micro-agent-preview"></a>Installare Defender per gli agenti Internet (anteprima)
 
 Questo articolo fornisce una spiegazione su come installare e autenticare Defender micro Agent.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di installare il modulo Defender for Internet è necessario creare un'identità del modulo nell'hub Internet delle cose. Per altre informazioni su come creare un'identità del modulo, vedere [creare un modulo gemello di Defender Internet Agent ](quickstart-create-micro-agent-module-twin.md).
+Prima di installare il modulo Defender for Internet, è necessario creare un'identità del modulo nell'hub Internet delle cose. Per altre informazioni su come creare un'identità del modulo, vedere [creare un modulo gemello di Defender Internet Agent (anteprima)](quickstart-create-micro-agent-module-twin.md).
 
 ## <a name="install-the-package"></a>Installare il pacchetto
 
@@ -49,13 +49,37 @@ sudo apt-get install defender-iot-micro-agent
 
 Le due opzioni usate per autenticare il Defender per l'agente Internet delle cose sono: 
 
-- Stringa di connessione. 
+- Stringa di connessione dell'identità del modulo. 
 
 - Certificato.
 
-### <a name="authenticate-using-a-connection-string"></a>Eseguire l'autenticazione con una stringa di connessione
+### <a name="authenticate-using-a-module-identity-connection-string"></a>Eseguire l'autenticazione usando una stringa di connessione di identità del modulo
 
-Per eseguire l'autenticazione usando una stringa di connessione:
+Verificare che i [prerequisiti](#prerequisites) per questo articolo siano soddisfatti e che si crei un'identità del modulo prima di iniziare questa procedura. 
+
+#### <a name="get-the-module-identity-connection-string"></a>Ottenere la stringa di connessione dell'identità del modulo
+
+Per ottenere la stringa di connessione dell'identità del modulo dall'hub Internet: 
+
+1. Passare all'hub Internet e selezionare l'hub.
+
+1. Nel menu a sinistra, nella sezione **esploratori** selezionare **dispositivi**.
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/iot-devices.png" alt-text="Selezionare dispositivi Internet nel menu a sinistra.":::
+
+1. Selezionare un dispositivo nell'elenco ID dispositivo per visualizzare la pagina dei **Dettagli del dispositivo** .
+
+1. Selezionare la scheda **identità modulo**   e quindi selezionare il modulo **DefenderIotMicroAgent**   dall'elenco delle identità del modulo associate al dispositivo.
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/module-identities.png" alt-text="Selezionare la scheda identità moduli.":::
+
+1. Nella pagina **Dettagli identità modulo** copiare la chiave primaria selezionando il pulsante **copia** .
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="Selezionare il pulsante copia per copiare la chiave primaria.":::
+
+#### <a name="configure-authentication-using-a-module-identity-connection-string"></a>Configurare l'autenticazione usando una stringa di connessione di identità del modulo
+
+Per configurare l'agente per l'autenticazione usando una stringa di connessione di identità del modulo:
 
 1. Inserire un file denominato `connection_string.txt` contenente la stringa di connessione codificata in UTF-8 nel percorso della directory dell'agente Defender `/var/defender_iot_micro_agent` immettendo il comando seguente:
 
@@ -63,7 +87,7 @@ Per eseguire l'autenticazione usando una stringa di connessione:
     sudo bash -c 'echo "<connection string" > /var/defender_iot_micro_agent/connection_string.txt' 
     ```
 
-    Il `connection_string.txt` dovrebbe ora trovarsi nel percorso seguente `/var/defender_iot_micro_agent/connection_string.txt` .
+    `connection_string.txt`Deve trovarsi nel percorso seguente `/var/defender_iot_micro_agent/connection_string.txt` .
 
 1. Riavviare il servizio utilizzando questo comando:  
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a7e33f950bc5f13372962694abc8e3e40d8ad5c0
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 960c00f516aac0c804718e439ae3ed9691759329
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753240"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010678"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenario: App Web per l'accesso degli utenti
 
@@ -55,7 +55,7 @@ Se si sviluppa con Python, provare a eseguire la Guida introduttiva seguente:
 
 Aggiungere l'autenticazione all'app Web in modo che possa accedere agli utenti. L'aggiunta dell'autenticazione consente all'app Web di accedere a informazioni limitate sul profilo per personalizzare l'esperienza degli utenti.
 
-App Web autenticare un utente in un Web browser. In questo scenario l'app Web indirizza il browser dell'utente per l'accesso al Azure Active Directory (Azure AD). Azure AD restituisce una risposta di accesso tramite il browser dell'utente, che contiene le attestazioni relative all'utente in un token di sicurezza. L'accesso degli utenti sfrutta il protocollo standard [Open ID Connect](./v2-protocols-oidc.md) , semplificato dall'utilizzo delle [librerie](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps)middleware.
+App Web autenticare un utente in un Web browser. In questo scenario l'app Web indirizza il browser dell'utente per l'accesso al Azure Active Directory (Azure AD). Azure AD restituisce una risposta di accesso tramite il browser dell'utente, che contiene le attestazioni relative all'utente in un token di sicurezza. L'accesso degli utenti sfrutta il protocollo standard [Open ID Connect](./v2-protocols-oidc.md) , semplificato dall'utilizzo delle [librerie](scenario-web-app-sign-user-app-configuration.md#microsoft libraries supporting web apps)middleware.
 
 ![App Web che concede l'accesso agli utenti](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 

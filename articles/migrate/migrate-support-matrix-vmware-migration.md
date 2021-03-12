@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fc3ba062f4995e975015d7c4db145ccde0c3f701
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cbb1db15eed53af1d0e4590e1b228e5e47680560
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705212"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614922"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione di VMware
 
@@ -73,7 +73,7 @@ La tabella riepiloga i requisiti di migrazione senza agenti per le macchine virt
 **IPv6** | Non supportata.
 **Disco di destinazione** | È possibile eseguire la migrazione delle macchine virtuali solo a Managed Disks (standard HDD, SSD standard, unità SSD Premium) in Azure.
 **Replica simultanea** | 500 VM per ogni server vCenter. Se si dispone di altro, eseguirne la migrazione in batch di 500.
-**Installazione automatica dell'agente di macchine virtuali di Azure (agente Windows)** | Supportato per Windows Server 2008 R2 e versioni successive.
+**Installazione automatica dell'agente di macchine virtuali di Azure (agente Windows e Linux)** | Supportato per Windows Server 2008 R2 e versioni successive. <br/> Supportato per RHEL6, RHEL7, CentOS7, Ubuntu 14,04, Ubuntu 16,04, Ubuntu 18.04. Esaminare l'elenco dei [pacchetti necessari](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)per questi sistemi operativi Linux.
 
 ### <a name="appliance-requirements-agentless"></a>Requisiti del dispositivo (senza agenti)
 

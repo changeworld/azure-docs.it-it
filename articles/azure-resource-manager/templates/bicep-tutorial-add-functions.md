@@ -2,16 +2,16 @@
 title: Esercitazione-aggiungere funzioni ai file del bicipite Azure Resource Manager
 description: Aggiungere funzioni ai file Bicipit per costruire i valori.
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: references_regions
-ms.openlocfilehash: 9c66ab132d3343115b1a9bd852d3eb3d83ae4ca7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b909beb0cce9ad04ba00068ee25247520dcff47d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748229"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633156"
 ---
 # <a name="tutorial-add-functions-to-azure-resource-manager-bicep-file"></a>Esercitazione: aggiungere funzioni al file Azure Resource Manager bicipite
 
@@ -37,7 +37,7 @@ La località dell'account di archiviazione è impostata come hardcoded su **Stat
 
 Le funzioni aggiungono flessibilità al file bicipite ottenendo dinamicamente i valori durante la distribuzione. In questa esercitazione si userà una funzione per ottenere la località del gruppo di risorse usato per la distribuzione.
 
-Nell'esempio seguente sono evidenziate le modifiche da apportare per aggiungere un parametro denominato `location`. Il valore predefinito del parametro chiama la funzione [resourceGroup](template-functions-resource.md#resourcegroup). Questa funzione restituisce un oggetto contenente informazioni sul gruppo di risorse usato per la distribuzione. Una delle proprietà dell'oggetto è una proprietà location. Quando si usa il valore predefinito, la località dell'account di archiviazione è uguale a quella del gruppo di risorse. Le risorse all'interno di un gruppo di risorse non devono condividere la stessa località. Quando necessario, è anche possibile specificare una località diversa.
+Nell'esempio seguente vengono illustrate le modifiche apportate all'aggiunta di un parametro denominato `location` . Il valore predefinito del parametro chiama la funzione [resourceGroup](template-functions-resource.md#resourcegroup). Questa funzione restituisce un oggetto contenente informazioni sul gruppo di risorse usato per la distribuzione. Una delle proprietà dell'oggetto è una proprietà location. Quando si usa il valore predefinito, la località dell'account di archiviazione è uguale a quella del gruppo di risorse. Le risorse all'interno di un gruppo di risorse non devono condividere la stessa località. Quando necessario, è anche possibile specificare una località diversa.
 
 Copiare l'intero file e sostituire il file bicipite con il relativo contenuto.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ddbd4b798d37498af92cec40af6a80a88115fab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581390"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014894"
 ---
 # <a name="security-best-practices"></a>Procedure consigliate per la sicurezza
 
@@ -117,7 +117,6 @@ Per testare la nuova funzionalità:
 >[!NOTE]
 >Durante l'anteprima, solo le connessioni desktop complete dagli endpoint di Windows 10 supportano questa funzionalità.
 
-
 ### <a name="enable-endpoint-protection"></a>Abilita la protezione dell'endpoint
 
 Per proteggere la distribuzione da software dannosi noti, è consigliabile abilitare la protezione dell'endpoint in tutti gli host di sessione. È possibile usare Windows Defender antivirus o un programma di terze parti. Per altre informazioni, vedere [Guida alla distribuzione per Windows Defender Antivirus in un ambiente VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
@@ -169,6 +168,52 @@ Limitando le funzionalità del sistema operativo, è possibile rafforzare la sic
 - Concedere agli utenti autorizzazioni limitate quando accedono a file system locali e remoti. È possibile limitare le autorizzazioni assicurandosi che i file system locali e remoti usino gli elenchi di controllo di accesso con privilegi minimi. In questo modo, gli utenti possono accedere solo a ciò di cui hanno bisogno e non possono modificare o eliminare le risorse critiche.
 
 - Impedire l'esecuzione di software indesiderati negli host di sessione. È possibile abilitare Blocco dell'app per la sicurezza aggiuntiva sugli host di sessione, assicurando che solo le app consentite possano essere eseguite nell'host.
+
+## <a name="windows-virtual-desktop-support-for-trusted-launch"></a>Supporto per desktop virtuali Windows per avvio attendibile
+
+Il lancio attendibile è costituito da macchine virtuali di Azure Gen2 con funzionalità di sicurezza avanzate mirate alla protezione da minacce "inferiori dello stack" attraverso vettori di attacco come rootkit, kit di avvio e malware a livello di kernel. Di seguito sono riportate le funzionalità di sicurezza avanzate di avvio attendibile, tutte supportate nel desktop virtuale di Windows. Per altre informazioni sul lancio attendibile, vedere [avvio attendibile per macchine virtuali di Azure (anteprima)](../virtual-machines/trusted-launch.md).
+
+### <a name="secure-boot"></a>Avvio protetto
+
+L'avvio protetto è una modalità supportata dal firmware della piattaforma che protegge il firmware dai rootkit basati su malware e dai kit di avvio. Questa modalità consente solo ai sistemi operativi e ai driver firmati di avviare il computer. 
+
+### <a name="monitor-boot-integrity-using-remote-attestation"></a>Monitora l'integrità di avvio usando l'attestazione remota
+
+L'attestazione remota è un ottimo modo per verificare l'integrità delle macchine virtuali. Attestazione remota verifica che i record di avvio misurati siano presenti, autentici e originati dalla Trusted Platform Module virtuale (vTPM). Come controllo di integrità, fornisce la certezza della crittografia che una piattaforma è stata avviata correttamente. 
+
+### <a name="vtpm"></a>vTPM
+
+Un vTPM è una versione virtualizzata di un Trusted Platform Module hardware (TPM) con un'istanza virtuale di un TPM per macchina virtuale. vTPM consente l'attestazione remota eseguendo la misurazione dell'integrità dell'intera catena di avvio della VM (UEFI, sistema operativo, sistema e driver). 
+
+È consigliabile abilitare vTPM per l'uso dell'attestazione remota nelle VM. Con vTPM abilitato, è anche possibile abilitare la funzionalità BitLocker, che fornisce la crittografia completa dei volumi per proteggere i dati inattivi. Tutte le funzionalità che usano vTPM comporteranno la limitazione dei segreti alla macchina virtuale specifica. Quando gli utenti si connettono al servizio desktop virtuale Windows in uno scenario in pool, gli utenti possono essere reindirizzati a qualsiasi macchina virtuale nel pool host. A seconda del modo in cui la funzionalità è progettata, questo potrebbe avere un effetto.
+
+>[!NOTE]
+>BitLocker non deve essere usato per crittografare il disco specifico in cui vengono archiviati i dati del profilo FSLogix.
+
+### <a name="virtualization-based-security"></a>Sicurezza basata sulla virtualizzazione
+
+La sicurezza basata sulla virtualizzazione (VBS) usa l'hypervisor per creare e isolare un'area protetta di memoria non accessibile al sistema operativo. Hypervisor-Protected l'integrità del codice (HVCI obbligatoria) e Windows Defender Credential Guard utilizzano entrambi VBS per garantire una maggiore protezione dalle vulnerabilità. 
+
+#### <a name="hypervisor-protected-code-integrity"></a>Integrità del codice Hypervisor-Protected
+
+HVCI obbligatoria è una potente mitigazione del sistema che usa VBS per proteggere i processi in modalità kernel di Windows dall'inserimento e dall'esecuzione di codice dannoso o non verificato.
+
+#### <a name="windows-defender-credential-guard"></a>Windows Defender Credential Guard
+
+Windows Defender Credential Guard utilizza VBS per isolare e proteggere i segreti, in modo che solo il software di sistema con privilegi possa accedervi. In questo modo si impedisce l'accesso non autorizzato a questi segreti e ad attacchi di furto di credenziali, ad esempio attacchi pass-the-hash.
+
+### <a name="deploy-trusted-launch-in-your-windows-virtual-desktop-environment"></a>Distribuire un avvio attendibile nell'ambiente desktop virtuale Windows
+
+Desktop virtuale Windows attualmente non supporta la configurazione automatica dell'avvio attendibile durante il processo di configurazione del pool host. Per usare l'avvio attendibile nell'ambiente desktop virtuale Windows, è necessario distribuire normalmente l'avvio attendibile e quindi aggiungere manualmente la macchina virtuale al pool di host desiderato.
+
+## <a name="nested-virtualization"></a>Virtualizzazione annidata
+
+I sistemi operativi seguenti supportano l'esecuzione della virtualizzazione annidata sul desktop virtuale di Windows:
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Enterprise
+- Windows 10 Enterprise multisessione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

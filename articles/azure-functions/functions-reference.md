@@ -4,12 +4,12 @@ description: Informazioni sui concetti e sulle tecniche di Funzioni di Azure nec
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: fdc898c02cfd20ecfdd72dece4fb1e92d803dbb0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7030ca1c1950f7c06580ce7417a4429fbe330c4e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386901"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614820"
 ---
 # <a name="azure-functions-developer-guide"></a>Guida per sviluppatori di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -116,10 +116,11 @@ Alcune connessioni in funzioni di Azure sono configurate per l'uso di un'identit
 
 Le connessioni basate su identità sono supportate dal trigger e dalle estensioni di binding seguenti:
 
-| Nome estensione | Versione dell'estensione                                                                                     | Supporta le connessioni basate sull'identità nel piano a consumo |
+| Nome estensione | Versione dell'estensione                                                                                     | Supportato nel piano a consumo |
 |----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
 | BLOB Azure     | [Versione 5.0.0-beta1 o successiva](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | No                                    |
 | Code di Azure    | [Versione 5.0.0-beta1 o successiva](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | No                                    |
+| Hub eventi di Azure    | [Versione 5.0.0-beta1 o successiva](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | No                                    |
 
 > [!NOTE]
 > Il supporto per le connessioni basate su identità non è ancora disponibile per le connessioni di archiviazione usate dal runtime di funzioni per i comportamenti di base. Ciò significa che l' `AzureWebJobsStorage` impostazione deve essere una stringa di connessione.
@@ -128,9 +129,10 @@ Le connessioni basate su identità sono supportate dal trigger e dalle estension
 
 Una connessione basata su identità per un servizio di Azure accetta le proprietà seguenti:
 
-| Proprietà    | Variabile di ambiente | Obbligatorio | Descrizione |
+| Proprietà    | Obbligatorio per le estensioni | Variabile di ambiente | Descrizione |
 |---|---|---|---|
-| URI del servizio | `<CONNECTION_NAME_PREFIX>__serviceUri` | Sì | URI del piano dati del servizio a cui si sta effettuando la connessione. |
+| URI del servizio | BLOB di Azure, coda di Azure | `<CONNECTION_NAME_PREFIX>__serviceUri` |  URI del piano dati del servizio a cui si sta effettuando la connessione. |
+| Spazio dei nomi completo | Hub eventi | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | Spazio dei nomi completo dell'hub eventi. |
 
 È possibile che siano supportate opzioni aggiuntive per un determinato tipo di connessione. Consultare la documentazione per il componente che effettua la connessione.
 
@@ -152,14 +154,26 @@ In alcuni casi, è possibile specificare l'uso di un'identità diversa. È possi
 > [!NOTE]
 > Le opzioni di configurazione seguenti non sono supportate quando sono ospitate nel servizio funzioni di Azure.
 
-Per connettersi usando un'entità servizio Azure Active Directory con un ID client e un segreto, definire la connessione con le proprietà seguenti:
+Per connettersi usando un'entità servizio Azure Active Directory con un ID client e un segreto, definire la connessione con le proprietà obbligatorie seguenti oltre alle [proprietà di connessione](#connection-properties) sopra indicate:
 
-| Proprietà    | Variabile di ambiente | Obbligatorio | Descrizione |
-|---|---|---|---|
-| URI del servizio | `<CONNECTION_NAME_PREFIX>__serviceUri` | Sì | URI del piano dati del servizio a cui si sta effettuando la connessione. |
-| ID tenant | `<CONNECTION_NAME_PREFIX>__tenantId` | Sì | ID del tenant di Azure Active Directory (directory). |
-| ID client | `<CONNECTION_NAME_PREFIX>__clientId` | Sì |  ID client (applicazione) di una registrazione dell'app nel tenant. |
-| Segreto client | `<CONNECTION_NAME_PREFIX>__clientSecret` | Sì | Chiave privata client generata per la registrazione dell'app. |
+| Proprietà    | Variabile di ambiente | Descrizione |
+|---|---|---|
+| tenant_id | `<CONNECTION_NAME_PREFIX>__tenantId` | ID del tenant di Azure Active Directory (directory). |
+| ID client | `<CONNECTION_NAME_PREFIX>__clientId` |  ID client (applicazione) di una registrazione dell'app nel tenant. |
+| Segreto client | `<CONNECTION_NAME_PREFIX>__clientSecret` | Chiave privata client generata per la registrazione dell'app. |
+
+Esempio di `local.settings.json` proprietà necessarie per la connessione basata sull'identità con il BLOB di Azure: 
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
+    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
+    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
+  }
+}
+```
 
 #### <a name="grant-permission-to-the-identity"></a>Concedere l'autorizzazione all'identità
 

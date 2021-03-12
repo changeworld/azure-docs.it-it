@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Registro Azure Container
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Registro Azure Container. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7606cd2aaa7f0fce431475b97585161edb43005d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b97cd1a834ec58814e0f7ceb9330b80767c8e599
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429775"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618280"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Definizioni predefinite di Criteri di Azure per Registro Azure Container
 

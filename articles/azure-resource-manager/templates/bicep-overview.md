@@ -2,19 +2,19 @@
 title: Lingua del bicipite per i modelli di Azure Resource Manager
 description: Descrive il linguaggio bicipite per la distribuzione dell'infrastruttura in Azure tramite modelli di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 2fb13bca9e9d456889185d512ee2fc9d4cbbe673
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/12/2021
+ms.openlocfilehash: 11ba562fa3d91ffc7baeca647ed05e839f9c8013
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036385"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232971"
 ---
 # <a name="what-is-bicep-preview"></a>Che cos'è il bicipite (anteprima)?
 
-Bicipite è un linguaggio per la distribuzione dichiarativa delle risorse di Azure. Semplifica l'esperienza di creazione offrendo una sintassi concisa e un supporto migliore per il riutilizzo del codice. Bicipite è un linguaggio specifico di dominio (DSL), ovvero è progettato per uno scenario o un dominio specifico. Il bicipite non è destinato a un linguaggio di programmazione generale per la scrittura di applicazioni.
+Bicipite è un linguaggio per la distribuzione dichiarativa delle risorse di Azure. È possibile usare il bicipite anziché JSON per lo sviluppo di modelli di Azure Resource Manager (modelli ARM). Il bicipite semplifica l'esperienza di creazione offrendo sintassi concisa, un supporto migliore per il riutilizzo del codice e una maggiore indipendenza dai tipi. Bicipite è un linguaggio specifico di dominio (DSL), ovvero è progettato per uno scenario o un dominio specifico. Non è destinato a un linguaggio di programmazione generale per la scrittura di applicazioni.
 
-In passato, sono stati sviluppati modelli di Azure Resource Manager (modelli ARM) con JSON. La sintassi JSON per la creazione di un modello può essere dettagliata e richiedere un'espressione complessa. Il bicipite migliora questa esperienza senza perdere le funzionalità di un modello JSON. Si tratta di un'astrazione trasparente sul codice JSON per i modelli ARM. Ogni file bicipite viene compilato in un modello ARM standard. I tipi di risorsa, le versioni API e le proprietà valide in un modello ARM sono validi in un file bicipite.
+La sintassi JSON per la creazione di un modello può essere dettagliata e richiedere un'espressione complessa. Il bicipite migliora questa esperienza senza perdere le funzionalità di un modello JSON. Si tratta di un'astrazione trasparente sul codice JSON per i modelli ARM. Ogni file bicipite viene compilato in un modello ARM standard. I tipi di risorsa, le versioni API e le proprietà valide in un modello ARM sono validi in un file bicipite. Esistono alcune [limitazioni note](#known-limitations) nella versione corrente.
 
 ## <a name="get-started"></a>Introduzione
 
@@ -55,7 +55,15 @@ Con bicipite è possibile suddividere il progetto in più moduli.
 
 La struttura del file bicipite è più flessibile rispetto al modello JSON. È possibile dichiarare parametri, variabili e output in qualsiasi punto del file. In JSON è necessario dichiarare tutti i parametri, le variabili e gli output all'interno delle sezioni corrispondenti del modello.
 
-L'estensione VS Code per bicipite offre funzionalità di convalida e IntelliSense più complete. Ad esempio, l'estensione include IntelliSense per ottenere le proprietà di una risorsa.
+L'estensione VS Code per bicipite offre funzionalità avanzate di convalida e IntelliSense. Ad esempio, è possibile usare IntelliSense dell'estensione per ottenere le proprietà di una risorsa.
+
+## <a name="known-limitations"></a>Limitazioni note
+
+Attualmente esistono i limiti seguenti:
+
+* Impossibile impostare la modalità o la dimensione del batch nei cicli di copia.
+* Non è possibile combinare cicli e condizioni.
+* Le matrici e gli oggetti a riga singola, ad esempio `['a', 'b', 'c']` , non sono supportati.
 
 ## <a name="faq"></a>Domande frequenti
 

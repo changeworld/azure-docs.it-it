@@ -3,7 +3,7 @@ title: Uso di Servizi multimediali di Azure per la progettazione ibrida di sotto
 description: Questo articolo spiega come usare Servizi multimediali di Azure per la progettazione ibrida di sottosistemi DRM.
 services: media-services
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: 1bf01e98e418edfe8f15043d16a199b276b71020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48e761c4fb74802c6b1db63884ee192446720a4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266902"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016271"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Progettazione ibrida di sottosistemi DRM
 
@@ -95,7 +95,7 @@ La configurazione di criteri di distribuzione di un asset permette di controllar
 
 ## <a name="scenarios-and-samples"></a>Scenari ed esempi
 
-In base alle spiegazioni della sezione precedente, i cinque scenari ibridi seguenti usano le rispettive combinazioni di configurazione dei criteri di distribuzione degli asset della **chiave**simmetrica - **Asset delivery policy** (gli esempi indicati nell'ultima colonna seguono la tabella):
+In base alle spiegazioni della sezione precedente, i cinque scenari ibridi seguenti usano le rispettive combinazioni di configurazione dei criteri di distribuzione degli asset della **chiave** simmetrica -  (gli esempi indicati nell'ultima colonna seguono la tabella):
 
 |**Hosting e origine del contenuto**|**Crittografia DRM**|**Distribuzione di licenze DRM**|**Configurare la chiave simmetrica**|**Configurare i criteri di distribuzione dell'asset**|**Esempio**|
 |---|---|---|---|---|---|

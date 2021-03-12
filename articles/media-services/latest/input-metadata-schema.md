@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0acb882410d103cf6f6c34bbecf2006094437b04
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360055"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634686"
 ---
 # <a name="input-metadata"></a>Metadati di input
 
@@ -39,9 +39,7 @@ Questo articolo illustra gli elementi e i tipi dello schema JSON su cui si basa 
 Contiene una raccolta di elementi AssetFile per il processo di codifica.  
 
 > [!NOTE]
-> I quattro elementi figlio seguenti devono comparire in una sequenza.  
-> 
-> 
+> I quattro elementi figlio seguenti devono comparire in una sequenza.
 
 | Nome  | Descrizione |
 | --- | --- | 
@@ -55,7 +53,7 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 | --- | --- |
 | **Nome**<br />Necessario |Nome del file di asset <br /><br />Esempio: `"Name": "Ignite-short.mp4"` |
 | **Uri**<br />Necessario |URL in cui si trova l'asset di input. Per identificare l'asset di input a cui appartiene l'asset di output, usare il `Uri` campo anziché ID.|
-| **Size**<br />Necessario |Dimensioni del file di asset in byte.  <br /><br />Esempio: `"Size": 75739259`|
+| **Dimensioni**<br />Necessario |Dimensioni del file di asset in byte.  <br /><br />Esempio: `"Size": 75739259`|
 | **Duration**<br />Necessario |Durata della riproduzione del contenuto. <br /><br />Esempio: `"Duration": "PT1M10.304S"`. |
 | **NumberOfStreams**<br />Necessario |Numero di flussi nel file di asset.  <br /><br />Esempio: `"NumberOfStreams": 2`|
 | **FormatNames**<br />Necessario |Nomi del formato.  <br /><br />Esempio: `"FormatNames": "mov,mp4,m4a,3gp,3g2,mj2"`|
@@ -67,7 +65,7 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 
 | Nome | Descrizione |
 | --- | --- |
-| **FourCC**<br />Necessario |Codec video FourCC codice riportato da ffmpeg.<br /><br />Esempio: `"FourCC": "avc1"` |
+| **FourCC**<br />Necessario |Codec video FourCC codice riportato da ffmpeg.<br /><br />Esempio: `"FourCC": "avc1" | "hev1" | "hvc1"` |
 | **Profilo** |Profilo della traccia video. <br /><br />Esempio: `"Profile": "Main"`|
 | **Level** |Livello della traccia video. <br /><br />Esempio: `"Level": "3.2"`|
 | **PixelFormat** |Formato pixel della traccia video. <br /><br />Esempio: `"PixelFormat": "yuv420p"`|
@@ -82,9 +80,9 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 | **HasBFrames** |Numero di traccia video dei fotogrammi B. <br /><br />Esempio: `"HasBFrames": 2`|
 | **Metadata** |Stringhe chiave-valore generiche che possono essere usate per contenere una varietà di informazioni. <br />Vedere l'esempio completo alla fine dell'articolo. |
 | **Id**<br />Necessario |Indice in base zero della traccia audio o video.<br /><br /> Questo **Id** non corrisponde necessariamente al TrackID usato in un file MP4. <br /><br />Esempio: `"Id": 2`|
-| **Codec** |Stringa del codec della traccia video. <br /><br />Esempio: `"Codec": "h264"`|
+| **Codec** |Stringa del codec della traccia video. <br /><br />Esempio: `"Codec": "h264 | hev1"`|
 | **CodecLongName** |Nome lungo del codec della traccia audio o video. <br /><br />Esempio: `"CodecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10"`|
-| **Codec** |Stringa del codec della traccia video. <br /><br />Esempio: `"Codec": "h264"`|
+| **Codec** |Stringa del codec della traccia video. <br /><br />Esempio: `"Codec": "h264 | hev1"`|
 | **TimeBase**<br />Necessario |Tempo base.<br /><br />Esempio: `"TimeBase": "1/30000"`|
 | **NumberOfFrames** |Numero di frame (presenti per le tracce video). <br /><br />Esempio: `"NumberOfFrames": 2107`|
 | **StartTime** |Ora di inizio della traccia.<br /><br />Esempio: `"StartTime": "PT0.033S"` |

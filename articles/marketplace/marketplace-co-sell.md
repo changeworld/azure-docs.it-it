@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 3/08/2021
-ms.openlocfilehash: 7d1d4a1a89931e3ded8274a4731aa3606695771b
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.date: 3/12/2021
+ms.openlocfilehash: 47f8f4ec3b5c5dd2d4545fc67561487d4f5a465c
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199879"
+ms.locfileid: "103225311"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Panoramica della co-selling con i team di vendita Microsoft e i partner
 
@@ -33,7 +33,7 @@ Un'opportunità di co-selling è qualsiasi tipo di collaborazione con i team di 
 - **Co-selling con i team di vendita Microsoft** : collaborare con uno o più team di vendita Microsoft per soddisfare in modo attivo le esigenze dei clienti. Questo può includere la vendita delle offerte, delle offerte di Microsoft o di entrambe. L'utente e i team di vendita Microsoft possono identificare e condividere le opportunità dei clienti in base alle quali le soluzioni potrebbero essere adatte.
 - **Partner per partner (P2P)** : collaborare con un altro partner Microsoft per risolvere attivamente un problema del cliente.
 - **Deal privato** : Condividi gli elementi che stai collaborando in modo indipendente con Microsoft, in modo che vengano riflesse nel sistema di report Microsoft per l'analisi e la previsione.
-- **Solution Assessment (SA)** : collaborare con i partner che sono controllati dal team aziendale di valutazione della soluzione per accedere alle esigenze tecnologiche dei clienti che usano o pianificano di usare le tecnologie Microsoft.
+- **Solution Assessment (SA)** : collaborare con i partner che sono controllati dal team aziendale per la valutazione della soluzione per valutare le esigenze tecnologiche dei clienti che usano o pianificano di usare le tecnologie Microsoft.
 
 ## <a name="co-sell-statuses"></a>Stato di co-selling
 

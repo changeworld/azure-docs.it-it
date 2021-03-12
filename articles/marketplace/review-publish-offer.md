@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/27/2020
-ms.openlocfilehash: 8b63dfb015c7337e36dac3812e92ddc53914206d
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 03/10/2021
+ms.openlocfilehash: f8ddcbef6d2ce4a9cba625374db9908335954424
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247166"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630895"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Come rivedere e pubblicare un'offerta nel Marketplace commerciale
 
@@ -74,6 +74,13 @@ Il primo passaggio del processo di pubblicazione è costituito da un set di conv
 - **Convalida e registrazione del Lead Management** (<15 min)
 
     Si conferma che il sistema di gestione dei lead può ricevere i lead dei clienti in base ai dettagli specificati nella pagina **installazione offerta** . Questo passaggio è applicabile solo alle offerte con la gestione dei lead abilitata.
+
+- **Convalida dell'offerta** (<30 minuti)
+
+    Solo per le offerte SaaS, vengono eseguite convalide rapide per il contenuto e le configurazioni tecniche. La creazione dell'anteprima non verrà bloccata in caso di problemi di convalida rilevati in questo passaggio. Se si riscontrano problemi che possono avere esito negativo della certificazione, nella pagina Panoramica dell' **offerta** viene visualizzato un collegamento **Visualizza report di convalida** . Il report conterrà le descrizioni delle violazioni dei criteri.
+
+    > [!IMPORTANT]
+    > Prima di selezionare il pulsante **Go Live** , assicurarsi di esaminare e risolvere tutti gli avvisi dal passaggio di convalida dell'offerta. In caso contrario, si rischia di non riuscire a certificare che ritarda l'offerta.
 
 ## <a name="certification-phase"></a>Fase di certificazione
 
@@ -143,16 +150,19 @@ Se si vuole pubblicare l'offerta in un secondo momento, è necessario avviare il
 
 Quando l'offerta è pronta per la revisione e la disconnessione, ti invieremo un messaggio di posta elettronica per richiedere la verifica e l'approvazione dell'anteprima dell'offerta. È anche possibile aggiornare la pagina **Panoramica dell'offerta** nel browser per verificare se l'offerta ha raggiunto la fase di approvazione dell'editore. In caso contrario, saranno disponibili i collegamenti pulsante **Vai in diretta** e anteprima.
 
-Lo screenshot seguente mostra la pagina di **Panoramica dell'offerta** per un'offerta SaaS. I passaggi di convalida visualizzati in questa pagina variano a seconda del tipo di offerta e delle selezioni effettuate durante la creazione dell'offerta.
+Lo screenshot seguente mostra la pagina di **Panoramica dell'offerta** nel programma Commercial Marketplace nel centro per i partner. I passaggi di convalida visualizzati in questa pagina variano a seconda del tipo di offerta e delle selezioni effettuate durante la creazione dell'offerta. Si noti che la fase di certificazione può verificarsi durante l'invio all'anteprima o all'invio in tempo reale a seconda del tipo di offerta.
 
 ![Viene illustrata la pagina di panoramica dell'offerta per un'offerta nel centro per i partner. Vengono visualizzati il pulsante Go Live e i collegamenti di anteprima.](./media/publish-status-publisher-signoff.png)
 
 ### <a name="previewing-and-approving-your-offer"></a>Visualizzazione in anteprima e approvazione dell'offerta
 
 > [!IMPORTANT]
-> Per convalidare il flusso di acquisto e configurazione end-to-end, acquistare l'offerta mentre è in anteprima. Invia prima una notifica a Microsoft con un [ticket di supporto](https://aka.ms/marketplacesupport) per assicurarsi che non venga elaborato alcun addebito. Se l'offerta è un elenco di contatti, verificare che venga creato un lead come previsto fornendo i dettagli per il contatto durante l'anteprima.
+> Per convalidare il flusso di acquisto e configurazione end-to-end, acquistare l'offerta mentre è in anteprima. Invia prima una notifica a Microsoft con un [ticket di supporto](https://aka.ms/marketplacesupport) per assicurarsi che non venga elaborato alcun addebito. Se l'offerta è un elenco di _contatti_ , verificare che venga creato un lead come previsto fornendo i dettagli per il contatto durante l'anteprima.
 
 Nella pagina **Panoramica dell'offerta** verranno visualizzati i collegamenti di anteprima nel pulsante **Vai in diretta** . Sarà disponibile un collegamento per l'anteprima di AppSource, per l'anteprima di Azure Marketplace o per entrambi, a seconda delle opzioni selezionate durante la creazione dell'offerta. Se si sceglie di vendere l'offerta tramite Microsoft, tutti gli utenti che sono stati aggiunti ai destinatari dell'anteprima possono testare l'acquisizione e la distribuzione dell'offerta per garantire che soddisfi i requisiti durante questa fase.
+
+> [!IMPORTANT]
+> Prima di selezionare il pulsante **Go Live** , assicurarsi di esaminare e risolvere tutti gli avvisi dal passaggio di _convalida dell'offerta_ . In caso contrario, si rischia di non riuscire a certificare che ritarda l'offerta.
 
 Dopo aver approvato l'anteprima, selezionare **Go Live** per pubblicare l'offerta in diretta nel Marketplace commerciale. 
 

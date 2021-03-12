@@ -3,7 +3,7 @@ title: Creazione di filtri con il .NET SDK di Servizi multimediali di Azure
 description: Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Media Services .NET SDK Crea manifesti dinamici per ottenere questo flusso selettivo.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: cenkdin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 862385d1117e0a1b5d2220c06885e0fd0ecfa4d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd5435f7a2969c486042c9447a0fffbb745229f9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531628"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014112"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Creazione di filtri con il .NET SDK di Servizi multimediali
 
@@ -33,7 +33,7 @@ ms.locfileid: "90531628"
 > 
 > 
 
-A partire dalla versione 2.17, Servizi multimediali consente di definire filtri per gli asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene eseguito attraverso **manifesti dinamici**creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
+A partire dalla versione 2.17, Servizi multimediali consente di definire filtri per gli asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene eseguito attraverso **manifesti dinamici** creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
 
 Per altre informazioni sui filtri e sul manifesto dinamico, vedere [Filtri e manifesti dinamici](media-services-dynamic-manifest-overview.md).
 

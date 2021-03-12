@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/03/2021
-ms.openlocfilehash: 63509262b8a75eebaffc34eca9861fe6748ff969
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/12/2021
+ms.openlocfilehash: 4026d2f987ca37834231ac4d7e827ff543af9d2e
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048455"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232393"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiare dati da una tabella SAP usando Azure Data Factory
 
@@ -238,6 +238,10 @@ Per copiare dati da una tabella SAP, sono supportate le proprietà seguenti:
 >`partitionOption`Come `partitionOnInt` esempio, il numero di righe in ogni partizione viene calcolato con la formula seguente: (numero totale di righe comprese tra `partitionUpperBound` e `partitionLowerBound` )/ `maxPartitionsNumber` .<br/>
 <br/>
 >Per caricare le partizioni di dati in parallelo per velocizzare la copia, il grado di parallelismo è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. Se, ad esempio, si imposta `parallelCopies` su quattro, data factory genera ed esegue contemporaneamente quattro query in base all'opzione di partizione specificata e alle impostazioni e ogni query recupera una parte di dati dalla tabella SAP. Si consiglia vivamente di creare `maxPartitionsNumber` un multiplo del valore della `parallelCopies` Proprietà. Quando si copiano dati in un archivio dati basato su file, viene anche riordinato di scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
+
+
+>[!TIP]
+> `BASXML`Per impostazione predefinita, è abilitato per questo connettore della tabella SAP sul lato Azure Data Factory.
 
 In `rfcTableOptions` è possibile utilizzare gli operatori di query SAP comuni seguenti per filtrare le righe:
 

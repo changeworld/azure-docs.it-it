@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: a626ae1406a6ea4a83919f0fc3ee71ffaa5fbac2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: dcb82e6cc50a2ff3291d5a900ec9367d69dcdde6
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102427046"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224912"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Guida introduttiva: accedere agli utenti e ottenere un token di accesso in una SPA JavaScript usando il flusso del codice di autenticazione con PKCE 
 
@@ -110,12 +110,18 @@ In questa guida introduttiva viene usato MSAL.js 2.0 con il flusso del codice di
 > Modificare i valori nella sezione `msalConfig` come descritto di seguito:
 >
 > - `Enter_the_Application_Id_Here` è l'**ID applicazione (client)** per l'applicazione registrata.
+>
+>    Per trovare il valore di **ID applicazione (client)** , passare alla pagina **Panoramica** della registrazione dell'app nel portale di Azure.
 > - `Enter_the_Cloud_Instance_Id_Here` è l'istanza del cloud di Azure. Per il cloud di Azure principale o globale immettere `https://login.microsoftonline.com/`. Per i cloud **nazionali** (ad esempio, Cina), vedere [Cloud nazionali](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` è impostato su uno degli elementi seguenti:
 >   - Se l'applicazione supporta *account in questa directory organizzativa*, sostituire questo valore con l'**ID tenant** o il **nome del tenant**. Ad esempio: `contoso.microsoft.com`.
+>
+>    Per trovare il valore dell' **ID directory (tenant)**, passare alla pagina **Panoramica** della registrazione dell'app nel portale di Azure.
 >   - Se l'applicazione supporta *account in qualsiasi directory organizzativa*, sostituire questo valore con `organizations`.
 >   - Se l'applicazione supporta *account in qualsiasi directory organizzativa e account Microsoft personali*, sostituire questo valore con `common`. **Per questa guida introduttiva**, usare `common`.
 >   - Per limitare il supporto ai *soli account Microsoft personali*, sostituire questo valore con `consumers`.
+>
+>    Per trovare il valore dei **tipi di account supportati**, passare alla pagina **Panoramica** della registrazione dell'app nel portale di Azure.
 > - `Enter_the_Redirect_Uri_Here` è `http://localhost:3000/`.
 >
 > Se si usa il cloud principale (globale) di Azure, il valore `authority` nel file *authConfig.js* deve essere simile al seguente:
@@ -124,9 +130,7 @@ In questa guida introduttiva viene usato MSAL.js 2.0 con il flusso del codice di
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > Per trovare i valori di **ID applicazione (client)** , **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** di registrazione dell'app nel portale di Azure.
->
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione
 > Il progetto è stato configurato con i valori delle proprietà dell'app.

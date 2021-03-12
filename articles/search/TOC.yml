@@ -198,7 +198,7 @@
           href: index-add-language-analyzers.md
         - name: Aggiungere un analizzatore personalizzato
           href: index-add-custom-analyzers.md
-    - name: Data
+    - name: Dati
       items:
         - name: Panoramica dell'importazione dei dati
           href: search-what-is-data-import.md
@@ -312,6 +312,8 @@
           href: search-query-create.md
         - name: Creare una query semantica
           href: semantic-how-to-query-request.md
+        - name: Restituisce una risposta semantica
+          href: semantic-answers.md
         - name: Aggiungi controllo ortografico alle query
           href: speller-how-to-add.md
         - name: Tipi di query e composizione
@@ -330,6 +332,8 @@
               href: index-add-suggesters.md
             - name: Aggiungere il completamento automatico e i suggerimenti
               href: search-autocomplete-tutorial.md
+        - name: Paging e conteggi
+          href: search-pagination-page-layout.md
         - name: Informazioni di riferimento sulla sintassi
           items:
             - name: Sintassi di query semplice
@@ -352,16 +356,14 @@
           href: search-query-understand-collection-filters.md
         - name: Filtrare per lingua
           href: search-filters-language.md
-    - name: Risultati
+    - name: Pertinenza
       items:
-        - name: Usare i risultati
-          href: search-pagination-page-layout.md
-        - name: Struttura di una risposta semantica
-          href: semantic-how-to-query-response.md
+        - name: Classificazione di somiglianza
+          href: index-ranking-similarity.md
+        - name: Classificazione semantica
+          href: semantic-ranking.md
         - name: Profili di punteggio
           href: index-add-scoring-profiles.md
-        - name: Algoritmo di somiglianza
-          href: index-ranking-similarity.md
     - name: Sicurezza
       items:
         - name: Crittografia dei dati

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4b69daf9e9fbbb3f6d6597a8e8349dc8bec61fbf
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996662"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008775"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure Active Directory
 Usare il logo e combinazioni colori personalizzate dell'azienda per offrire un aspetto coerente per le pagine di accesso di Azure Active Directory (Azure AD). Le pagine di accesso vengono visualizzate quando gli utenti possono accedere alle app basate sul Web dell'organizzazione, ad esempio Microsoft 365, che usa Azure AD come provider di identità.
@@ -58,7 +58,7 @@ La personalizzazione personalizzata non verrà visualizzata immediatamente quand
 
         - **Logo del banner.** Selezionare una versione .png o .jpg del logo da visualizzare nella pagina di accesso dopo che l'utente ha inserito un nome utente nella pagina del portale **My Apps (Le mie applicazioni)**.
             
-            L'immagine non può essere più alta di 60 pixel o più ampia di 280 pixel. È consigliabile usare un'immagine trasparente poiché lo sfondo potrebbe non corrispondere allo sfondo del logo. È inoltre consigliabile non aggiungere una spaziatura interna intorno all'immagine perché potrebbe far sembrare piccolo il logo.
+            L'immagine non può essere superiore a 60 pixel o più ampia di 280 pixel e il file non deve essere maggiore di 10KB. È consigliabile usare un'immagine trasparente poiché lo sfondo potrebbe non corrispondere allo sfondo del logo. È inoltre consigliabile non aggiungere una spaziatura interna intorno all'immagine perché potrebbe far sembrare piccolo il logo. 
 
         - **Hint nome utente.** Digitare il testo di suggerimento visualizzato agli utenti qualora non ricordino il loro nome utente. Questo testo deve essere Unicode, senza collegamenti o codice e non può superare i 64 caratteri. Se gli utenti guest accedono all'app, è consigliabile non aggiungere questo hint.
 

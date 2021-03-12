@@ -1,6 +1,6 @@
 ---
-title: "Proxy dell'applicazione Azure AD: cronologia delle versioni"
-description: Questo articolo elenca tutte le versioni di Azure AD proxy di applicazione e descrive le nuove funzionalità e i problemi risolti
+title: 'Azure Active Directory Application Proxy: cronologia delle versioni'
+description: Questo articolo elenca tutte le versioni di Azure Active Directory Application Proxy e descrive le nuove funzionalità e i problemi risolti.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,15 +8,16 @@ ms.assetid: ''
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/17/2021
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 6ba622bd52dc13fb0053b61b65529db6e6912611
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.reviewer: japere
+ms.openlocfilehash: 0244e0ca66f452649d3136eb122d1c2666182ae2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686717"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200976"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy dell'applicazione Azure AD: cronologia delle versioni
 Questo articolo elenca le versioni e le funzionalità del proxy di applicazione Azure Active Directory (Azure AD) rilasciate. Il team di Azure AD aggiorna regolarmente il proxy di applicazione con nuove caratteristiche e funzionalità. I connettori del proxy di applicazione vengono aggiornati automaticamente quando viene rilasciata una nuova versione. 
@@ -25,11 +26,11 @@ Si consiglia di verificare che gli aggiornamenti automatici siano abilitati per 
 
 Di seguito è riportato un elenco di risorse correlate:
 
-Risorsa |  Dettagli
---------- | --------- |
-Come abilitare il proxy di applicazione | In questa [esercitazione](application-proxy-add-on-premises-application.md)vengono descritti i prerequisiti per l'abilitazione del proxy di applicazione e l'installazione e la registrazione di un connettore.
-Comprendere i connettori del proxy applicazione Azure AD | Scopri di più sulla [gestione dei](application-proxy-connectors.md) connettori e sull' [aggiornamento automatico](application-proxy-connectors.md#automatic-updates)dei connettori.
-Download del connettore del proxy di applicazione Azure AD |  [Scaricare il connettore più recente](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
+| Risorsa                                         | Dettagli                                                      |
+| ------------------------------------------------ | ------------------------------------------------------------ |
+| Come abilitare il proxy di applicazione                  | In questa [esercitazione](application-proxy-add-on-premises-application.md)vengono descritti i prerequisiti per l'abilitazione del proxy di applicazione e l'installazione e la registrazione di un connettore. |
+| Comprendere i connettori del proxy applicazione Azure AD | Scopri di più sulla [gestione dei](application-proxy-connectors.md) connettori e sull' [aggiornamento automatico](application-proxy-connectors.md#automatic-updates)dei connettori. |
+| Download del connettore del proxy di applicazione Azure AD    | [Scaricare il connettore più recente](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download). |
 
 ## <a name="1519750"></a>1.5.1975.0
 
@@ -41,6 +42,7 @@ Download del connettore del proxy di applicazione Azure AD |  [Scaricare il conn
 -   Supporto migliorato per gli ambienti cloud di Azure per enti pubblici. Per la procedura di installazione corretta del connettore per il cloud di Azure per enti pubblici, vedere i [prerequisiti](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) e le [procedure di installazione](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Supporto per l'uso del client Web di Servizi Desktop remoto con il proxy di applicazione. Per altri dettagli, vedere [pubblicare desktop remoto con Azure ad proxy di applicazione](application-proxy-integrate-with-remote-desktop-services.md) .
 - Negoziazione migliorata dell'estensione WebSocket. 
+- Supporto per il routing ottimizzato tra i gruppi di connettori e i servizi cloud del proxy di applicazione in base all'area. Per ulteriori informazioni, vedere [ottimizzare il flusso del traffico con Azure Active Directory Application Proxy](application-proxy-network-topology.md) . 
 
 ### <a name="fixed-issues"></a>Problemi risolti
 - Correzione di un problema WebSocket che forzava le stringhe minuscole.

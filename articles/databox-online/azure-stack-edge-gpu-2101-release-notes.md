@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: e8005bbf0373c91cf9f3515059544b9af3d52384
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 922480eb2f4795729919c6ed039ccf61f19875b3
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443795"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630368"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Note sulla versione di Azure Stack Edge 2101
 
@@ -29,7 +29,7 @@ Questo articolo si applica alla versione di **Azure stack Edge 2101** , che eseg
 
 Nella versione di Azure Stack Edge 2101 sono disponibili le nuove funzionalità seguenti. 
 
-- **Disponibilità a livello generale dei dispositivi r di Azure stack Edge Pro e di Azure stack Edge mini-r** : a partire da questa versione, saranno disponibili Azure stack Edge Pro r e i dispositivi mini r Azure stack Edge. Per ulteriori informazioni, vedere [che cos'è Azure stack Edge Pro r](azure-stack-edge-j-series-overview.md) e [che cos'è Azure stack mini r Edge](azure-stack-edge-k-series-overview.md).  
+- **Disponibilità a livello generale dei dispositivi r di Azure stack Edge Pro e di Azure stack Edge mini-r** : a partire da questa versione, saranno disponibili Azure stack Edge Pro r e i dispositivi mini r Azure stack Edge. Per ulteriori informazioni, vedere [che cos'è Azure stack Edge Pro r](azure-stack-edge-pro-r-overview.md) e [che cos'è Azure stack mini r Edge](azure-stack-edge-mini-r-overview.md).  
 - **Gestione cloud delle macchine virtuali** : a partire da questa versione, è possibile creare e gestire le macchine virtuali nel dispositivo tramite il portale di Azure. Per ulteriori informazioni, vedere [la pagina relativa alla distribuzione di macchine virtuali tramite il portale di Azure](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 - **Integrazione con monitoraggio di Azure** : è ora possibile usare monitoraggio di Azure per monitorare i contenitori dalle applicazioni di calcolo in esecuzione nel dispositivo. L'archivio delle metriche di monitoraggio di Azure non è supportato in questa versione. Per altre informazioni, vedere come [abilitare monitoraggio di Azure nel dispositivo](azure-stack-edge-gpu-enable-azure-monitor.md).
 - **Registro contenitori perimetrale** : in questa versione è disponibile un registro contenitori perimetrale che fornisce un repository sul dispositivo perimetrale. È possibile usare questo registro per archiviare e gestire le immagini del contenitore. Per altre informazioni, vedere [Enable Edge container Registry](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 
