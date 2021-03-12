@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/24/2021
-ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.date: 3/12/2021
+ms.openlocfilehash: fa8f2b5e952ddd188f99d130c2154d4602191c2b
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120131"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225065"
 ---
 # <a name="co-sell-requirements"></a>Requisiti di co-selling
 
@@ -24,7 +24,7 @@ Questa tabella Mostra tutti i possibili stati di co-selling:
 | ------------ | ------------- |
 | Non co-selling pronto | I [requisiti minimi per lo stato pronto per il co-selling](#requirements-for-co-sell-ready-status) non sono stati soddisfatti. |
 | Co-selling pronto | Tutti i [requisiti per lo stato di co-selling pronto](#requirements-for-co-sell-ready-status) sono stati soddisfatti. |
-| Co-selling IP di Azure incentivate | Sono stati soddisfatti i requisiti di co-selling pronti, oltre a [questi requisiti aggiuntivi](#requirements-for-ip-co-sell-incentivized-status). |
+| Co-selling IP di Azure incentivate | Sono stati soddisfatti i requisiti di co-selling pronti, oltre a [questi requisiti aggiuntivi](#requirements-for-azure-ip-co-sell-incentivized-status). |
 | App biz ISV Connect Premium Incentive  | Questo stato si applica alle offerte Dynamics 365 e Power Apps e indica che sono stati soddisfatti tutti i [requisiti per questo stato](#requirements-for-biz-apps-isv-connect-premium-incentive-status) . |
 |||
 
@@ -35,7 +35,7 @@ Per un'offerta per ottenere lo stato pronto per il co-selling, è necessario sod
 **Tutti i partner**:
 
 - Avere un ID MPN e un [account Marketplace commerciale attivo nel centro per i partner](./partner-center-portal/create-account.md).
-- Assicurarsi di disporre di un [profilo di business](/partner-center/create-a-marketing-profile.md) completo nel centro per i partner. In qualità di partner Microsoft qualificato, il tuo profilo aziendale ti aiuta a presentare la tua attività ai clienti che cercano soluzioni e competenze esclusive per soddisfare le esigenze aziendali, ottenendo [riferimenti](/partner-center/referrals.md).
+- Assicurarsi di disporre di un [profilo di business](/partner-center/create-a-marketing-profile) completo nel centro per i partner. In qualità di partner Microsoft qualificato, il tuo profilo aziendale ti aiuta a presentare la tua attività ai clienti che cercano soluzioni e competenze esclusive per soddisfare le esigenze aziendali, ottenendo [riferimenti](/partner-center/referrals).
 - Completare la **co-selling con** la scheda Microsoft e pubblicare l'offerta nel Marketplace commerciale.
 - Fornire un contatto per le vendite per ogni co-selling geography idoneo e la fattura di materiali necessaria)
 
@@ -60,7 +60,7 @@ Sono disponibili modelli per semplificare la creazione di questi documenti. Per 
 
 Per qualificarsi per lo stato pronto per il co-selling, l'offerta o la soluzione deve essere pubblicata in tempo reale in almeno uno dei negozi online del Marketplace commerciale: Azure Marketplace o Microsoft AppSource. Per informazioni sulla pubblicazione di offerte nel Marketplace commerciale, vedere la [Guida alla pubblicazione in base al tipo di offerta](publisher-guide-by-offer-type.md). Se non è ancora stata pubblicata un'offerta nel Marketplace commerciale, assicurarsi di disporre di un [account Marketplace commerciale](./partner-center-portal/create-account.md).
 
-## <a name="requirements-for-ip-co-sell-incentivized-status"></a>Requisiti per lo stato incentivate di co-selling IP
+## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Requisiti per lo stato di incentivate di co-selling IP di Azure
 
 Lo stato di incentivate di co-sell IP di Azure si applica ai tipi di offerte seguenti:
 

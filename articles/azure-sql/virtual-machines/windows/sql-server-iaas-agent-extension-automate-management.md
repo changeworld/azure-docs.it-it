@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cab5ac5e6a8fd900a41ff3690763746033b6200e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fdff3f6144f7099f3f61cfe57186357e17136e9f
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034813"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225490"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizzare la gestione con l'estensione SQL Server agente IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -164,6 +164,8 @@ L'estensione SQL IaaS Agent supporta solo:
 - Macchine virtuali di SQL Server distribuite nel cloud pubblico o Azure per enti pubblici. Le distribuzioni in altri cloud privati o governativi non sono supportate. 
 
 
+## <a name="in-region-data-residency"></a>Residenza dei dati nell'area geografica
+La macchina virtuale SQL di Azure e l'estensione SQL IaaS Agent non spostano o archiviano i dati dei clienti dall'area in cui vengono distribuiti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

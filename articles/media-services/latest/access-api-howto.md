@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 00808c25ac84da852cce6169fb210767ee2b56cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f55d1dcc3364f119faab0c728f6e3b7f5ecbb06
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265882"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614939"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Ottenere le credenziali per accedere all'API Servizi multimediali
 
@@ -37,7 +37,7 @@ Questo articolo descrive i passaggi per ottenere le credenziali per accedere all
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un account Azure. Se non si dispone di un account, iniziare con una [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Un account Azure. Se non si dispone di un account, iniziare con una [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Account di Servizi multimediali. Per altre informazioni, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](create-account-howto.md).
 
 ## <a name="portal"></a>[Portale](#tab/portal/)
@@ -47,8 +47,8 @@ Questo articolo descrive i passaggi per ottenere le credenziali per accedere all
 La pagina di **accesso all'API** consente di selezionare il metodo di autenticazione che si vuole usare per connettersi all'API. La pagina fornisce anche i valori necessari per la connessione all'API.
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali.
-2. Selezionare il pannello **accesso all'API (nuovo)** sulla barra di spostamento a sinistra.
-3. In **Connettersi all'API di Servizi multimediali**selezionare la versione dell'API di Servizi multimediali a cui si vuole connettersi (v3 è la versione più recente del servizio).
+2. Selezionare il pannello **accesso all'API** sulla barra di spostamento a sinistra.
+3. In **Connettersi all'API di Servizi multimediali** selezionare la versione dell'API di Servizi multimediali a cui si vuole connettersi (v3 è la versione più recente del servizio).
 
 ### <a name="service-principal-authentication--recommended"></a>Autenticazione basata su entità servizio (opzione consigliata)
 

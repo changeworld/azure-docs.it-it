@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: b0e51d11797bc5767f19b25a92a2d29a66ea1bb2
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 1d435c3b15433b7fec00d5dfa80970c04323e635
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176723"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199358"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Bilanciamento del carico tra aree (anteprima)
 
@@ -106,7 +106,7 @@ L' **area principale** è la posizione in cui viene distribuito il servizio di b
 * Asia orientale
 
 > [!NOTE]
-> È possibile distribuire il servizio di bilanciamento del carico tra aree solo in una delle 8 aree precedenti.
+> È possibile distribuire il servizio di bilanciamento del carico tra aree solo in una delle 7 aree precedenti.
 
 Un' **area partecipante** è la posizione in cui è disponibile l'indirizzo IP pubblico globale del servizio di bilanciamento del carico. 
 

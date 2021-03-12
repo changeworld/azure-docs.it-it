@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: c55314764f973a5a015a2bfc02815a58ce659901
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ee7ccb126eb04e168ccc213f0429d41a76a8bc2f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734062"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021908"
 ---
 **Conservazione e volume della raccolta dati** 
 
@@ -57,6 +57,7 @@ ms.locfileid: "101734062"
 | Frequenza massima richieste | 200 richieste per 30 secondi per utente di Azure AD o indirizzo IP client | Per informazioni dettagliate, vedere [Limiti di frequenza](https://dev.loganalytics.io/documentation/Using-the-API/Limits). |
 
 **Connettore dei log di Monitoraggio di Azure**
+
 | Category | Limite | Commenti |
 |:---|:---|:---|
 | Numero massimo di record | 500.000 | |

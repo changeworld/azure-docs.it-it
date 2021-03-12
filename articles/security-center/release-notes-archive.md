@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 3766f29f26a6b2ffeb385cffc971b1ac7a1556cb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a00c11924d2c0f6860c297ab7e58da21da5e1975
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182577"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634703"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivio delle novità del Centro sicurezza di Azure
 
@@ -759,7 +759,7 @@ Se si hanno sottoscrizioni nel piano tariffario gratuito, il punteggio di sicure
 
 Sono disponibili altre informazioni sulle [raccomandazioni relative a identità e accesso](recommendations-reference.md#recs-identityandaccess).
 
-Sono disponibili altre informazioni sul [monitoraggio di identità e accesso](security-center-identity-access.md).
+Altre informazioni sulla [gestione dell'applicazione dell'autenticazione a più fattori (multi-factor authentication) nelle sottoscrizioni](security-center-identity-access.md).
 
 
 

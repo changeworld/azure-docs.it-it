@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: a13f78b6aa4fc3cb6f6777c76bc762ec565624fc
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: dce4c41d0d6f15ac9dc33e687c9a5ac7b7b96e06
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951316"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200791"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurare una connessione da un indicizzatore di Azure ricerca cognitiva per SQL Server in una macchina virtuale di Azure
 
@@ -75,18 +75,9 @@ L'indirizzamento IP può creare alcune difficoltà facilmente superabili se si c
 #### <a name="restrict-access-to-the-azure-cognitive-search"></a>Limitare l'accesso alla ricerca cognitiva di Azure
 Si consiglia di limitare l'accesso all'indirizzo IP del servizio di ricerca e all'intervallo di indirizzi IP del tag di `AzureCognitiveSearch` [servizio](../virtual-network/service-tags-overview.md#available-service-tags) nell'ACL anziché rendere aperte le macchine virtuali SQL Azure a tutte le richieste di connessione.
 
-È possibile trovare l'indirizzo IP eseguendo il ping del nome di dominio completo (ad esempio, `<your-search-service-name>.search.windows.net` ) del servizio di ricerca.
+È possibile trovare l'indirizzo IP eseguendo il ping del nome di dominio completo (ad esempio, `<your-search-service-name>.search.windows.net` ) del servizio di ricerca. Sebbene sia possibile modificare l'indirizzo IP del servizio di ricerca, è improbabile che venga modificato. L'indirizzo IP tende a essere statico per la durata del servizio.
 
 È possibile trovare l'intervallo di indirizzi IP del `AzureCognitiveSearch` [tag di servizio](../virtual-network/service-tags-overview.md#available-service-tags) usando [file JSON scaricabili](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) o tramite l' [API di individuazione dei tag di servizio](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). L'intervallo di indirizzi IP viene aggiornato settimanalmente.
-
-#### <a name="managing-ip-address-fluctuations"></a>Gestire le fluttuazioni degli indirizzi IP
-Se il servizio di ricerca ha solo un'unità di ricerca (vale a dire una replica e una partizione), l'indirizzo IP cambierà durante il riavvio del servizio di routine, invalidando un elenco di controllo di accesso esistente con l'indirizzo IP del servizio di ricerca.
-
-Un modo per evitare l'errore di connettività successivo consiste nell'usare più di una replica e una partizione in Azure ricerca cognitiva. In questo modo, pur aumentando il costo, viene risolto il problema degli indirizzi IP. In Azure ricerca cognitiva gli indirizzi IP non cambiano quando sono presenti più unità di ricerca.
-
-Un altro approccio è quello di consentire che la connessione non riesca e quindi di riconfigurare gli elenchi di controllo di accesso nel gruppo di sicurezza di rete. In media, gli indirizzi IP vengono modificati a distanza di alcune settimane. Per i clienti che hanno controllato l'indicizzazione raramente, questo potrebbe essere un approccio valido.
-
-Un terzo approccio valido (ma non particolarmente sicuro) consiste nello specificare l'intervallo di indirizzi IP dell'area di Azure in cui viene effettuato il provisioning del servizio di ricerca. L'elenco degli intervalli IP da cui gli indirizzi IP pubblici vengono allocati alle risorse di Azure è pubblicato negli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
 
 #### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Includere gli indirizzi IP del portale di Azure ricerca cognitiva
 Se si usa il portale di Azure per creare un indicizzatore, la logica del portale di Azure ricerca cognitiva deve anche accedere alla VM SQL Azure durante la fase di creazione. Per trovare gli indirizzi IP del portale di Azure ricerca cognitiva è possibile effettuare il ping `stamp2.search.ext.azure.com` .

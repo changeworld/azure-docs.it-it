@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d2d4a61f653c5bedb31223d2eb3d37b92a076821
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661154"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010168"
 ---
-# <a name="migrate-users-to-azure-ad-b2c"></a>Migrare gli utenti a Azure AD B2C
+# <a name="migrate-users-to-azure-ad-b2c"></a>Eseguire la migrazione di utenti ad Azure AD B2C
 
 La migrazione da un altro provider di identità a Azure Active Directory B2C (Azure AD B2C) potrebbe richiedere anche la migrazione degli account utente esistenti. Di seguito sono descritti due metodi di migrazione, *pre-migrazione* e *migrazione senza* problemi. Con entrambi gli approcci, è necessario scrivere un'applicazione o uno script che usi l' [API Microsoft Graph](microsoft-graph-operations.md) per creare gli account utente nel Azure ad B2C.
 
@@ -50,7 +50,7 @@ Il flusso di migrazione senza problemi comporta quindi due fasi: *pre-migrazione
 ### <a name="phase-1-pre-migration"></a>Fase 1: pre-migrazione
 
 1. L'applicazione di migrazione legge gli account utente dal vecchio provider di identità.
-1. L'applicazione di migrazione crea gli account utente corrispondenti nella directory Azure AD B2C, ma *non imposta le password*.
+1. L'applicazione di migrazione crea gli account utente corrispondenti nella directory Azure AD B2C, ma *imposta le password casuali* generate.
 
 ### <a name="phase-2-set-credentials"></a>Fase 2: impostare le credenziali
 

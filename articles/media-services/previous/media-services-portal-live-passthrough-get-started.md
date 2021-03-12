@@ -3,7 +3,7 @@ title: Streaming live con codificatori locali che usano portale di Azure | Micro
 description: Questa esercitazione illustra come creare un canale configurato per la distribuzione pass-through.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: 08d1e9cd281cf41a79d1b30d709062c01abbab33
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 6dd2f8a228c582e99f7d7281bd2d31faff8cadda
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695442"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010797"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Eseguire lo streaming live con codificatori locali usando portale di Azure
 
@@ -114,7 +114,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
 2. Nella finestra **Impostazioni** fare clic su **Streaming live**. 
    
-    ![Introduzione](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
+    ![Guida introduttiva](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
     Verrà visualizzata la finestra **Streaming live** .
 3. Fare clic su **Creazione rapida** per creare un canale pass-through con il protocollo di inserimento RTMP.
@@ -128,7 +128,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 1. Selezionare un canale a cui si vuole aggiungere un evento.
 2. Premere il pulsante **Evento live** .
 
-![Event](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+![Evento](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 ## <a name="get-ingest-urls"></a>Ottenere gli URL di inserimento
 Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da fornire al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.

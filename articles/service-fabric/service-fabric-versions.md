@@ -3,12 +3,12 @@ title: Aggiornare la versione del cluster di Azure Service Fabric
 description: Informazioni sulle versioni del cluster in Azure Service Fabric, incluso un collegamento alle versioni più recenti dal Blog del team di Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 7cb9a739572c667e0821a7a60f5c5d8cceb97957
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3e859a04ffb0b885aab0f31e83afad8380cbcc95
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698383"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010202"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Aggiornare la versione del cluster di Azure Service Fabric
 
@@ -117,20 +117,21 @@ Nella tabella seguente sono elencate le versioni di Service Fabric e le date di 
 | 7.0.470.* | 7.0.466.* |Minore o uguale alla versione 4,0 |31 gennaio 2021  |
 | 7.0.472.* | 7.0.466.* |Minore o uguale alla versione 4,0 |31 gennaio 2021  |
 | 7.0.478.* | 7.0.466.* |Minore o uguale alla versione 4,0 |31 gennaio 2021  |
-| 7.1.409.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
-| 7.1.417.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
-| 7.1.428.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
-| 7.1.456.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
-| 7.1.458.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
-| 7.1.459.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
-| 7.1.503.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
-| 7.1.510.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
+| 7.1.409.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 luglio 2021 |
+| 7.1.417.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 luglio 2021 |
+| 7.1.428.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 luglio 2021 |
+| 7.1.456.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 luglio 2021 |
+| 7.1.458.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 luglio 2021 |
+| 7.1.459.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 luglio 2021 |
+| 7.1.503.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 luglio 2021 |
+| 7.1.510.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 luglio 2021 |
 | 7.2.413.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
 | 7.2.432.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
 | 7.2.433.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
 | 7.2.445.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
 | 7.2.452.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
 | 7.2.457.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
+| 7.2.477.* | 7.0.478.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -214,3 +215,4 @@ Nella tabella seguente sono elencati i nomi delle versioni di Service Fabric e i
 | 7,2 CU4 | 7.2.445.9590 | 7.2.447.1 |
 | 7,2 CU5 | 7.2.452.9590 | 7.2.454.1 |
 | 7,2 CU6 | 7.2.457.9590 | 7.2.456.1 |
+| 7,2 CU7 | 7.2.477.9590 | 7.2.476.1 |

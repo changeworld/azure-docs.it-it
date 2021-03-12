@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4ecb1c3dc0e72523b19e3183e17306774b3ce164
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7b12b6c1cdc85eaba531f34b23aa74bee6b38f7b
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370377"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201132"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite l'interfaccia della riga di comando di Azure
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Creare una **distribuzione automatica di IoT Edge** usando l'interfaccia della riga di comando di Azure per gestire le distribuzioni in corso per più dispositivi contemporaneamente. Le distribuzioni automatiche per IoT Edge rientrano nella funzionalità di [gestione automatica dei dispositivi](../iot-hub/iot-hub-automatic-device-management.md) dell'hub IoT. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli in più dispositivi, di tenere traccia dello stato e dell'integrità dei moduli, nonché di apportare modifiche all'occorrenza.
 

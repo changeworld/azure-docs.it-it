@@ -1,14 +1,14 @@
 ---
 title: Procedure consigliate
 description: Informazioni sulle procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
-ms.date: 02/03/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 0b3dfe6d974f2cc2449faf54c4549589e0baa7cf
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550862"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199857"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -25,8 +25,8 @@ I [pool](nodes-and-pools.md#pools) sono le risorse di calcolo per l'esecuzione d
 
 - **Modalità di allocazione pool** Quando si crea un account Batch, è possibile scegliere tra due modalità di allocazione pool: **servizio Batch** o **sottoscrizione utente**. Nella maggior parte dei casi si userà la modalità predefinita del servizio Batch, in cui i pool vengono allocati dietro le quinte nelle sottoscrizioni gestite da Batch. Nella modalità sottoscrizione utente alternativa, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool. Gli account di sottoscrizione utente vengono usati principalmente per rendere possibile un sottoinsieme di scenari, piccolo ma importante. Per altre informazioni sulla modalità di sottoscrizione utente, vedere [Configurazione aggiuntiva per la modalità di sottoscrizione utente](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **' cloudServiceConfiguration ' o ' virtualMachineConfiguration '.**
-    usare ' virtualMachineConfiguration '. Tutte le funzionalità batch sono supportate dai pool ' virtualMachineConfiguration '. Non tutte le funzionalità sono supportate per i pool ' cloudServiceConfiguration ' e non sono state pianificate nuove funzionalità.
+- **' virtualMachineConfiguration ' o ' virtualMachineConfiguration '.**
+    Sebbene sia attualmente possibile creare pool usando una delle due configurazioni, i nuovi pool devono essere configurati con ' virtualMachineConfiguration ' e non con ' virtualMachineConfiguration '. Tutte le funzionalità di batch correnti e nuove saranno supportate dai pool di configurazione delle macchine virtuali. I pool di configurazione dei servizi cloud non supportano tutte le funzionalità e non sono state pianificate nuove funzionalità. Non sarà possibile creare nuovi pool ' CloudServiceConfiguration ' o aggiungere nuovi nodi ai pool esistenti dopo il [29 febbraio 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Per altre informazioni, vedere [eseguire la migrazione della configurazione del pool di batch dai servizi cloud alla macchina virtuale](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 - **Considerare il tempo di esecuzione di processi e attività per determinare il mapping tra processi e pool.**
     Se i processi sono costituiti prevalentemente da attività di breve durata e il numero totale previsto di attività è ridotto, per cui il tempo di esecuzione complessivo previsto per il processo non è molto lungo, non allocare un nuovo pool per ogni processo. Il tempo di allocazione dei nodi ridurrà il tempo di esecuzione del processo.

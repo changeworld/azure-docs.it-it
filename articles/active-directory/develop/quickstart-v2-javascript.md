@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 60eed96e20ffcebc3ddefccffa2761017e28e0d2
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: cf5b24bb55f278d9d33916d2d54d3ee5a169c3e8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103618"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224402"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Avvio rapido: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
@@ -109,15 +109,19 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 > [!div renderon="docs"]
 >
 > Dove:
-> - *\<Enter_the_Application_Id_Here>* è l'**ID applicazione (client)** per l'applicazione registrata.
-> - *\<Enter_the_Cloud_Instance_Id_Here>* è l'istanza del cloud di Azure. Per il cloud di Azure principale o globale è sufficiente immettere *https://login.microsoftonline.com* . Per i cloud **nazionali** (ad esempio, Cina), vedere [Cloud nazionali](./authentication-national-cloud.md).
-> - *\<Enter_the_Tenant_info_here>* è impostato su una delle opzioni seguenti:
->    - Se l'applicazione supporta *Account solo in questa directory organizzativa*, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, *contoso.microsoft.com*).
->    - Se l'applicazione supporta *Account in qualsiasi directory organizzativa*, sostituire questo valore con **organizations**.
->    - Se l'applicazione supporta *Account in qualsiasi directory organizzativa e account Microsoft personali*, sostituire questo valore con **common**. Per limitare il supporto ai *soli account Microsoft personali*, sostituire questo valore con **consumers**.
+> - `Enter_the_Application_Id_Here` è l'**ID applicazione (client)** per l'applicazione registrata.
 >
-> > [!TIP]
-> > Per trovare i valori di **ID applicazione (client)** , **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
+>    Per trovare il valore dell' **ID applicazione (client)**, passare alla pagina **Panoramica** dell'app nel portale di Azure.
+> - `Enter_the_Cloud_Instance_Id_Here` è l'istanza del cloud di Azure. Per il cloud di Azure principale o globale è sufficiente immettere `https://login.microsoftonline.com` . Per i cloud **nazionali** (ad esempio, Cina), vedere [Cloud nazionali](./authentication-national-cloud.md).
+> - `Enter_the_Tenant_info_here` è impostato su una delle opzioni seguenti:
+>    - Se l'applicazione supporta gli *account in questa directory aziendale*, sostituire questo valore con l' **ID tenant** o il **nome del tenant** (ad esempio, `contoso.microsoft.com` ).
+>
+>    Per trovare il valore dell' **ID directory (tenant)**, passare alla pagina **Panoramica** della registrazione dell'app nel portale di Azure.
+>    - Se l'applicazione supporta *account in qualsiasi directory organizzativa*, sostituire questo valore con `organizations`.
+>    - Se l'applicazione supporta *account in qualsiasi directory organizzativa e account Microsoft personali*, sostituire questo valore con `common`. Per limitare il supporto ai *soli account Microsoft personali*, sostituire questo valore con `consumers`.
+>
+>    Per trovare il valore dei **tipi di account supportati**, passare alla pagina **Panoramica** della registrazione dell'app nel portale di Azure.
+>
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione

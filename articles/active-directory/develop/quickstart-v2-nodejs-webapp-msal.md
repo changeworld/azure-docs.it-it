@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 5ca8c41dc1e6a05975227555abd91f5d6725285a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: d6be9753cbcb2a6be9836b27f82f1b60068570b8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092180"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224980"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Avvio rapido: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione Web Node con il flusso di codice di autorizzazione
 
@@ -48,6 +48,15 @@ Questo argomento di avvio rapido usa Microsoft Authentication Library per Node.j
 > 1. Nella pagina **Panoramica** dell'app prendere nota del valore del campo **ID applicazione (client)** per uso successivo.
 > 1. In **Gestisci** selezionare **Certificati e segreti** > **Nuovo segreto client**.  Lasciare vuota la descrizione e mantenere invariata la scadenza predefinita, quindi selezionare **Aggiungi**.
 > 1. Prendere nota del **valore** di **Segreto client** per usarlo successivamente.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>Passaggio 1: configurare l'applicazione in portale di Azure
+> Per il funzionamento dell'esempio di codice per questa Guida introduttiva, è necessario creare un segreto client e aggiungere un URL di risposta come **http://localhost:3000/redirect** .
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Apporta questa modifica per me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Già configurata](media/quickstart-v2-windows-desktop/green-check.png) L'applicazione è configurata con questi attributi.
 
 #### <a name="step-2-download-the-project"></a>Passaggio 2: Scaricare il progetto
 
@@ -91,16 +100,17 @@ Questo argomento di avvio rapido usa Microsoft Authentication Library per Node.j
 > Modificare i valori nella sezione `config` come descritto di seguito:
 >
 > - `Enter_the_Application_Id_Here` è l'**ID applicazione (client)** per l'applicazione registrata.
+>
+>    Per trovare il valore di **ID applicazione (client)** , passare alla pagina **Panoramica** della registrazione dell'app nel portale di Azure.
 > - `Enter_the_Client_Secret_Here` è il **valore** di **Segreto client** per l'applicazione registrata.
+>
+>    Per recuperare o generare un nuovo **segreto client**, in **Gestisci** Selezionare **certificati & segreti**.
 >
 > Il valore `authority` predefinito rappresenta il cloud di Azure principale (globale):
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
->
-> > [!TIP]
-> > Per trovare il valore di **ID applicazione (client)** , passare alla pagina **Panoramica** della registrazione dell'app nel portale di Azure. In **Certificati e segreti** recuperare o generare un nuovo **segreto client**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione

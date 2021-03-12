@@ -12,14 +12,16 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 44fe128658b90d2327f17f22b2a33aaa1d4da1fc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dc2d2d3e92435c7a028b43a095f456c2c383ecb4
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046126"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199625"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Questo articolo fornisce istruzioni per stabilire una connessione trusted tra dispositivi downstream e IoT Edge Gateway trasparenti. In uno scenario di gateway trasparente, uno o più dispositivi possono passare i messaggi tramite un singolo dispositivo gateway che gestisce la connessione all'hub.
 
@@ -44,7 +46,19 @@ In questo articolo i termini *gateway* e *gateway IoT Edge* si riferiscono a un 
 
 ## <a name="prepare-a-downstream-device"></a>Preparare un dispositivo downstream
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Un dispositivo downstream può essere qualsiasi applicazione o piattaforma la cui identità sia stata creata con il servizio cloud hub IoT di Azure. In molti casi, queste applicazioni usano [Azure IoT SDK per dispositivi](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo downstream potrebbe anche essere un'applicazione in esecuzione sul dispositivo IoT Edge Gateway. Un altro dispositivo IoT Edge, tuttavia, non può essere a valle di un gateway di IoT Edge.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Un dispositivo downstream può essere qualsiasi applicazione o piattaforma la cui identità sia stata creata con il servizio cloud hub IoT di Azure. In molti casi, queste applicazioni usano [Azure IoT SDK per dispositivi](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo downstream potrebbe anche essere un'applicazione in esecuzione sul dispositivo IoT Edge Gateway.
+
+Questo articolo illustra la procedura per connettere un dispositivo Internet delle cose come dispositivo downstream. Se si dispone di un dispositivo IoT Edge come dispositivo downstream, vedere [connettere un dispositivo IOT Edge downstream a un gateway di Azure IOT Edge](how-to-connect-downstream-iot-edge-device.md).
+:::moniker-end
+<!-- end 1.2 -->
 
 >[!NOTE]
 >I dispositivi di Internet delle cose registrati con l'hub Internet possono usare i [moduli gemelli](../iot-hub/iot-hub-devguide-module-twins.md) per isolare processi, hardware o funzioni differenti in un singolo dispositivo. I gateway IoT Edge supportano le connessioni del modulo downstream usando l'autenticazione con chiave simmetrica ma non l'autenticazione del certificato X. 509.
