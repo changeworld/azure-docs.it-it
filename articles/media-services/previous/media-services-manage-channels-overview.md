@@ -3,7 +3,7 @@ title: Panoramica dello streaming live con Servizi multimediali di Azure | Docum
 description: Questo articolo offre una panoramica dello streaming live con Servizi multimediali di Microsoft Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 77c68b3c17b8815c4858e1d73251975a7e00e6eb
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 195333f5f06145a1dfa84f0de2c5984190e3d7ca
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695705"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014826"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Panoramica dello streaming live con Servizi multimediali
 
@@ -74,7 +74,7 @@ A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale 
 
 Nella tabella seguente vengono confrontati i due tipi di canale supportati in Servizi Multimediali
 
-| Feature | Canale pass-through | Canale standard |
+| Funzionalità | Canale pass-through | Canale standard |
 | --- | --- | --- |
 | Input a bitrate singolo codificato in bitrate multipli nel cloud |No |Sì |
 | Risoluzione massima, numero di livelli |1080p, 8 livelli, oltre 60 fps |720p, 6 livelli, 30 fps |

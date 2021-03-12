@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 91f93faded7c18a1bc24f17053231f9011080c57
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 014bbe4421bf00f35b2d80505cea288e75f8ca94
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036249"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224674"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Domande frequenti per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -244,6 +244,10 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 1. **Le transazioni distribuite con Distributed Transaction Coordinator sono supportate nelle macchine virtuali di SQL Server?**
    
     Sì. Il controllo DTC locale è supportato per SQL Server 2016 SP2 e versioni successive. Tuttavia, le applicazioni devono essere testate quando si usa Gruppi di disponibilità Always On, perché le transazioni in corso durante un failover avranno esito negativo e sarà necessario tentare di eseguirle di nuovo. Il controllo DTC con cluster è disponibile a partire da Windows Server 2019. 
+    
+1. **La macchina virtuale di Azure SQL sposta o archivia i dati dei clienti all'esterno dell'area?**
+
+   No. In realtà, la macchina virtuale SQL di Azure e l'estensione SQL IaaS Agent non archiviano i dati dei clienti.
 
 ## <a name="sql-server-iaas-agent-extension"></a>Estensione Agente IaaS di SQL Server
 

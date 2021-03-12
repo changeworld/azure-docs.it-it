@@ -11,18 +11,16 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 98310f65767efc6081451d9931c4ea9772df5f3b
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: fc48c9b8a0a7510dd8792c959c1f63a0340f89ce
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609397"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011206"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
-
->Quando si torna a visitare questa pagina per informazioni sugli aggiornamenti, è possibile ricevere notifiche copiando e incollando l'URL `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` nel lettore di feed RSS.
 
 Per stare al passo con gli sviluppi più recenti, questo articolo fornisce informazioni sugli argomenti seguenti:
 
@@ -32,12 +30,6 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Funzionalità deprecate
 
 ## <a name="known-issues"></a>Problemi noti
-
-> [!NOTE]
-> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare [Asset](assets-concept.md) e processi V3, ottenere informazioni sull'accesso alle API, crittografare il contenuto. Per tutte le altre attività di gestione (ad esempio, gestione di trasformazioni e processi), usare l' [API REST](/rest/api/media/accountfilters), l' [interfaccia](/cli/azure/ams)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
->
-> Per informazioni dettagliate, vedere: [limitazioni portale di Azure per servizi multimediali V3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
-
 
 ## <a name="february-2021"></a>2021 febbraio
 
@@ -54,20 +46,22 @@ Oltre alla codifica personalizzata, sono ora disponibili i nuovi set di impostaz
 - H265SingleBitrate1080p
 - H265SingleBitrate4K
 
-
 I clienti che usano in precedenza HEVC nel codificatore Premium nell'API v2 devono eseguire la migrazione per usare il nuovo supporto per la codifica HEVC nel codificatore standard.
 
 ### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Annuncio di deprecazione SDK e API di servizi multimediali di Azure V2
 
 #### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Aggiornare i API REST Servizi multimediali di Azure e gli SDK a V3 entro il 29 febbraio 2024
 
-Poiché la versione 3 di API REST Servizi multimediali di Azure e SDK client per .NET e Java offre più funzionalità rispetto alla versione 2, si sta ritirando la versione 2 degli SDK API REST Servizi multimediali di Azure e client per .NET e Java. Si consiglia di eseguire il passaggio prima di ottenere i vantaggi più completi della versione 3 di API REST Servizi multimediali di Azure e degli SDK client per .NET e Java. La versione 3 fornisce: 
+Poiché la versione 3 di API REST Servizi multimediali di Azure e SDK client per .NET e Java offre più funzionalità rispetto alla versione 2, si sta ritirando la versione 2 degli SDK API REST Servizi multimediali di Azure e client per .NET e Java.
+
+Si consiglia di eseguire il passaggio prima di ottenere i vantaggi più completi della versione 3 di API REST Servizi multimediali di Azure e degli SDK client per .NET e Java.
+La versione 3 fornisce:
  
 - supporto degli eventi live 24x7
 - API REST ARM, SDK client per .NET Core, Node.js, Python, Java, go e Ruby.
-- Chiavi gestite dal cliente, integrazione dell'archiviazione attendibile, supporto dei collegamenti privati e [altro ancora](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Chiavi gestite dal cliente, integrazione dell'archiviazione attendibile, supporto dei collegamenti privati e [altro ancora](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
-#### <a name="action-required"></a>Azione richiesta:
+#### <a name="action-required"></a>Azione richiesta
 
 Per ridurre al minimo le problematiche dei carichi di lavoro, vedere la [Guida alla migrazione](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) per eseguire la transizione del codice dall'API versione 2 e SDK all'API versione 3 e all'SDK prima del 29 febbraio 2024.
 **Dopo il 29 febbraio 2024**, servizi multimediali di Azure non accetterà più traffico sull'API REST della versione 2, l'API di gestione degli account ARM versione 2015-10-01 o dagli SDK client .NET versione 2. Sono inclusi tutti gli SDK client open source di terze parti che possono chiamare l'API della versione 2.  
@@ -76,9 +70,9 @@ Vedere l'annuncio ufficiale sugli [aggiornamenti di Azure](https://azure.microso
 
 ### <a name="standard-encoder-support-for-v2-api-features"></a>Supporto del codificatore standard per le funzionalità dell'API v2
 
-Oltre al nuovo supporto aggiunto per la codifica HEVC (H. 265), le funzionalità seguenti sono ora disponibili nella versione 2020-05-01 dell'API di codifica. 
+Oltre al nuovo supporto aggiunto per la codifica HEVC (H. 265), le funzionalità seguenti sono ora disponibili nella versione 2020-05-01 dell'API di codifica.
 
-- L'Unione di più file di input è ora supportata con il nuovo supporto **JobInputClip** . 
+- L'Unione di più file di input è ora supportata con il nuovo supporto **JobInputClip** .
     - Un esempio è disponibile per .NET che illustra come [unire due asset](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets).
 - La selezione della traccia audio consente ai clienti di selezionare ed eseguire il mapping delle tracce audio in ingresso e di instradarle all'output per la codifica
     - Per informazioni dettagliate su **AudioTrackDescriptor** e Track Selection, vedere l' [API REST openapi](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L385) .
@@ -96,6 +90,15 @@ Eseguire l'aggiornamento agli SDK client più recenti nelle basi di codice usand
 - [Node.js typescript versione 8.1.0](https://www.npmjs.com/package/@azure/arm-mediaservices)
 - [Python Azure-Mgmt-media 3.1.0](https://pypi.org/project/azure-mgmt-media/)
 - [Java SDK 1.0.0-beta. 2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-mediaservices/1.0.0-beta.2/jar)
+
+### <a name="new-security-features-available-in-the-2020-05-01-version-of-the-azure-media-services-api"></a>Nuove funzionalità di sicurezza disponibili nella versione 2020-05-01 dell'API servizi multimediali di Azure
+
+- **[Chiavi gestite dal cliente](concept-use-customer-managed-keys-byok.md)**: le chiavi del contenuto e altri dati archiviati negli account creati con l'API della versione "2020-05-01" vengono crittografati con una chiave dell'account. I clienti possono fornire una chiave per crittografare la chiave dell'account.
+
+- **[Archiviazione attendibile](concept-trusted-storage.md)**: Servizi multimediali può essere configurato per accedere ad archiviazione di Azure usando un'identità gestita associata all'account di servizi multimediali. Quando viene eseguito l'accesso agli account di archiviazione usando un'identità gestita, i clienti possono configurare ACL di rete più restrittivi nell'account di archiviazione senza bloccare gli scenari di servizi multimediali.
+
+- **[Identità gestite](concept-managed-identities.md)**: i clienti possono abilitare un'identità gestita assegnata dal sistema per un account di servizi multimediali per fornire l'accesso agli insiemi di credenziali delle chiavi (per le chiavi gestite dal cliente) e agli account di archiviazione (per l'archiviazione attendibile).
+
 
 ### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Esempi di typescript Node.js aggiornati con isomorfi SDK per JavaScript
 
@@ -143,7 +146,8 @@ La codifica live ora aggiunge la funzionalità di output dei frammenti di interv
 ## <a name="august-2020"></a>Agosto 2020
 
 ### <a name="dynamic-encryption"></a>Crittografia dinamica
-Il supporto per la crittografia legacy PlayReady protected Interoperable file Format (PIFF 1,1) è ora disponibile in Dynamic Packager. Fornisce supporto per i set di Smart TV legacy da Samsung e LG che hanno implementato le prime bozze dello standard crittografia comune (CENC) pubblicate da Microsoft.  Il formato PIFF 1,1 è noto anche come formato di crittografia precedentemente supportato dalla libreria client Silverlight. Attualmente, l'unico scenario di utilizzo per questo formato di crittografia è quello di puntare al mercato Smart TV legacy, in cui rimane un numero non semplice di TV intelligenti in alcune aree che supportano solo Smooth Streaming con la crittografia PIFF 1,1. 
+
+Il supporto per la crittografia legacy PlayReady protected Interoperable file Format (PIFF 1,1) è ora disponibile in Dynamic Packager. Fornisce supporto per i set di Smart TV legacy da Samsung e LG che hanno implementato le prime bozze dello standard crittografia comune (CENC) pubblicate da Microsoft.  Il formato PIFF 1,1 è noto anche come formato di crittografia precedentemente supportato dalla libreria client Silverlight. Attualmente, l'unico scenario di utilizzo per questo formato di crittografia è quello di puntare al mercato Smart TV legacy, in cui rimane un numero non semplice di TV intelligenti in alcune aree che supportano solo Smooth Streaming con la crittografia PIFF 1,1.
 
 Per usare il nuovo supporto per la crittografia PIFF 1,1, modificare il valore di crittografia in ' Piff ' nel percorso URL del localizzatore di streaming. Per ulteriori informazioni, vedere la [Panoramica di protezione del contenuto.](content-protection-overview.md)
 Per esempio: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|

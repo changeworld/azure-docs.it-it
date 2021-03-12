@@ -53,48 +53,50 @@
         - name: Visualizzare l'attività dei provider di servizi
           displayName: 'monitor, log, customer, visibility, transparency, control'
           href: ./how-to/view-service-provider-activity.md
-    - name: Eseguire l'onboarding dei clienti in Azure Lighthouse
-      displayName: resource management
-      href: ./how-to/onboard-customer.md
-    - name: Pubblicare offerte di servizi gestiti in Azure Marketplace
-      displayName: 'managed services offer, azure marketplace, publish, marketplace'
-      href: ./how-to/publish-managed-services-offers.md
+    - name: Gestione di onboarding e delega
+      items:
+        - name: Onboarding dei clienti
+          displayName: 'ARM, template, delegation, authorization, resource management'
+          href: ./how-to/onboard-customer.md
+        - name: Pubblicare offerte di servizi gestiti in Azure Marketplace
+          displayName: 'managed services offer, azure marketplace, publish, marketplace'
+          href: ./how-to/publish-managed-services-offers.md
+        - name: Aggiornare le delega
+          displayName: upgrade
+          href: ./how-to/update-delegation.md
+        - name: Rimuovere l'accesso alle deleghe
+          displayName: 'delete, undelegate'
+          href: ./how-to/remove-delegation.md
+        - name: Monitorare le modifiche delle deleghe
+          displayName: activity log
+          href: ./how-to/monitor-delegation-changes.md
     - name: Visualizzare e gestire i clienti
       displayName: my customers
       href: ./how-to/view-manage-customers.md
     - name: Collegare l'ID partner
       displayName: 'partner earned credit, pec, mpn'
       href: ./how-to/partner-earned-credit.md
-    - name: Aggiornare una delega
-      displayName: upgrade
-      href: ./how-to/update-delegation.md
-    - name: Rimuovere l'accesso a una delega
-      displayName: 'delete, undelegate'
-      href: ./how-to/remove-delegation.md
-    - name: Integrazione di Azure Arc
-      displayName: 'server, kubernetes, hybrid, infrastructure'
-      href: ./how-to/manage-hybrid-infrastructure-arc.md
-    - name: Integrazione di Azure Migrate
-      displayName: 'migration, project, on-prem'
-      href: ./how-to/migration-at-scale.md
-    - name: Integrazione di Monitoraggio di Azure
+    - name: Integrazione del servizio Azure
       items:
-        - name: Usare i log di Monitoraggio di Azure su larga scala
+        - name: Integrazione di Azure Arc
+          displayName: 'server, kubernetes, hybrid, infrastructure'
+          href: ./how-to/manage-hybrid-infrastructure-arc.md
+        - name: Integrazione di Azure Migrate
+          displayName: 'migration, project, on-prem'
+          href: ./how-to/migration-at-scale.md
+        - name: Integrazione di Monitoraggio di Azure
           displayName: 'log, analytics, analyze, activity'
           href: ./how-to/monitor-at-scale.md
-        - name: Monitorare le modifiche delle deleghe
-          displayName: activity log
-          href: ./how-to/monitor-delegation-changes.md
-    - name: Integrazione di Criteri di Azure
-      items:
-        - name: Distribuire un criterio su larga scala
-          displayName: storage
-          href: ./how-to/policy-at-scale.md
-        - name: Distribuire un criterio che è possibile correggere
-          displayName: 'deployIfNotExists, modify, managed identities, managed identity'
-          href: ./how-to/deploy-policy-remediation.md
-    - name: Integrazione di Azure Sentinel
-      href: ./how-to/manage-sentinel-workspaces.md
+        - name: Integrazione di Criteri di Azure
+          items:
+            - name: Distribuire un criterio su larga scala
+              displayName: storage
+              href: ./how-to/policy-at-scale.md
+            - name: Distribuire un criterio che è possibile correggere
+              displayName: 'deployIfNotExists, modify, managed identities, managed identity'
+              href: ./how-to/deploy-policy-remediation.md
+        - name: Integrazione di Azure Sentinel
+          href: ./how-to/manage-sentinel-workspaces.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

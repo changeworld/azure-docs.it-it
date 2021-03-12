@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: b60b447d8302b89813ca462c3220603ef926eb26
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448645"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631184"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -356,7 +356,7 @@ Di seguito sono riportati gli ID per un [controllo di visualizzazione della veri
 
 | ID | Valore predefinito |
 | -- | ------------- |
-|intro_msg| È necessaria la verifica. Fare clic sul pulsante Invia.|
+|intro_msg <sup>*</sup>| È necessaria la verifica. Fare clic sul pulsante Invia.|
 |success_send_code_msg | Il codice di verifica è stato inviato. Copiarlo nella casella di input sottostante.|
 |failure_send_code_msg | Si sono verificati problemi nella verifica dell'indirizzo di posta elettronica. Immettere un indirizzo di posta elettronica valido e riprovare.|
 |success_verify_code_msg | Indirizzo di posta elettronica verificato. È ora possibile continuare.|
@@ -365,6 +365,12 @@ Di seguito sono riportati gli ID per un [controllo di visualizzazione della veri
 |but_verify_code | Verifica il codice|
 |but_send_new_code | Inviare un nuovo codice|
 |but_change_claims | Cambiare l'indirizzo di posta elettronica|
+
+Nota: l' `intro_msg` elemento è nascosto e non viene visualizzato nella pagina autocertificata. Per renderlo visibile, usare il [Customiztion HTML](customize-ui-with-html.md) con Cascading Style Sheets. Ad esempio:
+    
+```css
+.verificationInfoText div{display: block!important}
+```
 
 ### <a name="verification-display-control-example"></a>Esempio di controllo di visualizzazione Verifica
 

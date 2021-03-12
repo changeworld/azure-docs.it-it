@@ -1,31 +1,26 @@
 ---
-title: Considerazioni sulla topologia di rete per Azure AD proxy di applicazione
-description: Tratta alcune considerazioni relative alla topologia di rete quando si usa il proxy applicazione Azure AD.
+title: Considerazioni sulla topologia di rete per Azure Active Directory Application Proxy
+description: Illustra le considerazioni relative alla topologia di rete quando si usa Azure Active Directory Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 02/22/2021
 ms.author: kenwith
-ms.reviewer: harshja
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67505e7112c41b21b2ae5e8acc834ff047a470d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.reviewer: japere
+ms.openlocfilehash: bbab5463f0d022cb9bf155c7d33e2d81c8bdd448
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254806"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199695"
 ---
-# <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerazioni relative alla topologia di rete quando si usa il proxy applicazione di Azure Active Directory
+# <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Ottimizzare il flusso del traffico con Azure Active Directory Application Proxy
 
-Questo articolo presenta alcune considerazioni relative alla topologia di rete quando si usa il proxy applicazione di Azure Active Directory (Azure AD) per la pubblicazione delle applicazioni e il relativo accesso da remoto.
+Questo articolo illustra come ottimizzare il flusso del traffico e le considerazioni relative alla topologia di rete quando si usa il proxy di applicazione Azure Active Directory (Azure AD) per la pubblicazione e l'accesso alle applicazioni in remoto.
 
 ## <a name="traffic-flow"></a>Flusso del traffico
 
@@ -35,13 +30,32 @@ Quando un'applicazione viene pubblicata tramite il proxy applicazione di Azure A
 1. Il servizio proxy di applicazione si connette al connettore del proxy di applicazione
 1. Il connettore del proxy di applicazione si connette all'applicazione di destinazione
 
-![Diagramma che illustra il flusso del traffico dall'utente all'applicazione di destinazione](./media/application-proxy-network-topology/application-proxy-three-hops.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-three-hops.png" alt-text="Diagramma che mostra il flusso di traffico dall'utente all'applicazione di destinazione." lightbox="./media/application-proxy-network-topology/application-proxy-three-hops.png":::
 
-## <a name="tenant-location-and-application-proxy-service"></a>Località del tenant e servizio proxy applicazione
+## <a name="optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview"></a>Ottimizzare i gruppi di connettori per usare il servizio cloud proxy applicazione più vicino (anteprima)
 
-Quando ci si iscrive a un tenant di Azure AD, l'area del tenant è determinata dal paese specificato. Quando si abilita il proxy di applicazione, le istanze del servizio proxy di applicazione per il tenant vengono scelte o create nella stessa area del tenant di Azure AD o nell'area più vicina.
+Quando ci si iscrive a un tenant di Azure AD, l'area del tenant è determinata dal paese specificato. Quando si Abilita il proxy di applicazione, le istanze del servizio cloud proxy applicazione **predefinite** per il tenant vengono scelte nella stessa area del tenant Azure ad o nell'area più vicina.
 
-Se, ad esempio, il paese o l'area del tenant di Azure AD è il Regno Unito, tutti i connettori del proxy di applicazione usano istanze del servizio nei data center europei. Quando gli utenti accedono alle applicazioni pubblicate, il traffico passa attraverso le istanze del servizio proxy applicazione in questa località.
+Se, ad esempio, il paese o l'area del tenant di Azure AD è il Regno Unito, a tutti i connettori del proxy di applicazione verrà assegnato un **valore predefinito** per l'uso di istanze del servizio nei data center europei. Quando gli utenti accedono alle applicazioni pubblicate, il traffico passa attraverso le istanze del servizio cloud del proxy di applicazione in questa posizione.
+
+Se i connettori sono installati in aree diverse dall'area predefinita, può essere utile modificare l'area in cui il gruppo di connettori è ottimizzato per migliorare le prestazioni di accesso a queste applicazioni. Una volta specificata un'area per un gruppo di connettori, questa verrà connessa ai servizi cloud del proxy dell'applicazione nell'area designata.
+
+Per ottimizzare il flusso del traffico e ridurre la latenza a un gruppo di connettori, assegnare il gruppo di connettori all'area più vicina. Per assegnare un'area:
+
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore dell'applicazione della directory che usa il proxy di applicazione. Se il dominio del tenant è contoso.com, ad esempio, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias amministratore di tale dominio.
+1. Selezionare il nome utente nell'angolo superiore destro. Verificare di aver effettuato l'accesso a una directory che usa il proxy di applicazione. Se è necessario cambiare directory, selezionare **Cambia directory** e scegliere una directory che usa il proxy di applicazione.
+1. Nel riquadro di spostamento a sinistra selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **Proxy di applicazione**.
+1. Selezionare **nuovo gruppo di connettori** e specificare un **nome** per il gruppo di connettori.
+1. Successivamente, in **Impostazioni avanzate** , selezionare l'elenco a discesa in Ottimizza per un'area specifica e selezionare l'area geografica più vicina ai connettori.
+1. Selezionare **Crea**.
+    
+    :::image type="content" source="./media/application-proxy-network-topology/geo-routing.png" alt-text="Configurare un nuovo gruppo di connettori." lightbox="./media/application-proxy-network-topology/geo-routing.png":::
+
+1. Una volta creato il nuovo gruppo di connettori, è possibile selezionare i connettori da assegnare a questo gruppo di connettori. 
+   - È possibile spostare i connettori al gruppo di connettori solo se si trova in un gruppo di connettori usando l'area predefinita. L'approccio migliore consiste nell'iniziare sempre con i connettori posizionati nel "gruppo predefinito" e quindi spostarli nel gruppo di connettori appropriato.
+   - È possibile modificare l'area di un gruppo di connettori solo **se non vi sono connettori** assegnati o app assegnati.
+1. Successivamente, assegnare il gruppo di connettori alle applicazioni. Quando si accede alle app, il traffico dovrebbe ora andare al servizio cloud del proxy dell'applicazione nell'area in cui è ottimizzato il gruppo di connettori.
 
 ## <a name="considerations-for-reducing-latency"></a>Considerazioni per ridurre la latenza
 
@@ -96,7 +110,7 @@ Se tra Azure e la rete aziendale è configurato un collegamento VPN o ExpressRou
 
 Poiché il traffico scorre attraverso una connessione dedicata, la latenza non è compromessa. Si migliora inoltre la latenza dal servizio proxy applicazione al connettore perché il connettore è installato in un data center di Azure vicino alla posizione del tenant di Azure AD.
 
-![Diagramma che illustra l'installazione del connettore in un data center di Azure](./media/application-proxy-network-topology/application-proxy-expressroute-private.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-expressroute-private.png" alt-text="Diagramma che illustra l'installazione del connettore in un data center di Azure" lightbox="./media/application-proxy-network-topology/application-proxy-expressroute-private.png":::
 
 ### <a name="other-approaches"></a>Altri approcci
 
@@ -124,7 +138,7 @@ In questi scenari ogni connessione viene chiamata "hop" e viene numerata per sem
 
 Si tratta di un modello semplice. Si ottimizza l'hop 3 posizionando il connettore vicino all'app. Questa è anche una scelta naturale, perché il connettore viene in genere installato in modo che comunichi con l'app e il data center per eseguire operazioni KCD.
 
-![Il diagramma che Mostra gli utenti, il proxy, il connettore e l'app sono tutti negli Stati Uniti](./media/application-proxy-network-topology/application-proxy-pattern1.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-pattern1.png" alt-text="Il diagramma che Mostra gli utenti, il proxy, il connettore e l'app sono tutti negli Stati Uniti." lightbox="./media/application-proxy-network-topology/application-proxy-pattern1.png":::
 
 ### <a name="use-case-2"></a>Caso d'uso 2
 
@@ -134,7 +148,7 @@ Si tratta di un modello semplice. Si ottimizza l'hop 3 posizionando il connettor
 
 Anche in questo caso, il modello comune consiste nell'ottimizzare l'hop 3, posizionando il connettore vicino all'app. L'hop 3 non è in genere costoso, se si trova interamente all'interno della stessa area. L'hop 1 può invece essere più costoso a seconda di dove si trova l'utente, perché gli utenti nel mondo devono accedere all'istanza del proxy applicazione negli Stati Uniti. È opportuno notare che qualsiasi soluzione proxy presenta caratteristiche simili in relazione a utenti distribuiti in tutto il mondo.
 
-![Gli utenti sono distribuiti a livello globale, ma tutto il resto negli Stati Uniti](./media/application-proxy-network-topology/application-proxy-pattern2.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-pattern2.png" alt-text="Gli utenti sono distribuiti a livello globale, ma tutto il resto negli Stati Uniti" lightbox="./media/application-proxy-network-topology/application-proxy-pattern2.png":::
 
 ### <a name="use-case-3"></a>Caso d'uso 3
 
@@ -146,7 +160,7 @@ Per prima cosa, posizionare il connettore il più vicino possibile all'app. In q
 
 Se il collegamento ExpressRoute usa il peering Microsoft, il traffico tra il proxy e il connettore viene trasmesso su tale collegamento. L'hop 2 ha una latenza ottimizzata.
 
-![Diagramma che mostra ExpressRoute tra il proxy e il connettore](./media/application-proxy-network-topology/application-proxy-pattern3.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-pattern3.png" alt-text="Diagramma che mostra ExpressRoute tra il proxy e il connettore" lightbox="./media/application-proxy-network-topology/application-proxy-pattern3.png":::
 
 ### <a name="use-case-4"></a>Caso d'uso 4
 
@@ -158,19 +172,25 @@ Posizionare il connettore nel data center di Azure connesso alla rete aziendale 
 
 Il connettore può essere posizionato nel data center di Azure. Dato che il connettore comunica comunque con l'applicazione e il data center tramite la rete privata, l'hop 3 rimane ottimizzato. Viene anche ulteriormente ottimizzato l'hop 2.
 
-![Connettore nel Data Center di Azure, ExpressRoute tra il connettore e l'app](./media/application-proxy-network-topology/application-proxy-pattern4.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-pattern4.png" alt-text="Connettore nel Data Center di Azure, ExpressRoute tra il connettore e l'app" lightbox="./media/application-proxy-network-topology/application-proxy-pattern4.png":::
 
 ### <a name="use-case-5"></a>Caso d'uso 5
 
-**Scenario:** L'app si trova in una rete dell'organizzazione in Europa, con l'istanza del proxy di applicazione e la maggior parte degli utenti negli Stati Uniti.
+**Scenario:** L'app si trova in una rete dell'organizzazione in Europa, l'area del tenant predefinita è US e la maggior parte degli utenti in Europa.
 
-**Raccomandazione:** posizionare il connettore vicino all'app. Dato che gli utenti degli Stati Uniti accedono a un'istanza del proxy applicazione che si trova nella stessa area, l'hop 1 non è troppo costoso. L'hop 3 è ottimizzato. È consigliabile usare ExpressRoute per ottimizzare l'hop 2.
+**Raccomandazione:** posizionare il connettore vicino all'app. Aggiornare il gruppo di connettori in modo che sia ottimizzato per l'uso delle istanze del servizio proxy di applicazione dell'Europa. Per i passaggi, vedere [ottimizzare i gruppi di connettori per usare il servizio cloud proxy applicazione più vicino](application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service).
 
-![Il diagramma Mostra gli utenti e il proxy negli Stati Uniti, nel connettore e nell'app in Europa](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
+Poiché gli utenti dell'Europa accedono a un'istanza del proxy di applicazione che si trova nella stessa area, l'hop 1 non è costoso. L'hop 3 è ottimizzato. È consigliabile usare ExpressRoute per ottimizzare l'hop 2.
 
-In questa situazione è anche possibile prendere in considerazione l'uso di un'altra variante. Se la maggior parte degli utenti nell'organizzazione si trova negli Stati Uniti, la rete potrebbe estendersi anche negli Stati Uniti. Posizionare il connettore negli Stati Uniti e usare la linea di rete aziendale interna dedicata per l'applicazione in Europa. In questo modo, gli hop 2 e 3 vengono ottimizzati.
+### <a name="use-case-6"></a>Caso d'uso 6
 
-![Il diagramma Mostra utenti, proxy e connettore negli Stati Uniti, app in Europa](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
+**Scenario:** L'app si trova in una rete dell'organizzazione in Europa, l'area del tenant predefinita è US e la maggior parte degli utenti negli Stati Uniti.
+
+**Raccomandazione:** posizionare il connettore vicino all'app. Aggiornare il gruppo di connettori in modo che sia ottimizzato per l'uso delle istanze del servizio proxy di applicazione dell'Europa. Per i passaggi, vedere [ottimizzare i gruppi di connettori per usare il servizio cloud proxy applicazione più vicino](/application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service). Hop 1 può essere più costoso poiché tutti gli utenti degli Stati Uniti devono accedere all'istanza del proxy di applicazione in Europa.
+
+In questa situazione è anche possibile prendere in considerazione l'uso di un'altra variante. Se la maggior parte degli utenti nell'organizzazione si trova negli Stati Uniti, la rete potrebbe estendersi anche negli Stati Uniti. Posizionare il connettore negli Stati Uniti, continuare a usare l'area degli Stati Uniti predefinita per i gruppi di connettori e usare la linea di rete aziendale interna dedicata per l'applicazione in Europa. In questo modo, gli hop 2 e 3 vengono ottimizzati.
+
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-pattern5c.png" alt-text="Il diagramma Mostra gli utenti, il proxy e il connettore nell'app degli Stati Uniti in Europa." lightbox="./media/application-proxy-network-topology/application-proxy-pattern5c.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

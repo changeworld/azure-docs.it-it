@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e3df08272b352ee789c9879b1118105c435cffbd
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903531"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011086"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -67,7 +67,7 @@ Ecco i passaggi di alto livello per creare un nuovo pacchetto di accesso.
    
     ![Gestione entitlement nel portale di Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Nozioni fondamentali
+## <a name="basics"></a>Nozioni di base
 
 Nella scheda **nozioni di base** assegnare un nome al pacchetto di accesso e specificare il catalogo in cui creare il pacchetto di accesso.
 
@@ -122,7 +122,7 @@ A seconda di chi desidera essere in grado di richiedere questo pacchetto di acce
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
-## <a name="review--create"></a>Rivedere e creare
+## <a name="review--create"></a>Rivedi e crea
 
 Nella scheda **Verifica e crea** è possibile esaminare le impostazioni e verificare la presenza di eventuali errori di convalida.
 
@@ -149,3 +149,4 @@ Nella scheda **Verifica e crea** è possibile esaminare le impostazioni e verifi
 - [Condividi il collegamento per richiedere un pacchetto di accesso](entitlement-management-access-package-settings.md)
 - [Modificare i ruoli delle risorse per un pacchetto di accesso](entitlement-management-access-package-resources.md)
 - [Assegnare direttamente un utente al pacchetto di accesso](entitlement-management-access-package-assignments.md)
+- [Creare una verifica di accesso per un pacchetto di accesso](entitlement-management-access-reviews-create.md)

@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 03/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: eb5de33fd41d3a454f4d0b8d44325ed30f9c5d47
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 8b9c4792fa6dbdc70f657ce3c5f1757473a22fda
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071631"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225218"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebook"></a>Guida introduttiva: creare un indice di ricerca cognitiva di Azure in Python usando Jupyter Notebook
 
@@ -271,9 +271,9 @@ Per caricare documenti, creare una raccolta di documenti usando un'[azione di in
 
 ## <a name="3---search-an-index"></a>3 - Eseguire la ricerca in un indice
 
-Questo passaggio illustra come eseguire una query su un indice usando i [documenti di ricerca (REST)](/rest/api/searchservice/search-documents).
+Questo passaggio illustra come eseguire una query su un indice usando il metodo **Search** della [classe search. client](/python/api/azure-search-documents/azure.search.documents.searchclient).
 
-1. Per questa operazione, usare search_client. Questa query esegue una ricerca vuota (`search=*`), restituendo un elenco non classificato (con punteggio di ricerca uguale a 1) di documenti arbitrari. Non essendoci criteri, nei risultati vengono inclusi tutti i documenti. Questa query stampa solo due campi in ogni documento. Aggiunge inoltre `include_total_count=True` per ottenere il numero di tutti i documenti (4) inclusi nei risultati.
+1. Il passaggio seguente esegue una ricerca vuota ( `search=*` ), restituendo un elenco non classificato (score di ricerca = 1,0) di documenti arbitrari. Non essendoci criteri, nei risultati vengono inclusi tutti i documenti. Questa query stampa solo due campi in ogni documento. Aggiunge inoltre `include_total_count=True` per ottenere il numero di tutti i documenti (4) inclusi nei risultati.
 
     ```python
     results =  search_client.search(search_text="*", include_total_count=True)
@@ -348,7 +348,7 @@ Questo passaggio illustra come eseguire una query su un indice usando i [documen
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
-Quando si lavora nella propria sottoscrizione, al termine di un progetto è buona norma determinare se le risorse create sono ancora necessarie. Le risorse che rimangono in esecuzione hanno un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
 
 Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento a sinistra.
 

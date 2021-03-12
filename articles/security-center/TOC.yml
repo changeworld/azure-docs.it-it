@@ -108,7 +108,10 @@
         - name: Automatizzare le risposte alle raccomandazioni
           displayName: workflow
           href: workflow-automation.md
-        - name: Esentare una risorsa da una raccomandazione
+        - name: Disabilitare una raccomandazione
+          href: tutorial-security-policy.md#disable-security-policies-and-disable-recommendations
+        - name: 'Raccomandazioni esenti per risorsa, sottoscrizione o gruppo di gestione'
+          displayName: disable
           href: exempt-resource.md
         - name: Creare iniziative e criteri di sicurezza personalizzati
           href: custom-security-policies.md
@@ -233,7 +236,8 @@
       href: security-center-partner-integration.md
     - name: Proteggere le risorse di rete
       href: security-center-network-recommendations.md
-    - name: Proteggere le identità e gli accessi
+    - name: Applicare e gestire l'autenticazione a più fattori
+      displayName: 'identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords'
       href: security-center-identity-access.md
     - name: Usare le protezioni per le minacce aggiuntive del Centro sicurezza
       href: other-threat-protections.md

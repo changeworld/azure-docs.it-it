@@ -2,16 +2,16 @@
 title: 'Esercitazione: creare & distribuire file Azure Resource Manager bicipite'
 description: Creare il primo file bicipite per la distribuzione delle risorse di Azure. Nell'esercitazione vengono fornite informazioni sulla sintassi dei file bicipite e su come distribuire un account di archiviazione.
 author: mumian
-ms.date: 03/03/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 6a335b554fa0cfc2e12c8ddbe3e24a50fdedec0f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b04dbb7f708a4019ae70c716d4faa05ca2c28720
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036359"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632578"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Esercitazione: creare e distribuire il primo file Azure Resource Manager bicipite
 
@@ -76,7 +76,7 @@ Si è pronti per iniziare a conoscere il bicipite.
     La dichiarazione di risorsa è costituita da quattro componenti:
 
     - **Resource**: parola chiave.
-    - **nome simbolico** (STG): un nome simbolico è un identificatore per fare riferimento alla risorsa nell'intero file bicipite. Non si tratta del nome della risorsa quando viene distribuito. Il nome della risorsa viene definito dalla proprietà **Name** .  Vedere il quarto componente in questo elenco. Per semplificare la procedura, è possibile usare **STG** come nome simbolico per la risorsa dell'account di archiviazione in questa serie di esercitazioni.
+    - **nome simbolico** (STG): un nome simbolico è un identificatore per fare riferimento alla risorsa nell'intero file bicipite. Non si tratta del nome della risorsa quando viene distribuito. Il nome della risorsa viene definito dalla proprietà **Name** .  Vedere il quarto componente in questo elenco. Per semplificare la procedura, è possibile usare **STG** come nome simbolico per la risorsa dell'account di archiviazione in questa serie di esercitazioni. Per informazioni su come usare il nome simbolico per ottenere un elenco completo delle proprietà dell'oggetto, vedere [aggiungere output](./bicep-tutorial-add-outputs.md).
     - **tipo di risorsa** ( Microsoft.Storage/storageAccounts@2019-06-01 ): è costituito dal provider di risorse (Microsoft. Storage), dal tipo di risorsa (storageAccounts) e da apiVersion (2019-06-01). Ogni provider di risorse pubblica le proprie versioni API, di conseguenza questo valore è specifico del tipo. Per altre risorse di Azure, vedere informazioni di [riferimento sui modelli ARM](/azure/templates/).
     - **Properties** (tutti gli elementi all'interno di = {...}): proprietà specifiche che si desidera specificare per il tipo di risorsa specificato. Si tratta esattamente delle stesse proprietà disponibili in un modello ARM. Ogni risorsa ha una `name` Proprietà. Alla maggior parte delle risorse è assegnata anche una proprietà `location`, che consente di impostare l'area in cui viene distribuita la risorsa. Le altre proprietà variano in base al tipo di risorsa e alla versione dell'API. Dal momento che è importante comprendere la connessione tra la versione dell'API e le proprietà disponibili, verranno approfonditi questi aspetti.
 

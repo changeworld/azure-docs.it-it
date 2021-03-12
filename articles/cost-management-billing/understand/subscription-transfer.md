@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 163bd7dbdac4de7b7d9c1657ac3debf45382a27a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 746845004a7a1baf1cafb872aae9322177879b6b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027272"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011103"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Informazioni sul trasferimento della proprietà della fatturazione per una sottoscrizione di Azure
 
@@ -30,16 +30,30 @@ Per i clienti con contratto Enterprise Agreement (EA), gli amministratori dell'o
 
 Solo l'amministratore della fatturazione di un account può trasferire la proprietà di una sottoscrizione.
 
-## <a name="determine-account-billing-administrator"></a>Determinare l'amministratore della fatturazione dell'account
+## <a name="determine-if-you-are-a-billing-administrator"></a>Determinare se si è un amministratore della fatturazione
 
 <a name="whoisaa"></a>
 
-L'amministratore della fatturazione è una persona autorizzata a gestire la fatturazione per un account. Ha l'autorizzazione per accedere alla fatturazione nel [portale di Azure](https://portal.azure.com) ed eseguire varie attività collegate, ad esempio creare sottoscrizioni, visualizzare e pagare fatture oppure aggiornare i metodi di pagamento.
+Per eseguire il trasferimento, individuare la persona che ha accesso per gestire la fatturazione per un account. Ha l'autorizzazione per accedere alla fatturazione nel [portale di Azure](https://portal.azure.com) ed eseguire varie attività collegate, ad esempio creare sottoscrizioni, visualizzare e pagare fatture oppure aggiornare i metodi di pagamento.
 
-Per identificare gli account per i quali si è amministratori della fatturazione, visitare la [pagina Gestione dei costi e fatturazione nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Selezionare quindi **Tutti gli ambiti di fatturazione** nel riquadro sinistro. La pagina delle sottoscrizioni mostra tutte le sottoscrizioni per le quali si ha il ruolo di amministratore della fatturazione.
+### <a name="check-if-you-have-billing-access"></a>Controllare se si dispone dell'accesso per la fatturazione
 
-Se non si conosce chi ha il ruolo di amministratore dell'account per una sottoscrizione, visitare la [pagina Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Scegliere quindi la sottoscrizione da controllare e quindi analizzare la sezione **Impostazioni**. Selezionare **Proprietà** e l'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore dell'account**.
+1. Per identificare gli account per i quali si dispone dell'accesso alla fatturazione, visitare la [pagina Gestione costi e fatturazione in portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
 
+2. Selezionare **account di fatturazione** dal menu a sinistra.
+
+3. Nella pagina elenco **ambito fatturazione** vengono visualizzate tutte le sottoscrizioni in cui è possibile accedere ai dettagli di fatturazione.
+
+### <a name="check-by-subscription"></a>Verifica per sottoscrizione
+
+1. Se non si conosce chi ha il ruolo di amministratore dell'account per una sottoscrizione, visitare la [pagina Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). 
+
+2. Selezionare la sottoscrizione che si desidera controllare.
+
+3. Sotto l'intestazione **Impostazioni** selezionare **Proprietà**. Vedere la casella **amministratore account** per capire chi è l'amministratore dell'account della sottoscrizione.
+
+   > [!NOTE]
+   > Non tutti i tipi di sottoscrizione visualizzano le proprietà.
 
 ## <a name="supported-subscription-types"></a>Tipi di sottoscrizioni supportati
 

@@ -10,12 +10,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: a00e5d262724f4799f8b7b91a54e4b2710f4ce2b
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 6170f91d11b47a43e15488bcbb0e91ff3f7c906e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008078"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616095"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>Guida introduttiva: distribuire il primo modulo di IoT Edge in un dispositivo Windows (anteprima)
 
@@ -51,9 +51,16 @@ Creare un gruppo di risorse cloud per gestire tutte le risorse che verranno usat
 
 Verificare che il dispositivo IoT Edge soddisfi i requisiti seguenti:
 
-* PC o server Windows versione 1809 o successiva
-* Almeno 4 GB di memoria, consigliati 8 GB di memoria
-* 10 GB di spazio libero su disco
+* Edizioni
+  * Windows 10 versione 1809 o successiva; Build 17763 o versione successiva
+    * Professional, Enterprise, Internet delle cose
+  * Windows Server 2019 Build 17763 o versione successiva
+
+  
+* Requisiti hardware
+  * Memoria minima disponibile: 2 GB
+  * Spazio minimo disponibile su disco: 10 GB
+
 
 >[!NOTE]
 >Questa Guida introduttiva usa l'interfaccia di amministrazione di Windows per creare una distribuzione di IoT Edge per Linux in Windows. È anche possibile usare PowerShell. Se si vuole usare PowerShell per creare la distribuzione, seguire i passaggi descritti nella Guida alle procedure per l' [installazione e il provisioning di Azure IOT Edge per Linux in un dispositivo Windows](how-to-install-iot-edge-on-windows.md).
@@ -108,7 +115,7 @@ Installare IoT Edge per Linux in Windows nel dispositivo e configurarlo con la s
 
 ![Diagramma che illustra il passaggio per avviare il runtime di IoT Edge.](./media/quickstart/start-runtime.png)
 
-1. [Scaricare](https://aka.ms/WACDownloadEFLOW)l'interfaccia di amministrazione di Windows.
+1. [Scaricare](https://aka.ms/wacdownload)l'interfaccia di amministrazione di Windows.
 
 1. Seguire le istruzioni dell'installazione guidata per configurare l'interfaccia di amministrazione di Windows sul dispositivo.
 

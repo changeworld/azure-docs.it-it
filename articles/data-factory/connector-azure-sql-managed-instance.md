@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: 5c2023ffa4446760c85b07659f13e421e62e6020
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/12/2021
+ms.openlocfilehash: 91e383b746509000cef74e96c08d1b70316a0527
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383790"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225252"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Istanza gestita SQL di Azure usando Azure Data Factory
 
@@ -761,7 +761,7 @@ Più in particolare:
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - Per usare **l'autenticazione Data Factory identità gestita**: 
+    - Se si esegue Integration Runtime self-hosted in una macchina virtuale di Azure, è possibile usare **l'autenticazione dell'identità gestita con l'** identità della VM di Azure: 
 
         1. Seguire gli stessi [prerequisiti](#managed-identity) per creare l'utente del database per l'identità gestita e concedere il ruolo appropriato nel database.
         2. In servizio collegato specificare la stringa di connessione ODBC come indicato di seguito e selezionare autenticazione **anonima** come indicato nella stringa di connessione stessa `Authentication=ActiveDirectoryMsi` .

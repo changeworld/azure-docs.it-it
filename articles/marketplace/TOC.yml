@@ -41,7 +41,7 @@
           href: test-drive-hosted-detailed-config.md
         - name: Configurare la sottoscrizione di Azure per i test drive ospitati
           href: test-drive-azure-subscription-setup.md
-    - name: Attribuzione dell'uso da parte dei clienti e dei partner di Azure
+    - name: Attribuzione dell'utilizzo dei clienti di Azure
       href: azure-partner-customer-usage-attribution.md
     - name: Opzioni go-to-market
       items:

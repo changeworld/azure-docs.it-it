@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: d09f27eebba5db2edb56185b658c8ae2b06e42d3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 21038a8d1eabfcca21329c093b866607f0343070
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552270"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199994"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Usare client Windows in Azure per scenari di sviluppo/test
 A condizione di disporre di una sottoscrizione appropriata di Visual Studio (in precedenza MSDN), è possibile usare Windows 7, Windows 8 o Windows 10 Enterprise (x64) in Azure per scenari di sviluppo/test. 
@@ -41,10 +41,10 @@ La tabella seguente illustra in dettaglio gli ID offerta idonei per la distribuz
 | [Sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N con SP1 (x64) |
 
 ## <a name="check-your-azure-subscription"></a>Controllare la sottoscrizione di Azure
-Se non si conosce l'ID offerta, è possibile risalirvi mediante il portale di Azure in uno dei due modi seguenti:  
+Se non si conosce l'ID offerta, è possibile ottenerlo tramite il portale di Azure.  
 - Nella finestra *sottoscrizioni* : ![ Dettagli ID offerta dall'portale di Azure](./media/client-images/offer-id-azure-portal.png) 
-- Fare clic su **Fatturazione** e quindi sull'ID sottoscrizione. L'ID offerta viene visualizzato nella finestra *Fatturazione*.
-È anche possibile visualizzare l'ID offerta dalla [scheda "sottoscrizioni"](https://account.windowsazure.com/Subscriptions) del portale degli account di Azure: ![ Dettagli ID offerta nel portale per gli account di Azure](./media/client-images/offer-id-azure-account-portal.png) 
+- Fare clic su **Fatturazione** e quindi sull'ID sottoscrizione. L'ID offerta viene visualizzato nella finestra *Fatturazione*. 
+- È anche possibile visualizzare l'ID offerta dalla [scheda "sottoscrizioni"](https://account.windowsazure.com/Subscriptions) del portale degli account di Azure: ![ Dettagli ID offerta nel portale per gli account di Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 È ora possibile distribuire le VM usando [PowerShell](quick-create-powershell.md), i [modelli di Resource Manager](ps-template.md) o [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

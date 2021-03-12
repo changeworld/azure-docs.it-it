@@ -2,16 +2,16 @@
 title: 'Esercitazione: aggiungere tag alle risorse in un file Azure Resource Manager bicipite'
 description: Aggiungere i tag alle risorse distribuite nei file Bicipit. I tag consentono di organizzare le risorse in modo logico.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 05bb68609705ac4c13ad77d2c74db7c105ba23fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ea5e078eb692d002b3f86cd43663dd042d692611
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748165"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632604"
 ---
 # <a name="tutorial-add-tags-in-azure-resource-manager-bicep-files"></a>Esercitazione: aggiungere tag nei file di Azure Resource Manager bicipite
 
@@ -37,7 +37,7 @@ Dopo la distribuzione di queste risorse, può essere necessario tenere traccia d
 
 L'aggiunta di un tag alle risorse consente di aggiungere valori per identificarne più facilmente l'uso. È ad esempio possibile aggiungere tag che elencano l'ambiente e il progetto, nonché aggiungere tag che identificano un centro di costo oppure il team a cui appartiene la risorsa. Aggiungere tutti i valori appropriati per l'organizzazione.
 
-Nell'esempio seguente vengono evidenziate le modifiche apportate al file bicipite. Copiare l'intero file e sostituire il file bicipite con il relativo contenuto.
+Nell'esempio seguente vengono illustrate le modifiche apportate al file bicipite. Copiare l'intero file e sostituire il file bicipite con il relativo contenuto.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.bicep" range="1-81" highlight="27-30,38,51,71":::
 

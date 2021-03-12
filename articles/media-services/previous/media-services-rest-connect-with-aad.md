@@ -3,7 +3,7 @@ title: Usare l'autenticazione di Azure AD per accedere all'API Servizi multimedi
 description: Informazioni su come accedere all'API Servizi multimediali di Azure con l'autenticazione di Azure Active Directory tramite REST.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 28719046c9a8ccc65d231244ef8b5b3f8e116282
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: a2b4e7bf03ebb1fbc197b78287cb50b3f421d713
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694731"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017308"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali con REST
 
@@ -38,7 +38,7 @@ Quando si usa l'autenticazione di Azure AD con Servizi multimediali di Azure, è
     > [!NOTE]
     > L'**entità servizio** è la procedura consigliata per la maggior parte delle applicazioni che si connettono a Servizi multimediali di Azure. 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Ottenere le informazioni di autenticazione dal portale di Azure

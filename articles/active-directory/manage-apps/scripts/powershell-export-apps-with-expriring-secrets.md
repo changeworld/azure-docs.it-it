@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 7123c87d8883d9ac309797255152611fb9fb81d2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: c8a37b08db5cdb35bc9328cbc29caa04a5cdf412
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102584324"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010831"
 ---
 # <a name="export-apps-with-expiring-secrets-and-certificates"></a>Esportare app con segreti e certificati in scadenza
 
-Questo esempio di script di PowerShell Esporta tutte le app con segreti e certificati scaduti per le app specificate dalla directory in un file CSV.
+Questo esempio di script di PowerShell Esporta tutte le registrazioni di app con segreti scaduti, certificati e proprietari per le app specificate dalla directory in un file CSV.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -33,6 +33,7 @@ Per questo esempio è richiesto il [modulo AzureAD V2 PowerShell per Graph](/pow
 ## <a name="script-explanation"></a>Spiegazione dello script
 
 Il comando "Add-Member" è responsabile della creazione delle colonne nel file CSV.
+Il comando "New-Object" crea un oggetto da usare per le colonne nell'esportazione di file CSV.
 È possibile modificare la variabile "$Path" direttamente in PowerShell, con un percorso di file CSV, nel caso in cui si preferisca che l'esportazione sia non interattiva.
 
 | Comando | Note |
