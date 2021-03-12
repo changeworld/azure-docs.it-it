@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e82be52cff824c69dd2fe4ea5e7e1c0d7489be1d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 49f2c290c69fcadd594d6cbd5879e7d9f5304a42
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740330"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558016"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unità amministrative in Azure Active Directory
 
@@ -47,8 +47,8 @@ Per usare le unità amministrative, è necessario che ogni amministratore di uni
 È possibile gestire le unità amministrative tramite il portale di Azure, i cmdlet e gli script di PowerShell o Microsoft Graph. Per altre informazioni, vedere:
 
 - [Creare, rimuovere, popolare e aggiungere ruoli alle unità amministrative](admin-units-manage.md): include le procedure dettagliate complete.
-- [Usare le unità amministrative](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): illustra come usare le unità amministrative con PowerShell.
-- [Supporto delle unità amministrative in Microsoft Graph](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): fornisce la documentazione dettagliata su Microsoft Graph per le unità amministrative.
+- [Usare le unità amministrative](/powershell/azure/active-directory/working-with-administrative-units): illustra come usare le unità amministrative con PowerShell.
+- [Supporto delle unità amministrative in Microsoft Graph](/graph/api/resources/administrativeunit): fornisce la documentazione dettagliata su Microsoft Graph per le unità amministrative.
 
 ### <a name="plan-your-administrative-units"></a>Pianificare le unità amministrative
 

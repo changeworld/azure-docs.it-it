@@ -2,18 +2,19 @@
 title: 'Esercitazione: Configurare il ripristino di emergenza per le macchine virtuali Linux con Azure Site Recovery'
 description: Informazioni su come configurare il ripristino di emergenza per macchine virtuali Linux in un'area di Azure diversa usando il servizio Azure Site Recovery.
 author: rayne-wiselman
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d14d276c798e40d417a8038aee5b7550e84f4114
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
-ms.translationtype: HT
+ms.openlocfilehash: fa43f40d4849a8e773241fa17a1e1787ce86a8ff
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379856"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564748"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-linux-virtual-machines"></a>Esercitazione: Configurare il ripristino di emergenza per le macchine virtuali Linux
 

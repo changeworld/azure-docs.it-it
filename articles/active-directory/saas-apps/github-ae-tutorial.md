@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 537378ef11333bd8942a61ab2bbb4e8a251c2b59
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221051"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196835"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con GitHub AE
 
@@ -101,9 +101,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Fare clic su **Seleziona gruppi** e cercare il **gruppo** in cui si vuole includere questa attestazione, in cui i membri devono essere amministratori di GHAE.
 
-1. Selezionare **attribute** per **source** e immettere **true** per il **valore**. 
+1. Selezionare **attribute** per **source** e immettere **true** (senza virgolette) per il **valore**. 
 
-10. Fare clic su **Salva**.
+1. Fare clic su **Salva**.
 
     ![Gestisci attestazione](./media/github-ae-tutorial/administrator.png)
 
@@ -112,7 +112,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
-    ![Collegamento di download del certificato](common/certificateBase64.png)
+    ![Collegamento di download del certificato](common/certificatebase64.png)
 
 1. Nella sezione **Configura GitHub AE** copiare gli URL appropriati in base alle esigenze.
 

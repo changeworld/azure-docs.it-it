@@ -3,7 +3,7 @@ title: Panoramica degli endpoint di streaming dei Servizi multimediali di Azure 
 description: Questo articolo offre una panoramica degli endpoint di streaming di servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: f5e3d7e61b6c2a6ad3c121da9c0198c95ac24850
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 0961b52ebc7271fabf4cc05ed99eea23d911a2d4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694572"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009094"
 ---
 # <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming  
 
@@ -52,7 +52,7 @@ Per qualsiasi altro endpoint: `{EndpointName}-{AccountName}.streaming.mediaservi
 A partire dalla versione gennaio 2017 di servizi multimediali, sono disponibili due tipi di streaming: **standard** (anteprima) e **Premium**. Queste tipologie fanno parte della versione dell'endpoint di streaming "2.0".
 
 
-|Type|Descrizione|
+|Tipo|Descrizione|
 |--------|--------|  
 |**Standard**|L'endpoint di streaming predefinito è un tipo **standard** , può essere modificato nel tipo Premium regolando le unità di streaming.|
 |**Premium** |Questa opzione è adatta ai professionisti che hanno bisogno di una maggiore scalabilità o di maggior controllo. Si passa a un tipo **Premium** modificando le unità di streaming.<br/>Gli endpoint di streaming dedicati si trovano in un ambiente isolato e non competono per le risorse.|
@@ -77,7 +77,7 @@ Se l'endpoint di streaming **versione "1.0"** ha una o più unità di streaming 
 
 ### <a name="versions"></a>Versioni
 
-|Type|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|
+|Tipo|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|
 |--------------|----------|-----------------|-----------------|-----------------|
 |Classic|1.0|0|N/D|Gratuito|
 |Endpoint di streaming standard (anteprima)|2.0|0|Sì|Paid|

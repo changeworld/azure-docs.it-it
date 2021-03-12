@@ -3,18 +3,18 @@ title: Panoramica dell'unità di calcolo di Azure
 description: Panoramica del concetto di unità di calcolo di Azure. Le unità di calcolo di Azure rappresentano un modo per confrontare le prestazioni della CPU tra gli SKU di Azure.
 author: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: azure-compute-unit
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: ba8c3f730897c01c52aaf4499269425426d0b7b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae37771cd9e48f450ae538174b9bed9cfa866f9d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667181"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565530"
 ---
 # <a name="azure-compute-unit-acu"></a>Unità di calcolo di Azure
 
@@ -75,8 +75,8 @@ Il concetto di unità di calcolo di Azure offre un modo per confrontare le prest
 Per altre informazioni sulle diverse dimensioni, leggere quanto segue:
 
 - [Utilizzo generico](sizes-general.md)
-- [Ottimizzate per la memoria](sizes-memory.md)
-- [Ottimizzate per il calcolo](sizes-compute.md)
+- [Ottimizzato per la memoria](sizes-memory.md)
+- [Con ottimizzazione per il calcolo](sizes-compute.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)
 - [High Performance Computing (HPC)](sizes-hpc.md)
-- [Ottimizzate per l'archiviazione](sizes-storage.md)
+- [Con ottimizzazione per l'archiviazione](sizes-storage.md)

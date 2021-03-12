@@ -1,18 +1,18 @@
 ---
 title: Definizioni dei criteri predefiniti
 description: Elenca le definizioni dei criteri predefiniti di criteri di Azure per l'analisi delle sinapsi di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d6ad2800c0a223248bfd74b728583e3650395d6d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: f913179072786da73df39fe34c26b707d0073bbd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424794"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611548"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-synapse-analytics"></a>Definizioni predefinite di criteri di Azure per Azure sinapsi Analytics 
 

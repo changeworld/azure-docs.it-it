@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: afe14bc03f0d12e56e1512aeb788a77c64151b58
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7f98e14c2eae133941f3fc87247a427198ebcdc2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547249"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611964"
 ---
-# <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Procedure consigliate per la compilazione di un'applicazione con database di Azure per MySQL 
+# <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Procedure consigliate per la compilazione di un'applicazione con Database di Azure per MySQL 
 
 Di seguito sono riportate alcune procedure consigliate per la creazione di un'applicazione predisposta per il cloud con database di Azure per MySQL. Queste procedure consigliate possono ridurre i tempi di sviluppo per l'app. 
 
@@ -73,10 +73,10 @@ La gestione delle connessioni di database può avere un impatto significativo su
 
 Si noterà un ritardo tra l'origine e la replica perché la replica è asincrona. Il ritardo di rete può essere influenzato da molti fattori, ad esempio le dimensioni del carico di lavoro in esecuzione nel server di origine e la latenza tra i Data Center. Nella maggior parte dei casi, il ritardo di replica varia da alcuni secondi a un paio di minuti.
 
-## <a name="database-deployment"></a>Distribuzione del database 
+## <a name="database-deployment"></a>Distribuzione di database 
 
 ### <a name="configure-an-azure-database-for-mysql-task-in-your-cicd-deployment-pipeline"></a>Configurare un'attività di database di Azure per MySQL nella pipeline di distribuzione CI/CD
-In alcuni casi, è necessario distribuire le modifiche nel database. In questi casi, è possibile usare l'integrazione continua (CI) e il recapito continuo (CD) tramite [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) e usare un'attività per [il server MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops&preserve-view=true) per aggiornare il database eseguendo uno script personalizzato su di esso.
+In alcuni casi, è necessario distribuire le modifiche nel database. In questi casi, è possibile usare l'integrazione continua (CI) e il recapito continuo (CD) tramite [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) e usare un'attività per [il server MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment) per aggiornare il database eseguendo uno script personalizzato su di esso.
 
 ### <a name="use-an-effective-process-for-manual-database-deployment"></a>Usare un processo efficace per la distribuzione manuale del database 
 Durante la distribuzione manuale del database, attenersi alla seguente procedura per ridurre al minimo i tempi di inattività o ridurre il rischio di una distribuzione non riuscita: 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: d898efb44bb92151a5d044a6699a4efb70fa9390
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 765f4f358d593cd5fcc021fbf4ec2276c422c4d8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215732"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555126"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di utilizzo nell'analisi per il marketplace commerciale
 
@@ -29,7 +29,7 @@ Il dashboard **Usage** nel menu **analizza** Visualizza gli ordini correnti per 
 
 - Tendenza di utilizzo
 - Utilizzo normalizzato per offerte
-- Utilizzo normalizzato da altre dimensioni: dimensioni della macchina virtuale, canali di vendita e tipi di offerta
+- Utilizzo normalizzato di altre dimensioni: dimensioni della macchina virtuale, canali di vendita e tipi di offerta
 - Utilizzo per area geografica
 - Tabella di utilizzo dettagliata
 - Filtri pagina ordini
@@ -62,7 +62,7 @@ Sono disponibili due rappresentazioni delle ore di utilizzo: utilizzo normalizza
 
 Questa sezione fornisce le ore e le tendenze di utilizzo totali per le offerte basate sull'utilizzo in Azure Marketplace. Il grafico di utilizzo normalizzato per le offerte è descritto di seguito.
 
-- Nell'istogramma a colonne in pila delle **offerte utilizzo normalizzato** viene visualizzata una suddivisione delle ore di utilizzo normalizzate per le prime 5 offerte in base al periodo di calcolo selezionato. Le prime cinque offerte vengono visualizzate in un grafico, mentre le altre sono raggruppate nella categoria **Rest all** .
+- Nell'istogramma a colonne in pila delle **offerte utilizzo normalizzato** viene visualizzata una suddivisione delle ore di utilizzo normalizzate per le prime cinque offerte in base al periodo di calcolo selezionato. Le prime cinque offerte vengono visualizzate in un grafico, mentre le altre sono raggruppate nella categoria **Rest all** .
 - Nell'istogramma a colonne in pila viene illustrata una tendenza di crescita di mese per mese per l'intervallo di date selezionato. Le colonne dei mesi rappresentano le ore di utilizzo dalle offerte con il numero più elevato di ore di utilizzo per il mese corrispondente. Il grafico a linee rappresenta la tendenza percentuale di crescita tracciata sull'asse Y secondario.
 - È possibile selezionare offerte specifiche nella legenda per visualizzare solo queste nel grafico.
 
@@ -117,46 +117,45 @@ Nella tabella **Dettagli utilizzo** viene visualizzato un elenco numerato dei pr
 
 _**Tabella 1: dizionario dei termini dati**_
 
-| Nome colonna | Nome attributo | Definizione |
-| ------------ | ------------- | ------------- |
-| ID sottoscrizione Marketplace | ID sottoscrizione Marketplace | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta del Marketplace commerciale. L'ID è stato in precedenza il GUID della sottoscrizione di Azure. |
-| MonthStartDate | Data di inizio del mese | Data di inizio del mese rappresenta il mese di acquisto. |
-| Tipo di offerta | Tipo di offerta | Tipo di offerta di Marketplace commerciale. |
-| Azure License Type | Azure License Type | Tipo di contratto di licenza usato dai clienti per acquistare Azure. Noto anche come canale. I valori possibili sono:<ui><li>Provider di soluzioni cloud</li><li>Enterprise</li><li>Enterprise tramite rivenditore</li><li>Con pagamento in base al consumo</li></ul> |
-| Marketplace License Type | Marketplace License Type | Metodo di fatturazione dell'offerta del Marketplace commerciale. I valori possibili sono:<ul><li>Fatturazione tramite Azure</li><li>Bring your own License</li><li>Gratuito</li><li>Microsoft As Reseller</li></ul> |
-| SKU | SKU | Piano associato all'offerta. |
-| Customer Country | Paese/Area geografica del cliente | Nome del paese o dell'area geografica specificato dal cliente. Il paese/area geografica può essere diverso da quello del paese nella sottoscrizione di Azure di un cliente. |
-| Anteprima SKU | Anteprima SKU | Il valore indica se lo SKU è stato contrassegnato come "anteprima". Il valore sarà "Sì" se lo SKU è stato contrassegnato di conseguenza e solo le sottoscrizioni di Azure autorizzate dal partner possono distribuire e usare questa immagine. Il valore sarà "No" se lo SKU non è stato identificato come "Anteprima". |
-| SKU Billing Type | SKU Billing Type | Tipo di fatturazione associato a ogni SKU nell'offerta. I valori possibili sono:<ul><li>Gratuito</li><li>Paid</li></ul> |
-| IsInternal | Deprecato | Deprecato |
-| Dimensioni macchina virtuale | Dimensioni della macchina virtuale | Per i tipi di offerta basati su VM, questa entità indica le dimensioni della macchina virtuale associata allo SKU dell'offerta. |
-| Nome dell'istanza cloud | Nome dell'istanza cloud | Microsoft Cloud in cui sono state distribuite le macchine virtuali. |
-| ServicePlanName | Deprecato | Deprecato (stessa definizione dello SKU) |
-| Nome offerta | Nome offerta | Nome dell'offerta del Marketplace commerciale. |
-| DeploymentMethod | Deprecato | Deprecato (stessa definizione del tipo di offerta)
- |
-| Customer Company Name | Customer Company Name | Nome dell'azienda fornito dal cliente. Il nome potrebbe essere diverso dal nome nella sottoscrizione di Azure di un cliente. |
-| Data utilizzo | Data utilizzo | Data di generazione dell'evento Usage per gli asset basati sull'utilizzo. |
-| IsMultisolution | È multisoluzione | Indica se l'offerta è un tipo di offerta multisoluzione. |
-| Nuovo cliente | Deprecato | Deprecato |
-| Dimensioni core | Dimensioni core | Numero di core associati all'offerta basata su VM. |
-| Usage Type | Usage Type | Indica se l'evento di utilizzo associato all'offerta è uno dei seguenti:<ul><li>Utilizzo normalizzato</li><li>Utilizzo non elaborato</li><li>Misurazione dell'utilizzo</li></ul> |
-| Trial End Date | Trial End Date | Data di scadenza del periodo di valutazione per questo ordine. |
-| Customer Currency (CC) | Valuta cliente | Valuta utilizzata dal cliente per la transazione del Marketplace commerciale. |
-| Price (CC) | Prezzo | Prezzo unitario dello SKU visualizzato nella valuta del cliente. |
-| Payout Currency (PC) | Valuta pagamento | Il server di pubblicazione viene pagato per gli eventi di utilizzo associati all'asset nella valuta configurata dall'editore. |
-| Estimated Price (PC) | Prezzo stimato | Prezzo unitario dello SKU nella valuta configurata dall'editore. |
-| Usage Reference | Usage Reference | GUID concatenato utilizzato per connettere il report sull'utilizzo (in analisi del Marketplace commerciale) al report delle transazioni di pagamento. Il riferimento all'utilizzo è connesso a OrderId e LineItemId nel report delle transazioni di pagamento. |
-| Unità di utilizzo | Unità di utilizzo | Unità di consumo associata allo SKU. |
-| Customer Id | Customer ID | Identificatore univoco assegnato a un cliente. Un cliente può avere zero o più sottoscrizioni di Azure Marketplace. |
-| ID account di fatturazione | ID account di fatturazione | Identificatore dell'account in cui viene generata la fatturazione. Mappare l' **ID dell'account di fatturazione** a **CustomerID** per connettere il report delle transazioni di pagamento ai report relativi a clienti, ordini e utilizzo. |
-| Quantità di utilizzo | Quantità di utilizzo | Unità di utilizzo totali utilizzate dall'asset distribuito dal cliente.<br>Si basa sull'elemento del tipo di utilizzo. Se, ad esempio, il tipo di utilizzo corrisponde all'utilizzo normalizzato, la quantità di utilizzo è per l'utilizzo normalizzato. |
-| NormalizedUsage | Normalized Usage | Unità di utilizzo normalizzate totali utilizzate dall'asset distribuito dal cliente.<br>Le ore di utilizzo normalizzate sono definite come ore di utilizzo normalizzate per contabilizzare il numero di core della macchina virtuale: [numero di core della macchina virtuale] x [ore di utilizzo di base]. Le macchine virtuali designate come "SHAREDCORE" usano 1/6 (o 0,1666) come moltiplicatore di [numero di core della macchina virtuale]. |
-| MeteredUsage | Utilizzo a consumo | Unità di utilizzo totali utilizzate dai contatori configurati con l'offerta distribuita dal cliente. |
-| RawUsage | Raw Usage | Unità di utilizzo RAW totali utilizzate dall'asset distribuito dal cliente.<br>Le ore di utilizzo non elaborato sono definite come quantità di tempo in cui le macchine virtuali sono in esecuzione in termini di unità di utilizzo. |
-| Estimated Extended Charge (CC) | Costo esteso stimato nella valuta del cliente | Indica gli addebiti associati all'utilizzo. La colonna è il prodotto prezzo (CC) e utilizzo non elaborato. |
-| Estimated Extended Charge (PC) | Addebito esteso stimato nella valuta del pagamento | Indica gli addebiti associati all'utilizzo. La colonna è il prodotto con prezzo stimato (PC) e utilizzo non elaborato. |
-|
+| Nome colonna in<br>interfaccia utente | Nome attributo | Definizione | Nome colonna a livello di codice<br>report di Access |
+| ------------ | ------------- | ------------- | ------------- |
+| ID sottoscrizione Marketplace | ID sottoscrizione Marketplace | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta del Marketplace commerciale. L'ID è stato in precedenza il GUID della sottoscrizione di Azure. | MarketplaceSubscriptionId |
+| MonthStartDate | Data di inizio del mese | Data di inizio del mese rappresenta il mese di acquisto. | MonthStartDate |
+| Tipo di offerta | Tipo di offerta | Tipo di offerta di Marketplace commerciale. | OfferType |
+| Azure License Type | Azure License Type | Tipo di contratto di licenza usato dai clienti per acquistare Azure. Noto anche come canale. I valori possibili sono:<ui><li>Provider di soluzioni cloud</li><li>Enterprise</li><li>Enterprise tramite rivenditore</li><li>Con pagamento in base al consumo</li></ul> | AzureLicenseType |
+| Marketplace License Type | Marketplace License Type | Metodo di fatturazione dell'offerta del Marketplace commerciale. I valori possibili sono:<ul><li>Fatturazione tramite Azure</li><li>Bring your own License</li><li>Gratuito</li><li>Microsoft As Reseller</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | Piano associato all'offerta. | SKU |
+| Customer Country | Paese/Area geografica del cliente | Nome del paese o dell'area geografica specificato dal cliente. Il paese/area geografica può essere diverso da quello del paese nella sottoscrizione di Azure di un cliente. | CustomerCountry |
+| Anteprima SKU | Anteprima SKU | Il valore indica se lo SKU è stato contrassegnato come "anteprima". Il valore sarà "Sì" se lo SKU è stato contrassegnato di conseguenza e solo le sottoscrizioni di Azure autorizzate dal partner possono distribuire e usare questa immagine. Il valore sarà "No" se lo SKU non è stato identificato come "Anteprima". | IsPreviewSKU |
+| SKU Billing Type | SKU Billing Type | Tipo di fatturazione associato a ogni SKU nell'offerta. I valori possibili sono:<ul><li>Gratuito</li><li>Paid</li></ul> | SKUBillingType |
+| IsInternal | Deprecato | Deprecato | Deprecato |
+| Dimensioni macchina virtuale | Dimensioni della macchina virtuale | Per i tipi di offerta basati su VM, questa entità indica le dimensioni della macchina virtuale associata allo SKU dell'offerta. | VMSize |
+| Nome dell'istanza cloud | Nome dell'istanza cloud | Microsoft Cloud in cui sono state distribuite le macchine virtuali. | CloudInstanceName |
+| ServicePlanName | Deprecato | Deprecato (stessa definizione dello SKU) | ServicePlanName |
+| Nome offerta | Nome offerta | Nome dell'offerta del Marketplace commerciale. | OfferName |
+| DeploymentMethod | Deprecato | Deprecato (stessa definizione del tipo di offerta) | DeploymentMethod |
+| Customer Company Name | Customer Company Name | Nome dell'azienda fornito dal cliente. Il nome potrebbe essere diverso dal nome nella sottoscrizione di Azure di un cliente. | CustomerCompanyName |
+| Data utilizzo | Data utilizzo | Data di generazione dell'evento Usage per gli asset basati sull'utilizzo. | UsageDate |
+| IsMultisolution | È multisoluzione | Indica se l'offerta è un tipo di offerta multisoluzione. | IsMultisolution |
+| Nuovo cliente | Deprecato | Deprecato | IsNewCustomer |
+| Dimensioni core | Dimensioni core | Numero di core associati all'offerta basata su VM. | Ridimensionamento |
+| Usage Type | Usage Type | Indica se l'evento di utilizzo associato all'offerta è uno dei seguenti:<ul><li>Utilizzo normalizzato</li><li>Utilizzo non elaborato</li><li>Misurazione dell'utilizzo</li></ul> | UsageType |
+| Trial End Date | Trial End Date | Data di scadenza del periodo di valutazione per questo ordine. | TrialEndDate |
+| Customer Currency (CC) | Valuta cliente | Valuta utilizzata dal cliente per la transazione del Marketplace commerciale. | CustomerCurrencyCC |
+| Price (CC) | Prezzo | Prezzo unitario dello SKU visualizzato nella valuta del cliente. | PriceCC |
+| Payout Currency (PC) | Valuta pagamento | Il server di pubblicazione viene pagato per gli eventi di utilizzo associati all'asset nella valuta configurata dall'editore. | PayoutCurrencyPC |
+| Estimated Price (PC) | Prezzo stimato | Prezzo unitario dello SKU nella valuta configurata dall'editore. | EstimatedPricePC |
+| Usage Reference | Usage Reference | GUID concatenato utilizzato per connettere il report sull'utilizzo (in analisi del Marketplace commerciale) al report delle transazioni di pagamento. Il riferimento all'utilizzo è connesso a OrderId e LineItemId nel report delle transazioni di pagamento. | UsageReference |
+| Unità di utilizzo | Unità di utilizzo | Unità di consumo associata allo SKU. | UsageUnit |
+| Customer ID | Customer ID | Identificatore univoco assegnato a un cliente. Un cliente può avere zero o più sottoscrizioni di Azure Marketplace. | CustomerId |
+| ID account di fatturazione | ID account di fatturazione | Identificatore dell'account in cui viene generata la fatturazione. Mappare l' **ID dell'account di fatturazione** a **CustomerID** per connettere il report delle transazioni di pagamento ai report relativi a clienti, ordini e utilizzo. | BillingAccountId |
+| Quantità di utilizzo | Quantità di utilizzo | Unità di utilizzo totali utilizzate dall'asset distribuito dal cliente.<br>Si basa sull'elemento del tipo di utilizzo. Se, ad esempio, il tipo di utilizzo corrisponde all'utilizzo normalizzato, la quantità di utilizzo è per l'utilizzo normalizzato. | UsageQuantity |
+| NormalizedUsage | Normalized Usage | Unità di utilizzo normalizzate totali utilizzate dall'asset distribuito dal cliente.<br>Le ore di utilizzo normalizzate sono definite come ore di utilizzo normalizzate per contabilizzare il numero di core della macchina virtuale: [numero di core della macchina virtuale] x [ore di utilizzo di base]. Le macchine virtuali designate come "SHAREDCORE" usano 1/6 (o 0,1666) come moltiplicatore di [numero di core della macchina virtuale]. | NormalizedUsage |
+| MeteredUsage | Utilizzo a consumo | Unità di utilizzo totali utilizzate dai contatori configurati con l'offerta distribuita dal cliente. | MeteredUsage |
+| RawUsage | Raw Usage | Unità di utilizzo RAW totali utilizzate dall'asset distribuito dal cliente.<br>Le ore di utilizzo non elaborato sono definite come quantità di tempo in cui le macchine virtuali sono in esecuzione in termini di unità di utilizzo. | RawUsage |
+| Estimated Extended Charge (CC) | Costo esteso stimato nella valuta del cliente | Indica gli addebiti associati all'utilizzo. La colonna è il prodotto di Price (CC) e Quantity Usage. | EstimatedExtendedChargeCC |
+| Estimated Extended Charge (PC) | Addebito esteso stimato nella valuta del pagamento | Indica gli addebiti associati all'utilizzo. La colonna è il prodotto del prezzo stimato (PC) e della quantità di utilizzo. | EstimatedExtended ChargePC |
+|||||
 
 ### <a name="usage-page-filters"></a>Filtri pagina utilizzo
 

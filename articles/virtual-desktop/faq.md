@@ -3,15 +3,15 @@ title: Domande frequenti sul desktop virtuale Windows-Azure
 description: Domande frequenti e procedure consigliate per desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8592b679fcfbb860962bf75b882dc1a0543412c0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720274"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613970"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Domande frequenti su Desktop virtuale Windows
 
@@ -140,3 +140,22 @@ Infine, se è stato abilitato il provider di risorse dall'account del proprietar
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Con quale frequenza è necessario attivare le VM per evitare problemi di registrazione?
 
 Dopo aver registrato una macchina virtuale in un pool di host nel servizio desktop virtuale di Windows, l'agente aggiorna periodicamente il token della macchina virtuale ogni volta che la macchina virtuale è attiva. Il certificato per il token di registrazione è valido per 90 giorni. A causa di questo limite di 90 giorni, è consigliabile avviare le VM ogni 90 giorni. Se la macchina virtuale viene riattivata entro questo limite di tempo, il token di registrazione non scadrà né diventerà non valido. Se la macchina virtuale è stata avviata dopo 90 giorni e si verificano problemi di registrazione, seguire le istruzioni riportate nella [Guida alla risoluzione dei problemi dell'agente desktop virtuale di Windows](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) per rimuovere la macchina virtuale dal pool host, reinstallare l'agente e registrarla nuovamente nel pool.
+
+## <a name="can-i-set-availability-options-when-creating-host-pools"></a>È possibile impostare le opzioni di disponibilità durante la creazione di pool host?
+
+Sì. Quando si crea una macchina virtuale, i pool host di desktop virtuali di Windows hanno un'opzione per selezionare il set di disponibilità o le zone di disponibilità. Queste opzioni di disponibilità sono identiche a quelle usate da calcolo di Azure. Se si seleziona una zona per la macchina virtuale creata in un pool host, l'impostazione viene applicata automaticamente a tutte le macchine virtuali create in tale zona. Se si preferisce distribuire le VM del pool host in più zone, è necessario seguire le istruzioni in [aggiungere macchine virtuali con il portale di Azure](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) per selezionare manualmente una nuova zona per ogni nuova macchina virtuale creata.
+
+## <a name="which-availability-option-is-best-for-me"></a>Quale opzione di disponibilità è migliore per me?
+
+L'opzione di disponibilità da usare per le VM dipende dalla posizione dell'immagine e dai relativi campi del disco gestito. Nella tabella seguente viene illustrata la relazione di ogni impostazione con queste variabili che consentono di individuare l'opzione più adatta alla distribuzione. 
+
+| Opzione di disponibilità | Posizione dell'immagine | Pulsante di opzione Usa disco gestito (pulsante di opzione) |
+|---|---|---|
+| nessuno | Raccolta | Disabilitato con "Sì" come predefinito |
+| nessuno | Archiviazione BLOB | Abilitato con "No" come predefinito |
+| Zona di disponibilità | Raccolta (opzione di archiviazione BLOB disabilitata) | Disabilitato con "Sì" come predefinito |
+| Set di disponibilità con SKU gestito (disco gestito) | Raccolta | Disabilitato con "Sì" come predefinito |
+| Set di disponibilità con SKU gestito (disco gestito) | Archiviazione BLOB | Abilitato con "No" come predefinito |
+| Set di disponibilità con SKU gestito (disco gestito) | Archiviazione BLOB (opzione raccolta disabilitata) | Disabilitato con "No" come predefinito |
+| Set di disponibilità (appena creato dall'utente) | Raccolta | Disabilitato con "Sì" come predefinito |
+| Set di disponibilità (appena creato dall'utente) | Archiviazione BLOB | Abilitato con "No" come predefinito |

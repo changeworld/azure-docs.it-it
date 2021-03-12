@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4194c71823e1affde1dcae47fd7e64668b57c0cf
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031029"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149359"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creare destinazioni di calcolo per il training e la distribuzione di modelli in Azure Machine Learning Studio
 
@@ -147,7 +147,7 @@ Per alleghi un calcolo, attenersi alla procedura descritta in [precedenza](#port
 
 1. Immettere un nome per la destinazione di calcolo. 
 1. Consente di selezionare il tipo di calcolo da aggiungere. Non tutti i tipi di calcolo possono essere collegati usando Azure Machine Learning Studio. I tipi di calcolo che possono essere allegati per il training sono:
-    * Macchina virtuale remota
+    * Una macchina virtuale di Azure (per alleghire un Data Science Virtual Machine)
     * Azure Databricks (per l'uso nelle pipeline di machine learning)
     * Azure Data Lake Analytics (per l'uso nelle pipeline di machine learning)
     * HDInsight di Azure

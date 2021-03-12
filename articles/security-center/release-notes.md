@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/10/2021
+ms.date: 03/11/2021
 ms.author: memildin
-ms.openlocfilehash: 7080f79ca85a401ddcd3d421bb4a0292994508dd
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 4f2b31a4760a07779eebdd9492731ffe7e324d37
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/11/2021
-ms.locfileid: "102636675"
+ms.locfileid: "103149639"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -35,6 +35,7 @@ Gli aggiornamenti di marzo includono:
 - [La valutazione della vulnerabilità SQL include ora l'esperienza "Disabilita regola" (anteprima)](#sql-vulnerability-assessment-now-includes-the-disable-rule-experience-preview)
 - [Cartelle di lavoro di monitoraggio di Azure integrate nel centro sicurezza e tre modelli forniti](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)
 - [Il dashboard conformità normativa include ora i report di controllo di Azure (anteprima)](#regulatory-compliance-dashboard-now-includes-azure-audit-reports-preview)
+- [I dati delle raccomandazioni possono essere visualizzati in Azure Resource Graph con "Esplora in ARG"](#recommendation-data-can-be-viewed-in-azure-resource-graph-with-explore-in-arg)
 - [Aggiornamenti ai criteri per la distribuzione dell'automazione dei flussi di lavoro](#updates-to-the-policies-for-deploying-workflow-automation)
 - [Due consigli legacy non scrivono più dati direttamente nel log attività di Azure](#two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log)
 
@@ -91,6 +92,17 @@ Altre informazioni sulla [gestione degli standard nel dashboard conformità norm
 
 :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png" alt-text="Filtraggio dell'elenco dei report di controllo di Azure disponibili":::
 
+
+
+### <a name="recommendation-data-can-be-viewed-in-azure-resource-graph-with-explore-in-arg"></a>I dati delle raccomandazioni possono essere visualizzati in Azure Resource Graph con "Esplora in ARG"
+
+Le pagine dei dettagli delle raccomandazioni includono ora il pulsante della barra degli strumenti "Esplora in ARG". Usare questo pulsante per aprire una query di Azure Resource Graph ed esplorare, esportare e condividere i dati delle raccomandazioni.
+
+Azure Resource Graph (ARG) fornisce l'accesso immediato alle informazioni sulle risorse negli ambienti cloud con funzionalità di filtro, raggruppamento e ordinamento affidabili. Si tratta di un modo rapido ed efficiente di eseguire query sulle informazioni nelle sottoscrizioni di Azure a livello di codice o dall'interno del portale di Azure.
+
+Scopri di più su [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml).
+
+:::image type="content" source="media/release-notes/explore-in-resource-graph.png" alt-text="Esplorare i dati delle raccomandazioni in Azure Resource Graph.":::
 
 
 ### <a name="updates-to-the-policies-for-deploying-workflow-automation"></a>Aggiornamenti ai criteri per la distribuzione dell'automazione dei flussi di lavoro
