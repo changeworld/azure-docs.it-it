@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di PowerShell: esportare le registrazioni, i segreti e i certificati delle app in Azure Active Directory tenant.'
-description: Esempio di PowerShell che esporta tutte le registrazioni, i segreti e i certificati delle app per le app specificate nel tenant del Azure Active Directory.
+title: 'Esempio di PowerShell: esportare i segreti e i certificati per le registrazioni di app in Azure Active Directory tenant.'
+description: Esempio di PowerShell che esporta tutti i segreti e i certificati per le registrazioni di app specificate nel tenant del Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
-ms.date: 02/18/2021
+ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 768f2f3241144085acb7a218b60034cdfa9e45b9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d0de96d0d8a5edc6fbacc25dcbcb868073e57183
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102185390"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556554"
 ---
-# <a name="export-app-registrations-secrets-and-certificates"></a>Esportare registrazioni, segreti e certificati per l'app
+# <a name="export-secrets-and-certificates-for-app-registrations"></a>Esportare i segreti e i certificati per le registrazioni di app
 
-Questo esempio di script di PowerShell Esporta tutte le registrazioni, i segreti e i certificati delle app per le app specificate nella directory.
+Questo esempio di script di PowerShell Esporta tutti i segreti e i certificati per le registrazioni di app specificate dalla directory in un file CSV.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,13 +28,17 @@ Per questo esempio è richiesto il [modulo AzureAD V2 PowerShell per Graph](/pow
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurepowershell[main](~/powershell_scripts/application-management/export-all-app-registrations-secrets-and-certs.ps1 "Exports all app registrations, secrets, and certificates for the specified apps in your directory.")]
+[!code-azurepowershell[main](~/powershell_scripts/application-management/export-all-app-registrations-secrets-and-certs.ps1 "Exports all secrets and certificates for the specified app registrations in your directory.")]
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
+Il comando "Add-Member" è responsabile della creazione delle colonne nel file CSV.
+È possibile modificare la variabile "$Path" direttamente in PowerShell, con un percorso di file CSV, nel caso in cui si preferisca che l'esportazione sia non interattiva.
+
 | Comando | Note |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Esporta tutte le registrazioni, i segreti e i certificati delle app per le app specificate nella directory. |
+| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Recupera un'applicazione dalla directory. |
+| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner) | Recupera i proprietari di un'applicazione dalla directory. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

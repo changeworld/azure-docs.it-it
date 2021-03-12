@@ -2,15 +2,15 @@
 title: Esercitazione-aggiungere parametri al file di Azure Resource Manager bicipite
 description: Aggiungere parametri al file bicipite per renderlo riutilizzabile.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 603aa8f8bdb8136f4418d8f9a77bb40ec39243c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00df2ffc6272011127c5a1eb0c1e302011f8de5f
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748212"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632782"
 ---
 # <a name="tutorial-add-parameters-to-azure-resource-manager-bicep-file"></a>Esercitazione: aggiungere parametri al file bicipite Azure Resource Manager
 
@@ -34,7 +34,7 @@ Probabilmente si è notato che si è verificato un problema con questo file bici
 
 ## <a name="make-bicep-file-reusable"></a>Rendi riutilizzabile il file bicipite
 
-Per rendere riutilizzabile il file bicipite, aggiungere un parametro che è possibile usare per passare un nome dell'account di archiviazione. Il bicipite evidenziato nell'esempio seguente illustra le modifiche apportate al file. Il parametro `storageName` viene identificato come stringa. La lunghezza massima è impostata su 24 caratteri per impedire nomi troppo lunghi.
+Per rendere riutilizzabile il file bicipite, aggiungere un parametro che è possibile usare per passare un nome dell'account di archiviazione. Il file bicipite seguente mostra le modifiche apportate al file. Il parametro `storageName` viene identificato come stringa. La lunghezza massima è impostata su 24 caratteri per impedire nomi troppo lunghi.
 
 Copiare l'intero file e sostituirlo con il contenuto seguente.
 

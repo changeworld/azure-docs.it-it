@@ -153,18 +153,18 @@
               href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Protezione dei dati
           items:
+            - name: Eliminazione temporanea per i contenitori
+              href: soft-delete-container-overview.md
             - name: Controllo delle versioni
               href: versioning-overview.md
             - name: Eliminazione temporanea per i BLOB
               href: soft-delete-blob-overview.md
-            - name: Eliminazione temporanea per i contenitori
-              href: soft-delete-container-overview.md
+            - name: Ripristino temporizzato
+              href: point-in-time-restore-overview.md
             - name: Snapshot
               href: snapshots-overview.md
             - name: Feed delle modifiche
               href: storage-blob-change-feed.md
-            - name: Ripristino temporizzato
-              href: point-in-time-restore-overview.md
             - name: BLOB non modificabili
               href: storage-blob-immutable-storage.md
         - name: Ridondanza e ripristino di emergenza
@@ -401,18 +401,20 @@
               href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Proteggere i dati BLOB
           items:
+            - name: Bloccare un account di archiviazione
+              href: ../common/lock-account-resource.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Abilitare l'eliminazione temporanea per i contenitori
+              href: soft-delete-container-enable.md
             - name: Abilitare il controllo delle versioni dei BLOB
               href: versioning-enable.md
             - name: Abilitare l'eliminazione temporanea per i BLOB
               href: soft-delete-blob-enable.md
-            - name: Abilitare l'eliminazione temporanea per i contenitori
-              href: soft-delete-container-enable.md
+            - name: Abilitare il ripristino temporizzato
+              href: point-in-time-restore-manage.md
             - name: Creare snapshot (.NET)
               href: snapshots-manage-dotnet.md
             - name: Elaborare i log del feed di modifiche
               href: storage-blob-change-feed-how-to.md
-            - name: Abilitare il ripristino temporizzato
-              href: point-in-time-restore-manage.md
             - name: Configurare e gestire criteri di immutabilità
               href: storage-blob-immutability-policies-manage.md
         - name: Gestire la ridondanza e il failover

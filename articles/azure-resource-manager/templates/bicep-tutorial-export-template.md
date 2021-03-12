@@ -2,15 +2,15 @@
 title: Esercitazione-esportare un modello JSON dal portale di Azure per lo sviluppo di bicipiti
 description: Informazioni su come usare un modello JSON esportato per completare lo sviluppo bicipite.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0cba91a8c021f4baa90d1a4264bf84d3c56930ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3bc7ed4ada4f7810e9864778c7f76a0573c9dc89
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748159"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632550"
 ---
 # <a name="tutorial-use-exported-json-template-from-the-azure-portal"></a>Esercitazione: usare il modello JSON esportato dalla portale di Azure
 
@@ -79,7 +79,7 @@ Attualmente, il portale di Azure supporta solo l'esportazione di modelli JSON. S
 
 Il modello esportato derispettato offre la maggior parte del bicipite necessario, ma è necessario personalizzarlo per il file bicipite. Prestare particolare attenzione alle differenze tra parametri e variabili tra il file bicipite e il file bicipite esportato. Ovviamente, il processo di esportazione non conosce i parametri e le variabili già definiti nel file bicipite.
 
-Nell'esempio seguente vengono evidenziate le aggiunte al file bicipite. Contiene infatti il codice esportato oltre ad alcune modifiche. In primo luogo, modifica il nome del parametro in modo che corrisponda alla convenzione di denominazione. Quindi, usa il parametro location per la località del piano di servizio app. In terzo luogo, rimuove alcune proprietà in cui il valore predefinito è corretto.
+Nell'esempio seguente vengono illustrate le aggiunte al file bicipite. Contiene infatti il codice esportato oltre ad alcune modifiche. In primo luogo, modifica il nome del parametro in modo che corrisponda alla convenzione di denominazione. Quindi, usa il parametro location per la località del piano di servizio app. In terzo luogo, rimuove alcune proprietà in cui il valore predefinito è corretto.
 
 Copiare l'intero file e sostituire il file bicipite con il relativo contenuto.
 

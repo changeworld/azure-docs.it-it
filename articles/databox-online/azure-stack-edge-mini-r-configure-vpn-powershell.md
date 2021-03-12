@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 763ccd397d8cd704ca161032e65f17979bccb53b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9fa4c678a04342b47601f81ede7c49ab841f42ba
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467894"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630963"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-mini-r-device-via-azure-powershell"></a>Configurare la VPN sul dispositivo Mini R Azure Stack Edge tramite Azure PowerShell
 
@@ -284,7 +284,7 @@ Seguire questa procedura nell'interfaccia utente locale del dispositivo Azure St
 
     ![Configurare VPN 1](media/azure-stack-edge-mini-r-configure-vpn-powershell/configure-vpn-1.png)
 
-2. Nel pannello **Configura VPN** :
+2. Nel pannello **Configura VPN**:
     
     1. Nel caricare il file della rubrica telefonica, puntare al file con estensione pbk creato nel passaggio precedente.
     2. Nel file di configurazione upload Public IP list immettere il file JSON dell'intervallo IP del Data Center di Azure come input. Il file è stato scaricato in un passaggio precedente da: [https://www.microsoft.com/download/details.aspx?id=56519](https://www.microsoft.com/download/details.aspx?id=56519) .
@@ -303,7 +303,7 @@ Seguire questa procedura nell'interfaccia utente locale del dispositivo Azure St
 
 ## <a name="validate-data-transfer-through-vpn"></a>Convalidare il trasferimento dei dati tramite VPN
 
-Per verificare che la VPN funzioni, copiare i dati in una condivisione SMB. Seguire i passaggi in [aggiungere una condivisione](azure-stack-edge-j-series-manage-shares.md#add-a-share) nel dispositivo Azure stack Edge. 
+Per verificare che la VPN funzioni, copiare i dati in una condivisione SMB. Seguire i passaggi in [aggiungere una condivisione](azure-stack-edge-gpu-manage-shares.md#add-a-share) nel dispositivo Azure stack Edge. 
 
 1. Copiare un file, ad esempio \data\pictures\waterfall.jpg alla condivisione SMB montata nel sistema client. 
 2. Per convalidare la connessione dei dati tramite VPN, durante la copia dei dati:

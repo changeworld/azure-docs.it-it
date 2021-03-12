@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: e4de77a8a56ce21511ad099af59a77e10ab1815d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b5e25e9ed25ced96d38994928bcb6275ce79420f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787537"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612797"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -286,7 +286,7 @@ Se si usa il servizio Azure Bot e il problema è che il **Test in Web Chat** (Te
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Risolvere il problema durante il debug nel computer locale con Bot Framework.
 
-Per altre informazioni sul debug locale di un bot, vedere [Eseguire il debug di un bot](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Per altre informazioni sul debug locale di un bot, vedere [Eseguire il debug di un bot](/azure/bot-service/bot-service-debug-bot).
 
 ## <a name="integrating-luis"></a>Integrazione di LUIS
 

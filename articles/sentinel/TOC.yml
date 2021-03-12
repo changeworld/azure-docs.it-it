@@ -23,6 +23,8 @@
       href: tutorial-investigate-cases.md
     - name: Rispondere alle minacce
       href: tutorial-respond-threats-playbook.md
+    - name: Creazione di query KQL (modulo Learn)
+      href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - name: Concetti
   items:
     - name: Classificazione dei dati tramite entità
@@ -311,6 +313,8 @@
           href: /azure/data-explorer/kusto/query/
         - name: Riferimento rapido per il linguaggio di query di Kusto
           href: /azure/data-explorer/kql-quick-reference
+        - name: Ottimizzazioni delle query del log di monitoraggio di Azure
+          href: /azure/azure-monitor/logs/query-optimization
     - name: Arricchimenti tramite UEBA
       href: ueba-enrichments.md
 - name: Risorse

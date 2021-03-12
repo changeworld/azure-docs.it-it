@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006874"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611896"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configurare i contenitori Docker di lettura OCR
 
@@ -39,6 +39,8 @@ Il contenitore include anche le seguenti impostazioni di configurazione specific
 |No|Coda: Azure: QueueVisibilityTimeoutInMilliseconds | solo contenitori V3. x. Tempo di invisibilità di un messaggio quando un altro thread di lavoro lo elabora. |
 |No|Archiviazione::D ocumentStore:: MongoDB|solo contenitori v 2.0. Abilita MongoDB per l'archiviazione dei risultati permanenti. |
 |No|Archiviazione: ObjectStore: AzureBlob: ConnectionString| solo contenitori V3. x. Stringa di connessione dell'archiviazione BLOB di Azure. |
+|No|Archiviazione: TimeToLiveInDays| solo contenitori V3. x. Periodo di scadenza del risultato in giorni. L'impostazione specifica quando il sistema deve cancellare i risultati del riconoscimento. Il valore predefinito è 2 giorni (48 ore), il che significa che qualsiasi risultato in tempo reale per più di tale periodo non è garantito per essere recuperato correttamente. |
+|No|Attività: MaxRunningTimeSpanInMinutes| solo contenitori V3. x. Tempo massimo di esecuzione per una singola richiesta. Il valore predefinito è 60 minuti. |
 
 ## <a name="apikey-configuration-setting"></a>Impostazione di configurazione ApiKey
 

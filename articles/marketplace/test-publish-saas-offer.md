@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: bef59ea9e7de77e7f9a80cc3950762ea70238b87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.openlocfilehash: ea647591194dfd6ba0bf818f4ce4d3a2005f0bc4
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380910"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630784"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Come testare e pubblicare un'offerta SaaS nel Marketplace commerciale
 
@@ -32,7 +32,7 @@ Questo articolo illustra come usare il centro per i partner per inviare l'offert
 
 1. Se una delle pagine presenta uno stato diverso da **completo**, selezionare il nome della pagina, correggere il problema, salvare la pagina, quindi selezionare **Verifica e pubblica** di nuovo per tornare a questa pagina.
 1. Al termine di tutte le pagine, nella casella **Note per la certificazione** , fornire istruzioni di test al team di certificazione per assicurarsi che l'app venga testata correttamente. Fornire eventuali note supplementari utili per comprendere l'app.
-1. Per avviare il processo di pubblicazione per l'offerta, selezionare **pubblica**. Viene visualizzata la pagina **Panoramica dell'offerta** che mostra lo **stato di pubblicazione**dell'offerta.
+1. Per avviare il processo di pubblicazione per l'offerta, selezionare **pubblica**. Viene visualizzata la pagina **Panoramica dell'offerta** che mostra lo **stato di pubblicazione** dell'offerta.
 
 Lo stato di pubblicazione dell'offerta cambierà durante il processo di pubblicazione. Per informazioni dettagliate su questo processo, vedere la pagina relativa alla [procedura di convalida e pubblicazione](review-publish-offer.md#validation-and-publishing-steps).
 
@@ -42,17 +42,19 @@ Quando l'offerta è pronta per la disconnessione, ti invieremo un messaggio di p
 
 Lo screenshot seguente mostra la pagina di **Panoramica dell'offerta** per un'offerta SaaS, con due collegamenti di anteprima nel pulsante **Go Live** . I passaggi di convalida visualizzati in questa pagina variano a seconda delle selezioni effettuate durante la creazione dell'offerta.
 
-![Viene illustrata la pagina di panoramica dell'offerta per un'offerta nel centro per i partner. Vengono visualizzati il pulsante Go Live e i collegamenti di anteprima.](media/publish-status-publisher-signoff.png)
+![Viene illustrata la pagina di panoramica dell'offerta per un'offerta nel centro per i partner. Vengono visualizzati il pulsante Go Live e i collegamenti di anteprima. Il collegamento Visualizza report di convalida viene visualizzato anche in convalida automatica.](./media/review-publish-offer/publish-status-saas.png)
 
 Per visualizzare in anteprima l'offerta, seguire questa procedura.
 
-1. Nella pagina **Panoramica dell'offerta** selezionare un collegamento anteprima nel pulsante **Vai in diretta** . 
+1. Nella pagina **Panoramica dell'offerta** selezionare un collegamento anteprima nel pulsante **Vai in diretta** .
 
 1. Per convalidare il flusso di acquisto e configurazione end-to-end, acquista l'offerta mentre è in anteprima. Per prima cosa, inviare una notifica a Microsoft con un [ticket di supporto](https://aka.ms/marketplacesupport) per assicurarsi che non venga elaborato alcun addebito.
 
 1. Se l'offerta SaaS supporta la [fatturazione a consumo usando il servizio di misurazione del Marketplace commerciale](./partner-center-portal/saas-metered-billing.md), esaminare e seguire le procedure consigliate di test descritte in dettaglio nelle API per la [fatturazione a consumo del Marketplace](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
 1. Esaminare e seguire le istruzioni di test nelle [API di evasione Saas versione 2 di Microsoft Commercial Marketplace](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing) per assicurarsi che l'offerta sia stata integrata correttamente con le API prima di pubblicare l'offerta in tempo reale.
+
+1. Se il passaggio di convalida dell'offerta ha generato avvisi, nella pagina **Panoramica dell'offerta** viene visualizzato un collegamento **Visualizza report di convalida** . Assicurarsi di esaminare il report e risolvere i problemi prima di selezionare il pulsante **Go Live** . In caso contrario, la certificazione avrà probabilmente esito negativo e il ritardo dell'offerta potrebbe non riuscire.
 
 1. Se è necessario apportare modifiche dopo la visualizzazione in anteprima e il test dell'offerta, è possibile modificare e inviare di nuovo per pubblicare una nuova anteprima. Per ulteriori informazioni, vedere [aggiornare un'offerta esistente nel Marketplace commerciale](./partner-center-portal/update-existing-offer.md).
 
@@ -67,6 +69,6 @@ Ora che si è scelto di rendere disponibile l'offerta nel Marketplace commercial
 
 Al termine di questi controlli di convalida, l'offerta sarà disponibile nel Marketplace.
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="next-steps"></a>Passaggi successivi
 
-[Accedere ai report analitici per il Marketplace commerciale nel centro per i partner](./partner-center-portal/analytics.md)
+- [Accedere ai report analitici per il Marketplace commerciale nel centro per i partner](./partner-center-portal/analytics.md)

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: b63db3d02b471a577586ecd54f56caa59af504d6
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: facdb99a49c3778a75e733abf1fc72eed67549ab
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805513"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611616"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Aggiungere un connettore API a un flusso utente di iscrizione (anteprima)
 
@@ -34,12 +34,36 @@ Per usare un [connettore API](api-connectors-overview.md), è necessario innanzi
 
 5. Consente di specificare un nome visualizzato per la chiamata. Ad esempio, **convalidare le informazioni utente**.
 6. Specificare l' **URL dell'endpoint** per la chiamata API.
-7. Fornire le informazioni di autenticazione per l'API.
+7. Scegliere il **tipo di autenticazione** e configurare le informazioni di autenticazione per chiamare l'API. Vedere la sezione seguente per le opzioni di sicurezza dell'API.
 
-   - Attualmente è supportata solo l'autenticazione di base. Se si vuole usare un'API senza autenticazione di base a scopo di sviluppo, è sufficiente immettere un **nome utente** e una **password** fittizi che l'API può ignorare. Per l'uso con una funzione di Azure con una chiave API, è possibile includere il codice come parametro di query nell' **URL dell'endpoint** (ad esempio, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789` ).
+    ![Configurare un connettore API](./media/add-api-connector/api-connector-config.png)
 
-   ![Configurare un nuovo connettore API](./media/add-api-connector/api-connector-config.png)
 8. Selezionare **Salva**.
+
+## <a name="securing-the-api-endpoint"></a>Protezione dell'endpoint API
+È possibile proteggere l'endpoint API usando l'autenticazione di base HTTP o l'autenticazione del certificato client HTTPS (anteprima). In entrambi i casi, si forniscono le credenziali che Azure AD B2C utilizzerà quando si chiama l'endpoint API. L'endpoint API controlla quindi le credenziali ed esegue le decisioni di autorizzazione.
+
+### <a name="http-basic-authentication"></a>Autenticazione HTTP di base
+L'autenticazione HTTP di base è definita in [RFC 2617](https://tools.ietf.org/html/rfc2617). Azure AD B2C invia una richiesta HTTP con le credenziali client ( `username` e `password` ) nell' `Authorization` intestazione. Le credenziali vengono formattate come stringa con codifica Base64 `username:password` . L'API controlla quindi questi valori per determinare se rifiutare o meno una chiamata API.
+
+### <a name="https-client-certificate-authentication-preview"></a>Autenticazione del certificato client HTTPS (anteprima)
+
+> [!IMPORTANT]
+> Questa funzionalità è disponibile in anteprima e viene fornita senza un contratto di servizio. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+L'autenticazione del certificato client è un'autenticazione reciproca basata su certificati, in cui il client fornisce al server un certificato client per dimostrare la propria identità. In questo caso, Azure AD B2C utilizzerà il certificato caricato come parte della configurazione del connettore API. Questo avviene nell'ambito dell'handshake SSL. Solo i servizi con certificati appropriati possono accedere al servizio API REST. Il certificato client è un certificato digitale X.509. Negli ambienti di produzione deve essere firmato da un'autorità di certificazione. 
+
+
+Per creare un certificato, è possibile usare [Azure Key Vault](../key-vault/certificates/create-certificate.md), che include opzioni per i certificati autofirmati e le integrazioni con i provider di autorità di certificazione per i certificati firmati. È quindi possibile [esportare il certificato](../key-vault/certificates/how-to-export-certificate.md) e caricarlo per l'uso nella configurazione dei connettori API. Si noti che la password è obbligatoria solo per i file di certificato protetti da una password. È anche possibile usare il [cmdlet New-SelfSignedCertificate](./secure-rest-api.md#prepare-a-self-signed-certificate-optional) di PowerShell per generare un certificato autofirmato.
+
+Per app Azure servizio e funzioni di Azure, vedere [configurare l'autenticazione reciproca TLS](../app-service/app-service-web-configure-tls-mutual-auth.md) per informazioni su come abilitare e convalidare il certificato dall'endpoint API.
+
+È consigliabile impostare gli avvisi di promemoria per la scadenza del certificato. Per caricare un nuovo certificato in un connettore API esistente, selezionare il connettore API in **connettori API (anteprima)** e fare clic su **Carica nuovo certificato**. Il certificato caricato più di recente che non è scaduto ed è oltre la data di inizio verrà usato automaticamente da Azure AD B2C.
+
+### <a name="api-key"></a>Chiave API
+Alcuni servizi utilizzano un meccanismo di "chiave API" per rendere più difficile l'accesso agli endpoint HTTP durante lo sviluppo. Per [funzioni di Azure](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), è possibile eseguire questa operazione includendo `code` come parametro di query nell' **URL dell'endpoint**. Ad esempio, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
+
+Non si tratta di un meccanismo da usare da solo nell'ambiente di produzione. Pertanto, la configurazione per l'autenticazione di base o di certificato è sempre obbligatoria. Se si vuole implementare un metodo di autenticazione (non consigliato) a scopo di sviluppo, è possibile scegliere l'autenticazione di base e usare i valori temporanei per `username` e `password` che l'API può ignorare mentre si implementa l'autorizzazione nell'API.
 
 ## <a name="the-request-sent-to-your-api"></a>La richiesta inviata all'API
 Un connettore API si materializza come una richiesta **http post** , inviando attributi utente ("claims") come coppie chiave-valore in un corpo JSON. Gli attributi vengono serializzati in modo analogo alle proprietà [Microsoft Graph](/graph/api/resources/user#properties) utente. 
@@ -75,7 +99,7 @@ Content-type: application/json
 
 Nella richiesta sono disponibili solo le proprietà utente e gli attributi personalizzati elencati nel **Azure ad B2C**  >  esperienza **degli attributi utente** .
 
-Gli attributi personalizzati sono disponibili nel formato **extension_ \<extensions-app-id> _CustomAttribute**  nella directory. L'API deve essere in attesa di ricevere attestazioni in questo stesso formato serializzato. Per altre informazioni sugli attributi personalizzati, vedere [definire attributi personalizzati in Azure Active Directory B2C](user-flow-custom-attributes.md).
+Gli attributi personalizzati sono disponibili nel formato **extension_ \<extensions-app-id> _CustomAttribute**  nella directory. L'API deve essere in attesa di ricevere attestazioni in questo stesso formato serializzato. Per altre informazioni sugli attributi personalizzati, vedere [definire attributi personalizzati in Azure ad B2C](user-flow-custom-attributes.md).
 
 Inoltre, l'attestazione delle **impostazioni locali dell'interfaccia utente (' ui_locales ')** viene inviata per impostazione predefinita in tutte le richieste. Fornisce le impostazioni locali dell'utente come configurate sul dispositivo che possono essere usate dall'API per restituire le risposte internazionalizzate.
 
@@ -155,13 +179,6 @@ Vedere un esempio di [risposta di blocco](#example-of-a-blocking-response).
 
 Un connettore API in questo passaggio del processo di iscrizione viene richiamato dopo la pagina della raccolta di attributi, se disponibile. Questo passaggio viene sempre richiamato prima della creazione di un account utente.
 
-<!-- The following are examples of scenarios you might enable at this point during sign-up: -->
-<!-- 
-- Validate user input data and ask a user to resubmit data.
-- Block a user sign-up based on data entered by the user.
-- Perform identity verification.
-- Query external systems for existing data about the user and overwrite the user-provided value. -->
-
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Richiesta di esempio inviata all'API in questo passaggio
 
 ```http
@@ -239,7 +256,6 @@ Content-type: application/json
 
 | Parametro                                          | Tipo              | Obbligatoria | Descrizione                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | string            | Sì      | Versione dell'API.                                                                                                                                                                                                                                                                |
 | azione                                             | string            | Sì      | Il valore deve essere `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | I valori restituiti possono sovrascrivere i valori raccolti da un utente. Possono anche essere restituiti nel token se selezionato come **attestazione dell'applicazione**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | L'attestazione non deve contenere `_<extensions-app-id>_` . I valori restituiti possono sovrascrivere i valori raccolti da un utente. Possono anche essere restituiti nel token se selezionato come **attestazione dell'applicazione**.  |
@@ -269,8 +285,6 @@ Content-type: application/json
 ![Pagina blocco di esempio](./media/add-api-connector/blocking-page-response.png)
 
 ### <a name="example-of-a-validation-error-response"></a>Esempio di una risposta di errore di convalida
-
-
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -311,7 +325,7 @@ Assicurarsi che:
 * L'API verifica in modo esplicito la presenza di valori Null delle attestazioni ricevute.
 * L'API risponde nel minor tempo possibile per garantire un'esperienza utente fluida.
     * Se si utilizza una funzione senza server o un servizio Web scalabile, utilizzare un piano di hosting che contenga l'API "attiva" o "caldo". nell'ambiente di produzione. Per funzioni di Azure, è consigliabile usare il [piano Premium](../azure-functions/functions-scale.md)
-
+ 
 
 ### <a name="use-logging"></a>USA registrazione
 In generale, è utile usare gli strumenti di registrazione abilitati dal servizio API Web, ad esempio [Application Insights](../azure-functions/functions-monitoring.md), per monitorare l'API per i codici di errore imprevisti, le eccezioni e le prestazioni insufficienti.
@@ -321,5 +335,4 @@ In generale, è utile usare gli strumenti di registrazione abilitati dal servizi
 * Monitora l'API per tempi di risposta lunghi.
 
 ## <a name="next-steps"></a>Passaggi successivi
-<!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
 - Inizia a usare gli [esempi](code-samples.md#api-connectors).

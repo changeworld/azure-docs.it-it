@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0d12ce74cb961148776d81b3d7cabc281bbc59fc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 17674c1a5d7acff50a3dd17b9d98f5295c2e1b19
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665484"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633037"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Panoramica dell'aggiornamento del dispositivo per l'hub Internet (anteprima)
 
@@ -23,10 +23,10 @@ Per realizzare tutti i vantaggi della trasformazione digitale con tutto il tempo
 
 ## <a name="support-for-a-wide-range-of-iot-devices"></a>Supporto per un'ampia gamma di dispositivi Internet delle cose
 
-L'aggiornamento dei dispositivi per l'hub Internet è progettato per offrire una distribuzione di aggiornamenti ottimizzata e operazioni semplificate tramite l'integrazione con l' [Hub Azure](https://azure.microsoft.com/en-us/services/iot-hub/). Questa integrazione consente di adottare facilmente l'aggiornamento del dispositivo in qualsiasi soluzione esistente. Fornisce una soluzione ospitata nel cloud per connettere praticamente qualsiasi dispositivo. L'aggiornamento del dispositivo supporta un'ampia gamma di sistemi operativi, tra cui Linux e [Azure RTO](https://azure.microsoft.com/en-us/services/rtos/) (sistema operativo in tempo reale), ed è estensibile tramite Open Source. 
+L'aggiornamento dei dispositivi per l'hub Internet è progettato per offrire una distribuzione di aggiornamenti ottimizzata e operazioni semplificate tramite l'integrazione con l' [Hub Azure](https://azure.microsoft.com/en-us/services/iot-hub/). Questa integrazione consente di adottare facilmente l'aggiornamento del dispositivo in qualsiasi soluzione esistente. Fornisce una soluzione ospitata nel cloud per connettere praticamente qualsiasi dispositivo. L'aggiornamento del dispositivo supporta un'ampia gamma di sistemi operativi, tra cui Linux e [Azure RTO](https://azure.microsoft.com/en-us/services/rtos/) (sistema operativo in tempo reale), ed è estensibile tramite Open Source. Microsoft sta sviluppando un aggiornamento del dispositivo per le offerte di hub Internet con i nostri partner di semiconduttori, tra cui STMicroelectronics, NXP, Renesas e microchip. Vedere gli [esempi](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) di lavagne di valutazione dei semiconduttori chiave che includono le guide introduttive per informazioni su come configurare, compilare e distribuire gli aggiornamenti in modalità wireless (OTA) ai dispositivi di classe MCU.
 
 Sono disponibili le immagini Yocto del simulatore dell'agente di aggiornamento del dispositivo e il riferimento a Raspberry Pi.
-L'aggiornamento del dispositivo per l'hub Internet è supportato anche per l'aggiornamento dei dispositivi Azure IoT Edge. È disponibile un agente di aggiornamento dispositivi per la piattaforma AMD64 Ubuntu server 18,04. L'aggiornamento del dispositivo per l'hub Internet fornisce anche codice open source se non si esegue una delle piattaforme precedenti. In questo modo è possibile trasferire l'agente alla distribuzione in esecuzione.
+L'aggiornamento del dispositivo per l'hub Internet è supportato anche per l'aggiornamento dei dispositivi Azure IoT Edge. È disponibile un agente di aggiornamento dispositivi per la piattaforma AMD64 Ubuntu server 18,04. L'aggiornamento del dispositivo per l'hub Internet fornisce anche codice open source se non si esegue una delle piattaforme precedenti. È possibile trasferire l'agente alla distribuzione in esecuzione.
 
 L'aggiornamento del dispositivo funziona con la Plug and Play degli oggetti Internet (PnP) ed è in grado di gestire qualsiasi dispositivo che supporta le interfacce PnP richieste. Per altre informazioni, vedere l' [aggiornamento dei dispositivi per l'hub e l'plug and Play](device-update-plug-and-play.md)Internet.
 

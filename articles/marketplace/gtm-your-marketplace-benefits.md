@@ -4,15 +4,15 @@ description: "Servizi per l'immissione sul mercato: in questa sezione vengono de
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 06f98a8e303d2ff692c0f84314e639c2a51cbcc1
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 58e55527c84db0c368e676f2bf1314dca32e78db
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489476"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631053"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del marketplace commerciale
 
@@ -50,18 +50,16 @@ Descrizioni dettagliate di tutti i vantaggi del programma sono disponibili in qu
     1. Dopo avere aggiornato il contatto marketing, selezionare **Attiva** per il vantaggio che si vuole iniziare a usare. Una volta attivato un vantaggio, il contatto di marketing sarà contattato da un membro del team Rewards entro una settimana.
 
 > [!NOTE]
-> Se l'offerta è rimasta live per più di quattro settimane e non si è ricevuto alcun messaggio, eseguire una ricerca nel Centro per i partner per verificare chi è il proprietario dell'offerta all'interno dell'organizzazione, che dovrebbe aver ricevuto la comunicazione ed essere a conoscenza dei passaggi successivi.
-
-Se non è possibile determinare il proprietario o se il proprietario ha lasciato l'azienda, è possibile generare un ticket di supporto in [Guida e supporto tecnico](https://aka.ms/marketplacepublishersupport).
+> Se l'offerta è rimasta live per più di quattro settimane e non si è ricevuto alcun messaggio, eseguire una ricerca nel Centro per i partner per verificare chi è il proprietario dell'offerta all'interno dell'organizzazione, che dovrebbe aver ricevuto la comunicazione ed essere a conoscenza dei passaggi successivi.<br><br>Se non è possibile determinare il proprietario o se il proprietario ha lasciato la società, generare un ticket di supporto per assistenza [e supporto tecnico](https://aka.ms/marketplacepublishersupport).
 
 L'ambito delle attività disponibili si espande Man mano che si aumentano le offerte nel Marketplace commerciale. Per tutte le inserzioni viene inviato un messaggio di posta elettronica self-service relativo alle risorse e alle procedure consigliate con un livello di base di promozione e raccomandazioni per l'ottimizzazione.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Vantaggi in termini di inserzione, valutazione e consulenza
 
-Ogni volta che si esegue la pubblicazione in Microsoft AppSource o in Azure Marketplace, sarà possibile accedere a un nuovo set di vantaggi. Quando l'offerta diventa disponibile, vai al [centro](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fdashboard%2Fmpn%2Fmembership%2Fbenefits%2Fcommercialmarketplace&data=04%7C01%7Cv-kilieb%40microsoft.com%7C3b13a8a6e41a47d6d96008d8c7cb3b50%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637479022971578374%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=MF1ZlPX9M5JiJZE2e%2B6kXEsRX1klB5hTcSqcHYDjZq8%3D&reserved=0) per i partner per attivare i vantaggi tecnici, di marketing e vendite idonei.
+Ogni volta che si esegue la pubblicazione in Microsoft AppSource o in Azure Marketplace, sarà possibile accedere a un nuovo set di vantaggi. Quando l'offerta diventa disponibile, vai al [centro](https://partner.microsoft.com/dashboard) per i partner per attivare i vantaggi tecnici, di marketing e vendite idonei.
 
-> [!NOTE]
-> Tutti i vantaggi di valutazione e consulenza scadono dopo 3 mesi.
+> [!IMPORTANT]
+> Tutti i vantaggi di valutazione e consulenza scadono dopo tre mesi.
 
 La tabella seguente riepiloga i requisiti di idoneità per le offerte list, Trial e Consulting:
 
@@ -71,7 +69,7 @@ Le descrizioni dettagliate di tutti questi vantaggi sono disponibili nella [pres
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Marketplace Rewards per i partner delle offerte di transazione
 
-Quando si usa l'offerta transazionale in Microsoft AppSource o in Azure Marketplace, è possibile accedere a vantaggi aggiuntivi man mano che si aumentano le transazioni di vendita fatturate o le postazioni vendute attraverso il Marketplace commerciale.
+Quando si usa l'offerta transazionale in Microsoft AppSource o in Azure Marketplace, è possibile accedere a ulteriori vantaggi Man mano che si aumentano le transazioni di vendita fatturate o le postazioni vendute attraverso il Marketplace commerciale.
 
 >[!NOTE]
 >La soglia venduta per le postazioni si applica solo alle app Microsoft 365 (le applicazioni SaaS con integrazioni con Microsoft teams, Office, Outlook o SharePoint) e i vantaggi devono essere completate entro il 30 giugno 2021.
@@ -80,13 +78,19 @@ Questi vantaggi sono pensati per offrire supporto per il marketing, le vendite e
 
 Tutti i partner che hanno un'offerta Live possono collaborare con un responsabile di engagement dedicato per scegliere le attività più importanti per il portfolio di offerte di Marketplace commerciali. Questo engagement è specifico di ogni offerta, vale a dire che è possibile scegliere le attività e la tempistica di queste attività allineandosi alle tempistiche delle più ampie strategie di marketing e di vendita aziendali.
 
+### <a name="marketing-benefits-for-transact-offers"></a>Vantaggi di marketing per le offerte Transact
+
 ![Vantaggi di marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+### <a name="sales-benefits-for-transact-offers"></a>Vantaggi delle vendite per le offerte Transact
 
 ![Vantaggi di vendita](./media/marketplace-publishers-guide/sales-benefit.png)
 
+### <a name="technical-benefits-for-transact-offers"></a>Vantaggi tecnici per le offerte Transact
+
 ![Vantaggi tecnici](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* La soglia venduta per le postazioni si applica solo alle app Microsoft 365 (le applicazioni SaaS con integrazioni con Microsoft teams, Office, Outlook o SharePoint) e i vantaggi devono essere completate entro il 30 giugno 2021.
+La soglia venduta per le postazioni si applica solo alle app Microsoft 365 (le applicazioni SaaS con integrazioni con Microsoft teams, Office, Outlook o SharePoint) e i vantaggi devono essere completate entro il 30 giugno 2021.
 
 Le descrizioni dettagliate di tutti questi vantaggi sono disponibili nella [presentazione del programma Marketplace Rewards](https://aka.ms/marketplacerewards).
 
