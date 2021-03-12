@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 16fecf5ce0d4551125ded4ba05fcbc41530efaf1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7329962d547fcb0635e3a9af3d80e562da59f7f2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430565"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199784"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gestire le istanze in Durable Functions in Azure
 
@@ -202,6 +202,9 @@ Il metodo restituisce un oggetto con le proprietà seguenti:
   * **Failed**: l'esecuzione dell'istanza non è riuscita e ha generato un errore.
   * **Terminata**: l'istanza è stata terminata in modo anomalo.
 * **History**: cronologia di esecuzione dell'orchestrazione. Questo campo viene popolato solo se `showHistory` è impostato su `true`.
+
+> [!NOTE]
+> Un agente di orchestrazione non è contrassegnato come `Completed` finché tutte le relative attività pianificate non sono state completate _e_ l'agente di orchestrazione ha restituito. In altre parole, non è sufficiente che un agente di orchestrazione raggiunga la relativa `return` istruzione perché venga contrassegnato come `Completed` . Questa operazione è particolarmente importante per i casi in cui `WhenAny` viene utilizzato. gli agenti di orchestrazione spesso `return` prima dell'esecuzione di tutte le attività pianificate.
 
 Questo metodo restituisce `null` (.NET), `undefined` (JavaScript) o `None` (Python) se l'istanza non esiste.
 

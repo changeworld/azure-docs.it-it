@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: fb7479f7e3b9ac631c164bbddf65ed8be3bab438
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 1d5fc097be188c820f9be15594f4bb382754b849
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122647"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224929"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Guida introduttiva: accedere e ottenere un token di accesso in una SPA angolare usando il flusso del codice di autenticazione
 
@@ -117,12 +117,18 @@ Questa Guida introduttiva usa MSAL angolare V2 con il flusso del codice di autor
 > Modificare i valori nella sezione `auth` come descritto di seguito:
 >
 > - `Enter_the_Application_Id_Here` è l'**ID applicazione (client)** per l'applicazione registrata.
+>
+>    Per trovare il valore di **ID applicazione (client)** , passare alla pagina **Panoramica** della registrazione dell'app nel portale di Azure.
 > - `Enter_the_Cloud_Instance_Id_Here` è l'istanza del cloud di Azure. Per il cloud di Azure principale o globale immettere `https://login.microsoftonline.com/`. Per i cloud **nazionali** (ad esempio, Cina), vedere [Cloud nazionali](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` è impostato su uno degli elementi seguenti:
 >   - Se l'applicazione supporta *account in questa directory organizzativa*, sostituire questo valore con l'**ID tenant** o il **nome del tenant**. Ad esempio: `contoso.microsoft.com`.
+>
+>    Per trovare il valore dell' **ID directory (tenant)**, passare alla pagina **Panoramica** della registrazione dell'app nel portale di Azure.
 >   - Se l'applicazione supporta *account in qualsiasi directory organizzativa*, sostituire questo valore con `organizations`.
 >   - Se l'applicazione supporta *account in qualsiasi directory organizzativa e account Microsoft personali*, sostituire questo valore con `common`. **Per questa guida introduttiva**, usare `common`.
 >   - Per limitare il supporto ai *soli account Microsoft personali*, sostituire questo valore con `consumers`.
+>
+>    Per trovare il valore dei **tipi di account supportati**, passare alla pagina **Panoramica** della registrazione dell'app nel portale di Azure.
 > - `Enter_the_Redirect_Uri_Here` è `http://localhost:4200/`.
 >
 > Il `authority` valore nell' *app. Module. TS* dovrebbe essere simile al seguente se si usa il cloud di Azure principale (globale):
@@ -131,8 +137,6 @@ Questa Guida introduttiva usa MSAL angolare V2 con il flusso del codice di autor
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > Per trovare i valori di **ID applicazione (client)** , **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** di registrazione dell'app nel portale di Azure.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione

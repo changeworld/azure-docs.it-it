@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 1dc8e3a78e681947a70ad96638d1d6e09f0bbc88
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8b3b1d39766d556b820f21c1775210611b995d92
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050665"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199892"
 ---
 # <a name="log-analytics-agent-overview"></a>Panoramica dell'agente di Log Analytics
 
 L'agente di Log Analytics di Azure raccoglie i dati di telemetria da macchine virtuali Windows e Linux in qualsiasi cloud, computer locali e quelli monitorati da [System Center Operations Manager](/system-center/scom/) e invia i dati raccolti all'area di lavoro log Analytics in monitoraggio di Azure. L'agente di Log Analytics supporta anche informazioni dettagliate e altri servizi in monitoraggio di Azure, ad esempio [VM Insights](../vm/vminsights-enable-overview.md), il [Centro sicurezza di Azure](../../security-center/index.yml)e [automazione di Azure](../../automation/automation-intro.md). Questo articolo fornisce una panoramica dettagliata dell'agente, dei requisiti di sistema e di rete e dei metodi di distribuzione.
 
 > [!NOTE]
-> È anche possibile che l'agente di Log Analytics sia denominato Microsoft Monitoring Agent (MMA) o agente di OMS per Linux.
+> È anche possibile vedere l'agente di Log Analytics indicato come Microsoft Monitoring Agent (MMA).
 
 ## <a name="comparison-to-azure-diagnostics-extension"></a>Confronto con l'estensione Diagnostica di Azure
 È anche possibile usare l'[estensione Diagnostica di Azure](./diagnostics-extension-overview.md) in Monitoraggio di Azure per raccogliere i dati di monitoraggio dal sistema operativo guest di macchine virtuali di Azure. È possibile scegliere di usare uno dei due agenti oppure entrambi, a seconda delle esigenze. Vedere [Panoramica degli agenti di Monitoraggio di Azure](../agents/agents-overview.md) per un confronto dettagliato degli agenti di Monitoraggio di Azure. 

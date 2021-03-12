@@ -211,8 +211,6 @@
           href: core/howto-connect-rigado-cascade-500.md
         - name: Connettere altri cloud IoT
           href: core/howto-build-iotc-device-bridge.md
-        - name: Gestire i dispositivi
-          href: core/how-to-move-device-to-iot.md
     - name: Creare soluzioni integrate
       items:
         - name: Aggiungere riquadri al dashboard
@@ -245,6 +243,8 @@
           href: core/howto-manage-devices.md
         - name: Eseguire un processo
           href: core/howto-run-a-job.md
+        - name: Spostare i dispositivi dall'hub Internet
+          href: core/how-to-move-device-to-iot.md
     - name: Amministrazione della soluzione
       items:
         - name: Modificare le impostazioni dell'applicazione
@@ -303,6 +303,8 @@
       href: /samples/browse/?expanded=azure&products=azure-iot-central
     - name: Opzioni di supporto tecnico e assistenza
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+    - name: Glossario
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
     - name: Servizi di Azure IoT
       items:
         - name: Hub IoT

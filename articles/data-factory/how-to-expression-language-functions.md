@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/08/2020
-ms.openlocfilehash: 4aa8a0790e7f5812e8c6a70eab1718f92a5e00d0
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8f22645eafa0969eac3d6c4c0645909f8c650cad
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520303"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199821"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Come utilizzare parametri, espressioni e funzioni in Azure Data Factory
 
@@ -25,7 +25,7 @@ In questo documento si incentrerà principalmente sull'apprendimento di concetti
 
 ## <a name="azure-data-factory-ui-and-parameters"></a>Interfaccia utente e parametri di Azure data factory
 
-Se non si ha familiarità con l'uso dei parametri di data factory di Azure nell'interfaccia utente di ADF, vedere interfaccia utente di [Data Factory per i servizi collegati con parametri](https://docs.microsoft.comazure/data-factory/parameterize-linked-services#data-factory-ui)  e [interfaccia utente di data factory per la pipeline basata sui metadati con parametri](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) per la spiegazione visiva.
+Se non si ha familiarità con l'uso dei parametri di data factory di Azure nell'interfaccia utente di ADF, vedere interfaccia utente di [Data Factory per i servizi collegati con parametri](https://docs.microsoft.com/azure/data-factory/parameterize-linked-services#data-factory-ui)  e [interfaccia utente di data factory per la pipeline basata sui metadati con parametri](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) per la spiegazione visiva.
 
 ## <a name="parameter-and-expression-concepts"></a>Concetti relativi a parametri ed espressioni 
 

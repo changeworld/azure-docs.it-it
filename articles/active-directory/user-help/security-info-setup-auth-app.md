@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: e383896e50ccf06ef6d1b5caaeb0ef36ece2ce3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c947bee0b702797a86d1e038f74c6c10e2b23eb4
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348297"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197483"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurare l'app Microsoft Authenticator come metodo di verifica
 
@@ -46,8 +46,8 @@ I metodi di gestione delle informazioni di sicurezza vengono usati sia per la ve
 
 A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usare un'app di autenticazione come metodo per le informazioni di sicurezza. Non è necessario usare l'app Microsoft Authenticator ed è possibile scegliere un'app diversa durante il processo di configurazione. Tuttavia, in questo articolo viene usata l'app Microsoft Authenticator.
 
->[!Important]
-> Se è stato configurato Microsoft Authenticator app in 5 diversi dispositivi o 5 token hardware, non sarà possibile impostare un sesto e potrebbe essere visualizzato il messaggio di errore seguente.
+> [!IMPORTANT]
+> Se si è configurata l'app Microsoft Authenticator in cinque dispositivi diversi o se sono stati usati cinque token hardware, non sarà possibile configurarne uno sesto e potrebbe essere visualizzato il messaggio di errore seguente:
 > 
 > **Non è possibile configurare Microsoft Authenticator perché sono già presenti cinque app Authenticator o token hardware. Contattare l'amministratore per eliminare una delle app o dei token hardware dell'autenticatore.**
 
@@ -57,7 +57,7 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
 
     ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
 
-2. Selezionare **Informazioni di sicurezza** dal riquadro di spostamento a sinistra o dal collegamento nel blocco **Informazioni di sicurezza**, quindi selezionare **Aggiungi metodo** dalla pagina **Informazioni di sicurezza**.
+2. Selezionare **info di sicurezza** nel menu a sinistra oppure usare il collegamento nel riquadro **informazioni di sicurezza** . Se è già stata effettuata la registrazione, verrà richiesta la verifica a due fattori. Quindi, selezionare **Aggiungi metodo** nel riquadro **informazioni di sicurezza** .
 
     ![Pagina Informazioni di sicurezza con l'opzione Aggiungi metodo evidenziata](media/security-info/securityinfo-myprofile-addmethod-page.png)
 

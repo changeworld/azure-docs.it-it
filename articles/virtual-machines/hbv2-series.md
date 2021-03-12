@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 92de7f93939f6673e2133f6eaf8086a1dcdd1964
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 1abc05cf1486651b87094f40777f3679d234a34b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102616248"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009338"
 ---
 # <a name="hbv2-series"></a>Serie HBv2
 
@@ -34,7 +34,10 @@ Le macchine virtuali serie HBv2 sono 200 GB/sec Mellanox HDR InfiniBand. Queste 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 456 | 350 | 2.45 | 3.1 | 3.3 | 200 | Tutti | 480 + 960 | 8 | 8 |
 
-Altre informazioni sull'architettura sottostante [, sulla topologia di VM](./workloads/hpc/hbv2-series-overview.md)e [sulle prestazioni](./workloads/hpc/hbv2-performance.md) previste della macchina virtuale della serie HBv2.
+Sono disponibili altre informazioni su:
+- [Architettura sottostante e topologia di VM](./workloads/hpc/hbv2-series-overview.md)
+- [Stack software supportato](./workloads/hpc/hbv2-series-overview.md#software-specifications) , incluso il sistema operativo supportato
+- [Prestazioni](./workloads/hpc/hbv2-performance.md) previste della macchina virtuale della serie HBv2.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

@@ -14,20 +14,79 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7d52d49ab5d3a47dd69fdc1708f9e52f4f796a92
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e51b247f8c1a5a9ed8f6ec8e24363015afb2f7de
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390641"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614412"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
-> [!IMPORTANT]
-> A partire dal 30 aprile 2019, patch Orchestration Application versione 1,2. * non è più supportata. Assicurarsi di eseguire l'aggiornamento alla versione più recente. Aggiornamenti della macchina virtuale in cui "Windows Update" applica le patch del sistema operativo senza sostituire il disco del sistema operativo non è supportato. 
+## <a name="automatic-os-image-upgrades"></a>Aggiornamenti automatici delle immagini del sistema operativo
 
-> [!NOTE]
-> Ottenere gli [aggiornamenti automatici delle immagini del sistema operativo nel set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) è la procedura consigliata per mantenere aggiornato il sistema operativo in Azure. Gli aggiornamenti automatici delle immagini del sistema operativo basati su set di scalabilità di macchine virtuali richiedono una durabilità Silver o maggiore in un set di scalabilità. Nei tipi di nodo con livello di durabilità Bronze questa operazione non è supportata, in questo caso usare patch Orchestration Application.
+Ottenere gli [aggiornamenti automatici delle immagini del sistema operativo nei set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) è la procedura consigliata per mantenere aggiornato il sistema operativo in Azure. Gli aggiornamenti automatici delle immagini del sistema operativo basati su set di scalabilità di macchine virtuali richiedono una durabilità Silver o maggiore in un set di scalabilità.
+
+Requisiti per gli aggiornamenti automatici delle immagini del sistema operativo per set di scalabilità di macchine virtuali
+-   Service Fabric [livello di durabilità](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) è Silver o Gold e non Bronze.
+-   L'estensione Service Fabric nella definizione del modello del set di scalabilità deve avere TypeHandlerVersion 1,1 o versione successiva.
+-   Il livello di durabilità deve essere lo stesso in Service Fabric cluster e Service Fabric estensione nella definizione del modello del set di scalabilità.
+- Non è necessario un probe di integrità aggiuntivo o l'uso dell'estensione di integrità dell'applicazione per i set di scalabilità di macchine virtuali.
+
+Verificare che le impostazioni di durabilità non corrispondano a quelle del cluster Service Fabric e dell'estensione Service Fabric, in quanto la mancata corrispondenza provocherà errori di aggiornamento. I livelli di durabilità possono essere modificati in base alle linee guida descritte in [Questa pagina](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+
+Con la durabilità Bronze, l'aggiornamento automatico delle immagini del sistema operativo non è disponibile. Sebbene [patch Orchestration Application](#patch-orchestration-application ) (destinata solo ai cluster non ospitati da Azure) *non sia consigliata* per i livelli di durabilità Silver o superiore, è l'unica opzione per automatizzare gli aggiornamenti di Windows rispetto ai domini di aggiornamento Service Fabric.
+
+> [!IMPORTANT]
+> Gli aggiornamenti nella macchina virtuale in cui "Windows Update" applica le patch del sistema operativo senza sostituire il disco del sistema operativo non sono supportati in Azure Service Fabric.
+
+Per abilitare la funzionalità con Windows Update disabilitato nel sistema operativo, è necessario eseguire due passaggi.
+
+1. Abilitazione dell'aggiornamento automatico delle immagini del sistema operativo, disabilitazione di Windows Updates ARM 
+    ```json
+    "virtualMachineProfile": { 
+        "properties": {
+          "upgradePolicy": {
+            "automaticOSUpgradePolicy": {
+              "enableAutomaticOSUpgrade":  true
+            }
+          }
+        }
+      }
+    ```
+    
+    ```json
+    "virtualMachineProfile": { 
+        "osProfile": { 
+            "windowsConfiguration": { 
+                "enableAutomaticUpdates": false 
+            }
+        }
+    }
+    ```
+
+    Azure PowerShell
+    ```azurepowershell-interactive
+    Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
+    ``` 
+    
+1. Aggiorna il modello del set di scalabilità dopo questa modifica di configurazione è necessaria una ricreazione dell'immagine di tutti i computer per aggiornare il modello del set di scalabilità, in modo da rendere effettiva la modifica.
+    
+    Azure PowerShell
+    ```azurepowershell-interactive
+    $scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
+    $instances = foreach($vm in $scaleSet)
+    {
+        Set-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -InstanceId $vm.InstanceID -Reimage
+    }
+    ``` 
+    
+Per altre istruzioni, vedere [aggiornamenti automatici delle immagini del sistema operativo per set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) .
+
+## <a name="patch-orchestration-application"></a>Patch Orchestration Application
+
+> [!IMPORTANT]
+> A partire dal 30 aprile 2019, patch Orchestration Application versione 1,2. * non è più supportata. Assicurarsi di eseguire l'aggiornamento alla versione più recente.
 
 Patch Orchestration Application (POA) è un wrapper per il servizio Azure Service Fabric Gestione ripristini, che consente la pianificazione della patch del sistema operativo basata sulla configurazione per i cluster non ospitati in Azure. Il POA non è obbligatorio per i cluster non ospitati da Azure, ma è necessaria la pianificazione dell'installazione delle patch da un dominio di aggiornamento per applicare patch Service Fabric host del cluster senza incorrere in tempi di inattività.
 

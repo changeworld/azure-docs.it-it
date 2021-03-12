@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: f3e1ea8861646490875667f6238b3f8813bd6c4b
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 608f3d72aecb0c6d53325c0d082b1779822e9c80
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518165"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200523"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Risolvere i problemi di peering di rete virtuale
 
@@ -44,7 +44,7 @@ Per configurare il peering tra reti virtuali che si trovano nella stessa sottosc
 >
 > * Macchine virtuali (VM) dietro SKU Basic del servizio di bilanciamento del carico interno (ILB, internal load balancer)
 > * Cache Redis (usa lo SKU Basic di ILB)
-> * Gateway applicazione (usa lo SKU Basic di ILB)
+> * Gateway applicazione V1 (USA lo SKU ILB Basic)
 > * Set di scalabilità di macchine virtuali (usa lo SKU Basic di ILB)
 > * Cluster di Azure Service Fabric (usa lo SKU Basic di ILB)
 > * SQL Server Always On (usa lo SKU Basic di ILB)

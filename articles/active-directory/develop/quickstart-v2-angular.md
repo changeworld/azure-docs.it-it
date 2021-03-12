@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 95747bb68a904212e7e075fc29b2497932d66e5f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 5ac6a19fc569d60f75f9da788629331a70b0a4c9
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103856"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225048"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Guida introduttiva: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola Angular
 
@@ -102,8 +102,8 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 >|Enter_the_Redirect_Uri_Here|Sostituire con **http://localhost:4200** .|
 >|cacheLocation  | (Facoltativo) Impostare l'archiviazione browser per lo stato di autenticazione. L'impostazione predefinita è **sessionStorage**.   |
 >|storeAuthStateInCookie  | (Facoltativo) Identificare la libreria in cui è archiviato lo stato della richiesta di autenticazione. Questo stato è necessario per convalidare i flussi di autenticazione nei cookie del browser. Questo cookie è impostato per Internet Explorer e Microsoft Edge allo scopo di supportare questi due browser. Per altri dettagli, vedere i [problemi noti](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
-> > [!TIP]
-> > Per trovare i valori di **ID applicazione (client)** , **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
+>
+> Per trovare i valori di **ID applicazione (client)** , **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
 
 Per altre informazioni sulle opzioni configurabili disponibili, vedere [Inizializzare le applicazioni client](msal-js-initializing-client-applications.md).
 

@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 01/04/2021
+ms.date: 03/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 5f39f727deaf3a53db5e2928e5af23779c298318
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
-ms.translationtype: HT
+ms.openlocfilehash: 0c7e011cf8445164e0931f71e390813c9134dd89
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97911638"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200947"
 ---
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare la risorsa Azure Stack Edge e quindi passare a **Panoramica**. Il dispositivo dovrebbe essere online. Passare a **Gateway di archiviazione nel cloud > Account di archiviazione**.
 
@@ -19,18 +19,17 @@ ms.locfileid: "97911638"
 
 3. Nel riquadro **Aggiungi account di archiviazione Edge** specificare le impostazioni seguenti:
 
-    a. Un nome univoco per l'account di archiviazione Edge disponibile nel dispositivo. I nomi degli account di archiviazione possono contenere solo numeri e lettere minuscole. I caratteri speciali non sono consentiti. Il nome dell'account di archiviazione deve essere univoco nel singolo dispositivo, non in tutti i dispositivi.
+    1. Consente di specificare un nome univoco per l'account di archiviazione perimetrale nel dispositivo. I nomi degli account di archiviazione possono contenere solo numeri e lettere minuscole. I caratteri speciali non sono consentiti. Il nome dell'account di archiviazione deve essere univoco nel singolo dispositivo, non in tutti i dispositivi.
 
-    b. Una descrizione facoltativa per le informazioni sui dati contenuti nell'account di archiviazione.  
+    2. Consente di specificare una descrizione facoltativa per le informazioni sui dati contenuti nell'account di archiviazione.  
     
-    c. Per impostazione predefinita, l'account di archiviazione Edge è associato a un account di archiviazione di Azure nel cloud e viene eseguito il push automatico dei dati dell'account di archiviazione nel cloud. Specificare l'account di archiviazione di Azure a cui è associato l'account di archiviazione Edge.  
+    3. Per impostazione predefinita, l'account di archiviazione perimetrale viene mappato a un account di archiviazione di Azure nel cloud e i dati dell'account di archiviazione vengono automaticamente inseriti nel cloud. Specificare l'account di archiviazione di Azure a cui è associato l'account di archiviazione Edge.
 
-    d. Creare quindi un nuovo contenitore o selezionarlo da un contenitore esistente nell'account di archiviazione di Azure. Tutti i dati del dispositivo scritti nell'account di archiviazione Edge vengono caricati automaticamente nel contenitore di archiviazione selezionato nell'account di archiviazione di Azure associato.
+    4. Creare un nuovo contenitore o selezionarlo da un contenitore esistente nell'account di archiviazione di Azure. Tutti i dati del dispositivo scritti nell'account di archiviazione Edge vengono caricati automaticamente nel contenitore di archiviazione selezionato nell'account di archiviazione di Azure associato.
 
-    <!--![Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-2.png)-->
+    5. Dopo aver specificato tutte le opzioni dell'account di archiviazione, selezionare **Aggiungi** per creare l'account di archiviazione Edge. Si riceve una notifica quando l'account di archiviazione perimetrale viene creato correttamente. Il nuovo account di archiviazione Edge viene quindi visualizzato nell'elenco degli account di archiviazione nel portale di Azure.
 
-    e. Dopo aver specificato tutte le opzioni dell'account di archiviazione, selezionare **Aggiungi** per creare l'account di archiviazione Edge. Dopo la creazione dell'account di archiviazione Edge si riceverà una notifica. Il nuovo account di archiviazione Edge viene quindi visualizzato nell'elenco degli account di archiviazione nel portale di Azure. 
-
+    <!--[Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-2.png)-->
     
 4. Se si seleziona questo nuovo account di archiviazione e si passa a **Chiavi di accesso**, è possibile trovare l'endpoint servizio BLOB e il nome dell'account di archiviazione corrispondente. Copiare queste informazioni perché questi valori, unitamente alle chiavi di accesso, consentiranno di connettersi all'account di archiviazione Edge.
 

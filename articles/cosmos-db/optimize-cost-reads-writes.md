@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 3f4c33a88d9a8fbf2c3d64135d93da54cf75fab3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 36ecef007e10f9a090dbabc8b5a91fd473930141
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097505"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633853"
 ---
 # <a name="optimize-request-cost-in-azure-cosmos-db"></a>Ottimizza il costo della richiesta in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,7 +35,7 @@ Le operazioni di lettura in Azure Cosmos DB vengono in genere ordinate dal più 
 
 ### <a name="role-of-the-consistency-level"></a>Ruolo del livello di coerenza
 
-Quando si usano i livelli di **bounded staleness** [coerenza](consistency-levels.md)forte o con decadimento **ristretto** , il costo delle unità richiesta di qualsiasi operazione di lettura (lettura a punti o query) viene raddoppiato.
+Quando si usano i livelli di  [coerenza](consistency-levels.md)forte o con decadimento **ristretto** , il costo delle unità richiesta di qualsiasi operazione di lettura (lettura a punti o query) viene raddoppiato.
 
 ### <a name="point-reads"></a>Letture di punti
 
@@ -105,7 +105,7 @@ Il costo ur della scrittura di un elemento dipende da:
 - Dimensione dell'elemento.
 - Numero di proprietà analizzate dal [criterio di indicizzazione](index-policy.md) e necessarie per l'indicizzazione.
 
-Inserimento di un elemento da 1 KB con meno di 5 proprietà per indicizzare i costi circa 5 UR. La sostituzione di un elemento comporta il doppio dei costi necessari per inserire lo stesso elemento.
+Inserimento di un elemento da 1 KB senza indicizzazione costi circa ~ 5,5 UR. La sostituzione di un elemento comporta il doppio dei costi necessari per inserire lo stesso elemento.
 
 ### <a name="optimizing-writes"></a>Ottimizzazione delle Scritture
 

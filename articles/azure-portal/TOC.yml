@@ -21,13 +21,6 @@
         - name: Modello ARM
           displayName: Resource Manager
           href: quick-create-template.md
-- name: Concetti
-  items:
-    - name: Condividere i dashboard con il controllo degli accessi in base al ruolo di Azure
-      href: azure-portal-dashboard-share-access.md
-    - name: Creare i dashboard di Azure a livello di codice
-      href: azure-portal-dashboards-create-programmatically.md
-      displayName: 'Azure CLI, az portal dashboard, az portal'
 - name: Guide pratiche
   items:
     - name: Gestire impostazioni e preferenze del portale di Azure
@@ -38,8 +31,13 @@
       href: manage-filter-resource-views.md
     - name: Creare dashboard di Azure
       items:
-        - name: Creare e condividere dashboard di Azure
+        - name: Creare un dashboard di Azure
           href: azure-portal-dashboards.md
+        - name: Condividere un dashboard di Azure
+          href: azure-portal-dashboard-share-access.md
+        - name: Creare un dashboard di Azure a livello di codice
+          href: azure-portal-dashboards-create-programmatically.md
+          displayName: 'Azure CLI, az portal dashboard, az portal'
         - name: Usare un riquadro markdown personalizzato
           href: azure-portal-markdown-tile.md
     - name: Serie di video di procedure per il portale di Azure

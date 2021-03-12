@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/13/2021
 ms.author: banders
-ms.openlocfilehash: 8117f3ca70f51f2d9b11c479803ac33b49f416e7
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: ecc5c8ebef0d2add365d128e11caedaa173d9d63
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540042"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232144"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Come pagare la fattura per Microsoft Azure
 
@@ -59,6 +59,18 @@ Per pagare le fatture nel portale di Azure, è necessario avere l'[autorizzazion
 1. Dopo aver selezionato un metodo di pagamento, selezionare **Pagamento immediato**.
 
 Lo stato della fattura cambia in *pagata* nell'arco di 24 ore.
+
+## <a name="pay-now-for-customers-in-india"></a>Paga ora per i clienti in India
+
+La banca riservata dell'India ha emesso [nuove normative](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12002&Mode=0) che diverranno effettive il 1 ° aprile 2021. Dopo questa data, le banche in India potrebbero iniziare a rifiutare i pagamenti ricorrenti automatici e i pagamenti dovranno essere effettuati manualmente nel portale di Azure.
+
+Se la banca rifiuta un pagamento ricorrente automatico, l'utente riceverà una notifica tramite posta elettronica e fornirà istruzioni su come procedere.
+
+A partire dal 1 ° aprile 2021, è possibile pagare un saldo in attesa in qualsiasi momento attenendosi alla procedura seguente: 
+
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore account.
+1. Cercare **Gestione dei costi e fatturazione**.
+1. Nella pagina Panoramica selezionare il pulsante **paga ora** . Se non viene visualizzato il pulsante **paga ora** , non è disponibile un saldo in attesa.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

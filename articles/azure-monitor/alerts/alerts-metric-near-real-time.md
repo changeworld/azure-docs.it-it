@@ -5,13 +5,13 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 02/10/2021
-ms.openlocfilehash: c282e6890d56fe047b319f72e05cdc97de76cfcf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/11/2021
+ms.openlocfilehash: efc1438fdc539af278ebff1f292c5fa0a91b7b91
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038187"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016101"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
 
@@ -36,6 +36,7 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.Automation/automationAccounts | Sì| No | [Account di Automazione](../essentials/metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft. AVS/privateClouds | No | No | [Soluzione Azure VMware](../essentials/metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | Sì | No | [Account Batch](../essentials/metrics-supported.md#microsoftbatchbatchaccounts) |
+|Microsoft. BotService/botServices | Sì | No | [Servizi Bot](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
 |Microsoft.Cache/Redis | Sì | Sì | [Cache Redis di Azure](../essentials/metrics-supported.md#microsoftcacheredis) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Servizi cloud classici](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | No | No | [Macchine virtuali classiche](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
@@ -45,6 +46,8 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.ClassicStorage/storageAccounts/queueServices | Sì | No | [Account di archiviazione (versione classica)-code](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
 |Microsoft.ClassicStorage/storageAccounts/tableServices | Sì | No | [Account di archiviazione (versione classica)-tabelle](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
 |Microsoft.CognitiveServices/accounts | Sì | No | [Servizi cognitivi](../essentials/metrics-supported.md#microsoftcognitiveservicesaccounts) |
+|Microsoft. Compute/cloudServices | Sì | No |  [Servizi cloud](../essentials/metrics-supported.md#microsoftcomputecloudservices) |
+|Microsoft. Compute/cloudServices/Roles | Sì | No |  [Ruoli del servizio cloud](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Sì | Sì<sup>1</sup> | [Macchine virtuali](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Sì | No |[Set di scalabilità di macchine virtuali](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft.ContainerInstance/containerGroups | Sì| No | [Gruppi di contenitori](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
@@ -56,9 +59,10 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.DataShare/accounts | Sì | No | [Condivisioni di dati](../essentials/metrics-supported.md#microsoftdatashareaccounts) |
 |Microsoft.DBforMariaDB/servers | No | No | [DB per MariaDB](../essentials/metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | No | No |[Database per MySQL](../essentials/metrics-supported.md#microsoftdbformysqlservers)|
+|Microsoft.DBforPostgreSQL/flexibleServers | Sì | No | [DB per PostgreSQL (server flessibili)](../essentials/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
+|Microsoft. DBforPostgreSQL/serverGroupsv2 | Sì | No | DB per PostgreSQL (iperscalabile) |
 |Microsoft.DBforPostgreSQL/servers | No | No | [Database per PostgreSQL](../essentials/metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | No | No | [DB per PostgreSQL V2](../essentials/metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|Microsoft.DBforPostgreSQL/flexibleServers | Sì | No | [DB per PostgreSQL (server flessibili)](../essentials/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | Sì | No |[Hub IoT](../essentials/metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| Sì | No | [Servizi Device provisioning](../essentials/metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft. DigitalTwins/digitalTwinsInstances | Sì | No | [Gemelli digitali](../essentials/metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
@@ -75,6 +79,8 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.Logic/integrationServiceEnvironments | Sì | No |[Ambienti del servizio di integrazione](../essentials/metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
 |Microsoft.Logic/workflows | No | No |[App per la logica](../essentials/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.MachineLearningServices/workspaces | Sì | No | [Machine Learning](../essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft. MachineLearningServices/Workspaces/onlineEndpoints | Sì | No | Endpoint Machine Learning |
+|Microsoft. MachineLearningServices/Workspaces/onlineEndpoints/distribuzioni | Sì | No | Distribuzioni di endpoint Machine Learning |
 |Microsoft.Maps/accounts | Sì | No | [Mappa account](../essentials/metrics-supported.md#microsoftmapsaccounts) |
 |Microsoft.Media/mediaservices | No | No | [Servizi multimediali](../essentials/metrics-supported.md#microsoftmediamediaservices) |
 |Microsoft.Media/mediaservices/streamingEndpoints | Sì | No | [Endpoint di streaming di servizi multimediali](../essentials/metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |

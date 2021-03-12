@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: 556570b02664a0afd01137f939bea67a1014b680
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: ea33eff30e712c1597c3606d74cb6d56683211ae
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449493"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615585"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -117,7 +117,7 @@ Se l'account di archiviazione è stato configurato per consentire l'accesso da r
 ### <a name="create-or-update-data-export-rule"></a>Crea o Aggiorna regola di esportazione dei dati
 Una regola di esportazione dei dati consente di definire le tabelle per le quali i dati vengono esportati e la destinazione. È possibile creare una singola regola per ogni destinazione.
 
-Se è necessario un elenco di tabelle nella configurazione di workapce per le regole di esportazione, eseguire questa query nell'area di lavoro.
+La regola di esportazione deve includere le tabelle presenti nell'area di lavoro. Eseguire questa query per un elenco delle tabelle disponibili nell'area di lavoro.
 
 ```kusto
 find where TimeGenerated > ago(24h) | distinct Type
@@ -684,7 +684,7 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 | SynapseSqlPoolWaits |  |
 | syslog | Supporto parziale: alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questa parte non è attualmente presente nell'esportazione. |
 | ThreatIntelligenceIndicator |  |
-| Aggiorna | Supporto parziale: alcuni dati vengono inseriti tramite servizi interni non supportati per l'esportazione. Questa parte non è attualmente presente nell'esportazione. |
+| Aggiornamento | Supporto parziale: alcuni dati vengono inseriti tramite servizi interni non supportati per l'esportazione. Questa parte non è attualmente presente nell'esportazione. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | Utilizzo |  |

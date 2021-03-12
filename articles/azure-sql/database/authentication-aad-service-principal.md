@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 02/11/2021
-ms.openlocfilehash: 15cc935457f76fb1d2fe4e8d699db831ebacc357
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 68267cdedd2f0b64549791866e8750cf42928ab4
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181755"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201250"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Entità servizio di Azure Active Directory con Azure SQL
 
@@ -52,7 +52,7 @@ Il supporto di questa funzionalità è utile in Azure AD processi di automazione
 
 Per abilitare la creazione di un oggetto Azure AD nel database SQL e nella sinapsi di Azure per conto di un'applicazione Azure AD, sono necessarie le impostazioni seguenti:
 
-1. Assegnare l'identità del server. L'identità del server assegnata rappresenta l'identità del sistema gestito (MSI). Attualmente, l'identità del server per SQL di Azure non supporta l'identità gestita dall'utente (UMI).
+1. Assegnare l'identità del server. L'identità del server assegnata rappresenta il identità del servizio gestita (MSI). Attualmente, l'identità del server per SQL di Azure non supporta l'identità gestita dall'utente (UMI).
     - Per un nuovo server logico SQL di Azure, eseguire il comando PowerShell seguente:
     
     ```powershell

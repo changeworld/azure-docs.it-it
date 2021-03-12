@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 2139080367cdce9a5f018afab0970a7bd0e7504c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 66edd4cad5b2f38696ef1df2030687bf4c7d9956
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467309"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634176"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-pro-r-device-via-azure-powershell"></a>Configurare la VPN sul dispositivo R Azure Stack Edge Pro tramite Azure PowerShell
 
@@ -165,7 +165,7 @@ Si configurerà quindi la VPN nell'interfaccia utente Web locale del dispositivo
 
 ## <a name="validate-data-transfer-through-vpn"></a>Convalidare il trasferimento dei dati tramite VPN
 
-Per verificare che la VPN funzioni, copiare i dati in una condivisione SMB. Seguire i passaggi in [aggiungere una condivisione](azure-stack-edge-j-series-manage-shares.md#add-a-share) sul dispositivo R Azure stack Edge Pro. 
+Per verificare che la VPN funzioni, copiare i dati in una condivisione SMB. Seguire i passaggi in [aggiungere una condivisione](azure-stack-edge-gpu-manage-shares.md#add-a-share) sul dispositivo R Azure stack Edge Pro. 
 
 1. Copiare un file, ad esempio \data\pictures\waterfall.jpg alla condivisione SMB montata nel sistema client. 
 2. Verificare che il file venga visualizzato nell'account di archiviazione nel cloud.

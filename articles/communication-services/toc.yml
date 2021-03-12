@@ -63,6 +63,8 @@
       href: tutorials/hmac-header-tutorial.md
     - name: Preparare un'app Web per i servizi di comunicazione (Node.js)
       href: tutorials/building-app-start.md
+    - name: Firmare e inviare richieste all'API SMS di ACS con l'agente di pubblicazione
+      href: tutorials/postman-tutorial.md
 - name: Concetti
   expanded: false
   items:
@@ -145,9 +147,9 @@
     - name: Librerie Chiamata
       items:
         - name: Chiamata (JavaScript)
-          href: /javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
+          href: /javascript/api/azure-communication-services/@azure/communication-calling/
         - name: Chiamata (Android/Java)
-          href: /java/api/com.azure.communication.calling?view=communication-services-java-android
+          href: /java/api/com.azure.communication.calling
         - name: Chiamata (iOS)
           href: /objectivec/communication-services/calling/
     - name: Librerie Chat

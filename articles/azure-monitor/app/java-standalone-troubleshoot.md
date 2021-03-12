@@ -4,12 +4,12 @@ description: Informazioni su come risolvere i problemi relativi all'agente Java 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: f971466f25c2b7a4bd28e5b7eec6268f1b2e8b3d
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199612"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225575"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guida alla risoluzione dei problemi: monitoraggio di Azure Application Insights per Java
 
@@ -41,7 +41,9 @@ Queste modifiche comprendono:
 
 ## <a name="some-logging-is-not-auto-collected"></a>Alcune registrazioni non vengono raccolte automaticamente
 
-La registrazione viene acquisita solo se prima soddisfa la soglia configurata dei framework di registrazione e il secondo soddisfa anche la soglia di Application Insights configurata.
+La registrazione viene acquisita solo se soddisfa prima di tutto il livello configurato per il Framework di registrazione e in secondo luogo soddisfa anche il livello configurato per Application Insights.
+
+Se, ad esempio, il Framework di registrazione è configurato per registrare `WARN` (e versioni successive) dal pacchetto `com.example` e Application Insights è configurato per acquisire `INFO` (e versioni successive), Application Insights acquisisce (e versioni successive) solo `WARN` dal pacchetto `com.example` .
 
 Il modo migliore per determinare se una particolare istruzione di registrazione soddisfa la soglia configurata dei framework di registrazione consiste nel verificare che venga visualizzata nel normale registro applicazioni, ad esempio file o console.
 

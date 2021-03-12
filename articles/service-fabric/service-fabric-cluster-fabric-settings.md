@@ -3,12 +3,12 @@ title: Modificare le impostazioni di un cluster di Azure Service Fabric
 description: Questo articolo descrive le impostazioni dell'infrastruttura e i criteri di aggiornamento dell'infrastruttura che è possibile personalizzare.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183404"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232053"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -349,6 +349,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |DisableContainers|bool, valore predefinito: FALSE|Statico|Configurazione per la disabilitazione di contenitori - usata al posto di DisableContainerServiceStartOnContainerActivatorOpen, che è una configurazione deprecata |
 |DisableDockerRequestRetry|bool, valore predefinito: FALSE |Dinamico| Per impostazione predefinita, Service Fabric comunica con DD (Docker Daemon) con un timeout pari a DockerRequestTimeout per ogni richiesta HTTP inviata al daemon. Se DD non risponde entro questo periodo di tempo e l'operazione di più alto livello ha ancora tempo rimanente, Service Fabric invia nuovamente la richiesta.  Con un contenitore Hyper-V, DD richiede talvolta molto più tempo per attivare il contenitore o per disattivarlo. In casi come questo si verifica il timeout della richiesta DD dalla prospettiva di Service Fabric e Service Fabric ritenta l'operazione. Talvolta si ha l'impressione che venga esercitata una maggiore pressione su DD. Questa configurazione consente di disabilitare la ripetizione del tentativo e attendere la risposta di DD. |
 |DnsServerListTwoIps | Bool, valore predefinito: false | Statico | Questi flag aggiungono due volte il server DNS locale per attenuare i problemi di risoluzione intermittenti. |
+| DockerTerminateOnLastHandleClosed | bool, valore predefinito: FALSE | Statico | Per impostazione predefinita, se FabricHost gestisce ' dockerd ' (in base a: SkipDockerProcessManagement = = false), questa impostazione Configura cosa accade quando FabricHost o dockerd si arresta in modo anomalo. `true`Se viene impostato su se uno dei processi arresta tutti i contenitori in esecuzione, verrà interrotto forzatamente da HCS. Se impostato su `false` i contenitori continueranno a essere in esecuzione. Nota: precedente a 8,0 questo comportamento era involontariamente equivalente a `false` . L'impostazione predefinita di `true` qui è ciò che si prevede di eseguire per impostazione predefinita, andando avanti affinché la logica di pulizia risulti efficace al riavvio di questi processi. |
 | DoNotInjectLocalDnsServer | bool, valore predefinito: FALSE | Statico | Impedisce al runtime di inserire l'indirizzo IP locale come server DNS per i contenitori. |
 |EnableActivateNoWindow| bool, valore predefinito: FALSE|Dinamico| Il processo attivato viene creato in background senza alcuna console. |
 |EnableContainerServiceDebugMode|bool, valore predefinito: TRUE|Statico|Abilita/disabilita la registrazione per i contenitori Docker.  Solo Windows.|

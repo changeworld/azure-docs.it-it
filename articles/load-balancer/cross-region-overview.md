@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 1d435c3b15433b7fec00d5dfa80970c04323e635
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 8e14b22895c4734f1efd8688a5b20c946422a080
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199358"
+ms.locfileid: "103225626"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Bilanciamento del carico tra aree (anteprima)
 
@@ -94,7 +94,7 @@ Il pool back-end del servizio di bilanciamento del carico tra aree contiene uno 
 
 Aggiungere le distribuzioni del servizio di bilanciamento del carico esistenti a un servizio di bilanciamento del carico tra aree per una distribuzione a disponibilità elevata e tra aree.
 
-L' **area principale** è la posizione in cui viene distribuito il servizio di bilanciamento del carico tra aree. Questa area non influisce sul modo in cui il traffico verrà indirizzato. Se un'area principale diventa inattiva, il flusso del traffico non è interessato.
+**Area Home** è il punto in cui viene distribuito il servizio di bilanciamento del carico tra aree o l'indirizzo IP pubblico del livello globale. Questa area non influisce sul modo in cui il traffico verrà indirizzato. Se un'area principale diventa inattiva, il flusso del traffico non è interessato.
 
 ### <a name="home-regions"></a>Aree domestiche
 * Stati Uniti orientali 2
@@ -106,7 +106,7 @@ L' **area principale** è la posizione in cui viene distribuito il servizio di b
 * Asia orientale
 
 > [!NOTE]
-> È possibile distribuire il servizio di bilanciamento del carico tra aree solo in una delle 7 aree precedenti.
+> È possibile distribuire il servizio di bilanciamento del carico tra aree o l'indirizzo IP pubblico nel livello globale in una delle 7 aree precedenti.
 
 Un' **area partecipante** è la posizione in cui è disponibile l'indirizzo IP pubblico globale del servizio di bilanciamento del carico. 
 
