@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 03/10/2021
 ms.author: victorh
-ms.openlocfilehash: b01a856c71375af507e2bf29297e64a6ce9412e5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 21bb1856409b7fbea1eeffb8b3769dd63119da50
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741430"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612848"
 ---
 # <a name="azure-firewall-features"></a>Funzionalità di Firewall di Azure
 
@@ -148,4 +148,4 @@ Firewall di Azure è conforme a PCI (Payment Card Industry), SOC (Service Organi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Logica di elaborazione delle regole del Firewall di Azure](rule-processing.md)
+- [Funzionalità di anteprima di Azure Firewall Premium](premium-features.md)

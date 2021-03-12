@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: d2fa464214f6a4201b1ecd62ee1a5dacdd7ec158
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: e72ad50b495dec7e3a647bb7bcbdeafd53f5de7b
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832454"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636624"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisiti di sistema per Azure Stack Edge Pro con GPU 
 
@@ -38,7 +38,7 @@ I requisiti di sistema per il Pro Azure Stack Edge includono:
 
 ## <a name="supported-edge-storage-accounts"></a>Account di archiviazione Edge supportati
 
-Gli account di archiviazione Edge seguenti sono supportati con l'interfaccia REST del dispositivo. Gli account di archiviazione perimetrali vengono creati nel dispositivo. Per altre informazioni, vedere [account di archiviazione Edge](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
+Gli account di archiviazione Edge seguenti sono supportati con l'interfaccia REST del dispositivo. Gli account di archiviazione perimetrali vengono creati nel dispositivo. Per altre informazioni, vedere [account di archiviazione Edge](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Tipo  |Account di archiviazione  |Commenti  |
 |---------|---------|---------|

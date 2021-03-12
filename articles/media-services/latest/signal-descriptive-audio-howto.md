@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3d029f23a094646d20dd6ae8cb6560aeef4aed54
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5174cb584f2e8df236725f7427b423fda1a02c88
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954513"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630861"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Segnala tracce audio descrittive
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-È possibile aggiungere una traccia audio al video per aiutare i clienti con problemi di vista a seguire la registrazione ascoltando la narrazione. In servizi multimediali V3 è possibile segnalare tracce audio descrittive annotando la traccia audio nel file manifesto.
+È possibile aggiungere un tracking per la narrazione al video per aiutare i client che non hanno apportato la propria visione a seguire la registrazione video ascoltando la narrazione. In servizi multimediali V3 è possibile segnalare tracce audio descrittive annotando la traccia audio nel file manifesto.
 
 Questo articolo illustra come codificare un video, caricare un file MP4 solo audio (codec AAC) contenente audio descrittivo nell'asset di output e modificare il file con estensione ISM per includere l'audio descrittivo.
 

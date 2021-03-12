@@ -1,26 +1,26 @@
 ---
-title: Esempio di progetto CIS Microsoft Azure Foundations Benchmark
-description: Panoramica dell'esempio di progetto CIS Microsoft Azure Foundations Benchmark. Questo esempio di progetto consente ai clienti di valutare specifici controlli.
-ms.date: 01/27/2021
+title: Esempio di progetto di benchmark v 1.1.0 di CIS Microsoft Azure Foundation
+description: Panoramica dell'esempio di progetto di benchmark v 1.1.0 di CIS Microsoft Azure Foundations. Questo esempio di progetto consente ai clienti di valutare specifici controlli.
+ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: fc9e2443cd1e413588487646d6400ae1f2185208
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b6188d96971329a83bc82042a1f840bd893354eb
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918417"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197794"
 ---
-# <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Esempio di progetto CIS Microsoft Azure Foundations Benchmark
+# <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>Esempio di progetto di benchmark v 1.1.0 di CIS Microsoft Azure Foundation
 
-L'esempio di progetto CIS Microsoft Azure Foundations Benchmark fornisce misure di tutela per la governance tramite [Criteri di Azure](../../policy/overview.md) per valutare le raccomandazioni specifiche di CIS Microsoft Azure Foundations Benchmark. Il progetto aiuta i clienti a distribuire un set di base di criteri per qualsiasi architettura distribuita in Azure che deve implementare le raccomandazioni di CIS Microsoft Azure Foundations Benchmark.
+L'esempio SID Microsoft Azure Foundations benchmark v 1.1.0 Blueprint fornisce Guard Guard di governance usando [criteri di Azure](../../policy/overview.md) che consentono di valutare le raccomandazioni specifiche del benchmark di Microsoft Azure delle fondamenta di CIS. Questo progetto consente ai clienti di distribuire un set di criteri di base per qualsiasi architettura distribuita in Azure che deve implementare le raccomandazioni di CIS Microsoft Azure Foundations benchmark v 1.1.0.
 
 ## <a name="recommendation-mapping"></a>Mapping di raccomandazioni
 
-Il [mapping di raccomandazioni di Criteri di Azure](../../policy/samples/cis-azure-1-1-0.md) fornisce informazioni dettagliate sulle definizioni di criteri incluse in questo progetto e sul relativo mapping ai **domini di conformità** e ai **controlli** di CIS Microsoft Azure Foundations Benchmark v1.1.0. Le risorse assegnate a un'architettura vengono valutate da Criteri di Azure per rilevare la mancata conformità alle definizioni di criteri assegnate. Per altre informazioni, vedere [Criteri di Azure](../../policy/overview.md).
+Il [mapping delle raccomandazioni sui criteri di Azure](../../policy/samples/cis-azure-1-1-0.md) fornisce informazioni dettagliate sulle definizioni dei criteri incluse in questo progetto e sul modo in cui queste definizioni di criteri sono mappate ai **consigli** in CIS Microsoft Azure Foundations benchmark v 1.1.0. Le risorse assegnate a un'architettura vengono valutate da Criteri di Azure per rilevare la mancata conformità alle definizioni di criteri assegnate. Per altre informazioni, vedere [Criteri di Azure](../../policy/overview.md).
 
 ## <a name="deploy"></a>Distribuire
 
-Per distribuire l'esempio di progetto Azure Blueprints CIS Microsoft Azure Foundations Benchmark, seguire questa procedura:
+Per distribuire l'esempio Blueprints CIS Microsoft Azure Foundations benchmark v 1.1.0 Blueprint, è necessario eseguire i passaggi seguenti:
 
 > [!div class="checklist"]
 > - Creare un nuovo progetto dall'esempio
@@ -50,7 +50,7 @@ Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nel
 
 ### <a name="publish-the-sample-copy"></a>Pubblicare la copia dell'esempio
 
-La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata in base all'ambiente e alle esigenze, ma le modifiche potrebbero renderla non allineata rispetto a quanto consigliato per CIS Microsoft Azure Foundations Benchmark.
+La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata in base all'ambiente e alle esigenze, ma tale modifica potrebbe allontanarsi dall'allineamento con le raccomandazioni del benchmark v 1.1.0 di CIS Microsoft Azure Foundations.
 
 1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
@@ -101,8 +101,8 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 |Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|Controlla le raccomandazioni per CIS Microsoft Azure Foundations Benchmark 1.1.0 e implementa le estensioni macchina virtuale di supporto specifiche|Assegnazione di criteri|Elenco di aree in cui deve essere abilitato Network Watcher|Elenco di aree delimitate da punto e virgola. Per visualizzare un elenco completo delle aree, usare Get-AzLocation. Esempio: eastus; eastus2|
-|Controlla le raccomandazioni per CIS Microsoft Azure Foundations Benchmark 1.1.0 e implementa le estensioni macchina virtuale di supporto specifiche|Assegnazione di criteri|Elenco di estensioni macchina virtuale approvate per l'uso|Elenco di estensioni delimitato da punto e virgola. Per visualizzare un elenco completo delle estensioni macchina virtuale, usare Get-AzVMExtensionImage. ad esempio AzureDiskEncryption; IaaSAntimalware|
+|Controllare le raccomandazioni del Microsoft Azure Foundation di benchmark v 1.1.0 e distribuire estensioni di VM di supporto specifiche|Assegnazione di criteri|Elenco di aree in cui deve essere abilitato Network Watcher|Elenco di aree delimitate da punto e virgola. Per visualizzare un elenco completo delle aree, usare Get-AzLocation. Esempio: eastus; eastus2|
+|Controllare le raccomandazioni del Microsoft Azure Foundation di benchmark v 1.1.0 e distribuire estensioni di VM di supporto specifiche|Assegnazione di criteri|Elenco di estensioni macchina virtuale approvate per l'uso|Elenco di estensioni delimitato da punto e virgola. Per visualizzare un elenco completo delle estensioni macchina virtuale, usare Get-AzVMExtensionImage. ad esempio AzureDiskEncryption; IaaSAntimalware|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

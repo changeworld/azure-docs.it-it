@@ -116,6 +116,16 @@
           href: fix-deployment-provisioning-failures.md
     - name: Domande frequenti
       href: faq.yml
+    - name: Video
+      items:
+        - name: Playlist
+          href: 'https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin'
+        - name: Integrazione con il servizio di Azure
+          href: 'https://youtu.be/m26iLu6DHbU'
+        - name: Integrazione con applicazione Azure gateway
+          href: 'https://youtu.be/BoQYvqzb6Y8'
+        - name: Pianificazione della migrazione e della capacità
+          href: 'https://youtu.be/NoNG-hkksrA'
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

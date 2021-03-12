@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b95b1e96dc26fb72338518fc969c69b035d5f68
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 83758f63b7e60d08a31f1da9da4a6eec6ba7d4a4
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095237"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632068"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app Azure e funzioni di Azure
 
-Il Servizio app di Azure fornisce supporto integrato per l'autenticazione e l'autorizzazione ed è quindi possibile consentire l'accesso degli utenti e l'accesso ai dati senza scrivere codice, o con una minima quantità di codice, nell'app Web, nell'API RESTful, nel back-end per dispositivi mobili e anche in [Funzioni di Azure](../azure-functions/functions-overview.md). Questo articolo descrive in che modo il servizio app aiuta a semplificare l'autenticazione e l'autorizzazione per l'app.
+App Azure servizio fornisce supporto per l'autenticazione e l'autorizzazione predefiniti (talvolta definito "Easy auth"), in modo che sia possibile accedere agli utenti e accedere ai dati scrivendo codice minimo o senza codice nell'app Web, API RESTful e back-end per dispositivi mobili e anche [funzioni di Azure](../azure-functions/functions-overview.md). Questo articolo descrive in che modo il servizio app aiuta a semplificare l'autenticazione e l'autorizzazione per l'app.
 
 Per consentire processi sicuri di autenticazione e autorizzazione, è necessario conoscere a fondo i concetti correlati alla sicurezza, tra cui federazione, crittografia, gestione dei [token JSON Web (JWT)](https://wikipedia.org/wiki/JSON_Web_Token), [tipi di concessione](https://oauth.net/2/grant-types/) e così via. Il servizio app fornisce queste utilità che consentono agli sviluppatori di dedicare più tempo e lavoro alla creazione di valore aziendale per il cliente.
 
@@ -26,14 +26,11 @@ Per consentire processi sicuri di autenticazione e autorizzazione, è necessario
 >
 
 > [!NOTE]
-> La funzionalità di autenticazione/autorizzazione viene anche chiamata "Easy auth".
-
-> [!NOTE]
 > L'abilitazione di questa funzionalità provocherà automaticamente il reindirizzamento di **tutte** le richieste HTTP non sicure all'applicazione a HTTPS, indipendentemente dall'impostazione di configurazione del servizio app per [applicare HTTPS](configure-ssl-bindings.md#enforce-https). Se necessario, è possibile disabilitare questa impostazione usando l' `requireHttps` impostazione nel [file di configurazione delle impostazioni di autenticazione](app-service-authentication-how-to.md#configuration-file-reference), ma è necessario assicurarsi che non venga mai trasmesso alcun token di sicurezza su connessioni HTTP non protette.
 
 Per informazioni specifiche per le app per dispositivi mobili native, vedere [Autenticazione e autorizzazione per le app per dispositivi mobili in Servizio app di Azure](/previous-versions/azure/app-service-mobile/app-service-mobile-auth).
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 ### <a name="on-windows"></a>In Windows
 

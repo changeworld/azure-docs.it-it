@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f1b25b853977b3a1f4871e232a562d6a3cfd2fae
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: c1c1b5f58aa0e760ff626af4607cf8e2d1e13910
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434203"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232422"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Guida introduttiva: esplorare uno scenario di esempio di dispositivi digitali gemelli di Azure con Esplora dispositivi digitali di Azure
 
@@ -93,13 +93,16 @@ Aprire una finestra della console nel percorso della cartella **Azure_Digital_Tw
 
 1. Immettere l'URL dell'istanza di Gemelli digitali di Azure ottenuto in precedenza nella sezione [Configurare un'istanza di Gemelli digitali di Azure](#set-up-an-azure-digital-twins-instance) nel formato *https://{nome host istanza}* .
 
->[!NOTE]
-> È possibile rivedere o modificare queste informazioni in qualsiasi momento selezionando la stessa icona per aprire la casella **Sign In** (Accesso). Verranno mantenuti i valori immessi.
-
 > [!TIP]
 > Se viene visualizzato il messaggio di errore `SignalRService.subscribe` quando ci si connette, assicurarsi che l'URL di Gemelli digitali di Azure inizi con *https://* .
 
+> [!TIP]
+> Se viene visualizzato un errore di autenticazione, è consigliabile controllare le variabili di ambiente per verificare che le credenziali incluse siano valide per i dispositivi gemelli digitali di Azure. DefaultAzureCredential tenta di eseguire l'autenticazione in base ai [tipi di credenziali](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) in un ordine specifico e le variabili di ambiente vengono valutate per prime.
+
 Se viene visualizzata una finestra popup **Autorizzazioni richieste** da Microsoft, concedere il consenso per l'applicazione e accettare per continuare.
+
+>[!NOTE]
+> È possibile rivedere o modificare queste informazioni in qualsiasi momento selezionando la stessa icona per aprire la casella **Sign In** (Accesso). Verranno mantenuti i valori immessi.
 
 ## <a name="add-the-sample-data"></a>Aggiungere i dati di esempio
 

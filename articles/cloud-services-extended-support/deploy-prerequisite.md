@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1473305d7da57d1216ef05c0b88a0f69d586784b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e5994f05187cd25996bcc007d27a7e10eb76427
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728111"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232529"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Prerequisiti per la distribuzione di servizi cloud di Azure (supporto esteso)
 
@@ -120,7 +120,7 @@ Per le distribuzioni che utilizzano i vecchi plug-in di desktop remoto è necess
 
 ## <a name="key-vault-creation"></a>Creazione Key Vault 
 
-Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio. È anche necessario abilitare Key Vault per le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault. È possibile creare Key Vault tramite [portale di Azure](../key-vault/general/quick-create-portal.md)e  [PowerShell](../key-vault/general/quick-create-powershell.md). Il Key Vault deve essere creato nella stessa area e nella stessa sottoscrizione del servizio cloud. Per altre informazioni, vedere [usare i certificati con servizi cloud di Azure (supporto esteso)](certificates-and-key-vault.md).
+Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio. È anche necessario abilitare Key Vault per le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault. È possibile creare un insieme di credenziali delle chiavi nella [portale di Azure](../key-vault/general/quick-create-portal.md) o tramite [PowerShell](../key-vault/general/quick-create-powershell.md). L'insieme di credenziali delle chiavi deve essere creato nella stessa area e nella stessa sottoscrizione del servizio cloud. Per altre informazioni, vedere [usare i certificati con servizi cloud di Azure (supporto esteso)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Passaggi successivi 
 - Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i servizi cloud (supporto esteso).

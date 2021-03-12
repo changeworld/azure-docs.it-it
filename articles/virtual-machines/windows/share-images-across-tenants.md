@@ -3,18 +3,18 @@ title: Condividere immagini della raccolta tra i tenant in Azure
 description: Informazioni su come condividere immagini di VM tra tenant di Azure usando le raccolte di immagini condivise e PowerShell.
 author: axayjo
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 84998182081c6a681668fbd9bc05446357beb959
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e78cb29551bf7eb3f713edb755464eb7696106e8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781046"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556129"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-powershell"></a>Condividere immagini di VM della raccolta tra i tenant di Azure con PowerShell
 

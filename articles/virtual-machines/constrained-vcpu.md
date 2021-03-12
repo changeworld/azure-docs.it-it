@@ -3,15 +3,16 @@ title: Dimensioni con vCPU vincolate
 description: Elenca le dimensioni delle macchine virtuali che supportano un numero di vCPU vincolato.
 author: mimckitt
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/09/2018
 ms.author: mimckitt
-ms.openlocfilehash: 530ae08dabe54ed279a4055e52109aad0ef4f842
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7faeec8494a908b9aab00be9b63904354b5e0994
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426154"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557081"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Dimensioni delle macchine virtuali con supporto vCPU vincolate
 

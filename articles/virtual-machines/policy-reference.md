@@ -1,19 +1,19 @@
 ---
 title: Definizioni di criteri predefiniti per Macchine virtuali di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Macchine virtuali di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 35008d117dd4d12b95416af9540c3dedc09c6921
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: a8f1689deb50809a4462fc6a8fe3df4a7a46da28
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435351"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616181"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machines"></a>Definizioni predefinite di Criteri di Azure per Macchine virtuali di Azure
 

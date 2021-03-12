@@ -10,14 +10,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c06120d1a2e8aa6aa0c006c6f40fed6fab44c5b7
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719016"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200704"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperare i log da distribuzioni IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Recuperare i log dalle distribuzioni di IoT Edge senza richiedere l'accesso fisico o SSH al dispositivo usando i metodi diretti inclusi nel modulo IoT Edge Agent. I metodi diretti vengono implementati nel dispositivo e quindi possono essere richiamati dal cloud. L'agente IoT Edge include metodi diretti che consentono di monitorare e gestire i dispositivi di IoT Edge in modalità remota. I metodi diretti descritti in questo articolo sono disponibili a livello generale con la versione 1.0.10.
 

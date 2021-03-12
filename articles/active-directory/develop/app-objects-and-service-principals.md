@@ -13,12 +13,12 @@ ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: f0a9298b6d8ee011052a20dc34d314adbc5a0b1e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 358e066631304e727d18d092bd4b9a5b2a0bb89a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646402"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199619"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Oggetti applicazione e oggetti entità servizio in Azure Active Directory
 
@@ -63,11 +63,10 @@ L'oggetto applicazione è la rappresentazione *globale* dell'applicazione da usa
 
 L'oggetto applicazione funge da modello da cui *derivano* le proprietà comuni e predefinite per l'uso nella creazione di oggetti entità servizio corrispondenti. Un oggetto applicazione ha quindi una relazione 1:1 con l'applicazione software e una relazione 1:molti con gli oggetti entità servizio corrispondenti.
 
-In ogni tenant in cui viene usata l'applicazione è necessario creare un'entità servizio per poter stabilire un'identità per l'iscrizione e/o l'accesso alle risorse che venga protetta da un tenant. Un'applicazione single-tenant ha una sola entità servizio (nel relativo tenant principale), creata e autorizzata per essere usata durante la registrazione dell'applicazione. Un'applicazione Web/API multi-tenant ha anche un'entità servizio creata in ogni tenant in cui l'utente ha dato il consenso all'uso.
+In ogni tenant in cui viene usata l'applicazione è necessario creare un'entità servizio per poter stabilire un'identità per l'iscrizione e/o l'accesso alle risorse che venga protetta da un tenant. Un'applicazione single-tenant ha una sola entità servizio (nel relativo tenant principale), creata e autorizzata per essere usata durante la registrazione dell'applicazione. Un'applicazione multi-tenant dispone anche di un'entità servizio creata in ogni tenant in cui un utente di tale tenant ha acconsentito al suo uso.
 
-Tutte le modifiche apportate all'oggetto applicazione, inclusa l'eliminazione, vengono riflesse nell'oggetto entità servizio nel tenant Home dell'applicazione (il tenant in cui è stato registrato). Per le applicazioni multi-tenant, le modifiche apportate all'oggetto applicazione non vengono riflesse negli oggetti entità servizio dei tenant consumer fino a quando non viene rimosso l'accesso tramite il [Pannello di accesso all'applicazione](https://myapps.microsoft.com) e poi concesso nuovamente.
-
-Per impostazione predefinita, le applicazioni native vengono registrate come multi-tenant.
+### <a name="consequences-of-modifying-and-deleting-applications"></a>Conseguenze della modifica e dell'eliminazione di applicazioni
+Tutte le modifiche apportate all'oggetto applicazione vengono riflesse anche nel relativo oggetto entità servizio nel tenant Home dell'applicazione (il tenant in cui è stato registrato). Ciò significa che l'eliminazione di un oggetto applicazione eliminerà anche il relativo oggetto entità servizio tenant Home.  Tuttavia, il ripristino dell'oggetto applicazione non ripristinerà l'entità servizio corrispondente. Per le applicazioni multi-tenant, le modifiche apportate all'oggetto applicazione non vengono riflesse negli oggetti entità servizio dei tenant consumer fino a quando non viene rimosso l'accesso tramite il [Pannello di accesso all'applicazione](https://myapps.microsoft.com) e poi concesso nuovamente.
 
 ## <a name="example"></a>Esempio
 

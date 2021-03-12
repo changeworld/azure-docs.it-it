@@ -9,14 +9,16 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ae7009468b548cb9386fd405abfbe110d62f9a3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a20992ef26b74bcc37a7403e4ee77cacc0f8f66e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377517"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200284"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Distribuisci moduli IoT Edge su larga scala usando Visual Studio Code
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 È possibile creare una **IOT Edge distribuzione automatica** usando Visual Studio Code per gestire contemporaneamente le distribuzioni in corso per molti dispositivi. Le distribuzioni automatiche per IoT Edge rientrano nella funzionalità di [gestione automatica dei dispositivi](../iot-hub/iot-hub-automatic-device-management.md) dell'hub IoT. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli a più dispositivi. È anche possibile tenere traccia dello stato e dell'integrità dei moduli e apportare modifiche quando necessario.
 

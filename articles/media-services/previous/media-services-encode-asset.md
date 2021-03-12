@@ -3,7 +3,7 @@ title: Panoramica dei codificatori multimediali su richiesta di Azure | Microsof
 description: Servizi multimediali di Azure offre diverse opzioni per la codifica di servizi multimediali nel cloud. Questo articolo fornisce una panoramica dei codificatori multimediali su richiesta di Azure.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2019
-ms.author: juliako
-ms.openlocfilehash: d6e64ed7476b3f9fd5427c2f3d26855bc4d5f97d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 0fcf3aaa830c092dfa225f55fef882e2263b16cd
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695764"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013551"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Panoramica dei codificatori multimediali su richiesta di Azure
 
@@ -69,7 +69,7 @@ Per informazioni, vedere [Come tagliare video usando Media Encoder Standard](med
 ### <a name="create-overlays"></a>Creare sovrimpressioni
 Per informazioni, vedere [Come creare sovrimpressioni usando Media Encoder Standard](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedi anche
 [Blog di Servizi multimediali](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ### <a name="known-issues"></a>Problemi noti

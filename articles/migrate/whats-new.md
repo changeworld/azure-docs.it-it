@@ -7,20 +7,22 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: f50737bdefc9065c9b16633ba3360bda1d028cd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 41476c5f8165729caa6780f8e74eb6c3ae30a59c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043049"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614633"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novità di Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) consente di individuare, valutare ed eseguire la migrazione di server locali, app e dati nel cloud Microsoft Azure. Questo articolo riepiloga le nuove versioni e funzionalità di Azure Migrate.
 
 ## <a name="update-march-2021"></a>Aggiornamento (2021 marzo)
-- Supporto per fornire più credenziali del server in Azure Migrate Appliance per individuare le applicazioni installate (inventario software), l'analisi delle dipendenze senza agenti e individuare SQL Server istanze e database nell'ambiente VMware. [Scopri di più](tutorial-discover-vmware.md#provide-server-credentials)
-- L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. [Altre informazioni](concepts-azure-sql-assessment-calculation.md)<br/>Per provare questa funzionalità, usare [questo collegamento](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Per iniziare, vedere le esercitazioni sull' [individuazione](tutorial-discover-vmware.md) e la [valutazione](tutorial-assess-sql.md) .
+- Supporto per fornire più credenziali del server in Azure Migrate Appliance per individuare le applicazioni installate (inventario software), l'analisi delle dipendenze senza agenti e individuare SQL Server istanze e database nell'ambiente VMware. [Altre informazioni](tutorial-discover-vmware.md#provide-server-credentials)
+- L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. [Altre informazioni](concepts-azure-sql-assessment-calculation.md)<br/>Per provare questa funzionalità, usare [questo collegamento](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Per iniziare, fare riferimento alle esercitazioni su [individuazione](tutorial-discover-vmware.md) e [valutazione](tutorial-assess-sql.md).
+- La migrazione VMware senza agente supporta ora la replica simultanea di VM 500 per vCenter.
+- Azure Migrate installa ora automaticamente l'agente di macchine virtuali di Azure nelle VM VMware mentre ne esegue la migrazione in Azure usando il metodo senza agente della migrazione di VMware.
 
 ## <a name="update-january-2021"></a>Aggiornamento (gennaio 2021)
 -  Azure Migrate: lo strumento di migrazione server consente ora di eseguire la migrazione di macchine virtuali VMware, server fisici e macchine virtuali da altri cloud a macchine virtuali di Azure con dischi crittografati con la crittografia lato server con chiavi gestite dal cliente (CMK).

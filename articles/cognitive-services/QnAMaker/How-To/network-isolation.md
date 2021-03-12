@@ -5,62 +5,33 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 8fe8c07866b23e5d990b71bfc9cd556c338634d3
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 731d94aa76146bf06a03842e8f3907d1762eeca3
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203369"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225609"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Impostazioni consigliate per l'isolamento rete
 
 Attenersi alla procedura seguente per limitare l'accesso pubblico alle risorse QnA Maker. Proteggere una risorsa di servizi cognitivi dall'accesso pubblico [configurando la rete virtuale](../../cognitive-services-virtual-networks.md?tabs=portal).
 
-## <a name="restrict-access-to-cognitive-search-resource"></a>Limitare l'accesso alla risorsa ricerca cognitiva
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
-
-Configurazione di ricerca cognitiva come endpoint privato all'interno di un VNET. Quando viene creata un'istanza di ricerca durante la creazione di una risorsa di QnA Maker, è possibile forzare ricerca cognitiva a supportare una configurazione di endpoint privato creata interamente all'interno di un VNet del cliente.
-
-Per usare un endpoint privato, è necessario creare tutte le risorse nella stessa area.
-
-* Risorsa QnA Maker
-* nuova risorsa ricerca cognitiva
-* nuova risorsa rete virtuale
-
-Completare i passaggi seguenti nel [portale di Azure](https://portal.azure.com):
-
-1. Creare una [risorsa QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker).
-2. Creare una nuova risorsa ricerca cognitiva con la connettività endpoint (dati) impostata su _privata_. Creare la risorsa nella stessa area della risorsa QnA Maker creata nel passaggio 1. Altre informazioni sulla [creazione di una risorsa ricerca cognitiva](../../../search/search-create-service-portal.md), quindi usare questo collegamento per passare direttamente alla [pagina di creazione della risorsa](https://ms.portal.azure.com/#create/Microsoft.Search).
-3. Creare una nuova [risorsa di rete virtuale](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM).
-4. Configurare VNET nella risorsa del servizio app creata nel passaggio 1 di questa procedura. Creare una nuova voce DNS in VNET per la nuova risorsa ricerca cognitiva creata nel passaggio 2. all'indirizzo IP del ricerca cognitiva.
-5. [Associare il servizio app alla nuova risorsa ricerca cognitiva](../how-to/set-up-qnamaker-service-azure.md) creata nel passaggio 2. Quindi, è possibile eliminare la risorsa ricerca cognitiva originale creata nel passaggio 1.
-    
-Nel [portale di QnA Maker](https://www.qnamaker.ai/)creare la prima Knowledge base.
-
-#  <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
-
-[Creare endpoint privati](../reference-private-endpoint.md) nella risorsa ricerca di Azure.
-
----
-
 ## <a name="restrict-access-to-app-service-qna-runtime"></a>Limitare l'accesso al servizio app (Runtime QnA)
 
-È possibile aggiungere IP al servizio app allow per limitare l'accesso o configurare il servizio app ambiente per ospitare QnA Maker servizio app.
+È possibile aggiungere indirizzi IP all'elenco Consenti del servizio app per limitare l'accesso o configurare ambiente del servizio app per ospitare QnA Maker servizio app.
 
-#### <a name="add-ips-to-app-service-allowlist"></a>Aggiungi indirizzi IP al servizio app consentiti
+#### <a name="add-ips-to-app-service-allow-list"></a>Aggiungi indirizzi IP all'elenco Consenti del servizio app
 
-1. Consentire il traffico solo da indirizzi IP di servizi cognitivi. Questi sono già inclusi nel tag del servizio `CognitiveServicesManagement` . Questa operazione è necessaria per la creazione di API (Create/Update KB) per richiamare il servizio app e aggiornare di conseguenza il servizio ricerca di Azure. Vedere [altre informazioni sui tag del servizio.](../../../virtual-network/service-tags-overview.md)
+1. 
+traffico solo da indirizzi IP di servizi cognitivi. Questi sono già inclusi nel tag del servizio `CognitiveServicesManagement` . Questa operazione è necessaria per la creazione di API (Create/Update KB) per richiamare il servizio app e aggiornare di conseguenza il servizio ricerca di Azure. Vedere [altre informazioni sui tag del servizio.](../../../virtual-network/service-tags-overview.md)
 2. Assicurarsi di consentire anche altri punti di ingresso come il servizio Azure bot, il portale QnA Maker e così via per l'accesso all'API di stima "GenerateAnswer".
-3. Per aggiungere gli intervalli di indirizzi IP a un oggetto Allow, attenersi alla procedura seguente:
+3. Attenersi alla procedura seguente per aggiungere gli intervalli di indirizzi IP a un elenco Consenti:
 
    1. Scaricare [gli intervalli IP per tutti i tag del servizio](https://www.microsoft.com/download/details.aspx?id=56519).
    2. Selezionare gli indirizzi IP di "CognitiveServicesManagement".
-   3. Passare alla sezione rete della risorsa del servizio app e fare clic sull'opzione "Configura restrizione di accesso" per aggiungere gli indirizzi IP a un oggetto allow.
+   3. Passare alla sezione rete della risorsa del servizio app e fare clic sull'opzione "Configura restrizione di accesso" per aggiungere gli indirizzi IP a un elenco Consenti.
 
-    ![eccezioni per le porte in ingresso](../media/inbound-ports.png)
-
-È anche presente uno script automatizzato per eseguire la stessa operazione per il servizio app. È possibile trovare lo [script di PowerShell per configurare un oggetto Allow](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) su GitHub. È necessario immettere l'ID sottoscrizione, il gruppo di risorse e il nome effettivo del servizio app come parametri dello script. Eseguendo lo script, gli IP verranno aggiunti automaticamente al servizio app allow.
+È anche presente uno script automatizzato per eseguire la stessa operazione per il servizio app. È possibile trovare lo [script di PowerShell per configurare un elenco Consenti](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) in GitHub. È necessario immettere l'ID sottoscrizione, il gruppo di risorse e il nome effettivo del servizio app come parametri dello script. Eseguendo lo script, gli IP verranno aggiunti automaticamente all'elenco Consenti del servizio app.
 
 #### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurare ambiente del servizio app per ospitare QnA Maker servizio app
     
@@ -75,6 +46,25 @@ Il ambiente del servizio app (ASE) può essere usato per ospitare QnA Maker serv
 3.  Aggiornare il gruppo di sicurezza di rete associato al ambiente del servizio app
     1. Aggiornare le regole di sicurezza in ingresso predefinite in base alle esigenze.
     2. Aggiungere una nuova regola di sicurezza in ingresso con origine come ' tag di servizio ' e tag del servizio di origine come ' CognitiveServicesManagement '.
+       
+    ![eccezioni per le porte in ingresso](../media/inbound-ports.png)
+
 4.  Creare un'istanza del servizio cognitivo QnA Maker (Microsoft. CognitiveServices/accounts) usando Azure Resource Manager, in cui QnA Maker endpoint deve essere impostato sull'endpoint del servizio app creato in precedenza (https://mywebsite.myase.p.azurewebsite.net).
     
+---
+
+## <a name="restrict-access-to-cognitive-search-resource"></a>Limitare l'accesso alla risorsa ricerca cognitiva
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
+
+Ricerca cognitiva istanza può essere isolata tramite un endpoint privato dopo la creazione delle risorse QnA Maker. Per le connessioni a endpoint privati è necessario un VNet tramite il quale è possibile accedere all'istanza di servizio di ricerca. 
+
+Se il servizio app QnA Maker viene limitato utilizzando una ambiente del servizio app, utilizzare lo stesso VNet per creare una connessione dell'endpoint privato all'istanza di ricerca cognitiva. Creare una nuova voce DNS in VNet per eseguire il mapping dell'endpoint ricerca cognitiva all'indirizzo IP dell'endpoint privato ricerca cognitiva. 
+
+Se non viene usato un ambiente del servizio app per il servizio app QnAMaker, creare prima di tutto una nuova risorsa VNet e quindi creare la connessione all'endpoint privato per l'istanza di ricerca cognitiva. In questo caso, il servizio app di QnA Maker deve [essere integrato con VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) per connettersi all'istanza di ricerca cognitiva. 
+
+#  <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
+
+[Creare endpoint privati](../reference-private-endpoint.md) nella risorsa ricerca di Azure.
+
 ---

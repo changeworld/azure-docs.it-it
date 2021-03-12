@@ -2,17 +2,18 @@
 title: Collegare un disco dati a una macchina virtuale Linux
 description: Usare il portale per collegare il disco dati nuovo o esistente a una macchina virtuale Linux.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 647564a9b9ca909d2f45ae66673d8beac168a4aa
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.collection: linux
+ms.openlocfilehash: a6ef2cd62fc14958e8505a03e69e4b20cf6ce49f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575975"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556826"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usare il portale per collegare un disco dati a una macchina virtuale Linux 
 In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md). 

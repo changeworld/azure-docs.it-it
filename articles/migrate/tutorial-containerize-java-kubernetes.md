@@ -1,43 +1,43 @@
 ---
-title: Distribuire applicazioni Web Java e migrazione al servizio Azure Kubernetes
-description: Informazioni su come distribuire le applicazioni Web Java e la migrazione al servizio Kubernetes di Azure.
+title: Distribuire & eseguire la migrazione di applicazioni Web Java al servizio Kubernetes di Azure.
+description: 'Esercitazione: distribuire & eseguire la migrazione di applicazioni Web Java al servizio Kubernetes di Azure.'
 services: ''
 author: rahugup
 manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: d85edf71ba78e2370a85e470c502d3f648af1f9b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 71d0e219a84e018eef363732169ab2ec9c43dde2
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748123"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233202"
 ---
 # <a name="containerize-java-web-applications-and-migrate-to-azure-kubernetes-service"></a>Distribuire applicazioni Web Java e migrazione al servizio Azure Kubernetes
 
-In questo articolo si apprenderà come distribuire le applicazioni Web Java (in esecuzione su Apache Tomcat) ed eseguirne la migrazione al [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) usando lo strumento di Azure migrate: app container. Il processo di contenitori non richiede l'accesso alla codebase e fornisce un modo semplice per distribuire le applicazioni esistenti. Lo strumento funziona utilizzando lo stato di esecuzione delle applicazioni in un server per determinare i componenti dell'applicazione e consente di creare un pacchetto in un'immagine del contenitore. L'applicazione in contenitori può quindi essere distribuita in Azure Kubernetes Service (AKS). 
+In questo articolo si apprenderà come distribuire le applicazioni Web Java (in esecuzione su Apache Tomcat) ed eseguirne la migrazione al [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) usando lo strumento di Azure migrate: app container. Il processo di contenitori non richiede l'accesso alla codebase e fornisce un modo semplice per distribuire le applicazioni esistenti. Lo strumento funziona utilizzando lo stato di esecuzione delle applicazioni in un server per determinare i componenti dell'applicazione e consente di creare un pacchetto in un'immagine del contenitore. L'applicazione in contenitori può quindi essere distribuita in Azure Kubernetes Service (AKS).
 
-Il Azure Migrate: lo strumento di contenitori di app supporta attualmente 
+Il Azure Migrate: lo strumento di contenitori di app supporta attualmente
 
-- Inserimento ASP.NET app e distribuirle in contenitori Windows in AKS. [Scopri di più](./tutorial-containerize-aspnet-kubernetes.md) 
-- Inserimento le app Web Java su Apache Tomcat (su server Linux) e distribuirle in contenitori Linux in AKS. 
+- Inserimento ASP.NET app e distribuirle in contenitori Windows in AKS. [Altre informazioni](./tutorial-containerize-aspnet-kubernetes.md)
+- Inserimento le app Web Java su Apache Tomcat (su server Linux) e distribuirle in contenitori Linux in AKS.
 
 
-Il Azure Migrate: lo strumento di contenitori di app consente di 
+Il Azure Migrate: lo strumento di contenitori di app consente di
 
 - **Individuare l'applicazione**: lo strumento si connette in remoto ai server applicazioni che eseguono l'applicazione Web Java (in esecuzione su Apache Tomcat) e individua i componenti dell'applicazione. Lo strumento crea un Dockerfile che può essere usato per creare un'immagine del contenitore per l'applicazione.
 - **Compilare l'immagine del contenitore**: è possibile controllare e personalizzare ulteriormente il Dockerfile in base ai requisiti dell'applicazione e usarlo per compilare l'immagine del contenitore dell'applicazione. Viene eseguito il push dell'immagine del contenitore dell'applicazione in un Container Registry di Azure specificato.
-- **Eseguire la distribuzione nel servizio Azure Kubernetes**: lo strumento genera quindi i file YAML della definizione di risorsa Kubernetes necessari per distribuire l'applicazione in contenitori nel cluster del servizio Kubernetes di Azure. È possibile personalizzare i file YAML e usarli per distribuire l'applicazione in AKS. 
+- **Eseguire la distribuzione nel servizio Azure Kubernetes**: lo strumento genera quindi i file YAML della definizione di risorsa Kubernetes necessari per distribuire l'applicazione in contenitori nel cluster del servizio Kubernetes di Azure. È possibile personalizzare i file YAML e usarli per distribuire l'applicazione in AKS.
 
 > [!NOTE]
-> Lo strumento di Azure Migrate: app Container consente di individuare specifici tipi di applicazioni (ASP.NET e app Web Java su Apache Tomcat) e i relativi componenti in un server applicazioni. Per individuare i server e l'inventario di app, ruoli e funzionalità in esecuzione nei computer locali, usare Azure Migrate: funzionalità di individuazione e valutazione. [Scopri di più](./tutorial-discover-vmware.md) 
+> Lo strumento di Azure Migrate: app Container consente di individuare specifici tipi di applicazioni (ASP.NET e app Web Java su Apache Tomcat) e i relativi componenti in un server applicazioni. Per individuare i server e l'inventario di app, ruoli e funzionalità in esecuzione nei computer locali, usare Azure Migrate: funzionalità di individuazione e valutazione. [Altre informazioni](./tutorial-discover-vmware.md)
 
 Sebbene tutte le applicazioni non possano trarre vantaggio da un semplice passaggio ai contenitori senza una riprogettazione significativa, alcuni dei vantaggi dello spostamento delle app esistenti nei contenitori senza riscrivere includono:
 
-- **Maggiore utilizzo dell'infrastruttura:** Con i contenitori, più applicazioni possono condividere le risorse ed essere ospitate nella stessa infrastruttura. Ciò consente di consolidare l'infrastruttura e migliorare l'utilizzo. 
+- **Maggiore utilizzo dell'infrastruttura:** Con i contenitori, più applicazioni possono condividere le risorse ed essere ospitate nella stessa infrastruttura. Ciò consente di consolidare l'infrastruttura e migliorare l'utilizzo.
 - **Gestione semplificata:** Ospitando le applicazioni in una piattaforma di infrastruttura gestita moderna come AKS, è possibile semplificare le procedure di gestione mantenendo al tempo stesso il controllo sull'infrastruttura. Per ottenere questo risultato, è possibile ritirare o ridurre i processi di gestione e manutenzione dell'infrastruttura eseguiti tradizionalmente con l'infrastruttura di proprietà.
-- **Portabilità delle applicazioni:** Con una maggiore adozione e standardizzazione dei formati di specifica del contenitore e delle piattaforme di orchestrazione, la portabilità delle applicazioni non è più un problema. 
+- **Portabilità delle applicazioni:** Con una maggiore adozione e standardizzazione dei formati di specifica del contenitore e delle piattaforme di orchestrazione, la portabilità delle applicazioni non è più un problema.
 - **Adottare la gestione moderna con DevOps:** Consente di adottare e standardizzare le procedure moderne per la gestione e la sicurezza con l'infrastruttura come codice e la transizione a DevOps.
 
 
@@ -59,7 +59,7 @@ Prima di iniziare questa esercitazione, è necessario:
 
 **Requisito** | **Dettagli**
 --- | ---
-**Identificare un computer per installare lo strumento** | Un computer Windows per installare ed eseguire lo strumento di Azure Migrate: app container. Il computer Windows potrebbe essere un sistema operativo server (Windows Server 2016 o versione successiva) o client (Windows 10), ovvero lo strumento può essere eseguito anche sul desktop. <br/><br/> Il computer Windows che esegue lo strumento deve disporre della connettività di rete per i server o le macchine virtuali che ospitano le applicazioni ASP.NET da includere nel contenitore.<br/><br/> Verificare che nel computer Windows in cui è in esecuzione lo strumento di Azure Migrate: app container per archiviare gli elementi dell'applicazione siano disponibili 6 GB di spazio. <br/><br/> Il computer Windows deve disporre di accesso a Internet, direttamente o tramite un proxy. <br/> <br/>Installare lo strumento Microsoft Distribuzione Web nel computer che esegue lo strumento di supporto per la gestione dei contenitori delle app e il server applicazioni, se non è già installato. È possibile scaricare lo strumento da [qui](https://aka.ms/webdeploy3.6) 
+**Identificare un computer per installare lo strumento** | Un computer Windows per installare ed eseguire lo strumento di Azure Migrate: app container. Il computer Windows potrebbe essere un sistema operativo server (Windows Server 2016 o versione successiva) o client (Windows 10), ovvero lo strumento può essere eseguito anche sul desktop. <br/><br/> Il computer Windows che esegue lo strumento deve disporre della connettività di rete per i server o le macchine virtuali che ospitano le applicazioni ASP.NET da includere nel contenitore.<br/><br/> Verificare che nel computer Windows in cui è in esecuzione lo strumento di Azure Migrate: app container per archiviare gli elementi dell'applicazione siano disponibili 6 GB di spazio. <br/><br/> Il computer Windows deve disporre di accesso a Internet, direttamente o tramite un proxy. <br/> <br/>Installare lo strumento Microsoft Distribuzione Web nel computer che esegue lo strumento di supporto per la gestione dei contenitori delle app e il server applicazioni, se non è già installato. È possibile scaricare lo strumento da [qui](https://aka.ms/webdeploy3.6)
 **Server applicazioni** | -Abilitare la connessione Secure Shell (SSH) sulla porta 22 sui server che eseguono le applicazioni Java per il contenitore. <br/>
 **Applicazione Web Java** | Lo strumento attualmente supporta <br/><br/> -Applicazioni in esecuzione su Tomcat 8 o versioni successive.<br/> -Server applicazioni su Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> -Applicazioni che usano Java versione 7 o successive.  <br/><br/> Lo strumento non supporta attualmente <br/><br/> -Server applicazioni che eseguono più istanze Tomcat <br/>  
 
@@ -78,7 +78,7 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 
     ![Casella di ricerca per cercare la sottoscrizione di Azure.](./media/tutorial-discover-vmware/search-subscription.png)
 
-2. Nella pagina **Sottoscrizioni** selezionare la sottoscrizione in cui creare un progetto di Azure Migrate. 
+2. Nella pagina **Sottoscrizioni** selezionare la sottoscrizione in cui creare un progetto di Azure Migrate.
 3. Nella sottoscrizione selezionare **Controllo di accesso (IAM)**  > **Verifica l'accesso**.
 4. In **Verifica l'accesso** cercare l'account utente pertinente.
 5. In **Aggiungi un'assegnazione di ruolo** fare clic su **Aggiungi**.
@@ -100,14 +100,14 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 ## <a name="download-and-install-azure-migrate-app-containerization-tool"></a>Scaricare e installare Azure Migrate: strumento di contenitori di app
 
 1. [Scaricare](https://go.microsoft.com/fwlink/?linkid=2134571) il Azure migrate: programma di installazione di contenitori di app in un computer Windows.
-2. Avviare PowerShell in modalità amministratore e modificare la directory di PowerShell nella cartella che contiene il programma di installazione. 
+2. Avviare PowerShell in modalità amministratore e modificare la directory di PowerShell nella cartella che contiene il programma di installazione.
 3. Eseguire lo script di installazione usando il comando
 
    ```powershell
    .\App ContainerizationInstaller.ps1
    ```
 
-## <a name="launch-the-app-containerization-tool"></a>Avviare lo strumento di contenitori di app 
+## <a name="launch-the-app-containerization-tool"></a>Avviare lo strumento di contenitori di app
 
 1. Aprire un browser in qualsiasi computer in grado di connettersi al computer Windows che esegue lo strumento di contenitori di app e aprire l'URL dello strumento: **https://*nome computer o indirizzo IP*: 44368**.
 
@@ -115,7 +115,7 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 
 2. Se viene visualizzato un avviso che informa che la connessione non è privata, fare clic su Avanzate e scegliere di continuare con il sito Web. Questo avviso viene visualizzato quando l'interfaccia web usa un certificato TLS/SSL autofirmato.
 3. Nella schermata di accesso usare l'account amministratore locale nel computer per accedere.
-4. Per specificare il tipo di applicazione selezionare **app Web Java in Tomcat** come tipo di applicazione che si desidera distribuire. 
+4. Per specificare il tipo di applicazione selezionare **app Web Java in Tomcat** come tipo di applicazione che si desidera distribuire.
 
     ![Caricamento predefinito per lo strumento di contenitori di app.](./media/tutorial-containerize-apps-aks/tool-home.png)
 
@@ -129,36 +129,36 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
      - È supportato solo il proxy HTTP.
      - Se sono stati aggiunti dettagli del proxy o è stato disabilitato il proxy e/o l'autenticazione, fare clic su **Salva** per attivare nuovamente il controllo della connettività.
    - **Installare gli aggiornamenti**: lo strumento verificherà automaticamente la disponibilità di aggiornamenti più recenti e li installerà. È anche possibile installare manualmente la versione più recente dello strumento da [qui](https://go.microsoft.com/fwlink/?linkid=2134571).
-   - **Enable Secure Shell (SSH)**: lo strumento informa che è necessario assicurarsi che Secure Shell (SSH) sia abilitato nei server applicazioni che eseguono le applicazioni Web Java per il contenitore. 
-   
+   - **Enable Secure Shell (SSH)**: lo strumento informa che è necessario assicurarsi che Secure Shell (SSH) sia abilitato nei server applicazioni che eseguono le applicazioni Web Java per il contenitore.
+
 
 ## <a name="login-to-azure"></a>Accedere ad Azure
 
-Fare clic su **Accedi** per accedere al proprio account Azure. 
+Fare clic su **Accedi** per accedere al proprio account Azure.
 
-1. È necessario un codice del dispositivo per l'autenticazione con Azure. Quando si fa clic su login, viene aperto un modale con il codice del dispositivo. 
+1. È necessario un codice del dispositivo per l'autenticazione con Azure. Quando si fa clic su login, viene aperto un modale con il codice del dispositivo.
 2. Fare clic su **Copy code & Login** (Copia il codice e accedi) per copiare il codice del dispositivo e aprire una richiesta di accesso ad Azure in una nuova scheda del browser. Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
 
     ![Modale che mostra il codice del dispositivo.](./media/tutorial-containerize-apps-aks/login-modal.png)
 
 3. Nella scheda nuovo incollare il codice del dispositivo e completare l'accesso usando le credenziali dell'account Azure. È possibile chiudere la scheda del browser dopo aver completato l'accesso e tornare all'interfaccia Web dello strumento di contenitori di applicazioni.
 4. Selezionare il **tenant di Azure** che si vuole usare.
-5. Specificare la **sottoscrizione di Azure** che si vuole usare. 
+5. Specificare la **sottoscrizione di Azure** che si vuole usare.
 
 ## <a name="discover-java-web-applications"></a>Individuazione di applicazioni Web Java
 
 Lo strumento di supporto per la gestione dei contenitori di app si connette in remoto ai server applicazioni usando le credenziali specificate e tenta di individuare le applicazioni Web Java (in esecuzione su Apache Tomcat) ospitate nei server applicazioni.
 
-1. Specificare l' **indirizzo IP/FQDN e le credenziali** del server che esegue l'applicazione Web Java da usare per connettersi in remoto al server per l'individuazione delle applicazioni. 
-    - Le credenziali specificate devono essere relative a un account radice (Linux) nel server applicazioni. 
-    - Per gli account di dominio (l'utente deve essere un amministratore nel server applicazioni), anteporre al nome utente il nome di dominio nel formato *<dominio\nomeutente>*. 
-    - È possibile eseguire l'individuazione delle applicazioni per fino a cinque server alla volta. 
+1. Specificare l' **indirizzo IP/FQDN e le credenziali** del server che esegue l'applicazione Web Java da usare per connettersi in remoto al server per l'individuazione delle applicazioni.
+    - Le credenziali specificate devono essere relative a un account radice (Linux) nel server applicazioni.
+    - Per gli account di dominio (l'utente deve essere un amministratore nel server applicazioni), anteporre al nome utente il nome di dominio nel formato *<dominio\nomeutente>*.
+    - È possibile eseguire l'individuazione delle applicazioni per fino a cinque server alla volta.
 
 2. Fare clic su **convalida** per verificare che il server applicazioni sia raggiungibile dal computer che esegue lo strumento e che le credenziali siano valide. Al completamento della convalida, nella colonna stato viene visualizzato lo stato **mappato**.  
 
     ![Screenshot per l'indirizzo IP e le credenziali del server.](./media/tutorial-containerize-apps-aks/discovery-credentials.png)
 
-3. Fare clic su **continua** per avviare l'individuazione dell'applicazione nei server applicazioni selezionati.   
+3. Fare clic su **continua** per avviare l'individuazione dell'applicazione nei server applicazioni selezionati.
 
 4. Al termine dell'individuazione dell'applicazione, è possibile selezionare l'elenco di applicazioni per distribuire.
 
@@ -168,24 +168,24 @@ Lo strumento di supporto per la gestione dei contenitori di app si connette in r
 4. Utilizzare la casella di controllo per selezionare le applicazioni da distribuire.
 5. **Specifica nome contenitore**: specificare un nome per il contenitore di destinazione per ogni applicazione selezionata. Il nome del contenitore deve essere specificato come *nome <: tag*> dove viene usato il tag per l'immagine del contenitore. Ad esempio, è possibile specificare il nome del contenitore di destinazione come *AppName: V1*.   
 
-### <a name="parameterize-application-configurations"></a>Parametrizzare le configurazioni dell'applicazione 
+### <a name="parameterize-application-configurations"></a>Parametrizzare le configurazioni dell'applicazione
 Parametrizzazione la configurazione lo rende disponibile come parametro della fase di distribuzione. In questo modo è possibile configurare questa impostazione mentre si distribuisce l'applicazione anziché impostarla come hardcoded su un valore specifico nell'immagine del contenitore. Questa opzione, ad esempio, è utile per parametri come le stringhe di connessione del database.
-1. Fare clic su **configurazioni dell'app** per esaminare le configurazioni rilevate. 
-2. Selezionare la casella di controllo per parametrizzare le configurazioni dell'applicazione rilevate. 
+1. Fare clic su **configurazioni dell'app** per esaminare le configurazioni rilevate.
+2. Selezionare la casella di controllo per parametrizzare le configurazioni dell'applicazione rilevate.
 3. Fare clic su **applica** dopo aver selezionato le configurazioni da parametrizzare.
 
    ![Screenshot per la parametrizzazione della configurazione dell'app ASP.NET.](./media/tutorial-containerize-apps-aks/discovered-app-configs.png)
 
 ### <a name="externalize-file-system-dependencies"></a>Dipendenze file system Externalize
 
- È possibile aggiungere altre cartelle utilizzate dall'applicazione. Specificare se devono far parte dell'immagine del contenitore o devono essere esternalizzate tramite volumi permanenti nella condivisione file di Azure. L'uso di volumi permanenti funziona perfettamente per le applicazioni con stato che archiviano lo stato all'esterno del contenitore o che contengono altro contenuto statico archiviato nel file system. [Scopri di più](https://docs.microsoft.com/azure/aks/concepts-storage)
- 
-1. Fare clic su **modifica** in cartelle app per esaminare le cartelle dell'applicazione rilevate. Le cartelle dell'applicazione rilevate sono state identificate come elementi obbligatori necessari per l'applicazione e verranno copiati nell'immagine del contenitore. 
-    
-2. Fare clic su **Aggiungi cartelle** e specificare i percorsi della cartella da aggiungere. 
-3. Per aggiungere più cartelle allo stesso volume, specificare valori separati da virgole ( `,` ). 
-4. Selezionare **volume permanente** come opzione di archiviazione se si desidera che le cartelle vengano archiviate al di fuori del contenitore in un volume permanente. 
-5. Fare clic su **Salva** dopo aver esaminato le cartelle dell'applicazione. 
+ È possibile aggiungere altre cartelle utilizzate dall'applicazione. Specificare se devono far parte dell'immagine del contenitore o devono essere esternalizzate tramite volumi permanenti nella condivisione file di Azure. L'uso di volumi permanenti funziona perfettamente per le applicazioni con stato che archiviano lo stato all'esterno del contenitore o che contengono altro contenuto statico archiviato nel file system. [Altre informazioni](https://docs.microsoft.com/azure/aks/concepts-storage)
+
+1. Fare clic su **modifica** in cartelle app per esaminare le cartelle dell'applicazione rilevate. Le cartelle dell'applicazione rilevate sono state identificate come elementi obbligatori necessari per l'applicazione e verranno copiati nell'immagine del contenitore.
+
+2. Fare clic su **Aggiungi cartelle** e specificare i percorsi della cartella da aggiungere.
+3. Per aggiungere più cartelle allo stesso volume, specificare valori separati da virgole ( `,` ).
+4. Selezionare **volume permanente** come opzione di archiviazione se si desidera che le cartelle vengano archiviate al di fuori del contenitore in un volume permanente.
+5. Fare clic su **Salva** dopo aver esaminato le cartelle dell'applicazione.
    ![Screenshot della selezione dell'archiviazione dei volumi delle app.](./media/tutorial-containerize-apps-aks/discovered-app-volumes.png)
 
 6. Fare clic su **continua** per passare alla fase di compilazione dell'immagine del contenitore.
@@ -205,61 +205,60 @@ Parametrizzazione la configurazione lo rende disponibile come parametro della fa
 
 4. **Tenere traccia dello stato della compilazione**: è inoltre possibile monitorare lo stato di avanzamento dell'istruzione di compilazione facendo clic sul collegamento **Compila in corso** nella colonna stato. Il collegamento richiede un paio di minuti per essere attivo dopo l'attivazione del processo di compilazione.  
 
-5. Al termine della compilazione, fare clic su **continua** per specificare le impostazioni di distribuzione. 
+5. Al termine della compilazione, fare clic su **continua** per specificare le impostazioni di distribuzione.
 
     ![Screenshot per il completamento della compilazione dell'immagine del contenitore di app.](./media/tutorial-containerize-apps-aks/build-java-app-completed.png)
 
 ## <a name="deploy-the-containerized-app-on-aks"></a>Distribuire l'app in contenitori in AKS
 
-Una volta compilata l'immagine del contenitore, il passaggio successivo consiste nel distribuire l'applicazione come contenitore in [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/). 
+Una volta compilata l'immagine del contenitore, il passaggio successivo consiste nel distribuire l'applicazione come contenitore in [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/).
 
-1. **Selezionare il cluster Azure Kubernetes Service**: specificare il cluster AKS in cui deve essere distribuita l'applicazione. 
+1. **Selezionare il cluster Azure Kubernetes Service**: specificare il cluster AKS in cui deve essere distribuita l'applicazione.
 
-     - Il cluster AKS selezionato deve avere un pool di nodi Linux. 
-     - Il cluster deve essere configurato in modo da consentire il pull di immagini dal Container Registry di Azure selezionato per archiviare le immagini. 
+     - Il cluster AKS selezionato deve avere un pool di nodi Linux.
+     - Il cluster deve essere configurato in modo da consentire il pull di immagini dal Container Registry di Azure selezionato per archiviare le immagini.
          - Eseguire il comando seguente nell'interfaccia della riga di comando di Azure per aggiungere il cluster AKS al registro contenitori di Azure.
            ``` Azure CLI
            az aks update -n <cluster-name> -g <cluster-resource-group> --attach-acr <acr-name>
            ```  
      - Se non si dispone di un cluster AKS o si vuole creare un nuovo cluster AKS in cui distribuire l'applicazione, è possibile scegliere di crearlo dallo strumento facendo clic su **Crea nuovo cluster AKS**.      
-          - Il cluster AKS creato con lo strumento verrà creato con un pool di nodi Linux. Il cluster verrà configurato in modo da consentirgli di eseguire il pull delle immagini dal Container Registry di Azure creato in precedenza, se è stata scelta l'opzione Crea nuovo registro di sistema. 
+          - Il cluster AKS creato con lo strumento verrà creato con un pool di nodi Linux. Il cluster verrà configurato in modo da consentirgli di eseguire il pull delle immagini dal Container Registry di Azure creato in precedenza, se è stata scelta l'opzione Crea nuovo registro di sistema.
      - Fare clic su **continua** dopo aver selezionato il cluster AKS.
 
-2. **Specificare la condivisione file di Azure**: se sono state aggiunte altre cartelle ed è stata selezionata l'opzione volume persistente, specificare la condivisione file di Azure che deve essere usata da Azure migrate: strumento di contenitori di app durante il processo di distribuzione. Lo strumento creerà nuove directory nella condivisione file di Azure per copiare le cartelle dell'applicazione configurate per l'archiviazione del volume permanente. Al termine della distribuzione dell'applicazione, lo strumento eseguirà la pulizia della condivisione file di Azure eliminando le directory che aveva creato. 
+2. **Specificare la condivisione file di Azure**: se sono state aggiunte altre cartelle ed è stata selezionata l'opzione volume persistente, specificare la condivisione file di Azure che deve essere usata da Azure migrate: strumento di contenitori di app durante il processo di distribuzione. Lo strumento creerà nuove directory nella condivisione file di Azure per copiare le cartelle dell'applicazione configurate per l'archiviazione del volume permanente. Al termine della distribuzione dell'applicazione, lo strumento eseguirà la pulizia della condivisione file di Azure eliminando le directory che aveva creato.
 
      - Se non si ha una condivisione file di Azure o si vuole creare una nuova condivisione file di Azure, è possibile scegliere di crearla dallo strumento facendo clic su **Crea nuovo account di archiviazione e condivisione file**.  
 
 3. **Configurazione della distribuzione dell'applicazione**: dopo aver completato i passaggi precedenti, è necessario specificare la configurazione di distribuzione per l'applicazione. Fare clic su **Configura** per personalizzare la distribuzione per l'applicazione. Nel passaggio di configurazione è possibile fornire le seguenti personalizzazioni:
      - **Stringa di prefisso**: specificare una stringa di prefisso da usare nel nome per tutte le risorse create per l'applicazione in contenitori nel cluster AKS.
      - **Set di repliche**: specificare il numero di istanze dell'applicazione (POD) che devono essere eseguite all'interno dei contenitori.
-     - **Tipo** di servizio di bilanciamento del carico: selezionare *esterno* se l'applicazione in contenitori deve essere raggiungibile dalle reti pubbliche. 
+     - **Tipo** di servizio di bilanciamento del carico: selezionare *esterno* se l'applicazione in contenitori deve essere raggiungibile dalle reti pubbliche.
      - **Configurazione dell'applicazione**: per tutte le configurazioni dell'applicazione con parametri, fornire i valori da usare per la distribuzione corrente.
-     - **Archiviazione**: per qualsiasi cartella dell'applicazione configurata per l'archiviazione del volume permanente, specificare se il volume deve essere condiviso tra le istanze dell'applicazione o deve essere inizializzato singolarmente con ogni istanza nel contenitore. Per impostazione predefinita, tutte le cartelle dell'applicazione nei volumi permanenti vengono configurate come condivise. 
+     - **Archiviazione**: per qualsiasi cartella dell'applicazione configurata per l'archiviazione del volume permanente, specificare se il volume deve essere condiviso tra le istanze dell'applicazione o deve essere inizializzato singolarmente con ogni istanza nel contenitore. Per impostazione predefinita, tutte le cartelle dell'applicazione nei volumi permanenti vengono configurate come condivise.
      - Fare clic su **applica** per salvare la configurazione della distribuzione.
      - Fare clic su **continua** per distribuire l'applicazione.
 
     ![Screenshot per la configurazione dell'app di distribuzione.](./media/tutorial-containerize-apps-aks/deploy-java-app-config.png)
 
-4. **Distribuire l'applicazione**: dopo aver salvato la configurazione di distribuzione per l'applicazione, lo strumento genererà la distribuzione Kubernetes YAML per l'applicazione. 
-     - Fare clic su **modifica** per rivedere e personalizzare la distribuzione di Kubernetes YAML per le applicazioni. 
+4. **Distribuire l'applicazione**: dopo aver salvato la configurazione di distribuzione per l'applicazione, lo strumento genererà la distribuzione Kubernetes YAML per l'applicazione.
+     - Fare clic su **modifica** per rivedere e personalizzare la distribuzione di Kubernetes YAML per le applicazioni.
      - Selezionare l'applicazione da distribuire.
      - Fare clic su **Distribuisci** per avviare le distribuzioni per le applicazioni selezionate
 
          ![Screenshot per la configurazione della distribuzione dell'app.](./media/tutorial-containerize-apps-aks/deploy-java-app-deploy.png)
 
-     - Una volta distribuita l'applicazione, è possibile fare clic sulla colonna *stato distribuzione* per tenere traccia delle risorse distribuite per l'applicazione. 
+     - Una volta distribuita l'applicazione, è possibile fare clic sulla colonna *stato distribuzione* per tenere traccia delle risorse distribuite per l'applicazione.
 
 ## <a name="download-generated-artifacts"></a>Scarica elementi generati
 
-Tutti gli elementi usati per compilare e distribuire l'applicazione in AKS, inclusi i file di specifica YAML Dockerfile e Kubernetes, vengono archiviati nel computer che esegue lo strumento. Gli elementi si trovano in *C:\ProgramData\Microsoft Azure migrate contenitori di app*. 
+Tutti gli elementi usati per compilare e distribuire l'applicazione in AKS, inclusi i file di specifica YAML Dockerfile e Kubernetes, vengono archiviati nel computer che esegue lo strumento. Gli elementi si trovano in *C:\ProgramData\Microsoft Azure migrate contenitori di app*.
 
 Viene creata una singola cartella per ogni server applicazioni. È possibile visualizzare e scaricare tutti gli elementi intermedi usati nel processo di contenitori passando a questa cartella. La cartella corrispondente al server applicazioni verrà pulita all'inizio di ogni esecuzione dello strumento per un determinato server.
 
 ## <a name="troubleshoot-issues"></a>Risolvere i problemi
 
-Per risolvere eventuali problemi con lo strumento, è possibile esaminare i file di log nel computer Windows che esegue lo strumento di contenitori di app. I file di log degli strumenti si trovano in *C:\ProgramData\Microsoft Azure migrate cartella Containerization\Logs dell'app* . 
+Per risolvere eventuali problemi con lo strumento, è possibile esaminare i file di log nel computer Windows che esegue lo strumento di contenitori di app. I file di log degli strumenti si trovano in *C:\ProgramData\Microsoft Azure migrate cartella Containerization\Logs dell'app* .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Inserimento ASP.NET app e distribuirle in contenitori Windows in AKS. [Altre informazioni](./tutorial-containerize-aspnet-kubernetes.md) 
-
+- Inserimento ASP.NET app e distribuirle in contenitori Windows in AKS. [Altre informazioni](./tutorial-containerize-aspnet-kubernetes.md)

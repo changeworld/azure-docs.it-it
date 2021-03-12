@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/22/2021
-ms.openlocfilehash: 21edde3eba76b565332acb9c67225f3bbb0fe803
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/09/2021
+ms.openlocfilehash: 7b082c226b38633d6c34ee2fe4d5227252b2bfcb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177284"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556384"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -933,7 +933,7 @@ Questa tabella identifica i tipi di autenticazione disponibili per i trigger e l
 | [Certificato client](#client-certificate-authentication) | Gestione API di Azure, servizio app di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Gestione API di Azure, servizi app di Azure, Funzioni di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Raw](#raw-authentication) | Gestione API di Azure, servizi app di Azure, Funzioni di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Identità gestita](#managed-identity-authentication) | **Trigger e azioni predefiniti** <p><p>Gestione API di Azure, servizi app Azure, funzioni di Azure, HTTP, webhook HTTP <p><p>**Connettori gestiti** <p><p>Azure AD Identity Protection, automazione di Azure, istanza di contenitore di Azure, Esplora dati di Azure, Azure Data Factory, Azure Data Lake, griglia di eventi di Azure, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, log di monitoraggio di Azure, Azure Resource Manager, Azure Sentinel, HTTP con Azure AD <p><p>**Nota**: il supporto per i connettori gestiti è attualmente in fase di anteprima. |
+| [Identità gestita](#managed-identity-authentication) | **Trigger e azioni predefiniti** <p><p>Gestione API di Azure, servizi app Azure, funzioni di Azure, HTTP, webhook HTTP <p><p>**Connettori gestiti** <p><p>Azure AD Identity Protection, automazione di Azure, istanza di contenitore di Azure, Azure Esplora dati, Azure Data Factory, Azure Data Lake, griglia di eventi di Azure, Azure IoT Central V3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP con Azure AD <p><p>**Nota**: il supporto per i connettori gestiti è attualmente in fase di anteprima. |
 |||
 
 <a name="basic-authentication"></a>

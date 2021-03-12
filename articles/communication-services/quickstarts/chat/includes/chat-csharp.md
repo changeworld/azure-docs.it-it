@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 8ec1ac5d804721e9af50a70a29cdcaf40d3375be
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: ce6d2c34c48a26f99f78c364db5f06f9931c9dd7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102623333"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021133"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di:
@@ -68,10 +68,10 @@ Questa Guida introduttiva non illustra la creazione di un livello di servizio pe
 
 Copiare i frammenti di codice seguenti e incollarli nel file di origine: **Program.cs**
 ```csharp
-using Azure.Communication.Identity;
-using Azure.Communication.Chat;
 using Azure;
 using Azure.Communication;
+using Azure.Communication.Chat;
+using System;
 
 namespace ChatQuickstart
 {
@@ -98,12 +98,12 @@ Usare il `createChatThread` metodo in chatClient per creare un thread di chat
 L'oggetto Response del `createChatThread` metodo contiene i `chatThread` Dettagli. Per interagire con le operazioni del thread di chat, ad esempio l'aggiunta di partecipanti, l'invio di un messaggio, l'eliminazione di un messaggio e così via, è `chatThreadClient` necessario creare un'istanza del client utilizzando il `GetChatThreadClient` metodo nel `ChatClient` client.
 
 ```csharp
-var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
+var chatParticipant = new ChatParticipant(identifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
 {
     DisplayName = "UserDisplayName"
 };
 CreateChatThreadResult createChatThreadResult = await chatClient.CreateChatThreadAsync(topic: "Hello world!", participants: new[] { chatParticipant });
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(createChatThreadResult.ChatThread.Id);
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: createChatThreadResult.ChatThread.Id);
 string threadId = chatThreadClient.Id;
 ```
 
@@ -112,7 +112,7 @@ Il metodo `GetChatThreadClient` restituisce un client di thread per un thread gi
 
 ```csharp
 string threadId = "<THREAD_ID>";
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: threadId);
 ```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Inviare un messaggio a un thread di chat
@@ -134,7 +134,7 @@ Utilizzare `GetMessage` per recuperare un messaggio dal servizio.
 `ChatMessage` la risposta restituita dal recupero di un messaggio contiene un ID, che è l'identificatore univoco del messaggio, tra gli altri campi. Vedere Azure. Communication. chat. ChatMessage
 
 ```csharp
-ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId);
+ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId: messageId);
 ```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Ricevere messaggi di chat da un thread di chat
@@ -174,7 +174,7 @@ Per altri dettagli, vedere [Tipi di messaggi](../../../concepts/chat/concepts.md
 ```csharp
 string id = "id-of-message-to-edit";
 string content = "updated content";
-await chatThreadClient.UpdateMessageAsync(id, content);
+await chatThreadClient.UpdateMessageAsync(messageId: id, content: content);
 ```
 
 ## <a name="deleting-a-message"></a>Eliminazione di un messaggio
@@ -183,7 +183,7 @@ await chatThreadClient.UpdateMessageAsync(id, content);
 
 ```csharp
 string id = "id-of-message-to-delete";
-await chatThreadClient.DeleteMessageAsync(id);
+await chatThreadClient.DeleteMessageAsync(messageId: id);
 ```
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Aggiungere un utente come partecipante al thread di chat
@@ -207,7 +207,7 @@ var participants = new[]
     new ChatParticipant(amy) { DisplayName = "Amy" }
 };
 
-await chatThreadClient.AddParticipantsAsync(participants);
+await chatThreadClient.AddParticipantsAsync(participants: participants);
 ```
 ## <a name="remove-user-from-a-chat-thread"></a>Rimuovere un utente da un thread di chat
 
@@ -215,7 +215,7 @@ Analogamente all'aggiunta di un utente a un thread, è possibile rimuovere utent
 
 ```csharp
 var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
-await chatThreadClient.RemoveParticipantAsync(gloria);
+await chatThreadClient.RemoveParticipantAsync(identifier: gloria);
 ```
 
 ## <a name="get-thread-participants"></a>Ottenere i partecipanti ai thread
@@ -243,7 +243,7 @@ await chatThreadClient.SendTypingNotificationAsync();
 Utilizzare `SendReadReceipt` per notificare agli altri partecipanti che il messaggio viene letto dall'utente.
 
 ```csharp
-await chatThreadClient.SendReadReceiptAsync(messageId);
+await chatThreadClient.SendReadReceiptAsync(messageId: messageId);
 ```
 
 ## <a name="get-read-receipts"></a>Ottenere le ricevute di lettura

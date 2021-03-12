@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 17674c1a5d7acff50a3dd17b9d98f5295c2e1b19
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 60dfd448a66ca67a241f97570c91f683323a7d6d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102633037"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232376"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Panoramica dell'aggiornamento del dispositivo per l'hub Internet (anteprima)
 
@@ -23,7 +23,8 @@ Per realizzare tutti i vantaggi della trasformazione digitale con tutto il tempo
 
 ## <a name="support-for-a-wide-range-of-iot-devices"></a>Supporto per un'ampia gamma di dispositivi Internet delle cose
 
-L'aggiornamento dei dispositivi per l'hub Internet è progettato per offrire una distribuzione di aggiornamenti ottimizzata e operazioni semplificate tramite l'integrazione con l' [Hub Azure](https://azure.microsoft.com/en-us/services/iot-hub/). Questa integrazione consente di adottare facilmente l'aggiornamento del dispositivo in qualsiasi soluzione esistente. Fornisce una soluzione ospitata nel cloud per connettere praticamente qualsiasi dispositivo. L'aggiornamento del dispositivo supporta un'ampia gamma di sistemi operativi, tra cui Linux e [Azure RTO](https://azure.microsoft.com/en-us/services/rtos/) (sistema operativo in tempo reale), ed è estensibile tramite Open Source. Microsoft sta sviluppando un aggiornamento del dispositivo per le offerte di hub Internet con i nostri partner di semiconduttori, tra cui STMicroelectronics, NXP, Renesas e microchip. Vedere gli [esempi](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) di lavagne di valutazione dei semiconduttori chiave che includono le guide introduttive per informazioni su come configurare, compilare e distribuire gli aggiornamenti in modalità wireless (OTA) ai dispositivi di classe MCU.
+
+L'aggiornamento dei dispositivi per l'hub Internet è progettato per offrire una distribuzione di aggiornamenti ottimizzata e operazioni semplificate tramite l'integrazione con l' [Hub Azure](https://azure.microsoft.com/en-us/services/iot-hub/). Questa integrazione consente di adottare facilmente l'aggiornamento del dispositivo in qualsiasi soluzione esistente. Fornisce una soluzione ospitata nel cloud per connettere praticamente qualsiasi dispositivo. L'aggiornamento del dispositivo supporta un'ampia gamma di sistemi operativi, tra cui Linux e [Azure RTO](https://azure.microsoft.com/en-us/services/rtos/) (sistema operativo in tempo reale), ed è estensibile tramite Open Source. Microsoft sta sviluppando un aggiornamento del dispositivo per le offerte di hub Internet con i nostri partner di semiconduttori, tra cui STMicroelectronics, NXP, Renesas e microchip. Vedere gli [esempi](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) di lavagne di valutazione dei semiconduttori chiave che includono le guide introduttive per informazioni su come configurare, compilare e distribuire gli aggiornamenti in modalità wireless (OTA) ai dispositivi di classe MCU. 
 
 Sono disponibili le immagini Yocto del simulatore dell'agente di aggiornamento del dispositivo e il riferimento a Raspberry Pi.
 L'aggiornamento del dispositivo per l'hub Internet è supportato anche per l'aggiornamento dei dispositivi Azure IoT Edge. È disponibile un agente di aggiornamento dispositivi per la piattaforma AMD64 Ubuntu server 18,04. L'aggiornamento del dispositivo per l'hub Internet fornisce anche codice open source se non si esegue una delle piattaforme precedenti. È possibile trasferire l'agente alla distribuzione in esecuzione.
@@ -79,7 +80,7 @@ Quando viene ricevuto un comando Update in un dispositivo, viene eseguita la fas
 
 ### <a name="importing"></a>Importazione
 
-L'importazione è la possibilità di importare l'aggiornamento nell'aggiornamento del dispositivo. L'aggiornamento del dispositivo supporta l'implementazione di un singolo aggiornamento per ogni dispositivo. Questa soluzione è ideale per gli aggiornamenti full-image che aggiornano una sola partizione del sistema operativo in una sola volta o un manifesto apt che descrive tutti i pacchetti che si vuole aggiornare nel dispositivo. Per importare gli aggiornamenti nell'aggiornamento del dispositivo, creare prima di tutto un manifesto di importazione che descrive l'aggiornamento, quindi caricare i file di aggiornamento e il manifesto di importazione in un percorso accessibile da Internet. Successivamente, è possibile usare l'API REST di portale di Azure o l'importazione dell'aggiornamento del dispositivo per avviare il processo asincrono di importazione degli aggiornamenti. L'aggiornamento del dispositivo carica i file, li elabora e li rende disponibili per la distribuzione nei dispositivi Internet.
+L'importazione è il modo in cui vengono inseriti gli aggiornamenti nell'aggiornamento del dispositivo, in modo che possano essere distribuiti nei dispositivi. L'aggiornamento del dispositivo supporta l'implementazione di un singolo aggiornamento per ogni dispositivo. Questa soluzione è ideale per gli aggiornamenti full-image che aggiornano una sola partizione del sistema operativo in una sola volta o un manifesto apt che descrive tutti i pacchetti che si vuole aggiornare nel dispositivo. Per importare gli aggiornamenti nell'aggiornamento del dispositivo, creare prima di tutto un manifesto di importazione che descrive l'aggiornamento, quindi caricare i file di aggiornamento e il manifesto di importazione in un percorso accessibile da Internet. Successivamente, è possibile usare l' [API REST](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) di portale di Azure o l'importazione dell'aggiornamento del dispositivo per avviare il processo asincrono di importazione degli aggiornamenti. L'aggiornamento del dispositivo carica i file, li elabora e li rende disponibili per la distribuzione nei dispositivi Internet.
 
 Per contenuti sensibili, Proteggi il download usando una firma di accesso condiviso (SAS), ad esempio una firma di accesso condiviso ad hoc per l'archiviazione BLOB di Azure. [Altre informazioni su SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 

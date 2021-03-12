@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6fbc20ec7145a474d9f3aada153f2d012aba34f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 4e9ea1ec85067a59c5ee6bcd27993e294559f410
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561348"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232087"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilità a livello di area e residenza dei dati
 
@@ -51,12 +51,14 @@ Usando il portale di Azure o le API di Azure Resource Manager con Servizi di com
 
 ### <a name="telephone-number-management"></a>Gestione dei numeri di telefono
 
-Servizi di comunicazione di Azure gestisce una directory di numeri di telefono associati a una risorsa Servizi di comunicazione. Usare queste API per recuperare i numeri di telefono ed eliminarli:
+Servizi di comunicazione di Azure gestisce una directory di numeri di telefono associati a una risorsa Servizi di comunicazione. Usare le [API di amministrazione del numero di telefono](/rest/api/communication/phonenumberadministration) per recuperare i numeri di telefono ed eliminarli:
+
+- `Get All Phone Numbers`
 - `Release Phone Number`
 
 ### <a name="chat"></a>Chat
 
-I thread e i messaggi delle chat vengono conservati fino a quando non vengono eliminati in modo esplicito. Un thread completamente inattivo verrà eliminato automaticamente dopo 30 giorni. Usare le [API di chat](/rest/api/communication/chat/deletechatmessage/deletechatmessage) per ottenere, elencare, aggiornare ed eliminare i messaggi.
+I thread e i messaggi delle chat vengono conservati fino a quando non vengono eliminati in modo esplicito. Un thread completamente inattivo verrà eliminato automaticamente dopo 30 giorni. Usare le [API di chat](/rest/api/communication/chat/chatthread) per ottenere, elencare, aggiornare ed eliminare i messaggi.
 
 - `Get Thread`
 - `Get Message`

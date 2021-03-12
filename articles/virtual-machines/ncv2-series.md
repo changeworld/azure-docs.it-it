@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 14d352a4b960395753b34ddb527955ef35220867
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 9d057afc130b75bdd62031e6d2b9372bc9a37615
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102562419"
+ms.locfileid: "102615024"
 ---
 # <a name="ncv2-series"></a>Serie NCv2
 
@@ -26,7 +26,7 @@ La configurazione NC24rs v2 offre un'interfaccia di rete ad alta velocità effet
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 [Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): non supportata<br>
-[Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): non supportati <br>
+[Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): supportati <br>
 Interconnessione NVIDIA NVLink: non supportata
 
 > [!IMPORTANT]

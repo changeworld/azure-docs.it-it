@@ -9,14 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: kgremban
-ms.openlocfilehash: 3a2d048bfd3b47cd5a3cb93763aa27fac1b89649
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6a64bb2801830440dc49e72786c9c00a6e4796b3
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044919"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201609"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Installare o disinstallare Azure IoT Edge per Linux
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Il runtime di Azure IoT Edge è ciò che trasforma un dispositivo in un dispositivo IoT Edge. Il runtime può essere distribuito nei dispositivi di dimensioni pari a un server industriale o a un dispositivo Raspberry Pi. Quando un dispositivo viene configurato con il runtime IoT Edge, è possibile iniziare a distribuirvi la logica di business dal cloud. Per altre informazioni, vedere [comprendere il runtime di Azure IOT Edge e la relativa architettura](iot-edge-runtime.md).
 
