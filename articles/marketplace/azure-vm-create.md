@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/20/2020
-ms.openlocfilehash: 2ef80d26336ddbe3c015dfcde0c5ed29b762f39b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5c01b1965c38811e78909f27ca4ab65614bc7f0e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629717"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629977"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Come creare un'offerta di macchina virtuale in Azure Marketplace
 
@@ -38,12 +38,12 @@ Se non è ancora stato fatto, rivedere [pianificare un'offerta di macchina virtu
 Immettere un ID in **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
 
 - Questo ID è visibile ai clienti nell'indirizzo Web dell'offerta di Azure Marketplace, in Azure PowerShell e nell'interfaccia della riga di comando di Azure, se applicabile.
-- Usare solo lettere minuscole e numeri. L'ID può includere trattini e caratteri di sottolineatura, ma non spazi, per un massimo di 50 caratteri. Ad esempio, se si immette **test-offer-1** , l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Usare solo lettere minuscole e numeri. L'ID può includere trattini e caratteri di sottolineatura, ma non spazi, per un massimo di 50 caratteri. Ad esempio, se si immette **test-offer-1**, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
 
 Immettere un alias in **Alias offerta**. L'alias dell'offerta corrisponde al nome usato per l'offerta nel Centro per i partner.
 
-- Questo nome non viene usato in Azure Marketplace ed è diverso dal nome dell'offerta e da altri valori visualizzati dai clienti.
+- Questo nome non viene usato in Azure Marketplace. ed è diverso dal nome dell'offerta e da altri valori visualizzati dai clienti.
 
 Selezionare **Crea** per generare l'offerta e continuare. Il centro per i partner apre la pagina **installazione offerta** .
 

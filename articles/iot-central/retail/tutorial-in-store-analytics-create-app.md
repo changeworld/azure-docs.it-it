@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 112039b9227d5ff34e68b6dc6643597f335fbdb5
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: caa61170504c3ee4b7162cc06db4df16d1232395
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832233"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014367"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Esercitazione: Creare un'applicazione di analisi dei punti vendita in Azure IoT Central
 
@@ -228,8 +228,8 @@ Per questa esercitazione si userà il set seguente di dispositivi reali e simula
 
 Completare i passaggi nei due articoli seguenti per connettere un gateway Rigado reale e i sensori RuuviTag. Al termine, tornare a questa esercitazione. Poiché i modelli di dispositivo sono già stati creati in questa esercitazione, non è necessario crearli di nuovo nel set di istruzioni seguente.
 
-- Per connettere un gateway Rigado, vedere [Connettere un gateway Rigado Cascade 500 all'applicazione Azure IoT Central](../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
-- Per connettere sensori RuuviTag, vedere [Connettere un sensore RuuviTag all'applicazione Azure IoT Central](../core/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). È anche possibile usare queste istruzioni per creare due sensori simulati, se necessario.
+- Per connettere un gateway Rigado, vedere [Connettere un gateway Rigado Cascade 500 all'applicazione Azure IoT Central](../core/howto-connect-rigado-cascade-500.md).
+- Per connettere sensori RuuviTag, vedere [Connettere un sensore RuuviTag all'applicazione Azure IoT Central](../core/howto-connect-ruuvi.md). È anche possibile usare queste istruzioni per creare due sensori simulati, se necessario.
 
 ## <a name="add-rules-and-actions"></a>Aggiungere regole e azioni
 Quando si usano sensori nell'applicazione Azure IoT Central per monitorare le condizioni, è possibile creare regole per eseguire azioni quando vengono soddisfatte determinate condizioni. Una regola viene associata a un modello di dispositivo e a uno o più dispositivi e contiene le condizioni che devono essere soddisfatte sulla base di dati di telemetria o eventi del dispositivo. Una regola prevede anche una o più azioni associate. Le azioni possono includere l'invio di notifiche di posta elettronica o l'attivazione di un'azione webhook per l'invio dei dati ad altri servizi. Il modello di applicazione **Analisi punti vendita - Pagamento** include alcune regole predefinite per i dispositivi nell'applicazione.

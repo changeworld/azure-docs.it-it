@@ -3,12 +3,12 @@ title: Backup e ripristino periodici in Azure Service Fabric
 description: Usare la funzionalità di backup e ripristino periodici di Service Fabric per abilitare il backup periodico dei dati delle applicazioni.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: 2d167b261f9b5915a970b4c219113f0765c039cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 42097b50277e78b3f0e8f5e61a2bf70cc08dbc02
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927985"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103198723"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Backup e ripristino periodici in un cluster di Service Fabric di Azure
 > [!div class="op_single_selector"]
@@ -215,6 +215,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ``` 
 
 #### <a name="using-service-fabric-explorer"></a>Utilizzo di Service Fabric Explorer
+Verificare che la [modalità avanzata](service-fabric-visualizing-your-cluster.md#backup-and-restore) per Service Fabric Explorer sia abilitata 
 
 1. Selezionare un'applicazione e passare ad azione. Fare clic su Abilita/Aggiorna backup applicazione.
 

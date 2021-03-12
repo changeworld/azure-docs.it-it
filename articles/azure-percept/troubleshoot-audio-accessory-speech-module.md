@@ -1,18 +1,18 @@
 ---
-title: Risolvere i problemi relativi ai moduli audio e vocale di Azure Percept
-description: Suggerimenti per la risoluzione dei problemi relativi ad alcuni dei problemi più comuni riscontrati durante l'esperienza di onboarding
+title: Risolvere i problemi relativi all'audio di Azure Percept e al modulo di riconoscimento vocale
+description: Ottenere suggerimenti per la risoluzione dei problemi relativi ad audio e azureearspeechclientmodule di Azure Percept
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a3877ea680e7b4c705f127c54e0fa10c45d3b51d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: f34013bdb14481bfe872a9b3c4234d603bc2d7ec
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097976"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635570"
 ---
 # <a name="azure-percept-audio-and-speech-module-troubleshooting"></a>Risoluzione dei problemi del modulo audio e vocale di Azure Percept
 
@@ -23,13 +23,13 @@ Usare le linee guida seguenti per risolvere i problemi dell'applicazione Voice A
 Per eseguire questi comandi, [connettersi al punto di accesso Wi-Fi di Azure PERCEPT dk e connettersi a dev kit tramite SSH](./how-to-ssh-into-percept-dk.md) e immettere i comandi nel terminale SSH.
 
 ```console
- iotedge logs azureearspeechclientmodule
+sudo iotedge logs azureearspeechclientmodule
 ```
 
 Per reindirizzare l'output a un file con estensione txt per un'ulteriore analisi, usare la sintassi seguente:
 
 ```console
-[command] > [file name].txt
+sudo [command] > [file name].txt
 ```
 
 Dopo il reindirizzamento dell'output a un file con estensione txt, copiare il file nel PC host tramite SCP:
@@ -52,18 +52,18 @@ Se lo stato di runtime di **azureearspeechclientmodule** non è elencato come **
 
 È possibile usare gli indicatori LED per comprendere lo stato in cui si trova il dispositivo. L'inizializzazione completa del modulo dopo l' *accensione* richiede in genere circa 2 minuti. Quando si esegue la procedura di inizializzazione, verrà visualizzato quanto segue:
 
-1. LED bianco al centro: il dispositivo è acceso. 
-2. 1 centro bianco lampeggiante-l'autenticazione è in corso. 
+1. LED bianco al centro: il dispositivo è acceso.
+2. 1 centro bianco lampeggiante-l'autenticazione è in corso.
 3. Quando il dispositivo viene autenticato e pronto per l'uso, tutti e tre i LED cambieranno in blu.
 
-|LED|   Stato del LED|  Stato SoM Ear|
-|---|------------|----------------| 
-|L02|   1x bianco, statico on |Accendere |
-|L02|   1x bianco, 0,5 Hz lampeggianti|  Autenticazione in corso |
-|L01 & L02 & L03|   3x blu, statico on|     In attesa di una parola chiave|
-|L01 & L02 & L03|   Matrice LED lampeggiante, 20fps | In ascolto o in conversazione|
-|L01 & L02 & L03|   LED Array Racing, 20fps|    Pensare|
-|L01 & L02 & L03|   3x rosso, statico | Disattiva audio|
+|LED|Stato del LED|Stato SoM Ear|
+|---|---------|--------------|
+|L02|1x bianco, statico on|Accendere |
+|L02|1x bianco, 0,5 Hz lampeggianti|Autenticazione in corso |
+|L01 & L02 & L03|3x blu, statico on|In attesa di una parola chiave|
+|L01 & L02 & L03|Matrice LED lampeggiante, 20fps |In ascolto o in conversazione|
+|L01 & L02 & L03|LED Array Racing, 20fps|Pensare|
+|L01 & L02 & L03|3x rosso, statico |Disattiva audio|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

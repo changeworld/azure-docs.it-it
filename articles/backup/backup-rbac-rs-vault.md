@@ -4,12 +4,12 @@ description: Usare il controllo degli accessi in base al ruolo di Azure per gest
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 179cb6efcff4bcf50a64a6d58f861622e853b02b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0b321a5f33bd75ce8615d6d2a90442a83d9fff67
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553409"
+ms.locfileid: "102613443"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo di accesso in base al ruolo di Azure per gestire i punti di ripristino di backup di Azure
 
@@ -39,7 +39,7 @@ La tabella seguente acquisisce le azioni di gestione del backup e il ruolo di Az
 | | Collaboratore macchine virtuali | Risorsa della VM |  In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
 | Backup su richiesta della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |   |
 | Ripristino della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |   |
-| | Autore di contributi | Gruppo di risorse in cui verrà distribuita la VM |   In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. resources/subscriptions/resourceGroups/Write Microsoft. DomainRegistration/Domains/Write, Microsoft. Compute/virtualMachines/Write Microsoft. Network/virtualNetworks/Read Microsoft. Network/virtualNetworks/Subnets/join/Action | 
+| | Autore di contributi | Gruppo di risorse in cui verrà distribuita la VM |   In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. resources/subscriptions/resourceGroups/Write Microsoft. DomainRegistration/Domains/Write, Microsoft. Compute/virtualMachines/Write Microsoft. Network/virtualNetworks/Read Microsoft. Network/virtualNetworks/Subnets/join/Action |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |   In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
 | Ripristinare dischi non gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup | In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
@@ -50,6 +50,7 @@ La tabella seguente acquisisce le azioni di gestione del backup e il ruolo di Az
 | | Autore di contributi | Gruppo di risorse in cui verranno ripristinati i dischi gestiti | In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. resources/subscriptions/resourceGroups/Write|
 | Ripristinare singoli file dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup | In alternativa, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: Microsoft. Compute/virtualMachines/Write |
+| Ripristino tra aree | Operatore di backup | Sottoscrizione dell'insieme di credenziali di servizi di ripristino | Questa operazione è aggiunta alle autorizzazioni di ripristino indicate in precedenza. In particolare per CRR, invece di un ruolo predefinito, è possibile prendere in considerazione un ruolo personalizzato con le autorizzazioni seguenti: "Microsoft. RecoveryServices/locations/backupAadProperties/Read" "Microsoft. RecoveryServices/locations/backupCrrJobs/Action" "Microsoft. RecoveryServices/locations/backupCrrJob/Action" "Microsoft. RecoveryServices/locations/backupCrossRegionRestore/Action" "Microsoft. RecoveryServices/locations/backupCrrOperationResults/Read" "Microsoft. RecoveryServices/locations/backupCrrOperationsStatus/Read" |
 | Creare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
 | Modificare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
 | Eliminare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |

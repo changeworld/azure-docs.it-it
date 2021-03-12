@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 28940272d39a08d790fe2cd913df808b02e7f426
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679619"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441891"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Architettura di Azure Synapse SQL 
 
@@ -35,21 +35,21 @@ Synapse SQL usa un'architettura basata su nodi. L'applicazione si connette ed es
 
 Il nodo di controllo SQL di Azure sinapsi usa un motore di query distribuito per ottimizzare le query per l'elaborazione parallela e quindi passa le operazioni ai nodi di calcolo per eseguire il lavoro in parallelo. 
 
-Il nodo di controllo del pool SQL senza server utilizza il motore di elaborazione query distribuite (DQP) per ottimizzare e orchestrare l'esecuzione distribuita di query utente suddividendo la query in query più piccole che verranno eseguite sui nodi di calcolo. Ognuna delle query più piccole è definita attività e rappresenta un'unità di esecuzione distribuita. Tale attività legge i file nelle risorse di archiviazione, unisce i risultati generati da altre attività e raggruppa o ordina i dati recuperati da altre attività. 
+Il nodo di controllo del pool SQL senza server utilizza il motore di elaborazione query distribuite (DQP) per ottimizzare e orchestrare l'esecuzione distribuita di query utente suddividendo la query in query più piccole che verranno eseguite sui nodi di calcolo. Ognuna delle query più piccole è definita attività e rappresenta un'unità di esecuzione distribuita. Legge i file dalla risorsa di archiviazione, unisce i risultati di altre attività, gruppi o dati di ordini recuperati da altre attività. 
 
-I nodi di calcolo archiviano tutti i dati utente nell'archiviazione di Azure ed eseguono le query parallele. Data Movement Service (DMS) è un servizio interno a livello di sistema che sposta i dati tra i nodi per eseguire query in parallelo e restituire risultati accurati. 
+I nodi di calcolo archiviano tutti i dati utente in Archiviazione di Azure ed eseguono le query parallele. Data Movement Service (DMS) è un servizio interno a livello di sistema che sposta i dati tra i nodi per eseguire query in parallelo e restituire risultati accurati. 
 
 Grazie alla separazione delle risorse di archiviazione dalle risorse di calcolo, l'uso di Synapse SQL offre la vantaggiosa possibilità di ridimensionare la potenza di calcolo indipendentemente, senza dover tener conto delle esigenze di archiviazione. Per il ridimensionamento del pool SQL senza server viene eseguita automaticamente, mentre per un pool SQL dedicato è possibile:
 
 * Aumentare o ridurre la potenza di calcolo, all'interno di un pool SQL dedicato, senza lo stato di trasferimento dei dati.
-* Sospendere la capacità di calcolo mantenendo intatti i dati e pagando solo per l'archiviazione.
+* Sospendere la capacità di calcolo mantenendo intatti i dati e consentendo di pagare solo per l'archiviazione.
 * Riprendere le capacità di calcolo durante l'orario operativo.
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
 Synapse SQL usa Archiviazione di Azure per proteggere i dati dell'utente. Poiché i dati vengono archiviati e gestiti da Archiviazione di Azure, è previsto un addebito separato per l'uso dello spazio di archiviazione. 
 
-Il pool SQL senza server consente di eseguire query sui file nel data Lake in modalità di sola lettura, mentre il pool SQL consente anche di inserire dati. Quando i dati vengono inseriti in un pool SQL dedicato, i dati vengono partizionati in **distribuzioni** per ottimizzare le prestazioni del sistema. È possibile scegliere il modello di partizionamento orizzontale da usare per distribuire i dati quando si definisce la tabella. Sono supportati i modelli di partizionamento seguenti:
+Il pool SQL senza server consente di eseguire query sui file di data Lake, mentre il pool SQL dedicato consente di eseguire query e inserire dati dai file di data Lake. Quando i dati vengono inseriti in un pool SQL dedicato, i dati vengono partizionati in **distribuzioni** per ottimizzare le prestazioni del sistema. È possibile scegliere il modello di partizionamento orizzontale da usare per distribuire i dati quando si definisce la tabella. Sono supportati i modelli di partizionamento seguenti:
 
 * Hash
 * Round robin
@@ -84,7 +84,7 @@ Una distribuzione è l'unità di base di archiviazione ed elaborazione per le qu
 Ognuna delle 60 query viene eseguita in una distribuzione dei dati. Ogni nodo di calcolo gestisce una o più delle 60 distribuzioni. Un pool SQL dedicato con risorse di calcolo massime dispone di una distribuzione per ogni nodo di calcolo. Un pool SQL dedicato con risorse di calcolo minime dispone di tutte le distribuzioni in un nodo di calcolo. 
 
 ## <a name="hash-distributed-tables"></a>Tabelle con distribuzione hash
-Una tabella con distribuzione hash offre prestazioni di query più elevate per join e aggregazioni in tabelle di grandi dimensioni. 
+Una tabella con distribuzione hash offre le prestazioni di query più elevate per join e aggregazioni in tabelle di grandi dimensioni. 
 
 Per partizionare i dati in una tabella con distribuzione hash, il pool SQL dedicato utilizza una funzione hash per assegnare in modo deterministico ogni riga a una sola distribuzione. Nella definizione della tabella una delle colonne è definita come colonna di distribuzione. La funzione hash usa i valori della colonna di distribuzione per assegnare ogni riga a una distribuzione.
 
@@ -107,7 +107,7 @@ Una tabella con distribuzione round robin distribuisce i dati in modo uniforme a
 ## <a name="replicated-tables"></a>Tabelle replicate
 Una tabella replicata offre le migliori prestazioni di query per le tabelle di piccole dimensioni.
 
-Una tabella replicata memorizza nella cache una copia completa della tabella di ogni nodo di calcolo. Di conseguenza, la replica di una tabella elimina la necessità di trasferire i dati tra i nodi di calcolo prima di un join o un'aggregazione. Le tabelle replicate sono particolarmente adatte all'uso con tabelle di piccole dimensioni. È necessario più spazio di archiviazione e si verifica un sovraccarico aggiuntivo durante la scrittura dei dati, che impedisce l'uso di tabelle di grandi dimensioni. 
+Una tabella replicata memorizza nella cache una copia completa della tabella di ogni nodo di calcolo. Quindi, la replica di una tabella Elimina la necessità di trasferire i dati tra i nodi di calcolo prima di un join o un'aggregazione. Le tabelle replicate sono particolarmente adatte all'uso con tabelle di piccole dimensioni. È necessario più spazio di archiviazione e si verifica un sovraccarico aggiuntivo durante la scrittura dei dati, che impedisce l'uso di tabelle di grandi dimensioni. 
 
 Il diagramma seguente mostra una tabella replicata memorizzata nella cache durante la prima distribuzione in ogni nodo di calcolo. 
 

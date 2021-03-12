@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 24d27859aad7642392a5702ab7ddbb727b538d51
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d76fd3b30d823efbf85e84a74a21c694f5a0e6fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025011"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565564"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Domande frequenti su Windows 10 Enterprise multisessione
 
@@ -81,7 +81,7 @@ La maggior parte degli ambienti virtualizzati viene configurata per impostazione
 
 - [Pubblicare app predefinite nel desktop virtuale di Windows](publish-apps.md)
 - [Opzioni della riga di comando per la manutenzione del pacchetto dell'app DISM](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage)
 
 ## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Ricerca per categorie assicurarsi che gli utenti non scarichino e installino le app dal Microsoft Store?
 

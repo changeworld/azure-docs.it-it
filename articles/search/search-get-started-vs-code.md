@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Introduzione a Visual Studio Code'
+title: 'Guida introduttiva: introduzione ad Azure ricerca cognitiva con Visual Studio Code'
 titleSuffix: Azure Cognitive Search
 description: Installare e usare l'estensione di Visual Studio Code per Ricerca cognitiva di Azure.
 author: dereklegenzoff
@@ -7,21 +7,19 @@ manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: 7a613dd6cba55831b02a60f833088b6c34bfc4a7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.date: 03/10/2021
+ms.openlocfilehash: 3237a32a90e3964644ff84958a065656cdf7f3ab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122690"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015846"
 ---
-# <a name="get-started-with-visual-studio-code-and-azure-cognitive-search"></a>Introduzione a Visual Studio Code e a Ricerca cognitiva di Azure
+# <a name="get-started-with-azure-cognitive-search-using-visual-studio-code"></a>Introduzione ad Azure ricerca cognitiva con Visual Studio Code
 
-Questo articolo illustra come formulare richieste all'API REST in modo interattivo usando le [API REST di Ricerca cognitiva di Azure](/rest/api/searchservice) e un client API per l'invio e la ricezione di richieste. Con un client API e queste istruzioni è possibile inviare richieste e visualizzare le risposte prima di scrivere codice.
+Questo articolo illustra come formulare richieste API REST in modo interattivo usando le [API REST di Azure ricerca cognitiva](/rest/api/searchservice) e [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch). Con l' [estensione di Visual Studio Code per ricerca cognitiva di Azure (anteprima)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) e queste istruzioni, è possibile inviare richieste e visualizzare le risposte prima di scrivere codice.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-
-L'articolo usa l'estensione di Visual Studio Code (anteprima) per le API REST di Ricerca cognitiva di Azure.
 
 > [!IMPORTANT] 
 > Questa funzionalità è attualmente in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
@@ -35,18 +33,6 @@ Per questa guida di avvio rapido sono richiesti i servizi e gli strumenti seguen
 + [Ricerca cognitiva di Azure per Visual Studio Code (anteprima)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
 
 + [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
-
-## <a name="copy-a-key-and-url"></a>Copiare una chiave e un URL
-
-Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se il servizio Ricerca cognitiva di Azure è stato aggiunto alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
-
-1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere l'URL nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
-
-1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
-
-![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-rest/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
-
-Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
 ## <a name="install-the-extension"></a>Installare l'estensione
 

@@ -6,14 +6,14 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/19/2020
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 93dda4fc3a152b0a07a95ff327c9ea619f25787c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 24fbf52c8fd0338537862a54e15e8a249541a701
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355821"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635791"
 ---
 # <a name="migrate-from-enterprise-reporting-to-azure-resource-manager-apis"></a>Eseguire la migrazione dalle API di creazione report Enteprise a quelle di Azure Resource Manager
 
@@ -51,28 +51,7 @@ Dopo aver creato un'entità servizio per chiamare a livello di codice le API di 
 
 ### <a name="azure-billing-hierarchy-access"></a>Accesso alla gerarchia di fatturazione di Azure
 
-Per assegnare all'entità servizio le autorizzazioni per gli ambiti di account di fatturazione aziendale, reparti o registrazione, usare le API di [autorizzazioni di fatturazione](/rest/api/billing/2019-10-01-preview/billingpermissions), [definizioni di ruoli di fatturazione](/rest/api/billing/2019-10-01-preview/billingroledefinitions) e [assegnazioni di ruoli di fatturazione](/rest/api/billing/2019-10-01-preview/billingroleassignments).
-
-- Usare le API di autorizzazioni di fatturazione per identificare le autorizzazioni che l'entità servizio ha già per un ambito specifico, ad esempio un account di fatturazione o un reparto.
-- Usare le API di definizioni di ruoli di fatturazione per enumerare i ruoli disponibili che è possibile assegnare all'entità servizio.
-  - Al momento, alle entità servizio è possibile assegnare solo i ruoli di amministratore EA di sola lettura e amministratore di reparto di sola lettura.
-- Usare le API di assegnazioni di ruoli di fatturazione per assegnare un ruolo all'entità servizio.
-
-L'esempio seguente mostra come chiamare l'API di assegnazioni di ruoli per concedere a un'entità servizio l'accesso all'account di fatturazione. È consigliabile usare [PostMan](https://postman.com) per eseguire queste configurazioni delle autorizzazioni una tantum.
-
-```json
-POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/createBillingRoleAssignment?api-version=2019-10-01-preview
-```
-
-#### <a name="request-body"></a>Request Body
-
-```json
-{
-  "principalId": "00000000-0000-0000-0000-000000000000",
-  "billingRoleDefinitionId": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.Billing/billingRoleDefinition/10000000-aaaa-bbbb-cccc-100000000000"
-}
-
-```
+Per assegnare le autorizzazioni dell'entità servizio per l'account di fatturazione aziendale, i reparti o gli ambiti dell'account di registrazione, vedere [assegnare ruoli ad Azure contratto Enterprise nomi dell'entità servizio](../manage/assign-roles-azure-service-principals.md).
 
 ### <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 

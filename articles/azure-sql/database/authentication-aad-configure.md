@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: b8711b3995c322614c547434850d7c031abfadd5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f3c34526fd4005dbbb0be7e763721e125ed7828e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094944"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201207"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurare e gestire l'autenticazione di Azure AD con Azure SQL
 
@@ -345,8 +345,8 @@ In tutti i computer client, da cui le applicazioni o gli utenti si connettono al
 - .NET Framework 4,6 o versione successiva da [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) .
 - Azure Active Directory libreria di autenticazione per SQL Server (*ADAL.DLL*). Di seguito sono riportati i collegamenti di download per installare la versione più recente di SSMS, ODBC e OLE DB driver che contiene la libreria di *ADAL.DLL* .
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-  - [ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
-  - [OLE DB driver 18 per SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
+  - [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15)
+  - [OLE DB driver 18 per SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15)
 
 È possibile soddisfare questi requisiti tramite:
 
@@ -355,9 +355,9 @@ In tutti i computer client, da cui le applicazioni o gli utenti si connettono al
   - SSDT installa la versione amd64 di *ADAL.DLL*.
   - La versione più recente di Visual Studio [download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) soddisfa i requisiti di .NET Framework 4,6, ma non installa la versione amd64 richiesta di *ADAL.DLL*.
 
-## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Creare utenti indipendenti mappati a identità Azure AD
+## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Creare utenti indipendenti mappati a identità di Azure AD
 
-Poiché SQL Istanza gestita supporta Azure AD entità server (account di accesso), non è necessario utilizzare gli utenti del database indipendente. Azure AD entità server (account di accesso) consentono di creare account di accesso da Azure AD utenti, gruppi o applicazioni. Ciò significa che è possibile eseguire l'autenticazione con il Istanza gestita SQL utilizzando l'account di accesso Azure AD server invece di un utente di database indipendente. Per altre informazioni, vedere [Panoramica di SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Per la sintassi sulla creazione di entità server (account di accesso) di Azure AD, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+Poiché SQL Istanza gestita supporta Azure AD entità server (account di accesso), non è necessario utilizzare gli utenti del database indipendente. Le entità di sicurezza del server Azure AD (accessi) consentono di creare gli accessi dagli utenti, dai gruppi o dalle applicazioni di Azure AD. Ciò significa che è possibile eseguire l'autenticazione con il Istanza gestita SQL utilizzando l'account di accesso Azure AD server invece di un utente di database indipendente. Per altre informazioni, vedere [Panoramica di SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Per la sintassi sulla creazione di entità server (account di accesso) di Azure AD, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 Tuttavia, l'uso di Azure Active Directory autenticazione con il database SQL e la sinapsi di Azure richiede l'uso di utenti di database indipendente in base a un'identità Azure AD. Un utente del database indipendente non dispone di un account di accesso nel database master e viene mappato a un'identità in Azure AD associata al database. L'identità di Azure AD può essere un singolo account utente o un gruppo. Per altre informazioni sugli utenti di database indipendente, vedere [Utenti di database indipendente: rendere portabile un database](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 

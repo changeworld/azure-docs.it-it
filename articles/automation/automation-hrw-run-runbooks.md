@@ -3,14 +3,14 @@ title: Eseguire runbook di Automazione di Azure in un ruolo di lavoro ibrido per
 description: Questo articolo descrive come eseguire manuali operativi nei computer nel Data Center locale o in un altro provider di servizi cloud con Hybrid Runbook workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: a6827f8629423b9ed3adc362d3d05fd740e25a65
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 6d1f504458aed440464015a34479d75992fe5c45
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633309"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149376"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Eseguire runbook in un ruolo di lavoro ibrido per runbook
 
@@ -56,10 +56,10 @@ I ruoli di lavoro ibridi per runbook all'interno di macchine virtuali di Azure p
 Eseguire la procedura seguente per usare un'identità gestita per le risorse di Azure in un ruolo di lavoro ibrido per runbook:
 
 1. Creare una macchina virtuale di Azure.
-2. Configurare le identità gestite per le risorse di Azure nella macchina virtuale. Vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
-3. Concedere alla macchina virtuale l'accesso a un gruppo di risorse in Resource Manager. Fare riferimento a [Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere a Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
-4. Installare il ruolo di lavoro ibrido per runbook nella macchina virtuale. Vedere [Distribuire un ruolo di lavoro ibrido per runbook di Windows](automation-windows-hrw-install.md) o [Distribuire un ruolo di lavoro ibrido per runbook di Linux](automation-linux-hrw-install.md).
-5. Aggiornare il runbook in modo che usi il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) con il parametro `Identity` per eseguire l'autenticazione alle risorse di Azure. Questa configurazione riduce la necessità di usare un account RunAs e di eseguire la gestione dell'account associata.
+1. Configurare le identità gestite per le risorse di Azure nella macchina virtuale. Vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
+1. Concedere alla macchina virtuale l'accesso a un gruppo di risorse in Resource Manager. Fare riferimento a [Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere a Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
+1. Installare il ruolo di lavoro ibrido per runbook nella macchina virtuale. Vedere [Distribuire un ruolo di lavoro ibrido per runbook di Windows](automation-windows-hrw-install.md) o [Distribuire un ruolo di lavoro ibrido per runbook di Linux](automation-linux-hrw-install.md).
+1. Aggiornare il runbook in modo che usi il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) con il parametro `Identity` per eseguire l'autenticazione alle risorse di Azure. Questa configurazione riduce la necessità di usare un account RunAs e di eseguire la gestione dell'account associata.
 
     ```powershell
     # Connect to Azure using the managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
@@ -76,20 +76,24 @@ Eseguire la procedura seguente per usare un'identità gestita per le risorse di 
 
 Anziché fare in modo che i runbook forniscano i propri dati di autenticazione alle risorse locali, è possibile specificare un account RunAs per un gruppo di ruoli di lavoro ibridi per runbook. Per specificare un account RunAs, è necessario definire un [Asset credenziali](./shared-resources/credentials.md) con accesso alle risorse locali. Queste risorse includono gli archivi certificati e tutti i runbook eseguiti con queste credenziali in un ruolo di lavoro ibrido per runbook nel gruppo.
 
-Il nome utente per le credenziali deve essere in uno dei formati seguenti:
+- Il nome utente per le credenziali deve essere in uno dei formati seguenti:
 
-* dominio\nome utente
-* username@domain
-* nome utente (per gli account locali nel computer locale)
+   * dominio\nome utente
+   * username@domain
+   * nome utente (per gli account locali nel computer locale)
+
+- Per usare PowerShell Runbook **Export-RunAsCertificateToHybridWorker**, è necessario installare il comando AZ modules for Azure Automation nel computer locale.
+
+#### <a name="use-a-credential-asset-to-specify-a-run-as-account"></a>Usare un asset credenziali per specificare un account RunAs
 
 Usare la procedura seguente per specificare un account RunAs per un gruppo di ruoli di lavoro ibridi per runbook:
 
 1. Creare un [asset credenziali](./shared-resources/credentials.md) con accesso alle risorse locali.
-2. Nel portale di Azure aprire l'account di automazione.
-3. Selezionare **Gruppi di ruoli di lavoro ibridi** e quindi selezionare il gruppo specifico.
-4. Selezionare **Tutte le impostazioni** e quindi **Impostazioni del gruppo di lavoro ibrido**.
-5. Modificare il valore di **Esegui come** da **Predefinito** a **Personalizzato**.
-6. Selezionare le credenziali e fare clic su **Salva**.
+1. Nel portale di Azure aprire l'account di automazione.
+1. Selezionare **Gruppi di ruoli di lavoro ibridi** e quindi selezionare il gruppo specifico.
+1. Selezionare **Tutte le impostazioni** e quindi **Impostazioni del gruppo di lavoro ibrido**.
+1. Modificare il valore di **Esegui come** da **Predefinito** a **Personalizzato**.
+1. Selezionare le credenziali e fare clic su **Salva**.
 
 ## <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>Installare il certificato dell'account RunAs
 
@@ -178,11 +182,11 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 Per completare la preparazione dell'account RunAs:
 
 1. Salvare il runbook **Export-RunAsCertificateToHybridWorker** nel computer con l'estensione **ps1**.
-2. Importarlo nell'account di Automazione.
-3. Modificare il runbook, sostituendo il valore della variabile `Password` con la propria password.
-4. Pubblicare il runbook.
-5. Eseguire il runbook scegliendo come destinazione il gruppo di ruoli di lavoro ibridi per runbook che esegue e autentica i runbook usando l'account RunAs. 
-6. Esaminare il flusso del processo per vedere che segnala il tentativo di importare il certificato nell'archivio del computer locale, seguito da più righe. Questo comportamento dipende dal numero di account di Automazione definiti nella sottoscrizione e dal grado di riuscita dell'autenticazione.
+1. Importarlo nell'account di Automazione.
+1. Modificare il runbook, sostituendo il valore della variabile `Password` con la propria password.
+1. Pubblicare il runbook.
+1. Eseguire il runbook scegliendo come destinazione il gruppo di ruoli di lavoro ibridi per runbook che esegue e autentica i runbook usando l'account RunAs. 
+1. Esaminare il flusso del processo per vedere che segnala il tentativo di importare il certificato nell'archivio del computer locale, seguito da più righe. Questo comportamento dipende dal numero di account di Automazione definiti nella sottoscrizione e dal grado di riuscita dell'autenticazione.
 
 ## <a name="work-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Usare runbook firmati in un ruolo di lavoro ibrido per runbook di Windows
 
@@ -267,13 +271,13 @@ Per creare il keyring e la coppia di chiavi di GPG, usare l'[account nxautomatio
     sudo su – nxautomation
     ```
 
-2. Dopo aver iniziato a usare **nxautomation**, generare la coppia di chiavi di GPG. GPG consente di usare una procedura dettagliata. È necessario specificare il nome, l'indirizzo di posta elettronica, l'ora di scadenza e la passphrase. Attendere quindi che nel computer sia presente entropia sufficiente per la generazione della chiave.
+1. Dopo aver iniziato a usare **nxautomation**, generare la coppia di chiavi di GPG. GPG consente di usare una procedura dettagliata. È necessario specificare il nome, l'indirizzo di posta elettronica, l'ora di scadenza e la passphrase. Attendere quindi che nel computer sia presente entropia sufficiente per la generazione della chiave.
 
     ```bash
     sudo gpg --generate-key
     ```
 
-3. Poiché la directory GPG è stata generata con sudo, è necessario cambiare il proprietario in **nxautomation** tramite il comando seguente.
+1. Poiché la directory GPG è stata generata con sudo, è necessario cambiare il proprietario in **nxautomation** tramite il comando seguente.
 
     ```bash
     sudo chown -R nxautomation ~/.gnupg

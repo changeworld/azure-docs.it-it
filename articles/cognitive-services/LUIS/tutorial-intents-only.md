@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: 398324099f923a5141b172d61f9fd41a69dbf069
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
-ms.translationtype: HT
+ms.openlocfilehash: 04ba7dc79deef2dbad12c3f65a324201d3e9f598
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025294"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612763"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Esercitazione: Creare un'app LUIS per determinare le intenzioni dell'utente
 
@@ -193,7 +193,7 @@ Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non 
 * [Come eseguire il training](luis-how-to-train.md)
 * [Come eseguire la pubblicazione](luis-how-to-publish-app.md)
 * [Come testare nel portale LUIS](luis-interactive-test.md)
-* [Azure Bot](/azure/bot-service/?view=azure-bot-service-4.0)
+* [Azure Bot](/azure/bot-service/)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
