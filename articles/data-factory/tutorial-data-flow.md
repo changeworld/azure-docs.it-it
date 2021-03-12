@@ -7,22 +7,25 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2019
-ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/11/2021
+ms.openlocfilehash: 5deaef04330e21c8d9c580bf2a16814d4e902f6a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497062"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199863"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Trasformare i dati con i flussi di dati per mapping
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
 
 In questa esercitazione si userà l'interfaccia utente di Azure Data Factory per creare una pipeline che copia e trasforma i dati da Azure Data Lake Storage un'origine Gen2 (ADLS) a un sink ADLS Gen2 usando il flusso di dati di mapping. Il modello di configurazione in questa esercitazione può essere espanso quando si trasformano i dati utilizzando il flusso di dati di mapping
 
+ >[!NOTE]
+   >Questa esercitazione è destinata al mapping di flussi di dati in generale. I flussi di dati sono disponibili in pipeline Azure Data Factory e sinapsi. Se non si ha familiarità con i flussi di dati nelle pipeline di Azure sinapsi, seguire il [flusso di dati con le pipeline di Azure sinapsi](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 
+   
 In questa esercitazione vengono completati i passaggi seguenti:
 
 > [!div class="checklist"]
@@ -62,7 +65,7 @@ In questo passaggio si crea una data factory e si apre l'Data Factory UX per cre
     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
 6. In **Versione** selezionare **V2**.
 7. In **Località** selezionare una località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dal data factory possono trovarsi in altre aree.
-8. Selezionare **Create** (Crea).
+8. Selezionare **Crea**.
 9. Al termine della creazione, la relativa notifica verrà visualizzata nel centro notifiche. Selezionare **Vai alla risorsa** per passare alla pagina della data factory.
 10. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
 

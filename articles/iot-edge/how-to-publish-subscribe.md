@@ -10,14 +10,16 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: e4043fd8b7c9571b62cbf65d7398754b27375efd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 730680b0cb6e8a728ed3072419674346de649368
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633972"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200679"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Pubblicare e sottoscrivere con Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 È possibile utilizzare Azure IoT Edge broker MQTT per pubblicare e sottoscrivere i messaggi. Questo articolo illustra come connettersi a questo broker, pubblicare e sottoscrivere i messaggi sugli argomenti definiti dall'utente e usare le primitive di messaggistica dell'hub Internet. Il IoT Edge broker MQTT è incorporato nell'hub IoT Edge. Per ulteriori informazioni, vedere [le funzionalità di Service Broker dell'hub IOT Edge](iot-edge-runtime.md).
 

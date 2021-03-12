@@ -4,17 +4,17 @@ description: Riattivare i BLOB dalla risorsa di archiviazione dell'archivio per 
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/08/2021
+ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 2f0ddca9cbd7d85909b1d86e68b92fa1d847476d
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165672"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225082"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Riattivare i dati BLOB dal livello archivio
 
@@ -29,6 +29,10 @@ Quando un BLOB si trova nel livello di accesso archivio, viene considerato offli
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+### <a name="lifecycle-management"></a>Gestione del ciclo di vita
+
+La riattivazione di un BLOB non comporta la modifica del `Last-Modified` tempo. L'uso della funzionalità di [gestione del ciclo](storage-lifecycle-management-concepts.md) di vita può creare uno scenario in cui un BLOB viene reidratato, quindi un criterio di gestione del ciclo di vita sposta il BLOB di nuovo in archivio perché il `Last-Modified` tempo è oltre la soglia impostata per il criterio. Per evitare questo scenario, usare il metodo *[copia un BLOB archiviato in un livello online](#copy-an-archived-blob-to-an-online-tier)* . Il metodo Copy crea una nuova istanza del BLOB con un'ora aggiornata `Last-Modified` e non attiva i criteri di gestione del ciclo di vita.
+
 ## <a name="monitor-rehydration-progress"></a>Monitorare lo stato di reidratazione
 
 Durante la riattivazione, usare l'operazione Get Blob Properties per verificare l'attributo di **stato dell'archivio** e confermare il completamento della modifica del livello. Lo stato può essere "rehydrate-pending-to-hot" o "rehydrate-pending-to-cool" a seconda del livello di destinazione. Al termine, la proprietà relativa allo stato di archiviazione viene rimossa e la proprietà BLOB **livello di accesso** riflette il nuovo livello ad accesso frequente o ad accesso sporadico.
@@ -42,7 +46,7 @@ Per completare la copia di un BLOB dall'archivio possono essere necessarie alcun
 > [!IMPORTANT]
 > Non eliminare il BLOB di origine finché la copia non risulta correttamente completata nella destinazione. Se il BLOB di origine viene eliminato, è possibile che la copia del BLOB di destinazione non venga completata e che la copia risulti quindi vuota. È possibile controllare l'impostazione *x-ms-copy-status* per determinare lo stato dell'operazione di copia.
 
-I BLOB di archiviazione possono essere copiati solo nei livelli di destinazione online che si trovano all'interno dello stesso account di archiviazione. Non è supportata la copia di un BLOB di archiviazione in un altro BLOB di archiviazione. La tabella seguente indica le opzioini di CopyBlob.
+I BLOB di archiviazione possono essere copiati solo nei livelli di destinazione online che si trovano all'interno dello stesso account di archiviazione. Non è supportata la copia di un BLOB di archiviazione in un altro BLOB di archiviazione. La tabella seguente illustra le funzionalità di un'operazione di **copia del BLOB** .
 
 |                                           | **Origine nel livello di accesso frequente**   | **Origine nel livello di accesso sporadico** | **Origine nel livello archivio**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |

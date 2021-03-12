@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 46c26b6070a874947dfe5d7acd5a615961576b49
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: e56473ae935ec58a6cf6f0ea30fe5f7ccfec3f80
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736685"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017206"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Usare il modulo Azure PowerShell per abilitare la crittografia end-to-end usando la crittografia nell'host
 
@@ -23,9 +23,6 @@ Quando si Abilita la crittografia in host, i dati archiviati nell'host della mac
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-### <a name="supported-regions"></a>Aree supportate
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### <a name="supported-vm-sizes"></a>Dimensioni delle macchine virtuali supportate
 
@@ -49,7 +46,7 @@ Quando la funzionalità è abilitata, è necessario configurare un Azure Key Vau
 
 `"securityProfile": { "encryptionAtHost": "true" }`
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="create-a-vm-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Creare una VM con la crittografia nell'host abilitata con chiavi gestite dal cliente. 
 

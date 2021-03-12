@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Azure Data Lake Storage Gen1
 description: Elenca i controlli di conformità alle normative di Criteri di Azure per Azure Data Lake Storage Gen1. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: sample
 author: normesta
 ms.author: normesta
 ms.service: data-lake-store
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 56a8d85c2d062f393ecc4ea4a6d3cefdc79a92f9
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 25347dbda8f1beaaeaa4455be9135a23a39d1b2d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438890"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635816"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-lake-storage-gen1"></a>Controlli di conformità alle normative di Criteri di Azure per Azure Data Lake Storage Gen1
 

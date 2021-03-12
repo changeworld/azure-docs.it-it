@@ -24,10 +24,14 @@
       items:
         - name: Angular
           href: quickstart-v2-angular.md
+        - name: Flusso del codice di autenticazione angolare
+          href: quickstart-v2-javascript-auth-code-angular.md
         - name: JavaScript - Flusso del codice di autenticazione
           href: quickstart-v2-javascript-auth-code.md
         - name: JavaScript - Flusso implicito
           href: quickstart-v2-javascript.md
+        - name: Flusso del codice di autenticazione React
+          href: quickstart-v2-javascript-auth-code-react.md
     - name: app Web
       items:
         - name: ASP.NET

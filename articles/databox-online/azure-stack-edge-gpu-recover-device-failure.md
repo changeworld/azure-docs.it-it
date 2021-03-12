@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b32757dddf745e7aaa0ea8276a3527fa464cc0d4
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: b1bfbda007619bf5bd94d47297845881758037bc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442163"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636641"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Ripristino da un dispositivo GPU Pro Azure Stack Edge non riuscito 
 
@@ -52,10 +52,10 @@ A questo punto è possibile distribuire i carichi di lavoro in esecuzione nel di
 
 Seguire questa procedura per ripristinare i dati nelle condivisioni cloud perimetrali sul dispositivo:
 
-1. [Aggiungere condivisioni](azure-stack-edge-j-series-manage-shares.md#add-a-share) con gli stessi nomi di condivisione creati in precedenza nel dispositivo in cui si è verificato l'errore. Assicurarsi che durante la creazione delle condivisioni, **selezionare il contenitore BLOB** sia impostato su **Usa opzione esistente** e quindi selezionare il contenitore usato con il dispositivo precedente.
-1. [Aggiungere gli utenti](azure-stack-edge-j-series-manage-users.md#add-a-user) che hanno avuto accesso al dispositivo precedente.
-1. [Aggiungere gli account di archiviazione](azure-stack-edge-j-series-manage-storage-accounts.md#add-an-edge-storage-account) associati alle condivisioni precedenti nel dispositivo. Durante la creazione di account di archiviazione Edge selezionare da un contenitore esistente e puntare al contenitore mappato all'account di archiviazione di Azure mappato al dispositivo precedente. Tutti i dati del dispositivo scritti nell'account di archiviazione perimetrale sul dispositivo precedente sono stati caricati nel contenitore di archiviazione selezionato nell'account di archiviazione di Azure mappato.
-1. [Aggiornare i](azure-stack-edge-j-series-manage-shares.md#refresh-shares) dati di condivisione da Azure. Questa operazione estrae tutti i dati cloud dal contenitore esistente alle condivisioni.
+1. [Aggiungere condivisioni](azure-stack-edge-gpu-manage-shares.md#add-a-share) con gli stessi nomi di condivisione creati in precedenza nel dispositivo in cui si è verificato l'errore. Assicurarsi che durante la creazione delle condivisioni, **selezionare il contenitore BLOB** sia impostato su **Usa opzione esistente** e quindi selezionare il contenitore usato con il dispositivo precedente.
+1. [Aggiungere gli utenti](azure-stack-edge-gpu-manage-users.md#add-a-user) che hanno avuto accesso al dispositivo precedente.
+1. [Aggiungere gli account di archiviazione](azure-stack-edge-gpu-manage-storage-accounts.md#add-an-edge-storage-account) associati alle condivisioni precedenti nel dispositivo. Durante la creazione di account di archiviazione Edge selezionare da un contenitore esistente e puntare al contenitore mappato all'account di archiviazione di Azure mappato al dispositivo precedente. Tutti i dati del dispositivo scritti nell'account di archiviazione perimetrale sul dispositivo precedente sono stati caricati nel contenitore di archiviazione selezionato nell'account di archiviazione di Azure mappato.
+1. [Aggiornare i](azure-stack-edge-gpu-manage-shares.md#refresh-shares) dati di condivisione da Azure. Questa operazione estrae tutti i dati cloud dal contenitore esistente alle condivisioni.
 
 ## <a name="restore-edge-local-shares"></a>Ripristinare le condivisioni locali perimetrali
 
@@ -73,7 +73,7 @@ Dopo che il dispositivo sostitutivo è stato completamente configurato, abilitar
 Per ripristinare i dati dalle condivisioni locali, attenersi alla procedura seguente:
 
 1. [Configurare il calcolo nel dispositivo](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. [Aggiungere nuovamente una condivisione locale](azure-stack-edge-j-series-manage-shares.md#add-a-local-share) .
+1. [Aggiungere nuovamente una condivisione locale](azure-stack-edge-gpu-manage-shares.md#add-a-local-share) .
 1. Eseguire la procedura di ripristino fornita dalla soluzione di protezione dei dati preferita. Vedere i riferimenti della tabella precedente.
 
 ## <a name="restore-vm-files-and-folders"></a>Ripristinare i file e le cartelle della macchina virtuale

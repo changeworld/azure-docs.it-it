@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521748"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225031"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Anteprima: modalità di orchestrazione per i set di scalabilità di macchine virtuali in Azure 
 
@@ -128,12 +128,22 @@ Nella tabella seguente vengono confrontati la modalità di orchestrazione flessi
 |         Avvisi di Azure  |            No  |            Sì  |            Sì  |
 |         Informazioni dettagliate macchina virtuale  |            No  |            Sì  |            Sì  |
 |         Backup di Azure  |            Sì  |            Sì  |            Sì  |
-|         Azure Site Recovery  |            No  |            No  |            Sì  |
+|         Azure Site Recovery  |     No  |            No  |            Sì  |
 |         Aggiungi/Rimuovi macchina virtuale esistente al gruppo  |            No  |            No  |            No  | 
 
 
 ## <a name="register-for-flexible-orchestration-mode"></a>Registra per la modalità di orchestrazione flessibile
 Prima di poter distribuire set di scalabilità di macchine virtuali in modalità di orchestrazione flessibile, è necessario prima registrare la sottoscrizione per la funzionalità di anteprima. Il completamento della registrazione potrebbe richiedere diversi minuti. Per eseguire la registrazione, è possibile usare i comandi seguenti Azure PowerShell o CLI di Azure.
+
+### <a name="azure-portal"></a>Portale di Azure
+Passare alla pagina dei dettagli per la sottoscrizione in cui si vuole creare un set di scalabilità in modalità di orchestrazione flessibile e selezionare funzionalità di anteprima nel menu. Selezionare le due funzioni dell'agente di orchestrazione da abilitare: _VMOrchestratorSingleFD_ e _VMOrchestratorMultiFD_ e quindi fare clic sul pulsante Register (registra). La registrazione delle funzionalità può richiedere fino a 15 minuti.
+
+![Registrazione delle funzionalità.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
+
+Una volta registrate le funzionalità per la sottoscrizione, completare il processo di consenso esplicito propagando la modifica nel provider di risorse di calcolo. Passare alla scheda provider di risorse per la sottoscrizione, selezionare Microsoft. Compute, quindi fare clic su Registra di nuovo.
+
+![Ripetere la registrazione](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
+
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 Usare il cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) per abilitare l'anteprima per la sottoscrizione. 

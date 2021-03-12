@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 550481b9153d8fe8745d2a745fe6b6f00d09cdb1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 509d267dcdaef58a9792609a60c8a9401e90e867
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365821"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199720"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -147,7 +147,7 @@ Vedere di seguito il modo in cui è possibile rettificare queste azioni.
 
 ### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>D: non è possibile aggiungere più di 3 Azure AD account utente nella stessa sessione utente in un dispositivo Windows 10?
 
-**R**: Azure ad aggiunto il supporto per più account Azure ad nella versione di Windows 10 1803. Tuttavia, Windows 10 limita il numero di account Azure AD su un dispositivo a 3 per limitare le dimensioni delle richieste di token e abilitare l'accesso Single Sign-on (SSO) affidabile. Una volta aggiunti 3 account, gli utenti visualizzeranno un errore per gli account successivi. Le informazioni aggiuntive sul problema nella schermata di errore forniscono il messaggio seguente che indica il motivo per cui l'operazione di aggiunta dell'account è bloccata perché è stato raggiunto il limite di account. 
+**R**: Azure ad aggiunto il supporto per più account Azure ad nella versione di Windows 10 1803. Tuttavia, Windows 10 limita il numero di account Azure AD su un dispositivo a 3 per limitare le dimensioni delle richieste di token e abilitare l'accesso Single Sign-on (SSO) affidabile. Una volta aggiunti 3 account, gli utenti visualizzeranno un errore per gli account successivi. Le informazioni aggiuntive sul problema nella schermata di errore forniscono il messaggio seguente che indica il motivo per cui l'operazione di aggiunta dell'account è bloccata perché è stato raggiunto il limite dell'account. 
 
 ---
 ## <a name="azure-ad-join-faq"></a>Domande frequenti sull'aggiunta ad Azure AD

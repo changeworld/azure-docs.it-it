@@ -8,14 +8,16 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e38b3c617ded9c0001b01e481d4d3c1120be62ef
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 218c0f345e4ea453a2300b3de85ac8856a09c6ee
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634754"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199282"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integrazione continua e distribuzione continua nei dispositivi Azure IoT Edge (Editor classico)
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Si può facilmente adottare DevOps con le applicazioni Azure IoT Edge con le attività integrate Azure IoT Edge in Azure Pipelines. Questo articolo illustra come usare le funzionalità di integrazione continua e distribuzione continua di Azure Pipelines per compilare, testare e distribuire le applicazioni in modo rapido ed efficiente ai Azure IoT Edge mediante l'editor classico. In alternativa, è possibile [usare YAML](how-to-continuous-integration-continuous-deployment.md).
 

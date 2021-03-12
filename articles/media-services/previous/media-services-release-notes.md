@@ -3,7 +3,7 @@ title: Note sulla versione di Servizi multimediali di Azure
 description: Questo articolo illustra le note sulla versione di Servizi multimediali di Microsoft Azure v2.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1700489b4f3ee37d95b87b1bf026d47c9f1de4d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 019f0bc98de45fa1fe6f9b8c72ef74beb50ea2c2
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694885"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017359"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 
@@ -48,6 +48,26 @@ Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolve
 
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Cronologia delle versioni dell'API REST
 Per informazioni sulla cronologia delle versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
+
+## <a name="february-2021"></a>2021 febbraio
+
+### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Annuncio di deprecazione SDK e API di servizi multimediali di Azure V2
+
+#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Aggiornare i API REST Servizi multimediali di Azure e gli SDK a V3 entro il 29 febbraio 2024
+
+Poiché la versione 3 di API REST Servizi multimediali di Azure e SDK client per .NET e Java offre più funzionalità rispetto alla versione 2, si sta ritirando la versione 2 degli SDK API REST Servizi multimediali di Azure e client per .NET e Java. Si consiglia di eseguire il passaggio prima di ottenere i vantaggi più completi della versione 3 di API REST Servizi multimediali di Azure e degli SDK client per .NET e Java.
+La versione 3 fornisce:
+ 
+- supporto degli eventi live 24x7
+- API REST ARM, SDK client per .NET Core, Node.js, Python, Java, go e Ruby.
+- Chiavi gestite dal cliente, integrazione dell'archiviazione attendibile, supporto dei collegamenti privati e [altro ancora](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+
+#### <a name="action-required"></a>Azione richiesta:
+
+Per ridurre al minimo le problematiche dei carichi di lavoro, vedere la [Guida alla migrazione](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) per eseguire la transizione del codice dall'API versione 2 e SDK all'API versione 3 e all'SDK prima del 29 febbraio 2024.
+**Dopo il 29 febbraio 2024**, servizi multimediali di Azure non accetterà più traffico sull'API REST della versione 2, l'API di gestione degli account ARM versione 2015-10-01 o dagli SDK client .NET versione 2. Sono inclusi tutti gli SDK client open source di terze parti che possono chiamare l'API della versione 2.  
+
+Vedere l'annuncio ufficiale sugli [aggiornamenti di Azure](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
 
 ## <a name="september-2020"></a>Settembre 2020
 

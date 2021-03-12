@@ -49,8 +49,6 @@
       items:
         - name: Creare un account con un modello di Azure Resource Manager
           href: quickstart-arm-template-account.md
-    - name: Guida introduttiva alla codifica Python Basic
-      href: quickstart-basic-encoding-python.md
 - name: Esercitazioni
   items:
     - name: .NET
@@ -86,6 +84,10 @@
       items:
         - name: Codificare e trasmettere un file remoto - Node.js
           href: stream-files-nodejs-quickstart.md
+    - name: Python
+      items:
+        - name: Guida introduttiva alla codifica Python Basic
+          href: quickstart-basic-encoding-python.md
     - name: Portale di Azure
       items:
         - name: 'Esercitazione: Chiavi gestite dal cliente o BYOK'

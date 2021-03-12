@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 03/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57826fcff03e79d5617c7eb69aac7d535d3c86f7
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 35178ecc9bc736bbaca3adc932022b15cc2fc956
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915709"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632085"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accesso condizionale: Richiedi autenticazione a più fattori per gli amministratori
 
@@ -56,7 +56,7 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri.
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
-   1. In **Includi** selezionare **ruoli della directory (anteprima)** e scegliere almeno i ruoli seguenti:
+   1. In **Includi** selezionare **ruoli della directory** e scegliere ruoli predefiniti, ad esempio:
       * Amministratore dell'autenticazione
       * Amministratore fatturazione
       * Amministratore di accesso condizionale
@@ -69,12 +69,11 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
       * Amministratore utenti
    
       > [!WARNING]
-      > I criteri di accesso condizionale non supportano gli utenti assegnati a un ruolo della directory [con ambito a un'unità amministrativa](../roles/admin-units-assign-roles.md) o a ruoli della directory con ambito diretto a un oggetto, ad esempio tramite [ruoli personalizzati](../roles/custom-create.md).
+      > I criteri di accesso condizionale supportano i ruoli predefiniti. I criteri di accesso condizionale non vengono applicati per altri tipi di ruoli, inclusi quelli con [ambito unità amministrativa](../roles/admin-units-assign-roles.md) o [personalizzati](../roles/custom-create.md).
 
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
    1. Selezionare **Operazione completata**.
 1. In **Applicazioni cloud o azioni** > **Includi** selezionare **Tutte le app Cloud** e quindi **Chiudi**.
-1. In **condizioni**  >  **app client**, impostare **Configura** su **Sì** e in **selezionare le app client a cui verranno applicati i criteri per** lasciare selezionate tutte le impostazioni predefinite e selezionare **fine**.
 1. In **Controlli di accesso** > **Concedi**, selezionare **Concedi accesso**, **Richiedi autenticazione a più fattori** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.

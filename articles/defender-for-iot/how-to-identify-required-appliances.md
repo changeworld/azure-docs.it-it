@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 92bf066c9769cc4b2525923b9e18ed3c0e9c577a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937143"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149300"
 ---
 # <a name="identify-required-appliances"></a>Identificare le appliance necessarie
 
@@ -38,13 +38,13 @@ Defender for Internet delle cose supporta le distribuzioni sia fisiche che virtu
 
 In questa sezione viene fornita una panoramica dei modelli di sensori fisici disponibili. È possibile acquistare sensori con software preconfigurato o sensori di acquisto che non sono preconfigurati.
 
-| Tipo di distribuzione | Aziendale | Enterprise | SMB |
-|--|--|--|--|
-| Immagine | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="Modello a livello di azienda."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Modello di livello aziendale."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Modello a livello SMB."::: |
-| Modello | DL360 ProLiant HPE | DL20 ProLiant HPE | DL20 ProLiant HPE |
-| Monitoraggio di porte | Fino a 15 RJ45 o 8 OPT | Fino a 8 RJ45 o 6 OPT | 4 RJ45 |
-| Larghezza di banda massima [1](#anchortext) | 3 GB al secondo | 1 GB al secondo | 200 MB al secondo |
-| Numero massimo di dispositivi protetti | 30.000 | 15.000 | 1\.000 |
+| Tipo di distribuzione | Aziendale | Enterprise | Montaggio rack SMB| SMB rinforzato|
+|--|--|--|--|--|
+| Immagine | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="Modello a livello di azienda."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Modello di livello aziendale."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Modello a livello SMB."::: | :::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="Modello a livello di SMB."::: |
+| Modello | DL360 ProLiant HPE | DL20 ProLiant HPE | DL20 ProLiant HPE | EL300 HPE |
+| Monitoraggio di porte | Fino a 15 RJ45 o 8 OPT | Fino a 8 RJ45 o 6 OPT | 4 RJ45 | Fino a 5 |
+| Larghezza di banda massima [1](#anchortext) | 3 GB/sec | 1 GB/sec | 200 MB/sec | 100 MB/sec |
+| Numero massimo di dispositivi protetti | 30.000 | 15.000 | 1\.000 | 800 |
 
 Vedere [specifiche di appliance](#appliance-specifications) per i dettagli del fornitore.
 
@@ -195,6 +195,45 @@ Questa sezione descrive le specifiche hardware per le appliance seguenti:
 | 512485-B21 | Supporto di HPE Oil adv 1-Server License 1 year | 1 |
 | 775612-B21 | HPE 1U Short attrite Rail Kit | 1 |
 
+## <a name="smb-rugged-hpe-edgeline-el300"></a>SMB robusto: HPE EdgeLine EL300
+
+| Componente | Specifiche tecniche |
+|--|--|
+| Edilizia | Alluminio, non ventola & progettazione a prova di polvere |
+| Dimensioni (altezza x larghezza x profondità) | 200.5 mm (7,9 ") Tall, 232mm (9,14") wide by 100mm (3,9 ") Deep |
+| Peso | 4,91 KG (10,83 lbs) |
+| CPU | Intel Core i7-8650U (1.9 GHz/4-core/15W) |
+| Chipset | Hub controller della piattaforma Intel® Q170 |
+| Memoria | SODIMM a temperatura DDR4 2133MHz a 8 GB |
+| Archiviazione | 128GB 3ME3 Wide temperature mSATA SSD |
+| Controller di rete | porte Ethernet 6x Gigabit da Intel® I219 |
+| Accesso al dispositivo  | 4 USBs: 2 fronti; 2 posteriori; 1 interno |
+| Alimentatore | 250V/10A |
+| Montaggio | Kit di montaggio, guida DIN |
+| Temperatura operativa | da 0C a + 70C  |
+| Umidità | 10% ~ 90%, non condensato |
+| Vibrazione | 0,3 GRMS da 10Hz a 300Hz, 15 minuti per asse-DIN Rail   |
+| Shock | 10G 10 ms, Half-seno, Three per ogni asse. (Sia positivo & negativo) – guida DIN |
+
+### <a name="appliance-bom"></a>BOM dispositivo
+| Prodotto | Descrizione |
+|--|--|
+| P25828-B21 | Sistema perimetrale convergente HPE EdgeLine EL300 V2 |
+| P25828-B21 B19 | Sistema perimetrale convergente HPE EL300 V2 |
+| P25833-B21 | Intel Core i7-8650U (1.9 GHz/4-core/15W) FIO Basic Processor kit per HPE EdgeLine EL300 |
+| P09176-B21 | HPE EdgeLine 8GB (1x8GB) dual rank x8 DDR4-2666 SODIMM WT CAS-19-19-19 Registered memory FIO Kit |
+| P09188-B21 | HPE EdgeLine A 256 GB SATA 6G read intensive M. 2 2242 3yr WTY unità SSD a temperatura larga |
+| P04054-B21 | HPE EdgeLine EL300 SFF a M. 2 Enablement Kit |
+| P08120-B21 | HPE EdgeLine EL300 12VDC FIO Transfer Board |
+| P08641-B21 | HPE EdgeLine EL300 80W 12VDC alimentatore |
+| AF564A | HPE C13-SI-32 IL 250V 10Amp 1.83 m |
+| P25835-B21 | HPE EL300 v2-scheda del vettore FIO |
+| R1P49AAE | HPE EL300 iSM ADV 3yr 24x7 Sup_Upd E-LTU |
+| P08018-B21 facoltativo | HPE EdgeLine EL300 low profile quad Kit  |
+| P08019-B21 facoltativo | HPE EdgeLine EL300 DIN Rail Mount Kit |
+| P08020-B21 facoltativo | HPE EdgeLine EL300 Wall Mount Kit |
+| P03456-B21 facoltativo | HPE EdgeLine 1GbE 4-porta TSN FIO daughter card |
+
 ## <a name="virtual-appliance-specifications"></a>Specifiche dell'appliance virtuale
 
 ### <a name="sensors"></a>Sensori
@@ -238,7 +277,7 @@ Dopo aver acquistato il dispositivo, passare a **Defender per** i  >  **sensori 
 
 | Componente | Specifiche tecniche |
 |--|--|
-| Chassis | server rack 1U |
+| Chassis | server rack 1U
 | Dimensioni | 42,8 x 434,0 x 596 (mm)/1,67 "x 17,09" x 23,5 "(in) |
 | Peso | Massimo 29,98 lb/13,6 kg |
 | Processore | Intel Xeon E-2144G 3,6 GHz, 8M Cache, 4C/8T, Turbo (71 W) |
@@ -260,3 +299,4 @@ Dopo aver acquistato il dispositivo, passare a **Defender per** i  >  **sensori 
 [Informazioni su Azure Defender per l'installazione di Internet](how-to-install-software.md)
 
 [Informazioni sulla configurazione della rete di Azure Defender per IoT](how-to-set-up-your-network.md)
+

@@ -3,16 +3,16 @@ title: Creare e crittografare una macchina virtuale Linux con il portale di Azur
 description: Questo argomento di avvio rapido illustra come usare il portale di Azure per creare e crittografare una macchina virtuale Linux
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 13e6077ee9bd24cdfc9a7c1f405199989546680f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
-ms.translationtype: HT
+ms.openlocfilehash: 188ba72f4da4e5a24554f895473f1c74e48d50fa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896023"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558356"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Guida introduttiva: Creare e crittografare una macchina virtuale con il portale di Azure
 
@@ -42,7 +42,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
     >
     > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione.
 
-1. Selezionare la scheda "Gestione" e verificare di avere un account di archiviazione di diagnostica. Se non sono presenti account di archiviazione, selezionare *Crea nuovo* , assegnare all'account di archiviazione il nome *myStorageAccount* e fare clic su "OK"
+1. Selezionare la scheda "Gestione" e verificare di avere un account di archiviazione di diagnostica. Se non sono presenti account di archiviazione, selezionare *Crea nuovo*, assegnare all'account di archiviazione il nome *myStorageAccount* e fare clic su "OK"
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Schermata di creazione del gruppo di risorse":::
 
