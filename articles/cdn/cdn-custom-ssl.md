@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 61ba50f8ec9e1de18238160b23096670753cffd6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 275afc504a5e7b92ae3274c02372eee6b488c782
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367504"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616401"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Esercitazione: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure
 
@@ -356,6 +356,11 @@ La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazion
 7. *Come funzionano i rinnovi di certificati con il programma Bring Your Own Certificate?*
 
     Per assicurarsi che un certificato più recente venga distribuito nell'infrastruttura PoP, caricare il nuovo certificato nell'insieme di credenziali delle credenziali di Azure. In impostazioni TLS nella rete CDN di Azure scegliere la versione più recente del certificato e selezionare Salva. La rete CDN di Azure propagherà quindi il nuovo certificato aggiornato. 
+
+8. *È necessario riabilitare HTTPS dopo il riavvio dell'endpoint?*
+
+    Sì. Se si usa la rete **CDN di Azure da Akamai**, se l'endpoint viene arrestato e riavviato, è necessario abilitare nuovamente l'impostazione HTTPS se l'impostazione era attiva in precedenza.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 15f0b01304f3333b8650ab2079cd56271d0095db
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 2c98546d20e9f977a605ccbac21010aa9b1dbadc
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424496"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232495"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -39,6 +39,8 @@ Un modello sottoposto a training su un subset di scenari può essere eseguito co
 > Inizia con piccoli set di dati di esempio che corrispondono alla lingua e all'acustica che il tuo modello incontrerà.
 > Registrare, ad esempio, un campione piccolo ma rappresentativo di audio sullo stesso hardware e nello stesso ambiente acustico che il modello troverà negli scenari di produzione.
 > I set di dati di piccole dimensioni dei dati rappresentativi possono esporre problemi prima di investire nella raccolta di set di dati di dimensioni molto più grandi per il training.
+>
+> Per iniziare rapidamente, provare a usare i dati di esempio. Vedere questo repository GitHub per <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">i dati di esempio riconoscimento vocale personalizzato </a>
 
 ## <a name="data-types"></a>Tipi di dati
 
@@ -50,17 +52,14 @@ In questa tabella sono elencati i tipi di dati accettati, quando è necessario u
 | [Trascrizioni audio + con etichetta umana](#audio--human-labeled-transcript-data-for-testingtraining) | Sì<br>Utilizzato per valutare l'accuratezza | 0,5-5 ore di audio | Sì | 1-20 ore di audio |
 | [Testo correlato](#related-text-data-for-training) | No | N/a | Sì | 1-200 MB di testo correlato |
 
-Quando si esegue il training di un nuovo modello, iniziare con il [testo correlato](#related-text-data-for-training). Questi dati miglioreranno già il riconoscimento di termini e frasi speciali. Il training con testo è molto più veloce rispetto alla formazione con audio (minuti e giorni).
-
 I file devono essere raggruppati per tipo in un set di dati e caricati come file con estensione zip. Ogni set di dati può contenere solo un singolo tipo di dati.
 
 > [!TIP]
-> Per iniziare rapidamente, provare a usare i dati di esempio. Vedere questo repository GitHub per <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">i dati di esempio riconoscimento vocale personalizzato </a>
+> Quando si esegue il training di un nuovo modello, iniziare con il [testo correlato](#related-text-data-for-training). Questi dati miglioreranno già il riconoscimento di termini e frasi speciali. Il training con testo è molto più veloce rispetto alla formazione con audio (minuti e giorni).
 
 > [!NOTE]
 > Non tutti i modelli di base supportano il training con audio. Se un modello di base non la supporta, il servizio di riconoscimento vocale utilizzerà solo il testo delle trascrizioni e ignorerà l'audio. Per un elenco dei modelli di base che supportano il training con dati audio, vedere Supporto per le [lingue](language-support.md#speech-to-text) . Anche se un modello di base supporta il training con dati audio, il servizio può usare solo parte dell'audio. Continuerà comunque a usare tutte le trascrizioni.
-
-> [!NOTE]
+>
 > Nei casi in cui si modifica il modello di base utilizzato per il training e si dispone di audio nel set di dati di training, verificare *sempre* se il nuovo modello di base selezionato [supporta il training con dati audio](language-support.md#speech-to-text). Se il modello di base usato in precedenza non supporta il training con dati audio e il set di dati di training contiene audio, i tempi di training con il nuovo modello di base aumenteranno **drasticamente** e potranno passare da diverse ore a diversi giorni. Ciò vale soprattutto se la sottoscrizione al servizio vocale **non** si trova in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
 >
 > Se si affronta il problema descritto nel paragrafo precedente, è possibile ridurre rapidamente il tempo di training riducendo la quantità di audio nel set di dati o rimuovendo completamente il testo e lasciando solo il testo. La seconda opzione è consigliata se la sottoscrizione al servizio vocale **non** si trova in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.

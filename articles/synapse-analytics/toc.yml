@@ -185,6 +185,12 @@
               href: troubleshoot/workspaces-created-by-sdk.md
             - name: Risolvere i problemi di lettura di testo UTF-8
               href: troubleshoot/reading-utf8-text.md
+- name: Guide alla migrazione
+  items:
+    - name: SQL Server ad Azure sinapsi Analytics
+      href: migration-guides/sql-server-to-synapse-analytics-guide.md
+    - name: Da Oracle ad Azure sinapsi Analytics
+      href: migration-guides/oracle-to-synapse-analytics-guide.md
 - name: SQL Synapse
   items:
     - name: Panoramica
@@ -559,6 +565,8 @@
       items:
         - name: Apache Spark
           href: ./spark/apache-spark-concepts.md
+        - name: Configurazioni del pool di Apache Spark
+          href: ./spark/apache-spark-pool-configurations.md
         - name: Delta Lake
           href: ./spark/apache-spark-what-is-delta-lake.md
         - name: Comportamento di scalabilità automatica di Apache Spark

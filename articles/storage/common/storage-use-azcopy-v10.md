@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: bec221f762213fa8576ccef30e9b6a27aa708f01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a1651ef1b49ecedb8070f32c56e9d23a0f8fd0da
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944147"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201579"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -100,6 +100,9 @@ Per altre informazioni sui token SAS e su come ottenerne uno, vedere [uso delle 
 ## <a name="transfer-data"></a>Trasferire i dati
 
 Dopo aver autorizzato la propria identità o ottenuto un token di firma di accesso condiviso, è possibile iniziare a trasferire i dati.
+
+> [!NOTE]
+> L'impostazione [Secure Transfer required](storage-require-secure-transfer.md) di un account di archiviazione determina se la connessione a un account di archiviazione è protetta con Transport Layer Security (TLS). Questa opzione è attivata per impostazione predefinita.   
 
 Per trovare i comandi di esempio, vedere uno di questi articoli.
 

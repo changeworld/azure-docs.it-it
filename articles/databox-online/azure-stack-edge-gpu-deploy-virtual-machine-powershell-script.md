@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 82019031eab4c17465115c4a24598f43d4620148
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 36c7078a79cf8b0b7414c5031acb79b9a2c2453c
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436449"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630487"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Distribuire le VM sul dispositivo GPU Azure Stack Edge Pro tramite Azure PowerShell script
 
@@ -41,7 +41,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
     1. Avviare il **Blocco note** come amministratore (per salvare il file sono necessari privilegi di amministratore), quindi aprire il file **hosts** nella cartella `C:\Windows\System32\Drivers\etc`.
     
-        ![File hosts di Esplora risorse](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file.png)
+        ![File hosts di Esplora risorse](media/azure-stack-edge-gpu-connect-resource-manager/hosts-file.png)
     
     2. Aggiungere le voci seguenti al file **hosts** sostituendo i valori con quelli appropriati per il dispositivo:
     
@@ -54,7 +54,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
     3. Usare l'immagine seguente per riferimento. Salvare il file **hosts**.
 
-        ![File hosts nel Blocco note](media/azure-stack-edge-j-series-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
+        ![File hosts nel Blocco note](media/azure-stack-edge-gpu-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
 
 2. [Scaricare lo script di PowerShell](https://aka.ms/ase-vm-powershell) usato in questa procedura.
 

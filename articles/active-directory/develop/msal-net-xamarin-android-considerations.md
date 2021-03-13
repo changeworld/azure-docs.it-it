@@ -13,12 +13,12 @@ ms.date: 08/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 34f2b146dda6e739f977c4894b5ec333c79d74d4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 11642480ac817b50d102e396b8ab5e200948a615
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063434"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199556"
 ---
 # <a name="configuration-requirements-and-troubleshooting-tips-for-xamarin-android-with-msalnet"></a>Requisiti di configurazione e suggerimenti per la risoluzione dei problemi per Novell Android con MSAL.NET
 
@@ -74,26 +74,26 @@ protected override void OnActivityResult(int requestCode,
 }
 ```
 
-## <a name="update-the-android-manifest"></a>Aggiornare il manifesto Android
+## <a name="update-the-android-manifest-for-system-webview-support"></a>Aggiornare il manifesto Android per il supporto di System WebView 
 
-Il file di *AndroidManifest.xml* deve contenere i valori seguenti:
+Per supportare WebView di sistema, il file di *AndroidManifest.xml* deve contenere i valori seguenti:
 
-```XML
-  <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
-  <activity
-        android:name="microsoft.identity.client.BrowserTabActivity">
-     <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="msauth"
-                android:host="Enter_the_Package_Name"
-                android:path="/Enter_the_Signature_Hash" />
-     </intent-filter>
-  </activity>
+```xml
+<activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize">
+  <intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="msal{Client Id}" android:host="auth" />
+  </intent-filter>
+</activity>
 ```
 
-Sostituire il nome del pacchetto registrato nell'portale di Azure per il `android:host=` valore. Sostituire l'hash della chiave registrato nell'portale di Azure per il `android:path=` valore. L'hash della firma *non* deve essere codificato in URL. Assicurarsi che una barra iniziale ( `/` ) venga visualizzata all'inizio dell'hash della firma.
+Il `android:scheme` valore viene creato dall'URI di reindirizzamento configurato nel portale per le applicazioni. Ad esempio, se l'URI di reindirizzamento è `msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842://auth` , la `android:scheme` voce nel manifesto avrà un aspetto simile all'esempio seguente:
+
+```xml
+<data android:scheme="msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842" android:host="auth" />
+```
 
 In alternativa, [creare l'attività nel codice](/xamarin/android/platform/android-manifest#the-basics) anziché modificare manualmente *AndroidManifest.xml*. Per creare l'attività nel codice, creare prima una classe che includa l' `Activity` attributo e l' `IntentFilter` attributo.
 
@@ -110,9 +110,107 @@ Di seguito è riportato un esempio di una classe che rappresenta i valori del fi
   }
 ```
 
+### <a name="use-system-webview-in-brokered-authentication"></a>Usare la visualizzazione del sistema nell'autenticazione negoziata
+
+Per usare System WebView come fallback per l'autenticazione interattiva quando l'applicazione è stata configurata per l'uso dell'autenticazione negoziata e nel dispositivo non è installato un broker, abilitare MSAL per acquisire la risposta di autenticazione usando l'URI di reindirizzamento del broker. MSAL tenterà di eseguire l'autenticazione usando la visualizzazione di sistema predefinita nel dispositivo quando rileva che il broker non è disponibile. L'uso di questa impostazione predefinita non riuscirà perché l'URI di reindirizzamento è configurato per l'uso di un broker e System WebView non sa come usarlo per tornare a MSAL. Per risolvere questo problema, creare un _filtro preventivo_ usando l'URI di reindirizzamento del broker configurato in precedenza. Aggiungere il filtro preventivo modificando il manifesto dell'applicazione come nell'esempio seguente:
+
+```xml
+<!--Intent filter to capture System WebView or Authenticator calling back to our app after sign-in-->
+<activity
+      android:name="microsoft.identity.client.BrowserTabActivity">
+    <intent-filter>
+          <action android:name="android.intent.action.VIEW" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <category android:name="android.intent.category.BROWSABLE" />
+          <data android:scheme="msauth"
+              android:host="Enter_the_Package_Name"
+              android:path="/Enter_the_Signature_Hash" />
+    </intent-filter>
+</activity>
+```
+
+Sostituire il nome del pacchetto registrato nell'portale di Azure per il `android:host=` valore. Sostituire l'hash della chiave registrato nell'portale di Azure per il `android:path=` valore. L'hash della firma *non* deve essere codificato in URL. Assicurarsi che una barra iniziale ( `/` ) venga visualizzata all'inizio dell'hash della firma.
+
 ### <a name="xamarinforms-43x-manifest"></a>Manifesto Novell. Forms 4.3. x
 
 Novell. Forms 4.3. x genera il codice che imposta l' `package` attributo su `com.companyname.{appName}` in *AndroidManifest.xml*. Se si usa `DataScheme` As `msal{client_id}` , potrebbe essere necessario modificare il valore in modo che corrisponda al valore dello `MainActivity.cs` spazio dei nomi.
+
+## <a name="android-11-support"></a>Supporto per Android 11
+
+Per usare il browser di sistema e l'autenticazione negoziata in Android 11, è necessario prima dichiarare questi pacchetti, in modo che siano visibili all'app. Le app destinate a Android 10 (API 29) e versioni precedenti possono eseguire query sul sistema operativo per un elenco di pacchetti disponibili nel dispositivo in un determinato momento. Per supportare la privacy e la sicurezza, Android 11 riduce la visibilità dei pacchetti in un elenco predefinito di pacchetti del sistema operativo e i pacchetti specificati nel file di *AndroidManifest.xml* dell'app. 
+
+Per consentire all'applicazione di eseguire l'autenticazione tramite il browser di sistema e il broker, aggiungere la seguente sezione a *AndroidManifest.xml*:
+
+```xml
+<!-- Required for API Level 30 to make sure the app can detect browsers and other apps where communication is needed.-->
+<!--https://developer.android.com/training/basics/intents/package-visibility-use-cases-->
+<queries>
+  <package android:name="com.azure.authenticator" />
+  <package android:name="{Package Name}" />
+  <package android:name="com.microsoft.windowsintune.companyportal" />
+  <!-- Required for API Level 30 to make sure the app detect browsers
+      (that don't support custom tabs) -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="https" />
+  </intent>
+  <!-- Required for API Level 30 to make sure the app can detect browsers that support custom tabs -->
+  <!-- https://developers.google.com/web/updates/2020/07/custom-tabs-android-11#detecting_browsers_that_support_custom_tabs -->
+  <intent>
+    <action android:name="android.support.customtabs.action.CustomTabsService" />
+  </intent>
+</queries>
+``` 
+
+Sostituire `{Package Name}` con il nome del pacchetto dell'applicazione. 
+
+Il manifesto aggiornato, che ora include il supporto per il browser di sistema e l'autenticazione negoziata, dovrebbe avere un aspetto simile all'esempio seguente:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.XamarinDev">
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application android:theme="@android:style/Theme.NoTitleBar">
+        <activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842" android:host="auth" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="msauth" android:host="com.companyname.XamarinDev" android:path="/Fc4l/5I4mMvLnF+l+XopDuQ2gEM=" />
+            </intent-filter>
+        </activity>
+    </application>
+    <!-- Required for API Level 30 to make sure we can detect browsers and other apps we want to
+     be able to talk to.-->
+    <!--https://developer.android.com/training/basics/intents/package-visibility-use-cases-->
+    <queries>
+        <package android:name="com.azure.authenticator" />
+        <package android:name="com.companyname.xamarindev" />
+        <package android:name="com.microsoft.windowsintune.companyportal" />
+        <!-- Required for API Level 30 to make sure we can detect browsers
+        (that don't support custom tabs) -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+        <!-- Required for API Level 30 to make sure we can detect browsers that support custom tabs -->
+        <!-- https://developers.google.com/web/updates/2020/07/custom-tabs-android-11#detecting_browsers_that_support_custom_tabs -->
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService" />
+        </intent>
+    </queries>
+</manifest>
+```
 
 ## <a name="use-the-embedded-web-view-optional"></a>Usare la visualizzazione Web incorporata (facoltativo)
 
@@ -160,7 +258,7 @@ Questo esempio contiene un percorso file corretto:
 
 Per altre informazioni, vedere l'esempio di un' [applicazione per dispositivi mobili Novell che usa la piattaforma di identità Microsoft](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations). Nella tabella seguente sono riepilogate le informazioni rilevanti nel file Leggimi.
 
-| Esempio | Piattaforma | Description |
+| Esempio | Piattaforma | Descrizione |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Novell. iOS, Android, UWP | Semplice app Novell. Forms che illustra come usare MSAL per autenticare gli account personali Microsoft e Azure AD tramite l'endpoint Azure AD 2,0. L'app mostra anche come accedere a Microsoft Graph e visualizzare il token risultante. <br>![Diagramma del flusso di autenticazione](media/msal-net-xamarin-android-considerations/topology.png) |
 

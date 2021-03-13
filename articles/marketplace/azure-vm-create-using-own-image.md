@@ -4,15 +4,15 @@ description: Informazioni su come pubblicare un'offerta di macchina virtuale in 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
+author: krsh
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: 42022d1204c3b524ee2e9ef2770f616fba89dc8c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.date: 03/10/2021
+ms.openlocfilehash: 4711ea76af83594ec529cfda13a308fbe6646398
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284303"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200468"
 ---
 # <a name="how-to-create-a-virtual-machine-using-your-own-image"></a>Come creare una macchina virtuale usando un'immagine personalizzata
 
@@ -35,7 +35,7 @@ Questa sezione descrive come ridimensionare, aggiornare e generalizzare una macc
 
 [!INCLUDE [Discussion of most current updates](includes/most-current-updates.md)]
 
-### <a name="perform-additional-security-checks"></a>Eseguire controlli di sicurezza aggiuntivi
+### <a name="perform-more-security-checks"></a>Eseguire ulteriori controlli di sicurezza
 
 [!INCLUDE [Discussion of addition security checks](includes/additional-security-checks.md)]
 
@@ -43,15 +43,157 @@ Questa sezione descrive come ridimensionare, aggiornare e generalizzare una macc
 
 [!INCLUDE [Discussion of custom configuration and scheduled tasks](includes/custom-config.md)]
 
-## <a name="upload-the-vhd-to-azure"></a>Caricare il disco rigido virtuale in Azure
+### <a name="generalize-the-image"></a>Generalizzare l'immagine
+
+Tutte le immagini in Azure Marketplace devono poter essere riutilizzate in modo generico. Per ottenere questo risultato, il disco rigido virtuale del sistema operativo deve essere generalizzato. La generalizzazione è un'operazione che rimuove tutti gli identificatori specifici di istanze e tutti i driver software da una macchina virtuale.
+
+## <a name="bring-your-image-into-azure"></a>Porta la tua immagine in Azure
+
+Sono disponibili tre modi per importare l'immagine in Azure:
+
+1. Caricare il disco rigido virtuale in una raccolta di immagini condivise (SIG).
+1. Caricare il disco rigido virtuale in un account di archiviazione di Azure.
+1. Estrarre il disco rigido virtuale da un'immagine gestita (se si usano i servizi di creazione immagini).
+
+Nelle tre sezioni seguenti vengono descritte queste opzioni.
+
+### <a name="option-1-upload-the-vhd-as-shared-image-gallery"></a>Opzione 1: caricare il disco rigido virtuale come raccolta di immagini condivise
+
+1. Caricare i dischi rigidi virtuali nell'account di archiviazione.
+2. Nella portale di Azure cercare **Distribuisci un modello personalizzato**.
+3. Selezionare **Creare un modello personalizzato nell'editor**.
+4. Copiare il seguente modello di Azure Resource Manager (ARM).
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "sourceStorageAccountResourceId": {
+          "type": "string",
+          "metadata": {
+            "description": "Resource ID of the source storage account that the blob vhd resides in."
+          }
+        },
+        "sourceBlobUri": {
+          "type": "string",
+          "metadata": {
+            "description": "Blob Uri of the vhd blob (must be in the storage account provided.)"
+          }
+        },
+        "sourceBlobDataDisk0Uri": {
+          "type": "string",
+          "metadata": {
+            "description": "Blob Uri of the vhd blob (must be in the storage account provided.)"
+          }
+        },
+        "sourceBlobDataDisk1Uri": {
+          "type": "string",
+          "metadata": {
+            "description": "Blob Uri of the vhd blob (must be in the storage account provided.)"
+          }
+        },
+        "galleryName": {
+          "type": "string",
+          "metadata": {
+            "description": "Name of the Shared Image Gallery."
+          }
+        },
+        "galleryImageDefinitionName": {
+          "type": "string",
+          "metadata": {
+            "description": "Name of the Image Definition."
+          }
+        },
+        "galleryImageVersionName": {
+          "type": "string",
+          "metadata": {
+            "description": "Name of the Image Version - should follow <MajorVersion>.<MinorVersion>.<Patch>."
+          }
+        }
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Compute/galleries/images/versions",
+          "name": "[concat(parameters('galleryName'), '/', parameters('galleryImageDefinitionName'), '/', parameters('galleryImageVersionName'))]",
+          "apiVersion": "2020-09-30",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "storageProfile": {
+              "osDiskImage": {
+                "source": {
+                  "id": "[parameters('sourceStorageAccountResourceId')]",
+                  "uri": "[parameters('sourceBlobUri')]"
+                }
+              },
+    
+              "dataDiskImages": [
+                {
+                  "lun": 0,
+                  "source": {
+                    "id": "[parameters('sourceStorageAccountResourceId')]",
+                    "uri": "[parameters('sourceBlobDataDisk0Uri')]"
+                  }
+                },
+                {
+                  "lun": 1,
+                  "source": {
+                    "id": "[parameters('sourceStorageAccountResourceId')]",
+                    "uri": "[parameters('sourceBlobDataDisk1Uri')]"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+    
+    ```
+
+5. Incollare il modello nell'editor.
+
+    :::image type="content" source="media/create-vm/vm-sample-code-screen.png" alt-text="Schermata di codice di esempio per la macchina virtuale.":::
+
+1. Selezionare **Salva**.
+1. Utilizzare i parametri in questa tabella per completare i campi della schermata riportata di seguito.
+
+| Parametri | Descrizione |
+| --- | --- |
+| sourceStorageAccountResourceId | ID risorsa dell'account di archiviazione di origine in cui risiede il disco rigido virtuale BLOB.<br><br>Per ottenere l'ID risorsa, passare all' **account di archiviazione** in **portale di Azure**, passare a **proprietà** e copiare il valore **resourceId** . |
+| sourceBlobUri | URI del BLOB del disco rigido virtuale del disco del sistema operativo (deve trovarsi nell'account di archiviazione fornito).<br><br>Per ottenere l'URL del BLOB, passare all' **account di archiviazione** in **portale di Azure**, passare al **BLOB** e copiare il valore dell' **URL** . |
+| sourceBlobDataDisk0Uri | URI del BLOB del disco rigido virtuale del disco dati (deve trovarsi nell'account di archiviazione fornito). Se non si dispone di un disco dati, rimuovere questo parametro dal modello.<br><br>Per ottenere l'URL del BLOB, passare all' **account di archiviazione** in **portale di Azure**, passare al **BLOB** e copiare il valore dell' **URL** . |
+| sourceBlobDataDisk1Uri | URI del BLOB del BLOB del disco rigido virtuale del disco dati aggiuntivo (deve trovarsi nell'account di archiviazione fornito). Se non si dispone di un disco dati aggiuntivo, rimuovere questo parametro dal modello.<br><br>Per ottenere l'URL del BLOB, passare all' **account di archiviazione** in **portale di Azure**, passare al **BLOB** e copiare il valore dell' **URL** . |
+| raccoltaname | Nome della raccolta di immagini condivise |
+| galleryImageDefinitionName | Nome della definizione dell'immagine |
+| galleryImageVersionName | Nome della versione dell'immagine da creare, nel formato seguente: `<MajorVersion>.<MinorVersion>.<Patch>` |
+|
+
+:::image type="content" source="media/create-vm/custom-deployment-window.png" alt-text="Mostra la finestra di distribuzione personalizzata.":::
+
+8. Selezionare **Rivedi e crea**. Al termine della convalida, selezionare **Crea**.
+
+> [!TIP]
+> L'account editore deve avere l'accesso "Owner" per pubblicare l'immagine SIG. Se necessario, attenersi ai passaggi seguenti per concedere l'accesso:
+>
+> 1. Passare alla raccolta di immagini condivise (SIG).
+> 2. Selezionare **controllo di accesso** (IAM) nel pannello di sinistra.
+> 3. Selezionare **Aggiungi**, quindi **Aggiungi assegnazione ruolo**.
+> 4. Per **ruolo** selezionare **proprietario**.
+> 5. Per **assegna accesso a** selezionare **utente, gruppo o entità servizio**.
+> 6. Immettere il messaggio di posta elettronica di Azure della persona che pubblicherà l'immagine.
+> 7. Selezionare **Salva**.<br><br>
+> :::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="Viene visualizzata la finestra Aggiungi assegnazione ruolo.":::
+
+### <a name="option-2-upload-the-vhd-to-a-storage-account"></a>Opzione 2: caricare il disco rigido virtuale in un account di archiviazione
 
 Configurare e preparare la macchina virtuale da caricare come descritto in [preparare un disco rigido virtuale Windows o VHDX per il caricamento in Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) o [creare e caricare un disco rigido virtuale Linux](../virtual-machines/linux/create-upload-generic.md).
 
-## <a name="extract-the-vhd-from-image-if-using-image-building-services"></a>Estrai il disco rigido virtuale dall'immagine (se si usano i servizi di creazione immagini)
+### <a name="option-3-extract-the-vhd-from-managed-image-if-using-image-building-services"></a>Opzione 3: estrarre il disco rigido virtuale da un'immagine gestita (se si usano i servizi di creazione di immagini)
 
-Se si usa un servizio di creazione di immagini, ad esempio [Packer](https://www.packer.io/), potrebbe essere necessario estrarre il disco rigido virtuale dall'immagine. Non esiste un modo diretto per eseguire questa operazione. Sarà necessario creare una macchina virtuale ed estrarre il disco rigido virtuale dal disco della macchina virtuale.
+Se si usa un servizio di creazione di immagini come [Packer](https://www.packer.io/), potrebbe essere necessario estrarre il disco rigido virtuale dall'immagine. Non esiste un modo diretto per eseguire questa operazione. Sarà necessario creare una macchina virtuale ed estrarre il disco rigido virtuale dal disco della macchina virtuale.
 
-### <a name="create-the-vm-on-the-azure-portal"></a>Creare la macchina virtuale nella portale di Azure
+## <a name="create-the-vm-on-the-azure-portal"></a>Creare la macchina virtuale nella portale di Azure
 
 Seguire questa procedura per creare l'immagine di macchina virtuale di base nel [portale di Azure](https://ms.portal.azure.com/).
 
@@ -65,14 +207,14 @@ Seguire questa procedura per creare l'immagine di macchina virtuale di base nel 
 
 6. Selezionare le dimensioni della macchina virtuale da distribuire.
 
-    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Selezionare generazione 1 o generazione 2.":::
+    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Selezionare le dimensioni di macchina virtuale consigliate per l'immagine selezionata.":::
 
 7. Indicare gli altri dettagli necessari per creare la macchina virtuale.
 8. Selezionare **Review + create (Revisione e creazione)** per rivedere le scelte effettuate. Quando viene visualizzato il messaggio **convalida superata** , selezionare **Crea**.
 
 Azure avvia il provisioning della macchina virtuale specificata. Tenere traccia dello stato di avanzamento selezionando la scheda **macchine virtuali** nel menu a sinistra. Dopo aver creato lo stato delle modifiche della macchina virtuale in **esecuzione**.
 
-### <a name="connect-to-your-vm"></a>Connettersi alla macchina virtuale
+## <a name="connect-to-your-vm"></a>Connettersi alla macchina virtuale
 
 Per connettersi alla VM [Windows](../virtual-machines/windows/connect-logon.md) o [Linux](../virtual-machines/linux/ssh-from-windows.md#connect-to-your-vm) , vedere la documentazione seguente.
 
@@ -80,6 +222,7 @@ Per connettersi alla VM [Windows](../virtual-machines/windows/connect-logon.md) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Passaggio successivo consigliato: [testare l'immagine della macchina virtuale](azure-vm-image-test.md) per verificare che soddisfi i requisiti di pubblicazione in Azure Marketplace. Questo valore è facoltativo.
-- Se non si testa l'immagine della macchina virtuale, continuare con [generare l'URI](azure-vm-get-sas-uri.md)di firma di accesso condiviso.
+- [Testare l'immagine della macchina virtuale](azure-vm-image-test.md) per verificare che soddisfi i requisiti di pubblicazione di Azure Marketplace. Questo indirizzo è facoltativo.
+- Se non si vuole testare l'immagine della macchina virtuale, accedere al [centro](https://partner.microsoft.com/) per i partner e pubblicare l'immagine sig (opzione #1).
+- Se è stata seguita l'opzione #2 o #3, [generare l'URI di firma di](azure-vm-get-sas-uri.md)accesso condiviso.
 - Se si riscontrano difficoltà nella creazione del nuovo VHD basato su Azure, vedere [domande frequenti sulle VM per Azure Marketplace](azure-vm-create-faq.md).

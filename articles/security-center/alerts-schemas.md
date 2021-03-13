@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 7778607b533a836eb5a47a12b73374c2a8299621
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 55f8d37d435aa8adeb4d97246ce7b2c7811140be
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590576"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557999"
 ---
 # <a name="security-alerts-schemas"></a>Schemi degli avvisi di sicurezza
 
@@ -173,7 +173,7 @@ Per visualizzare gli eventi di avviso di sicurezza nel log attività, cercare l'
 
 Microsoft Graph è il gateway per dati e intelligence in Microsoft 365. Fornisce un modello di programmabilità unificato che è possibile usare per accedere a una grande quantità di dati in Microsoft 365, Windows 10 e Enterprise Mobility + Security. Usa la vasta gamma di dati in Microsoft Graph per creare app per organizzazioni e consumatori che interagiscono con milioni di utenti.
 
-Lo schema e una rappresentazione JSON per gli avvisi di sicurezza inviati a MS Graph sono disponibili nella [documentazione di Microsoft Graph](/graph/api/resources/alert?preserve-view=true&view=graph-rest-1.0).
+Lo schema e una rappresentazione JSON per gli avvisi di sicurezza inviati a MS Graph sono disponibili nella [documentazione di Microsoft Graph](/graph/api/resources/alert).
 
 ---
 

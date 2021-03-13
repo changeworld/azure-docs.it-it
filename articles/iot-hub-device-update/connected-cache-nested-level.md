@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 1501153b73683081dfac0684d6714eb537c03380
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0128d0de4f078b62bc9571c8758d80cb26585354
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664763"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615381"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Esempio di scenario di distribuzione dell'anteprima di Microsoft Connected cache: gateway Azure IoT Edge annidato a due livelli con proxy non autenticato in uscita
 
@@ -70,7 +70,7 @@ Il diagramma seguente illustra lo scenario in cui un Azure IoT Edge Gateway come
 ## <a name="child-gateway-configuration"></a>Configurazione del gateway figlio
 
 >[!Note]
->Se sono stati replicati i contenitori usati nella configurazione nel proprio registro privato, sarà necessario apportare una modifica alle impostazioni di configurazione. toml e alle impostazioni di runtime nella distribuzione del modulo. Per altre informazioni, vedere [esercitazione-creare una gerarchia di dispositivi IOT Edge-Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal#deploy-modules-to-the-lower-layer-device&preserve-view=true) per altri dettagli.
+>Se sono stati replicati i contenitori usati nella configurazione nel proprio registro privato, sarà necessario apportare una modifica alle impostazioni di configurazione. toml e alle impostazioni di runtime nella distribuzione del modulo. Per altre informazioni, vedere [esercitazione-creare una gerarchia di dispositivi IOT Edge-Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true#deploy-modules-to-the-lower-layer-device) per altri dettagli.
 
 1. Modificare il percorso dell'immagine per l'agente perimetrale, come illustrato nell'esempio seguente:
 

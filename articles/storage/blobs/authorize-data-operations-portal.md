@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 319bbdd7809e224ca608fdac06d4b304c2052e86
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a12936f8f9f84dacfab4850253df665ae7758be1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391542"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613248"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure
 
@@ -66,9 +66,9 @@ I ruoli personalizzati possono supportare diverse combinazioni delle stesse auto
 
 ## <a name="navigate-to-blobs-in-the-azure-portal"></a>Passare a BLOB nel portale di Azure
 
-Per visualizzare i dati BLOB nel portale, passare alla **Panoramica** dell'account di archiviazione e fare clic sui collegamenti per i **BLOB**. In alternativa, è possibile passare alla sezione **servizio BLOB** nel menu.
+Per visualizzare i dati BLOB nel portale, passare alla **Panoramica** dell'account di archiviazione e fare clic sui collegamenti per i **BLOB**. In alternativa, è possibile passare alla sezione **contenitori** nel menu.
 
-:::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot che illustra come passare ai dati BLOB nel portale di Azure":::
+:::image type="content" source="media/authorize-data-operations-portal/blob-access-portal.png" alt-text="Screenshot che illustra come passare ai dati BLOB nel portale di Azure":::
 
 ## <a name="determine-the-current-authentication-method"></a>Determinare il metodo di autenticazione corrente
 

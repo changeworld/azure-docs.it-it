@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8b1c4077c036cbb75738115437d29ffd14b160ff
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c898444659c2ce071163e9ab774a4534f8c51a9c
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723674"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632051"
 ---
 # <a name="entity-functions"></a>Funzioni di entità
 
@@ -18,7 +18,7 @@ Le funzioni di entità definiscono le operazioni per la lettura e l'aggiornament
 Le entità consentono di aumentare le istanze delle applicazioni distribuendo il lavoro tra molte entità, ognuna con uno stato di dimensioni moderate.
 
 > [!NOTE]
-> Le funzioni di entità e le funzionalità correlate sono disponibili solo in Durable Functions 2.0 e versioni successive. Sono attualmente supportate in .NET e JavaScript.
+> Le funzioni di entità e le funzionalità correlate sono disponibili solo in [Durable Functions 2,0](durable-functions-versions.md#migrate-from-1x-to-2x) e versioni successive. Sono attualmente supportati in .NET, JavaScript e Python.
 
 ## <a name="general-concepts"></a>Concetti generali
 
@@ -189,7 +189,6 @@ def entity_function(context: df.DurableEntityContext):
     elif operation == "get":
         context.set_result(current_value)
     context.set_state(current_value)
-
 
 
 main = df.Entity.create(entity_function)

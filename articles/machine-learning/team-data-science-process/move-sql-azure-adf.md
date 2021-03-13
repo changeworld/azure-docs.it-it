@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 02fd6c1d4cbd1c2db287a38e086045042b5f220a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e477e4bb3b31477f9407e981d4c8da2340411f55
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309535"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615738"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Spostare i dati da un database di SQL Server al database SQL con Azure Data Factory
 
@@ -78,7 +78,7 @@ I servizi collegati definiscono le informazioni necessarie affinché il servizio
 
 1. Server SQL locale
 2. Archiviazione BLOB di Azure
-3. database SQL di Azure
+3. Database SQL di Azure
 
 In [Creazione di servizi collegati](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)viene fornita la procedura dettagliata per la creazione di servizi collegati.
 
@@ -87,7 +87,7 @@ In [Creazione di servizi collegati](../../data-factory/tutorial-hybrid-copy-port
 Creare tabelle che specificano la struttura, la posizione e la disponibilità dei set di dati con le seguenti procedure basate su script. I file JSON vengono utilizzati per definire le tabelle. Per ulteriori informazioni sulla struttura di questi file, vedere [Set di dati](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> È necessario eseguire il cmdlet `Add-AzureAccount` prima di eseguire il cmdlet [New-AzureDataFactoryTable](/previous-versions/azure/dn835096(v=azure.100)) per verificare che sia selezionata la sottoscrizione di Azure giusta per l'esecuzione del comando. Per la documentazione di questo cmdlet, vedere [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
+> È necessario eseguire il cmdlet `Add-AzureAccount` prima di eseguire il cmdlet [New-AzureDataFactoryTable](/previous-versions/azure/dn835096(v=azure.100)) per verificare che sia selezionata la sottoscrizione di Azure giusta per l'esecuzione del comando. Per la documentazione di questo cmdlet, vedere [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount).
 >
 >
 
@@ -138,7 +138,7 @@ La definizione della tabella per la SQL Server è specificata nel file JSON segu
 
 Qui non sono inclusi i nomi di colonna. È possibile sottoselezionare i nomi di colonna inserendoli qui. per informazioni dettagliate, vedere l'argomento della [documentazione di ADF](../../data-factory/copy-activity-overview.md) .
 
-Copiare la definizione JSON della tabella in un file denominata *onpremtabledef.json* e salvarlo in una posizione nota (generalmente *C:\temp\onpremtabledef.json* ). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
+Copiare la definizione JSON della tabella in un file denominata *onpremtabledef.json* e salvarlo in una posizione nota (generalmente *C:\temp\onpremtabledef.json*). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
@@ -173,7 +173,7 @@ La definizione della tabella per il percorso del BLOB di output è la seguente. 
 }
 ```
 
-Copiare la definizione JSON della tabella in un file denominata *bloboutputtabledef.json* e salvarlo in una posizione nota (generalmente *C:\temp\bloboutputtabledef.json* ). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
+Copiare la definizione JSON della tabella in un file denominata *bloboutputtabledef.json* e salvarlo in una posizione nota (generalmente *C:\temp\bloboutputtabledef.json*). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
@@ -207,7 +207,7 @@ La definizione della tabella per l’output SQL Azure è la seguente (questo sch
 }
 ```
 
-Copiare la definizione JSON della tabella in un file denominata *AzureSqlTable.json* e salvarlo in una posizione nota (generalmente *C:\temp\AzureSqlTable.json* ). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
+Copiare la definizione JSON della tabella in un file denominata *AzureSqlTable.json* e salvarlo in una posizione nota (generalmente *C:\temp\AzureSqlTable.json*). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
@@ -294,7 +294,7 @@ Se si utilizzano le definizioni di tabella fornite in precedenza, la definizione
 }
 ```
 
-Copiare la definizione JSON della pipeline in un file denominato *pipelinedef.json* e salvarlo in una posizione nota (generalmente *C:\temp\pipelinedef.json* ). Creare la pipeline ADF con il seguente cmdlet Azure PowerShell:
+Copiare la definizione JSON della pipeline in un file denominato *pipelinedef.json* e salvarlo in una posizione nota (generalmente *C:\temp\pipelinedef.json*). Creare la pipeline ADF con il seguente cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json

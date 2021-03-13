@@ -5,23 +5,20 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 94edf35cc16d4967449af15797f6ecccba60be4b
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 87d51f9c1d084faf79c7ec1cf1255a6fb3c8245d
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181092"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201013"
 ---
-# <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Arrestare e avviare un cluster Azure Kubernetes Service (AKS) (anteprima)
+# <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>Arrestare e avviare un cluster Azure Kubernetes Service (AKS)
 
 È possibile che i carichi di lavoro AKS non debbano essere eseguiti in modo continuo, ad esempio un cluster di sviluppo usato solo durante l'orario di ufficio. Ciò comporta tempi in cui il cluster del servizio Kubernetes di Azure (AKS) potrebbe essere inattivo, in esecuzione non più dei componenti di sistema. È possibile ridurre il footprint del cluster [scalando tutti i `User` pool di nodi a 0](scale-cluster.md#scale-user-node-pools-to-0), ma il [ `System` pool](use-system-pools.md) è ancora necessario per eseguire i componenti di sistema mentre il cluster è in esecuzione. Per ottimizzare ulteriormente i costi durante questi periodi, è possibile disattivare completamente (arrestare) il cluster. Questa azione arresterà completamente il piano di controllo e i nodi dell'agente, consentendo di risparmiare su tutti i costi di calcolo, mantenendo al tempo stesso tutti gli oggetti e lo stato del cluster archiviati per il riavvio. È quindi possibile scegliere subito dopo un week-end o se il cluster è in esecuzione solo quando si eseguono i processi batch.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
-
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -29,42 +26,7 @@ Quando si usa la funzionalità di avvio/arresto del cluster, si applicano le res
 
 - Questa funzionalità è supportata solo per i cluster con backup di set di scalabilità di macchine virtuali.
 - Lo stato del cluster di un cluster AKS arrestato viene mantenuto per un massimo di 12 mesi. Se il cluster viene arrestato per più di 12 mesi, non è possibile recuperare lo stato del cluster. Per ulteriori informazioni, vedere i [criteri di supporto di AKS](support-policies.md).
-- Durante la fase di anteprima, è necessario arrestare il servizio di scalabilità automatica (CA) del cluster prima di tentare di arrestare il cluster.
 - È possibile avviare o eliminare solo un cluster AKS interrotto. Per eseguire qualsiasi operazione come la scala o l'aggiornamento, avviare innanzitutto il cluster.
-
-### <a name="install-the-aks-preview-azure-cli"></a>Installare l'interfaccia della riga di comando di `aks-preview` Azure 
-
-È anche necessaria l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* versione 0.4.64 o successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] . In alternativa, installare gli eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] .
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-``` 
-
-### <a name="register-the-startstoppreview-preview-feature"></a>Registrare la `StartStopPreview` funzionalità di anteprima
-
-Per usare la funzionalità avvia/arresta cluster, è necessario abilitare il `StartStopPreview` flag funzionalità per la sottoscrizione.
-
-Registrare il `StartStopPreview` flag funzionalità usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "StartStopPreview"
-```
-
-Sono necessari alcuni minuti per visualizzare lo stato *Registered*. Verificare lo stato della registrazione usando il comando [AZ feature list][az-feature-list] :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/StartStopPreview')].{Name:name,State:properties.state}"
-```
-
-Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## <a name="stop-an-aks-cluster"></a>Arrestare un cluster AKS
 
@@ -95,7 +57,6 @@ Se il `provisioningState` Mostra `Stopping` che indica che il cluster non è sta
 > [!IMPORTANT]
 > Se si usano i [budget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) per l'interruzione del Pod, l'operazione di arresto può richiedere più tempo perché il completamento del processo di svuotamento potrebbe richiedere più tempo.
 
-
 ## <a name="start-an-aks-cluster"></a>Avviare un cluster AKS
 
 È possibile usare il `az aks start` comando per avviare i nodi del cluster AKS e il piano di controllo interrotti. Il cluster viene riavviato con lo stato del piano di controllo precedente e il numero di nodi agente.  
@@ -122,7 +83,6 @@ az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
 Se il `provisioningState` Mostra `Starting` che indica che il cluster non è ancora stato completamente avviato.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: e429b87397b91de28f7fea14729b0d18187fa8ff
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 99a8e331e265e686d1de06f8143d2345e51143f1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031379"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613001"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connetti Operations Manager a monitoraggio di Azure
 
@@ -99,6 +99,10 @@ Per garantire la sicurezza dei dati in transito verso monitoraggio di Azure, si 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Connessione di Operations Manager a monitoraggio di Azure
 
 Eseguire questa serie di passaggi per configurare il gruppo di gestione di Operations Manager per connettersi a una delle aree di lavoro di Log Analytics.
+
+> [!NOTE]
+> Se si nota che Log Analytics i dati vengono interrotti da un agente o un server di gestione specifico, è possibile provare a reimpostare il catalogo Winsock (usare `netsh winsock reset` ), quindi riavviare il server. La reimpostazione del catalogo Winsock consente le connessioni di rete interrotte.
+
 
 Durante la registrazione iniziale del gruppo di gestione di Operations Manager con un'area di lavoro Log Analytics, l'opzione per specificare la configurazione proxy per il gruppo di gestione non è disponibile nella console operatore.  Il gruppo di gestione deve essere registrato correttamente con il servizio prima che questa opzione sia disponibile.  Per risolvere questo problema, è necessario aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema da cui si esegue la console operatore per configurare l'integrazione e tutti i server di gestione nel gruppo di gestione.  
 

@@ -3,14 +3,14 @@ title: Usare Integrazione del controllo del codice sorgente in Automazione di Az
 description: Questo articolo descrive come sincronizzare il controllo del codice sorgente di Automazione di Azure con altri repository.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/12/2020
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 281da27ce95649e85dae5d0795bb743f21fdb578
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050771"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631745"
 ---
 # <a name="use-source-control-integration"></a>Usare l'integrazione del controllo del codice sorgente
 
@@ -30,7 +30,7 @@ Automazione di Azure supporta tre tipi di controllo del codice sorgente:
 
 * Un repository di controllo del codice sorgente (GitHub o Azure Repos)
 * Un [account RunAs](automation-security-overview.md#run-as-accounts)
-* I [moduli di Azure più recenti](automation-update-azure-modules.md) nell'account di Automazione, incluso il modulo `Az.Accounts`, ovvero il modulo Az equivalente di `AzureRM.Profile`
+* Il [ `AzureRM.Profile` modulo](/powershell/module/azurerm.profile/) deve essere importato nell'account di automazione. Si noti che l'equivalente AZ Module ( `Az.Accounts` ) non funzionerà con il controllo del codice sorgente di automazione.
 
 > [!NOTE]
 > I processi di sincronizzazione del controllo del codice sorgente vengono eseguiti nell'account di Automazione dell'utente e vengono fatturati alla stessa tariffa degli altri processi di automazione.

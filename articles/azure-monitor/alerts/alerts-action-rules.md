@@ -3,12 +3,12 @@ title: Regole di azione per gli avvisi di monitoraggio di Azure
 description: Informazioni sulle regole di azione in monitoraggio di Azure e su come configurarle e gestirle.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 07d179f557671a515a7933b64a25e6d41f75219b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1a86493b4b478e8ebc75545bf80dafa425132fe4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045616"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015999"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -61,19 +61,25 @@ Scegliere prima di tutto l'ambito (sottoscrizione di Azure, gruppo di risorse o 
 
 ### <a name="filter-criteria"></a>Criteri di filtro
 
-È inoltre possibile definire filtri per limitarli a un subset specifico di avvisi.
+Facoltativamente, è possibile definire i filtri in modo che la regola venga applicata a un subset specifico di avvisi o a eventi specifici per ogni avviso, ad esempio solo "attivato" o solo "risolto".
 
 I filtri disponibili sono:
 
-* **Gravità**: l'opzione per selezionare uno o più livelli di gravità degli avvisi. **Gravità = Sev1** significa che la regola di azione è applicabile per tutti gli avvisi impostati su Sev1.
-* **Servizio** monitoraggio: un filtro basato sul servizio di monitoraggio di origine. Questo filtro è anche Select multiplo. Ad esempio, **Monitor Service = "Application Insights"** indica che la regola di azione è applicabile per tutti gli avvisi basati su Application Insights.
-* **Tipo di risorsa**: un filtro basato su un tipo di risorsa specifico. Questo filtro è anche Select multiplo. Ad esempio, **Resource Type = "Virtual Machines"** significa che la regola di azione è applicabile a tutte le macchine virtuali.
-* **ID regola di avviso**: opzione per filtrare le regole di avviso specifiche usando l'ID gestione risorse della regola di avviso.
-* **Condizione di monitoraggio**: filtro per le istanze di avviso con **attivato** o **risolto** come condizione di monitoraggio.
-* **Descrizione**: corrispondenza Regex (Regular Expression) che definisce una corrispondenza di stringa rispetto alla descrizione, definita come parte della regola di avviso. Ad esempio, la **Descrizione contiene ' prod '** corrispondente a tutti gli avvisi che contengono la stringa "prod" nelle descrizioni.
-* **Contesto avviso (payload)**: una corrispondenza Regex che definisce una corrispondenza di stringa con i campi di contesto degli avvisi del payload di un avviso. Ad esempio, il **contesto dell'avviso (payload) contiene "computer-01"** corrisponde a tutti gli avvisi i cui payload contengono la stringa "computer-01".
+* **Gravità**: questa regola si applica solo agli avvisi con i livelli di gravità selezionati.  
+Ad esempio, **Severity = Sev1** significa che la regola si applica solo agli avvisi con gravità Sev1.
+* **Servizio** di monitoraggio: questa regola si applica solo agli avvisi provenienti dai servizi di monitoraggio selezionati.  
+Ad esempio, **Monitor Service = "backup di Azure"** significa che la regola verrà applicata solo agli avvisi di backup (provenienti da backup di Azure).
+* **Tipo di risorsa**: questa regola si applica solo agli avvisi relativi ai tipi di risorse selezionati.  
+Ad esempio, **Resource Type = "Virtual Machines"** significa che la regola si applica solo agli avvisi sulle macchine virtuali.
+* **ID regola di avviso**: questa regola si applica solo agli avvisi provenienti da una regola di avviso specifica. Il valore deve corrispondere all'ID Gestione risorse della regola di avviso.  
+Ad esempio, la regola di **avviso ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.Insights/metricalerts/MyApi-highLatency"** indica che questa regola verrà applicata solo agli avvisi provenienti dalla regola di avviso della metrica "MyApi-highLatency".
+* **Condizione di monitoraggio**: questa regola si applica solo agli eventi di avviso con la condizione di monitoraggio specificata, **attivata** o **risolta**.
+* **Descrizione**: questa regola si applica solo agli avvisi che contengono una stringa specifica nel campo Descrizione avviso. Il campo contiene la descrizione della regola di avviso.  
+La descrizione, ad esempio, **contiene "prod"** indica che la regola corrisponderà solo agli avvisi che contengono la stringa "prod" nella descrizione.
+* **Contesto avviso (payload)**: questa regola si applica solo agli avvisi che contengono uno o più valori specifici nei campi del contesto dell'avviso.  
+Ad esempio, il **contesto dell'avviso (payload) contiene "computer-01"** significa che la regola si applica solo agli avvisi il cui payload contiene la stringa "computer-01".
 
-Questi filtri vengono applicati insieme tra loro. Se ad esempio si imposta il **tipo di risorsa ' = macchine virtuali** e **gravità' = Sev0**, è stato applicato un filtro per tutti gli avvisi **Sev0** solo nelle VM.
+Se si impostano più filtri in una regola, tutti si applicano. Se ad esempio si imposta il **tipo di risorsa ' = macchine virtuali** e **gravità' = Sev0**, la regola verrà applicata solo agli avvisi Sev0 sulle macchine virtuali.
 
 ![Filtri delle regole azione](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 

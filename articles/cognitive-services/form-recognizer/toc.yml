@@ -20,6 +20,8 @@
       href: ../../search/cognitive-search-custom-skill-form.md
     - name: Usare il riconoscimento modulo con AI Builder
       href: tutorial-ai-builder.md
+    - name: Usare il riconoscimento dei moduli con funzioni di Azure
+      href: tutorial-azure-function.md
     - name: Estrarre dati di moduli in blocco
       href: tutorial-bulk-processing.md
 - name: Concetti

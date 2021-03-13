@@ -1,7 +1,7 @@
 ---
 title: Codec video H.264 a bitrate multipli con risoluzione 4x3 SD | Documentazione Microsoft
 description: Questo argomento offre una panoramica del set di impostazioni di attività **Codec video H.264 a bitrate multipli con risoluzione 4x3 SD**.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: a95ad212b82d27db89d92480bd54975ab7c2fdc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 9ab429377a99ecd3fc724e82b510c576b506f327
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268984"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015149"
 ---
 # <a name="h264-multiple-bitrate-4x3-sd"></a>Codec video H.264 a bitrate multipli con risoluzione 4x3 SD
 

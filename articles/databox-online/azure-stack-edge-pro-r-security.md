@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548642"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632034"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Sicurezza e protezione dei dati per Azure Stack Edge Pro R e Azure Stack Edge Mini R
 
@@ -133,7 +133,7 @@ Quando il dispositivo viene sottoposto a un ripristino rigido, viene eseguita un
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
 
-- Ruotare e [sincronizzare regolarmente le chiavi dell'account di archiviazione](azure-stack-edge-j-series-manage-storage-accounts.md) per proteggere l'account di archiviazione da utenti non autorizzati.
+- Ruotare e [sincronizzare regolarmente le chiavi dell'account di archiviazione](azure-stack-edge-gpu-manage-storage-accounts.md) per proteggere l'account di archiviazione da utenti non autorizzati.
 
 ## <a name="manage-personal-information"></a>Gestisci informazioni personali
 
@@ -141,7 +141,7 @@ Il servizio Azure Stack Edge raccoglie informazioni personali negli scenari segu
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-manage-personal-data.md)]
 
-Per visualizzare l'elenco degli utenti che possono accedere o eliminare una condivisione, seguire i passaggi descritti in [gestire le condivisioni sul Azure stack Edge](azure-stack-edge-j-series-manage-shares.md).
+Per visualizzare l'elenco degli utenti che possono accedere o eliminare una condivisione, seguire i passaggi descritti in [gestire le condivisioni sul Azure stack Edge](azure-stack-edge-gpu-manage-shares.md).
 
 Per ulteriori informazioni, consultare l'informativa sulla privacy Microsoft nel [Centro protezione](https://www.microsoft.com/trustcenter).
 

@@ -4,21 +4,16 @@ description: Informazioni sui criteri di memorizzazione nella cache disponibili 
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
-ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 03/08/2021
 ms.author: apimpm
-ms.openlocfilehash: bd3a63db7dd4946a9836b3978992fb544b9ab0ab
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9888627bed0fbf90abc75c81564dacc0d1aac18e
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688043"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233467"
 ---
 # <a name="api-management-caching-policies"></a>Criteri di memorizzazione nella cache in Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
@@ -29,8 +24,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 ## <a name="caching-policies"></a><a name="CachingPolicies"></a> Criteri di memorizzazione nella cache
 
 - Criteri di memorizzazione nella cache della risposta
-    - [Recupera dalla cache](api-management-caching-policies.md#GetFromCache): esegue una ricerca nella cache e restituisce risposte valide memorizzate nella cache, se disponibili.
-    - [Archivia nella cache](api-management-caching-policies.md#StoreToCache): memorizza nella cache le risposte in base alla configurazione del controllo cache specificata.
+    - [Recupera dalla cache](#GetFromCache): esegue una ricerca nella cache e restituisce risposte valide memorizzate nella cache, se disponibili.
+    - [Archivia nella cache](#StoreToCache): memorizza nella cache le risposte in base alla configurazione del controllo cache specificata.
 - Criteri di memorizzazione dei valori nella cache
     - [Recupera valore dalla cache](#GetFromCacheByKey) : recupera un elemento memorizzato nella cache per chiave.
     - [Archivia valore nella cache](#StoreToCacheByKey) : archivia un elemento nella cache per chiave.
@@ -40,7 +35,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 Usare il criterio `cache-lookup` per eseguire una ricerca nella cache e restituire una risposta valida memorizzata nella cache, se disponibile. Questo criterio può essere applicato nei casi in cui il contenuto della risposta rimane statico in un periodo di tempo. La memorizzazione delle risposte nella cache riduce la larghezza di banda e i requisiti di elaborazione imposti sul server Web back-end e riduce la latenza percepita dagli utenti delle API.
 
 > [!NOTE]
-> Questo criterio deve essere associato a un criterio [Archivia nella cache](api-management-caching-policies.md#StoreToCache) corrispondente.
+> Questo criterio deve essere associato a un criterio [Archivia nella cache](#StoreToCache) corrispondente.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
 
@@ -135,7 +130,7 @@ Il criterio `cache-store` memorizza nella cache le risposte in base alle imposta
 ### <a name="policy-statement"></a>Istruzione del criterio
 
 ```xml
-<cache-store duration="seconds" />
+<cache-store duration="seconds" cache-response="true | false" />
 ```
 
 ### <a name="examples"></a>Esempi
@@ -190,7 +185,8 @@ Per altre informazioni, vedere [Espressioni di criteri](api-management-policy-ex
 
 | Nome             | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| duration         | Durata (TTL, Time-To-Live) delle voci memorizzate nella cache, in secondi.                                                                                                                                                                                                                                                                                                   | Sì      | N/D               |
+| duration         | Durata (TTL, Time-To-Live) delle voci memorizzate nella cache, in secondi.     | Sì      | N/D               |
+| cache-risposta         | Impostare su true per memorizzare nella cache la risposta HTTP corrente. Se l'attributo viene omesso o è impostato su false, `200 OK` vengono memorizzate nella cache solo le risposte http con il codice di stato.                           | No      | false               |
 
 ### <a name="usage"></a>Utilizzo
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 1db6574f8ca22b6fe60899f00700ee19d61eab3b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5b68ab545e87035d138558ba1911294ef805af6d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382821"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630742"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Eseguire la migrazione di carichi di lavoro da un FPGA Azure Stack Edge Pro a una GPU Pro Azure Stack Edge
 
@@ -37,7 +37,7 @@ Questa sezione fornisce un riepilogo comparativa delle funzionalità tra la GPU 
 |----------------|-----------------------|------------------------|
 | Hardware       | Accelerazione hardware: 1 o 2 GPU NVIDIA T4 <br> Calcolo, memoria, interfaccia di rete, unità di alimentazione, specifiche del cavo di alimentazione sono identiche al dispositivo con FPGA.  | Accelerazione hardware: Intel Arria 10 FPGA <br> Calcolo, memoria, interfaccia di rete, unità di alimentazione, specifiche del cavo di alimentazione sono identiche al dispositivo con GPU.          |
 | Archiviazione utilizzabile | 4,19 TB <br> Dopo aver riservato spazio per la resilienza di parità e l'uso interno | 12,5 TB <br> Dopo la riserva dello spazio per l'uso interno |
-| Sicurezza       | Certificati |                                                     |
+| Security       | Certificati |                                                     |
 | Carichi di lavoro      | Carichi di lavoro IoT Edge <br> Carichi di lavoro della VM <br> Carichi di lavoro Kubernetes| Carichi di lavoro IoT Edge |
 | Prezzi        | [Prezzi](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Prezzi](https://azure.microsoft.com/pricing/details/azure-stack/edge/)|
 
@@ -157,10 +157,10 @@ Verranno ora copiati i dati dal dispositivo di origine alle condivisioni cloud p
 
 Seguire questa procedura per sincronizzare i dati nelle condivisioni cloud perimetrali nel dispositivo di destinazione:
 
-1. [Aggiungere condivisioni](azure-stack-edge-j-series-manage-shares.md#add-a-share) corrispondenti ai nomi di condivisione creati nel dispositivo di origine. Assicurarsi che durante la creazione delle condivisioni, **selezionare il contenitore BLOB** sia impostato su **Usa opzione esistente** e quindi selezionare il contenitore usato con il dispositivo precedente.
-1. [Aggiungere gli utenti](azure-stack-edge-j-series-manage-users.md#add-a-user) che hanno avuto accesso al dispositivo precedente.
-1. [Aggiornare i](azure-stack-edge-j-series-manage-shares.md#refresh-shares) dati di condivisione da Azure. Questa operazione estrae tutti i dati cloud dal contenitore esistente alle condivisioni.
-1. Ricreare le pianificazioni della larghezza di banda da associare alle condivisioni. Vedere [aggiungere una pianificazione della larghezza di banda](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) per i passaggi dettagliati.
+1. [Aggiungere condivisioni](azure-stack-edge-gpu-manage-shares.md#add-a-share) corrispondenti ai nomi di condivisione creati nel dispositivo di origine. Assicurarsi che durante la creazione delle condivisioni, **selezionare il contenitore BLOB** sia impostato su **Usa opzione esistente** e quindi selezionare il contenitore usato con il dispositivo precedente.
+1. [Aggiungere gli utenti](azure-stack-edge-gpu-manage-users.md#add-a-user) che hanno avuto accesso al dispositivo precedente.
+1. [Aggiornare i](azure-stack-edge-gpu-manage-shares.md#refresh-shares) dati di condivisione da Azure. Questa operazione estrae tutti i dati cloud dal contenitore esistente alle condivisioni.
+1. Ricreare le pianificazioni della larghezza di banda da associare alle condivisioni. Vedere [aggiungere una pianificazione della larghezza di banda](azure-stack-edge-gpu-manage-bandwidth-schedules.md#add-a-schedule) per i passaggi dettagliati.
 
 
 ### <a name="2-from-edge-local-shares"></a>2. dalle condivisioni locali perimetrali
@@ -172,7 +172,7 @@ Dopo che il dispositivo sostitutivo è stato completamente configurato, abilitar
 Per ripristinare i dati dalle condivisioni locali, attenersi alla procedura seguente:
 
 1. [Configurare il calcolo nel dispositivo](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. Aggiungere tutte le condivisioni locali nel dispositivo di destinazione. Vedere i passaggi dettagliati in [aggiungere una condivisione locale](azure-stack-edge-j-series-manage-shares.md#add-a-local-share).
+1. Aggiungere tutte le condivisioni locali nel dispositivo di destinazione. Vedere i passaggi dettagliati in [aggiungere una condivisione locale](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
 1. L'accesso alle condivisioni SMB nel dispositivo di origine utilizzerà gli indirizzi IP, mentre nel dispositivo di destinazione verrà usato il nome del dispositivo. Vedere [connettersi a una condivisione SMB su una GPU Pro Azure stack Edge](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share). Per connettersi alle condivisioni NFS sul dispositivo di destinazione, è necessario usare i nuovi indirizzi IP associati al dispositivo. Vedere [connettersi a una condivisione NFS sulla GPU di Azure stack Edge Pro](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share). 
 
     Se è stata eseguita la copia sui dati della condivisione in un server intermedio tramite SMB/NFS, è possibile copiare i dati in condivisioni sul dispositivo di destinazione. È anche possibile copiare i dati direttamente dal dispositivo di origine, se il dispositivo di origine e quello di destinazione sono *online*.
