@@ -2,16 +2,16 @@
 title: 'Esercitazione: aggiungere output al file di Azure Resource Manager bicipite'
 description: Aggiungere gli output al file del bicipite per semplificare la sintassi.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 279417f22ded89db21abddad7a91a4cce520c6bd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ce2d1044fb0e45a72ce34b14bb654974d29051dc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748205"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636233"
 ---
 # <a name="tutorial-add-outputs-to-azure-resource-manager-bicep-file"></a>Esercitazione: aggiungere output al file di Azure Resource Manager bicipite
 
@@ -37,7 +37,7 @@ Distribuisce un account di archiviazione, ma non restituisce informazioni relati
 
 È possibile usare gli output per restituire i valori dalla distribuzione. Può, ad esempio, essere utile ottenere gli endpoint per il nuovo account di archiviazione.
 
-Nell'esempio seguente viene evidenziata la modifica apportata al file bicipite per aggiungere un valore di output. Copiare l'intero file e sostituire il file bicipite con il relativo contenuto.
+Nell'esempio seguente viene illustrata la modifica apportata al file bicipite per aggiungere un valore di output. Copiare l'intero file e sostituire il file bicipite con il relativo contenuto.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep" range="1-33" highlight="33":::
 
@@ -45,7 +45,9 @@ Ecco alcune importanti aspetti da considerare sul valore di output aggiunto.
 
 Il tipo di valore restituito è impostato su `object` , il che significa che restituisce un oggetto modello.
 
-Per ottenere la `primaryEndpoints` proprietà dall'account di archiviazione, usare il nome simbolico dell'account di archiviazione.
+Per ottenere la `primaryEndpoints` proprietà dall'account di archiviazione, usare il nome simbolico dell'account di archiviazione. La funzionalità di completamento automatico del Visual Studio Code presenta un elenco completo delle proprietà:
+
+   ![Proprietà dell'oggetto nome simbolico del bicipite Visual Studio Code](./media/bicep-tutorial-add-outputs/visual-studio-code-bicep-output-properties.png)
 
 ## <a name="deploy-bicep-file"></a>Distribuisci file bicipite
 

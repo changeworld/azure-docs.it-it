@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/25/2020
-ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.date: 03/10/2021
+ms.openlocfilehash: 77927472dae6c8e7e6fddacf9088b479636edd37
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751938"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224333"
 ---
 # <a name="train-model-module"></a>Modulo Train Model
 
@@ -60,12 +60,34 @@ In Azure Machine Learning la creazione e l'uso di un modello di apprendimento au
     > [!TIP] 
     > In caso di problemi con il selettore di colonna, vedere l'articolo [selezionare le colonne nel set di dati](./select-columns-in-dataset.md) per i suggerimenti. Vengono descritti alcuni scenari comuni e suggerimenti per l'utilizzo delle opzioni **with Rules** e **by Name** .
   
-1.  Inviare la pipeline. Se si dispone di una grande quantità di dati, l'operazione può richiedere alcuni minuti.
+1.  Inviare la pipeline. Se si dispone di una grande quantità di dati, l'esecuzione può richiedere alcuni minuti.
 
     > [!IMPORTANT] 
     > Se si dispone di una colonna ID che corrisponde all'ID di ogni riga o a una colonna di testo che contiene troppi valori univoci, **Train Model** può comportare un errore, ad esempio "numero di valori univoci nella colonna:" {column_name} "è maggiore di quello consentito.
     >
     > Questo è dovuto al fatto che la colonna ha raggiunto la soglia di valori univoci e potrebbe causare una memoria insufficiente. È possibile utilizzare [Modifica metadati](edit-metadata.md) per contrassegnare la colonna come **funzionalità non crittografata** e non verrà utilizzata nel training oppure [estrarre le funzionalità di N-Gram dal modulo di testo](extract-n-gram-features-from-text.md) per la pre-elaborazione della colonna di testo. Per ulteriori informazioni sull'errore, vedere il [codice di errore della finestra di progettazione](././designer-error-codes.md) .
+
+## <a name="model-interpretability"></a>Interpretazione dei modelli
+
+L'interpretazione dei modelli consente di comprendere il modello ML e di presentare la base sottostante per il processo decisionale in modo comprensibile per gli utenti.
+
+Il modulo **Train Model** attualmente supporta l' [uso del pacchetto di interpretazione per spiegare i modelli ml](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs). Sono supportati gli algoritmi predefiniti seguenti:
+
+- Linear Regression
+- Regressione rete neurale
+- Regressione logistica a due classi
+- Two-Class Support Vector Machine
+- Foresta delle decisioni multiclasse
+
+Per generare spiegazioni del modello, è possibile selezionare **true** nell'elenco a discesa di **spiegazione del modello** in Train Model Module. Per impostazione predefinita, è impostato su false nel modulo **Train Model** . Si noti che la spiegazione di generazione richiede costi di calcolo aggiuntivi.
+
+![Screenshot che mostra la casella di controllo spiegazione modello](./media/module/train-model-explanation-checkbox.png)
+
+Al termine dell'esecuzione della pipeline, è possibile visitare la scheda **spiegazioni** nel riquadro destro del modulo **Train Model** ed esplorare le prestazioni del modello, il set di dati e l'importanza della funzionalità.
+
+![Screenshot che illustra i grafici di spiegazione del modello](./media/module/train-model-explanations-tab.gif)
+
+Per altre informazioni sull'uso di spiegazioni del modello in Azure Machine Learning, vedere l'articolo sulle procedure per [interpretare i modelli ml](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs).
 
 ## <a name="results"></a>Risultati
 

@@ -9,14 +9,16 @@ ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9d03b6f4a512c22564480405ec0f0e0c0e62a958
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: db27a466ca5f1370e8b43ceb472f5deeaba509f1
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048424"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200328"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuisci moduli IoT Edge su larga scala usando il portale di Azure
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Creare una **IOT Edge distribuzione automatica** nel portale di Azure per gestire contemporaneamente le distribuzioni in corso per molti dispositivi. Le distribuzioni automatiche per IoT Edge rientrano nella funzionalità di [gestione automatica dei dispositivi](../iot-hub/iot-hub-automatic-device-management.md) dell'hub IoT. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli in più dispositivi, di tenere traccia dello stato e dell'integrità dei moduli, nonché di apportare modifiche all'occorrenza.
 
@@ -43,13 +45,13 @@ Per altre informazioni sui dispositivi gemelli e i tag, vedere [Comprendere e us
 
 ## <a name="create-a-deployment"></a>Creare una distribuzione
 
-IoT Edge fornisce due tipi diversi di distribuzioni automatiche che è possibile usare per personalizzare lo scenario. È possibile creare una *distribuzione*standard, che include i moduli di runtime di sistema e gli eventuali moduli e route aggiuntivi. Ogni dispositivo può applicare solo una distribuzione. In alternativa, è possibile creare una distribuzione a più *livelli*, che include solo moduli e Route personalizzati, non il runtime di sistema. Molte distribuzioni su più livelli possono essere combinate in un dispositivo, oltre a una distribuzione standard. Per altre informazioni sul funzionamento combinato dei due tipi di distribuzioni automatiche, vedere informazioni sulle [distribuzioni automatiche IOT Edge per singoli dispositivi o su larga scala](module-deployment-monitoring.md).
+IoT Edge fornisce due tipi diversi di distribuzioni automatiche che è possibile usare per personalizzare lo scenario. È possibile creare una *distribuzione* standard, che include i moduli di runtime di sistema e gli eventuali moduli e route aggiuntivi. Ogni dispositivo può applicare solo una distribuzione. In alternativa, è possibile creare una distribuzione a più *livelli*, che include solo moduli e Route personalizzati, non il runtime di sistema. Molte distribuzioni su più livelli possono essere combinate in un dispositivo, oltre a una distribuzione standard. Per altre informazioni sul funzionamento combinato dei due tipi di distribuzioni automatiche, vedere informazioni sulle [distribuzioni automatiche IOT Edge per singoli dispositivi o su larga scala](module-deployment-monitoring.md).
 
 I passaggi per la creazione di una distribuzione e una distribuzione a più livelli sono molto simili. Le eventuali differenze sono riportate nei passaggi seguenti.
 
 1. Nella [portale di Azure](https://portal.azure.com)passare all'hub Internet.
 1. Nel menu nel riquadro a sinistra selezionare **IOT Edge** in **gestione automatica dei dispositivi**.
-1. Sulla barra superiore selezionare **Crea distribuzione** o **Crea distribuzione**su più livelli.
+1. Sulla barra superiore selezionare **Crea distribuzione** o **Crea distribuzione** su più livelli.
 
 La creazione di una distribuzione prevede cinque passaggi, illustrati nelle sezioni seguenti.
 
@@ -132,7 +134,7 @@ Se più distribuzioni hanno come destinazione lo stesso dispositivo, viene appli
 Tutte le distribuzioni a più livelli destinate a un dispositivo devono avere una priorità più elevata rispetto alla distribuzione di base per l'applicazione.
 
 1. Immettere un numero intero positivo in **Priority** (Priorità) per la distribuzione.
-1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione.Ad esempio, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`.
+1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione.  La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione. Ad esempio, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`.
 
 Selezionare **Avanti: rivedere + crea** per passare al passaggio finale.
 
@@ -182,7 +184,7 @@ Quando si elimina una distribuzione, tutti i dispositivi distribuiti accettano l
 
 1. Usare la casella di controllo per selezionare la distribuzione che si vuole eliminare.
 1. Selezionare **Elimina**.
-1. Un messaggio indicherà che questa azione comporta l'eliminazione della distribuzione e il ripristino dello stato precedente per tutti i dispositivi.Viene applicata una distribuzione con una priorità più bassa.Se non viene assegnata alcun'altra distribuzione, i moduli non verranno rimossi. Per rimuovere tutti i moduli dai dispositivi, creare una distribuzione senza moduli e assegnarla agli stessi dispositivi.Selezionare **Sì** per continuare.
+1. Un messaggio indicherà che questa azione comporta l'eliminazione della distribuzione e il ripristino dello stato precedente per tutti i dispositivi. Viene applicata una distribuzione con una priorità più bassa. Se non viene assegnata alcun'altra distribuzione, i moduli non verranno rimossi. Per rimuovere tutti i moduli dai dispositivi, creare una distribuzione senza moduli e assegnarla agli stessi dispositivi. Selezionare **Sì** per continuare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

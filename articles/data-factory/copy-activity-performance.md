@@ -1,18 +1,23 @@
 ---
 title: Guida a prestazioni e scalabilità dell'attività di copia
 description: Informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati in Azure Data Factory quando si usa l'attività di copia.
+services: data-factory
+documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
+manager: shwang
+ms.reviewer: douglasl
 ms.service: data-factory
+ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: 1c166b99243e5a6ee576100b8470aa38b9535c7a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387666"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616078"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guida a prestazioni e scalabilità dell'attività di copia
 
@@ -48,8 +53,8 @@ ADF offre un'architettura senza server che consente il parallelismo a livelli di
 
 Questa architettura consente di sviluppare pipeline che ottimizzano la velocità effettiva di spostamento dei dati per l'ambiente in uso. Queste pipeline utilizzano completamente le risorse seguenti:
 
-* Larghezza di banda di rete
-* Operazioni di input/output di archiviazione al secondo (IOPS) e larghezza di banda
+* Larghezza di banda di rete tra gli archivi dati di origine e di destinazione
+* Operazioni di input/output dell'archivio dati di origine o di destinazione al secondo (IOPS) e larghezza di banda
 
 Questo utilizzo completo significa che è possibile stimare la velocità effettiva complessiva misurando la velocità effettiva minima disponibile con le risorse seguenti:
 
@@ -57,7 +62,7 @@ Questo utilizzo completo significa che è possibile stimare la velocità effetti
 * Archivio dati di destinazione
 * Larghezza di banda di rete tra gli archivi dati di origine e di destinazione
 
-La tabella seguente calcola la durata della copia. La durata è basata sulle dimensioni dei dati e sul limite della larghezza di banda per l'ambiente.
+La tabella seguente calcola la durata della copia. La durata è basata sulle dimensioni dei dati e sul limite della larghezza di banda di rete/archivio dati per l'ambiente.
 
 &nbsp;
 

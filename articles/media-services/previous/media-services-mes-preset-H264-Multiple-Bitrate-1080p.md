@@ -1,7 +1,7 @@
 ---
 title: Media Encoder Standard a bitrate multipli H.264 con risoluzione 1080p preimpostato - Azure | Documentazione Microsoft
 description: Questo argomento offre una panoramica del set di impostazioni di attività **1080p a più velocità in bit H264** .
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: c19ff3bac285899033a4a68f3b3cb3773f9e8c61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 3740109c91845ba32d1102d27fba0ceb398eb803
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257314"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014622"
 ---
 # <a name="h264-multiple-bitrate-1080p"></a>Codec video H.264 a bitrate multipli con risoluzione 1080p
 

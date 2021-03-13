@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/04/2021
-ms.openlocfilehash: c41dc65b920c80d25a81a09f4550e76a8fd1095a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 83efb428a94d49b77ecd923d4868afe034374b5f
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204547"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225184"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-cli"></a>Esercitazione: creare un Azure Load Balancer tra aree usando l'interfaccia della riga di comando di Azure
 
@@ -81,23 +81,6 @@ Creare un servizio di bilanciamento del carico tra aree con [AZ Network Cross-Re
     --backend-pool-name myBackEndPool-CR     
 ```
 
-### <a name="create-the-health-probe"></a>Creare il probe di integrità
-
-Creare un probe di integrità del servizio di bilanciamento del carico tra aree con [AZ Network Cross-Region lb Probe create](/cli/azure/network/cross-region-lb/probe#az_network_cross_region_lb_probe_create):
-
-* Denominato **myHealthProbe-CR**.
-* Protocollo **TCP**.
-* Porta **80**.
-
-```azurecli-interactive
-  az network cross-region lb probe create \
-    --lb-name myLoadBalancer-CR \
-    --name myHealthProbe-CR \
-    --port 80 \
-    --protocol Tcp \
-    --resource-group myResourceGroupLB-CR
-```
-
 ### <a name="create-the-load-balancer-rule"></a>Creare la regola di bilanciamento del carico
 
 Una regola di bilanciamento del carico definisce:
@@ -122,8 +105,7 @@ Creare una regola di bilanciamento del carico con [AZ Network Cross-Region-lb Ru
     --protocol tcp \
     --resource-group myResourceGroupLB-CR \
     --backend-pool-name myBackEndPool-CR \
-    --frontend-ip-name myFrontEnd-CR \
-    --probe-name myHealthProbe-CR
+    --frontend-ip-name myFrontEnd-CR
 ```
 
 ## <a name="create-backend-pool"></a>Creare un pool back-end
@@ -204,7 +186,6 @@ Quando non sono più necessari, rimuovere il gruppo di risorse, il servizio di b
 In questa esercitazione:
 
 * È stato creato un servizio di bilanciamento del carico tra aree.
-* È stato creato un probe di integrità.
 * È stata creata una regola di bilanciamento del carico.
 * Sono stati aggiunti i servizi di bilanciamento del carico a livello di area al pool back-end del servizio di bilanciamento del carico tra più aree.
 * È stato testato il servizio di bilanciamento del carico.

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 29127a9dff42c0f733e3721d1ea5fea7350e774e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3abff5645775d724042acba3ee2461c7cad771a7
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547359"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149665"
 ---
 # <a name="troubleshooting-message-routing"></a>Risoluzione dei problemi relativi al routing dei messaggi
 
@@ -37,11 +37,11 @@ Per risolvere il problema, analizzare quanto segue.
 
 #### <a name="the-routing-metrics-for-this-endpoint"></a>Metriche di routing per questo endpoint
 
-Tutte le [metriche dell'hub delle cose correlate al routing](monitor-iot-hub-reference.md#routing-metrics) sono precedute dal *routing* . È possibile combinare le informazioni da più metriche per individuare la causa radice dei problemi. Usare, ad esempio, il **recapito del routing** della metrica per identificare il numero di messaggi recapitati a un endpoint o eliminati quando non corrispondono a query su una delle route e la route di fallback è stata disabilitata. Controllare la metrica della **latenza di routing** per verificare se la latenza per il recapito dei messaggi è stabile o in aumento. Una latenza crescente può indicare un problema con un endpoint specifico ed è consigliabile controllare [l'integrità dell'endpoint](#the-health-of-the-endpoint). Queste metriche di routing hanno anche [dimensioni](monitor-iot-hub-reference.md#metric-dimensions) che forniscono dettagli sulla metrica, ad esempio il tipo di endpoint, il nome dell'endpoint specifico e il motivo per cui il messaggio non è stato recapitato.
+Tutte le [metriche dell'hub delle cose correlate al routing](monitor-iot-hub-reference.md#routing-metrics) sono precedute dal *routing*. È possibile combinare le informazioni da più metriche per individuare la causa radice dei problemi. Usare, ad esempio, il **recapito del routing** della metrica per identificare il numero di messaggi recapitati a un endpoint o eliminati quando non corrispondono a query su una delle route e la route di fallback è stata disabilitata. Controllare la metrica della **latenza di routing** per verificare se la latenza per il recapito dei messaggi è stabile o in aumento. Una latenza crescente può indicare un problema con un endpoint specifico ed è consigliabile controllare [l'integrità dell'endpoint](#the-health-of-the-endpoint). Queste metriche di routing hanno anche [dimensioni](monitor-iot-hub-reference.md#metric-dimensions) che forniscono dettagli sulla metrica, ad esempio il tipo di endpoint, il nome dell'endpoint specifico e il motivo per cui il messaggio non è stato recapitato.
 
 #### <a name="the-resource-logs-for-any-operational-issues"></a>Log delle risorse per eventuali problemi operativi
 
-Osservare i [log delle risorse di **Route**](monitor-iot-hub-reference.md#routes) per ottenere altre informazioni sulle [operazioni](#operation-names) di routing ed endpoint oppure identificare gli errori e il [codice di errore](#common-error-codes) pertinente per comprendere ulteriormente il problema. Il nome dell'operazione **RouteEvaluationError** nel log, ad esempio, indica che non è stato possibile valutare la route a causa di un problema con il formato del messaggio. Usare i suggerimenti forniti per i [nomi di operazione](#operation-names) specifici per attenuare il problema. Quando un evento viene registrato come errore, il log fornirà anche ulteriori informazioni sul motivo per cui la valutazione non è riuscita. Se, ad esempio, il nome dell'operazione è **EndpointUnhealthy** , il [codice di errore](#common-error-codes) 403004 indica che l'endpoint ha esaurito lo spazio.
+Osservare i [log delle risorse di **Route**](monitor-iot-hub-reference.md#routes) per ottenere altre informazioni sulle [operazioni](#operation-names) di routing ed endpoint oppure identificare gli errori e il [codice di errore](#common-error-codes) pertinente per comprendere ulteriormente il problema. Il nome dell'operazione **RouteEvaluationError** nel log, ad esempio, indica che non è stato possibile valutare la route a causa di un problema con il formato del messaggio. Usare i suggerimenti forniti per i [nomi di operazione](#operation-names) specifici per attenuare il problema. Quando un evento viene registrato come errore, il log fornirà anche ulteriori informazioni sul motivo per cui la valutazione non è riuscita. Se, ad esempio, il nome dell'operazione è **EndpointUnhealthy**, il [codice di errore](#common-error-codes) 403004 indica che l'endpoint ha esaurito lo spazio.
 
 #### <a name="the-health-of-the-endpoint"></a>Stato dell'endpoint
 
@@ -82,4 +82,4 @@ Di seguito sono riportati i nomi delle operazioni e i codici di errore registrat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ricevere assistenza, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto** .
+Per ulteriore assistenza, è possibile contattare gli esperti di Azure nei [Forum Microsoft Q&A e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.

@@ -3,18 +3,18 @@ title: Avvio rapido - Esplorare i costi di Azure con l'analisi dei costi
 description: Questo guida introduttiva consente di usare l'analisi dei costi per esplorare e analizzare i costi aziendali di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 83f2d87e3f4a03ff17526ea5706e4f87b8f39487
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
-ms.translationtype: HT
+ms.openlocfilehash: 86f7bbbb52b1596e20fb1f3a67e42b2dd27c501a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882450"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012609"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guida introduttiva: Esplorare e analizzare i costi con l'analisi dei costi
 
@@ -68,11 +68,9 @@ La visualizzazione dell'analisi dei costi iniziale include le aree seguenti.
 
 ### <a name="understand-forecast"></a>Informazioni sulle previsioni
 
-La previsione dei costi mostra una proiezione dei costi stimati per il periodo di tempo selezionato. Il modello è basato su un modello di regressione della serie temporale. Richiede almeno 10 giorni di dati recenti relativi a costi e utilizzo per poter fare una previsione accurata dei costi. Per poter eleborare un modello di previsione per un determinato periodo di tempo, è necessario disporre di dati di training relativi a un periodo di tempo della stessa durata. Ad esempio, per una proiezione di tre mesi sono necessari almeno tre mesi di dati recenti relativi a costi e utilizzo.
+In base all'utilizzo recente, le previsioni sui costi mostrano una proiezione dei costi stimati per il periodo di tempo selezionato. Se un budget viene configurato nell'analisi dei costi, è possibile visualizzare quando è probabile che la spesa prevista superi la soglia del budget. Il modello di previsione può prevedere i costi futuri per un massimo di un anno. Selezionare filtri per visualizzare il costo granulare previsto per la dimensione selezionata.
 
-Il modello usa i dati di training relativi a un periodo massimo di sei mesi per proiettare i costi per un anno. Ha bisogno di almeno sette giorni di dati di training per modificare la stima. La stima è basata su modifiche notevoli, come picchi e flessioni, nei modelli di costo e utilizzo. La previsione non genera singole proiezioni per ogni elemento nelle proprietà **Raggruppa per**. Fornisce solo una previsione per i costi totali accumulati. Se si usano più valute, il modello fornisce previsioni per i costi solo in USD.
-
-Dal momento che il modello dipende dai picchi e dalle flessioni dei dati, gli acquisti di grandi dimensioni, ad esempio le istanze riservate, comportano un aumento artificiale delle previsioni. Il periodo di previsione e il numero degli acquisti influiscono sul tempo di impatto della previsione. La previsione ridiventa normale in seguito alla stabilizzazione della spesa.
+Il modello di previsione è basato su un modello di regressione Time Series. Richiede almeno 10 giorni di dati recenti relativi a costi e utilizzo per poter fare una previsione accurata dei costi. Per poter eleborare un modello di previsione per un determinato periodo di tempo, è necessario disporre di dati di training relativi a un periodo di tempo della stessa durata. Ad esempio, per una proiezione di tre mesi sono necessari almeno tre mesi di dati recenti relativi a costi e utilizzo.
 
 ## <a name="customize-cost-views"></a>Personalizzare le visualizzazioni dei costi
 

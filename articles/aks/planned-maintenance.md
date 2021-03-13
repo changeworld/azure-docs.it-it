@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: f5c85f371dbe0fe3488c1ca6ff806f114153d3a7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 307183292b60a6556df69a4e5541cbfb5e13098f
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102638654"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201573"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Usare la manutenzione pianificata per pianificare le finestre di manutenzione per il cluster Azure Kubernetes Service (AKS) (anteprima)
 
@@ -28,8 +28,8 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 Quando si usa la manutenzione pianificata, si applicano le restrizioni seguenti:
 
-- AKS si riserva il diritto di interrompere le finestre per le correzioni e le patch urgenti o critiche.
-- L'esecuzione di operazioni di manutenzione è considerata *solo il massimo sforzo* e non è garantito che si verifichino all'interno di una finestra specificata.
+- AKS si riserva il diritto di interrompere queste finestre per le operazioni di manutenzione non pianificate/reattive che sono urgenti o critiche.
+- Attualmente, l'esecuzione di operazioni di manutenzione è considerata *solo il massimo sforzo* e non è garantito che si verifichino all'interno di una finestra specificata.
 - Gli aggiornamenti non possono essere bloccati per più di sette giorni.
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando aks-preview

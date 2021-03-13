@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 0c8f55b6eeba4319b0ce9e39085912b8c4829235
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 104e6503ba47d17c17cfec2b4e62ec3f69f18330
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720801"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200023"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architettura di connettività nel database di Azure per PostgreSQL
 Questo articolo illustra l'architettura di connettività del database di Azure per PostgreSQL e il modo in cui il traffico viene indirizzato all'istanza del database di Azure per PostgreSQL dai client all'interno e all'esterno di Azure.
@@ -60,7 +60,9 @@ La tabella seguente elenca gli indirizzi IP del gateway del database di Azure pe
 | Francia centrale | 40.79.137.0, 40.79.129.1  | | |
 | Francia meridionale | 40.79.177.0     | | |
 | Germania centrale | 51.4.144.100     | | |
+| Germania settentrionale | 51.116.56.0 | |
 | Germania nord-orientale | 51.5.144.179  | | |
+| Germania centro-occidentale | 51.116.152.0 | |
 | India centrale | 104.211.96.159     | | |
 | India meridionale | 104.211.224.146  | | |
 | India occidentale | 104.211.160.80    | | |
@@ -74,6 +76,8 @@ La tabella seguente elenca gli indirizzi IP del gateway del database di Azure pe
 | Sudafrica occidentale | 102.133.24.0   | | |
 | Stati Uniti centro-meridionali |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
 | Asia sud-orientale | 40.78.233.2, 23.98.80.12     | 104.43.15.0 | |
+| Svizzera settentrionale | 51.107.56.0 ||
+| Svizzera occidentale | 51.107.152.0| ||
 | Emirati Arabi Uniti centrali | 20.37.72.64  | | |
 | Emirati Arabi Uniti settentrionali | 65.52.248.0    | | |
 | Regno Unito meridionale | 51.140.184.11   | | |
@@ -83,6 +87,37 @@ La tabella seguente elenca gli indirizzi IP del gateway del database di Azure pe
 | Stati Uniti occidentali |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
 | Stati Uniti occidentali 2 | 13.66.226.202  | | |
 ||||
+
+## <a name="frequently-asked-questions"></a>Domande frequenti
+
+### <a name="what-you-need-to-know-about-this-planned-maintenance"></a>Cosa è necessario sapere su questa manutenzione pianificata?
+Si tratta di una modifica DNS che lo rende trasparente ai client. Mentre l'indirizzo IP per FQDN viene modificato nel server DNS, la cache DNS locale verrà aggiornata entro 5 minuti e verrà automaticamente eseguita dai sistemi operativi. Dopo l'aggiornamento locale del DNS, tutte le nuove connessioni si connetteranno al nuovo indirizzo IP, tutte le connessioni esistenti rimarranno connesse all'indirizzo IP precedente senza interruzioni fino a quando non vengono rimosse completamente le autorizzazioni degli indirizzi IP precedenti. Prima di rimuovere le autorizzazioni, l'indirizzo IP precedente imporrà approssimativamente da tre a quattro settimane; Pertanto, non dovrebbe avere alcun effetto sulle applicazioni client.
+
+### <a name="what-are-we-decommissioning"></a>Quali sono le autorizzazioni per la rimozione delle autorizzazioni?
+Verranno rimosse solo le autorizzazioni per i nodi del gateway. Quando gli utenti si connettono ai server, il primo arresto della connessione consiste nel nodo del gateway, prima che la connessione venga trasmessa al server. Gli anelli del gateway obsoleti (non gli anelli del tenant in cui il server è in esecuzione) fanno riferimento all' [architettura di connettività](#connectivity-architecture) per una maggiore chiarezza.
+
+### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>Come è possibile verificare se le connessioni passano ai nodi del gateway obsoleti o ai nuovi nodi del gateway?
+Eseguire il ping del nome di dominio completo del server, ad esempio  ``ping xxx.postgres.database.azure.com`` . Se l'indirizzo IP restituito è uno degli indirizzi IP elencati in indirizzi IP del gateway (rimozione delle autorizzazioni) nel documento precedente, significa che la connessione sta attraversando il gateway precedente. Contrariamente, se l'indirizzo IP restituito è uno degli indirizzi IP elencati in indirizzi IP del gateway, significa che la connessione sta attraversando il nuovo gateway.
+
+È anche possibile eseguire il test tramite [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) o TCPPing del server di database dall'applicazione client con la porta 3306 e verificare che l'indirizzo IP restituito non sia uno degli indirizzi IP di rimozione delle autorizzazioni
+
+### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>Ricerca per categorie sa quando la manutenzione è stata superata e si riceve un'altra notifica quando gli indirizzi IP precedenti vengono ritirati?
+Si riceverà un messaggio di posta elettronica per informare l'utente quando avvierà il lavoro di manutenzione. La manutenzione può richiedere fino a un mese, a seconda del numero di server di cui è necessario eseguire la migrazione in aree di al. Preparare il client per la connessione al server di database usando il nome di dominio completo o usando il nuovo indirizzo IP della tabella precedente. 
+
+### <a name="what-do-i-do-if-my-client-applications-are-still-connecting-to-old-gateway-server-"></a>Che cosa è necessario fare se le applicazioni client si connettono ancora al server gateway precedente?
+Ciò indica che le applicazioni si connettono al server utilizzando un indirizzo IP statico anziché un nome di dominio completo. Esaminare le stringhe di connessione e l'impostazione del pool di connessioni, l'impostazione AKS o anche nel codice sorgente.
+
+### <a name="is-there-any-impact-for-my-application-connections"></a>Sono previsti effetti per le connessioni alle applicazioni?
+Questa manutenzione è solo una modifica DNS, quindi è trasparente per il client. Una volta che la cache DNS viene aggiornata nel client (eseguita automaticamente dal sistema operativo), tutta la nuova connessione si connetterà al nuovo indirizzo IP e tutta la connessione esistente continuerà a funzionare fino a quando l'indirizzo IP precedente non verrà completamente ritirato, che in genere è stato ripreso in un secondo momento. E la logica di ripetizione dei tentativi non è necessaria per questo caso, ma è opportuno vedere che l'applicazione dispone di una logica di ripetizione dei tentativi configurata. Usare il nome di dominio completo per connettersi al server di database o abilitare l'elenco dei nuovi indirizzi IP del gateway nella stringa di connessione dell'applicazione.
+Questa operazione di manutenzione non eliminerà le connessioni esistenti. Consente solo alle nuove richieste di connessione di passare a un nuovo anello del gateway.
+
+### <a name="can-i-request-for-a-specific-time-window-for-the-maintenance"></a>È possibile richiedere un intervallo di tempo specifico per la manutenzione? 
+Poiché la migrazione deve essere trasparente e non ha alcun effetto sulla connettività del cliente, si prevede che non vi sia alcun problema per la maggior parte degli utenti. Esaminare l'applicazione in modo proattivo e assicurarsi di usare il nome di dominio completo per connettersi al server di database o abilitare l'elenco dei nuovi indirizzi IP del gateway nella stringa di connessione dell'applicazione.
+
+### <a name="i-am-using-private-link-will-my-connections-get-affected"></a>Sto usando un collegamento privato, le connessioni vengono interessate?
+No, si tratta di una rimozione delle autorizzazioni per l'hardware del gateway e non ci sono relazioni con i collegamenti privati o gli indirizzi IP privati, ma influiscono solo sugli indirizzi IP pubblici indicati in indirizzi IP di rimozione delle autorizzazioni.
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

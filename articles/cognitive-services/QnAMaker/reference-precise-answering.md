@@ -5,22 +5,22 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 6c597e8fd48eb157b69c918ae5fd5f699611ad75
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9c7b265118e395dde2b4b5f3959ba397d75ddac5
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703406"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232189"
 ---
 # <a name="precise-answering"></a>Risposta precisa
 
 La funzionalità di risposta precisa introdotta in QnA Maker Managed (Preview) consente di ottenere la risposta breve precisa dal passaggio di risposta migliore al candidato presente nella Knowledge base per qualsiasi query utente. Questa funzionalità Usa un modello di apprendimento avanzato che in fase di esecuzione, che riconosce lo scopo della query utente e rileva la risposta breve precisa dal passaggio di risposta, se è presente una breve risposta presente come fact nel passaggio di risposta. 
 
-Questa funzionalità è abilitata per impostazione predefinita nel riquadro test, in modo da poter testare le funzionalità specifiche dello scenario. Questa funzionalità è estremamente vantaggiosa per gli sviluppatori di contenuti e per gli utenti finali. A questo punto, gli sviluppatori di contenuti non devono curare manualmente specifiche coppie di QnA per ogni fact presente nella Knowledge base e l'utente finale non deve esaminare l'intero passaggio di risposta restituito dal servizio per trovare il fatto che risponde alla query dell'utente. 
+Questa funzionalità è abilitata per impostazione predefinita nel riquadro test, in modo da poter testare le funzionalità specifiche dello scenario. Questa funzionalità è estremamente vantaggiosa per gli sviluppatori di contenuti e per gli utenti finali. A questo punto, gli sviluppatori di contenuti non devono curare manualmente specifiche coppie di QnA per ogni fact presente nella Knowledge base e l'utente finale non deve esaminare l'intero passaggio di risposta restituito dal servizio per trovare il fatto che risponde alla query dell'utente. È possibile recuperare [risposte precise tramite l'API genera risposta](How-To/metadata-generateanswer-usage.md#get-precise-answers-with-generateanswer-api).
 
 ## <a name="precise-answering-on-qna-maker-portal"></a>Risposta precisa al portale di QnA Maker
 
-Quando si apre il riquadro di test nel portale di QnA Maker, viene visualizzata un'opzione per visualizzare la **risposta breve** nella parte superiore. Questa opzione sarà selezionata per impostazione predefinita. Quando si immette una query nel riquadro di test, viene visualizzata una breve risposta insieme al passaggio di risposta, se è presente una breve risposta presente nel passaggio di risposta. 
+Quando si apre il riquadro di test nel portale di QnA Maker, viene visualizzata un'opzione per visualizzare la **risposta breve** nella parte superiore. Questa opzione sarà selezionata per impostazione predefinita. Quando si immette una query nel riquadro di test, viene visualizzata una breve risposta insieme al passaggio di risposta, se è presente una breve risposta presente nel passaggio di risposta.
  
 ![Riquadro del test abilitato per la modalità gestita](../QnAMaker/media/conversational-context/test-pane-with-managed.png)
 

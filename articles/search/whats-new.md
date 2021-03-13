@@ -6,14 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 36f10bebfc42ae5e9e75206392e8a5f8ccef563a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b4dc8ab44d341b293c044843e6dff2a3b6d3102c
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694598"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233549"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -23,7 +23,7 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrizione | Disponibilità  |
 |------------------------------|---------------|---------------|
-| [Ricerca semantica](semantic-search-overview.md) | Raccolta di funzionalità correlate alle query che consentono di migliorare la pertinenza dei risultati della ricerca con pochissimo sforzo. Con piccole modifiche a una richiesta di ricerca, è possibile provare queste funzionalità sugli indici esistenti.</br></br>La [query semantica](semantic-how-to-query-request.md) è un nuovo tipo di query che sfrutta i miglioramenti apportati all'elaborazione del linguaggio naturale per migliorare la classificazione, oltre a comprendere le finalità delle query per fornire risposte, didascalie e evidenziazioni semantiche.</br></br>La [classificazione e le risposte semantiche (risposte, didascalie e evidenziazioni)](semantic-how-to-query-response.md) fanno riferimento al modello che valuta i risultati e alla capacità del modello di aggiungere la struttura alla risposta. | Anteprima pubblica ([per richiesta](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Usare [Cerca documenti (REST)](/rest/api/searchservice/preview-api/search-documents) API-Version = 2020-06 -30-Preview e [esplora ricerche](search-explorer.md) in portale di Azure. </br></br>Si applicano le restrizioni relative a aree e livelli. |
+| [Ricerca semantica](semantic-search-overview.md) | Raccolta di funzionalità correlate a query che migliorano significativamente la pertinenza dei risultati della ricerca con pochissimo sforzo. </br></br>La [classificazione semantica](semantic-ranking.md) calcola i punteggi di pertinenza usando il significato semantico alla base delle parole e del contenuto. </br></br>Le [didascalie semantiche](semantic-how-to-query-request.md) sono passaggi rilevanti del documento che riepilogano meglio il documento, con evidenziazioni sui termini o le frasi più importanti. </br></br>Le [risposte semantiche](semantic-answers.md) sono passaggi chiave, estratti da un documento di ricerca, formulati come risposta diretta a una query simile a una domanda. | Anteprima pubblica ([per richiesta](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Usare [Cerca documenti (REST)](/rest/api/searchservice/preview-api/search-documents) API-Version = 2020-06 -30-Preview e [esplora ricerche](search-explorer.md) in portale di Azure. </br></br>Si applicano le restrizioni relative a aree e livelli. |
 | [Termini di query del controllo ortografico](speller-how-to-add.md) | Prima che i termini di query raggiungano il motore di ricerca, è possibile verificare la presenza di errori di ortografia. L' `speller` opzione funziona con qualsiasi tipo di query (semplice, completo o semantico). |  Anteprima pubblica, solo REST, API-Version = 2020-06 -30-Preview|
 | [Indicizzatore di SharePoint Online](search-howto-index-sharepoint-online.md) | Questo indicizzatore si connette a un sito di SharePoint online in modo che sia possibile indicizzare il contenuto da una raccolta documenti. | Anteprima pubblica, solo REST, API-Version = 2020-06 -30-Preview |
 

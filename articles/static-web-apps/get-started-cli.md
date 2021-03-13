@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: be320b57117343371d52249c2c4452e74d33a4bf
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 98b40218d168133193410174bcc158ab8698c381
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102632935"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225388"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Avvio rapido: Creazione del primo sito statico con l'interfaccia della riga di comando di Azure
 
@@ -108,7 +108,9 @@ Dopo aver creato il repository, è possibile creare un'app Web statica dall'inte
     > [!IMPORTANT]
     > L'URL passato al `s` parametro non deve includere il `.git` suffisso.
 
-    - `<RESOURCE_GROUP_NAME>`: Sostituire questo valore con il nome di un gruppo di risorse di Azure esistente.
+    - `<RESOURCE_GROUP_NAME>`: Sostituire questo valore con un [nome del gruppo di risorse di Azure](../azure-resource-manager/management/manage-resources-cli.md)esistente.
+
+      - Per informazioni dettagliate sull'elenco dei gruppi di risorse, vedere la documentazione [AZ Group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_list) .
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`: Sostituire questo valore con il nome utente GitHub.
 

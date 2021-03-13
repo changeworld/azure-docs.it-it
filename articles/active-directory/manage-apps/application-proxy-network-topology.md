@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bbab5463f0d022cb9bf155c7d33e2d81c8bdd448
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: a8f1f902b14dda7d95e3643c335e82ed7c7e5a3f
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199695"
+ms.locfileid: "103232920"
 ---
 # <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Ottimizzare il flusso del traffico con Azure Active Directory Application Proxy
 
@@ -41,6 +41,9 @@ Se, ad esempio, il paese o l'area del tenant di Azure AD è il Regno Unito, a tu
 Se i connettori sono installati in aree diverse dall'area predefinita, può essere utile modificare l'area in cui il gruppo di connettori è ottimizzato per migliorare le prestazioni di accesso a queste applicazioni. Una volta specificata un'area per un gruppo di connettori, questa verrà connessa ai servizi cloud del proxy dell'applicazione nell'area designata.
 
 Per ottimizzare il flusso del traffico e ridurre la latenza a un gruppo di connettori, assegnare il gruppo di connettori all'area più vicina. Per assegnare un'area:
+
+> [!IMPORTANT]
+> Per usare questa funzionalità, i connettori devono usare almeno la versione 1.5.1975.0.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore dell'applicazione della directory che usa il proxy di applicazione. Se il dominio del tenant è contoso.com, ad esempio, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias amministratore di tale dominio.
 1. Selezionare il nome utente nell'angolo superiore destro. Verificare di aver effettuato l'accesso a una directory che usa il proxy di applicazione. Se è necessario cambiare directory, selezionare **Cambia directory** e scegliere una directory che usa il proxy di applicazione.
