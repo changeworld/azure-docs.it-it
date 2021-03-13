@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ea9d893f825822638803394e678e6e68f57a32d9
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 245998fb7229c483fb7f664ea000b62abf07eda9
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507297"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149784"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Esercitazione 18,04 sull'aggiornamento del dispositivo per l'hub di Azure
 
@@ -106,7 +106,7 @@ I passaggi manuali seguenti per installare e configurare il dispositivo sono equ
 
 L'aggiornamento del dispositivo per i pacchetti software dell'hub Azure è soggetto alle condizioni di licenza seguenti:
   * [Aggiornamento del dispositivo per la licenza dell'hub Internet](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-  * [Licenza client di ottimizzazione recapito](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+  * [Licenza client di ottimizzazione recapito](https://github.com/microsoft/do-client/blob/main/LICENSE)
 
 Leggere le condizioni di licenza prima di utilizzare un pacchetto. L'installazione e l'utilizzo di un pacchetto costituiscono l'accettazione di tali condizioni. Se non si accettano le condizioni di licenza, non utilizzare il pacchetto.
 

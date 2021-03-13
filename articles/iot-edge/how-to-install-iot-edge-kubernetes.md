@@ -8,14 +8,16 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b2068c3944f9e7616b0666c7bafcafc68ee0cd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5fc7b6b480056b56a2776cebd0fa87a5b96f9f0
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79471286"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201662"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Come installare IoT Edge in Kubernetes (anteprima)
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 IoT Edge può essere integrato con Kubernetes usandolo come livello infrastruttura resiliente e a disponibilità elevata. Di seguito è riportato il supporto di questo supporto in una soluzione IoT Edge di alto livello:
 
@@ -24,7 +26,7 @@ IoT Edge può essere integrato con Kubernetes usandolo come livello infrastruttu
 >[!TIP]
 >Un modello mentale efficace per questa integrazione consiste nel considerare Kubernetes come un altro ambiente operativo IoT Edge le applicazioni possono essere eseguite in oltre a Linux e Windows.
 
-## <a name="architecture"></a>Architecture 
+## <a name="architecture"></a>Architettura 
 In Kubernetes IoT Edge fornisce la *definizione di risorsa personalizzata* per le distribuzioni del carico di lavoro perimetrale. IoT Edge agente presuppone il ruolo di un  *controller* di gestione delle richieste che riconcilia lo stato desiderato gestito dal cloud con lo stato del cluster locale.
 
 La durata del modulo viene gestita dall'utilità di pianificazione di Kubernetes, che mantiene la disponibilità dei moduli e sceglie la selezione host. IoT Edge gestisce la piattaforma applicativa perimetrale in esecuzione in primo piano, riconciliando continuamente lo stato desiderato specificato nell'hub Internet con lo stato nel cluster perimetrale. Il modello applicativo è ancora il modello familiare basato su moduli e route IoT Edge. Il controller dell'agente di IoT Edge esegue il modello di applicazione della traduzione *automatica* IOT Edge per i costrutti nativi Kubernetes come Pod, distribuzioni, servizi e così via.

@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: f2c8b9efd02253026ff568983e42da87fa3c0f32
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 152e25fec4ee7b6181e2da58a9a4b0562a918151
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551080"
+ms.locfileid: "102609193"
 ---
 # <a name="nvv4-series"></a>Serie NVv4 
 
@@ -27,7 +27,7 @@ Le macchine virtuali della serie NVv4 sono basate su GPU [AMD Radeon Instinct MI
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 [Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
-[Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): non supportati <br>
+[Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): supportati <br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max/Larghezza di banda di rete prevista (Mbps) |

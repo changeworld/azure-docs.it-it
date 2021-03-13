@@ -3,7 +3,7 @@ title: Configurare il codificatore Telestream Wirecast per inviare un flusso liv
 description: 'In questo argomento viene illustrato come configurare il codificatore live Wirecast per inviare un flusso a velocità in bit singola a canali AMS abilitati per la codifica live. '
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: ecab0ee67dd1d5cee3fd9927c00c9f9d827b2f47
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a736270919f36cb7d4bbd4e686a98ddc57f402fa
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910050"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016832"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore Wirecast per inviare un flusso live a velocità in bit singola.
 
@@ -53,11 +53,11 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 
     ![Screenshot mostra crea canale selezionato da un menu.](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
-2. Specificare un nome di canale. Il campo della descrizione è facoltativo. In Impostazioni del canale selezionare **Standard** per l'opzione di codifica live con il protocollo di input impostato su **RTMP** . È possibile confermare tutte le altre impostazioni predefinite.
+2. Specificare un nome di canale. Il campo della descrizione è facoltativo. In Impostazioni del canale selezionare **Standard** per l'opzione di codifica live con il protocollo di input impostato su **RTMP**. È possibile confermare tutte le altre impostazioni predefinite.
 
     Assicurarsi che l'opzione **Avvia ora il nuovo canale** sia selezionata.
 
-3. Fare clic su **Create Channel** .
+3. Fare clic su **Create Channel**.
 
    ![Screenshot mostra la finestra di dialogo Crea canale Live.](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
@@ -76,7 +76,7 @@ Durante l'avvio del canale, è possibile [configurare il codificatore](media-ser
 ## <a name="configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurare il codificatore Telestream Wirecast
 In questa esercitazione vengono usate le seguenti impostazioni di output. Nel resto di questa sezione vengono descritti in maggiore dettaglio i passaggi di configurazione.
 
-**Video** :
+**Video**:
 
 * Codec: H.264
 * Profilo: alto (livello 4.0)
@@ -84,7 +84,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 * Fotogramma chiave: 2 secondi (60 secondi)
 * Frequenza dei fotogrammi: 30
 
-**Audio** :
+**Audio**:
 
 * Codec: AAC (LC)
 * Velocità in bit: 192 kbps
@@ -95,10 +95,10 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 2. Configurare l'output accedendo alla scheda **Output** e selezionando **Output Settings…** (Impostazioni di output...).
 
     Assicurarsi che **Destinazione di uscita** sia impostato su **RTMP Server** (Server RTMP).
-3. Fare clic su **OK** .
-4. Nella pagina delle impostazioni impostare il campo **Destinazione** su **Servizi multimediali di Azure** .
+3. Fare clic su **OK**.
+4. Nella pagina delle impostazioni impostare il campo **Destinazione** su **Servizi multimediali di Azure**.
 
-    Il profilo di codifica è già pre-selezionato per **Azure H.264 720p 16:9 (1280x720)** . Per personalizzare queste impostazioni, selezionare l'icona raffigurante un ingranaggio a destra dell'elenco a discesa e poi scegliere **Nuovo predefinito** .
+    Il profilo di codifica è già pre-selezionato per **Azure H.264 720p 16:9 (1280x720)**. Per personalizzare queste impostazioni, selezionare l'icona raffigurante un ingranaggio a destra dell'elenco a discesa e poi scegliere **Nuovo predefinito**.
 
     ![Screenshot mostra la finestra di dialogo Scegli un modello con BlobTrigger selezionato.](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Configura le impostazioni predefinite del codificatore.
@@ -119,14 +119,14 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
    * Frequenza di campionamento: 44,100 kHz
 
      ![Screenshot che mostra il set di impostazioni del codificatore per AzureTest1.](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
-6. Premere **Salva** .
+6. Premere **Salva**.
 
     Il campo di codifica è ora il profilo appena creato disponibile per la selezione.
 
     Verificare che venga selezionato il nuovo profilo.
-7. Ottenere l’input URL del canale per assegnargli il Wirecast **RTMP Endpoint** .\
+7. Ottenere l’input URL del canale per assegnargli il Wirecast **RTMP Endpoint**.\
 
-    Passare allo strumento AMSE e controllare lo stato di completamento del canale. Una volta che lo stato è passato da **Avvio in corso** a **In esecuzione** , è possibile ottenere l'URL di input.
+    Passare allo strumento AMSE e controllare lo stato di completamento del canale. Una volta che lo stato è passato da **Avvio in corso** a **In esecuzione**, è possibile ottenere l'URL di input.
 
     Quando il canale è in esecuzione, fare clic con il pulsante destro del mouse sul nome del canale, spostarsi verso il basso per passare il puntatore sull'opzione **Copy Input URL to clipboard** (Copia URL di input negli Appunti) e quindi selezionare **Primary Input URL** (URL di input primario).  
 
@@ -135,13 +135,13 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
     ![Screenshot che mostra le impostazioni di output.](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
-1. Selezionare **OK** .
+1. Selezionare **OK**.
 2. Nella schermata principale **Wirecast** confermare che le origini di input per video e audio sono pronte e quindi premere **Flusso** nell'angolo superiore sinistro.
 
     ![Screenshot che mostra il pulsante flusso Wirecast.](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
-> Prima di fare clic su **Flusso** , **è necessario** assicurarsi che il canale sia pronto.
+> Prima di fare clic su **Flusso**, **è necessario** assicurarsi che il canale sia pronto.
 > Assicurarsi inoltre di non lasciare il canale in uno stato pronto senza un feed per l’input/contributo per più di 15 minuti.
 >
 >
@@ -162,7 +162,7 @@ In caso di errore sarà necessario reimpostare il canale e regolare le impostazi
     ![Screenshot mostra l'opzione Crea programma selezionata.](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
 2. Assegnare un nome al programma e, se necessario, modificare l'opzione **Archive Window Length** (Lunghezza dell'intervallo di archiviazione), la cui impostazione predefinita è di quattro ore. È inoltre possibile specificare un percorso di archiviazione o confermare l'impostazione predefinita.  
 3. Selezionare la casella di controllo **Start the Program now** .
-4. Fare clic su **Create Program** .  
+4. Fare clic su **Create Program**.  
 
    >[!NOTE]
    >La creazione di un programma richiede meno tempo rispetto alla creazione del canale.

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 9074480f44e75a90c202f0d0813c43aed1f7ba95
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: ac2b535b2e6b7a6b4169d08dd1768d69e685a216
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488206"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562011"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Panoramica della migrazione: SQL Server a SQL Istanza gestita
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -64,6 +64,8 @@ Alcune linee guida generali che consentono di scegliere il livello di servizio e
 
 > [!IMPORTANT]
 > Eventuali discrepanze nei [requisiti della rete virtuale dell'istanza gestita](../../managed-instance/connectivity-architecture-overview.md#network-requirements) possono impedire la creazione di nuove istanze o l'utilizzo di quelle esistenti. Altre informazioni sulla [creazione di nuove](../../managed-instance/virtual-network-subnet-create-arm-template.md)   reti e sulla configurazione di reti [esistenti](../../managed-instance/vnet-existing-add-subnet.md)   . 
+
+Un altro aspetto importante nella selezione del livello di servizio di destinazione in Azure SQL Istanza gestita (per utilizzo generico vs business critical) è la disponibilità di alcune funzionalità come In-Memory OLTP disponibile solo nel livello business critical. 
 
 ### <a name="sql-server-vm-alternative"></a>Alternativa SQL Server VM
 
@@ -191,6 +193,26 @@ Quando si esegue la migrazione dei database protetti da  [Transparent Data Enc
 #### <a name="system-databases"></a>Database di sistema
 
 Il ripristino di database di sistema non è supportato. Per eseguire la migrazione degli oggetti a livello di istanza (archiviati nei database master o msdb), crearne uno script usando Transact-SQL (T-SQL) e quindi ricrearli nell'istanza gestita di destinazione. 
+
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>In-Memory OLTP (tabelle con ottimizzazione per la memoria)
+
+SQL Server fornisce In-Memory funzionalità OLTP che consente l'utilizzo di tabelle ottimizzate per la memoria, tipi di tabella ottimizzata per la memoria e moduli SQL compilati in modo nativo per l'esecuzione di carichi di lavoro con requisiti di elaborazione transazionale a bassa latenza e velocità effettiva elevata. 
+
+> [!IMPORTANT]
+> In-Memory OLTP è supportato solo nel livello di business critical in Istanza gestita SQL di Azure (e non è supportato nel livello per utilizzo generico).
+
+Se le tabelle ottimizzate per la memoria o i tipi di tabella ottimizzata per la memoria sono presenti nel SQL Server locale e si sta cercando di eseguire la migrazione ad Azure SQL Istanza gestita, è necessario effettuare una delle seguenti operazioni:
+
+- Scegliere business critical livello per il Istanza gestita SQL di Azure di destinazione che supporti In-Memory OLTP o
+- Se si vuole eseguire la migrazione a per utilizzo generico livello in Istanza gestita SQL di Azure, rimuovere le tabelle ottimizzate per la memoria, i tipi di tabella ottimizzata per la memoria e i moduli SQL compilati in modo nativo che interagiscono con gli oggetti ottimizzati per la memoria prima di migrare i database. La query T-SQL seguente può essere usata per identificare tutti gli oggetti che devono essere rimossi prima della migrazione al livello per utilizzo generico:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+Per altre informazioni sulle tecnologie in memoria, vedere [ottimizzare le prestazioni usando le tecnologie in memoria nel database SQL di Azure e in Azure sql istanza gestita](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview)
 
 ## <a name="leverage-advanced-features"></a>Sfruttare le funzionalità avanzate 
 

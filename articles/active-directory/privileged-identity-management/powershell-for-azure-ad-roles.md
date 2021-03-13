@@ -16,12 +16,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d04a2941888592ffa37acfe6cba52a33fda528
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2774c63d34de3de951aa8076b56d203b976158ec
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365511"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548751"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell per i ruoli di Azure AD in Privileged Identity Management
 
@@ -49,12 +49,12 @@ Questo articolo contiene le istruzioni per l'uso di cmdlet PowerShell in Azure A
     Connect-AzureAD -Credential $AzureAdCred
     ```
 
-1. Trovare l'ID tenant per l'organizzazione Azure ad selezionando **Azure Active Directory**  >  **Properties**  >  **ID directory**proprietà. Nella sezione cmdlet usare questo ID ogni volta che è necessario specificare il resourceId.
+1. Trovare l'ID tenant per l'organizzazione Azure ad selezionando **Azure Active Directory**  >    >  **ID directory** proprietà. Nella sezione cmdlet usare questo ID ogni volta che è necessario specificare il resourceId.
 
     ![Individuare l'ID dell'organizzazione nelle proprietà dell'organizzazione di Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> Le sezioni seguenti offrono semplici esempi per la configurazione e l'esecuzione. Per una documentazione più dettagliata sui cmdlet seguenti [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) , vedere. Tuttavia, è necessario sostituire "azureResources" nel parametro providerID con "aadRoles". Sarà anche necessario ricordare di usare l'ID tenant per l'organizzazione Azure AD come parametro resourceId.
+> Le sezioni seguenti offrono semplici esempi per la configurazione e l'esecuzione. Per una documentazione più dettagliata sui cmdlet seguenti [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management) , vedere. Tuttavia, è necessario sostituire "azureResources" nel parametro providerID con "aadRoles". Sarà anche necessario ricordare di usare l'ID tenant per l'organizzazione Azure AD come parametro resourceId.
 
 ## <a name="retrieving-role-definitions"></a>Recupero delle definizioni dei ruoli
 

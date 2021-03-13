@@ -55,7 +55,7 @@
     - name: Panoramica
       items:
         - name: Che cos'è Azure Stack Edge Pro R?
-          href: azure-stack-edge-j-series-overview.md
+          href: azure-stack-edge-pro-r-overview.md
     - name: Concetti
       items:
         - name: Istruzioni per la sicurezza
@@ -171,7 +171,7 @@
         - name: Distribuire esempi di IoT Edge
           items:
             - name: Modulo della raccolta Nvidia
-              href: azure-stack-edge-j-series-configure-gpu-modules.md
+              href: azure-stack-edge-gpu-configure-gpu-modules.md
             - name: Modulo GPU del repository Git
               href: azure-stack-edge-gpu-deploy-sample-module.md
             - name: Modulo GPU tramite Marketplace
@@ -189,7 +189,7 @@
                 - name: Accelerazione del calcolo
                   href: azure-stack-edge-gpu-deploy-compute-acceleration.md
                 - name: App senza stato
-                  href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md
+                  href: azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md
                 - name: App con stato e provisioning statico
                   href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md
                 - name: App con stato e provisioning statico
@@ -199,7 +199,7 @@
                 - name: App senza stato
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
                 - name: Sviluppare un modulo C#
-                  href: azure-stack-edge-j-series-create-iot-edge-module.md
+                  href: azure-stack-edge-gpu-create-iot-edge-module.md
             - name: Tramite Azure Arc (anteprima)
               items:
                 - name: Abilitare Arc nel cluster Kubernetes
@@ -211,11 +211,11 @@
         - name: Configurare Azure Resource Manager (anteprima)
           items:
             - name: Connettersi tramite Azure PowerShell
-              href: azure-stack-edge-j-series-connect-resource-manager.md
+              href: azure-stack-edge-gpu-connect-resource-manager.md
             - name: Impostare la password di Azure Resource Manager
-              href: azure-stack-edge-j-series-set-azure-resource-manager-password.md
+              href: azure-stack-edge-gpu-set-azure-resource-manager-password.md
             - name: Configurare le impostazioni TLS del client
-              href: azure-stack-edge-j-series-configure-tls-settings.md
+              href: azure-stack-edge-gpu-configure-tls-settings.md
         - name: Distribuire le macchine virtuali (anteprima)
           items:
             - name: Distribuire le macchine virtuali - Portale di Azure
@@ -229,7 +229,7 @@
             - name: Distribuire le macchine virtuali - Script di Azure PowerShell
               href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
             - name: Distribuire le macchine virtuali - Interfaccia della riga di comando di Azure/Python
-              href: azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md
+              href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
             - name: Distribuire l'estensione per script personalizzati nelle VM
               href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
             - name: Creare l'immagine della macchina virtuale
@@ -247,23 +247,23 @@
             - name: Risolvere gli errori relativi ai certificati
               href: azure-stack-edge-gpu-certificate-troubleshooting.md
         - name: Gestire il calcolo Edge
-          href: azure-stack-edge-j-series-manage-compute.md
+          href: azure-stack-edge-gpu-manage-compute.md
         - name: Gestire il registro contenitori Edge
           href: azure-stack-edge-gpu-edge-container-registry.md
         - name: Gestire il gateway di archiviazione
           items:
             - name: 'Aggiungere, connettersi alla condivisione'
-              href: azure-stack-edge-j-series-deploy-add-shares.md
+              href: azure-stack-edge-gpu-deploy-add-shares.md
             - name: 'Aggiungere, connettersi agli account di archiviazione'
-              href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
+              href: azure-stack-edge-gpu-deploy-add-storage-accounts.md
             - name: Condivisioni
-              href: azure-stack-edge-j-series-manage-shares.md
+              href: azure-stack-edge-gpu-manage-shares.md
             - name: Utenti
-              href: azure-stack-edge-j-series-manage-users.md
+              href: azure-stack-edge-gpu-manage-users.md
             - name: Account di archiviazione
-              href: azure-stack-edge-j-series-manage-storage-accounts.md
+              href: azure-stack-edge-gpu-manage-storage-accounts.md
             - name: Pianificazioni della larghezza di banda
-              href: azure-stack-edge-j-series-manage-bandwidth-schedules.md
+              href: azure-stack-edge-gpu-manage-bandwidth-schedules.md
         - name: Gestire il dispositivo
           items:
             - name: 'Alimentazione, accesso e connettività'
@@ -318,6 +318,9 @@
           href: /rest/api/databoxedgegateway
         - name: .NET SDK
           href: /dotnet/api/overview/azure/databoxedge/databoxgateway
+        - name: Criteri di Azure predefiniti
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
 - name: Azure Stack Edge Pro - FPGA
   items:
     - name: Panoramica
@@ -403,23 +406,10 @@
           href: ../databox-gateway/data-box-gateway-1905-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
         - name: Disponibilità generale (GA)
           href: ../databox-gateway/data-box-gateway-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
-    - name: Informazioni di riferimento
-      items:
-        - name: Azure PowerShell
-          href: /powershell/module/az.stackedge/#stack_edge
-        - name: API REST
-          href: /rest/api/databoxedgegateway
-        - name: .NET SDK
-          href: /dotnet/api/overview/azure/databoxedge/databoxgateway
-- name: Sicurezza
+- name: Security
   items:
     - name: Baseline di sicurezza
       href: security-baseline.md
-- name: Riferimenti
-  items:
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Esempi di modulo C# per Azure Stack Edge Pro (.NET)

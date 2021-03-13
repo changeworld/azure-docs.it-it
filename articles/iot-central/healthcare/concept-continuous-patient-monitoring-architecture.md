@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 093e069fa7a3eab06c61f796421a3253d9b92cb1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6f7359b2b2fb0a1ea6ce92ec52bba15fc74fc75a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727499"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017155"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Architettura del monitoraggio pazienti continuo
 
@@ -37,7 +37,7 @@ La funzione principale dell'applicazione per telefoni cellulari prevede la racco
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Esportare nell'API di Azure per FHIR&reg;
 
-Azure IoT Central è una soluzione conforme a HIPAA e dotata di certificazione HITRUST&reg;. È anche possibile inviare i dati sanitari dei pazienti ad altri servizi tramite l'[API di Azure per FHIR](../../healthcare-apis/overview.md). L'API di Azure per FHIR è un'API basata su standard per i dati sanitari clinici. Il [connettore di Azure IoT per FHIR](../../healthcare-apis/iot-fhir-portal-quickstart.md) consente di usare l'API di Azure per FHIR come destinazione per l'esportazione continua di dati da IoT Central.
+Azure IoT Central è una soluzione conforme a HIPAA e dotata di certificazione HITRUST&reg;. È anche possibile inviare i dati sanitari dei pazienti ad altri servizi tramite l'[API di Azure per FHIR](../../healthcare-apis/fhir/overview.md). L'API di Azure per FHIR è un'API basata su standard per i dati sanitari clinici. Il [connettore di Azure IoT per FHIR](../../healthcare-apis/fhir/iot-fhir-portal-quickstart.md) consente di usare l'API di Azure per FHIR come destinazione per l'esportazione continua di dati da IoT Central.
 
 ### <a name="machine-learning"></a>Machine Learning
 

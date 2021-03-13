@@ -1,7 +1,7 @@
 ---
 title: Pubblicare contenuti di Servizi multimediali di Azure mediante REST
 description: Informazioni su come creare un localizzatore da usare per un URL di streaming. Nel codice viene usata l'API REST.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 438a816ca28b9414557e64591d9ece2dbb173370
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: b8733d499b2396160a73906f16a69291cf0b9d71
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256872"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015421"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Pubblicare contenuti di Servizi multimediali di Azure mediante REST
 
@@ -152,20 +152,20 @@ Usare il valore **Path** restituito dopo la creazione del localizzatore per crea
 
 Smooth Streaming: **Path** + nome file manifesto + "/manifest"
 
-esempio:
+Esempio:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest`
 
 HLS: **Path** + nome file manifesto + "/manifest(format=m3u8-aapl)"
 
-esempio:
+Esempio:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)`
 
 
 DASH: **Path** + nome file manifesto + "/manifest(format=mpd-time-csf)"
 
-esempio:
+Esempio:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)`
 
@@ -175,7 +175,7 @@ Usare il valore **Path** restituito dopo la creazione del localizzatore per crea
 
 URL: **Path** + nome file mp4 asset
 
-esempio:
+Esempio:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
@@ -206,7 +206,7 @@ public enum LocatorType
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Informazioni generali sull'API REST di Servizi multimediali](media-services-rest-how-to-use.md)
 
 [Configurare i criteri di distribuzione dell'asset](media-services-rest-configure-asset-delivery-policy.md)

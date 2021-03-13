@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12a4099a6a3f0d06dfbb40171970c7386c3e4d22
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c575904d994232726cf8d0d9152b02130fd29cea
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518841"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013253"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indicizzazione di file multimediali con Azure Media Indexer
 
@@ -36,7 +36,7 @@ Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali c
 
 Un processo di indicizzazione può generare i seguenti output:
 
-* File didascalia chiusi nei formati seguenti: **TTML**e **WEBVTT**.
+* File didascalia chiusi nei formati seguenti: **TTML** e **WEBVTT**.
   
     I file di sottotitoli codificati includono un tag denominato Recognizability, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine.  È possibile usare il valore di Recognizability per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.
 * File di parole chiave (XML).
@@ -264,7 +264,7 @@ In caso di errore, Azure Media Indexer dovrebbe segnalare uno dei codici di erro
 | 2004 |Protocollo non supportato |Il protocollo dell'URL multimediale non è supportato. |
 | 2005 |Tipo di file non supportato |Il tipo di file multimediale di input non è supportato. |
 | 2006 |Troppi file di input |Sono presenti oltre 10 file nel manifesto di input. |
-| 3000 |Impossibile decodificare il file multimediale |Codec multimediale non supportato  <br/>o<br/> File multimediale danneggiato <br/>o<br/> Nessun flusso audio nei file multimediali di input. |
+| 3000 |Impossibile decodificare il file multimediale |Codec multimediale non supportato  <br/>oppure<br/> File multimediale danneggiato <br/>oppure<br/> Nessun flusso audio nei file multimediali di input. |
 | 4000 |Indicizzazione batch parzialmente completata |Non è stato possibile indicizzare alcuni file multimediali di input. Per altre informazioni, vedere <a href="#output_files">File di output</a>. |
 | altro |Errori interni |Contattare il team di supporto. indexer@microsoft.com |
 

@@ -7,55 +7,69 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 19b7f9bc19bec989e524dce7172037025e2fe4fd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 634298952d990cd3639aa1c62592fde534b3e8b8
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432980"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232673"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Ricerca semantica in Azure ricerca cognitiva
 
 > [!IMPORTANT]
-> Le funzionalità di ricerca semantica sono disponibili in anteprima pubblica, disponibile solo tramite l'API REST di anteprima. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Le funzionalità di ricerca semantica sono disponibili in anteprima pubblica, disponibile solo tramite l'API REST di anteprima. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e non sono garantite che abbiano la stessa implementazione a livello generale. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
 
-La ricerca semantica è una raccolta di funzionalità correlate alle query che supportano un'esperienza di query più elevata e naturale. Le funzionalità includono il riposizionamento semantico dei risultati della ricerca, nonché le didascalie e la generazione delle risposte con l'evidenziazione semantica. I primi 50 risultati restituiti dal [motore di ricerca full-text](search-lucene-query-architecture.md) vengono riclassificati per trovare le corrispondenze più rilevanti.
+La ricerca semantica è una raccolta di funzionalità correlate alle query che supportano un'esperienza di query più elevata e naturale. 
 
-La tecnologia sottostante è da Bing e Microsoft Research e integrata nell'infrastruttura ricerca cognitiva. Per ulteriori informazioni sugli investimenti per la ricerca e l'intelligenza artificiale per la ricerca semantica, vedere la pagina relativa alla [modalità di alimentazione di Azure ricerca cognitiva (Blog di Microsoft Research)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
+Queste funzionalità includono il riposizionamento semantico dei risultati della ricerca, nonché l'estrazione di didascalie e risposte, con evidenziazione semantica su termini e frasi pertinenti. I modelli con training avanzato vengono usati per l'estrazione e la classificazione. Per mantenere le prestazioni rapide che gli utenti si aspettano dalla ricerca, il riepilogo semantico e la classificazione vengono applicati solo ai primi 50 risultati, in base all' [algoritmo di Punteggio di somiglianza predefinito](index-similarity-and-scoring.md#similarity-ranking-algorithms). Usando i risultati come corpus del documento, la classificazione semantica ripartisce i risultati in base alla forza semantica della corrispondenza.
 
-Per utilizzare la ricerca semantica nelle query, è necessario apportare piccole modifiche alla richiesta di ricerca, ma non è necessaria alcuna configurazione o reindicizzazione aggiuntiva.
+La tecnologia sottostante è da Bing e Microsoft Research e integrata nell'infrastruttura ricerca cognitiva come funzionalità di componente aggiuntivo. Per ulteriori informazioni sugli investimenti per la ricerca e l'intelligenza artificiale per la ricerca semantica, vedere la pagina relativa alla [modalità di alimentazione di Azure ricerca cognitiva (Blog di Microsoft Research)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 
-Le funzionalità di anteprima pubblica includono:
+Il video seguente offre una panoramica delle funzionalità di.
 
-+ Modello di classificazione semantica che usa il contesto o il significato semantico per calcolare un punteggio di pertinenza
-+ Didascalie semantiche che riepilogano i passaggi principali da un risultato per semplificare l'analisi
-+ Risposte semantiche alla query, se la query è una domanda
-+ Evidenziazioni semantiche che portano lo stato attivo a frasi chiave e termini
-+ Controllo ortografico che corregge i digitazioni prima che i termini della query raggiungano il motore di ricerca
+> [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
+
+## <a name="components-and-workflow"></a>Componenti e flusso di lavoro
+
+La ricerca semantica migliora la precisione e richiama l'aggiunta delle funzionalità seguenti:
+
+| Funzionalità | Descrizione |
+|---------|-------------|
+| [Controllo ortografico](speller-how-to-add.md) | Corregge i digitazioni prima che i termini della query raggiungano il motore di ricerca. |
+| [Classificazione semantica](semantic-ranking.md) | Usa il contesto o il significato semantico per calcolare un nuovo punteggio di pertinenza. |
+| [Didascalie e evidenziazioni semantiche](semantic-how-to-query-request.md) | Frasi e frasi da un documento che meglio riepilogare il contenuto, con le evidenziazioni sui passaggi chiave per semplificare l'analisi. Le didascalie che riepilogano un risultato sono utili quando i singoli campi di contenuto sono troppo densi per la pagina dei risultati. Il testo evidenziato eleva i termini e le frasi più rilevanti in modo che gli utenti possano determinare rapidamente il motivo per cui una corrispondenza è stata considerata pertinente. |
+| [Risposte semantiche](semantic-answers.md) | Una sottostruttura facoltativa e aggiuntiva restituita da una query semantica. Fornisce una risposta diretta a una query simile a una domanda. |
+
+### <a name="order-of-operations"></a>Ordine delle operazioni
+
+I componenti della ricerca semantica estendono la pipeline di esecuzione di query esistente in entrambe le direzioni. Se si Abilita la correzione ortografica, il correttore [ortografico corregge i](speller-how-to-add.md) digitazioni all'inizio prima che i termini della query raggiungano il motore di ricerca.
+
+:::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Componenti semantici nell'esecuzione di query" border="true":::
+
+L'esecuzione della query procede come di consueto, con l'analisi dei termini, l'analisi e le analisi degli indici invertiti. Il motore recupera i documenti usando la corrispondenza dei token e assegna punteggi ai risultati usando l' [algoritmo di Punteggio di somiglianza predefinito](index-similarity-and-scoring.md#similarity-ranking-algorithms). I punteggi vengono calcolati in base al grado di somiglianza linguistica tra i termini di query e i termini corrispondenti nell'indice. Se sono stati definiti, i profili di punteggio vengono applicati anche in questa fase. I risultati vengono quindi passati al sottosistema di ricerca semantica.
+
+Nel passaggio di preparazione, il corpus del documento restituito dal set di risultati iniziale viene analizzato a livello di frase e paragrafo per trovare i passaggi che riepilogano ogni documento. Diversamente dalla ricerca di parole chiave, questo passaggio usa la lettura e la comprensione del computer per valutare il contenuto. Come parte della composizione dei risultati, una query semantica restituisce didascalie e risposte. Per formularle, la ricerca semantica usa la rappresentazione del linguaggio per estrarre ed evidenziare i passaggi di chiave che riepilogano meglio un risultato. Se la query di ricerca è una domanda e vengono richieste risposte, la risposta includerà anche un passaggio di testo che meglio risponde alla domanda, come espresso dalla query di ricerca. Per le didascalie e le risposte, nella formulazione viene usato il testo esistente. I modelli semantici non compongono nuove frasi o frasi dal contenuto disponibile, né applicano la logica per giungere a nuove conclusioni. In breve, il sistema non restituirà mai contenuto che non esiste già.
+
+I risultati vengono quindi riassegnati in base alla [somiglianza concettuale](semantic-ranking.md) dei termini di query.
+
+Per usare le funzionalità semantiche nelle query, è necessario apportare piccole modifiche alla [richiesta di ricerca](semantic-how-to-query-request.md), ma non è necessaria alcuna configurazione o reindicizzazione aggiuntiva.
 
 ## <a name="availability-and-pricing"></a>Disponibilità e prezzi
 
-La classificazione semantica è disponibile tramite la [registrazione](https://aka.ms/SemanticSearchPreviewSignup)per l'iscrizione, nei servizi di ricerca creati a livello standard (S1, S2, S3), che si trovano in una di queste aree: Stati Uniti centro-settentrionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali 2, Europa settentrionale, Europa occidentale. La correzione ortografica è disponibile nelle stesse aree, ma non prevede restrizioni del livello. Se si dispone di un servizio esistente che soddisfa i criteri di livello e di area, è necessaria solo l'iscrizione.
+Le funzionalità semantiche sono disponibili tramite la [registrazione](https://aka.ms/SemanticSearchPreviewSignup)per l'iscrizione, nei servizi di ricerca creati a livello standard (S1, S2, S3), che si trovano in una di queste aree: Stati Uniti centro-settentrionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali 2, Europa settentrionale, Europa occidentale. 
+
+La correzione ortografica è disponibile nelle stesse aree, ma non prevede restrizioni del livello. Se si dispone di un servizio esistente che soddisfa i criteri di livello e di area, è necessaria solo l'iscrizione.
 
 Tra l'anteprima di avvio del 2 marzo e il 1 ° aprile, la correzione ortografica e la classificazione semantica sono disponibili gratuitamente. Dopo il 1 ° aprile, i costi di calcolo per l'esecuzione di questa funzionalità diventeranno un evento fatturabile. Il costo previsto è circa USD $500 al mese per le query 250.000. È possibile trovare informazioni dettagliate sui costi documentate nella [pagina dei prezzi ricerca cognitiva](https://azure.microsoft.com/pricing/details/search/) e in [stima e gestione dei costi](search-sku-manage-costs.md).
-
-## <a name="semantic-search-architecture"></a>Architettura di ricerca semantica
-
-I componenti della ricerca semantica sono sovrapposti all'inizio della pipeline di esecuzione di query esistente. La correzione ortografica (non mostrata nel diagramma) migliora il richiamo correggendo i digitazioni nei singoli termini di query. Al termine dell'analisi e dell'analisi, il motore di ricerca recupera i documenti corrispondenti alla query e li assegna un punteggio usando l'algoritmo di assegnazione dei punteggi [predefinito](index-similarity-and-scoring.md#similarity-ranking-algorithms), ovvero BM25 o classico, a seconda del momento in cui è stato creato il servizio. In questa fase vengono anche applicati i profili di punteggio.
-
-Dopo aver ricevuto le prime 50 corrispondenze, il [modello di classificazione semantica](semantic-how-to-query-response.md) valuta nuovamente il corpus del documento. I risultati possono includere più di 50 corrispondenze, ma solo il primo 50 verrà riclassificato. Per la classificazione, il modello USA sia l'apprendimento automatico che quello di trasferimento per assegnare un punteggio ai documenti in base al livello di corrispondenza con lo scopo della query.
-
-Per creare didascalie e risposte, la ricerca semantica usa la rappresentazione del linguaggio per estrarre ed evidenziare i passaggi chiave che riepilogano meglio un risultato. Se la query di ricerca è una domanda e vengono richieste risposte, la risposta includerà un passaggio di testo che meglio risponde alla domanda, come espresso dalla query di ricerca.
-
-:::image type="content" source="media/semantic-search-overview/semantic-query-architecture.png" alt-text="Componenti semantici in una pipeline di query" border="true":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Un nuovo tipo di query consente le strutture di classificazione e risposta della pertinenza della ricerca semantica.
 
-[Creare una query semantica](semantic-how-to-query-request.md) per iniziare. In alternativa, per informazioni correlate, vedere uno degli articoli seguenti.
+[Creare una query semantica](semantic-how-to-query-request.md) per iniziare. Per informazioni correlate, vedere gli articoli seguenti.
 
 + [Aggiungere il controllo ortografico ai termini della query](speller-how-to-add.md)
-+ [Classificazione e risposte semantiche (risposte e didascalie)](semantic-how-to-query-response.md)
++ [Restituisce una risposta semantica](semantic-answers.md)
++ [Classificazione semantica](semantic-ranking.md)

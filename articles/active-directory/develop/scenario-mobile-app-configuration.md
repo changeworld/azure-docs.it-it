@@ -12,26 +12,22 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 34a28768d57aac8cf18bef6bc031da66bb361936
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584432"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103007895"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurare un'app per dispositivi mobili che chiama API Web
 
 Dopo aver creato l'applicazione, si apprenderà come configurare il codice usando i parametri di registrazione dell'app. Le applicazioni per dispositivi mobili presentano alcune complessità correlate all'inserimento nel Framework di creazione.
 
-## <a name="find-msal-support-for-mobile-apps"></a>Trova il supporto MSAL per le app per dispositivi mobili
+## <a name="microsoft-libraries-supporting-mobile-apps"></a>Librerie Microsoft che supportano le app per dispositivi mobili
 
-I seguenti tipi di Microsoft Authentication Library (MSAL) supportano le app per dispositivi mobili.
+Le librerie Microsoft seguenti supportano le app per dispositivi mobili:
 
-MSAL | Descrizione
------------- | ----------
-![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Utilizzato per sviluppare applicazioni portabili. MSAL.NET supporta le piattaforme seguenti per la creazione di un'applicazione per dispositivi mobili: piattaforma UWP (Universal Windows Platform) (UWP), Novell. iOS e Novell. Android.
-![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Usato per sviluppare applicazioni iOS native usando Objective-C o SWIFT.
-![MSAL.Android](media/sample-v2-code/logo_android.png) <br/> MSAL.Android | Usato per sviluppare applicazioni Android native in Java per Android.
+[!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
 
 ## <a name="instantiate-the-application"></a>Creare un'istanza dell'applicazione
 

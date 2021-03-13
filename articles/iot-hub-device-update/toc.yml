@@ -56,8 +56,6 @@
       href: create-update-group.md
     - name: Distribuire un aggiornamento del dispositivo
       href: deploy-update.md
-    - name: Distribuire un aggiornamento del dispositivo
-      href: deploy-update.md
     - name: Cache connessa Microsoft a livello singolo
       href: connected-cache-single-level.md
     - name: Cache connessa Microsoft a livello annidato
@@ -75,7 +73,7 @@
 - name: Risorse
   items:
     - name: Opzioni di supporto tecnico e assistenza
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
     - name: Servizi di Azure IoT
       items:
         - name: Hub IoT

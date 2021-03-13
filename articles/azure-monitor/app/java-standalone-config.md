@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 32b1558bf4af2ee151fef33a8c0cbe7df82f1e84
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 4ed3b3d60be0e5e4bedcb604ce021f6a64002120
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201754"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201264"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opzioni di configurazione-Application Insights di monitoraggio di Azure per Java
 
@@ -61,7 +61,7 @@ La stringa di connessione è obbligatoria. È possibile trovare la stringa di co
 }
 ```
 
-È anche possibile impostare la stringa di connessione usando la variabile di ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING` .
+È anche possibile impostare la stringa di connessione usando la variabile `APPLICATIONINSIGHTS_CONNECTION_STRING` di ambiente (che avrà quindi la precedenza se la stringa di connessione viene specificata anche nella configurazione JSON).
 
 Se non si imposta la stringa di connessione, l'agente Java viene disattivato.
 
@@ -81,7 +81,7 @@ Se si desidera impostare il nome del ruolo Cloud:
 
 Se il nome del ruolo Cloud non è impostato, il nome della risorsa Application Insights verrà usato per etichettare il componente nella mappa dell'applicazione.
 
-È anche possibile impostare il nome del ruolo cloud usando la variabile di ambiente `APPLICATIONINSIGHTS_ROLE_NAME` .
+È anche possibile impostare il nome del ruolo cloud usando la variabile `APPLICATIONINSIGHTS_ROLE_NAME` di ambiente (che avrà quindi la precedenza se il nome del ruolo cloud viene specificato anche nella configurazione JSON).
 
 ## <a name="cloud-role-instance"></a>Istanza del ruolo del cloud
 
@@ -98,7 +98,7 @@ Se si desidera impostare l'istanza del ruolo Cloud su un valore diverso anziché
 }
 ```
 
-È anche possibile impostare l'istanza del ruolo cloud usando la variabile di ambiente `APPLICATIONINSIGHTS_ROLE_INSTANCE` .
+È anche possibile impostare l'istanza del ruolo cloud usando la variabile `APPLICATIONINSIGHTS_ROLE_INSTANCE` di ambiente (che avrà quindi la precedenza se l'istanza del ruolo cloud viene specificata anche nella configurazione JSON).
 
 ## <a name="sampling"></a>campionamento
 
@@ -117,7 +117,7 @@ Di seguito è riportato un esempio di come impostare il campionamento per acquis
 }
 ```
 
-È inoltre possibile impostare la percentuale di campionamento utilizzando la variabile di ambiente `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
+È anche possibile impostare la percentuale di campionamento usando la variabile `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` di ambiente (che avrà quindi la precedenza se la percentuale di campionamento viene specificata anche nella configurazione JSON).
 
 > [!NOTE]
 > Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero. Il campionamento attualmente non supporta altri valori.
@@ -150,9 +150,6 @@ Se si vuole raccogliere alcune metriche JMX aggiuntive:
 `attribute` è il nome dell'attributo all'interno del MBean JMX che si desidera raccogliere.
 
 Sono supportati i valori di metrica JMX numerici e booleani. Viene eseguito il mapping della metrica JMX booleana a `0` per false e `1` true.
-
-[//]: # "Nota: non documentare APPLICATIONINSIGHTS_JMX_METRICS qui"
-[//]: # "JSON incorporato in env var è molto confuso e deve essere documentato solo per uno scenario di connessione non codificabile"
 
 ## <a name="custom-dimensions"></a>Dimensioni personalizzate
 
@@ -201,7 +198,7 @@ La soglia di Application Insights predefinita è `INFO` . Se si desidera modific
 }
 ```
 
-È anche possibile impostare la soglia usando la variabile di ambiente `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` .
+È anche possibile impostare il livello usando la variabile `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` di ambiente (che avrà quindi la precedenza se il livello viene specificato anche nella configurazione JSON).
 
 Questi sono i `level` valori validi che è possibile specificare nel `applicationinsights.json` file e il modo in cui corrispondono ai livelli di registrazione in diversi framework di registrazione:
 
@@ -284,7 +281,7 @@ Per impostazione predefinita, Application Insights Java 3,0 invia una metrica He
 ```
 
 > [!NOTE]
-> Non è possibile ridurre la frequenza dell'heartbeat, perché i dati di heartbeat vengono usati anche per tenere traccia dell'utilizzo del Application Insights.
+> Non è possibile aumentare l'intervallo a più di 15 minuti, perché i dati di heartbeat vengono usati anche per tenere traccia dell'utilizzo del Application Insights.
 
 ## <a name="http-proxy"></a>Proxy HTTP
 
@@ -300,6 +297,30 @@ Se l'applicazione è dietro un firewall e non è in grado di connettersi diretta
 ```
 
 Application Insights Java 3,0 rispetta anche l'oggetto globale `-Dhttps.proxyHost` e `-Dhttps.proxyPort` se sono impostati.
+
+## <a name="metric-interval"></a>Intervallo metrica
+
+Questa funzionalità è in anteprima.
+
+Per impostazione predefinita, le metriche vengono acquisite ogni 60 secondi.
+
+A partire dalla versione 3.0.3-BETA, è possibile modificare l'intervallo seguente:
+
+```json
+{
+  "preview": {
+    "metricIntervalSeconds": 300
+  }
+}
+```
+
+L'impostazione si applica a tutte le metriche seguenti:
+
+* Contatori delle prestazioni predefiniti, ad esempio CPU e memoria
+* Metriche personalizzate predefinite, ad esempio intervallo di Garbage Collection
+* Metriche JMX configurate ([vedere sopra](#jmx-metrics))
+* Metriche del micrometro ([vedere sopra](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics))
+
 
 [//]: # "Nota il supporto per OpenTelemetry è in anteprima privata finché l'API OpenTelemetry raggiunge 1,0"
 
@@ -349,7 +370,7 @@ Per impostazione predefinita, Application Insights i registri Java 3,0 al livell
 
 `maxHistory` numero di file di log di cui è stato eseguito il rollback, conservati (oltre al file di log corrente).
 
-A partire dalla versione 3.0.2, è anche possibile impostare la diagnostica automatica `level` usando la variabile di ambiente `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` .
+A partire dalla versione 3.0.2, è anche possibile impostare la diagnostica automatica `level` usando la variabile `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` di ambiente (che avrà quindi la precedenza se la diagnostica automatica `level` viene specificata anche nella configurazione JSON).
 
 ## <a name="an-example"></a>un esempio
 

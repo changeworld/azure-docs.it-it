@@ -3,16 +3,17 @@ title: Controllo di manutenzione per le macchine virtuali di Azure con il portal
 description: Informazioni su come controllare quando viene applicata la manutenzione alle VM di Azure usando il controllo di manutenzione e il portale di Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dea30723a3ebe1598d6304ac3c98bfe1b55b466
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397284"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563014"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Controllare gli aggiornamenti con il controllo di manutenzione e i portale di Azure
 
@@ -26,7 +27,7 @@ Il controllo della manutenzione consente di decidere quando applicare gli aggior
 
    ![Screenshot che illustra come aprire le configurazioni di manutenzione](media/virtual-machines-maintenance-control-portal/maintenance-configurations-search.png)
 
-1. Scegliere **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 
    ![Screenshot che illustra come aggiungere una configurazione di manutenzione](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add.png)
 

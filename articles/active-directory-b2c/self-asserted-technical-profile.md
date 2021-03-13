@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/26/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 8d3343838216522abfc11ec3f202ae2da1c0e38f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059059"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611879"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico autocertificato nei criteri personalizzati di Azure Active Directory B2C
 
@@ -197,7 +197,7 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | impostazione. operatingMode <sup>1</sup>| No | Per una pagina di accesso, questa proprietà controlla il comportamento del campo del nome utente, ad esempio i messaggi di errore e di convalida di input. I valori previsti sono: `Username` o `Email`.  |
 | AllowGenerationOfClaimsWithNullValues| No| Consente a di generare un'attestazione con valore null. Ad esempio, in un caso l'utente non seleziona una casella di controllo.|
@@ -212,11 +212,13 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 | impostazione. enableRememberMe <sup>2</sup>| No| Visualizza la casella [di controllo Mantieni l'accesso](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) . Valori possibili: `true` , o `false` (impostazione predefinita). |
 | impostazione. inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Consente di migliorare l'esperienza utente, attendendo che l'utente interrompa la digitazione, quindi convalidare il valore. Valore predefinito 2000 millisecondi. |
 | IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
+|forgotPasswordLinkOverride <sup>4</sup>| No | Uno scambio di attestazioni per la reimpostazione della password da eseguire. Per altre informazioni, vedere [reimpostazione della password self-service](add-password-reset-policy.md). |
 
 Note:
 1. Disponibile per la definizione del contenuto [DataUri](contentdefinitions.md#datauri) tipo di `unifiedssp` o `unifiedssd` .
 1. Disponibile per la definizione del contenuto [DataUri](contentdefinitions.md#datauri) tipo di `unifiedssp` o `unifiedssd` . [Layout di pagina](page-layout.md) 1.1.0 e versioni successive.
 1. Disponibile per il [layout di pagina](page-layout.md) 1.2.0 e versioni successive.
+1. Disponibile per la definizione del contenuto [DataUri](contentdefinitions.md#datauri) tipo di `unifiedssp` . [Layout di pagina](page-layout.md) 2.1.2 e versioni successive.
 
 ## <a name="cryptographic-keys"></a>Chiavi di crittografia
 
