@@ -328,7 +328,9 @@
       items:
         - name: Installare bicipite
           href: bicep-install.md
-        - name: Confronto tra JSON e bicipite
+        - name: Eseguire la conversione tra JSON e bicipite
+          href: bicep-decompile.md
+        - name: Confrontare JSON e bicipite
           href: compare-template-syntax.md
     - name: Tipi di dati
       href: data-types.md

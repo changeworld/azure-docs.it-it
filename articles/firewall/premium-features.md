@@ -5,14 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: victorh
-ms.openlocfilehash: a3f72d235d6c52ce91ae351c2606ee6cf4285159
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.custom: references_regions
+ms.openlocfilehash: 22ee920c38a8cacaf37a1e3a6cfc5165dfa0bb44
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453428"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419950"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funzionalità di anteprima di Azure Firewall Premium
 
@@ -100,6 +101,44 @@ oppure
 
 È possibile inviare una richiesta all'indirizzo [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
  
+## <a name="supported-regions"></a>Aree supportate
+
+Azure Firewall Premium Preview è supportato nelle aree seguenti:
+
+- Europa occidentale (pubblico/Europa)
+- Stati Uniti orientali (pubblico/Stati Uniti)
+- Australia orientale (pubblico/Australia)
+- Asia sudorientale (pubblico/Asia Pacifico)
+- Regno Unito meridionale (pubblico/Regno Unito)
+- Europa settentrionale (pubblica/Europa)
+- Stati Uniti orientali 2 (pubblico/Stati Uniti)
+- Stati Uniti centro-meridionali (pubblici/Stati Uniti)
+- Stati Uniti occidentali 2 (pubblico/Stati Uniti)
+- Stati Uniti occidentali (pubblico/Stati Uniti)
+- Stati Uniti centrali (pubblico/Stati Uniti)
+- Stati Uniti centro-settentrionali (pubblico/Stati Uniti)
+- Giappone orientale (pubblico/Giappone)
+- Asia orientale (pubblico/Asia Pacifico)
+- Canada centrale (pubblico/Canada)
+- Francia centrale (pubblico/Francia)
+- Sudafrica settentrionale (pubblico/Sudafrica)
+- Emirati Arabi Uniti settentrionali (pubblico/UAE)
+- Svizzera settentrionale (pubblico/Svizzera)
+- Brasile meridionale (pubblico/Brasile)
+- Norvegia orientale (pubblico/Norvegia)
+- Australia centrale (pubblico/Australia)
+- Australia centrale 2 (pubblico/Australia)
+- Australia sud-orientale (pubblico/Australia)
+- Canada orientale (pubblico/Canada)
+- Stati Uniti centrali EUAP (pubblico/canarino (Stati Uniti))
+- Francia meridionale (pubblico/Francia)
+- Giappone occidentale (pubblico/Giappone)
+- Corea meridionale (pubblico/Corea)
+- Emirati Arabi Uniti centrali (pubblico/UAE)
+- Regno Unito occidentale (pubblico/Regno Unito)
+- Stati Uniti centro-occidentali (pubblico/Stati Uniti)
+- India occidentale (pubblico/India)
+
 
 ## <a name="known-issues"></a>Problemi noti
 

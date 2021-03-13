@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 56ec893de159f4c8a90c5a229ccf7669856fb066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e77bbd6e82d0d4a48b72e13e60b60608f2d7674
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020219"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419592"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Come elaborare ed estrarre informazioni dalle immagini negli scenari di arricchimento di intelligenza artificiale
 
@@ -63,7 +63,7 @@ Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *no
 
 | Membro immagine       | Descrizione                             |
 |--------------------|-----------------------------------------|
-| Data               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
+| data               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
 | width              | Larghezza dell'immagine normalizzata in pixel. |
 | altezza             | Altezza dell'immagine normalizzata in pixel. |
 | originalWidth      | Larghezza originale dell'immagine prima della normalizzazione. |
@@ -213,11 +213,83 @@ Se si preferisce trasformare le coordinate normalizzate nello spazio delle coord
             return original;
         }
 ```
+## <a name="passing-images-to-custom-skills"></a>Passaggio di immagini alle competenze personalizzate
 
-## <a name="see-also"></a>Vedere anche
+Per gli scenari in cui è necessario disporre di un'abilità personalizzata per lavorare con le immagini, è possibile passare le immagini all'abilità personalizzata e fare in modo che restituisca testo o immagini. L'elaborazione di immagini di [esempio Python](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) illustra il flusso di lavoro. Le seguenti competenze sono riportate nell'esempio.
+
+Le seguenti competenze prendono l'immagine normalizzata (ottenuta durante il cracking del documento) e generano sezioni dell'immagine.
+
+#### <a name="sample-skillset"></a>Esempio di competenze
+```json
+{
+  "description": "Extract text from images and merge with content text to produce merged_text",
+  "skills":
+  [
+    {
+          "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+          "name": "ImageSkill",
+          "description": "Segment Images",
+          "context": "/document/normalized_images/*",
+          "uri": "https://your.custom.skill.url",
+          "httpMethod": "POST",
+          "timeout": "PT30S",
+          "batchSize": 100,
+          "degreeOfParallelism": 1,
+          "inputs": [
+            {
+              "name": "image",
+              "source": "/document/normalized_images/*"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "slices",
+              "targetName": "slices"
+            }
+          ],
+          "httpHeaders": {}
+        }
+  ]
+}
+```
+
+#### <a name="custom-skill"></a>Abilità personalizzata
+
+L'abilità personalizzata è esterna al tuo competenze. In questo caso, si tratta di codice Python che innanzitutto esegue il ciclo completo del batch di record di richiesta nel formato skill personalizzato, quindi converte la stringa con codifica Base64 in un'immagine.
+
+```python
+# deserialize the request, for each item in the batch
+for value in values:
+  data = value['data']
+  base64String = data["image"]["data"]
+  base64Bytes = base64String.encode('utf-8')
+  inputBytes = base64.b64decode(base64Bytes)
+  # Use numpy to convert the string to an image
+  jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
+  # you now have an image to work with
+```
+Analogamente per restituire un'immagine, restituire una stringa con codifica Base64 in un oggetto JSON con una `$type` proprietà di `file` .
+
+```python
+def base64EncodeImage(image):
+    is_success, im_buf_arr = cv2.imencode(".jpg", image)
+    byte_im = im_buf_arr.tobytes()
+    base64Bytes = base64.b64encode(byte_im)
+    base64String = base64Bytes.decode('utf-8')
+    return base64String
+
+ base64String = base64EncodeImage(jpg_as_np)
+ result = { 
+  "$type": "file", 
+  "data": base64String 
+}
+```
+
+## <a name="see-also"></a>Vedi anche
 + [Crea indicizzatore (REST)](/rest/api/searchservice/create-indexer)
 + [Competenza di analisi delle immagini](cognitive-search-skill-image-analysis.md)
 + [Competenza OCR](cognitive-search-skill-ocr.md)
 + [Text merge skill](cognitive-search-skill-textmerger.md) (Competenza di unione del testo)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)
++ [Come passare le immagini alle competenze personalizzate](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)

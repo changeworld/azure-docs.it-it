@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: ccc7fcd748323e05f21edcfff1535085d2cdbdc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f7e74a4e3a0ad208ea832798748adf7a15dfc89
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81422360"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417725"
 ---
 La gestione dell'audio compresso viene implementata con [GStreamer](https://gstreamer.freedesktop.org). Per motivi di licenza i binari GStreamer non vengono compilati e collegati con l'SDK di riconoscimento vocale. Sarà invece necessario usare i file binari predefiniti per Android. Per scaricare le librerie predefinite, vedere [installazione per lo sviluppo per Android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` è obbligatorio. Assicurarsi che i plug-in GStreamer siano collegati `libgstreamer_android.so` .
+`libgstreamer_android.so` è obbligatorio. Assicurarsi che tutti i plug-in GStreamer (dal file Android.mk riportato di seguito) siano collegati `libgstreamer_android.so` . Quando si usa l'SDK di riconoscimento vocale più recente (1.16.0 e versioni successive) con GStreamer versione 1.18.3, `libc++_shared.so` è anche necessario che sia presente da Android NDK.
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
@@ -31,7 +31,6 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE    := dummy
 LOCAL_SHARED_LIBRARIES := gstreamer_android
-LOCAL_LDLIBS := -llog
 include $(BUILD_SHARED_LIBRARY)
 
 ifndef GSTREAMER_ROOT_ANDROID
@@ -62,10 +61,12 @@ endif
 
 GSTREAMER_NDK_BUILD_PATH  := $(GSTREAMER_ROOT)/share/gst-android/ndk-build/
 include $(GSTREAMER_NDK_BUILD_PATH)/plugins.mk
-GSTREAMER_PLUGINS         :=  coreelements app audioconvert mpg123 \
-    audioresample audioparsers ogg \
-    opusparse opus wavparse alaw mulaw flac
-GSTREAMER_EXTRA_LIBS      := -liconv
+GSTREAMER_PLUGINS         :=  $(GSTREAMER_PLUGINS_CORE) \ 
+                              $(GSTREAMER_PLUGINS_CODECS) \ 
+                              $(GSTREAMER_PLUGINS_PLAYBACK) \
+                              $(GSTREAMER_PLUGINS_CODECS_GPL) \
+                              $(GSTREAMER_PLUGINS_CODECS_RESTRICTED)
+GSTREAMER_EXTRA_LIBS      := -liconv -lgstbase-1.0 -lGLESv2 -lEGL
 include $(GSTREAMER_NDK_BUILD_PATH)/gstreamer-1.0.mk
 ```
 

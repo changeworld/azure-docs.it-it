@@ -3,12 +3,12 @@ title: Lingua del bicipite per i modelli di Azure Resource Manager
 description: Descrive il linguaggio bicipite per la distribuzione dell'infrastruttura in Azure tramite modelli di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 11ba562fa3d91ffc7baeca647ed05e839f9c8013
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 599cb378da51c5d13e7db3cf45cacf750c5843cc
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232971"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419831"
 ---
 # <a name="what-is-bicep-preview"></a>Che cos'è il bicipite (anteprima)?
 
@@ -24,7 +24,7 @@ Dopo aver installato gli strumenti, provare l' [esercitazione sul bicipite](./bi
 
 Per visualizzare i file JSON e bicipite equivalenti, vedere il [parco bicipite](https://aka.ms/bicepdemo).
 
-Se si dispone di un modello ARM esistente che si vuole convertire in bicipite, vedere [decompilare JSON in bicipite](compare-template-syntax.md#decompile-json-to-bicep).
+Se si ha un modello ARM esistente che si vuole convertire in bicipite, vedere [conversione di modelli ARM tra JSON e bicipite](bicep-decompile.md).
 
 ## <a name="bicep-improvements"></a>Miglioramenti del bicipite
 
@@ -89,7 +89,7 @@ Bicipite è un linguaggio DSL incentrato sulla distribuzione di soluzioni comple
 
 Continuano a funzionare esattamente come hanno sempre. Non è necessario apportare alcuna modifica. Continuerà a supportare il linguaggio JSON del modello ARM sottostante. I file del bicipite vengono compilati in JSON e il JSON viene inviato ad Azure per la distribuzione.
 
-Quando si è pronti, è possibile [convertire i file JSON in bicipite](compare-template-syntax.md#decompile-json-to-bicep).
+Quando si è pronti, è possibile [convertire i file JSON in bicipite](bicep-decompile.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

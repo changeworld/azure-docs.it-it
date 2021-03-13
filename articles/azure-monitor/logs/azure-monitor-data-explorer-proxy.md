@@ -6,12 +6,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 1857f0e39cd5d9ddc616eed1db18cd58b98721a4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a800f78df26ce76144994bb9da2cac6271323eb4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031124"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419423"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Eseguire query tra risorse in Azure Esplora dati usando monitoraggio di Azure
 Monitoraggio di Azure supporta query tra servizi tra Esplora dati di Azure, [Application Insights](../app/app-insights-overview.md)e [log Analytics](../logs/data-platform-logs.md). È quindi possibile eseguire query nel cluster di Azure Esplora dati usando gli strumenti Log Analytics/Application Insights e farvi riferimento in una query tra servizi. Questo articolo illustra come eseguire una query tra servizi.
@@ -37,6 +37,7 @@ adx('https://help.kusto.windows.net/Samples').StormEvents
 > [!NOTE]
 >* I nomi dei database fanno distinzione tra maiuscole e minuscole
 >* La query tra risorse come avviso non è supportata.
+>* L'identificazione della colonna timestamp nel cluster non è supportata. Log Analytics API query non passerà lungo il filtro temporale
 
 ## <a name="combine-azure-data-explorer-cluster-tables-with-a-log-analytics-workspace"></a>Combinare le tabelle del cluster di Esplora dati di Azure con un'area di lavoro Log Analytics
 

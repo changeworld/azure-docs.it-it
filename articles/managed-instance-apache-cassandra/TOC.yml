@@ -9,6 +9,7 @@
     - name: Creare un cluster-portale
       href: create-cluster-portal.md
     - name: Creare un cluster-interfaccia della riga di comando
+      displayName: 'az managed-cassandra, cluster, datacenter, connect'
       href: create-cluster-cli.md
     - name: Configurare un cluster ibrido
       href: configure-hybrid-cluster.md
@@ -17,12 +18,14 @@
 - name: Concetti
   items:
     - name: Domande frequenti
+      displayName: 'cost, region, monitor, backup'
       href: faq.md
     - name: Confronto tra istanza gestita e Azure Cosmos DB API Cassandra
       href: compare-cosmosdb-managed-instance.md
 - name: Guide pratiche
   items:
     - name: Gestire con l'interfaccia della riga di comando di Azure
+      displayName: 'az managed-cassandra, cluster, datacenter'
       href: manage-resources-cli.md
     - name: Visualizzare le metriche in Prometheus con Grafana
       href: visualize-prometheus-grafana.md

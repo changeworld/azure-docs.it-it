@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 8fd64023b9c07e8dd426b2b51916db4515a5405a
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 866fe01e11ee53188cea6ea490304462acc1f6a2
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102451507"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103420001"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Backup e ripristino nel pool SQL dedicato a sinapsi di Azure
 
@@ -48,7 +48,7 @@ order by run_id desc
 Questa funzionalità consente di attivare manualmente gli snapshot per creare punti di ripristino del data warehouse prima e dopo modifiche di grandi dimensioni. Questa funzionalità garantisce che i punti di ripristino siano logicamente coerenti, che offre protezione aggiuntiva dei dati in caso di interruzioni del carico di lavoro o errori utente per tempi di ripristino rapidi. I punti di ripristino definiti dall'utente sono disponibili per sette giorni e vengono eliminati automaticamente per conto dell'utente. Non è possibile modificare il periodo di conservazione dei punti di ripristino definiti dall'utente. Poiché in qualsiasi momento sono garantiti **42 punti di ripristino definiti dall'utente**, è necessario [eliminarli](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint) prima di creare un nuovo punto di ripristino. È possibile attivare gli snapshot per creare punti di ripristino definiti dall'utente tramite [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) o il portale di Azure.
 
 > [!NOTE]
-> Se occorre creare punti di ripristino che durino più di 7 giorni, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). È anche possibile creare un punto di ripristino definito dall'utente ed eseguire il ripristino dal punto di ripristino appena creato in un nuovo data warehouse. Una volta ripristinato, il pool SQL dedicato è online ed è possibile sospenderlo per un tempo illimitato per risparmiare sui costi di calcolo. Il database messo in pausa comporta costi di archiviazione alla frequenza dell'archiviazione Premium di Azure. Nel momento in cui occorre una copia attiva del data warehouse ripristinato, la ripresa dell'esecuzione del data warehouse richiede solo alcuni minuti.
+> Se occorre creare punti di ripristino che durino più di 7 giorni, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). È anche possibile creare un punto di ripristino definito dall'utente ed eseguire il ripristino dal punto di ripristino appena creato in un nuovo data warehouse. Una volta ripristinato, il pool SQL dedicato è online ed è possibile sospenderlo per un tempo illimitato per risparmiare sui costi di calcolo. Il database sospeso comporta costi di archiviazione in base alla tariffa di archiviazione delle sinapsi di Azure. Nel momento in cui occorre una copia attiva del data warehouse ripristinato, la ripresa dell'esecuzione del data warehouse richiede solo alcuni minuti.
 
 ### <a name="restore-point-retention"></a>Conservazione del punto di ripristino
 

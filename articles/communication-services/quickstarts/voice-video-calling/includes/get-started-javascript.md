@@ -6,15 +6,14 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: d27a79e180a0219773a3094fb85f842773d75183
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 702efa3431ff3c9cf91aae38ac76219d900f7e85
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656617"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103439254"
 ---
 Questa guida di avvio rapido illustra come avviare una chiamata con la libreria client Chiamate di Servizi di comunicazione di Azure per JavaScript.
-Questo documento fa riferimento ai tipi nella versione 1.0.0-beta. 5 della libreria chiamante.
 
 > [!NOTE]
 > Questo documento usa la versione 1.0.0-beta. 6 della libreria client chiamante.

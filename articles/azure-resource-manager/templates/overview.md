@@ -2,13 +2,13 @@
 title: Panoramica dei modelli
 description: Vengono descritti i vantaggi dell'utilizzo di modelli di Azure Resource Manager (modelli ARM) per la distribuzione di risorse.
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: 3a144b69f69c90b997b17d9526c9c3e0f259c554
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/12/2021
+ms.openlocfilehash: 14bcbbd7a7ae7315dbb8e9d3e7e44ce0ffe0a4b4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455736"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419984"
 ---
 # <a name="what-are-arm-templates"></a>Che cosa sono i modelli di Azure Resource Manager?
 
@@ -19,6 +19,10 @@ Per soddisfare queste esigenze, è possibile automatizzare le distribuzioni e ut
 Per implementare l'infrastruttura come codice per le soluzioni di Azure, usare modelli di Azure Resource Manager (modelli ARM). Il modello è un file JavaScript Object Notation (JSON) che definisce l'infrastruttura e la configurazione per il progetto. Il modello usa una sintassi dichiarativa che consente di indicare ciò che si intende distribuire senza dover scrivere la sequenza dei comandi di programmazione per crearlo. Nel modello si specificano le risorse da distribuire e le proprietà di tali risorse.
 
 È stato introdotto un nuovo linguaggio per lo sviluppo di modelli ARM. Il linguaggio è denominato bicipite ed è attualmente in versione di anteprima. I modelli bicipite e JSON offrono le stesse funzionalità. È possibile convertire il modello tra le due lingue. Il bicipite offre una sintassi più semplice da usare per la creazione di modelli. Per altre informazioni, vedere [che cos'è il bicipite (anteprima)?](bicep-overview.md).
+
+Per informazioni su come iniziare a usare i modelli ARM, vedere il video seguente.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## <a name="why-choose-arm-templates"></a>Perché scegliere i modelli ARM?
 

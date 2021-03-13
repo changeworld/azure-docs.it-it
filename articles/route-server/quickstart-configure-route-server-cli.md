@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 73dc54ca04ad6ddb275947663959164cc2e3c019
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: e9c583db7493afc04b2c66553801f62d364b0a80
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102547884"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419609"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Guida introduttiva: creare e configurare un server di route usando l'interfaccia della riga 
 
@@ -71,7 +71,7 @@ az network vnet create -g "RouteServerRG" -n "myVirtualNetwork" --address-prefix
 1. Ottenere l'ID RouteServerSubnet. Per visualizzare l'ID risorsa di tutte le subnet nella rete virtuale, usare questo comando: 
 
     ```azurecli-interactive 
-    subnet_id = $(az network vnet subnet show -n "RouteServerSubnet" --vnet-name "myVirtualNetwork" -g "RouteServerRG" --query id -o tsv) 
+    $subnet_id = $(az network vnet subnet show -n "RouteServerSubnet" --vnet-name "myVirtualNetwork" -g "RouteServerRG" --query id -o tsv) 
     ``` 
 
 L'ID RouteServerSubnet è simile a quello riportato di seguito: 

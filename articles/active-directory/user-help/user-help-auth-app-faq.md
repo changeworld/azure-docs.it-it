@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 84dde96276414e98cbde05d6e046dce03227f60d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547860"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418080"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Domande frequenti sull'app Microsoft Authenticator
 
@@ -260,7 +260,7 @@ L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è l'ap
 
 **D**: i dipendenti o gli studenti devono usare la funzione di riempimento automatico delle password nell'app Authenticator?
 
-**R**: Sì, il riempimento automatico funziona ora per la maggior parte degli utenti aziendali anche quando viene aggiunto un account aziendale o dell'Istituto di istruzione all'app Authenticator. È possibile compilare un modulo per configurare (consentire o negare) il riempimento automatico per l'organizzazione e [inviarlo al team Authenticator](https://aka.ms/ConfigureAutofillInAuthenticator).
+**R**: Sì, il riempimento automatico per gli [account Microsoft personali](https://go.microsoft.com/fwlink/?linkid=2144423) ora funziona per la maggior parte degli utenti aziendali anche quando viene aggiunto un account aziendale o dell'Istituto di istruzione all'app Authenticator. È possibile compilare un modulo per consentire o negare il riempimento automatico per l'organizzazione e [inviarlo al team Authenticator](https://aka.ms/ConfigureAutofillInAuthenticator). Il riempimento automatico non è attualmente disponibile per gli account aziendali o dell'Istituto di istruzione.
 
 **D**: la password dell'account aziendale o dell'Istituto di istruzione viene sincronizzata automaticamente?
 

@@ -5,14 +5,14 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 03/12/2021
 ms.author: jlian
-ms.openlocfilehash: 6f83421d4ee56d56875e13ffbdd8ac9dbbf4b6bb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 62292a2ee51f8e1838e9cf3376367a02964cad47
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656364"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418743"
 ---
 # <a name="use-ip-filters"></a>Usare i filtri IP
 
@@ -85,6 +85,10 @@ Qualsiasi tentativo di connessione da un indirizzo IP che non è consentito in m
 Le regole del filtro IP sono *Consenti* regole e applicate senza ordinamento. Solo gli indirizzi IP aggiunti possono connettersi all'hub Internet. 
 
 Se ad esempio si desidera accettare indirizzi nell'intervallo `192.168.100.0/22` e rifiutare tutto il resto, è sufficiente aggiungere una regola nella griglia con intervallo di indirizzi `192.168.100.0/22` .
+
+### <a name="azure-portal"></a>Portale di Azure 
+
+Le regole del filtro IP vengono applicate anche quando si usa l'hub Internet con portale di Azure. Ciò è dovuto al fatto che le chiamate API al servizio hub Internet vengono effettuate direttamente usando il browser con le credenziali, che è coerente con gli altri servizi di Azure. Per accedere all'hub degli indirizzi IP usando portale di Azure quando è abilitato il filtro IP, aggiungere l'indirizzo IP del computer all'elenco Consenti. 
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Recuperare e aggiornare i filtri IP tramite l'interfaccia della riga di comando di Azure
 

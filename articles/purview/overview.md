@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: 77da3406897c31e48d808541f1f9d579eb0a9cb7
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
-ms.translationtype: HT
+ms.openlocfilehash: 3fadfa9d4467209ddbe997afabba27a3752f685d
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401543"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419933"
 ---
 # <a name="what-is-azure-purview"></a>Che cos'è Azure Purview?
 
@@ -69,6 +69,9 @@ Dopo la registrazione di un'origine dati, è possibile arricchirne i metadati. I
 Individuazione e informazioni sulle origini dati e il relativo utilizzo è lo scopo principale di registrazione delle origini. Gli utenti aziendali possono aver bisogno dei dati per scopi di business intelligence, sviluppo di applicazioni, data science o qualsiasi altra attività in cui sono necessari dati appropriati. Usano la funzione di individuazione di Data Catalog per trovare rapidamente i dati necessari, comprenderli per valutare la loro idoneità allo scopo e utilizzarli aprendo l'origine dati nello strumento che preferiscono.
 
 Allo stesso tempo, gli utenti possono contribuire al catalogo documentando e annotando le origini dati già registrate, oltre che aggiungendo tag. Possono anche registrare nuove origini dati, che vengono quindi individuate, comprese e utilizzate dalla community di utenti del catalogo.
+
+## <a name="in-region-data-residency"></a>Residenza dei dati nell'area geografica
+Azure competenza non sposta o archivia i dati dei clienti dall'area in cui viene distribuita.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

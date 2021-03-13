@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: e013765579fd560952172166b24f898b354c1d17
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 195e8fefbf0dbf3ff55e1bd4d043de772000248b
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103021288"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103439096"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -26,7 +26,6 @@ ms.locfileid: "103021288"
 > Questo documento usa la versione 1.0.0-beta. 6 della libreria client chiamante.
 
 Usare il `npm install` comando per installare i servizi di comunicazione di Azure che chiamano e le librerie client comuni per JavaScript.
-Questo documento fa riferimento ai tipi nella versione 1.0.0-beta. 5 della libreria chiamante.
 
 ```console
 npm install @azure/communication-common --save

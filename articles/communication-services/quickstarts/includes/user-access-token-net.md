@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: a8d2a06f5b0ec7ed9a0ef563d7f65e62ef99f3b6
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: e6b92ef17e351c398c958bd7ef4430a002c1ae84
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102623351"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103439109"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,7 +45,7 @@ dotnet build
 Nella directory dell'applicazione installare la libreria di identità dei servizi di comunicazione di Azure per il pacchetto .NET usando il `dotnet add package` comando.
 
 ```console
-dotnet add package Azure.Communication.Identity --version 1.0.0
+dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 ```
 
 ### <a name="set-up-the-app-framework"></a>Configurare il framework dell'app
@@ -133,7 +133,7 @@ I token di accesso sono credenziali di breve durata che devono essere riemesse. 
 
 Usare il `CreateUserAndTokenAsync` metodo per creare un'identità dei servizi di comunicazione ed emettere un token di accesso per tale identità. Il parametro `scopes` definisce il set di primitive che autorizzeranno questo token di accesso. Vedere l'[elenco delle azioni supportate](../../concepts/authentication.md).
 
-```csharp  
+```csharp
 // Issue an identity and an access token with the "voip" scope for the new identity
 var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
 var identity = identityAndTokenResponse.Value.User;

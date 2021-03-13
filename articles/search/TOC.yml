@@ -286,6 +286,8 @@
           items:
             - name: Integrare competenze personalizzate
               href: cognitive-search-custom-skill-interface.md
+            - name: Scalabilità orizzontale delle competenze personalizzate
+              href: cognitive-search-custom-skill-scale.md
             - name: Esempio - Funzioni di Azure (Python)
               href: cognitive-search-custom-skill-python.md
             - name: Esempio - Funzioni di Azure

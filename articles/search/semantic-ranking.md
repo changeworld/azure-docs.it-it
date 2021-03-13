@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: a008551ac6f149617feedd01e256b637f83e975d
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: e3078c8f71f8862cacad552bb3176c08530e79bb
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103235013"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418845"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Classificazione semantica in Azure ricerca cognitiva
 
@@ -30,9 +30,9 @@ Per la classificazione semantica, il modello USA sia la comprensione della lettu
 
 1. Per ogni documento, il Ranker semantico valuta i campi nel parametro searchFields in ordine, consolidando il contenuto in un'unica stringa di grandi dimensioni.
 
-1. La stringa viene quindi ritagliata per garantire che la lunghezza complessiva non superi 20.000 token. Se si dispone di documenti di grandi dimensioni, con un campo del contenuto o merged_content campo con molte pagine di contenuto, verranno utilizzati solo i primi 20.000 token.
+1. La stringa viene quindi ritagliata per garantire che la lunghezza complessiva non superi 8.000 token. Se si dispone di documenti di grandi dimensioni, con un campo del contenuto o merged_content campo con molte pagine di contenuto, qualsiasi elemento dopo il limite del token viene ignorato.
 
-1. Ognuno dei documenti 50 è ora rappresentato da una singola stringa long che è costituita da un massimo di 20.000 token. Questa stringa viene inviata al modello di riepilogo. Il modello di riepilogo produce didascalie (e risposte), usando la comprensione della lettura del computer per identificare i passaggi che sembrano riepilogare il contenuto o rispondere alla domanda. L'output del modello di riepilogo è un'ulteriore stringa ridotta, che rappresenta al massimo 128 token.
+1. Ognuno dei documenti 50 è ora rappresentato da un'unica stringa long. Questa stringa viene inviata al modello di riepilogo. Il modello di riepilogo produce didascalie (e risposte), usando la comprensione della lettura del computer per identificare i passaggi che sembrano riepilogare il contenuto o rispondere alla domanda. L'output del modello di riepilogo è un'ulteriore stringa ridotta, che rappresenta al massimo 128 token.
 
 1. La stringa più piccola diventa la didascalia del documento e rappresenta i passaggi più rilevanti trovati nella stringa più grande. Il set di 50 (o meno) didascalie viene quindi classificato in pertinenza dell'ordine. 
 

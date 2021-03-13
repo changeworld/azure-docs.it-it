@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 02/18/2021
-ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/12/2021
+ms.openlocfilehash: 8093b61213c3e26b93df2a3f495e7efe0a61d523
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702488"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103420035"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate
 
@@ -4708,16 +4708,22 @@ workflow().<property>
 
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | No | string | Nome della proprietà del flusso di lavoro di cui si vuole ottenere il valore <p>Un oggetto flusso di lavoro ha queste proprietà: **name**, **type**, **id**, **location** e **run**. Il valore della proprietà **run** è anch'esso un oggetto con le proprietà seguenti: **name**, **type** e **id**. |
+| <*property*> | No | string | Nome della proprietà del flusso di lavoro di cui si vuole ottenere il valore <p><p>Per impostazione predefinita, un oggetto flusso di lavoro dispone di queste proprietà: `name` ,, `type` `id` , `location` , `run` e `tags` . <p><p>-Il `run` valore della proprietà è un oggetto JSON che include le proprietà seguenti: `name` , `type` e `id` . <p><p>-La `tags` proprietà è un oggetto JSON che include i [tag associati all'app per la logica in app per la logica di Azure o flow in Power automatizzate](../azure-resource-manager/management/tag-resources.md) e i valori per tali tag. Per altre informazioni sui tag nelle risorse di Azure, vedere [risorse dei tag, gruppi di risorse e sottoscrizioni per l'organizzazione logica in Azure](../azure-resource-manager/management/tag-resources.md). <p><p>**Nota**: per impostazione predefinita, un'app per la logica non contiene tag, ma un flusso di Power automatizzato include i `flowDisplayName` `environmentName` tag e. |
 |||||
 
-*Esempio*
+*Esempio 1*
 
 Questo esempio restituisce il nome dell'esecuzione corrente di un flusso di lavoro:
 
-```
-workflow().run.name
-```
+`workflow().run.name`
+
+*Esempio 2*
+
+Se si usa Power automatizzate, è possibile creare un' `@workflow()` espressione che usa la `tags` proprietà output per ottenere i valori dalla `flowDisplayName` proprietà o del flusso `environmentName` .
+
+Ad esempio, è possibile inviare notifiche di posta elettronica personalizzate dal flusso stesso che si collega al flusso. Queste notifiche possono includere un collegamento HTML che contiene il nome visualizzato del flusso nel titolo del messaggio di posta elettronica e segue questa sintassi:
+
+`<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
 
 <a name="xml"></a>
 

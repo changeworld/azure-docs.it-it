@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 5a896d3fbe2d191473b10655ccb19c5759762131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d28946aad263af635a0139e68d424a77a1eab25
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84803623"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417825"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Bilanciamento del carico in più configurazioni IP tramite il portale di Azure
 
@@ -26,7 +26,6 @@ ms.locfileid: "84803623"
 > * [Portale](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
-
 
 Questo articolo illustra come usare Azure Load Balancer con più indirizzi IP in una scheda di interfaccia di rete (NIC, Network Interface Controller) secondaria. Il diagramma seguente illustra lo scenario:
 
@@ -92,7 +91,7 @@ Creare il servizio di bilanciamento del carico per la configurazione:
 
 3. In **Crea servizio di bilanciamento del carico** digitare un nome per il servizio. In questo scenario viene usato il nome **mylb**.
 
-4. In **indirizzo IP pubblico**creare un nuovo indirizzo IP pubblico denominato **PublicIP1**.
+4. In **indirizzo IP pubblico** creare un nuovo indirizzo IP pubblico denominato **PublicIP1**.
 
 5. In **Gruppo di risorse** selezionare il gruppo di risorse esistente per le VM, ad esempio, **contosofabrikam**. Selezionare la posizione in cui distribuire il servizio di bilanciamento del carico e quindi selezionare **OK**.
 
@@ -138,7 +137,7 @@ Per ognuno dei siti Web (contoso.com e fabrikam.com) configurare il pool di indi
 
 2. Selezionare il bilanciamento del carico (**mylb**) in cui si vuole aggiungere il pool back-end.
 
-3. In **Impostazioni**selezionare **pool back-end**. Digitare un nome per il pool back-end, ad esempio **contosopool** o **fabrikampool**. Nella parte superiore del riquadro successivo selezionare **Aggiungi**. 
+3. In **Impostazioni** selezionare **pool back-end**. Digitare un nome per il pool back-end, ad esempio **contosopool** o **fabrikampool**. Nella parte superiore del riquadro successivo selezionare **Aggiungi**. 
 
 4. Per **Associate a** selezionare **Set di disponibilità**.
 
@@ -148,7 +147,7 @@ Per ognuno dei siti Web (contoso.com e fabrikam.com) configurare il pool di indi
 
     ![Configurare i pool back-end per il servizio di bilanciamento del carico](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
     
-    1. Per **macchina virtuale di destinazione**selezionare la VM che si vuole aggiungere al pool back-end, ad esempio **VM1** o **VM2**.
+    1. Per **macchina virtuale di destinazione** selezionare la VM che si vuole aggiungere al pool back-end, ad esempio **VM1** o **VM2**.
 
     2. Per **Configurazione IP della rete** selezionare la configurazione IP della scheda di interfaccia di rete della VM selezionata nel passaggio precedente, ad esempio **VM1NIC2-ipconfig2** o **VM2NIC2-ipconfig2**.
 
@@ -172,7 +171,7 @@ Configurare un probe di integrità per il servizio di bilanciamento del carico:
 
 Per ognuno dei siti Web (contoso.com e fabrikam.com) configurare le regole di bilanciamento del carico:
     
-1. <a name="step6-1"></a>In **Impostazioni**selezionare **regole di bilanciamento del carico**. Nella parte superiore del riquadro successivo selezionare **Aggiungi**. 
+1. <a name="step6-1"></a>In **Impostazioni** selezionare **regole di bilanciamento del carico**. Nella parte superiore del riquadro successivo selezionare **Aggiungi**. 
 
 2. In **Nome** digitare un nome per la regola di bilanciamento del carico, ad esempio **HTTPc** per contoso.com o **HTTPf** per fabrikam.com.
 

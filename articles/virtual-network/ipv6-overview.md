@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 86e4bb52f2a97bf36dc4be86289bd513a9f05091
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: bb7769298940095900da25e61e13612b92bad00c
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538256"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419100"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Che cos'è IPv6 per la rete virtuale di Azure?
 
@@ -77,8 +77,7 @@ La versione corrente di IPv6 per la rete virtuale di Azure presenta le limitazio
 - IPv6 per la rete virtuale di Azure è disponibile in tutte le aree commerciali globali di Azure e del governo degli Stati Uniti usando tutti i metodi di distribuzione.  
 - I gateway ExpressRoute possono essere usati per il traffico solo IPv4 in una VNET con IPv6 abilitato.  Il supporto per il traffico IPv6 è presente nella roadmap.   
 - NON è possibile usare i gateway VPN in una VNET con IPv6 abilitato, né direttamente né con peering con "UseRemoteGateway".
-- La piattaforma Azure (AKS e così via) non supporta la comunicazione IPv6 per contenitori.  
-- IPv6 può essere con carico bilanciato solo per l'interfaccia di rete primaria (NIC) nelle macchine virtuali di Azure. Il bilanciamento del carico del traffico IPv6 verso le schede di interfaccia di rete secondarie non è supportato.    
+- La piattaforma Azure (AKS e così via) non supporta la comunicazione IPv6 per contenitori. 
 - Le macchine virtuali solo IPv6 o i set di scalabilità di macchine virtuali non sono supportati; ogni scheda di interfaccia di rete deve includere almeno una configurazione IP IPv4. 
 - Quando si aggiunge IPv6 alle distribuzioni IPv4 esistenti, gli intervalli IPv6 non possono essere aggiunti a una rete virtuale con collegamenti di navigazione delle risorse esistenti.  
 - Il DNS diretto per IPv6 è attualmente supportato per il DNS pubblico di Azure, ma il DNS inverso non è ancora supportato.   

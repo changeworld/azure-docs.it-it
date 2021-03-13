@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/04/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 372342611265640a2a64100f003880a430d61ca0
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4b708e80bf335ba8bdce074285857a6f8b77b972
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620945"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103439209"
 ---
 Durante l'anteprima, NFS presenta le limitazioni seguenti:
 
@@ -25,6 +25,7 @@ Durante l'anteprima, NFS presenta le limitazioni seguenti:
 - Disponibile solo per il livello Premium.
 - Le condivisioni NFS accettano solo UID/GID numerici. Per evitare che i client inviino UID/GID alfanumerico, è necessario disabilitare il mapping degli ID.
 - Le condivisioni possono essere montate solo da un account di archiviazione in una singola macchina virtuale, quando si usano i collegamenti privati. Il tentativo di montare condivisioni da altri account di archiviazione avrà esito negativo.
+- È consigliabile utilizzare le autorizzazioni assegnate al gruppo primario. A volte, le autorizzazioni allocate al gruppo non primario dell'utente possono causare l'accesso negato a causa di un bug noto.
 
 ### <a name="azure-storage-features-not-yet-supported"></a>Funzionalità di archiviazione di Azure non ancora supportate
 

@@ -10,12 +10,12 @@ ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 0612984afe71c3ae497d16968d2470668cc60ca7
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 16a899b7f0e40c2eee91d1dd445f0992572a9dda
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504832"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418165"
 ---
 # <a name="monitoring-azure-files"></a>File di Azure di monitoraggio
 
@@ -611,8 +611,9 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 
     Per le condivisioni file standard selezionare i tipi di risposta seguenti:
 
+    - SuccessWithShareIopsThrottling
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - ClientShareIopsThrottlingError
 
     Per le condivisioni file Premium, selezionare i tipi di risposta seguenti:
 

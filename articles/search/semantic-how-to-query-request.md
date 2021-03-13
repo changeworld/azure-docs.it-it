@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 621cfa8977d4d0ed987b7d38407bbf5bbb370950
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 9ff98a2613143474afd6041ccf52d4eb509d646b
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232741"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418879"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Creare una query semantica in ricerca cognitiva
 
@@ -141,7 +141,7 @@ Seguire queste linee guida per garantire risultati ottimali quando si specifican
 
 + Seguire i campi in base ai campi descrittivi in cui è possibile trovare la risposta alle query semantiche, ad esempio il contenuto principale di un documento.
 
-Se è stato specificato un solo campo, utilizzare un campo descrittivo in cui è possibile trovare la risposta alle query semantiche, ad esempio il contenuto principale di un documento. Scegliere un campo che fornisca contenuto sufficiente. Per garantire l'elaborazione tempestiva, solo i primi 20.000 token del contenuto collettivo di searchFields subiscono la valutazione semantica e la classificazione.
+Se è stato specificato un solo campo, utilizzare un campo descrittivo in cui è possibile trovare la risposta alle query semantiche, ad esempio il contenuto principale di un documento. Scegliere un campo che fornisca contenuto sufficiente. Per garantire l'elaborazione tempestiva, solo circa 8.000 token del contenuto collettivo di searchFields subiscono la valutazione semantica e la classificazione.
 
 #### <a name="step-3-remove-orderby-clauses"></a>Passaggio 3: rimuovere le clausole orderBy
 

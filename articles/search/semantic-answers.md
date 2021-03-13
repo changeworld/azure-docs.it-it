@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 1bccfa4d36ad39aec79a50c8a6b6c50260370223
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: b99cbf91d7fc1c5d90753dfa1461a58eda055180
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103235080"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418896"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Restituire una risposta semantica in Azure ricerca cognitiva
 
@@ -63,7 +63,7 @@ Il parametro "searchFields" è essenziale per restituire una risposta di qualit�
 
 + Una stringa di query non deve essere null e deve essere formulata come question. In questa versione di anteprima, i "queryType" e "queryLanguage" devono essere impostati esattamente come illustrato nell'esempio.
 
-+ Il parametro "searchFields" determina i campi che forniscono token al modello di estrazione. Durante l'immissione del token vengono utilizzati al massimo 20.000 token, quindi avviare l'elenco dei campi con campi concisi e quindi passare a campi con testo RTF. Per indicazioni precise su come impostare questo campo, vedere [set searchFields](semantic-how-to-query-request.md#searchfields).
++ Il parametro "searchFields" determina i campi che forniscono token al modello di estrazione. Assicurarsi di impostare questo parametro. È necessario disporre di almeno un campo stringa, ma è possibile includere qualsiasi campo stringa che si ritenga utile per fornire una risposta. Nel modello vengono passati solo circa 8.000 token per documento. Avviare l'elenco dei campi con campi concisi e quindi passare a campi con testo completo. Per indicazioni precise su come impostare questo campo, vedere [set searchFields](semantic-how-to-query-request.md#searchfields).
 
 + Per "Answers", la costruzione di parametri `"answers": "extractive"` di base è, dove il numero predefinito di risposte restituito è uno. È possibile aumentare il numero di risposte aggiungendo un conteggio, fino a un massimo di cinque.  Se è necessaria più di una risposta dipende dall'esperienza utente dell'app e da come si desidera eseguire il rendering dei risultati.
 

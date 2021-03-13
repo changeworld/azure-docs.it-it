@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4311d0acc7c417bf31c71f46e6c25c65312b894d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ee6ac21d67f32fbc61db19b348fc29cdf3ee9fd7
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034533"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418182"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Gestione degli account del servizio Azure AD
 
@@ -32,7 +32,7 @@ Esistono tre tipi di account del servizio in Azure Active Directory (Azure AD): 
 
 Prima di creare un account del servizio o di registrare un'applicazione, documentare le informazioni sulla chiave dell'account del servizio. La presenza di informazioni documentate rende più semplice monitorare e governare efficacemente l'account. Si consiglia di raccogliere i dati seguenti e di tenerne traccia nel database di gestione della configurazione centralizzata (CMDB).
 
-| Data| Descrizione| Dettagli |
+| Dati| Descrizione| Dettagli |
 | - | - | - |
 | Proprietario| Utente o gruppo che è responsabile per la gestione e il monitoraggio dell'account del servizio.| Effettuare il provisioning del proprietario con le autorizzazioni necessarie per monitorare l'account e implementare una soluzione per attenuare i problemi. La mitigazione dei problemi può essere eseguita dal proprietario o tramite una richiesta. |
 | Scopo| Come verrà usato l'account.| Eseguire il mapping dell'account del servizio a un servizio, un'applicazione o uno script specifico. Evitare di creare account del servizio multiutilizzo. |
@@ -172,7 +172,7 @@ Stabilire un processo di revisione per assicurarsi che gli account del servizio 
 
 **I processi per il deprovisioning devono includere le seguenti attività.**
 
-1. Una volta effettuato il deprovisioning dell'applicazione o dello script associato, [monitorare](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) gli accessi e le risorse dall'account del servizio.
+1. Una volta effettuato il deprovisioning dell'applicazione o dello script associato, [monitorare](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report) gli accessi e le risorse dall'account del servizio.
 
    * Se l'account è ancora attivo, determinarne la modalità di utilizzo prima di eseguire i passaggi successivi.
  

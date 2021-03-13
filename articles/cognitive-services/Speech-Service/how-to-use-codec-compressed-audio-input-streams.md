@@ -12,26 +12,27 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: 410c0942b9040a6707a51e4ff9f375b9d4728668
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 1e08203076de2073e39c5b5f5eb40b66c88490d7
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821571"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417707"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Usare l'input audio compresso di codec con l'SDK di riconoscimento vocale
 
 L'API del **flusso di input audio compresso** dell'SDK per servizi vocali fornisce un modo per trasmettere l'audio compresso al servizio di riconoscimento vocale usando `PullStream` o `PushStream` .
 
-Piattaforma | Languages | Versione di GStreamer supportata
+Piattaforma | Linguaggi | Versione di GStreamer supportata
 | :--- | ---: | :---:
-Windows (escluso UWP)  | C++, C#, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/releases/gstreamer/1.5.1.html)
+Windows (escluso UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/)
 Linux  | C++, C#, Java, Python | [distribuzioni Linux e architetture di destinazione supportate](~/articles/cognitive-services/speech-service/speech-sdk.md)
-Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/)
+Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/)
 
 ## <a name="speech-sdk-version-required-for-compressed-audio-input"></a>Versione dell'SDK vocale necessaria per l'input audio compresso
 * Speech SDK versione 1.10.0 o successiva è necessario per RHEL 8 e CentOS 8
 * Per Windows è necessaria la versione 1.11.0 o successiva di Speech SDK.
+* Speech SDK versione 1.16.0 o successiva per la versione più recente di GStreamer in Windows e Android.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 

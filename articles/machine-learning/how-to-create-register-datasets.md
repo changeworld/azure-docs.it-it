@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: a8f1ca1da54c816199a0504eb17fa0a7bbfc441b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 54b1fd14f97855dd42afde9a4bb34795373ff229
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522190"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417638"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creare set di dati di Azure Machine Learning
 
@@ -182,9 +182,55 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 Per riutilizzare e condividere set di dati tra gli esperimenti nell'area di lavoro, [registrare il set di dati](#register-datasets).
 
+## <a name="wrangle-data"></a>Disputa dati
+Dopo aver creato e [registrato](#register-datasets) il set di dati, è possibile caricarlo nel notebook per data wrangling e l' [esplorazione](#explore-data) prima del training del modello. 
+
+Se non è necessario eseguire alcuna data wrangling o esplorazione, vedere How to User datasets negli script di training per l'invio di esperimenti di Machine Learning in [Train with DataSets](how-to-train-with-datasets.md).
+
+### <a name="filter-datasets-preview"></a>Filtra set di impostazioni (anteprima)
+Le funzionalità di filtro dipendono dal tipo di set di dati. 
+> [!IMPORTANT]
+> Il filtraggio dei set di impostazioni con il metodo di anteprima pubblica [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) è una funzionalità di anteprima [sperimentale](/python/api/overview/azure/ml/#stable-vs-experimental) che può cambiare in qualsiasi momento. 
+> 
+**Per TabularDatasets**, è possibile salvare o rimuovere colonne con i metodi [keep_columns ()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) e [drop_columns ()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-) .
+
+Per filtrare le righe in base a un valore di colonna specifico in un TabularDataset, usare il metodo [Filter ()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) (anteprima). 
+
+Negli esempi seguenti viene restituito un set di dati non registrato basato sulle espressioni specificate.
+
+```python
+# TabularDataset that only contains records where the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter(tabular_dataset['age'] > 15)
+
+# TabularDataset that contains records where the name column value contains 'Bri' and the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter((tabular_dataset['name'].contains('Bri')) & (tabular_dataset['age'] > 15))
+```
+
+**In Filedatasets** ogni riga corrisponde a un percorso di un file, pertanto il filtro in base al valore della colonna non è utile. È tuttavia possibile [filtrare ()](/python/api/azureml-core/azureml.data.filedataset#filter-expression-) righe in base a metadati come, creationTime, dimensioni e così via.
+
+Negli esempi seguenti viene restituito un set di dati non registrato basato sulle espressioni specificate.
+
+```python
+# FileDataset that only contains files where Size is less than 100000
+file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
+
+# FileDataset that only contains files that were either created prior to Jan 1, 2020 or where 
+file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
+```
+
+I set di dati con **etichetta** creati dai progetti di [assegnazione di etichette dei dati](how-to-create-labeling-projects.md) costituiscono un caso speciale. Questi DataSet sono un tipo di TabularDataset costituito da file di immagine. Per questi tipi di set di impostazioni è possibile [filtrare le immagini ()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) in base ai metadati e ai valori di colonna quali `label` e `image_details` .
+
+```python
+# Dataset that only contains records where the label column value is dog
+labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
+
+# Dataset that only contains records where the label and isCrowd columns are True and where the file size is larger than 100000
+labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
+```
+
 ## <a name="explore-data"></a>Esplorare i dati
 
-Dopo aver creato e [registrato](#register-datasets) il set di dati, è possibile caricarlo nel notebook per l'esplorazione dei dati prima di eseguire il training del modello. Se non è necessario eseguire alcuna esplorazione dei dati, vedere come usare i set di dati negli script di training per l'invio di esperimenti di Machine Learning in training [con i set](how-to-train-with-datasets.md)di dati.
+Al termine dell'operazione, è possibile [registrare](#register-datasets) il set di dati e caricarlo nel notebook per l'esplorazione dei dati prima di eseguire il training del modello.
 
 Per i filedataset è possibile **montare** o **scaricare** il set di dati e applicare le librerie di Python usate normalmente per l'esplorazione dei dati. [Altre informazioni sul download di Mount vs](how-to-train-with-datasets.md#mount-vs-download).
 
@@ -261,7 +307,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-using-azure-resource-manager"></a>Creare set di impostazioni usando Azure Resource Manager
 
-Sono disponibili diversi modelli in [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) che possono essere usati per creare set di impostazioni.
+Sono disponibili molti modelli in [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) che possono essere usati per creare set di impostazioni.
 
 Per informazioni sull'uso di questi modelli, vedere [usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning](how-to-create-workspace-template.md).
 

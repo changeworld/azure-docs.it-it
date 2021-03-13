@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e95cd313d341844eabf4f5c5feae8a8ca3dc9c2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab41a336c32a1827c23f4c4619f47dc294a4d2ea
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826549"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419287"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticazione e autorizzazione per App Web statiche di Azure (anteprima)
 
@@ -145,19 +145,18 @@ Per eseguire l'accesso con GitHub, ad esempio, è possibile includere un collega
 
 Se si sceglie di supportare più di un provider, è necessario esporre un collegamento specifico del provider per ognuno nel sito Web.
 
-È possibile usare una [regola di route](routes.md) per eseguire il mapping di un provider predefinito a una route intuitiva come _/login_.
+È possibile usare una [regola di route](./configuration.md#routes) per eseguire il mapping di un provider predefinito a una route intuitiva come _/login_.
 
 ```json
 {
   "route": "/login",
-  "serve": "/.auth/login/github"
+  "redirect": "/.auth/login/github"
 }
 ```
 
 ### <a name="post-login-redirect"></a>Reindirizzamento dopo l'accesso
 
 Se si desidera che un utente torni a una pagina specifica dopo l'accesso, specificare un URL nel parametro della stringa di query `post_login_redirect_uri`.
-
 
 ## <a name="logout"></a>Logout
 
@@ -167,12 +166,12 @@ La route `/.auth/logout` disconnette gli utenti dal sito Web. È possibile aggiu
 <a href="/.auth/logout">Log out</a>
 ```
 
-È possibile usare una [regola di route](routes.md) per eseguire il mapping di una route intuitiva come _/logout_.
+È possibile usare una [regola di route](./configuration.md#routes) per eseguire il mapping di una route intuitiva come _/logout_.
 
 ```json
 {
   "route": "/logout",
-  "serve": "/.auth/logout"
+  "redirect": "/.auth/logout"
 }
 ```
 

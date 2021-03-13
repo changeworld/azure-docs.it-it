@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 8e97fe287335837ad79e6446bb7abf196cda6f75
-  ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+  ms.openlocfilehash: be3cbee5bee706bc10036349950c3b128d007a34
+  ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/03/2021
-  ms.locfileid: "99508117"
+  ms.lasthandoff: 03/13/2021
+  ms.locfileid: "103419627"
 highlightedContent:
   items:
   - title: Informazioni sul Servizio di riconoscimento vocale
@@ -44,7 +44,7 @@ conceptualContent:
       text: Introduzione al riconoscimento vocale
       url: get-started-speech-to-text.md
     - itemType: overview
-      text: Informazioni su Riconoscimento vocale personalizzato
+      text: Migliorare l'accuratezza con Riconoscimento vocale personalizzato
       url: custom-speech-overview.md
     footerLink:
       text: Altro
@@ -60,6 +60,12 @@ conceptualContent:
     - itemType: how-to-guide
       text: Migliorare la sintesi con SSML
       url: speech-synthesis-markup.md
+    - itemType: overview
+      text: Creare una voce personalizzata
+      url: custom-neural-voice.md
+    - itemType: how-to-guide
+      text: Rendere naturale un suono di sintesi vocale
+      url: how-to-audio-content-creation.md
     footerLink:
       text: Altro
       url: index-text-to-speech.yml
@@ -74,20 +80,6 @@ conceptualContent:
     footerLink:
       text: Altro
       url: index-speech-translation.yml
-  - title: Riconoscimento finalità
-    links:
-    - itemType: quickstart
-      text: Riconoscere la voce, le finalità e le entità
-      url: quickstarts/intent-recognition.md
-    - itemType: how-to-guide
-      text: Riconoscere le finalità voce con LUIS e C#
-      url: how-to-recognize-intents-from-speech-csharp.md
-    - itemType: reference
-      text: Portale di Language Understanding (LUIS)
-      url: https://www.luis.ai
-    footerLink:
-      text: Altro
-      url: index-intent-recognition.yml
   - title: Riconoscimento del parlante
     links:
     - itemType: overview
@@ -107,6 +99,20 @@ conceptualContent:
     - itemType: quickstart
       text: Introduzione alla parola chiave personalizzata
       url: custom-keyword-basics.md
+  - title: Riconoscimento finalità
+    links:
+    - itemType: quickstart
+      text: Riconoscere la voce, le finalità e le entità
+      url: quickstarts/intent-recognition.md
+    - itemType: how-to-guide
+      text: Riconoscere le finalità voce con LUIS e C#
+      url: how-to-recognize-intents-from-speech-csharp.md
+    - itemType: reference
+      text: Portale di Language Understanding (LUIS)
+      url: https://www.luis.ai
+    footerLink:
+      text: Altro
+      url: index-intent-recognition.yml
   - title: Approfondimenti dello scenario
     links:
     - itemType: overview

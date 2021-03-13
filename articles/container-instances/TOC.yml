@@ -156,6 +156,9 @@
       href: container-instances-reference-yaml.md
     - name: Connettore
       href: /connectors/aci
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

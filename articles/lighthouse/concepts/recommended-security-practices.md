@@ -1,14 +1,14 @@
 ---
 title: Procedure di sicurezza consigliate
 description: Quando si usa Azure Lighthouse, è importante prendere in considerazione la sicurezza e il controllo degli accessi.
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3aa50833b547882506bfad125992bb1c2f4e85bc
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843724"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419304"
 ---
 # <a name="recommended-security-practices"></a>Procedure di sicurezza consigliate
 
@@ -17,7 +17,7 @@ Quando si usa [Azure Lighthouse](../overview.md), è importante prendere in cons
 > [!TIP]
 > Queste raccomandazioni sono valide anche per le [aziende che gestiscono più tenant](enterprise.md) con Azure Lighthouse.
 
-## <a name="require-azure-ad-multi-factor-authentication"></a>Richiedi Azure AD Multi-Factor Authentication
+## <a name="require-azure-ad-multi-factor-authentication"></a>Richiedere Azure AD Multi-Factor Authentication
 
 [Azure AD multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (anche noto come verifica in due passaggi) consente agli utenti malintenzionati di accedere a un account richiedendo più passaggi di autenticazione. È necessario richiedere Multi-Factor Authentication per tutti gli utenti del tenant di gestione, inclusi gli utenti che avranno accesso alle risorse dei clienti Delegate.
 
@@ -34,7 +34,7 @@ Quando si crea la struttura di autorizzazioni, assicurarsi di seguire il princip
 
 È ad esempio possibile usare una struttura simile alla seguente:
 
-|Nome gruppo  |Type  |principalId  |Definizione di ruolo  |ID di definizione del ruolo  |
+|Nome gruppo  |Tipo  |principalId  |Definizione di ruolo  |ID di definizione del ruolo  |
 |---------|---------|---------|---------|---------|
 |Architetti     |Gruppo utenti         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Valutazione     |Gruppo utenti         |\<principalId\>         |Lettore         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
@@ -47,5 +47,6 @@ Tenere presente che, quando si [esegue l'onboarding di clienti tramite un'offert
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Esaminare le [informazioni di base sulla sicurezza](../security-baseline.md) per capire in che modo le linee guida del benchmark di sicurezza di Azure si applicano al Faro di Azure.
 - [Distribuire Azure AD multi-factor authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Informazioni sulle [esperienze di gestione tra tenant](cross-tenant-management-experience.md).

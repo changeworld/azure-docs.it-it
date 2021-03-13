@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: 28599c08f25533e042c03612d035912a8d0f17c0
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 6de2e0f1744b333a830fbe500e2df51e7eaca62d
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225371"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419080"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Guida introduttiva: creare un cluster Azure Istanza gestita per Apache Cassandra usando l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -26,12 +26,12 @@ Questa Guida introduttiva illustra come usare i comandi dell'interfaccia della r
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.12.1 o successiva. Se si utilizza Azure Cloud Shell, è già installata la versione più recente.
-
 * [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) con connettività all'ambiente self-hosted o on-premise. Per altre informazioni sulla connessione di ambienti locali ad Azure, vedere l'articolo [connettere una rete locale ad Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) .
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
+> [!IMPORTANT]
+> Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.12.1 o successiva. Se si utilizza Azure Cloud Shell, è già installata la versione più recente.
 
 ## <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>Creare un cluster di istanze gestite
 

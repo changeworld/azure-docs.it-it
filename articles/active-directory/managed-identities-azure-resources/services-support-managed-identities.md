@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7b9ae52a0d62da6a8637f63f15d8680b54aeefd1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0531305364b3e6f914a6de00614a3f9af4be3531
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688570"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418777"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -74,6 +74,18 @@ Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app
 | Assegnata dall'utente | Non disponibile | Non disponibile | Non disponibile | Non disponibile |
 
 Azure Arc Enabled Kubernetes supporta attualmente l' [identità assegnata dal sistema](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes). Il certificato di identità del servizio gestito viene usato da tutti gli agenti Kubernetes abilitati per Azure Arc per la comunicazione con Azure.
+
+### <a name="azure-arc-enabled-servers"></a>Server con abilitazione di Azure Arc
+
+| Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
+| --- | :-: | :-: | :-: | :-: |
+| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Non disponibile | Non disponibile | Non disponibile | Non disponibile |
+
+A tutti i server abilitati per Azure Arc è assegnata un'identità di sistema. Non è possibile disabilitare o modificare l'identità assegnata dal sistema in un server abilitato per Azure Arc. Per altre informazioni su come usare le identità gestite nei server abilitati per Azure Arc, vedere le risorse seguenti:
+
+- [Eseguire l'autenticazione nelle risorse di Azure con i server abilitati per Arc](../../azure-arc/servers/managed-identity-authentication.md)
+- [Uso di un'identità gestita con server abilitati per Arc](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
 
 ### <a name="azure-automanage"></a>Azure Automanage
 

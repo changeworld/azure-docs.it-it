@@ -2,26 +2,24 @@
 title: 'SQL Server ad Azure sinapsi Analytics: Guida alla migrazione'
 description: Seguire questa guida per eseguire la migrazione dei database SQL al pool SQL di Azure sinapsi Analytics.
 ms.service: synapse-analytics
-ms.subservice: ''
-ms.custom: ''
-ms.devlang: ''
+ms.subservice: sql
 ms.topic: conceptual
 author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 09914b409c7d8412f6ba30d4412e28e264bd50f6
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 9a7888d3ccf7e033f15f184227c65c746780aa12
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225791"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418029"
 ---
 # <a name="migration-guide-sql-server-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Guida alla migrazione: SQL Server a un pool SQL dedicato in Azure sinapsi Analytics 
-Le sezioni seguenti forniscono una panoramica degli elementi necessari per la migrazione di una soluzione di data warehouse SQL Server esistente al pool SQL di Azure sinapsi Analytics
+Le sezioni seguenti forniscono una panoramica degli elementi necessari per la migrazione di una soluzione di SQL Server data warehouse esistente al pool SQL di Azure sinapsi Analytics.
 
 ## <a name="overview"></a>Panoramica
-Prima di eseguire la migrazione, è necessario verificare che Azure sinapsi Analytics sia la soluzione migliore per il carico di lavoro. Azure sinapsi Analytics è un sistema distribuito progettato per eseguire analisi su dati di grandi dimensioni. Per eseguire la migrazione ad Azure sinapsi Analytics sono necessarie alcune modifiche di progettazione che non sono difficili da comprendere, ma l'implementazione potrebbe richiedere del tempo. Se l'azienda richiede un data warehouse di classe enterprise, i vantaggi valgono la pena. Tuttavia, se non è necessaria la potenza di Azure sinapsi Analytics, è più conveniente usare [SQL Server](https://docs.microsoft.com/sql/sql-server/) o il [database SQL di Azure](https://docs.microsoft.com/azure/azure-sql/).
+Prima di eseguire la migrazione, è necessario verificare che Azure sinapsi Analytics sia la soluzione migliore per il carico di lavoro. Azure sinapsi Analytics è un sistema distribuito progettato per eseguire analisi su dati di grandi dimensioni. Per eseguire la migrazione ad Azure sinapsi Analytics sono necessarie alcune modifiche di progettazione che non sono difficili da comprendere, ma l'implementazione potrebbe richiedere del tempo. Se l'azienda richiede un data warehouse di classe enterprise, i vantaggi valgono la pena. Tuttavia, se non è necessaria la potenza di Azure sinapsi Analytics, è più conveniente usare [SQL Server](/sql/sql-server/) o il [database SQL di Azure](/azure/azure-sql/database/sql-database-paas-overview).
 
 Si consiglia di usare Azure sinapsi Analytics quando si:
 - Avere uno o più terabyte di dati.
@@ -47,7 +45,7 @@ Per eseguire la migrazione del SQL Server ad Azure sinapsi Analytics, verificare
 Dopo aver deciso di eseguire la migrazione di una soluzione esistente ad Azure sinapsi Analytics, è importante pianificare la migrazione prima di iniziare. Un obiettivo principale della pianificazione è garantire che i dati, gli schemi di tabella e il codice siano compatibili con l'analisi delle sinapsi di Azure. Esistono alcune differenze di compatibilità tra il sistema corrente e SQL Data Warehouse che è necessario aggirare. Inoltre, la migrazione di grandi quantità di dati in Azure richiede tempo. Un'attenta pianificazione consente di velocizzare il processo di recupero dei dati in Azure. Un altro obiettivo principale della pianificazione consiste nel modificare la progettazione per assicurarsi che la soluzione sfrutti pienamente le prestazioni di query elevate che Azure sinapsi Analytics è progettato per fornire. La progettazione di data warehouse per la scalabilità introduce modelli di progettazione univoci, quindi gli approcci tradizionali non sono sempre il migliore. Sebbene sia possibile apportare alcune modifiche alla progettazione dopo la migrazione, apportare modifiche in un secondo momento durante il processo consente di risparmiare tempo.
 
 ## <a name="azure-synapse-pathway"></a>Percorso sinapsi di Azure
-Uno dei blocchi critici che i clienti affrontano è la conversione del codice SQL quando si esegue la migrazione da un sistema a un altro. Il [percorso delle sinapsi di Azure](https://docs.microsoft.com/sql/tools/synapse-pathway/azure-synapse-pathway-overview) consente di eseguire l'aggiornamento a una piattaforma di data warehouse moderna automatizzando la conversione del codice del data warehouse esistente. Si tratta di uno strumento gratuito, intuitivo e facile da usare che consente di automatizzare la conversione del codice e di velocizzare la migrazione ad Azure sinapsi Analytics.
+Uno dei blocchi critici che i clienti affrontano è la conversione del codice SQL quando si esegue la migrazione da un sistema a un altro. Il [percorso delle sinapsi di Azure](/sql/tools/synapse-pathway/azure-synapse-pathway-overview) consente di eseguire l'aggiornamento a una piattaforma di data warehouse moderna automatizzando la conversione del codice del data warehouse esistente. Si tratta di uno strumento gratuito, intuitivo e facile da usare che consente di automatizzare la conversione del codice e di velocizzare la migrazione ad Azure sinapsi Analytics.
 
 ## <a name="migrate"></a>Migrate
 Per eseguire una migrazione corretta, è necessario eseguire la migrazione degli schemi, del codice e dei dati della tabella. Per istruzioni più dettagliate su questi argomenti, vedere:

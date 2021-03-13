@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 388a4f06d79116c42bf80cb25d0b133474c02192
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f858549f36d196c6412aec549d0ab2e2d864145
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737631"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417672"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Risolvere i problemi di prestazioni delle condivisioni file di Azure
 
@@ -39,7 +39,8 @@ Per verificare se la condivisione è limitata, è possibile accedere alle metric
     Per le condivisioni file standard, vengono registrati i tipi di risposta seguenti se una richiesta è limitata:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     Per le condivisioni file Premium, vengono registrati i tipi di risposta seguenti se una richiesta è limitata:
 
@@ -244,7 +245,8 @@ Per confermare, è possibile usare le metriche di Azure nel portale-
     Per le condivisioni file standard selezionare i tipi di risposta seguenti:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     Per le condivisioni file Premium, selezionare i tipi di risposta seguenti:
 
