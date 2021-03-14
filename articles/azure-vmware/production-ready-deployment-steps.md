@@ -2,19 +2,19 @@
 title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
-ms.date: 02/22/2021
-ms.openlocfilehash: f9d49d7ff8109364c9fc1eee4388b30ccc1a61b6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/13/2021
+ms.openlocfilehash: f1895f14361b7121ae0d78950cdf8eca3cf7eb52
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733662"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462423"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
-Questo articolo illustra il processo di pianificazione per identificare e raccogliere i dati usati durante la distribuzione. Nell'ambito della pianificazione della distribuzione, assicurarsi di documentare le informazioni raccolte per potervi fare riferimento facilmente durante la distribuzione.
+Questo articolo illustra il processo di pianificazione per identificare e raccogliere le informazioni che verranno usate durante la distribuzione. Nell'ambito della pianificazione della distribuzione, assicurarsi di documentare le informazioni raccolte per potervi fare riferimento facilmente durante la distribuzione.
 
-I processi di questa guida di avvio rapido consentono di ottenere un ambiente pronto per la produzione per la creazione di macchine virtuali e la migrazione. 
+La procedura descritta in questa Guida introduttiva fornisce un ambiente di produzione per la creazione di macchine virtuali (VM) e la migrazione. 
 
 >[!IMPORTANT]
 >Prima di creare la risorsa della soluzione Azure VMware, seguire l'articolo [Come abilitare la risorsa della soluzione Azure VMware](enable-azure-vmware-solution.md) per inviare un ticket di supporto e ottenere l'allocazione degli host. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare gli host. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri host, sarà necessario seguire lo stesso processo. 
@@ -46,21 +46,30 @@ Definire il nome della risorsa da usare durante la distribuzione.  Il nome della
 
 Identificare gli host dimensioni da usare durante la distribuzione della soluzione Azure VMware.  Per un elenco completo, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#hosts).
 
-## <a name="number-of-hosts"></a>Numero di host
+## <a name="number-of-clusters-and-hosts"></a>Numero di cluster e host
 
-Definire il numero di host da distribuire nel cloud privato della soluzione Azure VMware.  Il numero minimo di host è tre e il numero massimo è 16 per cluster.  Per altre informazioni, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#clusters).
+Nella soluzione VMware di Azure verrà distribuito un cloud privato e verranno creati più cluster. Per la distribuzione, è necessario definire il numero di cluster e gli host f che si desidera distribuire in ogni cluster. Il numero minimo di host per cluster è tre e il valore massimo è 16. Il numero massimo di cluster per ogni cloud privato è quattro. Il numero massimo di nodi per ogni cloud privato è 64.
 
-È sempre possibile estendere il cluster in un secondo momento se è necessario incrementare il numero di distribuzione iniziale.
+Per altre informazioni, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#clusters).
 
-## <a name="ip-address-segment"></a>Segmento di indirizzo IP
+>[!TIP]
+>È sempre possibile estendere il cluster in un secondo momento se è necessario incrementare il numero di distribuzione iniziale.
 
-Il primo passaggio della pianificazione della distribuzione consiste nel pianificare la segmentazione IP.  La soluzione Azure VMware inserisce una rete /22 fornita dall'utente, quindi la suddivide in segmenti più piccoli e usa tali segmenti IP per vCenter, VMware HCX, NSX-T e vMotion.
+## <a name="vcenter-admin-password"></a>Password dell'amministratore di vCenter
+Definire la password dell'amministratore di vCenter. Durante la distribuzione verrà creata una password per l'amministratore di vCenter. La password viene assegnata all' cloudadmin@vsphere.local account amministratore durante la compilazione di vCenter. Queste credenziali verranno usate per accedere a vCenter.
 
-La soluzione Azure VMware si connette alla Rete virtuale di Microsoft Azure attraverso un circuito ExpressRoute interno. Nella maggior parte dei casi si connette al data center tramite Copertura globale ExpressRoute. 
+## <a name="nsx-t-admin-password"></a>Password dell'amministratore di NSX-T
+Definire la password dell'amministratore di NSX-T. Durante la distribuzione verrà creata una password per l'amministratore di NSX-T. La password è assegnata all'utente amministratore nell'account NSX durante la compilazione di NSX. Queste credenziali verranno usate per accedere a NSX-T Manager.
 
-La soluzione Azure VMware, l'ambiente di Azure esistente e l'ambiente locale scambiano in genere route. Il blocco di indirizzi di rete CIDR /22 definito in questo passaggio non dovrebbe quindi sovrapporsi a eventuali elementi già presenti in locale o in Azure.
+## <a name="ip-address-segment-for-private-cloud-management"></a>Segmento di indirizzi IP per la gestione del cloud privato
+
+Il primo passaggio della pianificazione della distribuzione consiste nel pianificare la segmentazione IP. Per la soluzione VMware di Azure è necessaria una rete CIDR/22. Questo spazio di indirizzi lo suddivide in segmenti di rete più piccoli (subnet) e usati per la funzionalità vCenter, VMware HCX, NSX-T e vMotion.
+
+Questo blocco di indirizzi di rete CIDR/22 non deve sovrapporsi a qualsiasi segmento di rete esistente già presente in locale o in Azure.
 
 **Esempio:** 10.0.0.0/22
+
+La soluzione VMware di Azure si connette alla Rete virtuale di Microsoft Azure tramite un circuito di Copertura globale ExpressRoute interno (D-MSEE nella visualizzazione seguente). Questa funzionalità fa parte del servizio della soluzione VMware di Azure e non viene addebitata.
 
 Per altre informazioni, vedere l'[Elenco di controllo di pianificazione della rete](tutorial-network-checklist.md#routing-and-subnet-considerations).
 
@@ -68,12 +77,12 @@ Per altre informazioni, vedere l'[Elenco di controllo di pianificazione della re
 
 ## <a name="ip-address-segment-for-virtual-machine-workloads"></a>Segmento dell'indirizzo IP per carichi di lavoro di macchine virtuali
 
-Identificare un segmento IP per creare la prima rete (segmento NSX) nel cloud privato.  In altre parole, si vuole creare un segmento di rete nella soluzione Azure VMware per consentire la distribuzione di VM nella soluzione Azure VMware.   
+Identificare un segmento IP per creare la prima rete per i carichi di lavoro (segmento NSX) nel cloud privato. In altre parole, è necessario creare un segmento di rete nella soluzione VMware di Azure in modo da poter distribuire le macchine virtuali nella soluzione VMware di Azure.
 
-Anche se si prevede di estendere le reti L2, creare un segmento di rete che consentirà di convalidare l'ambiente.
+Anche se si prevede di estendere le reti da locale a soluzione VMware di Azure (L2), è comunque necessario creare un segmento di rete che convalidi l'ambiente.
 
-Occorre ricordare che eventuali segmenti IP creati devono essere univoci in Azure e nel footprint locale.  
-
+Occorre ricordare che eventuali segmenti IP creati devono essere univoci in Azure e nel footprint locale.
+  
 **Esempio:** 10.0.4.0/24
 
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificazione - Segmento dell'indirizzo IP per carichi di lavoro di macchine virtuali" border="false":::     
@@ -87,9 +96,9 @@ Occorre ricordare che:
 - Se si prevede di estendere le reti da locale, tali reti devono connettersi a un [commutatore distribuito di vSphere](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) nell'ambiente VMware locale.  
 - Se la rete o le reti da estendere si trovano in un [commutatore standard di vSphere](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), non sarà possibile estenderle.
 
-## <a name="attach-virtual-network-to-azure-vmware-solution"></a>Connetti la rete virtuale alla soluzione VMware di Azure
+## <a name="attach-azure-virtual-network-to-azure-vmware-solution"></a>Connetti la rete virtuale di Azure alla soluzione VMware di Azure
 
-In questo passaggio si identificherà un gateway di rete virtuale ExpressRoute e si supporterà la rete virtuale di Azure usata per connettere il circuito ExpressRoute della soluzione VMware di Azure.  Il circuito ExpressRoute facilita la connettività da e verso il cloud privato della soluzione VMware di Azure ad altri servizi di Azure, le risorse di Azure e gli ambienti locali.
+In questo passaggio si identificherà un gateway di rete virtuale ExpressRoute e la rete virtuale di Azure di supporto usata per connettere il circuito ExpressRoute della soluzione VMware di Azure.  Il circuito ExpressRoute facilita la connettività da e verso il cloud privato della soluzione VMware di Azure ad altri servizi di Azure, le risorse di Azure e gli ambienti locali.
 
 È possibile usare un gateway di rete virtuale ExpressRoute *nuovo* o *esistente* .
 

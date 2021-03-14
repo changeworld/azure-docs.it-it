@@ -3,12 +3,12 @@ title: Regole di azione per gli avvisi di monitoraggio di Azure
 description: Informazioni sulle regole di azione in monitoraggio di Azure e su come configurarle e gestirle.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 1a86493b4b478e8ebc75545bf80dafa425132fe4
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: bf254249f5b347d32255820da370a499c84da212
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103015999"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463069"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -65,18 +65,25 @@ Facoltativamente, è possibile definire i filtri in modo che la regola venga app
 
 I filtri disponibili sono:
 
-* **Gravità**: questa regola si applica solo agli avvisi con i livelli di gravità selezionati.  
+* **Gravità**  
+Questa regola si applica solo agli avvisi con i livelli di gravità selezionati.  
 Ad esempio, **Severity = Sev1** significa che la regola si applica solo agli avvisi con gravità Sev1.
-* **Servizio** di monitoraggio: questa regola si applica solo agli avvisi provenienti dai servizi di monitoraggio selezionati.  
+* **Servizio di monitoraggio**  
+Questa regola si applica solo agli avvisi provenienti dai servizi di monitoraggio selezionati.  
 Ad esempio, **Monitor Service = "backup di Azure"** significa che la regola verrà applicata solo agli avvisi di backup (provenienti da backup di Azure).
-* **Tipo di risorsa**: questa regola si applica solo agli avvisi relativi ai tipi di risorse selezionati.  
+* **Tipo di risorsa**  
+Questa regola si applica solo agli avvisi relativi ai tipi di risorse selezionati.  
 Ad esempio, **Resource Type = "Virtual Machines"** significa che la regola si applica solo agli avvisi sulle macchine virtuali.
-* **ID regola di avviso**: questa regola si applica solo agli avvisi provenienti da una regola di avviso specifica. Il valore deve corrispondere all'ID Gestione risorse della regola di avviso.  
-Ad esempio, la regola di **avviso ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.Insights/metricalerts/MyApi-highLatency"** indica che questa regola verrà applicata solo agli avvisi provenienti dalla regola di avviso della metrica "MyApi-highLatency".
-* **Condizione di monitoraggio**: questa regola si applica solo agli eventi di avviso con la condizione di monitoraggio specificata, **attivata** o **risolta**.
-* **Descrizione**: questa regola si applica solo agli avvisi che contengono una stringa specifica nel campo Descrizione avviso. Il campo contiene la descrizione della regola di avviso.  
+* **ID regola di avviso**  
+Questa regola si applica solo agli avvisi provenienti da una regola di avviso specifica. Il valore deve corrispondere all'ID Gestione risorse della regola di avviso.  
+Ad esempio, la regola di **avviso ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.Insights/metricalerts/API-latency"** indica che questa regola verrà applicata solo agli avvisi provenienti dalla regola di avviso della metrica "latenza API".
+* **Condizione del monitoraggio**  
+Questa regola si applica solo agli eventi di avviso con la condizione di monitoraggio specificata, **attivata** o **risolta**.
+* **Descrizione**  
+Questa regola si applica solo agli avvisi che contengono una stringa specifica nel campo Descrizione avviso. Il campo contiene la descrizione della regola di avviso.  
 La descrizione, ad esempio, **contiene "prod"** indica che la regola corrisponderà solo agli avvisi che contengono la stringa "prod" nella descrizione.
-* **Contesto avviso (payload)**: questa regola si applica solo agli avvisi che contengono uno o più valori specifici nei campi del contesto dell'avviso.  
+* **Contesto avviso (payload)**  
+Questa regola si applica solo agli avvisi che contengono uno o più valori specifici nei campi del contesto dell'avviso.  
 Ad esempio, il **contesto dell'avviso (payload) contiene "computer-01"** significa che la regola si applica solo agli avvisi il cui payload contiene la stringa "computer-01".
 
 Se si impostano più filtri in una regola, tutti si applicano. Se ad esempio si imposta il **tipo di risorsa ' = macchine virtuali** e **gravità' = Sev0**, la regola verrà applicata solo agli avvisi Sev0 sulle macchine virtuali.

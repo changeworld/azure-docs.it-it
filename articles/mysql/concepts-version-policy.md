@@ -1,5 +1,5 @@
 ---
-title: Criteri di controllo delle versioni-database di Azure per MySQL-server singolo e server flessibile (anteprima)
+title: Criteri di supporto della versione-database di Azure per MySQL-server singolo e server flessibile (anteprima)
 description: Descrive i criteri relativi alle versioni principale e secondaria di MySQL nel database di Azure per MySQL
 author: sr-msft
 ms.author: srranga
@@ -7,14 +7,14 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6acb3268ba40399612940b395437fde3beffda1a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f34e1ff7134788d064a82ec7b646df915dbe24e
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732871"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462559"
 ---
-# <a name="azure-database-for-mysql-versioning-policy"></a>Criteri di controllo delle versioni di database di Azure per MySQL
+# <a name="azure-database-for-mysql-version-support-policy"></a>Criteri di supporto della versione per database di Azure per MySQL
 
 Questa pagina descrive i criteri di controllo delle versioni di database di Azure per MySQL ed è applicabile alle modalità di distribuzione di database di Azure per MySQL-server singolo e database di Azure per MySQL-flessibili (anteprima).
 

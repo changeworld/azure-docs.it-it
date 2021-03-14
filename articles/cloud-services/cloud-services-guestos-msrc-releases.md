@@ -10,17 +10,70 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/5/2021
+ms.date: 3/12/2021
 ms.author: gunnarc
-ms.openlocfilehash: 518de78d3adc847030c69ef24965d4250d5a4c02
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 81b3d7ca21699b1e9b0dc91eaae8075f189eecd3
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433200"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461947"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Il riporto degli aggiornamenti viene sempre eseguito per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="march-2021-guest-os"></a>Sistema operativo guest di marzo 2021
+
+>[!NOTE] 
+
+>Il sistema operativo guest di marzo è attualmente in fase di implementazione in macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di marzo. L'elenco è soggetto a variazioni. 
+
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+|  Rel 21-03 |  [5000822]  |  Aggiornamento cumulativo più recente | 6,29 | 9 mar 2021 |
+|  Rel 21-03 |  [4580325]  |  Aggiornamento Flash | 3,95, 4,88, 5,53, 6,29 | 13 ottobre 2020 |
+|  Rel 21-03 |  [5000800]  |  Aggiornamenti cumulativi IE | 2,108, 3,95, 4,88 | 9 mar 2021 |
+|  Rel 21-03 |  [5000803]  |  Aggiornamento cumulativo più recente | 5,53 | 9 mar 2021 |
+|  Rel 21-03 |  [4578952]  |  Rollup di sicurezza e qualità .NET Framework 3,5  | 2,108 | 13 ottobre 2020 |
+|  Rel 21-03 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2  | 2,108 | 13 ottobre 2020 |
+|  Rel 21-03 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5  | 4,88 | 13 ottobre 2020 |
+|  Rel 21-03 |  [4578956]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2  | 4,88 | 13 ottobre 2020 |
+|  Rel 21-03 |  [4578950]  |  Rollup di sicurezza e qualità .NET Framework 3,5  | 3,95 | 13 ottobre 2020 |
+|  Rel 21-03 |  [4578954]  |  . Rollup della sicurezza e della qualità di 4.5.2 di .NET Framework  | 3,95 | 13 ottobre 2020 |
+|  Rel 21-03 |  [4601060]  |  . Aggiornamento cumulativo di .NET Framework 3,5 e 4.7.2  | 6,29 | 9 febbraio 2021 |
+|  Rel 21-03 |  [5000841]  |  Rollup mensile  | 2,108 | 9 mar 2021 |
+|  Rel 21-03 |  [5000847]  |  Rollup mensile  | 3,95 | 9 mar 2021 |
+|  Rel 21-03 |  [5000848]  |  Rollup mensile  | 4,88 | 9 mar 2021 |
+|  Rel 21-03 |  [4566426]  |  Aggiornamento dello stack di manutenzione  | 3,95 | 14 luglio 2020 |
+|  Rel 21-03 |  [4566425]  |  Aggiornamento dello stack di manutenzione  | 4,88 | 14 luglio 2020 |
+|  Rel 21-03 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo  | 4,88 | 19 agosto 2020 |
+|  Rel 21-03 |  [4592510]  |  Aggiornamento dello stack di manutenzione  | 2,108 | 8 dicembre 2020 |
+|  Rel 21-03 |  [5000859]  |  Aggiornamento dello stack di manutenzione  | 6,29 | 9 mar 2021 |
+|  Rel 21-03 |  [4494175]  |  Microcodice  | 5,53 | 1 ° settembre 2020 |
+|  Rel 21-03 |  [4494174]  |  Microcodice  | 6,29 | 1 ° settembre 2020 |
+
+[5000822]: https://support.microsoft.com/kb/5000822
+[4580325]: https://support.microsoft.com/kb/4580325
+[5000800]: https://support.microsoft.com/kb/5000800
+[5000803]: https://support.microsoft.com/kb/5000803
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5000841]: https://support.microsoft.com/kb/5000841
+[5000847]: https://support.microsoft.com/kb/5000847
+[5000848]: https://support.microsoft.com/kb/5000848
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4592510]: https://support.microsoft.com/kb/4592510
+[5000859]: https://support.microsoft.com/kb/5000859
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## <a name="february-2021-guest-os"></a>Sistema operativo guest di febbraio 2021
 

@@ -13,8 +13,12 @@
   items:
     - name: Scrivere il codice di un'app client
       href: tutorial-code.md
-    - name: Esplorare le nozioni di base con un'app client di esempio
-      href: tutorial-command-line-app.md
+    - name: Creare un grafo
+      items:
+        - name: Usare un'app client di esempio
+          href: tutorial-command-line-app.md
+        - name: Usare i comandi dell'interfaccia della riga di comando di Azure
+          href: tutorial-command-line-cli.md
     - name: Connettere una soluzione end-to-end
       href: tutorial-end-to-end.md
 - name: Concetti

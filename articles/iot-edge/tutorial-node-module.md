@@ -9,18 +9,20 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-python, devx-track-js
-ms.openlocfilehash: 5c8918995675cae8e70ca9fc1efb0cf4c7cb233b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.openlocfilehash: a8a6d09819aaa65645da3d4d697866609c226723
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959408"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461148"
 ---
-# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare e distribuire un modulo Node.js per IoT Edge per dispositivi Linux
+# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-using-linux-containers"></a>Esercitazione: sviluppare e distribuire un modulo di IoT Edge Node.js usando contenitori Linux
 
-Usare Visual Studio Code per sviluppare codice Node.js e distribuirlo in un dispositivo Linux che esegue Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-È possibile usare i moduli di IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. Verrà usato il dispositivo IoT Edge simulato creato nelle guide introduttive. In questa esercitazione verranno illustrate le procedure per:
+Usare Visual Studio Code per sviluppare codice Node.js e distribuirlo in un dispositivo che esegue Azure IoT Edge.
+
+È possibile usare i moduli di IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. Si userà il dispositivo IoT Edge creato nelle guide introduttive. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 >
@@ -35,7 +37,9 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa esercitazione illustra come sviluppare un modulo in **Node.js** usando **Visual Studio Code** e come distribuirlo in un **dispositivo Linux**. IoT Edge non supporta i moduli Node.js per i dispositivi Windows.
+Questa esercitazione illustra come sviluppare un modulo in **Node.js** usando **Visual Studio Code** e come distribuirlo in un dispositivo IOT Edge.
+
+IoT Edge non supporta i moduli Node.js con i contenitori di Windows.
 
 Usare la tabella seguente per informazioni sulle opzioni disponibili per lo sviluppo e la distribuzione di moduli Node.js:
 
@@ -44,10 +48,10 @@ Usare la tabella seguente per informazioni sulle opzioni disponibili per lo svil
 | **Linux AMD64** | ![Usare Visual Studio Code per i moduli Node.js su Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Usare Visual Studio Code per i moduli Node.js su Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
-Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per i contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando una delle due esercitazioni, saranno soddisfatti i prerequisiti seguenti:
+Prima di iniziare questa esercitazione, è necessario eseguire l'esercitazione precedente per configurare l'ambiente di sviluppo per lo sviluppo di contenitori Linux: [sviluppare IOT Edge moduli con i contenitori Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti:
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
-* Un [dispositivo Linux che esegue Azure IoT Edge](quickstart-linux.md)
+* Un dispositivo che esegue Azure IoT Edge. È possibile usare le guide introduttive per configurare un [dispositivo Linux](quickstart-linux.md) o un [dispositivo Windows](quickstart.md).
 * Un registro contenitori, ad esempio [Registro Azure Container](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configurato con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurato per eseguire i contenitori Linux.
@@ -84,7 +88,7 @@ Usare **npm** per creare un modello di soluzione Node.js a partire dalla quale e
    | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione oppure accettare quello predefinito **EdgeSolution**. |
    | Select module template (Selezionare un modello di modulo) | Scegliere **Node.js Module** (Modulo Node.js). |
    | Provide a module name (Specificare un nome per il modulo) | Assegnare al modulo il nome **NodeModule**. |
-   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore viene preinserita in base al nome specificato nell'ultimo passaggio. Sostituire **localhost:5000** con il valore del **server di accesso** nel registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br>Il repository di immagini finale sarà simile a \<registry name\>.azurecr.io/nodemodule. |
+   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore viene preinserita in base al nome specificato nell'ultimo passaggio. Sostituire **localhost:5000** con il valore di **Server di accesso** del registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br>Il repository di immagini finale sarà simile a \<registry name\>.azurecr.io/nodemodule. |
 
    ![Specificare il repository di immagini Docker](./media/tutorial-node-module/repository.png)
 

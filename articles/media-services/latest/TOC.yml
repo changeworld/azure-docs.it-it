@@ -214,14 +214,18 @@
           href: content-key-policy-concept.md
     - name: Monitoraggio
       items:
-        - name: Eventi con Griglia di eventi
-          href: reacting-to-media-services-events.md
-        - name: Schemi di Griglia di eventi
-          href: media-services-event-schemas.md
-        - name: Metriche e log di diagnostica
-          href: media-services-metrics-diagnostic-logs.md
-        - name: Schemi dei log di diagnostica
-          href: media-services-diagnostic-logs-schema.md
+        - name: Monitorare con Monitoraggio di Azure
+          items:
+            - name: Monitorare servizi multimediali
+              href: monitoring/monitor-media-services.md
+            - name: Riferimento ai dati di monitoraggio di servizi multimediali
+              href: monitoring/monitor-media-services-data-reference.md
+        - name: Monitoraggio con griglia di eventi
+          items:
+            - name: Eventi con Griglia di eventi
+              href: reacting-to-media-services-events.md
+            - name: Schemi di Griglia di eventi
+              href: media-services-event-schemas.md
     - name: Lettori compatibili
       items:
         - name: Lettori multimediali per servizi multimediali

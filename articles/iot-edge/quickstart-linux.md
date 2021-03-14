@@ -4,27 +4,29 @@ description: Questa guida di avvio rapido descrive come creare un dispositivo Io
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/02/2020
+ms.date: 03/12/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ff9ba73e71e4525fe56a3cbb54626030f57e990b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
-ms.translationtype: HT
+ms.openlocfilehash: 37f4a63d0a901fd70e0a60bb435efdaf08868616
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920808"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463467"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Avvio rapido: Distribuire il primo modulo IoT Edge in un dispositivo Linux virtuale
 
-Per testare Azure IoT Edge in questa guida di avvio rapido, distribuire il codice in contenitori in un dispositivo IoT Edge Linux virtuale. IoT Edge consente di gestire in remoto il codice nei dispositivi, in modo da poter inviare più carichi di lavoro ai dispositivi perimetrali. Per questa guida di avvio rapido, come dispositivo IoT Edge è consigliabile usare una macchina virtuale di Azure che consenta di creare rapidamente un computer di test con il servizio IoT Edge installato e quindi eliminarlo al termine dell'operazione.
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
+Per testare Azure IoT Edge in questa guida di avvio rapido, distribuire il codice in contenitori in un dispositivo IoT Edge Linux virtuale. IoT Edge consente di gestire in remoto il codice nei dispositivi, in modo da poter inviare più carichi di lavoro ai dispositivi perimetrali. Per questa Guida introduttiva è consigliabile usare una macchina virtuale di Azure per il dispositivo IoT Edge, che consente di creare rapidamente un computer di test e quindi di eliminarlo al termine dell'operazione.
 
 In questa guida introduttiva si apprende come:
 
 * Creare un hub IoT.
 * Registrare un dispositivo IoT Edge nell'hub IoT.
-* Installare e avviare il runtime IoT Edge nel dispositivo virtuale.
+* Installare e avviare il runtime di IoT Edge in un dispositivo virtuale.
 * Distribuire in remoto un modulo in un dispositivo IoT Edge.
 
 ![Diagramma - Guida introduttiva sull'architettura per dispositivo e cloud](./media/quickstart-linux/install-edge-full.png)
@@ -41,7 +43,7 @@ Preparare l'ambiente per l'interfaccia della riga di comando di Azure.
 
 Risorse cloud:
 
-- Un gruppo di risorse per la gestione di tutte le risorse usate in questa guida introduttiva. In questa guida di avvio rapido e nelle esercitazioni successive verrà usato il nome del gruppo di risorse di esempio **IoTEdgeResources**.
+* Un gruppo di risorse per la gestione di tutte le risorse usate in questa guida introduttiva. In questa guida di avvio rapido e nelle esercitazioni successive verrà usato il nome del gruppo di risorse di esempio **IoTEdgeResources**.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -103,6 +105,9 @@ Durante la configurazione del runtime, si immette una stringa di connessione del
 
 In questa sezione verrà usato un modello di Azure Resource Manager per creare una nuova macchina virtuale e installare il runtime IoT Edge al suo interno. Se invece si vuole usare il proprio dispositivo Linux, è possibile seguire la procedura di installazione in [Installare il runtime Azure IoT Edge](how-to-install-iot-edge.md), quindi tornare a questa guida di avvio rapido.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 Usare il comando dell'interfaccia della riga di comando seguente per creare il dispositivo IoT Edge in base al modello [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) predefinito.
 
 * Per gli utenti di Bash o Cloud Shell, copiare il comando seguente in un editor di testo, sostituire il testo segnaposto con le informazioni correnti e quindi copiare il testo nella finestra di Bash o Cloud Shell:
@@ -113,8 +118,7 @@ Usare il comando dell'interfaccia della riga di comando seguente per creare il d
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
    --parameters adminUsername='azureUser' \
-   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name
-   <REPLACE_WITH_HUB_NAME> -o tsv) \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
    --parameters authenticationType='password' \
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
@@ -131,6 +135,42 @@ Usare il comando dell'interfaccia della riga di comando seguente per creare il d
    --parameters authenticationType='password' `
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Usare il comando dell'interfaccia della riga di comando seguente per creare il dispositivo IoT Edge in base al modello [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.2.0-rc4) predefinito.
+
+* Per gli utenti di Bash o Cloud Shell, copiare il comando seguente in un editor di testo, sostituire il testo segnaposto con le informazioni correnti e quindi copiare il testo nella finestra di Bash o Cloud Shell:
+
+   ```azurecli-interactive
+   az deployment group create \
+   --resource-group IoTEdgeResources \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0-rc4/edgeDeploy.json" \
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
+   --parameters adminUsername='azureUser' \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
+   --parameters authenticationType='password' \
+   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   ```
+
+* Per gli utenti di PowerShell, copiare il comando seguente nella finestra di PowerShell, quindi sostituire il testo segnaposto con le informazioni correnti:
+
+   ```azurecli
+   az deployment group create `
+   --resource-group IoTEdgeResources `
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0-rc4/edgeDeploy.json" `
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
+   --parameters adminUsername='azureUser' `
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
+   --parameters authenticationType='password' `
+   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   ```
+:::moniker-end
+<!-- end 1.2 -->
 
 Questo modello accetta i parametri seguenti:
 
@@ -158,6 +198,9 @@ I restanti comandi di questa guida introduttiva vengono eseguiti nel dispositivo
 
 Una volta stabilita la connessione alla macchina virtuale, verificare che il runtime sia stato installato e configurato correttamente nel dispositivo IoT Edge.
 
+<!--1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. Verificare che il daemon di sicurezza IoT Edge sia in esecuzione come servizio di sistema.
 
    ```bash
@@ -182,6 +225,35 @@ Una volta stabilita la connessione alla macchina virtuale, verificare che il run
    ```
 
    ![Visualizzare un modulo nel dispositivo](./media/quickstart-linux/iotedge-list-1.png)
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Verificare che IoT Edge sia in esecuzione. Il comando seguente deve restituire lo stato **OK** se IOT Edge è in esecuzione o fornire eventuali errori del servizio.
+
+   ```bash
+   sudo iotedge system status
+   ```
+
+   >[!TIP]
+   >Per eseguire comandi `iotedge` sono necessari privilegi elevati. Quando ci si disconnette dal computer e si accede di nuovo per la prima volta dopo l'installazione del runtime IoT Edge, le autorizzazioni vengono aggiornate automaticamente. Fino ad allora, usare `sudo` davanti ai comandi.
+
+2. Se è necessario risolvere problemi del servizio, recuperare i log di servizio.
+
+   ```bash
+   sudo iotedge system logs
+   ```
+
+3. Visualizzare tutti i moduli in esecuzione nel dispositivo IoT Edge. Poiché il servizio è stato avviato per la prima volta, verrà visualizzato solo il modulo **edgeAgent** in esecuzione. Il modulo edgeAgent viene eseguito per impostazione predefinita e permette di installare e avviare tutti i moduli aggiuntivi distribuiti nel dispositivo.
+
+   ```bash
+   sudo iotedge list
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 Il dispositivo IoT Edge è ora configurato. È pronto per eseguire i moduli distribuiti nel cloud.
 
@@ -192,6 +264,31 @@ Gestire il dispositivo Azure IoT Edge dal cloud per distribuire un modulo che in
 ![Diagramma - Distribuire un modulo dal cloud al dispositivo](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Poiché IoT Edge versione 1,2 è disponibile in anteprima pubblica, è necessario eseguire un passaggio aggiuntivo per aggiornare i moduli di runtime anche alle versioni di anteprima pubblica.
+
+1. Nella pagina Dettagli dispositivo selezionare Imposta di nuovo **moduli** .
+
+1. Selezionare **le impostazioni di runtime**.
+
+1. Aggiornare il campo **immagine** per i moduli Hub IOT Edge e agente IOT Edge per usare il tag di versione 1.2.0-RC4. Ad esempio:
+
+   * `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`
+   * `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4`
+
+1. Il modulo del sensore di temperatura simulato dovrebbe essere ancora elencato nella sezione moduli. Non è necessario apportare alcuna modifica al modulo per l'anteprima pubblica.
+
+1. Selezionare **Rivedi e crea**.
+
+1. Selezionare **Crea**.
+
+1. Nella pagina Dettagli dispositivo è possibile selezionare **$edgeAgent** o **$edgeHub** per visualizzare i dettagli del modulo che riflettono la versione di anteprima pubblica dell'immagine.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
@@ -205,7 +302,15 @@ Aprire di nuovo il prompt dei comandi nel dispositivo IoT Edge o usare la connes
    sudo iotedge list
    ```
 
-   ![Visualizzare tre moduli nel dispositivo](./media/quickstart-linux/iotedge-list-2.png)
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+   ![Visualizzare tre moduli nel dispositivo](./media/quickstart-linux/iotedge-list-2-version-201806.png)
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+   ![Visualizzare tre moduli nel dispositivo](./media/quickstart-linux/iotedge-list-2-version-202011.png)
+:::moniker-end
 
 Visualizzare i messaggi inviati dal modulo del sensore temperatura:
 
@@ -232,7 +337,7 @@ Se la macchina virtuale e l'hub IoT sono stati creati in un nuovo gruppo di riso
 Rimuovere il gruppo **IoTEdgeResources**. L'eliminazione di un gruppo di risorse potrebbe richiedere alcuni minuti.
 
 ```azurecli-interactive
-az group delete --name IoTEdgeResources
+az group delete --name IoTEdgeResources --yes
 ```
 
 Per confermare la rimozione del gruppo di risorse, visualizzare l'elenco dei gruppi di risorse.

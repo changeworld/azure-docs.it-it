@@ -7,14 +7,16 @@ ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 61779527d4b855f4327ad4b77a1e22207a94b8c0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
-ms.translationtype: HT
+ms.openlocfilehash: 323973b7646acee07a0c4dbc59834e0aceca75ee
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048373"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462049"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Molte soluzioni IoT usano servizi di analisi per ottenere informazioni sui dati quando arrivano nel cloud dai dispositivi IoT. Con Azure IoT Edge, è possibile spostare direttamente nel dispositivo la logica di [Analisi di flusso di Azure](../stream-analytics/index.yml). Elaborando i flussi di telemetria sul perimetro, è possibile ridurre la quantità di dati caricati e ridurre il tempo necessario per reagire a informazioni dettagliate di utilità pratica.
 
@@ -64,7 +66,7 @@ Quando si crea un processo di Analisi di flusso di Azure da eseguire in un dispo
 
 1. Specificare i valori seguenti per creare l'account di archiviazione:
 
-   | Campo | valore |
+   | Campo | Valore |
    | ----- | ----- |
    | Subscription | Scegliere la stessa sottoscrizione dell'hub IoT. |
    | Resource group | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create per le esercitazioni e gli argomenti di avvio rapido su IoT Edge. Ad esempio, **IoTEdgeResources**. |
@@ -181,7 +183,7 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **SimulatedT
 
 1. Quando il modulo di analisi di flusso viene aggiunto all'elenco dei moduli, selezionarne il nome per verificarne la struttura e aggiornarne le impostazioni nella pagina **Aggiorna modulo IoT Edge**.
 
-   La scheda**Impostazioni modulo** contiene l'**URI dell'immagine** che punta a un'immagine standard di Analisi di flusso di Azure. Questa stessa immagine viene usata per ogni modulo di analisi di flusso che viene distribuito in un dispositivo IoT Edge.
+   La scheda **Impostazioni modulo** contiene l'**URI dell'immagine** che punta a un'immagine standard di Analisi di flusso di Azure. Questa stessa immagine viene usata per ogni modulo di analisi di flusso che viene distribuito in un dispositivo IoT Edge.
 
    La scheda **Impostazioni modulo gemello** mostra il codice JSON che definisce la proprietà di Analisi di flusso di Azure denominata **ASAJobInfo**. Il valore di tale proprietà punta alla definizione del processo nel contenitore di archiviazione. Questa proprietà determina come l'immagine di Analisi di flusso viene configurata con i dettagli specifici del processo.
 

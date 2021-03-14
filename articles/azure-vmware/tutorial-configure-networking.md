@@ -2,13 +2,13 @@
 title: 'Esercitazione: Configurare la rete per il cloud privato VMware in Azure'
 description: Informazioni su come creare e configurare la rete necessaria per distribuire il cloud privato in Azure
 ms.topic: tutorial
-ms.date: 02/23/2021
-ms.openlocfilehash: 8871e678ba43aa69eb49c02e386bfb47c6871de7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/13/2021
+ms.openlocfilehash: 0fc934cfec17d8d3bb69c21d324f06bee3f9515c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044979"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462347"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Esercitazione: Configurare la rete per il cloud privato VMware in Azure
 
@@ -94,7 +94,7 @@ Per accedere a vCenter e NSX Manager, sono necessari gli URL per il client Web v
 
 Passare al cloud privato della soluzione Azure VMware e quindi, in **Gestisci**, selezionare **Identità** per trovare le informazioni necessarie.
 
-:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot delle credenziali vCenter e NSX-T e degli URL dei client Web." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
+:::image type="content" source="./media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png" alt-text="Screenshot delle credenziali vCenter e NSX-T e degli URL dei client Web." border="true" lightbox="media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

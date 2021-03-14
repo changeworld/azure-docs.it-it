@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a38af4c942de280e7b1c094885a1ede6774ead56
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3fd504ec36abae3f00cd2a7eb4e1f7b639be0cea
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433217"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462678"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
@@ -36,8 +36,10 @@ Ottenere i gemelli digitali per **Proprietà** (inclusi ID e metadati):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!NOTE]
-> Una query sull'ID di un gemello digitale viene eseguita usando il campo dei metadati `$dtId`.
+Come illustrato nella query precedente, viene eseguita una query sull'ID di un dispositivo gemello digitale usando il campo dei metadati `$dtId` .
+
+>[!TIP]
+> Se si usa Cloud Shell per eseguire una query con campi di metadati che iniziano con `$` , è necessario eseguire l'escape di `$` con un apice inverso per consentire cloud Shell la conoscenza non è una variabile e deve essere usata come valore letterale nel testo della query.
 
 È anche possibile ottenere i gemelli a seconda **che sia definita una determinata proprietà**. Ecco una query che ottiene i gemelli che hanno una proprietà *location* definita:
 

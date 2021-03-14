@@ -2,13 +2,13 @@
 title: Esercitazione - Distribuire e configurare VMware HCX
 description: Informazioni su come distribuire e configurare una soluzione VMware HCX per il cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
-ms.date: 11/25/2020
-ms.openlocfilehash: a8b089ce834d5b49e4ad32081a58e371835e8602
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/13/2021
+ms.openlocfilehash: d1b0792ab9b9975edf45ab8addb81410e1da4107
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488306"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462295"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Distribuire e configurare VMware HCX
 
@@ -157,7 +157,7 @@ Dopo aver distribuito il file OVA di VMware HCX Connector in locale e aver avvia
    > [!NOTE]
    > In genere corrisponde al nome di dominio completo o all'indirizzo IP di vCenter.
 
-1. Verificare che le informazioni immesse siano corrette, quindi selezionare **Riavvia**.
+1. Verificare che le informazioni immesse siano corrette e selezionare **Riavvia**.
     
    > [!NOTE]
    > Si noterà un ritardo dopo il riavvio prima che venga richiesto il passaggio successivo.
@@ -183,7 +183,7 @@ A questo punto occorre aggiungere un'associazione del sito, creare un profilo di
 
 1. In **Infrastructure** (Infrastruttura) selezionare **Site Pairing** (Associazione del sito), quindi selezionare l'opzione **Connect To Remote Site** (Connetti al sito remoto) al centro della schermata. 
 
-1. Immettere l'URL o l'indirizzo IP di Cloud Manager della soluzione Azure VMware annotato in precedenza, `https://x.x.x.9`, il nome utente cloudadmin@vsphere.local della soluzione Azure VMware e la password. Selezionare **Connetti**.
+1. Immettere l'URL o l'indirizzo IP di HCX Cloud Manager della soluzione VMware di Azure annotato in precedenza `https://x.x.x.9` , la soluzione VMware di Azure cloudadmin \@ vSphere. local username e la password. Selezionare **Connetti**.
 
    > [!NOTE]
    > Per stabilire correttamente una coppia di siti:

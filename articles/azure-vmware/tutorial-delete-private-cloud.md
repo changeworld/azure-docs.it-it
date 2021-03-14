@@ -2,17 +2,17 @@
 title: Esercitazione-eliminare un cloud privato della soluzione VMware di Azure
 description: Informazioni su come eliminare un cloud privato della soluzione VMware di Azure non più necessario.
 ms.topic: tutorial
-ms.date: 02/09/2021
-ms.openlocfilehash: b11b8f902691db4bd71fd3f52aaa67d46efea643
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.date: 03/13/2021
+ms.openlocfilehash: 453e7a3316c342cd724a951eafea0ae9fa045506
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101709"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462100"
 ---
 # <a name="tutorial-delete-an-azure-vmware-solution-private-cloud"></a>Esercitazione: eliminare un cloud privato della soluzione VMware di Azure
 
-Se si dispone di un cloud privato della soluzione Azure VMware che non è più necessario, è possibile eliminarlo. Il cloud privato include un dominio di rete isolato, uno o più cluster vSphere sottoposti a provisioning in host server dedicati e diverse macchine virtuali (VM). Quando si elimina un cloud privato, vengono eliminate tutte le VM, i relativi dati e i cluster. Gli host dedicati vengono cancellati e restituiti in modo sicuro al pool gratuito. Viene anche eliminato il dominio di rete di cui è stato effettuato il provisioning per il cliente.  
+Se si dispone di un cloud privato della soluzione Azure VMware che non è più necessario, è possibile eliminarlo. Il cloud privato include un dominio di rete isolato, uno o più cluster vSphere sottoposti a provisioning in host server dedicati e diverse macchine virtuali (VM). Quando si elimina un cloud privato, vengono eliminate tutte le VM, i relativi dati e i cluster. Gli host della soluzione VMware di Azure dedicati vengono cancellati e restituiti in modo sicuro al pool gratuito. Viene anche eliminato lo spazio degli indirizzi di rete di cui viene eseguito il provisioning.  
 
 > [!CAUTION]
 > L'eliminazione del cloud privato è un'operazione irreversibile. Una volta eliminato il cloud privato, non è possibile recuperare i dati perché questa operazione termina tutti i carichi di lavoro in esecuzione e i componenti ed elimina definitivamente tutti i dati e le impostazioni di configurazione del cloud privato, inclusi gli indirizzi IP pubblici.

@@ -1,16 +1,16 @@
 ---
 title: Come pianificare una distribuzione su larga scala dei server abilitati per Azure Arc
 description: Informazioni su come abilitare un numero elevato di computer per i server abilitati per Azure Arc per semplificare la configurazione delle funzionalità di sicurezza, gestione e monitoraggio essenziali in Azure.
-ms.date: 02/23/2021
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0e77fc00f94f2f46c60bb2c5dcecc10a4e2e3bc5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 63e224180cff8cab6e700bc72b8a5c39a7f26857
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032229"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461301"
 ---
-# <a name="planing-for-an-at-scale-deployment-of-azure-arc-enabled-servers"></a>Pianificazione per una distribuzione su larga scala dei server abilitati per Azure Arc
+# <a name="plan-and-deploy-arc-enabled-servers-at-scale"></a>Pianificare e distribuire server abilitati per Arc su larga scala
 
 La distribuzione di un servizio di infrastruttura IT o di un'applicazione aziendale è una sfida per qualsiasi azienda. Per eseguire questa procedura ed evitare eventuali sorprese sgradite e costi non pianificati, è necessario pianificarlo accuratamente per assicurarsi di essere il più pronto possibile. Per pianificare la distribuzione di server abilitati per Azure Arc su larga scala, è necessario soddisfare i criteri di progettazione e distribuzione che devono essere soddisfatti per completare correttamente le attività per supportare una distribuzione su larga scala.
 
@@ -67,7 +67,7 @@ In questa fase, i tecnici o gli amministratori di sistema abilitano le funzional
 
 ## <a name="phase-2-deploy-arc-enabled-servers"></a>Fase 2: distribuire i server abilitati per Arc
 
-A questo punto, viene aggiunto al fondamento definito nella fase 1 preparando la distribuzione ed eseguendo l'installazione dell'agente.
+A questo punto, viene aggiunto al fondamento definito nella fase 1 preparando e distribuendo l'agente computer connesso dei server con Arc Enabled.
 
 |Attività |Dettaglio |Duration |
 |-----|-------|---------|

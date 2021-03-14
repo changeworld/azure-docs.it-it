@@ -1,18 +1,18 @@
 ---
-title: 'Esercitazione: creare e distribuire un cloud privato della soluzione VMware di Azure'
+title: 'Esercitazione: distribuire un cloud privato della soluzione VMware di Azure'
 description: Informazioni su come creare e distribuire un cloud privato della soluzione VMware di Azure
 ms.topic: tutorial
 ms.date: 02/22/2021
-ms.openlocfilehash: 2afd88bca05a9bcab309faff373bedf6a22e9f4b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ed916305cd1a67162f07c24e3bf97766e5389b74
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725425"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462168"
 ---
-# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>Esercitazione: Creare un cloud privato della soluzione Azure VMware
+# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Esercitazione: distribuire un cloud privato della soluzione VMware di Azure
 
-In questa esercitazione si apprenderà come creare e distribuire un cloud privato della soluzione VMware di Azure. La distribuzione iniziale minima degli host è tre. È possibile aggiungere altri host uno alla volta, fino a un massimo di 16 host per cluster. 
+La soluzione Azure VMware consente di distribuire un cluster vSphere in Azure. La distribuzione iniziale minima è di tre host. È possibile aggiungere altri host uno alla volta, fino a un massimo di 16 host per cluster.
 
 Poiché la soluzione Azure VMware non consente di gestire il cloud privato con l'istanza locale di vCenter all'avvio, è necessario definire una configurazione aggiuntiva. Queste procedure e i prerequisiti correlati verranno illustrati in questa esercitazione.
 
@@ -48,7 +48,7 @@ Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È an
 
 #### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando `[az group create](/cli/azure/group)`. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Creare un gruppo di risorse con il comando [' AZ Group create '](/cli/azure/group) . Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 

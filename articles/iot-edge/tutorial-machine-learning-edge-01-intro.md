@@ -8,16 +8,21 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b23324a7226d4b3de4908bd78a8f19c799e59f06
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
-ms.translationtype: HT
+ms.openlocfilehash: 67cc470b4f7f119b7f5b86bcb82ea284ab662dfe
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932184"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463239"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Esercitazione: Soluzione end-to-end con Azure Machine Learning e IoT Edge
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Le applicazioni IoT spesso vogliono usufruire del cloud intelligente e della rete perimetrale intelligente. In questa esercitazione viene illustrato come eseguire il training di un modello di Machine Learning con i dati raccolti dai dispositivi IoT nel cloud, distribuendo tale modello a IoT Edge, e quindi come sottoporre il modello a manutenzione e come perfezionarlo periodicamente.
+
+>[!NOTE]
+>I concetti in questo set di esercitazioni si applicano a tutte le versioni di IoT Edge, ma il dispositivo di esempio creato per provare lo scenario viene eseguito IoT Edge versione 1,1.
 
 L'obiettivo principale di questa esercitazione è introdurre l'elaborazione dei dati IoT con Machine Learning, più specificamente nella rete perimetrale. Anche se vengono trattati molti aspetti di un flusso di lavoro generico di Machine Learning, l'esercitazione non ha lo scopo di fornire un'introduzione approfondita a tale funzionalità. Infatti, invece di cercare di creare un modello altamente ottimizzato per il caso d'uso, viene illustrato un esempio tipico semplicemente con la finalità di descrivere il processo di creazione e uso di un modello fattibile per l'elaborazione dei dati IoT.
 
@@ -69,9 +74,9 @@ I dati usati nell'esercitazione sono tratti dal [set di dati di simulazione dell
 
 Dal file leggimi:
 
-***Scenario sperimentale** _
+***Scenario sperimentale***
 
-_I set di dati sono costituiti da più serie temporali multivariate. Ogni set di dati è ulteriormente suddiviso in sottoinsiemi di training e di test. Ogni serie temporale proviene da un motore diverso, ovvero si può dire che i dati provengano da un parco di motori dello stesso tipo. Ogni motore parte con gradi diversi di usura iniziale e alcune variazioni di produzione non note all'utente. Tale usura e tali variazioni vengono considerate normali e non come una condizione di errore. Sulle prestazioni dei motori incidono in modo significativo tre impostazioni operative. Anche queste impostazioni sono incluse nei dati, i quali sono contaminati dal disturbo causato dai sensori.*
+*I set di dati sono costituiti da più serie temporali multivariate. Ogni set di dati viene suddiviso ulteriormente in subset di training e di test. Ogni serie temporale è da un altro motore, ovvero i dati possono essere considerati da una flotta di motori dello stesso tipo. Ogni motore inizia con diversi gradi di usura iniziale e variazione di produzione sconosciuta all'utente. Questa usura e variazione è considerata normale, ovvero non viene considerata una condizione di errore. Esistono tre impostazioni operative che hanno un effetto sostanziale sulle prestazioni del motore. Queste impostazioni sono incluse anche nei dati. I dati sono contaminati con rumore del sensore.*
 
 *Il motore funziona normalmente all'inizio di ogni serie temporale e a un certo punto, durante la serie, presenta un problema. Nel set di training il problema man mano peggiora fino a provocare il guasto del sistema. Nel set di test la serie temporale termina prima del guasto del sistema. L'obiettivo della sfida è prevedere il numero di cicli operativi rimanenti prima del guasto nel set di test, ovvero per quanti cicli operativi il motore continuerà a funzionare dopo l'ultimo ciclo. Viene fornito anche un vettore di reali valori di vita utile rimanente per i dati di test.*
 

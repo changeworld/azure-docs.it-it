@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/03/2021
-ms.openlocfilehash: 39d7516b9cec1a3b9aa4484c2ff93564bd5772da
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/18/2021
+ms.openlocfilehash: f4336350af92c27760369d668c6babddc4d4ea30
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034286"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462917"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -50,7 +50,7 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 | Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Durata esecuzione | 90 giorni | 366 giorni | La durata dell'esecuzione viene calcolata usando l'ora di inizio dell'esecuzione e il limite specificato nell'impostazione del flusso di lavoro, la [**conservazione della cronologia di esecuzione in giorni**](#change-duration) all'ora di inizio. <p><p>Per modificare il limite predefinito, vedere la pagina relativa alla [durata dell'esecuzione delle modifiche e alla conservazione della cronologia nell'archiviazione](#change-duration). |
-| Conservazione della cronologia di esecuzione nell'archiviazione | 90 giorni | 366 giorni | Se la durata di un'esecuzione supera il limite di conservazione della cronologia di esecuzione corrente, l'esecuzione viene rimossa dalla cronologia esecuzioni nell'archivio. Se l'esecuzione viene completata o scade, il periodo di memorizzazione della cronologia di esecuzione viene sempre calcolato usando l'ora di inizio dell'esecuzione e il limite corrente specificato nell'impostazione del flusso di lavoro, [**conservazione della cronologia di esecuzione in giorni**](#change-retention). Indipendentemente dal limite precedente, il limite corrente viene sempre usato per il calcolo della conservazione. <p><p>Per modificare il limite predefinito e per altre informazioni, vedere [modifica della durata e conservazione della cronologia di esecuzione nell'archiviazione](#change-retention). Per aumentare il limite massimo, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza per requisiti specifici. |
+| Conservazione della cronologia di esecuzione nell'archiviazione | 90 giorni | 366 giorni | Se la durata di un'esecuzione supera il limite di conservazione della cronologia di esecuzione corrente, l'esecuzione viene rimossa dalla cronologia esecuzioni nell'archivio. Se l'esecuzione viene completata o scade, il periodo di memorizzazione della cronologia di esecuzione viene sempre calcolato usando l'ora di inizio dell'esecuzione e il limite corrente specificato nell'impostazione del flusso di lavoro, [**conservazione della cronologia di esecuzione in giorni**](#change-retention). Indipendentemente dal limite precedente, il limite corrente viene sempre usato per il calcolo della conservazione. <p><p>Per modificare il limite predefinito e per altre informazioni, vedere [modifica della durata e conservazione della cronologia di esecuzione nell'archiviazione](#change-retention). Per aumentare il limite massimo, [contattare il team di App per la logica](mailto://logicappspm@microsoft.com) per ottenere assistenza per requisiti specifici. |
 | Intervallo di ricorrenza minimo | 1 secondo | 1 secondo ||
 | Intervallo di ricorrenza massimo | 500 giorni | 500 giorni ||
 |||||
@@ -203,8 +203,8 @@ Per altre informazioni sulla definizione delle risorse dell'app per la logica, v
 
   | Nome | Limite | Note |
   |------|-------|-------|
-  | Limite di esecuzione per le unità di base | Limite impostato dal sistema quando la capacità dell'infrastruttura raggiunge l'80% | Offre circa 4.000 esecuzioni di azioni al minuto, ovvero circa 160 milioni di esecuzioni di azioni al mese | |
-  | Limite di esecuzione per le unità di scala | Limite impostato dal sistema quando la capacità dell'infrastruttura raggiunge l'80% | Ogni unità di scala offre circa 2.000 esecuzioni di azioni aggiuntive al minuto, ovvero circa 80 milioni di esecuzioni di azioni aggiuntive al mese | |
+  | Limite di esecuzione per le unità di base | Limite impostato dal sistema quando la capacità dell'infrastruttura raggiunge l'80% | Offre circa 4.000 esecuzioni di azioni al minuto, ovvero circa 160 milioni di esecuzioni di azioni al mese |
+  | Limite di esecuzione per le unità di scala | Limite impostato dal sistema quando la capacità dell'infrastruttura raggiunge l'80% | Ogni unità di scala offre circa 2.000 esecuzioni di azioni aggiuntive al minuto, ovvero circa 80 milioni di esecuzioni di azioni aggiuntive al mese |
   | Numero massimo di unità di scala che è possibile aggiungere | 10 | |
   ||||
 
@@ -244,11 +244,11 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 #### <a name="character-limits"></a>Limiti per i caratteri
 
-| Nome | Note |
-|------|-------|
+| Nome | Limite | Note |
+|------|-------|-------|
 | Limite per la valutazione delle espressioni | 131.072 caratteri | Le espressioni `@concat()`, `@base64()` e `@string()` non possono superare questo limite. |
-| Limite per i caratteri dell'URL della richiesta | 16.384 caratteri |
-|||
+| Limite per i caratteri dell'URL della richiesta | 16.384 caratteri | |
+||||
 
 <a name="retry-policy-limits"></a>
 

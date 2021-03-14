@@ -2,13 +2,13 @@
 title: Creare la jump box della soluzione Azure VMware
 description: Passaggi per creare la jump box della soluzione Azure VMware.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 5d5a5d82cf6e70e7ad55bcfa10c7f85372131c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.date: 03/13/2021
+ms.openlocfilehash: f746e11763e1df1686f3134960dea167bf1c9908
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578419"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462254"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-access-private-cloud.md -->
 
@@ -33,9 +33,8 @@ ms.locfileid: "91578419"
    | **Nome utente** | Immettere il nome utente per l'accesso alla VM. |
    | **Password** | Immettere la password per l'accesso alla VM. |
    | **Conferma password** | Immettere la password per l'accesso alla VM. |
-   | **Porte in ingresso pubbliche** | Selezionare **Nessuno**. Se si seleziona Nessuno, è possibile usare l'[accesso JIT](../../security-center/security-center-just-in-time.md#jit-configure) per controllare l'accesso alla macchina virtuale solo quando si vuole accedervi.  |
+   | **Porte in ingresso pubbliche** | Selezionare **Nessuno**. Se si seleziona Nessuno, è possibile usare l'[accesso JIT](../../security-center/security-center-just-in-time.md#jit-configure) per controllare l'accesso alla macchina virtuale solo quando si vuole accedervi. In alternativa, è possibile usare un [Bastion di Azure](../../bastion/tutorial-create-host-portal.md) se si vuole accedere al server jump box in modo sicuro da Internet senza esporre alcuna porta di rete.  |
 
 
 1. Al termine della convalida, selezionare **Crea** per avviare il processo di creazione della macchina virtuale.
 
-   :::image type="content" source="../media/tutorial-access-private-cloud/ss11-review-create-wjb01.png" alt-text="Aggiungere una nuova macchina virtuale Windows 10 per una jump box." border="true":::

@@ -9,14 +9,16 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8e64233ce1d59512e38ce6c366eba889392c4623
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8da5c24265a43eaaf1ecfe80649b6f4fea588b3f
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736492"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464064"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Esercitazione: Eseguire la classificazione delle immagini nella rete perimetrale con il Servizio visione artificiale personalizzato
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge può rendere più efficienti le soluzioni IoT spostando i carichi di lavoro dal cloud alla rete perimetrale. Questa funzionalità è particolarmente utile per i servizi che elaborano grandi quantità di dati, come i modelli di visione artificiale. Il [Servizio visione artificiale personalizzato](../cognitive-services/custom-vision-service/overview.md) consente di compilare classificatori di immagini personalizzate e di distribuirli ai dispositivi come contenitori. Insieme, questi due servizi consentono di trovare informazioni dettagliate nelle immagini e nei flussi video senza dover prima trasferire tutti i dati in remoto. Il Servizio visione artificiale personalizzato fornisce un classificatore che confronta un'immagine con un modello con training per generare informazioni dettagliate.
 
@@ -42,10 +44,10 @@ In questa esercitazione verranno illustrate le procedure per:
 >[!TIP]
 >Questa esercitazione è una versione semplificata del progetto di esempio [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi) (Visione personalizzata e Azure IoT Edge in un Raspberry Pi 3). È stata progettata per l'esecuzione in una macchina virtuale cloud e usa immagini statiche per eseguire il training e il test del classificatore di immagini, utile per chi inizia a valutare Visione personalizzata in IoT Edge. Il progetto di esempio usa hardware fisico e configura un feed di videocamera dal vivo per eseguire il training e il test del classificatore di immagini, utile per chi vuole provare uno scenario reale più dettagliato.
 
-Prima di iniziare questa esercitazione, è necessario aver completato l'esercitazione precedente per configurare l'ambiente per lo sviluppo di contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti:
+Prima di iniziare questa esercitazione, è necessario eseguire l'esercitazione precedente per configurare l'ambiente per lo sviluppo di contenitori Linux: [sviluppare IOT Edge moduli con i contenitori Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti:
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
-* Un [dispositivo Linux che esegue Azure IoT Edge](quickstart-linux.md)
+* Un dispositivo che esegue Azure IoT Edge. È possibile usare le guide introduttive per configurare un [dispositivo Linux](quickstart-linux.md) o un [dispositivo Windows](quickstart.md).
 * Un registro contenitori, ad esempio [Registro Azure Container](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configurato con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurato per eseguire i contenitori Linux.

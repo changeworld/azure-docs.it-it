@@ -2,13 +2,13 @@
 title: Connettere la soluzione Azure VMware con l'ambiente locale
 description: Informazioni su come connettere la soluzione Azure VMware con l'ambiente locale.
 ms.topic: tutorial
-ms.date: 12/28/2020
-ms.openlocfilehash: 753835b0206d8bbabe42b057fa40a2d6c4c8c414
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
-ms.translationtype: HT
+ms.date: 03/13/2021
+ms.openlocfilehash: 6d1c52784eae2efabe79a9ba5c6cdf9bbfdc1950
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809684"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461649"
 ---
 # <a name="connect-azure-vmware-solution-to-your-on-premises-environment"></a>Connettere la soluzione Azure VMware con l'ambiente locale
 
@@ -17,7 +17,7 @@ In questo articolo si continueranno a usare le [informazioni raccolte durante la
 Prima di iniziare, sono necessari due prerequisiti per la connessione della soluzione Azure VMware con l'ambiente locale:
 
 - Un circuito ExpressRoute dall'ambiente locale ad Azure.
-- Un blocco di indirizzi di rete non sovrapposti /29 per il peering Copertura globale ExpressRoute, definito come parte della [fase di pianificazione](production-ready-deployment-steps.md).
+- Un blocco di indirizzi di rete CIDR non sovrapposto per ExpressRoute Copertura globale peering, definito come parte della [fase di pianificazione](production-ready-deployment-steps.md).
 
 >[!NOTE]
 > È possibile stabilire la connessione tramite VPN, ma questa procedura non rientra nell'ambito di questo documento di avvio rapido.
@@ -25,6 +25,10 @@ Prima di iniziare, sono necessari due prerequisiti per la connessione della solu
 ## <a name="establish-an-expressroute-global-reach-connection"></a>Stabilire una connessione di Copertura globale ExpressRoute
 
 Per stabilire la connettività locale al cloud privato della soluzione Azure VMware usando Copertura globale ExpressRoute, seguire l'esercitazione [Associare gli ambienti locali a un cloud privato](tutorial-expressroute-global-reach-private-cloud.md).
+
+Questa esercitazione genera una connessione, come illustrato nel diagramma.
+
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="ExpressRoute Copertura globale diagramma della connettività di rete locale." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png":::
 
 ## <a name="verify-on-premises-network-connectivity"></a>Verificare la connettività alla rete locale
 

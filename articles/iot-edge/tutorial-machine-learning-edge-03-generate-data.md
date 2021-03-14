@@ -8,14 +8,16 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
-ms.translationtype: HT
+ms.openlocfilehash: d5fdd762834d351119116c5e4854dd4233671c29
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932405"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463130"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Esercitazione: Generare dati di dispositivi simulati
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 In questo articolo vengono usati dati di training di Machine Learning per simulare un dispositivo che invia dati di telemetria all'hub IoT di Azure. Come indicato nell'introduzione, in questa esercitazione viene usato il [set di dati di simulazione della riduzione delle prestazioni del motore Turbofan](https://c3.nasa.gov/dashlink/resources/139/) per simulare i dati di un set di motori di aero per il training e i test.
 

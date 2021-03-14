@@ -14,7 +14,7 @@
 - name: Esercitazioni
   items:
     - name: Configurare un ambiente Time Series Insights Gen2
-      href: tutorials-set-up-tsi-environment.md
+      href: tutorial-set-up-environment.md
     - name: Sincronizzazione dei modelli tra Gemelli digitali di Azure e Time Series Insights Gen2
       href: tutorials-model-sync.md
 - name: Concetti
@@ -95,9 +95,13 @@
           items:
             - name: Pianificare l'ambiente
               href: how-to-plan-your-environment.md
-        - name: Gestione dell'ambiente
+        - name: Gestione
           items:
-            - name: Come effettuare il provisioning e gestire
+            - name: Come creare un ambiente usando l'interfaccia della riga di comando di Azure
+              href: how-to-create-environment-using-cli.md
+            - name: Come creare un ambiente usando il portale di Azure
+              href: how-to-create-environment-using-portal.md
+            - name: Come gestire un ambiente
               href: how-to-provision-manage.md
             - name: Come selezionare un identificativo stazione trasmittente (IDST)
               href: how-to-select-tsid.md

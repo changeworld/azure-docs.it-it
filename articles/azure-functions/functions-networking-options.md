@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: f826c947b1e47c1c996a8e9102492e85adafa326
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 0267184a921c92c3dc092908a09467ef3a090175
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215154"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463035"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -87,7 +87,7 @@ Per altre informazioni, vedere [Endpoint servizio di rete virtuale](../virtual-n
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Limitare l'account di archiviazione a una rete virtuale 
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella. È possibile sostituire questo account di archiviazione con uno protetto con endpoint di servizio o privato. Questa funzionalità è attualmente disponibile per tutti gli SKU supportati da reti virtuali, che includono standard e Premium, tranne che per gli indicatori Flex in cui le reti virtuali sono disponibili solo per lo SKU Premium. Per configurare una funzione con un account di archiviazione limitato a una rete privata:
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella. È possibile sostituire questo account di archiviazione con uno protetto con endpoint di servizio o privato. Questa funzionalità è attualmente disponibile per tutti gli SKU supportati da rete virtuale Windows, che includono standard e Premium, tranne che per gli indicatori Flex in cui le reti virtuali sono disponibili solo per lo SKU Premium. Per configurare una funzione con un account di archiviazione limitato a una rete privata:
 
 1. Creare una funzione con un account di archiviazione in cui non sono abilitati gli endpoint di servizio.
 1. Configurare la funzione per la connessione alla rete virtuale.

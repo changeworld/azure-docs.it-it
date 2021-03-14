@@ -3,12 +3,12 @@ title: Connettere ExpressRoute al gateway di rete virtuale
 description: Passaggi per connettere ExpressRoute al gateway di rete virtuale.
 ms.topic: include
 ms.date: 12/08/2020
-ms.openlocfilehash: 5f9a565a7662041dbd85e61388129496fa376962
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: cea07f9a75e91b2b8ff444c9dda4a59d421ca37c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861519"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462346"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
@@ -22,7 +22,7 @@ ms.locfileid: "96861519"
 
 1. Nella pagina **Aggiungi connessione** specificare i valori per i campi e selezionare **OK**. 
 
-   | Campo | valore |
+   | Campo | Valore |
    | --- | --- |
    | **Nome**  | Immettere un nome per la connessione.  |
    | **Tipo di connessione**  | selezionare **ExpressRoute**.  |
@@ -31,6 +31,8 @@ ms.locfileid: "96861519"
    | **Chiave di autorizzazione**  | Copiare a incollare la chiave di autorizzazione dalla scheda ExpressRoute per il gruppo di risorse. |
    | **URI del circuito peer**  | Copiare e incollare l'ID ExpressRoute dalla scheda ExpressRoute per il gruppo di risorse.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/open-cloud-shell.png" alt-text="Nella pagina Aggiungi connessione specificare i valori per i campi e fare clic su OK." border="true" lightbox="../media/expressroute-global-reach/open-cloud-shell.png":::
+   :::image type="content" source="../media/expressroute-global-reach/expressroute-add-connection.png" alt-text="Screenshot della pagina Aggiungi connessione per connettere ExpressRoute al gateway di rete virtuale.":::
 
 Viene creata la connessione tra il circuito ExpressRoute e la rete virtuale.
+
+:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="Screenshot delle connessioni del gateway di rete virtuale.":::

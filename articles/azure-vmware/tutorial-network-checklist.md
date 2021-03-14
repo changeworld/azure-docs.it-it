@@ -2,13 +2,13 @@
 title: 'Esercitazione: Elenco di controllo di pianificazione della rete'
 description: Informazioni sui requisiti di rete per la connettività di rete e le porte di rete nella soluzione VMware di Azure.
 ms.topic: tutorial
-ms.date: 01/27/2021
-ms.openlocfilehash: f493443da617f5f76771e5d1b2b3b190b37f9b5d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.date: 03/13/2021
+ms.openlocfilehash: 8cee5fa24aab8bd7fe6a9527f9c8e7cdff997511
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918586"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462066"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Elenco di controllo di pianificazione della rete per la soluzione Azure VMware 
 
@@ -89,13 +89,12 @@ Le applicazioni e i carichi di lavoro in esecuzione in un ambiente cloud privato
 
 Usare il servizio DHCP predefinito in NSX o usare un server DHCP locale nel cloud privato invece di instradare la trasmissione del traffico DHCP tramite la rete WAN all'ambiente locale.
 
+Per altri dettagli, vedere l'articolo [fornire i servizi DHCP al segmento di rete NSX-T](deploy-azure-vmware-solution.md#optional-provide-dhcp-services-to-nsx-t-network-segment) .
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato le considerazioni e i requisiti per la distribuzione di un cloud privato della soluzione VMware di Azure. 
-
-
-Una volta completata la configurazione corretta della rete, continuare con l'esercitazione successiva per creare il cloud privato della soluzione Azure VMware.
+Questa esercitazione ha illustrato le considerazioni e i requisiti per la distribuzione di un cloud privato della soluzione VMware di Azure. Una volta completata la configurazione corretta della rete, continuare con l'esercitazione successiva per creare il cloud privato della soluzione Azure VMware.
 
 > [!div class="nextstepaction"]
 > [Creare un cloud privato della soluzione Azure VMware](tutorial-create-private-cloud.md)

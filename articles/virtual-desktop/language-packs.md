@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dfedec85208ef9afaa58db2b200dc9f9988a845b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fc7892db2ca11ab7970835f8979360961ee01104
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709241"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463341"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Aggiungere i Language Pack a un'immagine con più sessioni di Windows 10
 
@@ -54,6 +54,7 @@ Per personalizzare le immagini multisessione di Windows 10 Enterprise per aggiun
           - [Windows 10, versione 2004 o 20H2 **10C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
           - [Windows 10, versione 2004 o 20H2 **11C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
           - [Windows 10, versione 2004 o 20H2 **1C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
+          - [Windows 10, versione 2004 o 20H2 **2C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
 
 - Una condivisione File di Azure o una condivisione file in una macchina virtuale file server Windows
 

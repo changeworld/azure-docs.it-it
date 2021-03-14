@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: f4b5d4915cd6520edd7a45af85a836c3360eee32
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: ee66e68216933c410092865a1cdb781476a944c6
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696330"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461135"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Aggiungere un'origine evento dell'hub eventi all'ambiente Azure Time Series Insights
 
@@ -27,7 +27,7 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Creare un ambiente di Azure Time Series Insights come descritto in [creare un ambiente Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
+- Creare un ambiente di Azure Time Series Insights come descritto in [creare un ambiente Azure Time Series Insights](./tutorial-set-up-environment.md).
 - Creare un hub eventi. Leggere [creare uno spazio dei nomi di hub eventi e un hub eventi usando il portale di Azure](../event-hubs/event-hubs-create.md).
 - L'hub eventi deve ricevere eventi messaggio attivi. Informazioni su come [inviare eventi a hub eventi di Azure usando il .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Creare un gruppo di consumer dedicato nell'hub eventi da cui l'ambiente di Azure Time Series Insights può utilizzare. Ogni origine evento Azure Time Series Insights deve avere un proprio gruppo di consumer dedicato che non è condiviso con altri consumer. Se più lettori utilizzano eventi dello stesso gruppo di consumer, è probabile che tutti i lettori mostrino errori. È previsto un limite di 20 gruppi di consumer per hub eventi. Per informazioni dettagliate, vedere la [Guida alla programmazione di hub eventi](../event-hubs/event-hubs-programming-guide.md).

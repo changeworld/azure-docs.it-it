@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 3f997b577fb473e30fbafec08c4e68547a641fa3
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: c1b30a1eafe9af92c1ef3f81773d213ccf96555c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200158"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462032"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Esercitazione: Creare una gerarchia di dispositivi IoT Edge (Anteprima)
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 Questa esercitazione illustra come distribuire nodi di Azure IoT Edge in reti organizzate in livelli gerarchici. Ogni livello di una gerarchia è un dispositivo gateway che gestisce messaggi e richieste provenienti da dispositivi del livello sottostante.
 

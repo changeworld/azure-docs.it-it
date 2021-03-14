@@ -11,26 +11,26 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9a9115b5400cc6d6c1ecc5740af796d831f5dee3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8ee2cc5473d83eafc2443f3aea7cab6a2e77727c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023259"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463562"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Inviare eventi a un ambiente Azure Time Series Insights Gen1 usando un hub eventi
 
 > [!CAUTION]
 > È un articolo di Gen1.
 
-Questo articolo illustra come creare e configurare un hub eventi in hub eventi di Azure. Viene inoltre descritto come eseguire un'applicazione di esempio per effettuare il push degli eventi Azure Time Series Insights da Hub eventi. Se è presente un hub eventi con eventi in formato JSON, ignorare questa esercitazione e visualizzare l'ambiente in [Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
+Questo articolo illustra come creare e configurare un hub eventi in hub eventi di Azure. Viene inoltre descritto come eseguire un'applicazione di esempio per effettuare il push degli eventi Azure Time Series Insights da Hub eventi. Se è presente un hub eventi con eventi in formato JSON, ignorare questa esercitazione e visualizzare l'ambiente in [Azure Time Series Insights](./tutorial-set-up-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Configurare un hub eventi
 
 1. Per informazioni su come creare un hub eventi, vedere la [documentazione di hub eventi](../event-hubs/index.yml).
 1. Nella casella di ricerca cercare **hub eventi**. Nell'elenco restituito selezionare **Hub eventi**.
 1. Selezionare l'hub eventi.
-1. Quando si crea un hub eventi, si sta creando uno spazio dei nomi dell'hub eventi. Se non è ancora stato creato un hub eventi nello spazio dei nomi, nel menu, in **entità**, creare un hub eventi.  
+1. Quando si crea un hub eventi, si sta creando uno spazio dei nomi dell'hub eventi. Se non è ancora stato creato un hub eventi nello spazio dei nomi, nel menu, in **entità**, creare un hub eventi.
 
     [![Elenco degli hub eventi](media/send-events/tsi-connect-event-hub-namespace.png)](media/send-events/tsi-connect-event-hub-namespace.png#lightbox)
 
@@ -78,7 +78,7 @@ In Azure Time Series Insights Gen2 è possibile aggiungere dati contestuali ai d
 
 1. Passare a <https://tsiclientsample.azurewebsites.net/windFarmGen.html>. L'URL Crea ed esegue dispositivi Windmill simulati.
 1. Nella casella **stringa di connessione dell'hub eventi** della pagina Web incollare la stringa di connessione copiata nel campo di [input Windmill](#push-events-to-windmills-sample).
-  
+
     [![Incollare la stringa di connessione della chiave primaria nella casella della stringa di connessione dell'hub eventi](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
 1. Selezionare **Click to start** (Fare clic per avviare).
@@ -108,7 +108,7 @@ In Azure Time Series Insights Gen2 è possibile aggiungere dati contestuali ai d
 
 * **Output**: un evento.
 
-    |id|timestamp|
+    |id| timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
 
@@ -131,7 +131,7 @@ In Azure Time Series Insights Gen2 è possibile aggiungere dati contestuali ai d
 
 * **Output**: due eventi.
 
-    |id|timestamp|
+    |id| timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
     |device2|2016-01-08T01:17:00Z|

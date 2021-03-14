@@ -2,13 +2,13 @@
 title: Concetti-cloud privati e cluster
 description: Informazioni sulle funzionalità principali dei data center e dei cluster vSphere definiti dal software della soluzione VMware di Azure.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 87bd2592da681726227f89b403916a12593a9db8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/13/2021
+ms.openlocfilehash: d1837ae7cf01fcb9642e0cafe4e0430e403b9899
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391389"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462517"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concetti relativi ai cluster e al cloud privato della soluzione VMware di Azure
 
@@ -20,8 +20,6 @@ Questo articolo descrive tutti questi concetti.
 
 ![Immagine di due cloud privati in una sottoscrizione del cliente](./media/hosts-clusters-private-clouds-final.png)
 
->[!NOTE]
->A causa delle minori esigenze potenziali di un ambiente di sviluppo, usare cluster più piccoli con host con capacità inferiore. 
 
 ## <a name="private-clouds"></a>Cloud privati
 
@@ -30,7 +28,7 @@ I cloud privati contengono cluster rete VSAN compilati con host di Azure bare me
 Come per le altre risorse, i cloud privati vengono installati e gestiti dall'interno di una sottoscrizione di Azure. Il numero di cloud privati all'interno di una sottoscrizione è scalabile. Inizialmente, esiste un limite di un cloud privato per ogni sottoscrizione.
 
 ## <a name="clusters"></a>Cluster
-Per ogni cloud privato creato, per impostazione predefinita è disponibile un cluster rete VSAN. È possibile aggiungere, eliminare e ridimensionare i cluster usando il portale di Azure o tramite l'API.  Tutti i cluster hanno una dimensione predefinita di tre host e possono essere ridimensionati fino a 16 host.  Gli host utilizzati in un cluster devono corrispondere allo stesso tipo di host.
+Per ogni cloud privato creato, per impostazione predefinita è disponibile un cluster rete VSAN. È possibile aggiungere, eliminare e ridimensionare i cluster usando il portale di Azure o tramite l'API.  Tutti i cluster hanno una dimensione predefinita di tre host e possono essere ridimensionati fino a 16 host. È possibile avere fino a quattro cluster per ogni cloud privato.
 
 I cluster di valutazione sono disponibili per la valutazione e sono limitati a tre host. È disponibile un singolo cluster di valutazione per ogni cloud privato. È possibile ridimensionare un cluster di valutazione da un singolo host durante il periodo di valutazione.
 
@@ -38,11 +36,11 @@ Usare vSphere e NSX-T Manager per gestire la maggior parte degli altri aspetti d
 
 ## <a name="hosts"></a>Hosts
 
-I cluster di cloud privati della soluzione VMware di Azure usano gli host di infrastruttura bare metal Hyper-convergenti. Nella tabella seguente vengono illustrate le capacità della RAM, della CPU e del disco dell'host. 
+I cluster di soluzioni VMware di Azure si basano sull'infrastruttura bare metal iperconvergente. Nella tabella seguente vengono illustrate le capacità della RAM, della CPU e del disco dell'host.
 
 | Host Type              |             CPU             |   RAM (GB)   |  Livello cache NVMe rete VSAN (TB, RAW)  |  livello di capacità SSD rete VSAN (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| High-End (HE)          |  Dual Intel 18 Core 2,3 GHz  |     576      |                3.2               |                15,20               |
+| AVS36          |  Dual Intel 18 Core 2,3 GHz  |     576      |                3.2               |                15,20               |
 
 Gli host usati per compilare o ridimensionare i cluster provengono da un pool isolato di host. Questi host hanno superato i test hardware e tutti i dati sono stati eliminati in modo sicuro. 
 
@@ -55,10 +53,7 @@ Gli host usati per compilare o ridimensionare i cluster provengono da un pool is
 
 La gestione del ciclo di vita e la manutenzione dell'host non hanno alcun effetto sulla capacità o sulle prestazioni dei cluster di cloud privati.  Esempi di manutenzione automatica degli host includono gli aggiornamenti del firmware e la riparazione o la sostituzione dell'hardware.
 
-Microsoft è responsabile della gestione del ciclo di vita di appliance NSX-T, ad esempio NSX-T Manager e NSX-T Edge. Sono anche responsabili dell'avvio della configurazione di rete, ad esempio la creazione del gateway di livello 0 e l'abilitazione del routing North-South. Si è responsabili della configurazione di NSX-T SDN. Ad esempio, i segmenti di rete, le regole del firewall distribuite, i gateway di livello 1 e i bilanciamenti del carico.
-
-> [!IMPORTANT]
-> Non modificare la configurazione del gateway NSX-T Edge o di livello 0, in quanto ciò potrebbe causare una perdita di servizio.
+Microsoft è responsabile della gestione del ciclo di vita di appliance NSX-T, ad esempio NSX-T Manager e NSX-T Edge. Microsoft è responsabile dell'avvio della configurazione di rete, ad esempio la creazione del gateway di livello 0 e l'abilitazione del routing North-South. Si è responsabili della configurazione di NSX-T SDN. Ad esempio, i segmenti di rete, le regole del firewall distribuite, i gateway di livello 1 e i bilanciamenti del carico.
 
 ## <a name="backup-and-restoration"></a>Backup e ripristino
 

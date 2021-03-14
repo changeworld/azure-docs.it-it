@@ -12,16 +12,18 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: cbe4942b63389faab00861438a0149b68c0e89c0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3f24f38db7704557894d866b789890763f9e1316
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177301"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463256"
 ---
-# <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in Java per dispositivi Linux
+# <a name="tutorial-develop-a-java-iot-edge-module-using-linux-containers"></a>Esercitazione: sviluppare un modulo Java IoT Edge usando contenitori Linux
 
-È possibile usare i moduli di Azure IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. Verrà usato il dispositivo IoT Edge simulato che è stato creato nell'argomento di avvio rapido relativo alla distribuzione di Azure IoT Edge in un dispositivo simulato in [Linux](quickstart-linux.md). In questa esercitazione verranno illustrate le procedure per:
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+È possibile usare i moduli di Azure IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. Si userà il dispositivo IoT Edge simulato creato nel Azure IoT Edge Distribuisci in un dispositivo simulato degli articoli introduttivi. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 >
@@ -36,7 +38,7 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa esercitazione illustra come sviluppare un modulo in **Java** usando **Visual Studio Code** e come distribuirlo in un **dispositivo Linux**. IoT Edge non supporta i moduli Java per dispositivi Windows.
+Questa esercitazione illustra come sviluppare un modulo in **Java** usando **Visual Studio Code** e come distribuirlo in un dispositivo IOT Edge. IoT Edge non supporta i moduli Java creati come contenitori Windows.
 
 Usare la tabella seguente per informazioni sulle opzioni disponibili per lo sviluppo e la distribuzione di moduli Java:
 
@@ -48,12 +50,12 @@ Usare la tabella seguente per informazioni sulle opzioni disponibili per lo svil
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per i contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando una delle due esercitazioni, saranno soddisfatti i prerequisiti seguenti:
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
-* Un [dispositivo Linux che esegue Azure IoT Edge](quickstart-linux.md)
+* Un dispositivo che esegue Azure IoT Edge. È possibile usare le guide introduttive per configurare un [dispositivo Linux](quickstart-linux.md) o un [dispositivo Windows](quickstart.md).
 * Un registro contenitori, ad esempio [Registro Azure Container](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configurato con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurato per eseguire i contenitori Linux.
 
-Per sviluppare un modulo IoT Edge in Java, installare i prerequisiti aggiuntivi seguenti nel computer di sviluppo: 
+Per sviluppare un modulo IoT Edge in Java, installare i prerequisiti aggiuntivi seguenti nel computer di sviluppo:
 
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) per Visual Studio Code.
 * [Java se Development Kit 11](/azure/developer/java/fundamentals/java-jdk-long-term-support)e [impostare la `JAVA_HOME` variabile di ambiente](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) in modo che punti all'installazione di JDK.

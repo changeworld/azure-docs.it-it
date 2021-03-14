@@ -9,7 +9,7 @@
       href: select-right-deployment-type.md
     - name: Versioni supportate
       href: concepts-supported-versions.md
-    - name: Criteri di controllo delle versioni
+    - name: Criteri di supporto della versione
       href: concepts-version-policy.md
       displayName: version policy
 - name: Server unico
