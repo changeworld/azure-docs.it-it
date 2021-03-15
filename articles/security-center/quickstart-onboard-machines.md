@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: b5dd06c148c53517214b47b39f083c99d0f37e0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68fcf8a8feb046fca2c26041d92264dd8b3a638e
+ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712199"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103465498"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Connettere macchine virtuali non di Azure al Centro sicurezza
 
@@ -75,24 +75,24 @@ Altre informazioni sui [server con abilitazione di Azure Arc](../azure-arc/serve
 
     Da qui scegliere la procedura appropriata tra quelle riportate di seguito, in base al tipo di computer di cui eseguire l'onboarding:
 
-    - [Eseguire l'onboarding di VM di Azure Stack](#onboard-your-azure-stack-vms)
+    - [Caricare le VM dell'hub Azure Stack](#onboard-your-azure-stack-hub-vms)
     - [Eseguire l'onboarding di computer Linux](#onboard-your-linux-machines)
     - [Eseguire l'onboarding di computer Windows](#onboard-your-windows-machines)
 
-### <a name="onboard-your-azure-stack-vms"></a>Eseguire l'onboarding di VM di Azure Stack
+### <a name="onboard-your-azure-stack-hub-vms"></a>Caricare le VM dell'hub Azure Stack
 
-Per aggiungere VM di Azure Stack, è necessario fare riferimento alle informazioni riportate nella pagina **Gestione agenti** e configurare l'estensione **Azure Monitor, Update and Configuration Management** (Monitoraggio di Azure, Gestione aggiornamenti e configurazione) nelle macchine virtuali che eseguono Azure Stack.
+Per aggiungere Azure Stack macchine virtuali dell'hub, sono necessarie le informazioni nella pagina di **gestione degli agenti** e per configurare l'estensione di macchina virtuale di **monitoraggio, aggiornamento e gestione della configurazione di Azure** nelle macchine virtuali in esecuzione nell'istanza dell'hub Azure stack.
 
 1. Nella pagina **Gestione agenti** copiare i valori di **ID area di lavoro** e **Chiave primaria** nel Blocco note.
-1. Accedere al portale di **Azure Stack** e aprire la pagina **Macchine virtuali**.
+1. Accedere al portale di **Azure stack Hub** e aprire la pagina **macchine virtuali** .
 1. Selezionare la macchina virtuale da proteggere con il Centro sicurezza.
     >[!TIP]
-    > Per informazioni su come creare una macchina virtuale in Azure Stack, vedere [questo argomento di avvio rapido per le macchine virtuali Windows](/azure-stack/user/azure-stack-quick-windows-portal) oppure [per le macchine virtuali Linux](/azure-stack/user/azure-stack-quick-linux-portal).
+    > Per informazioni su come creare una macchina virtuale nell'hub Azure Stack, vedere [questa Guida introduttiva per le macchine virtuali Windows](/azure-stack/user/azure-stack-quick-windows-portal) o [questa Guida introduttiva per le macchine virtuali Linux](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Selezionare **Estensioni**. Viene visualizzato l'elenco delle estensioni macchina virtuale installate in questa macchina virtuale.
 1. Selezionare la scheda **Aggiungi**. Il menu **Nuova risorsa** contiene un elenco delle estensioni macchina virtuale disponibili.
 1. Selezionare l'estensione **Azure Monitor, Update and Configuration Management** (Monitoraggio di Azure, Gestione aggiornamenti e configurazione) e fare clic su **Crea**. Viene visualizzata la pagina di configurazione **Installa estensione**.
     >[!NOTE]
-    > Se l'estensione **Monitoraggio di Azure, Gestione aggiornamenti e configurazione** non è elencata nel marketplace, contattare un operatore di Azure Stack per ottenerla.
+    > Se il monitoraggio di Azure, l'estensione di **Gestione aggiornamenti e configurazione** non è elencato nel Marketplace, contattare l'operatore Azure stack hub per renderlo disponibile.
 1. Nella pagina di configurazione **Installa estensione** incollare i valori di **ID area di lavoro** e **Chiave dell'area di lavoro (chiave primaria)** copiati nel Blocco note nella procedura precedente.
 1. Dopo aver completato la configurazione, selezionare **OK**. Lo stato dell'estensione viene visualizzato come **Provisioning completato**. Può essere necessaria fino a un'ora prima che la macchina virtuale venga visualizzata nel Centro sicurezza.
 

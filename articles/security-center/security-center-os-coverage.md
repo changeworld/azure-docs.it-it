@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 65f383b37b6fb5c89fb987f179d7900eb667d76e
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 88dc0760f320a99b0cbc99b7637dc34dd11dfecc
+ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438285"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103465447"
 ---
 # <a name="supported-platforms"></a>Piattaforme supportate 
 
@@ -51,7 +51,7 @@ Nelle sottoscrizioni dei clienti vengono create anche macchine virtuali come par
 
 Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli di lavoro e Web dei servizi cloud in esecuzione in slot di produzione. Per altre informazioni sui servizi cloud, vedere [Panoramica di Servizi Cloud di Azure](../cloud-services/cloud-services-choose-me.md).
 
-È supportata anche la protezione per le VM residenti in Azure Stack. Per altre informazioni sull'integrazione del Centro sicurezza con Azure Stack, vedere [Onboarding delle macchine virtuali di Azure Stack nel Centro sicurezza](quickstart-onboard-machines.md). 
+È supportata anche la protezione per le macchine virtuali che risiedono nell'hub Azure Stack. Per altre informazioni sull'integrazione del Centro sicurezza con Azure Stack Hub, vedere [onboarding the Azure stack Hub Virtual Machines to Security Center](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
