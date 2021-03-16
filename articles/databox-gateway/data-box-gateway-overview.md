@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 03/15/2021
 ms.author: alkohli
-ms.openlocfilehash: adb0e12b81701acbdb33018f055bfe8fda2efc52
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2adbefff2a0154268157c7d1735d83e70aa92ee8
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786640"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563590"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Informazioni su Azure Data Box Gateway
 
@@ -87,7 +87,7 @@ La soluzione Data Box Gateway è costituita dalla risorsa Data Box Gateway, dal 
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Il dispositivo fisico Data Box Gateway, la risorsa di Azure e l'account di archiviazione di destinazione in cui si trasferiscono i dati non devono necessariamente trovarsi tutti nella stessa area.
+Data Box Gateway dispositivo, la risorsa di Azure e l'account di archiviazione di destinazione in cui si trasferiscono i dati non devono essere tutti nella stessa area.
 
 - **Aree di disponibilità**: per un elenco delle aree in cui la risorsa Azure Data Box Gateway è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). È possibile distribuire Data Box Gateway anche nel cloud di Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](../azure-government/documentation-government-welcome.md) (Informazioni su Azure per enti pubblici).
 

@@ -4,14 +4,14 @@ description: Prerequisiti per l'uso della cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7a91cf5f9341d2b42f1c8f242d288b4ee59b632d
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 5ac0f0677be6b641d496a941c5a8e1343fd017bc
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471801"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562559"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
@@ -61,7 +61,7 @@ Per accedere alle risorse all'esterno della rete virtuale, la cache deve essere 
 * Per accedere agli endpoint di archiviazione BLOB di Azure e ad altre risorse interne, è necessario il server DNS basato su Azure.
 * Per accedere all'archiviazione locale, è necessario configurare un server DNS personalizzato in grado di risolvere i nomi host di archiviazione. È necessario eseguire questa operazione **prima** di creare la cache.
 
-Se è necessario accedere solo all'archiviazione BLOB, è possibile usare il server DNS predefinito fornito da Azure per la cache. Tuttavia, se è necessario accedere ad altre risorse, è necessario creare un server DNS personalizzato e configurarlo per l'invio di eventuali richieste di risoluzione specifiche di Azure al server DNS di Azure.
+Se si usa solo l'archiviazione BLOB, è possibile usare il server DNS predefinito fornito da Azure per la cache. Tuttavia, se è necessario accedere all'archiviazione o ad altre risorse esterne ad Azure, è necessario creare un server DNS personalizzato e configurarlo per l'invio di eventuali richieste di risoluzione specifiche di Azure al server DNS di Azure.
 
 Per usare un server DNS personalizzato, è necessario eseguire questi passaggi di configurazione prima di creare la cache:
 
@@ -185,13 +185,13 @@ La cache HPC di Azure può anche usare un contenitore BLOB montato con il protoc
 
 I requisiti dell'account di archiviazione sono diversi per una destinazione di archiviazione BLOB ADLS-NFS e per una destinazione di archiviazione BLOB standard. Per creare e configurare l'account di archiviazione abilitato per NFS, seguire le istruzioni riportate in [montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0](../storage/blobs/network-file-system-protocol-support-how-to.md) .
 
-Si tratta di una panoramica generale dei passaggi:
+Si tratta di una panoramica generale dei passaggi. Questi passaggi possono cambiare, quindi fare sempre riferimento alle [istruzioni ADLS-NFS](../storage/blobs/network-file-system-protocol-support-how-to.md) per i dettagli correnti.
 
 1. Assicurarsi che le funzionalità necessarie siano disponibili nelle aree in cui si prevede di lavorare.
 
 1. Abilitare la funzionalità del protocollo NFS per la sottoscrizione. Eseguire questa operazione *prima* di creare l'account di archiviazione.
 
-1. Creare una rete virtuale protetta (VNet) per l'account di archiviazione. È consigliabile usare la stessa rete virtuale per l'account di archiviazione abilitato per NFS e per la cache HPC di Azure.
+1. Creare una rete virtuale protetta (VNet) per l'account di archiviazione. È consigliabile usare la stessa rete virtuale per l'account di archiviazione abilitato per NFS e per la cache HPC di Azure. (Non usare la stessa subnet della cache).
 
 1. Creare l'account di archiviazione.
 

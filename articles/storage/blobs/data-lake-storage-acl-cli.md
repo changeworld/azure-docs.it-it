@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9814dc06e7e570a923ba3ea5b3b0df7ade99bb28
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5ec7d2b243a5eadab2d22dea14ebeac8eabb1722
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654243"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563165"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Usare l'interfaccia della riga di comando di Azure per gestire ACL in Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ Informazioni di [riferimento](/cli/azure/storage/fs/access)  |  [Esempi](https:/
 
 - Un account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico. Per crearne uno, seguire [queste](create-data-lake-storage-account.md) istruzioni.
 
-- Interfaccia della riga di comando di Azure versione `2.6.0` o successiva.
+- Interfaccia della riga di comando di Azure versione `2.14.0` o successiva.
 
 - Una delle autorizzazioni di sicurezza seguenti:
 
@@ -137,6 +137,9 @@ Questo esempio illustra come impostare l'ACL in un file per l'utente proprietari
 az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
+> [!NOTE]
+> Per impostare l'ACL di un gruppo o di un utente specifico, utilizzare i rispettivi ID oggetto. Ad esempio, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` o `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+
 Nell'immagine seguente illustra l'output dopo aver impostato l'ACL di un file.
 
 ![Ottenere l'output ACL 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
@@ -184,6 +187,9 @@ Questo esempio illustra come aggiornare l'ACL di un **file**.
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
+
+> [!NOTE]
+> Per aggiornare l'ACL di un gruppo o di un utente specifico, usare i rispettivi ID oggetto. Ad esempio, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` o `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 È anche possibile aggiornare l'utente proprietario e il gruppo di una directory o di un file impostando i parametri `--owner` o `group` sull'ID entità oppure sul nome dell'entità utente (UPN) di un utente.
 

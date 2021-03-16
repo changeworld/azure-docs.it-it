@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: cfef510646489e65f5cbc5d0d3e14c468301f48e
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 5ee38fa4b005cf053890c223dfec9244c637bd00
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199944"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561822"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guida per l'esecuzione di funzioni in .NET 5,0 in Azure
 
@@ -122,7 +122,7 @@ While the full middleware registration set of APIs is not yet exposed, we do sup
 
 Le associazioni vengono definite utilizzando attributi su metodi, parametri e tipi restituiti. Un metodo di funzione è un metodo con un oggetto `Function` e un attributo trigger applicato a un parametro di input, come illustrato nell'esempio seguente:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
 L'attributo trigger specifica il tipo di trigger e associa i dati di input a un parametro del metodo. La funzione di esempio precedente viene attivata da un messaggio della coda e il messaggio della coda viene passato al metodo nel `myQueueItem` parametro.
 
@@ -140,7 +140,7 @@ Una funzione può avere zero o più associazioni di input che possono passare da
 
 Per scrivere in un'associazione di output, è necessario applicare un attributo di associazione di output al metodo Function, che definisce la modalità di scrittura nel servizio associato. Il valore restituito dal metodo viene scritto nell'associazione di output. Nell'esempio seguente, ad esempio, viene scritto un valore stringa in una coda `functiontesting2` di messaggi denominata utilizzando un'associazione di output:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 ### <a name="multiple-output-bindings"></a>Più associazioni di output
 
@@ -156,7 +156,7 @@ Analogamente, la funzione restituisce un `HttpReponseData` oggetto che fornisce 
 
 Il codice seguente è un trigger HTTP 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
 
 ## <a name="logging"></a>Registrazione
 
@@ -164,7 +164,7 @@ In .NET isolated è possibile scrivere nei log usando un' [`ILogger`](/dotnet/ap
 
 Nell'esempio seguente viene illustrato come ottenere `ILogger` e scrivere i log all'interno di una funzione:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
 Usare diversi metodi di `ILogger` per scrivere diversi livelli di log, ad esempio `LogWarning` o `LogError` . Per altre informazioni sui livelli di registrazione, vedere l' [articolo monitoraggio](functions-monitoring.md#log-levels-and-categories).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: a62326d99eee8407b65c0c640b4db8a6f051c758
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101189"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564512"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza di Azure
 
@@ -201,6 +201,14 @@ La rete di Azure supporta vari scenari di accesso remoto sicuro, tra cui:
 - [Connettere la rete locale a una rete virtuale di Azure con un collegamento WAN dedicato](../../expressroute/expressroute-introduction.md)
 
 - [Connettere tra loro reti virtuali di Azure](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+
+### <a name="azure-private-link"></a>Collegamento privato di Azure
+
+Il [collegamento privato di Azure](https://azure.microsoft.com/services/private-link/) consente di accedere ai servizi PaaS di Azure, ad esempio archiviazione di Azure e database SQL, e ai servizi di proprietà del cliente/partner ospitati di Azure privatamente nella rete virtuale tramite un [endpoint privato](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Collegamento privato di Azure offre un'esperienza coerente di configurazione e utilizzo per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner. Il traffico che transita dalla rete virtuale al servizio di Azure rimane sempre nella rete backbone di Microsoft Azure.
+
+Gli [endpoint privati](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) consentono di proteggere le risorse critiche dei servizi di Azure solo per le reti virtuali. L'endpoint privato di Azure usa un indirizzo IP privato della VNet per connettersi privatamente e in modo sicuro a un servizio basato su collegamento privato di Azure, portando il servizio nella VNet. L'esposizione della rete virtuale alla rete Internet pubblica non è più necessaria per l'utilizzo dei servizi in Azure. 
+
+È anche possibile creare un servizio di collegamento privato nella rete virtuale. Il [servizio di collegamento privato di Azure](https://docs.microsoft.com/azure/private-link/private-link-service-overview) è il riferimento al servizio personalizzato che è basato sul collegamento privato di Azure. Il servizio in esecuzione dietro Azure Load Balancer Standard può essere abilitato per l'accesso ai collegamenti privati, in modo che i consumer del servizio possano accedervi privatamente dalle proprie reti virtuali. I clienti possono creare un endpoint privato all'interno della rete virtuale e associarlo a questo servizio. L'esposizione del servizio alla rete Internet pubblica non è più necessaria per il rendering dei servizi in Azure. 
 
 ### <a name="vpn-gateway"></a>Gateway VPN
 

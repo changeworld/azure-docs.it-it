@@ -3,14 +3,14 @@ title: Verificare la presenza di errori in pool e nodi
 description: Questo articolo illustra le operazioni in background che possono verificarsi, assieme agli errori a cui prestare attenzione e come evitarli durante la creazione di pool e nodi.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/03/2020
+ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4a0d3e017f36f580024b77fbd23145d7447f336d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576313"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564406"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
 
@@ -62,6 +62,13 @@ Quando si elimina un pool che contiene nodi, Batch elimina prima di tutto i nodi
 
 Lo [stato del pool](/rest/api/batchservice/pool/get#poolstate) viene impostato su **deleting** durante il processo di eliminazione. L'applicazione chiamante può rilevare se l'eliminazione del pool richiede troppo tempo usando le proprietà **state** e **stateTransitionTime**.
 
+Se il pool richiede più tempo del previsto, il batch tenterà di eseguire periodicamente un nuovo tentativo finché il pool non potrà essere eliminato correttamente. In alcuni casi, il ritardo è dovuto a un'interruzione del servizio di Azure o ad altri problemi temporanei. Altri fattori che possono impedire il corretto eliminazione di un pool potrebbero richiedere di eseguire azioni per risolvere il problema. Questi fattori includono i seguenti:
+
+- I blocchi delle risorse sono stati inseriti in risorse create in batch o in risorse di rete usate da batch.
+- Le risorse create hanno una dipendenza da una risorsa creata in batch. Ad esempio, se si [Crea un pool in una rete virtuale](batch-virtual-network.md), batch crea un gruppo di sicurezza di rete (NSG), un indirizzo IP pubblico e un servizio di bilanciamento del carico. Se si usano queste risorse al di fuori del pool, il pool non può essere eliminato fino a quando non viene rimossa la dipendenza.
+- È stata annullata la registrazione del provider di risorse Microsoft.Batch dalla sottoscrizione che contiene il pool.
+- "Microsoft Azure Batch" non dispone più del [ruolo Collaboratore o proprietario](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) della sottoscrizione che contiene il pool (per gli account batch in modalità sottoscrizione utente).
+
 ## <a name="node-errors"></a>Errori del nodo
 
 Anche se Batch alloca correttamente i nodi in un pool, vari problemi possono compromettere l'integrità di alcuni nodi e impedire l'esecuzione di attività. Questi nodi continuano a prevedere un addebito, per cui è importante rilevare i problemi per evitare di pagare per i nodi che non possono essere usati. Oltre agli errori comuni relativi ai nodi, conoscere lo [stato del processo](/rest/api/batchservice/job/get#jobstate) corrente è utile per la risoluzione dei problemi.
@@ -105,15 +112,10 @@ Se Batch è in grado di determinare la causa, questa viene indicata nella propri
 Altri esempi di cause di nodi inutilizzabili, con stato **unusable**, includono:
 
 - Un'immagine di macchina virtuale personalizzata non è valida. È il caso ad esempio di un'immagine preparata in modo non corretto.
-
 - Una macchina virtuale viene spostata a causa di un errore di infrastruttura o un aggiornamento di basso livello. Batch recupera il nodo.
-
 - Un'immagine della macchina virtuale è stata distribuita nell'hardware, che non la supporta. Un esempio è quando si tenta di eseguire un'immagine HPC CentOS in una macchina virtuale [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md).
-
 - Le macchine virtuali si trovano in una [rete virtuale di Azure](batch-virtual-network.md) e il traffico è stato bloccato sulle porte chiave.
-
 - Le macchine virtuali si trovano in una rete virtuale, ma il traffico in uscita verso l'archiviazione di Azure è bloccato.
-
 - Le macchine virtuali si trovano in una rete virtuale con una configurazione DNS del cliente e il server DNS non riesce a risolvere l'archiviazione di Azure.
 
 ### <a name="node-agent-log-files"></a>File di log dell'agente del nodo

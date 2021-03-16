@@ -4,14 +4,14 @@ description: Come definire le destinazioni di archiviazione in modo che la cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 4e6c5b5ea69c55c09887528f1723414f53fcb0f9
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: bba6745a4cc0be30648e23501f9a9e2f0cc6c8db
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471933"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563242"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -194,15 +194,17 @@ Per informazioni dettagliate sulle altre opzioni, vedere [comprendere i modelli 
 
 In questa tabella vengono riepilogate le differenze tra tutti i modelli di utilizzo:
 
-| Modello di utilizzo | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
+[!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
+
+<!-- | Usage model | Caching mode | Back-end verification | Maximum write-back delay |
 |--|--|--|--|
-| Lettura di scritture complesse e non frequenti | Lettura | Mai | nessuno |
-| Scritture superiori al 15% | Lettura/Scrittura | 8 ore | 20 minuti |
-| Client che ignorano la cache | Lettura | 30 secondi | nessuno |
-| Scritture maggiori del 15%, controllo di back-end frequente (30 secondi) | Lettura/Scrittura | 30 secondi | 20 minuti |
-| Più di 15% Scritture, controllo back-end frequente (60 secondi) | Lettura/Scrittura | 60 secondi | 20 minuti |
-| Scritture con dimensioni maggiori del 15%, writeback frequente | Lettura/Scrittura | 30 secondi | 30 secondi |
-| Lettura intensiva, controllo del server di backup ogni 3 ore | Lettura | 3 ore | nessuno |
+| Read heavy, infrequent writes | Read | Never | None |
+| Greater than 15% writes | Read/write | 8 hours | 20 minutes |
+| Clients bypass the cache | Read | 30 seconds | None |
+| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
+| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
+| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
+| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None | -->
 
 > [!NOTE]
 > Il valore di **Verifica back-end** indica quando la cache confronta automaticamente i propri file con i file di origine nell'archiviazione remota. Tuttavia, è possibile attivare un confronto inviando una richiesta client che include un'operazione READDIRPLUS nel sistema di archiviazione back-end. READDIRPLUS è un'API NFS standard (detta anche lettura estesa) che restituisce i metadati della directory, che determina il confronto e l'aggiornamento dei file nella cache.

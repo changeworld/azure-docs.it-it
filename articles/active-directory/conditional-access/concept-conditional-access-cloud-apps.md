@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b3b4da4e21bca421b76f820c04ba68375be5ca0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2895588a5a82ec2b6c69d33ff6cea39bbe3a0372
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307777"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491997"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accesso condizionale: App o azioni cloud
 
@@ -125,8 +125,14 @@ Oltre alle app Microsoft, gli amministratori possono aggiungere ai criteri di ac
 
 ## <a name="user-actions"></a>Azioni utente
 
-Le azioni dell'utente sono attività che possono essere eseguite da un utente. L'unica azione attualmente supportata è **Registra le informazioni di sicurezza** , che consente di applicare criteri di accesso condizionale quando gli utenti abilitati per la registrazione combinata tentano di registrare le proprie informazioni di sicurezza. Altre informazioni sono disponibili nell'articolo [Registrazione di informazioni di sicurezza combinate](../authentication/concept-registration-mfa-sspr-combined.md).
+Le azioni dell'utente sono attività che possono essere eseguite da un utente. Attualmente, l'accesso condizionale supporta due azioni utente: 
 
+- **Registra le informazioni di sicurezza**: questa azione utente consente ai criteri di accesso condizionale di applicare quando gli utenti abilitati per la registrazione combinata tentano di registrare le informazioni di sicurezza. Altre informazioni sono disponibili nell'articolo [Registrazione di informazioni di sicurezza combinate](../authentication/concept-registration-mfa-sspr-combined.md).
+
+- **Registrare o aggiungere dispositivi (anteprima)**: questa azione dell'utente consente agli amministratori di applicare i criteri di accesso condizionale quando gli utenti [registrano](../devices/concept-azure-ad-register.md) o [aggiungono](../devices/concept-azure-ad-join.md) dispositivi a Azure ad. Questa azione dell'utente prevede due considerazioni principali: 
+   - `Require multi-factor authentication` è l'unico controllo di accesso disponibile con questa azione dell'utente e tutti gli altri sono disabilitati. Questa restrizione impedisce i conflitti con i controlli di accesso che dipendono dalla registrazione del dispositivo Azure AD o non applicabili per Azure AD la registrazione del dispositivo. 
+   - Quando un criterio di accesso condizionale viene abilitato con questa azione dell'utente, è necessario impostare  >    >  **le impostazioni del dispositivo** Azure Active Directory dispositivi  -  `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` su **No**. In caso contrario, i criteri di accesso condizionale con questa azione utente non vengono applicati correttamente. Altre informazioni relative a questa impostazione del dispositivo sono disponibili in [configurare le impostazioni del dispositivo](../device-management-azure-portal.md##configure-device-settings). Questa azione dell'utente offre la flessibilità necessaria per richiedere l'autenticazione a più fattori per la registrazione o l'aggiunta di dispositivi a utenti e gruppi specifici, anziché avere un criterio a livello di tenant nelle impostazioni del dispositivo. 
+   
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Accesso condizionale: condizioni](concept-conditional-access-conditions.md)

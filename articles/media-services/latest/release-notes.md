@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5a36b5c8b0c8f24d093d887ad788c4ce9857d355
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: d7cfb4cf9b6b061f5fb53667e968cb0403f22bfc
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492675"
+ms.locfileid: "103562570"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -29,7 +29,32 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Correzioni di bug
 * Funzionalità deprecate
 
-## <a name="known-issues"></a>Problemi noti
+## <a name="march-2021"></a>Marzo 2021
+
+### <a name="new-language-support-added-to-the-audioanalyzer-preset"></a>Supporto per il nuovo linguaggio aggiunto al set di impostazioni AudioAnalyzer
+
+Altre lingue per la trascrizione video e la sottotitolazione sono disponibili ora nel set di impostazioni AudioAnalyzer (modalità di base e standard).
+
+* Inglese (Australia),' en-AU '
+* Francese (Canada),' fr-CA '
+* Standard arabo (Bahrain) moderno,' AR-BH '
+* Arabo (Egitto),' ar-EG '
+* Arabo (Iraq),' AR-IQ '
+* Arabo (Israele),' AR-IL '
+* Arabo (Giordania),' ar-JO '
+* Arabo (Kuwait),' AR-KW '
+* Arabo (Libano),' AR-LB '
+* Arabo (Oman),' AR-OM '
+* Arabo (Qatar),' AR-QA '
+* Arabo (Arabia Saudita),' ar-SA '
+* Danese,' da-DK '
+* Norvegese,' nb-NO '
+* Svedese,' SV-SE '
+* Finlandese,' fi-FI '
+* Thai,' th-TH '
+* Turco,' TR-TR '
+
+Vedere le lingue più recenti disponibili nell' [articolo relativo al concetto di analisi dei file audio e video.](analyzing-video-audio-files-concept.md)
 
 ## <a name="february-2021"></a>2021 febbraio
 

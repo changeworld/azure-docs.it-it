@@ -4,14 +4,14 @@ description: Vengono descritti i diversi modelli di utilizzo della cache e viene
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 856f2c15d2bd0b39212e8962a92b1df50cada29e
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: b23afb17b9b7152e82049ca4f6127e2811913296
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472856"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563454"
 ---
 # <a name="understand-cache-usage-models"></a>Informazioni sui modelli di utilizzo della cache
 
@@ -29,7 +29,7 @@ La memorizzazione nella cache di file è il modo in cui cache HPC di Azure accel
 
   Se la memorizzazione nella cache in scrittura è disabilitata, la cache non archivia il file modificato e lo scrive immediatamente nel sistema di archiviazione back-end.
 
-* **Ritardo writeback** : per una cache con memorizzazione nella cache in scrittura attivata, il ritardo write-back corrisponde alla quantità di tempo durante il quale la cache resta in attesa di ulteriori modifiche ai file prima di trasferire il file al sistema di archiviazione back-end.
+* **Ritardo writeback** : per una cache con memorizzazione nella cache in scrittura attivata, il ritardo write-back corrisponde alla quantità di tempo durante il quale la cache resta in attesa di ulteriori modifiche ai file prima di copiare il file nel sistema di archiviazione back-end.
 
 * **Verifica back-end** : l'impostazione di verifica del back-end determina la frequenza con cui la cache confronta la copia locale di un file con la versione remota sul sistema di archiviazione back-end. Se la copia back-end è più recente della copia memorizzata nella cache, la cache recupera la copia remota e la archivia per richieste future.
 
@@ -43,7 +43,7 @@ I modelli di utilizzo incorporati nella cache HPC di Azure hanno valori diversi 
 
 I modelli di utilizzo della cache HPC consentono di scegliere come bilanciare la risposta rapida con il rischio di recuperare i dati obsoleti. Se si desidera ottimizzare la velocità per la lettura dei file, è possibile che non si sia interessati a verificare se i file nella cache vengono confrontati con i file back-end. D'altra parte, se si desidera assicurarsi che i file siano sempre aggiornati con l'archiviazione remota, scegliere un modello che controlli di frequente.
 
-Sono disponibili diverse opzioni:
+Queste sono le opzioni del modello di utilizzo:
 
 * **Read Heavy, scritture rare** : usare questa opzione se si vuole velocizzare l'accesso in lettura ai file statici o modificati raramente.
 
@@ -53,13 +53,16 @@ Sono disponibili diverse opzioni:
 
   Non usare questa opzione se esiste il rischio che un file venga modificato direttamente nel sistema di archiviazione senza prima scriverlo nella cache. In tal caso, la versione memorizzata nella cache del file non sarà sincronizzata con il file back-end.
 
-* **Scritture superiori al 15%** : questa opzione consente di velocizzare le prestazioni di lettura e scrittura. Quando si usa questa opzione, tutti i client devono accedere ai file tramite la cache HPC di Azure anziché montare direttamente l'archiviazione back-end. I file memorizzati nella cache avranno modifiche recenti che non sono archiviate nel back-end.
+* **Scritture superiori al 15%** : questa opzione consente di velocizzare le prestazioni di lettura e scrittura. Quando si usa questa opzione, tutti i client devono accedere ai file tramite la cache HPC di Azure anziché montare direttamente l'archiviazione back-end. I file memorizzati nella cache avranno modifiche recenti che non sono ancora state copiate nel back-end.
 
   In questo modello di utilizzo, i file nella cache vengono verificati solo in base ai file nell'archiviazione back-end ogni otto ore. Si presuppone che la versione memorizzata nella cache del file sia più aggiornata. Un file modificato nella cache viene scritto nel sistema di archiviazione back-end dopo che è stato inserito nella cache per 20 minuti<!-- an hour --> senza ulteriori modifiche.
 
 * I **client scrivono nella destinazione NFS, ignorando la cache** . scegliere questa opzione se i client nel flusso di lavoro scrivono i dati direttamente nel sistema di archiviazione senza prima scrivere nella cache o se si vuole ottimizzare la coerenza dei dati. I file richiesti dai client vengono memorizzati nella cache (letture), ma tutte le modifiche apportate a tali file dal client (scritture) non vengono memorizzate nella cache. Vengono passati direttamente al sistema di archiviazione back-end.
 
-  Con questo modello di utilizzo, i file nella cache vengono spesso controllati rispetto alle versioni back-end per gli aggiornamenti. Questa verifica consente di modificare i file all'esterno della cache mantenendo la coerenza dei dati.
+  Con questo modello di utilizzo, i file nella cache vengono spesso controllati rispetto alle versioni back-end per gli aggiornamenti, ogni 30 secondi. Questa verifica consente di modificare i file all'esterno della cache mantenendo la coerenza dei dati.
+
+  > [!TIP]
+  > I primi tre modelli di utilizzo di base possono essere usati per gestire la maggior parte dei flussi di lavoro della cache HPC di Azure. Le opzioni successive sono per gli scenari meno comuni.
 
 * **Più del 15% di Scritture, il controllo delle modifiche del server di supporto ogni 30 secondi** e **più del 15%, il controllo delle modifiche del server di backup ogni 60 secondi** . queste opzioni sono progettate per i flussi di lavoro in cui si desidera velocizzare le operazioni di lettura e scrittura, ma è possibile che un altro utente scriva direttamente nel sistema di archiviazione back-end. Se, ad esempio, più set di client lavorano sugli stessi file di posizioni diverse, questi modelli di utilizzo potrebbero avere senso bilanciare la necessità di accesso rapido ai file con tolleranza bassa per il contenuto non aggiornato dall'origine.
 
@@ -71,16 +74,18 @@ Sono disponibili diverse opzioni:
 
 In questa tabella vengono riepilogate le differenze del modello di utilizzo:
 
-| Modello di utilizzo                   | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
-|-------------------------------|--------------|-----------------------|--------------------------|
-| Lettura di scritture complesse e non frequenti | Lettura         | Mai                 | nessuno                     |
-| Scritture superiori al 15%       | Lettura/Scrittura   | 8 ore               | 20 minuti               |
-| Client che ignorano la cache      | Lettura         | 30 secondi            | nessuno                     |
-| Scritture maggiori del 15%, controllo di back-end frequente (30 secondi) | Lettura/Scrittura | 30 secondi | 20 minuti |
-| Più di 15% Scritture, controllo back-end frequente (60 secondi) | Lettura/Scrittura | 60 secondi | 20 minuti |
-| Scritture con dimensioni maggiori del 15%, writeback frequente | Lettura/Scrittura | 30 secondi | 30 secondi |
-| Lettura intensiva, controllo del server di backup ogni 3 ore | Lettura | 3 ore | nessuno |
+[!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
 
+<!-- | Usage model                   | Caching mode | Back-end verification | Maximum write-back delay |
+|-------------------------------|--------------|-----------------------|--------------------------|
+| Read heavy, infrequent writes | Read         | Never                 | None                     |
+| Greater than 15% writes       | Read/write   | 8 hours               | 20 minutes               |
+| Clients bypass the cache      | Read         | 30 seconds            | None                     |
+| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
+| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
+| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
+| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None |
+-->
 Per domande sul modello di utilizzo ottimale per il flusso di lavoro della cache HPC di Azure, contattare il rappresentante Azure o aprire una richiesta di supporto per assistenza.
 
 ## <a name="next-steps"></a>Passaggi successivi

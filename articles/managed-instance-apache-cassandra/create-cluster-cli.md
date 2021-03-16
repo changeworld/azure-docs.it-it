@@ -5,13 +5,13 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
-ms.openlocfilehash: 6de2e0f1744b333a830fbe500e2df51e7eaca62d
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.date: 03/15/2021
+ms.openlocfilehash: 3890b06b2d085cea57b59cfe34d8b961918471c5
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419080"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562400"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Guida introduttiva: creare un cluster Azure Istanza gestita per Apache Cassandra usando l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -31,7 +31,7 @@ Questa Guida introduttiva illustra come usare i comandi dell'interfaccia della r
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!IMPORTANT]
-> Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.12.1 o successiva. Se si utilizza Azure Cloud Shell, è già installata la versione più recente.
+> Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.17.1 o successiva. Se si utilizza Azure Cloud Shell, è già installata la versione più recente.
 
 ## <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>Creare un cluster di istanze gestite
 
@@ -58,7 +58,7 @@ Questa Guida introduttiva illustra come usare i comandi dell'interfaccia della r
    > [!NOTE]
    > I valori `assignee` e `role` nel comando precedente sono valori fissi, immettere questi valori esattamente come indicato nel comando. In caso contrario, si verificheranno errori durante la creazione del cluster. Se si verificano errori durante l'esecuzione di questo comando, è possibile che non si disponga delle autorizzazioni per eseguirlo, rivolgersi all'amministratore per ottenere le autorizzazioni.
 
-1. Successivamente, creare il cluster nella rete virtuale appena creata. Eseguire il comando seguente e assicurarsi di usare il `Resource ID` valore recuperato nel comando precedente come valore della `delegatedManagementSubnetId` variabile:
+1. Successivamente, creare il cluster nella rete virtuale appena creata usando il comando [AZ Managed-Cassandra cluster create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create) . Eseguire il comando seguente e assicurarsi di usare il `Resource ID` valore recuperato nel comando precedente come valore della `delegatedManagementSubnetId` variabile:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
@@ -76,7 +76,7 @@ Questa Guida introduttiva illustra come usare i comandi dell'interfaccia della r
       --debug
    ```
 
-1. Infine, creare un Data Center per il cluster con tre nodi:
+1. Infine, creare un Data Center per il cluster con tre nodi usando il comando [AZ Managed-Cassandra datacenter create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create) :
 
    ```azurecli-interactive
    dataCenterName='dc1'
@@ -92,7 +92,7 @@ Questa Guida introduttiva illustra come usare i comandi dell'interfaccia della r
       --node-count 3 
    ```
 
-1. Una volta creato il Data Center, se si desidera aumentare o ridurre i nodi del Data Center, eseguire il comando seguente. Modificare il valore del `node-count` parametro impostando il valore desiderato:
+1. Una volta creato il Data Center, se si vuole aumentare o ridurre i nodi nel Data Center, eseguire il comando [AZ Managed-Cassandra datacenter Update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update) . Modificare il valore del `node-count` parametro impostando il valore desiderato:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'

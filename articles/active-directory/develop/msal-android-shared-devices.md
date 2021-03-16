@@ -13,17 +13,14 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: ea902b8b609d226f6bb9e61ec0bfd60f75a3825d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a67e0d851ab544f737097eff9a884752cff9f5fc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038578"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491551"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modalità dispositivo condiviso per dispositivi Android
-
->[!IMPORTANT]
-> Questa funzionalità [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 I ruoli di lavoro di prima riga, ad esempio i Retail Associates, i membri del team di volo e i lavoratori dei servizi Field spesso usano un dispositivo mobile condiviso per svolgere il proprio lavoro Questo diventa problematico quando iniziano a condividere le password o i numeri PIN per accedere ai dati aziendali e ai clienti sul dispositivo condiviso.
 

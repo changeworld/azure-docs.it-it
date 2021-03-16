@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: df5133ad4bb3155afdc9d43e595591d9cfda4ea0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2bdf04143121e1286ffc7bfa86b4a9ee291ae6ef
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644443"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561864"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Risolvere gli errori di onboarding comuni per la gestione del caricamento
 La gestione automatica potrebbe non riuscire a caricare un computer nel servizio. Questo documento illustra come risolvere gli errori di distribuzione, condivide alcuni motivi comuni per cui le distribuzioni possono avere esito negativo e descrive i potenziali passaggi successivi per la mitigazione.
@@ -21,7 +21,7 @@ La gestione automatica potrebbe non riuscire a caricare un computer nel servizio
 ## <a name="troubleshooting-deployment-failures"></a>Risoluzione degli errori di distribuzione
 L'onboarding di un computer per la gestione automatica comporterà la creazione di una distribuzione Azure Resource Manager. Se il caricamento ha esito negativo, può essere utile consultare la distribuzione per ulteriori dettagli sul motivo per cui non è riuscito. Sono disponibili collegamenti alle distribuzioni nel riquadro a comparsa Dettagli errore, illustrato di seguito.
 
-:::image type="content" source="media\automanage-common-errors\failure-flyout.png" alt-text="Riquadro a comparsa Dettagli errore automanage.":::
+:::image type="content" source="media\common-errors\failure-flyout.png" alt-text="Riquadro a comparsa Dettagli errore automanage.":::
 
 ### <a name="check-the-deployments-for-the-resource-group-containing-the-failed-vm"></a>Controllare le distribuzioni per il gruppo di risorse che contiene la macchina virtuale non riuscita
 Il riquadro a comparsa errore conterrà un collegamento alle distribuzioni all'interno del gruppo di risorse che contiene il computer che ha avuto esito negativo e un nome di prefisso che è possibile usare per filtrare le distribuzioni con. Facendo clic sul collegamento si passerà al pannello distribuzioni, in cui è possibile filtrare le distribuzioni per visualizzare le distribuzioni autogestite nel computer. Se si esegue la distribuzione in più aree, assicurarsi di fare clic sulla distribuzione nell'area corretta.
@@ -38,6 +38,7 @@ Errore |  Strategia di riduzione del rischio
 :-----|:-------------|
 Errore di autorizzazioni insufficienti per l'account di gestione | Questo problema può verificarsi se di recente è stata spostata una sottoscrizione contenente un nuovo account di gestione autogestita in un nuovo tenant. I passaggi per risolvere il problema sono disponibili [qui](./repair-automanage-account.md).
 Area dell'area di lavoro requisiti di mapping area non corrispondenti | La gestione automatica non è riuscita a caricare il computer, ma l'area di lavoro Log Analytics a cui il computer è attualmente collegato non è mappata a un'area di automazione supportata. Assicurarsi che l'area di lavoro Log Analytics esistente e l'account di automazione si trovino in un [mapping di area supportato](../automation/how-to/region-mappings.md).
+"Accesso negato a causa dell'assegnazione Deny con il nome ' assegnazione di rifiuto di sistema creata dall'applicazione gestità" | Nella risorsa è stato creato un [denyAssignment](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) che ha impedito l'accesso alla risorsa da automanage. Il problema potrebbe essere stato causato da un [progetto](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) o da un' [applicazione gestita](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview).
 "L'assegnazione non è riuscita. non sono disponibili informazioni aggiuntive " | Aprire un caso con supporto Microsoft Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi

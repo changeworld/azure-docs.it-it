@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/10/2021
-ms.openlocfilehash: 78a17ad6599e1ac4f455f2806a5f944675198b4b
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 0e60ac6da55c11d45e8b691b4883b0f5f93a2498
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102631490"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563931"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Espressioni per la trasformazione dei dati nel flusso di dati per mapping
 
@@ -152,14 +152,13 @@ Raccoglie tutti i valori dell'espressione nel gruppo aggregato in una matrice. D
 ___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
-Ottiene tutte le colonne di output per un flusso. È possibile passare un nome di flusso facoltativo come secondo argomento.  
+Ottiene i nomi di tutte le colonne di output per un flusso. È possibile passare un nome di flusso facoltativo come secondo argomento.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
-
 ___
 ### <code>columns</code>
 <code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Ottiene tutte le colonne di output per un flusso. È possibile passare un nome di flusso facoltativo come secondo argomento.   
+Ottiene i valori di tutte le colonne di output per un flusso. È possibile passare un nome di flusso facoltativo come secondo argomento.   
 * ``columns()``
 * ``columns('DeriveStream')``
 ___

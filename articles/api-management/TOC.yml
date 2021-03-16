@@ -245,6 +245,8 @@
           href: api-management-transformation-policies.md
         - name: Criteri di integrazione Dapr (Distributed Apps Runtime)
           href: api-management-dapr-policies.md
+        - name: Criteri di convalida
+          href: validation-policies.md
     - name: Gestire l'ambiente di produzione
       items:
         - name: Esportare le API in Power Platform

@@ -1,6 +1,6 @@
 ---
 title: 'Guida alla migrazione di DB2 al database SQL:'
-description: Seguire questa guida per eseguire la migrazione dei database DB2 al database SQL di Azure.
+description: Questa guida illustra come eseguire la migrazione dei database DB2 al database SQL di Azure usando SQL Server Migration Assistant per DB2 (SSMA per DB2).
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 3e216c4aeb8d1206011ff9cca2d80900c23b2399
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 917390b43a772cbb9374c560fc3a65cfa7278839
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356345"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563945"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Guida alla migrazione: DB2 al database SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -142,9 +142,6 @@ L'approccio di test per la migrazione del database prevede le attività seguenti
 1. **Configurare un ambiente di test**: l'ambiente di test deve contenere una copia del database di origine e del database di destinazione. Assicurarsi di isolare l'ambiente di test.
 1. **Eseguire test di convalida**: eseguire i test di convalida sull'origine e sulla destinazione, quindi analizzare i risultati.
 1. **Eseguire test delle prestazioni**: eseguire test delle prestazioni sull'origine e sulla destinazione, quindi analizzare e confrontare i risultati.
-
-   > [!NOTE]
-   > Per assistenza nello sviluppo e nell'esecuzione di test di convalida post-migrazione, prendere in considerazione la soluzione per la qualità dei dati offerta dal partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 
 ## <a name="leverage-advanced-features"></a>Sfruttare le funzionalità avanzate 

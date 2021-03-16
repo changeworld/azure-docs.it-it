@@ -966,8 +966,6 @@
           items:
             - name: Approfondimenti F5
               href: app/visual-studio.md
-            - name: Tendenze
-              href: app/visual-studio-trends.md
             - name: CodeLens
               href: app/visual-studio-codelens.md
         - name: Altre piattaforme
@@ -1038,6 +1036,8 @@
           href: vm/vminsights-workbooks.md
         - name: Disabilitare il monitoraggio
           href: vm/vminsights-optout.md
+        - name: Risolvere problemi
+          href: vm/vminsights-troubleshoot.md
     - name: Informazioni dettagliate sul contenitore
       items:
         - name: Panoramica

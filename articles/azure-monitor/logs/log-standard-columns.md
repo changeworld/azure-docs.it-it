@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: 3e12bef7569110084cd059b0dfde8562bd914823
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5b906bdbd07d59d2acc88f6b30f0db6b6cbc961a
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030767"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562247"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colonne standard nei log di monitoraggio di Azure
 I dati nei log di monitoraggio di Azure vengono [archiviati come set di record in un'area di lavoro log Analytics o in un'applicazione Application Insights](../logs/data-platform-logs.md), ognuno con un particolare tipo di dati che dispone di un set univoco di colonne. Molti tipi di dati avranno colonne standard comuni tra più tipi. Questo articolo descrive queste colonne e fornisce esempi di come è possibile usarle nelle query.
@@ -132,7 +132,7 @@ Usare queste query `union withsource = tt *` solo se necessario, poiché le anal
 
 È sempre più efficiente usare la \_ colonna SubscriptionId anziché estrarla analizzando la \_ colonna ResourceId.
 
-## <a name="_substriptionid"></a>\_SubstriptionId
+## <a name="_subscriptionid"></a>\_SubscriptionId
 La colonna **\_ SubscriptionId** include l'ID sottoscrizione della risorsa a cui è associato il record. In questo modo si ottiene una colonna standard da usare per definire l'ambito della query solo per i record di una sottoscrizione specifica o per confrontare sottoscrizioni diverse.
 
 Per le risorse di Azure, il valore di **__SubscriptionId** è la parte relativa alla sottoscrizione dell' [URL dell'ID risorsa di Azure](../../azure-resource-manager/templates/template-functions-resource.md). La colonna è limitata alle risorse di Azure, incluse le risorse di [Azure Arc](../../azure-arc/overview.md) , oppure ai log personalizzati che indicano l'ID risorsa durante l'inserimento.

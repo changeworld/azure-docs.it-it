@@ -4,14 +4,14 @@ description: Come configurare i servizi di directory per l'accesso client a dest
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 4f1499c9a86999bac86fb7bf185f195e9ba5f690
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: fd5dce0760953bf19c72e1a1062a9c03ffe861e7
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472079"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563374"
 ---
 # <a name="configure-directory-services"></a>Configurare i servizi di directory
 
@@ -81,7 +81,7 @@ Nella sezione **accesso sicuro** è possibile abilitare la crittografia e la con
 
 * **Scaricare automaticamente il certificato** : scegliere **Sì** se si vuole provare a scaricare un certificato non appena si inviano queste impostazioni.
 
-Compilare la sezione **Credentials (credenziali** ) se si desidera utilizzare credenziali statiche per la sicurezza LDAP.
+Compilare la sezione **Credentials (credenziali** ) se si desidera utilizzare credenziali statiche per la sicurezza LDAP. Queste informazioni vengono crittografate quando vengono archiviate e non possono essere sottoposte a query.
 
 * **Binding DN** : immettere il nome distinto di binding da usare per l'autenticazione al server LDAP. (Usare il formato DN).
 * **Password di binding** : specificare la password per il DN di binding.

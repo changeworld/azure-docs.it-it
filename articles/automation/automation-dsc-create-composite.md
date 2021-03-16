@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8c834caa2285135b7d39c440489b42c366418042
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5833308f03d328d988ac818d83ff5ee618a4c79c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186470"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563573"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Convertire le configurazioni in risorse composite
 
@@ -49,7 +49,7 @@ Il cmdlet caricherà il contenuto della configurazione, otterrà l'elenco dei pa
 
 Dopo aver generato un modulo, è possibile incrementare la versione e aggiungere le note sulla versione ogni volta che si apportano modifiche e lo si pubblica nel [repository PowerShellGet](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo) personale.
 
-Dopo aver creato un modulo di risorsa composita contenente la configurazione (o più configurazioni), è possibile usarlo nell'[esperienza di composizione di configurazioni](./compose-configurationwithcompositeresources.md) in Azure oppure aggiungerlo a [script di configurazione DSC](/powershell/scripting/dsc/configurations/configurations) per generare file MOF e [caricare i file MOF in Automazione di Azure](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
+Dopo aver creato un modulo di risorsa composita contenente la configurazione (o più configurazioni), è possibile usarli nell' [esperienza di creazione componibile](./compose-configurationwithcompositeresources.md) in Azure oppure aggiungerli agli script di [configurazione DSC](/powershell/scripting/dsc/configurations/configurations) per generare file MOF e [caricare i file MOF in automazione di Azure](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
 Registrare quindi i server da [locale](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) o [in Azure](./automation-dsc-onboarding.md#enable-azure-vms) per eseguire il pull delle configurazioni.
 L'aggiornamento più recente del progetto ha pubblicato anche [runbook](https://www.powershellgallery.com/packages?q=DscGallerySamples) per Automazione di Azure per automatizzare il processo di importazione delle configurazioni da PowerShell Gallery.
 
@@ -57,6 +57,6 @@ Per provare ad automatizzare la creazione di risorse composite per DSC, visitare
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su PowerShell DSC, vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview).
+- Per informazioni su PowerShell DSC, vedere [Panoramica della configurazione di Desired State Configuration per Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 - In [Risorse DSC](/powershell/scripting/dsc/resources/resources) sono disponibili informazioni sulle risorse di PowerShell DSC.
-- Per altri dettagli sulla configurazione di Configuration Manager locale, vedere [Configurazione di Configuration Manager locale](/powershell/scripting/dsc/managing-nodes/metaconfig).
+- Per altri dettagli sulla configurazione di Configuration Manager locale, vedere [Configurazione di Gestione configurazione locale](/powershell/scripting/dsc/managing-nodes/metaconfig).

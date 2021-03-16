@@ -7,13 +7,13 @@ metadata:
   services: Azure portal
   ms.topic: landing-page
   ms.collection: collection
-  ms.date: 08/05/2020
-  ms.openlocfilehash: c1617f295a101ae645743d60fdbe82a09d936ea2
-  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
-  ms.translationtype: HT
+  ms.date: 03/15/2021
+  ms.openlocfilehash: 7b7727d1fdf550b3ab3341bd0dc852f343b00791
+  ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 12/07/2020
-  ms.locfileid: "96749012"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103563913"
 landingContent:
 - title: Informazioni sul portale di Azure
   linkLists:
@@ -21,18 +21,44 @@ landingContent:
     links:
     - text: Che cos'è il portale di Azure?
       url: azure-portal-overview.md
+    - text: Eseguire l'onboarding con il Centro di avvio rapido di Azure
+      url: azure-portal-quickstart-center.md
     - text: Browser e dispositivi supportati
       url: azure-portal-supported-browsers-devices.md
-- title: Personalizzare il portale di Azure
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creare una VM nel portale
+      url: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - text: Creare un dashboard-interfaccia della riga di comando di Azure
+      url: quickstart-portal-dashboard-azure-cli.md
+    - text: Creare un dashboard-Azure PowerShell
+      url: quickstart-portal-dashboard-powershell.md
+    - text: Creare un dashboard - Modello di Resource Manager
+      url: quick-create-template.md
+  - linkListType: how-to-guide
+    links:
+    - text: Serie di video di procedure per il portale di Azure
+      url: azure-portal-video-series.md
+- title: Creare e gestire le richieste di supporto
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Impostare le preferenze del portale
-      url: set-preferences.md
-    - text: Creare e condividere dashboard personalizzati
-      url: azure-portal-dashboards.md
-    - text: Gestire i preferiti
-      url: azure-portal-add-remove-sort-favorites.md
+    - text: Creare una richiesta di supporto in Azure
+      url: supportability/how-to-create-azure-support-request.md
+    - text: Gestire una richiesta di supporto in Azure
+      url: supportability/how-to-manage-azure-support-request.md
+- title: Usare le opzioni di accessibilità
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Tasti di scelta rapida
+      url: azure-portal-keyboard-shortcuts.md
+  - linkListType: how-to-guide
+    links:
+    - text: Attivare il contrasto elevato
+      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
 - title: Gestire l'accesso al portale di Azure
   linkLists:
   - linkListType: reference
@@ -45,39 +71,17 @@ landingContent:
     links:
     - text: Gestire le risorse in Azure
       url: /learn/paths/manage-resources-in-azure/
-    - text: Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo di Azure
-      url: /learn//modules/secure-azure-resources-with-rbac/
-- title: Introduzione
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Eseguire l'onboarding con il Centro di avvio rapido di Azure
-      url: azure-portal-quickstart-center.md
-  - linkListType: how-to-guide
-    links:
-    - text: Serie di video di procedure per il portale di Azure
-      url: azure-portal-video-series.md
-  - linkListType: learn
-    links:
-    - text: Concetti fondamentali di Azure
-      url: /learn/paths/azure-fundamentals/
-    - text: Concetti relativi al cloud - Principi del cloud computing
-      url: /learn/modules/principles-cloud-computing/
-- title: Usare le opzioni di accessibilità
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Tasti di scelta rapida
-      url: azure-portal-keyboard-shortcuts.md
-  - linkListType: how-to-guide
-    links:
-    - text: Attivare il contrasto elevato
-      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
-- title: Creare e gestire le richieste di supporto
+    - text: Proteggere le risorse con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)
+      url: /learn/modules/secure-azure-resources-with-rbac
+- title: Personalizzare il portale di Azure
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Creare una richiesta di supporto in Azure
-      url: ../azure-portal/supportability/how-to-create-azure-support-request.md
-    - text: Rivolvere i problemi delle sottoscrizioni a livello di area o di SKU
-      url: ../azure-portal/supportability/sku-series-unavailable.md
+    - text: Gestire impostazioni e preferenze del portale di Azure
+      url: set-preferences.md
+    - text: Visualizzare e filtrare le informazioni sulle risorse
+      url: manage-filter-resource-views.md
+    - text: Creare un'interfaccia utente portale di Azure Dashboard
+      url: azure-portal-dashboards.md
+    - text: Aggiungere, rimuovere e ordinare i preferiti
+      url: azure-portal-add-remove-sort-favorites.md

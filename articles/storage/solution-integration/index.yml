@@ -1,54 +1,55 @@
 ### YamlMime:Landing
 title: Documentazione di soluzioni partner convalidate per archiviazione di Azure
-summary: Le soluzioni dei partner convalidati per archiviazione di Azure consentono scenari avanzati nella piattaforma di archiviazione di Azure.
+summary: Le soluzioni dei partner convalidati per archiviazione di Azure consentono scenari avanzati basati su archiviazione di Azure.
 metadata:
   title: Soluzioni partner convalidate per archiviazione di Azure
-  description: Le soluzioni dei partner convalidati per archiviazione di Azure consentono scenari avanzati nella piattaforma di archiviazione di Azure.
+  description: Le soluzioni dei partner convalidati per archiviazione di Azure consentono scenari avanzati basati su archiviazione di Azure.
   services: storage
   ms.service: storage
+  ms.subservice: partner
   ms.topic: landing-page
   ms.collection: collection
   author: beber-msft
   ms.author: beber
-  ms.date: 12/08/2020
-  ms.openlocfilehash: 2e9a2ac1e8d33020a94c2c783d3d695a459fcea5
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.date: 03/15/2021
+  ms.openlocfilehash: 5d2c7d767fd678867175481c0b837c1aa11ecf33
+  ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101749121"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103562451"
 landingContent:
-- title: Partner Analisi archiviazione di Azure e Big Data
+- title: Partner di analisi e Big Data
   linkLists:
   - linkListType: overview
     links:
-    - text: Partner di Analisi archiviazione di Azure convalidati
+    - text: Partner di analisi convalidati
       url: .\validated-partners\analytics\partner-overview.md
-- title: Partner di archivio, backup e BCDR di archiviazione di Azure
+- title: Partner Archive, backup e BCDR
   linkLists:
   - linkListType: overview
     links:
-    - text: Partner di archiviazione e BCDR di archiviazione di Azure convalidati
+    - text: Partner di archiviazione e BCDR convalidati
       url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
-  - linkListType: quickstart
+  - linkListType: get-started
     links:
-    - text: Guida introduttiva di CommVault
+    - text: Guida introduttiva a CommVault
       url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
     - text: Guida introduttiva a Veeam
       url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
-- title: Partner della soluzione contenitore di archiviazione di Azure
+- title: Partner della soluzione contenitore
   linkLists:
   - linkListType: overview
     links:
-    - text: Partner della soluzione contenitore di archiviazione di Azure convalidati
+    - text: Partner della soluzione contenitore convalidati
       url: .\validated-partners\container-solutions\partner-overview.md
-- title: Partner di migrazione e gestione dati di archiviazione di Azure
+- title: Partner di migrazione e gestione dei dati
   linkLists:
   - linkListType: overview
     links:
-    - text: Partner di migrazione e gestione dati di archiviazione di Azure convalidati
+    - text: Partner di migrazione e gestione dati convalidati
       url: .\validated-partners\data-management\partner-overview.md
-- title: Partner di archiviazione primari e secondari di archiviazione di Azure
+- title: Partner di archiviazione primari e secondari
   linkLists:
   - linkListType: overview
     links:

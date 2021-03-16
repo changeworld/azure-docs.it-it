@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 11/05/2019
+ms.date: 03/15/2021
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5e52fab081a94ad58e91c629f4092ae889d38e7a
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0ba28d003f359af12de6242c6d2444fb8adab0d7
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102560923"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562756"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale di Windows nel portale di Azure
 
@@ -30,12 +30,12 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 1. Digitare **macchine virtuali** nella casella di ricerca.
 1. In **Servizi** selezionare **Macchine virtuali**.
-1. Nella pagina **Macchine virtuali** selezionare **Aggiungi**. 
+1. Nella pagina **macchine virtuali** selezionare **Aggiungi** **macchina virtuale**. 
 1. Nella scheda **Nozioni di base**, sotto **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta e quindi scegliere **Crea nuovo** gruppo di risorse. Immettere *myResourceGroup* come nome. 
 
     ![Screenshot della sezione Dettagli progetto che mostra dove selezionare la sottoscrizione di Azure e il gruppo di risorse per la macchina virtuale](./media/quick-create-portal/project-details.png)
 
-1. In **Dettagli istanza** digitare *myVM* nel campo **Nome macchina virtuale**, scegliere *Stati Uniti orientali* come **Area** e quindi scegliere *Windows Server 2019 Datacenter* come valore per **Immagine**. Lasciare invariate le altre impostazioni predefinite.
+1. Sotto **Dettagli dell'istanza**, digitare *myVM* come **nome della macchina virtuale** e scegliere *Stati Uniti orientali* come **Regione**. Scegliere *Windows Server 2019 datacenter* per l' **immagine** e *Standard_DS1_v2* per le **dimensioni**. Lasciare invariate le altre impostazioni predefinite.
 
     ![Screenshot della sezione Dettagli istanza in cui occorre specificare un nome per la macchina virtuale e selezionarne l'area, l'immagine e le dimensioni](./media/quick-create-portal/instance-details.png)
 
@@ -51,20 +51,25 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Screenshot che mostra il pulsante Rivedi e crea nella parte inferiore della pagina](./media/quick-create-portal/review-create.png)
 
+1. Dopo l'esecuzione della convalida, selezionare il pulsante **Crea** nella parte inferiore della pagina.
+
+1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
+
+    ![Screenshot che illustra il passaggio successivo per passare alla risorsa](./media/quick-create-portal/next-steps.png)
 
 ## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
 
 Creare una connessione Desktop remoto alla macchina virtuale. Queste istruzioni spiegano come connettersi alla macchina virtuale da un computer Windows. In un Mac, è necessario un client RDP come questo [client Desktop remoto](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) disponibile nel Mac App Store.
 
-1. Selezionare il pulsante **Connetti** nella pagina di panoramica della macchina virtuale. 
+1. Nella pagina Panoramica della macchina virtuale selezionare il pulsante **Connetti** e quindi selezionare **RDP**. 
 
     ![Screenshot della pagina di panoramica della macchina virtuale che mostra la posizione del pulsante Connetti](./media/quick-create-portal/portal-quick-start-9.png)
     
-2. Nella pagina **Connetti a macchina virtuale** mantenere le opzioni predefinite per la connessione con indirizzo IP sulla porta 3389 e fare clic su **Scarica file RDP file**.
+2. Nella pagina **Connetti con RDP** Mantieni le opzioni predefinite per la connessione tramite indirizzo IP, sulla porta 3389 e fai clic su **Scarica file RDP**.
 
 2. Aprire il file RDP scaricato e fare clic su **Connetti** quando richiesto. 
 
-3. Nella finestra **Sicurezza di Windows** selezionare **Altre opzioni** e quindi **Usa un altro account**. Digitare il nome utente come **localhost**\\*nomeutente*, immettere la password creata per la macchina virtuale e quindi fare clic su **OK**.
+3. Nella finestra **Sicurezza di Windows** selezionare **Altre opzioni** e quindi **Usa un altro account**. Digitare il nome utente come **localhost** \\ *username*, immettere la password creata per la macchina virtuale e quindi fare clic su **OK**.
 
 4. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Fare clic su **Sì** o **Continua** per procedere con la connessione.
 
@@ -81,7 +86,7 @@ Al termine chiudere la connessione RDP con la macchina virtuale.
 
 ## <a name="view-the-iis-welcome-page"></a>Visualizzare la pagina iniziale di IIS
 
-Nel portale, selezionare la macchina virtuale e nella panoramica della macchina virtuale, usare il pulsante **Fare clic per copiare** a destra dell'indirizzo IP per copiarlo e incollarlo in una scheda del browser. Si aprirà la pagina iniziale di IIS predefinita, che avrà il seguente aspetto:
+Nel portale selezionare la macchina virtuale e nella panoramica della VM passare il puntatore del mouse sull'indirizzo IP per visualizzare **copia negli Appunti**. Copiare l'indirizzo IP e incollarlo in una scheda del browser. Verrà visualizzata la pagina iniziale predefinita di IIS, che dovrebbe essere simile alla seguente:
 
 ![Screenshot del sito IIS predefinito in un browser](./media/quick-create-powershell/default-iis-website.png)
 
@@ -89,11 +94,11 @@ Nel portale, selezionare la macchina virtuale e nella panoramica della macchina 
 
 Quando non servono più, è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. 
 
-Selezionare il gruppo di risorse per la macchina virtuale, quindi fare clic su **Elimina**. Confermare il nome del gruppo di risorse da terminare eliminando le risorse.
+Passare al gruppo di risorse per la macchina virtuale e quindi selezionare **Elimina gruppo di risorse**. Confermare il nome del gruppo di risorse da terminare eliminando le risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata distribuita una macchina virtuale semplice, è stata aperta una porta di rete per il traffico Web ed è stato installato un server Web di base. Per altre informazioni sulle macchine virtuali di Azure, passare all'esercitazione per le VM di Windows.
+In questa Guida introduttiva è stata distribuita una semplice macchina virtuale, è stata aperta una porta di rete per il traffico Web e è stato installato un server Web di base. Per altre informazioni sulle macchine virtuali di Azure, passare all'esercitazione per le VM di Windows.
 
 > [!div class="nextstepaction"]
 > [Esercitazioni per le macchine virtuali di Windows in Azure](./tutorial-manage-vm.md)

@@ -3,12 +3,12 @@ title: Procedure consigliate
 description: Informazioni sulle procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 15ff46ad74c4c48c6b5f320622bc364adf59d4cc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: d1040762c171af486c7f5d66daca44ec65602aff
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496287"
+ms.locfileid: "103561839"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -238,6 +238,6 @@ La pulizia automatizzata per la directory di lavoro verrà bloccata se si esegue
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un account Azure Batch usando il portale di Azure](batch-account-create-portal.md).
-- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
+- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md) come pool, nodi, processi e attività.
 - Informazioni sulle [quote, i limiti e i vincoli predefiniti Azure batch e su come richiedere aumenti di quota](batch-quota-limit.md).
+- Informazioni su come [rilevare ed evitare errori nelle operazioni in background del pool e del nodo ](batch-pool-node-error-checking.md).

@@ -1,6 +1,6 @@
 ---
-title: Da DB2 a SQL Server in macchine virtuali di Azure (Guida alla migrazione)
-description: Seguire questa guida per eseguire la migrazione del server DB2 per SQL Server in macchine virtuali di Azure.
+title: Guida alla migrazione da DB2 a SQL Server in macchine virtuali di Azure
+description: Questa guida illustra come eseguire la migrazione del database DB2 per SQL Server in macchine virtuali di Azure con SQL Server Migration Assistant per DB2.
 ms.custom: ''
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: c3f3af6a1c114d6587992f79e95dcc0c1ccb41e6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: aadfd2d96e2ed610ee1e3eaaec9276212e912b0d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797462"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562230"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Guida alla migrazione: DB2 per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -144,8 +144,6 @@ L'approccio di test per la migrazione del database prevede le attività seguenti
 1. **Eseguire test di convalida**: eseguire i test di convalida sull'origine e sulla destinazione, quindi analizzare i risultati.
 1. **Eseguire test delle prestazioni**: eseguire test delle prestazioni sull'origine e sulla destinazione, quindi analizzare e confrontare i risultati.
 
-   > [!NOTE]
-   > Per assistenza nello sviluppo e nell'esecuzione di test di convalida post-migrazione, prendere in considerazione la soluzione per la qualità dei dati offerta dal partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 ## <a name="migration-assets"></a>Risorse per la migrazione 
 
@@ -169,5 +167,4 @@ Per un elenco dei servizi e degli strumenti di Microsoft e di terze parti dispon
 Per altre guide alla migrazione, vedere [Migrazione dei database](https://datamigration.microsoft.com/). 
 
 Per contenuti video, vedere:
-- [Come usare la guida alla migrazione del database](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/)
 - [Panoramica del percorso di migrazione](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)

@@ -5,14 +5,14 @@ author: linda33wj
 ms.service: data-factory
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/18/2020
+ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 821f64c46e0ae813e7dcd437bb0d4af848647185
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 12f7a87ce166be516d070b66b069f7a584a386c7
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372689"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563505"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Guida introduttiva: Creare una data factory e una pipeline con .NET SDK
 
@@ -32,10 +32,6 @@ Questa guida di avvio rapido descrive come usare .NET SDK per creare un'istanza 
 ### <a name="visual-studio"></a>Visual Studio
 
 Nella procedura guidata illustrata in questo articolo viene usato Visual Studio 2019. Le procedure per Visual Studio 2013, 2015 o 2017 sono leggermente diverse.
-
-### <a name="azure-net-sdk"></a>Azure .NET SDK
-
-Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/) nel computer.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Creare un'applicazione in Azure Active Directory
 

@@ -2,14 +2,14 @@
 title: Panoramica del portale di Azure
 description: Il portale di Azure è un'interfaccia utente grafica che si può usare per gestire i servizi di Azure. Informazioni su come esplorare e trovare le risorse nel portale di Azure.
 keywords: portal
-ms.date: 12/20/2019
+ms.date: 03/12/2021
 ms.topic: overview
-ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
-ms.translationtype: HT
+ms.openlocfilehash: 8f61934e6af150c18d1331c2b28e2686641967d1
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745928"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563995"
 ---
 # <a name="azure-portal-overview"></a>Panoramica del portale di Azure
 
@@ -35,7 +35,7 @@ Se si sceglie la modalità ancorata, il menu del portale sarà sempre visibile. 
 
 ## <a name="azure-home"></a>Home page di Azure
 
-Come nuovo abbonato ai servizi di Azure, la prima cosa che viene visualizzata dopo [aver effettuato l'accesso al portale](https://portal.azure.com) è la **Home page di Azure**. Questa pagina raccoglie le risorse che consentono di ottenere il massimo dalla sottoscrizione di Azure. Sono stati inclusi collegamenti a corsi online gratuiti, documentazione, servizi di base e siti utili per rimanere aggiornati e gestire le modifiche per la propria organizzazione. Per accedere in modo semplice e rapido ai lavori in corso, viene visualizzato anche un elenco delle risorse visitate più di recente. Non è possibile personalizzare questa pagina, ma è possibile scegliere se visualizzare la **Home page di Azure** o il **Dashboard di Azure** come visualizzazione predefinita. La prima volta che si esegue l'accesso, nella parte superiore della pagina è disponibile un prompt in cui è possibile salvare le preferenze.
+Come nuovo abbonato ai servizi di Azure, la prima cosa che viene visualizzata dopo [aver effettuato l'accesso al portale](https://portal.azure.com) è la **Home page di Azure**. Questa pagina raccoglie le risorse che consentono di ottenere il massimo dalla sottoscrizione di Azure. Sono stati inclusi collegamenti a corsi online gratuiti, documentazione, servizi di base e siti utili per rimanere aggiornati e gestire le modifiche per la propria organizzazione. Per accedere in modo semplice e rapido ai lavori in corso, viene visualizzato anche un elenco delle risorse visitate più di recente. Non è possibile personalizzare questa pagina, ma è possibile scegliere se visualizzare la **Home page di Azure** o il **dashboard di Azure** come visualizzazione predefinita. La prima volta che si esegue l'accesso, nella parte superiore della pagina è disponibile un prompt in cui è possibile salvare le preferenze.
 
 ![Screenshot che mostra la posizione in cui salvare la preferenza.](./media/azure-portal-overview/azure-portal-default-view.png)
 
@@ -49,9 +49,9 @@ I dashboard offrono una visualizzazione mirata delle risorse della sottoscrizion
 
 ## <a name="getting-around-the-portal"></a>Spostarsi nel portale
 
-È utile comprendere il layout del portale di base e come interagirvi. Qui verranno introdotti i componenti dell'interfaccia utente e alcuni dei termini usati per fornire istruzioni. Per una panoramica più dettagliata del portale, vedere la lezione del corso [Esplorare il portale](/learn/modules/tour-azure-portal/3-navigate-the-portal).
+È utile comprendere il layout del portale di base e come interagire con esso. Qui verranno introdotti i componenti dell'interfaccia utente e alcuni dei termini usati per fornire istruzioni. Per una panoramica più dettagliata del portale, vedere la lezione del corso [Esplorare il portale](/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
-Il menu del portale di Azure e l'intestazione di pagina sono elementi globali sempre presenti. Queste funzionalità permanenti rappresentano la "shell" dell'interfaccia utente associata a ogni singolo servizio o funzionalità e l'intestazione fornisce l'accesso ai controlli globali. La pagina di configurazione (talvolta definita "pannello") di una risorsa può includere anche un menu delle risorse che consente di spostarsi tra le funzionalità.
+Il menu del portale di Azure e l'intestazione di pagina sono elementi globali sempre presenti. Queste funzionalità permanenti sono la "Shell" per l'interfaccia utente associata a ogni singolo servizio o funzionalità e l'intestazione fornisce l'accesso ai controlli globali. La pagina di configurazione (talvolta definita "pannello") per una risorsa può includere anche un menu delle risorse che consente di spostarsi tra le funzionalità.
 
 La figura seguente riporta gli elementi di base del portale di Azure, ciascuno dei quali è descritto nella tabella seguente.
 
@@ -75,7 +75,7 @@ La figura seguente riporta gli elementi di base del portale di Azure, ciascuno d
 
 ## <a name="get-started-with-services"></a>Introduzione ai servizi
 
-Se si è un nuovo abbonato, sarà necessario creare una risorsa prima di poter gestire qualsiasi elemento. Selezionare **+ Crea una risorsa** per visualizzare i servizi disponibili in Azure Marketplace. Qui sono disponibili applicazioni e servizi di centinaia di provider, tutti certificati per l'esecuzione in Azure.
+Se si è un nuovo abbonato, sarà necessario creare una risorsa prima di poter gestire qualsiasi elemento. Selezionare **+ Crea una risorsa** per visualizzare i servizi disponibili in Azure Marketplace. Qui sono disponibili centinaia di applicazioni e servizi di molti provider, tutti certificati per l'esecuzione in Azure.
 
 Nell'elenco dei preferiti nella barra laterale sono stati inseriti i collegamenti ai servizi di uso comune.  Per visualizzare tutti i servizi disponibili, selezionare **Tutti i servizi** nella barra laterale.
 

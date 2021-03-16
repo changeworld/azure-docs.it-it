@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: e8e904511178f494890b25764a84df8ca64a6b6c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 24c0d57490ecd039039992310f93ca3e21c47b3b
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102498864"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563488"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 
@@ -396,9 +396,29 @@ Per ottenere un riepilogo di conteggi e comprendere quali funzionalità sono sta
 > Gli algoritmi automatizzati di Machine Learning utilizzano una casualità intrinseca che può causare una lieve variazione del punteggio finale delle metriche di un modello consigliato, ad esempio l'accuratezza. Automatizzato ML esegue anche operazioni su dati come la suddivisione del test di training, la suddivisione del training e la convalida incrociata, se necessario. Quindi, se si esegue un esperimento con le stesse impostazioni di configurazione e la metrica primaria più volte, è probabile che si verifichino variazioni in ogni esperimento Punteggio della metrica finale a causa di questi fattori. 
 
 ## <a name="register-and-deploy-models"></a>Registrare e distribuire modelli
+È possibile registrare un modello, in modo da poterlo tornare per un uso successivo. 
 
-Per informazioni dettagliate su come scaricare o registrare un modello per la distribuzione in un servizio Web, vedere [come e dove distribuire un modello](how-to-deploy-and-where.md).
+Per registrare un modello da un'esecuzione automatica di ML, usare il [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) metodo. 
 
+```Python
+
+best_run, fitted_model = run.get_output()
+print(fitted_model.steps)
+
+model_name = best_run.properties['model_name']
+description = 'AutoML forecast example'
+tags = None
+
+model = remote_run.register_model(model_name = model_name, 
+                                  description = description, 
+                                  tags = tags)
+```
+
+
+Per informazioni dettagliate su come creare una configurazione di distribuzione e distribuire un modello registrato in un servizio Web, vedere [come e dove distribuire un modello](how-to-deploy-and-where.md?tabs=python#define-a-deployment-configuration).
+
+> [!TIP]
+> Per i modelli registrati, la distribuzione con un clic è disponibile tramite il [Azure Machine Learning Studio](https://ml.azure.com). Vedere [come distribuire i modelli registrati da studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 <a name="explain"></a>
 
 ## <a name="model-interpretability"></a>Interpretabilità dei modelli

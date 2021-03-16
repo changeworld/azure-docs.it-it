@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6e5994f05187cd25996bcc007d27a7e10eb76427
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 79d6fecddf060909a74664ff29e08301f45d7042
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232529"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472314"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Prerequisiti per la distribuzione di servizi cloud di Azure (supporto esteso)
 
@@ -78,6 +78,11 @@ Rimuovere le impostazioni di desktop remoto obsolete dal file di configurazione 
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2021-12-17T23:59:59.0000000+05:30" /> 
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
+Rimuovere le impostazioni di diagnostica obsolete per ogni ruolo nel file di configurazione del servizio (. cscfg).
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+```
 
 ## <a name="required-service-definition-file-csdef-updates"></a>Aggiornamenti necessari per il file di definizione del servizio (con estensione csdef)
 
@@ -116,6 +121,11 @@ Per le distribuzioni che utilizzano i vecchi plug-in di desktop remoto è necess
 <Import moduleName="RemoteAccess" /> 
 <Import moduleName="RemoteForwarder" /> 
 </Imports> 
+```
+Per le distribuzioni che utilizzano i plug-in di diagnostica obsoleti è necessario rimuovere le impostazioni per ogni ruolo dal file di definizione del servizio (con estensione csdef)
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
 ## <a name="key-vault-creation"></a>Creazione Key Vault 

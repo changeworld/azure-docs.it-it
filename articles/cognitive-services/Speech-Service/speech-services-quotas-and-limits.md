@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/24/2021
+ms.date: 03/15/2021
 ms.author: alexeyo
-ms.openlocfilehash: f6c7ec3f66d0ab9186645654adf3c062c241e5d0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 78e40250710c133cbed53c05137971247663b0df
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449850"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564423"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quote e limiti di servizi vocali
 
@@ -27,6 +27,7 @@ Passa a [quote e limiti di sintesi vocale](#text-to-speech-quotas-and-limits-per
 Nelle tabelle seguenti i parametri senza riga "regolabile" **non** sono regolabili per tutti i piani tariffari.
 
 #### <a name="online-transcription"></a>Trascrizione online
+Per l'utilizzo con l' [SDK di riconoscimento vocale](speech-sdk.md) e/o l' [API REST per sintesi vocale per l'audio breve](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
 
 | Quota | Gratuito (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -74,7 +75,7 @@ Nella tabella seguente i parametri senza riga "regolabile" **non** sono regolabi
 | **Quote specifiche di WebSocket** |  |  |
 |Lunghezza massima audio prodotta per turno | 10 min | 10 min |
 |Dimensioni massime del messaggio SSML per turno |64 kB |64 kB |
-| **Limite API REST** | 20 richieste al minuto | 25 richieste per 5 secondi |
+| **Limite API REST** | 20 richieste al minuto | 300 richieste al minuto |
 
 
 <sup>3</sup> per il piano tariffario **gratuito (F0)** , vedere anche le indennità mensile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

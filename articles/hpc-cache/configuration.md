@@ -1,30 +1,33 @@
 ---
 title: Configurare le impostazioni della cache HPC di Azure
-description: Viene illustrato come configurare impostazioni aggiuntive per la cache, ad esempio MTU e no-root-squash, e come accedere agli snapshot rapidi dalle destinazioni di archiviazione BLOB di Azure.
+description: Viene illustrato come configurare impostazioni aggiuntive per la cache, ad esempio MTU, configurazione NTP e DNS personalizzate, e come accedere agli snapshot rapidi dalle destinazioni di archiviazione BLOB di Azure.
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 02bf862cdc3b20ef3e5fdb024f474267efa0c70d
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 06feefe3a934d1ee02793fab442852e5ef40899a
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760504"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563380"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurare altre impostazioni della cache HPC di Azure
 
-La pagina di **configurazione** nel portale di Azure dispone di opzioni per la personalizzazione di diverse impostazioni. La maggior parte degli utenti non è necessario modificare queste impostazioni dai valori predefiniti.
+La pagina **rete** nel portale di Azure dispone di opzioni per la personalizzazione di diverse impostazioni. La maggior parte degli utenti non è necessario modificare queste impostazioni dai valori predefiniti.
 
 Questo articolo descrive anche come usare la funzionalità snapshot per le destinazioni di archiviazione BLOB di Azure. La funzionalità snapshot non contiene impostazioni configurabili.
 
-Per visualizzare le impostazioni, aprire la pagina di **configurazione** della cache nel portale di Azure.
+Per visualizzare le impostazioni, aprire la pagina **rete** della cache nel portale di Azure.
 
-![screenshot della pagina di configurazione in portale di Azure](media/configuration.png)
+![screenshot della pagina di rete in portale di Azure](media/networking-page.png)
 
-> [!TIP]
-> Il [video sulla gestione della cache HPC di Azure](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) Mostra la pagina di configurazione e le relative impostazioni.
+> [!NOTE]
+> Una versione precedente di questa pagina includeva un'impostazione di squash radice a livello di cache, ma questa impostazione è stata spostata nei [criteri di accesso client](access-policies.md).
+
+<!-- >> [!TIP]
+> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the networking page and its settings. -->
 
 ## <a name="adjust-mtu-value"></a>Regolazione del valore MTU
 <!-- linked from troubleshoot-nas article -->
@@ -42,21 +45,39 @@ Se non si desidera modificare le impostazioni MTU su altri componenti di sistema
 
 Per altre informazioni sulle impostazioni MTU nelle reti virtuali di Azure, vedere [ottimizzazione delle prestazioni TCP/IP per le macchine virtuali di Azure](../virtual-network/virtual-network-tcpip-performance-tuning.md).
 
-## <a name="configure-root-squash"></a>Configura squash radice
-<!-- linked from troubleshoot and from access policies -->
+## <a name="customize-ntp"></a>Personalizzare NTP
 
-L'impostazione **Abilita squash radice** controlla il modo in cui cache HPC di Azure considera le richieste provenienti dall'utente root nei computer client.
+Per impostazione predefinita, la cache usa il server di tempo basato su Azure time.microsoft.com. Se si vuole che la cache usi un server NTP diverso, specificarlo nella sezione **configurazione NTP** . Usare un nome di dominio completo o un indirizzo IP.
 
-Quando è abilitata la funzionalità di squash radice, viene automaticamente eseguito il mapping degli utenti radice di un client all'utente "Nobody" quando inviano richieste tramite la cache HPC di Azure. Impedisce inoltre alle richieste client di utilizzare i bit di autorizzazione set-UID.
+## <a name="set-a-custom-dns-configuration"></a>Impostare una configurazione DNS personalizzata
 
-Se la zucca radice è disabilitata, una richiesta proveniente dall'utente radice del client (UID 0) viene passata a un sistema di archiviazione NFS back-end come radice. Questa configurazione potrebbe consentire l'accesso ai file non appropriato.
+> [!CAUTION]
+> Non modificare la configurazione DNS della cache se non è necessario. Gli errori di configurazione possono avere conseguenze terribili. Se la configurazione non riesce a risolvere i nomi dei servizi di Azure, l'istanza della cache HPC diventerà irraggiungibile in modo permanente.
 
-L'impostazione dello squash radice nella cache può compensare l'impostazione necessaria ``no_root_squash`` nei sistemi NAS usati come destinazioni di archiviazione. Per ulteriori informazioni sui [prerequisiti per l'archiviazione NFS](hpc-cache-prerequisites.md#nfs-storage-requirements), vedere. Può anche migliorare la sicurezza quando viene usata con le destinazioni di archiviazione BLOB di Azure.
+La cache HPC di Azure viene configurata automaticamente per l'uso del sistema DNS di Azure sicuro e comodo. Tuttavia, alcune configurazioni insolite richiedono che la cache usi un sistema DNS locale separato invece del sistema Azure. La sezione **configurazione DNS** della pagina **rete** viene utilizzata per specificare questo tipo di sistema.
 
-L'impostazione predefinita è **Sì**. (Le cache create prima del 2020 aprile potrebbero avere l'impostazione predefinita **No**).
+Contattare i rappresentanti di Azure o consultare il servizio Microsoft e il supporto tecnico per determinare se è necessario o meno usare una configurazione DNS della cache personalizzata.
 
-> [!TIP]
-> È anche possibile impostare lo squash radice per le esportazioni di archiviazione specifiche personalizzando i [criteri di accesso client](access-policies.md#root-squash).
+Se si configura un sistema DNS locale per la cache HPC di Azure da usare, è necessario assicurarsi che la configurazione sia in grado di risolvere i nomi degli endpoint di Azure per i servizi di Azure. È necessario configurare l'ambiente DNS personalizzato per l'invio di determinate richieste di risoluzione dei nomi a DNS di Azure o a un altro server in base alle esigenze.
+
+Verificare che la configurazione DNS possa risolvere correttamente questi elementi prima di usarla per una cache HPC di Azure:
+
+* ``*.core.windows.net``
+* Download dell'elenco di revoche di certificati (CRL) e servizi di verifica del protocollo di stato del certificato online (OCSP). Un elenco parziale viene fornito nell' [elemento regole del firewall](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) alla fine di questo [articolo di Azure TLS](../security/fundamentals/tls-certificate-changes.md), ma è necessario consultare un rappresentante tecnico Microsoft per comprendere tutti i requisiti.
+* Il nome di dominio completo del server NTP (time.microsoft.com o un server personalizzato)
+
+Se è necessario impostare un server DNS personalizzato per la cache, usare i campi specificati:
+
+* **Dominio di ricerca DNS** (facoltativo): immettere il dominio di ricerca, ad esempio ``contoso.com`` . È consentito un solo valore oppure è possibile lasciarlo vuoto.
+* **Server DNS** : immettere fino a tre server DNS. Specificarli in base all'indirizzo IP.
+
+<!-- 
+  > [!NOTE]
+  > The cache will use only the first DNS server it successfully finds. -->
+
+### <a name="refresh-storage-target-dns"></a>Aggiornare DNS di destinazione di archiviazione
+
+Se il server DNS Aggiorna gli indirizzi IP, le destinazioni di archiviazione NFS associate diventeranno temporaneamente non disponibili. Leggere le informazioni su come aggiornare gli indirizzi IP di sistema DNS personalizzati in [Modifica destinazioni di archiviazione](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Visualizzare gli snapshot per le destinazioni di archiviazione BLOB
 
@@ -75,8 +96,8 @@ Gli snapshot vengono effettuati ogni otto ore, alle ore UTC 0:00, 08:00 e 16:00.
 
 Cache HPC di Azure archivia snapshot giornalieri, settimanali e mensili fino a quando non vengono sostituiti con quelli nuovi. I limiti sono i seguenti:
 
-* fino a 20 snapshot giornalieri
-* fino a 8 snapshot settimanali
-* fino a 3 snapshot mensili
+* Fino a 20 snapshot giornalieri
+* Fino a 8 snapshot settimanali
+* Fino a 3 snapshot mensili
 
 Accedere agli snapshot dalla `.snapshot` Directory nello spazio dei nomi della destinazione di archiviazione BLOB.

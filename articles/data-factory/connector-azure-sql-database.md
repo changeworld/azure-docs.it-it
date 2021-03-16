@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2021
-ms.openlocfilehash: 2f716fd7723f35fb5e7071afb15cfa8dab4ce5d2
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.date: 03/15/2021
+ms.openlocfilehash: d64b1413267a62daa46a112e706a4381189baf77
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225286"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564346"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database SQL di Azure usando Azure Data Factory
 
@@ -643,7 +643,12 @@ Le impostazioni specifiche del database SQL di Azure sono disponibili nella sche
 
 **Query**: se si seleziona Query nel campo di input, immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati. Le clausole **Order By** non sono supportate, ma è possibile impostare un'istruzione SELECT FROM completa. È possibile usare anche funzioni di tabella definite dall'utente. **select * from udfGetData()** è un UDF in SQL che restituisce una tabella. Questa query produrrà una tabella di origine che può essere usata nel flusso di dati. L'uso di query è anche un ottimo modo per ridurre le righe per i test o le ricerche.
 
+**Stored procedure**: scegliere questa opzione se si desidera generare una proiezione e i dati di origine da una stored procedure eseguita dal database di origine. È possibile digitare lo schema, il nome della procedura e i parametri oppure fare clic su Aggiorna per richiedere ad ADF di individuare gli schemi e i nomi delle procedure. È quindi possibile fare clic su Importa per importare tutti i parametri di procedura usando il modulo ``@paraName`` .
+
+![Stored procedure](media/data-flow/stored-procedure-2.png "Stored Procedure")
+
 - Esempio SQL: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+- Esempio di SQL con parametri: ``"select * from {$tablename} where orderyear > {$year}"``
 
 **Dimensioni batch**: Immettere una dimensione batch per suddividere dati di grandi dimensioni in letture.
 

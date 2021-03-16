@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: de3738573bb9bb6f045a45d290c74ba9e6902a5e
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624760"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561958"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integrazione e distribuzione continue per l'area di lavoro di Azure sinapsi
 
@@ -125,6 +125,140 @@ Usare l'estensione per la [distribuzione dell'area](https://marketplace.visualst
 Dopo aver salvato tutte le modifiche, è possibile selezionare **Crea versione** per creare manualmente una versione. Per automatizzare la creazione di versioni, vedere [Trigger versione di Azure DevOps](/azure/devops/pipelines/release/triggers)
 
    ![Selezionare Crea versione](media/release-creation-manually.png)
+
+## <a name="use-custom-parameters-of-the-workspace-template"></a>Utilizzare parametri personalizzati del modello di area di lavoro 
+
+Si usa l'integrazione continua/recapito continuo automatizzata e si desidera modificare alcune proprietà durante la distribuzione, ma le proprietà non sono parametrizzate per impostazione predefinita. In questo caso, è possibile eseguire l'override del modello di parametro predefinito.
+
+Per eseguire l'override del modello di parametro predefinito, è necessario creare un modello di parametro personalizzato, un file denominato **template-parameters-definition.js** nella cartella radice del ramo di collaborazione git. È necessario usare il nome file esatto. Quando si esegue la pubblicazione dal ramo collaborazione, l'area di lavoro di sinapsi legge questo file e usa la relativa configurazione per generare i parametri. Se non viene trovato alcun file, viene utilizzato il modello di parametro predefinito.
+
+### <a name="custom-parameter-syntax"></a>Sintassi dei parametri personalizzata
+
+Di seguito sono riportate alcune linee guida per la creazione del file di parametri personalizzati:
+
+* Immettere il percorso della proprietà nel tipo di entità pertinente.
+* L'impostazione di un nome di proprietà su `*` indica che si desidera parametrizzare tutte le proprietà al suo interno (solo per il primo livello, non in modo ricorsivo). È anche possibile fornire eccezioni a questa configurazione.
+* Quando si imposta il valore di una proprietà come stringa, si indica che si vuole parametrizzare la proprietà. Usare il formato `<action>:<name>:<stype>`.
+   *  `<action>` può essere uno di questi caratteri:
+      * `=` indica che il valore corrente viene mantenuto come valore predefinito per il parametro.
+      * `-` significa che non si mantiene il valore predefinito per il parametro.
+      * `|` è un caso speciale per i segreti Azure Key Vault per le stringhe di connessione o le chiavi.
+   * `<name>` è il nome del parametro. Se è vuoto, viene usato il nome della proprietà. Se il valore inizia con un carattere `-`, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` viene abbreviato in `AzureStorage1_connectionString`.
+   * `<stype>` tipo di parametro. Se `<stype>` è vuoto, il tipo predefinito è `string` . Valori supportati: `string` , `securestring` , `int` , `bool` , `object` `secureobject` e `array` .
+* La specifica di una matrice nel file indica che la proprietà corrispondente nel modello è una matrice. La sinapsi esegue l'iterazione di tutti gli oggetti nella matrice utilizzando la definizione specificata. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
+* Una definizione non può essere specifica di un'istanza di risorsa. Qualunque definizione viene applicata a tutte le risorse di quel tipo.
+* Per impostazione predefinita, vengono parametrizzate tutte le stringhe sicure, ad esempio i segreti di Key Vault, e le stringhe sicure, ad esempio le stringhe di connessione, le chiavi e i token.
+
+### <a name="parameter-template-definition-samples"></a>Esempi di definizione di modello di parametro 
+
+Di seguito è riportato un esempio di come appare la definizione di un modello di parametro:
+
+```json
+{
+"Microsoft.Synapse/workspaces/notebooks": {
+        "properties":{
+            "bigDataPool":{
+                "referenceName": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/sqlscripts": {
+     "properties": {
+         "content":{
+             "currentConnection":{
+                    "*":"-"
+                 }
+            } 
+        }
+    },
+    "Microsoft.Synapse/workspaces/pipelines": {
+        "properties": {
+            "activities": [{
+                 "typeProperties": {
+                    "waitTimeInSeconds": "-::int",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.Synapse/workspaces/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/triggers": {
+        "properties": {
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:int",
+                    "frequency": "=:-freq"
+                },
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                     "*": "="
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
+                }
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
+Di seguito è riportata una spiegazione del modo in cui viene costruito il modello precedente, suddiviso per tipo di risorsa.
+
+#### <a name="notebooks"></a>Notebook 
+
+* Qualsiasi proprietà nel percorso `properties/bigDataPool/referenceName` è parametrizzata con il relativo valore predefinito. È possibile parametrizzare il pool di Spark collegato per ogni file del notebook. 
+
+#### <a name="sql-scripts"></a>Script SQL 
+
+* Le proprietà (poolname e DatabaseName) nel percorso `properties/content/currentConnection` vengono parametrizzate come stringhe senza i valori predefiniti nel modello. 
+
+#### <a name="pipelines"></a>Pipeline
+
+* Qualunque proprietà nel percorso `activities/typeProperties/waitTimeInSeconds` è parametrizzata. Qualunque attività in una pipeline che dispone di una proprietà a livello di codice denominata `waitTimeInSeconds` (ad esempio, l'attività `Wait`) viene parametrizzata come numero, con un nome predefinito. Non avrà tuttavia un valore predefinito nel modello di Resource Manager. Sarà un input obbligatorio durante la distribuzione di Resource Manager.
+* Analogamente, una proprietà chiamata `headers` (ad esempio, in un' `Web` attività) è parametrizzata con il tipo `object` (oggetto). Ha un valore predefinito, che è lo stesso valore di quello della factory di origine.
+
+#### <a name="integrationruntimes"></a>IntegrationRuntimes
+
+* Tutte le proprietà nel percorso `typeProperties` vengono parametrizzate con i rispettivi valori predefiniti. Esistono ad esempio due proprietà nelle proprietà del tipo `IntegrationRuntimes`: `computeProperties` e `ssisProperties`. Entrambi i tipi di proprietà vengono creati con i rispettivi valori e tipi predefiniti (oggetto).
+
+#### <a name="triggers"></a>Trigger
+
+* In `typeProperties`, sono parametrizzate due proprietà. La prima è `maxConcurrency`, che è specificata per avere un valore predefinito ed è di tipo`string`. Ha il nome di parametro predefinito `<entityName>_properties_typeProperties_maxConcurrency`.
+* Anche la proprietà `recurrence` è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con valori predefiniti e nomi di parametro. Un'eccezione è la proprietà `interval`, che è parametrizzata come tipo `int`. Il nome del parametro ha il suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, la proprietà `freq` è una stringa e viene parametrizzata come stringa. Tuttavia, la proprietà `freq` è parametrizzata senza un valore predefinito. Il nome viene abbreviato e seguito da un suffisso. Ad esempio: `<entityName>_freq`.
+
+#### <a name="linkedservices"></a>LinkedServices
+
+* I servizi collegati sono univoci. Poiché i servizi collegati e i set di dati hanno un'ampia gamma di tipi, è possibile fornire una personalizzazione specifica del tipo. In questo esempio, per tutti i servizi collegati di tipo `AzureDataLakeStore`, verrà applicato un modello specifico. Per tutti gli altri (tramite `*`), verrà applicato un modello diverso.
+* La proprietà `connectionString` verrà parametrizzata come valore `securestring`. Non avrà un valore predefinito. Avrà un nome di parametro abbreviato con il suffisso `connectionString`.
+* La proprietà `secretAccessKey` è un `AzureKeyVaultSecret`, ad esempio in un servizio collegato Amazon S3. Viene parametrizzata automaticamente come segreto di Azure Key Vault e recuperata dall'insieme di credenziali delle chiavi configurato. È anche possibile parametrizzare l'insieme di credenziali delle chiavi stesso.
+
+#### <a name="datasets"></a>Set di dati
+
+* Sebbene la personalizzazione specifica del tipo sia disponibile per i set di dati, è possibile fornire la configurazione senza avere esplicitamente una configurazione a livello di \*. Nell'esempio precedente, vengono parametrizzate tutte le proprietà del set di dati in `typeProperties`.
+
 
 ## <a name="best-practices-for-cicd"></a>Procedure consigliate per la pipeline CI/CD
 

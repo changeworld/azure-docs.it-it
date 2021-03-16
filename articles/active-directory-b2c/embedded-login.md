@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 526d8bfa0124fba75eb33518acd83169ff020698
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: fd4724fc19814a5ffd35380c0b326e035a340ef2
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555306"
+ms.locfileid: "103561516"
 ---
 # <a name="embedded-sign-in-experience"></a>Esperienza di accesso incorporata
 
@@ -31,7 +31,7 @@ L'elemento inline frame `<iframe>` viene usato per incorporare un documento in u
 Quando si usa iframe, tenere presente quanto segue:
 
 - L'accesso incorporato supporta solo gli account locali. La maggior parte dei provider di identità di social networking (ad esempio Google e Facebook) blocca il rendering delle pagine di accesso in frame inline.
-- Poiché Azure AD B2C cookie di sessione all'interno di un IFRAME sono considerati cookie di terze parti, alcuni browser (ad esempio Safari o Chrome in modalità Incognito) bloccano o cancellano questi cookie, causando un'esperienza utente indesiderata. Per evitare questo problema, assicurarsi che il nome di dominio dell'applicazione e il dominio di Azure AD B2C abbiano la *stessa origine*. Ad esempio, un'applicazione ospitata in https://app.contoso.com ha la stessa origine del Azure ad B2C in esecuzione in https://login.contoso.com .
+- Poiché Azure AD B2C cookie di sessione all'interno di un IFRAME sono considerati cookie di terze parti, alcuni browser (ad esempio Safari o Chrome in modalità Incognito) bloccano o cancellano questi cookie, causando un'esperienza utente indesiderata. Per evitare questo problema, assicurarsi che il nome di dominio dell'applicazione e il dominio di Azure AD B2C abbiano la *stessa origine*. Per usare la stessa origine, [abilitare i domini personalizzati](custom-domain.md) per Azure ad B2C tenant, quindi configurare l'app Web con la stessa origine. Ad esempio, un'applicazione ospitata in https://app.contoso.com ha la stessa origine del Azure ad B2C in esecuzione in https://login.contoso.com .
  
 ## <a name="configure-your-policy"></a>Configurare i criteri
 

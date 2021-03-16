@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl, references_regions
-ms.openlocfilehash: b66c768011c05e1105f1351ebe4ed7c3c9700b70
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 28aac830326d60161f54d7ad5fa03326c1d66462
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519164"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563675"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Risolvere i problemi relativi agli esperimenti di Machine Learning automatici in Python
 
@@ -166,6 +166,10 @@ Se questo modello è previsto nella serie temporale, è possibile passare dalla 
   1. Scaricare il pacchetto del modello
   1. Decomprimere il pacchetto
   1. Eseguire la distribuzione usando le risorse decompresse
+
+## <a name="azure-functions-application"></a>Applicazione funzioni di Azure
+  
+  Machine Learning Machine Learning attualmente non supporta le applicazioni di funzioni di Azure. 
 
 ## <a name="sample-notebook-failures"></a>Errori del notebook di esempio
 

@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/10/2020
-ms.openlocfilehash: 01ee890fe77abebfdec8d3d643773b42cb54187e
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606182"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564321"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapping di flussi di dati in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="what-are-mapping-data-flows"></a>Che cosa sono i flussi di dati di mapping?
 
@@ -25,7 +25,7 @@ I flussi di dati di mapping sono le trasformazioni di dati progettate visivament
 
 I flussi di dati di mapping forniscono un'esperienza visiva completamente senza necessità di scrivere codice. I flussi di dati vengono eseguiti in cluster di esecuzione gestiti da ADF per l'elaborazione dei dati con scalabilità orizzontale. Azure Data Factory gestisce tutta la conversione del codice, l'ottimizzazione del percorso e l'esecuzione dei processi del flusso di dati.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 I flussi di dati vengono creati dal riquadro risorse Factory, ad esempio pipeline e set di dati. Per creare un flusso di dati, selezionare il segno più accanto a **risorse Factory**, quindi selezionare **flusso di dati**. 
 
@@ -155,7 +155,7 @@ Il team Azure Data Factory ha creato una [Guida all'ottimizzazione delle prestaz
 | Europa occidentale   | ✓ |
 | India occidentale | |
 | Stati Uniti occidentali   | ✓ |
-| West US 2 | ✓ |
+| Stati Uniti occidentali 2 | ✓ |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

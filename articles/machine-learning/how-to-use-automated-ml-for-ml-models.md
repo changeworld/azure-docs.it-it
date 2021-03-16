@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: a91a4f3a2e686c8d502093dc41520df32b313209
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520635"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562723"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 
@@ -37,7 +37,7 @@ Per un'esperienza basata su codice Python, [configurare gli esperimenti di Machi
 
 ## <a name="get-started"></a>Introduzione
 
-1. Accedere ad Azure Machine Learning in https://ml.azure.com. 
+1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com). 
 
 1. Selezionare la sottoscrizione e l’area di lavoro. 
 
@@ -198,6 +198,11 @@ Per ottenere spiegazioni per un particolare modello,
 ## <a name="deploy-your-model"></a>Distribuire il modello
 
 Una volta ottenuto il modello migliore, è necessario distribuirlo come servizio Web per eseguire previsioni sui nuovi dati.
+
+>[!TIP]
+> Se si sta cercando di distribuire un modello generato tramite il `automl` pacchetto con Python SDK, è necessario [registrare il modello](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) nell'area di lavoro. 
+>
+> Dopo aver registrato il modello, trovarlo in Studio selezionando **modelli** nel riquadro sinistro. Una volta aperto il modello, è possibile selezionare il pulsante **Distribuisci** nella parte superiore della schermata, quindi seguire le istruzioni descritte nel **passaggio 2** della sezione **distribuire il modello** .
 
 ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
 

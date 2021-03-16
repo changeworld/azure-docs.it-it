@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/29/2021
-ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 03/15/2021
+ms.openlocfilehash: dd5b857c274e757f70920f244786df61c2770085
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222950"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561686"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -141,7 +141,7 @@ Se la maggior parte dei flussi di dati viene eseguita in parallelo, non è consi
 > [!NOTE]
 > La durata (TTL) non è disponibile quando si usa il runtime di integrazione per la risoluzione automatica
 
-## <a name="optimizing-sources"></a>Ottimizzazione di origini
+## <a name="optimizing-sources"></a>Ottimizzazione delle origini
 
 Per ogni origine, ad eccezione del database SQL di Azure, è consigliabile **usare il partizionamento corrente** come valore selezionato. Durante la lettura da tutti gli altri sistemi di origine, i flussi di dati partizionano automaticamente i dati in base alle dimensioni dei dati. Viene creata una nuova partizione per circa ogni 128 MB di dati. Man mano che aumentano le dimensioni dei dati, aumenta il numero di partizioni.
 
@@ -181,7 +181,7 @@ Se si sta eseguendo lo stesso flusso di dati in un set di file, è consigliabile
 
 Se possibile, evitare di utilizzare l'attività For-Each per eseguire i flussi di dati su un set di file. In questo modo ogni iterazione di for-each può creare il proprio cluster Spark, che spesso non è necessario e può essere costoso. 
 
-## <a name="optimizing-sinks"></a>Ottimizzazione di sink
+## <a name="optimizing-sinks"></a>Ottimizzazione dei sink
 
 Quando i flussi di dati scrivono in sink, qualsiasi partizionamento personalizzato si verificherà immediatamente prima della scrittura. Come per l'origine, nella maggior parte dei casi è consigliabile **utilizzare il partizionamento corrente** come opzione di partizione selezionata. I dati partizionati scriveranno molto più rapidamente rispetto ai dati non partizionati, anche se la destinazione non è partizionata. Di seguito sono riportate le singole considerazioni per diversi tipi di sink. 
 
@@ -259,6 +259,8 @@ Quando si scrive in CosmosDB, la modifica della velocità effettiva e delle dime
 Nelle trasformazioni join, ricerche ed EXISTS, se uno o entrambi i flussi di dati sono sufficientemente piccoli da adattarsi alla memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione**. Il broadcast è quando si inviano frame di dati di piccole dimensioni a tutti i nodi del cluster. Questo consente al motore Spark di eseguire un join senza rimischiare i dati nel flusso di grandi dimensioni. Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato di un join. Se si ha familiarità con i dati in arrivo e si sa che un flusso sarà significativamente più piccolo dell'altro, è possibile selezionare broadcast **fisso** . Il broadcast fisso forza la trasmissione del flusso selezionato da Spark. 
 
 Se la dimensione dei dati trasmessi è troppo grande per il nodo Spark, è possibile che si verifichi un errore di memoria insufficiente. Per evitare errori di memoria insufficiente, usare cluster con ottimizzazione per la **memoria** . Se si verificano timeout di trasmissione durante le esecuzioni del flusso di dati, è possibile disattivare l'ottimizzazione della trasmissione. Questa operazione comporterà tuttavia un'esecuzione dei flussi di dati più lenta.
+
+Quando si utilizzano origini dati che possono richiedere più tempo per eseguire query, ad esempio query di database di grandi dimensioni, è consigliabile disattivare la trasmissione per i join. L'origine con tempi di query lunghi può causare timeout di Spark quando il cluster tenta di trasmettere ai nodi di calcolo. Un'altra scelta ottimale per disattivare la trasmissione è quando nel flusso di dati è presente un flusso che aggrega i valori da utilizzare in una trasformazione Ricerca in un secondo momento. Questo modello può confondere Spark Optimizer e causare timeout.
 
 ![Ottimizzazione della trasformazione tramite join](media/data-flow/joinoptimize.png "Ottimizzazione dei join")
 

@@ -4,12 +4,12 @@ description: Diagnostica e analisi delle prestazioni delle app Web durante il de
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 2507dbf7bb8294c949f434d5fa96ccc0af9a7eb3
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532903"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563539"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Eseguire il debug delle applicazioni con Azure Application Insights in Visual Studio
 In Visual Studio 2015 e versioni successive è possibile analizzare le prestazioni e diagnosticare i problemi nell'app Web ASP.NET sia durante il debug che nell'ambiente di produzione, usando i dati di telemetria di [Azure Application Insights](./app-insights-overview.md).
@@ -65,17 +65,6 @@ Nella riga CodeLens sopra ogni metodo del gestore viene visualizzato un conteggi
 >
 
 [Altre informazioni su Application Insights in CodeLens](./visual-studio-codelens.md)
-
-## <a name="trends"></a>Tendenze
-Tendenze è uno strumento che permette di visualizzare il comportamento dell'app nel tempo. 
-
-Scegliere **Esplora tendenze di telemetria** usando il pulsante della barra degli strumenti di Application Insights o la finestra di ricerca di Application Insights. Scegliere una delle cinque query più comuni per iniziare. È possibile analizzare set di dati diversi in base ai tipi di dati di telemetria, agli intervalli di tempo e ad altre proprietà. 
-
-Per trovare le anomalie nei dati, scegliere una delle opzioni relative alle anomalie nell'elenco a discesa del tipo di visualizzazione. Le opzioni di filtro nella parte inferiore della finestra permettono di trovare facilmente subset specifici dei dati di telemetria.
-
-![Tendenze](./media/visual-studio/51.png)
-
-[Altre informazioni su Tendenze](./visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>Monitoraggio locale
 (Da Visual Studio 2015 Update 2) Se l'SDK non è stato configurato per l'invio della telemetria al portale di Application Insights (e quindi non è presente nessuna chiave di strumentazione in ApplicationInsights.config), la finestra di diagnostica visualizza la telemetria dalla sessione di debug più recente. 
