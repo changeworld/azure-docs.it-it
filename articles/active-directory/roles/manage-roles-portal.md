@@ -1,6 +1,6 @@
 ---
-title: Visualizzare e assegnare autorizzazioni per i ruoli di amministratore-Azure AD | Microsoft Docs
-description: È ora possibile visualizzare e gestire i membri di un ruolo di amministratore di Azure AD nel portale. Per gli utenti che gestiscono spesso le assegnazioni di ruolo.
+title: Assegnare ruoli Azure AD agli utenti-Azure Active Directory
+description: Informazioni su come concedere l'accesso agli utenti in Azure Active Directory assegnando ruoli di Azure AD.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -8,41 +8,49 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 03/07/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26217930b79b958ae86d976d06a28ba4a4852ab6
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 36ced586db1b4e417e623431c137c43dac8ba56f
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742030"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466645"
 ---
-# <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualizzare e assegnare i ruoli di amministratore in Azure Active Directory
+# <a name="assign-azure-ad-roles-to-users"></a>Assegnare ruoli di Azure AD agli utenti
 
-È ora possibile visualizzare e gestire tutti i membri dei ruoli di amministratore nel portale di Azure Active Directory. Se si gestiscono frequentemente le assegnazioni di ruolo, questa esperienza risulterà particolarmente interessante. E in caso di dubbi sull'effettiva utilità dei ruoli, è possibile visualizzare un elenco dettagliato delle autorizzazioni per ognuno dei ruoli di amministratore di Azure AD.
+È ora possibile visualizzare e gestire tutti i membri dei ruoli di amministratore nell'interfaccia di amministrazione di Azure AD. Se si gestiscono frequentemente le assegnazioni di ruolo, questa esperienza risulterà particolarmente interessante. Questo articolo descrive come assegnare ruoli Azure AD usando l'interfaccia di amministrazione di Azure AD.
 
-## <a name="view-all-roles"></a>Visualizzare tutti i ruoli
+## <a name="assign-a-role"></a>Assegnare un ruolo
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Azure Active Directory**.
+1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con autorizzazioni di amministratore globale o di amministratore del ruolo con privilegi.
+
+1. Selezionare **Azure Active Directory**.
 
 1. Selezionare **ruoli e amministratori** per visualizzare l'elenco di tutti i ruoli disponibili.
 
-1. Selezionare i puntini di sospensione a destra di ogni riga per visualizzare le autorizzazioni per il ruolo. Selezionare un ruolo per visualizzare gli utenti assegnati al ruolo. Se viene visualizzato un valore diverso dall'immagine seguente, leggere la nota in [visualizzare le assegnazioni per i ruoli con privilegi](#view-assignments-for-privileged-roles) per verificare se si è in Privileged Identity Management (PIM).
+    ![Screenshot della pagina ruoli e amministratori](./media/manage-roles-portal/roles-and-administrators.png)
 
-    ![elenco dei ruoli nel portale di Azure AD](./media/manage-roles-portal/view-roles-in-azure-active-directory.png)
+1. Selezionare un ruolo per visualizzare le relative assegnazioni.
 
-## <a name="view-my-roles"></a>Visualizzare i ruoli personali
+    Per individuare il ruolo necessario, Azure AD possibile visualizzare i subset dei ruoli in base alle categorie di ruoli. Estrarre il filtro dei **tipi** per visualizzare solo i ruoli nel tipo selezionato.
 
-È facile visualizzare anche le proprie autorizzazioni. Selezionare **Your Role** (Ruolo dell'utente) sulla pagina **Roles and administrators** (Ruoli e amministratori) per visualizzare i ruoli attualmente assegnati all'utente.
+1. Selezionare **Aggiungi assegnazioni** e quindi selezionare gli utenti che si desidera assegnare a questo ruolo.
 
-## <a name="view-assignments-for-privileged-roles"></a>Visualizzare le assegnazioni per i ruoli con privilegi
+    Se viene visualizzato un elemento diverso dall'immagine seguente, leggere la nota in [Privileged Identity Management (PIM)](#privileged-identity-management-pim) per verificare se si usa PIM.
 
-È possibile selezionare la **gestione nel servizio PIM** per funzionalità di gestione aggiuntive. Gli amministratori dei ruoli con privilegi possono trasformare le assegnazioni "permanenti" (sempre attive nel ruolo) in "idonee" (nel ruolo solo con privilegi elevati). Se non si dispone di Privileged Identity Management, è comunque possibile selezionare **Gestisci in PIM** per iscriversi a una versione di valutazione. Privileged Identity Management richiede un [piano di licenza di Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
+    ![elenco di autorizzazioni per un ruolo di amministratore](./media/manage-roles-portal/add-assignments.png)
 
-![elenco dei membri di un ruolo di amministratore](./media/manage-roles-portal/member-list.png)
+1. Selezionare **Aggiungi** per assegnare il ruolo.
+
+## <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
+
+È possibile selezionare **Gestisci in PIM** per funzionalità di gestione aggiuntive usando [Azure ad Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md). Gli amministratori dei ruoli con privilegi possono trasformare le assegnazioni "permanenti" (sempre attive nel ruolo) in "idonee" (nel ruolo solo con privilegi elevati). Se non si dispone di Privileged Identity Management, è comunque possibile selezionare **Gestisci in PIM** per iscriversi a una versione di valutazione. Privileged Identity Management richiede un [piano di licenza di Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
+
+![Screenshot che mostra la pagina "amministratori utente-assegnazioni" con l'azione "Gestisci in PIM" selezionata](./media/manage-roles-portal/member-list-pim.png)
 
 Se l'utente è un amministratore globale o un amministratore di ruoli con privilegi, può aggiungere o rimuovere facilmente i membri, filtrare l'elenco o selezionare un membro per visualizzare i ruoli assegnati attivi.
 
@@ -51,34 +59,8 @@ Se l'utente è un amministratore globale o un amministratore di ruoli con privil
 >
 > ![Azure AD ruoli gestiti in PIM per gli utenti che usano già PIM e hanno una licenza Premium P2](./media/manage-roles-portal/pim-manages-roles-for-p2.png)
 
-## <a name="view-a-users-role-permissions"></a>Visualizzare le autorizzazioni del ruolo di un utente
-
-Quando si visualizzano i membri di un ruolo, selezionare **Descrizione** per visualizzare l'elenco completo delle autorizzazioni concesse in base all'assegnazione del ruolo. La pagina include collegamenti alla documentazione pertinente, che contiene indicazioni utili per la gestione dei ruoli della directory.
-
-![Screenshot che mostra la pagina "Global Administrator-Description".](./media/manage-roles-portal/role-description.png)
-
-## <a name="download-role-assignments"></a>Scaricare le assegnazioni di ruolo
-
-Per scaricare tutte le assegnazioni per un ruolo specifico, nella pagina **ruoli e amministratori** selezionare un ruolo e quindi selezionare **Scarica assegnazioni di ruolo**. Viene scaricato un file CSV in cui sono elencate le assegnazioni in tutti gli ambiti per tale ruolo.
-
-![Scarica tutte le assegnazioni per un ruolo](./media/manage-roles-portal/download-role-assignments.png)
-
-## <a name="assign-a-role"></a>Assegnare un ruolo
-
-1. Accedere al [portale di Azure](https://portal.azure.com) con autorizzazioni di amministratore globale o ruolo con privilegi e selezionare **Azure Active Directory**.
-
-1. Selezionare **ruoli e amministratori** per visualizzare l'elenco di tutti i ruoli disponibili.
-
-1. Selezionare un ruolo per visualizzare le relative assegnazioni.
-
-    ![Screenshot che mostra la pagina "amministratori utente-assegnazioni" con l'azione "Gestisci in PIM" selezionata.](./media/manage-roles-portal/member-list.png)
-
-1. Selezionare **Aggiungi assegnazioni** e selezionare i ruoli che si desidera assegnare. È possibile selezionare la **gestione nel servizio PIM** per funzionalità di gestione aggiuntive. Se viene visualizzato un valore diverso dall'immagine seguente, leggere la nota in [visualizzare le assegnazioni per i ruoli con privilegi](#view-assignments-for-privileged-roles) per verificare se si è in PIM.
-
-    ![elenco di autorizzazioni per un ruolo di amministratore](./media/manage-roles-portal/directory-role-select-role.png)
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Condividere le informazioni nel [forum di Azure AD sui ruoli amministrativi](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Per altre informazioni sui ruoli e l'assegnazione del ruolo di amministratore, vedere l'articolo sull'[assegnazione dei ruoli di amministratore](permissions-reference.md).
+* Per ulteriori informazioni sui ruoli, vedere [Azure ad ruoli predefiniti](permissions-reference.md).
 * Per le autorizzazioni utente predefinite, vedere un [confronto tra le autorizzazioni predefinite per gli utenti guest e quelle per gli utenti membro](../fundamentals/users-default-permissions.md).

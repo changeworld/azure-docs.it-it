@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e94b14584f8eece3d772f67b680df4a2ffb8b5cd
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: aafeb7ebd939805ae18e29670f359660db12e2e1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102603228"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103555905"
 ---
 Per il momento, i dischi Ultra presentano limitazioni aggiuntive, come indicato di seguito:
 
@@ -65,11 +65,11 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Non tutte le dimensioni della macchina virtuale sono disponibili in ogni area supportata con dischi Ultra.
 - Sono disponibili solo come dischi dati. 
-- Supportare le dimensioni del settore fisico 4K per impostazione predefinita. le dimensioni del settore 512E sono disponibili come offerta disponibile a livello generale (nessuna iscrizione necessaria) ma attualmente disponibile solo tramite l'interfaccia della riga di comando o PowerShell. La maggior parte delle applicazioni è compatibile con le dimensioni del settore 4K, ma alcune richiedono dimensioni di settore a 512 byte. Un esempio è Oracle Database, che richiede la versione 12,2 o successiva per supportare i dischi nativi 4K. Per le versioni precedenti di Oracle DB, sono richieste dimensioni di settore di 512 byte.
+- Supportare le dimensioni del settore fisico 4K per impostazione predefinita. le dimensioni del settore 512E sono disponibili come offerta disponibile a livello generale (nessuna iscrizione necessaria). La maggior parte delle applicazioni è compatibile con le dimensioni del settore 4K, ma alcune richiedono dimensioni di settore a 512 byte. Un esempio è Oracle Database, che richiede la versione 12,2 o successiva per supportare i dischi nativi 4K. Per le versioni precedenti di Oracle DB, sono richieste dimensioni di settore di 512 byte.
 - Può essere creato solo come dischi vuoti.
 - Attualmente non supporta gli snapshot del disco, le immagini di VM, i set di disponibilità, gli host dedicati di Azure o crittografia dischi di Azure.
 - Attualmente non supporta l'integrazione con backup di Azure o Azure Site Recovery.
 - Supporta solo letture non memorizzate nella cache e scritture non memorizzate nella cache.
 - Il limite massimo corrente per IOPS nelle VM GA è 80.000.
 
-Azure ultra Disks offre fino a 16 TiB per area per sottoscrizione per impostazione predefinita, ma i dischi Ultra supportano una capacità superiore per richiesta. Per richiedere un aumento della capacità, contattare il supporto tecnico di Azure.
+Azure ultra Disks offre fino a 32 TiB per area per sottoscrizione per impostazione predefinita, ma i dischi Ultra supportano una capacità superiore per richiesta. Per richiedere un aumento della capacità, richiedere un aumento della quota o contattare il supporto tecnico di Azure.

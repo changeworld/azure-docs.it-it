@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
-ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14237894a38725ee07deca3b5f46cbe0ecfce4cd
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851234"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493221"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Informazioni sul file di configurazione locale (agente C#)
 
@@ -84,12 +84,12 @@ Per Windows:
 
 | Nome configurazione | Valori possibili | Dettagli |
 |:-----------|:---------------|:--------|
-| moduleName | string | Nome dell'identità del modulo di sicurezza. Questo nome deve corrispondere al nome dell'identità del modulo nel dispositivo. |
+| moduleName | string | Nome dell'identità Defender-are-micro-Agent. Questo nome deve corrispondere al nome dell'identità del modulo nel dispositivo. |
 | deviceId | string | ID del dispositivo, registrato nell'hub Azure. |
 | schedulerInterval | Stringa TimeSpan | Intervallo di pianificazione interno. |
 | gatewayHostname | string | Nome host dell'hub Azure. In genere <My-Hub>. azure-devices.net |
 | filePath | stringa-percorso del file | Percorso del file che contiene il segreto di autenticazione.|
-| type | "SelfSignedCertificate" | Il segreto utente per l'autenticazione. Scegliere dise il segreto utente è una chiave simmetrica, scegliere *certificato autofirmato* *se il* segreto è un certificato autofirmato. |
+| tipo | "SelfSignedCertificate" | Il segreto utente per l'autenticazione. Scegliere dise il segreto utente è una chiave simmetrica, scegliere *certificato autofirmato* *se il* segreto è un certificato autofirmato. |
 | identity | "DPS", "Module", "Device" | Identity di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, modulo se l'autenticazione viene eseguita usando le credenziali del modulo o il dispositivo se l'autenticazione viene eseguita usando le credenziali del dispositivo.
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile se il certificato è archiviato in un file, archiviare se il certificato si trova in un archivio certificati. |
 | idScope | string | Ambito ID di DPS |

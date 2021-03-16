@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2021
 ms.author: shhazam
-ms.openlocfilehash: e885566dd067d70fd4800ca96b8729494464da85
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 5d0eeb046d7a4ba474a1ed4a2cfb07a07f1c3888
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100642514"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493306"
 ---
 # <a name="defender-for-iot-devices-custom-security-alerts"></a>Avvisi di sicurezza personalizzati per i dispositivi Defender
 
@@ -33,11 +33,11 @@ Gli elenchi seguenti di Defender per gli avvisi relativi ai dispositivi sono def
 
 | Gravità | Nome avviso | Origine dati | Descrizione | Correzione consigliata |
 |--|--|--|--|--|
-| Basso | Avviso personalizzato: il numero di connessioni attive non è compreso nell'intervallo consentito | Modulo di sicurezza classica, Azure RTO | Il numero connessioni attive in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito. | Esaminare i log del dispositivo. Scoprire l'origine della connessione e determinare se è dannosa o meno. Se è dannosa, rimuovere il possibile malware e identificare l'origine. Se non è dannosa, aggiungere l'origine all'elenco di connessioni consentite. |
-| Basso | Avviso personalizzato-la connessione in uscita creata a un indirizzo IP non è consentita | Modulo di sicurezza classica, Azure RTO | È stata creata una connessione in uscita a un IP che non rientra nell'elenco di indirizzi IP consentiti. | Esaminare i log del dispositivo. Scoprire l'origine della connessione e determinare se è dannosa o meno. Se è dannosa, rimuovere il possibile malware e identificare l'origine. Se non è dannosa, aggiungere l'origine all'elenco di indirizzi IP consentiti. |
-| Basso | Avviso personalizzato: il numero di accessi locali non riusciti non è compreso nell'intervallo consentito | Modulo di sicurezza classica, Azure RTO | Il numero di accessi locali non riusciti in un intervallo di tempo specifico non è compreso nell'intervallo attualmente configurato e consentito. |  |
-| Basso | Avviso personalizzato: l'accesso di un utente che non è presente nell'elenco utenti consentiti | Modulo di sicurezza classica, Azure RTO | Un utente locale non incluso nell'elenco di utenti consentiti ha effettuato l'accesso al dispositivo. | Se si salvano dati non elaborati, passare all'account di log Analytics e usare i dati per esaminare il dispositivo, identificare l'origine e quindi correggere l'elenco Consenti/blocca per tali impostazioni. Se attualmente non si salvano dati non elaborati, passare al dispositivo e correggere l'elenco di elementi consentiti/bloccati per tali impostazioni. |
-| Basso | Avviso personalizzato: è stato eseguito un processo non consentito | Modulo di sicurezza classica, Azure RTO | Nel dispositivo è stato eseguito un processo non consentito. | Se si salvano dati non elaborati, passare all'account di log Analytics e usare i dati per esaminare il dispositivo, identificare l'origine e quindi correggere l'elenco Consenti/blocca per tali impostazioni. Se attualmente non si salvano dati non elaborati, passare al dispositivo e correggere l'elenco di elementi consentiti/bloccati per tali impostazioni. |
+| Basso | Avviso personalizzato: il numero di connessioni attive non è compreso nell'intervallo consentito | Defender (Classic): micro-Agent, Azure RTO | Il numero connessioni attive in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito. | Esaminare i log del dispositivo. Scoprire l'origine della connessione e determinare se è dannosa o meno. Se è dannosa, rimuovere il possibile malware e identificare l'origine. Se non è dannosa, aggiungere l'origine all'elenco di connessioni consentite. |
+| Basso | Avviso personalizzato-la connessione in uscita creata a un indirizzo IP non è consentita | Defender (Classic): micro-Agent, Azure RTO | È stata creata una connessione in uscita a un IP che non rientra nell'elenco di indirizzi IP consentiti. | Esaminare i log del dispositivo. Scoprire l'origine della connessione e determinare se è dannosa o meno. Se è dannosa, rimuovere il possibile malware e identificare l'origine. Se non è dannosa, aggiungere l'origine all'elenco di indirizzi IP consentiti. |
+| Basso | Avviso personalizzato: il numero di accessi locali non riusciti non è compreso nell'intervallo consentito | Defender (Classic): micro-Agent, Azure RTO | Il numero di accessi locali non riusciti in un intervallo di tempo specifico non è compreso nell'intervallo attualmente configurato e consentito. |  |
+| Basso | Avviso personalizzato: l'accesso di un utente che non è presente nell'elenco utenti consentiti | Defender (Classic): micro-Agent, Azure RTO | Un utente locale non incluso nell'elenco di utenti consentiti ha effettuato l'accesso al dispositivo. | Se si salvano dati non elaborati, passare all'account di log Analytics e usare i dati per esaminare il dispositivo, identificare l'origine e quindi correggere l'elenco Consenti/blocca per tali impostazioni. Se attualmente non si salvano dati non elaborati, passare al dispositivo e correggere l'elenco di elementi consentiti/bloccati per tali impostazioni. |
+| Basso | Avviso personalizzato: è stato eseguito un processo non consentito | Defender (Classic): micro-Agent, Azure RTO | Nel dispositivo è stato eseguito un processo non consentito. | Se si salvano dati non elaborati, passare all'account di log Analytics e usare i dati per esaminare il dispositivo, identificare l'origine e quindi correggere l'elenco Consenti/blocca per tali impostazioni. Se attualmente non si salvano dati non elaborati, passare al dispositivo e correggere l'elenco di elementi consentiti/bloccati per tali impostazioni. |
 |
 
 ## <a name="next-steps"></a>Passaggi successivi

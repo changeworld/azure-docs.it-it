@@ -4,20 +4,20 @@ description: Usare Helm con AKS e Azure Container Registry per creare un pacchet
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 01/12/2021
+ms.date: 03/15/2021
 ms.author: zarhoads
-ms.openlocfilehash: 5656051ecd6e3fd39b051d2d0288e9762c83d9ad
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 4f5232920853908aa5ad714313ead201494caa0d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249925"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493079"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Guida introduttiva: sviluppare in Azure Kubernetes Service (AKS) con Helm
 
-[Helm][helm] è uno strumento di creazione di pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente ai gestori di pacchetti Linux, ad esempio *apt* e *yum*, Helm viene usato per gestire i grafici Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
+[Helm][helm] è uno strumento di creazione di pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente ai gestori di pacchetti Linux, ad esempio *apt* e *yum*, Helm gestisce i grafici Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
 
-Questo articolo illustra come usare Helm per creare un pacchetto ed eseguire un'applicazione in AKS. Per altre informazioni sull'installazione di un'applicazione esistente con Helm, vedere [installare applicazioni esistenti con Helm in AKS][helm-existing].
+In questa Guida introduttiva verrà usato Helm per creare un pacchetto ed eseguire un'applicazione in AKS. Per altre informazioni sull'installazione di un'applicazione esistente con Helm, vedere la Guida alle procedure per l'installazione di [applicazioni esistenti con Helm in AKS][helm-existing] .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -26,14 +26,16 @@ Questo articolo illustra come usare Helm per creare un pacchetto ed eseguire un'
 * [Helm v3 installato][helm-install].
 
 ## <a name="create-an-azure-container-registry"></a>Creare un'istanza di Registro Azure Container
-Per usare Helm per eseguire l'applicazione nel cluster AKS, è necessario un Container Registry di Azure per archiviare le immagini del contenitore. L'esempio seguente usa [AZ ACR create][az-acr-create] per creare un record di record di registro denominato *MyHelmACR* nel gruppo di risorse *MyResourceGroup* con lo SKU *Basic* . È necessario specificare un nome univoco per il registro di sistema. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Lo SKU *Basic* è un punto di ingresso con costi ottimali a fini di sviluppo, che assicura l'equilibrio tra spazio di archiviazione e velocità effettiva.
+È necessario archiviare le immagini del contenitore in un Container Registry di Azure (ACR) per eseguire l'applicazione nel cluster AKS usando Helm. Fornire il proprio nome di registro univoco in Azure e contenere 5-50 caratteri alfanumerici. Lo SKU *Basic* è un punto di ingresso con costi ottimali a fini di sviluppo, che assicura l'equilibrio tra spazio di archiviazione e velocità effettiva.
+
+L'esempio seguente usa [AZ ACR create][az-acr-create] per creare un ACR denominato *MyHelmACR* in *MyResourceGroup* con lo SKU *Basic* .
 
 ```azurecli
 az group create --name MyResourceGroup --location eastus
 az acr create --resource-group MyResourceGroup --name MyHelmACR --sku Basic
 ```
 
-L'output è simile all'esempio seguente: Prendere nota del valore di *loginServer* per il record di registro di sistema perché verrà usato in un passaggio successivo. Nell'esempio seguente *myhelmacr.azurecr.io* è il *loginServer* per *myhelmacr*.
+L'output sarà simile all'esempio seguente. Prendere nota del valore di *loginServer* per l'ACR perché verrà usato in un passaggio successivo. Nell'esempio seguente *myhelmacr.azurecr.io* è il *loginServer* per *myhelmacr*.
 
 ```console
 {
@@ -57,31 +59,32 @@ L'output è simile all'esempio seguente: Prendere nota del valore di *loginServe
 }
 ```
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Creare un cluster del servizio Azure Kubernetes
+## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
-Creare un cluster del servizio Azure Kubernetes. Il comando seguente crea un cluster AKS denominato MyAKS e connette MyHelmACR.
+Il nuovo cluster AKS necessita dell'accesso al record di registro di sistema per estrarre le immagini del contenitore ed eseguirle. Usare il comando seguente per:
+* Creare un cluster AKS denominato *MyAKS* e alleghi *MyHelmACR*.
+* Concedere al cluster *MyAKS* l'accesso al *MyHelmACR* ACR.
+
 
 ```azurecli
 az aks create -g MyResourceGroup -n MyAKS --location eastus  --attach-acr MyHelmACR --generate-ssh-keys
 ```
 
-Per eseguire il pull delle immagini del contenitore ed eseguirle, il cluster AKS deve accedere al record di record di accesso. Il comando precedente concede anche l'accesso al cluster *MyAKS* al *MyHelmACR* ACR.
-
 ## <a name="connect-to-your-aks-cluster"></a>Connettersi al cluster AKS
 
-Per connettersi al cluster Kubernetes dal computer locale si usa [kubectl][kubectl], il client da riga di comando di Kubernetes.
+Per connettere un cluster Kubernetes localmente, usare il client da riga di comando Kubernetes, [kubectl][kubectl]. `kubectl` è già installato se si usa Azure Cloud Shell. 
 
-Se si usa Azure Cloud Shell, `kubectl` è già installato. È anche possibile installarlo in locale usando il comando [az servizio Azure Kubernetes install-cli][]:
+1. Installare `kubectl` localmente usando il `az aks install-cli` comando:
 
-```azurecli
-az aks install-cli
-```
+    ```azurecli
+    az aks install-cli
+    ```
 
-Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][]. Nell'esempio seguente vengono ottenute le credenziali per il cluster AKS denominato *MyAKS* in *MyResourceGroup*:
+2. Configurare `kubectl` per connettersi al cluster Kubernetes usando il `az aks get-credentials` comando. L'esempio di comando seguente ottiene le credenziali per il cluster AKS denominato *MyAKS* in *MyResourceGroup*:  
 
-```azurecli
-az aks get-credentials --resource-group MyResourceGroup --name MyAKS
-```
+    ```azurecli
+    az aks get-credentials --resource-group MyResourceGroup --name MyAKS
+    ```
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
 
@@ -94,7 +97,7 @@ cd dev-spaces/samples/nodejs/getting-started/webfrontend
 
 ## <a name="create-a-dockerfile"></a>Creare un Dockerfile
 
-Creare un nuovo file *Dockerfile* usando quanto segue:
+Creare un nuovo file *Dockerfile* usando i comandi seguenti:
 
 ```dockerfile
 FROM node:latest
@@ -113,7 +116,7 @@ CMD ["node","server.js"]
 
 ## <a name="build-and-push-the-sample-application-to-the-acr"></a>Compilare ed eseguire il push dell'applicazione di esempio in ACR
 
-Usare il comando [AZ ACR Build][az-acr-build] per compilare ed eseguire il push di un'immagine nel registro di sistema, usando il Dockerfile precedente. Il carattere `.` alla fine del comando consente di impostare il percorso del Dockerfile, in questo caso la directory corrente.
+Usando il Dockerfile precedente, eseguire il comando [AZ ACR Build][az-acr-build] per compilare ed effettuare il push di un'immagine nel registro. Alla `.` fine del comando viene impostato il percorso di Dockerfile (in questo caso, la directory corrente).
 
 ```azurecli
 az acr build --image webfrontend:v1 \
@@ -129,8 +132,8 @@ Generare il grafico Helm usando il `helm create` comando.
 helm create webfrontend
 ```
 
-Effettuare gli aggiornamenti seguenti a *WebFrontEnd/values. YAML*. Sostituire il loginServer del registro di sistema annotato in un passaggio precedente, ad esempio *myhelmacr.azurecr.io*:
-
+Aggiornare *WebFrontEnd/values. YAML*:
+* Sostituire il loginServer del registro di sistema annotato in un passaggio precedente, ad esempio *myhelmacr.azurecr.io*.
 * Modificare `image.repository` in `<loginServer>/webfrontend`
 * Modificare `service.type` in `LoadBalancer`
 
@@ -166,13 +169,13 @@ appVersion: v1
 
 ## <a name="run-your-helm-chart"></a>Eseguire il grafico Helm
 
-Usare il `helm install` comando per installare l'applicazione usando il grafico Helm.
+Installare l'applicazione usando il grafico Helm usando il `helm install` comando.
 
 ```console
 helm install webfrontend webfrontend/
 ```
 
-Ci vogliono alcuni minuti perché il servizio restituisca un indirizzo IP pubblico. Per monitorare lo stato di avanzamento, usare il comando `kubectl get service` con il parametro *espressione di controllo*:
+Ci vogliono alcuni minuti perché il servizio restituisca un indirizzo IP pubblico. Monitorare lo stato di avanzamento utilizzando il `kubectl get service` comando con l' `--watch` argomento.
 
 ```console
 $ kubectl get service --watch
@@ -187,14 +190,16 @@ Passare al servizio di bilanciamento del carico dell'applicazione in un browser 
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 
-Quando il cluster non è più necessario, usare il comando [AZ Group Delete][az-group-delete] per rimuovere il gruppo di risorse, il cluster AKS, il registro contenitori, le immagini del contenitore archiviate e tutte le risorse correlate.
+Usare il comando [AZ Group Delete][az-group-delete] per rimuovere il gruppo di risorse, il cluster AKS, il registro contenitori, le immagini del contenitore archiviate in ACR e tutte le risorse correlate.
 
 ```azurecli-interactive
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete]. Se è stata usata un'identità gestita, l'identità viene gestita dalla piattaforma e non richiede la rimozione.
+> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete].
+> 
+> Se è stata usata un'identità gestita, l'identità viene gestita dalla piattaforma e non richiede la rimozione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -206,8 +211,8 @@ Per ulteriori informazioni sull'utilizzo di Helm, vedere la documentazione di He
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-build]: /cli/azure/acr#az-acr-build
 [az-group-delete]: /cli/azure/group#az-group-delete
-[az servizio Azure Kubernetes get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az servizio Azure Kubernetes install-cli]: /cli/azure/aks#az-aks-install-cli
+[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
 [example-nodejs]: https://github.com/Azure/dev-spaces/tree/master/samples/nodejs/getting-started/webfrontend
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/

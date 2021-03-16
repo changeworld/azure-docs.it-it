@@ -4,16 +4,16 @@ description: Questo articolo contiene informazioni di riferimento per il comando
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: c676b92fd07c6e444aa22f25c48fdb1b1957ca7a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879157"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493765"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -31,6 +31,7 @@ Copia i dati di origine in un percorso di destinazione. Le direzioni supportate 
   - File di Azure (SAS)-> File di Azure (SAS)
   - File di Azure (SAS)-> BLOB di Azure (autenticazione SAS o OAuth)
   - Amazon Web Services (AWS) S3 (chiave di accesso)-> BLOB in blocchi di Azure (autenticazione SAS o OAuth)
+  - Google Cloud Storage (chiave account del servizio)-> BLOB in blocchi di Azure (autenticazione SAS o OAuth) [Anteprima]
 
 Per altre informazioni, vedere la sezione Esempi di questo articolo.
 
@@ -229,6 +230,36 @@ Trasferire i file e le directory nell'account di archiviazione di Azure e impost
 - Chiavi e valori sono codificati in URL e le coppie chiave-valore sono separate da una e commerciale (' &')
     
 - Durante l'impostazione dei tag nei BLOB, sono disponibili autorizzazioni aggiuntive (' t'per i tag) nella firma di accesso condiviso senza cui il servizio restituirà un errore di autorizzazione.
+
+Copiare un singolo oggetto nell'archivio BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente GOOGLE_APPLICATION_CREDENTIALS per Google Cloud Storage source.
+  
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+```
+
+Copiare un'intera directory nell'archivio BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente GOOGLE_APPLICATION_CREDENTIALS per Google Cloud Storage source.
+ 
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+```
+
+Copiare un intero bucket nell'archivio BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente GOOGLE_APPLICATION_CREDENTIALS per Google Cloud Storage source.
+
+```azcopy 
+azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Copiare tutti i bucket nell'archivio BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Per prima cosa, impostare le variabili di ambiente GOOGLE_APPLICATION_CREDENTIALS e GOOGLE_CLOUD_PROJECT =<Project-ID> per l'origine cataloghi globali
+
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket di Google Cloud Storage usando una chiave dell'account del servizio e un token SAS per la destinazione. Per prima cosa, impostare le variabili di ambiente GOOGLE_APPLICATION_CREDENTIALS e GOOGLE_CLOUD_PROJECT =<Project-ID> per l'origine di archiviazione cloud Google.
+ 
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
 
 ## <a name="options"></a>Opzioni
 

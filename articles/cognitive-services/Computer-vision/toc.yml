@@ -52,78 +52,76 @@
     - name: Eseguire l'aggiornamento da Read 2.x a Read 3.x
       href: upgrade-api-versions.md
     - name: Come configurare l'autenticazione di AAD
-      href: /azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory?context=/azure/cognitive-services/computer-vision/context/context
+      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
     - name: Come usare le chiavi gestite dal cliente
       href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
-- name: Distribuisci Visione artificiale
-  items:
-    - name: Contenitori
+    - name: Distribuisci Visione artificiale
       items:
-        - name: Documentazione dei contenitori di Servizi cognitivi
-          href: ../containers/index.yml
-        - name: Leggere il contenitore di API
+        - name: Contenitori
           items:
-            - name: Installare ed eseguire i contenitori
-              href: computer-vision-how-to-install-containers.md
-              displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
-            - name: Configurare i contenitori
-              href: computer-vision-resource-container-config.md
-            - name: Eseguire la migrazione alla versione 3 del contenitore Read
-              href: read-container-migration-guide.md
-              displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
-            - name: Usare con Kubernetes e Jenkins
-              href: deploy-computer-vision-on-premises.md
-              displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
-            - name: Usare istanze di contenitore
-              maintainContext: true
-              href: ../containers/azure-container-instance-recipe.md
-              displayName: 'container instances, container, containers, images'
-        - name: Contenitore Analisi spaziale
-          items:
-            - name: Panoramica dell'analisi spaziale
-              href: intro-to-spatial-analysis-public-preview.md
-            - name: Configurare il computer host ed eseguire il contenitore
-              href: spatial-analysis-container.md
-            - name: Configurare le operazioni
-              href: spatial-analysis-operations.md
-            - name: Distribuire un'app Web per il conteggio delle persone
-              href: Spatial-analysis-web-app.md
-            - name: Registrazione e risoluzione dei problemi
-              href: spatial-analysis-logging.md
-            - name: Posizionamento di zone e linee
-              href: spatial-analysis-zone-line-placement.md
-            - name: Posizionamento della fotocamera
-              href: spatial-analysis-camera-placement.md
+            - name: Documentazione dei contenitori di Servizi cognitivi
+              href: ../containers/index.yml
+            - name: Leggere il contenitore di API
+              items:
+                - name: Installare ed eseguire i contenitori
+                  href: computer-vision-how-to-install-containers.md
+                  displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
+                - name: Configurare i contenitori
+                  href: computer-vision-resource-container-config.md
+                - name: Eseguire la migrazione alla versione 3 del contenitore Read
+                  href: read-container-migration-guide.md
+                  displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
+                - name: Usare con Kubernetes e Jenkins
+                  href: deploy-computer-vision-on-premises.md
+                  displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
+                - name: Usare istanze di contenitore
+                  maintainContext: true
+                  href: ../containers/azure-container-instance-recipe.md
+                  displayName: 'container instances, container, containers, images'
+            - name: Contenitore Analisi spaziale
+              items:
+                - name: Panoramica dell'analisi spaziale
+                  href: intro-to-spatial-analysis-public-preview.md
+                - name: Configurare il computer host ed eseguire il contenitore
+                  href: spatial-analysis-container.md
+                - name: Configurare le operazioni
+                  href: spatial-analysis-operations.md
+                - name: Distribuire un'app Web per il conteggio delle persone
+                  href: Spatial-analysis-web-app.md
+                - name: Registrazione e risoluzione dei problemi
+                  href: spatial-analysis-logging.md
+                - name: Posizionamento di zone e linee
+                  href: spatial-analysis-zone-line-placement.md
+                - name: Posizionamento della fotocamera
+                  href: spatial-analysis-camera-placement.md
 - name: Concetti
   items:
-    - name: Modalità
-      items:
-        - name: Riconoscimento ottico dei caratteri (OCR)
-          href: concept-recognizing-text.md
-        - name: Rilevamento di oggetti
-          href: concept-object-detection.md
-        - name: Rilevamento del marchio
-          href: concept-brand-detection.md
-        - name: Tag di contenuto
-          href: concept-tagging-images.md
-        - name: Categorizzazione delle immagini
-          href: concept-categorizing-images.md
-        - name: Tassonomia delle categorie
-          href: Category-Taxonomy.md
-        - name: Descrizioni delle immagini
-          href: concept-describing-images.md
-        - name: Rilevamento del viso
-          href: concept-detecting-faces.md
-        - name: Rilevamento del tipo di immagine
-          href: concept-detecting-image-types.md
-        - name: Contenuto specifico del dominio
-          href: concept-detecting-domain-content.md
-        - name: Rilevamento della combinazione di colori
-          href: concept-detecting-color-schemes.md
-        - name: Anteprime ritagliate in modo intelligente
-          href: concept-generating-thumbnails.md
-        - name: Rilevamento contenuto per adulti
-          href: concept-detecting-adult-content.md
+    - name: Riconoscimento ottico dei caratteri (OCR)
+      href: concept-recognizing-text.md
+    - name: Rilevamento di oggetti
+      href: concept-object-detection.md
+    - name: Rilevamento del marchio
+      href: concept-brand-detection.md
+    - name: Tag di contenuto
+      href: concept-tagging-images.md
+    - name: Categorizzazione delle immagini
+      href: concept-categorizing-images.md
+    - name: Tassonomia delle categorie
+      href: Category-Taxonomy.md
+    - name: Descrizioni delle immagini
+      href: concept-describing-images.md
+    - name: Rilevamento del viso
+      href: concept-detecting-faces.md
+    - name: Rilevamento del tipo di immagine
+      href: concept-detecting-image-types.md
+    - name: Contenuto specifico del dominio
+      href: concept-detecting-domain-content.md
+    - name: Rilevamento della combinazione di colori
+      href: concept-detecting-color-schemes.md
+    - name: Anteprime ritagliate in modo intelligente
+      href: concept-generating-thumbnails.md
+    - name: Rilevamento contenuto per adulti
+      href: concept-detecting-adult-content.md
 - name: Esercitazioni
   items:
     - name: Generare metadati per le immagini

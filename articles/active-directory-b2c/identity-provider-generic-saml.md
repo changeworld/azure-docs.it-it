@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 357ea903ed4bbc87717dfefc1c542722f5bd40c0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 9e47171fc20ba07823e73f71713307e3a0e37278
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448405"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488925"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con il provider di identità SAML usando Azure Active Directory B2C
 
@@ -205,9 +205,16 @@ Nell'esempio seguente viene illustrato un indirizzo URL per i metadati SAML di u
 https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
 ```
 
+Quando si usa un [dominio personalizzato](custom-domain.md), usare il formato seguente:
+
+```
+https://your-domain-name/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
+```
+
 Sostituire i valori seguenti:
 
-- **tenant** con il nome del tenant, ad esempio your-tenant.onmicrosoft.com.
+- **nome-tenant** con il nome del tenant, ad esempio your-tenant.onmicrosoft.com.
+- **nome di dominio** con il nome di dominio personalizzato, ad esempio login.contoso.com.
 - **your-policy** con il nome dei criteri. Ad esempio, B2C_1A_signup_signin_adfs.
 - **profilo tecnico** con il nome del profilo tecnico del provider di identità SAML. Ad esempio, Contoso-SAML2.
 

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9f34e1ff7134788d064a82ec7b646df915dbe24e
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 8ad79f2f27864b4fbc78b7c104828230ff7f93bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462559"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465658"
 ---
 # <a name="azure-database-for-mysql-version-support-policy"></a>Criteri di supporto della versione per database di Azure per MySQL
 
@@ -29,10 +29,11 @@ Database di Azure per MySQL supporta attualmente le versioni principali e second
 
 | Versione | Server unico <br/> Versione secondaria corrente |Server flessibile (anteprima) <br/> Versione secondaria corrente  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL versione 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | Non supportato|
+|MySQL versione 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(ritirata) | Non supportato|
 |MySQL versione 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
 |MySQL versione 8,0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
+Leggere i criteri di supporto della versione per le versioni ritirate nella [documentazione dei criteri di supporto](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql) delle versioni.
 
 ## <a name="major-version-support"></a>Supporto della versione principale
 Ogni versione principale di MySQL sarà supportata da database di Azure per MySQL dalla data in cui Azure inizia a supportare la versione fino a quando la versione non viene ritirata dalla community di MySQL, come specificato nei [criteri di controllo delle versioni](https://www.mysql.com/support/eol-notice.html).

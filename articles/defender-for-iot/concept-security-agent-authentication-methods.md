@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 85a5edc1485cb5a1eeb4428b201380ad9ca89422
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 4aeaa703b5e3203eeb7bc355051e0e8f48f898ac
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449170"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494122"
 ---
 # <a name="security-agent-authentication-methods"></a>Metodi di autenticazione dell'agente di sicurezza
 
 Questo articolo illustra i diversi metodi di autenticazione che è possibile usare con l'agente AzureIoTSecurity per l'autenticazione con l'hub Internet delle cose.
 
-Per ogni dispositivo caricato in Defender per le cose nell'hub Internet, è necessario un modulo di sicurezza. Per autenticare il dispositivo, Defender for Internet è in grado di usare uno dei due metodi seguenti. Scegliere il metodo più adatto per la soluzione Internet delle cose esistente.
+Per ogni dispositivo caricato in Defender per le cose nell'hub Internet, è necessario un Defender-Internet. Per autenticare il dispositivo, Defender for Internet è in grado di usare uno dei due metodi seguenti. Scegliere il metodo più adatto per la soluzione Internet delle cose esistente.
 
 - SecurityModule-opzione
 - Opzione del dispositivo
@@ -33,12 +33,12 @@ Per ogni dispositivo caricato in Defender per le cose nell'hub Internet, è nece
 
 I due metodi per il Defender per l'agente AzureIoTSecurity per l'esecuzione dell'autenticazione:
 
-- Modalità di autenticazione **SecurityModule**<br>
-L'agente viene autenticato usando l'identità del modulo di sicurezza indipendentemente dall'identità del dispositivo.
-Utilizzare questo tipo di autenticazione se si desidera che l'agente di sicurezza utilizzi un metodo di autenticazione dedicato tramite il modulo di sicurezza (solo chiave simmetrica).
+- **Defender-molto-modalità di autenticazione micro-agente**<br>
+L'agente viene autenticato tramite l'identità Defender-Internet-micro-Agent indipendentemente dall'identità del dispositivo.
+Utilizzare questo tipo di autenticazione se si desidera che l'agente di sicurezza utilizzi un metodo di autenticazione dedicato tramite Defender-Internet (solo chiave simmetrica).
 
 - Modalità di autenticazione del **dispositivo**<br>
-In questo metodo, l'agente di sicurezza esegue prima l'autenticazione con l'identità del dispositivo. Dopo l'autenticazione iniziale, il Defender per l'agente Internet esegue una chiamata **Rest** all'hub Internet con l'API REST con i dati di autenticazione del dispositivo. Il Defender per l'agente Internet richiede quindi i dati e il metodo di autenticazione del modulo di sicurezza dall'hub Internet delle cose. Nel passaggio finale, il Defender per l'agente Internet esegue un'autenticazione con il modulo Defender for Internet.
+In questo metodo, l'agente di sicurezza esegue prima l'autenticazione con l'identità del dispositivo. Dopo l'autenticazione iniziale, il Defender per l'agente Internet esegue una chiamata **Rest** all'hub Internet con l'API REST con i dati di autenticazione del dispositivo. Il Defender per l'agente Internet richiede quindi i dati e il metodo di autenticazione Defender-molto-micro-Agent dall'hub Internet delle cose. Nel passaggio finale, il Defender per l'agente Internet esegue un'autenticazione con il modulo Defender for Internet.
 
 Utilizzare questo tipo di autenticazione se si desidera che l'agente di sicurezza riutilizzi un metodo di autenticazione del dispositivo esistente (certificato autofirmato o chiave simmetrica).
 

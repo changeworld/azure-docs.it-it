@@ -10,23 +10,25 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1ba133acda414d9779e2fb10150bbdd57285e9a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: e6c8e83838240b989c8c782840d8c771a6f6b7db
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "76511213"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487803"
 ---
 # <a name="what-is-azure-iot-edge"></a>Che cos'è Azure IoT Edge
 
-Azure IoT Edge sposta nei dispositivi l'analisi cloud e la logica di business personalizzata consentendo all'organizzazione di concentrarsi sulle analisi approfondite di livello aziendale invece che sulla gestione dati. È possibile aumentare il numero di istanze per la soluzione IoT assemblando la logica di business in contenitori standard, distribuire questi contenitori in qualsiasi dispositivo e monitorare tutto dal cloud.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Azure IoT Edge sposta nei dispositivi l'analisi cloud e la logica di business personalizzata consentendo all'organizzazione di concentrarsi sulle analisi approfondite di livello aziendale invece che sulla gestione dati. È possibile ampliare la soluzione IoT assemblando la logica di business in contenitori standard, distribuire questi contenitori in qualsiasi dispositivo e monitorare tutto dal cloud.
 
 L'analisi incrementa il valore aggiunto nelle soluzioni IoT, ma non tutte le operazioni di analisi devono essere eseguite nel cloud. Per rispondere alle emergenze il più rapidamente possibile, è possibile eseguire il rilevamento anomalie nella rete perimetrale. Se si desidera ridurre i costi della larghezza di banda ed evitare il trasferimento di terabyte di dati non elaborati, è possibile pulire e aggregare i dati in locale, quindi inviare nel cloud solo le informazioni dettagliate per l'analisi.
 
 Azure IoT Edge è costituito da tra componenti:
 
-* I **moduli di IoT Edge** sono contenitori che eseguono servizi di Azure, servizi di terze parti o il codice dell'utente. Vengono distribuiti nei dispositivi IoT Edge ed eseguiti in locale su tali dispositivi.
-* Il **runtime di IoT Edge** viene eseguito su ogni dispositivo IoT Edge e gestisce i moduli distribuiti in ogni dispositivo.
+* I **moduli di IoT Edge** sono contenitori che eseguono servizi di Azure, servizi di terze parti o il codice dell'utente. Vengono distribuiti nei dispositivi IoT Edge ed eseguiti in locale in tali dispositivi.
+* Il **runtime di IOT Edge** viene eseguito in ogni dispositivo IOT Edge e gestisce i moduli distribuiti in ogni dispositivo.
 * Un'**interfaccia basata sul cloud** consente di monitorare e gestire in remoto i dispositivi IoT Edge.
 
 >[!NOTE]
@@ -60,9 +62,9 @@ Il runtime di Azure IoT Edge consente la logica personalizzata e cloud sui dispo
 
 Il runtime Azure IoT Edge viene eseguito in un ampio set di dispositivi IoT per consentirne l'uso in numerosi modi. Supporta sistemi operativi sia Linux che Windows ed estrae i dettagli sull'hardware. Usare un dispositivo inferiore a Raspberry Pi 3 se non si elaborano molti dati o usare un server industriale per eseguire carichi di lavoro con un utilizzo intensivo delle risorse.
 
-## <a name="iot-edge-cloud-interface"></a>Interfaccia cloud di IoT Edge
+## <a name="iot-edge-cloud-interface"></a>Interfaccia cloud IoT Edge
 
-È difficile gestire il ciclo di vita del software per milioni di dispositivi IoT di modelli e marche diversi o distribuiti a livello geografico. I carichi di lavoro sono creati e configurati per un particolare tipo di dispositivo, distribuiti a tutti i dispositivi e monitorati per individuare eventuali dispositivi non correttamente funzionanti. Queste attività non possono essere eseguite per ogni singolo dispositivo, ma devono essere eseguite su vasta scala.
+È difficile gestire il ciclo di vita del software per milioni di dispositivi IoT di modelli e marche diversi o distribuiti a livello geografico. I carichi di lavoro vengono creati e configurati per un particolare tipo di dispositivo, distribuiti in tutti i dispositivi e monitorati per individuare eventuali dispositivi che non funzionano correttamente. Queste attività non possono essere eseguite per ogni singolo dispositivo, ma devono essere eseguite su vasta scala.
 
 Azure IoT Edge si integra facilmente con gli acceleratori di soluzioni di Azure IoT offrendo un piano di controllo per le esigenze della soluzione. I servizi cloud consentono di:
 

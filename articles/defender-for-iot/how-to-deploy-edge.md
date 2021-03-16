@@ -1,5 +1,5 @@
 ---
-title: Distribuisci modulo di sicurezza IoT Edge
+title: Distribuisci IoT Edge Defender-un sacco-Micro-Agent
 description: Informazioni su come distribuire un Defender per l'agente sicurezza di Internet in IoT Edge.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: cd79c928afdb3563b47374869cff577f9221d360
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e4117c3c0f1016da616a88a36a1b8c926b790c62
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705773"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495114"
 ---
-# <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuire un modulo di sicurezza nel dispositivo IoT Edge
+# <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>Distribuire un dispositivo Defender-Internet-micro-Agent sul dispositivo IoT Edge
 
 Il modulo **Defender for** Internet offre una soluzione di sicurezza completa per i dispositivi IOT Edge.
-Il modulo Security raccoglie, aggrega e analizza i dati di sicurezza non elaborati dal sistema operativo e dal sistema del contenitore in consigli e avvisi di sicurezza di utilità pratica.
-Per altre informazioni, vedere [modulo di sicurezza per IOT Edge](security-edge-architecture.md).
+Defender-Internet-micro-Agent raccoglie, aggrega e analizza i dati di sicurezza non elaborati dal sistema operativo e dal sistema di contenitori in raccomandazioni e avvisi di sicurezza di utilità pratica.
+Per altre informazioni, vedere Defender-il numero di elementi [micro-Agent per IOT Edge](security-edge-architecture.md).
 
-In questo articolo si apprenderà come distribuire un modulo di sicurezza sul dispositivo IoT Edge.
+In questo articolo si apprenderà come distribuire un agente Defender-Internet-micro-Agent sul dispositivo IoT Edge.
 
-## <a name="deploy-security-module"></a>Distribuisci modulo di sicurezza
+## <a name="deploy-defender-iot-micro-agent"></a>Distribuisci Defender-cose-micro-Agent
 
-Usare la procedura seguente per distribuire un modulo di sicurezza Defender for Internet per IoT Edge.
+Usare la procedura seguente per distribuire un Defender per Internet delle cose Defender-molto-micro-Agent per IoT Edge.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -169,7 +169,7 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per Defend
 
 ## <a name="diagnostic-steps"></a>Procedure di diagnostica
 
-Se si verifica un problema, i log del contenitore rappresentano il modo migliore per ottenere informazioni sullo stato di un dispositivo IoT Edge Security Module. Usare i comandi e gli strumenti illustrati in questa sezione per raccogliere informazioni.
+Se si verifica un problema, i log del contenitore rappresentano il modo migliore per conoscere lo stato di un dispositivo IoT Edge Defender-Internet. Usare i comandi e gli strumenti illustrati in questa sezione per raccogliere informazioni.
 
 ### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>Verificare che i contenitori necessari siano installati e funzionino come previsto
 

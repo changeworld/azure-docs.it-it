@@ -1,5 +1,5 @@
 ---
-title: Distribuire & eseguire la migrazione di applicazioni Web Java al servizio Kubernetes di Azure.
+title: App Azure il contenitore Java; Contenitori e migrazione di applicazioni Web Java in Azure Kubernetes.
 description: 'Esercitazione: distribuire & eseguire la migrazione di applicazioni Web Java al servizio Kubernetes di Azure.'
 services: ''
 author: rahugup
@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 71d0e219a84e018eef363732169ab2ec9c43dde2
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: ecc31019ccedc21683eed1a3186cec91d4c5c567
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103233202"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466593"
 ---
 # <a name="containerize-java-web-applications-and-migrate-to-azure-kubernetes-service"></a>Distribuire applicazioni Web Java e migrazione al servizio Azure Kubernetes
 

@@ -314,16 +314,16 @@
           href: references-work-with-defender-for-iot-cli-commands.md
         - name: Gestire i protocolli proprietari (Horizon)
           href: resources-manage-proprietary-protocols.md
+        - name: Domande frequenti - servizio
+          displayName: 'FAQ, regulation, internet, connection, hardware, appliances, ports, logs'
+          href: resources-frequently-asked-questions.md
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
         - name: API del modulo di sicurezza per Azure RTOS
           displayNAme: 'prototype, disable'
           href: azure-rtos-security-module-api.md
-        - name: Domande frequenti - servizio
-          displayName: 'regulation, internet, connection, hardware, appliances, ports, logs'
-          href: resources-frequently-asked-questions.md
         - name: Domande frequenti - agente
-          displayName: 'embedded, dependencies, data, quota, internet,'
+          displayName: 'FAQ, embedded, dependencies, data, quota, internet,'
           href: resources-agent-frequently-asked-questions.md
         - name: Roadmap per Azure
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'

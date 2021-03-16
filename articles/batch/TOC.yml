@@ -31,15 +31,6 @@
     - name: Elaborazione in parallelo dei file - Python
       displayName: 'tutorial, hpc, high-performance, large'
       href: tutorial-parallel-python.md
-    - name: Rendering di scene con Arnold
-      displayName: tutorial
-      href: tutorial-rendering-cli.md
-    - name: Rendering con Batch Explorer
-      displayName: tutorial
-      href: tutorial-rendering-batchexplorer-blender.md
-    - name: Simulazione R in parallelo
-      displayName: 'tutorial, doAzureParallel, rstudio'
-      href: tutorial-r-doazureparallel.md
     - name: OCR con Batch e Funzioni
       displayName: 'trigger, optical'
       href: tutorial-batch-functions.md
@@ -70,7 +61,7 @@
           href: ./scripts/batch-cli-sample-run-job.md
 - name: Concetti
   items:
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
-ms.openlocfilehash: d96a73c3ba996fecf24a4232e1391f0b814be868
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 161bc008076de2bba62cd65c6c9bb106f648aa47
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851255"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493238"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Informazioni sul file LocalConfiguration.json - Agente C
 
@@ -39,7 +39,7 @@ Le modifiche apportate al file di configurazione vengono applicate quando l'agen
 | TriggerdEventsInterval | Stringa ISO8601 | Intervallo di utilità di pianificazione per la raccolta di eventi attivati |
 | ConnectionTimeout | Stringa ISO8601 | Si è verificato il timeout del periodo di tempo prima della connessione a IoThub |
 | Authentication | JsonObject | Configurazione dell'autenticazione. Questo oggetto contiene tutte le informazioni necessarie per l'autenticazione in IoTHub |
-| Identità | "DPS", "SecurityModule", "Device" | Identità di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, SecurityModule se l'autenticazione viene eseguita tramite il dispositivo o le credenziali del modulo di sicurezza se viene eseguita l'autenticazione con le credenziali del dispositivo |
+| Identità | "DPS", "SecurityModule", "Device" | Identità di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, SecurityModule se l'autenticazione viene effettuata tramite Defender-Internet o dispositivo se l'autenticazione viene eseguita con le credenziali del dispositivo |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | il segreto utente per l'autenticazione-scegliere SasToken se il segreto di utilizzo è una chiave simmetrica, scegliere un certificato autofirmato se il segreto è un certificato autofirmato  |
 | FilePath | Percorso del file (stringa) | Percorso del file che contiene il segreto di autenticazione |
 | HostName | string | Nome host dell'hub Azure. in genere <My-Hub>. azure-devices.net |

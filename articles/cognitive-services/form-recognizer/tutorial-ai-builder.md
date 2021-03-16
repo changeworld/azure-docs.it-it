@@ -2,19 +2,19 @@
 title: "Esercitazione: Creare un'app di elaborazione moduli con AI Builder - Riconoscimento modulo"
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si userà AI Builder per creare un'applicazione di elaborazione moduli ed eseguirne il training.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 11/23/2020
-ms.author: pafarley
-ms.openlocfilehash: 3ba08f11fb52fc0ffe3acda5e81e21b7e7629628
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
-ms.translationtype: HT
+ms.author: lajanuar
+ms.openlocfilehash: 30c44ac60783132344cc018135d2c248f91f46bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95757421"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467120"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Esercitazione: Creare un'app di elaborazione moduli con AI Builder
 

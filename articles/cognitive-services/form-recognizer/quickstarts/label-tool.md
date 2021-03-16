@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione di documenti
-ms.openlocfilehash: f07e3b6142ad99ba3b9e64e4733109a7e5ae04f9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 89de0752b3015fb8132bfa50c7dbdce174061bcc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425746"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467294"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -124,7 +124,7 @@ Prima di tutto, assicurarsi che tutti i documenti di training abbiano lo stesso 
 
 ### <a name="configure-cross-domain-resource-sharing-cors"></a>Configurare la condivisione di risorse tra domini (CORS)
 
-Abilitare CORS nell'account di archiviazione. Selezionare l'account di archiviazione nel portale di Azure e fare clic sulla scheda **CORS** nel riquadro sinistro. Nella riga inferiore inserire i valori seguenti. Quindi fare clic su **Salva** nella parte superiore.
+Abilitare CORS nell'account di archiviazione. Selezionare l'account di archiviazione nell'portale di Azure, quindi scegliere la scheda **CORS** nel riquadro sinistro. Nella riga inferiore inserire i valori seguenti. Selezionare **Save (Salva** ) nella parte superiore.
 
 * Origini consentite = *
 * Metodi consentiti = \[seleziona tutto\]
@@ -137,11 +137,11 @@ Abilitare CORS nell'account di archiviazione. Selezionare l'account di archiviaz
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Connettere lo strumento di etichettatura campioni
 
-Lo strumento di etichettatura campioni si connette a un'origine (in cui si trovano i moduli originali) e a una destinazione (in cui esporta le etichette create e i dati di output).
+ Lo strumento di assegnazione di etichette di esempio si connette a un'origine (moduli caricati originali) e a una destinazione (etichette e dati di output creati).
 
 Le connessioni possono essere configurate e condivise tra progetti. Si basano su un modello di provider estendibile, quindi è possibile aggiungere facilmente nuovi provider di origine/destinazione.
 
-Per creare una nuova connessione, fare clic sull'icona **Nuove connessioni** (spina) sulla barra di spostamento sinistra.
+Per creare una nuova connessione, selezionare l'icona **nuova** connessione (plug) nella barra di spostamento a sinistra.
 
 Compilare i campi con i valori seguenti:
 
@@ -153,13 +153,12 @@ Compilare i campi con i valori seguenti:
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
 
-
 ## <a name="create-a-new-project"></a>Creare un nuovo progetto
 
 Nello strumento di etichettatura campioni vengono archiviate le configurazioni e le impostazioni dei progetti. Creare un nuovo progetto e compilare i campi con i valori seguenti:
 
 * **Nome visualizzato**: il nome visualizzato del progetto
-* **Token di sicurezza**: alcuni progetti possono includere valori sensibili, ad esempio chiavi di API o altri segreti condivisi. Ogni progetto genererà un token di sicurezza che è possibile usare per crittografare/decrittografare le impostazioni di progetti sensibili. Per trovare i token di sicurezza in Impostazioni applicazione, fare clic sull'icona dell'ingranaggio nella parte inferiore della barra di spostamento sinistra.
+* **Token di sicurezza**: alcuni progetti possono includere valori sensibili, ad esempio chiavi di API o altri segreti condivisi. Ogni progetto genererà un token di sicurezza che è possibile usare per crittografare/decrittografare le impostazioni di progetti sensibili. È possibile trovare i token di sicurezza nelle impostazioni dell'applicazione selezionando l'icona a forma di ingranaggio nella parte inferiore della barra di spostamento a sinistra.
 * **Connessione protetta**: la connessione ad archiviazione BLOB di Azure creata nel passaggio precedente che si vuole usare per questo progetto.
 * **Percorso cartella** (facoltativo): se i moduli di origine si trovano in una cartella del contenitore BLOB, specificare qui il relativo nome
 * **URI del servizio Riconoscimento modulo**: l'URL dell'endpoint di Riconoscimento modulo.
@@ -176,26 +175,28 @@ Quando si crea o si apre un progetto, viene visualizzata la finestra principale 
 * Il riquadro principale dell'editor che consente di applicare tag.
 * Il riquadro dell'editor di tag che consente di modificare, bloccare, riordinare ed eliminare tag.
 
-### <a name="identify-text-elements"></a>Identificare gli elementi di testo
+### <a name="identify-text-and-tables"></a>Identificare testo e tabelle 
 
-Fare clic su **Run OCR on all files** (Esegui OCR su tutti i file) nel riquadro sinistro per ottenere informazioni sul layout del testo per ogni documento. Lo strumento di etichettatura traccerà rettangoli di selezione intorno a ogni elemento di testo.
+Selezionare **Esegui OCR su tutti i file** nel riquadro sinistro per ottenere le informazioni sul layout del testo e della tabella per ogni documento. Lo strumento di etichettatura traccerà rettangoli di selezione intorno a ogni elemento di testo.
 
-Indicherà anche quali tabelle sono state estratte automaticamente. Fare clic sull'icona della tabella o della griglia sul lato sinistro del documento per visualizzare la tabella estratta. In questa guida di avvio rapido il contenuto della tabella, poiché è stato estratto automaticamente, non verrà etichettato, ma ci si baserà sull'estrazione automatica.
+Lo strumento per l'assegnazione di etichette indicherà anche quali tabelle sono state estratte automaticamente. Selezionare l'icona tabella/griglia nella parte sinistra del documento per visualizzare la tabella estratta. In questa guida di avvio rapido il contenuto della tabella, poiché è stato estratto automaticamente, non verrà etichettato, ma ci si baserà sull'estrazione automatica.
 
 :::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualizzazione della tabella nello strumento di etichettatura campioni.":::
+
+Nella versione 2.1, se il documento di training non contiene un valore compilato, è possibile creare una casella in cui il valore deve essere. Usare l' **area di attrazione** nell'angolo superiore sinistro della finestra per rendere l'area taggable.
 
 ### <a name="apply-labels-to-text"></a>Applicare le etichette al testo
 
 Successivamente, verranno creati tag (etichette) e applicati agli elementi di testo che si desidera vengano analizzati dal modello.
 
-### <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
+### <a name="v20"></a>[v2.0](#tab/v2-1)  
 
-1. Usare prima di tutto il riquadro Editor tag per creare i tag che si vuole identificare:
-   * Fare clic su **+** per creare un nuovo tag.
-   * Immettere il nome del tag.
-   * Premere INVIO per salvare il tag.
-1. Nell'editor principale fare clic per selezionare parole dagli elementi di testo evidenziati per selezionarle. Nell'API _v 2.1 Preview. 2_ è anche possibile fare clic per selezionare i _contrassegni di selezione_ come pulsanti di opzione e caselle di controllo come coppie chiave-valore. Riconoscimento modulo identificherà se l'indicatore di selezione è "selezionato" o "deselezionato" come valore.
-1. Fare clic sul tag da applicare oppure premere il tasto corrispondente della tastiera. I tasti numerici vengono assegnati come tasti di scelta rapida per i primi 10 tag. È possibile riordinare i tag usando le icone delle frecce su e giù nel riquadro dell'editor di tag.
+1. Usare prima di tutto il riquadro dell'editor di tag per creare i tag da identificare.
+   1. Selezionare **+** per creare un nuovo tag.
+   1. Immettere il nome del tag.
+   1. Premere INVIO per salvare il tag.
+1. Nell'editor principale selezionare le parole dagli elementi di testo evidenziati o da un'area disegnata.
+1. Selezionare il tag che si desidera applicare oppure premere il tasto di scelta rapida corrispondente. I tasti numerici vengono assegnati come tasti di scelta rapida per i primi 10 tag. È possibile riordinare i tag usando le icone delle frecce su e giù nel riquadro dell'editor di tag.
     > [!Tip]
     > Quando si etichettano i form, tenere presenti i suggerimenti seguenti:
     >
@@ -212,11 +213,11 @@ Successivamente, verranno creati tag (etichette) e applicati agli elementi di te
 ### <a name="v20"></a>[v2.0](#tab/v2-0)
 
 1. Usare prima di tutto il riquadro dell'editor di tag per creare i tag da identificare.
-   1. Fare clic su **+** per creare un nuovo tag.
+   1. Selezionare **+** per creare un nuovo tag.
    1. Immettere il nome del tag.
    1. Premere INVIO per salvare il tag.
-1. Nell'editor principale fare clic per selezionare parole dagli elementi di testo evidenziati per selezionarle.
-1. Fare clic sul tag da applicare oppure premere il tasto corrispondente della tastiera. I tasti numerici vengono assegnati come tasti di scelta rapida per i primi 10 tag. È possibile riordinare i tag usando le icone delle frecce su e giù nel riquadro dell'editor di tag.
+1. Nell'editor principale selezionare parole dagli elementi di testo evidenziati.
+1. Selezionare il tag che si desidera applicare oppure premere il tasto di scelta rapida corrispondente. I tasti numerici vengono assegnati come tasti di scelta rapida per i primi 10 tag. È possibile riordinare i tag usando le icone delle frecce su e giù nel riquadro dell'editor di tag.
     > [!Tip]
     > Quando si etichettano i form, tenere presenti i suggerimenti seguenti:
     >
@@ -231,6 +232,7 @@ Successivamente, verranno creati tag (etichette) e applicati agli elementi di te
 >
 
 ---
+---
 
 :::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Finestra dell'editor principale dello strumento di etichettatura campioni.":::
 
@@ -238,7 +240,7 @@ Seguire i passaggi precedenti per etichettare almeno cinque moduli.
 
 ### <a name="specify-tag-value-types"></a>Specificare i tipi di valore di tag
 
-Facoltativamente, è possibile impostare il tipo di dati previsto per ogni tag. Aprire il menu di scelta rapida a destra di un tag e selezionare un tipo dal menu. Questa funzionalità consente all'algoritmo di rilevamento di creare determinati presupposti che consentiranno di migliorare l'accuratezza del rilevamento del testo. Garantisce inoltre che i valori rilevati vengano restituiti in un formato standardizzato nell'output JSON finale. Le informazioni sul tipo di valore vengono salvate nel file *fields.json* nello stesso percorso dei file di etichette.
+È possibile impostare il tipo di dati previsto per ogni tag. Aprire il menu di scelta rapida a destra di un tag e selezionare un tipo dal menu. Questa funzionalità consente all'algoritmo di rilevamento di creare presupposti che consentiranno di migliorare l'accuratezza del rilevamento del testo. Garantisce inoltre che i valori rilevati vengano restituiti in un formato standardizzato nell'output JSON finale. Le informazioni sul tipo di valore vengono salvate nel file **fields.json** nello stesso percorso dei file di etichette.
 
 > [!div class="mx-imgBorder"]
 > ![Selezione del tipo di valore con lo strumento di etichettatura di esempio](../media/whats-new/value-type.png)
@@ -285,12 +287,22 @@ Sono attualmente supportati i tipi di valore e le varianti seguenti:
 > * 01gen2020
 > * 01 gen 2020
 
+### <a name="label-tables-v21-only"></a>Etichetta tabelle (solo versione 2.1)
+
+In alcuni casi, i dati possono essere più preferiti a essere etichettati come tabella anziché come coppie chiave-valore. In questo caso, è possibile creare un tag di tabella facendo clic su "Aggiungi un nuovo tag di tabella", specificare se la tabella avrà un numero fisso di righe o un numero variabile di righe a seconda del documento e di definire lo schema.
+
+:::image type="content" source="../media/label-tool/table-tag.png" alt-text="Configurazione di un tag di tabella.":::
+
+Dopo aver definito il tag Table, contrassegnare i valori della cella.
+
+:::image type="content" source="../media/table-labeling.png" alt-text="Assegnazione di etichette a una tabella.":::
+
 ## <a name="train-a-custom-model"></a>Eseguire il training di un modello personalizzato
 
-Fare clic sull'icona del training nel riquadro sinistro per aprire la pagina corrispondente. Quindi fare clic sul pulsante **Train** per iniziare il training del modello. Al termine del processo di training, verranno visualizzate le informazioni seguenti:
+Per aprire la pagina di training, scegliere l'icona del treno nel riquadro sinistro. Quindi selezionare il pulsante di **Train** per iniziare a eseguire il training del modello. Al termine del processo di training, verranno visualizzate le informazioni seguenti:
 
 * **ID modello**: l'ID del modello creato e sottoposto a training. Ogni chiamata al training crea un nuovo modello con un proprio ID. Copiare questa stringa in un posto sicuro, perché sarà necessaria per eseguire le chiamate di previsione tramite l'[API REST](./client-library.md?pivots=programming-language-rest-api) o la [libreria client](./client-library.md).
-* **Average Accuracy** (Accuratezza media): l'accuratezza media del modello. È possibile migliorare l'accuratezza del modello etichettando altri moduli ed eseguendo di nuovo il training per creare un nuovo modello. Per iniziare, è consigliabile etichettare cinque moduli ed aggiungerne altri se necessario.
+* **Average Accuracy** (Accuratezza media): l'accuratezza media del modello. Per migliorare l'accuratezza del modello, è possibile assegnare etichette a moduli aggiuntivi e rieseguire il training per creare un nuovo modello. Per iniziare, è consigliabile etichettare cinque moduli ed aggiungerne altri se necessario.
 * L'elenco dei tag e l'accuratezza stimata per ognuno.
 
 
@@ -305,10 +317,10 @@ Al termine del training, esaminare il valore di **Average Accuracy** (Accuratezz
 
 ### <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
 
-Con lo strumento di composizione modelli è possibile comporre fino a 100 modelli in un solo ID modello. Quando si esegue l'analisi con questo ID di modello composto, Riconoscimento modulo classifica prima di tutto il modulo inviato, associandolo al modello con la corrispondenza migliore, quindi restituisce i risultati per tale modello. Questo è utile nel caso in cui i moduli in ingresso appartengano a uno dei diversi modelli.
+Con lo strumento di composizione modelli è possibile comporre fino a 100 modelli in un solo ID modello. Quando si chiama analizza con l'oggetto composto `modelID` , il riconoscimento del modulo classifica innanzitutto il form inviato, sceglie il modello di corrispondenza migliore e quindi restituisce i risultati per quel modello. Questa operazione è utile quando i moduli in ingresso possono appartenere a uno dei diversi modelli.
 
-Per comporre modelli nello strumento di etichettatura campioni, fare clic sull'icona a forma di freccia di unione dello strumento di composizione modelli a sinistra. A sinistra selezionare i modelli da comporre insieme. I modelli contrassegnati con l'icona della freccia sono già composti.
-Fare clic sul pulsante "Componi". Nella finestra popup assegnare un nome al nuovo modello composto e fare clic su "compose". Al termine dell'operazione, il nuovo modello composto dovrebbe essere visualizzato nell'elenco.
+Per comporre modelli nello strumento di assegnazione di etichette di esempio, selezionare l'icona di composizione del modello (freccia di Unione) a sinistra. A sinistra selezionare i modelli da comporre insieme. I modelli contrassegnati con l'icona della freccia sono già composti.
+Scegliere il **pulsante Componi**. Nella finestra popup assegnare un nome al nuovo modello composto e selezionare **compose**. Al termine dell'operazione, il modello appena composto verrà visualizzato nell'elenco.
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Visualizzazione dell'esperienza utente di composizione modelli.":::
 
@@ -320,16 +332,16 @@ Questa funzionalità è attualmente disponibile in v2.1. preview.
 
 ## <a name="analyze-a-form"></a>Analizzare un modulo
 
-Fare clic sull'icona Previsioni (lampadina) a sinistra per testare il modello. Caricare un documento modulo che non è stato usato nel processo di training. Fare quindi clic sul pulsante **Previsioni** a destra per ottenere le previsioni relative alle coppie chiave-valore per il modulo. Lo strumento applicherà i tag nei riquadri di selezione e segnalerà l'attendibilità di ognuno.
+Selezionare l'icona stima (lampadina) a sinistra per testare il modello. Caricare un documento modulo che non è stato usato nel processo di training. Scegliere quindi il pulsante **stima** a destra per ottenere le stime chiave/valore per il modulo. Lo strumento applicherà i tag nei riquadri di selezione e segnalerà l'attendibilità di ognuno.
 
 > [!TIP]
 > È anche possibile eseguire l'API di analisi con una chiamata REST. Per informazioni su come eseguire questa operazione, vedere [Eseguire il training con le etichette usando Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="improve-results"></a>Migliorare i risultati
 
-A seconda dell'accuratezza indicata, è possibile scegliere di eseguire ulteriori processi di training per migliorare il modello. Dopo aver eseguito una previsione, esaminare i valori di attendibilità per ognuno dei tag applicati. Se il valore dell'accuratezza media del training è alto, ma i punteggi di attendibilità sono bassi (o i risultati non sono accurati), è consigliabile aggiungere il file usato per le previsioni nel set di training, etichettarlo e ripetere il training.
+A seconda dell'accuratezza indicata, è possibile scegliere di eseguire ulteriori processi di training per migliorare il modello. Dopo aver eseguito una previsione, esaminare i valori di attendibilità per ognuno dei tag applicati. Se il valore di training di accuratezza medio era elevato, ma i punteggi di confidenza sono bassi (o se i risultati non sono accurati), è necessario aggiungere il file di stima al set di training, assegnargli un'etichetta e eseguire di nuovo il training.
 
-L'accuratezza media indicata, i punteggi di attendibilità e l'accuratezza effettiva possono essere incoerenti se i documenti analizzati sono diversi da quelli usati per il training. Tenere presente che alcuni documenti hanno un aspetto simile quando vengono visualizzati dalle persone ma sembrano diversi per il modello di intelligenza artificiale. Ad esempio, è possibile eseguire il training con un tipo di modulo con due varianti, in cui il set di training è costituito per il 20% dalla variante A e per l'80% dalla variante B. Durante la previsione, è probabile che i punteggi di attendibilità per i documenti della variante A siano inferiori.
+L'accuratezza media segnalata, i punteggi di confidenza e l'accuratezza effettiva possono risultare incoerenti quando i documenti analizzati sono diversi da quelli utilizzati per il training. Tenere presente che alcuni documenti hanno un aspetto simile quando vengono visualizzati dalle persone ma sembrano diversi per il modello di intelligenza artificiale. Ad esempio, è possibile eseguire il training con un tipo di modulo con due varianti, in cui il set di training è costituito per il 20% dalla variante A e per l'80% dalla variante B. Durante la previsione, è probabile che i punteggi di attendibilità per i documenti della variante A siano inferiori.
 
 ## <a name="save-a-project-and-resume-later"></a>Salvare un progetto e riprenderlo in seguito
 
@@ -341,11 +353,11 @@ Passare alla pagina delle impostazioni del progetto (icona del dispositivo di sc
 
 ### <a name="restore-project-credentials"></a>Ripristinare le credenziali del progetto
 
-Quando si vuole riprendere il progetto, è prima di tutto necessario creare una connessione allo stesso contenitore di archiviazione BLOB. A questo scopo, ripetere la procedura descritta sopra. Quindi, passare alla pagina di impostazioni dell'applicazione (icona dell'ingranaggio) e verificare se il token di sicurezza del progetto è presente. Se non lo è, aggiungere un nuovo token di sicurezza e sovrascrivere il nome e la chiave del token del passaggio precedente. Quindi fare clic su Save settings (Salva impostazioni).
+Quando si vuole riprendere il progetto, è prima di tutto necessario creare una connessione allo stesso contenitore di archiviazione BLOB. A tale scopo, ripetere i passaggi precedenti. Quindi, passare alla pagina di impostazioni dell'applicazione (icona dell'ingranaggio) e verificare se il token di sicurezza del progetto è presente. Se non lo è, aggiungere un nuovo token di sicurezza e sovrascrivere il nome e la chiave del token del passaggio precedente. Selezionare **Save (Salva** ) per mantenere le impostazioni.
 
 ### <a name="resume-a-project"></a>Riprendere un progetto
 
-Infine, passare alla pagina principale (icona della casa) e fare clic su Open Cloud Project (Apri progetto cloud). Selezionare quindi la connessione all'archiviazione BLOB e il file con estensione *fott* del progetto. L'applicazione caricherà tutte le impostazioni del progetto perché contiene il token di sicurezza.
+Infine, passare alla pagina principale (icona della casa) e selezionare **Apri progetto cloud**. Selezionare quindi la connessione all'archiviazione BLOB e il file con estensione **fott** del progetto. L'applicazione caricherà tutte le impostazioni del progetto perché contiene il token di sicurezza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

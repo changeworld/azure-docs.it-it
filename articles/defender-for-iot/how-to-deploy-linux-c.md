@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 6d3f96ed60ca784402b6d24eea7234f37c4fb959
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: f7f6b28070600ae53242181934ea903a486c25b4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449782"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494564"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Distribuire Defender per l'agente di sicurezza basato su Internet
 
@@ -35,7 +35,7 @@ Per altre piattaforme e versioni degli agenti, vedere [scegliere l'agente di sic
 
 1. Per distribuire l'agente protezione, sono necessari i diritti di amministratore locale nel computer in cui si vuole installare (sudo).
 
-1. [Creare un modulo di sicurezza](quickstart-create-security-twin.md) per il dispositivo.
+1. [Creare un agente di protezione-](quickstart-create-security-twin.md) Internet per il dispositivo.
 
 ## <a name="installation"></a>Installazione
 

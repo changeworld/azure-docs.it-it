@@ -4,15 +4,15 @@ description: Risolvere i problemi relativi al sensore e alla console di gestione
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/14/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 624f60441f56646c3633a2afa79d326c92ba1a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: ba68bc3eee94689236792f0270d779357dffde9f
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523720"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465777"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Risolvere i problemi relativi al sensore e alla console di gestione locale
 
@@ -54,7 +54,7 @@ Per ripristinare la password:
 1. Selezionare **Avanti**. verrà visualizzato l'utente e la password generata dal sistema per la console di gestione.
 
     > [!NOTE]
-    > Quando si accede a un sensore o a una console di gestione locale per la prima volta, questo verrà collegato alla sottoscrizione a cui è stata connessa. Se è necessario reimpostare la password per il CyberX o l'utente del supporto, sarà necessario selezionare tale sottoscrizione. Per ulteriori informazioni sul ripristino di un CyberX o la password dell'utente di supporto, vedere [reimpostazione della password di un utente per il sensore o la console di gestione locale](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console)
+    > Quando si accede a un sensore o a una console di gestione locale per la prima volta, questo verrà collegato alla sottoscrizione a cui è stata connessa. Se è necessario reimpostare la password per il CyberX o l'utente del supporto, sarà necessario selezionare tale sottoscrizione. Per ulteriori informazioni sul ripristino di un CyberX o la password dell'utente di supporto, vedere [reimpostazione delle password](how-to-create-and-manage-users.md#resetting-passwords).
 
 ### <a name="investigate-a-lack-of-traffic"></a>Esaminare la mancanza di traffico
 
@@ -283,7 +283,7 @@ I log esportati vengono aggiunti all'elenco dei **log archiviati** . Inviare il 
 
 L'elenco dei log archiviati può contenere fino a cinque elementi. Se il numero di elementi nell'elenco supera tale numero, il primo elemento viene eliminato.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedi anche
 
 - [Visualizzare gli avvisi](how-to-view-alerts.md)
 

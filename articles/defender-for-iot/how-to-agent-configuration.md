@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b59d9079b6d0fe0ab3fe61eacf43f3a99eb46686
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090846"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495777"
 ---
 # <a name="tutorial-configure-security-agents"></a>Esercitazione: configurare gli agenti di sicurezza
 
@@ -88,7 +88,7 @@ Per usare un valore di proprietà predefinito, rimuovere la proprietà dall'ogge
 
 1. Fare clic su **Module Identity gemelle**.
 
-1. Modificare le proprietà che si desidera modificare nel modulo di sicurezza.
+1. Modificare le proprietà che si desidera modificare nella pagina Defender-Internet-micro-Agent.
 
    Ad esempio, per configurare gli eventi di connessione come priorità alta e raccogliere gli eventi con priorità alta ogni 7 minuti, utilizzare la configurazione seguente.
 
@@ -117,7 +117,7 @@ La tabella seguente contiene le proprietà controllabili di Defender per gli age
 
 I valori predefiniti sono disponibili nello schema appropriato in [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Nome| Stato | Valori validi| Valori predefiniti| Description |
+| Nome| Stato | Valori validi| Valori predefiniti| Descrizione |
 |----------|--------|--|-------|----|
 |highPriorityMessageFrequency|Obbligatorio: false |Valori validi: durata nel formato ISO 8601 |Valore predefinito: PT7M |Intervallo di tempo massimo prima dell'invio dei messaggi con priorità alta.|
 |lowPriorityMessageFrequency |Obbligatorio: false|Valori validi: durata nel formato ISO 8601 |Valore predefinito: PT5H |Tempo massimo prima dell'invio dei messaggi con priorità bassa.|
@@ -130,19 +130,19 @@ I valori predefiniti sono disponibili nello schema appropriato in [GitHub](https
 
 |Nome evento| PropertyName | Valore predefinito| Evento snapshot| Stato dettagli  |
 |----------|-|---------|----|----|
-|Evento di diagnostica|eventPriorityDiagnostic| Off| False| Eventi di diagnostica correlati agli agenti. Utilizzare questo evento per la registrazione dettagliata.|
-|Errore di configurazione |eventPriorityConfigurationError |Basso |False |L'agente non è riuscito ad analizzare la configurazione. Verificare la configurazione in base allo schema.|
-|Statistiche eventi eliminati |eventPriorityDroppedEventsStatistics |Basso |True|Statistiche evento correlate agli agenti. |
-|Hardware connesso|eventPriorityConnectedHardware |Basso |True |Snapshot di tutti i componenti hardware connessi al dispositivo.|
-|Porte in ascolto|eventPriorityListeningPorts |Alto |True |Snapshot di tutte le porte di ascolto aperte sul dispositivo.|
-|Creazione processo |eventPriorityProcessCreate |Basso |False |Controlla la creazione del processo nel dispositivo.|
-|Terminazione processo|eventPriorityProcessTerminate |Basso |False |Controlla la terminazione del processo nel dispositivo.|
-|Informazioni di sistema |eventPrioritySystemInformation |Basso |True |Uno snapshot delle informazioni di sistema (ad esempio, sistema operativo o CPU).|
-|Utenti locali| eventPriorityLocalUsers |Alto |True|Snapshot degli utenti locali registrati nel sistema. |
-|Accedi|  eventPriorityLogin |Alto|False|Controllare gli eventi di accesso al dispositivo (account di accesso locali e remoti).|
-|Creazione della connessione |eventPriorityConnectionCreate|Basso|False|Controlla le connessioni TCP create da e verso il dispositivo. |
-|Configurazione del firewall| eventPriorityFirewallConfiguration|Basso|True|Snapshot della configurazione del firewall del dispositivo (regole del firewall). |
-|Baseline del sistema operativo| eventPriorityOSBaseline| Basso|True|Snapshot del controllo della linea di base del sistema operativo del dispositivo.|
+|Evento di diagnostica|eventPriorityDiagnostic| Off| Falso| Eventi di diagnostica correlati agli agenti. Utilizzare questo evento per la registrazione dettagliata.|
+|Errore di configurazione |eventPriorityConfigurationError |Basso |Falso |L'agente non è riuscito ad analizzare la configurazione. Verificare la configurazione in base allo schema.|
+|Statistiche eventi eliminati |eventPriorityDroppedEventsStatistics |Basso |Vero|Statistiche evento correlate agli agenti. |
+|Hardware connesso|eventPriorityConnectedHardware |Basso |Vero |Snapshot di tutti i componenti hardware connessi al dispositivo.|
+|Porte in ascolto|eventPriorityListeningPorts |Alto |Vero |Snapshot di tutte le porte di ascolto aperte sul dispositivo.|
+|Creazione processo |eventPriorityProcessCreate |Basso |Falso |Controlla la creazione del processo nel dispositivo.|
+|Terminazione processo|eventPriorityProcessTerminate |Basso |Falso |Controlla la terminazione del processo nel dispositivo.|
+|Informazioni di sistema |eventPrioritySystemInformation |Basso |Vero |Uno snapshot delle informazioni di sistema (ad esempio, sistema operativo o CPU).|
+|Utenti locali| eventPriorityLocalUsers |Alto |Vero|Snapshot degli utenti locali registrati nel sistema. |
+|Accedi|  eventPriorityLogin |Alto|Falso|Controllare gli eventi di accesso al dispositivo (account di accesso locali e remoti).|
+|Creazione della connessione |eventPriorityConnectionCreate|Basso|Falso|Controlla le connessioni TCP create da e verso il dispositivo. |
+|Configurazione del firewall| eventPriorityFirewallConfiguration|Basso|Vero|Snapshot della configurazione del firewall del dispositivo (regole del firewall). |
+|Baseline del sistema operativo| eventPriorityOSBaseline| Basso|Vero|Snapshot del controllo della linea di base del sistema operativo del dispositivo.|
 |
 
 ## <a name="next-steps"></a>Passaggi successivi

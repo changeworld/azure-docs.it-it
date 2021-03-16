@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 3ed5c2c1c95822717981f7d30b91edd244420c59
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: c7d06172abd696e386337e563fa29fdbd2d3cdae
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427686"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493663"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -151,7 +151,7 @@ Per la cronologia delle versioni precedenti, vedere [Kubernetes](https://en.wiki
 
 **Con quale frequenza si prevede di aggiornare le versioni di Kubernetes per continuare a supportare?**
 
-Con la dichiarazione di Kubernetes 1,19, la [community open source ha esteso il supporto per 1 anno](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS si impegna ad abilitare le patch e a supportare la corrispondenza minima degli impegni upstream. Ciò significa che, a partire da cluster AKS in 1,19, sarà possibile eseguire l'aggiornamento almeno una volta all'anno per rimanere in una versione supportata. Per le versioni 1,18 o inferiori, la finestra del supporto rimane a 9 mesi, che richiede un aggiornamento ogni 9 mesi per restare in una versione supportata. È consigliabile testare regolarmente le nuove versioni e prepararsi all'aggiornamento alle versioni più recenti per acquisire i miglioramenti più recenti stabili all'interno di Kubernetes.
+A partire da Kubernetes 1,19, la [community open source ha esteso il supporto per 1 anno](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS si impegna ad abilitare le patch e a supportare la corrispondenza minima degli impegni upstream. Ciò significa che, a partire da cluster AKS in 1,19, sarà possibile eseguire l'aggiornamento almeno una volta all'anno per rimanere in una versione supportata. Per le versioni 1,18 o inferiori, la finestra del supporto rimane a 9 mesi, che richiede un aggiornamento ogni 9 mesi per restare in una versione supportata. È consigliabile testare regolarmente le nuove versioni e prepararsi all'aggiornamento alle versioni più recenti per acquisire i miglioramenti più recenti stabili all'interno di Kubernetes.
 
 **Cosa accade quando un utente aggiorna un cluster Kubernetes con una versione secondaria non supportata?**
 

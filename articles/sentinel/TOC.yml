@@ -47,8 +47,6 @@
       href: microsoft-365-defender-sentinel-integration.md
     - name: Usare dati esterni con le watchlist
       href: watchlists.md
-    - name: Assegnare autorizzazioni tramite ruoli
-      href: roles.md
     - name: Estendere Azure Sentinel tra più aree di lavoro e tenant
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Normalizzare i dati tra le tabelle

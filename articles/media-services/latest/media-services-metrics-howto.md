@@ -14,25 +14,25 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ab89c222648a66ad7451f9bb47e254c55b925630
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab5871749630b047f6498a2439f77693a999c798
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590748"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493922"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorare le metriche di Servizi multimediali
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. Per una descrizione dettagliata di questa funzionalità e per comprendere il motivo per cui è consigliabile usare i log di diagnostica e le metriche di servizi multimediali di Azure, vedere [monitorare le metriche di servizi multimediali e i log di diagnostica](media-services-metrics-diagnostic-logs.md).
+[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. Per una descrizione dettagliata di questa funzionalità e per comprendere il motivo per cui è consigliabile usare i log di diagnostica e le metriche di servizi multimediali di Azure, vedere [monitorare le metriche di servizi multimediali e i log di diagnostica](monitoring/monitor-media-services-data-reference.md).
 
 Monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query usando l'interfaccia della riga di comando di Azure. Questo articolo illustra come monitorare le metriche con i grafici portale di Azure e l'interfaccia della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Creare un account di Servizi multimediali di Azure.](./create-account-howto.md)
-- Esaminare  [le metriche dei servizi multimediali e i log di diagnostica](media-services-metrics-diagnostic-logs.md)
+- Esaminare  [le metriche dei servizi multimediali e i log di diagnostica](monitoring/monitor-media-services-data-reference.md)
 
 ## <a name="view-metrics-in-azure-portal"></a>Visualizzare le metriche in portale di Azure
 
@@ -46,7 +46,7 @@ Monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui
     * &lt;Nome dell'endpoint di &gt; / &lt; streaming del nome dell'account di servizi multimediali&gt;
     * &lt;nome dell'account di archiviazione&gt;
 
-    Filtrare quindi selezionare la risorsa e fare clic su **applica**. Per informazioni dettagliate sulle risorse e sulle metriche supportate, vedere [monitorare le metriche di servizi multimediali](media-services-metrics-diagnostic-logs.md).
+    Filtrare quindi selezionare la risorsa e fare clic su **applica**. Per informazioni dettagliate sulle risorse e sulle metriche supportate, vedere [monitorare le metriche di servizi multimediali](monitoring/monitor-media-services-data-reference.md).
 
     > [!NOTE]
     > Per spostarsi tra le risorse che si desidera monitorare, fare di nuovo clic sulla casella di **origine** e ripetere questo passaggio.

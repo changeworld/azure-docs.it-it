@@ -3,19 +3,19 @@ title: Riconoscimento moduli
 titleSuffix: Azure Cognitive Services
 description: Informazioni sui concetti relativi all'analisi dei biglietti aziendali con il modulo API Recognizer-uso e limiti.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/17/2019
-ms.author: pafarley
-ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: 5211c1263af599eb5fd09ad276545c725ce5c867
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546024"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466993"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modello per il riconoscimento delle schede business predefinite 
 
@@ -52,25 +52,25 @@ L'API del business card può restituire anche tutto il testo riconosciuto dal bi
 
 ### <a name="input-requirements"></a>Requisiti relativi all'input 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-business-card-operation"></a>Operazione Analyze business card
 
-La [scheda analizza business](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync) acquisisce un'immagine o un PDF di un biglietto da lavoro come input ed estrae i valori di interesse. La chiamata restituisce un campo di intestazione della risposta denominato `Operation-Location` . Il `Operation-Location` valore è un URL che contiene l'ID risultato da usare nel passaggio successivo.
+La [scheda analizza business](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync) acquisisce un'immagine o un PDF di un biglietto da lavoro come input ed estrae i valori di interesse. La chiamata restituisce un campo di intestazione della risposta denominato `Operation-Location` . Il `Operation-Location` valore è un URL che contiene l'ID risultato da usare nel passaggio successivo.
 
 |Intestazione risposta| URL risultato |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-analyze-business-card-result-operation"></a>Operazione Get Analyze result business card
 
-Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze business card result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione analizza business card. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
+Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze business card result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeBusinessCardResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione analizza business card. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
 |Campo| Tipo | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata.<br /><br />Running: l'operazione di analisi è in corso.<br /><br />non riuscito: l'operazione di analisi non è riuscita.<br /><br />Succeeded: l'operazione di analisi ha avuto esito positivo.|
 
-Quando il campo **stato** presenta il valore **succeeded** , la risposta JSON includerà i risultati relativi a business card e al riconoscimento del testo facoltativo, se richiesto. Il risultato della comprensione del business card è organizzato come un dizionario di valori di campo denominati, dove ogni valore contiene il testo estratto, il valore normalizzato, il rettangolo di delimitazione, la confidenza e gli elementi di parola corrispondenti. Il risultato del riconoscimento del testo è organizzato come una gerarchia di righe e parole, con testo, rettangolo di delimitazione e informazioni sulla confidenza.
+Quando il campo **stato** presenta il valore **succeeded** , la risposta JSON includerà i risultati relativi a business card e al riconoscimento del testo facoltativo, se richiesto. Il risultato della comprensione del business card è organizzato come dizionario di valori dei campi denominati, dove ogni valore contiene il testo estratto, il valore normalizzato, il rettangolo di delimitazione, la confidenza e gli elementi di parola corrispondenti. Il risultato del riconoscimento del testo è organizzato come una gerarchia di righe e parole, con testo, rettangolo di delimitazione e informazioni sulla confidenza.
 
 ![esempio di output della scheda di business](./media/business-card-results.png)
 
@@ -386,7 +386,7 @@ Seguire la Guida introduttiva di [avvio rapido](./QuickStarts/client-library.md)
 
 ## <a name="customer-scenarios"></a>Scenari utente  
 
-I dati estratti con l'API Business Card possono essere utilizzati per eseguire diverse attività. L'estrazione di queste informazioni di contatto consente di risparmiare automaticamente tempo per i ruoli del client. Di seguito sono riportati alcuni esempi di ciò che i clienti hanno ottenuto con l'API dei biglietti da visita:
+I dati estratti con l'API del business card possono essere usati per eseguire varie attività. L'estrazione di queste informazioni di contatto consente di risparmiare automaticamente tempo per gli utenti nei ruoli client. Di seguito sono riportati alcuni esempi di ciò che i clienti hanno ottenuto con l'API dei biglietti da visita:
 
 * Estrai le informazioni di contatto dai biglietti da visita e crea rapidamente contatti telefonici. 
 * Eseguire l'integrazione con CRM per creare automaticamente il contatto utilizzando le immagini dei biglietti aziendali. 
@@ -402,4 +402,4 @@ L'API per i biglietti da business è anche la [funzionalità di elaborazione del
 ## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Riconoscimento modulo](./overview.md)
-* [Documentazione di riferimento per l'API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
+* [Documentazione di riferimento per l'API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)
