@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: bced45474a3a851bc5785f662c0b2e50ae3a380c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102241"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491079"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Azure Defender per la linea di base e i controlli personalizzati
 
@@ -42,7 +42,7 @@ I controlli personalizzati di base stabiliscono un elenco personalizzato di cont
 
 1. Caricare il file di **controllo personalizzato di base** nel dispositivo.
 
-1. Aggiungere le proprietà baseline al modulo Security e fare clic su **Save**.
+1. Aggiungere le proprietà della linea di base a Defender-cose-micro-Agent e fare clic su **Salva**.
 
 ### <a name="baseline-custom-check-file-example"></a>Esempio di file di controllo personalizzato Baseline
 

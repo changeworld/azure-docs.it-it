@@ -1,6 +1,6 @@
 ---
-title: Configurare e personalizzare il modulo di sicurezza per Azure RTO
-description: Informazioni su come configurare e personalizzare il modulo di sicurezza per Azure RTO.
+title: Configurare e personalizzare Defender-RTO-micro-Agent per Azure
+description: Informazioni su come configurare e personalizzare Defender-RTO-micro-Agent per Azure.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2021
 ms.author: shhazam
-ms.openlocfilehash: 524286fa7a923485d0085fb63f3ef9669db1a4d5
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 874a783763882a28f2fe7078e3a264d09107808a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449816"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495097"
 ---
-# <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-ga"></a>Configurare e personalizzare Defender-RTO-micro-Agent per Azure GA
+# <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-preview"></a>Configurare e personalizzare Defender-RTO-micro-Agent per Azure (anteprima)
 
 Questo articolo descrive come configurare Defender-RTO-micro-Agent per il dispositivo Azure per soddisfare i requisiti di rete, larghezza di banda e memoria.
 
@@ -89,5 +89,6 @@ Defender-RTO-micro-Agent per Azure supporta avvisi e raccomandazioni di sicurezz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare e personalizzare il modulo di sicurezza per gli [avvisi di sicurezza e le raccomandazioni](concept-rtos-security-alerts-recommendations.md) di Azure RTO
-- Vedere il [modulo di sicurezza per l'API RTO di Azure](azure-rtos-security-module-api.md) in base alle esigenze.
+
+- Esaminare e personalizzare Defender-RTO-micro-Agent per gli [avvisi di sicurezza e le raccomandazioni](concept-rtos-security-alerts-recommendations.md) di Azure
+- Fare riferimento all' [API Defender-RTO-micro-Agent per Azure](azure-rtos-security-module-api.md) in base alle esigenze.

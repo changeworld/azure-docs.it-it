@@ -209,6 +209,9 @@
           href: customize-ui-with-html.md
         - name: JavaScript e layout di pagina
           href: javascript-and-page-layout.md
+        - name: Accesso incorporato con iframe
+          displayName: iframe
+          href: embedded-login.md
         - name: Personalizzare la lingua
           href: language-customization.md
           displayName: localization
@@ -420,11 +423,13 @@
           href: partner-whoiam.md
         - name: Zscaler
           href: partner-zscaler.md
-    - name: Usare b2clogin.com
+    - name: Nome di dominio
       items:
         - name: Panoramica di b2clogin.com
           href: b2clogin.md
-        - name: Eseguire la migrazione dell'API Web a b2clogin.com
+        - name: Configurare un dominio personalizzato
+          href: custom-domain.md
+        - name: Configurare i domini dell'API Web
           href: multiple-token-endpoints.md
           displayName: 'migrate, b2clogin, owin'
     - name: Automazione

@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d1e8a0f1919da125a571429e1efff06589c7e85a
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051192"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466712"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegare le autorizzazioni di registrazione all'app in Azure Active Directory
 
@@ -30,7 +30,7 @@ Questo articolo descrive come usare le autorizzazioni concesse dai ruoli persona
 - [Assegnazione di un ruolo amministrativo predefinito](#assign-built-in-application-admin-roles) che concede l'accesso per gestire la configurazione in Azure ad per tutte le applicazioni. Questo è il modo consigliato per concedere agli esperti IT l'accesso per gestire le autorizzazioni di configurazione delle applicazioni generali senza concedere l'accesso per gestire altre parti di Azure AD non correlate alla configurazione dell'applicazione.
 - [Creazione di un ruolo personalizzato](#create-and-assign-a-custom-role-preview) che definisce autorizzazioni molto specifiche e relativa assegnazione a un utente nell'ambito di una singola applicazione come proprietario limitato oppure nell'ambito di directory (tutte le applicazioni) come amministratore con limitazioni.
 
-È importante considerare la possibilità di concedere l'accesso usando uno dei metodi descritti in precedenza per due motivi. Innanzitutto, delegare la possibilità di eseguire attività amministrative riduce il sovraccarico dell'amministratore globale. In secondo luogo, l'utilizzo di autorizzazioni limitate migliora il comportamento di sicurezza e riduce il rischio di accesso non autorizzato. Per indicazioni generali e informazioni sui problemi relativi alla delega, vedere [Delegare i ruoli di amministratore in Azure Active Directory](concept-delegation.md).
+È importante considerare la possibilità di concedere l'accesso usando uno dei metodi descritti in precedenza per due motivi. Innanzitutto, delegare la possibilità di eseguire attività amministrative riduce il sovraccarico dell'amministratore globale. In secondo luogo, l'utilizzo di autorizzazioni limitate migliora il comportamento di sicurezza e riduce il rischio di accesso non autorizzato. Per le linee guida sulla pianificazione della sicurezza dei ruoli, vedere [protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure ad](security-planning.md).
 
 ## <a name="restrict-who-can-create-applications"></a>Limitare gli utenti che possono creare applicazioni
 

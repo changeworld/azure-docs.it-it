@@ -6,16 +6,16 @@ author: dademath
 manager: nimag
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 07/28/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: ad8266d936c272ee2f6bad254738622c3f81bf03
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
-ms.translationtype: HT
+ms.openlocfilehash: fc20396053dee32ac7976139a634b4592389ab5f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757146"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488321"
 ---
 Iniziare a usare Servizi di comunicazione di Azure usando la libreria client SMS JavaScript di Servizi di comunicazione per inviare messaggi SMS.
 
@@ -28,9 +28,9 @@ Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Node.js](https://nodejs.org/), versioni Active LTS e Maintenance LTS (8.11.1 e 10.14.1 consigliate).
-- Una risorsa di Servizi di comunicazione attiva e una stringa di connessione. [Creare una risorsa di Servizi di comunicazione](../../create-communication-resource.md).
-- Numero di telefono abilitato per SMS. [Ottenere un numero di telefono](../get-phone-number.md).
+- Versioni di Active LTS e Maintenance LTS [Node.js](https://nodejs.org/)(versioni consigliate 8.11.1 e 10.14.1).
+- Una risorsa attiva di Servizi di comunicazione e una stringa di connessione. [Creare una risorsa di Servizi di comunicazione](../../create-communication-resource.md).
+- Un numero di telefono abilitato per gli SMS. [Ottenere un numero di telefono](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Controllo dei prerequisiti
 

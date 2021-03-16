@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a43551adf8dbe1a03ac7f7b22d58d63aa8c2c503
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 49abd2cc62ff7a2eab3d95265f3db8f5c894ebb6
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448422"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488942"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Facebook tramite Azure Active Directory B2C
 
@@ -55,7 +55,8 @@ Per abilitare l'accesso per gli utenti con un account Facebook in Azure Active D
 1. Fare clic su **Mostra** e copiare il valore di **Chiave segreta**. Sono necessari entrambi per configurare Facebook come provider di identità nel tenant. **App Segreta** è una credenziale di sicurezza importante.
 1. Dal menu selezionare il segno **più** accanto a **prodotti**. In **Aggiungi prodotti all'app** selezionare **imposta** in account di accesso di **Facebook**.
 1. Dal menu selezionare account di **accesso di Facebook** e selezionare **Impostazioni**.
-1. In **Valid OAuth redirect URIs** (URI di reindirizzamento OAuth valide) immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Sostituire `your-tenant-name` con il nome del tenant. Fare clic su **Salva le modifiche** nella parte inferiore della pagina.
+1. In **Valid OAuth redirect URIs** (URI di reindirizzamento OAuth valide) immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Se si usa un [dominio personalizzato](custom-domain.md), immettere `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Sostituire `your-tenant-name` con il nome del tenant e con il `your-domain-name` dominio personalizzato. 
+1. Fare clic su **Salva le modifiche** nella parte inferiore della pagina.
 1. Per rendere disponibile l'applicazione Facebook per Azure AD B2C, selezionare il selettore di stato nella parte superiore destra della pagina e **attivarlo per rendere** pubblica l'applicazione, quindi selezionare **modalità switch**.  A questo punto lo stato dovrebbe cambiare da **Sviluppo** a **Live**.
 
 ::: zone pivot="b2c-user-flow"

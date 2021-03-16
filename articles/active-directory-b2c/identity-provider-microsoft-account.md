@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0d8ba3fc578580e6eee02f435272f4ea53523586
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: db6793389df0df169745ddd50551f836d06cf08c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448218"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488755"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Microsoft tramite Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Per abilitare l'accesso per gli utenti con un account Microsoft in Azure Active 
 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory dell'organizzazione (qualsiasi directory di Azure AD - Multi-tenant) e account Microsoft personali (ad esempio, Skype, Xbox)** .
 
    Per altre informazioni sulla selezione dei diversi tipi di account, vedere [Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform](../active-directory/develop/quickstart-register-app.md).
-1. In **URI di reindirizzamento (facoltativo)** selezionare **Web** e immettere `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` nella casella di testo. Sostituire `<tenant-name>` con il nome del tenant di Azure AD B2C.
+1. In **URI di reindirizzamento (facoltativo)** selezionare **Web** e immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se si usa un [dominio personalizzato](custom-domain.md), immettere `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Sostituire `your-tenant-name` con il nome del tenant e con il `your-domain-name` dominio personalizzato.
 1. Selezionare **Registra**
 1. Annotare **l'ID applicazione (client)** visualizzato nella pagina Panoramica dell'applicazione. È necessario l'ID client quando si configura il provider di identità nella sezione successiva.
 1. Selezionare **Certificati e segreti**

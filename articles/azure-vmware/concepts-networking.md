@@ -3,12 +3,12 @@ title: Concetti-interconnettività di rete
 description: Informazioni sugli aspetti chiave e i casi d'uso di rete e interconnettività nella soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: cd62949c13b1f12e635d8d7bf07518a94c4e8d4b
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 4c964151c49e2fea56031dd24bacf4655753a18d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462585"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491810"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Concetti relativi alla rete e alla connettività della soluzione VMware di Azure
 
@@ -16,9 +16,9 @@ ms.locfileid: "103462585"
 
 Esistono due modi per eseguire l'interconnettività nel cloud privato della soluzione VMware di Azure:
 
-1. L' [**interconnettività di base di Azure**](#azure-virtual-network-interconnectivity) consente di gestire e usare il cloud privato con una sola rete virtuale in Azure. Questa implementazione è più adatta per le valutazioni delle soluzioni VMware di Azure o per le implementazioni che non richiedono l'accesso da ambienti locali.
+- L' [**interconnettività di base di Azure**](#azure-virtual-network-interconnectivity) consente di gestire e usare il cloud privato con una sola rete virtuale in Azure. Questa implementazione è più adatta per le valutazioni delle soluzioni VMware di Azure o per le implementazioni che non richiedono l'accesso da ambienti locali.
 
-1. L' [**interconnettività completa da locale a cloud privato**](#on-premises-interconnectivity) estende l'implementazione di base di Azure per includere l'interconnettività tra cloud privati della soluzione VMware locale e Azure.
+- L' [**interconnettività completa da locale a cloud privato**](#on-premises-interconnectivity) estende l'implementazione di base di Azure per includere l'interconnettività tra cloud privati della soluzione VMware locale e Azure.
  
 In questo articolo verranno illustrati i concetti chiave che stabiliscono la rete e l'interconnettività, inclusi i requisiti e le limitazioni. Questo articolo fornisce le informazioni necessarie per configurare la rete per l'uso con la soluzione VMware di Azure.
 

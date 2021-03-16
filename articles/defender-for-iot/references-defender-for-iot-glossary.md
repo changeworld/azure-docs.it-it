@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/09/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: d983369db3fbd03c41c248439a5c1aabec14ea55
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: f26cea9442aa3fbbe7f475cc5d16bea792b83fb3
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535366"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493986"
 ---
 # <a name="defender-for-iot-glossary"></a>Glossario di Defender per IoT
 
@@ -61,7 +61,7 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 | **Inventario dispositivi-sensore** | Nell'inventario del dispositivo viene visualizzata una vasta gamma di attributi del dispositivo rilevati da Defender per l'intero. Sono disponibili opzioni per:<br /><br />-Filtrare le informazioni visualizzate.<br /><br />-Esportare le informazioni in un file CSV.<br /><br />-Importa i dettagli del registro di sistema di Windows. | **[Group](#g)** <br /><br />**[Inventario dispositivi-console di gestione locale](#d)** |
 | **Inventario dispositivi-console di gestione locale** | Le informazioni sul dispositivo dei sensori connessi possono essere visualizzate dalla console di gestione locale nell'inventario dei dispositivi. In questo modo gli utenti della console di gestione locale forniscono una panoramica completa di tutte le informazioni sulla rete. | **[Inventario dispositivi-sensore](#d) <br /> <br /> [Inventario dispositivi-Data Integrator](#d)** |
 | **Inventario dispositivi-Data Integrator** | Le funzionalità di integrazione dei dati della console di gestione locale consentono di migliorare i dati nell'inventario dei dispositivi con le informazioni provenienti da altre risorse aziendali. Le risorse di esempio sono CMDBs, DNS, firewall e API Web. | **[Inventario dispositivi-console di gestione locale](#d)** |
-| **Dispositivi gemelli**`(DB)` | I dispositivi gemelli sono documenti JSON che archiviano le informazioni sullo stato del dispositivo, inclusi metadati, configurazioni e condizioni. | [Modulo gemello](#m) <br /> <br />[Gemello del modulo di sicurezza](#s) |
+| **Dispositivi gemelli**`(DB)` | I dispositivi gemelli sono documenti JSON che archiviano le informazioni sullo stato del dispositivo, inclusi metadati, configurazioni e condizioni. | [Modulo gemello](#m) <br /> <br />[Defender-molto-micro-Agent gemello](#s) |
 
 ## <a name="e"></a>E
 
@@ -112,7 +112,7 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
 | **Agente micro**`(DB)` | Offre funzionalità di sicurezza approfondite per i dispositivi Internet, inclusi il rilevamento delle minacce e le condizioni di sicurezza. | |
-| **Modulo gemello** `(DB)` | I moduli gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei moduli, ad esempio metadati, configurazioni e condizioni. | [Dispositivo gemello](#d) <br /> <br />[Gemello del modulo di sicurezza](#s) |
+| **Modulo gemello** `(DB)` | I moduli gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei moduli, ad esempio metadati, configurazioni e condizioni. | [Dispositivo gemello](#d) <br /> <br />[Defender-molto-micro-Agent gemello](#s) |
 | **Disattiva evento di avviso** | Indica a Defender per le cose di ignorare continuamente le attività con dispositivi identici e traffico analogo. | **[Avviso di](#glossary-a) <br /> <br /> [](#e) <br /> Regola <br /> di esclusione [Conferma evento](#glossary-a) <br /> <br /> di avviso [Informazioni sugli eventi di avviso](#l)** |
 
 ## <a name="n"></a>N
@@ -148,7 +148,7 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
 | **Avviso di sicurezza** | Avvisi che riguardano problemi di sicurezza, ad esempio tentativi di accesso SMB eccessivi o rilevamenti di malware. | **[Avviso di](#glossary-a) <br /> <br /> [Avviso operativo](#o)** |
-| **Gemello del modulo di sicurezza**`(DB)` | Il gemello del modulo di sicurezza include tutte le informazioni rilevanti per la sicurezza dei dispositivi, per ogni dispositivo specifico nella soluzione. | [Dispositivo gemello](#d) <br /> <br />[Modulo gemello](#m)  |
+| **Defender-molto-micro-Agent gemello**`(DB)` | Defender-Internet-micro-Agent gemello include tutte le informazioni rilevanti per la sicurezza dei dispositivi, per ogni dispositivo specifico nella soluzione. | [Dispositivo gemello](#d) <br /> <br />[Modulo gemello](#m)  |
 | **Sondaggio selettivo** | Defender per l'Internet delle cose esamina passivamente il traffico e il traffico e rileva le informazioni rilevanti sui dispositivi, i relativi attributi, il loro comportamento e altro ancora. In alcuni casi, alcune informazioni potrebbero non essere visibili nelle analisi della rete passiva.<br /><br />Quando si verifica questo problema, è possibile usare gli strumenti di probe sicuri e granulari in Defender, per individuare informazioni importanti sui dispositivi precedentemente non raggiungibili. | - |
 | **Sensor** | Macchina virtuale o fisica in cui è installata la piattaforma Defender for Internet. | **[Console di gestione locale](#o)** |
 | **Sito** | Posizione di una factory o di un'altra entità. Il sito deve contenere una zona o diverse zone in cui è installato un sensore. | **[Zona](#z)** |

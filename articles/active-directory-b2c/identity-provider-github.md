@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 36bdda4165c7307eaa7837d6208952da7f1d115f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e2c82858b9f4b9846ff5371da347be942eed0a4f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448371"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488857"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account GitHub tramite Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Per abilitare l'accesso con un account GitHub in Azure Active Directory B2C (Azu
 1. Accedere a [GitHub Developer](https://github.com/settings/developers) con le credenziali di GitHub.
 1. Selezionare **OAuth Apps** (App OAuth) e **New OAuth App** (Nuova app OAuth).
 1. Immettere **Application name** (Nome applicazione) e **Homepage URL** (URL della home page) personale.
-1. Immettere il valore `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Authorization callback URL** (URL callback di autorizzazione). Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
+1. Per **URL di callback autorizzazione**, immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Se si usa un [dominio personalizzato](custom-domain.md), immettere `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Sostituire `your-domain-name` con il dominio personalizzato e `your-tenant-name` con il nome del tenant. Usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
 1. Fare clic su **Registra applicazione**.
 1. Copiare i valori di **ID client** e **segreto client**. Entrambi sono necessari per aggiungere il provider di identità nel tenant.
 

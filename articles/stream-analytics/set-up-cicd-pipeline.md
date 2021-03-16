@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: b601a3586cfa971b2e8337a914f4e10bb0178ba0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014247"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466423"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Usare Azure DevOps per creare una pipeline CI/CD per un processo di analisi di flusso
 
@@ -56,6 +56,22 @@ In questa sezione viene illustrato come creare una pipeline di compilazione. È 
 
    :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Immettere le configurazioni per l'attività NPM":::
 
+Se è necessario usare l'agente Hosted-Linux, attenersi alla procedura seguente:
+1.  Selezionare la **specifica dell'agente**
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/select-linux-agent.png" alt-text="Screenshot della selezione della specifica agente.":::
+
+2.  Nella pagina **attività** , selezionare il segno più accanto a **processo agente 1**. Immettere la *riga di comando* nella ricerca attività e selezionare riga di **comando**.
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/cmd-search.png" alt-text="Screenshot della ricerca dell'attività CommandLine. ":::
+
+3.  Assegnare all'attività un **nome visualizzato**. Immettere il seguente comando nello **script**. Lasciare le opzioni predefinite rimanenti.
+
+      ```bash
+      sudo npm install -g azure-streamanalytics-cicd --unsafe-perm=true --allow-root
+      ```
+      :::image type="content" source="media/set-up-cicd-pipeline/cmd-scripts.png" alt-text="Screenshot dell'immissione dello script per l'attività cmd.":::
+
 ## <a name="add-a-build-task"></a>Aggiungere un'attività di compilazione
 
 1. Nella pagina **variabili** selezionare **+ Aggiungi** in **variabili pipeline**. Aggiungere le variabili seguenti. Impostare i valori seguenti in base alle proprie preferenze:
@@ -64,7 +80,7 @@ In questa sezione viene illustrato come creare una pipeline di compilazione. È 
    |-|-|
    |projectRootPath|YourProjectName|
    |outputPath|Output|
-   |deployPath|Distribuire|
+   |deployPath|Distribuisci|
 
 2. Nella pagina **attività** , selezionare il segno più accanto a **processo agente 1**. Cerca **riga di comando**.
 

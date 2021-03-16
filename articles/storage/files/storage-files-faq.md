@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 81cabe8dea178b2988039640065cb0eabc3287af
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202638"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470906"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud accessibili tramite il [protocollo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard del settore e il [protocollo NFS (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (anteprima). È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -308,6 +308,18 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 **Sono presenti API REST per supportare gli ACL di Windows directory/file.**
 
     Sì, sono supportate le API REST che ottengono, impostano o copiano ACL NTFS per directory o file quando si usa l'API REST di [2019-07-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (o versione successiva). È inoltre supportata la conservazione degli ACL Windows negli strumenti basati su REST: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
+
+* <a id="ad-support-rest-apis"></a>
+**Come rimuovere le credenziali memorizzate nella cache con la chiave dell'account di archiviazione ed eliminare le connessioni SMB esistenti prima di inizializzare una nuova connessione con le credenziali Azure AD o AD?**
+
+    È possibile seguire il processo in due passaggi seguente per rimuovere le credenziali salvate associate alla chiave dell'account di archiviazione e rimuovere la connessione SMB: 
+    1. Eseguire il cmdlet seguente in Windows Cmd.exe per rimuovere la credenziale. Se non è possibile trovarne uno, significa che la credenziale non è stata salvata in modo permanente ed è possibile ignorare questo passaggio.
+    
+       cmdkey/Delete: dominio: target = storage-account-name.file.core.windows.net
+    
+    2. Eliminare la connessione esistente alla condivisione file. È possibile specificare il percorso di montaggio come lettera di unità montata o percorso storage-account-name.file.core.windows.net.
+    
+       NET USE <unità-lettera/condivisione-percorso>/Delete
 
 ## <a name="network-file-system"></a>NFS (Network File System)
 

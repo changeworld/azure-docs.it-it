@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ce5e8cfda4a9f51a90c8f26133a710f4d1c258b6
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: dd87b58c604b0bb2141c29d3b2227e9a81668a75
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448269"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488823"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account LinkedIn tramite Azure Active Directory B2C
 
@@ -43,8 +43,8 @@ Per abilitare l'accesso per gli utenti con un account LinkedIn in Azure Active D
 1. Immettere **nome dell'app**, **pagina LinkedIn**, **URL dell'informativa sulla privacy** e **logo dell'app**.
 1. Accettare le condizioni per l' **utilizzo dell'API** LinkedIn e fare clic su **Crea app**.
 1. Selezionare la scheda **autenticazione** . In **chiavi di autenticazione** copiare i valori per **ID client** e **segreto client**. Sono necessari entrambi per configurare LinkedIn come provider di identità nel tenant. **Client Secret** è un'importante credenziale di sicurezza.
-1. Selezionare la matita di modifica accanto a **URL di reindirizzamento autorizzati per l'app** e quindi selezionare **Aggiungi URL di reindirizzamento**. Immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` , sostituendo `your-tenant-name` con il nome del tenant. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C. Selezionare **Aggiorna**.
-2. Per impostazione predefinita, l'app LinkedIn non è approvata per gli ambiti correlati all'accesso. Per richiedere una verifica, selezionare la scheda **prodotti** e quindi selezionare **Accedi con LinkedIn**. Al termine della verifica, gli ambiti necessari verranno aggiunti all'applicazione.
+1. Selezionare la matita di modifica accanto a **URL di reindirizzamento autorizzati per l'app** e quindi selezionare **Aggiungi URL di reindirizzamento**. Immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Se si usa un [dominio personalizzato](custom-domain.md), immettere `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Sostituire `your-tenant-name` con il nome del tenant e con il `your-domain-name` dominio personalizzato. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C. Selezionare **Aggiorna**.
+1. Per impostazione predefinita, l'app LinkedIn non è approvata per gli ambiti correlati all'accesso. Per richiedere una verifica, selezionare la scheda **prodotti** e quindi selezionare **Accedi con LinkedIn**. Al termine della verifica, gli ambiti necessari verranno aggiunti all'applicazione.
    > [!NOTE]
    > È possibile visualizzare gli ambiti attualmente consentiti per l'app nella scheda **autenticazione** della sezione **ambiti di OAuth 2,0** .
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 50fdab1fa8def1b4e3b9a9d59d3b2593e5526c65
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657092"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472035"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creare una cache HPC di Azure
 
@@ -59,7 +59,7 @@ Cache HPC di Azure determina quali file vengono memorizzati nella cache e precar
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Abilitare la crittografia Azure Key Vault (facoltativo)
 
-Se la cache si trova in un'area che supporta le chiavi di crittografia gestite dal cliente, viene visualizzata la pagina **chiavi di crittografia del disco** tra le schede **cache** e **tag** . Per altre informazioni sul supporto delle aree, vedere [disponibilità a livello](hpc-cache-overview.md#region-availability) di area.
+Viene visualizzata la pagina **chiavi di crittografia del disco** tra le schede **cache** e **tag** .<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
 
 Se si vogliono gestire le chiavi di crittografia usate per l'archiviazione della cache, fornire le informazioni Azure Key Vault nella pagina **chiavi di crittografia del disco** . L'insieme di credenziali delle chiavi deve trovarsi nella stessa area e nella stessa sottoscrizione della cache.
 
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | Dimensioni cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sì         | No          | No          |
-  | 6144 GB    | sì         | sì         | No          |
+  | 3072 GB    | sì         | no          | no          |
+  | 6144 GB    | sì         | sì         | no          |
   | 12288 GB   | sì         | sì         | sì         |
-  | 24576 GB   | No          | sì         | sì         |
-  | 49152 GB   | No          | No          | sì         |
+  | 24576 GB   | no          | sì         | sì         |
+  | 49152 GB   | no          | no          | sì         |
 
   Per informazioni importanti su prezzi, velocità effettiva e come ridimensionare la cache in modo appropriato per il flusso di lavoro, vedere la sezione **impostare la capacità della cache** nella scheda istruzioni del portale.
 
@@ -235,11 +235,11 @@ nets/<cache_subnet_name>"`
 
   | Dimensioni cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sì         | No          | No          |
-  | 6144 GB    | sì         | sì         | No          |
+  | 3072 GB    | sì         | no          | no          |
+  | 6144 GB    | sì         | sì         | no          |
   | 12.288 GB   | sì         | sì         | sì         |
-  | 24.576 GB   | No          | sì         | sì         |
-  | 49.152 GB   | No          | No          | sì         |
+  | 24.576 GB   | no          | sì         | sì         |
+  | 49.152 GB   | no          | no          | sì         |
 
   Per informazioni importanti su prezzi, velocità effettiva e come ridimensionare la cache in modo appropriato per il flusso di lavoro, vedere la sezione **impostare la capacità della cache** nella scheda istruzioni del portale.
 

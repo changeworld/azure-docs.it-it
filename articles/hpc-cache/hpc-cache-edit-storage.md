@@ -4,14 +4,14 @@ description: Come modificare le destinazioni di archiviazione della cache HPC di
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.author: v-erkel
-ms.openlocfilehash: f97ff1c20b7edbf24e5a2c58e22097f88883ae4f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 78010ef2d93b23a12fc7f3e988a536b4993b4dd4
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204032"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471848"
 ---
 # <a name="edit-storage-targets"></a>Modificare le destinazioni di archiviazione
 
@@ -19,13 +19,16 @@ ms.locfileid: "102204032"
 
 A seconda del tipo di archiviazione, è possibile modificare questi valori di destinazione di archiviazione:
 
-* Per le destinazioni di archiviazione BLOB, è possibile modificare il percorso dello spazio dei nomi.
+* Per le destinazioni di archiviazione BLOB, è possibile modificare il percorso dello spazio dei nomi e i criteri di accesso.
 
 * Per le destinazioni di archiviazione NFS, è possibile modificare i valori seguenti:
 
   * Percorsi dello spazio dei nomi
+  * Criterio di accesso
   * Sottodirectory di esportazione o esportazione dell'archiviazione associata a un percorso dello spazio dei nomi
   * Modello di utilizzo
+
+* Per le destinazioni di archiviazione ADLS-NFS, è possibile modificare il percorso dello spazio dei nomi, i criteri di accesso e il modello di utilizzo.
 
 Non è possibile modificare il nome, il tipo o il sistema di archiviazione back-end di una destinazione di archiviazione (contenitore BLOB o nome host/indirizzo IP NFS). Se è necessario modificare queste proprietà, eliminare la destinazione di archiviazione e creare una sostituzione con il nuovo valore.
 
@@ -94,10 +97,13 @@ Per modificare lo spazio dei nomi della destinazione di archiviazione BLOB con l
 
 Per le destinazioni di archiviazione NFS, è possibile modificare o aggiungere percorsi dello spazio dei nomi virtuali, modificare i valori di esportazione o sottodirectory NFS a cui punta un percorso dello spazio dei nomi e modificare il modello di utilizzo.
 
+Le destinazioni di archiviazione nelle cache con alcuni tipi di impostazioni DNS personalizzate hanno anche un controllo per l'aggiornamento degli indirizzi IP. (Questo tipo di configurazione è raro).
+
 Di seguito sono riportati i dettagli:
 
-* [Modificare i valori di spazio dei nomi aggregati](#change-aggregated-namespace-values) (percorso dello spazio dei nomi virtuale, esportazione ed esportazione sottodirectory)
+* [Modificare i valori di spazio dei nomi aggregati](#change-aggregated-namespace-values) (percorso dello spazio dei nomi virtuale, criteri di accesso, esportazione ed esportazione sottodirectory)
 * [Modificare il modello di utilizzo](#change-the-usage-model)
+* [Aggiorna DNS](#update-ip-address-custom-dns-configurations-only)
 
 ### <a name="change-aggregated-namespace-values"></a>Modificare i valori di spazio dei nomi aggregati
 
@@ -112,7 +118,7 @@ Usare la pagina **dello spazio dei nomi** per la cache HPC di Azure per aggiorna
 ![screenshot della pagina dello spazio dei nomi del portale con la pagina di aggiornamento di NFS aperta a destra](media/update-namespace-nfs.png)
 
 1. Fare clic sul nome del percorso che si desidera modificare.
-1. Utilizzare la finestra modifica per digitare nuovi valori di percorso virtuale, esportazione o sottodirectory.
+1. Utilizzare la finestra modifica per digitare nuovi valori per percorso virtuale, Esporta o sottodirectory oppure per selezionare criteri di accesso diversi.
 1. Dopo avere apportato le modifiche, fare clic su **OK** per aggiornare la destinazione di archiviazione o su **Annulla** per annullare le modifiche.
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
@@ -174,6 +180,37 @@ Se si desidera verificare i nomi dei modelli di utilizzo, utilizzare il comando 
 Se la cache viene arrestata o non è in uno stato integro, l'aggiornamento verrà applicato dopo l'integrità della cache.
 
 ---
+
+### <a name="update-ip-address-custom-dns-configurations-only"></a>Aggiornare l'indirizzo IP (solo per le configurazioni DNS personalizzate)
+
+Se la cache usa una configurazione DNS non predefinita, è possibile che l'indirizzo IP della destinazione di archiviazione NFS cambi a causa delle modifiche del DNS del back-end. Se il server DNS modifica l'indirizzo IP del sistema di archiviazione back-end, la cache HPC di Azure può perdere l'accesso al sistema di archiviazione.
+
+Idealmente, è consigliabile collaborare con il responsabile del sistema DNS personalizzato della cache per pianificare gli aggiornamenti, perché queste modifiche rendono l'archiviazione non disponibile.
+
+Se è necessario aggiornare l'indirizzo IP fornito da DNS di una destinazione di archiviazione, è presente un pulsante nell'elenco destinazioni di archiviazione. Fare clic su **Aggiorna DNS** per eseguire una query sul server DNS personalizzato per un nuovo indirizzo IP.
+
+![Screenshot dell'elenco di destinazioni di archiviazione. Per una destinazione di archiviazione, il "..." il menu nella colonna all'estrema destra è aperto e vengono visualizzate due opzioni: Elimina e Aggiorna DNS.](media/refresh-dns.png)
+
+In caso di esito positivo, l'aggiornamento dovrebbe richiedere meno di due minuti. È possibile aggiornare solo una destinazione di archiviazione alla volta. attendere il completamento dell'operazione precedente prima di provarne un altro.
+
+## <a name="update-an-adls-nfs-storage-target-preview"></a>Aggiornare una destinazione di archiviazione ADLS-NFS (anteprima)
+
+Analogamente alle destinazioni NFS, è possibile modificare il percorso dello spazio dei nomi e il modello di utilizzo per le destinazioni di archiviazione ADLS-NFS.
+
+### <a name="change-an-adls-nfs-namespace-path"></a>Modificare un percorso dello spazio dei nomi ADLS-NFS
+
+Usare la pagina **dello spazio dei nomi** per la cache HPC di Azure per aggiornare i valori dello spazio dei nomi. Questa pagina è descritta più dettagliatamente nell'articolo [configurare lo spazio dei nomi aggregato](add-namespace-paths.md).
+
+![screenshot della pagina dello spazio dei nomi del portale con una pagina di aggiornamento di ADS-NFS aperta a destra](media/update-namespace-adls.png)
+
+1. Fare clic sul nome del percorso che si desidera modificare.
+1. Utilizzare la finestra modifica per digitare un nuovo percorso virtuale oppure aggiornare i criteri di accesso.
+1. Dopo avere apportato le modifiche, fare clic su **OK** per aggiornare la destinazione di archiviazione o su **Annulla** per annullare le modifiche.
+
+### <a name="change-adls-nfs-usage-models"></a>Modificare i modelli di utilizzo di ADLS-NFS
+
+La configurazione per i modelli di utilizzo di ADLS-NFS è identica alla selezione del modello di utilizzo di NFS. Leggere le istruzioni del portale in [modificare il modello di utilizzo](#change-the-usage-model) nella sezione NFS precedente. Sono in fase di sviluppo altri strumenti per l'aggiornamento degli obiettivi di archiviazione ADLS-NFS.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -28,6 +28,12 @@
               href: hbv2-series-overview.md
             - name: Prestazioni
               href: hbv2-performance.md
+        - name: Serie modello HBV3
+          items:
+            - name: Panoramica
+              href: hbv3-series-overview.md
+            - name: Prestazioni
+              href: hbv3-performance.md
         - name: Serie HC
           items:
             - name: Panoramica

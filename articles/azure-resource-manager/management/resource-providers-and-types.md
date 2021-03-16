@@ -2,14 +2,14 @@
 title: Provider di risorse e tipi di risorse
 description: Vengono descritti i provider di risorse che supportano Azure Resource Manager. Vengono descritti gli schemi, le versioni API disponibili e le aree in cui è possibile ospitare le risorse.
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/15/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 584f3065d0e696f2ee379a8cf6c048994a1e68d5
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745117"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493136"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provider e tipi di risorse di Azure
 
@@ -32,7 +32,9 @@ Per un elenco con il mapping dei provider di risorse ai servizi di Azure, vedere
 
 ## <a name="register-resource-provider"></a>Registrare il provider di risorse
 
-Prima di usare un provider di risorse, è necessario che la sottoscrizione di Azure sia registrata per il provider di risorse. La registrazione configura la sottoscrizione per l'uso con il provider di risorse. Alcuni provider di risorse sono registrati per impostazione predefinita. Quando si eseguono determinate azioni, gli altri provider di risorse vengono registrati automaticamente. Ad esempio, quando si crea una risorsa tramite il portale, il provider di risorse viene in genere registrato per l'utente. Per altri scenari, potrebbe essere necessario registrare manualmente un provider di risorse. Per un elenco dei provider di risorse registrati per impostazione predefinita, vedere [provider di risorse per i servizi di Azure](azure-services-resource-providers.md).
+Prima di usare un provider di risorse, è necessario che la sottoscrizione di Azure sia registrata per il provider di risorse. La registrazione configura la sottoscrizione per l'uso con il provider di risorse. Alcuni provider di risorse sono registrati per impostazione predefinita. Per un elenco dei provider di risorse registrati per impostazione predefinita, vedere [provider di risorse per i servizi di Azure](azure-services-resource-providers.md).
+
+Quando si eseguono determinate azioni, gli altri provider di risorse vengono registrati automaticamente. Quando si distribuisce un modello di Azure Resource Manager, tutti i provider di risorse richiesti vengono registrati automaticamente. Quando si crea una risorsa tramite il portale, il provider di risorse viene in genere registrato per l'utente. Per altri scenari, potrebbe essere necessario registrare manualmente un provider di risorse. 
 
 Questo articolo illustra come controllare lo stato di registrazione di un provider di risorse e registrarlo in base alle esigenze. È necessario disporre dell'autorizzazione per eseguire l' `/register/action` operazione per il provider di risorse. L'autorizzazione è inclusa nei ruoli collaboratore e proprietario.
 

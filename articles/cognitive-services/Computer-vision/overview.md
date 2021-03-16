@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: visione artificiale, applicazioni di visione artificiale, servizio visione artificiale
-ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 804dacc4351da9e04ac75b2484b4330901a69271
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575941"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488483"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -29,6 +29,12 @@ ms.locfileid: "99575941"
 Il servizio Visione artificiale di Azure consente di accedere ad algoritmi avanzati che elaborano le immagini e restituiscono informazioni, in base alle caratteristiche visive a cui si è interessati. Ad esempio, Visione artificiale consente di determinare se un'immagine contiene contenuto per adulti, di trovare specifici marchi o oggetti o di individuare visi umani.
 
 È possibile creare applicazioni di Visione artificiale tramite un [SDK di libreria client](./quickstarts-sdk/client-library.md) oppure chiamando direttamente l'[API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005). Questa pagina illustra su vasta scala le operazioni eseguibili con Visione artificiale.
+
+Questa documentazione contiene i seguenti tipi di articoli:
+* Le [guide introduttive](./quickstarts-sdk/client-library.md) sono istruzioni dettagliate che consentono di effettuare chiamate al servizio e ottenere risultati in un breve periodo di tempo. 
+* Le [guide alle procedure](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.
+* Gli [articoli concettuali](concept-recognizing-text.md) forniscono spiegazioni approfondite sulle funzionalità e sulle funzionalità del servizio.
+* Le [esercitazioni](./tutorials/storage-lab-tutorial.md) sono guide più lunghe che illustrano come usare questo servizio come componente in soluzioni aziendali più ampie.
 
 ## <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
 

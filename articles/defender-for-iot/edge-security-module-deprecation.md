@@ -8,22 +8,22 @@ ms.author: shhazam
 ms.date: 1/21/2021
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 2779a73d3a5f77e3a3b144309baf6d2788565443
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: a33e7ff230292d4ceb14610e3cf00935dc1a67a0
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809875"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493170"
 ---
 # <a name="feature-support-and-retirement"></a>Supporto e ritiro delle funzionalità
 
 Questo articolo descrive Azure Defender per le funzionalità e il supporto per le diverse funzionalità di Defender per l'it.
 
-## <a name="defender-for-iot-c-c-and-edge-security-module-deprecation"></a>Protezione per la deprecazione dei moduli di sicurezza C, C# e Edge
+## <a name="defender-for-iot-c-c-and-edge-defender-iot-micro-agent-deprecation"></a>Defender per gli elementi C, C# e Edge Defender-Internet
 
-Il nuovo agente micro sostituirà il modulo di sicurezza corrente di C, C# e Edge.  
+Il nuovo agente micro sostituirà l'attuale C, C# e Edge Defender-Internet.  
 
-Il nuovo micro Agent si basa sulle conoscenze e sull'esperienza acquisita dal feedback dello sviluppo dei moduli di sicurezza, dei clienti e dei partner, con quattro importanti miglioramenti: 
+Il nuovo micro Agent si basa sulle conoscenze e sull'esperienza acquisita dalla chiusura di Defender-Internet, ovvero dello sviluppo di microagenti, dei clienti e dei partner, con quattro importanti miglioramenti: 
 
 - **Valore di sicurezza Depth**: il nuovo agente sarà eseguito a livello di host, che fornirà una maggiore visibilità sulle operazioni sottostanti del dispositivo e per garantire una migliore copertura della sicurezza.
 

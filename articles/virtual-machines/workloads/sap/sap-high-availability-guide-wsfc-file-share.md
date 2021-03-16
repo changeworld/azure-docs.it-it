@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608401858c0119d281ab6ff46156fc7bdccd9d84
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a51f874d09aebfcb2c0b73e0b484f68042d1bb6d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675330"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496202"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Clustering di un'istanza ASCS/SCS di SAP in un cluster di failover Windows tramite una condivisione file in Azure
 
@@ -147,10 +147,14 @@ Per usare una condivisione file di tipo scale-out, il sistema deve soddisfare i 
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configurare le istanze ASCS/SCS di SAP e una condivisione file di tipo scale-out in due cluster
 
-È possibile distribuire le istanze di SAP ASC/SCS in un cluster con il proprio \<SID\> ruolo del cluster SAP. In questo caso, si configura la condivisione file di tipo scale-out in un altro cluster, con un altro ruolo cluster.
+È necessario distribuire le istanze di SAP ASC/SCS in un cluster separato con il proprio \<SID\> ruolo del cluster SAP. In questo caso, si configura la condivisione file di tipo scale-out in un altro cluster, con un altro ruolo cluster.
+
 
 > [!IMPORTANT]
->In questo scenario l'istanza ASCS/SCS di SAP è configurata per accedere all'host globale SAP usando il percorso UNC \\\\&lt;host globale SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+> Il programma di installazione deve soddisfare i requisiti seguenti: le istanze di SAP ASC/SCS e la condivisione SOFS devono essere distribuite in cluster distinti.    
+>
+> [!IMPORTANT] 
+> In questo scenario l'istanza ASCS/SCS di SAP è configurata per accedere all'host globale SAP usando il percorso UNC \\\\&lt;host globale SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 >
 
 ![Figura 5: Istanza SAP ASCS/SCS e condivisione file di tipo scale-out distribuite in due cluster][sap-ha-guide-figure-8007]

@@ -11,33 +11,39 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2021
+ms.date: 03/14/2021
 ms.author: shhazam
-ms.openlocfilehash: f15c4ed6bb7da5cd33eca96c171bfada68092b35
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: ef72be60b6294ad4e1fca2ce9c0e3c66b64ac687
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820671"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493959"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Quali sono le novità di Azure Defender per l'it?
 
 Questo articolo elenca le nuove funzionalità e i miglioramenti apportati alle funzionalità di Defender per l'it.
 
 Le funzionalità indicate sono disponibili in anteprima. Le [condizioni aggiuntive per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) includono termini legali aggiuntivi che si applicano a funzionalità di Azure in versione beta, anteprima o diversamente non ancora disponibili a livello generale.
-## <a name="february-2021"></a>2021 febbraio
+## <a name="march-2021"></a>Marzo 2021
 
-### <a name="sensor---enhanced-custom-alert-rules"></a>Regole di avviso personalizzate ottimizzate dal sensore
+### <a name="sensor---enhanced-custom-alert-rules-public-preview"></a>Regole di avviso personalizzate ottimizzate dal sensore (anteprima pubblica)
 
 È ora possibile creare regole di avviso personalizzate in base al giorno, al gruppo di giorni e all'attività di rete del periodo di tempo rilevato.  L'utilizzo delle condizioni della regola giorno e ora è utile, ad esempio nei casi in cui la gravità dell'avviso è derivata dal momento in cui si verifica l'evento di avviso. Ad esempio, creare una regola personalizzata che attiva un avviso di gravità elevata quando viene rilevata un'attività di rete in un fine settimana o durante la sera.
 
-Questa funzionalità è disponibile nel sensore con il rilascio della versione 10,1.
+Questa funzionalità è disponibile nel sensore con il rilascio della versione 10,2.
 
-### <a name="on-premises-management-console---export-alerts"></a>Console di gestione locale-esportare gli avvisi
+### <a name="on-premises-management-console---export-alerts-public-preview"></a>Console di gestione locale-Esporta avvisi (anteprima pubblica)
 
 È ora possibile esportare le informazioni sugli avvisi in un file con estensione csv dalla console di gestione locale. È possibile esportare le informazioni di tutti gli avvisi rilevati o esportare le informazioni in base alla visualizzazione filtrata.
 
-Questa funzionalità è disponibile nella console di gestione locale con il rilascio della versione 10,1.
+Questa funzionalità è disponibile nella console di gestione locale con il rilascio della versione 10,2.
+
+### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Aggiungere la seconda interfaccia di rete alla console di gestione locale (anteprima pubblica)
+
+È ora possibile migliorare la sicurezza della distribuzione mediante l'aggiunta di una seconda interfaccia di rete alla console di gestione locale. Questa funzionalità consente alla gestione locale di avere sensori connessi in una rete sicura, consentendo allo stesso tempo agli utenti di accedere alla console di gestione locale tramite una seconda interfaccia di rete separata.
+
+Questa funzionalità è disponibile nella console di gestione locale con il rilascio della versione 10,2.
 ### <a name="device-builder---new-micro-agent-public-preview"></a>Generatore di dispositivi-nuovo agente micro (anteprima pubblica)
 
 È disponibile un nuovo modulo generatore di dispositivi. Il modulo, denominato micro-Agent, consente:
@@ -48,7 +54,7 @@ Questa funzionalità è disponibile nella console di gestione locale con il rila
 - **Gestione delle posture della sicurezza** : monitora in modo proattivo il comportamento di sicurezza dei tuoi dispositivi.
 - **Rilevamento delle minacce continuo e in tempo reale/OT** -rilevamento di minacce quali botnet, tentativi di forza bruta, minatori crittografici e attività di rete sospette
 
-La documentazione relativa al modulo di sicurezza deprecato verrà spostata nella *soluzione basata su agenti per i generatori di dispositivi>cartella classica* .
+La documentazione deprecata Defender-Internet-micro-Agent verrà spostata nella *soluzione basata su agenti per i generatori di dispositivi>cartella classica* .
 
 Questo set di funzionalità è disponibile con la versione corrente del cloud di anteprima pubblica.
 
@@ -58,7 +64,7 @@ Questo set di funzionalità è disponibile con la versione corrente del cloud di
 - [Onboarding](#onboarding)
 - [Usabilità](#usability)
 - [Altri aggiornamenti](#other-updates)
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 Sono stati apportati miglioramenti al ripristino di certificati e password per questa versione.
 

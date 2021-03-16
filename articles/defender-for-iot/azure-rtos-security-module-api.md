@@ -1,6 +1,6 @@
 ---
-title: API del modulo di sicurezza per Azure RTOS
-description: API di riferimento per il modulo di sicurezza per Azure RTO.
+title: Defender-molto-micro-Agent per l'API RTO di Azure
+description: API di riferimento per Defender-RTO-micro-Agent per Azure.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: cec28f9290808836ec2dfd334b23fe8c76df03fc
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 9a285636ba10f7ca0668f597d0e9016cff73494a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120063"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494292"
 ---
-# <a name="security-module-for-azure-rtos-api"></a>API del modulo di sicurezza per Azure RTOS 
+# <a name="defender-iot-micro-agent-for-azure-rtos-api-preview"></a>Defender-molto-micro-Agent per l'API RTO di Azure (anteprima)
 
-Questa API è destinata all'uso con il modulo di sicurezza solo per Azure RTO. Per altre risorse, vedere il [modulo Security per la risorsa GitHub di Azure RTO](https://github.com/azure-rtos/azure-iot-preview/releases). 
+Questa API è destinata all'uso solo con Defender-RTO-micro-Agent solo per Azure. Per altre risorse, vedere la [risorsa di GitHub Defender-Internet-micro-Agent per Azure RTO](https://github.com/azure-rtos/azure-iot-preview/releases). 
 
-## <a name="enable-security-module-for-azure-rtos"></a>Abilitare il modulo di sicurezza per Azure RTO
+## <a name="enable-defender-iot-micro-agent-for-azure-rtos"></a>Abilitare Defender-RTO-micro-Agent per Azure
 
 **nx_azure_iot_security_module_enable**
 
@@ -36,7 +36,7 @@ UINT nx_azure_iot_security_module_enable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 ### <a name="description"></a>Descrizione
 
-Questa routine Abilita il sottosistema del modulo Security di Azure. Una macchina a stati interna gestisce la raccolta di eventi di sicurezza e li invia all'hub di Azure. È necessaria una sola istanza di NX_AZURE_IOT_SECURITY_MODULE e necessaria per gestire la raccolta dei dati.
+Questa routine Abilita il sottosistema Azure Internet per le cose Defender-Internet. Una macchina a stati interna gestisce la raccolta di eventi di sicurezza e li invia all'hub di Azure. È necessaria una sola istanza di NX_AZURE_IOT_SECURITY_MODULE e necessaria per gestire la raccolta dei dati.
 
 ### <a name="parameters"></a>Parametri
 
@@ -56,7 +56,7 @@ Questa routine Abilita il sottosistema del modulo Security di Azure. Una macchin
 
 Thread
 
-## <a name="disable-azure-iot-security-module"></a>Disabilitare il modulo di sicurezza Azure Internet
+## <a name="disable-azure-iot-defender-iot-micro-agent"></a>Disabilitare Azure le cose Defender-Internet
 
 **nx_azure_iot_security_module_disable**
 
@@ -69,7 +69,7 @@ UINT nx_azure_iot_security_module_disable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 ### <a name="description"></a>Descrizione
 
-Questa routine Disabilita il sottosistema del modulo di sicurezza di Azure.
+Questa routine Disabilita il sottosistema Azure Internet delle cose Defender-Internet.
 
 ### <a name="parameters"></a>Parametri
 
@@ -92,6 +92,6 @@ Thread
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni su come iniziare a usare il modulo di sicurezza di Azure RTO, vedere gli articoli seguenti:
+Per altre informazioni su come iniziare a usare Azure RTO Defender--micro-Agent, vedere gli articoli seguenti:
 
-- Vedere la [Panoramica](iot-security-azure-rtos.md)di Defender per il modulo di sicurezza RTO.
+- Vedere la pagina relativa alla [Panoramica](iot-security-azure-rtos.md)di Defender per gli elementi RTO Defender--micro-Agent.

@@ -132,6 +132,8 @@
       href: concepts/known-issues.md
 - name: Esempi
   items:
+    - name: Panoramica
+      href: samples/overview.md
     - name: Esempio hero di chiamata di gruppo
       href: samples/calling-hero-sample.md
     - name: Esempio hero di chat di gruppo

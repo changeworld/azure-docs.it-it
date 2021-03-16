@@ -8,31 +8,33 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3989ec4ca2b5c9d7385841604678791b20c1d102
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85194791"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489983"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informazioni sulle distribuzioni automatiche IoT Edge per singoli dispositivi o su vasta scala
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Le distribuzioni automatiche e la distribuzione su più livelli consentono di gestire e configurare moduli su un numero elevato di dispositivi IoT Edge.
 
 Azure IoT Edge offre due modi per configurare i moduli da eseguire nei dispositivi IoT Edge. Il primo metodo consiste nel distribuire i moduli per ogni singolo dispositivo. Si crea un manifesto di distribuzione e quindi lo si applica a un determinato dispositivo in base al nome. Il secondo metodo consiste nel distribuire automaticamente i moduli a qualsiasi dispositivo registrato che soddisfi un set di condizioni definite. Si crea un manifesto di distribuzione e quindi si definiscono i dispositivi a cui si applicano in base ai [tag](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) nel dispositivo gemello.
 
-Questo articolo è incentrato sulla configurazione e il monitoraggio di flotte di dispositivi, chiamati collettivamente *IOT Edge distribuzioni automatiche*.I passaggi di base per la distribuzione sono i seguenti:
+Questo articolo è incentrato sulla configurazione e il monitoraggio di flotte di dispositivi, chiamati collettivamente *IOT Edge distribuzioni automatiche*. I passaggi di base per la distribuzione sono i seguenti:
 
-1. Un operatore definisce una distribuzione che descrive un set di moduli e i dispositivi di destinazione.Per ogni distribuzione esiste un manifesto della distribuzione che riporta queste informazioni.
+1. Un operatore definisce una distribuzione che descrive un set di moduli e i dispositivi di destinazione. Per ogni distribuzione esiste un manifesto della distribuzione che riporta queste informazioni.
 2. Il servizio hub Internet delle cose comunica con tutti i dispositivi di destinazione per configurarli con i moduli dichiarati.
-3. Il servizio Hub IoT recupera informazioni sullo stato dai dispositivi IoT Edge e li rende disponibili all’operatore.Un operatore, ad esempio, può vedere quando un dispositivo perimetrale non è configurato correttamente o se un modulo ha esito negativo durante il Runtime.
+3. Il servizio Hub IoT recupera informazioni sullo stato dai dispositivi IoT Edge e li rende disponibili all’operatore.  Un operatore, ad esempio, può vedere quando un dispositivo perimetrale non è configurato correttamente o se un modulo ha esito negativo durante il Runtime.
 4. In qualsiasi momento, i nuovi dispositivi IoT Edge che soddisfano le condizioni di destinazione vengono configurati per la distribuzione.
 
 Questo articolo descrive ogni componente coinvolto nella configurazione e nel monitoraggio di una distribuzione. Per istruzioni dettagliate sulla creazione e l'aggiornamento di una distribuzione, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-at-scale.md).
 
 ## <a name="deployment"></a>Distribuzione
 
-Una distribuzione automatica IoT Edge assegna immagini di moduli IoT Edge per l'esecuzione come istanze in un set di destinazione di dispositivi IoT Edge. Il funzionamento è basato sulla configurazione di un manifesto per la distribuzione IoT Edge, che include un elenco di moduli con i parametri di inizializzazione corrispondenti.Una distribuzione può essere assegnata a un singolo dispositivo (in base al relativo ID) o a un gruppo di dispositivi (in base ai tag).Quando un dispositivo IoT Edge riceve un manifesto di distribuzione, scarica e installa le immagini dei contenitori dai repository corrispondenti, quindi le configura come specificato.Dopo aver creato una distribuzione, un operatore può monitorare lo stato di distribuzione per verificare se i dispositivi di destinazione sono configurati correttamente.
+Una distribuzione automatica IoT Edge assegna immagini di moduli IoT Edge per l'esecuzione come istanze in un set di destinazione di dispositivi IoT Edge. Il funzionamento è basato sulla configurazione di un manifesto per la distribuzione IoT Edge, che include un elenco di moduli con i parametri di inizializzazione corrispondenti. Una distribuzione può essere assegnata a un singolo dispositivo (in base al relativo ID) o a un gruppo di dispositivi (in base ai tag). Quando un dispositivo IoT Edge riceve un manifesto di distribuzione, scarica e installa le immagini dei contenitori dai repository corrispondenti, quindi le configura come specificato. Dopo aver creato una distribuzione, un operatore può monitorare lo stato di distribuzione per verificare se i dispositivi di destinazione sono configurati correttamente.
 
 Solo i dispositivi IoT Edge possono essere configurati con una distribuzione. Prima di poter ricevere la distribuzione, il dispositivo deve soddisfare i prerequisiti seguenti:
 
@@ -42,12 +44,12 @@ Solo i dispositivi IoT Edge possono essere configurati con una distribuzione. Pr
 
 ### <a name="deployment-manifest"></a>Manifesto della distribuzione
 
-Un manifesto di distribuzione è un documento JSON che descrive i moduli da configurare nei dispositivi IoT Edge di destinazione e contiene i metadati di configurazione per tutti i moduli, inclusi i moduli di sistema richiesti, in particolare l'agente IoT Edge e l'hub IoT Edge.  
+Un manifesto di distribuzione è un documento JSON che descrive i moduli da configurare nei dispositivi IoT Edge di destinazione e contiene i metadati di configurazione per tutti i moduli, inclusi i moduli di sistema richiesti, in particolare l'agente IoT Edge e l'hub IoT Edge.  
 
 I metadati di configurazione per ogni modulo includono:
 
 * Versione
-* Type
+* Tipo
 * Stato (ad esempio, in esecuzione o arrestato)
 * Criteri di riavvio
 * Registro di immagini e contenitori
@@ -81,11 +83,11 @@ Prendere in considerazione questi vincoli quando si crea una condizione di desti
 
 ### <a name="priority"></a>Priorità
 
-Una priorità definisce se un tipo di distribuzione deve essere applicato a un dispositivo di destinazione rispetto ad altre distribuzioni. La priorità di distribuzione è un numero intero positivo crescente per indicare una priorità più alta. Se un dispositivo IoT Edge è la destinazione di più di una distribuzione, si applica la distribuzione con priorità più alta.Le distribuzioni con priorità inferiore non vengono applicate, né unite.Se due distribuzioni con uguale priorità vengono assegnate a un dispositivo, si applica la distribuzione creata più di recente, in base al timestamp di creazione.
+Una priorità definisce se un tipo di distribuzione deve essere applicato a un dispositivo di destinazione rispetto ad altre distribuzioni. La priorità di distribuzione è un numero intero positivo crescente per indicare una priorità più alta. Se un dispositivo IoT Edge è la destinazione di più di una distribuzione, si applica la distribuzione con priorità più alta.  Le distribuzioni con priorità inferiore non vengono applicate, né unite.  Se due distribuzioni con uguale priorità vengono assegnate a un dispositivo, si applica la distribuzione creata più di recente, in base al timestamp di creazione.
 
 ### <a name="labels"></a>Etichette
 
-Le etichette sono coppie chiave/valore stringa che è possibile usare per filtrare e raggruppare le distribuzioni.Una distribuzione può avere più etichette. Le etichette sono facoltative e non influiscano sulla configurazione effettiva dei dispositivi IoT Edge.
+Le etichette sono coppie chiave/valore stringa che è possibile usare per filtrare e raggruppare le distribuzioni. Una distribuzione può avere più etichette. Le etichette sono facoltative e non influiscano sulla configurazione effettiva dei dispositivi IoT Edge.
 
 ### <a name="metrics"></a>Metriche
 
@@ -174,7 +176,7 @@ Un'implementazione graduale è un processo in base al quale un operatore distrib
 
 Un'implementazione graduale viene eseguita in base alle fasi e ai passaggi seguenti:
 
-1. Definire un ambiente di test di dispositivi IoT Edge eseguendone il provisioning e impostando un tag di dispositivo gemello come `tag.environment='test'`.L'ambiente di test deve rispecchiare l'ambiente di produzione a cui sarà infine destinata la distribuzione.
+1. Definire un ambiente di test di dispositivi IoT Edge eseguendone il provisioning e impostando un tag di dispositivo gemello come `tag.environment='test'`. L'ambiente di test deve rispecchiare l'ambiente di produzione a cui sarà infine destinata la distribuzione.
 2. Creare una distribuzione, inclusi i moduli e le configurazioni desiderate. La condizione di destinazione deve essere destinata all'ambiente di test dei dispositivi IoT Edge.
 3. Convalidare la nuova configurazione dei moduli nell'ambiente di test.
 4. Aggiornare la distribuzione per includere un sottoinsieme di dispositivi IoT Edge di produzione, aggiungendo un nuovo tag alla condizione di destinazione. Assicurarsi inoltre che la priorità per la distribuzione sia superiore rispetto alle altre distribuzioni attualmente destinate ai dispositivi.
@@ -183,7 +185,7 @@ Un'implementazione graduale viene eseguita in base alle fasi e ai passaggi segue
 
 ## <a name="rollback"></a>Rollback
 
-È possibile eseguire il rollback delle distribuzioni in caso di errori o di problemi di configurazione.Dato che una distribuzione definisce la configurazione assoluta dei moduli per un dispositivo IoT Edge, è necessario destinare una distribuzione aggiuntiva allo stesso dispositivo con una priorità inferiore, anche se l'obiettivo è quello di rimuovere tutti i moduli.  
+È possibile eseguire il rollback delle distribuzioni in caso di errori o di problemi di configurazione. Dato che una distribuzione definisce la configurazione assoluta dei moduli per un dispositivo IoT Edge, è necessario destinare una distribuzione aggiuntiva allo stesso dispositivo con una priorità inferiore, anche se l'obiettivo è quello di rimuovere tutti i moduli.  
 
 L'eliminazione di una distribuzione non comporta la rimozione dei moduli dai dispositivi di destinazione. Deve essere presente un'altra distribuzione che definisce una nuova configurazione per i dispositivi, anche se si tratta di una distribuzione vuota.
 

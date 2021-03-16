@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 16425c1f15b78e2d0aaa7a8a1f55ff47a44d56dd
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: d155d0c4a18b254f66ff5fb58ea91dbee22d2c34
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103464789"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496610"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Esercitazione: creare un grafico gemelli di Azure Digital con l'interfaccia della riga di comando di Azure
 
@@ -64,7 +64,7 @@ Dopo aver configurato l'istanza di Gemelli digitali di Azure, prendere nota dei 
 az dt show -n <ADT_instance_name>
 ```
 
-:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Cloud Shell finestra che mostra l'output del comando AZ DT show. Il campo nome host e l'ID sottoscrizione (parte del campo ID) sono evidenziati.":::
+:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Screenshot della finestra Cloud Shell browser che mostra l'output del comando AZ DT show. Il campo nome host e l'ID sottoscrizione (parte del campo ID) sono evidenziati.":::
 
 ## <a name="model-a-physical-environment-with-dtdl"></a>Modellare un ambiente fisico con DTDL
 
@@ -87,7 +87,7 @@ Dopo aver progettato i modelli, è necessario caricarli nell'istanza di Gemelli 
 
 1. Per aggiungere modelli con Cloud Shell, è necessario caricare i file del modello nella risorsa di archiviazione di Cloud Shell in modo che i file siano disponibili quando si esegue il comando Cloud Shell che li utilizza. A tale scopo, selezionare l'icona "Carica/Scarica file" e scegliere "carica".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell finestra che mostra la selezione dell'icona di caricamento":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot della finestra del browser Cloud Shell che mostra la selezione dell'icona di caricamento.":::
     
     Passare al *Room.js* nel file nel computer e selezionare "Apri". Ripetere quindi questo passaggio per *Floor.jsil*.
 
@@ -111,7 +111,7 @@ Dopo aver progettato i modelli, è necessario caricarli nell'istanza di Gemelli 
     
     Cercare il modello *Room* modificato nei risultati:
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-get-models.png" alt-text="Risultati del comando model list, che mostra il modello room aggiornato" lightbox="media/tutorial-command-line/cli/output-get-models.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-get-models.png" alt-text="Screenshot di Cloud Shell che mostra il risultato del comando model list, che include il modello room aggiornato." lightbox="media/tutorial-command-line/cli/output-get-models.png":::
 
 ### <a name="errors"></a>Errors
 
@@ -159,7 +159,7 @@ Per creare un dispositivo gemello digitale, usare il comando [**AZ DT gemelle cr
     
     Cercare i *room0*, *Room1*, *floor0* e *floor1* gemelli nei risultati. Di seguito è riportato un estratto che mostra parte del risultato della query.
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Risultati parziali della query dei dispositivi gemelli, che mostrano room0 e room1" lightbox="media/tutorial-command-line/cli/output-query-all.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot di Cloud Shell che mostra il risultato parziale della query gemella, inclusi room0 e room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
 ### <a name="modify-a-digital-twin"></a>Modificare un gemello digitale
 
@@ -181,7 +181,7 @@ Per creare un dispositivo gemello digitale, usare il comando [**AZ DT gemelle cr
     
     L'output di questo comando visualizzerà le informazioni correnti del dispositivo gemello e dovrebbe essere visualizzato il nuovo valore per `RoomName` nel risultato.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Risultati del comando Update, che mostra un Roomname di PresidentialSuite" lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Screenshot di Cloud Shell che mostra il risultato del comando Update, che include un Roomname di PresidentialSuite." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
 1. È possibile verificare che l'aggiornamento sia stato eseguito correttamente eseguendo il comando [**AZ DT Twin Show**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_show) per visualizzare le informazioni di *room0*:
 
@@ -236,7 +236,7 @@ Per aggiungere una relazione, usare il comando [**AZ DT Twin Relationship create
 
 I gemelli e le relazioni configurati in questa esercitazione formano il grafo concettuale seguente:
 
-:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Grafo che mostra floor0 connesso tramite relationship0 a room0 e floor1 connesso tramite relationship1 a room1" border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
+:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Diagramma che mostra un grafo concettuale. floor0 è connesso tramite relationship0 a room0 e floor1 è connesso tramite relationship1 a Room1." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Eseguire una query sul grafo dei gemelli per rispondere alla domande sull'ambiente
 
@@ -252,7 +252,7 @@ Eseguire le query seguenti nell'Cloud Shell per rispondere ad alcune domande sul
 
     In questo modo è possibile ottenere una panoramica dell'ambiente e assicurarsi che tutti gli elementi siano rappresentati come previsto all'interno di Gemelli digitali di Azure. Il risultato è un output contenente ogni gemello digitale con i relativi dettagli. Ecco un estratto:
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Risultati parziali della query dei dispositivi gemelli, che mostrano room0 e room1" lightbox="media/tutorial-command-line/cli/output-query-all.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot di Cloud Shell che mostra il risultato parziale della query gemella, inclusi room0 e room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
     >[!TIP]
     >È possibile riconoscere che questo è lo stesso comando usato nella sezione creare i dispositivi [*digitali gemelli*](#create-digital-twins) in precedenza per trovare tutti i dispositivi gemelli digitali di Azure nell'istanza.
@@ -265,7 +265,7 @@ Eseguire le query seguenti nell'Cloud Shell per rispondere ad alcune domande sul
 
     È possibile limitare la query ai gemelli di un determinato tipo, per ottenere informazioni più specifiche su quello che rappresentano. Il risultato di questa operazione mostra *room0* e *room1*, ma **non** mostra *floor0* o *floor1* (perché si tratta di piani, non di stanze).
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="Risultati della query per modello, che mostrano solo room0 e room1" lightbox="media/tutorial-command-line/cli/output-query-model.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="Screenshot del Cloud Shell che mostra il risultato della query del modello, che include solo room0 e room1." lightbox="media/tutorial-command-line/cli/output-query-model.png":::
 
 1. **Quali sono tutte le stanze in *floor0*?** (query per relazione)
 
@@ -275,7 +275,7 @@ Eseguire le query seguenti nell'Cloud Shell per rispondere ad alcune domande sul
 
     È possibile eseguire query in base alle relazioni nel grafo, per ottenere informazioni sul modo in cui i gemelli sono connessi o limitare la query a una determinata area. In *floor0* è presente solo *room0*, che quindi è l'unica stanza nel risultato.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Risultati della query per relazione, che mostrano room0" lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Screenshot del Cloud Shell che mostra il risultato della query di relazione, che include room0." lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
     > Si noti che viene eseguita una query sull'ID di un gemello, ad esempio *floor0* nella query precedente, usando il campo dei metadati `$dtId` . 
@@ -290,7 +290,7 @@ Eseguire le query seguenti nell'Cloud Shell per rispondere ad alcune domande sul
 
     È possibile eseguire una query sul grafo in base alle proprietà per rispondere a una serie di domande, anche per trovare outlier nell'ambiente che potrebbero richiedere attenzione. Sono supportati anche altri operatori di confronto, ossia *<* , *>* , *=* o *!=* . I risultati mostrano *room1*, perché ha una temperatura pari a 80.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="Risultati della query per proprietà, che mostrano solo room1" lightbox="media/tutorial-command-line/cli/output-query-property.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="Screenshot di Cloud Shell che mostra il risultato della query di proprietà, che include solo Room1." lightbox="media/tutorial-command-line/cli/output-query-property.png":::
 
 1. **Quali sono tutte le stanze in *floor0* con una temperatura superiore a 75?** (query composta)
 
@@ -300,7 +300,7 @@ Eseguire le query seguenti nell'Cloud Shell per rispondere ad alcune domande sul
 
     È anche possibile combinare le query precedenti come in SQL, usando operatori di combinazione come `AND`, `OR`, `NOT`. Questa query usa `AND` per rendere più specifica la query precedente sulle temperature dei gemelli. Il risultato include ora solo le stanze con temperature superiori a 75 che si trovano in *floor0*, ovvero in questo caso nessuna stanza. Il set di risultati è vuoto.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-compound.png" alt-text="Risultati della query composta, senza risultati" lightbox="media/tutorial-command-line/cli/output-query-compound.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-compound.png" alt-text="Screenshot di Cloud Shell che mostra il risultato di una query composta, che non include alcun elemento." lightbox="media/tutorial-command-line/cli/output-query-compound.png":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -1,16 +1,16 @@
 ---
-author: PatrickFarley
+author: laujan
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/12/2019
-ms.author: pafarley
-ms.openlocfilehash: f0761847c3677b324ef16c5987eb9a1561dbcbe0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.author: lajanuar
+ms.openlocfilehash: 89b035397ea2050ae7e61f2a19310b6a7fb4192c
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "75379293"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467245"
 ---
 Esaminare i valori di `"confidence"` per ogni risultato di chiave-valore nel nodo `"pageResults"`. È inoltre consigliabile esaminare i punteggi di attendibilità nel nodo `"readResults"`, che corrispondono all'operazione di lettura del testo. L'attendibilità dei risultati della lettura non influisce su quella dei risultati dell'estrazione di coppie chiave-valore, quindi è necessario controllare entrambi.
 * Se i punteggi di attendibilità dell'operazione di lettura sono bassi, provare a migliorare la qualità dei documenti di input. Vedere [Requisiti di input](../overview.md#input-requirements).

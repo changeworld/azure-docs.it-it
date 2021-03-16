@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 71217e6379c02191311f5d93cb439d9da20080bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 93f7b8f83d7b864a76eb9f31024ed55a7a1639e9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706963"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472287"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Distribuire un servizio cloud (supporto esteso) usando i modelli ARM
 
@@ -44,6 +44,9 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
 
 ## <a name="deploy-a-cloud-service-extended-support"></a>Distribuire un servizio cloud (supporto esteso)
 
+> [!NOTE]
+ Un metodo alternativo per la distribuzione del servizio cloud (supporto esteso) è tramite [portale di Azure](https://portal.azure.com). È possibile scaricare il modello ARM generato tramite il portale per le distribuzioni future
+ 
 1. Creare una rete virtuale. Il nome della rete virtuale deve corrispondere ai riferimenti nel file di configurazione del servizio (con estensione cscfg). Se si usa una rete virtuale esistente, omettere questa sezione dal modello ARM.
 
     ```json

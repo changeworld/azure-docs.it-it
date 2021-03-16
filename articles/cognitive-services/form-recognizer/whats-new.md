@@ -2,29 +2,58 @@
 title: Novità di Riconoscimento modulo
 titleSuffix: Azure Cognitive Services
 description: Comprendere le ultime modifiche apportate all'API di riconoscimento del modulo.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: pafarley
-ms.openlocfilehash: f194f0bc7ec8d0bf2265c0863f93bfd11337b5f4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.author: lajanuar
+ms.openlocfilehash: 6760194fea71cd97b4d206ccd2ccc281e18ea279
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703389"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467050"
 ---
+<!-- markdownlint-disable MD024 -->
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
 Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare questo articolo per rimanere sempre aggiornati sui miglioramenti delle funzionalità, sulle correzioni e sugli aggiornamenti della documentazione.
+
+## <a name="march-2021"></a>Marzo 2021
+
+**È ora disponibile l'anteprima pubblica del modulo Recognizer v 2.1.** v 2.1-Preview. 3 è stato rilasciato, incluse le funzionalità seguenti:
+
+- **Nuovo modello di ID predefinito** Il nuovo modello di ID predefinito consente ai clienti di prendere gli ID e restituire dati strutturati per automatizzare l'elaborazione. Combina le potenti funzionalità di riconoscimento ottico dei caratteri (OCR) con ID comprensivi di modelli per estrarre le informazioni chiave da passaporti e licenze di driver statunitensi, ad esempio nome, data di nascita, data di rilascio, data di scadenza e altro ancora.
+
+  [Altre informazioni sul modello di ID predefinito](concept-identification-cards.md)
+
+   :::image type="content" source="./media/id-canada-passport-example.png" alt-text="esempio di Passport" lightbox="./media/id-canada-passport-example.png":::
+
+- **Estrazione di elementi di riga per il modello di fattura predefinito** : il modello di fattura predefinito supporta ora l'estrazione di elementi linea; estrae ora gli elementi completi e le relative parti: descrizione, quantità, quantità, ID prodotto, data e altro. Con una semplice chiamata API/SDK è possibile estrarre dati utili dalle fatture-testo, tabella, coppie chiave-valore ed elementi riga.
+
+   [Altre informazioni sul modello di fattura predefinito](concept-invoices.md)
+
+- **Assegnazione di etichette a una tabella con supervisione e training, assegnazione di etichette con valori vuoti** , oltre a formare [le funzionalità automatiche di estrazione automatica delle](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011)tabelle riconoscibili, che ora permettono ai clienti di assegnare etichette ed eseguire il training sulle tabelle. Questa nuova versione include la possibilità di assegnare etichette ed eseguire il training sulle tabelle o sugli elementi della linea (dinamica e fissa) e di eseguire il training di un modello personalizzato per estrarre le coppie chiave-valore e le voci. Una volta eseguito il training di un modello, il modello estrae gli elementi line come parte dell'output JSON nella sezione documentResults.
+
+    :::image type="content" source="./media/table-labeling.png" alt-text="Etichettatura tabella" lightbox="./media/table-labeling.png":::
+
+    Oltre ad etichettare le tabelle, è ora possibile etichettare i valori vuoti e le aree geografiche. Se alcuni documenti del set di training non hanno valori per determinati campi, è possibile usarli in modo che il modello possa essere in grado di estrarre i valori correttamente dai documenti analizzati.
+
+- **Supporto per 66 nuovi linguaggi** : l'API di layout e i modelli personalizzati del riconoscitore del modulo supportano ora 73 lingue.
+
+  [Scopri di più sul supporto per la lingua del riconoscimento moduli](language-support.md)
+
+- **Ordine di lettura naturale, classificazione della grafia e selezione della pagina** : con questo aggiornamento è possibile scegliere di ottenere gli output della riga di testo nell'ordine di lettura naturale anziché l'ordine predefinito da sinistra a destra e da a in basso. Usare il nuovo parametro di query readingOrder e impostarlo sul valore "Natural" per un output dell'ordine di lettura più semplice. Inoltre, per le lingue latine, il riconoscitore di form classifica le righe di testo come stile manoscritto o non e fornisce un punteggio di confidenza.
+
+- **Miglioramenti della qualità del modello di ricezione predefinito** Questo aggiornamento include numerosi miglioramenti qualitativi per il modello di ricezione precompilato, in particolare per l'estrazione di elementi linea.
 
 ## <a name="november-2020"></a>Novembre 2020
 
 ### <a name="new-features"></a>Nuove funzionalità
 
-**È ora disponibile l'anteprima pubblica di form Recognizer v 2.1.** V 2.1-Preview. 2 è stato rilasciato, incluse le funzionalità seguenti: 
+**È ora disponibile l'anteprima pubblica di form Recognizer v 2.1.** v 2.1-Preview. 2 è stato rilasciato, incluse le funzionalità seguenti: 
 
 - **Nuovo modello di fatturazione predefinito** : il nuovo modello di fatturazione predefinito consente ai clienti di ottenere fatture in diversi formati e restituire dati strutturati per automatizzare l'elaborazione della fattura. Combina le potenti funzionalità di riconoscimento ottico dei caratteri (OCR) con la comprensione dei modelli di apprendimento avanzato per estrarre le informazioni chiave dalle fatture in inglese. Estrae il testo, le tabelle e le informazioni, ad esempio cliente, fornitore, ID fattura, data di scadenza della fattura, totale, importo dovuto, importo imposta, spedizione, fatturazione e altro ancora.
 
@@ -68,36 +97,33 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 - **[Nuove impostazioni locali per le ricevute](concept-receipts.md)** predefinite, oltre a en-US, è ora disponibile il supporto per en-au, en-CA, en-GB, en-in
 - **Miglioramenti qualitativi** per `Layout` , il `Train Custom Model`  -  _training senza etichette_ e il _training con etichette_.
 
-
 **v 2.0** include l'aggiornamento seguente:
 
 - Le [librerie client](quickstarts/client-library.md) per NET, Python, Java e JavaScript hanno immesso la disponibilità a livello generale. 
 
-
 I **nuovi esempi** sono disponibili in GitHub. 
+
 - Le [ricette di estrazione delle informazioni](https://github.com/microsoft/knowledge-extraction-recipes-forms) , ovvero i moduli PlayBook, raccolgono le procedure consigliate dagli impegni dei clienti riconoscibili in forma reale e forniscono esempi di codice, elenchi di controllo e pipeline di esempio utilizzabili per lo sviluppo di questi progetti. 
 - Lo [strumento di assegnazione di etichette di esempio](https://github.com/microsoft/OCR-Form-Tools) è stato aggiornato per supportare la nuova funzionalità v 2.1. Per iniziare a usare lo strumento, vedere questa [Guida introduttiva](quickstarts/label-tool.md) . 
 - L'esempio di riconoscimento in modalità [chiosco intelligente](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) Mostra come eseguire l'integrazione `Analyze Receipt` e il `Train Custom Model`  -  _training senza etichette_.
 
-
-
 ## <a name="july-2020"></a>Luglio 2020
 
 ### <a name="new-features"></a>Nuove funzionalità
-
+<!-- markdownlint-disable MD004 -->
 * **informazioni di riferimento sulla versione 2.0 disponibili** : visualizzare le informazioni di [riferimento sulle API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e gli SDK aggiornati per [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme)e [JavaScript](/javascript/api/overview/azure/).
 * Miglioramenti apportati alla tabella e miglioramenti dell' **estrazione** : include miglioramenti dell'accuratezza ed estrazioni di tabelle, in particolare la funzionalità per apprendere le intestazioni e le strutture delle tabelle in un _training personalizzato senza etichette_. 
 
 * **Supporto della valuta** : rilevamento ed estrazione dei simboli di valuta globali.
 * Il sistema di riconoscimento del modulo **gov di Azure** è ora disponibile anche in Azure gov.
 * **Funzionalità di sicurezza avanzate**: 
-   * Il riconoscitore di form **chiave di Bring** consente di crittografare automaticamente i dati quando vengono salvati in modo permanente nel cloud per proteggerli e aiutarti a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. È ora possibile gestire la sottoscrizione anche con le proprie chiavi di crittografia. Le [chiavi gestite dal cliente, note anche come Bring your own key (BYOK)](./encrypt-data-at-rest.md), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.  
-   * **Endpoint privati** : consente di accedere in modo [sicuro ai dati tramite un collegamento privato](../../private-link/private-link-overview.md) in una rete virtuale (VNet).
-
+  * Il riconoscitore di form **chiave di Bring** consente di crittografare automaticamente i dati quando vengono salvati in modo permanente nel cloud per proteggerli e aiutarti a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. È ora possibile gestire la sottoscrizione anche con le proprie chiavi di crittografia. Le [chiavi gestite dal cliente, note anche come Bring your own key (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.  
+  * **Endpoint privati** : consente di accedere in modo [sicuro ai dati tramite un collegamento privato](../../private-link/private-link-overview.md) in una rete virtuale (VNet).
 
 ## <a name="june-2020"></a>Giugno 2020
 
 ### <a name="new-features"></a>Nuove funzionalità
+
 * **API CopyModel aggiunta agli SDK client** : è ora possibile usare gli SDK client per copiare i modelli da una sottoscrizione a un'altra. Per informazioni generali su questa funzionalità, vedere [eseguire il backup e il ripristino dei modelli](./disaster-recovery.md) .
 * **Integrazione Azure Active Directory** : è ora possibile usare le credenziali Azure ad per autenticare gli oggetti client del riconoscimento del modulo negli SDK.
 * **Modifiche specifiche dell'SDK** : sono incluse le aggiunte di funzionalità secondarie e le modifiche di rilievo. Per ulteriori informazioni, vedere i log delle modifiche dell'SDK.
@@ -109,24 +135,26 @@ I **nuovi esempi** sono disponibili in GitHub.
 ## <a name="april-2020"></a>Aprile 2020
 
 ### <a name="new-features"></a>Nuove funzionalità
+
 * **Supporto dell'SDK per l'API di riconoscimento moduli v 2.0 anteprima pubblica** : questo mese è stato ampliato il supporto tecnico per includere una versione di anteprima dell'SDK per il modulo di riconoscimento v 2.0 (anteprima). Usare i collegamenti seguenti per iniziare a usare la lingua preferita: 
-   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
-   * [SDK per Java](/java/api/overview/azure/ai-formrecognizer-readme)
-   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
-   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme)
+  * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
+  * [SDK per Java](/java/api/overview/azure/ai-formrecognizer-readme)
+  * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
+  * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
   Il nuovo SDK supporta tutte le funzionalità dell'API REST v 2.0 per il riconoscimento del modulo. Ad esempio, è possibile eseguire il training di un modello con o senza etichette ed estrarre il testo, le coppie chiave-valore e le tabelle dai moduli, estrarre i dati dalle ricevute con il servizio ricevute predefinite ed estrarre il testo e le tabelle con il servizio di layout dai documenti. È possibile condividere commenti e suggerimenti sugli SDK tramite il [modulo feedback SDK](https://aka.ms/FR_SDK_v1_feedback).
- 
+
 * **Copia modello personalizzato** È ora possibile copiare i modelli tra aree e sottoscrizioni usando la nuova funzionalità Copia modello personalizzato. Prima di richiamare l'API del modello di copia personalizzata, è necessario ottenere prima di tutto l'autorizzazione per la copia nella risorsa di destinazione chiamando l'operazione di autorizzazione copia sull'endpoint della risorsa di destinazione.
-   * [Genera un'autorizzazione di copia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) API REST
-   * [Copiare un modello personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) API REST 
+
+  * [Genera un'autorizzazione di copia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) API REST
+  * [Copiare un modello personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) API REST 
 
 ### <a name="security-improvements"></a>Miglioramenti della sicurezza
 
 * Customer-Managed chiavi sono ora disponibili per FormRecognizer. Per altre informazioni, vedere [crittografia dei dati inattivi per il riconoscimento del modulo](./encrypt-data-at-rest.md).
 * Usare le identità gestite per accedere alle risorse di Azure con Azure Active Directory. Per altre informazioni, vedere [autorizzare l'accesso alle identità gestite](../authentication.md#authorize-access-to-managed-identities).
 
-## <a name="march-2020"></a>Marzo 2020 
+## <a name="march-2020"></a>Marzo 2020
 
 ### <a name="new-features"></a>Nuove funzionalità
 

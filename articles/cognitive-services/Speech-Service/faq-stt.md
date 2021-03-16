@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 1ebba3231a7b3a86b98bcc14d1257412d1557ff3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bcb4408df08f3854b067c8b805b78433a3d5075c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738192"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491249"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -57,7 +57,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: perché esistono modelli di base diversi?**
 
-**R**: è possibile scegliere da più di un modello di base nel servizio di riconoscimento vocale. Ogni nome di modello contiene la data in cui è stata aggiunta. Quando si avvia il training di un modello personalizzato, usare il modello più recente per ottenere la massima precisione. I modelli di base precedenti sono ancora disponibili per un certo periodo di tempo quando viene reso disponibile un nuovo modello. È possibile continuare a usare il modello con cui si è lavorato fino a quando non viene ritirato (vedere ciclo di vita del [modello](custom-speech-overview.md#model-lifecycle)). È comunque consigliabile passare al modello di base più recente per una maggiore accuratezza.
+**R**: è possibile scegliere da più di un modello di base nel servizio di riconoscimento vocale. Ogni nome di modello contiene la data in cui è stata aggiunta. Quando si avvia il training di un modello personalizzato, usare il modello più recente per ottenere la massima precisione. I modelli di base precedenti sono ancora disponibili per un certo periodo di tempo quando viene reso disponibile un nuovo modello. È possibile continuare a usare il modello con cui si è lavorato fino a quando non viene ritirato (vedere [ciclo di vita del modello ed endpoint](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). È comunque consigliabile passare al modello di base più recente per una maggiore accuratezza.
 
 **D: È possibile aggiornare un modello esistente (stacking di modelli)?**
 
@@ -71,7 +71,7 @@ I set di dati precedente e nuovo devono essere combinati in un unico file ZIP (p
 
 Se è stato adattato e distribuito un modello, la distribuzione rimarrà invariata. È possibile rimuovere le autorizzazioni del modello distribuito, riadattarlo utilizzando la versione più recente del modello di base e ridistribuirlo per una maggiore accuratezza.
 
-Sia i modelli di base che i modelli personalizzati verranno ritirati in seguito (vedere ciclo di vita del [modello](custom-speech-overview.md#model-lifecycle)).
+Sia i modelli di base che i modelli personalizzati verranno ritirati in seguito (vedere [ciclo di vita del modello ed endpoint](./how-to-custom-speech-model-and-endpoint-lifecycle.md)).
 
 **D: È possibile scaricare il modello ed eseguirlo in locale?**
 

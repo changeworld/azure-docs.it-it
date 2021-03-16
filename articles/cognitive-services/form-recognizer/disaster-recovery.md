@@ -2,19 +2,19 @@
 title: Linee guida sul ripristino di emergenza per il sistema di riconoscimento di Azure form
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare l'API Copia modello per eseguire il backup delle risorse di riconoscimento del modulo.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/27/2020
-ms.author: pafarley
-ms.openlocfilehash: 0343402d92498bff56250027086cbf2ceb258f0f
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: b5eb776a7807f48ae6c1a0e3c5879da1f6823830
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102427165"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466916"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Eseguire il backup e il ripristino dei modelli di riconoscimento moduli
 
@@ -39,9 +39,6 @@ Il processo per la copia di un modello personalizzato è costituito dai passaggi
 1. Viene prima di tutto eseguita una richiesta di autorizzazione di copia alla risorsa di destinazione &mdash; , ovvero la risorsa che riceverà il modello copiato. Si ottiene l'URL del modello di destinazione appena creato, che riceverà i dati copiati.
 1. Successivamente si invia la richiesta di copia alla risorsa di origine &mdash; che contiene il modello da copiare. Verrà restituito un URL su cui è possibile eseguire una query per tenere traccia dell'avanzamento dell'operazione.
 1. Si useranno le credenziali della risorsa di origine per eseguire una query sull'URL di stato fino a quando l'operazione ha esito positivo. È anche possibile eseguire una query sul nuovo ID modello nella risorsa di destinazione per ottenere lo stato del nuovo modello.
-
-> [!CAUTION]
-> L'API di copia non supporta attualmente gli ID modello per i [modelli personalizzati composti](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose). Il modello compose è una funzionalità di anteprima della versione 2.1 di anteprima. 2. 
 
 ## <a name="generate-copy-authorization-request"></a>Genera richiesta di autorizzazione copia
 
@@ -165,4 +162,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa guida è stato illustrato come usare l'API di copia per eseguire il backup dei modelli personalizzati in una risorsa di riconoscimento del modulo secondario. Esplorare quindi la documentazione di riferimento per le API per vedere le altre operazioni che è possibile eseguire con il riconoscimento del modulo.
-* [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)
+* [Documentazione di riferimento delle API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)

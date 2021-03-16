@@ -7,16 +7,19 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: c93ecdc138e757f84e995a69a6c3d7f1b5460abe
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ba960465ab0ca8d5124d5882e3578e61fee2cf14
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179375"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490144"
 ---
 # <a name="azure-percept-dk-overview"></a>Panoramica di Azure Percept DK
 
 Azure Percept DK è un kit di sviluppo per intelligenza artificiale e Internet Edge progettato per lo sviluppo di concetti di prova e di intelligenza artificiale. In combinazione con [Azure Percept Studio](./overview-azure-percept-studio.md) e [Azure Percept audio](./overview-azure-percept-audio.md), diventa una piattaforma potente ma semplice da usare per la creazione di soluzioni di intelligenza artificiale perimetrali per un'ampia gamma di applicazioni di intelligenza artificiale e visione. È disponibile per l'acquisto in [Microsoft Online Store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+
+> [!div class="nextstepaction"]
+> [Acquista ora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 :::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Dispositivo Azure Percept DK.":::
 
@@ -52,4 +55,5 @@ Azure Percept DK è un kit di sviluppo per intelligenza artificiale e Internet E
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ordinare una Percept di Azure in [Microsoft Online Store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+> [!div class="nextstepaction"]
+> [Acquistare Azure Percept DK da Microsoft Online Store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

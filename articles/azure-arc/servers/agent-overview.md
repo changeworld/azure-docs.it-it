@@ -1,14 +1,14 @@
 ---
-title: Panoramica dell'agente Connected Machine per Windows
+title: Panoramica dell'agente computer connesso
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
-ms.date: 02/18/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651094"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470490"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -90,9 +90,11 @@ Le versioni seguenti dei sistemi operativi Windows e Linux sono ufficialmente su
 
 ### <a name="required-permissions"></a>Autorizzazioni necessarie
 
-* Per eseguire l'onboarding di computer, è necessario essere membri del ruolo **Onboarding di computer connessi di Azure**.
+* Per caricare i computer, si è membri del ruolo di **onboarding** o [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) del computer connesso di Azure nel gruppo di risorse.
 
-* Per leggere, modificare ed eliminare un computer, si è membri del ruolo di **amministratore delle risorse del computer connesso di Azure** . 
+* Per leggere, modificare ed eliminare un computer, si è membri del ruolo di **amministratore delle risorse del computer connesso di Azure** nel gruppo di risorse.
+
+* Per selezionare un gruppo di risorse dall'elenco a discesa quando si usa il metodo **Genera script** , come minimo si è un membro del ruolo [lettore](../../role-based-access-control/built-in-roles.md#reader) per quel gruppo di risorse.
 
 ### <a name="azure-subscription-and-service-limits"></a>Limiti del servizio e della sottoscrizione di Azure
 

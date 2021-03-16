@@ -4,26 +4,26 @@ description: Come creare e applicare criteri di accesso personalizzati per limit
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 795b194eb7cd31e633128c22ddffe808b32e07da
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: eb9e71cc8ec463077e3b12b8738203a4945a2eab
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802414"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471785"
 ---
-# <a name="use-client-access-policies"></a>Usare i criteri di accesso client
+# <a name="control-client-access"></a>Controllare l'accesso client
 
 Questo articolo illustra come creare e applicare criteri di accesso client personalizzati per le destinazioni di archiviazione.
 
-I criteri di accesso client controllano in che modo i client sono in grado di connettersi alle esportazioni di destinazione di archiviazione. È possibile controllare elementi come la squash radice e l'accesso in lettura/scrittura a livello di host client o di rete.
+I criteri di accesso client controllano il modo in cui i client sono autorizzati a connettersi alle esportazioni di destinazione di archiviazione. È possibile controllare elementi come la squash radice e l'accesso in lettura/scrittura a livello di host client o di rete.
 
 I criteri di accesso vengono applicati a un percorso dello spazio dei nomi, il che significa che è possibile utilizzare criteri di accesso diversi per due esportazioni diverse in un sistema di archiviazione NFS.
 
 Questa funzionalità è destinata ai flussi di lavoro in cui è necessario controllare il modo in cui i diversi gruppi di client accedono alle destinazioni di archiviazione.
 
-Se non è necessario un controllo con granularità fine sull'accesso alla destinazione di archiviazione, è possibile usare i criteri predefiniti oppure personalizzare i criteri predefiniti con regole aggiuntive.
+Se non è necessario un controllo con granularità fine sull'accesso alla destinazione di archiviazione, è possibile usare i criteri predefiniti oppure personalizzare i criteri predefiniti con regole aggiuntive. Se ad esempio si vuole abilitare la squash radice per tutti i client che si connettono tramite la cache, è possibile modificare il criterio denominato **default** per aggiungere l'impostazione di squash radice.
 
 ## <a name="create-a-client-access-policy"></a>Creare un criterio di accesso client
 
@@ -39,7 +39,7 @@ Per creare nuovi criteri di accesso, fare clic sul pulsante **+ Aggiungi criteri
 
 Nella parte restante di questa sezione vengono illustrati i valori che è possibile utilizzare nelle regole.
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Ambito
 
 Il termine ambito e il filtro degli indirizzi interagiscono per definire i client interessati dalla regola.
 
@@ -81,15 +81,21 @@ Selezionare questa casella per consentire ai client specificati di montare diret
 
 Scegliere se impostare la squash radice per i client che soddisfano questa regola.
 
-Questo valore consente di consentire lo squash radice a livello di esportazione archiviazione. È anche possibile [impostare la squash radice a livello di cache](configuration.md#configure-root-squash).
+Questa impostazione controlla il modo in cui la cache HPC di Azure considera le richieste provenienti dall'utente root nei computer client. Quando lo squash radice è abilitato, gli utenti root di un client vengono automaticamente mappati a un utente senza privilegi quando inviano richieste tramite la cache HPC di Azure. Impedisce inoltre alle richieste client di utilizzare i bit di autorizzazione set-UID.
 
-Se si attiva lo squash radice, è necessario impostare anche il valore utente ID anonimo su una di queste opzioni:
+Se la zucca radice è disabilitata, una richiesta proveniente dall'utente radice del client (UID 0) viene passata a un sistema di archiviazione NFS back-end come radice. Questa configurazione potrebbe consentire l'accesso ai file non appropriato.
 
-* **-2** (nessuno)
-* **65534** (nessuno)
-* **-1** (nessun accesso)
-* **65535** (nessun accesso)
+L'impostazione di squash radice per le richieste client può compensare l' ``no_root_squash`` impostazione necessaria nei sistemi NAS usati come destinazioni di archiviazione. Per ulteriori informazioni sui [prerequisiti per l'archiviazione NFS](hpc-cache-prerequisites.md#nfs-storage-requirements), vedere. Può anche migliorare la sicurezza quando viene usata con le destinazioni di archiviazione BLOB di Azure.
+
+Se si attiva lo squash radice, è necessario impostare anche il valore utente ID anonimo. Il portale accetta valori integer compresi tra 0 e 4294967295. I valori precedenti-2 e-1 sono supportati per la compatibilità con le versioni precedenti, ma non sono consigliati per le nuove configurazioni.
+
+Questi valori vengono mappati a valori utente specifici:
+
+* **-2** o **65534** (nessuno)
+* **-1** o **65535** (nessun accesso)
 * **0** (radice senza privilegi)
+
+Il sistema di archiviazione potrebbe avere altri valori con significati speciali.
 
 ## <a name="update-access-policies"></a>Aggiornare i criteri di accesso
 

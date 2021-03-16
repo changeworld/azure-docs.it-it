@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: c0c3a452c93b88483ac7027405665c26ceab8183
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 74cfe4ba3c92d8d96dd196ef6f612b9ed7c0da9d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368511"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496253"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Il runtime Azure IoT Edge è una raccolta di programmi che trasformano un dispositivo in un dispositivo IoT Edge. Collettivamente, i componenti di runtime IoT Edge consentono IoT Edge ai dispositivi di ricevere il codice per l'esecuzione al perimetro e di comunicare i risultati.
 
@@ -65,7 +67,7 @@ L'agente di IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di ri
 
 Per ulteriori informazioni sulla creazione di manifesti di distribuzione, vedere [informazioni su come distribuire moduli e stabilire route in IOT Edge](module-composition.md).
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica dell'immagine di un modulo prima di avviarlo.
 
@@ -159,7 +161,7 @@ Per ulteriori informazioni su MQTT broker, vedere [pubblicare e sottoscrivere co
 
 Di seguito sono riportate le funzionalità disponibili in ogni meccanismo di Service Broker:
 
-|Funzionalità  | Routing.  | Broker MQTT  |
+|Funzionalità  | Routing  | Broker MQTT  |
 |---------|---------|---------|
 |Telemetria D2C    |     &#10004;    |         |
 |Telemetria locale     |     &#10004;    |    &#10004;     |
