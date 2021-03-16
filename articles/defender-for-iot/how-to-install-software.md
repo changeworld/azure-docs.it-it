@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 1e361ad14f79ea32d83e8cff9dd9bb8607b7c766
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 175f006adbc18d21e0f0c5d859737aedb00bc457
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103470678"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574663"
 ---
 # <a name="defender-for-iot-installation"></a>Defender per l'installazione di Internet.
 
@@ -697,9 +697,9 @@ Per effettuare l'installazione:
 
 1. Le credenziali di accesso vengono generate e presentate automaticamente. Copiare il nome utente e la password in un luogo sicuro, perché sono necessari per l'accesso e l'amministrazione.
 
-    - **Supporto**: utente amministratore per la gestione degli utenti.
+      - **Supporto**: utente amministratore per la gestione degli utenti.
 
-    - **CyberX**: l'equivalente della radice per accedere all'appliance.
+      - **CyberX**: l'equivalente della radice per accedere all'appliance.
 
 1. Il dispositivo viene riavviato.
 
@@ -851,9 +851,10 @@ Per installare il software:
 
 1. Le credenziali di accesso vengono generate e presentate automaticamente. Conservarle in un luogo sicuro, perché sono necessarie per l'accesso e l'amministrazione.
 
-  - **Supporto**: utente amministratore per la gestione degli utenti.
-
-  - **CyberX**: l'equivalente della radice per accedere all'appliance.
+    | Username | Descrizione |
+    |--|--|
+    | Supporto | Utente amministratore per la gestione degli utenti. |
+    | CyberX | Equivalente della radice per accedere all'appliance. |
 
 1. Il dispositivo viene riavviato.
 

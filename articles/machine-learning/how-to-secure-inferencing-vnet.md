@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 5d029f4328f955d64c5ce479e553769f8a107e45
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1a1a9158c06a12caaeb5702f2fdf7da3c801c143
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518569"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573439"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteggere un ambiente di Azure Machine Learning inferenza con reti virtuali
 
@@ -278,3 +278,5 @@ Questo articolo è la quarta parte di una serie di reti virtuali in cinque parti
 * [Parte 2: proteggere le risorse dell'area di lavoro](how-to-secure-workspace-vnet.md)
 * [Parte 3: proteggere l'ambiente di training](how-to-secure-training-vnet.md)
 * [Parte 5: abilitare la funzionalità di studio](how-to-enable-studio-virtual-network.md)
+
+Vedere anche l'articolo sull'uso di [DNS personalizzato](how-to-custom-dns.md) per la risoluzione dei nomi.

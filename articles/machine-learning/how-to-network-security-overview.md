@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1c3d9b286a8262efa126ba9c661c50dd88e78b64
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518679"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573473"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 
@@ -36,7 +36,6 @@ Questo articolo presuppone che l'utente abbia familiarità con gli argomenti seg
 + [Collegamento privato di Azure](how-to-configure-private-link.md)
 + [Gruppi di sicurezza di rete (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Firewall di rete](../firewall/overview.md)
-
 ## <a name="example-scenario"></a>Scenario di esempio
 
 In questa sezione viene illustrato come configurare uno scenario di rete comune per proteggere Azure Machine Learning la comunicazione con indirizzi IP privati.
@@ -62,8 +61,8 @@ Nelle cinque sezioni successive viene illustrato come proteggere lo scenario di 
 1. Proteggere l' [**ambiente di training**](#secure-the-training-environment).
 1. Proteggere l' [**ambiente di inferenza**](#secure-the-inferencing-environment).
 1. Facoltativamente, [**abilitare la funzionalità di studio**](#optional-enable-studio-functionality).
-1. Configurare [ **le impostazioni del firewall**](#configure-firewall-settings)
-
+1. Configurare [**le impostazioni del firewall**](#configure-firewall-settings).
+1. Configurare la [risoluzione dei nomi DNS](#custom-dns).
 ## <a name="secure-the-workspace-and-associated-resources"></a>Proteggere l'area di lavoro e le risorse associate
 
 Usare la procedura seguente per proteggere l'area di lavoro e le risorse associate. Questi passaggi consentono ai servizi di comunicare nella rete virtuale.
@@ -186,3 +185,5 @@ Questo articolo fa parte di una serie di reti virtuali in cinque parti. Vedere i
 * [Parte 3: proteggere l'ambiente di training](how-to-secure-training-vnet.md)
 * [Parte 4: proteggere l'ambiente di inferenza](how-to-secure-inferencing-vnet.md)
 * [Parte 5: abilitare la funzionalità di studio](how-to-enable-studio-virtual-network.md)
+
+Vedere anche l'articolo sull'uso di [DNS personalizzato](how-to-custom-dns.md) per la risoluzione dei nomi.

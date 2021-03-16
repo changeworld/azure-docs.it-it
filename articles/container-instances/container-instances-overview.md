@@ -4,12 +4,12 @@ description: Il servizio Istanze di Azure Container rappresenta il modo più sem
 ms.topic: overview
 ms.date: 08/10/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bd68fab380754eca38eebf3fd52634508f282cf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 873f7cc51d1b369503a72501ae000000ff06f805
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88121664"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573014"
 ---
 # <a name="what-is-azure-container-instances"></a>Informazioni su Istanze di Azure Container
 
@@ -21,10 +21,7 @@ Istanze di Azure Container è un'ottima soluzione per qualsiasi scenario e funzi
 
 I contenitori offrono notevoli vantaggi in termini di avvio rispetto alle macchine virtuali. Istanze di Azure Container consente di avviare contenitori in Azure in pochi secondi, senza dover gestire VM né doverne effettuare il provisioning.
 
-È possibile inserire immagini di contenitori Linux o Windows da Docker Hub, un [registro contenitori di Azure](../container-registry/index.yml) privato o un altro registro Docker basato sul cloud. Istanze di Azure Container memorizza nella cache diverse immagini comuni dei sistemi operativi di base, accelerando la distribuzione di immagini di applicazioni personalizzate.
-
-> [!NOTE]
-> Attualmente non è possibile distribuire un'immagine da un registro locale a Istanze di Azure Container.
+È possibile inserire immagini di contenitori Linux o Windows da Docker Hub, un [registro contenitori di Azure](../container-registry/index.yml) privato o un altro registro Docker basato sul cloud. Per informazioni sui registri supportati da ACI, vedere le [domande frequenti](container-instances-faq.md) . Istanze di Azure Container memorizza nella cache diverse immagini comuni dei sistemi operativi di base, accelerando la distribuzione di immagini di applicazioni personalizzate.
 
 ## <a name="container-access"></a>Accesso ai contenitori
 
@@ -43,7 +40,7 @@ In passato i contenitori offrivano l'isolamento di dipendenze delle applicazioni
 
 ### <a name="customer-data"></a>Dati del cliente
 
-Il servizio Istanze di Azure Container archivia i dati minimi del cliente necessari per assicurare che i gruppi di contenitori vengano eseguiti come previsto. L'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sud-orientale (Singapore) dell'area geografica Asia Pacifico. Per tutte le altre aree i dati dei clienti vengono archiviati in [Geo](https://azure.microsoft.com/global-infrastructure/geographies/). Per altre informazioni, contattare il supporto di Azure.
+Il servizio Istanze di Azure Container archivia i dati minimi del cliente necessari per assicurare che i gruppi di contenitori vengano eseguiti come previsto. L'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sud-orientale (Singapore) dell'area geografica di Asia Pacifico geografica e del Brasile meridionale (San Paolo) del Brasile. Per tutte le altre aree i dati dei clienti vengono archiviati in [Geo](https://azure.microsoft.com/global-infrastructure/geographies/). Per altre informazioni, contattare il supporto di Azure.
 
 ## <a name="custom-sizes"></a>Dimensioni personalizzate
 
@@ -68,9 +65,6 @@ Alcune funzionalità attualmente sono limitate ai contenitori Linux:
 * [Risorse GPU](container-instances-gpu.md) (anteprima)
 
 Per le distribuzioni di contenitori di Windows, usare le immagini basate sulle comuni [immagini di base di Windows](container-instances-faq.md#what-windows-base-os-images-are-supported).
-
-> [!NOTE]
-> L'uso di immagini basate su Windows Server 2019 in istanze di Azure Container è disponibile in anteprima.
 
 ## <a name="co-scheduled-groups"></a>Gruppi con pianificazione condivisa
 

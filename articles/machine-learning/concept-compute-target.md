@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 3b1e102385f43dd9a1ba6996e657f49d435038a2
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b4422c664071087ccae73a5b6f642b53dcca74bf
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503615"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574646"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Cosa sono le destinazioni di calcolo in Azure Machine Learning?
 
@@ -98,30 +98,30 @@ Esistono alcune eccezioni e limitazioni nella scelta delle dimensioni delle macc
 
 Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle serie supportate.
 
-| **Serie di macchine virtuali supportate**  | **Restrizioni** |
-|------------|------------|
-| D | Nessuna. |
-| DDSv4 | Nessuna. |
-| Dv2 | Nessuna. |  
-| Dv3 | Nessuna.|
-| DSv2 | Nessuna. | 
-| DSv3 | Nessuna.|
-| EAv4 | Nessuna. |
-| EV3 | Nessuna. |
-| FSv2 | Nessuna. | 
-| H | Nessuna. |
-| HB | Richiede l'approvazione. |
-| HBv2 | Richiede l'approvazione. |  
-| Servizio di elaborazione host | Richiede l'approvazione. |  
-| M | Richiede l'approvazione. |
-| NC | Nessuna. |  
-| NC promo | Nessuna. |
-| NCsv2 | Richiede l'approvazione. |
-| NCsv3 | Richiede l'approvazione. |  
-| NDs | Richiede l'approvazione. |
-| NDv2 | Richiede l'approvazione. |
-| NV | Nessuna. |
-| NVv3 | Richiede l'approvazione. | 
+| **Serie di macchine virtuali supportate**  | **Restrizioni** | **Categoria** | **Supportato da** |
+|------------|------------|------------|------------|
+| D | Nessuna. | Scopo generico | Cluster e istanza di calcolo |
+| DDSv4 | Nessuna. | Scopo generico | Cluster e istanza di calcolo |
+| Dv2 | Nessuna. | Scopo generico | Cluster e istanza di calcolo |
+| Dv3 | Nessuna.| Scopo generico | Cluster e istanza di calcolo |
+| DSv2 | Nessuna. | Scopo generico | Cluster e istanza di calcolo |
+| DSv3 | Nessuna.| Scopo generico | Cluster e istanza di calcolo |
+| EAv4 | Nessuna. | Ottimizzate per la memoria | Cluster e istanza di calcolo |
+| EV3 | Nessuna. | Ottimizzate per la memoria | Cluster e istanza di calcolo |
+| FSv2 | Nessuna. | Con ottimizzazione per il calcolo | Cluster e istanza di calcolo |
+| H | Nessuna. | High Performance Computing (HPC) | Cluster e istanza di calcolo |
+| HB | Richiede l'approvazione. | High Performance Computing (HPC) | Cluster e istanza di calcolo |
+| HBv2 | Richiede l'approvazione. |  High Performance Computing (HPC) | Cluster e istanza di calcolo |
+| Servizio di elaborazione host | Richiede l'approvazione. |  High Performance Computing (HPC) | Cluster e istanza di calcolo |
+| M | Richiede l'approvazione. | Ottimizzate per la memoria | Cluster e istanza di calcolo |
+| NC | Nessuna. |  GPU | Cluster e istanza di calcolo |
+| NC promo | Nessuna. | GPU | Cluster e istanza di calcolo |
+| NCsv2 | Richiede l'approvazione. | GPU | Cluster e istanza di calcolo |
+| NCsv3 | Richiede l'approvazione. | GPU | Cluster e istanza di calcolo |  
+| NDs | Richiede l'approvazione. | GPU | Cluster e istanza di calcolo | 
+| NDv2 | Richiede l'approvazione. | GPU | Cluster e istanza di calcolo | 
+| NV | Nessuna. | GPU | Cluster e istanza di calcolo | 
+| NVv3 | Richiede l'approvazione. | GPU | Cluster e istanza di calcolo | 
 
 
 Mentre Azure Machine Learning supporta queste serie di macchine virtuali, potrebbero non essere disponibili in tutte le aree di Azure. Per verificare se sono disponibili serie di macchine virtuali, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: c1c1b5f58aa0e760ff626af4607cf8e2d1e13910
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: feeb3e63375e918498e704add6dac672d6a46de3
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232422"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574578"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Guida introduttiva: esplorare uno scenario di esempio di dispositivi digitali gemelli di Azure con Esplora dispositivi digitali di Azure
 
@@ -95,9 +95,8 @@ Aprire una finestra della console nel percorso della cartella **Azure_Digital_Tw
 
 > [!TIP]
 > Se viene visualizzato il messaggio di errore `SignalRService.subscribe` quando ci si connette, assicurarsi che l'URL di Gemelli digitali di Azure inizi con *https://* .
-
-> [!TIP]
-> Se viene visualizzato un errore di autenticazione, è consigliabile controllare le variabili di ambiente per verificare che le credenziali incluse siano valide per i dispositivi gemelli digitali di Azure. DefaultAzureCredential tenta di eseguire l'autenticazione in base ai [tipi di credenziali](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) in un ordine specifico e le variabili di ambiente vengono valutate per prime.
+>
+> Se viene visualizzato un errore di autenticazione, è consigliabile controllare le **variabili di ambiente** per verificare che le credenziali incluse siano valide per i dispositivi gemelli digitali di Azure. `DefaultAzureCredential`Tenta di eseguire l'autenticazione in base ai tipi di credenziali in un [ordine specifico](/dotnet/api/overview/azure/identity-readme#defaultazurecredential)e le variabili di ambiente vengono valutate per prime.
 
 Se viene visualizzata una finestra popup **Autorizzazioni richieste** da Microsoft, concedere il consenso per l'applicazione e accettare per continuare.
 

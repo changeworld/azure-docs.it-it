@@ -4,16 +4,16 @@ description: Per creare applicazioni resilienti e a disponibilità elevata in Az
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/16/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: fee000009be90a083406725fe7f1e8c4382af3e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7aff8320186ada53772fc4ff2232e8cf55585a77
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701451"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573031"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servizi di Azure che supportano le zone di disponibilità
 
@@ -50,12 +50,13 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | Americhe           | Europa               | Africa              | Asia Pacifico   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
-| Canada centrale     | Francia centrale       | Sudafrica settentrionale * | Giappone orientale     |
-| Stati Uniti centrali         | Germania centro-occidentale |                     | Asia sud-orientale |
-| Stati Uniti orientali            | Europa settentrionale         |                     | Australia orientale |
-| Stati Uniti orientali 2          | Regno Unito meridionale             |                     |                |
-| Stati Uniti centro-meridionali | Europa occidentale          |                     |                |
-| US Gov Virginia    |                      |                     |                |
+| Brasile meridionale       | Francia centrale       | Sudafrica settentrionale * | Giappone orientale     |
+| Canada centrale     | Germania centro-occidentale |                     | Asia sud-orientale |
+| Stati Uniti centrali         | Europa settentrionale         |                     | Australia orientale |
+| Stati Uniti orientali            | Regno Unito meridionale             |                     |                |
+| Stati Uniti orientali 2          | Europa occidentale          |                     |                |
+| Stati Uniti centro-meridionali |                      |                     |                |
+| US Gov Virginia     |                      |                     |                |
 | Stati Uniti occidentali 2        |                      |                     |                |
 
 
@@ -125,6 +126,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | Database di Azure per MySQL-server flessibile      |      : large_blue_diamond:  |
 | Database di Azure per PostgreSQL-server flessibile |      : large_blue_diamond:  |
 | Protezione DDoS di Azure                           |      : large_blue_diamond:  |
+| Crittografia dischi di Azure                           |      : large_blue_diamond:  |
 | Firewall di Azure                                  |      : large_blue_diamond:  |
 | Gestione firewall di Azure                          |      : large_blue_diamond:  |
 | Servizio Azure Kubernetes                  |      : large_blue_diamond:  |
@@ -169,6 +171,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 |     Azure Advisor                             |     : globe_with_meridians:             |
 |     Azure Blueprints                          |     : globe_with_meridians:             |
 |     Servizi Azure Bot                        |     : globe_with_meridians:             |
+|     Frontdoor di Azure                          |     : globe_with_meridians:             |
 |     Azure Defender per l'it                  |     : globe_with_meridians:             |
 |     Frontdoor di Azure                           |     : globe_with_meridians:             |
 |     Azure Information Protection            |     : globe_with_meridians:             |

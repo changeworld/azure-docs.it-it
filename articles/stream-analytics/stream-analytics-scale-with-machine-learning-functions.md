@@ -5,13 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/16/2020
-ms.openlocfilehash: b9768bacf8d29b37f479ea080afddd494b506262
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 01/15/2021
+ms.openlocfilehash: 1ee1411aba7724d76ed8626de9b8b038d02339dc
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013941"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574255"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Ridimensionare il processo di Analisi di flusso con funzioni di Azure Machine Learning Studio (versione classica)
 
@@ -24,7 +24,7 @@ Questo articolo illustra come ridimensionare in modo efficiente i processi di an
 
 Una funzione Machine Learning Studio (classica) in analisi di flusso può essere usata come una normale chiamata di funzione nel linguaggio di query di analisi di flusso. Dietro le quinte, tuttavia, queste chiamate di funzione sono in realtà richieste di servizi Web in studio (classiche).
 
-È possibile migliorare la velocità effettiva delle richieste di servizi Web di studio (classiche) per la "suddivisione in batch" di più righe nella stessa chiamata API del servizio Web. Questo raggruppamento è denominato mini-batch. Per altre informazioni, vedere [Servizi Web di Azure Machine Learning Studio (versione classica)](../machine-learning/classic/consume-web-services.md). Il supporto per studio (classico) in analisi di flusso è in anteprima.
+È possibile migliorare la velocità effettiva delle richieste di servizi Web di studio (classiche) per la "suddivisione in batch" di più righe nella stessa chiamata API del servizio Web. Questo raggruppamento è denominato mini-batch. Per altre informazioni, vedere [Servizi Web di Azure Machine Learning Studio (versione classica)](../machine-learning/classic/consume-web-services.md). Supporto per studio (classico) in analisi di flusso.
 
 ## <a name="configure-a-stream-analytics-job-with-studio-classic-functions"></a>Configurare un processo di analisi di flusso con funzioni Studio (classiche)
 
@@ -51,7 +51,7 @@ Per elaborare 200.000 eventi al secondo, il processo di Analisi di flusso necess
 
 ![Ridimensionare l'analisi di flusso con funzioni di studio (classiche) a due processi](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Ridimensionare l'analisi di flusso con funzioni di studio (classiche) a due processi")
 
-In generale, **_B_* _ per le dimensioni del batch, _*_L_*_ per la latenza del servizio Web in batch di dimensioni B in millisecondi, la velocità effettiva di un processo di analisi di flusso con _*_N_*_ unità di streaming è:
+In generale, ***B** _ per le dimensioni del batch, _*_L_*_ per la latenza del servizio Web in batch di dimensioni B in millisecondi, la velocità effettiva di un processo di analisi di flusso con _ *_N_** SUs è:
 
 ![Formula per ridimensionare analisi di flusso con funzioni di studio (classiche)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Formula per ridimensionare analisi di flusso con funzioni di studio (classiche)")
 
@@ -62,7 +62,7 @@ Per ulteriori informazioni su questa impostazione, vedere l' [articolo relativo 
 ## <a name="example--sentiment-analysis"></a>Esempio: Analisi di valutazione
 L'esempio seguente include un processo di analisi di flusso con la funzione valutazione di Analysis Studio (classica), come descritto nell'esercitazione sull'integrazione di analisi di [flusso Machine Learning Studio (classica)](stream-analytics-machine-learning-integration-tutorial.md).
 
-La query è una semplice query completamente partizionata seguita dalla funzione _ *sentimento**, come illustrato nell'esempio seguente:
+La query è una semplice query completamente partizionata seguita dalla funzione di **sentiment**, come illustrato nell'esempio seguente:
 
 ```SQL
     WITH subquery AS (

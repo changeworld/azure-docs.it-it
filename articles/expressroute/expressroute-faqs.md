@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: duau
-ms.openlocfilehash: 89c754c0fc70273a81eb047d695b1cae20f99376
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 417a6a55f0114ec35554e598b456f4fb67eb1c1b
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418692"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574459"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -60,7 +60,7 @@ Il gateway ExpressRoute annuncerà lo *spazio indirizzi* della rete virtuale di 
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Quanti prefissi è possibile annunciare da una rete virtuale alla rete locale nel peering privato ExpressRoute?
 
-È disponibile un massimo di 1000 prefissi annunciati in una singola connessione ExpressRoute o tramite il peering VNet con il transito del gateway. Se, ad esempio, si dispone di 199 di spazi di indirizzi in una singola rete virtuale connessa a un circuito ExpressRoute, tutti e 199 i prefissi vengono annunciati nella rete locale. In alternativa, se si dispone di una rete virtuale abilitata per consentire il transito tramite gateway con 1 spazio indirizzi e 150 reti virtuali spoke abilitate con l'opzione "Consenti gateway remoto", la rete virtuale distribuita con il gateway annuncerà 151 prefissi nella rete locale.
+È disponibile un massimo di 1000 prefissi annunciati in una singola connessione ExpressRoute o tramite il peering VNet con il transito del gateway. Se, ad esempio, si dispone di 999 di spazi di indirizzi in un singolo VNet connesso a un circuito ExpressRoute, tutti i 999 di tali prefissi verranno annunciati in locale. In alternativa, se si dispone di un VNet abilitato per consentire il transito del gateway con 1 spazio di indirizzi e 500 spoke reti virtuali abilitato con l'opzione "Consenti gateway remoto", il VNet distribuito con il gateway annuncia i prefissi 501 in locale.
 
 ### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>Cosa accade se si supera il limite di prefissi in una connessione ExpressRoute?
 

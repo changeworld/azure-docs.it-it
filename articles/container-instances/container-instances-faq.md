@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 5de1188ee018e796f918d7559c0e2c24c77834f4
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 2645c3f183e2217dff28a96c9c0d376eb82a6476
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186193"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573133"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Domande frequenti sulle istanze di contenitore di Azure
 
@@ -45,7 +45,7 @@ Vedere informazioni [aggiuntive più dettagliate](container-instances-troublesho
 > [!NOTE]
 > Le immagini Windows basate sulla versione 1709 o 1803 del canale Semi-Annual non sono supportate.
 
-#### <a name="windows-server-2019-and-client-base-images-preview"></a>Immagini di base di Windows Server 2019 e client (anteprima)
+#### <a name="windows-server-2019-and-client-base-images"></a>Immagini di base di Windows Server 2019 e client
 
 * [Nano server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` `10.0.17763.1040` o versione successiva
 * [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019` , `1809` `10.0.17763.1040` o versioni successive
@@ -55,9 +55,12 @@ Vedere informazioni [aggiuntive più dettagliate](container-instances-troublesho
 
 Usare l'immagine più piccola che soddisfa i requisiti. Per Linux, è possibile usare un'immagine di *Runtime* di .NET Core, supportata dalla versione di .net core 2,1. Per Windows, se si usa la .NET Framework completa, è necessario usare un'immagine di Windows Server Core (solo di runtime, ad esempio  *4.7.2-windowsservercore-ltsc2016*). Le immagini solo in fase di esecuzione sono più piccole ma non supportano i carichi di lavoro che richiedono .NET SDK.
 
+> [!NOTE]
+> ACI non è in grado di eseguire il pull delle immagini da registri non conformi a OCI.
+
 ### <a name="what-types-of-container-registries-are-compatible-with-aci"></a>Quali tipi di registri contenitori sono compatibili con ACI?
 
-ACI supporta il pull di immagini da ACR e altri registri di contenitori di terze parti, ad esempio DockerHub. ACI supporta inoltre pull di immagini da registri locali, purché siano compatibili con l'OCR e dispongano di un endpoint esposto pubblicamente a Internet.
+ACI supporta il pull di immagini da ACR e altri registri di contenitori di terze parti, ad esempio DockerHub. ACI supporta il pull di immagini da ACR e altri registri contenitori compatibili con OCI di terze parti, ad esempio DockerHub, con un endpoint esposto pubblicamente a Internet.
 
 ## <a name="availability-and-quotas"></a>Disponibilità e quote
 

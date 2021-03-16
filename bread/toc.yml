@@ -752,7 +752,7 @@
     - name: Utilità di pianificazione
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: Security
+    - name: Sicurezza
       tocHref: /azure/security/
       topicHref: /azure/security/
       items:
@@ -924,6 +924,9 @@
         - name: Prenotazioni
           tocHref: /azure/cost-management-billing/reservations/
           topicHref: /azure/cost-management-billing/reservations/
+        - name: Contratto del cliente Microsoft
+          tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
+          topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
     - name: Purview
       tocHref: /azure/purview/
       topicHref: /azure/purview/

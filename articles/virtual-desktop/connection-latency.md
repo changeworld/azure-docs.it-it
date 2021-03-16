@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 403cf584c79bc0a166054ae36c9d2ea50e4b9d9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb0ee52d37fe901a610723d5864240b8778d8b17
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008730"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574595"
 ---
 # <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Determinare la latenza della connessione utente nel desktop virtuale di Windows
 
@@ -19,12 +19,23 @@ Desktop virtuale di Windows è disponibile a livello globale. Gli amministratori
 
 Lo [strumento Windows Virtual Desktop Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) può aiutarti a determinare la posizione migliore per ottimizzare la latenza delle macchine virtuali. Si consiglia di utilizzare lo strumento ogni due o tre mesi per assicurarsi che la posizione ottimale non sia cambiata perché il desktop virtuale di Windows viene sottoposto a nuove aree.
 
-## <a name="azure-traffic-manager"></a>Gestione traffico di Azure
+## <a name="interpreting-results-from-the-windows-virtual-desktop-experience-estimator-tool"></a>Interpretazione dei risultati ottenuti dallo strumento Windows Virtual Desktop Experience Estimator
 
-Desktop virtuale di Windows usa Gestione traffico di Azure, che controlla il percorso del server DNS dell'utente per trovare l'istanza del servizio desktop virtuale Windows più vicina. È consigliabile che gli amministratori rivedano il percorso del server DNS dell'utente prima di scegliere il percorso per le macchine virtuali.
+Nel desktop virtuale di Windows, la latenza fino a 150 MS non dovrebbe avere alcun effetto sull'esperienza utente che non implica il rendering o il video. Le latenze comprese tra 150 MS e 200 MS dovrebbero essere ottimizzate per l'elaborazione del testo. La latenza superiore a 200 ms può influisca sull'esperienza utente. 
+
+Inoltre, la connessione desktop virtuale di Windows dipende dalla connessione Internet del computer da cui l'utente usa il servizio. È possibile che gli utenti perdano il ritardo di connessione o di input in una delle situazioni seguenti:
+
+ - L'utente non dispone di una connessione Internet locale stabile e la latenza è superiore a 200 ms.
+ - La rete è satura o limitata dalla frequenza.
+
+Si consiglia di scegliere le posizioni delle VM più vicine possibile agli utenti. Ad esempio, se l'utente si trova in India, ma la macchina virtuale si trova nella Stati Uniti, sarà presente una latenza che influirà sull'esperienza utente complessiva. 
+
+## <a name="azure-front-door"></a>Frontdoor di Azure
+
+Desktop virtuale di Windows usa la [porta anteriore di Azure](https://azure.microsoft.com/services/frontdoor/) per reindirizzare la connessione utente al gateway di desktop virtuale Windows più vicino in base all'indirizzo IP di origine. Desktop virtuale Windows utilizzerà sempre il gateway desktop virtuale di Windows scelto dal client.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per controllare la posizione migliore per la latenza ottimale, vedere lo [strumento Windows Virtual Desktop Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - Per i piani tariffari, vedere [prezzi di desktop virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-- Per iniziare a usare la distribuzione di desktop virtuali Windows, vedere [l'esercitazione](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+- Per iniziare a usare la distribuzione di desktop virtuali Windows, vedere [l'esercitazione](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).

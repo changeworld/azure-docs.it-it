@@ -727,6 +727,8 @@
           href: github-ae-tutorial.md
         - name: GitHub Enterprise Cloud - Account aziendale
           href: github-enterprise-cloud-enterprise-account-tutorial.md
+        - name: Utente gestito di GitHub Enterprise
+          href: github-enterprise-managed-user-tutorial.md
         - name: GlassFrog
           href: glassfrog-tutorial.md
         - name: GlobalOne

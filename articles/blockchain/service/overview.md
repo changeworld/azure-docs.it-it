@@ -1,15 +1,15 @@
 ---
 title: Panoramica del servizio Azure Blockchain
 description: Panoramica del servizio Azure Blockchain
-ms.date: 01/04/2021
+ms.date: 03/15/2021
 ms.topic: overview
-ms.reviewer: ravastra
-ms.openlocfilehash: 15d1126a98a4d3194a256ed07de3918cb066a4e2
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
-ms.translationtype: HT
+ms.reviewer: patricka
+ms.openlocfilehash: 035e2c1df5912f291ad241ade25361f9cc098b22
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963879"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573626"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Che cos'è il servizio Azure Blockchain?
 
@@ -19,7 +19,7 @@ Azure Blockchain è un servizio di contabilità generale completamente gestito c
 * Gestione predefinita del consorzio
 * Sviluppo di contratti intelligenti con strumenti di sviluppo noti
 
-Il servizio Azure Blockchain è progettato per supportare più protocolli di contabilità generale. Attualmente, fornisce il supporto per [Quorum](https://www.goquorum.com/) di Ethereum che usa il meccanismo di consenso [Istanbul Byzantine Fault Tolerance (IBFT)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+Il servizio Azure Blockchain è progettato per supportare più protocolli di contabilità generale. Attualmente, fornisce il supporto per [Quorum](https://www.goquorum.com/) di Ethereum che usa il meccanismo di consenso [Istanbul Byzantine Fault Tolerance (IBFT)](https://docs.goquorum.consensys.net/en/stable/Concepts/Consensus/IBFT/).
 
 Queste funzionalità richiedono pochissima amministrazione e sono disponibili senza costi aggiuntivi. È possibile concentrarsi sullo sviluppo di app e sulla logica di business anziché allocare tempo e risorse per la gestione delle macchine virtuali e dell'infrastruttura. È inoltre possibile continuare a sviluppare le applicazioni con gli strumenti open source e la piattaforma di propria scelta, per fornire soluzioni senza dover acquisire nuove competenze.
 

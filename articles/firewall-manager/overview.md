@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 03/16/2021
 ms.author: victorh
-ms.openlocfilehash: 63e2aac4c12ecc5d832cb037fda91bd2c6ad0bf1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-ms.translationtype: HT
+ms.openlocfilehash: 506799f94676be007cf94320e3958bd305ce85f0
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132444"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573456"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Che cos'è Gestione firewall di Azure?
 
@@ -88,7 +88,6 @@ Gestione firewall di Azure presenta i problemi noti seguenti:
 |L'aggiunta in blocco di indirizzi IP non riesce|Se si aggiungono più indirizzi IP pubblici, il firewall dell'hub protetto entra in uno stato di errore.|Aggiungere incrementi più piccoli di indirizzi IP pubblici. Ad esempio, aggiungerne 10 alla volta.|
 |Protezione DDoS Standard non è supportato con hub virtuali protetti|Protezione DDoS Standard non è integrato con reti WAN virtuali.|Analisi in corso|
 |I log attività non sono supportati completamente|Il criterio firewall non supporta attualmente i log attività.|Analisi in corso|
-|Configurazione di intervalli di indirizzi IP privati SNAT|Le [impostazioni degli intervalli IP privati](../firewall/snat-private-range.md) vengono ignorate se è configurato il criterio di Firewall di Azure. Viene usato il comportamento predefinito di Firewall di Azure, in cui non si applicano le regole di rete SNAT quando l'indirizzo IP di destinazione si trova in un intervallo di indirizzi IP privati in base a [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Analisi in corso|
 |Alcune impostazioni non vengono trasferite con la migrazione del firewall per l'uso del criterio firewall|Le zone di disponibilità e gli indirizzi privati SNAT non vengono trasferiti quando si esegue la migrazione al criterio firewall di Azure.|Analisi in corso| 
 
 ## <a name="next-steps"></a>Passaggi successivi

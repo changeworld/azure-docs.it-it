@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 86c8943531171094600bc7d93b8694bdd1c6e051
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 16158b4ecfb46ea9092fe9eeb31cc4dee259b1ab
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225801"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573745"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di servizi vocali
 
@@ -344,20 +344,6 @@ Solo per chiarire l'Interactive, la conversazione e la dettatura; si tratta di u
 - Per MIC, sarà in tempo reale. L'utilizzo complessivo deve essere di circa 1 core per un singolo riconoscimento.
 
 Questa operazione può essere verificata dai log di Docker. Viene effettivamente eseguito il dump della riga con le statistiche di sessione e frase/espressione e che include i numeri RTF.
-
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>È comune dividere i file audio in mandrini per l'uso del contenitore vocale?</b>
-</summary>
-
-Il piano corrente consiste nel prendere un file audio esistente e suddividerlo in blocchi di 10 secondi e inviarli tramite il contenitore. Si tratta di uno scenario accettabile?  Esiste un modo migliore per elaborare file audio di dimensioni maggiori con il contenitore?
-
-**Risposta:** Basta usare l'SDK di riconoscimento vocale e assegnargli il file. Perché è necessario suddividere in blocchi il file?
-
 
 <br>
 </details>

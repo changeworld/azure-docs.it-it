@@ -4,14 +4,14 @@ description: Informazioni sulle porte e sugli indirizzi necessari per controllar
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 11/09/2020
+ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 93c8d1392de8f502a829276287a4687476dd36de
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9e65e2736578ce04dfa79d5a7827e190d47fb312
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505059"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573830"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
 
@@ -214,6 +214,24 @@ Le regole delle applicazioni e FQDN seguenti sono obbligatorie per i cluster del
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Questo indirizzo viene usato per il corretto funzionamento di Criteri di Azure  |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Questo indirizzo viene usato per eseguire il pull dei criteri predefiniti da GitHub per assicurare il corretto funzionamento di Criteri di Azure |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Componente aggiuntivo di Criteri di Azure che invia i dati di telemetria all'endpoint di Application Insights. |
+
+#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Azure Cina 21Vianet richieste FQDN/regole dell'applicazione 
+
+Le regole delle applicazioni e FQDN seguenti sono obbligatorie per i cluster del servizio Azure Kubernetes con il servizio Criteri di Azure abilitato.
+
+| Nome di dominio completo                                          | Porta      | Uso      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.cn`** | **`HTTPS:443`** | Questo indirizzo viene usato per eseguire il pull dei criteri Kubernetes e per segnalare lo stato di conformità del cluster al servizio criteri. |
+| **`store.policy.azure.cn`** | **`HTTPS:443`** | Questo indirizzo viene usato per eseguire il pull degli elementi Gatekeeper dei criteri predefiniti. |
+
+#### <a name="azure-us-government-required-fqdn--application-rules"></a>Regole dell'applicazione o FQDN per il governo degli Stati Uniti di Azure obbligatorio
+
+Le regole delle applicazioni e FQDN seguenti sono obbligatorie per i cluster del servizio Azure Kubernetes con il servizio Criteri di Azure abilitato.
+
+| Nome di dominio completo                                          | Porta      | Uso      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.us`** | **`HTTPS:443`** | Questo indirizzo viene usato per eseguire il pull dei criteri Kubernetes e per segnalare lo stato di conformità del cluster al servizio criteri. |
+| **`store.policy.azure.us`** | **`HTTPS:443`** | Questo indirizzo viene usato per eseguire il pull degli elementi Gatekeeper dei criteri predefiniti. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Limitare il traffico in uscita con il firewall di Azure
 

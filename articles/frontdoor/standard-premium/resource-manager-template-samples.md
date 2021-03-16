@@ -6,13 +6,13 @@ author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 03/05/2021
-ms.openlocfilehash: 393c15761c16dbf04d2af48fe13c0bc41b2e15b1
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/16/2021
+ms.openlocfilehash: 241c4c713890af0db8fce74b0817b5bdcf9a1403
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509570"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573796"
 ---
 # <a name="azure-resource-manager-templates-for-azure-front-door"></a>Modelli di Azure Resource Manager per lo sportello anteriore di Azure
 
@@ -34,4 +34,8 @@ La tabella seguente include i collegamenti ai modelli di Azure Resource Manager 
 |**Archiviazione**| **Descrizione** |
 | [Sito Web statico di archiviazione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-storage-static-website) | Crea un account di archiviazione di Azure e un sito Web statico con un endpoint pubblico e un profilo di sportello anteriore.  |
 | [BLOB di archiviazione con collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-storage-blobs-private-link) | Crea un account di archiviazione di Azure e un contenitore BLOB con un endpoint privato e un profilo di sportello anteriore.  |
+|**Gateway applicazione**| **Descrizione** |
+| [Gateway applicazione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-application-gateway-public) | Consente di creare un gateway applicazione e un profilo di porta anteriore. |
+|**Macchina virtuale**| **Descrizione** |
+| [Macchina virtuale con servizio di collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-vm-private-link) | Crea una macchina virtuale e un servizio di collegamento privato e un profilo di porta anteriore. |
 | | |

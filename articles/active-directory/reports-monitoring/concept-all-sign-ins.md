@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/23/2020
+ms.date: 03/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319784"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574561"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Report attività di accesso Azure Active Directory-anteprima
 
@@ -125,7 +125,12 @@ Ogni scheda nel pannello degli accessi Mostra le colonne predefinite seguenti. A
 
 Gli accessi utente interattivi sono accessi in cui un utente fornisce un fattore di autenticazione per Azure AD o interagisce direttamente con Azure AD o un'app helper, ad esempio l'app Microsoft Authenticator. I fattori forniti dagli utenti includono password, risposte a problemi di autenticazione a più fattori, fattori biometrici o codici a matrice forniti da un utente per Azure AD o a un'app helper.
 
-Questo report include anche gli accessi federati da provider di identità federati per Azure AD.  
+> [!NOTE]
+> Questo report include anche gli accessi federati da provider di identità federati per Azure AD.  
+
+
+
+Nota: il report degli accessi utente interattivo usato per contenere alcuni accessi non interattivi dai client di Microsoft Exchange. Sebbene questi accessi non fossero interattivi, sono stati inclusi nel report degli accessi utente interattivo per una maggiore visibilità. Dopo che il report degli accessi utente non interattivo ha immesso l'anteprima pubblica nel 2020 novembre, i registri eventi di accesso non interattivo sono stati spostati nel report di accesso utente non interattivo per una maggiore accuratezza. 
 
 
 **Dimensioni report:** piccole <br> 
@@ -205,7 +210,7 @@ Per semplificare il digest dei dati, vengono raggruppati gli eventi di accesso n
 
 - Applicazione
 
-- Utente
+- User
 
 - Indirizzo IP
 
@@ -214,7 +219,7 @@ Per semplificare il digest dei dati, vengono raggruppati gli eventi di accesso n
 - ID risorsa
 
 
-è possibile:
+È possibile:
 
 - Espandere un nodo per visualizzare i singoli elementi di un gruppo.  
 
@@ -271,7 +276,7 @@ Per semplificare il digest dei dati nei log di accesso dell'entità servizio, ve
 
 - Nome o ID risorsa
 
-è possibile:
+È possibile:
 
 - Espandere un nodo per visualizzare i singoli elementi di un gruppo.  
 

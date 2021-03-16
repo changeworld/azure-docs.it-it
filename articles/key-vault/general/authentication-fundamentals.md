@@ -7,18 +7,18 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: a75ecac20c553f697585648c5654d375b85e5183
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 25f00024fb7371fd08bf6c4ceec3177cfaca029b
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535196"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103572809"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Nozioni fondamentali sull'autenticazione di Key Vault
 
 Azure Key Vault consente di archiviare e gestire in modo sicuro le credenziali dell'applicazione, ad esempio segreti, chiavi e certificati, in un repository cloud centrale e sicuro. Key Vault Elimina la necessità di archiviare le credenziali nelle applicazioni. Le applicazioni possono eseguire l'autenticazione a Key Vault in fase di esecuzione per recuperare le credenziali.
 
-Come amministratore, è possibile controllare in modo rigoroso quali utenti e applicazioni possono accedere all'insieme di credenziali delle chiavi ed è possibile limitare e controllare le operazioni che eseguono. Questo documento illustra i concetti fondamentali del modello di accesso a Key Vault. E fornisce un livello introduttivo di informazioni e Mostra come è possibile autenticare un utente o un'applicazione nell'insieme di credenziali delle chiavi dall'inizio alla fine.
+Come amministratore, è possibile controllare in modo rigoroso quali utenti e applicazioni possono accedere all'insieme di credenziali delle chiavi ed è possibile limitare e controllare le operazioni che eseguono. Questo documento illustra i concetti fondamentali del modello di accesso a Key Vault. Fornisce un livello introduttivo di informazioni e Mostra come è possibile autenticare un utente o un'applicazione nell'insieme di credenziali delle chiavi dall'inizio alla fine.
 
 ## <a name="required-knowledge"></a>Informazioni necessarie
 

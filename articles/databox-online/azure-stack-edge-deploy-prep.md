@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 03/16/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 07b526d443b5f1b41bc6f811b7cccc0fbc6165ee
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 9ceba84cb3bbe52dc5ba51d0f4945f5bad0a5034
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761707"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573971"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Pro  
 
-Questa è la prima di una serie di esercitazioni sulla distribuzione necessarie per distribuire completamente Azure Stack Edge Pro. Questa esercitazione descrive come preparare il portale di Azure per la distribuzione di una risorsa Azure Stack Edge.
+Questa è la prima di una serie di esercitazioni sulla distribuzione necessarie per distribuire completamente Azure Stack Edge Pro. Questa esercitazione descrive come preparare il portale di Azure per la distribuzione di una risorsa Azure Stack Edge. 
 
-Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. La preparazione del portale richiede meno di 10 minuti.
+Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. La preparazione del portale richiede meno di 10 minuti.  
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -84,71 +84,67 @@ Prima di iniziare, verificare che:
 
 * Per le normali condizioni di funzionamento di Azure Stack Edge Pro, siano disponibili:
 
-  * Larghezza di banda minima di download di 10 Mbps per assicurarsi che il dispositivo rimanga aggiornato.
-  * Larghezza di banda minima di upload e download dedicata di 20 Mbps per trasferire i file.
+  * Almeno 10 Mbps di larghezza di banda per il download per assicurarsi che il dispositivo rimanga aggiornato.
+  * Almeno 20 Mbps per il caricamento e la larghezza di banda di download per trasferire i file.
 
-## <a name="create-a-new-resource"></a>Creare una nuova risorsa
+## <a name="create-new-resource-for-existing-device"></a>Crea nuova risorsa per dispositivo esistente
 
-Se si ha già una risorsa Azure Stack Edge per la gestione del dispositivo fisico, saltare questo passaggio e procedere con il passaggio [Ottenere la chiave di attivazione](#get-the-activation-key).
+Se si è un cliente Azure Stack Edge Pro esistente, usare la procedura seguente per creare una nuova risorsa se è necessario sostituire o reimpostare il dispositivo esistente.
 
-Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di Azure.
+Se sei un nuovo cliente, ti consigliamo di esplorare l'uso di dispositivi Pro-GPU Azure Stack Edge per i tuoi carichi di lavoro. Per altre informazioni, vedere [che cos'è Azure stack Edge Pro con GPU](azure-stack-edge-gpu-overview.md). Per informazioni sull'ordinamento di un Azure Stack Edge Pro con dispositivo GPU, vedere [creare una nuova risorsa per Azure stack Edge Pro-GPU](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
 
-1. Usare le credenziali di Microsoft Azure per accedere a: 
+Per creare una nuova risorsa di Azure Stack Edge Pro per un dispositivo esistente, seguire questa procedura nel portale di Azure.
+
+1. Usare le credenziali di Microsoft Azure per accedere a:
 
     - Portale di Azure all'URL [https://portal.azure.com](https://portal.azure.com).
     - Portale di Azure per enti pubblici all'URL [https://portal.azure.us](https://portal.azure.us). Per altri dettagli, vedere l'articolo su come [connettersi ad Azure per enti pubblici con il portale](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
-2. Nel riquadro sinistro selezionare **Crea una risorsa**. Cercare e selezionare **Azure Stack Edge/Data Box Gateway**. Selezionare **Crea**.
-3. Selezionare la sottoscrizione che si vuole usare per il dispositivo Azure Stack Edge Pro. Selezionare l'area in cui si vuole distribuire la risorsa Azure Stack Edge. Per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
+1. Selezionare **+ Crea una risorsa**. Cercare e selezionare **Azure stack Edge**. Quindi selezionare **Crea**
 
-    Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo. L'area archivia solo i metadati per la gestione del dispositivo. I dati effettivi possono essere archiviati in qualsiasi account di archiviazione.
+1. Selezionare la sottoscrizione per il dispositivo Azure Stack Edge Pro e il paese in **cui spedire il dispositivo.**
+
+   ![Selezionare la sottoscrizione e spedire il paese per il dispositivo](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-01.png)
+
+
+1. Nell'elenco dei tipi di dispositivo visualizzato selezionare **Azure stack Edge Pro-FPGA**. Quindi scegliere **Seleziona**. 
+
+   Il tipo di dispositivo **Pro-FPGA Azure stack Edge** viene visualizzato solo se si dispone di un dispositivo esistente. Se è necessario ordinare un nuovo dispositivo, passare a [creare una nuova risorsa per la funzionalità Pro-GPU di Azure stack Edge](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
+
+   ![Cercare il servizio Azure Stack Edge](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-02.png)
+
+1. Passare alla scheda **Nozioni di base**:
+
+   1. Immettere o selezionare i **dettagli del progetto** seguenti.
     
-    Nell'opzione **Azure Stack Edge Pro** selezionare **Crea**.
+       |Impostazione  |Valore  |
+       |---------|---------|
+       |Subscription    |Questo valore viene popolato automaticamente in base alla selezione precedente. La sottoscrizione viene collegata all'account di fatturazione. |
+       |Resource group  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/management/overview.md).     |
 
-    ![Cercare il servizio Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-sku.png)
+   1. Immettere o selezionare quanto segue in **Dettagli istanza**.
 
-3. Nella scheda **Informazioni di base** immettere o selezionare quanto segue in **Dettagli del progetto**.
-    
-    |Impostazione  |valore  |
-    |---------|---------|
-    |Subscription    |Questo campo viene popolato automaticamente in base alla selezione precedente. La sottoscrizione viene collegata all'account di fatturazione. |
-    |Resource group  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/management/overview.md).     |
+       |Impostazione  |Valore  |
+       |---------|---------|
+       |Nome   | Nome descrittivo per identificare la risorsa.<br>Il nome ha da 2 a 50 caratteri, tra cui lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |
+       |Region     |Per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Se si usa Azure per enti pubblici, sono disponibili tutte le aree per enti pubblici riportate in [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo.|
 
-4. Immettere o selezionare quanto segue in **Dettagli istanza**.
+   1. Selezionare **Rivedi e crea**.
 
-    |Impostazione  |valore  |
-    |---------|---------|
-    |Nome   | Nome descrittivo per identificare la risorsa.<br>Il nome ha da 2 a 50 caratteri, tra cui lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |
-    |Region     |Per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Se si usa Azure per enti pubblici, sono disponibili tutte le aree per enti pubblici riportate in [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo.|
+    ![Dettagli del progetto e dell'istanza](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-03.png)
 
-    ![Dettagli del progetto e dell'istanza](media/azure-stack-edge-deploy-prep/data-box-edge-resource.png)
+1. Nella scheda **revisione e creazione** esaminare i dettagli relativi a **condizioni per l'utilizzo**, **prezzi** e dettagli per la risorsa. Quindi selezionare **Crea**
 
-5. Selezionare **Avanti: Indirizzo di spedizione**.
+    ![Esaminare i dettagli della risorsa Azure Stack Edge e le condizioni relative alla privacy](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-04.png)
 
-    - Se si dispone già di un dispositivo, selezionare la casella combinata per **avere un dispositivo Azure stack Edge**.
-    - Se si sta ordinando un nuovo dispositivo, immettere il nome del contatto, la società, l'indirizzo a cui spedire il dispositivo e le informazioni di contatto.
+1. La creazione della risorsa richiede alcuni minuti. Al termine della creazione e della distribuzione della risorsa, si riceverà una notifica. Selezionare **Vai alla risorsa**.
 
-    ![Indirizzo di spedizione per il nuovo dispositivo](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
+   ![Andare alla risorsa Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource-01.png)
 
-6. Selezionare **Avanti: Rivedi e crea**.
+Una volta effettuato l'ordine, Microsoft esamina l'ordine e contatta l'utente (via posta elettronica) con i dettagli sulla spedizione.
 
-7. Nella scheda **Rivedi e crea** esaminare i **dettagli sui prezzi**, le **condizioni per l'utilizzo** e i dettagli della risorsa. Selezionare la casella combinata **Dichiaro di aver esaminato le informazioni fornite e di accettare le condizioni relative alla privacy**.
+![Notifica della verifica dell'ordine di Azure Stack Edge Pro](media/azure-stack-edge-deploy-prep/data-box-edge-resource-02.png)
 
-    ![Esaminare i dettagli della risorsa Azure Stack Edge e le condizioni relative alla privacy](media/azure-stack-edge-deploy-prep/data-box-edge-resource2.png)
-
-8. Selezionare **Create** (Crea).
-
-   La creazione della risorsa richiede alcuni minuti. Al termine della creazione e della distribuzione della risorsa, si riceverà una notifica. Selezionare **Vai alla risorsa**.
-
-   ![Andare alla risorsa Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
-
-Dopo che l'ordine è stato inviato, Microsoft lo verifica e invia quindi all'utente un messaggio di posta elettronica con i dettagli della spedizione.
-
-![Notifica della verifica dell'ordine di Azure Stack Edge Pro](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
-
-
-> [!NOTE]
-> Per creare più ordini contemporaneamente o clonare un ordine esistente, è possibile usare gli [script negli esempi di Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Per altre informazioni, vedere il file README.
 
 ## <a name="get-the-activation-key"></a>Ottenere la chiave di attivazione
 
@@ -156,7 +152,7 @@ Quando la risorsa Azure Stack Edge è configurata e operativa, è necessario ott
 
 1. Passare alla risorsa creata e selezionare **Overview (panoramica**). Verrà visualizzata una notifica per indicare che l'ordine è in fase di elaborazione.
 
-    ![Selezionare Panoramica](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![Selezionare Panoramica](media/azure-stack-edge-deploy-prep/data-box-edge-select-device-setup.png)
 
 2. Dopo che l'ordine è stato elaborato e il dispositivo viene inviato, la pagina **Panoramica** viene aggiornata. Accettare il nome predefinito di **Azure Key Vault** o immetterne uno nuovo. Selezionare **Genera chiave di attivazione**. Selezionare l'icona di copia per copiare la chiave e salvarla, in modo da poterla usare in seguito.
 
