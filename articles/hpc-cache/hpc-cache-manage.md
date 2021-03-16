@@ -4,14 +4,14 @@ description: Come gestire e aggiornare la cache HPC di Azure con il portale di A
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 40d091782f37a32b75659cd274e49798dbe527cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590797"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471894"
 ---
 # <a name="manage-your-cache"></a>Gestire la cache
 
@@ -254,6 +254,20 @@ La pagina Overview Mostra i grafici per alcune statistiche di base della cache, 
 ![Screenshot di tre grafici a linee che mostrano le statistiche sopra indicate per una cache di esempio](media/hpc-cache-overview-stats.png)
 
 Questi grafici fanno parte degli strumenti di monitoraggio e analisi incorporati di Azure. Gli strumenti e gli avvisi aggiuntivi sono disponibili nelle pagine sotto l'intestazione **monitoraggio** nell'intestazione laterale del portale. Per altre informazioni, vedere la sezione portale della [documentazione di monitoraggio di Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+
+## <a name="view-warnings"></a>Visualizza avvisi
+
+Se la cache passa a uno stato non integro, controllare la pagina degli **avvisi** . Questa pagina mostra le notifiche del software della cache che potrebbero essere utili per comprenderne lo stato.
+
+Queste notifiche non vengono visualizzate nel log attività perché non sono controllate dal portale di Azure. Spesso sono associate a impostazioni personalizzate che potrebbero essere state apportate.
+
+Di seguito sono riportati alcuni tipi di avvisi che possono essere visualizzati:
+
+* La cache non riesce a raggiungere il server NTP
+* La cache non è riuscita a scaricare le informazioni sul nome utente dei gruppi estesi
+* Le impostazioni DNS personalizzate sono state modificate in una destinazione di archiviazione
+
+![screenshot della pagina Monitoraggio > avvisi con un messaggio che indica che non è stato possibile scaricare i nomi utente dei gruppi estesi](media/warnings-page.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

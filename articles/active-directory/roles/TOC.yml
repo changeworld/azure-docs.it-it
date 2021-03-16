@@ -4,89 +4,68 @@
   items:
     - name: Che cos'è il controllo degli accessi in base al ruolo di Azure AD?
       href: custom-overview.md
-    - name: Informazioni sui ruoli di Azure AD
-      href: concept-understand-roles.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
-    - name: Creare registrazioni di app illimitate
-      href: quickstart-app-registration-limits.md
-- name: Esercitazioni
-  expanded: true
-  items:
-    - name: Assegnare utenti a ruoli amministrativi
+    - name: Assegnare ruoli agli utenti
       href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Concetti
-  expanded: true
   items:
-    - name: Delegare i ruoli amministrativi di Azure AD
-      href: concept-delegation.md
-    - name: Confrontare le autorizzazioni utente predefinite
-      href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-    - name: Confrontare i ruoli di Azure e Azure AD
-      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-    - name: Informazioni sulle unità amministrative in Azure Active Directory
+    - name: Informazioni sui ruoli di Azure AD
+      href: concept-understand-roles.md
+    - name: Confrontare i ruoli
+      items:
+        - name: Confrontare i ruoli di Azure e Azure AD
+          href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+        - name: Ruoli di Microsoft 365
+          href: m365-workload-docs.md
+    - name: Assegnazioni di ruolo basate sui gruppi
+      href: groups-concept.md
+    - name: Unità amministrative
       href: administrative-units.md
-- name: Guide pratiche
-  expanded: true
-  items:
-    - name: Ruoli e autorizzazioni
-      expanded: true
-      items:
-        - name: Ruoli e autorizzazioni
-          href: permissions-reference.md
-        - name: Visualizzare e assegnare i ruoli
-          href: manage-roles-portal.md
-        - name: Delega di My Staff
-          href: my-staff-configure.md
-    - name: Ruoli personalizzati
-      expanded: true
-      items:
-        - name: Creare un ruolo personalizzato
-          href: custom-create.md
-        - name: Visualizzare le assegnazioni di ruolo personalizzate
-          href: custom-view-assignments.md
-        - name: Assegnare ruoli personalizzati nel portale di Azure
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Assegnare ruoli personalizzati in PowerShell
-          href: custom-assign-powershell.md
-        - name: Assegnare ruoli personalizzati per le app aziendali
-          href: custom-enterprise-apps.md
-        - name: Autorizzazioni dei ruoli personalizzati
-          items:
-            - name: Autorizzazioni per la registrazione di app
-              href: custom-available-permissions.md
-            - name: Autorizzazioni per le app aziendali
-              href: custom-enterprise-app-permissions.md
-            - name: Autorizzazioni per il consenso alle app
-              href: custom-consent-permissions.md
-        - name: Delegare il ruolo di amministratore di app
-          href: delegate-app-roles.md
-    - name: Assegnare ruoli ai gruppi
-      items:
-        - name: Panoramica delle assegnazioni di ruoli basate su gruppi
-          href: groups-concept.md
-        - name: Creare un gruppo assegnabile a un ruolo
-          href: groups-create-eligible.md
-        - name: Assegnare ruoli a un gruppo
-          href: groups-assign-role.md
-        - name: Rimuovere le assegnazioni di ruoli da un gruppo
-          href: groups-remove-assignment.md
-        - name: Visualizzare le assegnazioni di ruoli di un gruppo
-          href: groups-view-assignments.md
-        - name: Rendere un gruppo idoneo per un ruolo in PIM
-          href: groups-pim-eligible.md
-        - name: Domande frequenti e risoluzione dei problemi
-          href: groups-faq-troubleshooting.md
-    - name: Proteggere i ruoli
+    - name: Security
       items:
         - name: Pianificazione della sicurezza dei ruoli
           href: security-planning.md
         - name: Creare account di emergenza
           href: security-emergency-access.md
+- name: Guide pratiche
+  items:
+    - name: Elencare le definizioni di ruolo
+      href: role-definitions-list.md
+    - name: Elencare le assegnazioni di ruolo
+      items:
+        - name: Elencare le assegnazioni di ruolo
+          href: view-assignments.md
+        - name: Elencare le assegnazioni di ruolo per i gruppi
+          href: groups-view-assignments.md
+    - name: Assegnare ruoli
+      items:
+        - name: Assegnare ruoli agli utenti
+          href: manage-roles-portal.md
+        - name: Creare un gruppo assegnabile a un ruolo
+          href: groups-create-eligible.md
+        - name: Assegnare ruoli ai gruppi
+          href: groups-assign-role.md
+        - name: Rendere un gruppo idoneo per un ruolo in PIM
+          href: groups-pim-eligible.md
+        - name: Assegnare i ruoli con l'ambito usando PowerShell
+          href: custom-assign-powershell.md
+        - name: Assegnare ruoli con API Graph
+          href: custom-assign-graph.md
+    - name: Rimuovere le assegnazioni di ruolo
+      items:
+        - name: Rimuovere le assegnazioni di ruolo dai gruppi
+          href: groups-remove-assignment.md
+    - name: Creare ruoli personalizzati
+      items:
+        - name: Creare un ruolo personalizzato
+          href: custom-create.md
+        - name: Creare ruoli personalizzati per le app aziendali
+          href: custom-enterprise-apps.md
+        - name: Creare registrazioni di app illimitate
+          href: quickstart-app-registration-limits.md
     - name: Unità amministrative
       items:
-        - name: Panoramica sulle unità amministrative
-          href: administrative-units.md
         - name: Aggiungere e gestire
           href: admin-units-manage.md
         - name: Aggiungere e gestire utenti
@@ -95,23 +74,39 @@
           href: admin-units-add-manage-groups.md
         - name: Assegnare un ruolo con ambito
           href: admin-units-assign-roles.md
-        - name: Domande frequenti e risoluzione dei problemi
-          href: admin-units-faq-troubleshoot.md
+    - name: Delegato
+      items:
+        - name: Delegare il ruolo di amministratore di app
+          href: delegate-app-roles.md
+        - name: Delega di My Staff
+          href: my-staff-configure.md
     - name: Risolvere problemi
       items:
+        - name: Risolvere i problemi relativi ai ruoli assegnati ai gruppi
+          href: groups-faq-troubleshooting.md
+        - name: Risolvere i problemi relativi alle unità amministrative
+          href: admin-units-faq-troubleshoot.md
         - name: Ottenere supporto per Azure AD
           href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Informazioni di riferimento
   items:
+    - name: Ruoli predefiniti
+      href: permissions-reference.md
     - name: Ruoli con privilegi minimi per attività
       href: delegate-by-task.md
-    - name: Documentazione dei ruoli di Microsoft 365
-      href: m365-workload-docs.md
-    - name: API Graph
-      href: /graph/api/resources/directoryrole
-    - name: Interfaccia della riga di comando di Azure AD
-      href: /cli/azure/ad
-    - name: Azure AD PowerShell per Graph
-      href: /powershell/azure/active-directory/install-adv2
+    - name: Autorizzazioni utente predefinite
+      href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Autorizzazioni dei ruoli personalizzati
+      items:
+        - name: Autorizzazioni per la registrazione di app
+          href: custom-available-permissions.md
+        - name: Autorizzazioni per le app aziendali
+          href: custom-enterprise-app-permissions.md
+        - name: Autorizzazioni per il consenso alle app
+          href: custom-consent-permissions.md
     - name: Limiti dei servizi di Azure AD
       href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Azure AD PowerShell
+      href: /powershell/azure/active-directory/overview
+    - name: API Graph
+      href: /graph/api/overview

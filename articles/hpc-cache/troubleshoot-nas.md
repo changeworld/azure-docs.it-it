@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a5ffa337f789c4edc3a34b3be81285337473e2
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082767"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471712"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Risolvere i problemi di configurazione NAS e di destinazione archiviazione NFS
 
@@ -64,7 +64,7 @@ Sistemi di archiviazione diversi usano metodi diversi per abilitare l'accesso:
 Se si usano le regole di esportazione, tenere presente che la cache può usare più indirizzi IP diversi dalla subnet della cache. Consente l'accesso dalla gamma completa di possibili indirizzi IP della subnet.
 
 > [!NOTE]
-> Per impostazione predefinita, la cache HPC di Azure consente di schiacciare l'accesso alla radice. Per informazioni dettagliate, vedere [configurare altre impostazioni della cache](configuration.md#configure-root-squash) .
+> Sebbene la cache richieda l'accesso alla radice del sistema di archiviazione back-end, è possibile limitare l'accesso per i client che si connettono tramite la cache. Per informazioni dettagliate, vedere [controllo dell'accesso client](access-policies.md#root-squash) .
 
 Collaborare con il fornitore dell'archiviazione NAS per abilitare il livello di accesso appropriato per la cache.
 

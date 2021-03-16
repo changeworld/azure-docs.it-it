@@ -7,16 +7,19 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 85eb4ed0832c9384fcd05154833bc21f83f4adf2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 8f57c63868d6f70094cf040a92c0124b46477758
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426349"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490195"
 ---
 # <a name="introduction-to-azure-percept-audio"></a>Introduzione ad Azure Percept audio
 
 Audio Percept di Azure è un dispositivo accessorio che aggiunge funzionalità di intelligenza artificiale per il riconoscimento vocale ad Azure Percept DK. Contiene un processore audio preconfigurato e un array lineare a quattro microfoni, che consente di applicare i comandi vocali, l'individuazione delle parole chiave e la sintesi vocale del campo ai dispositivi in ascolto locale usando servizi cognitivi di Azure. Azure Percept audio consente ai produttori di dispositivi di estendere Azure Percept DK oltre le funzionalità di visione ai nuovi dispositivi intelligenti attivati dalla voce. È integrato con Azure Percept DK, Azure Percept studio e altri servizi di gestione di Azure Edge. È disponibile per l'acquisto in [Microsoft Online Store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+
+> [!div class="nextstepaction"]
+> [Acquista ora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 :::image type="content" source="./media/overview-azure-percept-audio/percept-audio.png" alt-text="Dispositivo audio Percept di Azure.":::
 
@@ -67,4 +70,5 @@ Crea una [soluzione di riconoscimento vocale senza codice](./tutorial-no-code-sp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ordinare un dispositivo audio Percept di Azure in [Microsoft Online Store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+> [!div class="nextstepaction"]
+> [Acquistare un dispositivo audio Azure Percept da Microsoft Online Store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

@@ -5,23 +5,27 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 1/19/2021
+ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 83f9778da91cebb651d98e2e85748cda7435230a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0a0eaa18f5b120fcc9cbf0e4da470ee46772c925
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674682"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470405"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemi noti delle VM serie H e serie N
 
 Questo articolo descrive i problemi e le soluzioni più comuni quando si [usano le VM](../../sizes-hpc.md) HPC e GPU serie [N e N](../../sizes-gpu.md) .
 
+## <a name="known-issues-on-hbv3"></a>Problemi noti relativi a modello HBV3
+- InfiniBand è attualmente supportato solo nella VM 120-Core (Standard_HB120rs_v3). Il supporto di altre dimensioni di VM verrà abilitato a breve.
+- La rete accelerata di Azure non è supportata per le serie modello HBV3 in tutte le aree. Questa funzionalità verrà abilitata a breve.
+
 ## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Rete accelerata su HB, HC, HBv2 e NDv2
 
-La [funzionalità rete accelerata di Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) è ora disponibile in RDMA e InfiniBand con supporto per le macchine virtuali con supporto per IOV e le dimensioni [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md) e [NDv2](../../ndv2-series.md). Questa funzionalità consente ora un miglioramento in tutto (fino a 30 Gbps) e le latenze sulla rete Ethernet di Azure. Sebbene questo sia separato dalle funzionalità di RDMA sulla rete InfiniBand, alcune modifiche della piattaforma per questa funzionalità possono influisca sul comportamento di alcune implementazioni MPI quando i processi runing su InfiniBand. In particolare, l'interfaccia InfiniBand in alcune macchine virtuali può avere un nome leggermente diverso (mlx5_1 rispetto ai mlx5_0 precedenti) e potrebbe essere necessario modificare le righe di comando MPI soprattutto quando si usa l'interfaccia UCX (in genere con OpenMPi e HPC-X).
+La [funzionalità rete accelerata di Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) è ora disponibile in RDMA e InfiniBand con supporto per le macchine virtuali con supporto per IOV e le dimensioni [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md)e [NDv2](../../ndv2-series.md). Questa funzionalità consente ora un miglioramento in tutto (fino a 30 Gbps) e le latenze sulla rete Ethernet di Azure. Sebbene questo sia separato dalle funzionalità di RDMA sulla rete InfiniBand, alcune modifiche della piattaforma per questa funzionalità possono incorrere sul comportamento di determinate implementazioni MPI durante l'esecuzione di processi su InfiniBand. In particolare, l'interfaccia InfiniBand in alcune macchine virtuali può avere un nome leggermente diverso (mlx5_1 rispetto ai mlx5_0 precedenti) e potrebbe essere necessario modificare le righe di comando MPI soprattutto quando si usa l'interfaccia UCX (in genere con OpenMPi e HPC-X).
 Altre informazioni su questo articolo sono disponibili in questo [articolo di Blog](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) con le istruzioni su come risolvere eventuali problemi osservati.
 
 ## <a name="infiniband-driver-installation-on-n-series-vms"></a>Installazione del driver InfiniBand nelle macchine virtuali serie N
@@ -54,11 +58,7 @@ Questo "MAC duplicato con cloud-init in Ubuntu" è un problema noto. La soluzion
 
 ## <a name="dram-on-hb-series"></a>DRAM su serie HB
 
-Al momento, le VM serie HB possono esporre solo 228 GB di RAM alle macchine virtuali guest. Ciò è dovuto a una limitazione nota dell'hypervisor di Azure per impedire che le pagine vengano assegnate al DRAM locale di AMD CCX (domini NUMA) riservato per la VM guest.
-
-## <a name="accelerated-networking"></a>Rete accelerata
-
-In questo momento la rete accelerata di Azure nelle VM HPC e GPU abilitate per IB non è abilitata. I clienti riceveranno una notifica quando questa funzionalità è supportata.
+Al momento, le VM serie HB possono esporre solo 228 GB di RAM alle macchine virtuali guest. Analogamente, 458 GB in HBv2 e 448 GB in macchine virtuali modello HBV3. Ciò è dovuto a una limitazione nota dell'hypervisor di Azure per impedire che le pagine vengano assegnate al DRAM locale di AMD CCX (domini NUMA) riservato per la VM guest.
 
 ## <a name="qp0-access-restriction"></a>Restrizione di accesso qp0
 
@@ -114,5 +114,5 @@ echo 3 > /proc/sys/vm/drop_caches [cleans page-cache and slab objects]
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare la [panoramica della serie HB](hb-series-overview.md) e la [panoramica della serie HC](hc-series-overview.md) per informazioni su come configurare in modo ottimale i carichi di lavoro ai fini delle prestazioni e della scalabilità.
-- Leggere gli ultimi annunci e alcuni esempi HPC e risultati nei [blog della community tecnica di Calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Per informazioni sugli annunci più recenti, sugli esempi di carico di lavoro HPC e sui risultati delle prestazioni, vedere i [Blog della community tecnica di Azure Compute](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Per una visualizzazione architettonica di livello superiore dell'esecuzione di carichi di lavoro HPC, vedere [High Performance Computing (HPC) in Azure](/azure/architecture/topics/high-performance-computing/).

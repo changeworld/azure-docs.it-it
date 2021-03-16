@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 7b609fec2a47dc0685b30dac12f43263127f70ef
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4b5db049e6d1cfe76bdd0d5cd6d7360e0b98bad0
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523210"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489812"
 ---
 # <a name="system-prerequisites"></a>Prerequisiti di sistema
 Questo articolo elenca i prerequisiti di sistema per l'esecuzione di Azure Defender per IoT.
@@ -23,7 +23,7 @@ Questo articolo elenca i prerequisiti di sistema per l'esecuzione di Azure Defen
 - Appliance hardware per i sensori di analisi del traffico di rete.
 - Ruolo Collaboratore della sottoscrizione di Azure. È necessario solo durante l'onboarding per la definizione dei dispositivi impegnati e la connessione ad Azure Sentinel.
 - Ruolo **Collaboratore** dell'hub IoT di Azure (livello Gratuito o Standard) per la gestione connessa al cloud. Verificare che la funzionalità **Azure Defender per IoT** sia abilitata.
-- Per il supporto dei moduli di sicurezza a livello di dispositivo, gli agenti di Defender per IoT supportano un elenco in continua crescita di dispositivi e piattaforme. Vedere l'[elenco delle piattaforme supportate](how-to-deploy-agent.md).
+- Per il supporto a livello di dispositivo Defender-Internet-micro-Agent, Defender per gli agenti Internet supporta un elenco in continua crescita di dispositivi e piattaforme. Vedere l'[elenco delle piattaforme supportate](how-to-deploy-agent.md).
 
 ## <a name="supported-service-regions"></a>Aree del servizio supportate
 
@@ -31,7 +31,7 @@ Defender per IoT indirizza tutto il traffico da tutte le aree europee al data ce
 
 Per altre informazioni, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedere anche
 
-[Identificare le appliance obbligatorie](how-to-identify-required-appliances.md) 
- [Informazioni su Azure Defender per la configurazione della rete Internet](how-to-set-up-your-network.md)
+- [Identificare le appliance necessarie](how-to-identify-required-appliances.md)
+- [Informazioni sulla configurazione della rete di Azure Defender per IoT](how-to-set-up-your-network.md)

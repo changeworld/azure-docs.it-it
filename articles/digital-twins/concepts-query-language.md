@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fc9cd95063f84a9af7f989af9a65ce8f99852dc1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034677"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490977"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informazioni sul linguaggio di query per i dispositivi gemelli digitali di Azure
 
@@ -85,7 +85,7 @@ In questa sezione vengono descritte le limitazioni del linguaggio di query.
 * Nessuna sottoquery supportata nell' `FROM` istruzione.
 * `OUTER JOIN` la semantica non è supportata, ovvero se la relazione ha un rango pari a zero, l'intera "riga" viene eliminata dal set di risultati di output.
 * La profondità di attraversamento del grafico è limitata a cinque `JOIN` livelli per ogni query.
-* L'origine per `JOIN` le operazioni è limitata: la query deve dichiarare i dispositivi gemelli in cui inizia la query.
+* Le relazioni nei dispositivi gemelli digitali di Azure non possono essere sottoposte a query come entità indipendenti. è anche necessario fornire informazioni sul dispositivo gemello di origine da cui deriva la relazione. Ciò significa che esistono alcune restrizioni sull' `JOIN` operazione, che viene utilizzata per eseguire query sulle relazioni, per assicurarsi che la query dichiari i gemelli in cui inizia la query. Per esempi, vedere [*eseguire query in base*](how-to-query-graph.md#query-by-relationship) a una relazione nell'articolo *procedura: eseguire una query sul grafico a gemelli* .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

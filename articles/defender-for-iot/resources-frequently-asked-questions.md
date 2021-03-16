@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 03/02/2021
 ms.author: rkarlin
-ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 89da9ed378118875f0c09d3c23799349a4d093b0
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247466"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467698"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Domande frequenti su Azure Defender
 
@@ -57,23 +57,17 @@ Ad esempio:
 
 ## <a name="how-does-defender-for-iot-compare-to-the-competition"></a>Quali sono le differenze tra Defender e il concorso?
 
-Sebbene altre soluzioni forniscano una serie di funzionalità che consentono ai clienti di creare soluzioni personalizzate, Defender for Internet offre una soluzione di sicurezza per gli elementi End-to-end univoca che offre una panoramica completa della sicurezza di tutte le risorse di Azure correlate. Azure assicura una distribuzione rapida e la piena integrazione con gli elementi gemelli del modulo hub IoT per una facile integrazione con gli strumenti di gestione dei dispositivi esistenti.
+Azure Defender per Internet delle cose offre una protezione completa in tutti i tuoi dispositivi. Per le **organizzazioni degli utenti finali**, Azure Defender per la rete it offre sicurezza a livello di rete senza agenti, che viene rapidamente distribuita, funziona con diverse apparecchiature proprietarie e sistemi Windows legacy e interagisce con Azure Sentinel e altri strumenti Soc. Può essere distribuito in locale o in ambienti connessi ad Azure. Per i **generatori di dispositivi** Internet, Azure Defender per l'it offre agli agenti leggeri l'incorporamento della sicurezza a livello di dispositivo in nuove iniziative per Internet delle cose.
 
+## <a name="do-i-have-to-be-an-azure-customer"></a>È necessario essere un cliente di Azure?
 
-## <a name="do-i-have-to-be-an-azure-iot-customer"></a>È necessario essere clienti di Azure?
+No, per la versione senza agente di Azure Defender, non è necessario essere un cliente di Azure. Tuttavia, se si vuole inviare avvisi ad Azure Sentinel; effettuare il provisioning dei sensori di rete e monitorarne l'integrità dal cloud; per sfruttare i vantaggi offerti dagli aggiornamenti automatici del software e dell'Intelligence per le minacce, sarà necessario connettere il sensore ad Azure tramite l'hub Azure.
 
-Sì. Per le distribuzioni connesse al cloud, Azure Defender per l'it si basa sulla connettività e sull'infrastruttura di Azure.
+Per la versione di Azure Defender basata su agenti, è necessario essere un cliente di Azure.
+
 ## <a name="can-i-create-my-own-alerts"></a>È possibile creare avvisi personalizzati?
 
-Sì. È possibile impostare un avviso personalizzato per un set di comportamenti predefinito, ad esempio l'indirizzo IP e le porte aperte. Vedere la pagina sulla [creazione di avvisi personalizzati](quickstart-create-custom-alerts.md) per ulteriori informazioni sugli avvisi personalizzati e su come crearli.
-
-## <a name="where-can-i-see-logs-can-i-customize-logs"></a>Dove è possibile visualizzare I log? È possibile personalizzare I log?
-
-- Visualizzare i log e le raccomandazioni tramite l'area di lavoro Log Analytics connessa. Configurare la durata e le dimensioni per l’archiviazione nell'area di lavoro.
-
-- I dati non elaborati dall'agente di sicurezza possono anche essere memorizzati nell'account Log Analytics. Prima di modificare la configurazione di questa opzione, prendere in considerazione le dimensioni, la durata, i requisiti di archiviazione e i costi associati.
-
-
+Sì, è possibile creare avvisi personalizzati in base a più parametri, tra cui indirizzo IP/MAC, tipo di protocollo, classe, servizio, funzione, comando e così via, nonché i valori dei tag personalizzati contenuti nei payload.  Per ulteriori informazioni sugli avvisi personalizzati e su come crearli, vedere [creare avvisi personalizzati](quickstart-create-custom-alerts.md) .
 
 ## <a name="what-happens-when-the-internet-connection-stops-working"></a>Cosa accade quando la connessione Internet si interrompe?
 

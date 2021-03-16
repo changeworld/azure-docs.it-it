@@ -1,19 +1,19 @@
 ---
 title: Protezione Exfiltration dati per le aree di lavoro di Azure sinapsi Analytics
 description: Questo articolo illustra la protezione dei dati exfiltration in Azure sinapsi Analytics
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71210cdcc2b3758a59a1b41816e6468556e94808
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: e4067d5acf55f94cd46e629792312af1547c5901
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518261"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489374"
 ---
 # <a name="data-exfiltration-protection-for-azure-synapse-analytics-workspaces"></a>Protezione Exfiltration dati per le aree di lavoro di Azure sinapsi Analytics
 Questo articolo illustra la protezione dei dati exfiltration in Azure sinapsi Analytics
@@ -25,7 +25,7 @@ Le aree di lavoro di Azure sinapsi Analytics supportano l'abilitazione della pro
 >Dopo la creazione dell'area di lavoro, non è possibile modificare la configurazione dell'area di lavoro per la rete virtuale gestita e la protezione Exfiltration dati.
 
 ## <a name="managing-synapse-workspace-data-egress-to-approved-targets"></a>Gestione dei dati dell'area di lavoro sinapsi in uscita per le destinazioni
-Dopo aver creato l'area di lavoro con i dati exfiltration abilitati, i proprietari della risorsa dell'area di lavoro possono gestire l'elenco dei tenant Azure AD approvati per l'area di lavoro. Gli utenti con le [autorizzazioni appropriate](./synapse-workspace-access-control-overview.md) per l'area di lavoro possono usare sinapsi Studio per creare richieste di connessione all'endpoint privato gestito alle risorse nei tenant Azure ad approvati dell'area di lavoro. La creazione dell'endpoint privato gestito verrà bloccata se l'utente tenta di creare una connessione all'endpoint privato a una risorsa in un tenant non approvato.
+Dopo aver creato l'area di lavoro con la protezione Exfiltration dati abilitata, i proprietari della risorsa dell'area di lavoro possono gestire l'elenco dei tenant Azure AD approvati per l'area di lavoro. Gli utenti con le [autorizzazioni appropriate](./synapse-workspace-access-control-overview.md) per l'area di lavoro possono usare sinapsi Studio per creare richieste di connessione all'endpoint privato gestito alle risorse nei tenant Azure ad approvati dell'area di lavoro. La creazione dell'endpoint privato gestito verrà bloccata se l'utente tenta di creare una connessione all'endpoint privato a una risorsa in un tenant non approvato.
 
 ## <a name="sample-workspace-with-data-exfiltration-protection-enabled"></a>Area di lavoro di esempio con protezione Exfiltration dati abilitata
 Viene ora usato un esempio per illustrare la protezione Exfiltration dati per le aree di lavoro sinapsi. Contoso dispone di risorse di Azure nel tenant A e nel tenant B ed è necessario che queste risorse si connettano in modo sicuro. Un'area di lavoro sinapsi è stata creata nel tenant A con il tenant B aggiunto come tenant Azure AD approvato. Il diagramma mostra le connessioni agli endpoint privati negli account di archiviazione di Azure nel tenant A e nel tenant B approvati dai proprietari dell'account di archiviazione. Il diagramma mostra anche la creazione di endpoint privati bloccati. La creazione di questo endpoint privato è stata bloccata perché è destinata a un account di archiviazione di Azure nel tenant del Azure AD Fabrikam, che non è un tenant di Azure AD approvato per l'area di lavoro di contoso. 

@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a1651ef1b49ecedb8070f32c56e9d23a0f8fd0da
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 826effb152d3f069e0a7c5b8e169f7083117ed22
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201579"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494496"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -110,7 +110,8 @@ Per trovare i comandi di esempio, vedere uno di questi articoli.
 |--------|-----------|
 |Archiviazione BLOB di Azure |[Caricare i file nell'archiviazione BLOB di Azure](storage-use-azcopy-blobs-upload.md)<br><br>[Scaricare i BLOB dall'archiviazione BLOB di Azure](storage-use-azcopy-blobs-download.md)<br><br>[Copiare i BLOB tra gli account di archiviazione di Azure](storage-use-azcopy-blobs-copy.md)<br><br>[Sincronizzare con archiviazione BLOB di Azure](storage-use-azcopy-blobs-synchronize.md)|
 |File di Azure |[Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)|
-|Amazon S3|[Trasferire dati con AzCopy e bucket Amazon S3](storage-use-azcopy-s3.md)|
+|Amazon S3|[Copiare dati da Amazon S3 ad archiviazione di Azure](storage-use-azcopy-s3.md)|
+|Google Cloud Storage|[Copiare dati da Google Cloud storage ad archiviazione di Azure (anteprima)](storage-use-azcopy-google-cloud.md)|
 |Archiviazione Azure Stack|[Trasferire dati con AzCopy e archiviazione Azure Stack](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
 ## <a name="use-in-a-script"></a>Usare in uno script

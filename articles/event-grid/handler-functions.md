@@ -2,13 +2,13 @@
 title: Usare una funzione in Azure come gestore eventi per gli eventi di griglia di eventi di Azure
 description: Viene descritto come usare le funzioni create in e ospitate da funzioni di Azure come gestori eventi per gli eventi di griglia di eventi.
 ms.topic: conceptual
-ms.date: 09/18/2020
-ms.openlocfilehash: beddc35f2dd8db974492d14aec27ce754a74737c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 03/15/2021
+ms.openlocfilehash: f547b09fe7e62eb3fa9e02bd17298a936350f871
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632513"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496542"
 ---
 # <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Usare una funzione come gestore eventi per gli eventi di griglia di eventi
 
@@ -79,6 +79,9 @@ Al momento della creazione di una sottoscrizione nell'interfaccia utente, nella 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 È possibile usare il cmdlet [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) o [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) per configurare le impostazioni relative al batch usando i parametri seguenti: `-MaxEventsPerBatch` o `-PreferredBatchSizeInKiloBytes` .
+
+> [!NOTE]
+> Quando si usa il trigger griglia di eventi, il servizio griglia di eventi recupera il segreto client per la funzione di Azure di destinazione e lo usa per recapitare gli eventi alla funzione di Azure. Se si protegge la funzione di Azure con un'applicazione Azure Active Directory, è necessario adottare l'approccio di Webhook generico e usare il trigger HTTP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco di gestori eventi supportati, vedere l'articolo [Gestori eventi](event-handlers.md).

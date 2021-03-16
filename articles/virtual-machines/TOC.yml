@@ -241,6 +241,8 @@
               href: hb-series.md
             - name: Serie HBv2
               href: hbv2-series.md
+            - name: Serie modello HBV3
+              href: hbv3-series.md
             - name: Serie HC
               href: hc-series.md
         - name: Quote vCPU

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 8c876a09c77a2ed5441a2f40acc2da508697febb
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102608683"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471752"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -26,7 +26,7 @@ __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggi
 ## <a name="2021-03-08"></a>2021-03-08
 
 ### <a name="azure-machine-learning-sdk-for-python-v1240"></a>SDK di Azure Machine Learning per Python v 1.24.0
-+ **Nuove funzionalità**
++ **Correzioni di bug e miglioramenti**
   + **azureml-automl-core**
     + Rimozione delle importazioni compatibili con le versioni precedenti da `azureml.automl.core.shared` . Gli errori del modulo non trovati nello `azureml.automl.core.shared` spazio dei nomi possono essere risolti tramite l'importazione da `azureml.automl.runtime.shared` .
   + **azureml-contrib-automl-DNN-Vision**
@@ -75,7 +75,7 @@ __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggi
 ## <a name="2021-02-16"></a>2021-02-16
 
 ### <a name="azure-machine-learning-sdk-for-python-v1230"></a>SDK di Azure Machine Learning per Python v 1.23.0
-+ **Nuove funzionalità**
++ **Correzioni di bug e miglioramenti**
   + **azureml-core**
     + [Funzionalità sperimentale] Aggiungere il supporto per collegare l'area di lavoro sinapsi in AML come servizio collegato
     + [Funzionalità sperimentale] Aggiungere il supporto per alleghi il pool di Spark di sinapsi in AML come calcolo
@@ -305,7 +305,7 @@ __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggi
     + Documentazione migliorata per `OutputDatasetConfig.register_on_complete` includere il comportamento di ciò che accade quando il nome esiste già.
     + Se si specificano i nomi di input e output del set di dati che possono entrare in conflitto con le variabili di ambiente comuni, verrà generato un avviso
     + Parametro riutilizzabile `grant_workspace_access` durante la registrazione di archivi dati. Impostarla su `True` per accedere ai dati dietro la rete virtuale da Machine Learning Studio.
-      [Altre informazioni](./how-to-enable-studio-virtual-network.md)
+      [Scopri di più](./how-to-enable-studio-virtual-network.md)
     + L'API del servizio collegato è stata perfezionata. Anziché fornire l'ID risorsa, sono disponibili 3 parametri distinti sub_id, RG e Name definiti nella configurazione.
     + Per consentire ai clienti di risolvere automaticamente i problemi di danneggiamento dei token, abilitare la sincronizzazione dei token dell'area di lavoro come metodo pubblico.
     + Questa modifica consente di utilizzare una stringa vuota come valore per una script_param

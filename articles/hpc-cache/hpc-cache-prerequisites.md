@@ -4,14 +4,14 @@ description: Prerequisiti per l'uso della cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7a91cf5f9341d2b42f1c8f242d288b4ee59b632d
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412511"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471801"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
@@ -91,14 +91,18 @@ Verificare questi prerequisiti relativi alle autorizzazioni prima di iniziare a 
   Per aggiungere i ruoli, seguire le istruzioni riportate in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) .
 
 ## <a name="storage-infrastructure"></a>Infrastruttura di archiviazione
+<!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-La cache supporta i contenitori BLOB di Azure o le esportazioni di archiviazione hardware NFS. Aggiungere le destinazioni di archiviazione dopo la creazione della cache.
+La cache supporta i contenitori BLOB di Azure, le esportazioni di archiviazione hardware NFS e i contenitori BLOB ADLS montati su NFS (attualmente in anteprima). Aggiungere le destinazioni di archiviazione dopo la creazione della cache.
 
 Ogni tipo di archiviazione ha prerequisiti specifici.
 
 ### <a name="blob-storage-requirements"></a>Requisiti per l'archiviazione BLOB
 
 Se si vuole usare l'archiviazione BLOB di Azure con la cache, è necessario un account di archiviazione compatibile e un contenitore BLOB vuoto o un contenitore popolato con i dati formattati della cache HPC di Azure, come descritto in [spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md).
+
+> [!NOTE]
+> Requisiti diversi si applicano all'archiviazione BLOB montata da NFS. Per informazioni dettagliate, leggere i [requisiti di archiviazione ADLS-NFS](#nfs-mounted-blob-adls-nfs-storage-requirements-preview) .
 
 Creare l'account prima di provare ad aggiungere una destinazione di archiviazione. È possibile creare un nuovo contenitore quando si aggiunge la destinazione.
 
@@ -169,6 +173,37 @@ Altre informazioni sono disponibili in [risolvere i problemi relativi alla confi
   * Se per l'archiviazione sono presenti esportazioni che sono sottodirectory di un'altra esportazione, verificare che la cache disponga dell'accesso radice al segmento più basso del percorso. Per informazioni dettagliate, vedere [accesso alla radice nei percorsi di directory](troubleshoot-nas.md#allow-root-access-on-directory-paths) nell'articolo Risoluzione dei problemi di destinazione archiviazione NFS.
 
 * L'archiviazione back-end NFS deve essere una piattaforma hardware/software compatibile. Per informazioni dettagliate, contattare il team di cache HPC di Azure.
+
+### <a name="nfs-mounted-blob-adls-nfs-storage-requirements-preview"></a>Requisiti di archiviazione BLOB montati per NFS (ADLS-NFS) (anteprima)
+
+La cache HPC di Azure può anche usare un contenitore BLOB montato con il protocollo NFS come destinazione di archiviazione.
+
+> [!NOTE]
+> Il supporto del protocollo NFS 3,0 per archiviazione BLOB di Azure è in versione di anteprima pubblica. La disponibilità è limitata ed è possibile che le funzionalità cambino tra ora e quando la funzionalità diventa disponibile a livello generale. Non usare la tecnologia di anteprima nei sistemi di produzione.
+>
+> Per altre informazioni su questa funzionalità di anteprima, vedere [supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure](../storage/blobs/network-file-system-protocol-support.md).
+
+I requisiti dell'account di archiviazione sono diversi per una destinazione di archiviazione BLOB ADLS-NFS e per una destinazione di archiviazione BLOB standard. Per creare e configurare l'account di archiviazione abilitato per NFS, seguire le istruzioni riportate in [montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0](../storage/blobs/network-file-system-protocol-support-how-to.md) .
+
+Si tratta di una panoramica generale dei passaggi:
+
+1. Assicurarsi che le funzionalità necessarie siano disponibili nelle aree in cui si prevede di lavorare.
+
+1. Abilitare la funzionalità del protocollo NFS per la sottoscrizione. Eseguire questa operazione *prima* di creare l'account di archiviazione.
+
+1. Creare una rete virtuale protetta (VNet) per l'account di archiviazione. È consigliabile usare la stessa rete virtuale per l'account di archiviazione abilitato per NFS e per la cache HPC di Azure.
+
+1. Creare l'account di archiviazione.
+
+   * Invece di usare le impostazioni dell'account di archiviazione per un account di archiviazione BLOB standard, seguire le istruzioni riportate nella [documentazione relativa alle procedure](../storage/blobs/network-file-system-protocol-support-how-to.md). Il tipo di account di archiviazione supportato può variare in base all'area di Azure.
+
+   * Nella sezione **rete** scegliere un endpoint privato nella rete virtuale protetta creata (scelta consigliata) oppure scegliere un endpoint pubblico con accesso limitato dal VNet protetto.
+
+   * Non dimenticare di completare la sezione **Avanzate** , in cui è possibile abilitare l'accesso a NFS.
+
+   * Assegnare all'applicazione cache l'accesso all'account di archiviazione di Azure, come indicato nelle [autorizzazioni](#permissions)sopra riportate. Questa operazione può essere eseguita la prima volta che si crea una destinazione di archiviazione. Seguire la procedura descritta in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) per assegnare alla cache i ruoli di accesso necessari.
+
+     Se non si è il proprietario dell'account di archiviazione, chiedere al proprietario di eseguire questo passaggio.
 
 ## <a name="set-up-azure-cli-access-optional"></a>Configurare l'accesso dell'interfaccia della riga di comando di Azure (facoltativo)
 

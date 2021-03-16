@@ -1,6 +1,6 @@
 ---
-title: Modulo di sicurezza e dispositivi gemelli
-description: Informazioni sul concetto di gemelli dei moduli di sicurezza e sul modo in cui vengono usati in Defender per l'it.
+title: Defender-molto-micro-Agent e dispositivi gemelli
+description: Informazioni sul concetto di gemelli Defender-be-micro-Agent e sul modo in cui vengono usati in Defender per l'it.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: feb84a1261e37600c68d8e372162033d4021f564
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 552da329b90b102a13ef53158ec81be87684c1fc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522921"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493187"
 ---
-# <a name="security-module"></a>Modulo di sicurezza
+# <a name="defender-iot-micro-agent"></a>Defender-molto-micro-Agent
 
 Questo articolo illustra come Defender for Internet usa dispositivi gemelli e moduli.
 
@@ -32,15 +32,15 @@ Defender per IoT offre l'integrazione completa con la piattaforma di gestione di
 
 Altre informazioni sul concetto di [dispositivi gemelli](../iot-hub/iot-hub-devguide-device-twins.md) nell'hub Azure.
 
-## <a name="security-module-twins"></a>Moduli di sicurezza gemelli
+## <a name="defender-iot-micro-agent-twins"></a>Defender-molto-micro-Agent gemelli
 
-Defender for Internet gestisce un modulo di sicurezza gemello per ogni dispositivo nel servizio.
-Il gemello del modulo di sicurezza include tutte le informazioni rilevanti per la sicurezza dei dispositivi per ogni dispositivo specifico nella soluzione.
-Le proprietà di sicurezza del dispositivo vengono mantenute in un modulo di protezione dedicato gemello per una comunicazione più sicura e per abilitare gli aggiornamenti e la manutenzione che richiedono meno risorse.
+Defender for Internet gestisce un dispositivo gemello Defender-are-micro-Agent per ogni dispositivo nel servizio.
+Defender-Internet-micro-Agent gemello include tutte le informazioni rilevanti per la sicurezza dei dispositivi per ogni dispositivo specifico nella soluzione.
+Le proprietà di sicurezza del dispositivo vengono mantenute in un dispositivo Defender-Internet-micro-Agent dedicato per una comunicazione più sicura e per l'abilitazione degli aggiornamenti e della manutenzione che richiedono un minor numero di risorse.
 
-Per informazioni su come creare, personalizzare e configurare il dispositivo gemello, vedere [creare un modulo di sicurezza gemello](quickstart-create-security-twin.md) e [configurare gli agenti di sicurezza](how-to-agent-configuration.md) . Vedere [informazioni sui moduli gemelli](../iot-hub/iot-hub-devguide-module-twins.md) per altre informazioni sul concetto di moduli gemelli nell'hub Internet.
+Per informazioni su come creare, personalizzare e configurare il dispositivo gemello, vedere creare un dispositivo [gemello Defender-](quickstart-create-security-twin.md) Internet e [configurare gli agenti di sicurezza](how-to-agent-configuration.md) . Vedere [informazioni sui moduli gemelli](../iot-hub/iot-hub-devguide-module-twins.md) per altre informazioni sul concetto di moduli gemelli nell'hub Internet.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedi anche
 
 - [Panoramica di Defender for Internet](overview.md)
 - [Distribuire gli agenti di sicurezza](how-to-deploy-agent.md)

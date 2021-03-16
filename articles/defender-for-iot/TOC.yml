@@ -35,7 +35,7 @@
         - name: Compilare il Defender per l'agente Internet per le cose dal codice sorgente (anteprima)
           displayName: 'baseline, configuration, customize, distribution'
           href: quickstart-building-the-defender-micro-agent-from-source.md
-        - name: Configurare il modulo di sicurezza per Azure RTO
+        - name: Configurare Defender-RTO-micro-Agent per Azure
           href: quickstart-azure-rtos-security-module.md
         - name: Aggiungere le risorse di Azure alla soluzione IoT
           displayName: 'resources, monitored, resource'
@@ -79,10 +79,10 @@
           href: concept-recommendations.md
         - name: Classic
           items:
-            - name: Modulo di sicurezza
-              displayName: 'device twins, security module twin'
+            - name: Defender-molto-micro-Agent
+              displayName: 'device twins, Defender-IoT-micro-agent twin'
               href: concept-security-module.md
-            - name: Modulo di sicurezza per Edge
+            - name: Microsoft Edge Defender-cose-micro-Agent
               href: security-edge-architecture.md
             - name: Agenti di sicurezza
               href: overview-security-agents.md
@@ -95,7 +95,7 @@
             - name: Baseline della sicurezza di Azure per Azure Defender per l'it
               displayName: 'identity management, active directory, privileged access, data protection, asset management, incident response, posture, vulnerability, governance'
               href: security-baseline.md
-            - name: Aggregazione di eventi classici del modulo di sicurezza
+            - name: 'Defender-Internet, aggregazione di eventi classici micro-Agent'
               displayName: 'twin, default, configuration, alerts'
               href: event-aggregation.md
             - name: Avvisi di sicurezza basati su agenti
@@ -253,14 +253,14 @@
         - name: Creare avvisi personalizzati
           displayName: security group
           href: quickstart-create-custom-alerts.md
-        - name: Modulo di sicurezza per Azure RTOS
+        - name: Defender-molto-micro-Agent per Azure RTO
           href: iot-security-azure-rtos.md
           items:
-            - name: Uso del modulo di sicurezza per Azure RTOS
+            - name: Usare Defender-Internet per Azure RTO
               href: how-to-azure-rtos-security-module.md
-            - name: Informazioni sul modulo di sicurezza per Azure RTOS
+            - name: Informazioni sul Defender-le cose-micro-Agent per Azure RTO
               href: concept-rtos-security-module.md
-            - name: Avvisi e raccomandazioni per il modulo di sicurezza per Azure RTOS
+            - name: Defender-molto-micro-Agent per gli avvisi e le raccomandazioni di Azure RTO
               href: concept-rtos-security-alerts-recommendations.md
         - name: Classic
           items:
@@ -282,7 +282,7 @@
                   href: azure-iot-security-local-configuration-c.md
                 - name: Configurazione locale C#
                   href: azure-iot-security-local-configuration-csharp.md
-            - name: Distribuire il modulo di sicurezza per Edge
+            - name: Distribuzione di Edge Defender-Internet
               href: how-to-deploy-edge.md
             - name: Configurare gli agenti di sicurezza
               displayName: property
@@ -319,7 +319,7 @@
           href: resources-frequently-asked-questions.md
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
-        - name: API del modulo di sicurezza per Azure RTOS
+        - name: Defender-molto-micro-Agent per l'API RTO di Azure
           displayNAme: 'prototype, disable'
           href: azure-rtos-security-module-api.md
         - name: Domande frequenti - agente
@@ -344,7 +344,7 @@
           href: ../security-center/
         - name: Documentazione sulla sicurezza di Azure
           href: ../security/index.yml
-        - name: Modulo di sicurezza per Azure RTOS in Stack Overflow
+        - name: Azure RTO Defender-Internet del Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
         - name: 'Blog su sicurezza, privacy e conformità per IoT di Azure'
           href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'

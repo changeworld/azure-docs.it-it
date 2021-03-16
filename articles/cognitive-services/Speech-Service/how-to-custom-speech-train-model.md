@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 166fb94f5a3aea505c0d20df861b8bc4de9ad8aa
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373369"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491113"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Eseguire il training e distribuire un modello di Riconoscimento vocale personalizzato
 
@@ -61,7 +61,7 @@ Nella tabella **Training** viene visualizzata una nuova voce che corrisponde al 
 Vedere le [procedure per](how-to-custom-speech-evaluate-data.md) valutare e migliorare riconoscimento vocale personalizzato accuratezza del modello. Se si sceglie di verificare l'accuratezza, è importante selezionare un set di dati acustico diverso da quello usato con il modello per ottenere un senso realistico delle prestazioni del modello.
 
 > [!NOTE]
-> Sia i modelli di base che i modelli personalizzati possono essere usati solo fino a una determinata data (vedere ciclo di vita del [modello](custom-speech-overview.md#model-lifecycle)). Speech studio Mostra questa data nella colonna **scadenza** per ogni modello ed endpoint. Dopo la richiesta di una data a un endpoint o la trascrizione in batch potrebbe avere esito negativo o eseguire il fallback al modello di base.
+> Sia i modelli di base che i modelli personalizzati possono essere usati solo fino a una determinata data (vedere ciclo di vita di modelli [ed endpoint](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Speech studio Mostra questa data nella colonna **scadenza** per ogni modello ed endpoint. Dopo la richiesta di una data a un endpoint o la trascrizione in batch potrebbe avere esito negativo o eseguire il fallback al modello di base.
 >
 > Ripetere il training del modello usando il modello di base più recente per trarre vantaggio dai miglioramenti di accuratezza e per evitare che il modello scada.
 

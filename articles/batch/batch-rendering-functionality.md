@@ -3,14 +3,14 @@ title: Funzionalità di rendering
 description: Le funzionalità standard di Azure Batch vengono usate per eseguire app e carichi di lavoro di rendering. Batch include funzionalità specifiche per supportare i carichi di lavoro di rendering.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/01/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a2e2cfb71999bd5ab83591448342d4bac1dabdd5
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429803"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496338"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funzionalità di rendering di Azure Batch
 
@@ -27,6 +27,9 @@ Le stringhe della riga di comando dell'attività dovranno fare riferimento alle 
 Per la maggior parte delle applicazioni di rendering sono necessarie licenze ottenute da un server licenze. Se è presente un server licenze locale esistente, il pool e il server licenze devono trovarsi nella stessa [rete virtuale](../virtual-network/virtual-networks-overview.md). È anche possibile eseguire un server licenze in una macchina virtuale di Azure, con il pool di batch e la VM del server licenze che si trova nella stessa rete virtuale.
 
 ## <a name="batch-pools-using-rendering-vm-images"></a>Pool di batch che usano il rendering delle immagini di VM
+
+> [!IMPORTANT]
+> Le immagini di macchine virtuali per il rendering e le licenze di pagamento per utilizzo sono state [deprecate e verranno ritirate il 29 febbraio 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Per utilizzare batch per il rendering, [è necessario utilizzare un'immagine di macchina virtuale personalizzata e licenze di applicazioni standard.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### <a name="rendering-application-installation"></a>Installazione delle applicazioni di rendering
 

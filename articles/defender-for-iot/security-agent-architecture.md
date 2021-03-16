@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: aceeaec63eb637002352f5c503f57890033b0381
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: de8c52372b2ef92dcf2abe357a40ef8947439a8a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449238"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493963"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>Guida introduttiva: architettura di riferimento dell'agente di sicurezza
 
@@ -57,7 +57,7 @@ Defender for Internet è dotato di diversi agenti di installazione per Windows a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stata illustrata una panoramica di alto livello sull'architettura dei moduli di sicurezza per l'IT e i programmi di installazione disponibili.
+In questo articolo è stata illustrata una panoramica di alto livello su Defender per l'architettura di Internet delle cose Defender-molto-micro-Agent e dei programmi di installazione disponibili.
 
 Per continuare a usare Defender per la distribuzione di Internet delle cose, vedere gli articoli seguenti:
 

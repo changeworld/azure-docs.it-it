@@ -14,39 +14,24 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a65b91e3dff3ef412dad8bbe57383a9dbf8c7765
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b7a0f50a7f84b89d7c048e57eadc85635df10f77
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032246"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467681"
 ---
 # <a name="azure-ad-built-in-roles"></a>Ruoli predefiniti di Azure AD
 
-Azure Active Directory (Azure AD) consente di designare amministratori limitati per gestire le attività relative alle identità in ruoli con meno privilegi. È possibile assegnare amministratori per eseguire attività come l'aggiunta o la modifica di utenti, l’assegnazione di ruoli amministrativi, la reimpostazione delle password utente, la gestione delle licenze utente e la gestione dei nomi di dominio. Le [autorizzazioni utente predefinite](../fundamentals/users-default-permissions.md) possono essere modificate solo nelle impostazioni utente in Azure AD.
+In Azure Active Directory (Azure AD), se un altro amministratore o un utente non amministratore deve gestire le risorse Azure AD, si assegna loro un ruolo Azure AD che fornisce le autorizzazioni necessarie. Ad esempio, è possibile assegnare ruoli per consentire l'aggiunta o la modifica di utenti, la reimpostazione delle password utente, la gestione delle licenze utente o la gestione dei nomi di dominio.
+
+Questo articolo elenca i Azure AD ruoli predefiniti che è possibile assegnare per consentire la gestione delle risorse Azure AD. Per informazioni su come assegnare i ruoli, vedere [assegnare Azure ad ruoli agli utenti](manage-roles-portal.md).
 
 ## <a name="limit-use-of-global-administrator"></a>Limitare l'utilizzo dell'amministratore globale
 
 Gli utenti assegnati al ruolo di amministratore globale possono leggere e modificare tutte le impostazioni amministrative nell'organizzazione Azure AD. Per impostazione predefinita, quando un utente si iscrive a un servizio cloud Microsoft, viene creato un tenant di Azure AD e l'utente viene reso membro del ruolo di amministratore globale. Quando si aggiunge una sottoscrizione a un tenant esistente, non viene assegnato al ruolo di amministratore globale. Solo gli amministratori globali e gli amministratori dei ruoli con privilegi possono delegare ruoli di amministratore. Per ridurre il rischio per l'azienda, è consigliabile assegnare questo ruolo al numero minore possibile di persone nell'organizzazione.
 
 La procedura consigliata prevede di assegnare questo ruolo a meno di cinque utenti nell'organizzazione. Se nell'organizzazione esistono più di cinque amministratori assegnati al ruolo di amministratore globale, di seguito sono riportati alcuni modi per ridurne l'uso.
-
-### <a name="find-the-role-you-need"></a>Individuare il ruolo necessario
-
-Se è frustrante trovare il ruolo necessario scegliendo da un elenco di molti ruoli, Azure AD può visualizzare subset dei ruoli in base alle categorie di ruoli. Vedere il nuovo filtro **Tipo** per [Ruoli e amministratori di Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) per visualizzare solo i ruoli del tipo selezionato.
-
-### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Esiste ora un ruolo che non esisteva quando è stato assegnato il ruolo di amministratore globale
-
-È possibile che un ruolo o ruoli siano stati aggiunti a Azure AD che forniscono autorizzazioni più granulari che non sono un'opzione quando si elevano alcuni utenti a un amministratore globale. Nel corso del tempo, verranno implementati ruoli aggiuntivi che eseguono attività che possono essere eseguite solo dal ruolo amministratore globale. È possibile osservare questi riflessi nei [ruoli tutti](#all-roles)seguenti.
-
-## <a name="assign-or-remove-administrator-roles"></a>Assegnare o rimuovere ruoli di amministratore
-
-Per informazioni su come assegnare ruoli amministrativi a un utente in Azure Active Directory, vedere [Visualizzare e assegnare i ruoli di amministratore in Azure Active Directory](manage-roles-portal.md).
-
-> [!Note]
-> Se si dispone di una licenza Azure AD Premium P2 e si è già un utente Privileged Identity Management (PIM), tutte le attività di gestione dei ruoli vengono eseguite in Privileged Identity Management e non in Azure AD.
->
-> ![Azure AD ruoli gestiti in PIM per gli utenti che usano già PIM e hanno una licenza Premium P2](./media/permissions-reference/pim-manages-roles-for-p2.png)
 
 ## <a name="all-roles"></a>Tutti i ruoli
 
@@ -1879,6 +1864,6 @@ Lettore report di riepilogo utilizzo | &nbsp; | :heavy_check_mark: | :heavy_chec
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su come assegnare un utente come amministratore di una sottoscrizione di Azure, vedere [assegnare un utente come amministratore di una sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md) .
-* Per altre informazioni sul controllo dell'accesso alle risorse in Microsoft Azure, vedere le [informazioni sui diversi ruoli](../../role-based-access-control/rbac-and-directory-admin-roles.md).
-* Per informazioni dettagliate sulla relazione tra le sottoscrizioni e un tenant di Azure AD oppure per istruzioni su come associare o aggiungere una sottoscrizione, vedere [associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Assegnare ruoli di Azure AD ai gruppi](groups-assign-role.md)
+- [Informazioni sui diversi ruoli](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Assegnare un utente come amministratore di una sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md)

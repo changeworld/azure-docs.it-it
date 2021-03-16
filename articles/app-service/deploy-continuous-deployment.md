@@ -3,15 +3,15 @@ title: Configurare la distribuzione continua
 description: Informazioni su come abilitare l'integrazione continua/distribuzione continua per app Azure servizio da GitHub, BitBucket, Azure Repos o altri repository. Selezionare la pipeline di compilazione che soddisfa le proprie esigenze.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 5af8294518759181326e7736ef755f0a83581014
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 52f0db739cff9614dc4e9f5ef71d582e926fc65a
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564961"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470269"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
 
@@ -116,6 +116,8 @@ Il provider di compilazione azioni di GitHub è un'opzione per [ci/CD da GitHub]
 - Anziché un profilo di pubblicazione, eseguire la distribuzione usando un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Azure Active Directory.
 
 #### <a name="authenticate-with-a-service-principal"></a>Eseguire l'autenticazione con un'entità servizio
+
+Questa configurazione facoltativa sostituisce l'autenticazione predefinita con i profili di pubblicazione nel file del flusso di lavoro generato.
 
 1. Generare un'entità servizio con il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) nell'interfaccia della riga di comando di [Azure](/cli/azure/). Nell'esempio seguente sostituire *\<subscription-id>* , *\<group-name>* e *\<app-name>* con i propri valori:
 

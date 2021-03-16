@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: ebdb6a44a1f20ce0835fc5d7358d99c8224d3d77
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 43456655d057ee79ed347e4a94c008d825bfa639
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044936"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470235"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -194,8 +194,8 @@ Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le
 | Inglese (Regno Unito) | `en-GB` | Female | `en-GB-MiaNeural` | Generale |
 | Inglese (Regno Unito) | `en-GB` | Male | `en-GB-RyanNeural` | Generale |
 | Inglese (Stati Uniti) | `en-US` | Female | `en-US-AriaNeural` | Generale, più stili vocali disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
-| Inglese (Stati Uniti) | `en-US` | Female | `en-US-JennyNeural` | Generale |
-| Inglese (Stati Uniti) | `en-US` | Male | `en-US-GuyNeural` | Generale |
+| Inglese (Stati Uniti) | `en-US` | Female | `en-US-JennyNeural` | Generale, più stili vocali disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Inglese (Stati Uniti) | `en-US` | Male | `en-US-GuyNeural` | Generale, più stili vocali disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Finlandese (Finlandia) | `fi-FI` | Female | `fi-FI-NooraNeural` | Generale |
 | Finlandese (Finlandia) | `fi-FI` | Female | `fi-FI-SelmaNeural` <sup>Nuova</sup> | Generale |
 | Finlandese (Finlandia) | `fi-FI` | Male | `fi-FI-HarriNeural` <sup>Nuova</sup> | Generale |

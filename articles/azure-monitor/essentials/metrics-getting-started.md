@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
-ms.openlocfilehash: e3d8d6529eb943566118cc67eab549cb32891cd8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fee71f9ebfc69c19adc026fce5cd78b6a8b5240b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037235"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490296"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introduzione a Esplora metriche di Azure
 
@@ -63,6 +63,20 @@ Il [filtro](../essentials/metrics-charts.md#filters) e la [suddivisione](../esse
 - La **divisione** controlla se nel grafico vengono visualizzate righe separate per ogni valore di una dimensione o se i valori vengono aggregati in una singola riga. Ad esempio, è possibile visualizzare una riga per un tempo di risposta medio per tutte le istanze del server o vedere righe separate per ogni server. Per visualizzare righe separate, è necessario applicare la suddivisione alla dimensione dell' *istanza del server* .
 
 Vedere gli [esempi dei grafici](../essentials/metric-chart-samples.md) a cui sono applicati il filtro e la divisione. In questo articolo vengono illustrati i passaggi usati per configurare i grafici.
+
+## <a name="share-your-metric-chart"></a>Condividere il grafico delle metriche
+Esistono attualmente due modi per condividere il grafico delle metriche. Di seguito sono riportate le istruzioni su come condividere le informazioni dai grafici delle metriche tramite Excel e un collegamento.
+ 
+### <a name="download-to-excel"></a>Scarica in Excel
+Fare clic su "Condividi" e selezionare "Scarica in Excel". Il download dovrebbe iniziare immediatamente.
+
+![screenshot su come condividere un grafico delle metriche tramite Excel](./media/metrics-getting-started/share-excel.png)
+
+### <a name="share-a-link"></a>Condividere un collegamento
+Fare clic su "Condividi" e selezionare "copia collegamento". Si riceverà una notifica che il collegamento è stato copiato correttamente.
+
+![screenshot su come condividere un grafico delle metriche tramite il collegamento](./media/metrics-getting-started/share-link.png)
+
 
 ## <a name="advanced-chart-settings"></a>Impostazioni avanzate del grafico
 

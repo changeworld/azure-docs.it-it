@@ -3,12 +3,12 @@ title: Regole di azione per gli avvisi di monitoraggio di Azure
 description: Informazioni sulle regole di azione in monitoraggio di Azure e su come configurarle e gestirle.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.openlocfilehash: 2ad87cce668555ece0eba6479bf9d21db312bfcf
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466729"
+ms.locfileid: "103471683"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -76,8 +76,8 @@ Questa regola si applica solo agli avvisi relativi ai tipi di risorse selezionat
 Ad esempio, **Resource Type = "Virtual Machines"** significa che la regola si applica solo agli avvisi sulle macchine virtuali.
 * **ID regola di avviso**  
 Questa regola si applica solo agli avvisi provenienti da una regola di avviso specifica. Il valore deve corrispondere all'ID Gestione risorse della regola di avviso.  
-Ad esempio, la regola di **avviso ID = "/subscriptions/SubId1/resourceGroups/RG1/Providers/Microsoft.Insights/metricalerts/API-latency"** indica che questa regola verrà applicata solo agli avvisi provenienti dalla regola di avviso della metrica "latenza API".
-È possibile ottenere l'ID regola di avviso appropriato elencando le regole di avviso dall'interfaccia della riga di comando oppure aprendo una regola di avviso specifica nel portale, facendo clic su "proprietà" e copiando il valore "ID risorsa".
+Ad esempio, la regola di **avviso ID = "/subscriptions/SubId1/resourceGroups/RG1/Providers/Microsoft.Insights/metricalerts/API-latency"** indica che questa regola verrà applicata solo agli avvisi provenienti dalla regola di avviso della metrica "latenza API".  
+_Nota: è possibile ottenere l'ID corretto della regola di avviso elencando le regole di avviso dall'interfaccia della riga di comando oppure aprendo una regola di avviso specifica nel portale, facendo clic su "proprietà" e copiando il valore "ID risorsa"._
 * **Condizione di monitoraggio**  
 Questa regola si applica solo agli eventi di avviso con la condizione di monitoraggio specificata, **attivata** o **risolta**.
 * **Descrizione**  

@@ -4,13 +4,13 @@ description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/21/2021
-ms.openlocfilehash: 2bd82d18d6647e47d9838702af45cff68f2bc6cd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/15/2021
+ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037864"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466498"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di Monitoraggio di Azure 
 
@@ -138,11 +138,9 @@ Per evitare che la distribuzione abbia esito negativo quando si tenta di convali
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Esportare il modello di Azure Resource Manager di una regola di avviso per la metrica tramite il portale di Azure
 
 L'esportazione del modello di Gestione risorse di una regola di avviso per le metriche consente di comprendere la sintassi e le proprietà JSON e può essere usata per automatizzare le distribuzioni future.
-1. Passare alla sezione **gruppi di risorse** nel portale e selezionare il gruppo di risorse che contiene la regola.
-2. Nella sezione Panoramica selezionare la casella di controllo **Mostra tipi nascosti** .
-3. Nel filtro dei **tipi** selezionare *Microsoft. Insights/metricalerts*.
-4. Selezionare la regola di avviso pertinente per visualizzare i relativi dettagli.
-5. In **Impostazioni** selezionare **Esporta modello**.
+1. Nella portale di Azure aprire la regola di avviso per visualizzarne i dettagli.
+2. Scegliere **Proprietà**.
+3. In **automazione** selezionare **Esporta modello**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Quota regole di avviso metrica troppo piccola
 

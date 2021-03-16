@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 16d3d50d5ade298e2ca22f271466c70e74724381
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 67480786e963235d4d3c010bea72e551a8be7bbc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613562"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493799"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Usare endpoint privati per archiviazione di Azure
 
@@ -146,6 +146,12 @@ Questo vincolo è il risultato delle modifiche DNS apportate quando l'account a2
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regole del gruppo di sicurezza di rete per le subnet con endpoint privati
 
 Attualmente, non è possibile configurare le regole del [gruppo di sicurezza di rete](../../virtual-network/network-security-groups-overview.md) (NSG) e le route definite dall'utente per gli endpoint privati. Le regole NSG applicate alla subnet che ospita l'endpoint privato non vengono applicate all'endpoint privato. Vengono applicati solo ad altri endpoint (ad esempio, controller di interfaccia di rete). Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.
+
+### <a name="copying-blobs-between-storage-accounts"></a>Copia di BLOB tra account di archiviazione
+
+È possibile copiare i BLOB tra gli account di archiviazione usando endpoint privati solo se si usa l'API REST di Azure o gli strumenti che usano l'API REST. Questi strumenti includono AzCopy, Storage Explorer, Azure PowerShell, l'interfaccia della riga di comando di Azure e gli SDK di archiviazione BLOB di Azure. 
+
+Sono supportati solo gli endpoint privati destinati alla risorsa di archiviazione BLOB. Gli endpoint privati destinati alla Data Lake Storage Gen2 o alla risorsa file non sono ancora supportati. Inoltre, la copia tra gli account di archiviazione tramite il protocollo NFS (Network File System) non è ancora supportata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

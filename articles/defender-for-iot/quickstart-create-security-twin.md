@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/21/2021
 ms.author: shhazam
-ms.openlocfilehash: 832c8e426b57e6b447ef805f2868a6d42abe3d9d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: cfd5192a78c34caf5acbe4576f5a00ab314acb61
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449697"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489897"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Guida introduttiva: Creare un modulo gemello azureiotsecurity
 
@@ -39,9 +39,9 @@ Per informazioni sul concetto generale dei moduli gemelli nell'hub IoT di Azure,
 
 Defender per IoT usa il meccanismo dei moduli gemelli, mantenendo un modulo gemello di sicurezza denominato _azureiotsecurity_ per ogni dispositivo.
 
-Il modulo gemello di sicurezza contiene tutte le informazioni pertinenti alla sicurezza del dispositivo per ognuno dei dispositivi.
+Defender-Internet-micro-Agent gemello include tutte le informazioni rilevanti per la sicurezza dei dispositivi per ogni dispositivo.
 
-Per sfruttare al meglio le funzionalità di Defender per le funzionalità di Internet delle cose, è necessario creare, configurare e usare questo modulo di sicurezza gemelli per ogni dispositivo nel servizio.
+Per sfruttare appieno le funzionalità di Defender per le funzionalità di Internet delle cose, è necessario creare, configurare e usare questi gemelli Defender-Internet-Internet per ogni dispositivo nel servizio.
 
 ## <a name="create-azureiotsecurity-module-twin"></a>Creare un modulo gemello azureiotsecurity
 

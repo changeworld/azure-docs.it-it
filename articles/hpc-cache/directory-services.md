@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 12/22/2020
 ms.author: v-erkel
-ms.openlocfilehash: 28265861c98cceaedf7d2662f6526a9f62fe68de
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 4f1499c9a86999bac86fb7bf185f195e9ba5f690
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803766"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472079"
 ---
 # <a name="configure-directory-services"></a>Configurare i servizi di directory
 
@@ -75,7 +75,7 @@ Il server e il DN di base sono le uniche impostazioni necessarie per eseguire il
 
 Nella sezione **accesso sicuro** è possibile abilitare la crittografia e la convalida dei certificati per la connessione LDAP. Dopo aver fatto clic su **Sì** per abilitare la crittografia, sono disponibili le opzioni seguenti:
 
-* **Richiedi certificato valido** : quando è impostato, il certificato del server LDAP viene verificato rispetto all'autorità di certificazione nel campo URI sottostante.
+* **Convalida certificato** : quando è impostato, il certificato del server LDAP viene verificato rispetto all'autorità di certificazione nel campo URI riportato di seguito.
 
 * **URI del certificato CA** : specificare il percorso del certificato autorevole. Può trattarsi di un collegamento a un certificato convalidato dall'autorità di certificazione o a un certificato autofirmato. Questo campo è necessario per usare l'impostazione certificati convalidati esternamente.
 

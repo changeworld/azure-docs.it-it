@@ -2,23 +2,23 @@
 title: Come creare un set di dati di training per un riconoscimento del modulo personalizzato
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come assicurarsi che il set di dati di training sia ottimizzato per il training di un modello di riconoscimento moduli.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.author: pafarley
-ms.openlocfilehash: ee57ccb82e771ee8ab93b09e476a94df32278069
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.author: lajanuar
+ms.openlocfilehash: b33ac3cb710a2d2a9d92efadf14dc829cb5da6e8
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585110"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467494"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creazione di un set di dati di training per un modello personalizzato
 
-Quando si usa il modello personalizzato di riconoscimento form, si forniscono i propri dati di training all'operazione di training del [modello personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) , in modo che il modello sia in grado di eseguire il training ai moduli specifici del settore. Seguire questa guida per informazioni su come raccogliere e preparare i dati per eseguire il training del modello in modo efficace.
+Quando si usa il modello personalizzato di riconoscimento form, si forniscono i propri dati di training all'operazione di training del [modello personalizzato](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) , in modo che il modello sia in grado di eseguire il training ai moduli specifici del settore. Seguire questa guida per informazioni su come raccogliere e preparare i dati per eseguire il training del modello in modo efficace.
 
 Sono necessari almeno cinque forme compilate dello stesso tipo.
 
@@ -47,7 +47,7 @@ Se si desidera utilizzare i dati con etichetta manualmente, sarà necessario car
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organizzare i dati nelle sottocartelle (facoltativo)
 
-Per impostazione predefinita, l'API del [modello di training personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) userà solo i documenti del modulo che si trovano nella radice del contenitore di archiviazione. Tuttavia, è possibile eseguire il training con i dati nelle sottocartelle se lo si specifica nella chiamata API. In genere, il corpo della chiamata al [modello di training personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) ha il formato seguente, dove `<SAS URL>` è l'URL della firma di accesso condiviso del contenitore:
+Per impostazione predefinita, l'API del [modello di training personalizzato](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) userà solo i documenti del modulo che si trovano nella radice del contenitore di archiviazione. Tuttavia, è possibile eseguire il training con i dati nelle sottocartelle se lo si specifica nella chiamata API. In genere, il corpo della chiamata al [modello di training personalizzato](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) ha il formato seguente, dove `<SAS URL>` è l'URL della firma di accesso condiviso del contenitore:
 
 ```json
 {

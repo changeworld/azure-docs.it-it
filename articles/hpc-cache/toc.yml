@@ -8,7 +8,9 @@
   items:
     - name: Pianificare lo spazio dei nomi aggregato
       href: hpc-cache-namespace.md
-    - name: Sicurezza
+    - name: Informazioni sui modelli di utilizzo della cache
+      href: cache-usage-models.md
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md

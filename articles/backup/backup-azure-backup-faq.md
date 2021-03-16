@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ac58cee66aa2a89efb7194a051801b068628d3bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806653"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467630"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -65,6 +65,13 @@ L'esportazione dei dati direttamente dall'insieme di credenziali dei servizi di 
 ### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Qual è la differenza tra un insieme di credenziali di archiviazione con ridondanza geografica (GRS) con e senza la funzionalità di ripristino tra aree (CRR) abilitata?
 
 Nel caso di un insieme di credenziali [GRS](azure-backup-glossary.md#grs) senza la funzionalità [CRR](azure-backup-glossary.md#cross-region-restore-crr) abilitata, non è possibile accedere ai dati nell'area secondaria fino a quando Azure non dichiara un'emergenza nell'area primaria. In uno scenario di questo tipo, il ripristino avviene dall'area secondaria. Quando CRR è abilitato, anche se l'area primaria è in esecuzione, è possibile attivare un ripristino nell'area secondaria.
+
+### <a name="can-i-move-a-subscription-that-contains-a-vault-to-a-different-azure-active-directory"></a>È possibile spostare una sottoscrizione che contiene un insieme di credenziali in un Azure Active Directory diverso?
+
+Sì. Per spostare una sottoscrizione (che contiene un insieme di credenziali) in un Azure Active Directory diverso (AD), vedere [trasferire la sottoscrizione a una directory diversa](../role-based-access-control/transfer-subscription.md).
+
+>[!IMPORTANT]
+>Dopo aver spostato la sottoscrizione, assicurarsi di eseguire le azioni seguenti:<ul><li>Le autorizzazioni di controllo degli accessi in base al ruolo e i ruoli personalizzati non sono trasferibili. È necessario ricreare le autorizzazioni e i ruoli nella nuova Azure AD.</li><li>Per ricreare l'identità gestita (MI) dell'insieme di credenziali, è necessario disabilitarla e abilitarla di nuovo. Inoltre, è necessario valutare e ricreare le autorizzazioni MI.</li><li>Se l'insieme di credenziali USA funzionalità che usano MI, ad esempio [endpoint privati](private-endpoints.md#before-you-start) e [chiavi gestite dal cliente](encryption-at-rest-with-cmk.md#before-you-start), è necessario riconfigurare le funzionalità.</li></ul>
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 54f3004c190c104f2f869b2878b50f5b6c88856b
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: c18366fd4bc510f32ac0ef255b27709797a3b626
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463805"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493706"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>Esercitazione: creare un grafo di gemelli digitali di Azure usando un'app client di esempio
 
@@ -37,18 +37,17 @@ In questa esercitazione si apprenderà come:
 
 Ora che l'app e l'autenticazione sono configurate, eseguire il progetto con questo pulsante sulla barra degli strumenti:
 
-:::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Pulsante di avvio di Visual Studio (progetto SampleClientApp)":::
+:::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Screenshot del pulsante di avvio di Visual Studio (progetto SampleClientApp)." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
 
 Viene aperta una finestra della console, in cui viene eseguita l'autenticazione e si attende un comando. 
 * L'autenticazione viene gestita tramite il browser. Il Web browser predefinito verrà aperto con una richiesta di autenticazione. Usare la richiesta per accedere con le credenziali di Azure. È quindi possibile chiudere la scheda o la finestra del browser.
 
 Ecco uno screenshot della console del progetto:
 
-:::image type="content" source="media/tutorial-command-line/app/command-line-app.png" alt-text="Messaggio di benvenuto dall'app da riga di comando":::
+:::image type="content" source="media/tutorial-command-line/app/command-line-app.png" alt-text="Screenshot del messaggio di benvenuto dall'app della riga di comando." lightbox="media/tutorial-command-line/app/command-line-app.png":::
 
 > [!TIP]
 > Per un elenco di tutti i comandi che è possibile usare con questo progetto, immettere `help` nella console del progetto e premere INVIO.
-> :::image type="content" source="media/tutorial-command-line/app/command-line-app-help.png" alt-text="Output del comando help":::
 
 Mantenere in esecuzione la console del progetto per i passaggi rimanenti dell'esercitazione.
 
@@ -83,7 +82,7 @@ Dopo aver progettato i modelli, è necessario caricarli nell'istanza di Gemelli 
 
 1. Verificare se i modelli sono stati creati eseguendo il comando `GetModels true`. Viene eseguita una query sull'istanza di Gemelli digitali di Azure per recuperare tutti i modelli caricati e verranno stampate le relative informazioni complete. Cercare il modello *Room* modificato nei risultati:
 
-    :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Risultati di GetModels che mostrano il modello Room aggiornato":::
+    :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Screenshot del risultato da getmodes, che mostra il modello di chat room aggiornato." lightbox="media/tutorial-command-line/app/output-get-models.png":::
 
 ### <a name="errors"></a>Errors
 
@@ -128,7 +127,7 @@ Per creare un gemello digitale, usare il comando `CreateDigitalTwin`. È necessa
 
     L'output di questi comandi dovrebbe indicare che i gemelli sono stati creati correttamente. 
     
-    :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Estratto dei risultati dei comandi CreateDigitalTwin, che mostra floor0, floor1, room0 e room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Screenshot che mostra un estratto dal risultato dei comandi CreateDigitalTwin, che include floor0, floor1, room0 e room1." lightbox="media/tutorial-command-line/app/output-create-digital-twin.png":::
 
 1. È possibile verificare che i gemelli siano stati creati eseguendo il `Query` comando. Questo comando esegue una query nell'istanza di Gemelli digitali di Azure per recuperare tutti i gemelli digitali che contiene. Cercare i *room0*, *Room1*, *floor0* e *floor1* gemelli nei risultati.
 
@@ -180,7 +179,7 @@ Per aggiungere una relazione, usare il comando `CreateRelationship`. Specificare
     
     L'output di questi comandi conferma che le relazioni sono state create correttamente:
     
-    :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Estratto dei risultati dei comandi CreateRelationship, che mostra relationship0 e relationship1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Screenshot di un estratto dal risultato dei comandi CreateRelationship, che include relationship0 e relationship1." lightbox="media/tutorial-command-line/app/output-create-relationship.png":::
 
 1. È possibile verificare le relazioni con uno dei comandi seguenti, che eseguono query sulle relazioni nell'istanza di Azure Digital gemelli.
     * Per visualizzare tutte le relazioni provenienti da ogni piano (visualizzando le relazioni da un lato):
@@ -201,7 +200,7 @@ Per aggiungere una relazione, usare il comando `CreateRelationship`. Specificare
 
 I gemelli e le relazioni configurati in questa esercitazione formano il grafo concettuale seguente:
 
-:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Grafo che mostra floor0 connesso tramite relationship0 a room0 e floor1 connesso tramite relationship1 a room1" border="false":::
+:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Diagramma che mostra un grafo concettuale. floor0 è connesso tramite relationship0 a room0 e floor1 è connesso tramite relationship1 a Room1." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Eseguire una query sul grafo dei gemelli per rispondere alla domande sull'ambiente
 
@@ -217,7 +216,7 @@ Eseguire i comandi seguenti nella console del progetto in esecuzione per rispond
 
     In questo modo è possibile ottenere una panoramica dell'ambiente e assicurarsi che tutti gli elementi siano rappresentati come previsto all'interno di Gemelli digitali di Azure. Il risultato è un output contenente ogni gemello digitale con i relativi dettagli. Ecco un estratto:
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Risultati parziali della query sui gemelli, che mostrano room0 e floor1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Screenshot che mostra un risultato parziale dalla query dei dispositivi gemelli, inclusi room0 e floor1.":::
 
     >[!NOTE]
     >Nel progetto di esempio il comando `Query` senza argomenti aggiuntivi è l'equivalente di `Query SELECT * FROM DIGITALTWINS`. Per eseguire query su tutti i gemelli nell'istanza con le [API Query](/rest/api/digital-twins/dataplane/query) o i [comandi dell'interfaccia della riga di comando](how-to-use-cli.md), usare la query più lunga (completa).
@@ -230,7 +229,7 @@ Eseguire i comandi seguenti nella console del progetto in esecuzione per rispond
 
     È possibile limitare la query ai gemelli di un determinato tipo, per ottenere informazioni più specifiche su quello che rappresentano. Il risultato di questa operazione mostra *room0* e *room1*, ma **non** mostra *floor0* o *floor1* (perché si tratta di piani, non di stanze).
     
-    :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Risultati della query per modello, che mostrano solo room0 e room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Screenshot del risultato della query del modello che mostra solo room0 e room1.":::
 
 1. **Quali sono tutte le stanze in *floor0*?** (query per relazione)
 
@@ -240,7 +239,7 @@ Eseguire i comandi seguenti nella console del progetto in esecuzione per rispond
 
     È possibile eseguire query in base alle relazioni nel grafo, per ottenere informazioni sul modo in cui i gemelli sono connessi o limitare la query a una determinata area. In *floor0* è presente solo *room0*, che quindi è l'unica stanza nel risultato.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="Risultati della query per relazione, che mostrano room0":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="Screenshot del risultato della query Relationship, che mostra room0.":::
 
 1. **Quali sono gli altri gemelli dell'ambiente con una temperatura superiore a 75?** (query per proprietà)
 
@@ -250,7 +249,7 @@ Eseguire i comandi seguenti nella console del progetto in esecuzione per rispond
 
     È possibile eseguire una query sul grafo in base alle proprietà per rispondere a una serie di domande, anche per trovare outlier nell'ambiente che potrebbero richiedere attenzione. Sono supportati anche altri operatori di confronto, ossia *<* , *>* , *=* o *!=* . I risultati mostrano *room1*, perché ha una temperatura pari a 80.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Risultati della query per proprietà, che mostrano solo room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Screenshot del risultato della query della proprietà, che mostra solo Room1.":::
 
 1. **Quali sono tutte le stanze in *floor0* con una temperatura superiore a 75?** (query composta)
 
@@ -260,7 +259,7 @@ Eseguire i comandi seguenti nella console del progetto in esecuzione per rispond
 
     È anche possibile combinare le query precedenti come in SQL, usando operatori di combinazione come `AND`, `OR`, `NOT`. Questa query usa `AND` per rendere più specifica la query precedente sulle temperature dei gemelli. Il risultato include ora solo le stanze con temperature superiori a 75 che si trovano in *floor0*, ovvero in questo caso nessuna stanza. Il set di risultati è vuoto.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-compound.png" alt-text="Risultati della query composta, senza risultati":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-compound.png" alt-text="Screenshot del risultato della query composta che non mostra alcun risultato." lightbox="media/tutorial-command-line/app/output-query-compound.png":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

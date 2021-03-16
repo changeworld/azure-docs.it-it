@@ -1,7 +1,7 @@
 ---
 title: Creare una risorsa di Servizi cognitivi con l'interfaccia della riga di comando di Azure
 titleSuffix: Azure Cognitive Services
-description: Per iniziare a usare servizi cognitivi di Azure, è possibile creare e sottoscrivere una risorsa tramite l'interfaccia della riga di comando di Azure.
+description: Introduzione ai servizi cognitivi di Azure tramite la creazione e la sottoscrizione di una risorsa tramite l'interfaccia della riga di comando di Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ keywords: servizi cognitivi, intelligenza cognitiva, soluzioni cognitive, serviz
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 95d74601ca912647eadd1bd4e1045108be6b2adb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c1e8b260f6c06d8f26f5ba99b4fb02edfa5e8656
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050070"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472101"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Guida introduttiva: creare una risorsa di servizi cognitivi usando l'interfaccia della Command-Line di Azure
 
@@ -99,16 +99,6 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 | Riconoscimento modulo            | `FormRecognizer`          |
 | Riconoscimento input penna             | `InkRecognizer`           |
 
-### <a name="search"></a>Ricerca
-
-| Servizio            | Tipo                  |
-|--------------------|-----------------------|
-| Suggerimenti automatici Bing   | `Bing.Autosuggest.v7` |
-| Ricerca personalizzata Bing | `Bing.CustomSearch`   |
-| Ricerca entità Bing | `Bing.EntitySearch`   |
-| Ricerca Bing        | `Bing.Search.v7`      |
-| Controllo ortografico Bing   | `Bing.SpellCheck.v7`  |
-
 ### <a name="speech"></a>Voce
 
 | Servizio            | Tipo                 |
@@ -181,7 +171,7 @@ Usare il comando [AZ cognitiveservices account keys List](/cli/azure/cognitivese
 I piani tariffari (e l'importo fatturato) si basano sul numero di transazioni inviate usando le informazioni di autenticazione. Ogni piano tariffario specifica:
 * Il numero massimo di transazioni consentite al secondo.
 * Le funzionalità del servizio abilitate all'interno del piano tariffario.
-* Costo di una quantità predefinita di transazioni. Il superamento di questo importo comporterà un addebito aggiuntivo come specificato nei dettagli relativi ai [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) per il servizio.
+* Costo di un numero predefinito di transazioni. Il superamento di questo importo comporterà un addebito aggiuntivo come specificato nei dettagli relativi ai [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) per il servizio.
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>Ottenere l'utilizzo della quota corrente per la risorsa
 

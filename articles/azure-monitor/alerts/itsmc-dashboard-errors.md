@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 5cc3c4a07cc698f3592a2ff2fd76e9f4bbef441b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 727e744c59d0a8d90cf320e1ee2e2a17e10ff847
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036453"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471534"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>Errori di stato del connettore nel dashboard di connettore
 
@@ -88,3 +88,11 @@ Le sezioni seguenti descrivono gli errori comuni che vengono visualizzati nella 
 
 * Quando viene creata una nuova istanza di connettore, viene avviata la sincronizzazione delle informazioni dal sistema ITSM, ad esempio i modelli di elemento di lavoro e gli elementi di lavoro. [Sincronizzare connettore per generare un nuovo token di aggiornamento](./itsmc-resync-servicenow.md).
 * [Esaminare i dettagli della connessione in connettore](./itsmc-connections-servicenow.md#create-a-connection) e verificare che connettore sia in grado di eseguire correttamente la [sincronizzazione](./itsmc-resync-servicenow.md).
+
+
+## <a name="ip-restrictions"></a>Restrizioni IP
+**Errore**: "Impossibile aggiungere la connessione ITSM denominata" xxx "a causa di una richiesta non valida. Errore: richiesta non valida. Parametri non validi specificati per la connessione. Eccezione http: codice di stato non consentito. "
+
+**Motivo**: l'indirizzo IP dell'applicazione ITSM non consente le connessioni ITSM da partner ITSM Tools.
+
+**Soluzione**: per elencare gli indirizzi IP di ITSM per consentire le connessioni ITSM da partner ITSM Tools, è consigliabile elencare l'intero intervallo di indirizzi IP pubblici dell'area di Azure in cui appartiene l'area di lavoro di LogAnalytics. [Dettagli qui](https://www.microsoft.com/download/details.aspx?id=56519) Per le aree EUS/UEO/EUS2/WUS2/Stati Uniti centro-meridionali, il cliente può elencare solo i tag di rete ActionGroup.

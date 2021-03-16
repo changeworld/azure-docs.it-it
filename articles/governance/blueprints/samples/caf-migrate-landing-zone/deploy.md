@@ -1,14 +1,14 @@
 ---
 title: Distribuire l'esempio di progetto della zona di destinazione per la migrazione di Cloud Adoption Framework
 description: Procedura di distribuzione per il progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework, inclusi i dettagli dei parametri dell'artefatto del progetto.
-ms.date: 05/06/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: 109c9a2c4c5670d6f5a676498ae1010a4ab0e418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: d5aed1d492fea102598a22921d04ed8681c727cb
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82871174"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470116"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Distribuire il progetto di esempio della zona di destinazione per le migrazioni di Microsoft Cloud Adoption Framework per Azure
 

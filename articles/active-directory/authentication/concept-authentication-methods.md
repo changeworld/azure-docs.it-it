@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 0bbaf5fa4f3404b0e4fdb4dc016b703c58910457
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ee10aa7c461aca65f385c735f6e9aaa28af7f9e5
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101652080"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471702"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
 
@@ -38,12 +38,12 @@ Quando si distribuiscono funzionalità come Azure AD Multi-Factor Authentication
 
 Nella tabella seguente vengono descritte le considerazioni sulla sicurezza per i metodi di autenticazione disponibili. La disponibilità indica che l'utente è in grado di usare il metodo di autenticazione, non della disponibilità del servizio in Azure AD:
 
-| Metodo di autenticazione          | Sicurezza | Usabilità | Disponibilità |
+| Metodo di autenticazione          | Security | Usabilità | Disponibilità |
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello for Business     | Alto     | Alto      | Alto         |
 | App Microsoft Authenticator    | Alto     | Alto      | Alto         |
 | Chiave di sicurezza FIDO2             | Alto     | Alto      | Alto         |
-| Token hardware OATH           | Livello medio   | Livello medio    | Alto         |
+| Token hardware OATH (anteprima) | Livello medio   | Livello medio    | Alto         |
 | Token software OATH           | Livello medio   | Livello medio    | Alto         |
 | SMS                            | Medio   | Alto      | Medio       |
 | Chiamata vocale                          | Livello medio   | Livello medio    | Livello medio       |
@@ -68,7 +68,7 @@ La tabella seguente illustra quando è possibile usare un metodo di autenticazio
 | Windows Hello for Business     | Sì                    | MFA                       |
 | App Microsoft Authenticator    | Sì                    | Autenticazione a più fattori e SSPR              |
 | Chiave di sicurezza FIDO2             | Sì                    | MFA                       |
-| Token hardware OATH           | No                     | MFA                       |
+| Token hardware OATH (anteprima) | No                     | MFA                       |
 | Token software OATH           | No                     | MFA                       |
 | SMS                            | Sì                    | Autenticazione a più fattori e SSPR              |
 | Chiamata vocale                     | No                     | Autenticazione a più fattori e SSPR              |
@@ -81,7 +81,7 @@ Per altre informazioni sul funzionamento di ogni metodo di autenticazione, veder
 * [Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [App Microsoft Authenticator](concept-authentication-authenticator-app.md)
 * [Chiave di sicurezza FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
-* [Token hardware OATH](concept-authentication-oath-tokens.md#oath-hardware-tokens)
+* [Token hardware OATH (anteprima)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [Token software OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
 * [Accesso](howto-authentication-sms-signin.md) e [Verifica](concept-authentication-phone-options.md#mobile-phone-verification) tramite SMS
 * [Verifica della chiamata vocale](concept-authentication-phone-options.md)

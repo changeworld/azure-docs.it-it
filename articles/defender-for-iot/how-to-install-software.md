@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 49a0129ff26d4a12392066aa6304317d71fdb0f1
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 1e361ad14f79ea32d83e8cff9dd9bb8607b7c766
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247591"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470678"
 ---
 # <a name="defender-for-iot-installation"></a>Defender per l'installazione di Internet.
 
@@ -42,12 +42,12 @@ Il sensore del dispositivo di protezione per la gestione delle cose si connette 
 
 Sono disponibili le appliance di montaggio rack seguenti:
 
-| **Tipo di distribuzione** | **Aziendale** | **Funzionalità per le aziende** | **SMB** |  |
+| **Tipo di distribuzione** | **Aziendale** | **Funzionalità per le aziende** | **SMB** | **Linea** |
 |--|--|--|--|--|
 | **Modello** | DL360 ProLiant HPE | Dell PowerEdge R340 supplementare XL | DL20 ProLiant HPE | DL20 ProLiant HPE |
 | **Monitoraggio di porte** | fino a 15 RJ45 o 8 OPT | fino a 9 RJ45 o 6 OPT | fino a 8 RJ45 o 6 OPT | 4 RJ45 |
-| **Larghezza di \* banda massima* _ | 3 GB/sec | 1 GB/sec | 1 GB/sec | 100 MB/sec |
-| _ *Max dispositivi protetti** | 30.000 | 10,000 | 15.000 | 1\.000 |
+| **Larghezza di banda massima\*** | 3 GB/sec | 1 GB/sec | 1 GB/sec | 100 MB/sec |
+| **Numero massimo di dispositivi protetti** | 30.000 | 10,000 | 15.000 | 1\.000 |
 
 * La capacità massima della larghezza di banda può variare a seconda della distribuzione del protocollo.
 
@@ -58,9 +58,9 @@ Sono disponibili le appliance virtuali seguenti:
 | **Tipo di distribuzione** | **Funzionalità per le aziende** | **SMB** | **Linea** |
 |--|--|--|--|
 | **Descrizione** | Appliance virtuale per le distribuzioni aziendali | Appliance virtuale per distribuzioni SMB | Appliance virtuale per le distribuzioni linea |
-| **Larghezza di \* banda massima* _ | 150 MB/sec | 15 MB/sec | 3 MB/sec |
-| _ *Max dispositivi protetti** | 3,000 | 300 | 100 |
-| **Tipo di distribuzione** | Enterprise | SMB | Grafico a linee |
+| **Larghezza di banda massima\*** | 150 MB/sec | 15 MB/sec | 3 MB/sec |
+| **Numero massimo di dispositivi protetti** | 3,000 | 300 | 100 |
+| **Tipo di distribuzione** | Enterprise | SMB | Linea |
 | **Descrizione** | Appliance virtuale per le distribuzioni aziendali | Appliance virtuale per distribuzioni SMB | Appliance virtuale per le distribuzioni linea |
 
 * La capacità massima della larghezza di banda può variare a seconda della distribuzione del protocollo.
@@ -84,7 +84,7 @@ Per accedere al file:
 
 1. Accedere all'account Defender per il proprio account.
 
-2. Passare alla pagina **sensore di rete** o **console di gestione locale** e selezionare una versione da scaricare.
+1. Passare alla pagina **sensore di rete** o **console di gestione locale** e selezionare una versione da scaricare.
 
 ### <a name="install-from-dvd"></a>Installare da DVD
 
@@ -116,9 +116,9 @@ Per preparare un disco su una chiave:
 
 1. Eseguire Rufus e selezionare **Sensor ISO**.
 
-2. Connettere il disco su una chiave al pannello anteriore.
+1. Connettere il disco su una chiave al pannello anteriore.
 
-3. Impostare il BIOS del server per l'avvio dal dispositivo USB.
+1. Impostare il BIOS del server per l'avvio dal dispositivo USB.
 
 ## <a name="dell-poweredger340xl-installation"></a>Installazione dell PowerEdgeR340XL
 
@@ -149,27 +149,27 @@ Per installare l'appliance Dell PowerEdge R340XL, è necessario quanto segue:
 :::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Pannello anteriore del R340 supplementare Dell PowerEdge.":::
 
  1. Pannello di controllo a sinistra 
- 2. Unità ottica (facoltativo) 
- 3. Pannello di controllo destro 
- 4. Tag informazioni 
- 5. Unità  
+ 1. Unità ottica (facoltativo) 
+ 1. Pannello di controllo destro 
+ 1. Tag informazioni 
+ 1. Unità  
 
 ### <a name="dell-poweredge-r340-back-panel"></a>Pannello indietro R340 supplementare Dell PowerEdge
 
 :::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Pannello indietro R340 supplementare Dell PowerEdge.":::
 
 1. Porta seriale 
-2. Porta NIC (GB 1) 
-3. Porta NIC (GB 1) 
-4. PCIe a metà altezza 
-5. Slot della scheda di espansione PCIe a altezza intera 
-6. Unità alimentatore 1 
-7. Unità alimentatore 2 
-8. Identificazione sistema 
-9. Pulsante della porta del cavo indicatore di stato del sistema (CMA) 
-10. Porta USB 3,0 (2) 
-11. porta di rete dedicata iDRAC9 
-12. Porta VGA 
+1. Porta NIC (GB 1) 
+1. Porta NIC (GB 1) 
+1. PCIe a metà altezza 
+1. Slot della scheda di espansione PCIe a altezza intera 
+1. Unità alimentatore 1 
+1. Unità alimentatore 2 
+1. Identificazione sistema 
+1. Pulsante della porta del cavo indicatore di stato del sistema (CMA) 
+1. Porta USB 3,0 (2) 
+1. porta di rete dedicata iDRAC9 
+1. Porta VGA 
 
 ### <a name="dell-bios-configuration"></a>Configurazione BIOS dell
 
@@ -189,28 +189,28 @@ Per configurare il BIOS Dell:
 
 1. [Configurare l'indirizzo IP di iDRAC](#configure-idrac-ip-address)
 
-2. [Importare il file di configurazione del BIOS](#import-the-bios-configuration-file)
+1. [Importare il file di configurazione del BIOS](#import-the-bios-configuration-file)
 
 #### <a name="configure-idrac-ip-address"></a>Configurare l'indirizzo IP di iDRAC
 
 1. Accendere il sensore.
 
-2. Se il sistema operativo è già installato, selezionare il tasto F2 per accedere alla configurazione del BIOS.
+1. Se il sistema operativo è già installato, selezionare il tasto F2 per accedere alla configurazione del BIOS.
 
-3. Selezionare **le impostazioni di Idrac**.
+1. Selezionare **le impostazioni di Idrac**.
 
-4. Selezionare **rete**.
+1. Selezionare **rete**.
 
    > [!NOTE]
    > Durante l'installazione, è necessario configurare l'indirizzo IP e la password iDRAC predefiniti indicati nei passaggi seguenti. Dopo l'installazione, è possibile modificare queste definizioni.
 
-5. Modificare l'indirizzo IPv4 statico in **10.100.100.250**.
+1. Modificare l'indirizzo IPv4 statico in **10.100.100.250**.
 
-6. Modificare il subnet mask statico in **255.255.255.0**.
+1. Modificare il subnet mask statico in **255.255.255.0**.
 
    :::image type="content" source="media/tutorial-install-components/idrac-network-settings-screen-v2.png" alt-text="Screenshot che mostra la subnet mask statica.":::
 
-7. Selezionare **back**  >  **Finish (fine**).
+1. Selezionare **back**  >  **Finish (fine**).
 
 #### <a name="import-the-bios-configuration-file"></a>Importare il file di configurazione del BIOS
 
@@ -220,15 +220,15 @@ Questo articolo descrive come configurare il BIOS usando il file di configurazio
 
    :::image type="content" source="media/tutorial-install-components/idrac-port.png" alt-text="Screenshot della porta dell'indirizzo IP preconfigurato.":::
 
-2. Aprire un browser e immettere **10.100.100.250** per connettersi all'interfaccia Web di Idrac.
+1. Aprire un browser e immettere **10.100.100.250** per connettersi all'interfaccia Web di Idrac.
 
-3. Accedere con i privilegi di amministratore predefinito di Dell:
+1. Accedere con i privilegi di amministratore predefinito di Dell:
 
    - Nome utente: **radice**
 
    - Password: **Calvin**
 
-4. Le credenziali dell'appliance sono:
+1. Le credenziali dell'appliance sono:
 
    - Nome utente: **xxx**
 
@@ -241,7 +241,7 @@ Questo articolo descrive come configurare il BIOS usando il file di configurazio
      > - Si è l'unico utente attualmente connesso a iDRAC.
      > - Il sistema non si trova nel menu BIOS.
 
-5. Passare al   >  **profilo di configurazione del server** di configurazione. Impostare i parametri seguenti:
+1. Passare al   >  **profilo di configurazione del server** di configurazione. Impostare i parametri seguenti:
 
    :::image type="content" source="media/tutorial-install-components/configuration-screen.png" alt-text="Screenshot che mostra la configurazione del profilo del server.":::
 
@@ -252,9 +252,9 @@ Questo articolo descrive come configurare il BIOS usando il file di configurazio
    | Importa componenti | Selezionare **BIOS, NIC, RAID**. |
    | Tempo massimo di attesa | Selezionare **20 minuti**. |
 
-6. Selezionare **Importa**.
+1. Selezionare **Importa**.
 
-7. Per monitorare il processo, passare a **manutenzione**  >  **coda processi**.
+1. Per monitorare il processo, passare a **manutenzione**  >  **coda processi**.
 
    :::image type="content" source="media/tutorial-install-components/view-the-job-queue.png" alt-text="Screenshot che mostra la coda di processi.":::
 
@@ -276,33 +276,33 @@ Per configurare manualmente:
 
    - Se l'appliance è un Defender per l'appliance per le cose, accedere usando **xxx** come nome utente e **xxx** per la password.
 
-2. Dopo aver eseguito l'accesso al BIOS, passare a **Impostazioni dispositivo**.
+1. Dopo aver eseguito l'accesso al BIOS, passare a **Impostazioni dispositivo**.
 
-3. Scegliere la configurazione controllata da RAID selezionando **Integrated RAID Controller 1: Dell PERC \<PERC H330 Adapter\> Configuration Utility**.
+1. Scegliere la configurazione controllata da RAID selezionando **Integrated RAID Controller 1: Dell PERC \<PERC H330 Adapter\> Configuration Utility**.
 
-4. Selezionare **Gestione configurazione**.
+1. Selezionare **Gestione configurazione**.
 
-5. Selezionare **Crea disco virtuale**.
+1. Selezionare **Crea disco virtuale**.
 
-6. Nel campo **Seleziona livello RAID** selezionare **RAID5**. Nel campo **nome disco virtuale** immettere **radice** e selezionare **dischi fisici**.
+1. Nel campo **Seleziona livello RAID** selezionare **RAID5**. Nel campo **nome disco virtuale** immettere **radice** e selezionare **dischi fisici**.
 
-7. Selezionare **Controlla tutto** , quindi selezionare **Applica modifiche**
+1. Selezionare **Controlla tutto** , quindi selezionare **Applica modifiche**
 
-8. Selezionare **OK**.
+1. Selezionare **OK**.
 
-9. Scorrere verso il basso e selezionare **Crea disco virtuale**.
+1. Scorrere verso il basso e selezionare **Crea disco virtuale**.
 
-10. Selezionare la casella di controllo **conferma** e selezionare **Sì**.
+1. Selezionare la casella di controllo **conferma** e selezionare **Sì**.
 
-11. Selezionare **OK**.
+1. Selezionare **OK**.
 
-12. Tornare alla schermata principale e selezionare **BIOS di sistema**.
+1. Tornare alla schermata principale e selezionare **BIOS di sistema**.
 
-13. Selezionare **impostazioni di avvio**.
+1. Selezionare **impostazioni di avvio**.
 
-14. Per l'opzione **modalità di avvio** selezionare **BIOS**.
+1. Per l'opzione **modalità di avvio** selezionare **BIOS**.
 
-15. Selezionare **indietro**, quindi fare clic su **fine** per uscire dalle impostazioni del BIOS.
+1. Selezionare **indietro**, quindi fare clic su **fine** per uscire dalle impostazioni del BIOS.
 
 ### <a name="software-installation-dell-r340"></a>Installazione software (dell R340 supplementare)
 
@@ -316,25 +316,25 @@ Per effettuare l'installazione:
 
    - Montare l'immagine ISO usando iDRAC. Dopo aver eseguito l'accesso a iDRAC, selezionare la console virtuale e quindi selezionare **supporto virtuale**.
 
-2. Nella sezione **Map CD/DVD** selezionare **Choose file**.
+1. Nella sezione **Map CD/DVD** selezionare **Choose file**.
 
-3. Scegliere il file di immagine ISO della versione per questa versione dalla finestra di dialogo visualizzata.
+1. Scegliere il file di immagine ISO della versione per questa versione dalla finestra di dialogo visualizzata.
 
-4. Selezionare il pulsante **mappa dispositivo** .
+1. Selezionare il pulsante **mappa dispositivo** .
 
    :::image type="content" source="media/tutorial-install-components/mapped-device-on-virtual-media-screen-v2.png" alt-text="Screenshot che mostra un dispositivo mappato.":::
 
-5. Il supporto viene montato. Selezionare **Chiudi**.
+1. Il supporto viene montato. Selezionare **Chiudi**.
 
-6. Avviare l'appliance. Quando si usa iDRAC, è possibile riavviare i server selezionando il pulsante di **controllo console** . Quindi, sulle **macro della tastiera**, selezionare il pulsante **applica** , che consente di avviare la sequenza di tasti CTRL + ALT + CANC.
+1. Avviare l'appliance. Quando si usa iDRAC, è possibile riavviare i server selezionando il pulsante di **controllo console** . Quindi, sulle **macro della tastiera**, selezionare il pulsante **applica** , che consente di avviare la sequenza di tasti CTRL + ALT + CANC.
 
-7. Selezionare **inglese**.
+1. Selezionare **inglese**.
 
-8. Selezionare **Sensor-Release- \<version\> Enterprise**.
+1. Selezionare **Sensor-Release- \<version\> Enterprise**.
 
    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot che mostra la selezione della versione.":::   
 
-9. Definire il profilo dell'appliance e le proprietà di rete:
+1. Definire il profilo dell'appliance e le proprietà di rete:
 
    :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot che mostra il profilo dell'appliance.":::   
 
@@ -348,13 +348,13 @@ Per effettuare l'installazione:
    | **nome host dell'appliance:** | - |
    | **DNS** | - |
    | **Indirizzo IP gateway predefinito:** | - |
-   | **interfacce di input:** |  Il sistema genera automaticamente l'elenco delle interfacce di input. Per eseguire il mirroring delle interfacce di input, copiare tutti gli elementi presentati nell'elenco con un separatore virgola. Si noti che non è necessario configurare l'interfaccia Bridge. Questa opzione viene utilizzata solo per i casi di utilizzo speciali. |
+   | **interfacce di input:** |  Il sistema genera automaticamente l'elenco delle interfacce di input. Per eseguire il mirroring delle interfacce di input, copiare tutti gli elementi presentati nell'elenco con un separatore virgola. Non è necessario configurare l'interfaccia Bridge. Questa opzione viene utilizzata solo per i casi di utilizzo speciali. |
 
-10. Dopo circa 10 minuti, verranno visualizzati i due set di credenziali. Uno per un utente di **CyberX** e uno per un utente di **supporto** .  
+1. Dopo circa 10 minuti, verranno visualizzati i due set di credenziali. Uno per un utente di **CyberX** e uno per un utente di **supporto** .  
 
-11. Salvare l'ID e le password del dispositivo. Queste credenziali sono necessarie per accedere alla piattaforma la prima volta che viene usata.
+1. Salvare l'ID e le password del dispositivo. Queste credenziali sono necessarie per accedere alla piattaforma la prima volta che viene usata.
 
-12. Premere **invio** per continuare.
+1. Premere **invio** per continuare.
 
 ## <a name="hpe-proliant-dl20-installation"></a>Installazione di HPE ProLiant DL20
 
@@ -389,7 +389,7 @@ Per abilitare e aggiornare la password:
 
     :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen-v2.png" alt-text="Screenshot che mostra la finestra di HPE ProLiant.":::
 
-2. Passare a **utilità di sistema**  >  **configurazione del sistema**  >  **ILO 5 configurazione utility**  >  **Opzioni di rete**.
+1. Passare a **utilità di sistema**  >  **configurazione del sistema**  >  **ILO 5 configurazione utility**  >  **Opzioni di rete**.
 
     :::image type="content" source="media/tutorial-install-components/system-configuration-window-v2.png" alt-text="Screenshot che mostra la finestra configurazione sistema.":::
 
@@ -399,13 +399,13 @@ Per abilitare e aggiornare la password:
     
     1.  Immettere l'indirizzo IP, il subnet mask e l'indirizzo IP del gateway.
 
-3. Selezionare **F10: Salva**.
+1. Selezionare **F10: Salva**.
 
-4. Selezionare **ESC** per tornare all'utilità di **configurazione ILO 5**, quindi selezionare **Gestione utenti**.
+1. Selezionare **ESC** per tornare all'utilità di **configurazione ILO 5**, quindi selezionare **Gestione utenti**.
 
-5. Selezionare **Modifica/Rimuovi utente**. L'amministratore è l'unico utente predefinito definito. 
+1. Selezionare **Modifica/Rimuovi utente**. L'amministratore è l'unico utente predefinito definito. 
 
-6. Modificare la password predefinita e selezionare **F10: Save**.
+1. Modificare la password predefinita e selezionare **F10: Save**.
 
 ### <a name="configure-the-hpe-bios"></a>Configurare il BIOS HPE
 
@@ -415,41 +415,41 @@ Per configurare il BIOS HPE:
 
 1. Selezionare **System Utilities**  >  **System Configuration**  >  **BIOS/Platform Configuration (RBSU)**.
 
-2. Nel modulo **BIOS/Platform Configuration (RBSU)** selezionare opzioni di **avvio**.
+1. Nel modulo **BIOS/Platform Configuration (RBSU)** selezionare opzioni di **avvio**.
 
-3. Modificare la **modalità di avvio** in **modalità BIOS legacy**, quindi selezionare **F10: Save**.
+1. Modificare la **modalità di avvio** in **modalità BIOS legacy**, quindi selezionare **F10: Save**.
 
-4. Selezionare **ESC** due volte per chiudere il modulo **configurazione di sistema** .
+1. Selezionare **ESC** due volte per chiudere il modulo **configurazione di sistema** .
 
 #### <a name="for-the-enterprise-appliance"></a>Per Enterprise Appliance
 
 1. Selezionare **Embedded RAID 1: HPE Smart Array P408i-a SR gen 10**  >  **Array Configuration**  >  **Create Array**.
 
-2. Nel modulo **Crea matrice** selezionare tutte le opzioni. Sono disponibili tre opzioni per **Enterprise** Appliance.
+1. Nel modulo **Crea matrice** selezionare tutte le opzioni. Sono disponibili tre opzioni per **Enterprise** Appliance.
 
 #### <a name="for-the-smb-appliance"></a>Per l'appliance SMB
 
 1. Selezionare **Embedded RAID 1: HPE Smart Array P208i-a SR gen 10**  >  **Array Configuration**  >  **Create Array**.
 
-2. Selezionare **Vai al modulo successivo**.
+1. Selezionare **Vai al modulo successivo**.
 
-3. Nel modulo **set RAID level** impostare il livello su **RAID 5** per le distribuzioni Enterprise e **RAID 1** per le distribuzioni SMB.
+1. Nel modulo **set RAID level** impostare il livello su **RAID 5** per le distribuzioni Enterprise e **RAID 1** per le distribuzioni SMB.
 
-4. Selezionare **Vai al modulo successivo**.
+1. Selezionare **Vai al modulo successivo**.
 
-5. Nel modulo **etichetta unità logica** immettere **unità logica 1**.
+1. Nel modulo **etichetta unità logica** immettere **unità logica 1**.
 
-6. Selezionare **Invia modifiche**.
+1. Selezionare **Invia modifiche**.
 
-7. Nel modulo **Invia** selezionare **Torna al menu principale**.
+1. Nel modulo **Invia** selezionare **Torna al menu principale**.
 
-8. Selezionare **F10: Salva** e quindi premere **ESC** due volte.
+1. Selezionare **F10: Salva** e quindi premere **ESC** due volte.
 
-9. Nella finestra **utilità di sistema** selezionare **un menu di avvio** monouso.
+1. Nella finestra **utilità di sistema** selezionare **un menu di avvio** monouso.
 
-10. Nel modulo del **menu di avvio** monouso selezionare **BIOS legacy One-Time menu di avvio**.
+1. Nel modulo del **menu di avvio** monouso selezionare **BIOS legacy One-Time menu di avvio**.
 
-11. Verranno visualizzate le finestre **avvio in Legacy** e **sostituzione di avvio** . Scegliere un'opzione di sostituzione dell'avvio; ad esempio, in una shell CD-ROM, USB, HDD o UEFI.
+1. Verranno visualizzate le finestre **avvio in Legacy** e **sostituzione di avvio** . Scegliere un'opzione di sostituzione dell'avvio; ad esempio, in una shell CD-ROM, USB, HDD o UEFI.
 
     :::image type="content" source="media/tutorial-install-components/boot-override-window-one-v2.png" alt-text="Screenshot che mostra la prima finestra di sostituzione dell'avvio.":::
 
@@ -462,19 +462,19 @@ Per installare il software:
 
 1. Connettere lo schermo e la tastiera all'appliance, quindi connettersi all'interfaccia della riga di comando.
 
-2. Connettere un CD o un disco esterno alla chiave con l'immagine ISO scaricata dalla pagina **aggiornamenti** nel portale Defender for Internet.
+1. Connettere un CD o un disco esterno alla chiave con l'immagine ISO scaricata dalla pagina **aggiornamenti** nel portale Defender for Internet.
 
-3. Avviare l'appliance.
+1. Avviare l'appliance.
 
-4. Selezionare **inglese**.
+1. Selezionare **inglese**.
 
     :::image type="content" source="media/tutorial-install-components/select-english-screen.png" alt-text="Selezione della lingua inglese nella finestra dell'interfaccia della riga di comando.":::
 
-5. Selezionare **Sensor-Release- <version> Enterprise**.
+1. Selezionare **Sensor-Release- <version> Enterprise**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot della schermata per la selezione di una versione.":::
 
-6. Nell'installazione guidata, definire il profilo dell'appliance e le proprietà di rete:
+1. Nell'installazione guidata, definire il profilo dell'appliance e le proprietà di rete:
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot che mostra l'installazione guidata.":::
 
@@ -485,11 +485,11 @@ Per installare il software:
     | **Parametri di rete predefiniti (in genere i parametri vengono forniti dal cliente)** | **Indirizzo IP della rete di gestione:** <br/> <br/>**nome host dell'appliance:** <br/>**DNS** <br/>**Indirizzo IP del gateway predefinito:**|
     | **interfacce di input:** | Il sistema genera automaticamente l'elenco delle interfacce di input.<br/><br/>Per eseguire il mirroring delle interfacce di input, copiare tutti gli elementi presentati nell'elenco con un separatore virgola: **eno5, ENO3, eno1, eno6, eno4**<br/><br/>**Per HPE DL20: non elencare eno1, enp1s0f4u4 (interfacce iLo)**<br/><br/>**Bridge**: non è necessario configurare l'interfaccia Bridge. Questa opzione viene utilizzata solo per i casi di utilizzo speciali. Premere **INVIO** per continuare. |
 
-7. Dopo circa 10 minuti, verranno visualizzati i due set di credenziali. Uno per un utente di **CyberX** e uno per un utente di **supporto** .
+1. Dopo circa 10 minuti, verranno visualizzati i due set di credenziali. Uno per un utente di **CyberX** e uno per un utente di **supporto** .
 
-8. Salvare l'ID e le password dell'appliance. Sono necessarie le credenziali per accedere alla piattaforma per la prima volta.
+1. Salvare l'ID e le password dell'appliance. Sono necessarie le credenziali per accedere alla piattaforma per la prima volta.
 
-9. Premere **invio** per continuare.
+1. Premere **invio** per continuare.
 
 ## <a name="hpe-proliant-dl360-installation"></a>Installazione di HPE ProLiant DL360
 
@@ -528,17 +528,17 @@ Per effettuare l'installazione:
 
 1. Accedere alla console iLO, quindi fare clic con il pulsante destro del mouse sulla schermata Server.
 
-2. Selezionare **console HTML5**.
+1. Selezionare **console HTML5**.
 
-3. Nella console di selezionare l'icona CD e scegliere l'opzione CD/DVD.
+1. Nella console di selezionare l'icona CD e scegliere l'opzione CD/DVD.
 
-4. Selezionare **file ISO locale**.
+1. Selezionare **file ISO locale**.
 
-5. Nella finestra di dialogo scegliere il file ISO pertinente.
+1. Nella finestra di dialogo scegliere il file ISO pertinente.
 
-6. Passare all'icona a sinistra, selezionare **Power** e selezionare Reset ( **Reimposta**).
+1. Passare all'icona a sinistra, selezionare **Power** e selezionare Reset ( **Reimposta**).
 
-7. Il dispositivo viene riavviato ed esegue il processo di installazione del sensore.
+1. Il dispositivo viene riavviato ed esegue il processo di installazione del sensore.
 
 ### <a name="software-installation-hpe-dl360"></a>Installazione software (HPE DL360)
 
@@ -548,17 +548,17 @@ Per effettuare l'installazione:
 
 1. Connettere lo schermo e la tastiera all'appliance, quindi connettersi all'interfaccia della riga di comando.
 
-2. Connettere un CD o un disco esterno su una chiave con l'immagine ISO scaricata dalla pagina **aggiornamenti** nel portale Defender for Internet.
+1. Connettere un CD o un disco esterno su una chiave con l'immagine ISO scaricata dalla pagina **aggiornamenti** nel portale Defender for Internet.
 
-3. Avviare l'appliance.
+1. Avviare l'appliance.
 
-4. Selezionare **inglese**.
+1. Selezionare **inglese**.
 
-5. Selezionare **Sensor-Release- <version> Enterprise**.
+1. Selezionare **Sensor-Release- <version> Enterprise**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot che mostra la selezione della versione.":::
 
-6. Nell'installazione guidata, definire il profilo dell'appliance e le proprietà di rete.
+1. Nell'installazione guidata, definire il profilo dell'appliance e le proprietà di rete.
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot che mostra l'installazione guidata.":::
 
@@ -567,20 +567,20 @@ Per effettuare l'installazione:
     | **Profilo hardware** | Selezionare **azienda**. |
     | **Interfaccia di gestione** | **eno2** |
     | **Parametri di rete predefiniti (forniti dal cliente)** | **Indirizzo IP della rete di gestione:** <br/>**subnet mask:** <br/>**nome host dell'appliance:** <br/>**DNS** <br/>**Indirizzo IP del gateway predefinito:**|
-    | **interfacce di input:**  | Il sistema genera automaticamente un elenco di interfacce di input.<br/><br/>Per eseguire il mirroring delle interfacce di input, copiare tutti gli elementi presentati nell'elenco con un separatore virgola.<br/><br/>Si noti che non è necessario configurare l'interfaccia Bridge. Questa opzione viene utilizzata solo per i casi di utilizzo speciali. |
+    | **interfacce di input:**  | Il sistema genera automaticamente un elenco di interfacce di input.<br/><br/>Per eseguire il mirroring delle interfacce di input, copiare tutti gli elementi presentati nell'elenco con un separatore virgola.<br/><br/> Non è necessario configurare l'interfaccia Bridge. Questa opzione viene utilizzata solo per i casi di utilizzo speciali. |
 
-7. Dopo circa 10 minuti, verranno visualizzati i due set di credenziali. Uno per un utente di **CyberX** e uno per un utente di **supporto** .
+1. Dopo circa 10 minuti, verranno visualizzati i due set di credenziali. Uno per un utente di **CyberX** e uno per un utente di **supporto** .
 
-8. Salvare l'ID e le password dell'appliance. Queste credenziali sono necessarie per accedere alla piattaforma per la prima volta.
+1. Salvare l'ID e le password dell'appliance. Queste credenziali sono necessarie per accedere alla piattaforma per la prima volta.
 
-9. Premere **invio** per continuare.
+1. Premere **invio** per continuare.
 
 ## <a name="sensor-installation-for-the-virtual-appliance"></a>Installazione del sensore per l'appliance virtuale
 
 È possibile distribuire la macchina virtuale per Defender per il sensore di Internet delle cose nelle architetture seguenti:
 
 
-| Architecture | Specifiche | Utilizzo | Commenti |
+| Architettura | Specifiche | Utilizzo | Commenti |
 |---|---|---|---|
 | **Funzionalità per le aziende** | CPU: 8<br/>Memoria: 32G RAM<br/>HDD: 1800 GB | Ambiente di produzione | Predefinito e più comune |
 | **Piccola impresa** | CPU: 4 <br/>Memoria: 8G RAM<br/>HDD: 500 GB | Ambienti di produzione di test o di piccole dimensioni | -  |
@@ -602,13 +602,13 @@ Verificare che l'hypervisor sia in esecuzione.
 
 1. Accedere a ESXi, scegliere l' **archivio dati** pertinente e selezionare **datastore browser**.
 
-2. **Caricare** l'immagine e selezionare **Chiudi**.
+1. **Caricare** l'immagine e selezionare **Chiudi**.
 
-3. Passare a **macchine virtuali** e quindi selezionare **Crea/registra VM**.
+1. Passare a **macchine virtuali** e quindi selezionare **Crea/registra VM**.
 
-4. Selezionare **Crea nuova macchina virtuale** e quindi fare clic su **Avanti**.
+1. Selezionare **Crea nuova macchina virtuale** e quindi fare clic su **Avanti**.
 
-5. Aggiungere un nome di sensore e scegliere:
+1. Aggiungere un nome di sensore e scegliere:
 
    - Compatibilità: **&lt; versione &gt; più recente di ESXi**
 
@@ -616,15 +616,15 @@ Verificare che l'hypervisor sia in esecuzione.
 
    - Versione del sistema operativo guest: **Ubuntu Linux (64 bit)**
 
-6. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-7. Scegliere l'archivio dati pertinente e fare clic su **Avanti**.
+1. Scegliere l'archivio dati pertinente e fare clic su **Avanti**.
 
-8. Modificare i parametri hardware virtuali in base all'architettura richiesta.
+1. Modificare i parametri hardware virtuali in base all'architettura richiesta.
 
-9. Per l' **unità CD/DVD 1** selezionare **file ISO archivio dati** e scegliere il file ISO caricato in precedenza.
+1. Per l' **unità CD/DVD 1** selezionare **file ISO archivio dati** e scegliere il file ISO caricato in precedenza.
 
-10. Selezionare **Next** > **Finish** (Avanti > Fine).
+1. Selezionare **Next** > **Finish** (Avanti > Fine).
 
 ### <a name="create-the-virtual-machine-hyper-v"></a>Creazione della macchina virtuale (Hyper-V)
 
@@ -634,43 +634,43 @@ Per creare una macchina virtuale:
 
 1. Creare un disco virtuale nella console di gestione di Hyper-V.
 
-2. Selezionare **Format = VHDX**.
+1. Selezionare **Format = VHDX**.
 
-3. Selezionare **Type = Dynamic Expanding**.
+1. Selezionare **Type = Dynamic Expanding**.
 
-4. Immettere il nome e il percorso del disco rigido virtuale.
+1. Immettere il nome e il percorso del disco rigido virtuale.
 
-5. Immettere le dimensioni necessarie in base all'architettura.   
+1. Immettere le dimensioni necessarie in base all'architettura.   
 
-6. Rivedere il riepilogo e selezionare **Fine**.
+1. Rivedere il riepilogo e selezionare **Fine**.
 
-7. Nel menu **azioni** creare una nuova macchina virtuale.
+1. Nel menu **azioni** creare una nuova macchina virtuale.
 
-8. Immettere un nome per la macchina virtuale.
+1. Immettere un nome per la macchina virtuale.
 
-9. Selezionare **specifica** generazione generazione  >  **1**.
+1. Selezionare **specifica** generazione generazione  >  **1**.
 
-10. Specificare l'allocazione di memoria, in base all'architettura, e selezionare la casella di controllo per la memoria dinamica.
+1. Specificare l'allocazione di memoria, in base all'architettura, e selezionare la casella di controllo per la memoria dinamica.
 
-11. Configurare la scheda di rete in base alla topologia di rete del server.
+1. Configurare la scheda di rete in base alla topologia di rete del server.
 
-12. Connettere il VHDX creato in precedenza alla macchina virtuale.
+1. Connettere il VHDX creato in precedenza alla macchina virtuale.
 
-13. Rivedere il riepilogo e selezionare **Fine**.
+1. Rivedere il riepilogo e selezionare **Fine**.
 
-14. Fare clic con il pulsante destro del mouse sulla nuova macchina virtuale e scegliere **Impostazioni**.
+1. Fare clic con il pulsante destro del mouse sulla nuova macchina virtuale e scegliere **Impostazioni**.
 
-15. Selezionare **Aggiungi hardware** e aggiungere una nuova scheda di rete.
+1. Selezionare **Aggiungi hardware** e aggiungere una nuova scheda di rete.
 
-16. Selezionare il commutire virtuale che si connetterà alla rete di gestione dei sensori.
+1. Selezionare il commutire virtuale che si connetterà alla rete di gestione dei sensori.
 
-17. Allocare risorse CPU (in base all'architettura).
+1. Allocare risorse CPU (in base all'architettura).
 
-18. Connettere l'immagine ISO della console di gestione a un'unità DVD virtuale.
+1. Connettere l'immagine ISO della console di gestione a un'unità DVD virtuale.
 
-19. Avviare la macchina virtuale.
+1. Avviare la macchina virtuale.
 
-20. Scegliere **Connetti** dal menu **azioni** per continuare l'installazione del software.
+2. Scegliere **Connetti** dal menu **azioni** per continuare l'installazione del software.
 
 ### <a name="software-installation-esxi-and-hyper-v"></a>Installazione software (ESXi e Hyper-V)
 
@@ -680,11 +680,11 @@ Per effettuare l'installazione:
 
 1. Aprire la console della macchina virtuale.
 
-2. La macchina virtuale verrà avviata dall'immagine ISO e verrà visualizzata la schermata di selezione della lingua. Selezionare **inglese**.
+1. La macchina virtuale verrà avviata dall'immagine ISO e verrà visualizzata la schermata di selezione della lingua. Selezionare **inglese**.
 
-3. Selezionare l'architettura richiesta.
+1. Selezionare l'architettura richiesta.
 
-4. Definire il profilo dell'appliance e le proprietà di rete:
+1. Definire il profilo dell'appliance e le proprietà di rete:
 
     | Parametro | Configurazione |
     | ----------| ------------- |
@@ -693,17 +693,17 @@ Per effettuare l'installazione:
     | **Parametri di rete (forniti dal cliente)** | **Indirizzo IP della rete di gestione:** <br/>**subnet mask:** <br/>**nome host dell'appliance:** <br/>**DNS** <br/>**gateway predefinito:** <br/>**interfacce di input:**|
     | **Interfacce Bridge:** | Non è necessario configurare l'interfaccia Bridge. Questa opzione è solo per i casi d'uso speciali. |
 
-5. Immettere **Y** per accettare le impostazioni.
+1. Immettere **Y** per accettare le impostazioni.
 
-6. Le credenziali di accesso vengono generate e presentate automaticamente. Copiare il nome utente e la password in un luogo sicuro, perché sono necessari per l'accesso e l'amministrazione.
+1. Le credenziali di accesso vengono generate e presentate automaticamente. Copiare il nome utente e la password in un luogo sicuro, perché sono necessari per l'accesso e l'amministrazione.
 
-   - **Supporto**: utente amministratore per la gestione degli utenti.
+    - **Supporto**: utente amministratore per la gestione degli utenti.
 
-   - **CyberX**: l'equivalente della radice per accedere all'appliance.
+    - **CyberX**: l'equivalente della radice per accedere all'appliance.
 
-7. Il dispositivo viene riavviato.
+1. Il dispositivo viene riavviato.
 
-8. Accedere alla console di gestione tramite l'indirizzo IP configurato in precedenza: `https://ip_address` .
+1. Accedere alla console di gestione tramite l'indirizzo IP configurato in precedenza: `https://ip_address` .
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot che mostra l'accesso alla console di gestione.":::
 
@@ -711,7 +711,7 @@ Per effettuare l'installazione:
 
 La VM della console di gestione locale supporta le architetture seguenti:
 
-| Architecture | Specifiche | Utilizzo | 
+| Architettura | Specifiche | Utilizzo | 
 |--|--|--|
 | Enterprise <br/>(Impostazione predefinita e più comune) | CPU: 8 <br/>Memoria: 32G RAM<br/> HDD: 1,8 TB | Ambienti di produzione di grandi dimensioni | 
 | Enterprise | CPU: 4 <br/> Memoria: 8G RAM<br/> HDD: 500 GB | Ambienti di produzione di grandi dimensioni |
@@ -735,15 +735,15 @@ Per creare una macchina virtuale (ESXi):
 
 1. Accedere a ESXi, scegliere l' **archivio dati** pertinente e selezionare **datastore browser**.
 
-2. Caricare l'immagine e selezionare **Chiudi**.
+1. Caricare l'immagine e selezionare **Chiudi**.
 
-3. Passare a **macchine virtuali**.
+1. Passare a **macchine virtuali**.
 
-4. Selezionare **Crea/registra macchina virtuale**.
+1. Selezionare **Crea/registra macchina virtuale**.
 
-5. Selezionare **Crea nuova macchina virtuale** e fare clic su **Avanti**.
+1. Selezionare **Crea nuova macchina virtuale** e fare clic su **Avanti**.
 
-6. Aggiungere un nome di sensore e scegliere:
+1. Aggiungere un nome di sensore e scegliere:
 
    - Compatibilità \<latest ESXi version>
 
@@ -751,15 +751,15 @@ Per creare una macchina virtuale (ESXi):
 
    - Versione del sistema operativo guest: Ubuntu Linux (64 bit)
 
-7. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-8. Scegliere Archivio dati pertinente e fare clic su **Avanti**.
+1. Scegliere Archivio dati pertinente e fare clic su **Avanti**.
 
-9. Modificare i parametri hardware virtuali in base all'architettura richiesta.
+1. Modificare i parametri hardware virtuali in base all'architettura richiesta.
 
-10. Per l' **unità CD/DVD 1** selezionare **file ISO archivio dati** e scegliere il file ISO caricato in precedenza.
+1. Per l' **unità CD/DVD 1** selezionare **file ISO archivio dati** e scegliere il file ISO caricato in precedenza.
 
-11. Selezionare **Next** > **Finish** (Avanti > Fine).
+1. Selezionare **Next** > **Finish** (Avanti > Fine).
 
 ### <a name="create-the-virtual-machine-hyper-v"></a>Creazione della macchina virtuale (Hyper-V)
 
@@ -767,91 +767,103 @@ Per creare una macchina virtuale con Hyper-V:
 
 1. Creare un disco virtuale nella console di gestione di Hyper-V.
 
-2. Selezionare il formato **VHDX**.
+1. Selezionare il formato **VHDX**.
 
-3. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-4. Selezionare il tipo **Dynamic Expanding**.
+1. Selezionare il tipo **Dynamic Expanding**.
 
-5. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-6. Immettere il nome e il percorso del disco rigido virtuale.
+1. Immettere il nome e il percorso del disco rigido virtuale.
 
-7. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-8. Immettere le dimensioni necessarie in base all'architettura.
+1. Immettere le dimensioni necessarie in base all'architettura.
 
-9. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-10. Rivedere il riepilogo e selezionare **Fine**.
+1. Rivedere il riepilogo e selezionare **Fine**.
 
-11. Nel menu **azioni** creare una nuova macchina virtuale.
+1. Nel menu **azioni** creare una nuova macchina virtuale.
 
-12. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-13. Immettere un nome per la macchina virtuale.
+1. Immettere un nome per la macchina virtuale.
 
-14. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-15. Selezionare **generazione** e impostarla sulla **generazione 1**.
+1. Selezionare **generazione** e impostarla sulla **generazione 1**.
 
-16. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-17. Specificare l'allocazione di memoria, in base all'architettura, e selezionare la casella di controllo per la memoria dinamica.
+1. Specificare l'allocazione di memoria, in base all'architettura, e selezionare la casella di controllo per la memoria dinamica.
 
-18. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-19. Configurare la scheda di rete in base alla topologia di rete del server.
+1. Configurare la scheda di rete in base alla topologia di rete del server.
 
-20. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-21. Connettere il VHDX creato in precedenza alla macchina virtuale.
+1. Connettere il VHDX creato in precedenza alla macchina virtuale.
 
-22. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-23. Rivedere il riepilogo e selezionare **Fine**.
+1. Rivedere il riepilogo e selezionare **Fine**.
 
-24. Fare clic con il pulsante destro del mouse sulla nuova macchina virtuale, quindi scegliere **Impostazioni**.
+1. Fare clic con il pulsante destro del mouse sulla nuova macchina virtuale, quindi scegliere **Impostazioni**.
 
-25. Selezionare **Aggiungi hardware** e aggiungere un nuovo adapter per **scheda di rete**.
+1. Selezionare **Aggiungi hardware** e aggiungere un nuovo adapter per **scheda di rete**.
 
-26. Per **Commuter virtuale** selezionare l'opzione che si connetterà alla rete di gestione dei sensori.
+1. Per **Commuter virtuale** selezionare l'opzione che si connetterà alla rete di gestione dei sensori.
 
-27. Allocare risorse CPU (in base all'architettura).
+1. Allocare risorse CPU (in base all'architettura).
 
-28. Connettere l'immagine ISO della console di gestione a un'unità DVD virtuale.
+1. Connettere l'immagine ISO della console di gestione a un'unità DVD virtuale.
 
-29. Avviare la macchina virtuale.
+1. Avviare la macchina virtuale.
 
-30. Scegliere **Connetti** dal menu **azioni** per continuare l'installazione del software.
+1. Scegliere **Connetti** dal menu **azioni** per continuare l'installazione del software.
 
 ### <a name="software-installation-esxi-and-hyper-v"></a>Installazione software (ESXi e Hyper-V)
 
-L'avvio della macchina virtuale avvierà il processo di installazione dall'immagine ISO.
+L'avvio della macchina virtuale avvierà il processo di installazione dall'immagine ISO. Per migliorare la sicurezza, è possibile creare una seconda interfaccia di rete nella console di gestione locale. Un'interfaccia di rete è dedicata agli utenti e può supportare la configurazione di un gateway per le reti indirizzate. La seconda interfaccia di rete è dedicata a tutti i sensori collegati all'interno di un intervallo di indirizzi IP.
+
+Per entrambe le interfacce di rete è abilitata l'interfaccia utente e tutte le funzionalità supportate dall'interfaccia utente saranno disponibili nell'interfaccia di rete secondaria quando il routing non è necessario. La disponibilità elevata viene eseguita nell'interfaccia di rete secondaria.
+
+Se si sceglie di non distribuire un'interfaccia di rete secondaria, tutte le funzionalità saranno disponibili tramite l'interfaccia di rete primaria. 
 
 Per installare il software:
 
 1. Selezionare **inglese**.
 
-2. Selezionare l'architettura necessaria per la distribuzione.
+1. Selezionare l'architettura necessaria per la distribuzione.
 
-3. Definire l'interfaccia di rete per la rete di gestione dei sensori: interfaccia, IP, subnet, server DNS e gateway predefinito.
+1. Definire l'interfaccia di rete per la rete di gestione dei sensori: interfaccia, IP, subnet, server DNS e gateway predefinito.
 
-4. Le credenziali di accesso vengono generate e presentate automaticamente. Conservarle in un luogo sicuro, perché sono necessarie per l'accesso e l'amministrazione.
+1. Opzionale Aggiungere una seconda interfaccia di rete alla console di gestione locale.
+
+    1. `Please type sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions): <name of interface>`
+    
+    1. `Please type an IP address for the sensor monitoring interface (accessible by the sensors): <ip address>`
+    
+    1. `Please type a subnet mask for the sensor monitoring interface (accessible by the sensors): <subnet>`
+
+1. Le credenziali di accesso vengono generate e presentate automaticamente. Conservarle in un luogo sicuro, perché sono necessarie per l'accesso e l'amministrazione.
 
   - **Supporto**: utente amministratore per la gestione degli utenti.
 
   - **CyberX**: l'equivalente della radice per accedere all'appliance.
 
-5. Il dispositivo viene riavviato.
+1. Il dispositivo viene riavviato.
 
-6. Accedere alla console di gestione tramite l'indirizzo IP configurato in precedenza: `<https://ip_address>` .
+1. Accedere alla console di gestione tramite l'indirizzo IP configurato in precedenza: `<https://ip_address>` .
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Screenshot che mostra la schermata di accesso della console di gestione.":::
 
 ## <a name="post-installation-validation"></a>Convalida post-installazione
 
-Per convalidare l'installazione di un dispositivo fisico, è necessario eseguire una serie di test. Lo stesso processo di convalida si applica a tutti i tipi di appliance.
+Per convalidare l'installazione di un dispositivo fisico, è necessario eseguire molti test. Lo stesso processo di convalida si applica a tutti i tipi di appliance.
 
 Eseguire la convalida usando l'interfaccia utente grafica o l'interfaccia della riga di comando. La convalida è disponibile per il **supporto** utente e per l'utente **CyberX**.
 
@@ -911,7 +923,7 @@ Per accedere allo strumento:
 
 1. Accedere al sensore con le credenziali dell'utente di **supporto** .
 
-2. Selezionare **statistiche di sistema** dalla finestra **impostazioni di sistema** .
+1. Selezionare **statistiche di sistema** dalla finestra **impostazioni di sistema** .
 
     :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
@@ -923,13 +935,13 @@ Verificare che il sistema sia attivo e in esecuzione:
 
 1. Connettersi all'interfaccia della riga di comando con il terminale Linux (ad esempio, PuTTy) e il **supporto** utente.
 
-2. Immettere `system sanity`.
+1. Immettere `system sanity`.
 
-3. Verificare che tutti i servizi siano di colore verde (in esecuzione).
+1. Verificare che tutti i servizi siano di colore verde (in esecuzione).
 
     :::image type="content" source="media/tutorial-install-components/support-screen.png" alt-text="Screenshot che mostra i servizi in esecuzione.":::
 
-4. Verificare che il **sistema sia attivo. (prod)** viene visualizzato nella parte inferiore.
+1. Verificare che il **sistema sia attivo. (prod)** viene visualizzato nella parte inferiore.
 
 **Test 2: controllo della versione**
 
@@ -937,9 +949,9 @@ Verificare che venga utilizzata la versione corretta:
 
 1. Connettersi all'interfaccia della riga di comando con il terminale Linux (ad esempio, PuTTy) e il **supporto** utente.
 
-2. Immettere `system version`.
+1. Immettere `system version`.
 
-3. Verificare che sia visualizzata la versione corretta.
+1. Verificare che sia visualizzata la versione corretta.
 
 **Test 3: convalida della rete**
 
@@ -947,9 +959,9 @@ Verificare che tutte le interfacce di input configurate durante il processo di i
 
 1. Connettersi all'interfaccia della riga di comando con il terminale Linux (ad esempio, PuTTy) e il **supporto** utente.
 
-2. Immettere `network list` (l'equivalente del comando Linux `ifconfig` ).
+1. Immettere `network list` (l'equivalente del comando Linux `ifconfig` ).
 
-3. Verificare che vengano visualizzate le interfacce di input obbligatorie. Se, ad esempio, sono installate due schede di interfaccia di rete quad in rame, nell'elenco devono essere presenti 10 interfacce.
+1. Verificare che vengano visualizzate le interfacce di input obbligatorie. Se, ad esempio, sono installate due schede di interfaccia di rete quad in rame, nell'elenco devono essere presenti 10 interfacce.
 
     :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="Screenshot che mostra l'elenco delle interfacce.":::
 
@@ -959,17 +971,17 @@ Verificare che sia possibile accedere alla GUI Web della console:
 
 1. Connettere un computer portatile con un cavo Ethernet alla porta di gestione (**GB1**).
 
-2. Definire l'indirizzo della scheda di interfaccia di rete portatile affinché si trovi nello stesso intervallo del dispositivo.
+1. Definire l'indirizzo della scheda di interfaccia di rete portatile affinché si trovi nello stesso intervallo del dispositivo.
 
     :::image type="content" source="media/tutorial-install-components/access-to-ui.png" alt-text="Screenshot che mostra l'accesso di gestione all'interfaccia utente.":::
 
-3. Effettuare il ping dell'indirizzo IP dell'appliance dal computer portatile per verificare la connettività (impostazione predefinita: 10.100.10.1).
+1. Effettuare il ping dell'indirizzo IP dell'appliance dal computer portatile per verificare la connettività (impostazione predefinita: 10.100.10.1).
 
-4. Aprire il browser Chrome nel computer portatile e immettere l'indirizzo IP dell'appliance.
+1. Aprire il browser Chrome nel computer portatile e immettere l'indirizzo IP dell'appliance.
 
-5. Nella finestra **connessione non privata** selezionare **Avanzate** e continuare.
+1. Nella finestra **connessione non privata** selezionare **Avanzate** e continuare.
 
-6. Il test ha esito positivo quando viene visualizzata la schermata di accesso di Defender for all.
+1. Il test ha esito positivo quando viene visualizzata la schermata di accesso di Defender for all.
 
    :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot che mostra l'accesso alla console di gestione.":::
 
@@ -979,9 +991,9 @@ Verificare che sia possibile accedere alla GUI Web della console:
 
 1. Verificare che il computer che si sta tentando di connettere si trovi nella stessa rete del dispositivo.
 
-2. Verificare che la rete GUI sia connessa alla porta di gestione.
+1. Verificare che la rete GUI sia connessa alla porta di gestione.
 
-3. Effettuare il ping dell'indirizzo IP dell'appliance. Se non è presente alcun ping:
+1. Effettuare il ping dell'indirizzo IP dell'appliance. Se non è presente alcun ping:
 
    1. Connettere un monitor e una tastiera al dispositivo.
 
@@ -991,7 +1003,7 @@ Verificare che sia possibile accedere alla GUI Web della console:
 
       :::image type="content" source="media/tutorial-install-components/network-list.png" alt-text="Screenshot che mostra l'elenco di rete.":::
 
-4. Se i parametri di rete non sono configurati correttamente, attenersi alla procedura seguente per modificarli:
+1. Se i parametri di rete non sono configurati correttamente, attenersi alla procedura seguente per modificarli:
 
    1. Usare il comando `network edit-settings` .
 
@@ -1007,17 +1019,17 @@ Verificare che sia possibile accedere alla GUI Web della console:
 
    1. Per applicare le impostazioni, selezionare **Y**.
 
-5. Dopo il riavvio, connettersi con le credenziali dell'utente di supporto e usare il `network list` comando per verificare che i parametri siano stati modificati.
+1. Dopo il riavvio, connettersi con le credenziali dell'utente di supporto e usare il `network list` comando per verificare che i parametri siano stati modificati.
 
-6. Provare di nuovo a eseguire il ping e connettersi dall'interfaccia utente grafica.
+1. Provare di nuovo a eseguire il ping e connettersi dall'interfaccia utente grafica.
 
 ### <a name="the-appliance-isnt-responding"></a>L'appliance non risponde
 
 1. Connettere un monitor e una tastiera al dispositivo oppure usare PuTTy per connettersi in remoto all'interfaccia della riga di comando.
 
-2. Usare le credenziali dell'utente di **supporto** per accedere.
+1. Usare le credenziali dell'utente di **supporto** per accedere.
 
-3. Usare il `system sanity` comando e verificare che tutti i processi siano in esecuzione.
+1. Usare il `system sanity` comando e verificare che tutti i processi siano in esecuzione.
 
     :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="Screenshot che mostra il comando di integrità del sistema.":::
 
@@ -1027,33 +1039,33 @@ Per eventuali altri problemi, contattare [supporto tecnico Microsoft](https://su
 
 ### <a name="configure-a-span-port-on-an-existing-vswitch"></a>Configurare una porta SPAN in un vSwitch esistente
 
-Un vSwitch non dispone di funzionalità di mirroring, ma è possibile usare una soluzione alternativa semplice per implementare una porta SPAN.
+Un vSwitch non dispone di funzionalità di mirroring, ma è possibile usare una soluzione alternativa per implementare una porta SPAN.
 
 Per configurare una porta SPAN:
 
 1. Aprire le proprietà di vSwitch.
 
-2. Selezionare **Aggiungi**.
+1. Selezionare **Aggiungi**.
 
-3. Selezionare **macchina virtuale**  >  **Avanti**.
+1. Selezionare **macchina virtuale**  >  **Avanti**.
 
-4. Inserire un'etichetta di rete **span Network**, selezionare **VLAN ID**  >  **All**, quindi fare clic su **Next (avanti**).
+1. Inserire un'etichetta di rete **span Network**, selezionare **VLAN ID**  >  **All**, quindi fare clic su **Next (avanti**).
 
-5. Selezionare **Fine**.
+1. Selezionare **Fine**.
 
-6. Selezionare **span Network** > **Edit*.
+1. Selezionare **span Network** > **Edit*.
 
-7. Selezionare **Security (sicurezza**) e verificare che i criteri della **modalità promiscua** siano impostati sulla modalità **Accept** .
+1. Selezionare **Security (sicurezza**) e verificare che i criteri della **modalità promiscua** siano impostati sulla modalità **Accept** .
 
-8. Fare clic su **OK** e quindi selezionare **Chiudi** per chiudere le proprietà di vswitch.
+1. Fare clic su **OK** e quindi selezionare **Chiudi** per chiudere le proprietà di vswitch.
 
-9. Aprire le proprietà della **VM XSense** .
+1. Aprire le proprietà della **VM XSense** .
 
-10. Per **scheda di rete 2** selezionare la rete **span** .
+1. Per **scheda di rete 2** selezionare la rete **span** .
 
-11. Selezionare **OK**.
+1. Selezionare **OK**.
 
-12. Connettersi al sensore e verificare il funzionamento del mirroring.
+1. Connettersi al sensore e verificare il funzionamento del mirroring.
 
 ## <a name="appendix-b-access-sensors-from-the-on-premises-management-console"></a>Appendice B: accedere ai sensori dalla console di gestione locale
 
@@ -1065,11 +1077,11 @@ Per abilitare il tunneling:
 
 1. Accedere all'interfaccia della riga di comando della console di gestione locale con **CyberX** o **supportare** le credenziali utente.
 
-2. Immettere `sudo cyberx-management-tunnel-enable`.
+1. Immettere `sudo cyberx-management-tunnel-enable`.
 
-3. Premere **INVIO**.
+1. Premere **INVIO**.
 
-4. Immettere `--port 10000`.
+1. Immettere `--port 10000`.
 
 ### <a name="next-steps"></a>Passaggi successivi
 

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66b004a0371b76f82d525972feefab9c89efb2d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3fad2c683890776908afbfbf15ee91d46d564783
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742047"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466763"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Panoramica del controllo degli accessi in base al ruolo di Azure Active Directory
 
@@ -60,7 +60,7 @@ Un'assegnazione di ruolo è una risorsa di Azure AD che collega una *definizione
 - Definizione di ruolo
 - Ambito risorsa
 
-È possibile [creare assegnazioni di ruolo](custom-create.md) usando il portale di Azure, l'interfaccia della riga di comando di Azure, Azure AD PowerShell o l'API Graph. È anche possibile [visualizzare le assegnazioni per un ruolo personalizzato](custom-view-assignments.md#view-the-assignments-of-a-role).
+È possibile [creare assegnazioni di ruolo](custom-create.md) usando il portale di Azure, l'interfaccia della riga di comando di Azure, Azure AD PowerShell o l'API Graph. È anche possibile [elencare le assegnazioni di ruolo](view-assignments.md).
 
 Lo schema seguente mostra un esempio di assegnazione di ruolo. In questo esempio a Chris Green è stato assegnato il ruolo personalizzato di amministratore registrazioni app nell'ambito della registrazione app Contoso Widget Builder. L'assegnazione concede a Chris le autorizzazioni del ruolo di amministratore registrazioni app solo per la registrazione di questa app specifica.
 
@@ -89,4 +89,4 @@ L'uso dei ruoli predefiniti in Azure AD è gratuito, mentre per usare i ruoli pe
 
 - [Informazioni sui ruoli di Azure AD](concept-understand-roles.md)
 - Creare assegnazioni di ruolo personalizzate usando il [portale di Azure, Azure AD PowerShell e l'API Graph](custom-create.md)
-- [Visualizzare le assegnazioni per un ruolo personalizzato](custom-view-assignments.md)
+- [Elencare le assegnazioni di ruolo](view-assignments.md)

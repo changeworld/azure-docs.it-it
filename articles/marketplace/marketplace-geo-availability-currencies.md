@@ -6,19 +6,21 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 12/07/2020
-ms.openlocfilehash: c71c13701d064110be0ef976920c0cc01f2fa308
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/08/2021
+ms.openlocfilehash: e583d39e2eed1b08dfeb17cafc1e12c583176d7b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879765"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493034"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilità geografica e supporto della valuta per il Marketplace commerciale
 
 ## <a name="supported-geographic-locations"></a>Posizioni geografiche supportate
 
 Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geografiche, in base all'indirizzo di fatturazione del cliente, e possono essere completate in 17 valute. Nella tabella seguente sono elencate tutte le posizioni geografiche supportate, il [codice alfa ISO 3166 2-digit](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e la valuta assegnata.
+
+Un CSP può acquistare un'offerta nel centro per i partner nella valuta del cliente finale per poterla fatturare nella stessa valuta. Per ulteriori informazioni, vedere [le domande frequenti](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf).
 
 |   Nome paese/area               |   ISO-2   |   Valuta</br>(Tutti i tipi di offerta)  |    Valuta</br>(Solo offerte del servizio di consulenza)    |
 |-------------------------------------|-----------|--------------|---------------------------------------------|
