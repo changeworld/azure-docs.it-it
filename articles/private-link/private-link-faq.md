@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d06e90a691389b99d8f439364203b921f49b2305
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709410"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496474"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Domande frequenti sul collegamento privato di Azure
 
@@ -54,6 +54,11 @@ Sì. Gli endpoint privati possono connettersi alle risorse PaaS di Azure tra are
 
 ### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>È possibile modificare l'interfaccia di rete (NIC) dell'endpoint privato?
 Quando viene creato un endpoint privato, viene assegnata una scheda di interfaccia di rete di sola lettura. Questa operazione non può essere modificata e rimarrà per il ciclo di vita dell'endpoint privato.
+
+### <a name="how-do-i-achieve-availability-while-using-private-endpoints-in-case-of-regional-failures-"></a>Ricerca per categorie ottenere la disponibilità usando endpoint privati in caso di errori a livello di area?
+
+Gli endpoint privati sono risorse a disponibilità elevata con contratto di SLA del 99,99% [[contratto di contratto per il collegamento privato di Azure]](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). Tuttavia, poiché si tratta di risorse regionali, eventuali interruzioni dell'area di Azure possono avere un effetto sulla disponibilità. Per ottenere la disponibilità in caso di errori a livello di area, è possibile distribuire più PEs connessi alla stessa risorsa di destinazione in aree diverse. In questo modo, se un'area diventa inattiva, è comunque possibile indirizzare il traffico per gli scenari di ripristino tramite PE in un'area diversa per accedere alla risorsa di destinazione. Per informazioni sulle modalità di gestione degli errori a livello di area sul lato del servizio di destinazione, vedere la documentazione del servizio relativa al failover e al ripristino. Il traffico di collegamento privato segue la risoluzione DNS di Azure per l'endpoint di destinazione. 
+
 
 ## <a name="private-link-service"></a>Servizio Collegamento privato
  

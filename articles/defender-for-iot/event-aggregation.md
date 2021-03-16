@@ -1,5 +1,5 @@
 ---
-title: Aggregazione di eventi classici del modulo di sicurezza
+title: Defender-Internet, aggregazione di eventi classici micro-Agent
 description: Informazioni su Defender per l'aggregazione di eventi.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 01333da3041cc93154c46fb45a39bb209fd30f91
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809219"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493074"
 ---
-# <a name="security-module-classic-event-aggregation"></a>Aggregazione di eventi classici del modulo di sicurezza
+# <a name="defender-iot-micro-agent-classic-event-aggregation"></a>Defender-Internet, aggregazione di eventi classici micro-Agent
 
 Defender per gli agenti di sicurezza di Azure raccoglie i dati e gli eventi di sistema dal dispositivo locale e li invia al cloud di Azure per l'elaborazione e l'analisi. L'agente di sicurezza raccoglie molti tipi di eventi del dispositivo, tra cui nuovo processo e nuovi eventi di connessione. I nuovi eventi di connessione e di nuovo processo possono essere eseguiti in modo legittimo in un dispositivo entro un secondo e, sebbene sia importante per una sicurezza affidabile e completa, il numero di messaggi che gli agenti di sicurezza devono inviare potrebbero raggiungere rapidamente o superare la quota e i limiti di costo dell'hub Internet. Tuttavia, questi eventi contengono informazioni di sicurezza estremamente utili, cruciali per la protezione del dispositivo.
 

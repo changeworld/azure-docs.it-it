@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/15/2021
 ms.author: duau
-ms.openlocfilehash: 9fa0f73d06bda02d784628823ee70bc538b375e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 83f1e83653c5674988cadcb5b54d3c675ae0b8b8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695805"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489441"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Risoluzione dei problemi del server di route di Azure
 
@@ -31,7 +31,7 @@ Quando l'appliance virtuale di rete annuncia la route predefinita, il server di 
 | 0.0.0.0/0 | Internet |
 
 
-### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-goes-down"></a>Perché è possibile eseguire il ping dall'appliance virtuale di Azure all'indirizzo IP del peer BGP nel server di route di Azure, ma dopo aver configurato il peering BGP tra di essi, non è più possibile eseguire il ping dello stesso IP? Perché il peering BGP diventa inattivo?
+### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-go-down"></a>Perché è possibile eseguire il ping dall'appliance virtuale di Azure all'indirizzo IP del peer BGP nel server di route di Azure, ma dopo aver configurato il peering BGP tra di essi, non è più possibile eseguire il ping dello stesso IP? Perché il peering BGP si arresta?
 
 In alcune appliance virtuale di Azure è necessario aggiungere una route statica per la subnet del server di route di Azure. Ad esempio, se il server di route di Azure si trova in 10.0.255.0/27 e l'appliance virtuale di sistema è in 10.0.1.0/24, è necessario aggiungere la route seguente alla tabella di routing nell'appliance virtuale di Azure:
 

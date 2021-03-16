@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 02/17/2021
 ms.author: apimpm
-ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107590"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562349"
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
 Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).
@@ -81,6 +81,12 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
     - [Inviare una richiesta a un servizio](api-management-dapr-policies.md#invoke) : usa il runtime Dapr per individuare e comunicare in modo affidabile con un microservizio Dapr.
     -  [Invia messaggio a pub/argomento secondario](api-management-dapr-policies.md#pubsub) : usa il runtime Dapr per pubblicare un messaggio in un argomento di pubblicazione/sottoscrizione.
     -  [Attiva binding di output](api-management-dapr-policies.md#bind) : usa il runtime Dapr per richiamare un sistema esterno tramite l'associazione di output.
+- [Criteri di convalida](validation-policies.md)
+    - [Convalidare il contenuto](validation-policies.md#validate-content) : convalida la dimensione o lo schema JSON di un corpo della richiesta o della risposta rispetto allo schema dell'API.
+. 
+    - [Validate parameters](validation-policies.md#validate-parameters) : convalida i parametri dell'intestazione della richiesta, della query o del percorso rispetto allo schema dell'API.
+    - [Convalidare](validation-policies.md#validate-headers) le intestazioni: convalida le intestazioni di risposta rispetto allo schema dell'API.
+    - [Convalidare il codice](validation-policies.md#validate-status-code) di stato: convalida i codici di stato HTTP nelle risposte rispetto allo schema dell'API.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso di questi criteri, vedere:

@@ -3,12 +3,12 @@ title: Nodi e pool in Azure Batch
 description: Informazioni sui nodi di calcolo, sui pool e sul modo in cui vengono usati in un flusso di lavoro di Azure Batch dal punto di vista dello sviluppo.
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: e1edcc805e0e8c59d189a4622e494101fb31bb6d
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 7d4c2d45849deb011498efe4c8a1ae91724b9acd
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200215"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563896"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodi e pool in Azure Batch
 
@@ -208,3 +208,4 @@ Se si aggiunge un certificato a un pool esistente, è necessario riavviare i rel
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su [processi e attività](jobs-and-tasks.md).
+- Informazioni su come [rilevare ed evitare errori nelle operazioni in background del pool e del nodo ](batch-pool-node-error-checking.md).

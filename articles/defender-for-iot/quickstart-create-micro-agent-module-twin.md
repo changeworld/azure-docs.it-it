@@ -1,5 +1,5 @@
 ---
-title: Creare un modulo gemello di Defender Internet Agent
+title: Creare un modulo gemello di Defender Internet Agent (anteprima)
 titleSuffix: Azure Defender for IoT
 description: Informazioni su come creare singoli moduli DefenderIotMicroAgent gemelli per i nuovi dispositivi.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: ea82fea89a9e81e66be6b3060aad067d3ceb8f5f
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e1c2f4e79b9f0f0ba1ec0da0c5a2a29cdc8bc6d7
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123004"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489880"
 ---
-# <a name="create-a-defender-iot-micro-agent-module-twin"></a>Creare un modulo gemello di Defender Internet Agent 
+# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Creare un modulo gemello di Defender Internet Agent (anteprima)
 
 È possibile creare singoli moduli **DefenderIotMicroAgent** gemelli per i nuovi dispositivi. È anche possibile creare in batch i moduli gemelli per tutti i dispositivi in un hub Internet. 
 
@@ -27,9 +27,9 @@ Defender for Internet è in grado di integrarsi completamente con la piattaforma
 
 Altre informazioni sul concetto di [dispositivi gemelli](../iot-hub/iot-hub-devguide-device-twins.md)   nell'hub Azure. 
 
-## <a name="security-module-twins"></a>Moduli di sicurezza gemelli 
+## <a name="defender-iot-micro-agent-twins"></a>Defender-molto-micro-Agent gemelli 
 
-Defender for Internet usa un modulo di protezione gemello per ogni dispositivo. Il gemello del modulo di sicurezza include tutte le informazioni rilevanti per la sicurezza dei dispositivi, per ogni dispositivo specifico nella soluzione. Le proprietà di sicurezza del dispositivo vengono configurate tramite un modulo di protezione dedicato gemello per una comunicazione più sicura, per abilitare gli aggiornamenti e per la manutenzione che richiede un minor numero 
+Defender for Internet usa un dispositivo gemello Defender-be-micro-Agent per ogni dispositivo. Defender-Internet-micro-Agent gemello include tutte le informazioni rilevanti per la sicurezza dei dispositivi, per ogni dispositivo specifico nella soluzione. Le proprietà di sicurezza del dispositivo vengono configurate tramite un gemello Defender-Internet-micro-Agent per una comunicazione più sicura, per consentire gli aggiornamenti e la manutenzione che richiede un minor numero di risorse. 
 
 ## <a name="understanding-defenderiotmicroagent-module-twins"></a>Informazioni sui moduli gemelli DefenderIotMicroAgent 
 
@@ -39,9 +39,9 @@ Defender for Internet è in grado di integrare completamente la piattaforma di g
 
 Per altre informazioni sul concetto generale di moduli gemelli nell'hub Azure, vedere i [gemelli dei moduli dell'hub](../iot-hub/iot-hub-devguide-module-twins.md)Internet.
 
-Defender for Internet usa il meccanismo del modulo gemello e mantiene un modulo di sicurezza gemello denominato `DefenderIotMicroAgent` per ogni dispositivo. 
+Defender for Internet usa il meccanismo del modulo gemello e mantiene un gemello Defender-Internet-micro-Agent denominato `DefenderIotMicroAgent` per ogni dispositivo. 
 
-Per sfruttare appieno tutti i vantaggi di tutte le funzionalità di Defender per le cose, è necessario creare, configurare e usare i moduli di sicurezza gemelli per ogni dispositivo nel servizio. 
+Per sfruttare appieno tutti i vantaggi di tutte le funzionalità di Defender per le cose, è necessario creare, configurare e usare i dispositivi gemelli Defender-Internet per ogni dispositivo del servizio. 
 
 ## <a name="create-defenderiotmicroagent-module-twin"></a>Creare il modulo DefenderIotMicroAgent gemello 
 
@@ -49,7 +49,7 @@ I dispositivi gemelli del modulo **DefenderIotMicroAgent** possono essere creati
 
 Per creare manualmente un nuovo modulo **DefenderIotMicroAgent** gemello per un dispositivo: 
 
-1. Nell'hub Internet delle cose individuare e selezionare il dispositivo in cui creare un modulo di sicurezza gemello. 
+1. Nell'hub Internet delle cose individuare e selezionare il dispositivo in cui creare un dispositivo gemello Defender-Internet. 
 
 1. Selezionare **Aggiungi identità modulo**. 
 
@@ -59,7 +59,7 @@ Per creare manualmente un nuovo modulo **DefenderIotMicroAgent** gemello per u
 
 ## <a name="verify-the-creation-of-a-module-twin"></a>Verificare la creazione di un modulo gemello 
 
-Per verificare se è presente un modulo gemello di sicurezza per un dispositivo specifico: 
+Per verificare se esiste un dispositivo gemello Defender-be-micro-Agent per un dispositivo specifico: 
 
 1. Nell'hub Azure Internet Explorer, selezionare **dispositivi** Internet   dal menu **Esplora**   . 
 
