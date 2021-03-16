@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di API Web basate su OWIN in b2clogin.com
+title: Eseguire la migrazione di API Web basate su OWIN in b2clogin.com o in un dominio personalizzato
 titleSuffix: Azure AD B2C
 description: Informazioni su come abilitare un'API Web .NET per supportare i token rilasciati da più autorità di certificazione durante la migrazione delle applicazioni a b2clogin.com.
 services: active-directory-b2c
@@ -8,26 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/31/2019
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c362ce256259606c85af0a7e13ccde1715bb012b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 860f167913211ee7c511e515937f29ba5bf954cf
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953934"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491570"
 ---
-# <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Eseguire la migrazione di un'API Web basata su OWIN in b2clogin.com
+# <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>Eseguire la migrazione di un'API Web basata su OWIN in b2clogin.com o in un dominio personalizzato
 
-Questo articolo descrive una tecnica per l'abilitazione del supporto per più emittenti di token in API Web che implementano l' [interfaccia Web aperta per .NET (OWIN)](http://owin.org/). Il supporto di più endpoint token è utile quando si esegue la migrazione di API Azure Active Directory B2C (Azure AD B2C) e delle relative applicazioni da *login.microsoftonline.com* a *b2clogin.com*.
+Questo articolo descrive una tecnica per l'abilitazione del supporto per più emittenti di token in API Web che implementano l' [interfaccia Web aperta per .NET (OWIN)](http://owin.org/). Il supporto di più endpoint token è utile quando si esegue la migrazione di API Azure Active Directory B2C (Azure AD B2C) e delle relative applicazioni da un dominio a un altro. Ad esempio, da *login.microsoftonline.com* a *b2clogin.com* o a un [dominio personalizzato](custom-domain.md).
 
-Aggiungendo il supporto nell'API per accettare i token rilasciati da b2clogin.com e login.microsoftonline.com, è possibile eseguire la migrazione delle applicazioni Web in modalità di gestione temporanea prima di rimuovere il supporto per i token rilasciati da login.microsoftonline.com dall'API.
+Aggiungendo il supporto nell'API per accettare i token emessi da b2clogin.com, login.microsoftonline.com o un dominio personalizzato, è possibile eseguire la migrazione delle applicazioni Web in modalità di gestione temporanea prima di rimuovere il supporto per i token rilasciati da login.microsoftonline.com dall'API.
 
 Le sezioni seguenti presentano un esempio di come abilitare più autorità di certificazione in un'API Web che usa i componenti del middleware [Microsoft OWIN][katana] (Katana). Sebbene gli esempi di codice siano specifici del middleware Microsoft OWIN, la tecnica generale dovrebbe essere applicabile ad altre librerie OWIN.
-
-> [!NOTE]
-> Questo articolo è destinato a Azure AD B2C clienti con API e applicazioni attualmente distribuite che fanno riferimento a `login.microsoftonline.com` e che desiderano eseguire la migrazione all' `b2clogin.com` endpoint consigliato. Se si sta configurando una nuova applicazione, usare [b2clogin.com](b2clogin.md) come indicato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -88,7 +85,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 In questa sezione viene aggiornato il codice per specificare che entrambi gli endpoint dell'emittente del token sono validi.
 
 1. Aprire la soluzione **B2C-WebAPI-dotnet. sln** in Visual Studio
-1. Nel progetto **TaskService** aprire il file * TaskService \\ app_start \\ **Startup.auth.cs** _ nell'editor
+1. Nel progetto **TaskService** aprire il file *TaskService \\ app_start \\ * * Startup.auth.cs** * nell'editor
 1. Aggiungere la `using` direttiva seguente all'inizio del file:
 
     `using System.Collections.Generic;`
@@ -102,12 +99,13 @@ In questa sezione viene aggiornato il codice per specificare che entrambi gli en
         AuthenticationType = Startup.DefaultPolicy,
         ValidIssuers = new List<string> {
             "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/",
-            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
+            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"//,
+            //"https://your-custom-domain/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
         }
     };
     ```
 
-`TokenValidationParameters` viene fornito da MSAL.NET e viene utilizzato dal middleware OWIN nella sezione successiva del codice in _Startup. auth. cs *. Se sono state specificate più autorità emittenti valide, la pipeline dell'applicazione OWIN viene resa presente che entrambi gli endpoint del token sono emittenti validi.
+`TokenValidationParameters` viene fornito da MSAL.NET e viene utilizzato dal middleware OWIN nella sezione successiva del codice in *Startup.auth.cs*. Se sono state specificate più autorità emittenti valide, la pipeline dell'applicazione OWIN viene resa presente che entrambi gli endpoint del token sono emittenti validi.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -142,6 +140,13 @@ Dopo (sostituire `{your-b2c-tenant}` con il nome del tenant B2C):
 ```
 
 Quando le stringhe dell'endpoint vengono costruite durante l'esecuzione dell'app Web, gli endpoint basati su b2clogin.com vengono usati per la richiesta di token.
+
+Quando si usa un dominio personalizzato:
+
+```xml
+<!-- Custom domain -->
+<add key="ida:AadInstance" value="https://custom-domain/{0}/{1}" />
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

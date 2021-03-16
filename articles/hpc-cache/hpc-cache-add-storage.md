@@ -4,20 +4,20 @@ description: Come definire le destinazioni di archiviazione in modo che la cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: b4df5863cc746490f13685a8d412232217af3bc8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 4e6c5b5ea69c55c09887528f1723414f53fcb0f9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054366"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471933"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
 Le *destinazioni di archiviazione* sono archiviazione back-end per i file a cui si accede tramite una cache HPC di Azure. È possibile aggiungere l'archiviazione NFS (ad esempio un sistema hardware locale) o archiviare i dati nel BLOB di Azure.
 
-È possibile definire fino a dieci destinazioni di archiviazione diverse per una cache. La cache presenta tutte le destinazioni di archiviazione in uno spazio dei nomi aggregato.
+È possibile definire fino a 20 destinazioni di archiviazione diverse per una cache. La cache presenta tutte le destinazioni di archiviazione in uno spazio dei nomi aggregato.
 
 I percorsi dello spazio dei nomi vengono configurati separatamente dopo aver aggiunto le destinazioni di archiviazione. In generale, una destinazione di archiviazione NFS può avere fino a dieci percorsi dello spazio dei nomi o più per alcune configurazioni di grandi dimensioni. Per informazioni dettagliate, vedere [percorsi dello spazio dei nomi NFS](add-namespace-paths.md#nfs-namespace-paths) .
 
@@ -29,7 +29,7 @@ Aggiungere le destinazioni di archiviazione dopo la creazione della cache. Segui
 1. Definire una destinazione di archiviazione (informazioni in questo articolo)
 1. [Creazione dei percorsi rivolte al client](add-namespace-paths.md) (per lo [spazio dei nomi aggregato](hpc-cache-namespace.md))
 
-La procedura per aggiungere una destinazione di archiviazione è leggermente diversa a seconda che si stia aggiungendo un archivio BLOB di Azure o un'esportazione NFS. Di seguito sono riportati i dettagli per ognuno di essi.
+La procedura per aggiungere una destinazione di archiviazione è leggermente diversa a seconda del tipo di archiviazione usato. Di seguito sono riportati i dettagli per ognuno di essi.
 
 Fare clic sull'immagine seguente per visualizzare una [dimostrazione video](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) della creazione di una cache e l'aggiunta di una destinazione di archiviazione dal portale di Azure.
 
@@ -40,6 +40,9 @@ Fare clic sull'immagine seguente per visualizzare una [dimostrazione video](http
 Una nuova destinazione di archiviazione BLOB necessita di un contenitore BLOB vuoto o di un contenitore popolato con i dati nel formato file system del cloud di cache HPC di Azure. Altre informazioni sul precaricamento di un contenitore BLOB in [spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md).
 
 La pagina portale di Azure **Aggiungi destinazione di archiviazione** include l'opzione per creare un nuovo contenitore BLOB appena prima di aggiungerlo.
+
+> [!NOTE]
+> Per l'archiviazione BLOB montata da NFS, usare il tipo di [destinazione di archiviazione ADLS-NFS](#) .
 
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -161,38 +164,48 @@ Una destinazione di archiviazione NFS ha impostazioni diverse da una destinazion
 > Prima di creare una destinazione di archiviazione NFS, assicurarsi che il sistema di archiviazione sia accessibile dalla cache HPC di Azure e soddisfi i requisiti di autorizzazione. La creazione della destinazione di archiviazione avrà esito negativo se la cache non riesce ad accedere al sistema di archiviazione. Per informazioni dettagliate, vedere [requisiti di archiviazione NFS](hpc-cache-prerequisites.md#nfs-storage-requirements) e [risolvere i problemi di configurazione NAS e di destinazione archiviazione NFS](troubleshoot-nas.md) .
 
 ### <a name="choose-a-usage-model"></a>Scegliere un modello di utilizzo
-<!-- referenced from GUI - update aka.ms link if you change this heading -->
+<!-- referenced from GUI - update aka.ms link to point at new article when published -->
 
-Quando si crea una destinazione di archiviazione che punta a un sistema di archiviazione NFS, è necessario scegliere il modello di utilizzo per tale destinazione. Questo modello determina il modo in cui i dati vengono memorizzati nella cache.
+Quando si crea una destinazione di archiviazione che usa NFS per raggiungere il proprio sistema di archiviazione, è necessario scegliere un modello di utilizzo per tale destinazione. Questo modello determina il modo in cui i dati vengono memorizzati nella cache.
 
-I modelli di utilizzo predefiniti consentono di scegliere come bilanciare la risposta rapida con il rischio di recuperare i dati obsoleti. Se si desidera ottimizzare la velocità di lettura del file, è possibile che non si sia interessati a verificare se i file nella cache vengono controllati rispetto ai file back-end. D'altra parte, se si desidera assicurarsi che i file siano sempre aggiornati con l'archiviazione remota, scegliere un modello che controlli di frequente.
+Per altre informazioni su tutte queste impostazioni, vedere [comprendere i modelli di utilizzo](cache-usage-models.md) .
 
-Sono disponibili tre opzioni:
+I modelli di utilizzo predefiniti consentono di scegliere come bilanciare la risposta rapida con il rischio di recuperare i dati obsoleti. Se si desidera ottimizzare la velocità per la lettura dei file, è possibile che non si sia interessati a verificare se i file nella cache vengono confrontati con i file back-end. D'altra parte, se si desidera assicurarsi che i file siano sempre aggiornati con l'archiviazione remota, scegliere un modello che controlli di frequente.
 
-* **Read Heavy, scritture rare** : usare questa opzione se si vuole velocizzare l'accesso in lettura ai file statici o modificati raramente.
+Queste tre opzioni coprono la maggior parte delle situazioni:
 
-  Questa opzione consente di memorizzare nella cache i file letti dai client, ma di passare immediatamente le scritture all'archiviazione back-end. I file archiviati nella cache non vengono confrontati automaticamente con i file nel volume di archiviazione NFS. (Per altre informazioni, leggere la nota seguente sulla verifica del back-end).
+* **Read Heavy, Scritture non frequenti** : consente di velocizzare l'accesso in lettura ai file statici o raramente modificati.
+
+  Questa opzione consente di memorizzare nella cache i file delle letture client, ma passa immediatamente le Scritture client all'archiviazione back-end. I file archiviati nella cache non vengono confrontati automaticamente con i file nel volume di archiviazione NFS.
 
   Non usare questa opzione se esiste il rischio che un file venga modificato direttamente nel sistema di archiviazione senza prima scriverlo nella cache. In tal caso, la versione memorizzata nella cache del file non sarà sincronizzata con il file back-end.
 
-* **Scritture superiori al 15%** : questa opzione consente di velocizzare le prestazioni di lettura e scrittura. Quando si usa questa opzione, tutti i client devono accedere ai file tramite la cache HPC di Azure anziché montare direttamente l'archiviazione back-end. I file memorizzati nella cache avranno modifiche recenti che non sono archiviate nel back-end.
+* **Scritture superiori al 15%** : questa opzione consente di velocizzare le prestazioni di lettura e scrittura.
 
-  In questo modello di utilizzo, i file nella cache vengono verificati solo in base ai file nell'archiviazione back-end ogni otto ore. Si presuppone che la versione memorizzata nella cache del file sia più aggiornata. Un file modificato nella cache viene scritto nel sistema di archiviazione back-end dopo che è stato inserito nella cache per un'ora senza ulteriori modifiche.
+  Le letture client e le Scritture client vengono memorizzate nella cache. Si presuppone che i file nella cache siano più recenti di quelli del sistema di archiviazione back-end. I file memorizzati nella cache vengono controllati automaticamente in base ai file nell'archiviazione back-end ogni otto ore. I file modificati nella cache vengono scritti nel sistema di archiviazione back-end dopo che sono stati memorizzati nella cache per 20 minuti senza ulteriori modifiche.
 
-* I **client scrivono nella destinazione NFS, ignorando la cache** . scegliere questa opzione se i client nel flusso di lavoro scrivono i dati direttamente nel sistema di archiviazione senza prima scrivere nella cache o se si vuole ottimizzare la coerenza dei dati. I file richiesti dai client vengono memorizzati nella cache, ma tutte le modifiche apportate ai file dal client vengono passate immediatamente al sistema di archiviazione back-end.
+  Non usare questa opzione se un client monta direttamente il volume di archiviazione back-end, perché vi è un rischio che avrà file obsoleti.
 
-  Con questo modello di utilizzo, i file nella cache vengono spesso controllati rispetto alle versioni back-end per gli aggiornamenti. Questa verifica consente di modificare i file all'esterno della cache mantenendo la coerenza dei dati.
+* I **client scrivono nella destinazione NFS, ignorando la cache** . scegliere questa opzione se i client nel flusso di lavoro scrivono i dati direttamente nel sistema di archiviazione senza prima scrivere nella cache o se si vuole ottimizzare la coerenza dei dati.
 
-In questa tabella vengono riepilogate le differenze del modello di utilizzo:
+  I file richiesti dai client vengono memorizzati nella cache, ma tutte le modifiche apportate ai file dal client vengono passate immediatamente al sistema di archiviazione back-end. I file nella cache vengono spesso controllati rispetto alle versioni back-end per gli aggiornamenti. Questa verifica mantiene la coerenza dei dati quando i file vengono modificati direttamente nel sistema di archiviazione anziché nella cache.
 
-| Modello di utilizzo                   | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
-|-------------------------------|--------------|-----------------------|--------------------------|
-| Lettura di scritture complesse e non frequenti | Lettura         | Mai                 | nessuno                     |
-| Scritture superiori al 15%       | Lettura/Scrittura   | 8 ore               | 1 ora                   |
-| Client che ignorano la cache      | Lettura         | 30 secondi            | nessuno                     |
+Per informazioni dettagliate sulle altre opzioni, vedere [comprendere i modelli di utilizzo](cache-usage-models.md).
+
+In questa tabella vengono riepilogate le differenze tra tutti i modelli di utilizzo:
+
+| Modello di utilizzo | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
+|--|--|--|--|
+| Lettura di scritture complesse e non frequenti | Lettura | Mai | nessuno |
+| Scritture superiori al 15% | Lettura/Scrittura | 8 ore | 20 minuti |
+| Client che ignorano la cache | Lettura | 30 secondi | nessuno |
+| Scritture maggiori del 15%, controllo di back-end frequente (30 secondi) | Lettura/Scrittura | 30 secondi | 20 minuti |
+| Più di 15% Scritture, controllo back-end frequente (60 secondi) | Lettura/Scrittura | 60 secondi | 20 minuti |
+| Scritture con dimensioni maggiori del 15%, writeback frequente | Lettura/Scrittura | 30 secondi | 30 secondi |
+| Lettura intensiva, controllo del server di backup ogni 3 ore | Lettura | 3 ore | nessuno |
 
 > [!NOTE]
-> Il valore di **Verifica back-end** indica quando la cache confronta automaticamente i propri file con i file di origine nell'archiviazione remota. Tuttavia, è possibile forzare la cache HPC di Azure per confrontare i file eseguendo un'operazione di directory che include una richiesta READDIRPLUS. READDIRPLUS è un'API NFS standard (detta anche lettura estesa) che restituisce i metadati della directory, che determina il confronto e l'aggiornamento dei file nella cache.
+> Il valore di **Verifica back-end** indica quando la cache confronta automaticamente i propri file con i file di origine nell'archiviazione remota. Tuttavia, è possibile attivare un confronto inviando una richiesta client che include un'operazione READDIRPLUS nel sistema di archiviazione back-end. READDIRPLUS è un'API NFS standard (detta anche lettura estesa) che restituisce i metadati della directory, che determina il confronto e l'aggiornamento dei file nella cache.
 
 ### <a name="create-an-nfs-storage-target"></a>Creare una destinazione di archiviazione NFS
 
@@ -291,6 +304,43 @@ Output:
 ```
 
 ---
+
+## <a name="add-a-new-adls-nfs-storage-target-preview"></a>Aggiungere una nuova destinazione di archiviazione ADLS-NFS (anteprima)
+
+Le destinazioni di archiviazione ADLS-NFS usano i contenitori BLOB di Azure che supportano il protocollo NFS (Network File System) 3,0.
+
+> [!NOTE]
+> Il supporto del protocollo NFS 3,0 per archiviazione BLOB di Azure è in versione di anteprima pubblica. La disponibilità è limitata ed è possibile che le funzionalità cambino tra ora e quando la funzionalità diventa disponibile a livello generale. Non usare la tecnologia di anteprima nei sistemi di produzione.
+>
+> Leggere il [supporto del protocollo NFS 3,0](../storage/blobs/network-file-system-protocol-support.md) per le informazioni più recenti.
+
+Le destinazioni di archiviazione ADLS-NFS presentano alcune analogie con le destinazioni di archiviazione BLOB e altre con destinazioni di archiviazione NFS. Ad esempio:
+
+* Analogamente a una destinazione di archiviazione BLOB, è necessario assegnare all'account di [archiviazione l'](#add-the-access-control-roles-to-your-account)autorizzazione per la cache HPC di Azure.
+* Analogamente a una destinazione di archiviazione NFS, è necessario impostare un [modello di utilizzo](#choose-a-usage-model)della cache.
+* Poiché i contenitori BLOB abilitati per NFS hanno una struttura gerarchica compatibile con NFS, non è necessario usare la cache per inserire i dati e i contenitori sono leggibili da altri sistemi NFS. È possibile precaricare i dati in un contenitore ADLS-NFS, quindi aggiungerli a una cache HPC come destinazione di archiviazione e quindi accedere ai dati in un secondo momento dall'esterno di una cache HPC. Quando si usa un contenitore BLOB standard come destinazione di archiviazione della cache HPC, i dati vengono scritti in un formato proprietario ed è possibile accedervi solo da altri prodotti compatibili con la cache HPC di Azure.
+
+Prima di poter creare una destinazione di archiviazione ADLS-NFS, è necessario creare un account di archiviazione abilitato per NFS. Seguire i suggerimenti dei [prerequisiti per la cache HPC di Azure](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) e le istruzioni riportate in [montare l'archiviazione BLOB tramite NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Dopo aver configurato l'account di archiviazione, è possibile creare un nuovo contenitore quando si crea la destinazione di archiviazione.
+
+Per creare una destinazione di archiviazione ADLS-NFS, aprire la pagina **Aggiungi destinazione di archiviazione** nel portale di Azure. (Altri metodi sono in fase di sviluppo).
+
+![Screenshot della pagina Aggiungi destinazione di archiviazione con la destinazione ADLS-NFS definita](media/add-adls-target.png)
+
+Immettere queste informazioni.
+
+* **Nome destinazione di archiviazione** : impostare un nome che identifichi la destinazione di archiviazione nella cache HPC di Azure.
+* **Tipo di destinazione** : scegliere **ADLS-NFS**.
+* **Account di archiviazione** : selezionare l'account che si vuole usare. Se l'account di archiviazione abilitato per NFS non è visualizzato nell'elenco, verificare che sia conforme ai prerequisiti e che la cache possa accedervi.
+
+  Per accedere all'account di archiviazione, è necessario autorizzare l'istanza della cache, come descritto in [aggiungere i ruoli di accesso](#add-the-access-control-roles-to-your-account).
+
+* **Contenitore di archiviazione** : selezionare il contenitore BLOB abilitato per NFS per la destinazione oppure fare clic su **Crea nuovo**.
+
+* **Modello di utilizzo** : scegliere uno dei profili di caching dei dati in base al flusso di lavoro, descritto in [scegliere un modello di utilizzo](#choose-a-usage-model) precedente.
+
+Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
+
+<!-- **** -->
 
 ## <a name="view-storage-targets"></a>Visualizzare le destinazioni di archiviazione
 

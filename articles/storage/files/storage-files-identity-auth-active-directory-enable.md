@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/13/2020
+ms.date: 03/15/2021
 ms.author: rogarana
-ms.openlocfilehash: 6098497e89ad66fad7659aa64c9a7849380f8c43
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 26932d05cd3d2ef7704b48463c895e05524d87f1
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102547509"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472131"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Panoramica-autenticazione Active Directory Domain Services locale su SMB per le condivisioni file di Azure
 
@@ -66,7 +66,7 @@ Prima di abilitare l'autenticazione di servizi di dominio Active Directory per l
 
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 
-File di Azure autenticazione con servizi di dominio Active Directory è disponibile in [tutte le aree pubbliche e gov di Azure](https://azure.microsoft.com/global-infrastructure/locations/).
+File di Azure autenticazione con servizi di dominio Active Directory è disponibile in [tutte le aree pubbliche, Cina e gov di Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview"></a>Panoramica
 

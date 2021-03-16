@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 698b4ebedfc9b41e8c5732a0a81226a971d65585
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629173"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470756"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte 3: configurare le autorizzazioni a livello di directory e di file su SMB 
 
@@ -93,9 +93,19 @@ Una volta montata la condivisione file con la chiave dell'account di archiviazio
 
 Se si dispone di directory o file in file server locali con elenchi DACL di Windows configurati in base alle identità di servizi di dominio Active Directory, è possibile copiarli in File di Azure di salvare in modo permanente gli ACL con strumenti tradizionali per la copia dei file, ad esempio Robocopy o [Azure AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases). Se le directory e i file sono suddivisi in livelli File di Azure tramite Sincronizzazione file di Azure, gli ACL vengono trasferiti e salvati in modo permanente nel formato nativo.
 
+### <a name="configure-windows-acls-with-icacls"></a>Configurare gli ACL di Windows con icacls
+
+Usare il comando seguente di Windows per concedere autorizzazioni complete a tutti i file e le sottodirectory nella condivisione file, inclusa la directory radice. Ricordarsi di sostituire i valori segnaposto nell'esempio con i valori personalizzati.
+
+```
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
+```
+
+Per ulteriori informazioni su come utilizzare icacls per impostare gli ACL di Windows e sui diversi tipi di autorizzazioni supportate, vedere [la Guida di riferimento alla riga di comando per icacls](/windows-server/administration/windows-commands/icacls).
+
 ### <a name="configure-windows-acls-with-windows-file-explorer"></a>Configurare gli ACL di Windows con Esplora file di Windows
 
-Utilizzare Esplora file di Windows per concedere l'autorizzazione completa a tutte le directory e i file nella condivisione file, inclusa la directory radice.
+Utilizzare Esplora file di Windows per concedere l'autorizzazione completa a tutte le directory e i file nella condivisione file, inclusa la directory radice. Se non si è in grado di caricare correttamente le informazioni sul dominio di Active Directory in Esplora file di Windows, è probabile che ciò sia dovuto a una configurazione attendibile nell'ambiente Active Directory locale. Il computer client non è stato in grado di raggiungere il controller di dominio di Active Directory registrato per l'autenticazione File di Azure. In questo caso, usare icacls per gli ACL Windows di configurazione.
 
 1. Aprire Esplora file di Windows e fare clic con il pulsante destro del mouse su file/directory e selezionare **Proprietà**.
 1. Selezionare la scheda **Sicurezza**.
@@ -106,15 +116,6 @@ Utilizzare Esplora file di Windows per concedere l'autorizzazione completa a tut
 1.    Nella scheda **sicurezza** selezionare tutte le autorizzazioni che si desidera concedere al nuovo utente.
 1.    Selezionare **Applica**.
 
-### <a name="configure-windows-acls-with-icacls"></a>Configurare gli ACL di Windows con icacls
-
-Usare il comando seguente di Windows per concedere autorizzazioni complete a tutti i file e le sottodirectory nella condivisione file, inclusa la directory radice. Ricordarsi di sostituire i valori segnaposto nell'esempio con i valori personalizzati.
-
-```
-icacls <mounted-drive-letter>: /grant <user-email>:(f)
-```
-
-Per ulteriori informazioni su come utilizzare icacls per impostare gli ACL di Windows e sui diversi tipi di autorizzazioni supportate, vedere [la Guida di riferimento alla riga di comando per icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

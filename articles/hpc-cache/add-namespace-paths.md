@@ -4,14 +4,14 @@ description: Come creare percorsi destinati ai client per l'archiviazione back-e
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: f45d5710f6feb8af2347ca298e07e8a4870d3d4f
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760541"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470464"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurare lo spazio dei nomi aggregato
 
@@ -132,6 +132,30 @@ Per aggiornare il percorso dello spazio dei nomi della destinazione o aggiungere
 Le opzioni utilizzate per il comando di aggiornamento sono simili a quelle del comando "Crea", ad eccezione del fatto che non si passano le informazioni sul sistema di archiviazione (indirizzo IP o nome host) e il modello di utilizzo è facoltativo. Per ulteriori informazioni sulla sintassi dell'opzione, vedere [aggiungere una nuova destinazione di archiviazione NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) ``--junction`` .
 
 ---
+
+### <a name="adls-nfs-namespace-paths-preview"></a>ADLS-percorsi dello spazio dei nomi NFS (anteprima)
+
+Come per una normale destinazione di archiviazione BLOB, una destinazione di archiviazione ADLS-NFS dispone solo di un'esportazione, quindi può avere un solo percorso dello spazio dei nomi.
+
+Per impostare o modificare il percorso con il portale di Azure, seguire le istruzioni riportate di seguito.
+
+Caricare la pagina delle impostazioni **dello spazio dei nomi** .
+
+* **Aggiungere un nuovo percorso:** Fare clic sul pulsante **+ Aggiungi** nella parte superiore e immettere le informazioni nel pannello modifica.
+
+  ![Screenshot dei campi Aggiungi spazio dei nomi per la modifica con una destinazione di archiviazione ADLS-NFS selezionata. I percorsi di esportazione e sottodirectory sono impostati su/e non modificabili.](media/namespace-add-adls.png)
+
+  * Immettere il percorso che i client utilizzeranno per accedere a questa destinazione di archiviazione.
+
+  * Consente di selezionare i criteri di accesso da usare per questo percorso. Per altre informazioni sulla personalizzazione dell'accesso client, vedere [usare i criteri di accesso client](access-policies.md).
+
+  * Selezionare la destinazione di archiviazione nell'elenco a discesa. Se una destinazione di archiviazione ADLS-NFS dispone già di un percorso dello spazio dei nomi, non è possibile selezionarla.
+
+  * Per una destinazione di archiviazione ADLS-NFS, i percorsi di esportazione e sottodirectory vengono impostati automaticamente su ``/`` .
+
+* **Modificare un percorso esistente:** Fare clic sul percorso dello spazio dei nomi. Verrà visualizzato il pannello modifica. È possibile modificare il percorso e i criteri di accesso, ma non è possibile passare a una destinazione di archiviazione diversa.
+
+* **Eliminare un percorso dello spazio dei nomi:** Selezionare la casella di controllo a sinistra del percorso e fare clic sul pulsante **Elimina** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,13 +2,13 @@
 title: Regole di azione per gli avvisi di monitoraggio di Azure
 description: Informazioni sulle regole di azione in monitoraggio di Azure e su come configurarle e gestirle.
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: bf254249f5b347d32255820da370a499c84da212
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.date: 03/15/2021
+ms.openlocfilehash: 2ad87cce668555ece0eba6479bf9d21db312bfcf
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463069"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466729"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -68,7 +68,7 @@ I filtri disponibili sono:
 * **Gravità**  
 Questa regola si applica solo agli avvisi con i livelli di gravità selezionati.  
 Ad esempio, **Severity = Sev1** significa che la regola si applica solo agli avvisi con gravità Sev1.
-* **Servizio di monitoraggio**  
+* **Monitorare il servizio**  
 Questa regola si applica solo agli avvisi provenienti dai servizi di monitoraggio selezionati.  
 Ad esempio, **Monitor Service = "backup di Azure"** significa che la regola verrà applicata solo agli avvisi di backup (provenienti da backup di Azure).
 * **Tipo di risorsa**  
@@ -76,8 +76,9 @@ Questa regola si applica solo agli avvisi relativi ai tipi di risorse selezionat
 Ad esempio, **Resource Type = "Virtual Machines"** significa che la regola si applica solo agli avvisi sulle macchine virtuali.
 * **ID regola di avviso**  
 Questa regola si applica solo agli avvisi provenienti da una regola di avviso specifica. Il valore deve corrispondere all'ID Gestione risorse della regola di avviso.  
-Ad esempio, la regola di **avviso ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.Insights/metricalerts/API-latency"** indica che questa regola verrà applicata solo agli avvisi provenienti dalla regola di avviso della metrica "latenza API".
-* **Condizione del monitoraggio**  
+Ad esempio, la regola di **avviso ID = "/subscriptions/SubId1/resourceGroups/RG1/Providers/Microsoft.Insights/metricalerts/API-latency"** indica che questa regola verrà applicata solo agli avvisi provenienti dalla regola di avviso della metrica "latenza API".
+È possibile ottenere l'ID regola di avviso appropriato elencando le regole di avviso dall'interfaccia della riga di comando oppure aprendo una regola di avviso specifica nel portale, facendo clic su "proprietà" e copiando il valore "ID risorsa".
+* **Condizione di monitoraggio**  
 Questa regola si applica solo agli eventi di avviso con la condizione di monitoraggio specificata, **attivata** o **risolta**.
 * **Descrizione**  
 Questa regola si applica solo agli avvisi che contengono una stringa specifica nel campo Descrizione avviso. Il campo contiene la descrizione della regola di avviso.  

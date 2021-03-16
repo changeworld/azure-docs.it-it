@@ -2,13 +2,13 @@
 title: What ' s New with Azure Arc Enabled Servers Agent
 description: Questo articolo contiene le note sulla versione per l'agente Azure Arc Enabled Server. Per molti dei problemi riepilogati sono disponibili collegamenti a ulteriori dettagli.
 ms.topic: conceptual
-ms.date: 12/21/2020
-ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.date: 03/15/2021
+ms.openlocfilehash: acf606ed1ad0f54c983b14a0141d0dc11e2c45d9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722522"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470507"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>What ' s New with Azure Arc Enabled Servers Agent
 
@@ -18,13 +18,27 @@ Azure Arc Enabled Servers Connected computer Agent riceve i miglioramenti su bas
 - Problemi noti
 - Correzioni di bug
 
+## <a name="march-2021"></a>Marzo 2021
+
+Versione 1,4
+
+## <a name="new-feature"></a>Nuova funzionalità
+
+- Aggiunta del supporto per gli endpoint privati.
+- Elenco espanso dei codici di uscita per azcmagent.
+- I parametri di configurazione dell'agente possono ora essere letti da un file con il parametro--config.
+
+## <a name="fixed"></a>Fisso
+
+I controlli degli endpoint di rete sono ora più veloci.
+
 ## <a name="december-2020"></a>Dicembre 2020
 
 Versione: 1,3
 
 ### <a name="new-feature"></a>Nuova funzionalità
 
-Aggiunta del supporto per Windows Server 2008 R2
+Aggiunta del supporto per Windows Server 2008 R2.
 
 ### <a name="fixed"></a>Fisso
 
@@ -47,7 +61,7 @@ Versione: 1.1
 - Correzione dello script del proxy per gestire il percorso del file di unità del daemon GC alternativo.
 - L'affidabilità dell'agente GuestConfig cambia.
 - Supporto dell'agente GuestConfig per US Gov Virginia area.
-- L'estensione dell'agente GuestConfig segnala i messaggi in modo più dettagliato in caso di errori.
+- L'estensione dell'agente GuestConfig segnala i messaggi in modo più dettagliato se si verifica un errore.
 
 ## <a name="september-2020"></a>Settembre 2020
 

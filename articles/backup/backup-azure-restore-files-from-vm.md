@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: c5a027773a55347b71c1e6a66d24d7fdb99220d0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 63714773d1b6f84b88bd2207aca4196fa16f1a94
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725510"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493527"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -60,18 +60,18 @@ Per ripristinare i file o le cartelle dal punto di ripristino, passare alla macc
 
 ## <a name="step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script"></a>Passaggio 2: verificare che il computer soddisfi i requisiti prima di eseguire lo script
 
-Al termine del download dello script, assicurarsi di disporre del computer corretto per l'esecuzione dello script. La macchina virtuale in cui si intende eseguire lo script non deve avere una delle seguenti configurazioni non supportate. In caso contrario, scegliere una macchina alternativa preferibilmente dalla stessa area che soddisfa i requisiti.  
+Al termine del download dello script, assicurarsi di disporre del computer corretto per l'esecuzione dello script. La macchina virtuale in cui si intende eseguire lo script non deve avere una delle seguenti configurazioni non supportate. **In caso contrario, scegliere una macchina alternativa preferibilmente dalla stessa area che soddisfa i requisiti**.  
 
 ### <a name="dynamic-disks"></a>Dischi dinamici
 
-Non è possibile eseguire lo script eseguibile nella macchina virtuale con le caratteristiche seguenti:
+Non è possibile eseguire lo script eseguibile nella macchina virtuale con una delle seguenti caratteristiche: scegliere un computer alternativo
 
 - Volumi che si estendono su più dischi (volumi con spanning e con striping).
 - Volumi a tolleranza di errore (volumi con mirroring e RAID-5) sui dischi dinamici.
 
 ### <a name="windows-storage-spaces"></a>Spazi di archiviazione di Windows
 
-Non è possibile eseguire il file eseguibile scaricato nella macchina virtuale configurata per spazi di archiviazione Windows.
+Non è possibile eseguire il file eseguibile scaricato nella stessa VM di cui è stato eseguito il backup se la macchina virtuale di cui è stato eseguito il backup ha spazi di archiviazione Windows. Scegliere una macchina alternativa.
 
 ### <a name="virtual-machine-backups-having-large-disks"></a>Backup di macchine virtuali con dischi di grandi dimensioni
 

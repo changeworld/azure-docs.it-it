@@ -65,6 +65,8 @@
       href: configure-scaling.md
     - name: Certificati
       href: certificates-and-key-vault.md
+    - name: Generare un modello ARM tramite il portale
+      href: generate-template-portal.md
 - name: Esempi
   items:
     - name: Modelli di esempio

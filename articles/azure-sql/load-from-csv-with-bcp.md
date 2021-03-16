@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d2d501206dcb1fc6b9bb545f9dcf4d5c61af994e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 216410d423a70037588a6fb596771a702a13c003
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777878"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472247"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>Caricare dati da CSV nel database SQL di Azure o in SQL Istanza gestita (file flat)
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Per seguire la procedura descritta in questo articolo, sono necessari:
 * Utilità della riga di comando bcp installata
 * Utilità della riga di comando sqlcmd installata
 
-È possibile scaricare le utilità bcp e sqlcmd dall'[Area download Microsoft][Microsoft Download Center].
+È possibile scaricare le utilità bcp e SQLCMD dalla [documentazione di Microsoft sqlcmd] [ https://docs.microsoft.com/sql/tools/sqlcmd-utility?view=sql-server-ver15 ].
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>Dati in formato ASCII o UTF-16
 

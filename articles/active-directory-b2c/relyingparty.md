@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcdc8c448a348bf067995bf92615ceab1ac19fb4
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 5374ce59d3a599e243684c168a8d84a6434059ee
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198439"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492014"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L'elemento **RelyingParty** specifica il percorso utente da applicare per la richiesta corrente Azure Active Directory B2C (Azure ad B2C). Specifica inoltre l'elenco di attestazioni richiesto dall'applicazione relying party (RP) come parte del token emesso. Un'applicazione RP, ad esempio un'applicazione Web, mobile o desktop, chiama il file dei criteri RP. Il file di criteri RP esegue un'attività specifica, ad esempio l'accesso, la reimpostazione di una password o la modifica di un profilo. Più applicazioni possono usare gli stessi criteri RP e una singola applicazione può usare più criteri. Tutte le applicazioni RP ricevono lo stesso token con attestazioni e l'utente segue lo stesso percorso.
+L'elemento **RelyingParty** specifica il percorso utente da applicare per la richiesta corrente ad Azure Active Directory B2C (Azure AD B2C). Specifica inoltre l'elenco di attestazioni richiesto dall'applicazione relying party (RP) come parte del token emesso. Un'applicazione RP, ad esempio un'applicazione Web, mobile o desktop, chiama il file dei criteri RP. Il file di criteri RP esegue un'attività specifica, ad esempio l'accesso, la reimpostazione di una password o la modifica di un profilo. Più applicazioni possono usare gli stessi criteri RP e una singola applicazione può usare più criteri. Tutte le applicazioni RP ricevono lo stesso token con attestazioni e l'utente segue lo stesso percorso.
 
 L'esempio seguente mostra un elemento **RelyingParty** nel file dei criteri *B2C_1A_signup_signin*:
 
@@ -145,10 +145,11 @@ L'elemento **UserJourneyBehaviors** contiene gli elementi seguenti:
 | JourneyInsights | 0:1 | Chiave di strumentazione di Azure Application Insights da usare. |
 | ContentDefinitionParameters | 0:1 | Elenco di coppie chiave-valore da accodare all'URI di caricamento della definizione del contenuto. |
 |ScriptExecution| 0:1| Modalità di esecuzione [JavaScript](javascript-and-page-layout.md) supportate. Valori possibili: `Allow` o `Disallow` (impostazione predefinita).
+| JourneyFraming | 0:1| Consente di caricare l'interfaccia utente di questo criterio in un iframe. |
 
 ### <a name="singlesignon"></a>SingleSignOn
 
-L'elemento **SingleSignOn** contiene l'attributo seguente:
+L'elemento **SingleSignOn** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
@@ -165,7 +166,7 @@ L'elemento **JourneyInsights** contiene gli attributi seguenti:
 | --------- | -------- | ----------- |
 | TelemetryEngine | Sì | Il valore deve essere `ApplicationInsights`. |
 | InstrumentationKey | Sì | Stringa che contiene la chiave di strumentazione per l'elemento Application Insights. |
-| DeveloperMode | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, Application Insights velocizza la telemetria nella pipeline di elaborazione. Questa impostazione è ideale per lo sviluppo, ma vincolata a volumi elevati. I log attività dettagliati sono progettati solo per favorire lo sviluppo di criteri personalizzati. Non usare la modalità di sviluppo in fase di produzione. I log raccolgono tutte le attestazioni inviate verso e dai provider di identità durante lo sviluppo. Se usato in fase di produzione, lo sviluppatore si assume la responsabilità delle informazioni personali raccolte nel log di App Insights di cui è proprietario. Questi log dettagliati vengono raccolti solo quando il valore è impostato su `true`.|
+| DeveloperMode | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, Application Insights velocizza la telemetria nella pipeline di elaborazione. Questa impostazione è ideale per lo sviluppo, ma vincolata a volumi elevati. I log attività dettagliati sono progettati solo per favorire lo sviluppo di criteri personalizzati. Non usare la modalità di sviluppo in fase di produzione. I log raccolgono tutte le attestazioni inviate verso e dai provider di identità durante lo sviluppo. Se usato in produzione, lo sviluppatore si assume la responsabilità dei dati personali raccolti nel log di Application Insights di cui sono proprietari. Questi log dettagliati vengono raccolti solo quando il valore è impostato su `true`.|
 | ClientEnabled | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, invia lo script di Application Insights lato client per tenere traccia della visualizzazione della pagina e degli errori del client. |
 | ServerEnabled | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, invia l'elemento JSON UserJourneyRecorder esistente come evento personalizzato ad Application Insights. |
 | TelemetryVersion | Sì | Il valore deve essere `1.0.0`. |
@@ -193,6 +194,15 @@ L'elemento **ContentDefinitionParameter** contiene l'attributo seguente:
 | Nome | Sì | Nome della coppia chiave-valore. |
 
 Per altre informazioni, vedere [Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
+
+### <a name="journeyframing"></a>JourneyFraming
+
+L'elemento **JourneyFraming** contiene gli attributi seguenti:
+
+| Attributo | Obbligatoria | Descrizione |
+| --------- | -------- | ----------- |
+| Abilitato | Sì | Consente il caricamento di questo criterio all'interno di un iframe. I valori possibili sono: `false` (impostazione predefinita) o `true`. |
+| Origini | Sì | Contiene i domini che caricherà l'host iframe. Per altre informazioni, vedere [caricamento di Azure B2C in un iframe](embedded-login.md). |
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 

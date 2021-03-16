@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: a51840daa2c8b19c323ad761ff6e6d1dcef15f75
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1a74a2f44ac9b03e39e9fea48a3428b82111a48c
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497963"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472005"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Usare Integrità risorse per risolvere i problemi di connettività per il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,7 +61,7 @@ Lo stato **Sconosciuto** indica che Integrità risorse non ha ricevuto informazi
 
 ### <a name="downtime-reasons"></a>Motivi del tempo di inattività
 
-Quando si verifica un tempo di inattività del database, viene eseguita l'analisi per determinare un motivo. Quando disponibile, il motivo del tempo di inattività viene indicato nella sezione della cronologia integrità di Integrità risorse. I motivi dei tempi di inattività vengono in genere pubblicati 30 minuti dopo un evento.
+Quando si verifica un tempo di inattività del database, viene eseguita l'analisi per determinare un motivo. Quando disponibile, il motivo del tempo di inattività viene indicato nella sezione della cronologia integrità di Integrità risorse. I motivi di inattività vengono in genere pubblicati entro 45 minuti dopo un evento.
 
 #### <a name="planned-maintenance"></a>Manutenzione pianificata
 

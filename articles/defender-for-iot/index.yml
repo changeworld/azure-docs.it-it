@@ -11,12 +11,12 @@ metadata:
   author: mlottner
   ms.author: mlottner
   ms.date: 09/07/2020
-  ms.openlocfilehash: a56e82d81839d94029bc34dcdec30544e7158ea1
-  ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+  ms.openlocfilehash: 1e7f3b151691c80861c9add3188a3d4479fac059
+  ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/26/2021
-  ms.locfileid: "98802675"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103496100"
 landingContent:
 - title: Introduzione ad Azure Defender per IoT
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
       url: architecture.md
     - text: Panoramica dell'installazione della soluzione
       url: getting-started.md
-    - text: Quali sono le novità?
+    - text: Novità
       url: release-notes.md
 - title: Eseguire la configurazione e l'onboarding - Soluzione senza agente
   linkLists:
@@ -58,7 +58,7 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Modulo di sicurezza per Edge
+    - text: Microsoft Edge Defender-cose-micro-Agent
       url: security-edge-architecture.md
   - linkListType: quickstart
     links:
@@ -66,7 +66,7 @@ landingContent:
       url: quickstart-onboard-iot-hub.md
     - text: Configurare la soluzione di sicurezza per IoT
       url: quickstart-configure-your-solution.md
-    - text: Configurare il modulo di sicurezza per Azure RTOS
+    - text: Configurare Defender-RTO-micro-Agent per Azure
       url: quickstart-azure-rtos-security-module.md
     - text: Creare un modulo gemello di Azure Defender per IoT
       url: quickstart-create-security-twin.md

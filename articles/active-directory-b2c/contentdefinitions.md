@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/26/2020
+ms.date: 02/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 018d90db06948f3fd6a34b56c65088641a9ca874
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 62bae22b6a4bb06b1e97c18e52ad614fd2439902
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108978"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489322"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -61,7 +61,7 @@ I metadati del profilo tecnico autocertificato **LocalAccountSignUpWithLogonEmai
 
 L'elemento **ContentDefinition** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Un identificatore per una definizione del contenuto. Il valore è quello specificato nella sezione **ID di definizione del contenuto** più avanti in questa pagina. |
 
@@ -115,49 +115,53 @@ Il formato del valore deve contenere la parola `contract` : _urn: com: Microsoft
 
 | Valore di DataUri precedente | Nuovo valore di DataUri |
 | ----------------- | ----------------- |
-| `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
-| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1` |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1` |
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:2.1.2` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2` |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.2.0` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
-Nell'esempio seguente vengono illustrati gli identificatori delle definizioni di contenuto e il corrispondente **DataUri** con il contratto di pagina: 
+Nell'esempio seguente vengono illustrati gli identificatori delle definizioni di contenuto e il **DataUri** corrispondente con la versione più recente della pagina: 
 
 ```xml
-<ContentDefinitions>
-  <ContentDefinition Id="api.error">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0</DataUri>
-  </ContentDefinition>
-  <ContentDefinition Id="api.idpselections">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
-  </ContentDefinition>
-  <ContentDefinition Id="api.idpselections.signup">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
-  </ContentDefinition>
-  <ContentDefinition Id="api.signuporsignin">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
-  </ContentDefinition>
-  <ContentDefinition Id="api.selfasserted">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
-  </ContentDefinition>
-  <ContentDefinition Id="api.selfasserted.profileupdate">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
-  </ContentDefinition>
-  <ContentDefinition Id="api.localaccountsignup">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
-  </ContentDefinition>
-  <ContentDefinition Id="api.localaccountpasswordreset">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
-  </ContentDefinition>
-  <ContentDefinition Id="api.phonefactor">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0</DataUri>
-  </ContentDefinition>
-</ContentDefinitions>
+<!-- 
+<BuildingBlocks> -->
+  <ContentDefinitions>
+    <ContentDefinition Id="api.error">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1</DataUri>
+    </ContentDefinition>
+    <ContentDefinition Id="api.idpselections">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1</DataUri>
+    </ContentDefinition>
+    <ContentDefinition Id="api.idpselections.signup">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1</DataUri>
+    </ContentDefinition>
+    <ContentDefinition Id="api.signuporsignin">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2</DataUri>
+    </ContentDefinition>
+    <ContentDefinition Id="api.selfasserted">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+    </ContentDefinition>
+    <ContentDefinition Id="api.selfasserted.profileupdate">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+    </ContentDefinition>
+    <ContentDefinition Id="api.localaccountsignup">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+    </ContentDefinition>
+    <ContentDefinition Id="api.localaccountpasswordreset">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+    </ContentDefinition>
+    <ContentDefinition Id="api.phonefactor">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.2</DataUri>
+    </ContentDefinition>
+  </ContentDefinitions>
+<!-- 
+</BuildingBlocks> -->
 ```
 
 ### <a name="metadata"></a>Metadati
@@ -170,7 +174,7 @@ L'elemento **Metadata** contiene gli elementi seguenti:
 
 L'elemento **Elemento** di **Metadati** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Chiave | Sì | Chiave dei metadati.  |
 
@@ -178,7 +182,7 @@ L'elemento **Elemento** di **Metadati** contiene gli attributi seguenti:
 
 La definizione del contenuto supporta gli elementi di metadati seguenti:
 
-| Chiave | Obbligatorio | Descrizione |
+| Chiave | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | DisplayName | No | Stringa che contiene il nome della definizione del contenuto. |
 
@@ -192,7 +196,7 @@ L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
 L'elemento **LocalizedResourcesReference** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Linguaggio | Sì | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
 | LocalizedResourcesReferenceId | Sì | L'identificatore dell'elemento **LocalizedResources**. |

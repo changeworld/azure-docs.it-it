@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9feef9ec04bcc44bc09d55202b72ada4adc94cf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9b1ffb2dbcbd6e81856277f4b672cf876cc75f1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017057"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492371"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informazioni sui moduli Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge consente di distribuire e gestire la logica di business sul perimetro sotto forma di *moduli*. I moduli di Azure IoT Edge sono l'unità più piccola di calcolo gestita da IoT Edge e possono contenere i servizi di Azure, ad esempio Analisi di flusso di Azure, o il codice specifico per la soluzione. Per comprendere come vengono sviluppati, distribuiti e gestiti i moduli, prendere in considerazione i quattro elementi concettuali di un modulo:
 

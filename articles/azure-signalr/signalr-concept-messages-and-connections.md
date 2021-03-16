@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: 9d0e94cf2318db777bb44c15037f73531cd969fa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3c4d28addac0ecfc9605678582562550a1c96b8d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593318"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491946"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Messaggi e connessioni in Servizio Azure SignalR
 
@@ -48,9 +48,16 @@ Se si dispone di tre client e un server applicazioni. Un client invia un messagg
 
 Sono disponibili connessioni al server e client con il servizio Azure SignalR. Per impostazione predefinita, ogni server applicazioni inizia con cinque connessioni iniziali per hub e ogni client dispone di una connessione client.
 
-Il conteggio delle connessioni visualizzato nel portale di Azure include sia le connessioni server che quelle client.
-
 Si supponga, ad esempio, di disporre di due server applicazioni e di definire cinque hub nel codice. Il numero di connessioni server sarà 50:2 server applicazioni * 5 Hub * 5 connessioni per hub.
+
+Il numero di connessioni visualizzato nell'portale di Azure include le connessioni al server, le connessioni client, le connessioni di diagnostica e le connessioni di traccia in tempo reale. I tipi di connessione sono definiti nell'elenco seguente:
+
+- **Connessione al server**: connette il servizio Azure SignalR e il server app.
+- **Connessione client**: connette il servizio Azure SignalR e l'app client.
+- **Connessione di diagnostica**: un tipo speciale di connessione client che può produrre un log più dettagliato, che può influire sulle prestazioni. Questo tipo di client è progettato per la risoluzione dei problemi.
+- **Connessione traccia Live**: si connette all'endpoint di traccia Live e riceve tracce live del servizio Azure SignalR. 
+ 
+Si noti che una connessione di traccia Live non viene conteggiata come connessione client o come connessione server. 
 
 ASP.NET SignalR il calcola le connessioni server in modo diverso. Include un hub predefinito in aggiunta agli hub definiti dall'utente. Per impostazione predefinita, ogni server applicazioni necessita di altre cinque connessioni server iniziali. Il numero di connessioni iniziale per l'Hub predefinito rimane coerente con altri hub.
 

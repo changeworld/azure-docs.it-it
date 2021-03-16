@@ -6,16 +6,16 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7d39decaa6376c614e48b65ad2fc1b3043aa0a3c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1318c47bcded47159006977db09604bb53674973
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101682380"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487932"
 ---
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -101,4 +101,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 ### <a name="additional-reading"></a>Altre letture
 
-- [Pagina GitHub dei servizi di comunicazione di Azure](https://github.com/Azure/communication) - Nella pagina ufficiale di GitHub sono disponibili altri esempi e informazioni
+- [Esempi: trovare](./../overview.md) altri esempi ed esempi nella pagina Panoramica degli esempi.

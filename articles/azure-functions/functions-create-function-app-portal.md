@@ -4,12 +4,12 @@ description: Informazioni su come creare la prima funzione di Azure per l'esecuz
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 8d394a6f71fc5d31bd72a67a876a24a500a7cf01
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6ca187181d68d7924f97ebfac08e81dec77251e9
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732183"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492124"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creare la prima funzione nel portale di Azure
 
@@ -42,13 +42,11 @@ Successivamente, creare una funzione nella nuova app per le funzioni.
 
 1. Selezionare **Funzioni** nel menu a sinistra della finestra **Funzioni** e quindi **Aggiungi** nel menu in alto. 
  
-1. Nella finestra **Nuova funzione**, selezionare **Trigger HTTP**.
+1. Dalla finestra **Aggiungi funzione** selezionare il modello di **trigger http** .
 
     ![Scegliere la funzione Trigger HTTP](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. Nella finestra **Nuova funzione**, accettare il nome predefinito per la **nuova funzione** oppure immettere un nuovo nome. 
-
-1. Scegliere **Anonimo** nell'elenco a discesa **Livello di autorizzazione**, quindi selezionare **Crea funzione**.
+1. In **Dettagli modello** usare `HttpExample` per **nuova funzione** scegliere **Anonimo** dall'elenco a discesa **[livello di autorizzazione](functions-bindings-http-webhook-trigger.md#authorization-keys)** e quindi selezionare **Aggiungi**.
 
     A questo punto Azure crea la funzione Trigger HTTP. Ora è possibile eseguire la nuova funzione inviando una richiesta HTTP.
 

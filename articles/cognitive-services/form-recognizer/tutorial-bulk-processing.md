@@ -2,19 +2,19 @@
 title: 'Esercitazione: Estrarre i dati di moduli in blocco con Azure Data Factory - Riconoscimento modulo'
 titleSuffix: Azure Cognitive Services
 description: Configurare Azure Data Factory attività per attivare il training e l'esecuzione di modelli di riconoscimento moduli e digitalizzare un backlog di grandi dimensioni dei documenti.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
-ms.author: pafarley
-ms.openlocfilehash: 5b220652009f54482c757f01232517569596c562
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.author: lajanuar
+ms.openlocfilehash: 0c009a87a5834997cdc489efc75ebb16f9459754
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102423897"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467103"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-by-using-azure-data-factory"></a>Esercitazione: estrarre i dati del modulo in blocco usando Azure Data Factory
 
@@ -511,4 +511,4 @@ Se si aggiungono nuovi moduli di un nuovo tipo, sarà necessario caricare anche 
 
 In questa esercitazione si configurano le pipeline di Azure Data Factory per attivare il training e l'esecuzione di modelli di riconoscimento moduli e digitalizzare un backlog di grandi dimensioni di file. Esaminare quindi l'API di Riconoscimento modulo per scoprire quali altri operazioni è possibile eseguire.
 
-* [API REST di Riconoscimento modulo](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
+* [API REST di Riconoscimento modulo](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)

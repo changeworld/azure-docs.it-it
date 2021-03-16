@@ -124,6 +124,8 @@
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Risolvere problemi
       items:
+        - name: Trovare un acquirente di prenotazione da log di Azure
+          href: find-reservation-purchaser-from-logs.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Risolvere i problemi relativi ai trasferimenti tra tenant
           href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Nessuna sottoscrizione idonea

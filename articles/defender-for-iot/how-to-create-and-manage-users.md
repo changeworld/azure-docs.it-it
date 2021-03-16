@@ -4,15 +4,15 @@ description: Creare e gestire gli utenti dei sensori e la console di gestione lo
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/03/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: fd0c7b74bea979737644824f93b4dce7a2364b99
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: dff379c99fa7383c7f7844cf8d195a345e88a335
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522343"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466270"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Informazioni su Defender per gli utenti della console
 
@@ -162,7 +162,7 @@ Sono supportati due tipi di autenticazione basata su LDAP:
 
 ### <a name="active-directory-and-defender-for-iot-permissions"></a>Active Directory e Defender per le autorizzazioni per le cose
 
-È possibile associare i gruppi di Active Directory definiti con livelli di autorizzazione specifici. Ad esempio, configurare un gruppo di Active Directory specifico e assegnare le autorizzazioni RO a tutti gli utenti del gruppo. Per informazioni dettagliate, vedere [creare e gestire gli utenti](how-to-create-and-manage-users.md) .
+È possibile associare i gruppi di Active Directory definiti con livelli di autorizzazione specifici. Ad esempio, configurare un gruppo di Active Directory specifico e assegnare le autorizzazioni di sola lettura a tutti gli utenti del gruppo.
 
 Per configurare Active Directory:
 
@@ -170,11 +170,11 @@ Per configurare Active Directory:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Visualizzare le impostazioni del sistema di Active Directory.":::
 
-1. Nel riquadro **Impostazioni sistema** selezionare **Active Directory**.
+2. Nel riquadro **Impostazioni sistema** selezionare **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Modificare le configurazioni del Active Directory.":::
 
-1. Nella finestra di dialogo **modifica configurazione Active Directory** selezionare **Active Directory integrazione abilitata**  >  **Salva**. La finestra di dialogo **modifica configurazione Active Directory** si espande e ora è possibile immettere i parametri per configurare Active Directory.
+3. Nella finestra di dialogo **modifica configurazione Active Directory** selezionare **Active Directory integrazione abilitata**  >  **Salva**. La finestra di dialogo **modifica configurazione Active Directory** si espande e ora è possibile immettere i parametri per configurare Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Immettere i parametri per configurare Active Directory.":::
 
@@ -183,7 +183,7 @@ Per configurare Active Directory:
     > - Per tutti i parametri di Active Directory, utilizzare solo caratteri minuscoli. Utilizzare caratteri minuscoli anche quando le configurazioni in Active Directory utilizzano caratteri maiuscoli.
     > - Non è possibile configurare LDAP e LDAP per lo stesso dominio. È tuttavia possibile utilizzare entrambi per domini diversi contemporaneamente.
 
-1. Impostare i parametri del server Active Directory, come indicato di seguito:
+4. Impostare i parametri del server Active Directory, come indicato di seguito:
 
    | Parametro Server | Descrizione |
    |--|--|
@@ -193,11 +193,15 @@ Per configurare Active Directory:
    | Gruppi di Active Directory | Immettere i nomi dei gruppi definiti nella configurazione del Active Directory nel server LDAP. |
    | Domini trusted | Per aggiungere un dominio trusted, aggiungere il nome di dominio e il tipo di connessione di un dominio trusted. <br />È possibile configurare domini trusted solo per gli utenti definiti in utenti. |
 
+#### <a name="activedirectory-groups-for-the-on-premises-management-console"></a>Gruppi ActiveDirectory per la console di gestione locale
+
+Se si creano gruppi di Active Directory per gli utenti della console di gestione locale, è necessario creare una regola del gruppo di accesso per ogni gruppo di Active Directory. La console di gestione locale Active Directory le credenziali non funzioneranno se non esiste una regola del gruppo di accesso per il gruppo di utenti Active Directory. Vedere [definire il controllo di accesso globale](how-to-define-global-user-access-control.md).
+
 1. Selezionare **Salva**.
 
-1. Per aggiungere un server attendibile, selezionare **Aggiungi server** e configurare un altro server.
+2. Per aggiungere un server attendibile, selezionare **Aggiungi server** e configurare un altro server.
 
-## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Reimpostazione della password di un utente per il sensore o la console di gestione locale
+## <a name="resetting-passwords"></a>Reimpostazione delle password
 
 ### <a name="cyberx-or-support-user"></a>CyberX o utente del supporto tecnico
 
@@ -265,7 +269,7 @@ Per reimpostare la password di un utente nella console di gestione locale:
 
 1. Selezionare **Aggiorna**.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedi anche
 
 [Attivare e configurare il sensore](how-to-activate-and-set-up-your-sensor.md) 
  [Attivare e configurare la console](how-to-activate-and-set-up-your-on-premises-management-console.md) 

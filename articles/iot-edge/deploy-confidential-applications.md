@@ -7,14 +7,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kgremban
-ms.openlocfilehash: e63397176cae87178cfc5cc343aeed6f76099be2
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f9dff1b4c6b2489edd3cd685e3546618961d9757
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956513"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487718"
 ---
 # <a name="confidential-computing-at-the-edge"></a>Informatica riservata al perimetro
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge supporta applicazioni riservate che vengono eseguite all'interno di enclavi sicure nel dispositivo. La crittografia fornisce sicurezza per i dati in transito o inattivi, ma le enclavi forniscono sicurezza per i dati e i carichi di lavoro in uso. IoT Edge supporta Open enclave come standard per lo sviluppo di applicazioni riservate.
 

@@ -108,7 +108,7 @@
       href: operating-system-functionality.md
     - name: Procedura consigliate per la distribuzione
       href: deploy-best-practices.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Consigli
           href: security-recommendations.md
@@ -187,8 +187,6 @@
               href: deploy-ci-cd-custom-container.md
             - name: Eseguire la distribuzione dall'archivio Git locale
               href: deploy-local-git.md
-            - name: GitHub Action per i contenitori
-              href: deploy-container-github-action.md
             - name: Eseguire la distribuzione con un modello
               href: deploy-complex-application-predictably.md
         - name: Reimpostare le credenziali di distribuzione

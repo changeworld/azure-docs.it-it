@@ -157,6 +157,22 @@
           href: database/job-automation-overview.md
         - name: Automazione dei processi con SQL Agent
           href: database/job-automation-managed-instances.md
+        - name: Connettersi ed eseguire query dalle app
+          items:
+            - name: .NET con Visual Studio
+              href: database/connect-query-dotnet-visual-studio.md
+            - name: .NET Core
+              href: database/connect-query-dotnet-core.md
+            - name: Go
+              href: database/connect-query-go.md
+            - name: Node.js
+              href: database/connect-query-nodejs.md
+            - name: PHP
+              href: database/connect-query-php.md
+            - name: Python
+              href: database/connect-query-python.md
+            - name: Ruby
+              href: database/connect-query-ruby.md
         - name: Continuità aziendale
           items:
             - name: Configurare il gruppo di failover
@@ -452,14 +468,8 @@
                   href: database/connect-query-vscode.md
             - name: Connettersi ed eseguire query dalle app
               items:
-                - name: .NET con Visual Studio
-                  href: database/connect-query-dotnet-visual-studio.md
-                - name: .NET Core
-                  href: database/connect-query-dotnet-core.md
                 - name: .NET con l'autenticazione a più fattori di Active Directory
                   href: database/active-directory-interactive-connect-azure-sql-db.md
-                - name: Go
-                  href: database/connect-query-go.md
                 - name: Java
                   href: database/connect-query-java.md
                 - name: Java con JDBC per Spring Data
@@ -468,14 +478,6 @@
                   href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Java con R2DBC per Spring Data
                   href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
-                - name: Node.js
-                  href: database/connect-query-nodejs.md
-                - name: PHP
-                  href: database/connect-query-php.md
-                - name: Python
-                  href: database/connect-query-python.md
-                - name: Ruby
-                  href: database/connect-query-ruby.md
                 - name: R
                   href: database/connect-query-r.md
         - name: Gestione

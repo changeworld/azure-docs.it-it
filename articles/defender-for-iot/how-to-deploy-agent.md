@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 89ecf26778433a3f075f76905183f3fe866cb5db
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e35e3dd0bacc0b1e3a44d9338f612a70ca4b52bf
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447266"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496525"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selezionare e distribuire un agente di sicurezza nel dispositivo Internet delle cose
 
@@ -51,7 +51,7 @@ L'agente di sicurezza basato su C ha un footprint di memoria inferiore ed è la 
 | **[Autenticazione](concept-security-agent-authentication-methods.md) nell'hub Internet** | Sì | Sì |
 | **[Raccolta](how-to-agent-configuration.md#supported-security-events) dati di sicurezza** | Sì | Sì |
 | **Aggregazione di eventi** | Sì | Sì |
-| **Configurazione remota tramite il [modulo di sicurezza gemello](concept-security-module.md)** | Sì | Sì |
+| **Configurazione remota tramite [Defender-](concept-security-module.md) Internet per dispositivi gemelli** | Sì | Sì |
 
 ## <a name="security-agent-installation-guidelines"></a>Linee guida per l'installazione degli agenti di sicurezza
 
