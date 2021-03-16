@@ -5,19 +5,47 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d560b261e058d01040616f3c59ede60e5986c672
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9185f502a7d9dd7ab00a149fb2f3365372b350cc
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666978"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470749"
 ---
 # <a name="scaling-hpc-applications"></a>Ridimensionamento di applicazioni HPC
 
 Prestazioni ottimali di scalabilità verticale e orizzontale delle applicazioni HPC in Azure sono necessari esperimenti di ottimizzazione e ottimizzazione delle prestazioni per il carico di lavoro specifico. Questa sezione e le pagine specifiche della serie VM offrono indicazioni generali per la scalabilità delle applicazioni.
+
+## <a name="optimally-scaling-mpi"></a>Scalabilità ottimale di MPI 
+
+I suggerimenti seguenti si applicano per ottimizzare l'efficienza, le prestazioni e la coerenza dell'applicazione:
+
+- Per i processi con scalabilità ridotta (ad esempio < connessioni 256K), usare l'opzione:
+   ```bash
+   UCX_TLS=rc,sm
+   ```
+
+- Per i processi con scalabilità più ampia (ad esempio > connessioni 256K), usare l'opzione:
+   ```bash
+   UCX_TLS=dc,sm
+   ```
+
+- In precedenza, per calcolare il numero di connessioni per il processo MPI, usare:
+   ```bash
+   Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
+   ```
+
+## <a name="process-pinning"></a>Blocco processo
+
+- Aggiungere i processi ai core usando un approccio di blocco sequenziale (in contrapposizione a un approccio di bilanciamento del sistema). 
+- Il binding per NUMA/Core/HwThread è migliore dell'associazione predefinita.
+- Per le applicazioni ibride parallele (OpenMP + MPI), usare 4 thread e 1 MPI rango per CCX sulle dimensioni delle VM HB e HBv2.
+- Per le applicazioni MPI pure, provare a usare le classificazioni MPI 1-4 per CCX per ottenere prestazioni ottimali in base alle dimensioni delle VM HB e HBv2.
+- Alcune applicazioni con una notevole sensibilità alla larghezza di banda della memoria possono trarre vantaggio dall'uso di un numero ridotto di core per CCX. Per queste applicazioni, l'uso di 3 o 2 core per CCX può ridurre la contesa della larghezza di banda della memoria e ottenere prestazioni più elevate del mondo reale o scalabilità più uniforme. In particolare, MPI Allreduce può trarre vantaggio da questo approccio.
+- Per le esecuzioni di scala notevolmente più grandi, è consigliabile usare i trasporti UD o ibridi RC + UD. Molte librerie MPI/librerie di runtime eseguono questa operazione internamente, ad esempio UCX o MVAPICH2. Controllare le configurazioni del trasporto per le esecuzioni su larga scala.
 
 ## <a name="compiling-applications"></a>Compilazione di applicazioni
 
@@ -25,7 +53,7 @@ Sebbene non sia necessario, la compilazione di applicazioni con flag di ottimizz
 
 ### <a name="amd-optimizing-cc-compiler"></a>AMD ottimizzazione del compilatore C/C++
 
-Il sistema di compilazione AMD Optimizing C/C++ Compiler (AOCC) offre un elevato livello di ottimizzazioni, multithreading e supporto del processore avanzati che includono l'ottimizzazione globale, la vettorizzazione, le analisi tra procedure, le trasformazioni di cicli e la generazione di codice. I file binari del compilatore AOCC sono adatti per i sistemi Linux con la libreria GNU C (glibc) versione 2,17 e successive. Il gruppo di compilatori è costituito da un compilatore C/C++ (Clang), un compilatore FORTRAN (flangia) e un front-end FORTRAN per Clang (Dragon Egg).
+Il sistema di compilazione AMD Optimizing C/C++ Compiler (AOCC) offre un elevato livello di ottimizzazioni, multithreading e supporto del processore avanzati che includono l'ottimizzazione globale, la vettorizzazione, le analisi tra procedure, le trasformazioni di cicli e la generazione di codice. I file binari del compilatore AOCC sono adatti per i sistemi Linux con la libreria GNU C (glibc) versione 2,17 e successive. Il gruppo di compilatori è costituito da un compilatore C/C++ (Clang), da un compilatore FORTRAN (flangia) e da un front-end FORTRAN a Clang (Dragon Egg).
 
 ### <a name="clang"></a>Clang
 
@@ -68,17 +96,6 @@ Per HPC, AMD consiglia il compilatore GCC 7,3 o versione successiva. Non sono co
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
-
-## <a name="scaling-applications"></a>Ridimensionamento delle applicazioni 
-
-I suggerimenti seguenti si applicano per ottimizzare l'efficienza, le prestazioni e la coerenza dell'applicazione:
-
-* Aggiungere processi a Core 0-59 usando un approccio di blocco sequenziale (in contrapposizione a un approccio di bilanciamento automatico). 
-* Il binding per NUMA/Core/HwThread è migliore dell'associazione predefinita.
-* Per le applicazioni ibride parallele (OpenMP + MPI), usare 4 thread e 1 MPI rango per ogni CCX.
-* Per le applicazioni MPI pure, provare a usare i livelli MPI 1-4 per CCX per ottenere prestazioni ottimali.
-* Alcune applicazioni con una notevole sensibilità alla larghezza di banda della memoria possono trarre vantaggio dall'uso di un numero ridotto di core per CCX. Per queste applicazioni, l'uso di 3 o 2 core per CCX può ridurre la contesa della larghezza di banda della memoria e ottenere prestazioni più elevate del mondo reale o scalabilità più uniforme. In particolare, MPI Allreduce può trarre vantaggio da questo problema.
-* Per le esecuzioni di scala notevolmente più grandi, è consigliabile usare i trasporti UD o ibridi RC + UD. Molte librerie MPI/librerie di runtime eseguono questa operazione internamente, ad esempio UCX o MVAPICH2. Controllare le configurazioni del trasporto per le esecuzioni su larga scala.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24cc7773d281d98b6a0943f5e0a61b6f547991ee
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 90a4ad068f332b198696d96bddbb794c820f42f5
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032824"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564389"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
@@ -28,7 +28,7 @@ Le API REST per sintesi vocale sono:
 
 ## <a name="speech-to-text-rest-api-v30"></a>API REST per sintesi vocale v 3.0
 
-L'API REST di riconoscimento vocale v 3.0 viene usata per la [trascrizione](batch-transcription.md) e la [riconoscimento vocale personalizzato](custom-speech-overview.md)di batch. Se è necessario comunicare con la trascrizione OnLine tramite REST, usare l' [API REST per il riconoscimento vocale per l'audio breve](#speech-to-text-rest-api-for-short-audio).
+L'API REST di riconoscimento vocale v 3.0 viene usata per la [trascrizione](batch-transcription.md) e la [riconoscimento vocale personalizzato](custom-speech-overview.md)di batch. Se è necessario comunicare con la trascrizione online tramite REST, usare l' [API REST per il riconoscimento vocale per l'audio breve](#speech-to-text-rest-api-for-short-audio).
 
 Usare l'API REST v 3.0 per:
 - Copiare i modelli in altre sottoscrizioni nel caso in cui si desideri che i colleghi abbiano accesso a un modello compilato o nei casi in cui si desidera distribuire un modello in più di un'area

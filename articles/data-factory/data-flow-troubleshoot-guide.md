@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/11/2020
-ms.openlocfilehash: f8a852a8c4197169061a9c7633f4f363ad057337
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/15/2021
+ms.openlocfilehash: fe65a9528e35416d537f3aecd3a44f8b4e568afe
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505801"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467732"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Risolvere i problemi relativi al mapping dei flussi di dati in Azure Data Factory
 
@@ -165,36 +165,6 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativ
 - **Cause**: non determinato.
 - **Raccomandazione**: controllare l'assegnazione del valore del parametro nella pipeline. Un'espressione di parametro può contenere caratteri non validi.
 
-### <a name="error-code-df-excel-invalidconfiguration"></a>Codice di errore: DF-Excel-InvalidConfiguration
-- **Messaggio**: il nome o l'indice del foglio di Excel è obbligatorio.
-- **Cause**: non determinato.
-- **Consiglio**: controllare il valore del parametro. Specificare il nome o l'indice del foglio di lavoro per la lettura dei dati di Excel.
-
-- **Messaggio**: il nome e l'indice del foglio di Excel non possono esistere nello stesso momento.
-- **Cause**: non determinato.
-- **Consiglio**: controllare il valore del parametro. Specificare il nome o l'indice del foglio di lavoro per la lettura dei dati di Excel.
-
-- **Message**: è stato specificato un intervallo non valido.
-- **Cause**: non determinato.
-- **Consiglio**: controllare il valore del parametro. Specificare un intervallo valido per riferimento. Per ulteriori informazioni, vedere [proprietà di Excel](./format-excel.md#dataset-properties).
-
-- **Messaggio**: viene fornito un file di Excel non valido mentre sono supportati solo i file con estensione xlsx e xls
-- **Cause**: non determinato.
-- **Raccomandazione**: verificare che l'estensione del file di Excel sia xlsx o xls.
-
-
- ### <a name="error-code-df-excel-invaliddata"></a>Codice di errore: DF-Excel-InvalidData
-- **Messaggio**: foglio di lavoro di Excel inesistente.
-- **Cause**: non determinato.
-- **Consiglio**: controllare il valore del parametro. Specificare un nome o un indice del foglio di lavoro valido per la lettura dei dati di Excel.
-
-- **Messaggio**: la lettura dei file di Excel con schema diverso non è attualmente supportata.
-- **Cause**: non determinato.
-- **Raccomandazione**: usare un file di Excel supportato.
-
-- **Messaggio**: tipo di dati non supportato.
-- **Cause**: non determinato.
-- **Raccomandazione**: usare i tipi di dati di file di Excel supportati.
 
 ### <a name="error-code-4502"></a>Codice di errore: 4502
 - **Message**: sono presenti sostanziali esecuzioni di MappingDataflow simultanee che causano errori a causa della limitazione delle richieste in Integration Runtime.
@@ -211,6 +181,206 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativ
 - **Messaggio**: l'attività è in esecuzione in Azure Integration Runtime e non è stato possibile decrittografare le credenziali dell'archivio dati o del calcolo connesse tramite una Integration Runtime self-hosted. Controllare la configurazione dei servizi collegati associati a questa attività e assicurarsi di usare il tipo di runtime di integrazione appropriato.
 - **Motivo**: il flusso di dati non supporta i servizi collegati nei runtime di integrazione self-hosted.
 - **Consiglio**: configurare il flusso di dati per l'esecuzione in un runtime di integrazione della rete virtuale gestita.
+
+### <a name="error-code-df-xml-invalidvalidationmode"></a>Codice di errore: DF-XML-InvalidValidationMode
+- **Message**: è stata specificata la modalità di convalida XML non valida.
+- **Raccomandazione**: controllare il valore del parametro e specificare la modalità di convalida corretta.
+
+### <a name="error-code-df-xml-invaliddatafield"></a>Codice di errore: DF-XML-InvalidDataField
+- **Messaggio**: il campo per i record danneggiati deve essere di tipo stringa e ammette valori null.
+- **Raccomandazione**: assicurarsi che la colonna `\"_corrupt_record\"` nel progetto di origine abbia un tipo di dati String.
+
+### <a name="error-code-df-xml-malformedfile"></a>Codice di errore: DF-XML-MalformedFile
+- **Messaggio**: XML in formato non valido in ' FailFastMode '.
+- **Raccomandazione**: aggiornare il contenuto del file XML nel formato corretto.
+
+### <a name="error-code-df-xml-invaliddatatype"></a>Codice di errore: DF-XML-InvalidDataType
+- **Messaggio**: l'elemento XML contiene elementi secondari o attributi e non può essere convertito.
+
+### <a name="error-code-df-xml-invalidreferenceresource"></a>Codice di errore: DF-XML-InvalidReferenceResource
+- **Messaggio**: Impossibile risolvere la risorsa di riferimento nel file di dati XML.
+- **Raccomandazione**: è necessario controllare la risorsa di riferimento nel file di dati XML.
+
+### <a name="error-code-df-xml-invalidschema"></a>Codice di errore: DF-XML-InvalidSchema
+- **Messaggio**: convalida dello schema non riuscita.
+
+### <a name="error-code-df-xml-unsupportedexternalreferenceresource"></a>Codice di errore: DF-XML-UnsupportedExternalReferenceResource
+- **Messaggio**: la risorsa di riferimento esterna nel file di dati XML non è supportata.
+- **Raccomandazione**: aggiornare il contenuto del file XML quando la risorsa di riferimento esterna non è attualmente supportata.
+
+### <a name="error-code-df-gen2-invalidaccountconfiguration"></a>Codice di errore: DF-GEN2-InvalidAccountConfiguration
+- **Messaggio**: è necessario specificare una delle chiavi dell'account o tenant/SpnId/SpnCredential/SpnCredentialType o MiServiceUri/miServiceToken.
+- **Raccomandazione**: configurare l'account corretto nel servizio collegato Gen2 correlato.
+
+### <a name="error-code-df-gen2-invalidauthconfiguration"></a>Codice di errore: DF-GEN2-InvalidAuthConfiguration
+- **Message**: è possibile specificare solo uno dei tre metodi di autenticazione (Key, SERVICEPRINCIPAL e mi). 
+- **Raccomandazione**: scegliere il tipo di autenticazione corretto nel servizio collegato Gen2 correlato.
+
+### <a name="error-code-df-gen2-invalidserviceprincipalcredentialtype"></a>Codice di errore: DF-GEN2-InvalidServicePrincipalCredentialType
+- **Messaggio**: ServicePrincipalCredentialType non valido.
+
+### <a name="error-code-df-gen2-invaliddatatype"></a>Codice di errore: DF-GEN2-InvalidDataType
+- **Messaggio**: tipo di cloud non valido.
+
+### <a name="error-code-df-blob-invalidaccountconfiguration"></a>Codice di errore: DF-BLOB-InvalidAccountConfiguration
+- **Message**: è necessario specificare una delle chiavi dell'account o sas_token.
+
+### <a name="error-code-df-blob-invalidauthconfiguration"></a>Codice di errore: DF-BLOB-InvalidAuthConfiguration
+- **Message**: è possibile specificare solo uno dei due metodi di autenticazione (chiave, SAS).
+
+### <a name="error-code-df-blob-invaliddatatype"></a>Codice di errore: DF-BLOB-InvalidDataType
+- **Messaggio**: tipo di cloud non valido.
+
+### <a name="error-code-df-cosmos-partitionkeymissed"></a>Codice di errore: DF-Cosmos-PartitionKeyMissed
+- **Message**: per le operazioni di aggiornamento ed eliminazione è necessario specificare il percorso della chiave di partizione.
+- **Raccomandazione**: usare la chiave di partizione specifica nelle impostazioni del sink Cosmos.
+
+### <a name="error-code-df-cosmos-invalidpartitionkey"></a>Codice di errore: DF-Cosmos-InvalidPartitionKey
+- **Messaggio**: il percorso della chiave di partizione non può essere vuoto per le operazioni di aggiornamento ed eliminazione.
+- **Raccomandazione**: usare la chiave di partizione specifica nelle impostazioni del sink Cosmos.
+
+### <a name="error-code-df-cosmos-idpropertymissed"></a>Codice di errore: DF-Cosmos-IdPropertyMissed
+- **Messaggio**: è necessario eseguire il mapping della proprietà' ID ' per le operazioni di eliminazione e aggiornamento.
+- **Raccomandazione**: assicurarsi che i dati di input includano una `id` colonna nelle impostazioni del sink Cosmos. Se no, usare **Select o derivate Transformation** per generare questa colonna prima del sink.
+
+### <a name="error-code-df-cosmos-invalidpartitionkeycontent"></a>Codice di errore: DF-Cosmos-InvalidPartitionKeyContent
+- **Messaggio**: la chiave di partizione deve iniziare con/.
+- **Raccomandazione**: fare in modo che la chiave di partizione inizi con `/` nelle impostazioni del sink Cosmos, ad esempio: `/movieId` .
+
+### <a name="error-code-df-cosmos-invalidpartitionkey"></a>Codice di errore: DF-Cosmos-InvalidPartitionKey
+- **Messaggio**: non è stato eseguito il mapping di partitionKey in sink per le operazioni di eliminazione e aggiornamento.
+- **Raccomandazione**: nelle impostazioni del sink Cosmos usare la chiave di partizione uguale alla chiave di partizione del contenitore.
+
+### <a name="error-code-df-cosmos-invalidconnectionmode"></a>Codice di errore: DF-Cosmos-InvalidConnectionMode
+- **Messaggio**: ConnectionMode non valido.
+- **Raccomandazione**: verificare che la modalità supportata sia **gateway** e **DirectHttps** in impostazioni Cosmos.
+
+### <a name="error-code-df-cosmos-invalidaccountconfiguration"></a>Codice di errore: DF-Cosmos-InvalidAccountConfiguration
+- **Messaggio**: è necessario specificare AccountName o accountEndpoint.
+
+### <a name="error-code-df-github-writenotsupported"></a>Codice di errore: DF-GitHub-WriteNotSupported
+- **Messaggio**: l'archivio GitHub non consente le Scritture.
+
+### <a name="error-code-df-pgsql-invalidcredential"></a>Codice di errore: DF-PGSQL-InvalidCredential
+- **Message**: è necessario specificare User/password.
+- **Raccomandazione**: assicurarsi di avere le impostazioni appropriate per le credenziali nel servizio collegato PostgreSQL correlato.
+
+### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>Codice di errore: DF-fiocco di neve-InvalidStageConfiguration
+- **Messaggio**: solo il tipo di archiviazione BLOB può essere usato come fase in un'operazione di lettura/scrittura a fiocco di neve.
+
+### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>Codice di errore: DF-fiocco di neve-InvalidStageConfiguration
+- **Messaggio**: è necessario specificare le proprietà della fase fiocco di neve con l'autenticazione BLOB e SAS di Azure.
+
+### <a name="error-code-df-snowflake-invaliddatatype"></a>Codice di errore: DF-fiocco di neve-InvalidDataType
+- **Messaggio**: il tipo Spark non è supportato in fiocco di neve.
+- **Raccomandazione**: usare la **trasformazione derivazione** per modificare la colonna correlata dei dati di input nel tipo stringa prima del sink di fiocco di neve. 
+
+### <a name="error-code-df-hive-invalidblobstagingconfiguration"></a>Codice di errore: DF-hive-InvalidBlobStagingConfiguration
+- **Messaggio**: è necessario specificare le proprietà di staging dell'archiviazione BLOB.
+
+### <a name="error-code-df-hive-invalidgen2stagingconfiguration"></a>Codice di errore: DF-hive-InvalidGen2StagingConfiguration
+- **Messaggio**: ADLS Gen2 gestione temporanea archiviazione supporta solo le credenziali chiave dell'entità servizio.
+- **Raccomandazione**: confermare di applicare la credenziale chiave dell'entità servizio nel servizio collegato ADLS Gen2 usato come gestione temporanea.
+
+### <a name="error-code-df-hive-invalidgen2stagingconfiguration"></a>Codice di errore: DF-hive-InvalidGen2StagingConfiguration
+- **Messaggio**: è necessario specificare le proprietà di gestione temporanea dell'archiviazione ADLS Gen2. È necessario specificare un valore per Key o tenant/spnId/spnKey o miServiceUri/miServiceToken.
+- **Raccomandazione**: applicare la credenziale corretta usata come gestione temporanea nell'hive nel servizio collegato di ADLS Gen2 correlato. 
+
+### <a name="error-code-df-hive-invaliddatatype"></a>Codice di errore: DF-hive-InvalidDataType
+- **Messaggio**: colonne non supportate.
+- **Raccomandazione**: aggiornare la colonna dei dati di input in modo che corrisponda al tipo di dati supportato da hive.
+
+### <a name="error-code-df-hive-invalidstoragetype"></a>Codice di errore: DF-hive-InvalidStorageType
+- **Messaggio**: il tipo di archiviazione può essere BLOB o Gen2.
+
+### <a name="error-code-df-delimited-invalidconfiguration"></a>Codice di errore: DF-delimitato-InvalidConfiguration
+- **Message**: è necessario specificare una o più righe vuote o un'intestazione personalizzata.
+- **Raccomandazione**: specificare righe vuote o intestazioni personalizzate nelle impostazioni CSV.
+
+### <a name="error-code-df-delimited-columndelimitermissed"></a>Codice di errore: DF-delimitato-ColumnDelimiterMissed
+- **Message**: il delimitatore di colonna è necessario per l'analisi.
+- **Raccomandazione**: verificare di avere il delimitatore di colonna nelle impostazioni del volume condiviso cluster.
+
+### <a name="error-code-df-mssql-invalidcredential"></a>Codice di errore: DF-MSSQL-InvalidCredential
+- **Message**: è necessario specificare un utente/pwd o tenant/SpnId/SpnKey o MiServiceUri/miServiceToken.
+- **Raccomandazione**: applicare le credenziali corrette nel servizio collegato MSSQL correlato.
+
+### <a name="error-code-df-mssql-invaliddatatype"></a>Codice di errore: DF-MSSQL-InvalidDataType
+- **Messaggio**: campo/i non supportato.
+- **Raccomandazione**: modificare la colonna di dati di input in modo che corrisponda al tipo di dati supportato da MSSQL.
+
+### <a name="error-code-df-mssql-invalidauthconfiguration"></a>Codice di errore: DF-MSSQL-InvalidAuthConfiguration
+- **Message**: è possibile specificare solo uno dei tre metodi di autenticazione (Key, SERVICEPRINCIPAL e mi).
+- **Raccomandazione**: è possibile specificare solo uno dei tre metodi di autenticazione (Key, SERVICEPRINCIPAL e mi) nel servizio collegato MSSQL correlato.
+
+### <a name="error-code-df-mssql-invalidcloudtype"></a>Codice di errore: DF-MSSQL-InvalidCloudType
+- **Messaggio**: tipo di cloud non valido.
+- **Consiglio**: controllare il tipo di cloud nel servizio collegato MSSQL correlato.
+
+### <a name="error-code-df-sqldw-invalidblobstagingconfiguration"></a>Codice di errore: DF-SQLDW-InvalidBlobStagingConfiguration
+- **Messaggio**: è necessario specificare le proprietà di staging dell'archiviazione BLOB.
+
+### <a name="error-code-df-sqldw-invalidstoragetype"></a>Codice di errore: DF-SQLDW-InvalidStorageType
+- **Messaggio**: il tipo di archiviazione può essere BLOB o Gen2.
+
+### <a name="error-code-df-sqldw-invalidgen2stagingconfiguration"></a>Codice di errore: DF-SQLDW-InvalidGen2StagingConfiguration
+- **Messaggio**: ADLS Gen2 gestione temporanea archiviazione supporta solo le credenziali chiave dell'entità servizio.
+
+### <a name="error-code-df-sqldw-invalidconfiguration"></a>Codice di errore: DF-SQLDW-InvalidConfiguration
+- **Messaggio**: è necessario specificare le proprietà di gestione temporanea dell'archiviazione ADLS Gen2. È necessario specificare un valore per Key o tenant/spnId/spnCredential/spnCredentialType o miServiceUri/miServiceToken.
+
+### <a name="error-code-df-delta-invalidconfiguration"></a>Codice di errore: DF-DELTA-InvalidConfiguration
+- **Messaggio**: non è possibile impostare il timestamp e la versione nello stesso momento.
+
+### <a name="error-code-df-delta-keycolumnmissed"></a>Codice di errore: DF-DELTA-KeyColumnMissed
+- **Messaggio**: per le operazioni non inseribili è necessario specificare le colonne chiave.
+
+### <a name="error-code-df-delta-invalidtableoperationsettings"></a>Codice di errore: DF-DELTA-InvalidTableOperationSettings
+- **Messaggio**: non è possibile specificare entrambe le opzioni ricrea e tronca.
+
+### <a name="error-code-df-excel-worksheetconfigmissed"></a>Codice di errore: DF-Excel-WorksheetConfigMissed
+- **Messaggio**: il nome o l'indice del foglio di Excel è obbligatorio.
+- **Raccomandazione**: controllare il valore del parametro e specificare il nome del foglio o l'indice per leggere i dati di Excel.
+
+### <a name="error-code-df-excel-invalidworksheetconfiguration"></a>Codice di errore: DF-Excel-InvalidWorksheetConfiguration
+- **Messaggio**: il nome e l'indice del foglio di Excel non possono esistere nello stesso momento.
+- **Raccomandazione**: controllare il valore del parametro e specificare il nome del foglio o l'indice per leggere i dati di Excel.
+
+### <a name="error-code-df-excel-invalidrange"></a>Codice di errore: DF-Excel-InvalidRange
+- **Message**: è stato specificato un intervallo non valido.
+- **Raccomandazione**: controllare il valore del parametro e specificare l'intervallo valido in base al [formato Excel nelle proprietà di Factory-Dataset dati di Azure](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+
+### <a name="error-code-df-excel-worksheetnotexist"></a>Codice di errore: DF-Excel-WorksheetNotExist
+- **Messaggio**: foglio di lavoro di Excel inesistente.
+- **Raccomandazione**: controllare il valore del parametro e specificare il nome o l'indice del foglio valido per leggere i dati di Excel.
+
+### <a name="error-code-df-excel-differentschemanotsupport"></a>Codice di errore: DF-Excel-DifferentSchemaNotSupport
+- **Messaggio**: la lettura dei file di Excel con schema diverso non è attualmente supportata.
+
+### <a name="error-code-df-excel-invaliddatatype"></a>Codice di errore: DF-Excel-InvalidDataType
+- **Messaggio**: tipo di dati non supportato.
+
+### <a name="error-code-df-excel-invalidfile"></a>Codice di errore: DF-Excel-InvalidFile
+- **Messaggio**: viene fornito un file di Excel non valido mentre sono supportati solo i file con estensione xlsx e xls.
+
+### <a name="error-code-df-adobeintegration-invalidmaptofilter"></a>Codice di errore: DF-AdobeIntegration-InvalidMapToFilter
+- **Messaggio**: la risorsa personalizzata può avere solo una chiave/ID mappata per filtrare.
+
+### <a name="error-code-df-adobeintegration-invalidpartitionconfiguration"></a>Codice di errore: DF-AdobeIntegration-InvalidPartitionConfiguration
+- **Messaggio**: è supportata una sola partizione. Lo schema della partizione può essere RoundRobin o hash.
+- **Raccomandazione**: in impostazioni AdobeIntegration verificare che siano presenti solo partizioni singole. Lo schema della partizione può essere RoundRobin o hash.
+
+### <a name="error-code-df-adobeintegration-keycolumnmissed"></a>Codice di errore: DF-AdobeIntegration-KeyColumnMissed
+- **Message**: la chiave deve essere specificata per le operazioni non inseribili.
+- **Raccomandazione**: specificare le colonne chiave nelle impostazioni AdobeIntegration per le operazioni non inseribili.
+
+### <a name="error-code-df-adobeintegration-invalidpartitiontype"></a>Codice di errore: DF-AdobeIntegration-InvalidPartitionType
+- **Message**: il tipo di partizione deve essere roundRobin.
+- **Raccomandazione**: verificare che il tipo di partizione sia roundRobin nelle impostazioni di AdobeIntegration.
+
+### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>Codice di errore: DF-AdobeIntegration-InvalidPrivacyRegulation
+- **Messaggio**: attualmente è gdpr solo la normativa sulla privacy supportata.
+- **Raccomandazione**: verificare che il regolamento sulla privacy in impostazioni di AdobeIntegration sia **' GDPR '**.
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi vari
 - **Problema**: si è verificata un'eccezione imprevista ed esecuzione non riuscita.

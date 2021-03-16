@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2270ff360c7bb923555c9b4ffb0c35ccd4382d0e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 568048597f83616ed07954af744c94761250b5c0
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647490"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471620"
 ---
-# <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Metodi di autenticazione nei token di Azure Active Directory
+# <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Metodi di autenticazione nei token di Azure Active Directory 
 
 OATH TOTP (Time-Based One-Time Passwords) è uno standard aperto che specifica come vengono generati i codici per password monouso (OTP). OATH TOTP può essere implementato usando un software o un hardware per generare i codici. Azure AD non supporta OATH HOTP, uno standard di generazione del codice diverso.
 
@@ -29,13 +29,15 @@ L'app Authenticator genera automaticamente i codici quando è configurata per ge
 
 Alcuni token hardware OATH TOTP sono programmabili, ovvero non contengono una chiave privata o un seme pre-programmato. Questi token hardware programmabili possono essere configurati usando la chiave privata o il seme ottenuto dal flusso di configurazione del token software. I clienti possono acquistare i token dal fornitore di propria scelta e usare la chiave privata o il seme nel processo di configurazione del fornitore.
 
-## <a name="oath-hardware-tokens"></a>Token hardware OATH
+## <a name="oath-hardware-tokens-preview"></a>Token hardware del GIURAmento (anteprima)
 
 Azure AD supporta l'uso di token SHA-1 OATH-TOTP che aggiornano i codici ogni 30 o 60 secondi. I clienti possono acquistare questi token dal fornitore preferito.
 
 I token hardware OATH TOTP sono in genere dotati di una chiave privata o di un seme pre-programmato nel token. Queste chiavi devono essere inserite in Azure AD come descritto nella procedura seguente. Le chiavi private sono limitate a 128 caratteri e ciò potrebbe non essere compatibile con tutti i token. La chiave privata può contenere solo i caratteri *a-z* , *a-z* e digits *2-7* e deve essere codificata in *Base32*.
 
 I token hardware OATH TOTP programmabili di cui è possibile generare un nuovo seme possono anche essere configurati con Azure AD nel flusso di configurazione del token software.
+
+I token hardware OATH sono supportati come parte di un'anteprima pubblica. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Pannello di caricamento dei token OATH nei token OATH di MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 

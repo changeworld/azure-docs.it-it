@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 8d471b680a6ff97b4b96a9c5f90f5548488dd35f
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763036"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563612"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso di endpoint privati per l'app Web di Azure
 
@@ -121,6 +121,8 @@ Quando si usa una funzione di Azure in un piano elastico Premium con endpoint pr
 Gli slot non possono usare un endpoint privato.
 
 La funzionalità di debug remoto non è disponibile quando l'endpoint privato è abilitato per l'app Web. Si consiglia di distribuire il codice in uno slot e di eseguirne il debug remoto.
+
+L'accesso FTP viene fornito tramite l'indirizzo IP pubblico in ingresso. L'endpoint privato non supporta l'accesso FTP all'app Web.
 
 Vengono introdotti regolarmente miglioramenti per la funzionalità di collegamento privato e l'endpoint privato. Vedere [questo articolo][pllimitations] per informazioni aggiornate sulle limitazioni.
 

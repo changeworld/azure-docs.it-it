@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5880b6f44caec053aef292960cecbf64f25c6743
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3e1eaf4f97b9b04ed02aeb3c6de65b90bf4947e1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448575"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489152"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Amazon tramite Azure Active Directory B2C
 
@@ -38,12 +38,17 @@ ms.locfileid: "102448575"
 
 Per abilitare l'accesso per gli utenti con un account Amazon in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione in [Amazon Developer Services and Technologies](https://developer.amazon.com). Per ulteriori informazioni, vedere la pagina [relativa alla registrazione per l'accesso con Amazon](https://developer.amazon.com/docs/login-with-amazon/register-web.html). Se non si ha già un account Amazon, è possibile iscriversi all'indirizzo [https://www.amazon.com/](https://www.amazon.com/) .
 
-> [!NOTE]  
-> Usare gli URL seguenti nel **passaggio 8** seguente, sostituendo `your-tenant-name` con il nome del tenant. Quando si immette il nome del tenant, usare tutte le lettere minuscole, anche se il tenant è definito con lettere maiuscole in Azure AD B2C.
-> - Per le **origini consentite**, immettere `https://your-tenant-name.b2clogin.com` 
-> - Per gli **URL restituiti consentiti**, immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
-
-[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
+1. Accedere a [Amazon Developer Console](https://developer.amazon.com/dashboard) con le credenziali dell'account Amazon.
+1. Se non è ancora stato fatto, selezionare **iscrizione**, seguire i passaggi per la registrazione per sviluppatori e quindi accettare i criteri.
+1. Dal Dashboard selezionare **Accedi con Amazon**.
+1. Selezionare **Create a New Security Profile** (Crea un nuovo profilo di sicurezza).
+1. Immettere un **nome del profilo di sicurezza**, la **Descrizione del profilo di sicurezza** e l'URL dell' **informativa sulla privacy di consenso**. ad esempio, `https://www.contoso.com/privacy` l'URL dell'informativa sulla privacy è una pagina che fornisce informazioni sulla privacy agli utenti. Fare quindi clic su **Salva**.
+1. Nella sezione **account di accesso con configurazioni di Amazon** selezionare il **nome del profilo di sicurezza** creato, selezionare l'icona **Gestisci** e quindi selezionare **Impostazioni Web**.
+1. Nella sezione **Impostazioni Web** copiare i valori dell'**ID client**. Selezionare **Mostra segreto** per ottenere il segreto client, quindi copiarlo. Sono necessari entrambi i valori per configurare un account Amazon come provider di identità nel tenant. **Client Secret** è un'importante credenziale di sicurezza.
+1. Nella sezione **Impostazioni Web** selezionare **modifica**. 
+    1. In **origini consentite** immettere `https://your-tenant-name.b2clogin.com` . Sostituire `your-tenant-name` con il nome del tenant. Se si usa un [dominio personalizzato](custom-domain.md), immettere `https://your-domain-name` .
+    1.  **URL restituiti consentiti** , immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` .  Se si usa un [dominio personalizzato](custom-domain.md), immettere `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` .  Sostituire `your-tenant-name` con il nome del tenant e con il `your-domain-name` dominio personalizzato.
+1. Selezionare **Salva**.
 
 ::: zone pivot="b2c-user-flow"
 

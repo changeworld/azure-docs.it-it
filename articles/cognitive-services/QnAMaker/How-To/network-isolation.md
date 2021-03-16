@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 731d94aa76146bf06a03842e8f3907d1762eeca3
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225609"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467545"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Impostazioni consigliate per l'isolamento rete
 
@@ -22,8 +22,7 @@ Attenersi alla procedura seguente per limitare l'accesso pubblico alle risorse Q
 
 #### <a name="add-ips-to-app-service-allow-list"></a>Aggiungi indirizzi IP all'elenco Consenti del servizio app
 
-1. 
-traffico solo da indirizzi IP di servizi cognitivi. Questi sono già inclusi nel tag del servizio `CognitiveServicesManagement` . Questa operazione è necessaria per la creazione di API (Create/Update KB) per richiamare il servizio app e aggiornare di conseguenza il servizio ricerca di Azure. Vedere [altre informazioni sui tag del servizio.](../../../virtual-network/service-tags-overview.md)
+1. Consentire il traffico solo da indirizzi IP di servizi cognitivi. Questi sono già inclusi nel tag del servizio `CognitiveServicesManagement` . Questa operazione è necessaria per la creazione di API (Create/Update KB) per richiamare il servizio app e aggiornare di conseguenza il servizio ricerca di Azure. Vedere [altre informazioni sui tag del servizio.](../../../virtual-network/service-tags-overview.md)
 2. Assicurarsi di consentire anche altri punti di ingresso come il servizio Azure bot, il portale QnA Maker e così via per l'accesso all'API di stima "GenerateAnswer".
 3. Attenersi alla procedura seguente per aggiungere gli intervalli di indirizzi IP a un elenco Consenti:
 

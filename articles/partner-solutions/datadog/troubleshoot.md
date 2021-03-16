@@ -6,16 +6,26 @@ ms.topic: conceptual
 ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: a8bb28892fe42215876b5cc8771ae73c7d2aab7f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e3c82f711de4cd9710c9aafe798a986e3403ed4
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746014"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563709"
 ---
 # <a name="troubleshooting-datadog-on-azure"></a>Risoluzione dei problemi relativi a Datadog in Azure
 
 Questo documento contiene informazioni sulla risoluzione dei problemi relativi alle soluzioni che usano Datadog.
+
+## <a name="purchase-errors"></a>Errori di acquisto
+
+* L'acquisto non riesce perché una carta di credito valida non è connessa alla sottoscrizione di Azure oppure un metodo di pagamento non è associato alla sottoscrizione.
+
+  Usare una sottoscrizione di Azure diversa. In alternativa, aggiungere o aggiornare la carta di credito o il metodo di pagamento per la sottoscrizione. Per ulteriori informazioni, vedere [aggiornamento del metodo di pagamento e di credito](../../cost-management-billing/manage/change-credit-card.md).
+
+* La sottoscrizione EA non consente acquisti nel Marketplace.
+
+  Usare una sottoscrizione diversa. In alternativa, controllare se la sottoscrizione EA è abilitata per l'acquisto del Marketplace. Per altre informazioni, vedere [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). Se tali opzioni non risolvono il problema, contattare il [supporto di Datadog](https://www.datadoghq.com/support).
 
 ## <a name="unable-to-create-datadog-resource"></a>Non è possibile creare la risorsa Datadog
 

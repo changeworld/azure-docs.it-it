@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 03/15/2021
 ms.author: inhenkel
-ms.openlocfilehash: 25b5c3163b657633ca78215468f4c2a2e40949b7
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 198abf70ae4350a3b410c11d8360e44a37555d8e
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897225"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564372"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizzare i file audio e video con servizi multimediali di Azure
 
@@ -43,7 +43,7 @@ Attualmente Servizi multimediali supporta i set di impostazioni di analisi prede
 
 |**Nome set di impostazioni**|**Scenario**|**Dettagli**|
 |---|---|---|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisi dello standard audio|Il set di impostazioni applica un set predefinito di operazioni di analisi basate su intelligenza artificiale, tra cui la trascrizione del parlato. Attualmente, il set di impostazioni supporta l'elaborazione del contenuto con una singola traccia audio che contiene il parlato in una sola lingua. È possibile specificare la lingua per il payload audio nell'input usando il formato BCP-47 per 'tag lingua-area'. Le lingue supportate sono inglese ("en-US" e "en-GB"), spagnolo ("es-ES" ed "es-MX"), francese ("fr-FR"), Italiano ("it it"), giapponese ("ja-JP"), portoghese ("PT-BR"), cinese ("zh-CN"), tedesco ("de-DE"), arabo ("ar-EG" e "ar-SY"), russo (' ur-ur '), Hindi (' Hi-IN ') e coreano (' ko-KR ').<br/><br/> Se la lingua non è specificata o è impostata su null, il rilevamento automatico della lingua sceglie il primo linguaggio rilevato e continua con la lingua selezionata per la durata del file. La funzionalità di rilevamento automatico della lingua attualmente supporta inglese, cinese, francese, tedesco, italiano, giapponese, spagnolo, russo e portoghese. Non supporta il cambio dinamico tra le lingue dopo che il primo linguaggio è stato rilevato. La funzionalità di rilevamento automatico della lingua funziona in modo ottimale con registrazioni audio con parlato facilmente comprensibile. Se il rilevamento automatico della lingua non riesce a trovare la lingua, la trascrizione torna all'inglese.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisi dello standard audio|Il set di impostazioni applica un set predefinito di operazioni di analisi basate su intelligenza artificiale, tra cui la trascrizione del parlato. Attualmente, il set di impostazioni supporta l'elaborazione del contenuto con una singola traccia audio che contiene il parlato in una sola lingua. È possibile specificare la lingua per il payload audio nell'input usando il formato BCP-47 per 'tag lingua-area'. Le lingue supportate sono inglese ("en-US", "en-GB" e "en-AU"), spagnolo ("es-ES" ed "es-MX"), francese ("fr-FR" e "fr-CA"), Italiano (it it), giapponese ("ja-JP"), portoghese ("PT-BR"), cinese ("zh-CN"), tedesco ("de-DE"), arabo (' AR-BH ',' ar-EG ',' AR-IQ ',' ar-JO ',' AR-KW ',' AR-LB ',' AR-OM ',' AR-QA ',' ar-SA ' è ar-SY '), Russian (' ur-ur '), Hindi (' Hi-IN '), Korean (' ko-KR '), danese ("da-DK"), norvegese ("nb-NO"), svedese ("sv-SE"), finlandese ("fi-FI"), Thai ("th-TH") e Turkish ("tr-TR").<br/><br/> Se la lingua non è specificata o è impostata su null, il rilevamento automatico della lingua sceglie il primo linguaggio rilevato e continua con la lingua selezionata per la durata del file. La funzionalità di rilevamento automatico della lingua attualmente supporta inglese, cinese, francese, tedesco, italiano, giapponese, spagnolo, russo e portoghese. Non supporta il cambio dinamico tra le lingue dopo che il primo linguaggio è stato rilevato. La funzionalità di rilevamento automatico della lingua funziona in modo ottimale con registrazioni audio con parlato facilmente comprensibile. Se il rilevamento automatico della lingua non riesce a trovare la lingua, la trascrizione torna all'inglese.|
 |[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisi di base audio|Questa modalità esegue la trascrizione di sintesi vocale e la generazione di un file sottotitolo/didascalia VTT. L'output di questa modalità include un file JSON di Insights che include solo le parole chiave, la trascrizione e le informazioni di temporizzazione. Il rilevamento automatico della lingua e la loro relatore non sono inclusi in questa modalità. L'elenco delle lingue supportate è disponibile [qui](#built-in-presets)|
 |[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analisi di audio e video|Estrae informazioni cognitive dettagliate (metadati avanzati) da audio e video e restituisce un file in formato JSON. È possibile specificare se si vogliono estrarre solo informazioni dettagliate sull'audio durante l'elaborazione di un file video. Per altre informazioni, vedere [Analizzare i video](analyze-videos-tutorial-with-api.md).|
 |[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Rilevamento di visi presenti nel video|Descrive le impostazioni da usare durante l'analisi di un video per rilevare tutti i visi presenti.|

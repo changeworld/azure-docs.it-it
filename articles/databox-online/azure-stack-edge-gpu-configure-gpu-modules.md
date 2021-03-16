@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 8be0a444dca4cae9b8f7a1e7c04be8a3046e56be
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 348ddff56ed61cd608d6b9f28417e7cd4c4e6b13
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102638566"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563964"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Configurare ed eseguire un modulo in GPU sul dispositivo Azure Stack Edge Pro
 
@@ -104,7 +104,7 @@ Per configurare un modulo per l'uso della GPU sul dispositivo Azure Stack Edge P
        Per altre informazioni sulle variabili di ambiente che è possibile usare con la GPU NVIDIA, vedere [runtime del contenitore NVIDIA](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
 
     > [!NOTE]
-    > È possibile eseguire il mapping di una GPU solo per un modulo. Un modulo può tuttavia usare una o nessuna GPU.
+    > Un modulo può usare una o nessuna GPU.
 
 12. Immettere un nome per il modulo. A questo punto è possibile scegliere di specificare l'opzione di creazione del contenitore e modificare le impostazioni del modulo gemello o, se necessario, selezionare **Aggiungi**. 
 

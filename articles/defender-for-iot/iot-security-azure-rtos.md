@@ -1,6 +1,6 @@
 ---
-title: Panoramica del modulo di sicurezza per Azure RTO
-description: Scopri di più sul modulo di sicurezza per il supporto e l'implementazione di Azure RTO come parte di Azure Defender per l'it.
+title: Panoramica di Defender-RTO-micro-Agent per Azure
+description: Scopri di più sul supporto e sull'implementazione di Defender-RTO-micro-Agent per Azure come parte di Azure Defender per l'it.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2021
 ms.author: shhazam
-ms.openlocfilehash: 47b2b49a21a82be13c987b95c7c775f5014a532e
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: ae1ae941dcb1af73286a4865089b1be227c484fc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809083"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496049"
 ---
-# <a name="overview-defender-for-iot-security-module-for-azure-rtos-preview"></a>Panoramica: Defender per il modulo di sicurezza per Azure RTO (anteprima)
+# <a name="overview-defender-for-iot-defender-iot-micro-agent-for-azure-rtos-preview"></a>Panoramica: Defender for Internet degli elementi Defender-Internet di Azure RTO (anteprima)
 
-Il modulo Azure Defender for Internet è una soluzione di sicurezza completa per i dispositivi che usano Azure RTO. Fornisce la copertura per le minacce comuni e le potenziali attività dannose sui dispositivi RTO (Real-Time Operating System). Azure RTO è ora disponibile con il modulo Azure Internet per la sicurezza integrato.
+Il modulo Azure Defender for Internet è una soluzione di sicurezza completa per i dispositivi che usano Azure RTO. Fornisce la copertura per le minacce comuni e le potenziali attività dannose sui dispositivi RTO (Real-Time Operating System). Azure RTO è ora disponibile con Azure Internet delle cose Defender-Internet.
 
 :::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="Visualizzazione di Defender per la RTO di Azure.":::
 
@@ -47,11 +47,11 @@ Con l'infrastruttura consigliata di Defender per le informazioni dettagliate, è
 
 ## <a name="get-started-protecting-azure-rtos-devices"></a>Inizia a proteggere i dispositivi RTO di Azure
 
-Il modulo Security per Azure RTO è disponibile come download gratuito per i dispositivi. Il servizio cloud Defender for Internet è disponibile con una versione di valutazione di 30 giorni per ogni sottoscrizione di Azure. Per iniziare, scaricare il [modulo di sicurezza per Azure RTO](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/iot-security-azure-rtos.md). 
+Defender-molto-micro-Agent per Azure RTO è disponibile come download gratuito per i dispositivi. Il servizio cloud Defender for Internet è disponibile con una versione di valutazione di 30 giorni per ogni sottoscrizione di Azure. Per iniziare, scaricare [Defender-RTO-micro-Agent per Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/iot-security-azure-rtos.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come il modulo di sicurezza per Azure RTO. Per altre informazioni sul modulo di sicurezza e per iniziare, vedere gli articoli seguenti:
+In questo articolo si è appreso come Defender-RTO-micro-Agent per Azure. Per ulteriori informazioni su Defender-Internet e per iniziare, vedere gli articoli seguenti:
 
-- [Concetti relativi ai moduli di sicurezza di Azure RTO](concept-rtos-security-module.md)
-- [Guida introduttiva: modulo di sicurezza Azure RTO](quickstart-azure-rtos-security-module.md)
+- [Azure RTO Internet delle cose Defender-cose-concetti di micro-Agent](concept-rtos-security-module.md)
+- [Guida introduttiva: Azure RTO Internet delle cose Defender-Internet](quickstart-azure-rtos-security-module.md)

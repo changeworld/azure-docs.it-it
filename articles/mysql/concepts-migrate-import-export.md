@@ -4,18 +4,21 @@ description: Questo articolo illustra i metodi comuni per importare ed esportare
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: migration-guide
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: af9f0f65e01a786d478fac0adde6174b8f03b2fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 391a38cd3d1e2ffb790587b6c60ed54992d14d2d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019898"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561992"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrare il database MySQL mediante l'importazione ed esportazione
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 In questo articolo vengono illustrati due approcci comuni per importare ed esportare i dati in un database di Azure per il server MySQL con MySQL Workbench.
+
+Per una guida dettagliata e completa sulla migrazione, vedere la [Guida alla migrazione del database da MySQL a Azure](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
 
 È anche possibile fare riferimento alla [Guida alla migrazione del database](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) per informazioni dettagliate e casi d'uso sulla migrazione di database al database di Azure per MySQL. Questa guida fornisce indicazioni che comporteranno la corretta pianificazione e l'esecuzione di una migrazione di MySQL in Azure.
 
@@ -40,7 +43,7 @@ Aggiungere le informazioni di connessione a MySQL Workbench.
 > [!TIP]
 > Per gli scenari in cui si desidera eseguire il dump e il ripristino dell'intero database, è necessario utilizzare invece l'approccio [dump e Restore](concepts-migrate-dump-restore.md) .
 
-Usare gli strumenti di MySQL per importare ed esportare database nel database MySQL di Azure negli scenari seguenti.
+Usare gli strumenti di MySQL per importare ed esportare database nel database MySQL di Azure negli scenari seguenti. Per altri strumenti, vedere la pagina 22 della [Guida alla migrazione di database da MySQL ad Azure](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1.pdf). 
 
 - Quando è necessario scegliere in modo selettivo alcune tabelle da importare da un database MySQL esistente nel database MySQL di Azure, è consigliabile usare la tecnica di importazione ed esportazione.  In questo modo, è possibile omettere tutte le tabelle non necessarie dalla migrazione per risparmiare tempo e risorse. Ad esempio, usare l'istruzione `--include-tables` o `--exclude-tables` con [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) e l'istruzione `--tables` con [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - Quando si spostano oggetti del database diversi dalle tabelle, crearli in modo esplicito. Includere vincoli (chiave primaria, chiave esterna, indici), viste, funzioni, procedure, trigger e altri oggetti di database per i quali si intende eseguire la migrazione.

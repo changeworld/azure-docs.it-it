@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 01/13/2021
+ms.date: 02/16/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baf146bdd89d45c5d7e1ed359822a35d383b7b6c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101751119"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561916"
 ---
 ### <a name="general-requirements"></a>Requisiti generali
 
@@ -42,10 +42,10 @@ Altri requisiti della rete virtuale possono essere diversi a seconda che il pool
 
 **Autorizzazioni** - Controllare se i criteri di sicurezza o i blocchi nel gruppo di risorse o nella sottoscrizione della rete virtuale limitano le autorizzazioni dell'utente per gestire la rete virtuale.
 
-**Ulteriori risorse di rete** - Batch alloca automaticamente le risorse di rete aggiuntive nel gruppo di risorse contenente la rete virtuale.
+**Risorse di rete aggiuntive** : batch crea automaticamente altre risorse di rete nel gruppo di risorse che contiene la VNet.
 
 > [!IMPORTANT]
-> Per ogni 100 nodi dedicati o a bassa priorità, Batch alloca un gruppo di sicurezza di rete, un indirizzo IP pubblico e un servizio di bilanciamento del carico. Queste risorse sono limitate in base alle [quote delle risorse](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Per pool di grandi dimensioni potrebbe essere necessario richiedere un aumento della quota per una o più di queste risorse.
+> Per ogni 100 di nodi dedicati o con priorità bassa, batch crea: un gruppo di sicurezza di rete (NSG), un indirizzo IP pubblico e un servizio di bilanciamento del carico. Queste risorse sono limitate in base alle [quote delle risorse](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Per pool di grandi dimensioni potrebbe essere necessario richiedere un aumento della quota per una o più di queste risorse.
 
 #### <a name="network-security-groups-batch-default"></a>Gruppi di sicurezza di rete: Impostazione predefinita di Batch
 

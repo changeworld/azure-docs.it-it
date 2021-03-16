@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8cb31f57e5403e99e2ef9bfcc5d1042e33516d1d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 397fff3fafad52b3b989049096fb2d3e1fa2cba1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448150"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488517"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Twitter tramite Azure Active Directory B2C
 
@@ -45,8 +45,12 @@ Per abilitare l'accesso per gli utenti con un account Twitter in Azure AD B2C, �
 1. In **Impostazioni autenticazione** selezionare **modifica** .
     1. Selezionare Abilita la casella di controllo **OAuth a tre zampe** .
     1. Selezionare la casella **di controllo Richiedi indirizzo di posta elettronica da utenti** .
-    1. Per gli **URL di callback** immettere `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Sostituire `your-tenant` con il nome del nome tenant e `your-user-flow-Id` con l'identificatore del flusso utente. Ad esempio: `b2c_1a_signup_signin_twitter`. Usare tutte le lettere minuscole quando si immette il nome del tenant e l'ID del flusso utente anche se sono definiti con lettere maiuscole in Azure AD B2C.
-    1. Per l' **URL del sito Web**, immettere `https://your-tenant.b2clogin.com` . Sostituire `your-tenant` con il nome del tenant. Ad esempio: `https://contosob2c.b2clogin.com`.
+    1. Per gli **URL di callback** immettere `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` .  Se si usa un [dominio personalizzato](custom-domain.md), immettere `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Usare tutte le lettere minuscole quando si immette il nome del tenant e l'ID del flusso utente anche se sono definiti con lettere maiuscole in Azure AD B2C. Sostituire:
+        - `your-tenant-name` con il nome del nome del tenant.
+        - `your-domain-name` con il dominio personalizzato.
+        - `your-user-flow-Id` con l'identificatore del flusso utente. Ad esempio: `b2c_1a_signup_signin_twitter`. 
+    
+    1. Per l' **URL del sito Web**, immettere `https://your-tenant.b2clogin.com` . Sostituire `your-tenant` con il nome del tenant. Ad esempio: `https://contosob2c.b2clogin.com`. Se si usa un [dominio personalizzato](custom-domain.md), immettere `https://your-domain-name` .
     1. Immettere un URL per le **condizioni del servizio**, ad esempio `http://www.contoso.com/tos` . L'URL dei criteri è una pagina che viene mantenuta per fornire i termini e le condizioni per l'applicazione.
     1. Immettere un URL per l' **informativa sulla privacy**, ad esempio `http://www.contoso.com/privacy` . L'URL del criterio è una pagina da mantenere per fornire informazioni sulla privacy per l'applicazione.
     1. Selezionare **Salva**.

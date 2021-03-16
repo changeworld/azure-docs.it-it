@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: ec26cd0b66b6d08d8bd686d8f3e5ad8011df10b1
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: f2251ef79f568677d6ef09d918cb61ffeba07888
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449765"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494547"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Distribuire il Defender per l'agente di sicurezza basato su C# per le cose per Linux
 
@@ -38,7 +38,7 @@ Per altre piattaforme e versioni degli agenti, vedere [scegliere l'agente di sic
 
 1. Per distribuire l'agente di sicurezza, sono necessari i diritti di amministratore locale nel computer di installazione.
 
-1. [Creare un modulo di sicurezza](quickstart-create-security-twin.md) per il dispositivo.
+1. [Creare un agente di protezione-](quickstart-create-security-twin.md) Internet per il dispositivo.
 
 ## <a name="installation"></a>Installazione
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: a4223dbc913b7b46cf73c0ed99f607fff67b7e67
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e7c7fdd5874dbde5ca304309d0840724cb3872df
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448065"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494530"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Distribuire un Defender per l'agente sicurezza basato su C# per Windows
 
@@ -38,7 +38,7 @@ Per altre piattaforme e versioni degli agenti, vedere [scegliere l'agente di sic
 
 1. Diritti di amministratore locale nel computer in cui si vuole eseguire l'installazione.
 
-1. [Creare un modulo di sicurezza](quickstart-create-security-twin.md) per il dispositivo.
+1. [Creare un agente di protezione-](quickstart-create-security-twin.md) Internet per il dispositivo.
 
 ## <a name="installation"></a>Installazione
 

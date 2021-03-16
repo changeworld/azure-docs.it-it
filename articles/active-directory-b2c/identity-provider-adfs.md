@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3082c249b04b5efc71187dd03515bc8c875b7c2f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 292a244a4804f97e8622d6841c33b153af373290
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448592"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489169"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere AD FS come provider di identità SAML usando criteri personalizzati in Azure Active Directory B2C
 
@@ -156,9 +156,16 @@ Per usare AD FS come provider di identità in Azure AD B2C, è necessario creare
 https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
+Quando si usa un [dominio personalizzato](custom-domain.md), usare il formato seguente:
+
+```
+https://your-domain-name/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
+```
+
 Sostituire i valori seguenti:
 
-- **tenant** con il nome del tenant, ad esempio your-tenant.onmicrosoft.com.
+- **nome-tenant** con il nome del tenant, ad esempio your-tenant.onmicrosoft.com.
+- **nome di dominio** con il nome di dominio personalizzato, ad esempio login.contoso.com.
 - **your-policy** con il nome dei criteri. Ad esempio, B2C_1A_signup_signin_adfs.
 - **profilo tecnico** con il nome del profilo tecnico del provider di identità SAML. Ad esempio, Contoso-SAML2.
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cc385c3a7ceb0245e3a4acbedb037b1b28bde7b3
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 24377cf02b30a550043ee63267229039d680cd1c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518110"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489135"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurare l'iscrizione e l'accesso con un ID Apple usando Azure Active Directory B2C (anteprima)
 
@@ -57,8 +57,8 @@ Per abilitare l'accesso per gli utenti con un ID Apple in Azure Active Directory
 1. In **identificatori** selezionare l'identificatore creato.
 1. Selezionare **Accedi con Apple**, quindi selezionare **Configura**.
     1. Selezionare l' **ID app principale** con cui si vuole configurare l'accesso con Apple.
-    1. In **domini e sottodomini**, immettere `your-tenant-name.b2clogin.com` . Sostituire your-tenant-name con il nome del tenant.
-    1. In **URL restituiti** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Sostituire your-tenant-name con il nome del tenant.
+    1. In **domini e sottodomini**, immettere `your-tenant-name.b2clogin.com` . Sostituire your-tenant-name con il nome del tenant. Se si usa un [dominio personalizzato](custom-domain.md), immettere `https://your-domain-name` .
+    1. In **URL restituiti** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se si usa un [dominio personalizzato](custom-domain.md), immettere `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Sostituire `your-tenant-name` con il nome del tenant e con il `your-domain-name` dominio personalizzato.
     1. Selezionare **Avanti**, quindi fare clic su **fine**.
     1. Quando la finestra popup è chiusa, selezionare **continua** e quindi fare clic su **Salva**.
 

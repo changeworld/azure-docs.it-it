@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 3767a16656ac4d11511c0928be8b2703c4e94c7c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680604"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563777"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Distribuire un cluster di Azure Service Fabric con tipi di nodo solo senza stato (anteprima)
 I tipi di nodo Service Fabric hanno presupposto intrinseco che in un determinato momento i servizi con stato possono essere inseriti nei nodi. I tipi di nodo senza stato rilassano questa ipotesi per un tipo di nodo, consentendo così al tipo di nodo di usare altre funzionalità, ad esempio le operazioni di scalabilità orizzontale più veloci, il supporto per aggiornamenti automatici del sistema operativo sulla durabilità Bronze e la scalabilità orizzontale a più di 100 nodi in un singolo set di scalabilità
@@ -72,9 +72,13 @@ Per impostare uno o più tipi di nodo come senza **stato** in una risorsa cluste
 Per abilitare i tipi di nodo senza stato, è necessario configurare la risorsa del set di scalabilità di macchine virtuali sottostante nel modo seguente:
 
 * Proprietà del valore  **singlePlacementGroup** , che deve essere impostata su **false** se è necessario applicare la scalabilità a più di 100 macchine virtuali.
-* **UpgradePolicy** del set di scalabilità in cui deve essere impostata la **modalità** in **sequenza**.
+* La **modalità** **upgradePolicy** del set di scalabilità deve essere impostata su in **sequenza**.
 * Per la modalità di aggiornamento in sequenza è richiesta l'estensione integrità dell'applicazione o i probe di integrità. Configurare il probe di integrità con la configurazione predefinita per i tipi di nodo senza stato come suggerito di seguito. Una volta distribuite le applicazioni nel tipo di nodo, è possibile modificare le porte di estensione del probe di integrità/integrità per monitorare l'integrità dell'applicazione.
 
+>[!NOTE]
+> È necessario che il numero di domini di errore della piattaforma venga aggiornato a 5 quando un tipo di nodo senza stato è supportato da un set di scalabilità di macchine virtuali che si estende su più zone. Per altri dettagli, vedere questo [modello](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) .
+> 
+> **platformFaultDomainCount: 5**
 ```json
 {
     "apiVersion": "2018-10-01",

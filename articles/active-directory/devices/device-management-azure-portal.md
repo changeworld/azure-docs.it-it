@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aea468c64f70bd7f35dd25206faa9ea33459999
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688910"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561652"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -169,6 +169,10 @@ Per gestire le identità dei dispositivi tramite il portale di Azure AD, è nece
 
 > [!NOTE]
 > I **dispositivi che devono essere Azure ad aggiunti o Azure ad registrati richiedono** che l'impostazione multi-factor authentication venga applicata ai dispositivi Azure ad aggiunti (con alcune eccezioni) o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti, [Azure ad VM Unite in join in Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) e Azure ad dispositivi aggiunti con la [modalità di distribuzione automatica di Windows Autopilot](/mem/autopilot/self-deploying).
+
+> [!IMPORTANT]
+> - Si consiglia di usare l' [azione utente "registrazione o aggiunta dispositivi"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) nell'accesso condizionale per l'applicazione dell'autenticazione a più fattori per l'aggiunta o la registrazione di un dispositivo. 
+> - È necessario impostare questa impostazione su **No** se si usano i criteri di accesso condizionale per richiedere la autenticazione a più fattori. 
 
 - **Numero massimo di dispositivi** : questa impostazione consente di selezionare il numero massimo di dispositivi Azure ad aggiunti o Azure ad registrati che un utente può avere in Azure ad. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. Il valore predefinito è **50**.
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 02/17/2021
+ms.date: 03/13/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a0f50a7f84b89d7c048e57eadc85635df10f77
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: a2c327154e2f4eae735e7078be3b057b1d8cf1c5
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467681"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490875"
 ---
 # <a name="azure-ad-built-in-roles"></a>Ruoli predefiniti di Azure AD
 
@@ -76,6 +76,7 @@ La procedura consigliata prevede di assegnare questo ruolo a meno di cinque uten
 > | [Leader aziendale di Insights](#insights-business-leader) | Può visualizzare e condividere dashboard e informazioni dettagliate tramite l'app M365 Insights. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Amministratore di Intune](#intune-administrator) | Può gestire tutti gli aspetti del prodotto Intune. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
 > | [Amministratore di Kaizala](#kaizala-administrator) | Può gestire le impostazioni per Microsoft Kaizala. | 74ef975b-6605-40af-a5d2-b9539d836353 |
+> | [Amministratore della Knowledge base](#knowledge-administrator) | Può configurare la Knowledge base, l'apprendimento e altre funzionalità intelligenti. | b5a8dcf3-09d5-43a9-a639-8e29ef291470 |
 > | [Amministratore licenze](#license-administrator) | Possono gestire licenze dei prodotti per utenti e gruppi. | 4d6ac14f-3453-41d0-bef9-a3e0c569773a |
 > | [Ruolo con autorizzazioni di lettura per la privacy del Centro messaggi](#message-center-privacy-reader) | Può leggere solo gli aggiornamenti e i messaggi di sicurezza nel centro messaggi di Office 365. | ac16e43d-7b2d-40e0-ac05-243ff356ab5b |
 > | [Ruolo con autorizzazioni di lettura per il Centro messaggi](#message-center-reader) | Può eseguire la lettura di messaggi e aggiornamenti per la propria organizzazione solo nel Centro messaggi di Office 365. | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b |
@@ -401,7 +402,7 @@ Questo ruolo consente inoltre di concedere il consenso per le autorizzazioni del
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Avviare, riavviare e sospendere i processi sincronizzazione del provisioning delle applicazioni |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Creare e gestire lo schema e i processi sincronizzazione del provisioning delle applicazioni |
 > | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Leggere le credenziali Single Sign-On password nelle entità servizio |
-> | Microsoft. directory/entità servizio/managePermissionGrantsForAll. Microsoft-Application-admin | Concedere il consenso per le autorizzazioni dell'applicazione e le autorizzazioni delegate per conto di un utente o di tutti gli utenti, ad eccezione delle autorizzazioni dell'applicazione per Microsoft Graph e Azure AD Graph  |
+> | Microsoft. directory/entità servizio/managePermissionGrantsForAll. Microsoft-Application-admin | Concedere il consenso per le autorizzazioni dell'applicazione e le autorizzazioni delegate per conto di un utente o di tutti gli utenti, ad eccezione delle autorizzazioni dell'applicazione per Microsoft Graph e Azure AD Graph |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Aggiornare le assegnazioni di ruolo dell'entità servizio |
 > | microsoft.directory/servicePrincipals/audience/update | Aggiornare le proprietà del gruppo di destinatari nelle entità servizio |
 > | microsoft.directory/servicePrincipals/authentication/update | Aggiornare le proprietà di autenticazione nelle entità servizio |
@@ -730,7 +731,7 @@ gli utenti con questo ruolo hanno autorizzazioni globali in Microsoft Exchange O
 > | Microsoft. directory/groups. Unified/owners/Update | Aggiornare i proprietari dei gruppi di Microsoft 365 con l'esclusione dei gruppi assegnabili al ruolo |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità del servizio di Azure |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto di Azure |
-> | microsoft.office365.exchange/allEntities/allTasks | Gestire tutti gli aspetti di Exchange Online |
+> | Microsoft. office365. Exchange/allEntities/Basic/allTasks | Gestire tutti gli aspetti di Exchange Online |
 > | microsoft.office365.network/performance/allProperties/read | Leggere tutte le proprietà delle prestazioni di rete nell'interfaccia di amministrazione di Microsoft 365 |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità dei servizi nell'interfaccia di amministrazione di Microsoft 365 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire richieste di servizio Microsoft 365 |
@@ -774,6 +775,7 @@ gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrativ
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
 > | --- | --- |
+> | Microsoft. directory/accessReviews/allProperties/allTasks | Creare ed eliminare le verifiche di accesso e leggere e aggiornare tutte le proprietà delle verifiche di accesso in Azure AD |
 > | microsoft.directory/administrativeUnits/allProperties/allTasks | Creare e gestire le unità amministrative inclusi i membri |
 > | microsoft.directory/applications/allProperties/allTasks | Creare ed eliminare applicazioni, leggere e aggiornare tutte le proprietà |
 > | microsoft.directory/applications/synchronization/standard/read | Leggere le impostazioni di provisioning associate all'oggetto applicazione |
@@ -801,9 +803,10 @@ gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrativ
 > | microsoft.directory/domains/allProperties/allTasks | Creare ed eliminare domini, leggere e aggiornare tutte le proprietà |
 > | Microsoft. directory/entitlementManagement/allProperties/allTasks | Creare ed eliminare risorse, leggere e aggiornare tutte le proprietà in Azure AD gestione dei diritti |
 > | microsoft.directory/groups/allProperties/allTasks | Creare ed eliminare gruppi, leggere e aggiornare tutte le proprietà |
-> | Microsoft. directory/groupsAssignableToRoles/allProperties/Update | Aggiornare i gruppi con la proprietà isAssignableToRole impostata su true |
-> | Microsoft. directory/groupsAssignableToRoles/crea | Creare gruppi con la proprietà isAssignableToRole impostata su true |
-> | Microsoft. directory/groupsAssignableToRoles/Delete | Elimina i gruppi con la proprietà isAssignableToRole impostata su true |
+> | Microsoft. directory/groupsAssignableToRoles/crea | Creare gruppi assegnabili a un ruolo |
+> | Microsoft. directory/groupsAssignableToRoles/Delete | Elimina gruppi assegnabili al ruolo |
+> | Microsoft. directory/groupsAssignableToRoles/Restore | Ripristinare i gruppi assegnabili ai ruoli |
+> | Microsoft. directory/groupsAssignableToRoles/allProperties/Update | Aggiornare i gruppi assegnabili al ruolo |
 > | microsoft.directory/groupSettings/allProperties/allTasks | Creare ed eliminare impostazioni di gruppo, leggere e aggiornare tutte le proprietà |
 > | microsoft.directory/groupSettingTemplates/allProperties/allTasks | Creare ed eliminare modelli di impostazioni di gruppo, leggere e aggiornare tutte le proprietà |
 > | Microsoft. directory/identityProtection/allProperties/allTasks | Creare ed eliminare tutte le risorse e leggere e aggiornare le proprietà standard in Azure AD Identity Protection |
@@ -823,7 +826,7 @@ gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrativ
 > | microsoft.directory/serviceAction/getAvailableExtentionProperties | Consente di eseguire l'azione del servizio Getavailableextentionproperties |
 > | microsoft.directory/servicePrincipals/allProperties/allTasks | Creare ed eliminare entità servizio, leggere e aggiornare tutte le proprietà |
 > | Microsoft. directory/entità servizio/managePermissionGrantsForAll. Microsoft-Company-admin | Concedere il consenso per qualsiasi autorizzazione a qualsiasi applicazione |
-> | Microsoft. directory/entità servizio/managePermissionGrantsForGroup. Microsoft-all-Application-Permissions | Concedere a un servizio entità l'accesso diretto ai dati di un gruppo  |
+> | Microsoft. directory/entità servizio/managePermissionGrantsForGroup. Microsoft-all-Application-Permissions | Concedere a un servizio entità l'accesso diretto ai dati di un gruppo |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Leggere le impostazioni di provisioning associate all'entità servizio |
 > | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà nei report di accesso, incluse le proprietà con privilegi |
 > | microsoft.directory/subscribedSkus/allProperties/allTasks | Acquistare e gestire sottoscrizioni ed eliminare sottoscrizioni |
@@ -832,6 +835,10 @@ gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrativ
 > | microsoft.directory/permissionGrantPolicies/delete | Eliminare i criteri di concessione delle autorizzazioni |
 > | microsoft.directory/permissionGrantPolicies/standard/read | Leggere le proprietà standard dei criteri di concessione delle autorizzazioni |
 > | microsoft.directory/permissionGrantPolicies/basic/update | Aggiornare le proprietà di base dei criteri di concessione delle autorizzazioni |
+> | Microsoft. directory/servicePrincipalCreationPolicies/crea | Creare criteri di creazione dell'entità servizio |
+> | Microsoft. directory/servicePrincipalCreationPolicies/Delete | Eliminare i criteri di creazione dell'entità servizio |
+> | Microsoft. directory/servicePrincipalCreationPolicies/standard/lettura | Leggere le proprietà standard dei criteri di creazione dell'entità servizio |
+> | Microsoft. directory/servicePrincipalCreationPolicies/Basic/Update | Aggiornare le proprietà di base dei criteri di creazione dell'entità servizio |
 > | Microsoft. Azure. advancedThreatProtection/allEntities/allTasks | Gestire tutti gli aspetti di Azure Advanced Threat Protection |
 > | microsoft.azure.informationProtection/allEntities/allTasks | Gestire tutti gli aspetti di Azure Information Protection |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità del servizio di Azure |
@@ -842,11 +849,12 @@ gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrativ
 > | microsoft.intune/allEntities/allTasks | Gestire tutti gli aspetti di Microsoft Intune |
 > | microsoft.office365.complianceManager/allEntities/allTasks | Gestire tutti gli aspetti di Office 365 Compliance Manager |
 > | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gestire tutti gli aspetti di analisi desktop |
-> | microsoft.office365.exchange/allEntities/allTasks | Gestire tutti gli aspetti di Exchange Online |
+> | Microsoft. office365. Exchange/allEntities/Basic/allTasks | Gestire tutti gli aspetti di Exchange Online |
 > | microsoft.office365.lockbox/allEntities/allTasks | Gestire tutti gli aspetti di Customer Lockbox |
 > | microsoft.office365.messageCenter/messages/read | Leggere i messaggi nel centro messaggi nell'interfaccia di amministrazione di Microsoft 365, esclusi i messaggi di sicurezza |
 > | microsoft.office365.messageCenter/securityMessages/read | Leggere i messaggi di sicurezza nel centro messaggi nell'interfaccia di amministrazione di Microsoft 365 |
-> | Microsoft. office365. protectionCenter/allEntities/allProperties/allTasks | Gestire tutti gli aspetti di Office 365 Protection Center |
+> | microsoft.office365.network/performance/allProperties/read | Leggere tutte le proprietà delle prestazioni di rete nell'interfaccia di amministrazione di Microsoft 365 |
+> | Microsoft. office365. protectionCenter/allEntities/allProperties/allTasks | Gestire tutti gli aspetti dei centri di sicurezza e conformità |
 > | Microsoft. office365. search/content/Manage | Creare ed eliminare contenuto, leggere e aggiornare tutte le proprietà in Microsoft Search |
 > | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Creare ed eliminare tutte le risorse e leggere e aggiornare le proprietà standard nel centro sicurezza e conformità di Microsoft 365 |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità dei servizi nell'interfaccia di amministrazione di Microsoft 365 |
@@ -902,11 +910,11 @@ Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni am
 > | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà nei report di accesso, incluse le proprietà con privilegi |
 > | microsoft.directory/users/strongAuthentication/read | Leggere la proprietà autenticazione avanzata per gli utenti |
 > | microsoft.commerce.billing/allEntities/read | Leggi tutte le risorse di Office 365 fatturazione |
-> | microsoft.office365.exchange/allEntities/read | Leggi tutte le risorse di Exchange Online |
+> | Microsoft. office365. Exchange/allEntities/standard/Read | Leggi tutte le risorse di Exchange Online |
 > | microsoft.office365.messageCenter/messages/read | Leggere i messaggi nel centro messaggi nell'interfaccia di amministrazione di Microsoft 365, esclusi i messaggi di sicurezza |
 > | microsoft.office365.messageCenter/securityMessages/read | Leggere i messaggi di sicurezza nel centro messaggi nell'interfaccia di amministrazione di Microsoft 365 |
 > | microsoft.office365.network/performance/allProperties/read | Leggere tutte le proprietà delle prestazioni di rete nell'interfaccia di amministrazione di Microsoft 365 |
-> | Microsoft. office365. protectionCenter/allEntities/allProperties/Read | Leggere tutti gli aspetti di Office 365 Protection Center |
+> | Microsoft. office365. protectionCenter/allEntities/allProperties/Read | Leggere tutte le proprietà nei centri sicurezza e conformità |
 > | microsoft.office365.securityComplianceCenter/allEntities/read | Leggere le proprietà standard in Microsoft 365 Centro sicurezza e conformità |
 > | Microsoft. office365. usageReports/allEntities/allProperties/Read | Leggere i report sull'utilizzo di Office 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leggere le proprietà di base per tutte le risorse nell'interfaccia di amministrazione di Microsoft 365 |
@@ -933,7 +941,7 @@ Gli utenti con questo ruolo possono creare o gestire gruppi e le relative impost
 > | microsoft.directory/groups/owners/update | Aggiornare i proprietari dei gruppi, esclusi i gruppi assegnabili al ruolo |
 > | microsoft.directory/groups/settings/update | Aggiornare le impostazioni dei gruppi |
 > | Microsoft. Directory/gruppi/visibilità/aggiornamento | Aggiornare la proprietà Visibility dei gruppi |
-> | Microsoft. directory/entità servizio/managePermissionGrantsForGroup. Microsoft-all-Application-Permissions | Concedere a un servizio entità l'accesso diretto ai dati di un gruppo  |
+> | Microsoft. directory/entità servizio/managePermissionGrantsForGroup. Microsoft-all-Application-Permissions | Concedere a un servizio entità l'accesso diretto ai dati di un gruppo |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità del servizio di Azure |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto di Azure |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità dei servizi nell'interfaccia di amministrazione di Microsoft 365 |
@@ -1092,7 +1100,6 @@ Questo ruolo può creare e gestire tutti i gruppi di sicurezza. Tuttavia, l'ammi
 > | Microsoft. directory/groups. Security/Basic/Update | Aggiornare le proprietà di base nei gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
 > | Microsoft. directory/groups. Security/Classification/Update | Aggiornare la proprietà di classificazione dei gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
 > | Microsoft. directory/groups. Security/dynamicMembershipRule/Update | Aggiornare la proprietà dynamicMembershipRule dei gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
-> | Microsoft. directory/groups. Security/groupType/Update | Aggiornare la proprietà del tipo di gruppo dei gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
 > | Microsoft. directory/groups. Security/members/Update | Aggiornare i membri dei gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
 > | Microsoft. directory/groups. Security/owners/Update | Aggiornare i proprietari dei gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
 > | Microsoft. directory/groups. Security/Visibility/Update | Aggiornare la proprietà Visibility dei gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
@@ -1111,6 +1118,26 @@ Gli utenti con questo ruolo hanno autorizzazioni globali per gestire le impostaz
 > | Azioni | Descrizione |
 > | --- | --- |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità dei servizi nell'interfaccia di amministrazione di Microsoft 365 |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire richieste di servizio Microsoft 365 |
+> | microsoft.office365.webPortal/allEntities/standard/read | Leggere le proprietà di base per tutte le risorse nell'interfaccia di amministrazione di Microsoft 365 |
+
+## <a name="knowledge-administrator"></a>Amministratore della Knowledge base
+
+Gli utenti con questo ruolo hanno accesso completo a tutte le impostazioni di Knowledge base, apprendimento e funzionalità intelligenti nell'interfaccia di amministrazione di Microsoft 365. Hanno una conoscenza generale della suite di prodotti, dei dettagli delle licenze e hanno la responsabilità di controllare l'accesso. L'amministratore delle informazioni può creare e gestire contenuto, ad esempio argomenti, acronimi e risorse di formazione. Questi utenti possono inoltre creare centri di contenuto, monitorare l'integrità dei servizi e creare richieste di servizio.
+
+> [!div class="mx-tableFixed"]
+> | Azioni | Descrizione |
+> | --- | --- |
+> | Microsoft. directory/groups. Security/create | Creare gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
+> | Microsoft. directory/groups. Security/createAsOwner | Creare gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo e l'autore viene aggiunto come primo proprietario |
+> | Microsoft. directory/groups. Security/delete | Eliminare i gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
+> | Microsoft. directory/groups. Security/Basic/Update | Aggiornare le proprietà di base nei gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
+> | Microsoft. directory/groups. Security/members/Update | Aggiornare i membri dei gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
+> | Microsoft. directory/groups. Security/owners/Update | Aggiornare i proprietari dei gruppi di sicurezza con l'esclusione dei gruppi assegnabili al ruolo |
+> | Microsoft. office365. Knowledge/contentUnderstanding/allProperties/allTasks | Leggere e aggiornare tutte le proprietà di comprensione del contenuto nel Microsoft 365 interfaccia di amministrazione |
+> | Microsoft. office365. Knowledge/knowledgeNetwork/allProperties/allTasks | Leggere e aggiornare tutte le proprietà di Knowledge base in Microsoft 365 interfaccia di amministrazione |
+> | Microsoft. office365. protectionCenter/sensitivityLabels/allProperties/Read | Leggere le etichette di riservatezza nei centri sicurezza e conformità |
+> | Microsoft. office365. sharePoint/allEntities/allTasks | Creare ed eliminare tutte le risorse e leggere e aggiornare le proprietà standard in SharePoint |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire richieste di servizio Microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leggere le proprietà di base per tutte le risorse nell'interfaccia di amministrazione di Microsoft 365 |
 
@@ -1415,9 +1442,10 @@ gli utenti con questo ruolo possono gestire le assegnazioni di ruolo in Azure Ac
 > | microsoft.directory/appRoleAssignments/allProperties/allTasks | Creare ed eliminare appRoleAssignments, leggere e aggiornare tutte le proprietà |
 > | Microsoft. directory/authorizationPolicy/allProperties/allTasks | Gestire tutti gli aspetti dei criteri di autorizzazione |
 > | microsoft.directory/directoryRoles/allProperties/allTasks | Creare ed eliminare ruoli della directory, leggere e aggiornare tutte le proprietà |
-> | Microsoft. directory/groupsAssignableToRoles/allProperties/Update | Aggiornare i gruppi con la proprietà isAssignableToRole impostata su true |
-> | Microsoft. directory/groupsAssignableToRoles/crea | Creare gruppi con la proprietà isAssignableToRole impostata su true |
-> | Microsoft. directory/groupsAssignableToRoles/Delete | Elimina i gruppi con la proprietà isAssignableToRole impostata su true |
+> | Microsoft. directory/groupsAssignableToRoles/crea | Creare gruppi assegnabili a un ruolo |
+> | Microsoft. directory/groupsAssignableToRoles/Delete | Elimina gruppi assegnabili al ruolo |
+> | Microsoft. directory/groupsAssignableToRoles/Restore | Ripristinare i gruppi assegnabili ai ruoli |
+> | Microsoft. directory/groupsAssignableToRoles/allProperties/Update | Aggiornare i gruppi assegnabili al ruolo |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Creare ed eliminare le concessioni di autorizzazione OAuth 2,0, leggere e aggiornare tutte le proprietà |
 > | Microsoft. directory/privilegedIdentityManagement/allProperties/allTasks | Creare ed eliminare tutte le risorse e leggere e aggiornare le proprietà standard in Privileged Identity Management |
 > | microsoft.directory/roleAssignments/allProperties/allTasks | Creare ed eliminare assegnazioni di ruolo e leggere e aggiornare tutte le proprietà di assegnazione di ruolo |
@@ -1439,6 +1467,7 @@ Gli utenti con questo ruolo possono visualizzare i dati dei report sull'utilizzo
 > | microsoft.directory/provisioningLogs/allProperties/read | Lettura di tutte le proprietà dei log di provisioning. |
 > | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà nei report di accesso, incluse le proprietà con privilegi |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità del servizio di Azure |
+> | microsoft.office365.network/performance/allProperties/read | Leggere tutte le proprietà delle prestazioni di rete nell'interfaccia di amministrazione di Microsoft 365 |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità dei servizi nell'interfaccia di amministrazione di Microsoft 365 |
 > | Microsoft. office365. usageReports/allEntities/allProperties/Read | Leggere i report sull'utilizzo di Office 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leggere le proprietà di base per tutte le risorse nell'interfaccia di amministrazione di Microsoft 365 |
@@ -1514,8 +1543,8 @@ Windows Defender ATP ed EDR | Assegnare ruoli<br>Gestire i gruppi di computer<br
 > | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà nei report di accesso, incluse le proprietà con privilegi |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità del servizio di Azure |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto di Azure |
-> | Microsoft. office365. protectionCenter/allEntities/standard/Read | Leggere le proprietà standard di tutte le risorse in Office 365 Protection Center |
-> | Microsoft. office365. protectionCenter/allEntities/Basic/Update | Aggiornare le proprietà di base di tutte le risorse in Office 365 Protection Center |
+> | Microsoft. office365. protectionCenter/allEntities/standard/Read | Leggere le proprietà standard di tutte le risorse nei centri sicurezza e conformità |
+> | Microsoft. office365. protectionCenter/allEntities/Basic/Update | Aggiornare le proprietà di base di tutte le risorse nei centri sicurezza e conformità |
 > | Microsoft. office365. protectionCenter/attackSimulator/payload/allProperties/allTasks | Creare e gestire i payload di attacco nel simulatore di attacco |
 > | Microsoft. office365. protectionCenter/attackSimulator/Reports/allProperties/Read | Leggere i report sulla simulazione degli attacchi, le risposte e il training associato |
 > | Microsoft. office365. protectionCenter/attackSimulator/Simulation/allProperties/allTasks | Creare e gestire modelli di simulazione di attacco nel simulatore di attacco |
@@ -1545,6 +1574,7 @@ Windows Defender ATP ed EDR | Tutte le autorizzazioni del ruolo con autorizzazio
 > | Microsoft. directory/cloudAppSecurity/allProperties/allTasks | Creare ed eliminare tutte le risorse e leggere e aggiornare le proprietà standard in Microsoft Cloud App Security |
 > | Microsoft. directory/identityProtection/allProperties/allTasks | Creare ed eliminare tutte le risorse e leggere e aggiornare le proprietà standard in Azure AD Identity Protection |
 > | Microsoft. directory/privilegedIdentityManagement/allProperties/Read | Leggi tutte le risorse in Privileged Identity Management |
+> | microsoft.directory/provisioningLogs/allProperties/read | Lettura di tutte le proprietà dei log di provisioning. |
 > | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà nei report di accesso, incluse le proprietà con privilegi |
 > | Microsoft. Azure. advancedThreatProtection/allEntities/allTasks | Gestire tutti gli aspetti di Azure Advanced Threat Protection |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto di Azure |
@@ -1586,7 +1616,7 @@ Windows Defender ATP ed EDR | Visualizzare e analizzare gli avvisi. Quando si at
 > | microsoft.directory/provisioningLogs/allProperties/read | Lettura di tutte le proprietà dei log di provisioning. |
 > | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà nei report di accesso, incluse le proprietà con privilegi |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità del servizio di Azure |
-> | Microsoft. office365. protectionCenter/allEntities/standard/Read | Leggere le proprietà standard di tutte le risorse in Office 365 Protection Center |
+> | Microsoft. office365. protectionCenter/allEntities/standard/Read | Leggere le proprietà standard di tutte le risorse nei centri sicurezza e conformità |
 > | Microsoft. office365. protectionCenter/attackSimulator/payload/allProperties/Read | Leggi tutte le proprietà dei payload di attacco nel simulatore di attacco |
 > | Microsoft. office365. protectionCenter/attackSimulator/Reports/allProperties/Read | Leggere i report sulla simulazione degli attacchi, le risposte e il training associato |
 > | Microsoft. office365. protectionCenter/attackSimulator/Simulation/allProperties/Read | Leggi tutte le proprietà dei modelli di simulazione di attacco nel simulatore di attacco |
@@ -1605,6 +1635,7 @@ Gli utenti con questo ruolo possono aprire richieste di supporto con Microsoft p
 > | --- | --- |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità del servizio di Azure |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto di Azure |
+> | microsoft.office365.network/performance/allProperties/read | Leggere tutte le proprietà delle prestazioni di rete nell'interfaccia di amministrazione di Microsoft 365 |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità dei servizi nell'interfaccia di amministrazione di Microsoft 365 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire richieste di servizio Microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leggere le proprietà di base per tutte le risorse nell'interfaccia di amministrazione di Microsoft 365 |
@@ -1669,7 +1700,7 @@ gli utenti in questo ruolo possono gestire tutti gli aspetti del carico di lavor
 > | Microsoft. directory/groups. Unified/Basic/Update | Aggiornare le proprietà di base nei gruppi di Microsoft 365 con l'esclusione dei gruppi assegnabili al ruolo |
 > | Microsoft. directory/groups. Unified/members/Update | Aggiornare i membri dei gruppi di Microsoft 365 con l'esclusione dei gruppi assegnabili al ruolo |
 > | Microsoft. directory/groups. Unified/owners/Update | Aggiornare i proprietari dei gruppi di Microsoft 365 con l'esclusione dei gruppi assegnabili al ruolo |
-> | Microsoft. directory/entità servizio/managePermissionGrantsForGroup. Microsoft-all-Application-Permissions | Concedere a un servizio entità l'accesso diretto ai dati di un gruppo  |
+> | Microsoft. directory/entità servizio/managePermissionGrantsForGroup. Microsoft-all-Application-Permissions | Concedere a un servizio entità l'accesso diretto ai dati di un gruppo |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità del servizio di Azure |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto di Azure |
 > | microsoft.office365.network/performance/allProperties/read | Leggere tutte le proprietà delle prestazioni di rete nell'interfaccia di amministrazione di Microsoft 365 |
@@ -1741,6 +1772,7 @@ Gli utenti con questo ruolo possono accedere ai dati aggregati a livello di tena
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
 > | --- | --- |
+> | microsoft.office365.network/performance/allProperties/read | Leggere tutte le proprietà delle prestazioni di rete nell'interfaccia di amministrazione di Microsoft 365 |
 > | Microsoft. office365. usageReports/allEntities/standard/Read | Leggere report sull'utilizzo di Office 365 aggregati a livello di tenant |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leggere le proprietà di base per tutte le risorse nell'interfaccia di amministrazione di Microsoft 365 |
 
