@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentazione di SQL di Azure
-summary: 'Documentazione relativa alla famiglia SQL di Azure di prodotti del motore di database SQL Server nel cloud: database SQL di Azure, Istanza gestita di SQL di Azure e macchina virtuale SQL Server in Azure. '
+summary: 'Documentazione relativa alla famiglia SQL di Azure di prodotti del motore di database SQL Server nel cloud: database SQL di Azure, Istanza gestita di SQL di Azure e macchina virtuale SQL Server in Azure.'
 metadata:
   title: Documentazione di SQL di Azure
   description: SQL di Azure è una famiglia di prodotti del motore di database SQL Server nel cloud, che include un database completamente gestito nel database SQL di Azure, un'istanza completamente gestita in Istanza gestita di SQL di Azure o SQL Server installato in una macchina virtuale in Azure.
@@ -14,19 +14,23 @@ metadata:
   ms.author: sstein
   ms.reviewer: 
   ms.date: 10/30/2019
-  ms.openlocfilehash: 91221735001f55974f6aba4b6fcae39a92834da8
-  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
-  ms.translationtype: HT
+  ms.openlocfilehash: 13fcc3b41777a6b198ad9a8b12d93877adae75ca
+  ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/13/2020
-  ms.locfileid: "94593893"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103601424"
 landingContent:
 - title: database SQL di Azure
   linkLists:
-  - linkListType: overview
+  - linkListType: whats-new
     links:
     - text: Novità
       url: database/doc-changes-updates-release-notes.md?tabs=single-database
+    - text: Per inviare commenti e suggerimenti, Partecipa al sondaggio.
+      url: https://aka.ms/AzureSQLSurvey
+  - linkListType: overview
+    links:
     - text: Informazioni sul database SQL
       url: database/sql-database-paas-overview.md
     - text: Informazioni sui pool elastici
@@ -55,6 +59,12 @@ landingContent:
       url: database/transact-sql-tsql-differences-sql-server.md
 - title: Istanza gestita di SQL di Azure
   linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Novità
+      url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
+    - text: Per inviare commenti e suggerimenti, Partecipa al sondaggio.
+      url: https://aka.ms/AzureSQLSurvey
   - linkListType: overview
     links:
     - text: Novità

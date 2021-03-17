@@ -8,20 +8,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 7e5ea8dcddce31a414d983d14fba483eb388d5d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a29244745b154aa81997813fcf4e1457f599270
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334677"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622062"
 ---
 Il contenitore fornisce [API endpoint basate su REST](../rest-text-to-speech.md). Sono disponibili molti [progetti di codice sorgente di esempio](https://github.com/Azure-Samples/Cognitive-Speech-TTS) per la piattaforma, il Framework e le varianti del linguaggio disponibili.
 
-Con i contenitori di sintesi vocale standard o neurale, è consigliabile fare affidamento sulle impostazioni locali e sulla voce del tag di immagine scaricato. Ad esempio, se è stato scaricato il `latest` tag le impostazioni locali predefinite sono `en-US` e la `AriaRUS` voce. L' `{VOICE_NAME}` argomento sarà quindi [`en-US-AriaRUS`](../language-support.md#standard-voices) . Vedere l'esempio di SSML di seguito:
+Con i contenitori di sintesi vocale standard o neurale, è consigliabile fare affidamento sulle impostazioni locali e sulla voce del tag di immagine scaricato. Ad esempio, se è stato scaricato il `latest` tag le impostazioni locali predefinite sono `en-US` e la `AriaNeural` voce. L' `{VOICE_NAME}` argomento sarà quindi [`en-US-AriaNeural`](../language-support.md#neural-voices) . Vedere l'esempio di SSML di seguito:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-AriaNeural">
         This text will get converted into synthesized speech.
     </voice>
 </speak>
