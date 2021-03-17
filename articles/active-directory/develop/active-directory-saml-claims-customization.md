@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102700"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600950"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -71,7 +71,7 @@ Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID).
 |------|-------------|
 | Email | Indirizzo di posta elettronica dell'utente |
 | userprincipalName | Il nome dell'entità utente (UPN) dell'utente |
-| onpremisessamaccount | Il nome dell'account SAM che è stato sincronizzato da Azure AD locale |
+| onpremisessamaccountname | Il nome dell'account SAM che è stato sincronizzato da Azure AD locale |
 | objectid | Il valore objectid dell'utente in Azure AD |
 | employeeid | L'ID dipendente dell'utente |
 | Estensioni della directory | Estensioni di directory [sincronizzate da Active Directory locale mediante la sincronizzazione di Azure AD Connect](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |

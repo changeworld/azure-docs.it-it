@@ -8,12 +8,12 @@ ms.date: 03/16/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 7aff8320186ada53772fc4ff2232e8cf55585a77
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 5152b0ecf6eebe87031a2165d5d8ba11d99209cf
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573031"
+ms.locfileid: "103601186"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servizi di Azure che supportano le zone di disponibilità
 
@@ -136,7 +136,6 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | Azure SQL: macchina virtuale                      |      : large_blue_diamond:  |
 | Ricerca di Azure                                    |      : large_blue_diamond:  |
 | Web application firewall di Azure                  |      : large_blue_diamond:  |
-| Servizi cognitivi: Analisi del testo              |      : large_blue_diamond:  |
 | Registro contenitori                              |      : large_blue_diamond:  |
 | Griglia di eventi                                      |      : large_blue_diamond:  |
 | Network Watcher                                 |      : large_blue_diamond:  |

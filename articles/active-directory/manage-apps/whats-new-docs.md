@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: ebd8839fd17f79bc53b5093af83d457bb23712d9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452051"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601764"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestione applicazioni Azure Active Directory: novità
 
@@ -33,7 +33,6 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 - [Concedere a un'applicazione il consenso amministratore a livello di tenant](grant-admin-consent.md)
 - [Trasferimento dell'autenticazione dell'applicazione da Azure Active Directory Federation Services ad Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md)
-- [Problemi di accesso ad app configurate per Single Sign-On basato su SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Uso delle restrizioni del tenant per gestire l'accesso alle applicazioni cloud SaaS](tenant-restrictions.md)
 
 ## <a name="january-2021"></a>Gennaio 2021
@@ -84,7 +83,6 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 - [Gestione applicazioni Azure Active Directory: novità](whats-new-docs.md)
-- [Problemi di accesso ad app configurate per Single Sign-On basato su SAML](application-sign-in-problem-federated-sso-gallery.md)
 
 
 ## <a name="october-2020"></a>Ottobre 2020
@@ -99,7 +97,6 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
-- [Problemi di accesso ad app configurate per Single Sign-On basato su SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Problemi di installazione del connettore dell'agente proxy dell'applicazione](application-proxy-connector-installation-problem.md)
 - [Trasferimento dell'autenticazione dell'applicazione da Azure Active Directory Federation Services ad Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Configurare la modalità con cui gli utenti finali consentono le applicazioni](configure-user-consent.md)
