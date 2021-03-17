@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 03/16/2021
 ms.author: banders
-ms.openlocfilehash: 9015cbcd669665467d3836112b152aa504176f2b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bd16bbbe33876a3c44b20c5d1756b83814f9b17d
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035994"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601951"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 
@@ -105,6 +105,7 @@ Azure prevede i seguenti criteri per gli annullamenti, gli scambi e i rimborsi.
 - Non viene attualmente applicata alcuna penale per risoluzione anticipata, ma in futuro è possibile che venga applicata una penale per risoluzione anticipata del 12% per gli annullamenti.
 - L'impegno totale annullato non può superare i 50.000 USD in una finestra mobile di 12 mesi per un profilo di fatturazione o una singola registrazione. Ad esempio, per una prenotazione di tre anni da 100 USD al mese e rimborsata nel 18° mese, l'impegno annullato sarà pari a 1.800 USD. Dopo il rimborso il nuovo limite disponibile per i rimborsi sarà pari a 48.200 USD. Dopo 365 giorni dal rimborso, il limite di 48.200 USD verrà incrementato di 1.800 USD e il nuovo pool sarà pari a 50.000 USD. Eventuali altri annullamenti di prenotazioni per il profilo di fatturazione o la registrazione EA esauriranno lo stesso pool e verrà applicata la stessa logica di rifornimento.
 - Azure non elaborerà i rimborsi che superano il limite di 50.000 USD in una finestra di 12 mesi per un profilo di fatturazione o una registrazione EA.
+    - I rimborsi risultanti da uno scambio non vengono conteggiati rispetto al limite di rimborso.
 - I rimborsi vengono calcolati in base al prezzo più basso, tra quello di acquisto o quello corrente della prenotazione.
 - Solo i proprietari degli ordini di prenotazioni possono elaborare un rimborso. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 

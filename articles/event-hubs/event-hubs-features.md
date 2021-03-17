@@ -2,13 +2,13 @@
 title: Panoramica delle funzionalità - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni dettagliate sulle funzionalità e la terminologia di Hub eventi di Azure.
 ms.topic: article
-ms.date: 02/19/2021
-ms.openlocfilehash: 8bb63bfdbeb5b875b1e461fbd93fb48dcbb43054
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/15/2021
+ms.openlocfilehash: fbfc2a23a7cde50172b80769558c2dfd6fd5ec84
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739076"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601305"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
 
@@ -53,6 +53,13 @@ Gli eventi pubblicati vengono rimossi da un hub eventi in base a un criterio di 
 - Per lo **standard** di hub eventi, il periodo di conservazione massimo è di **7 giorni**. 
 - Per gli hub eventi **dedicati**, il periodo di conservazione massimo è di **90 giorni**.
 - Se si modifica il periodo di conservazione, questo si applica a tutti i messaggi, inclusi quelli già presenti nell'hub eventi. 
+
+Hub eventi mantiene gli eventi per un periodo di conservazione configurato che viene applicato a tutte le partizioni. Gli eventi vengono rimossi automaticamente al raggiungimento del periodo di conservazione. Se si specifica un periodo di conservazione di un giorno, l'evento diventerà non disponibile esattamente 24 ore dopo che è stato accettato. Non è possibile eliminare in modo esplicito gli eventi. 
+
+Se è necessario archiviare gli eventi oltre il periodo di conservazione consentito, è possibile [memorizzarli automaticamente in Archiviazione di Azure o in Azure Data Lake attivando la funzionalità di acquisizione di hub eventi](event-hubs-capture-overview.md) e, se è necessario eseguire ricerche o analisi in tali archivi profondi, è possibile [importarli facilmente in Azure Synapse](store-captured-data-data-warehouse.md) o in altri archivi e piattaforme di analisi simili. 
+
+Il motivo del limite temporale di Hub eventi per la conservazione dei dati è di impedire che volumi elevati di dati cronologici dei clienti vengano intrappolati in un archivio profondo che viene indicizzato solo in base a timestamp e consente solo l'accesso sequenziale. La filosofia alla base dell'architettura è che i dati cronologici richiedono un'indicizzazione più avanzata e un accesso più diretto rispetto all'interfaccia eventi in tempo reale fornita da Hub eventi o Kafka. I motori dei flussi di eventi non sono particolarmente adatti per l'uso come data lake o come archivi a lungo termine per l'origine eventi. 
+ 
 
 > [!NOTE]
 > Hub eventi è un motore di flusso di eventi in tempo reale e non è progettato per essere usato al posto di un database e/o come archivio permanente per i flussi di eventi conservati all'infinito. 

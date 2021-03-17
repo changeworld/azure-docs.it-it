@@ -148,6 +148,8 @@
               href: manage/understand-mca-roles.md
             - name: Collegare l'ID partner
               href: manage/link-partner-id.md
+            - name: Collegare l'ID partner agli account Power Apps
+              href: manage/link-partner-id-power-apps-accounts.md
         - name: Amministrare le sottoscrizioni
           items:
             - name: Assegnare l'accesso ai dati di Gestione dei costi

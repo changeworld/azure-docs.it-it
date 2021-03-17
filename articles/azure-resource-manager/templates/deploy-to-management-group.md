@@ -2,13 +2,13 @@
 title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.openlocfilehash: a203dd2c52bdc889452a6755fb025c7ed5721a59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.date: 03/16/2021
+ms.openlocfilehash: b14dc3622a6ad6519968bd2998aa354a850f2515
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491622"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601594"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Distribuzioni del gruppo di gestione con i modelli ARM
 
@@ -219,6 +219,8 @@ Nell'esempio seguente viene creato un nuovo gruppo di gestione nel gruppo di ges
     }
 }
 ```
+
+Per distribuire un modello che sposta una sottoscrizione di Azure esistente in un nuovo gruppo di gestione, vedere [spostare le sottoscrizioni nel modello ARM](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
 
 ## <a name="azure-policy"></a>Criteri di Azure
 

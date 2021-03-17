@@ -10,25 +10,27 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a674f4a2a31fd217307ff373cba2b883a4d129f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 23a0d7cd45ceef8f97bb56d65f4807f8d60735dc
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102557064"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601050"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Key Vault per Linux
 
-L'estensione macchina virtuale di Key Vault offre l'aggiornamento automatico dei certificati archiviati in un insieme di credenziali delle chiavi di Azure. In particolare, l'estensione monitora un elenco di certificati osservati archiviati in insiemi di credenziali delle chiavi.  Quando rileva una modifica, l'estensione recupera e installa i certificati corrispondenti. L'estensione macchina virtuale di Key Vault è pubblicata e supportata da Microsoft, attualmente in macchine virtuali Linux. Questo documento descrive dettagliatamente le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale di Key Vault per Linux. 
+L'estensione macchina virtuale di Key Vault offre l'aggiornamento automatico dei certificati archiviati in un insieme di credenziali delle chiavi di Azure. In particolare, l'estensione monitora un elenco di certificati osservati archiviati in insiemi di credenziali delle chiavi.  Quando rileva una modifica, l'estensione recupera e installa i certificati corrispondenti. L'estensione installerà la catena di certificati completa nella macchina virtuale. L'estensione macchina virtuale di Key Vault è pubblicata e supportata da Microsoft, attualmente in macchine virtuali Linux. Questo documento descrive dettagliatamente le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale di Key Vault per Linux. 
 
 ### <a name="operating-system"></a>Sistema operativo
 
 L'estensione macchina virtuale di Key Vault supporta queste distribuzioni Linux:
 
-- Ubuntu-1604
 - Ubuntu-1804
-- Debian-9
 - Suse-15 
+
+> [!NOTE]
+> Per ottenere le funzionalità di sicurezza estese, prepararsi all'aggiornamento dei sistemi Ubuntu-1604 e Debian-9 perché queste versioni raggiungono la fine del periodo di supporto designato.
+> 
 
 ### <a name="supported-certificate-content-types"></a>Tipi di contenuto del certificato supportati
 

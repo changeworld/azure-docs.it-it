@@ -11,18 +11,20 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a1dee21182349108c44f9d498417d3b760ac4913
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741117"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600863"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Risolvere i problemi di reimpostazione della password self-service in Azure Active Directory
 
 Azure Active Directory (Azure AD) la reimpostazione della password self-service (SSPR) consente agli utenti di reimpostare le password nel cloud.
 
-Se si verificano problemi con SSPR, è possibile che si verifichino i seguenti passaggi di risoluzione dei problemi ed errori comuni. Se non si riesce a trovare la risposta al problema, [i team di supporto sono sempre disponibili](#contact-microsoft-support) per assistenza.
+Se si verificano problemi con SSPR, è possibile che si verifichino i seguenti passaggi di risoluzione dei problemi ed errori comuni. È anche possibile guardare questo breve video sul modo in cui [OT risolve i sei messaggi di errore più comuni dell'utente finale di SSPR](https://www.youtube.com/watch?v=9RPrNVLzT8I&list=PL3ZTgFEc7LyuS8615yo39LtXR7j1GCerW&index=1).
+
+Se non si riesce a trovare la risposta al problema, [i team di supporto sono sempre disponibili](#contact-microsoft-support) per assistenza.
 
 ## <a name="sspr-configuration-in-the-azure-portal"></a>Configurazione di SSPR nel portale di Azure
 
