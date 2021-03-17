@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 3/5/2021
+ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 014140b9b9832bab3de4f71c0b5f164b564b3fe5
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212723"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601373"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -466,11 +466,13 @@ Per informazioni sulle istruzioni RESTORE, vedere [istruzioni RESTORE](/sql/t-sq
 
 ### <a name="service-broker"></a>Service Broker
 
-Il broker di servizio tra istanze non è supportato:
+Lo scambio di messaggi tra istanze di Service Broker è supportato solo tra le istanze gestite di SQL di Azure:
 
-- `sys.routes`: Come prerequisito, è necessario selezionare l'indirizzo da sys. routes. L'indirizzo deve essere locale in ogni route. Vedere [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: Non è possibile usare `CREATE ROUTE` con `ADDRESS` diversi da `LOCAL` . Vedere [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: Non è possibile usare `ALTER ROUTE` con `ADDRESS` diversi da `LOCAL` . Vedere [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE`: Non è possibile usare `CREATE ROUTE` con `ADDRESS` `LOCAL` un nome diverso o DNS di un altro istanza gestita SQL.
+- `ALTER ROUTE`: Non è possibile usare `ALTER ROUTE` con `ADDRESS` `LOCAL` un nome diverso o DNS di un altro istanza gestita SQL.
+
+La sicurezza del trasporto è supportata. la sicurezza del dialogo non è:
+- `CREATE REMOTE SERVICE BINDING` non è supportato.
 
 Service Broker è abilitato per impostazione predefinita e non può essere disabilitato. Le opzioni ALTER DATABSE seguenti non sono supportate:
 - `ENABLE_BROKER`
