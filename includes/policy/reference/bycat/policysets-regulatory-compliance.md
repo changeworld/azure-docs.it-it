@@ -2,20 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8291089d40ada02adfa011beedf18e90766d3a26
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 82cb3119330a9a392b5fa7410e90e891ab7e2100
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613783"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604915"
 ---
 |Nome |Descrizione |Criteri |Versione |
 |---|---|---|---|
 |[\[Anteprima \] : protetto da ISM per enti australiani](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRAP_Audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli Australian Government Information Security Manual (ISM). Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/AustralianGovernmentISM-blueprint](https://aka.ms/AustralianGovernmentISM-blueprint). |61 |4.0.1-Preview |
-|[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli Canada Federal PBMM. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint). |60 |4.0.1 |
+|[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli Canada Federal PBMM. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint). |59 |5.0.0 |
 |[CIS Microsoft Azure Foundations Benchmark 1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json) |Questa iniziativa include criteri che riguardano un subset di SID Microsoft Azure fondazioni benchmark raccomandazioni. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/cisazure110-initiative](https://aka.ms/cisazure110-initiative). |92 |9.0.0 |
 |[\[Anteprima \] : 1.3.0 del benchmark delle fondamenta di Microsoft Azure CIS](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json) |Questa iniziativa include criteri che riguardano un subset di SID Microsoft Azure fondazioni benchmark raccomandazioni. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/cisazure130-initiative](https://aka.ms/cisazure130-initiative). |104 |1.0.0-preview |
 |[\[Anteprima \] : livello CMMC 3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_L3.json) |Questa iniziativa include i criteri che soddisfano i requisiti di un subset di Cybersecurity Maturity Model Certification (CMMC) Level 3. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/cmmc-initiative](https://aka.ms/cmmc-initiative). |183 |3.0.0-preview |
@@ -30,4 +30,4 @@ ms.locfileid: "102613783"
 |[NIST SP 800-53 R4](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/NIST80053_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli NIST SP 800-53 R4. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/nist80053-blueprint](https://aka.ms/nist80053-blueprint). |790 |4.0.1 |
 |[PCI v3.2.1:2018](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/PCIv3_2_1_2018_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli PCI v3.2.1:2018. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/pciv321-init](https://aka.ms/pciv321-init). |39 |3.0.2 |
 |[\[Anteprima \] : Swift CSP-CSCF V2020](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/SWIFTv2020_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli SWIFT CSP-CSCF v2020. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/swift-blueprint](https://aka.ms/swift-blueprint). |61 |3.0.1-preview |
-|[UK OFFICIAL and UK NHS](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/ukofficial_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli UK OFFICIAL and UK NHS. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/ukofficial-blueprint](https://aka.ms/ukofficial-blueprint) e [https://aka.ms/uknhs-blueprint](https://aka.ms/uknhs-blueprint). |59 |5.0.1 |
+|[UK OFFICIAL and UK NHS](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/ukofficial_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli UK OFFICIAL and UK NHS. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/ukofficial-blueprint](https://aka.ms/ukofficial-blueprint) e [https://aka.ms/uknhs-blueprint](https://aka.ms/uknhs-blueprint). |59 |6.0.0 |

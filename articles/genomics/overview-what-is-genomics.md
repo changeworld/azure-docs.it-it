@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: overview
 ms.date: 12/07/2017
 ms.openlocfilehash: 04ecab58db822aa80ca2abba1bebaa39598498bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73498824"
 ---
 # <a name="what-is-microsoft-genomics"></a>Cos'è Genomica di Microsoft?
@@ -35,5 +35,5 @@ Il servizio Genomica di Microsoft ha ottenuto le certificazioni ISO 27001, ISO 2
 Dopo aver letto questa introduzione a Genomica di Microsoft, si è pronti per:
 - Vedere la pagina relativa ai prezzi per confrontare i costi e usare i calcolatori. [Prezzi](https://azure.microsoft.com/pricing/details/genomics/)
 - Iniziare eseguendo il primo flusso di lavoro tramite il servizio Genomica di Microsoft. [Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft](quickstart-run-genomics-workflow-portal.md)
-- Inviare i dati per l'elaborazione tramite il servizio Genomica di Microsoft: [File di FASTQ abbinati](quickstart-input-pair-FASTQ.md) | [File di Monitoraggio attività di business](quickstart-input-BAM.md) | [Più file di FASTQ o Monitoraggio attività di business](quickstart-input-multiple.md) 
+- Inviare i propri dati per l'elaborazione da parte del servizio genomica di Microsoft: [paired fastq](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [multiple fastq o BAM](quickstart-input-multiple.md) 
 

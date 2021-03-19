@@ -8,10 +8,10 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b60cf34e8efed2ed63b6e35cfaf7445edb701610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82838502"
 ---
 # <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Domande frequenti sulla connettività di rete di Analysis Services
@@ -24,7 +24,7 @@ Questo articolo fornisce le risposte alle domande comuni sulla connessione a acc
 **Answer** -Azure Analysis Services non usa indirizzi IP fissi o tag di servizio. L'intervallo di indirizzi IP usati dai server Analysis Services può essere qualsiasi elemento nell'intervallo di indirizzi IP per l' *area di Azure*. Poiché gli indirizzi IP del server sono variabili e possono cambiare nel tempo, le regole del firewall devono consentire l'intero intervallo di indirizzi IP dell'area di Azure in cui si trova il server.
 
 **Domanda** : l'account di archiviazione di Azure si trova in un'area diversa rispetto al server Analysis Services. Ricerca per categorie configurare le impostazioni del firewall dell'account di archiviazione?   
-**Risposta** : se l'account di archiviazione si trova in un'area diversa, configurare le impostazioni del firewall dell'account di archiviazione per consentire l'accesso dalle **reti selezionate**. In **intervallo di indirizzi**del firewall specificare l'intervallo di indirizzi IP per l'area in cui si trova il server Analysis Services. Per ottenere gli intervalli IP per le aree di Azure, vedere [Azure IP Ranges and Service Tags-Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). La configurazione delle impostazioni del firewall dell'account di archiviazione per consentire l'accesso da tutte le reti è supportata, tuttavia è preferibile scegliere le reti selezionate e specificare un intervallo di indirizzi IP. 
+**Risposta** : se l'account di archiviazione si trova in un'area diversa, configurare le impostazioni del firewall dell'account di archiviazione per consentire l'accesso dalle **reti selezionate**. In **intervallo di indirizzi** del firewall specificare l'intervallo di indirizzi IP per l'area in cui si trova il server Analysis Services. Per ottenere gli intervalli IP per le aree di Azure, vedere [Azure IP Ranges and Service Tags-Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). La configurazione delle impostazioni del firewall dell'account di archiviazione per consentire l'accesso da tutte le reti è supportata, tuttavia è preferibile scegliere le reti selezionate e specificare un intervallo di indirizzi IP. 
 
 **Domanda** : l'account di archiviazione di Azure si trova nella stessa area del server Analysis Services. Come è possibile configurare le impostazioni del firewall dell'account di archiviazione?   
 **Risposta** : poiché il server di Analysis Services e l'account di archiviazione si trovano nella stessa area, le comunicazioni tra di essi usano intervalli di indirizzi IP interni, quindi la configurazione di un firewall per l'uso di reti selezionate e la specifica di un intervallo di indirizzi IP non sono supportate. Se i criteri dell'organizzazione richiedono un firewall, è necessario configurarlo per consentire l'accesso da tutte le reti.

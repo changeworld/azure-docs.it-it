@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: 5ee38fa4b005cf053890c223dfec9244c637bd00
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: b4cf3699243e990b5e7b7478ba643067ac456020
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561822"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584704"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guida per l'esecuzione di funzioni in .NET 5,0 in Azure
 
@@ -47,7 +47,7 @@ Un progetto di funzione con isolamento .NET è fondamentalmente un progetto di a
 + [host.jssu](functions-host-json.md) file.
 + [local.settings.jssu](functions-run-local.md#local-settings-file) file.
 + File di progetto C# (con estensione csproj) che definisce il progetto e le dipendenze.
-+ File Program.cs che è il punto di ingresso per l'app.
++ File Program. cs che è il punto di ingresso per l'app.
 
 ## <a name="package-references"></a>Riferimenti ai pacchetti
 
@@ -68,7 +68,7 @@ Questi pacchetti di estensione sono disponibili in [Microsoft. Azure. Functions.
 
 ## <a name="start-up-and-configuration"></a>Avvio e configurazione 
 
-Quando si usano le funzioni di isolamento .NET, è possibile accedere all'avvio dell'app per le funzioni, che in genere si trova in Program.cs. Si è responsabili della creazione e dell'avvio dell'istanza host. Di conseguenza, è anche possibile accedere direttamente alla pipeline di configurazione per l'app. È possibile inserire in modo più semplice le dipendenze ed eseguire il middleware quando si esegue out-of-process. 
+Quando si usano le funzioni di isolamento .NET, è possibile accedere all'avvio dell'app per le funzioni, che in genere si trova in Program. cs. Si è responsabili della creazione e dell'avvio dell'istanza host. Di conseguenza, è anche possibile accedere direttamente alla pipeline di configurazione per l'app. È possibile inserire in modo più semplice le dipendenze ed eseguire il middleware quando si esegue out-of-process. 
 
 Il codice seguente illustra un esempio di `HostBuilder` pipeline:
 

@@ -5,12 +5,12 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: d65fa03a183c15022535debee6476844192ec6bf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 08ac23fbb29829bf2a7a46e41f9a7f646ad97915
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037847"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586319"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Risoluzione dei problemi negli avvisi di monitoraggio di Azure
 
@@ -21,7 +21,7 @@ Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono 
 Se si verifica un problema con la generazione di un avviso o se non viene attivato quando previsto, vedere gli articoli seguenti. È possibile visualizzare gli avvisi "attivato" nel portale di Azure.
 
 - [Risoluzione dei problemi relativi agli avvisi delle metriche di monitoraggio di Azure in Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Risoluzione dei problemi relativi agli avvisi del log di monitoraggio di Azure in Microsoft Azure](alerts-troubleshoot-metric.md)
+- [Risoluzione dei problemi relativi agli avvisi del log di monitoraggio di Azure in Microsoft Azure](alerts-troubleshoot-log.md)
 
 Se l'avviso viene attivato come previsto in base al portale di Azure ma non si verificano le notifiche appropriate, usare le informazioni riportate nella parte restante di questo articolo per risolvere il problema.
 

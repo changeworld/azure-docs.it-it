@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: de0a23ca9dea210d91fe259b06622226549ba3b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890449"
 ---
 # <a name="normalize-data-module"></a>Normalizza modulo dati
@@ -54,7 +54,7 @@ Con questo modulo è possibile applicare un solo metodo di normalizzazione alla 
     > [!TIP]
     > Per assicurarsi che le colonne di un tipo specifico vengano fornite come input, provare a usare il modulo [Select Columns in DataSet](./select-columns-in-dataset.md) prima di **normalizzare i dati**.
 
-4. **USA 0 per le colonne costanti quando**questa opzione è selezionata: selezionare questa opzione quando una colonna numerica contiene un solo valore non modificabile. In questo modo si garantisce che tali colonne non vengano utilizzate nelle operazioni di normalizzazione.
+4. **USA 0 per le colonne costanti quando** questa opzione è selezionata: selezionare questa opzione quando una colonna numerica contiene un solo valore non modificabile. In questo modo si garantisce che tali colonne non vengano utilizzate nelle operazioni di normalizzazione.
 
 5. Dall'elenco a discesa **metodo di trasformazione** scegliere una singola funzione matematica da applicare a tutte le colonne selezionate. 
   

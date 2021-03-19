@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82733772"
 ---
 # <a name="understand-azure-deny-assignments"></a>Informazioni sulle assegnazioni di rifiuto di Azure
@@ -39,7 +39,7 @@ Le assegnazioni Deny vengono create e gestite da Azure per proteggere le risorse
 
 Le assegnazioni di negazione seguono un modello simile a quello delle assegnazioni di ruolo, ma presentano anche alcune differenze.
 
-| Funzionalità | Assegnazione di ruolo | Nega assegnazione |
+| Funzionalità | Assegnazione del ruolo | Nega assegnazione |
 | --- | --- | --- |
 | Concedere l'accesso | :heavy_check_mark: |  |
 | Rifiutare l'accesso |  | :heavy_check_mark: |
@@ -54,7 +54,7 @@ Le assegnazioni di negazione seguono un modello simile a quello delle assegnazio
  Un'assegnazione di rifiuto ha le seguenti proprietà:
 
 > [!div class="mx-tableFixed"]
-> | Proprietà | Obbligatoria | Type | Descrizione |
+> | Proprietà | Obbligatoria | Tipo | Descrizione |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Sì | string | Il nome visualizzato dell'assegnazione di rifiuto. I nomi devono essere univoci per un determinato ambito. |
 > | `Description` | No | string | La descrizione dell'assegnazione di rifiuto. |

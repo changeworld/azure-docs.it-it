@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4faa7837a75bab6dfab651862754cd92394c5137
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 91be2f8641a061d009962cdcd03a8d56048594da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585908"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594504"
 ---
 # <a name="how-to-create-alerts-for-change-tracking-and-inventory"></a>Come creare avvisi per Rilevamento modifiche e inventario
 
@@ -50,11 +50,11 @@ Dopo aver configurato gli avvisi, è possibile configurare un gruppo di azioni d
 
 3. In **Azioni** immettere un nome che specifichi l'azione, ad esempio **Notifica via posta elettronica**.
 
-4. Per **Tipo azione** selezionare il tipo appropriato, ad esempio **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce).
+4. Per **tipo di azione** selezionare il tipo appropriato, ad esempio, **messaggio di posta elettronica/SMS/push/Voice**.
 
-5. Selezionare **Modifica dettagli**.
+5. Selezionare l'icona a matita per modificare i dettagli dell'azione.
 
-6. Compilare il riquadro per il tipo di azione. Ad esempio, se si usa **posta elettronica/SMS/push/voce**, immettere un nome di azione, selezionare la casella di controllo **posta elettronica** , immettere un indirizzo di posta elettronica valido e quindi fare clic su **OK**.
+6. Compilare il riquadro per il tipo di azione. Ad esempio, se si usa un messaggio di posta **elettronica/SMS/push/Voice** per inviare un messaggio di posta elettronica, immettere un nome di azione, selezionare la casella di controllo **posta elettronica** , immettere un indirizzo di posta elettronica valido e quindi fare clic su **OK**.
 
     ![Configurare un gruppo di azioni di posta elettronica](./media/configure-alerts/configure-email-action-group.png)
 

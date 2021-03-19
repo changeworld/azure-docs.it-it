@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/10/2020
 ms.openlocfilehash: bf62fa995724b8e1fff757e89945cc39db3d9842
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90893705"
 ---
 # <a name="score-svd-recommender"></a>Score SVD Recommender
@@ -43,11 +43,11 @@ Questo modulo supporta due tipi di stime, ognuna con requisiti diversi.
 
 Quando si stimano le classificazioni, il modello calcola il modo in cui un utente reagirà a un particolare elemento, in base ai dati di training. I dati di input per il punteggio devono fornire un utente e l'elemento da valutare.
 
-1. Aggiungere un modello di raccomandazione con training alla pipeline e connetterlo a **SVD Recommender**sottoposto a training. È necessario creare il modello usando il modulo [Train SVD Recommender](train-SVD-recommender.md) .
+1. Aggiungere un modello di raccomandazione con training alla pipeline e connetterlo a **SVD Recommender** sottoposto a training. È necessario creare il modello usando il modulo [Train SVD Recommender](train-SVD-recommender.md) .
 
-2. Per il **tipo di stima della raccomandazione**selezionare **stima classificazione**. Non sono necessari altri parametri.
+2. Per il **tipo di stima della raccomandazione** selezionare **stima classificazione**. Non sono necessari altri parametri.
 
-3. Aggiungere i dati per i quali si desidera eseguire stime e connetterli al **set di dati per**assegnare un punteggio.
+3. Aggiungere i dati per i quali si desidera eseguire stime e connetterli al **set di dati per** assegnare un punteggio.
 
    Per il modello per stimare le classificazioni, il set di dati di input deve contenere coppie di elementi utente.
 
@@ -63,7 +63,7 @@ Il set di dati di output contiene tre colonne: utenti, elementi e la classificaz
 
 Per consigliare gli elementi per gli utenti, è necessario fornire un elenco di utenti e elementi come input. Da questi dati, il modello utilizza le informazioni relative agli elementi e agli utenti esistenti per generare un elenco di elementi con un probabile appeal per ogni utente. È possibile personalizzare il numero di raccomandazioni restituite. È possibile impostare una soglia per il numero di raccomandazioni precedenti necessarie per generare un suggerimento.
 
-1. Aggiungere un modello di raccomandazione con training alla pipeline e connetterlo a **SVD Recommender**sottoposto a training.  È necessario creare il modello usando il modulo [Train SVD Recommender](train-svd-recommender.md) .
+1. Aggiungere un modello di raccomandazione con training alla pipeline e connetterlo a **SVD Recommender** sottoposto a training.  È necessario creare il modello usando il modulo [Train SVD Recommender](train-svd-recommender.md) .
 
 2. Per consigliare gli elementi per un elenco di utenti, impostare Recommender **PREDICTION Kind** su **Item Recommendation**.
 
@@ -75,7 +75,7 @@ Per consigliare gli elementi per gli utenti, è necessario fornire un elenco di 
     
     - **Da elementi non classificati (per suggerire nuovi elementi agli utenti)**: selezionare questa opzione se si desidera che il modulo faccia raccomandazioni solo da tali elementi del set di dati di training che non sono stati classificati. 
 
-4. Aggiungere il set di dati per il quale si desidera eseguire stime e connetterlo al **set di dati per**assegnare un punteggio.
+4. Aggiungere il set di dati per il quale si desidera eseguire stime e connetterlo al **set di dati per** assegnare un punteggio.
 
     - Per **da tutti gli elementi**, il set di dati di input deve essere costituito da una sola colonna. Contiene gli identificatori degli utenti per i quali effettuare consigli.
 

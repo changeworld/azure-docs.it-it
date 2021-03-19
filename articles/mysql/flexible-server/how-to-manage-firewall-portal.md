@@ -7,16 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 132319575147c2ff1075881b1f1faec8bc5029f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90940455"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Creare e gestire le regole del firewall per database di Azure per MySQL-server flessibile usando il portale di Azure
 
 > [!IMPORTANT]
-> Il server flessibile database di Azure per MySQL è attualmente disponibile in anteprima pubblica.
+> Il server flessibile di Database di Azure per MySQL è attualmente disponibile in anteprima pubblica.
 
 Il server flessibile del Database di Azure per MySQL supporta due tipi di metodi di connettività di rete che si escludono a vicenda per la connessione al server flessibile. Le due opzioni sono:
 
@@ -32,7 +32,7 @@ In questo articolo verrà illustrata la creazione di un server MySQL con **acces
 3. Selezionare **Flexible server** (Server flessibile) come opzione di distribuzione.
 4. Compilare il modulo **nozioni di base** .
 5. Passare alla scheda **rete** per configurare il modo in cui si desidera connettersi al server.
-6. Nel **metodo di connettività**selezionare *accesso pubblico (indirizzi IP consentiti)*. Per creare le **regole del firewall**, specificare il nome della regola del firewall e un singolo indirizzo IP o un intervallo di indirizzi. Se si vuole limitare la regola a un singolo indirizzo IP, digitare lo stesso indirizzo nel campo per indirizzo IP iniziale e indirizzo IP finale. L'apertura del firewall consente agli amministratori, agli utenti e alle applicazioni di accedere a qualsiasi database nel server MySQL per cui hanno credenziali valide.
+6. Nel **metodo di connettività** selezionare *accesso pubblico (indirizzi IP consentiti)*. Per creare le **regole del firewall**, specificare il nome della regola del firewall e un singolo indirizzo IP o un intervallo di indirizzi. Se si vuole limitare la regola a un singolo indirizzo IP, digitare lo stesso indirizzo nel campo per indirizzo IP iniziale e indirizzo IP finale. L'apertura del firewall consente agli amministratori, agli utenti e alle applicazioni di accedere a qualsiasi database nel server MySQL per cui hanno credenziali valide.
    > [!Note]
    > Il server flessibile database di Azure per MySQL crea un firewall a livello di server. che impedisce alle applicazioni e agli strumenti esterni di connettersi al server e ai database nel server, a meno che non si crei una regola per aprire il firewall per indirizzi IP specifici.
 
@@ -48,21 +48,21 @@ In questo articolo verrà illustrata la creazione di un server MySQL con **acces
 
 3. Fare clic su **Aggiungi indirizzo IP client corrente** nelle regole del firewall. Viene creata automaticamente una regola del firewall con l'indirizzo IP pubblico del computer rilevato dal sistema Azure.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/2-add-my-ip.png" alt-text="Azure portal - click Connection Security":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/2-add-my-ip.png" alt-text="Azure portal - click Add My IP":::-->
 
 4. Verificare l'indirizzo IP prima di salvare la configurazione. In alcuni casi, l'indirizzo IP individuato dal portale di Azure è diverso da quello usato per l'accesso a Internet e ai server Azure, Potrebbe pertanto essere necessario modificare l'indirizzo IP iniziale e l'indirizzo IP finale per fare in modo che la regola funzioni come previsto.
 
    È possibile usare un motore di ricerca o un altro strumento online per controllare il proprio indirizzo IP. Ad esempio, cercare "qual è l'indirizzo IP".
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/3-what-is-my-ip.png" alt-text="Azure portal - click Connection Security":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/3-what-is-my-ip.png" alt-text="Bing search for What is my IP":::-->
 
 5. Aggiungere altri intervalli di indirizzi. Nelle regole del firewall per il server flessibile database di Azure per MySQL è possibile specificare un singolo indirizzo IP o un intervallo di indirizzi. Se si vuole limitare la regola a un singolo indirizzo IP, digitare lo stesso indirizzo nel campo per indirizzo IP iniziale e indirizzo IP finale. L'apertura del firewall consente agli amministratori, agli utenti e alle applicazioni di accedere a qualsiasi database nel server MySQL per cui hanno credenziali valide.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/4-specify-addresses.png" alt-text="Azure portal - click Connection Security":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/4-specify-addresses.png" alt-text="Azure portal - firewall rules":::-->
 
 6. Fare clic su **Salva** sulla barra degli strumenti per salvare questa regola del firewall. Attendere la conferma che l'aggiornamento delle regole del firewall abbia avuto esito positivo.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/5-save-firewall-rule.png" alt-text="Azure portal - click Connection Security":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/5-save-firewall-rule.png" alt-text="Azure portal - click Save":::-->
 
 ## <a name="connect-from-azure"></a>Connetti da Azure
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: d0d3154d123b5e073a4eadf976d5259d51972da8
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: e7296b04e3e912e96ac8c2ed77b44288324c262f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436482"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578703"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET Core
 
@@ -82,6 +82,8 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 > [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
 > [Scaricare il codice di esempio](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1.zip)
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione
 > Il progetto è stato configurato con i valori delle proprietà dell'app ed è pronto per l'esecuzione.
@@ -97,6 +99,7 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 > 1. Aprire il *appsettings.jsnel* file e modificare il codice seguente:
 >
 >    ```json
+>    "Domain": "Enter the domain of your tenant, e.g. contoso.onmicrosoft.com",
 >    "ClientId": "Enter_the_Application_Id_here",
 >    "TenantId": "common",
 >    ```

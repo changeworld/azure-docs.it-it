@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: a9fe083818c5850ad05556b18911c19fe19e0e72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90987401"
 ---
 # <a name="privacy-guidelines-for-voice-assistants-on-windows"></a>Linee guida sulla privacy per gli assistenti vocali in Windows
@@ -50,7 +50,7 @@ Se viene individuato uno dei precedenti, Microsoft può rimuovere un assistente 
 
 Gli autori degli assistenti che desiderano rendere più semplice e più agevole la scelta degli utenti per l'attivazione vocale possono eseguire questa operazione soddisfacendo i requisiti aggiuntivi per soddisfare adeguatamente la divulgazione e il consenso senza un ulteriore viaggio alla pagina delle impostazioni. Una volta approvata, l'attivazione vocale diventerà disponibile immediatamente dopo che un utente concede l'autorizzazione al microfono per l'applicazione Assistant. Per essere idoneo, un'applicazione Assistant deve eseguire le operazioni seguenti **prima** di richiedere il consenso del microfono, ad esempio usando l' `AppCapability.RequestAccessAsync` API:
 
-1. Fornire all'utente un'indicazione chiara e prominente che l'applicazione desidera ascoltare la voce dell'utente per una parola chiave, *anche quando l'applicazione non è in esecuzione*e desidera il consenso dell'utente
+1. Fornire all'utente un'indicazione chiara e prominente che l'applicazione desidera ascoltare la voce dell'utente per una parola chiave, *anche quando l'applicazione non è in esecuzione* e desidera il consenso dell'utente
 1. Includere le informazioni rilevanti sull'utilizzo dei dati e sui criteri di privacy, ad esempio un collegamento a un'informativa sulla privacy ufficiale
 1. Evitare le direttive o le parole iniziali (ad esempio, "fare clic su Sì nel prompt seguente") nel flusso di esperienza che divulga il comportamento di acquisizione audio
 

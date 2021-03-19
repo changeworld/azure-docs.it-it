@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90895957"
 ---
 # <a name="determining-application-type"></a>Determinazione del tipo di applicazione
@@ -22,12 +22,12 @@ Ci sono molto due tipi di applicazioni che funzionano bene in iperscalabilità (
 
 ## <a name="at-a-glance"></a>A colpo d'occhio
 
-| Applicazioni multi-tenant                                 | Applicazioni Real-Time                                |
+| Applicazioni multi-tenant                                 | Applicazioni in tempo reale                                |
 |-----------------------------------------------------------|-------------------------------------------------------|
-| A volte dozzine o centinaia di tabelle nello schema          | Numero ridotto di tabelle                                |
-| Query relative a un tenant (società/Archivio) alla volta | Query di analisi relativamente semplici con le aggregazioni |
-| Carichi di lavoro OLTP per servire i client Web                    | Volume di inserimento elevato di dati quasi non modificabili           |
-| Carichi di lavoro OLAP che servono query analitiche per ogni tenant   | Spesso centrato su una tabella di grandi dimensioni di eventi            |
+| Qualche volta dozzine o centinaia di tabelle nello schema          | Numero ridotto di tabelle                                |
+| Query relative a un tenant (società/Archivio) alla volta | Query di analisi relativamente semplici con aggregazioni |
+| Carichi di lavoro OLTP per servire i client Web                    | Inserimento di un elevato volume di dati essenzialmente invariabili           |
+| Carichi di lavoro OLAP per servire query analitiche per singolo tenant   | Spesso incentrate su una grande tabella di eventi            |
 
 ## <a name="examples-and-characteristics"></a>Esempi e caratteristiche
 

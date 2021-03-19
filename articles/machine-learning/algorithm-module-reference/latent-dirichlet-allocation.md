@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907846"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Modulo di allocazione Dirichlet latente
@@ -30,7 +30,7 @@ Questo modulo accetta una colonna di testo e genera gli output seguenti:
 
 + Trasformazione, che è possibile salvare e riapplicare al nuovo testo usato come input
 
-Questo modulo usa la libreria Scikit-learn. Per altre informazioni su Scikit-learn, vedere il [repository GitHub](https://github.com/scikit-learn/scikit-learn), che include le esercitazioni e una spiegazione dell'algoritmo.
+Questo modulo usa la libreria Scikit-learn. Per altre informazioni su Scikit-learn, vedere il [repository GitHub](https://github.com/scikit-learn/scikit-learn), che include le esercitazioni e una spiegazione dell'algoritmo.
 
 ## <a name="more-about-latent-dirichlet-allocation"></a>Altre informazioni sull'allocazione Dirichlet latente
 
@@ -77,7 +77,7 @@ Questo modulo richiede un set di dati contenente una colonna di testo, non elabo
     > [!NOTE] 
     > In Azure Machine Learning Designer, la libreria Scikit-learn non supporta più l'output *doc_topic_distr* non normalizzato della versione 0,19. In questo modulo il parametro **Normalize** può essere applicato solo all'output della *matrice dell'argomento Feature* . L'output del *set di dati trasformato* è sempre normalizzato.
 
-7. Selezionare l'opzione **Mostra tutte le opzioni**e impostarla su **true** se si desidera impostare i parametri avanzati seguenti.
+7. Selezionare l'opzione **Mostra tutte le opzioni** e impostarla su **true** se si desidera impostare i parametri avanzati seguenti.
 
     Questi parametri sono specifici dell'implementazione di Scikit-learn di LDA. Sono disponibili alcune esercitazioni valide su LDA in Scikit-learn, oltre al documento ufficiale di [Scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.LatentDirichletAllocation.html).
 
@@ -181,24 +181,24 @@ Una volta calcolati gli indici dei termini, una misura di somiglianza basata sul
 
 ###  <a name="module-parameters"></a>Parametri del modulo
 
-|Nome|Type|Intervallo|Facoltativo|Predefinito|Descrizione|  
+|Nome|Tipo|Range|Facoltativo|Predefinito|Descrizione|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
-|Target column(s)|Selezione colonne||Obbligatoria|StringFeature|Nome o indice della colonna di destinazione.|  
-|Numero di argomenti da modellare|Integer|[1; 1000]|Obbligatoria|5|Modellare la distribuzione dei documenti rispetto a N argomenti.|  
+|Target column(s)|Selezione colonne||Necessario|StringFeature|Nome o indice della colonna di destinazione.|  
+|Numero di argomenti da modellare|Integer|[1; 1000]|Necessario|5|Modellare la distribuzione dei documenti rispetto a N argomenti.|  
 |N-grams|Integer|[1; 10]|Obbligatoria|2|Ordine di N-grammi generati durante l'hashing.|  
-|Normalizzare|Boolean|true o false|Obbligatoria|true|Normalizzare l'output in probabilità.  Il set di dati trasformato sarà P (argomento&#124;documento) e la matrice dell'argomento della funzionalità sarà P (argomento di Word&#124;).|  
-|Mostra tutte le opzioni|Boolean|true o false|Obbligatoria|False|Presenta parametri aggiuntivi specifici per Scikit-learn online LDA.|  
-|Parametro Rho|Float|[0.00001; 1.0]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0,01|Argomento distribuzione precedente di Word.|  
-|Parametro Alpha|Float|[0.00001; 1.0]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0,01|Argomento del documento distribuzione precedente.|  
+|Normalizzare|Boolean|true o false|Necessario|true|Normalizzare l'output in probabilità.  Il set di dati trasformato sarà P (argomento&#124;documento) e la matrice dell'argomento della funzionalità sarà P (argomento di Word&#124;).|  
+|Mostra tutte le opzioni|Boolean|true o false|Necessario|Falso|Presenta parametri aggiuntivi specifici per Scikit-learn online LDA.|  
+|Parametro Rho|Float|[0.00001; 1.0]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0.01|Argomento distribuzione precedente di Word.|  
+|Parametro Alpha|Float|[0.00001; 1.0]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0.01|Argomento del documento distribuzione precedente.|  
 |Numero stimato di documenti|Integer|[1;int.MaxValue]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|1000|Numero stimato di documenti. Corrisponde al `total_samples` parametro.|  
 |Dimensioni del batch|Integer|[1; 1024]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|32|Dimensioni del batch.|  
 |Valore iniziale di iterazione usato nella pianificazione degli aggiornamenti della velocità di apprendimento|Integer|[0; int. MaxValue|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0|Valore iniziale che downweights la velocità di apprendimento per le iterazioni iniziali. Corrisponde al `learning_offset` parametro.|  
 |Potenza applicata all'iterazione durante gli aggiornamenti|Float|[0,0;1,0]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0.5|Potenza applicata al numero di iterazioni per controllare la velocità di apprendimento. Corrisponde al `learning_decay` parametro. |  
 |Number of training iterations|Integer|[1; 1024]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|25|Numero di iterazioni di training.|  
-|Dizionario di compilazione di Ngrams|Boolean|true o false|Si applica quando la casella di controllo **Mostra tutte le opzioni** *non* è selezionata|True|Compila un dizionario di Ngrams prima di calcolare LDA. Utile per l'ispezione e l'interpretazione del modello.|  
+|Dizionario di compilazione di Ngrams|Boolean|true o false|Si applica quando la casella di controllo **Mostra tutte le opzioni** *non* è selezionata|Vero|Compila un dizionario di Ngrams prima di calcolare LDA. Utile per l'ispezione e l'interpretazione del modello.|  
 |Dimensioni massime del dizionario Ngram|Integer|[1;int.MaxValue]|Si applica quando il **dizionario di compilazione delle opzioni di Ngrams** è **true**|20000|Dimensioni massime del dizionario Ngrams. Se il numero di token nell'input supera questa dimensione, potrebbero verificarsi collisioni.|  
 |Numero di bit da usare per l'hashing delle funzionalità.|Integer|[1; 31]|Si applica quando la casella di controllo **Mostra tutte le opzioni** *non* è selezionata e il **dizionario di compilazione di Ngrams** è **false**|12|Numero di bit da usare per l'hashing delle funzionalità.| 
-|Dizionario di compilazione di Ngrams prima di LDA|Boolean|true o false|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|True|Compila un dizionario di Ngrams prima di LDA. Utile per l'ispezione e l'interpretazione del modello.|  
+|Dizionario di compilazione di Ngrams prima di LDA|Boolean|true o false|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|Vero|Compila un dizionario di Ngrams prima di LDA. Utile per l'ispezione e l'interpretazione del modello.|  
 |Numero massimo di Ngrams nel dizionario|Integer|[1;int.MaxValue]|Si applica quando la casella di controllo **Mostra tutte le opzioni** è selezionata e l'opzione **dizionario di compilazione di Ngrams** è **true**|20000|Dimensioni massime del dizionario. Se il numero di token nell'input supera questa dimensione, potrebbero verificarsi collisioni.|  
 |Numero di bit hash|Integer|[1; 31]|Si applica quando la casella di controllo **Mostra tutte le opzioni** è selezionata e l'opzione **dizionario di compilazione di Ngrams** è **false**|12|Numero di bit da utilizzare durante l'hashing delle funzionalità.|   
 

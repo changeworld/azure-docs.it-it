@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73953192"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Usare Cloud Explorer per Visual Studio per la gestione dei dispositivi dell'hub IoT di Azure
@@ -69,7 +69,7 @@ Il componente Cloud Explorer da Programma di installazione di Visual Studio per 
 
 1. Selezionare le sottoscrizioni di Azure che si vuole usare e scegliere **applica**.
 
-1. Espandere la sottoscrizione, quindi espandere **Hub**Internet.  In ogni hub è possibile visualizzare i dispositivi per l'hub. Fare clic con il pulsante destro del mouse su un dispositivo per accedere alle opzioni di gestione.
+1. Espandere la sottoscrizione, quindi espandere **Hub** Internet.  In ogni hub è possibile visualizzare i dispositivi per l'hub. Fare clic con il pulsante destro del mouse su un dispositivo per accedere alle opzioni di gestione.
 
     ![Opzioni di gestione](media/iot-hub-device-management-visual-studio/management-options-vs2019.png)
 

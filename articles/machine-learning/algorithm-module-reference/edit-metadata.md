@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/10/2020
 ms.openlocfilehash: e279a7c9f6810ece482b043284f0be0719a3dafe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90908035"
 ---
 # <a name="edit-metadata-module"></a>Modulo Modifica metadati
@@ -46,7 +46,7 @@ Le modifiche tipiche ai metadati possono includere le operazioni seguenti:
   
 1. Selezionare l'opzione **tipo di dati** se è necessario assegnare un tipo di dati diverso alle colonne selezionate. Potrebbe essere necessario modificare il tipo di dati per determinate operazioni. Se, ad esempio, il set di dati di origine contiene numeri gestiti come testo, è necessario modificarli in un tipo di dati numerico prima di utilizzare operazioni matematiche.
 
-    + I tipi di dati supportati sono **String**, **Integer**, **Double**, **Boolean**e **DateTime**.
+    + I tipi di dati supportati sono **String**, **Integer**, **Double**, **Boolean** e **DateTime**.
 
     + Se si selezionano più colonne, è necessario applicare le modifiche dei metadati a *tutte* le colonne selezionate. Si immagini, ad esempio, di scegliere due o tre colonne numeriche. È possibile modificarli tutti in un tipo di dati stringa e rinominarli in un'unica operazione. Tuttavia, non è possibile modificare una colonna in un tipo di dati stringa e un'altra colonna da float a un Integer.
   

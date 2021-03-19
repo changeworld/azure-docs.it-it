@@ -1,16 +1,16 @@
 ---
-title: 'Guida introduttiva: Inviare e ricevere eventi tramite Go - Hub eventi di Azure'
-description: "Guida introduttiva: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Go in grado di inviare eventi ad Hub eventi di Azure."
+title: 'Guida introduttiva: inviare e ricevere eventi con hub eventi go-Azure'
+description: "Guida introduttiva: questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione go che invia eventi da Hub eventi di Azure."
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87002455"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Guida introduttiva: Inviare e ricevere eventi da Hub eventi tramite Go
+# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Guida introduttiva: inviare o ricevere eventi da Hub eventi tramite Go
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 
 Questa esercitazione descrive come scrivere applicazioni Go per inviare o ricevere eventi da un hub eventi. 
@@ -162,7 +162,7 @@ import (
 
 ### <a name="create-service-principal"></a>Creare un'entità servizio
 
-Creare una nuova entità servizio seguendo le istruzioni riportate in [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Salvare le credenziali fornite nel proprio ambiente con i nomi seguenti: Sia Azure SDK per Go sia il pacchetto Hub eventi sono preconfigurati in modo da cercare questi nomi di variabile.
+Creare una nuova entità servizio seguendo le istruzioni riportate in [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Salvare le credenziali specificate nell'ambiente in uso con i nomi seguenti: entrambi i pacchetti di Azure SDK per Go e Hub eventi sono preconfigurati per cercare questi nomi di variabili.
 
 ```bash
 export AZURE_CLIENT_ID=

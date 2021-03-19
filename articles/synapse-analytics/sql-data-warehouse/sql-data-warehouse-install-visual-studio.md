@@ -4,20 +4,20 @@ description: Installare Visual Studio e SQL Server Data Tools (SSDT) per Synapse
 services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 05/11/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
-ms.openlocfilehash: b70694011aa0467d8ca037ac309ffb0811c79c01
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ab70ec4f7f2c313c2ae4efcc6d1ad994fbec8b03
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737949"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585571"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Introduzione a Visual Studio 2019
 
@@ -41,7 +41,7 @@ In alcuni casi le versioni delle funzionalità per Synapse SQL possono non inclu
 
 - [Gestione dei carichi di lavoro](sql-data-warehouse-workload-management.md): gruppi e classificatori di carichi di lavoro
 - [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (incluse le funzioni con valori di tabella)
-  - Inviare un [ticket di supporto o votare](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) per ottenere la funzionalità supportata.
+  - Inviare un [ticket di supporto o votare ](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security)per ottenere la funzionalità supportata.
   - Inviare un [ticket di supporto o votare ](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking)per ottenere la funzionalità supportata.
 - Tabelle con una [colonna Identity](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true)
 - Alcune funzionalità T-SQL, ad esempio:

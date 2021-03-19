@@ -4,10 +4,10 @@ description: Usare server di Backup di Azure (MAB) per ripristinare le macchine 
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: b3f61aa828db39aeb11b1ce46a850d9a5b868653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88263521"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Ripristinare macchine virtuali VMware
@@ -38,7 +38,7 @@ Questo articolo illustra come usare Backup di Microsoft Azure Server (MAB) per r
 
 6. Nella schermata **Specifica opzioni di ripristino** , se si vuole abilitare la limitazione della larghezza di banda di rete, selezionare **modifica**. Per lasciare disabilitata la limitazione della rete, fare clic su **Avanti**. In questa schermata della procedura guidata non sono disponibili alte opzioni per le macchine virtuali VMware. Se si sceglie di modificare la limitazione della larghezza di banda di rete, nella finestra di dialogo Limita larghezza di banda selezionare **Abilita limitazione all'utilizzo della larghezza di banda** per attivare l'opzione. Dopo aver abilitato questa opzione configurare **Impostazioni** e **Pianificazione del lavoro**.
 
-7. Nella schermata **Selezione tipo di ripristino** scegliere se eseguire il ripristino nell'istanza originale o in un nuovo percorso. Fare quindi clic su **Avanti**.
+7. Nella schermata **Selezione tipo di ripristino** scegliere se eseguire il ripristino nell'istanza originale o in un nuovo percorso. Selezionare quindi **Avanti**.
 
      * Se si sceglie **Ripristina nell'istanza originale** non è necessario effettuare altre selezioni nella procedura guidata. Vengono usati i dati per l'istanza originale.
 
@@ -61,7 +61,7 @@ Questo articolo illustra come usare Backup di Microsoft Azure Server (MAB) per r
 
     ![Riquadro "punti di ripristino per"](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
-3. Nel riquadro **Punti di ripristino per** usare il calendario per selezionare la data che contiene i punti di ripristino desiderati. A seconda della configurazione dei criteri di backup, per le date possono essere disponibili più punti di ripristino. Dopo aver selezionato il giorno in cui è stato creato il punto di ripristino, assicurarsi di aver scelto il **tempo di ripristino**corretto. Se per la data selezionata esistono più punti di ripristino, scegliere il punto di ripristino selezionandolo nel menu a discesa Ora ripristino. Dopo aver scelto il punto di ripristino, nel riquadro **Percorso** viene visualizzato l'elenco degli elementi ripristinabili.
+3. Nel riquadro **Punti di ripristino per** usare il calendario per selezionare la data che contiene i punti di ripristino desiderati. A seconda della configurazione dei criteri di backup, per le date possono essere disponibili più punti di ripristino. Dopo aver selezionato il giorno in cui è stato creato il punto di ripristino, assicurarsi di aver scelto il **tempo di ripristino** corretto. Se per la data selezionata esistono più punti di ripristino, scegliere il punto di ripristino selezionandolo nel menu a discesa Ora ripristino. Dopo aver scelto il punto di ripristino, nel riquadro **Percorso** viene visualizzato l'elenco degli elementi ripristinabili.
 
 4. Per trovare i file da ripristinare, nel riquadro **Percorso** fare doppio clic sull'elemento nella colonna **Elemento ripristinabile** per aprirlo. Selezionare il file, i file o le cartelle da ripristinare. Per selezionare più elementi, premere **CTRL** mentre si seleziona ogni elemento. Usare il riquadro **Percorso** per eseguire una ricerca nell'elenco dei file o cartelle visualizzati nella colonna **Elemento ripristinabile**. L' **elenco di ricerca seguente** non esegue la ricerca nelle sottocartelle. Per eseguire la ricerca nelle sottocartelle, fare doppio clic sulla cartella. Usare il pulsante **Su** per spostarsi da una cartella figlio alla cartella padre. È possibile selezionare più elementi (file e cartelle), ma devono essere nella stessa cartella padre. Non è possibile ripristinare gli elementi da più cartelle nello stesso processo di ripristino.
 

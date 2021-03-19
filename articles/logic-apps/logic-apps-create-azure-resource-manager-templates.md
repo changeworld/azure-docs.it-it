@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
 ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90971782"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creare modelli di Azure Resource Manager per automatizzare la distribuzione di App per la logica di Azure
@@ -34,7 +34,7 @@ Per ulteriori informazioni sui modelli di Azure Resource Manager, vedere gli arg
 
 Per il modo più semplice per creare modelli di app per la logica con parametri validi che siano principalmente pronti per la distribuzione, usare Visual Studio (versione Community gratuita o versione successiva) e gli strumenti delle app per la logica di Azure per Visual Studio. È quindi possibile [creare l'app per la logica in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) o [trovare e scaricare un'app per la logica esistente dal portale di Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
-Scaricando l'app per la logica, si ottiene un modello che include le definizioni per l'app per la logica e altre risorse, ad esempio le connessioni. Il modello *parametrizza*anche o definisce i parametri per, i valori usati per la distribuzione dell'app per la logica e altre risorse. È possibile specificare i valori per questi parametri in un file di parametri separato. In questo modo, è possibile modificare questi valori in modo più semplice in base alle esigenze di distribuzione. Per altre informazioni, vedere gli argomenti seguenti:
+Scaricando l'app per la logica, si ottiene un modello che include le definizioni per l'app per la logica e altre risorse, ad esempio le connessioni. Il modello *parametrizza* anche o definisce i parametri per, i valori usati per la distribuzione dell'app per la logica e altre risorse. È possibile specificare i valori per questi parametri in un file di parametri separato. In questo modo, è possibile modificare questi valori in modo più semplice in base alle esigenze di distribuzione. Per altre informazioni, vedere gli argomenti seguenti:
 
 * [Creare app per la logica con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Gestire app per la logica con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)

@@ -6,18 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: e72ad50b495dec7e3a647bb7bcbdeafd53f5de7b
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 67de5cce3bd5a4ca2b383e2809eb237a6e753bf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102636624"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577096"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisiti di sistema per Azure Stack Edge Pro con GPU 
 
-Questo articolo descrive i requisiti di sistema importanti per la soluzione Microsoft Azure Stack Edge Pro e per i client che si connettono a Azure Stack Edge Pro. Prima di distribuire il Azure Stack Edge Pro, è consigliabile esaminare attentamente le informazioni. È possibile fare riferimento a queste informazioni quando necessario durante la distribuzione e il successivo utilizzo.
+Questo articolo descrive i requisiti di sistema importanti per la soluzione GPU di Microsoft Azure Stack Edge Pro e per i client che si connettono a Azure Stack Edge Pro. Prima di distribuire il Azure Stack Edge Pro, è consigliabile esaminare attentamente le informazioni. È possibile fare riferimento a queste informazioni quando necessario durante la distribuzione e il successivo utilizzo.
 
 I requisiti di sistema per il Pro Azure Stack Edge includono:
 

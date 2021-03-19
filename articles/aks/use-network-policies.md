@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come proteggere il traffico in ingresso e in uscita dai pod usando i criteri di rete Kubernetes nel servizio Azure Kubernetes
 services: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 4b72c5551d6ed33deb4df40a60215aed8071141d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/16/2021
+ms.openlocfilehash: 17e14859ecdfe11872d5b0526d755d01bc1b034a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178899"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577853"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
 
@@ -181,9 +181,13 @@ I criteri di rete di calice con nodi Windows sono attualmente in anteprima.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-```azurecli
-PASSWORD_WIN="P@ssw0rd1234"
+Creare un nome utente da usare come credenziali di amministratore per i contenitori di Windows Server nel cluster. I comandi seguenti richiedono un nome utente e lo impostano WINDOWS_USERNAME per l'uso in un comando successivo. tenere presente che i comandi in questo articolo sono immessi in una shell BASH.
 
+```azurecli-interactive
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
+
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -195,8 +199,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --kubernetes-version 1.20.2 \
     --network-plugin azure \
@@ -222,7 +225,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>Rifiutare tutto il traffico in ingresso verso un pod
 
-Prima di definire le regole per consentire il traffico di rete specifico, creare innanzitutto un criterio di rete per rifiutare tutto il traffico. Questo criterio fornisce un punto iniziale per creare un elenco elementi consentiti solo per il traffico desiderato. Si vede anche chiaramente che il traffico viene eliminato quando si applica il criterio di rete.
+Prima di definire le regole per consentire il traffico di rete specifico, creare innanzitutto un criterio di rete per rifiutare tutto il traffico. Questo criterio fornisce un punto di partenza per iniziare a creare un oggetto allow per solo il traffico desiderato. Si vede anche chiaramente che il traffico viene eliminato quando si applica il criterio di rete.
 
 Per l'ambiente dell'applicazione di esempio e le regole del traffico, è necessario creare per prima cosa uno spazio dei nomi chiamato *development* per eseguire i pod di esempio:
 
@@ -234,13 +237,13 @@ kubectl label namespace/development purpose=development
 Creare un pod back-end di esempio che esegue NGINX. Questo pod back-end può essere usato per simulare un'applicazione back-end di esempio basata sul Web. Creare il pod nello spazio dei nomi *development* e aprire la porta *80* per gestire il traffico Web. Assegnare al pod l'etichetta *app=webapp,role=backend* in modo che sia possibile usarlo come destinazione con un criterio di rete nella sezione successiva:
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
+kubectl run backend --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 Per verificare che si possa raggiungere correttamente la pagina Web di NGINX predefinita, creare un altro pod e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 Nel prompt della shell usare `wget` per confermare che è possibile accedere alla pagina Web di NGINX predefinita:
@@ -296,7 +299,7 @@ kubectl apply -f backend-policy.yaml
 È il momento di verificare se è possibile usare nuovamente la pagina Web di NGINX nel pod back-end. Creare un altro pod di test e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 Nel prompt della shell, usare `wget` per vedere se è possibile accedere alla pagina Web di NGINX predefinita. Questa volta impostare un valore di timeout di *2* secondi. I criteri di rete ora bloccano tutto il traffico in ingresso, pertanto la pagina non può essere caricata, come illustrato nell'esempio seguente:
@@ -353,7 +356,7 @@ kubectl apply -f backend-policy.yaml
 Pianificare un pod etichettato *app=webapp,role=frontend* e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 Nel prompt della shell, usare `wget` per vedere se è possibile accedere alla pagina Web di NGINX predefinita:
@@ -383,7 +386,7 @@ exit
 I criteri di rete consentono il traffico dai pod etichettati *app: webapp,role: frontend*, ma dovrebbero rifiutare tutto il resto del traffico. A questo punto è possibile verificare se un altro pod privo di queste etichette sia in grado di accedere al pod NGINX back-end. Creare un altro pod di test e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 Nel prompt della shell, usare `wget` per vedere se è possibile accedere alla pagina Web di NGINX predefinita. I criteri di rete bloccano il traffico in ingresso, pertanto la pagina non può essere caricata, come illustrato nell'esempio seguente:
@@ -416,7 +419,7 @@ kubectl label namespace/production purpose=production
 Pianificare un pod di test nello spazio dei nomi *production* con l'etichetta *app=webapp,role=frontend*. Collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 Nel prompt della shell usare `wget` per confermare che è possibile accedere alla pagina Web di NGINX predefinita:
@@ -480,7 +483,7 @@ kubectl apply -f backend-policy.yaml
 Pianificare un altro pod nello spazio dei nomi *production* e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 Nel prompt della shell usare `wget` per vedere che i criteri di rete ora rifiutano il traffico:
@@ -502,7 +505,7 @@ exit
 Con il traffico rifiutato dallo spazio dei nomi *production*, pianificare nuovamente un pod di test nello spazio dei nomi *development* e collegare una sessione del terminale:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 Nel prompt della shell usare `wget` per vedere che i criteri di rete consentono il traffico:

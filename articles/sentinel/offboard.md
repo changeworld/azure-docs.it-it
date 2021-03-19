@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
 ms.openlocfilehash: f9c400b55b0da47495db4f1ff4ceb86aa39fe2cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90885839"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Rimuovere Azure Sentinel dall'area di lavoro
@@ -29,7 +29,7 @@ Se non si vuole più usare Sentinel di Azure, questo articolo illustra come rimu
 
 Seguire questa procedura per rimuovere Azure Sentinel dall'area di lavoro:
 
-1. Passare ad **Azure Sentinel**, seguito da **Impostazioni**e selezionare la scheda **Rimuovi Azure Sentinel**.
+1. Passare ad **Azure Sentinel**, seguito da **Impostazioni** e selezionare la scheda **Rimuovi Azure Sentinel**.
 
 1. Prima di rimuovere Azure Sentinel, usare le caselle di controllo per indicare il motivo per cui si sta rimuovendo.
 
@@ -48,7 +48,7 @@ Una volta identificata la disconnessione, viene avviato il processo offboarding.
 
 -   AWS
 
--   Avvisi di sicurezza dei servizi Microsoft: Microsoft Defender for Identity (in*precedenza Azure ATP*), Microsoft Cloud App Security inclusi cloud Discovery Shadow it reporting, Azure ad Identity Protection, Microsoft Defender for endpoint (in*precedenza Microsoft Defender ATP*), Azure Defender Alerts dal centro sicurezza di Azure
+-   Avvisi di sicurezza dei servizi Microsoft: Microsoft Defender for Identity (in *precedenza Azure ATP*), Microsoft Cloud App Security inclusi cloud Discovery Shadow it reporting, Azure ad Identity Protection, Microsoft Defender for endpoint (in *precedenza Microsoft Defender ATP*), Azure Defender Alerts dal centro sicurezza di Azure
 
 -   Intelligence per le minacce
 
@@ -62,16 +62,16 @@ Nelle prime 48 ore, i dati e le regole analitiche (inclusa la configurazione di 
 
 -   Eventi imprevisti (inclusi i metadati di analisi)
 
--   Regole analitiche
+-   Regole di analisi
 
 -   Segnalibri
 
-I PlayBook, le cartelle di lavoro salvate, le query di ricerca salvate e i notebook non vengono rimossi. **Alcune potrebbero interrompersi a causa dei dati rimossi. È possibile rimuoverli manualmente.**
+I playbook, le cartelle di lavoro salvate, le query di ricerca salvate e i notebook non vengono rimossi. **Alcune potrebbero interrompersi a causa dei dati rimossi. È possibile rimuoverli manualmente.**
 
 Dopo aver rimosso il servizio, si verifica un periodo di tolleranza di 30 giorni durante il quale è possibile riabilitare la soluzione e i dati e le regole analitiche verranno ripristinati, ma i connettori configurati che erano disconnessi devono essere riconnessi.
 
 > [!NOTE]
-> Se si rimuove la soluzione, la sottoscrizione continuerà a essere registrata con il provider di risorse Sentinel di Azure. **È possibile rimuoverlo manualmente.**
+> Se si rimuove la soluzione, la sottoscrizione continuerà a essere registrata con il provider di risorse Azure Sentinel. **È possibile rimuoverla manualmente.**
 
 
 

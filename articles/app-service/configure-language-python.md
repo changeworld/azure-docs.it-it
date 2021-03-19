@@ -2,15 +2,15 @@
 title: Configurare app Python in Linux
 description: Informazioni su come configurare il contenitore Python in cui vengono eseguite app Web, usando sia il portale di Azure che l'interfaccia della riga di comando di Azure.
 ms.topic: quickstart
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: cfbbb7064fcadc06714b237066bb6a009246baac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 11b9ab8e954827cfcc73e440bee1023504e14057
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709088"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577613"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurare un'app Python in Linux per il servizio app di Azure
 
@@ -373,6 +373,7 @@ Le sezioni seguenti forniscono indicazioni aggiuntive per problemi specifici.
 - [L'app non viene visualizzata: messaggio "servizio non disponibile"](#service-unavailable)
 - [Non è stato possibile trovare setup.py o requirements.txt](#could-not-find-setuppy-or-requirementstxt)
 - [ModuleNotFoundError all'avvio](#modulenotfounderror-when-app-starts)
+- [Il database è bloccato](#database-is-locked)
 - [Le password digitate non vengono visualizzate nella sessione SSH](#other-issues)
 - [I comandi visualizzati nella sessione SSH sono troncati](#other-issues)
 - [Gli asset statici non vengono visualizzati in un'app Django](#other-issues)
@@ -409,6 +410,14 @@ Le sezioni seguenti forniscono indicazioni aggiuntive per problemi specifici.
 #### <a name="modulenotfounderror-when-app-starts"></a>ModuleNotFoundError all'avvio dell'app
 
 Se viene visualizzato un errore come `ModuleNotFoundError: No module named 'example'` , questo significa che Python non è stato in grado di trovare uno o più moduli all'avvio dell'applicazione. Questa situazione si verifica spesso quando si distribuisce l'ambiente virtuale con il codice. Gli ambienti virtuali non sono portabili, pertanto un ambiente virtuale non deve essere distribuito con il codice dell'applicazione. Al contrario, consentire a Oryx di creare un ambiente virtuale e installare i pacchetti nell'app Web creando un'impostazione dell'app, `SCM_DO_BUILD_DURING_DEPLOYMENT` , e impostandola su `1` . In questo modo, Oryx installerà i pacchetti ogni volta che si esegue la distribuzione nel servizio app. Per altre informazioni, vedere [questo articolo sulla portabilità dell'ambiente virtuale](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+
+### <a name="database-is-locked"></a>Il database è bloccato
+
+Quando si tenta di eseguire le migrazioni di database con un'app Django, è possibile che venga visualizzato "sqlite3. OperationalError: il database è bloccato. " L'errore indica che l'applicazione usa un database SQLite per il quale Django è configurato per impostazione predefinita, invece di usare un database cloud come PostgreSQL per Azure.
+
+Controllare la `DATABASES` variabile nel file *Settings.py* dell'app per assicurarsi che l'app usi un database cloud invece di SQLite.
+
+Se si riscontra questo errore con l'esempio in [esercitazione: distribuire un'app Web Django con PostgreSQL](tutorial-python-postgresql-app.md), verificare di aver completato i passaggi descritti in [configurare le variabili di ambiente per la connessione del database](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
 
 #### <a name="other-issues"></a>Altri problemi
 
