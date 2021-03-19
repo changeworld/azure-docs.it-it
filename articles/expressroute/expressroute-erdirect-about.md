@@ -5,18 +5,18 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 03/17/2021
 ms.author: duau
-ms.openlocfilehash: 0365fd8d0d04b7d144ca6826d3d5eff976558eb3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4b129a218f0fe90f632adef1325288b3f8d97d16
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202155"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585962"
 ---
 # <a name="about-expressroute-direct"></a>Informazioni su ExpressRoute Direct
 
-ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft in località peer distribuite in modo strategico in tutto il mondo. ExpressRoute Direct offre connettività dual 100 Gbps o 10 Gbps, che supporta la connettività attiva/attiva su larga scala.
+ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft presso le sedi di peering distribuite in modo strategico in tutto il mondo. ExpressRoute Direct offre connettività dual 100 Gbps o 10 Gbps, che supporta la connettività attiva/attiva su larga scala.
 
 Tra le funzionalità principali di ExpressRoute Direct sono incluse:
 
@@ -26,35 +26,52 @@ Tra le funzionalità principali di ExpressRoute Direct sono incluse:
 
 ## <a name="onboard-to-expressroute-direct"></a>Onboarding in ExpressRoute Direct
 
-Prima di usare ExpressRoute Direct, è necessario prima registrare la sottoscrizione. Per eseguire la registrazione inviare un messaggio di posta elettronica all'indirizzo <ExpressRouteDirect@microsoft.com> con l'ID della sottoscrizione, includendo i dettagli seguenti:
+Prima di usare ExpressRoute Direct, è necessario prima registrare la sottoscrizione. Per eseguire la registrazione, eseguire i comandi seguenti usando Azure PowerShell:
 
-* Scenari che si intende realizzare con **ExpressRoute Direct**
-* Preferenze di località. Per un elenco completo di tutte le località, vedere [Partner e località peer](expressroute-locations-providers.md)
-* Sequenza temporale per l'implementazione
-* Eventuali altre domande
+1.  Accedere ad Azure e selezionare la sottoscrizione che si vuole registrare.
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+1. Registrare la sottoscrizione per l'anteprima pubblica usando il comando seguente:
+1. 
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Al termine della registrazione, verificare che il provider di risorse **Microsoft. Network** sia registrato nella sottoscrizione. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse.
+
+1. Accedere alle impostazioni della sottoscrizione come descritto in [tipi e provider di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+
+1. Nella sottoscrizione, per i **provider di risorse**, verificare che il provider **Microsoft. Network** indichi uno stato **registrato** . Se il provider di risorse Microsoft. Network non è presente nell'elenco dei provider registrati, aggiungerlo.
+
+Se si inizia a usare ExpressRoute Direct e si nota che non sono presenti porte disponibili nella località di peering scelta, inviare un messaggio di posta elettronica ExpressRouteDirect@microsoft.com per richiedere ulteriore inventario.
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute tramite un provider di servizi ed ExpressRoute Direct
 
 | **ExpressRoute tramite un provider di servizi** | **ExpressRoute Direct** | 
 | --- | --- |
-| Usa i provider di servizi per abilitare il caricamento rapido e la connettività nell'infrastruttura esistente | Richiede l'infrastruttura 100 Gbps/10 Gbps e la gestione completa di tutti i livelli
+| USA i provider di servizi per abilitare l'onboarding e la connettività veloci nell'infrastruttura esistente | Richiede l'infrastruttura 100 Gbps/10 Gbps e la gestione completa di tutti i livelli
 | Si integra con centinaia di provider, tra cui Ethernet e MPLS | Capacità diretta/dedicata per settori regolamentati e inserimento dati massiccio |
-| SKU di circuiti da 50 Mbps a 10 Gbps | Il cliente può selezionare una combinazione degli SKU di circuito seguenti su 100 Gbps ExpressRoute Direct: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> Il cliente può selezionare una combinazione degli SKU di circuito seguenti su 10 Gbps ExpressRoute Direct:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+| SKU di circuiti da 50 Mbps a 10 Gbps | Il cliente può selezionare una combinazione degli SKU di circuito seguenti su 100-Gbps ExpressRoute Direct: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> Il cliente può selezionare una combinazione degli SKU di circuito seguenti su ExpressRoute Direct da 10 Gbps:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 | Ottimizzato per tenant singolo | Ottimizzato per un singolo tenant con più business unit e più ambienti di lavoro
 
 ## <a name="expressroute-direct-circuits"></a>Circuiti di ExpressRoute Direct
 
-Microsoft Azure ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, ad esempio Microsoft Azure e Microsoft 365.
+Microsoft Azure ExpressRoute consente di estendere la rete locale nel cloud Microsoft tramite una connessione privata semplificata da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, ad esempio Microsoft Azure e Microsoft 365.
 
-Ogni località peer ha accesso alla rete globale di Microsoft e può accedere a qualsiasi area in una regione geopolitica per impostazione predefinita e a tutte le aree globali con un circuito premium.  
+Ogni località di peering ha accesso alla rete globale di Microsoft e può accedere a qualsiasi area in una zona geopolitica per impostazione predefinita. È possibile accedere a tutte le aree globali con un circuito Premium.  
 
-Nella maggior parte degli scenari la funzionalità è uguale ai circuiti che utilizzano un provider del servizio ExpressRoute. Per supportare un'ulteriore granularità e le nuove funzionalità offerte da ExpressRoute Direct, sono disponibili alcune funzionalità chiave nei circuiti di ExpressRoute Direct.
+La funzionalità nella maggior parte degli scenari è equivalente ai circuiti che usano un provider di servizi ExpressRoute per operare. Per supportare un'ulteriore granularità e le nuove funzionalità offerte da ExpressRoute Direct, sono disponibili alcune funzionalità chiave nei circuiti di ExpressRoute Direct.
 
 ## <a name="circuit-skus"></a>SKU di circuiti
 
-ExpressRoute Direct supporta scenari di inserimento dati massiccio in Archiviazione di Azure e altri servizi Big Data. I circuiti ExpressRoute su 100 Gbps ExpressRoute Direct ora supportano anche gli SKU del circuito **40 Gbps** e **100 Gbps** . Le coppie di porte fisiche sono solo **100 o 10 Gbps** e possono avere più circuiti virtuali. Dimensioni del circuito:
+ExpressRoute Direct supporta scenari di inserimento dati massiccio in Archiviazione di Azure e altri servizi Big Data. I circuiti ExpressRoute su 100-Gbps ExpressRoute Direct ora supportano anche gli SKU di circuito **40 Gbps** e * * 100-Gbps. Le coppie di porte fisiche sono solo a **100 Gbps o 10 Gbps** e possono avere più circuiti virtuali. Dimensioni del circuito:
 
-| **100 Gbps ExpressRoute Direct** | **ExpressRoute diretto 10 Gbps** | 
+| **100-Gbps ExpressRoute Direct** | **ExpressRoute diretto da 10 Gbps** | 
 | --- | --- |
 | **Larghezza di banda sottoscritta**: 200 Gbps | **Larghezza di banda sottoscritta**: 20 Gbps |
 | <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
@@ -62,24 +79,24 @@ ExpressRoute Direct supporta scenari di inserimento dati massiccio in Archiviazi
 ## <a name="technical-requirements"></a>Requisiti tecnici
 
 * Interfacce di Microsoft Enterprise Edge router (MSEE):
-    * Doppio porte Ethernet da 10 o 100 Gigabit solo tra coppie di router
+    * Doppio porte Ethernet da 10 Gigabit o 100 Gigabit solo tra coppie di router
     * Connettività Fiber LR in modalità singola
     * IPv4 e IPv6
     * IP MTU 1500 byte
 
-* Connettività di livello 2/livello 3 switch/router:
+* Switch/router livello 2/livello 3 connettività:
     * Deve supportare 1 tag 802.1 Q (Dot1Q) o l'incapsulamento di due tag 802.1 Q (QinQ)
     * Ethertype = 0x8100
     * È necessario aggiungere il tag di VLAN esterno (STAG) in base all'ID VLAN specificato da Microsoft, *applicabile solo su QinQ*
     * Deve supportare più sessioni BGP (VLAN) per porta e dispositivo
-    * Connettività IPv4 e IPv6. *Per IPv6 non verrà creata alcuna interfaccia secondaria aggiuntiva. L'indirizzo IPv6 verrà aggiunto all'interfaccia secondaria esistente*. 
+    * Connettività IPv4 e IPv6. *Per IPv6 non verrà creata alcuna sottointerfaccia aggiuntiva. L'indirizzo IPv6 verrà aggiunto alla sottointerfaccia esistente*. 
     * Facoltativo: supporto del [rilevamento di inoltri bidirezionale (BFD)](./expressroute-bfd.md) , configurato per impostazione predefinita in tutti i peering privati nei circuiti ExpressRoute
 
 ## <a name="vlan-tagging"></a>Codifica VLAN
 
 ExpressRoute Direct supporta la codifica VLAN QinQ e Dot1Q.
 
-* La **codifica VLAN QinQ** consente domini di routing isolati per circuito di ExpressRoute. Azure alloca un S-Tag in modo dinamico al momento della creazione del circuito e non può essere modificato. Ogni peering nel circuito (privato e Microsoft) utilizza un C-Tag univoco come VLAN. Non è necessario che il C-Tag sia univoco tra i circuiti sulle porte di ExpressRoute Direct.
+* La **codifica VLAN QinQ** consente domini di routing isolati per circuito di ExpressRoute. Azure fornisce dinamicamente un tag S alla creazione del circuito e non può essere modificato. Ogni peering sul circuito (privato e Microsoft) utilizzerà un tag C univoco come VLAN. Non è necessario che il tag C sia univoco nei circuiti sulle porte dirette ExpressRoute.
 
 * La **codifica VLAN Dot1Q** consente una singola VLAN con tag per coppia di porte di ExpressRoute Direct. Un C-Tag usato in un peering deve essere univoco tra i circuiti e i peering sulla coppia di porte di ExpressRoute Direct.
 
@@ -89,7 +106,7 @@ ExpressRoute Direct supporta la codifica VLAN QinQ e Dot1Q.
 
 ## <a name="sla"></a>Contratto di servizio
 
-ExpressRoute Direct offre lo stesso contratto di servizio di livello enterprise con connessioni ridondanti attivo/attivo nella rete globale Microsoft. L'infrastruttura di ExpressRoute è ridondante, la connettività alla rete globale Microsoft è ridondante, diversificata e scalabile in base ai requisiti del cliente. 
+ExpressRoute Direct offre lo stesso contratto di servizio di livello enterprise con connessioni ridondanti attivo/attivo nella rete globale Microsoft. L'infrastruttura ExpressRoute è ridondante e la connettività alla rete globale Microsoft è ridondante e diversificata e viene ridimensionata correttamente con i requisiti dei clienti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

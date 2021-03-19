@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 920249aa252469c3db2be284fc010d775d04c921
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103193"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578278"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>App Web che esegue l'accesso degli utenti: registrazione dell'app
 
@@ -94,6 +94,21 @@ Per impostazione predefinita, l'esempio USA:
    1. Selezionare la durata della chiave **in 1 anno**.
    1. Selezionare **Aggiungi**.
    1. Quando viene visualizzato il valore della chiave, copiarlo per un momento successivo. Questo valore non verrà visualizzato di nuovo o potrà essere recuperato in qualsiasi altro modo.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione:
+   1. Immettere un **Nome** per l'applicazione, ad esempio `node-webapp`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
+   1. Modificare i **tipi di account supportati** **in account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**.
+   1. Nella sezione **URI di reindirizzamento (facoltativo)** selezionare **Web** nella casella combinata e immettere l'URI di reindirizzamento seguente: `http://localhost:3000/redirect` .
+   1. Selezionare **Registra** per creare l'applicazione.
+1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota. Sarà necessario per configurare il file di configurazione per questo progetto.
+1. In **Gestisci**, selezionare **Certificati e segreti**.
+1. Nella sezione **segreti client** selezionare **nuovo segreto client**, quindi:
+   1. Immettere una descrizione della chiave.
+   1. Selezionare **Tra 1 anno** per la durata della chiave.
+   1. Selezionare **Aggiungi**.
+   1. Quando viene visualizzato il valore della chiave, copiarlo. Sarà necessario più avanti.
 
 # <a name="python"></a>[Python](#tab/python)
 

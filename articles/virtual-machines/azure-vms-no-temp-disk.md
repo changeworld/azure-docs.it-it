@@ -8,12 +8,12 @@ ms.subservice: sizes
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 1937b8392ee3a73ed7c268897c532c643a9151eb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bd4dcbdc7ab13d18ef7f2d7102c56d1bd8d8758d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565462"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582103"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Dimensioni delle macchine virtuali di Azure senza disco temporaneo locale 
 Questo articolo fornisce le risposte alle domande frequenti sulle dimensioni delle macchine virtuali di Azure che non dispongono di un disco temporaneo locale (ovvero senza disco temporaneo locale). Per altre informazioni su queste dimensioni delle macchine virtuali, vedere [specifiche per DV4 e serie Dsv4 (carichi di lavoro per utilizzo generico)](dv4-dsv4-series.md) o [specifiche per Ev4 e serie Esv4 (carichi di lavoro con ottimizzazione per la memoria)](ev4-esv4-series.md).
@@ -56,7 +56,7 @@ Se si è interessati a una soluzione ovvia, vedere la domanda successiva.
    > Seguire le linee guida nella sezione "spostare temporaneamente pagefile.sys in unità C" di usare l'unità D: come unità dati in una macchina virtuale Windows per spostare il file di paging dall'unità disco temporaneo locale (D: unità) a C:. **La deviazione dalla procedura descritta comporterà il messaggio di errore: "Impossibile ridimensionare la macchina virtuale perché la modifica dal disco della risorsa alle dimensioni della macchina virtuale del disco non risorse e viceversa non è consentita.**
 
 3. Eseguire uno snapshot della macchina virtuale seguendo la procedura illustrata in [creare uno snapshot tramite il portale o l'interfaccia](./linux/snapshot-copy-managed-disk.md)della riga di comando di Azure. 
-4. Usare lo snapshot per creare una nuova macchina virtuale senza dischi, ad esempio DV4, Dsv4, Ev4, Esv4 Series, seguendo i passaggi descritti in [creare una macchina virtuale da uno snapshot con l'interfaccia](./scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md)della riga di comando. 
+4. Usare lo snapshot per creare una nuova macchina virtuale senza dischi, ad esempio DV4, Dsv4, Ev4, Esv4 Series, seguendo i passaggi descritti in [creare una macchina virtuale da uno snapshot con l'interfaccia](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot)della riga di comando. 
 
 ## <a name="do-these-vm-sizes-support-both-linux-and-windows-operating-systems-os"></a>Queste dimensioni di VM supportano sia i sistemi operativi Linux che Windows (OS)?
 Sì.

@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 634298952d990cd3639aa1c62592fde534b3e8b8
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 443d6349aab68fd05edfe4c4007fd043c932f4f0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232673"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604271"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Ricerca semantica in Azure ricerca cognitiva
 
 > [!IMPORTANT]
-> Le funzionalità di ricerca semantica sono disponibili in anteprima pubblica, disponibile solo tramite l'API REST di anteprima. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e non sono garantite che abbiano la stessa implementazione a livello generale. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
+> La ricerca semantica è in anteprima pubblica, disponibile solo tramite l'API REST di anteprima. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e non sono garantite che abbiano la stessa implementazione a livello generale. Queste funzionalità sono fatturabili. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
 
 La ricerca semantica è una raccolta di funzionalità correlate alle query che supportano un'esperienza di query più elevata e naturale. 
 
@@ -73,3 +73,5 @@ Un nuovo tipo di query consente le strutture di classificazione e risposta della
 + [Aggiungere il controllo ortografico ai termini della query](speller-how-to-add.md)
 + [Restituisce una risposta semantica](semantic-answers.md)
 + [Classificazione semantica](semantic-ranking.md)
++ [Introduzione alla ricerca semantica (post di Blog)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-semantic-search-bringing-more-meaningful-results-to/ba-p/2175636)
++ [Trovare informazioni significative usando le funzionalità semantiche (video di intelligenza artificiale)](https://channel9.msdn.com/Shows/AI-Show/Find-meaningful-insights-using-semantic-capabilities-in-Azure-Cognitive-Search)

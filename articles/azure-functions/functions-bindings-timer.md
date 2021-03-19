@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: dbcd6d55ee921c7fabd8e746e0fdcd6f1427733c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210707"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595992"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure
 
@@ -365,6 +365,16 @@ Il trigger del timer usa un blocco di archiviazione per assicurarsi che sia pres
 ## <a name="retry-behavior"></a>Comportamento in caso di nuovo tentativo
 
 Diversamente dal trigger di coda, il trigger timer non viene ripetuto se una funzione non riesce. Quando una funzione non riesce, non viene chiamata di nuovo fino alla volta successiva nella pianificazione.
+
+## <a name="manually-invoke-a-timer-trigger"></a>Richiamare manualmente un trigger timer
+
+Il trigger timer per funzioni di Azure fornisce un webhook HTTP che può essere richiamato per attivare manualmente la funzione. Questa operazione può essere estremamente utile negli scenari seguenti.
+
+* Test di integrazione
+* Scambi di slot come parte di un'attività di smoke test o riscaldamento
+* Distribuzione iniziale di una funzione per popolare immediatamente una cache o una tabella di ricerca in un database
+
+Per informazioni dettagliate su come richiamare manualmente una funzione attivata da un timer, vedere [eseguire manualmente una funzione non attivata tramite http](./functions-manually-run-non-http.md) .
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

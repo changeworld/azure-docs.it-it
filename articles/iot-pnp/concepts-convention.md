@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 86c6ea9dded423e7bd513faf73adfd293f2bd38f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: a8dfb3cacf798559273361ec75cab4570a8a5228
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302614"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582681"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenzioni di Plug and Play IoT
 
@@ -25,7 +25,7 @@ Si descrivono i dati di telemetria, le proprietà e i comandi implementati da un
 - **Nessun componente** , ovvero un modello senza componenti. Il modello dichiara i dati di telemetria, le proprietà e i comandi come proprietà di primo livello nella sezione Contents dell'interfaccia principale. Nello strumento Azure Internet Explorer, questo modello viene visualizzato come un singolo _componente predefinito_.
 - **Più componenti** : un modello composto da due o più interfacce. Interfaccia principale, che viene visualizzata come _componente predefinito_, con i comandi di telemetria, le proprietà e. Una o più interfacce dichiarate come componenti con dati di telemetria, proprietà e comandi aggiuntivi.
 
-Per ulteriori informazioni, vedere la pagina relativa ai [componenti plug and Play nei modelli](concepts-components.md).
+Per ulteriori informazioni, vedere la [Guida alla modellazione di plug and Play](concepts-modeling-guide.md).
 
 ## <a name="identify-the-model"></a>Identificare il modello
 
@@ -136,7 +136,7 @@ Il dispositivo o il modulo deve confermare la ricezione della proprietà inviand
 
 Quando un dispositivo viene avviato, deve richiedere il dispositivo gemello e verificare la presenza di eventuali aggiornamenti delle proprietà scrivibili. Se la versione di una proprietà scrivibile è aumentata mentre il dispositivo era offline, il dispositivo deve inviare una risposta di proprietà segnalata per confermare che l'aggiornamento è stato ricevuto.
 
-Quando un dispositivo viene avviato per la prima volta, può inviare un valore iniziale per una proprietà segnalata se non riceve una proprietà iniziale desiderata dall'hub. In questo caso, il dispositivo deve `av` essere impostato su `1` . Esempio:
+Quando un dispositivo viene avviato per la prima volta, può inviare un valore iniziale per una proprietà segnalata se non riceve una proprietà iniziale desiderata dall'hub. In questo caso, il dispositivo deve `av` essere impostato su `1` . Ad esempio:
 
 ```json
 "reported": {
@@ -340,7 +340,7 @@ Esempio di payload di proprietà segnalato secondo:
 }
 ```
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 Nessuna interfaccia di componente usa il nome del comando senza prefisso.
 
@@ -353,4 +353,4 @@ A questo punto, dopo aver appreso le informazioni sulle convenzioni Plug and Pla
 - [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [SDK per dispositivi per C](/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST](/rest/api/iothub/device)
-- [Componenti del modello](./concepts-components.md)
+- [Guida alla modellazione Plug and Play](concepts-modeling-guide.md)

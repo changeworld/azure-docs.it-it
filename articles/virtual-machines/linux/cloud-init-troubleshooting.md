@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6c5922137b5d3ee14461adb88fba2e8b2cf41e16
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 842107245fe26155d53866bf95e11b08d7593ad1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558968"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582154"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Risoluzione dei problemi relativi al provisioning di macchine virtuali con cloud-init
 
@@ -56,11 +56,11 @@ Quando non è possibile eseguire il provisioning della macchina virtuale, in Azu
 
 Mentre la macchina virtuale è in esecuzione, sono necessari i log della macchina virtuale per comprendere il motivo per cui il provisioning non è riuscito.  Per comprendere il motivo per cui il provisioning della macchina virtuale non è riuscito, non arrestare la macchina virtuale. Lasciare in esecuzione la macchina virtuale. Per raccogliere i log, è necessario evitare che la macchina virtuale sia in esecuzione in stato di esecuzione. Per raccogliere i log, usare uno dei metodi seguenti:
 
-- [Console seriale](../troubleshooting/serial-console-grub-single-user-mode.md)
+- [Console seriale](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode)
 
 - [Abilitare la diagnostica di avvio](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) prima di creare la macchina virtuale e quindi [visualizzarla](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) durante l'avvio.
 
-- [Eseguire AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) per connettere e montare il disco del sistema operativo, che consente di raccogliere i log seguenti:
+- [Eseguire AZ VM Repair](/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands) per connettere e montare il disco del sistema operativo, che consente di raccogliere i log seguenti:
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -108,7 +108,7 @@ Dopo aver individuato un errore o un avviso, leggere indietro nel log di cloud-i
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Se si ha accesso alla [console seriale](../troubleshooting/serial-console-grub-single-user-mode.md), è possibile provare a eseguire di nuovo il comando che cloud-init stava tentando di eseguire.
+Se si ha accesso alla [console seriale](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode), è possibile provare a eseguire di nuovo il comando che cloud-init stava tentando di eseguire.
 
 La registrazione per `/var/log/cloud-init.log` può essere riconfigurata anche in/etc/cloud/cloud.cfg.d/05_logging. cfg. Per altri dettagli sulla registrazione di cloud-init, vedere la [documentazione di cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 

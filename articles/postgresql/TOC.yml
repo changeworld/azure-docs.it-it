@@ -27,6 +27,8 @@
         - name: Migrazione con tempo di inattività minimo con Servizio Migrazione del database
           href: howto-migrate-online.md
           displayName: 'dms, data migration service'
+        - name: Eseguire la migrazione da Oracle
+          href: howto-migrate-from-oracle.md
     - name: Criteri di controllo delle versioni
       href: concepts-version-policy.md
       displayName: 'version, postgresql'

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/24/2020
+ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d997c85f96fa9f87ca6d017cb555b3732007e21c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 49590c46588ad0d0f1c1b7b095679a3c3fce96eb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256306"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579502"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisioning dell'applicazione in stato di quarantena
 
@@ -85,7 +85,7 @@ Per prima cosa, risolvere il problema che ha causato la messa in quarantena dell
 
 Dopo aver risolto il problema, riavviare il processo di provisioning. Alcune modifiche apportate alle impostazioni di provisioning dell'applicazione, ad esempio i mapping degli attributi o i filtri di ambito, riavvieranno automaticamente il provisioning. L'indicatore di stato nella pagina di **provisioning** dell'applicazione indica il momento dell'ultimo avvio del provisioning. Se è necessario riavviare manualmente il processo di provisioning, usare uno dei metodi seguenti:  
 
-- Usare il portale di Azure per riavviare il processo di provisioning. Nella pagina **provisioning** dell'applicazione in **Impostazioni** Selezionare **Cancella stato e riavvia sincronizzazione** e impostare stato del **provisioning** **su on**. Questa azione Riavvia completamente il servizio di provisioning, operazione che può richiedere del tempo. Un ciclo iniziale completo verrà eseguito di nuovo, che cancella i limiti di deposito, rimuove l'app dalla quarantena e cancella tutte le filigrane.
+- Usare il portale di Azure per riavviare il processo di provisioning. Nella pagina **provisioning** dell'applicazione selezionare Riavvia il **provisioning**. Questa azione Riavvia completamente il servizio di provisioning, operazione che può richiedere del tempo. Un ciclo iniziale completo verrà eseguito di nuovo, che cancella i limiti di deposito, rimuove l'app dalla quarantena e cancella tutte le filigrane. Il servizio valuterà quindi tutti gli utenti nel sistema di origine e determinerà se sono inclusi nell'ambito per il provisioning. Questa operazione può essere utile quando l'applicazione è attualmente in quarantena, come illustrato in questo articolo, oppure è necessario apportare una modifica ai mapping degli attributi. Si noti che il completamento del ciclo iniziale richiede più tempo rispetto al ciclo incrementale tipico a causa del numero di oggetti che devono essere valutati. Altre informazioni sulle prestazioni dei cicli iniziali e incrementali sono disponibili [qui](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 - Usare Microsoft Graph per [riavviare il processo di provisioning](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). Si avrà il controllo completo su ciò che viene riavviato. È possibile scegliere di cancellare i riconoscimenti (per riavviare il contatore del deposito per lo stato di quarantena), cancellare la quarantena (per rimuovere l'applicazione dalla quarantena) o cancellare le filigrane. Usare la richiesta seguente:
  

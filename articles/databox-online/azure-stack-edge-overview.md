@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 03/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 3973235991a16d118b47d7289f3a1825621a9023
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: e6cd1f8a1f7d1777e786ab91637b4065a2c5e850
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574680"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585945"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-fpga"></a>Che cos'è Azure Stack Edge Pro con FPGA?
 
@@ -85,6 +85,8 @@ Il dispositivo fisico Azure Stack Edge Pro, la risorsa di Azure e l'account di a
 - **Aree di disponibilità**: per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). È possibile distribuire Azure Stack Edge Pro anche nel cloud di Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](../azure-government/documentation-government-welcome.md) (Informazioni su Azure per enti pubblici).
     
 - **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure. Per prestazioni ottimali, le aree in cui gli account archiviano i dati di Azure Stack Edge Pro devono trovarsi nelle vicinanze del dispositivo. Un account di archiviazione lontano dal dispositivo si traduce in lunghe latenze e prestazioni ridotte.
+
+Il servizio Azure Stack Edge è un servizio non regionale. Per altre informazioni, vedere [aree e zone di disponibilità in Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Il servizio Azure Stack Edge non presenta dipendenze da un'area di Azure specifica, rendendola resiliente alle interruzioni a livello di zona e alle interruzioni a livello di area.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

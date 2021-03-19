@@ -1,7 +1,7 @@
 ---
 title: Modalità dispositivo condiviso per dispositivi iOS
 titleSuffix: Microsoft identity platform | Azure
-description: Informazioni su come abilitare la modalità dispositivo condiviso per consentire ai prima riga Worker di condividere un dispositivo iOS
+description: Informazioni su come abilitare la modalità dispositivo condiviso per consentire ai thread di lavoro di condividere un dispositivo iOS
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -13,19 +13,19 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a97e14bcb68629f5f175a4913146187949af08be
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: c67c5d7b46c04e7f1aea020127ee798878c43d60
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561064"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578788"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modalità dispositivo condiviso per dispositivi iOS
 
 >[!IMPORTANT]
 > Questa funzionalità [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-I ruoli di lavoro di prima riga, ad esempio i Retail Associates, i membri del team di volo e i worker del servizio Field spesso usano un dispositivo mobile condiviso per eseguire il lavoro Questi dispositivi condivisi possono presentare rischi per la sicurezza se gli utenti condividono le password o i pin, intenzionalmente o meno, per accedere ai dati aziendali e ai clienti sul dispositivo condiviso.
+I ruoli di lavoro, ad esempio i Retail Associates, i membri della squadra di volo e i worker del servizio Field spesso usano un dispositivo mobile condiviso per eseguire il lavoro. Questi dispositivi condivisi possono presentare rischi per la sicurezza se gli utenti condividono le password o i pin, intenzionalmente o meno, per accedere ai dati aziendali e ai clienti sul dispositivo condiviso.
 
 La modalità dispositivo condiviso consente di configurare un dispositivo iOS 13 o superiore per una condivisione più semplice e sicura dei dipendenti. I dipendenti possono accedere rapidamente alle informazioni dei clienti. Al termine del turno o dell'attività, è possibile disconnettersi dal dispositivo ed è immediatamente pronto per l'uso da parte del dipendente successivo.
 
@@ -41,7 +41,7 @@ Per creare un'app in modalità dispositivo condivisa, gli sviluppatori e gli amm
 
 1. Gli **amministratori di dispositivi** preparano il dispositivo per la condivisione usando un provider di gestione di dispositivi mobili (MDM) come Microsoft Intune per gestire i dispositivi nell'organizzazione. Il MDM inserisce l'app Microsoft Authenticator nei dispositivi e attiva la modalità "Shared" per ogni dispositivo tramite un aggiornamento del profilo al dispositivo. Questa impostazione della modalità condivisa è la modifica del comportamento delle app supportate nel dispositivo. Questa configurazione dal provider MDM imposta la modalità del dispositivo condiviso per il dispositivo e Abilita il [plug-in Microsoft Enterprise SSO per i dispositivi Apple](apple-sso-plugin.md) , che è necessario per la modalità dispositivo condiviso.
 
-1. [ **Obbligatorio durante l'anteprima pubblica** ] Un utente con ruolo di [amministratore del dispositivo cloud](../roles/permissions-reference.md#cloud-device-administrator) deve quindi avviare l' [app Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e aggiungere il dispositivo all'organizzazione.
+1. [**Obbligatorio durante l'anteprima pubblica**] Un utente con ruolo di [amministratore del dispositivo cloud](../roles/permissions-reference.md#cloud-device-administrator) deve quindi avviare l' [app Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e aggiungere il dispositivo all'organizzazione.
 
     Per configurare l'appartenenza dei ruoli aziendali nel portale di Azure: **Azure Active Directory**  >  **ruoli e amministratori**  >  **amministratore del dispositivo cloud**
 
@@ -56,10 +56,10 @@ Il dispositivo deve essere configurato per supportare la modalità dispositivo c
 
 1. Nel portale di configurazione di Intune, indicare al dispositivo di abilitare il [plug-in Microsoft Enterprise SSO per i dispositivi Apple](apple-sso-plugin.md) con la seguente configurazione:
 
-    - **Tipo** : Reindirizzamento
-    - **ID estensione** : com. Microsoft. azureauthenticator. ssoextension
-    - **Team ID** : (questo campo non è necessario per iOS)
-    - **URL** :   
+    - **Tipo**: Reindirizzamento
+    - **ID estensione**: com. Microsoft. azureauthenticator. ssoextension
+    - **Team ID**: (questo campo non è necessario per iOS)
+    - **URL**:   
         - `https://login.microsoftonline.com`
         - `https://login.microsoft.com`
         - `https://sts.windows.net`
@@ -69,7 +69,7 @@ Il dispositivo deve essere configurato per supportare la modalità dispositivo c
         - `https://login.microsoftonline.us`
         - `https://login.usgovcloudapi.net`
         - `https://login-us.microsoftonline.com`
-    - **Dati aggiuntivi da configurare** :
+    - **Dati aggiuntivi da configurare**:
       - Chiave: sharedDeviceMode
       - Tipo: Boolean
       - Valore: true
@@ -95,7 +95,7 @@ In caso di modifica dell'utente, è necessario assicurarsi che i dati dell'utent
 
 ### <a name="detect-shared-device-mode"></a>Rileva modalità dispositivo condiviso
 
-Il rilevamento della modalità dispositivo condiviso è importante per l'applicazione. Molte applicazioni richiedono una modifica nell'esperienza utente (UX) quando l'applicazione viene usata in un dispositivo condiviso. Ad esempio, è possibile che l'applicazione disponga di una funzionalità di "iscrizione", che non è appropriata per un prima riga Worker perché probabilmente ha già un account. Potrebbe anche essere necessario aggiungere ulteriore sicurezza alla gestione dei dati dell'applicazione se è in modalità dispositivo condiviso.
+Il rilevamento della modalità dispositivo condiviso è importante per l'applicazione. Molte applicazioni richiedono una modifica nell'esperienza utente (UX) quando l'applicazione viene usata in un dispositivo condiviso. Ad esempio, è possibile che l'applicazione disponga di una funzionalità di "iscrizione", che non è appropriata per un thread di lavoro in linea, perché probabilmente ha già un account. Potrebbe anche essere necessario aggiungere ulteriore sicurezza alla gestione dei dati dell'applicazione se è in modalità dispositivo condiviso.
 
 Usare l' `getDeviceInformationWithParameters:completionBlock:` API in `MSALPublicClientApplication` per determinare se un'app è in esecuzione in un dispositivo in modalità dispositivo condiviso.
 
@@ -230,6 +230,6 @@ signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per visualizzare la modalità dispositivo condiviso in azione, l'esempio di codice seguente in GitHub include un esempio di esecuzione di un'app prima riga worker in un dispositivo iOS in modalità dispositivo condiviso:
+Per visualizzare la modalità dispositivo condiviso in azione, l'esempio di codice seguente in GitHub include un esempio di esecuzione di un'app di lavoro in linea in un dispositivo iOS in modalità dispositivo condiviso:
 
 [Esempio di API Microsoft Graph Swift MSAL iOS](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)

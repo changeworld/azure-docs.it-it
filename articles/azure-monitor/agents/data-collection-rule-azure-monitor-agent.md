@@ -4,13 +4,13 @@ description: Viene descritto come creare una regola di raccolta dati per raccogl
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: 73f7ab83ea15d223b76b9f71fde2f8a6a37bdacf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723640"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586370"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurare la raccolta dati per l'agente di monitoraggio di Azure (anteprima)
 
@@ -68,6 +68,32 @@ Fare clic su **Aggiungi origine dati** , quindi su **+ Crea** per esaminare i de
 > [!NOTE]
 > Dopo la creazione della regola di raccolta dati e delle associazioni, potrebbero essere necessari fino a 5 minuti per l'invio dei dati alle destinazioni.
 
+## <a name="limit-data-collection-with-custom-xpath-queries"></a>Limitare la raccolta dei dati con query XPath personalizzate
+Poiché vengono addebitati tutti i dati raccolti in un'area di lavoro di Log Analytics, è consigliabile raccogliere solo i dati necessari. Utilizzando la configurazione di base nel portale di Azure, è possibile filtrare solo gli eventi da raccogliere. Per i registri applicazioni e di sistema, si tratta di tutti i log con una particolare gravità. Per i log di sicurezza, si tratta di tutti i registri di esito positivo o di controllo.
+
+Per specificare filtri aggiuntivi, è necessario usare la configurazione personalizzata e specificare un XPath che filtra gli eventi che non è possibile eseguire. Le voci XPath vengono scritte nel formato `LogName!XPathQuery` . Ad esempio, è possibile che si desideri restituire solo gli eventi dal registro eventi dell'applicazione con ID evento 1035. XPathQuery per questi eventi sarà `*[System[EventID=1035]]` . Poiché si desidera recuperare gli eventi dal registro eventi dell'applicazione, XPath è `Application!*[System[EventID=1035]]`
+
+> [!TIP]
+> Usare il cmdlet di PowerShell `Get-WinEvent` con il `FilterXPath` parametro per verificare la validità di un XPathQuery. Lo script seguente mostra un esempio.
+> 
+> ```powershell
+> $XPath = '*[System[EventID=1035]]'
+> Get-WinEvent -LogName 'Application' -FilterXPath $XPath
+> ```
+>
+> - Se vengono restituiti gli eventi, la query è valida.
+> - Se viene visualizzato il messaggio *non è stato trovato alcun evento corrispondente ai criteri di selezione specificati.* la query può essere valida, ma non sono presenti eventi corrispondenti nel computer locale.
+> - Se viene visualizzato il messaggio *la query specificata non è valida* , la sintassi della query non è valida. 
+
+Nella tabella seguente vengono illustrati esempi per filtrare gli eventi utilizzando un XPath personalizzato.
+
+| Descrizione |  XPath |
+|:---|:---|
+| Raccogli solo eventi di sistema con ID evento = 4648 |  `System!*[System[EventID=4648]]`
+| Raccogliere solo gli eventi di sistema con ID evento = 4648 e un nome di processo di consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`
+| Raccolta di tutti gli eventi critici, di errore, di avviso e informativi dal registro eventi di sistema, ad eccezione di ID evento = 6 (driver caricato) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
+| Raccolta di tutti gli eventi di sicurezza con esito positivo e negativo ad eccezione dell'ID evento 4624 (accesso riuscito) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
+
 
 ## <a name="create-rule-and-association-using-rest-api"></a>Creare una regola e un'associazione usando l'API REST
 
@@ -83,6 +109,8 @@ Attenersi alla procedura seguente per creare una regola di raccolta dati e le as
 ## <a name="create-association-using-resource-manager-template"></a>Crea associazione usando il modello di Gestione risorse
 
 Non è possibile creare una regola di raccolta dati usando un modello di Gestione risorse, ma è possibile creare un'associazione tra una macchina virtuale di Azure o un server abilitato Azure ARC usando un modello di Gestione risorse. Per i modelli di esempio, vedere [Gestione risorse esempi di modelli per le regole di raccolta dati in monitoraggio di Azure](./resource-manager-data-collection-rules.md) .
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

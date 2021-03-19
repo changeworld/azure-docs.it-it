@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 03/15/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ce1a4808833cbd897da17f9ad75af346538d23d1
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: e0d8a8e3320b49b6fbe3e8ab66c0b4569fac9afd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103473088"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587934"
 ---
 # <a name="azure-synapse-analytics-connectivity-settings"></a>Impostazioni di connettività di Azure sinapsi Analytics
 
@@ -21,7 +21,7 @@ Questo articolo illustra le impostazioni di connettività in Azure sinapsi Analy
 
 
 ## <a name="connection-policy"></a>Criteri di connessione
-Il criterio di connessione per sinapsi SQL in Azure sinapsi Analytics è impostato sul *valore predefinito*. Non è possibile modificare questa operazione in Azure sinapsi Analytics. Per altre informazioni sul modo in cui influiscono sulle connessioni a sinapsi SQL in Azure sinapsi Analytics, vedere [qui](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy). 
+Il criterio di connessione per sinapsi SQL in Azure sinapsi Analytics è impostato sul *valore predefinito*. Non è possibile modificare questa operazione in Azure sinapsi Analytics. Per altre informazioni sul modo in cui influiscono sulle connessioni a sinapsi SQL in Azure sinapsi Analytics, vedere [qui](../../azure-sql/database/connectivity-architecture.md#connection-policy). 
 
 ## <a name="minimal-tls-version"></a>Versione minima di TLS
 Sinapsi SQL in Azure sinapsi Analytics consente le connessioni usando tutte le versioni di TLS. Non è possibile impostare la versione minima di TLS per la sinapsi SQL in Azure sinapsi Analytics.

@@ -6,17 +6,17 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 03/18/2021
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 5a5b20efbf804c2ea1097f905da1cfd62727ff15
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3de9eccd001e421ef3255f83630716df12b7a2ee
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410692"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595261"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -43,7 +43,7 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Limitazione | Nessuna, B1 e S1 | B2 e S2 | B3 e S3 | 
 | -------- | ------- | ------- | ------- |
 | [Operazioni del registro delle identità](#identity-registry-operations-throttle) (creazione, recupero, elenco, aggiornamento, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
-| [Nuove connessioni a dispositivi](#device-connections-throttle) (questo limite si applica alla frequenza delle _nuove connessioni_ , non al numero totale di connessioni) | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24 nuove connessioni/sec, ma si hanno almeno 100 nuove conessioni/sec tra le unità. Con nove unità S1 si otterranno 108 nuove connessioni/sec (9\*12) tra le unità. | 120 nuove connessioni/sec/unità | 6.000 nuove connessioni/sec/unità |
+| [Nuove connessioni a dispositivi](#device-connections-throttle) (questo limite si applica alla frequenza delle _nuove connessioni_, non al numero totale di connessioni) | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24 nuove connessioni/sec, ma si hanno almeno 100 nuove conessioni/sec tra le unità. Con nove unità S1 si otterranno 108 nuove connessioni/sec (9\*12) tra le unità. | 120 nuove connessioni/sec/unità | 6.000 nuove connessioni/sec/unità |
 | Inoltri dal dispositivo al cloud | Superiore a 100 operazioni di invio/sec o 12 operazioni di invio/sec/unità <br/> Ad esempio, due unità S1 sono 2 \* 12 = 24/sec, ma sono presenti almeno 100 operazioni di invio/sec tra le unità. Con nove unità S1, sono disponibili 108 operazioni di invio/sec (9 \* 12) tra le unità. | 120 operazioni di invio/sec/unità | 6.000 operazioni di invio/sec/unità |
 | Inoltri dal cloud al dispositivo<sup>1</sup> | 1,67 operazioni di invio/sec/unità (100 messaggi/min/unità) | 1,67 operazioni di invio/sec/unità (100 operazioni di invio/min/unità) | 83,33 operazioni di invio/sec/unità (5.000 operazioni di invio/min/unità) |
 | Ricezioni dal cloud al dispositivo<sup>1</sup> <br/> (solo quando il dispositivo usa HTTPS)| 16,67 operazioni di ricezione/sec/unità (operazioni di ricezione 1.000/min/unità) | 16,67 operazioni di ricezione/sec/unità (operazioni di ricezione 1.000/min/unità) | 833,33 operazioni di ricezione/sec/unità (operazioni di ricezione 50.000/min/unità) |
@@ -86,6 +86,8 @@ Ad esempio, si usa un dispositivo simulato per inviare i messaggi da dispositivo
 ### <a name="identity-registry-operations-throttle"></a>Limitazione delle operazioni del registro di sistema delle identità
 
 Le operazioni del registro delle identità dei dispositivi sono progettate per l'uso in fase di esecuzione in scenari di provisioning e gestione dei dispositivi. L'operazione di lettura o aggiornamento di un numero elevato di identità dei dispositivi è supportata tramite i [processi di importazione ed esportazione](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+
+Quando si avviano le operazioni di identità tramite [operazioni bulk sui dispositivi](iot-hub-bulk-identity-mgmt.md), si applicano gli stessi limiti di limitazione. Se, ad esempio, si desidera inviare un'operazione bulk per creare dispositivi 50 e si dispone di un hub per le cose S1 con 1 unità, vengono accettate solo due richieste Bulk al minuto. Questo perché la limitazione dell'operazione di identità per per un hub di tutto S1 con 1 unità è 100/min/unità. Inoltre, in questo caso, una terza richiesta (e oltre) nello stesso minuto verrebbe rifiutata perché era già stato raggiunto il limite. 
 
 ### <a name="device-connections-throttle"></a>Limitazione delle connessioni del dispositivo
 

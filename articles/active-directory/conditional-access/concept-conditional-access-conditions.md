@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fecf3f1a302a6734d92335bc15722df4d5288a56
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ab840b46503aed1a318e3b39a4e8fe3e4d11735c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362421"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579128"
 ---
 # <a name="conditional-access-conditions"></a>Accesso condizionale: Condizioni
 
@@ -174,11 +174,11 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 
 ### <a name="exchange-activesync-clients"></a>Client Exchange ActiveSync
 
-- Le organizzazioni possono selezionare solo i client di Exchange ActiveSync quando assegnano criteri a utenti o gruppi. Se si seleziona **tutti gli** utenti, tutti gli utenti **guest ed External** o i **ruoli della directory** , tutti gli utenti verranno bloccati.
+- Le organizzazioni possono selezionare solo i client di Exchange ActiveSync quando assegnano criteri a utenti o gruppi. Selezionando **tutti gli** utenti, tutti gli utenti **guest ed External o i** **ruoli della directory** , tutti gli utenti saranno soggetti ai criteri.
 - Quando si crea un criterio assegnato ai client di Exchange ActiveSync, **Exchange Online** deve essere l'unica applicazione cloud assegnata ai criteri. 
 - Le organizzazioni possono limitare l'ambito di questo criterio a piattaforme specifiche usando la condizione per le **piattaforme del dispositivo** .
 
-Se il controllo di accesso assegnato ai criteri USA **Richiedi app client approvata**, l'utente viene indirizzato per l'installazione e l'uso di Outlook Mobile client. Nel caso in cui sia necessaria **l'autenticazione** a più fattori, gli utenti interessati vengono bloccati perché l'autenticazione di base non supporta l'autenticazione a più fattori.
+Se il controllo di accesso assegnato ai criteri USA **Richiedi app client approvata**, l'utente viene indirizzato per l'installazione e l'uso di Outlook Mobile client. Nel caso in cui l'autenticazione a più **fattori**, **condizioni per l'utilizzo** o **controlli personalizzati** siano necessari, gli utenti interessati vengono bloccati, perché l'autenticazione di base non supporta questi controlli.
 
 Per altre informazioni, vedere gli articoli seguenti:
 

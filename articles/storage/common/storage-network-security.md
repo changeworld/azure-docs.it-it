@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 62f61549ffd6312b94589b9cabbc347edafd0ff2
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3d71a7ad2507909dacf54e7f1c49b6e768033113
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601968"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600480"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -244,24 +244,31 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Concedere l'accesso da un intervallo IP di Internet
 
-È possibile configurare gli account di archiviazione in modo che consentano l'accesso da intervalli specifici di indirizzi IP Internet pubblici. Questa configurazione concede l'accesso ai servizi specifici basati su Internet e alle reti locali e blocca il traffico Internet generale.
+È possibile usare le regole di rete IP per consentire l'accesso da intervalli di indirizzi IP Internet pubblici specifici tramite la creazione di regole di rete IP. Ogni account di archiviazione supporta fino a 200 regole. Queste regole concedono l'accesso a servizi basati su Internet specifici e a reti locali e bloccano il traffico Internet generale.
 
-Specificare gli intervalli di indirizzi Internet consentiti con la [notazione CIDR](https://tools.ietf.org/html/rfc4632) nel formato *16.17.18.0/24* o come indirizzi IP singoli, ad esempio *16.17.18.19*.
+Agli intervalli di indirizzi IP si applicano le restrizioni seguenti.
 
-   > [!NOTE]
-   > Gli intervalli di indirizzi di piccole dimensioni con dimensioni di prefisso "/31" o "/32" non sono supportati. Questi intervalli vanno configurati con le regole usate per gli indirizzi IP singoli.
+- Le regole di rete IP sono consentite solo per indirizzi IP **Internet pubblici** . 
 
-Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **rete Internet pubblica**. Gli intervalli di indirizzi IP riservati per le reti private (come definito nell'[RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) non sono consentiti nelle regole IP. Le reti private includono gli indirizzi che iniziano con _10.*_ , _172.16.*_  - _172.31.*_ e _192.168.*_ .
+  Gli intervalli di indirizzi IP riservati per le reti private (come definito nell'[RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) non sono consentiti nelle regole IP. Le reti private includono gli indirizzi che iniziano con _10.*_ , _172.16.*_  - _172.31.*_ e _192.168.*_ .
 
-   > [!NOTE]
-   > Le regole della rete IP non hanno alcun effetto sulle richieste provenienti dalla stessa area di Azure dell'account di archiviazione. Usare le [regole di rete virtuale](#grant-access-from-a-virtual-network) per consentire richieste della stessa area.
+- È necessario specificare gli intervalli di indirizzi Internet consentiti usando la [notazione CIDR](https://tools.ietf.org/html/rfc4632) nel formato *16.17.18.0/24* o come indirizzi IP singoli, ad esempio *16.17.18.19*. 
 
-  > [!NOTE]
-  > I servizi distribuiti nella stessa area dell'account di archiviazione usano indirizzi IP privati di Azure per la comunicazione. Di conseguenza, non è possibile limitare l'accesso a servizi di Azure specifici in base all'intervallo di indirizzi IP in uscita pubblici.
+- Gli intervalli di indirizzi di piccole dimensioni con dimensioni di prefisso "/31" o "/32" non sono supportati. Questi intervalli vanno configurati con le regole usate per gli indirizzi IP singoli. 
 
-Per la configurazione delle regole del firewall di archiviazione sono supportati solo gli indirizzi IPV4.
+- Per la configurazione delle regole del firewall di archiviazione sono supportati solo gli indirizzi IPV4.
 
-Ogni account di archiviazione supporta fino a 200 regole di rete IP.
+Le regole di rete IP non possono essere usate nei casi seguenti:
+
+- Per limitare l'accesso ai client nella stessa area di Azure dell'account di archiviazione.
+  
+  Le regole della rete IP non hanno alcun effetto sulle richieste provenienti dalla stessa area di Azure dell'account di archiviazione. Usare le [regole di rete virtuale](#grant-access-from-a-virtual-network) per consentire richieste della stessa area. 
+
+- Per limitare l'accesso ai client in un' [area abbinata](../../best-practices-availability-paired-regions.md) in una VNet con un endpoint del servizio.
+
+- Per limitare l'accesso ai servizi di Azure distribuiti nella stessa area dell'account di archiviazione.
+
+  I servizi distribuiti nella stessa area dell'account di archiviazione usano indirizzi IP privati di Azure per la comunicazione. Quindi, non è possibile limitare l'accesso a servizi di Azure specifici in base all'intervallo di indirizzi IP in uscita pubblico.
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurazione dell'accesso da reti locali
 

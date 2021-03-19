@@ -178,7 +178,7 @@
       href: azure-monitor-glossary.md
     - name: Posizioni dei dati
       href: data-locations.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -242,3 +242,5 @@
       href: 'https://aka.ms/wvdroadmap'
     - name: Modelli di Gestione risorse di Azure
       href: 'https://github.com/Azure/RDS-Templates/tree/master/wvd-templates'
+    - name: Offerte di conformità di Azure
+      href: 'https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/'

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: aa6c7dd786a90abadb43a13eaa73a78a2a61bd0a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 43097b520297ff17350620faff3da884dcbd2073
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719288"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606719"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiare dati da un database di SQL Server all'archiviazione BLOB di Azure con lo strumento Copia dati
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -113,7 +113,7 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
    Il nome della data factory deve essere *univoco a livello globale*. Se viene visualizzato il messaggio di errore seguente per il campo Nome, modificare il nome della data factory, ad esempio usando nomeutenteADFTutorialDataFactory. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere [Azure Data factory - Regole di denominazione](naming-rules.md).
 
-   ![Nome della nuova data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nuovo data factory messaggio di errore per il nome duplicato.":::
 1. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 1. In **Gruppo di risorse** eseguire una di queste operazioni:
 
@@ -128,7 +128,7 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
 1. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
 
-     ![Home page di Data factory](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page per la Azure Data Factory, con il riquadro Author & monitor.":::
 1. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Usare lo strumento Copia dati per creare una pipeline

@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: b4dc8ab44d341b293c044843e6dff2a3b6d3102c
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 8e78fa46125b8aca378598c673ba76829e11d70e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103233549"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600429"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -26,6 +26,7 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 | [Ricerca semantica](semantic-search-overview.md) | Raccolta di funzionalità correlate a query che migliorano significativamente la pertinenza dei risultati della ricerca con pochissimo sforzo. </br></br>La [classificazione semantica](semantic-ranking.md) calcola i punteggi di pertinenza usando il significato semantico alla base delle parole e del contenuto. </br></br>Le [didascalie semantiche](semantic-how-to-query-request.md) sono passaggi rilevanti del documento che riepilogano meglio il documento, con evidenziazioni sui termini o le frasi più importanti. </br></br>Le [risposte semantiche](semantic-answers.md) sono passaggi chiave, estratti da un documento di ricerca, formulati come risposta diretta a una query simile a una domanda. | Anteprima pubblica ([per richiesta](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Usare [Cerca documenti (REST)](/rest/api/searchservice/preview-api/search-documents) API-Version = 2020-06 -30-Preview e [esplora ricerche](search-explorer.md) in portale di Azure. </br></br>Si applicano le restrizioni relative a aree e livelli. |
 | [Termini di query del controllo ortografico](speller-how-to-add.md) | Prima che i termini di query raggiungano il motore di ricerca, è possibile verificare la presenza di errori di ortografia. L' `speller` opzione funziona con qualsiasi tipo di query (semplice, completo o semantico). |  Anteprima pubblica, solo REST, API-Version = 2020-06 -30-Preview|
 | [Indicizzatore di SharePoint Online](search-howto-index-sharepoint-online.md) | Questo indicizzatore si connette a un sito di SharePoint online in modo che sia possibile indicizzare il contenuto da una raccolta documenti. | Anteprima pubblica, solo REST, API-Version = 2020-06 -30-Preview |
+| [Normalizzatori](search-normalizers.md) | I normalizzatori forniscono la pre-elaborazione del testo semplice come la combinazione di maiuscole e minuscole, la rimozione degli accenti, asciifolding e così via, senza dover eseguire l'intera catena| Anteprima pubblica, solo REST, API-Version = 2020-06 -30-Preview |
 
 ## <a name="february-2021"></a>2021 febbraio
 

@@ -1,18 +1,18 @@
 ---
-title: Che cos'è l'archivio analitico di Azure Cosmos DB?
+title: Che cos'è Azure Cosmos DB archivio analitico?
 description: Informazioni sull'archivio transazionale (basato su righe) e sull'archivio analitico (basato su colonne) di Azure Cosmos DB. Vantaggi dell'archivio analitico, impatto sulle prestazioni per carichi di lavoro su larga scala e sincronizzazione automatica dei dati dall'archivio transazionale all'archivio analitico
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bca4eb7f5f266a639916c0f8e520f025d259c39b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452854"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577360"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Che cos'è Azure Cosmos DB archivio analitico?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -65,32 +65,60 @@ La sincronizzazione automatica si riferisce alla funzionalità completamente ges
 
 La funzionalità di sincronizzazione automatica insieme all'archivio analitico offre i vantaggi principali seguenti:
 
-#### <a name="scalability--elasticity"></a>Scalabilità ed elasticità
+### <a name="scalability--elasticity"></a>Scalabilità ed elasticità
 
 Grazie al partizionamento orizzontale, l'archivio transazionale di Azure Cosmos DB può dimensionare in modo elastico l'archiviazione e la velocità effettiva senza tempi di inattività. Il partizionamento orizzontale nell'archivio transazionale fornisce scalabilità ed elasticità nella sincronizzazione automatica per garantire la sincronizzazione dei dati nell'archivio analitico in near real-time. La sincronizzazione dei dati viene eseguita indipendentemente dalla velocità effettiva del traffico transazionale, sia che si tratti di 1.000 operazioni al secondo che di un milione di operazioni al secondo, e non influisce sulla velocità effettiva con provisioning nell'archivio transazionale. 
 
-#### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Gestione automatica degli aggiornamenti dello schema
+### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Gestione automatica degli aggiornamenti dello schema
 
 L'archivio transazionale di Azure Cosmos DB è senza schema e consente di eseguire l'iterazione sulle applicazioni transazionali senza dover gestire schemi o indici. Al contrario, l'archivio analitico di Azure Cosmos DB è schematizzato per ottimizzare le prestazioni delle query analitiche. Con la funzionalità di sincronizzazione automatica, Azure Cosmos DB gestisce l'inferenza dello schema sugli aggiornamenti più recenti dall'archivio transazionale.  Gestisce inoltre per impostazione predefinita la rappresentazione dello schema nell'archivio analitico, che include la gestione dei tipi di dati annidati.
 
 Con l'evoluzione dello schema e l'aggiunta di nuove proprietà nel tempo, l'archivio analitico presenta automaticamente uno schema unificato in tutti gli schemi cronologici nell'archivio transazionale.
 
-##### <a name="schema-constraints"></a>Vincoli dello schema
+#### <a name="schema-constraints"></a>Vincoli dello schema
 
 I vincoli seguenti sono applicabili ai dati operativi in Azure Cosmos DB quando si Abilita l'archivio analitico per dedurre automaticamente e rappresentare correttamente lo schema:
 
-* È possibile avere un massimo di 200 proprietà a qualsiasi livello di annidamento nello schema e una profondità massima di nidificazione di 5.
+* È possibile avere un massimo di 1000 proprietà a qualsiasi livello di annidamento nello schema e una profondità massima di nidificazione di 127.
+  * Solo le prime 1000 proprietà sono rappresentate nell'archivio analitico.
+  * Nell'archivio analitico sono rappresentati solo i primi 127 livelli annidati.
+
+* Sebbene i documenti JSON (e Cosmos DB raccolte/contenitori) fanno distinzione tra maiuscole e minuscole dalla prospettiva di univocità, l'archivio analitico non lo è.
+
+  * **Nello stesso documento:** I nomi delle proprietà nello stesso livello devono essere univoci in caso di confronto senza distinzione tra maiuscole e minuscole. Il documento JSON seguente, ad esempio, contiene "Name" e "Name" nello stesso livello. Sebbene si tratta di un documento JSON valido, non soddisfa il vincolo di univocità e pertanto non verrà completamente rappresentato nell'archivio analitico. In questo esempio, "Name" e "Name" sono uguali quando vengono confrontati in modo non sensibile al caso. Solo `"Name": "fred"` verrà rappresentato nell'archivio analitico, perché è la prima occorrenza. E `"name": "john"` non verranno rappresentati.
   
-  * Un elemento con proprietà 201 al livello principale non soddisfa questo vincolo e pertanto non sarà rappresentato nell'archivio analitico.
-  * Anche un elemento con più di cinque livelli annidati nello schema non soddisfa questo vincolo e pertanto non sarà rappresentato nell'archivio analitico. Ad esempio, l'elemento seguente non soddisfa il requisito:
+  
+  ```json
+  {"id": 1, "Name": "fred", "name": "john"}
+  ```
+  
+  * **In documenti diversi:** Le proprietà nello stesso livello e con lo stesso nome, ma in casi diversi, verranno rappresentate all'interno della stessa colonna, usando il formato del nome della prima occorrenza. Ad esempio, i documenti JSON seguenti hanno `"Name"` e `"name"` nello stesso livello. Poiché il primo formato di documento è `"Name"` , questo è ciò che verrà usato per rappresentare il nome della proprietà nell'archivio analitico. In altre parole, il nome della colonna nell'archivio analitico sarà `"Name"` . `"fred"` `"john"` Nella colonna verranno rappresentati sia che `"Name"` .
 
-     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
-* I nomi delle proprietà devono essere univoci quando la distinzione tra maiuscole e minuscole Ad esempio, gli elementi seguenti non soddisfano questo vincolo e pertanto non verranno rappresentati nell'archivio analitico:
+  ```json
+  {"id": 1, "Name": "fred"}
+  {"id": 2, "name": "john"}
+  ```
 
-  `{"Name": "fred"} {"name": "john"}` – "Name" e "Name" sono uguali quando vengono confrontati senza distinzione tra maiuscole e minuscole.
 
-##### <a name="schema-representation"></a>Rappresentazione dello schema
+* Il primo documento della raccolta definisce lo schema dell'archivio analitico iniziale.
+  * Le proprietà nel primo livello del documento verranno rappresentate come colonne.
+  * I documenti con più proprietà dello schema iniziale genereranno nuove colonne nell'archivio analitico.
+  * Impossibile rimuovere le colonne.
+  * L'eliminazione di tutti i documenti in una raccolta non comporta la reimpostazione dello schema dell'archivio analitico.
+  * Il controllo delle versioni dello schema non è disponibile. L'ultima versione dedotta dall'archivio transazionale è quella che verrà visualizzata nell'archivio analitico.
+
+* Attualmente non sono supportati i nomi delle colonne di Azure per la lettura delle sinapsi di Azure che contengono spazi vuoti (spazi vuoti).
+
+* Si prevede un comportamento diverso rispetto ai `NULL` valori:
+  * I pool Spark in sinapsi di Azure leggeranno questi valori come 0 (zero).
+  * I pool SQL senza server in sinapsi di Azure leggeranno questi valori come `NULL` .
+
+* Si prevede un comportamento diverso rispetto alle colonne mancanti:
+  * I pool Spark in sinapsi di Azure rappresenteranno queste colonne come `undefined` .
+  * I pool SQL senza server in sinapsi di Azure rappresenteranno queste colonne come `NULL` .
+
+#### <a name="schema-representation"></a>Rappresentazione dello schema
 
 Nell'archivio analitico esistono due modalità di rappresentazione dello schema. Queste modalità presentano compromessi tra la semplicità di una rappresentazione a colonne, la gestione degli schemi polimorfici e la semplicità d'uso delle query:
 
@@ -106,7 +134,7 @@ La rappresentazione dello schema ben definita crea una semplice rappresentazione
 
 * Una proprietà ha sempre lo stesso tipo in più elementi.
 
-  * Ad esempio, `{"a":123} {"a": "str"}` non ha uno schema ben definito perché `"a"` a volte è una stringa e a volte un numero. In questo caso, l'archivio analitico registra il tipo di dati di `“a”` come tipo di dati di nell'elemento che si verifica per la `“a”` prima volta nella durata del contenitore. Gli elementi in cui il tipo di dati di `“a”` è diverso non verranno inclusi nell'archivio analitico.
+  * Ad esempio, `{"a":123} {"a": "str"}` non ha uno schema ben definito perché `"a"` a volte è una stringa e a volte un numero. In questo caso, l'archivio analitico registra il tipo di dati di `"a"` come tipo di dati di nell'elemento che si verifica per la `“a”` prima volta nella durata del contenitore. Il documento verrà comunque incluso nell'archivio analitico, ma gli elementi in cui il tipo di dati di `"a"` differisce non lo sarà.
   
     Questa condizione non è valida per le proprietà Null. Ad esempio, `{"a":123} {"a":null}` è ancora ben definito.
 

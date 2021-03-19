@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2a3c788ce50ccc1d537fd2903fe05acffd079b0b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95249938"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591011"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Creazione della replica del volume per Azure NetApp Files
 
@@ -67,7 +67,7 @@ Prima di iniziare, assicurarsi di aver esaminato i [requisiti e le considerazion
     * Pool di capacità
     * Quota volume
         > [!NOTE] 
-        > Si consiglia di rispecchiare le dimensioni della quota del volume del volume di origine.
+        > La quota del volume (dimensioni) per il volume di destinazione deve rispecchiare quella del volume di origine. Se si specifica una dimensione minore del volume di origine, il volume di destinazione verrà ridimensionato automaticamente in base alle dimensioni del volume di origine. 
     * Rete virtuale 
     * Subnet
 
@@ -80,7 +80,7 @@ Per il protocollo NFS, assicurarsi che le regole dei criteri di esportazione sod
 
 8. Nella scheda **replica** incollare l'ID di risorsa del volume di origine ottenuto in [individuare l'ID di risorsa del volume di origine](#locate-the-source-volume-resource-id), quindi selezionare la pianificazione della replica desiderata. Le opzioni per la pianificazione della replica includono: ogni 10 minuti, orari, giornalieri, settimanali e mensili.  
 
-    ![Creazione della replica del volume](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
+    ![Creare la replica di un volume](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
 
 9. Fare clic su **Verifica + crea** e quindi su **Crea** per creare il volume di replica dei dati.   
 
@@ -113,6 +113,6 @@ Per autorizzare la replica, è necessario ottenere l'ID risorsa del volume di de
 * [Visualizzare lo stato integrità della relazione di replica](cross-region-replication-display-health-status.md)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
 * [Gestire il ripristino di emergenza](cross-region-replication-manage-disaster-recovery.md)
-* [Elimina volumi o repliche di volumi](cross-region-replication-delete.md)
+* [Eliminare repliche di volumi o volumi](cross-region-replication-delete.md)
 * [Risolvere i problemi relativi alla replica tra aree](troubleshoot-cross-region-replication.md)
 

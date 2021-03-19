@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 03/18/2021
 ms.author: justinha
 author: inbarckms
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 101e3ee9279d3560c0b561f0ea7ea695387bee15
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096463"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579383"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configurare il passaggio di accesso temporaneo in Azure AD per registrare i metodi di autenticazione con password (anteprima)
 
@@ -127,7 +127,7 @@ Tenere presenti queste limitazioni:
 - Non è possibile utilizzare un passaggio di accesso temporaneo con l'estensione server dei criteri di rete (NPS) e l'adapter Active Directory Federation Services (AD FS).
 - Quando l'accesso SSO facile è abilitato nel tenant, agli utenti viene richiesto di immettere una password. Il collegamento **Usa il pass di accesso temporaneo, invece** , sarà disponibile per l'accesso dell'utente con un passaggio di accesso temporaneo.
 
-![Screenshot dell'uso di un passaggio di accesso temporaneo](./media/how-to-authentication-temporary-access-pass/alternative.png)
+  ![Screenshot dell'uso di un passaggio di accesso temporaneo](./media/how-to-authentication-temporary-access-pass/alternative.png)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi    
 

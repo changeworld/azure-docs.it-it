@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: cbb1db15eed53af1d0e4590e1b228e5e47680560
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 40fcdae9a94b2b48eb4c665f4e0c9c3e58962f4b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102614922"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576782"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione di VMware
 
@@ -27,14 +27,9 @@ Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la mi
 
 Leggere [questo articolo](server-migrate-overview.md) per determinare il metodo che si vuole usare.
 
-## <a name="migration-limitations"></a>Limitazioni della migrazione
-
-- È possibile selezionare fino a 10 macchine virtuali contemporaneamente per la replica tramite il portale di Azure. Se si desidera eseguire la migrazione di più computer, eseguire la replica in gruppi di 10. Non esiste alcun limite al numero di macchine virtuali che possono essere replicate tramite i cmdlet di PowerShell. Si consiglia di replicare non più di 500 VM alla volta da un singolo vCenter tramite PowerShell per garantire prestazioni ottimali.
-- Per la migrazione senza agenti VMware, è possibile eseguire contemporaneamente fino a 500 repliche da ogni server vCenter.
-
 ## <a name="agentless-migration"></a>Migrazione senza agenti 
 
-In questa sezione vengono riepilogati i requisiti per la migrazione senza agenti.
+Questa sezione riepiloga i requisiti per la migrazione di macchine virtuali VMware senza agente in Azure.
 
 ### <a name="vmware-requirements-agentless"></a>Requisiti VMware (senza agenti)
 
@@ -72,8 +67,11 @@ La tabella riepiloga i requisiti di migrazione senza agenti per le macchine virt
 **NIC raggruppate** | Non supportata.
 **IPv6** | Non supportata.
 **Disco di destinazione** | È possibile eseguire la migrazione delle macchine virtuali solo a Managed Disks (standard HDD, SSD standard, unità SSD Premium) in Azure.
-**Replica simultanea** | 500 VM per ogni server vCenter. Se si dispone di altro, eseguirne la migrazione in batch di 500.
+**Replica simultanea** | Fino a 300 la replica simultanea di VM per server vCenter con 1 Appliance. Fino a 500 la replica simultanea di VM per server vCenter quando viene distribuita un' [appliance di scalabilità orizzontale](./how-to-scale-out-for-migration.md) aggiuntiva. 
 **Installazione automatica dell'agente di macchine virtuali di Azure (agente Windows e Linux)** | Supportato per Windows Server 2008 R2 e versioni successive. <br/> Supportato per RHEL6, RHEL7, CentOS7, Ubuntu 14,04, Ubuntu 16,04, Ubuntu 18.04. Esaminare l'elenco dei [pacchetti necessari](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)per questi sistemi operativi Linux.
+
+> [!TIP]
+>  Usando il portale di Azure sarà possibile selezionare fino a 10 macchine virtuali alla volta per configurare la replica. Per replicare più macchine virtuali, è possibile usare il portale e aggiungere le macchine virtuali da replicare in più batch di 10 VM oppure usare l'interfaccia Azure Migrate PowerShell per configurare la replica. Assicurarsi di non configurare la replica simultanea su un numero di VM superiore al numero massimo supportato per le repliche simultanee.
 
 ### <a name="appliance-requirements-agentless"></a>Requisiti del dispositivo (senza agenti)
 

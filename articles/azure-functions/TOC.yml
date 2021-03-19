@@ -71,10 +71,15 @@
       href: /azure/python/tutorial-vs-code-serverless-python-01
     - name: Definizione OpenAPI per API serverless
       href: functions-openapi-definition.md
-    - name: Connettersi a una rete virtuale
-      href: functions-create-vnet.md
-    - name: Stabilire l'accesso a un sito privato
-      href: functions-create-private-site-access.md
+    - name: Rete
+      items:
+        - name: Connettersi a una rete virtuale
+          href: functions-create-vnet.md
+          displayName: vnet
+        - name: Stabilire l'accesso a un sito privato
+          href: functions-create-private-site-access.md
+        - name: Usare un gateway NAT in uscita
+          href: functions-how-to-use-nat-gateway.md
     - name: Ridimensionamento di immagini con Griglia di eventi
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Creare un'app Web senza server
@@ -152,7 +157,7 @@
         - name: Gestione degli errori e tentativi di funzione
           href: functions-bindings-error-pages.md
           displayName: best practices
-        - name: Security
+        - name: Sicurezza
           href: security-concepts.md
           displayName: best practices
     - name: Confronto tra versioni di runtime
@@ -365,6 +370,8 @@
           href: set-runtime-version.md
         - name: Disabilitare una funzione
           href: disable-function.md
+        - name: Rete
+          href: configure-networking-how-to.md
         - name: Ripristino di emergenza geografico
           href: functions-geo-disaster-recovery.md
     - name: Monitorare

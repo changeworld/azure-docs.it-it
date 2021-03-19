@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: b99cbf91d7fc1c5d90753dfa1461a58eda055180
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: e467affd3ba1b839ce3323e3689d7f5134a0686f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418896"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604305"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Restituire una risposta semantica in Azure ricerca cognitiva
 
@@ -63,7 +63,7 @@ Il parametro "searchFields" è essenziale per restituire una risposta di qualit�
 
 + Una stringa di query non deve essere null e deve essere formulata come question. In questa versione di anteprima, i "queryType" e "queryLanguage" devono essere impostati esattamente come illustrato nell'esempio.
 
-+ Il parametro "searchFields" determina i campi che forniscono token al modello di estrazione. Assicurarsi di impostare questo parametro. È necessario disporre di almeno un campo stringa, ma è possibile includere qualsiasi campo stringa che si ritenga utile per fornire una risposta. Nel modello vengono passati solo circa 8.000 token per documento. Avviare l'elenco dei campi con campi concisi e quindi passare a campi con testo completo. Per indicazioni precise su come impostare questo campo, vedere [set searchFields](semantic-how-to-query-request.md#searchfields).
++ Il parametro "searchFields" determina i campi che forniscono token al modello di estrazione. Assicurarsi di impostare questo parametro. È necessario disporre di almeno un campo stringa, ma è possibile includere qualsiasi campo stringa che si ritenga utile per fornire una risposta. Collettivamente in tutti i campi di searchFields, nel modello vengono passati solo circa 8.000 token per documento. Avviare l'elenco dei campi con campi concisi e quindi passare a campi con testo completo. Per indicazioni precise su come impostare questo campo, vedere [set searchFields](semantic-how-to-query-request.md#searchfields).
 
 + Per "Answers", la costruzione di parametri `"answers": "extractive"` di base è, dove il numero predefinito di risposte restituito è uno. È possibile aumentare il numero di risposte aggiungendo un conteggio, fino a un massimo di cinque.  Se è necessaria più di una risposta dipende dall'esperienza utente dell'app e da come si desidera eseguire il rendering dei risultati.
 
@@ -115,15 +115,15 @@ Data la query "How do Clouds form", nella risposta viene restituita la risposta 
 
 Per ottenere risultati ottimali, restituire le risposte semantiche in un corpus di documenti con le caratteristiche seguenti:
 
-+ "searchFields" deve includere uno o più campi che forniscono testo sufficiente in cui è probabile che venga trovata una risposta.
-
-+ L'estrazione semantica e il riepilogo hanno limiti sulla quantità di contenuto che può essere analizzata in modo tempestivo. Collettivamente, vengono analizzati solo i primi 20.000 token. Qualsiasi elemento oltre il quale viene ignorato. In pratica, se si dispone di documenti di grandi dimensioni che vengono eseguiti in centinaia di pagine, provare a suddividere il contenuto in parti gestibili prima.
++ "searchFields" deve fornire campi che offrano un testo sufficiente in cui è probabile che venga trovata una risposta. Solo il testo Verbatim di un documento può essere visualizzato come risposta.
 
 + le stringhe di query non devono essere null (Search = `*` ) e la stringa deve avere le caratteristiche di una domanda, in contrapposizione a una ricerca di parole chiave (un elenco sequenziale di termini o frasi arbitrarie). Se la stringa di query non sembra rispondere, l'elaborazione delle risposte viene ignorata, anche se la richiesta specifica "Answers" come parametro di query.
+
++ L'estrazione semantica e il riepilogo sono limitati al numero di token per documento che possono essere analizzati in modo tempestivo. In pratica, se si dispone di documenti di grandi dimensioni che vengono eseguiti in centinaia di pagine, provare a suddividere il contenuto in documenti più piccoli.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 + [Panoramica della ricerca semantica](semantic-search-overview.md)
 + [Algoritmo di classificazione semantica](semantic-ranking.md)
-+ [Algoritmo di somiglianza](index-ranking-similarity.md)
++ [Algoritmo di classificazione di somiglianza](index-ranking-similarity.md)
 + [Creare una query semantica](semantic-how-to-query-request.md)

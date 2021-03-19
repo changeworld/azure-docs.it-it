@@ -3,12 +3,12 @@ title: Livelli Premium e standard del bus di servizio di Azure
 description: Questo articolo descrive i livelli standard e Premium del bus di servizio di Azure. Confronta questi livelli e fornisce le differenze tecniche.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 0385526560e6aafaab66d9212ff54caff2362ebd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: aa08a99009ef3d20e831e214ae5811059817d13c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636510"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607552"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Livelli di messaggistica Standard e Premium del bus di servizio
 
@@ -26,7 +26,7 @@ Nella tabella seguente sono evidenziate alcune differenze generali.
 | Possibilità di aumentare o ridurre le prestazioni del carico di lavoro |N/D |
 | Dimensioni del messaggio fino a 1 MB. Questo limite può essere generato in futuro. Per gli ultimi aggiornamenti importanti al servizio, vedere la pagina [relativa alla messaggistica in Azure](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Dimensione messaggi fino a 256 KB |
 
-La **messaggistica di livello Premium del bus di servizio** garantisce l'isolamento delle risorse a livello di CPU e di memoria in modo che ogni carico di lavoro del cliente venga eseguito in isolamento. Questo contenitore di risorse è detto *unità di messaggistica*. Ad ogni spazio dei nomi Premium viene allocata almeno un'unità di messaggistica. È possibile acquistare 1, 2, 4 o 8 unità di messaggistica per ogni spazio dei nomi premium del bus di servizio. Un singolo carico di lavoro o entità può estendersi su più unità di messaggistica e il numero di unità di messaggistica può essere modificato in corrispondenza di. Ne risultano prestazioni prevedibili e ripetibili per la soluzione basata sul bus di servizio.
+La **messaggistica di livello Premium del bus di servizio** garantisce l'isolamento delle risorse a livello di CPU e di memoria in modo che ogni carico di lavoro del cliente venga eseguito in isolamento. Questo contenitore di risorse è detto *unità di messaggistica*. Ad ogni spazio dei nomi Premium viene allocata almeno un'unità di messaggistica. È possibile acquistare 1, 2, 4, 8 o 16 unità di messaggistica per ogni spazio dei nomi premium del bus di servizio. Un singolo carico di lavoro o entità può estendersi su più unità di messaggistica e il numero di unità di messaggistica può essere modificato in corrispondenza di. Ne risultano prestazioni prevedibili e ripetibili per la soluzione basata sul bus di servizio.
 
 Non solo le prestazioni sono più prevedibili e disponibili, ma anche più veloci. Con la messaggistica Premium, le prestazioni massime sono più veloci rispetto al livello Standard.
 

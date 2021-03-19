@@ -44,7 +44,7 @@
 - name: Esempi
   items:
     - name: Esempi di codice
-      href: 'https://docs.microsoft.com/en-us/samples/browse/?products=azure-stream-analytics'
+      href: /samples/browse/?products=azure-stream-analytics
 - name: Concetti
   items:
     - name: Modelli di soluzioni end-to-end
@@ -322,7 +322,7 @@
           href: stream-analytics-machine-learning-integration-tutorial.md
         - name: Rilevamento anomalie
           href: stream-analytics-machine-learning-anomaly-detection.md
-        - name: Usare le API REST
+        - name: Usare le API REST di ML
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: Eseguire il debug con il diagramma del processo
       href: stream-analytics-job-diagram-with-metrics.md

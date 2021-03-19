@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: fb81960b573b5b7d28f44f7a7482c28b4ef284be
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 81c026893c3185c6c9f960cdb6acb2d0c2d49cc4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496457"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580352"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
@@ -108,7 +108,7 @@ Le distribuzioni di server Linux non approvate da Azure non supportano Crittogra
 
 Crittografia dischi di Azure richiede la presenza nel sistema dei moduli dm-crypt e vfat. La rimozione o la disabilitazione di vfat dall'immagine predefinita impedirà al sistema di leggere la chiave del volume e ottenere quella necessaria per sbloccare i dischi ai successivi riavvii. I passaggi per la protezione avanzata del sistema che rimuovono il modulo VFAT dal sistema o applicano l'espansione delle montaggio/cartelle del sistema operativo nelle unità dati non sono compatibili con crittografia dischi di Azure. 
 
-Prima di abilitare la crittografia, i dischi dati da crittografare devono essere elencati correttamente in /etc/fstab. Durante la creazione delle voci usare l'opzione "nofail" e scegliere un nome di dispositivo a blocchi permanente. I nomi di dispositivo nel formato "/dev/sdX" potrebbero infatti non essere associati allo stesso disco nei vari riavvii, in particolare dopo la crittografia. Per altre informazioni su questo comportamento, vedere [Risolvere il problema dei cambi di nome dei dispositivi nelle macchine virtuali Linux](../troubleshooting/troubleshoot-device-names-problems.md).
+Prima di abilitare la crittografia, i dischi dati da crittografare devono essere elencati correttamente in /etc/fstab. Durante la creazione delle voci usare l'opzione "nofail" e scegliere un nome di dispositivo a blocchi permanente. I nomi di dispositivo nel formato "/dev/sdX" potrebbero infatti non essere associati allo stesso disco nei vari riavvii, in particolare dopo la crittografia. Per altre informazioni su questo comportamento, vedere [Risolvere il problema dei cambi di nome dei dispositivi nelle macchine virtuali Linux](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
 
 Verificare che le impostazioni /etc/fstab siano configurate correttamente per il montaggio. Per configurare queste impostazioni, eseguire il comando mount -a o riavviare la macchina virtuale e attivare il rimontaggio in questo modo. Al termine, controllare l'output del comando lsblk per verificare che l'unità desiderata sia ancora montata. 
 

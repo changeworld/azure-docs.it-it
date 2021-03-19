@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 3191987ea2d110487321beb0b11428f446f2b7a6
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 85dea807ee09338e7f0e9e388f6b196fd3beef33
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503879"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588665"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Esercitazione: Eseguire il training di modelli di classificazione delle immagini con dati MNIST e scikit-learn 
 
@@ -91,6 +91,9 @@ Creare un oggetto area di lavoro dall'area di lavoro esistente. `Workspace.from_
 ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
+
+>[!NOTE]
+> È possibile che venga richiesto di eseguire l'autenticazione all'area di lavoro la prima volta che si esegue il codice seguente. Segui le istruzioni visualizzate.
 
 ### <a name="create-an-experiment"></a>Creare un esperimento
 

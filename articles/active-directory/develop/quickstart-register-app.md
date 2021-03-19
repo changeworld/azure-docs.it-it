@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 413f0be32b54ee6da39934cf3f8753246fbce924
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175431"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578805"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform
 
@@ -89,7 +89,7 @@ Per configurare le impostazioni dell'applicazione in base alla piattaforma o al 
     | **Applicazione a pagina singola** | Immettere un **URI di reindirizzamento** per l'app. Questo URI è il percorso in cui la piattaforma Microsoft Identity reindirizza il client di un utente e invia i token di sicurezza dopo l'autenticazione.<br/><br/>Selezionare questa piattaforma se si sta compilando un'app Web sul lato client usando JavaScript o un Framework come un assembly Web angolare, Vue.js, React.js o blazer. |
     | **iOS/macOS** | Immettere l' **ID bundle** dell'app. Trovarlo nelle **impostazioni di compilazione** o in Xcode in *info. plist*.<br/><br/>Quando si specifica un **ID bundle**, viene generato automaticamente un URI di reindirizzamento. |
     | **Android** | Immettere il **nome del pacchetto** dell'app. Trovarlo nel file di *AndroidManifest.xml* . Generare e immettere anche l' **hash della firma**.<br/><br/>Quando si specificano queste impostazioni, viene generato automaticamente un URI di reindirizzamento. |
-    | **Applicazioni per dispositivi mobili e desktop** | Selezionare uno degli **URI di reindirizzamento suggeriti**. Oppure specificare un **URI di reindirizzamento personalizzato**.<br/><br/>Per le applicazioni desktop, è consigliabile<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Selezionare questa piattaforma per le applicazioni per dispositivi mobili che non usano la versione più recente di Microsoft Authentication Library (MSAL) o non usano un broker. Selezionare questa piattaforma anche per le applicazioni desktop. |
+    | **Applicazioni per dispositivi mobili e desktop** | Selezionare uno degli **URI di reindirizzamento suggeriti**. Oppure specificare un **URI di reindirizzamento personalizzato**.<br/><br/>Per le applicazioni desktop che usano il browser incorporato, è consigliabile<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Per le applicazioni desktop che usano il browser di sistema, è consigliabile<br/>`http://localhost`<br/><br/>Selezionare questa piattaforma per le applicazioni per dispositivi mobili che non usano la versione più recente di Microsoft Authentication Library (MSAL) o non usano un broker. Selezionare questa piattaforma anche per le applicazioni desktop. |
 1. Selezionare **Configura** per completare la configurazione della piattaforma.
 
 ### <a name="redirect-uri-restrictions"></a>Restrizioni relative agli URI di reindirizzamento

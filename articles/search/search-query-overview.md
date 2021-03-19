@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487118"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600803"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Esecuzione di query in Azure ricerca cognitiva
 
@@ -71,7 +71,7 @@ In ricerca cognitiva, la ricerca full-text è basata sul motore di query di Apac
 
 Quando vengono rilevati termini corrispondenti, il motore di query ricostruisce un documento di ricerca contenente la corrispondenza usando la chiave o l'ID del documento per assemblare i valori dei campi, classifica i documenti in ordine di pertinenza e restituisce i primi 50 (per impostazione predefinita) nella risposta o un numero diverso se è stato specificato **`top`** .
 
-Se si sta implementando una ricerca full-text, è possibile comprendere il modo in cui il contenuto viene suddiviso in token e consentire il debug di eventuali anomalie Le query su stringhe con trattini o caratteri speciali potrebbero richiedere l'uso di un analizzatore diverso dal Lucene standard predefinito per assicurarsi che l'indice contenga i token corretti. È possibile eseguire l'override dell'impostazione predefinita con gli [analizzatori di linguaggio](index-add-language-analyzers.md#language-analyzer-list) o gli [analizzatori specializzati](index-add-custom-analyzers.md#AnalyzerTable) che modificano l'analisi lessicale. Un esempio è la [parola chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) che tratta l'intero contenuto di un campo come singolo token. Ciò è utile per i dati come i codici postali, gli ID e alcuni nomi di prodotto. Per altre informazioni, vedere [ricerca a termini parziali e modelli con caratteri speciali](search-query-partial-matching.md).
+Se si sta implementando una ricerca full-text, è possibile comprendere il modo in cui il contenuto viene suddiviso in token e consentire il debug di eventuali anomalie Le query su stringhe con trattini o caratteri speciali potrebbero richiedere l'uso di un analizzatore diverso dal Lucene standard predefinito per assicurarsi che l'indice contenga i token corretti. È possibile eseguire l'override dell'impostazione predefinita con gli [analizzatori di linguaggio](index-add-language-analyzers.md#language-analyzer-list) o gli [analizzatori specializzati](index-add-custom-analyzers.md#built-in-analyzers) che modificano l'analisi lessicale. Un esempio è la [parola chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) che tratta l'intero contenuto di un campo come singolo token. Ciò è utile per i dati come i codici postali, gli ID e alcuni nomi di prodotto. Per altre informazioni, vedere [ricerca a termini parziali e modelli con caratteri speciali](search-query-partial-matching.md).
 
 Se si prevede un uso intensivo di operatori booleani, che è più probabile negli indici che contengono blocchi di testo di grandi dimensioni (un campo di contenuto o descrizioni lunghe), assicurarsi di testare le query con il **`searchMode=Any|All`** parametro per valutare l'effetto di tale impostazione sulla ricerca booleana.
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 9/30/2020
+ms.date: 03/18/2021
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: f1ff679bddf2afc355516f2a04b3307d4a260a5c
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 8fb4ecb8fa8d6938e9afbc77064380b7b213029a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063621"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578737"
 ---
 # <a name="confidential-client-assertions"></a>Asserzioni client riservate
 
@@ -48,9 +48,18 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Le [attestazioni previste da Azure ad](active-directory-certificate-credentials.md) sono:
+È anche possibile usare il modulo delegato, che consente di calcolare l'asserzione solo nel tempo:
 
-Tipo di attestazione | Valore | Description
+```csharp
+string signedClientAssertion = ComputeAssertion();
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+                                          .WithClientAssertion(() => { return GetSignedClientAssertion(); } )
+                                          .Build();
+```
+
+Le [attestazioni previste da Azure ad](active-directory-certificate-credentials.md) nell'asserzione firmata sono:
+
+Tipo di attestazione | Valore | Descrizione
 ---------- | ---------- | ----------
 aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | L'attestazione "AUD" (audience) identifica i destinatari a cui è destinato il JWT (in questo Azure AD) vedere [RFC 7519, sezione 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  In questo caso, il destinatario è il server di accesso (login.microsoftonline.com).
 exp | 1601519414 | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. Vedere la [specifica RFC 7519, sezione 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Questo consente di usare l'asserzione fino a quel momento, quindi mantenerla a breve-5-10 minuti dopo `nbf` al massimo.  Azure AD non applica restrizioni al `exp` momento attuale. 

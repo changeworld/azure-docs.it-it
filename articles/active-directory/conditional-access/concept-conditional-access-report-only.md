@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deced953089fcbb2640cbf3e402db24cb511e769
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c6f4e4851d406b14ed38665274401b96446ac6a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935887"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579077"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Che cos'è la modalità solo report di accesso condizionale?
 
@@ -28,6 +28,8 @@ La modalità solo report è un nuovo stato dei criteri di accesso condizionale c
 - Durante l'accesso, i criteri in modalità solo report vengono valutati ma non applicati.
 - I risultati vengono registrati nelle schede **accesso condizionale** e **solo report** dei dettagli del log di accesso.
 - I clienti con una sottoscrizione di monitoraggio di Azure possono monitorare l'effetto dei criteri di accesso condizionale usando la cartella di lavoro delle informazioni dettagliate sull'accesso condizionale.
+
+> [!VIDEO https://www.youtube.com/embed/NZbPYfhb5Kc]
 
 > [!WARNING]
 > I criteri in modalità solo report che richiedono dispositivi conformi possono richiedere agli utenti di Mac, iOS e Android di selezionare un certificato del dispositivo durante la valutazione dei criteri, anche se non viene applicata la conformità del dispositivo. Queste richieste possono essere ripetute fino a quando il dispositivo non viene reso conforme. Per impedire agli utenti finali di ricevere richieste durante l'accesso, escludere le piattaforme per dispositivi Mac, iOS e Android dai criteri di solo report che eseguono i controlli di conformità del dispositivo. Si noti che la modalità solo report non è applicabile per i criteri di accesso condizionale con ambito "azioni utente".

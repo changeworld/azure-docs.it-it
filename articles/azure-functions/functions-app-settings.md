@@ -3,12 +3,12 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: fb00f0fe16342bf603d534c34a860278dc21deac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425703"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595977"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -257,9 +257,17 @@ Utilizzato solo quando si esegue la distribuzione a un piano Premium o a un pian
 
 Quando si usa un Azure Resource Manager per creare un'app per le funzioni durante la distribuzione, non includere WEBSITE_CONTENTSHARE nel modello. Questa impostazione dell'applicazione viene generata durante la distribuzione. Per altre informazioni, vedere [automatizzare la distribuzione delle risorse per l'app per le funzioni](functions-infrastructure-as-code.md#windows).   
 
+## <a name="website_dns_server"></a>\_server DNS del sito Web \_
+
+Imposta il server DNS usato da un'app durante la risoluzione degli indirizzi IP. Questa impostazione è spesso obbligatoria quando si usano determinate funzionalità di rete, ad esempio le [zone private di DNS di Azure](functions-networking-options.md#azure-dns-private-zones) e gli [endpoint privati](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).   
+
+|Chiave|Valore di esempio|
+|---|------------|
+|\_server DNS del sito Web \_|168.63.129.16|
+
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
-Il numero massimo di istanze che l'app per le funzioni è in grado di scalare orizzontalmente. Il valore predefinito è no limit.
+Numero massimo di istanze a cui l'app può applicare la scalabilità orizzontale. Il valore predefinito è no limit.
 
 > [!IMPORTANT]
 > Questa impostazione è in anteprima.  È stata aggiunta una [Proprietà app per la funzione Max scale out](./event-driven-scaling.md#limit-scale-out) ed è il metodo consigliato per limitare la scalabilità orizzontale.
@@ -297,6 +305,14 @@ Consente di impostare il fuso orario per l'app per le funzioni.
 |\_fuso orario sito Web \_|Linux|America/New_York|
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
+
+## <a name="website_vnet_route_all"></a>SITO Web \_ VNET \_ route \_ All
+
+Indica se tutto il traffico in uscita dall'app viene instradato attraverso la rete virtuale. Un valore di impostazione `1` indica che tutto il traffico viene instradato attraverso la rete virtuale. È necessario usare questa impostazione quando si usano le funzionalità di [integrazione di rete virtuale a livello](functions-networking-options.md#regional-virtual-network-integration)di area. Viene usato anche quando [viene usato un gateway NAT di rete virtuale per definire un indirizzo IP in uscita statico](functions-how-to-use-nat-gateway.md). 
+
+|Chiave|Valore di esempio|
+|---|------------|
+|SITO Web \_ VNET \_ route \_ All|1|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

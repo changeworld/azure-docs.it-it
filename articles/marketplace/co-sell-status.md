@@ -6,13 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 02/24/2021
-ms.openlocfilehash: 9c788109b014be244560fb652de830ba14a44d68
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.reviewer: stmummer
+ms.date: 03/17/2021
+ms.openlocfilehash: d45b46f69480f24f5b2724116984a903093ffc62
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225014"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593357"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>Verificare lo stato di co-selling di un'offerta di Marketplace commerciale
 
@@ -33,7 +34,7 @@ La tabella seguente illustra tutti i possibili stati di co-selling. Per informaz
 | Non co-selling pronto | I [requisiti minimi per lo stato pronto per il co-selling](co-sell-requirements.md#requirements-for-co-sell-ready-status) non sono stati soddisfatti. |
 | Co-selling pronto | Tutti i [requisiti per lo stato di co-selling pronto](co-sell-requirements.md#requirements-for-co-sell-ready-status) sono stati soddisfatti. |
 | Co-selling IP di Azure incentivate | Sono stati soddisfatti i requisiti di co-selling pronti, oltre a [questi requisiti aggiuntivi](co-sell-requirements.md#requirements-for-azure-ip-co-sell-incentivized-status). |
-| App biz ISV Connect Premium Incentive  | Questo stato si applica alle offerte Dynamics 365 e Power Apps e indica che sono stati soddisfatti tutti i [requisiti per questo stato](co-sell-requirements.md#requirements-for-biz-apps-isv-connect-premium-incentive-status) . |
+| Business Applications co-selling incentivate | Questo stato si applica alle offerte di Dynamics 365 e Power Apps nel [programma ISV Connect](business-applications-isv-program.md) e indica che sono stati soddisfatti tutti i [requisiti per questo stato](co-sell-requirements.md#requirements-for-business-applications-co-sell-incentivized-status) . |
 |||
 
 ## <a name="next-steps"></a>Passaggi successivi

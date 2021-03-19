@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a764538ebc73927b1d274b2538e123ec90ce60e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5ad1b8318e261c7dfef7fc125716736087a84bdc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741559"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579179"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -53,7 +53,7 @@ Nel portale di Azure è disponibile un modo migliore per visualizzare la reimpos
 
 ### <a name="combined-registration"></a>Registrazione combinata
 
-Se è stata abilitata la [registrazione combinata](./concept-registration-mfa-sspr-combined.md), le informazioni relative all'attività dell'utente nei log di controllo saranno disponibili in metodi di autenticazione di **sicurezza**  >  **Authentication Methods**.
+Se è stata abilitata la [registrazione combinata](./concept-registration-mfa-sspr-combined.md), le informazioni relative all'attività dell'utente nei log di controllo saranno disponibili in metodi di autenticazione di **sicurezza**  >  .
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrizione delle colonne dei report nel portale di Azure
 
@@ -171,7 +171,7 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Report sull'utilizzo e informazioni dettagliate su SSPR e multi-factor authentication](howto-authentication-methods-usage-insights.md)
+* [Report sull'utilizzo e informazioni dettagliate su SSPR e multi-factor authentication](./howto-authentication-methods-activity.md)
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md).
 * Eseguire [la registrazione per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md).

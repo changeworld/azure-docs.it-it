@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500513"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579196"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Pianificare una distribuzione della reimpostazione della password self-service di Azure Active Directory
 
@@ -322,7 +322,7 @@ I log di controllo per la registrazione e la reimpostazione della password sono 
 
 ### <a name="authentication-methods--usage-and-insights"></a>Metodi di autenticazione - Utilizzo e informazioni dettagliate
 
-L' [utilizzo e le informazioni dettagliate](./howto-authentication-methods-usage-insights.md) consentono di comprendere in che modo i metodi di autenticazione per le funzionalità come Azure ad multi-factor authentication e SSPR sono in esecuzione nell'organizzazione. Questa funzionalità di creazione di report consente all'organizzazione di capire quali metodi registrare e come usarli.
+L' [utilizzo e le informazioni dettagliate](./howto-authentication-methods-activity.md) consentono di comprendere in che modo i metodi di autenticazione per le funzionalità come Azure ad multi-factor authentication e SSPR sono in esecuzione nell'organizzazione. Questa funzionalità di creazione di report consente all'organizzazione di capire quali metodi registrare e come usarli.
 
 ### <a name="troubleshoot"></a>Risolvere problemi
 

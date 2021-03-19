@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/17/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 5031d097b5d1bdef45dd4b653ae7cef06f5daca0
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: a923f65e5c6183d045f4b7455e0a01edda75d499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573660"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584339"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteggere un'area di lavoro Azure Machine Learning con reti virtuali
 
@@ -56,16 +56,12 @@ Il collegamento privato di Azure consente di connettersi all'area di lavoro usan
 
 Per ulteriori informazioni sulla configurazione di un'area di lavoro di collegamento privato, vedere [How to configure private link](how-to-configure-private-link.md).
 
+> [!Warning]
+> La protezione di un'area di lavoro con endpoint privati non garantisce la protezione end-to-end autonomamente. È necessario seguire la procedura descritta nella parte restante di questo articolo e la serie VNet per proteggere i singoli componenti della soluzione.
+
 ## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Proteggere gli account di archiviazione di Azure con gli endpoint di servizio
 
 Azure Machine Learning supporta gli account di archiviazione configurati per l'uso di endpoint di servizio o di endpoint privati. Questa sezione illustra come proteggere un account di archiviazione di Azure usando gli endpoint di servizio. Per gli endpoint privati, vedere la sezione successiva.
-
-> [!IMPORTANT]
-> È possibile inserire sia l'_account di archiviazione predefinito_ per Azure Machine Learning, sia _gli account di archiviazione non predefiniti_ in una rete virtuale.
->
-> Quando si crea un'area di lavoro, viene eseguito automaticamente il provisioning dell'account di archiviazione predefinito.
->
-> Per gli account di archiviazione non predefiniti, il parametro `storage_account` nella funzione [`Workspace.create()` ](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)consente di specificare un account di archiviazione personalizzato in base all'ID risorsa di Azure.
 
 Per usare un account di archiviazione di Azure per l'area di lavoro in una rete virtuale, seguire questa procedura:
 
@@ -73,18 +69,18 @@ Per usare un account di archiviazione di Azure per l'area di lavoro in una rete 
 
    [![Archiviazione collegata all'area di lavoro di Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Nella pagina account del servizio di archiviazione selezionare __firewall e reti virtuali__.
+1. Nella pagina account del servizio di archiviazione selezionare __rete__.
 
-   ![L'area "Firewall e reti virtuali" della pagina Archiviazione di Azure nel portale di Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+   ![L'area di rete nella pagina archiviazione di Azure nella portale di Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. Nella pagina __Firewall e reti virtuali__ eseguire le operazioni seguenti:
+1. Nella scheda __firewall e reti virtuali__ eseguire le operazioni seguenti:
     1. Selezionare __Reti selezionate__.
     1. In __Reti virtuali__ selezionare il collegamento __Aggiungi rete virtuale esistente__. Questa azione aggiunge la rete virtuale in cui risiede il calcolo (vedere il passaggio 1).
 
         > [!IMPORTANT]
         > L'account di archiviazione deve trovarsi nella stessa rete virtuale e nella stessa subnet delle istanze di calcolo o dei cluster di elaborazione usati per il training o l'inferenza.
 
-    1. Selezionare la casella di controllo __Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione__. Questa operazione non concede a tutti i servizi di Azure l'accesso all'account di archiviazione.
+    1. Selezionare la casella di controllo __Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione__. Questa modifica non concede a tutti i servizi di Azure l'accesso all'account di archiviazione.
     
         * Le risorse di alcuni servizi, **registrate nella sottoscrizione**, possono accedere all'account **di archiviazione nella stessa sottoscrizione** per le operazioni di selezione. Ad esempio la scrittura di log o la creazione di backup.
         * Alle risorse di alcuni servizi è possibile concedere l'accesso esplicito all'account di archiviazione __assegnando un ruolo di Azure__ all'identità gestita assegnata dal sistema.
@@ -101,12 +97,12 @@ Per usare un account di archiviazione di Azure per l'area di lavoro in una rete 
 ## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Proteggere gli account di archiviazione di Azure con endpoint privati
 
 Azure Machine Learning supporta gli account di archiviazione configurati per l'uso di endpoint di servizio o di endpoint privati. Se l'account di archiviazione Usa endpoint privati, è necessario configurare due endpoint privati per l'account di archiviazione predefinito:
-1. Un endpoint privato con una risorsa secondaria di destinazione **BLOB** .
-1. Un endpoint privato con una risorsa secondaria di destinazione **file** (FileShare).
+1. Un endpoint privato con una sottorisorsa di destinazione **BLOB** .
+1. Un endpoint privato con una sottorisorsa di destinazione **file** (FileShare).
 
 ![Screenshot che mostra la pagina di configurazione degli endpoint privati con le opzioni BLOB e file](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
 
-Per configurare un endpoint privato per un account di archiviazione **diverso** da quello predefinito, selezionare il tipo di **risorsa secondaria di destinazione** corrispondente all'account di archiviazione che si vuole aggiungere.
+Per configurare un endpoint privato per un account di archiviazione **diverso** da quello predefinito, selezionare il tipo di **sottorisorsa di destinazione** che corrisponde all'account di archiviazione che si vuole aggiungere.
 
 Per altre informazioni, vedere [usare endpoint privati per archiviazione di Azure](../storage/common/storage-private-endpoints.md)
 
@@ -118,7 +114,7 @@ Per accedere ai dati tramite l'SDK, è necessario utilizzare il metodo di autent
 
 ### <a name="disable-data-validation"></a>Disabilitare la convalida dei dati
 
-Per impostazione predefinita, Azure Machine Learning esegue la validità dei dati e i controlli delle credenziali quando si tenta di accedere ai dati tramite l'SDK. Se i dati sono protetti da una rete virtuale, Azure Machine Learning possibile completare questi controlli. Per evitare questo problema, è necessario creare archivi dati e set di dati che ignorino la convalida.
+Per impostazione predefinita, Azure Machine Learning esegue la validità dei dati e i controlli delle credenziali quando si tenta di accedere ai dati tramite l'SDK. Se i dati sono protetti da una rete virtuale, Azure Machine Learning possibile completare questi controlli. Per ignorare questo controllo, è necessario creare archivi dati e set di dati che ignorino la convalida.
 
 ### <a name="use-datastores"></a>Usare gli archivi dati
 
@@ -179,7 +175,7 @@ Per usare le funzionalità di sperimentazione di Azure Machine Learning con Azur
 1. Nella scheda __firewall e reti virtuali__ eseguire le operazioni seguenti:
     1. In __Consenti accesso da__ selezionare __endpoint privato e reti selezionate__.
     1. In __Reti virtuali__ selezionare __Aggiungi reti virtuali esistenti__ per aggiungere la rete virtuale in cui risiede il calcolo della sperimentazione.
-    1. In __Consenti ai servizi Microsoft attendibili di ignorare questo firewall?__ selezionare __Sì__.
+    1. In __Consentire ai servizi Microsoft attendibili di ignorare il firewall__ scegliere __Sì__.
 
    [![Sezione "Firewall e reti virtuali" nel riquadro Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -195,7 +191,13 @@ Per usare Container Registry di Azure all'interno di una rete virtuale, è neces
 
     Quando Registro Azure Container è in una rete virtuale, Azure Machine Learning non può usarlo per compilare direttamente le immagini Docker. In questo caso viene usato il cluster di elaborazione per compilare le immagini.
 
+    > [!IMPORTANT]
+    > Il cluster di calcolo usato per compilare immagini Docker deve essere in grado di accedere ai repository dei pacchetti usati per eseguire il training e distribuire i modelli. Potrebbe essere necessario aggiungere regole di sicurezza di rete che consentono l'accesso ai repository pubblici, [usare pacchetti Python privati](how-to-use-private-python-packages.md)o usare [Immagini Docker personalizzate](how-to-train-with-custom-image.md) che includono già i pacchetti.
+
 Una volta soddisfatti questi requisiti, attenersi alla procedura seguente per abilitare Azure Container Registry.
+
+> [!TIP]
+> Se non è stato usato un Container Registry di Azure esistente durante la creazione dell'area di lavoro, è possibile che non esista. Per impostazione predefinita, l'area di lavoro non creerà un'istanza di ACR finché non ne sarà necessaria una. Per forzare la creazione di un modello, eseguire il training o distribuire un modello usando l'area di lavoro prima di usare la procedura descritta in questa sezione.
 
 1. Trovare il nome del Container Registry di Azure per l'area di lavoro, usando uno dei metodi seguenti:
 
@@ -217,6 +219,8 @@ Una volta soddisfatti questi requisiti, attenersi alla procedura seguente per ab
 
 1. Limitare l'accesso alla rete virtuale seguendo la procedura descritta in [configurare l'accesso alla rete per il registro di sistema](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). Quando si aggiunge la rete virtuale, selezionare la rete virtuale e la subnet per le risorse di Azure Machine Learning.
 
+1. Configurare ACR per l'area di lavoro per [consentire l'accesso da parte di servizi attendibili](../container-registry/allow-access-trusted-services.md).
+
 1. Usare Python SDK di Azure Machine Learning per configurare un cluster di elaborazione per compilare immagini Docker. Nel frammento di codice riportato di seguito viene illustrato come effettuare questa operazione:
 
     ```python
@@ -225,6 +229,8 @@ Una volta soddisfatti questi requisiti, attenersi alla procedura seguente per ab
     ws = Workspace.from_config()
     # Update the workspace to use an existing compute cluster
     ws.update(image_build_compute = 'mycomputecluster')
+    # To switch back to using ACR to build (if ACR is not in the VNet):
+    # ws.update(image_build_compute = None)
     ```
 
     > [!IMPORTANT]
