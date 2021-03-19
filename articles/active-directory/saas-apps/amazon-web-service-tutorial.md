@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: jeedes
-ms.openlocfilehash: f217a13ce68b42d3f9ee2dec4bfae47a0b64b0ca
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: e390eb62f64c9ec55605525828790f15633e5f14
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200044"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589532"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-account-access"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con AWS Single-Account Access
 
@@ -31,11 +31,11 @@ Usare le informazioni riportate di seguito per prendere una decisione tra l'uso 
 
 **AWS Single Sign-on**
 
-[AWS Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-tutorial) è stato aggiunto alla raccolta di applicazioni Azure AD nel 2021 febbraio. Consente di semplificare la gestione dell'accesso in modo centralizzato a più account AWS e applicazioni AWS, con accesso tramite Microsoft Azure AD. Federazione Microsoft Azure AD con AWS SSO una sola volta e usare AWS SSO per gestire le autorizzazioni in tutti gli account AWS da un'unica posizione. AWS SSO esegue automaticamente il provisioning delle autorizzazioni e le mantiene aggiornate quando si aggiornano i criteri e le assegnazioni di accesso. Gli utenti finali possono eseguire l'autenticazione con le credenziali Azure AD per accedere alla console di AWS, all'interfaccia della riga di comando e alle applicazioni di AWS SSO integrate.
+[AWS Single Sign-on](./aws-single-sign-on-tutorial.md) è stato aggiunto alla raccolta di applicazioni Azure AD nel 2021 febbraio. Consente di semplificare la gestione dell'accesso in modo centralizzato a più account AWS e applicazioni AWS, con accesso tramite Microsoft Azure AD. Federazione Microsoft Azure AD con AWS SSO una sola volta e usare AWS SSO per gestire le autorizzazioni in tutti gli account AWS da un'unica posizione. AWS SSO esegue automaticamente il provisioning delle autorizzazioni e le mantiene aggiornate quando si aggiornano i criteri e le assegnazioni di accesso. Gli utenti finali possono eseguire l'autenticazione con le credenziali Azure AD per accedere alla console di AWS, all'interfaccia della riga di comando e alle applicazioni di AWS SSO integrate.
 
 **Accesso Single-Account AWS**
 
-[AWS Single-Account Access](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) è stato usato dai clienti negli ultimi anni e consente di eseguire la Federazione Azure ad a un singolo account AWS e di usare Azure ad per gestire l'accesso ai ruoli IAM di AWS. Gli amministratori IAM di AWS definiscono i ruoli e i criteri in ogni account AWS. Per ogni account AWS, Azure AD amministratori federano in AWS IAM, assegnano utenti o gruppi all'account e configurano Azure AD per inviare asserzioni che autorizzano l'accesso ai ruoli.  
+[AWS Single-Account Access]() è stato usato dai clienti negli ultimi anni e consente di eseguire la Federazione Azure ad a un singolo account AWS e di usare Azure ad per gestire l'accesso ai ruoli IAM di AWS. Gli amministratori IAM di AWS definiscono i ruoli e i criteri in ogni account AWS. Per ogni account AWS, Azure AD amministratori federano in AWS IAM, assegnano utenti o gruppi all'account e configurano Azure AD per inviare asserzioni che autorizzano l'accesso ai ruoli.  
 
 | Funzionalità | Sign-On singola AWS | Accesso Single-Account AWS |
 |:--- |:---:|:---:|

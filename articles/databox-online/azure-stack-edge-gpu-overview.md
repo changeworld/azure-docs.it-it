@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 01/18/2021
 ms.author: alkohli
-ms.openlocfilehash: 059aad8b45aa449f5cd28c97f4ba55e2204c04ce
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 8e829d149e96cf658c7a5aaf37291e84def2061e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937067"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602656"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Che cos'è Azure Stack Edge Pro con GPU?
 
@@ -71,11 +71,13 @@ La soluzione Azure Stack Edge Pro è costituita dalla risorsa e dal dispositivo 
 
 Il dispositivo fisico Azure Stack Edge Pro, la risorsa di Azure e l'account di archiviazione di destinazione in cui trasferire i dati non devono necessariamente trovarsi tutti nella stessa area.
 
-- **Disponibilità delle risorse**: per questa versione di anteprima la risorsa è disponibile nelle aree Stati Uniti orientali, Europa occidentale e Asia sud-orientale.
+- **Disponibilità delle risorse** : per questa versione, la risorsa è disponibile nelle aree Stati Uniti orientali, Europa occidentale e Sud Asia orientale.
 
 - **Disponibilità del dispositivo**: per un elenco di tutti i paesi/aree geografiche in cui il dispositivo Azure Stack Edge Pro è disponibile, passare alla sezione **Disponibilità** nella scheda **Azure Stack Edge Pro** in [Prezzi di Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure. Per prestazioni ottimali, le aree in cui gli account archiviano i dati di Azure Stack Edge Pro devono trovarsi nelle vicinanze del dispositivo. Un account di archiviazione lontano dal dispositivo si traduce in lunghe latenze e prestazioni ridotte.
+
+Il servizio Azure Stack Edge è un servizio non regionale. Per altre informazioni, vedere [aree e zone di disponibilità in Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Il servizio Azure Stack Edge non presenta dipendenze da un'area di Azure specifica, rendendola resiliente alle interruzioni a livello di zona e alle interruzioni a livello di area.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

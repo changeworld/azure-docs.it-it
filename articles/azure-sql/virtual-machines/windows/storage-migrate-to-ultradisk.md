@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 42d7760d25f6ab591c19889eb2159711d6de1b07
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e8410b4e0997798eba5ee91f361c3a5f1ce47ef1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356753"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586302"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Esegui la migrazione del disco del log al disco Ultra
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,7 +51,7 @@ Per abilitare la compatibilità, attenersi alla seguente procedura:
 
 1. Selezionare **Sì** per **abilitare la compatibilità del disco Ultra**. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Screenshot che mostra l'opzione Sì.":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/enable-ultra-disks-existing-vm.png" alt-text="Screenshot che mostra l'opzione Sì.":::
 
 1. Selezionare **Salva**. 
 

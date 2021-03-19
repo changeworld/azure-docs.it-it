@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 22ee920c38a8cacaf37a1e3a6cfc5165dfa0bb44
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 4a8efff7ef53753e15a47e87a2bb82d0124ae997
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419950"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590450"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funzionalità di anteprima di Azure Firewall Premium
 
@@ -157,8 +157,7 @@ Certificati firmati dal cliente non attendibili|I certificati firmati dal client
 |Propagazione certificati|Dopo che un certificato CA è stato applicato al firewall, potrebbero essere necessari tra 5-10 minuti affinché il certificato abbia effetto.|Correzione pianificata per GA.|
 |Bypass IDP|Il bypass IDP non funziona per il traffico con terminazione TLS e i gruppi di indirizzi IP di origine e di origine non sono supportati.|Correzione pianificata per GA.|
 |Supporto di TLS 1,3|TLS 1,3 è parzialmente supportato. Il tunnel TLS dal client al firewall si basa su TLS 1,2 e dal firewall al server Web esterno si basa su TLS 1,3.|È in corso l'analisi degli aggiornamenti.|
-
-
+|Endpoint privato dell'insieme di credenziali delle credenziali|L'insieme di credenziali delle proprietà supporta l'accesso a endpoint privati per limitare l'esposizione alla rete. I servizi di Azure attendibili possono ignorare questa limitazione se un'eccezione viene configurata come descritto nella [documentazione](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)di insieme di credenziali delle credenziali. Il firewall di Azure non è attualmente elencato come servizio attendibile e non può accedere al Key Vault.|Correzione pianificata per GA.|
 
 
 ## <a name="next-steps"></a>Passaggi successivi

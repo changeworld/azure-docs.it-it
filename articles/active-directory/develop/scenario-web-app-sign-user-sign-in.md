@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 10ddee404de21c5bc04672fdb6dd32c30f481ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937850"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578244"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>App Web per l'accesso degli utenti: accesso e disconnessione
 
@@ -95,6 +95,16 @@ Nella Guida introduttiva di Java il pulsante di accesso si trova nel file [Main/
 </html>
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Nella Guida introduttiva Node.js non è disponibile alcun pulsante di accesso. Il code-behind chiede automaticamente all'utente di accedere quando raggiunge la radice dell'app Web.
+
+```javascript
+app.get('/', (req, res) => {
+    // authentication logic
+});
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 Nella Guida introduttiva di Python non è disponibile alcun pulsante di accesso. Il code-behind chiede automaticamente all'utente di accedere quando raggiunge la radice dell'app Web. Vedere [app. py # L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18).
@@ -113,7 +123,7 @@ def index():
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET, selezionando il pulsante di **accesso** nell'app Web, viene attivata l' `SignIn` azione sul `AccountController` controller. Nelle versioni precedenti dei modelli ASP.NET Core il `Account` controller era incorporato con l'app Web. Non è più così perché il controller fa ora parte del pacchetto NuGet **Microsoft. Identity. Web. UI** . Per informazioni dettagliate, vedere [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) .
+In ASP.NET, selezionando il pulsante di **accesso** nell'app Web, viene attivata l' `SignIn` azione sul `AccountController` controller. Nelle versioni precedenti dei modelli ASP.NET Core il `Account` controller era incorporato con l'app Web. Non è più così perché il controller fa ora parte del pacchetto NuGet **Microsoft. Identity. Web. UI** . Per informazioni dettagliate, vedere [AccountController. cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) .
 
 Questo controller gestisce anche le applicazioni Azure AD B2C.
 
@@ -158,6 +168,43 @@ public class AuthPageController {
     }
 
     // More code omitted for simplicity
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+A differenza di altre piattaforme, qui il nodo MSAL si occupa di consentire all'utente di accedere dalla pagina di accesso.
+
+```javascript
+
+// 1st leg of auth code flow: acquire a code
+app.get('/', (req, res) => {
+    const authCodeUrlParameters = {
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    // get url to sign user in and consent to scopes needed for application
+    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+        res.redirect(response);
+    }).catch((error) => console.log(JSON.stringify(error)));
+});
+
+// 2nd leg of auth code flow: exchange code for token
+app.get('/redirect', (req, res) => {
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send(error);
+    });
+});
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -229,6 +276,10 @@ Durante la registrazione dell'applicazione, si registra un URL di disconnessione
 Durante la registrazione dell'applicazione, non è necessario registrare un URL di disconnessione front-Channel aggiuntivo. L'app verrà richiamata sull'URL principale. 
 
 # <a name="java"></a>[Java](#tab/java)
+
+Nella registrazione dell'applicazione non è richiesto alcun URL di disconnessione front-Channel.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Nella registrazione dell'applicazione non è richiesto alcun URL di disconnessione front-Channel.
 
@@ -305,6 +356,10 @@ Nella Guida introduttiva di Java il pulsante di disconnessione si trova nel file
 ...
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Questa applicazione di esempio non implementa la disconnessione.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Nella Guida introduttiva di Python, il pulsante di disconnessione è disponibile nel file [templates/index.html # L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) .
@@ -330,13 +385,13 @@ Nella Guida introduttiva di Python, il pulsante di disconnessione è disponibile
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Nelle versioni precedenti dei modelli ASP.NET Core il `Account` controller era incorporato con l'app Web. Non è più così perché il controller fa ora parte del pacchetto NuGet **Microsoft. Identity. Web. UI** . Per informazioni dettagliate, vedere [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) .
+Nelle versioni precedenti dei modelli ASP.NET Core il `Account` controller era incorporato con l'app Web. Non è più così perché il controller fa ora parte del pacchetto NuGet **Microsoft. Identity. Web. UI** . Per informazioni dettagliate, vedere [AccountController. cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) .
 
 - Imposta un URI di reindirizzamento OpenID su in `/Account/SignedOut` modo che il controller venga richiamato quando Azure ad ha completato la disconnessione.
 - Chiama `Signout()` , che consente al middleware di OpenID Connect di contattare l'endpoint della piattaforma di identità Microsoft `logout` . L'endpoint:
 
   - Cancella il cookie di sessione dal browser.
-  - Richiama l'URI di reindirizzamento dopo la disconnessione. Per impostazione predefinita, l'URI di reindirizzamento dopo la disconnessione Visualizza la pagina di visualizzazione [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Questa pagina viene fornita anche come parte di Microsoft. Identity. Web.
+  - Richiama l'URI di reindirizzamento dopo la disconnessione. Per impostazione predefinita, l'URI di reindirizzamento dopo la disconnessione Visualizza la pagina di visualizzazione disconnesso [. cshtml. cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Questa pagina viene fornita anche come parte di Microsoft. Identity. Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -376,6 +431,10 @@ In Java la disconnessione viene gestita chiamando direttamente l'endpoint della 
                 URLEncoder.encode(redirectUrl, "UTF-8"));
     }
 ```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Questa applicazione di esempio non implementa la disconnessione.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -420,6 +479,10 @@ public class AccountController : Controller
 # <a name="java"></a>[Java](#tab/java)
 
 Nella Guida introduttiva per Java, l'URI di reindirizzamento di post-disconnessione Visualizza solo la pagina index.html.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Questa applicazione di esempio non implementa la disconnessione.
 
 # <a name="python"></a>[Python](#tab/python)
 

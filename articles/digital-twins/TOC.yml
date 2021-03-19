@@ -173,6 +173,8 @@
               href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
     - name: Interfaccia della riga di comando di Gemelli digitali
       href: /cli/azure/ext/azure-iot/dt
+    - name: Specifica DTDL v2
+      href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
 - name: Risorse
   items:
     - name: Limiti del servizio Gemelli digitali
@@ -212,9 +214,9 @@
             - name: Python SDK - Codice sorgente
               href: 'https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins'
             - name: Go SDK - GoDoc
-              href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
+              href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt'
             - name: Go - Codice sorgente
-              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt'
         - name: Piano dati
           items:
             - name: Swagger del piano dati
@@ -275,8 +277,6 @@
           href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
     - name: DTDL
       items:
-        - name: Specifica DTDL v2
-          href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
         - name: Estensione DTDL per VS Code
           href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
         - name: Libreria dei parser DTDL - NuGet

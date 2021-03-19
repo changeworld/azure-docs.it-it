@@ -1,15 +1,15 @@
 ---
 title: Definizioni di criteri predefinite per istanze di contenitore di Azure
 description: Elenca le definizioni dei criteri predefiniti di criteri di Azure per le istanze di contenitore di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7790d3a6f2ee8cc5fbdd8f36ca23a88d00593ece
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 990c9070f49438a6f66f5c1861479c298d1d8b90
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103422173"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606864"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-instances"></a>Definizioni predefinite di criteri di Azure per istanze di contenitore di Azure
 

@@ -20,14 +20,14 @@
     - name: 1 - Creare un'area di lavoro di Synapse
       href: get-started-create-workspace.md
       displayName: 'get, started'
-    - name: 2 - Analizzare l'uso di un pool SQL dedicato
-      href: get-started-analyze-sql-pool.md
+    - name: 2 analizza con pool SQL senza server
+      href: get-started-analyze-sql-on-demand.md
       displayName: 'get, started'
     - name: 3 - Usare Spark per l'analisi
       href: get-started-analyze-spark.md
       displayName: 'get, started'
-    - name: 4 - Analizzare l'uso di un pool SQL serverless
-      href: get-started-analyze-sql-on-demand.md
+    - name: 4 analizzare usando un pool SQL dedicato
+      href: get-started-analyze-sql-pool.md
       displayName: 'get, started'
     - name: 5 - Analizzare i dati in un account di archiviazione
       href: get-started-analyze-storage.md
@@ -187,6 +187,10 @@
               href: troubleshoot/workspaces-created-by-sdk.md
             - name: Risolvere i problemi di lettura di testo UTF-8
               href: troubleshoot/reading-utf8-text.md
+- name: Guide alla migrazione
+  items:
+    - name: Eseguire la migrazione a un pool SQL dedicato
+      href: migration-guides/migrate-to-synapse-analytics-guide.md
 - name: SQL Synapse
   items:
     - name: Panoramica
@@ -211,9 +215,9 @@
         - name: Gestione dei costi per i pool SQL serverless
           href: sql/data-processed.md
         - name: Procedure consigliate per i pool SQL serverless
-          href: sql/best-practices-sql-on-demand.md
+          href: sql/best-practices-serverless-sql-pool.md
         - name: Procedure consigliate per i pool SQL dedicati
-          href: sql/best-practices-sql-pool.md
+          href: sql/best-practices-dedicated-sql-pool.md
     - name: Avvi rapidi
       items:
         - name: Usare i pool SQL serverless

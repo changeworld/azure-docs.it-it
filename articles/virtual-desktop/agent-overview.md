@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 325502255e84e38a39ca5b90ee4126354c0d425b
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ecc4a5a17186eddd4223715462b14399bdf702df
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601241"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601891"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Introduzione all'agente desktop virtuale di Windows
 
@@ -32,7 +32,10 @@ L'agente desktop virtuale di Windows viene inizialmente installato in uno dei du
 
 ## <a name="agent-update-process"></a>Processo di aggiornamento dell'agente
 
-Il servizio desktop virtuale di Windows aggiorna automaticamente l'agente ogni volta che un aggiornamento diventa disponibile. Gli aggiornamenti dell'agente possono includere nuove funzionalità o risolvere i problemi precedenti. Una volta installata la versione iniziale di Windows Virtual Desktop Agent, l'agente esegue periodicamente query sul servizio desktop virtuale Windows per determinare se è disponibile una versione più recente dell'agente e dei relativi componenti. Se è presente una nuova versione, il bootloader dell'agente Scarica automaticamente la versione più recente dell'agente, lo stack affiancato e l'agente di monitoraggio di Ginevra.
+Il servizio desktop virtuale di Windows aggiorna l'agente ogni volta che un aggiornamento diventa disponibile. Gli aggiornamenti dell'agente possono includere nuove funzionalità o correzioni per i problemi precedenti. Una volta installata la versione iniziale di Windows Virtual Desktop Agent, l'agente esegue periodicamente query sul servizio desktop virtuale Windows per determinare se è disponibile una versione più recente del componente agente, stack o monitoraggio. Se è già stata distribuita una versione più recente di uno dei componenti, il componente aggiornato viene installato automaticamente.
+
+Le nuove versioni dell'agente vengono distribuite a intervalli regolari nei periodi settimana a tutte le sottoscrizioni di Azure. Questi periodi di aggiornamento sono detti "voli". Quando si verifica un volo, è possibile che le macchine virtuali nel pool host ricevano l'aggiornamento dell'agente in momenti diversi. Tutti gli agenti di macchine virtuali in tutte le sottoscrizioni verranno aggiornati entro la fine del periodo di distribuzione. Il sistema di volo per desktop virtuali Windows migliora l'affidabilità del servizio garantendo la stabilità e la qualità dell'aggiornamento dell'agente.
+
 
 >[!NOTE]
 >- Quando l'agente di monitoraggio di Ginevra esegue l'aggiornamento alla versione più recente, l'attività GenevaTask precedente viene individuata e disabilitata prima di creare una nuova attività per il nuovo agente di monitoraggio. La versione precedente dell'agente di monitoraggio non viene eliminata se la versione più recente dell'agente di monitoraggio presenta un problema che richiede il ripristino della versione precedente per la correzione. Se la versione più recente presenta un problema, l'agente di monitoraggio precedente verrà riabilitato per continuare a consegnare i dati di monitoraggio. Tutte le versioni del monitoraggio precedenti all'ultima installata prima dell'aggiornamento verranno eliminate dalla macchina virtuale.

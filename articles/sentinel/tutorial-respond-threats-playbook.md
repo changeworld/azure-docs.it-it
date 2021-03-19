@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Eseguire un playbook in Azure Sentinel'
-description: Questa esercitazione illustra come usare i playbook di sicurezza di Azure Sentinel per impostare risposte automatizzate alle minacce per i problemi legati alla sicurezza.
+title: 'Esercitazione: usare PlayBook con regole di automazione in Sentinel di Azure'
+description: Usare questa esercitazione per usare i PlayBook insieme alle regole di automazione in Sentinel di Azure per automatizzare la risposta agli eventi imprevisti e correggere le minacce per la sicurezza.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,107 +14,199 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/18/2019
+ms.date: 02/18/2021
 ms.author: yelevin
-ms.openlocfilehash: b6fd26b4965b92f5f06a008d67e2d585fd1b41b7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
-ms.translationtype: HT
+ms.openlocfilehash: 365ba9df39b4b3bd7397e86e6a51b285bf049242
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652077"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600633"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Esercitazione: Configurare le risposte automatiche alle minacce in Azure Sentinel
+# <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>Esercitazione: usare PlayBook con regole di automazione in Sentinel di Azure
 
-
-
-Questa esercitazione illustra come usare i playbook di sicurezza in Azure Sentinel per impostare risposte automatiche ai problemi relativi alla sicurezza rilevati da Azure Sentinel.
-
+Questa esercitazione illustra come usare i PlayBook insieme alle regole di automazione per automatizzare la risposta agli eventi imprevisti e correggere le minacce alla sicurezza rilevate da Azure Sentinel. Al termine di questa esercitazione, sarà possibile:
 
 > [!div class="checklist"]
-> * Informazioni sui playbook
+>
+> * Creare una regola di automazione
 > * Creare un playbook
-> * Eseguire un playbook
-> * Automatizzare le risposte alle minacce
+> * Aggiungere azioni a un PlayBook
+> * Aggiungere un PlayBook a una regola di automazione o una regola di analisi per automatizzare la risposta alle minacce
 
+## <a name="what-are-automation-rules-and-playbooks"></a>Che cosa sono le regole e i PlayBook di automazione?
 
-## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>Definizione di playbook di sicurezza in Azure Sentinel
+Le regole di automazione consentono di valutare gli eventi imprevisti in Sentinel di Azure. È possibile usarli per assegnare automaticamente gli eventi imprevisti al personale appropriato, chiudere gli eventi imprevisti rumorosi o i falsi positivi noti, modificare la gravità e aggiungere i tag. Sono anche il meccanismo mediante il quale è possibile eseguire PlayBook in risposta a eventi imprevisti.
 
-Un playbook di sicurezza è una raccolta di procedure che possono essere eseguite da Azure Sentinel in risposta a un avviso. Un playbook di sicurezza può contribuire ad automatizzare e orchestrare la risposta e può essere eseguito manualmente o impostato per l'esecuzione automatica quando vengono attivati avvisi specifici. I playbook di sicurezza in Azure Sentinel si basano su [App per la logica di Azure](../logic-apps/logic-apps-overview.md), il che significa che sarà possibile sfruttare tutta la potenza, la personalizzazione e i modelli integrati di App per la logica. Ogni playbook viene creato per la specifica sottoscrizione scelta, ma quando si osserva la pagina dei playbook verranno visualizzati tutti i playbook delle sottoscrizioni selezionate.
+I PlayBook sono raccolte di procedure che possono essere eseguite da Azure Sentinel in risposta a un avviso o a un evento imprevisto. Un PlayBook consente di automatizzare e orchestrare la risposta e può essere impostata in modo da essere eseguita automaticamente quando si generano avvisi o eventi imprevisti specifici, che vengono collegati rispettivamente a una regola di analisi o a una regola di automazione. Può essere eseguito anche manualmente su richiesta.
+
+I PlayBook in Sentinel di Azure si basano sui flussi di lavoro compilati in app per la [logica di Azure](../logic-apps/logic-apps-overview.md), il che significa che è possibile ottenere tutta la potenza, la personalizzazione e i modelli predefiniti delle app per la logica. Ogni PlayBook viene creato per la sottoscrizione specifica a cui appartiene, ma la visualizzazione **PlayBook** Mostra tutti i PlayBook disponibili in tutte le sottoscrizioni selezionate.
 
 > [!NOTE]
-> I playbook sfruttano le funzionalità di App per la logica di Azure, quindi sono previsti addebiti. Per altre informazioni, vedere la pagina dei prezzi per [App per la logica di Azure](https://azure.microsoft.com/pricing/details/logic-apps/).
+> Poiché i PlayBook usano app per la logica di Azure, potrebbero essere applicati addebiti aggiuntivi. Per altri dettagli, visitare la pagina dei prezzi di app per la [logica di Azure](https://azure.microsoft.com/pricing/details/logic-apps/) .
 
-Se ad esempio si teme che utenti malintenzionati accedano alle risorse di rete, è possibile impostare un avviso che cerca indirizzi IP dannosi che accedono alla rete. È quindi possibile creare un playbook che esegue queste operazioni:
-1. Quando viene attivato l'avviso, aprire un ticket in ServiceNow o in qualsiasi altro sistema di creazione di ticket IT.
-2. Inviare un messaggio al canale delle operazioni di sicurezza in Microsoft Teams o Slack per assicurarsi che i propri analisti della sicurezza siano a conoscenza dell'evento imprevisto.
-3. Inviare tutte le informazioni nell'avviso all'amministratore di rete senior e all'amministratore della sicurezza. Il messaggio di posta elettronica include anche due pulsanti di opzione **Blocca** o **Ignora**.
-4. Il playbook continua a funzionare dopo la ricezione di una risposta dagli amministratori.
-5. Se gli amministratori scelgono **Blocca**, l'indirizzo IP viene bloccato nel firewall e l'utente è disabilitato in Azure AD.
-6. Se gli amministratori scelgono **Ignora**, l'avviso viene chiuso in Azure Sentinel e l'evento imprevisto viene chiuso in ServiceNow.
+Se, ad esempio, si desidera arrestare l'esplorazione della rete da parte di utenti potenzialmente compromessi, è possibile creare una risposta automatizzata e con più facet agli eventi imprevisti generati da regole che rilevano utenti compromessi. Si inizia creando un PlayBook che esegue le azioni seguenti:
 
-I playbook di sicurezza possono essere eseguiti manualmente o automaticamente. Se vengono eseguiti manualmente, quando si riceve un avviso è possibile scegliere di eseguire un playbook su richiesta come risposta all'avviso selezionato. Se vengono eseguiti automaticamente, la regola di correlazione creata viene impostata per l'esecuzione automatica di uno o più playbook quando viene attivato l'avviso.
+1. Quando il PlayBook viene chiamato da una regola di automazione che lo passa a un evento imprevisto, il PlayBook apre un ticket in [ServiceNow](/connectors/service-now/) o in qualsiasi altro sistema di ticketing it.
 
+1. Invia un messaggio al canale delle operazioni di sicurezza in [Microsoft teams](/connectors/teams/) o [Slack](/connectors/slack/) per assicurarsi che gli analisti della sicurezza siano consapevoli dell'evento imprevisto.
 
-## <a name="create-a-security-playbook"></a>Creare un playbook di sicurezza
+1. Invia anche tutte le informazioni contenute nell'evento imprevisto in un messaggio di posta elettronica all'amministratore di rete e amministratore della sicurezza senior. Il messaggio di posta elettronica includerà i pulsanti di opzione **blocca** e **Ignora** utente.
 
-Seguire questa procedura per creare un nuovo playbook di sicurezza in Azure Sentinel:
+1. Il PlayBook resta in attesa finché non viene ricevuta una risposta dagli amministratori, quindi continua con i passaggi successivi.
 
-1. Aprire il dashboard di **Azure Sentinel**.
-2. In **Configurazione** selezionare **Playbook**.
+1. Se l'amministratore sceglie **blocco**, invia un comando a Azure ad per disabilitare l'utente e uno al firewall per bloccare l'indirizzo IP.
 
-   ![App per la logica](./media/tutorial-respond-threats-playbook/playbookimg.png)
+1. Se gli amministratori scelgono **Ignora**, il PlayBook chiude l'evento imprevisto in Sentinel di Azure e il ticket in ServiceNow.
 
-3. Nella pagina **Azure Sentinel - Playbook** fare clic sul pulsante **Aggiungi**.
+Per attivare il PlayBook, si creerà quindi una regola di automazione che viene eseguita quando vengono generati questi eventi imprevisti. Questa regola effettuerà le seguenti operazioni:
 
-   ![Creare l'app per la logica](./media/tutorial-respond-threats-playbook/create-playbook.png) 
+1. La regola imposta lo stato dell'evento imprevisto su **attivo**.
 
-4. Nella pagina **Crea app per la logica** digitare le informazioni richieste per creare la nuova app per la logica e fare clic su **Crea**. 
+1. Assegna l'evento imprevisto all'analista che è responsabile della gestione di questo tipo di evento imprevisto.
 
-5. In [**Progettazione app per la logica**](../logic-apps/logic-apps-overview.md) selezionare il modello che si vuole usare. Se si seleziona un modello che richiede credenziali, sarà necessario fornirle. In alternativa è possibile creare un nuovo playbook vuoto da zero. Selezionare **App per la logica vuota**. 
+1. Viene aggiunto il tag "utente compromesso".
 
-   ![Screenshot che mostra il pannello App per la logica vuota.](./media/tutorial-respond-threats-playbook/playbook-template.png)
+1. Infine, viene chiamato il PlayBook appena creato. [Per questo passaggio sono necessarie autorizzazioni speciali](automate-responses-with-playbooks.md#incident-creation-automated-response).
 
-6. Verrà visualizzata la pagina Progettazione app per la logica in cui è possibile creare un nuovo modello oppure modificarne uno esistente. Vedere altre informazioni sulla creazione di un playbook con [App per la logica](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
+I PlayBook possono essere eseguiti automaticamente in risposta a eventi imprevisti, creando regole di automazione che chiamano i PlayBook come azioni, come nell'esempio precedente. Possono anche essere eseguiti automaticamente in risposta agli avvisi, indicando alla regola di analisi di eseguire automaticamente uno o più PlayBook quando viene generato l'avviso. 
 
-7. Se si sta creando un playbook vuoto, nel campo **Cerca tutti i connettori e i trigger** digitare *Azure Sentinel* e selezionare **When a response to an Azure Sentinel alert is triggered** (Quando viene attivata una risposta a un avviso di Azure Sentinel). <br>Dopo averlo creato, il nuovo playbook viene visualizzato nell'elenco **Playbook**. Se non viene visualizzato, fare clic su **Aggiorna**.
+È anche possibile scegliere di eseguire manualmente un PlayBook su richiesta, in risposta a un avviso selezionato.
 
-1. Usare le funzioni di **Recupera entità** che consentono di ottenere le entità pertinenti dall'interno dell'elenco **Entità**, come account, indirizzi IP e host. In questo modo sarà possibile eseguire azioni su entità specifiche.
+Ottenere un'introduzione più completa e dettagliata sull'automazione della risposta alle minacce usando regole e [PlayBook](automate-responses-with-playbooks.md) di [automazione](automate-incident-handling-with-automation-rules.md) in Sentinel di Azure.
 
-7. È ora possibile definire cosa accade quando si attiva il playbook. È possibile aggiungere un'azione, una condizione logica, condizioni switch case o cicli.
+> [!IMPORTANT]
+>
+> - Le **regole di automazione** e l'uso del trigger per gli **eventi imprevisti** per i PlayBook sono attualmente in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali aggiuntive che si applicano alle funzionalità di Azure disponibili in versione beta, in anteprima o non ancora rilasciate a livello generale.
 
-   ![Progettazione app per la logica](./media/tutorial-respond-threats-playbook/logic-app.png)
+## <a name="create-a-playbook"></a>Creare un playbook
 
-## <a name="how-to-run-a-security-playbook"></a>Come eseguire un playbook di sicurezza
+Per creare un nuovo playbook in Sentinel di Azure, seguire questa procedura:
 
-È possibile eseguire un playbook su richiesta.
+### <a name="prepare-the-playbook-and-logic-app"></a>Preparare il PlayBook e l'app per la logica
 
-Per eseguire un playbook su richiesta:
+1. Dal menu di navigazione di **Azure Sentinel** selezionare **automazione**.
 
-1. Nella pagina **incidents** (eventi imprevisti) selezionare un evento imprevisto e fare clic su **View full details** (Visualizza i dettagli completi).
+1. Nel menu in alto selezionare **Crea** e **Aggiungi nuovo playbook**.
 
-2. Nella scheda **Alerts** (Avvisi) fare clic sull'avviso sul quale eseguire il playbook, scorrere verso destra e fare clic su **View playbooks** (Visualizza i playbook). Selezionare quindi un playbook da **eseguire** dall'elenco di playbook disponibili nella sottoscrizione. 
+    :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Aggiungere un nuovo playbook":::
 
+    Verrà visualizzata una nuova scheda del browser che consente di passare alla procedura guidata **Crea un'app** per la logica.
 
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook.png" alt-text="Creare un'app per la logica":::
+
+1. Immettere la **sottoscrizione** e il **gruppo di risorse** e assegnare un nome al PlayBook sotto il nome dell'app per la **logica**.
+
+1. Per **Region (area**) selezionare l'area di Azure in cui archiviare le informazioni sull'app per la logica.
+
+1. Se si vuole monitorare l'attività del PlayBook per scopi diagnostici, selezionare la casella di controllo **Abilita log Analytics** e immettere il nome dell' **area di lavoro log Analytics** .
+
+1. Se si desidera applicare tag al PlayBook, fare clic su **Avanti: tag >** (non connesso ai tag applicati dalle regole di automazione. [Altre informazioni sui tag](../azure-resource-manager/management/tag-resources.md). In caso contrario, fare clic su **Verifica + crea**. Confermare i dettagli specificati, quindi fare clic su **Crea**.
+
+1. Durante la creazione e la distribuzione del PlayBook (l'operazione richiederà alcuni minuti), verrà visualizzata una schermata denominata **Microsoft. EmptyWorkflow**. Quando viene visualizzato il messaggio "distribuzione completata", fare clic su **Vai alla risorsa.**
+
+1. Si verrà portati alla [finestra di progettazione delle app](../logic-apps/logic-apps-overview.md)per la logica del nuovo playbook, in cui è possibile iniziare a progettare il flusso di lavoro. Verrà visualizzata una schermata con un breve video introduttivo e alcuni trigger e modelli di app per la logica usati di frequente. [Altre](../logic-apps/logic-apps-create-logic-apps-from-templates.md) informazioni sulla creazione di un PlayBook con le app per la logica.
+
+1. Selezionare il modello **App per la logica vuota**.
+
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-playbook-template.png" alt-text="Raccolta di modelli di progettazione di app per la logica":::
+
+### <a name="choose-the-trigger"></a>Scegliere il trigger
+
+Ogni PlayBook deve iniziare con un trigger. Il trigger definisce l'azione che avvierà il PlayBook e lo schema che si prevede di ricevere.
+
+1. Nella barra di ricerca cercare Azure Sentinel. Selezionare **Sentinel di Azure** quando viene visualizzato nei risultati.
+
+1. Nella scheda **trigger** risultante si vedranno i due trigger offerti da Azure Sentinel:
+    - Quando viene attivata una risposta a un avviso di Azure Sentinel
+    - When Azure Sentinel incident creation rule is triggered (Quando viene attivata la regola di creazione degli eventi imprevisti di Azure Sentinel)
+
+   Scegliere il trigger corrispondente al tipo di PlayBook che si sta creando.
+
+    :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="Scegliere un trigger per il PlayBook":::
+
+### <a name="add-actions"></a>Aggiunta di azioni
+
+A questo punto è possibile definire cosa accade quando si chiama il PlayBook. È possibile aggiungere azioni, condizioni logiche, cicli o condizioni del cambio di maiuscole e minuscole selezionando **nuovo passaggio**. Questa selezione consente di aprire un nuovo frame nella finestra di progettazione, in cui è possibile scegliere un sistema o un'applicazione con cui interagire o una condizione da impostare. Immettere il nome del sistema o dell'applicazione nella barra di ricerca nella parte superiore del frame, quindi scegliere tra i risultati disponibili.
+
+In ognuno di questi passaggi, facendo clic su qualsiasi campo viene visualizzato un pannello con due menu: **contenuto dinamico** ed **espressione**. Dal menu **contenuto dinamico** è possibile aggiungere riferimenti agli attributi dell'avviso o dell'evento imprevisto passato al PlayBook, inclusi i valori e gli attributi di tutte le entità in questione. Dal menu **espressione** è possibile scegliere da un'ampia libreria di funzioni per aggiungere logica aggiuntiva ai passaggi.
+
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/logic-app.png" alt-text="Progettazione app per la logica":::
+
+Questo screenshot mostra le azioni e le condizioni che si aggiungono per la creazione del PlayBook descritto nell'esempio all'inizio di questo documento. L'unica differenza è rappresentata dal fatto che, nel PlayBook illustrato di seguito, si sta usando il **trigger Alert** anziché il **trigger Incident**. Questo significa che questo PlayBook verrà chiamato direttamente da una regola di analisi, non da una regola di automazione. Di seguito vengono descritte entrambe le modalità di chiamata di un PlayBook.
 
 ## <a name="automate-threat-responses"></a>Automatizzare le risposte alle minacce
 
-I team SIEM/SOC possono essere inondati periodicamente da avvisi di sicurezza. Il numero degli avvisi generati è talmente elevato che gli amministratori della sicurezza disponibili sono sovraccaricati. La conseguenza è che troppo spesso molti avvisi non possono essere analizzati, lasciando l'organizzazione vulnerabile ad attacchi che non vengono rilevati. 
+Sono stati creati il PlayBook e è stato definito il trigger, sono state impostate le condizioni e sono state prescritte le azioni che verranno eseguite e gli output che produrranno. A questo punto è necessario determinare i criteri in base ai quali verrà eseguito e configurare il meccanismo di automazione che lo eseguirà quando vengono soddisfatti tali criteri.
 
-Molti di questi avvisi, se non la maggior parte, seguono modelli ricorrenti che possono essere risolti con azioni correttive specifiche e definite. Azure Sentinel consente già di definire le misure correttive nei playbook. È anche possibile impostare l'automazione in tempo reale come parte della definizione dei playbook, consentendo di automatizzare completamente una risposta definita a determinati avvisi di sicurezza. Usando l'automazione in tempo reale, i team di sicurezza possono ridurre sensibilmente il loro carico di lavoro automatizzando completamente le risposte di routine ai tipi di avviso ricorrenti, con la possibilità di concentrarsi maggiormente su avvisi univoci, analisi dei modelli, ricerca di minacce e altro ancora.
+### <a name="respond-to-incidents"></a>Rispondere agli eventi imprevisti
 
-Per automatizzare le risposte:
+Si usa un PlayBook per rispondere a un **evento imprevisto** creando una [regola di automazione](automate-incident-handling-with-automation-rules.md) che verrà eseguita quando viene generato l'evento imprevisto e a sua volta chiamerà il PlayBook.
 
-1. Selezionare l'avviso per cui si vuole automatizzare la risposta.
-1. Nella pagina **Modifica la regola di avviso**, in **Playbook attivati** della sezione **Automazione in tempo reale**, scegliere il playbook che si vuole eseguire quando viene trovata una corrispondenza con la regola di avviso.
-1. Selezionare **Salva**.
+Per creare una regola di automazione:
 
-   ![Automazione in tempo reale](./media/tutorial-detect-threats/rt-configuration.png)
+1. Dal pannello **automazione** nel menu di navigazione di Azure Sentinel selezionare **Crea** dal menu in alto e quindi **Aggiungi nuova regola**.
 
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-rule.png" alt-text="Aggiungi una nuova regola":::
 
+1. Verrà aperto il pannello **Crea nuova regola di automazione** . Immettere un nome per la regola.
 
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-automation-rule.png" alt-text="Creare una regola di automazione":::
 
+1. Se si vuole che la regola di automazione abbia effetto solo su determinate regole di analisi, specificare quali modifiche modificando la condizione di **nome della regola if Analytics** .
 
+1. Aggiungere qualsiasi altra condizione da cui si desidera che questa attivazione della regola di automazione dipenda da. Fare clic su **Aggiungi condizione** e scegliere condizioni dall'elenco a discesa. L'elenco delle condizioni viene popolato dai campi Dettagli avviso e identificatore dell'entità.
+
+1. Scegliere le azioni che devono essere eseguite da questa regola di automazione. Le azioni disponibili includono **assegna proprietario**, **Cambia stato**, **modifica gravità**, **Aggiungi tag** ed **Esegui PlayBook**. È possibile aggiungere tutte le azioni desiderate.
+
+1. Se si aggiunge un'azione **Esegui PlayBook** , verrà richiesto di scegliere dall'elenco a discesa dei PlayBook disponibili. Solo i PlayBook che iniziano con il **trigger di evento imprevisto** possono essere eseguiti dalle regole di automazione, quindi solo essi verranno visualizzati nell'elenco.
+
+    > [!IMPORTANT]
+    > Per eseguire PlayBook da regole di automazione, è necessario concedere le autorizzazioni esplicite a Sentinel di Azure. Se nella casella di riepilogo a discesa viene visualizzato un PlayBook, significa che Sentinel non dispone dell'autorizzazione per il gruppo di risorse del PlayBook. Fare clic sul collegamento **Gestisci autorizzazioni PlayBook** per assegnare le autorizzazioni.
+    > Nel pannello **Gestisci autorizzazioni** visualizzato, contrassegnare le caselle di controllo dei gruppi di risorse contenenti i PlayBook da eseguire e fare clic su **applica**.
+    > :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Gestione autorizzazioni":::
+    > - È necessario avere le autorizzazioni di **proprietario** per qualsiasi gruppo di risorse a cui si vogliono concedere le autorizzazioni di Azure Sentinel ed è necessario avere il ruolo di **collaboratore dell'app** per la logica in qualsiasi gruppo di risorse che contiene i PlayBook che si vuole eseguire.
+    > - In una distribuzione multi-tenant, se il PlayBook che si vuole eseguire si trova in un tenant diverso, è necessario concedere l'autorizzazione Sentinel di Azure per eseguire il PlayBook nel tenant del PlayBook.
+    >    1. Dal menu di navigazione di Azure Sentinel nel tenant di Playbooks selezionare **Settings (impostazioni**).
+    >    1. Nel pannello **Impostazioni** selezionare la scheda **Impostazioni** , quindi l'espansore **autorizzazioni PlayBook** .
+    >    1. Fare clic sul pulsante **Configura autorizzazioni** per aprire il pannello **Gestisci autorizzazioni** indicato in precedenza e continuare come descritto.
+
+1. Impostare una data di scadenza per la regola di automazione, se si vuole che ne abbia una.
+
+1. Immettere un numero per determinare la posizione in cui verrà eseguita la regola nella sequenza di **regole di automazione** .
+
+1. Fare clic su **Applica**. L'operazione è completata.
+
+[Scopri altri modi](automate-incident-handling-with-automation-rules.md#creating-and-managing-automation-rules) per creare regole di automazione.
+
+### <a name="respond-to-alerts"></a>Rispondere agli avvisi
+
+Si usa un PlayBook per rispondere a un **avviso** creando una **regola di analisi** o modificando uno esistente, che viene eseguito quando viene generato l'avviso e selezionando il PlayBook come risposta automatica nella [creazione guidata regola di analisi](tutorial-detect-threats-custom.md).
+
+1. Dal pannello **analisi** nel menu di navigazione di Azure Sentinel selezionare la regola di analisi per cui si vuole automatizzare la risposta e fare clic su **modifica** nel riquadro dettagli.
+
+1. Nella pagina **Modifica regola esistente della creazione guidata regola di analisi** selezionare la scheda **risposta automatica** .
+
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/automated-response-tab.png" alt-text="Scheda risposta automatica":::
+
+1. Scegliere il PlayBook dall'elenco a discesa. È possibile scegliere più di un PlayBook, ma saranno disponibili solo i PlayBook che usano il **trigger di avviso** .
+
+1. Nella scheda **Verifica e crea** selezionare **Salva**.
+
+## <a name="run-a-playbook-on-demand"></a>Eseguire un playbook su richiesta
+
+È anche possibile eseguire un PlayBook su richiesta.
+
+ > [!NOTE]
+ > Solo i PlayBook che usano il **trigger di avviso** possono essere eseguiti su richiesta.
+
+Per eseguire un playbook su richiesta:
+
+1. Nella pagina **eventi imprevisti** selezionare un evento imprevisto e fare clic su **Visualizza dettagli completi**.
+
+2. Nella scheda **Alerts** (Avvisi) fare clic sull'avviso sul quale eseguire il playbook, scorrere verso destra e fare clic su **View playbooks** (Visualizza i playbook). Selezionare quindi un playbook da **eseguire** dall'elenco di playbook disponibili nella sottoscrizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come eseguire un playbook in Azure Sentinel. Vedere ora [come cercare le minacce in modo proattivo](hunting.md) usando Azure Sentinel.
+In questa esercitazione si è appreso come usare PlayBook e regole di automazione in Sentinel di Azure per rispondere alle minacce. 
+- Informazioni su come [cercare in modo proattivo le minacce](hunting.md) usando Sentinel di Azure.

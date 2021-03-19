@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/09/2021
+ms.date: 03/17/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 82445ce7c1ebfc365459bbeba7e04d660221eaf2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8513127f4a79c9c94323140462ad2d2648a0130d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551655"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577701"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ Inoltre, il servizio di controllo:
 
 - Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che possono indicare problemi aziendali o possibili violazioni della sicurezza.
 
-- Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per ulteriori informazioni sui programmi di Azure che supportano la conformità agli standard, vedere la [Centro protezione di Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità SQL di Azure.
+- Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione di Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), dove è possibile trovare l'elenco più recente di certificazioni di conformità per Azure SQL.
 
 > [!NOTE]
 > Per informazioni sul controllo del Istanza gestita SQL di Azure, vedere l'articolo [Introduzione al controllo di sql istanza gestita](../managed-instance/auditing-configure.md).
@@ -99,7 +99,7 @@ Il database SQL di Azure e il controllo di Azure sinapsi archivia 4000 caratteri
 Nella sezione seguente è descritta la configurazione del controllo mediante il portale di Azure.
 
   > [!NOTE]
-  > - Non è possibile abilitare il controllo in un pool SQL dedicato sospeso. Per abilitare il controllo, annullare la sospensione del pool SQL dedicato. Altre informazioni sul [pool SQL dedicato](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - Non è possibile abilitare il controllo in un pool SQL dedicato sospeso. Per abilitare il controllo, annullare la sospensione del pool SQL dedicato. Altre informazioni sul [pool SQL dedicato](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
   > - Quando il controllo viene configurato in un'area di lavoro Log Analytics o in una destinazione dell'hub uniforme tramite il portale di Azure o il cmdlet di PowerShell, viene creata un' [impostazione di diagnostica](../../azure-monitor/essentials/diagnostic-settings.md) con la categoria "SQLSecurityAuditEvents" abilitata.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -134,16 +134,16 @@ AzureDiagnostics
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Controllo nella destinazione di archiviazione
 
-Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**. I log antecedenti al periodo di conservazione vengono eliminati.
+Per configurare la scrittura dei log di controllo in un account di archiviazione, selezionare **archiviazione** quando si arriva alla sezione **controllo** . Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione aprendo le **proprietà avanzate**. Fare quindi clic su **Salva**. I log antecedenti al periodo di conservazione vengono eliminati.
 
-- Il valore predefinito per il periodo di memorizzazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **conservazione (giorni)** nelle **impostazioni di archiviazione** quando si configura l'account di archiviazione per il controllo.
+- Il valore predefinito per il periodo di memorizzazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **conservazione (giorni)** nelle **proprietà avanzate** quando si configura l'account di archiviazione per il controllo.
   - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, tenere presente che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo l'abilitazione della conservazione).
 
   ![archiviazione di Azure](./media/auditing-overview/auditing_select_storage.png)
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Controlla per Log Analytics destinazione
   
-Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **log Analytics** e aprire **log Analytics dettagli**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
+Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **log Analytics** e aprire **log Analytics dettagli**. Selezionare l'area di lavoro Log Analytics in cui verranno scritti i log, quindi fare clic su **OK**. Se non è stata creata un'area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../azure-monitor/logs/quick-create-workspace.md).
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -151,7 +151,7 @@ Per altri dettagli sull'area di lavoro Log Analytics di monitoraggio di Azure, v
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Controllare la destinazione dell'hub eventi
 
-Per configurare la scrittura dei log di controllo in un hub eventi, selezionare **Hub eventi** e aprire **i dettagli dell'hub** eventi. Selezionare l'hub eventi in cui verranno scritti i log e quindi fare clic su **OK**. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
+Per configurare la scrittura dei log di controllo in un hub eventi, selezionare **Hub eventi**. Selezionare l'hub eventi in cui verranno scritti i log e quindi fare clic su **Salva**. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
@@ -191,13 +191,12 @@ Se si sceglie di scrivere i log di controllo in un account di archiviazione di A
 
 - Usare il [portale di Azure](https://portal.azure.com).  Aprire il database corrispondente. Nella parte superiore della pagina **Controllo** del database fare clic su **Visualizza log di controllo**.
 
-    ![Screenshot che mostra il pulsante Visualizza log di controllo evidenziato nella pagina controllo database.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![visualizzare i log di controllo](./media/auditing-overview/auditing-view-audit-logs.png)
 
     Verrà aperto **Record di controllo**, da cui sarà possibile visualizzare i log.
 
   - È possibile visualizzare date specifiche facendo clic su **Filtro** nella parte superiore della pagina **Record di controllo**.
   - È possibile passare da un record di controllo all'altro creato dai *criteri di controllo del server* e dai *criteri di controllo del database* attivando o disattivando **Origine controllo**.
-  - È possibile visualizzare solo i record di controllo correlati a SQL injection selezionando la casella di controllo **Visualizza solo i record di controllo per SQL injection**.
 
        ![Screenshot che mostra le opzioni per la visualizzazione dei record di controllo.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
@@ -242,7 +241,7 @@ Con i database con replica geografica, quando si abilita il controllo nel databa
 
 Durante la produzione è probabile che periodicamente vengano aggiornate le chiavi di archiviazione. Quando si scrivono i log di controllo nell'archiviazione di Azure, è necessario salvare nuovamente i criteri di controllo quando si aggiornano le chiavi. Il processo è il seguente:
 
-1. Aprire **i dettagli di archiviazione**. Nella casella **Chiave di accesso alle risorse di archiviazione** selezionare **Secondaria** e fare clic su **OK**. Fare quindi clic su **Salva** nella parte superiore della pagina di configurazione del controllo.
+1. Aprire **proprietà avanzate** in **archiviazione**. Nella casella **chiave di accesso** alla risorsa di archiviazione selezionare **secondario**. Fare quindi clic su **Salva** nella parte superiore della pagina di configurazione del controllo.
 
     ![Screenshot che illustra il processo di selezione di una chiave di accesso di archiviazione secondaria.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Passare alla pagina di configurazione dell'archiviazione e rigenerare la chiave di accesso primaria.

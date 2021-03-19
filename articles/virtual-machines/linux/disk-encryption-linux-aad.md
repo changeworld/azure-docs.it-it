@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: d1607ef4ff277f9c9cdb55db3e58da1052a00756
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: cec391ba998165af4dd9339b719a3b73cb330c16
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558399"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601791"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Abilitare crittografia dischi di Azure con Azure AD nelle macchine virtuali Linux (versione precedente)
 
@@ -210,7 +210,7 @@ Usare il cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/
 - Aggiungere i dischi dati che compongono la macchina virtuale.
 - Formattare, montare e aggiungere i dischi al file fstab.
 
-    1. Formattare il disco appena aggiunto. Qui vengono usati i collegamenti simbolici generati da Azure. L'uso di collegamenti simbolici evita i problemi legati alla modifica dei nomi dei dispositivi. Per ulteriori informazioni, vedere [risolvere i problemi relativi ai nomi dei dispositivi](../troubleshooting/troubleshoot-device-names-problems.md).
+    1. Formattare il disco appena aggiunto. Qui vengono usati i collegamenti simbolici generati da Azure. L'uso di collegamenti simbolici evita i problemi legati alla modifica dei nomi dei dispositivi. Per ulteriori informazioni, vedere [risolvere i problemi relativi ai nomi dei dispositivi](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
     
         ```console
         mkfs -t ext4 /dev/disk/azure/scsi1/lun0
@@ -266,7 +266,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 È possibile aggiungere un nuovo disco dati usando il comando [AZ VM disk collegato](add-disk.md) o [tramite il portale di Azure](attach-disk-portal.md). Prima che sia possibile eseguire la crittografia, è necessario montare il disco appena collegato. È necessario richiedere la crittografia dell'unità dati perché l'unità non sarà utilizzabile mentre è in corso la crittografia. 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-the-azure-cli"></a>Abilitare la crittografia in un disco appena aggiunto con l'interfaccia della riga di comando di Azure
- Se la macchina virtuale è stata precedentemente crittografata con "All", il parametro--volume-Type deve rimanere tutti. Tale parametro include il disco del sistema operativo e il disco dati. Se la macchina virtuale è stata precedentemente crittografata con un tipo di volume "sistema operativo", il parametro--volume-Type deve essere modificato in modo che sia il sistema operativo che il nuovo disco dati verranno inclusi. Se la macchina virtuale è stata crittografata solo con il tipo di volume "data", può rimanere dati come illustrato qui. L'aggiunta e il fissaggio di un nuovo disco dati a una macchina virtuale non è una preparazione sufficiente per la crittografia. Il disco appena collegato deve essere formattato e montato correttamente all'interno della macchina virtuale prima di abilitare la crittografia. In Linux è necessario montare il disco in/etc/fstab con un [nome di dispositivo a blocchi permanente](../troubleshooting/troubleshoot-device-names-problems.md). 
+ Se la macchina virtuale è stata precedentemente crittografata con "All", il parametro--volume-Type deve rimanere tutti. Tale parametro include il disco del sistema operativo e il disco dati. Se la macchina virtuale è stata precedentemente crittografata con un tipo di volume "sistema operativo", il parametro--volume-Type deve essere modificato in modo che sia il sistema operativo che il nuovo disco dati verranno inclusi. Se la macchina virtuale è stata crittografata solo con il tipo di volume "data", può rimanere dati come illustrato qui. L'aggiunta e il fissaggio di un nuovo disco dati a una macchina virtuale non è una preparazione sufficiente per la crittografia. Il disco appena collegato deve essere formattato e montato correttamente all'interno della macchina virtuale prima di abilitare la crittografia. In Linux è necessario montare il disco in/etc/fstab con un [nome di dispositivo a blocchi permanente](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems). 
 
 Diversamente dalla sintassi di PowerShell, l'interfaccia della riga di comando non richiede di specificare una versione di sequenza univoca quando si Abilita la crittografia. L'interfaccia della riga di comando genera e usa automaticamente uno specifico valore di versione di sequenza univoco.
 

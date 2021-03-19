@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc5916cf4277935f6d7d7f453fd4dd76d7909ef2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8d4ff717a49ba9c9b4d66e54e5eae1248af3fcea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651128"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579366"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Pianificare una distribuzione di autenticazione con password in Azure Active Directory
 
@@ -330,4 +330,4 @@ Seguire i passaggi descritti nell'articolo [abilitare la chiave di sicurezza sen
 
 - [Abilitare le chiavi di sicurezza senza password per l'accesso per Azure AD](howto-authentication-passwordless-security-key.md)
 - [Abilitare l'accesso senza password con l'app Microsoft Authenticator](howto-authentication-passwordless-phone.md)
-- [Altre informazioni sull'utilizzo dei metodi di autenticazione & Insights](howto-authentication-methods-usage-insights.md)
+- [Altre informazioni sull'utilizzo dei metodi di autenticazione & Insights](./howto-authentication-methods-activity.md)

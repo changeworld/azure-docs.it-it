@@ -53,11 +53,11 @@
         - name: Co-selling con Microsoft
           items:
             - name: Panoramica di co-selling
-              href: marketplace-co-sell.md
+              href: co-sell-overview.md
             - name: Requisiti di co-selling
               href: co-sell-requirements.md
             - name: Configurare la co-selling
-              href: commercial-marketplace-co-sell.md
+              href: co-sell-configure.md
             - name: Verificare lo stato di co-selling
               href: co-sell-status.md
             - name: Eseguire la migrazione di soluzioni di co-selling da OCP GTM

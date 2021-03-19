@@ -1,6 +1,6 @@
 ---
 title: Sincronizzare gli attributi Azure AD per il mapping
-description: Informazioni su come sincronizzare gli attributi dalla Active Directory locale a Azure AD. Quando si configura il provisioning utenti in app SaaS, usare la funzionalità di estensione della directory per aggiungere gli attributi di origine che non sono sincronizzati per impostazione predefinita.
+description: Quando si configura il provisioning utenti in app SaaS, usare la funzionalità di estensione della directory per aggiungere gli attributi di origine che non sono sincronizzati per impostazione predefinita.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/12/2021
+ms.date: 03/17/2021
 ms.author: kenwith
-ms.openlocfilehash: 0f8369c80a7a219b159f31aacb7d10a0dd009d00
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 52f34cdafac76a9bca2b4ff0b00e0b3efaa63f5d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418675"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579434"
 ---
-# <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sincronizzare un attributo dal Active Directory locale a Azure AD per il provisioning in un'applicazione
+# <a name="syncing-extension-attributes-attributes"></a>Sincronizzazione degli attributi degli attributi di estensione
 
-Quando si personalizzano i mapping degli attributi per il provisioning degli utenti, si potrebbe notare che l'attributo di cui si vuole eseguire il mapping non viene visualizzato nell'elenco di **attributi di origine** . Questo articolo illustra come aggiungere l'attributo mancante eseguendo la sincronizzazione dal Active Directory locale (AD) al Azure Active Directory (Azure AD).
+Quando si personalizzano i mapping degli attributi per il provisioning degli utenti, si potrebbe notare che l'attributo di cui si vuole eseguire il mapping non viene visualizzato nell'elenco di **attributi di origine** . Questo articolo illustra come aggiungere l'attributo mancante eseguendo la sincronizzazione dal Active Directory locale (AD) al Azure Active Directory (Azure AD) o creando gli attributi di estensione in Azure AD per un utente solo cloud. 
 
-Azure AD deve contenere tutti i dati necessari per creare un profilo utente durante il provisioning degli account utente da Azure AD a un'app SaaS. In alcuni casi, per rendere disponibili i dati potrebbe essere necessario sincronizzare gli attributi dall'istanza locale di AD Azure AD. Azure AD Connect sincronizza automaticamente determinati attributi per Azure AD, ma non per tutti gli attributi. Inoltre, alcuni attributi, ad esempio SAMAccountName, sincronizzati per impostazione predefinita potrebbero non essere esposti tramite l'API Microsoft Graph. In questi casi, è possibile usare la funzionalità di estensione della directory Azure AD Connect per sincronizzare l'attributo con Azure AD. In questo modo, l'attributo sarà visibile all'API Microsoft Graph e al servizio di provisioning Azure AD.
+Azure AD deve contenere tutti i dati necessari per creare un profilo utente durante il provisioning degli account utente da Azure AD a un'app SaaS. In alcuni casi, per rendere disponibili i dati potrebbe essere necessario sincronizzare gli attributi dall'istanza locale di AD Azure AD. Azure AD Connect sincronizza automaticamente determinati attributi per Azure AD, ma non per tutti gli attributi. Inoltre, alcuni attributi, ad esempio SAMAccountName, sincronizzati per impostazione predefinita potrebbero non essere esposti tramite il Azure AD API Graph. In questi casi, è possibile usare la funzionalità di estensione della directory Azure AD Connect per sincronizzare l'attributo con Azure AD. In questo modo, l'attributo sarà visibile all'Azure AD API Graph e al servizio di provisioning di Azure AD. Se i dati necessari per il provisioning sono in Active Directory ma non sono disponibili per il provisioning a causa dei motivi descritti in precedenza, è possibile usare Azure AD Connect per creare attributi di estensione. 
 
-Se i dati necessari per il provisioning sono in Active Directory ma non sono disponibili per il provisioning a causa dei motivi descritti in precedenza, è possibile usare Azure AD Connect o PowerShell per creare attributi di estensione. 
- 
+Anche se la maggior parte degli utenti è probabilmente un utente ibrido sincronizzato da Active Directory, è anche possibile creare estensioni per gli utenti solo cloud senza usare Azure AD Connect. Usando PowerShell o Microsoft Graph è possibile estendere lo schema di un utente solo cloud. 
+
 ## <a name="create-an-extension-attribute-using-azure-ad-connect"></a>Creare un attributo di estensione usando Azure AD Connect
 
 1. Aprire la procedura guidata Azure AD Connect, scegliere attività, quindi scegliere **Personalizza opzioni di sincronizzazione**.
@@ -52,7 +52,47 @@ Se i dati necessari per il provisioning sono in Active Directory ma non sono dis
 > [!NOTE]
 > La possibilità di eseguire il provisioning degli attributi di riferimento da AD locale, ad esempio **ManagedBy** o **DN/Distinguishname**, non è attualmente supportata. È possibile richiedere questa funzionalità in [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
 
-## <a name="create-an-extension-attribute-using-powershell"></a>Creare un attributo di estensione con PowerShell
+## <a name="create-an-extension-attribute-on-a-cloud-only-user"></a>Creare un attributo di estensione in un utente solo cloud
+I clienti possono usare Microsoft Graph e PowerShell per estendere lo schema utente. Questi attributi di estensione vengono individuati automaticamente nella maggior parte dei casi, ma i clienti con più di 1000 entità servizio possono trovare estensioni mancanti nell'elenco di attributi di origine. Se un attributo creato usando la procedura seguente non viene visualizzato automaticamente nell'elenco attributo di origine, verificare tramite Graph che l'attributo di estensione sia stato creato correttamente e quindi aggiungerlo [manualmente](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes)allo schema. Quando si effettuano le richieste di grafi seguenti, fare clic su altre informazioni per verificare le autorizzazioni necessarie per eseguire le richieste. Per eseguire le richieste, è possibile usare [Graph Explorer](https://docs.microsoft.com/graph/graph-explorer/graph-explorer-overview) . 
+
+### <a name="create-an-extension-attribute-on-a-cloud-only-user-using-microsoft-graph"></a>Creare un attributo di estensione in un utente solo cloud usando Microsoft Graph
+Sarà necessario utilizzare un'applicazione per estendere lo schema degli utenti. Elencare le app nel tenant per identificare l'ID dell'applicazione che si vuole usare per estendere lo schema utente. [Altre informazioni.](https://docs.microsoft.com/graph/api/application-list?view=graph-rest-1.0&tabs=http)
+
+```json
+GET https://graph.microsoft.com/v1.0/applications
+```
+
+Creare l'attributo di estensione. Sostituire la proprietà **ID** seguente con l' **ID** recuperato nel passaggio precedente. È necessario usare l'attributo **"ID"** e non il "AppID". [Altre informazioni.](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0&tabs=http)
+```json
+POST https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
+Content-type: application/json
+
+{
+    "name": "extensionName",
+    "dataType": "string",
+    "targetObjects": [
+        "User"
+    ]
+}
+```
+
+La richiesta precedente ha creato un attributo di estensione con il formato "extension_appID_extensionName". Aggiornare un utente con l'attributo di estensione. [Altre informazioni.](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0&tabs=http)
+```json
+PATCH https://graph.microsoft.com/v1.0/users/{id}
+Content-type: application/json
+
+{
+  "extension_inputAppId_extensionName": "extensionValue"
+}
+```
+Controllare l'utente per assicurarsi che l'attributo sia stato aggiornato correttamente. [Altre informazioni.](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select)
+
+```json
+GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName
+```
+
+
+### <a name="create-an-extension-attribute-on-a-cloud-only-user-using-powershell"></a>Creare un attributo di estensione in un utente solo cloud usando PowerShell
 Creare un'estensione personalizzata usando PowerShell e assegnare un valore a un utente. 
 
 ```

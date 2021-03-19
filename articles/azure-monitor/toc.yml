@@ -718,12 +718,16 @@
                       href: app/java-in-process-agent.md
                     - name: Opzioni di configurazione
                       href: app/java-standalone-config.md
-                    - name: Processori di telemetria
+                    - name: Configurazioni avanzate
                       items:
-                        - name: Panoramica
-                          href: app/java-standalone-telemetry-processors.md
-                        - name: Esempi
-                          href: app/java-standalone-telemetry-processors-examples.md
+                        - name: Metriche JMX
+                          href: app/java-jmx-metrics-configuration.md
+                        - name: Processori di telemetria
+                          items:
+                            - name: Panoramica
+                              href: app/java-standalone-telemetry-processors.md
+                            - name: Esempi
+                              href: app/java-standalone-telemetry-processors-examples.md
                     - name: Configurazione degli argomenti di JVM
                       href: app/java-standalone-arguments.md
                     - name: Eseguire l'aggiornamento dall'SDK 2.x
@@ -1126,6 +1130,18 @@
           href: insights/network-insights-overview.md
         - name: Key Vault
           href: insights/key-vault-insights-overview.md
+        - name: SQL Insights (anteprima)
+          items:
+            - name: Panoramica
+              href: insights/sql-insights-overview.md
+            - name: Domande frequenti
+              href: faq.md#sql-insights-preview
+            - name: Abilita
+              href: insights/sql-insights-enable.md
+            - name: Avvisi
+              href: insights/sql-insights-alerts.md
+            - name: Risolvere problemi
+              href: insights/sql-insights-troubleshoot.md
         - name: Archiviazione
           displayname: 'storage, monitor, insights, storage accounts, azure storage'
           href: insights/storage-insights-overview.md

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 11e0150089fd979cbf840d3b117c0d796ecc68f3
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3b1cbd88b4cd6576b2c31fbeb2f3db86309c5ebf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335722"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597624"
 ---
 # <a name="datetimetotimestamp-azure-cosmos-db"></a>DateTimeToTimestamp (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,17 +31,17 @@ DateTimeToTimestamp (<DateTime>)
 *DateTime*  
    Valore stringa ISO 8601 di data e ora UTC nel formato in `YYYY-MM-DDThh:mm:ss.fffffffZ` cui:
   
-  |Formato|Descrizione|
-  |-|-|
-  |AAAA|anno a quattro cifre|
-  |MM|mese a due cifre (01 = gennaio e così via)|
-  |GG|giorno del mese a due cifre (da 01 a 31)|
-  |T|significato per l'inizio degli elementi Time|
-  |hh|ora a due cifre (da 00 a 23)|
-  |mm|minuti a due cifre (da 00 a 59)|
-  |ss|secondi a due cifre (da 00 a 59)|
-  |. fffffff|secondi frazionari a sette cifre|
-  |Z|Indicatore UTC (Coordinated Universal Time)||
+|Formato|Descrizione|
+|-|-|
+|AAAA|anno a quattro cifre|
+|MM|mese a due cifre (01 = gennaio e così via)|
+|GG|giorno del mese a due cifre (da 01 a 31)|
+|T|significato per l'inizio degli elementi Time|
+|hh|ora a due cifre (da 00 a 23)|
+|MM|minuti a due cifre (da 00 a 59)|
+|ss|secondi a due cifre (da 00 a 59)|
+|. fffffff|secondi frazionari a sette cifre|
+|Z|Indicatore UTC (Coordinated Universal Time)|
   
   Per ulteriori informazioni sul formato ISO 8601, vedere [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
@@ -53,7 +53,7 @@ Restituisce un valore numerico con segno, il numero corrente di millisecondi tra
 
 DateTimeToTimestamp restituisce `undefined` se il valore DateTime specificato non è valido
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
 Nell'esempio seguente il valore DateTime viene convertito in un timestamp:
 

@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: cc862759ce28c4d23dbc2197f63311e29ba82709
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225031"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607503"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Anteprima: modalità di orchestrazione per i set di scalabilità di macchine virtuali in Azure 
 
@@ -85,7 +85,7 @@ Usare i comandi standard della VM per avviare, arrestare, riavviare, eliminare l
 Il monitoraggio dell'integrità dell'applicazione consente all'applicazione di fornire ad Azure un heartbeat per determinare se l'applicazione è integra o non integra. Azure può sostituire automaticamente le istanze di VM non integre. Per le istanze di set di scalabilità flessibili, è necessario installare e configurare l'estensione per l'integrità dell'applicazione nella macchina virtuale. Per le istanze del set di scalabilità uniforme, è possibile usare l'estensione per l'integrità dell'applicazione o misurare lo stato di integrità con un probe di integrità Azure Load Balancer personalizzato. 
 
 ### <a name="list-scale-sets-vm-api-changes"></a>Elencare i set di scalabilità delle API delle macchine virtuali 
-I set di scalabilità di macchine virtuali consentono di elencare le istanze che appartengono al set di scalabilità. Con un'orchestrazione flessibile, il comando elenca set di scalabilità di macchine virtuali macchina virtuale fornisce un elenco di set di scalabilità di ID VM. È quindi possibile chiamare i comandi per ottenere i set di scalabilità di macchine virtuali per ottenere altri dettagli sull'uso del set di scalabilità con l'istanza di macchina virtuale. Per ottenere i dettagli completi della macchina virtuale, usare i comandi standard GET VM o [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview). 
+I set di scalabilità di macchine virtuali consentono di elencare le istanze che appartengono al set di scalabilità. Con un'orchestrazione flessibile, il comando elenca set di scalabilità di macchine virtuali macchina virtuale fornisce un elenco di set di scalabilità di ID VM. È quindi possibile chiamare i comandi per ottenere i set di scalabilità di macchine virtuali per ottenere altri dettagli sull'uso del set di scalabilità con l'istanza di macchina virtuale. Per ottenere i dettagli completi della macchina virtuale, usare i comandi standard GET VM o [Azure Resource Graph](../governance/resource-graph/overview.md). 
 
 ### <a name="retrieve-boot-diagnostics-data"></a>Recuperare i dati di diagnostica di avvio 
 Usare le API e i comandi standard della VM per recuperare le schermate e i dati di diagnostica di avvio dell'istanza. I comandi e le API di diagnostica di avvio della macchina virtuale per i set di scalabilità di macchine virtuali non vengono usati con istanze in modalità orchestrazione
@@ -269,7 +269,7 @@ zones = ["1"]
 
 2. Aggiungere le macchine virtuali al set di scalabilità.
     1. Assegnare la `virtualMachineScaleSet` proprietà al set di scalabilità creato in precedenza. È necessario specificare la `virtualMachineScaleSet` proprietà al momento della creazione della macchina virtuale. 
-    1. È possibile usare la funzione di modello **Copy ()** Azure Resource Manager per creare più macchine virtuali contemporaneamente. Vedere [iterazione delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource) nei modelli di Azure Resource Manager. 
+    1. È possibile usare la funzione di modello **Copy ()** Azure Resource Manager per creare più macchine virtuali contemporaneamente. Vedere [iterazione delle risorse](../azure-resource-manager/templates/copy-resources.md#iteration-for-a-child-resource) nei modelli di Azure Resource Manager. 
 
     ```json
     {

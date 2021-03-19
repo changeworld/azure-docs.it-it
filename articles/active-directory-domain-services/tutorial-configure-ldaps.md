@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: justinha
-ms.openlocfilehash: 1619622ad9594f252c3d4cf5551704c6a788f9f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: fec2695c9e196a652a4166161bf012b22b0d00e6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564085"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579553"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 
@@ -152,7 +152,7 @@ Per poter usare il certificato digitale creato nel passaggio precedente con il d
 
     Nella pagina **Sicurezza** scegliere l'opzione **Password** per proteggere il file di certificato *PFX*. L'algoritmo di crittografia deve essere *TripleDES-SHA1*. Immettere e confermare una password, quindi selezionare **Avanti**. Questa password viene usata nella sezione successiva per abilitare l'accesso LDAP sicuro per il dominio gestito.
 
-    Se si esporta usando il [cmdlet PowerShell Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate), è necessario passare il flag *-CryptoAlgorithmOption* usando TripleDES_SHA1.
+    Se si esporta usando il [cmdlet PowerShell Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate), è necessario passare il flag *-CryptoAlgorithmOption* usando TripleDES_SHA1.
 
     ![Screenshot di come crittografare la password](./media/tutorial-configure-ldaps/encrypt.png)
 

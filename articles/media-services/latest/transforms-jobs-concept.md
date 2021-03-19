@@ -3,7 +3,7 @@
 title: trasformazioni e processi in servizi multimediali: Descrizione di servizi multimediali di Azure: informazioni su come creare una trasformazione per descrivere le regole per l'elaborazione dei video in servizi multimediali di Azure.
 Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
 
-ms. Service: Media-Services ms. workload: ms. Topic: Conceptual ms. Date: 08/19/2019 ms. Author: inhenkel
+ms. Service: Media-Services ms. workload: ms. Topic: Conceptual ms. Date: 03/17/2021 ms. Author: inhenkel
 ---
 
 # <a name="transforms-and-jobs-in-media-services"></a>Trasformazioni e processi in servizi multimediali
@@ -77,7 +77,7 @@ Usare [asset come input del processo](job-input-from-local-file-how-to.md) se il
 
 ### <a name="checking-job-progress"></a>Verifica dello stato del processo
 
-È possibile ottenere l'avanzamento e lo stato dei processi monitorando gli eventi con Griglia di eventi. Per altre informazioni, vedere [Creare e monitorare eventi di Servizi multimediali con Griglia di eventi e l'interfaccia della riga di comando di Azure](job-state-events-cli-how-to.md).
+È possibile ottenere l'avanzamento e lo stato dei processi monitorando gli eventi con Griglia di eventi. Per altre informazioni, vedere [Creare e monitorare eventi di Servizi multimediali con Griglia di eventi e l'interfaccia della riga di comando di Azure](monitoring/job-state-events-cli-how-to.md).
 
 ### <a name="updating-jobs"></a>Aggiornamento di processi
 

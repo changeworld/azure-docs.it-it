@@ -3,12 +3,12 @@ title: Configurare i log di diagnostica - Hub eventi in Azure | Microsoft Docs
 description: Informazioni su come configurare log attività e di diagnostica per gli hub eventi in Azure.
 ms.topic: article
 ms.date: 02/25/2021
-ms.openlocfilehash: 538ff86f1ef4c06bb5400af3fbd2394134aa17f3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5067a2962693ee1c1955aa90e61b43358495585a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742535"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602605"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
@@ -131,7 +131,7 @@ Il nome dell'evento viene popolato come tipo di operazione e tipo di risorsa dal
 
 | Tipo di operazione | Tipo di risorsa | 
 | -------------- | ------------- | 
-| <ul><li>Crea</li><li>Aggiorna</li><li>Delete</li><li>Recupero</li><li>Sconosciuto</li></ul> | <ul><li>Spazio dei nomi</li><li>Coda</li><li>Argomento</li><li>Subscription</li><li>Hub eventi</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Regola</li>ConsumerGroup</li> |
+| <ul><li>Crea</li><li>Aggiornamento</li><li>Delete</li><li>Recupero</li><li>Sconosciuto</li></ul> | <ul><li>Spazio dei nomi</li><li>Coda</li><li>Argomento</li><li>Subscription</li><li>Hub eventi</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Regola</li>ConsumerGroup</li> |
 
 ## <a name="autoscale-logs-schema"></a>Schema dei log di scalabilità automatica
 Le stringhe JSON dei log di scalabilità automatica includono gli elementi elencati nella tabella seguente:
@@ -247,4 +247,4 @@ Le stringhe JSON dei log utente della chiave gestita dal cliente includono gli e
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
