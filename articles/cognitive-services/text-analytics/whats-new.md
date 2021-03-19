@@ -8,19 +8,57 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 03/18/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 629b40567ad9a1126413f5a97d1dc6264b4b10ca
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a2b001d34d265c8e7246b03875c32168f2c5c962
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736638"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598899"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
 Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sempre aggiornati sui recenti sviluppi, in questo articolo vengono fornite informazioni sulle nuove versioni e funzionalità.
+
+## <a name="march-2021"></a>Marzo 2021
+
+### <a name="general-api-updates"></a>Aggiornamenti generali dell'API
+* Rilascio della nuova API v 3.1-Preview. 4, che include 
+   * Modifiche apportate al corpo della risposta JSON di Opinion Mining: 
+      * `aspects` è ora `targets` ed `opinions` è ora `assessments` . 
+   * Modifiche nel corpo della risposta JSON dell'API Web ospitata di Analisi del testo per l'integrità: 
+      * Il `isNegated` nome booleano di un oggetto entità rilevato per la negazione è deprecato e sostituito dal rilevamento dell'asserzione.
+      * Una nuova proprietà denominata `role` fa ora parte della relazione estratta tra un attributo e un'entità, nonché la relazione tra le entità.  In questo modo viene aggiunta la specificità al tipo di relazione rilevato.
+   * Il collegamento di entità è ora disponibile come attività asincrona nell' `/analyze` endpoint.
+   * Un nuovo `pii-categories` parametro è ora disponibile nell' `/pii` endpoint.
+      * Questo parametro consente di specificare le entità PII selezionate, oltre a quelle non supportate per impostazione predefinita per la lingua di input.
+* Librerie client aggiornate, che includono analisi asincrona e Analisi del testo per le operazioni di integrità. È possibile trovare esempi su GitHub:
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript)
+    
+> [!div class="nextstepaction"]
+> [Altre informazioni su API Analisi del testo v 3.1-Preview. 4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
+
+### <a name="text-analytics-for-health-updates"></a>Analisi del testo per gli aggiornamenti dello stato
+
+* Una nuova versione `2021-03-01` del modello per l' `/health` endpoint e il contenitore locale che fornisce
+    * Ridenominazione del `Gene` tipo di entità in `GeneOrProtein` .
+    * Nuovo `Date` tipo di entità.
+    * Rilevamento dell'asserzione che sostituisce il rilevamento della negazione (disponibile solo in API v 3.1-Preview. 4).
+    * Una nuova proprietà preferenziale `name` per le entità collegate normalizzate da diverse ontologie e sistemi di codifica (disponibili solo in API v 3.1-Preview. 4). 
+* Una nuova immagine contenitore con tag `3.0.015370001-onprem-amd64` e la nuova versione del modello `2021-03-01` è stata rilasciata nel repository di anteprima del contenitore. 
+* Il Analisi del testo per l'immagine del contenitore di integrità verrà spostato in un nuovo repository il mese successivo.  Verificare la presenza di una comunicazione tramite posta elettronica nella posizione della nuova Home page.
+> [!div class="nextstepaction"]
+> [Altre informazioni su Analisi del testo per l'integrità](how-tos/text-analytics-for-health.md)
+>
+
+### <a name="text-analytics-resource-portal-update"></a>Aggiornamento del portale delle risorse Analisi del testo
+* I **record di testo elaborati** sono ora disponibili come metrica nella sezione **monitoraggio** per la risorsa analisi del testo nel portale di Azure.  
 
 ## <a name="february-2021"></a>2021 febbraio
 
@@ -46,7 +84,7 @@ Queste versioni del modello non sono attualmente disponibili nell'area Stati Uni
 
 ## <a name="december-2020"></a>Dicembre 2020
 
-* Dettagli [prezzi aggiornati](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) per la API analisi del testo
+* Dettagli [sui prezzi aggiornati](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) per la API analisi del testo.
 
 ## <a name="november-2020"></a>Novembre 2020
 
@@ -59,8 +97,7 @@ Queste versioni del modello non sono attualmente disponibili nell'area Stati Uni
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-
-
+    * 
 > [!div class="nextstepaction"]
 > [Altre informazioni su API Analisi del testo v 3.1-Preview. 3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 

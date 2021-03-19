@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90980680"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Panoramica della funzione Threat Modeling Tool
@@ -29,7 +29,7 @@ Per vedere tutte le funzionalità attualmente disponibili nello strumento, usare
 
 ![Modello di minaccia di base](./media/threat-modeling-tool-feature-overview/basictmt.png)
 
-## <a name="navigation"></a>Navigazione
+## <a name="navigation"></a>Spostamento
 
 Prima di illustrare le funzionalità integrate, è opportuno discutere dei componenti principali presenti nello strumento.
 
@@ -43,10 +43,10 @@ L'esperienza è simile ad altri prodotti Microsoft. Esaminare le voci di menu di
 | --------------------------------------- | ------------ |
 | **File** | <ul><li>Aprire, salvare e chiudere i file</li><li>Accedere e disconnettersi dagli account di OneDrive.</li><li>Condividere collegamenti (visualizzazione e modifica).</li><li>Visualizzare le informazioni di file.</li><li>Applicare un nuovo modello a modelli esistenti.</li></ul> |
 | **Modifica** | Annullare e ripristinare azioni, copiare, incollare ed eliminare. |
-| **Visualizza** | <ul><li>Passare fra le visualizzazioni **Analisi** e **Progettazione**.</li><li>Aprire finestre chiuse (ad esempio stencil, proprietà degli elementi e messaggi).</li><li>Ripristinare le impostazioni predefinite del layout.</li></ul> |
+| **Visualizzazione** | <ul><li>Passare fra le visualizzazioni **Analisi** e **Progettazione**.</li><li>Aprire finestre chiuse (ad esempio stencil, proprietà degli elementi e messaggi).</li><li>Ripristinare le impostazioni predefinite del layout.</li></ul> |
 | **Diagramma** | Aggiungere ed eliminare diagrammi e spostarsi tra le schede dei diagrammi. |
 | **Report** | Creare report HTML da condividere con altri utenti. |
-| **Guida** | Individuare guide sull'uso dello strumento. |
+| **?** | Individuare guide sull'uso dello strumento. |
 
 I simboli sono collegamenti ai menu di primo livello:
 
@@ -55,7 +55,7 @@ I simboli sono collegamenti ai menu di primo livello:
 | **Apri** | Apre un nuovo file. |
 | **Salva** | Salva il file attuale. |
 | **Progettazione** | Passa alla visualizzazione **Progettazione** dove è possibile creare modelli. |
-| **Analizzare** | Mostra le minacce generate e le relative proprietà. |
+| **Analisi** | Mostra le minacce generate e le relative proprietà. |
 | **Aggiungi diagramma** | Aggiunge un nuovo diagramma (simile a nuove schede di Excel). |
 | **Elimina diagramma** | Elimina il diagramma attuale. |
 | **Copia/Taglia/Incolla** | Copia, taglia e incolla gli elementi. |
@@ -150,9 +150,9 @@ Quando si apre o crea un nuovo modello, viene aperta la visualizzazione **Proget
 
 ![Prima](./media/threat-modeling-tool-feature-overview/properties1.png)
 
-#### <a name="after"></a>Dopo
+#### <a name="after"></a>After
 
-![Dopo](./media/threat-modeling-tool-feature-overview/properties2.png)
+![After](./media/threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Messaggi
 

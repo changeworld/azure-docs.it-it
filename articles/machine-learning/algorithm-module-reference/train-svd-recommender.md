@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: 77407f253bb347160ea331bd7384d8085f21b040
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890247"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654459"
 ---
 # <a name="train-svd-recommender"></a>Train SVD Recommender
 
 Questo articolo descrive come usare il modulo Train SVD Recommender in Azure Machine Learning Designer. Utilizzare questo modulo per eseguire il training di un modello di raccomandazione basato sull'algoritmo SVD (Single value Decomposition).  
 
-Il modulo Train SVD Recommender legge un set di dati di triple utente-elemento-classificazione. Restituisce una raccomandazione SVD sottoposta a training. È quindi possibile usare il modello sottoposto a training per stimare le classificazioni o generare raccomandazioni usando il modulo [Score SVD Recommender](score-svd-recommender.md) .  
+Il modulo Train SVD Recommender legge un set di dati di triple utente-elemento-classificazione. Restituisce una raccomandazione SVD sottoposta a training. È quindi possibile usare il modello sottoposto a training per stimare le classificazioni o generare raccomandazioni, connettendo il modulo [Score SVD Recommender](score-svd-recommender.md) .  
 
 
   
@@ -64,12 +64,15 @@ Da questo esempio è possibile notare che un singolo utente ha valutato diversi 
     
 3.  Il **numero di iterazioni dell'algoritmo di raccomandazione indica il numero di** volte in cui l'algoritmo deve elaborare i dati di input. Maggiore è questo numero, più accurate sono le stime. Tuttavia, un numero maggiore indica una formazione più lenta. Il valore predefinito è 30.
 
-4.  Per la **velocità di apprendimento**immettere un numero compreso tra 0,0 e 2,0 che definisce le dimensioni del passaggio per l'apprendimento.
+4.  Per la **velocità di apprendimento** immettere un numero compreso tra 0,0 e 2,0 che definisce le dimensioni del passaggio per l'apprendimento.
 
     La velocità di apprendimento determina le dimensioni del passaggio a ogni iterazione. Se le dimensioni del passaggio sono troppo grandi, è possibile che si richieda la soluzione ottimale. Se le dimensioni del passaggio sono troppo ridotte, il training richiede più tempo per trovare la soluzione migliore. 
   
 5.  Inviare la pipeline.  
 
+## <a name="results"></a>Risultati
+
+Al termine dell'esecuzione della pipeline, per usare il modello per l'assegnazione dei punteggi, connettere il modulo [Train SVD Recommender](train-svd-recommender.md) a [Score SVD Recommender](score-svd-recommender.md)per stimare i valori per i nuovi esempi di input.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

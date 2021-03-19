@@ -7,13 +7,13 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/13/2019
-ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/08/2020
+ms.openlocfilehash: 4715d7173dd959d12350229e457717c908a83756
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659919"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "91873235"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Connettersi a file system locali dalle App per la logica di Azure
 
@@ -22,6 +22,9 @@ Con le app per la logica di Azure e il connettore del file System è possibile c
 - Creare, leggere, accodare, aggiornare ed eliminare file.
 - Elencare i file in cartelle o in cartelle radice.
 - Leggere contenuti e metadati dei file.
+
+  > [!IMPORTANT]
+  > Il connettore del file System supporta attualmente solo i file System di Windows nei sistemi operativi Windows.  
 
 Questo articolo illustra come connettersi a un file system locale come descritto in questo scenario di esempio: copiare un file caricato in Dropbox in una condivisione file e quindi inviare un messaggio di posta elettronica. Per connettersi e accedere ai sistemi locali, le app per la logica usano il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md). Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la logica di Azure](../logic-apps/logic-apps-overview.md). Per informazioni tecniche specifiche del connettore, vedere il [riferimento al connettore del file System](/connectors/filesystem/).
 
@@ -73,7 +76,7 @@ Questo articolo illustra come connettersi a un file system locale come descritto
    | **Connection Name** (Nome connessione) | Sì | <*Nome connessione*> | Il nome da assegnare alla connessione |
    | **Cartella radice** | Sì | <*nome-cartella-radice*> | La cartella radice del file system, ad esempio se installato un gateway dati locale, una cartella locale nel computer in cui è installato il gateway dati locale o la cartella per una condivisione di rete a cui il computer possa accedere. <p>ad esempio `\\PublicShare\\DropboxFiles` <p>La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. |
    | **Tipo di autenticazione** | No | <*tipo di autenticazione*> | Tipo di autenticazione usato dal file system: **Windows** |
-   | **Nome utente** | Sì | <*domain* > \\ dominio < *nome utente*> <p>-oppure- <p><*computer* > \\ locale < *nome utente*> | Nome utente del computer in cui è presente la cartella file system. <p>Se la cartella file System si trova nello stesso computer del gateway dati locale, è possibile usare <nome utente *del computer locale* > \\ < *username*>. |
+   | **Nome utente** | Sì | < > \\ dominio < *nome utente*> <p>-oppure- <p><*computer* > \\ locale < *nome utente*> | Nome utente del computer in cui è presente la cartella file system. <p>Se la cartella file System si trova nello stesso computer del gateway dati locale, è possibile usare <nome utente *del computer locale* > \\ < >. |
    | **Password** | Sì | <*password*> | La password per il computer in cui è presente il file system |
    | **Gateway** | Sì | <*installato-Gateway-Name*> | Il nome del gateway installato in precedenza |
    |||||

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/08/2020
 ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91856671"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi AS2 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
@@ -22,14 +22,14 @@ ms.locfileid: "91856671"
 
 Per lavorare con i messaggi AS2 in app per la logica di Azure, è possibile usare il connettore AS2, che fornisce trigger e azioni che supportano e gestiscono la comunicazione AS2 (versione 1,2). Ad esempio, per stabilire sicurezza e affidabilità durante la trasmissione dei messaggi, è possibile usare le azioni seguenti:
 
-* [Azione di **codifica AS2** ](#encode) per fornire la crittografia, la firma digitale e i riconoscimenti tramite notifiche sulla disposizione dei messaggi (MDN), che supportano il non ripudio. Questa azione, ad esempio, applica le intestazioni AS2/HTTP ed esegue queste attività quando viene configurata:
+* [Azione di **codifica AS2**](#encode) per fornire la crittografia, la firma digitale e i riconoscimenti tramite notifiche sulla disposizione dei messaggi (MDN), che supportano il non ripudio. Questa azione, ad esempio, applica le intestazioni AS2/HTTP ed esegue queste attività quando viene configurata:
 
   * Firma i messaggi in uscita.
   * Crittografa i messaggi in uscita.
   * Comprime il messaggio.
   * Trasmette il nome del file nell'intestazione MIME.
 
-* Azione di decodifica [ **AS2** ](#decode) per la decrittografia, la firma digitale e i riconoscimenti tramite notifiche sulla disposizione dei messaggi (MDN). Questa azione, ad esempio, esegue le attività seguenti:
+* Azione di decodifica [ **AS2**](#decode) per la decrittografia, la firma digitale e i riconoscimenti tramite notifiche sulla disposizione dei messaggi (MDN). Questa azione, ad esempio, esegue le attività seguenti:
 
   * Elabora le intestazioni AS2/HTTP.
   * Riconcilia gli MDN ricevuti con i messaggi in uscita originali.
@@ -63,7 +63,7 @@ Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 
 
 * Se si usa [Azure Key Vault](../key-vault/general/overview.md) per la gestione dei certificati, verificare che le chiavi dell'insieme di credenziali consentano le operazioni di **crittografia** e **decrittografia** . In caso contrario, le azioni di codifica e decodifica avranno esito negativo.
 
-  Nel portale di Azure passare alla chiave nell'insieme di credenziali delle chiavi, esaminare le **operazioni consentite**per la chiave e verificare che le operazioni di **crittografia** e **decrittografia** siano selezionate, ad esempio:
+  Nel portale di Azure passare alla chiave nell'insieme di credenziali delle chiavi, esaminare le **operazioni consentite** per la chiave e verificare che le operazioni di **crittografia** e **decrittografia** siano selezionate, ad esempio:
 
   ![Controllare le operazioni di Key Vault](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
 

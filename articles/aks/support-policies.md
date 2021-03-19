@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 09/18/2020
 ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91892711"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Criteri di supporto del servizio Azure Kubernetes
@@ -24,7 +24,7 @@ Questo articolo fornisce informazioni dettagliate sulle limitazioni e sui criter
 
 I componenti cloud di base dell'infrastruttura distribuita come servizio (IaaS), ad esempio i componenti di calcolo o di rete, consentono di accedere ai controlli di basso livello e alle opzioni di personalizzazione. Al contrario, AKS fornisce una distribuzione Kubernetes chiavi in mano che offre il set comune di configurazioni e funzionalità necessarie per il cluster. In qualità di utente AKS, sono disponibili opzioni di personalizzazione e di distribuzione limitate. In Exchange non è necessario preoccuparsi o gestire direttamente i cluster Kubernetes.
 
-Con AKS si ottiene un *piano di controllo*completamente gestito. Il piano di controllo contiene tutti i componenti e i servizi necessari per operare e fornire cluster Kubernetes agli utenti finali. Tutti i componenti di Kubernetes vengono gestiti e controllati da Microsoft.
+Con AKS si ottiene un *piano di controllo* completamente gestito. Il piano di controllo contiene tutti i componenti e i servizi necessari per operare e fornire cluster Kubernetes agli utenti finali. Tutti i componenti di Kubernetes vengono gestiti e controllati da Microsoft.
 
 Microsoft gestisce e monitorizza i componenti seguenti tramite il riquadro di controllo:
 

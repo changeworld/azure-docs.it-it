@@ -7,15 +7,15 @@ ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87048661"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Inviare messaggi correlati in ordine usando una serie di istruzioni sequenziali in app per la logica di Azure con il bus di servizio di Azure
 
-Quando è necessario inviare messaggi correlati in un ordine specifico, è possibile seguire il modello di serie di istruzioni [ *sequenziali* ](/azure/architecture/patterns/sequential-convoy) quando si usa app per la [logica di Azure](../logic-apps/logic-apps-overview.md) usando il connettore del bus di [servizio di Azure](../connectors/connectors-create-api-servicebus.md). I messaggi correlati hanno una proprietà che definisce la relazione tra tali messaggi, ad esempio l'ID della [sessione](../service-bus-messaging/message-sessions.md) nel bus di servizio.
+Quando è necessario inviare messaggi correlati in un ordine specifico, è possibile seguire il modello di serie di istruzioni [ *sequenziali*](/azure/architecture/patterns/sequential-convoy) quando si usa app per la [logica di Azure](../logic-apps/logic-apps-overview.md) usando il connettore del bus di [servizio di Azure](../connectors/connectors-create-api-servicebus.md). I messaggi correlati hanno una proprietà che definisce la relazione tra tali messaggi, ad esempio l'ID della [sessione](../service-bus-messaging/message-sessions.md) nel bus di servizio.
 
 Si supponga, ad esempio, di disporre di 10 messaggi per una sessione denominata "sessione 1" e di 5 messaggi per una sessione denominata "sessione 2" che vengono tutti inviati alla stessa [coda del bus di servizio](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). È possibile creare un'app per la logica che elabora i messaggi dalla coda in modo che tutti i messaggi della "sessione 1" siano gestiti da un'unica esecuzione del trigger e che tutti i messaggi della "sessione 2" siano gestiti dall'esecuzione del trigger successiva.
 
@@ -47,9 +47,9 @@ Per altre informazioni, vedere [modello di serie di istruzioni sequenziali-model
 
 Se non si è certi che l'app per la logica disponga delle autorizzazioni per accedere allo spazio dei nomi del bus di servizio, confermare tali autorizzazioni.
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Trovare e selezionare lo *spazio dei nomi*del bus di servizio.
+1. Accedere al [portale di Azure](https://portal.azure.com). Trovare e selezionare lo *spazio dei nomi* del bus di servizio.
 
-1. Nel menu spazio dei nomi, in **Impostazioni**, selezionare **criteri di accesso condiviso**. In **attestazioni**verificare di disporre delle autorizzazioni di **gestione** per lo spazio dei nomi.
+1. Nel menu spazio dei nomi, in **Impostazioni**, selezionare **criteri di accesso condiviso**. In **attestazioni** verificare di disporre delle autorizzazioni di **gestione** per lo spazio dei nomi.
 
    ![Gestire le autorizzazioni per lo spazio dei nomi del bus di servizio](./media/send-related-messages-sequential-convoy/check-service-bus-permissions.png)
 
@@ -62,13 +62,13 @@ Se non si è certi che l'app per la logica disponga delle autorizzazioni per acc
       ![Copiare la stringa di connessione dello spazio dei nomi del bus di servizio](./media/send-related-messages-sequential-convoy/copy-service-bus-connection-string.png)
 
    > [!TIP]
-   > Per verificare se la stringa di connessione è associata allo spazio dei nomi del bus di servizio o a un'entità di messaggistica, ad esempio una coda, cercare il parametro `EntityPath`  nella stringa di connessione. Se questo parametro è presente, la stringa di connessione è destinata a un'entità specifica e non è la stringa corretta da usare con l'app per la logica.
+   > Per verificare se la stringa di connessione è associata allo spazio dei nomi del bus di servizio o a un'entità di messaggistica, ad esempio una coda, cercare il parametro `EntityPath` nella stringa di connessione. Se questo parametro è presente, la stringa di connessione è destinata a un'entità specifica e non è la stringa corretta da usare con l'app per la logica.
 
 ## <a name="create-logic-app"></a>Creare l'app per la logica
 
 In questa sezione si crea un'app per la logica usando il modello di **recapito correlato nell'ordine usando le sessioni del bus di servizio** , che include il trigger e le azioni per l'implementazione di questo modello di flusso di lavoro. Si crea anche una connessione allo spazio dei nomi del bus di servizio e si specifica il nome per la coda del bus di servizio che si vuole usare.
 
-1. Nel [portale di Azure](https://portal.azure.com) creare un'app per la logica vuota. Dal Home page di Azure selezionare **Crea una risorsa**  >  **integrazione**  >  **app**per la logica.
+1. Nel [portale di Azure](https://portal.azure.com) creare un'app per la logica vuota. Dal Home page di Azure selezionare **Crea una risorsa**  >  **integrazione**  >  **app** per la logica.
 
 1. Quando viene visualizzata la raccolta di modelli, scorrere oltre le sezioni video e trigger comuni. Nella sezione **modelli** selezionare il modello, **recapito correlato nell'ordine usando le sessioni del bus di servizio**.
 
@@ -86,7 +86,7 @@ In questa sezione si crea un'app per la logica usando il modello di **recapito c
 
      1. Selezionare **immettere manualmente le informazioni di connessione**.
 
-     1. Per **nome connessione**specificare un nome per la connessione. Per **stringa di connessione**, incollare la stringa di connessione dello spazio dei nomi e selezionare **Crea**, ad esempio:
+     1. Per **nome connessione** specificare un nome per la connessione. Per **stringa di connessione**, incollare la stringa di connessione dello spazio dei nomi e selezionare **Crea**, ad esempio:
 
         ![Immettere il nome della connessione e la stringa di connessione del bus di servizio](./media/send-related-messages-sequential-convoy/provide-service-bus-connection-string.png)
 
@@ -95,7 +95,7 @@ In questa sezione si crea un'app per la logica usando il modello di **recapito c
 
    * Per selezionare uno spazio dei nomi del bus di servizio dalla sottoscrizione di Azure corrente, seguire questa procedura:
 
-     1. Per **nome connessione**specificare un nome per la connessione. Per **spazio dei nomi del bus di servizio**, selezionare lo spazio dei nomi del bus di servizio, ad esempio:
+     1. Per **nome connessione** specificare un nome per la connessione. Per **spazio dei nomi del bus di servizio**, selezionare lo spazio dei nomi del bus di servizio, ad esempio:
 
         ![Immettere il nome della connessione e selezionare spazio dei nomi del bus di servizio](./media/send-related-messages-sequential-convoy/create-service-bus-connection.png)
 
@@ -120,9 +120,9 @@ Di seguito è riportato il flusso di lavoro di livello superiore nel **recapito 
 | Nome | Descrizione |
 |------|-------------|
 | **`When a message is received in a queue (peek-lock)`** | In base alla ricorrenza specificata, questo trigger del bus di servizio controlla la coda del bus di servizio specificata per tutti i messaggi. Se un messaggio è presente nella coda, viene attivato il trigger, che crea ed esegue un'istanza del flusso di lavoro. <p><p>Il termine *blocco di visualizzazione* indica che il trigger invia una richiesta per recuperare un messaggio dalla coda. Se è presente un messaggio, il trigger recupera e blocca il messaggio in modo che non si verifichi nessun'altra elaborazione sul messaggio fino alla scadenza del periodo di blocco. Per informazioni dettagliate, [inizializzare la sessione](#initialize-session). |
-| **`Init isDone`** | Questa [azione di **inizializzazione variabile** ](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable) crea una variabile booleana impostata su `false` e indica quando sono soddisfatte le condizioni seguenti: <p><p>-Nessun altro messaggio nella sessione è disponibile per la lettura. <br>-Non è più necessario rinnovare il blocco della sessione in modo che l'istanza del flusso di lavoro corrente possa essere completata. <p><p>Per informazioni dettagliate, vedere [inizializzare la sessione](#initialize-session). |
-| **`Try`** | Questa [azione dell' **ambito** ](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) contiene le azioni che vengono eseguite per elaborare un messaggio. Se si verifica un problema nell' `Try` ambito, l'azione di `Catch` **ambito** successiva gestisce il problema. Per ulteriori informazioni, vedere [ambito "Try"](#try-scope). |
-| **`Catch`**| Questa [azione dell' **ambito** ](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) contiene le azioni che vengono eseguite se si verifica un problema nell' `Try` ambito precedente. Per ulteriori informazioni, vedere [ambito "catch"](#catch-scope). |
+| **`Init isDone`** | Questa [azione di **inizializzazione variabile**](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable) crea una variabile booleana impostata su `false` e indica quando sono soddisfatte le condizioni seguenti: <p><p>-Nessun altro messaggio nella sessione è disponibile per la lettura. <br>-Non è più necessario rinnovare il blocco della sessione in modo che l'istanza del flusso di lavoro corrente possa essere completata. <p><p>Per informazioni dettagliate, vedere [inizializzare la sessione](#initialize-session). |
+| **`Try`** | Questa [azione dell' **ambito**](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) contiene le azioni che vengono eseguite per elaborare un messaggio. Se si verifica un problema nell' `Try` ambito, l'azione di `Catch` **ambito** successiva gestisce il problema. Per ulteriori informazioni, vedere [ambito "Try"](#try-scope). |
+| **`Catch`**| Questa [azione dell' **ambito**](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) contiene le azioni che vengono eseguite se si verifica un problema nell' `Try` ambito precedente. Per ulteriori informazioni, vedere [ambito "catch"](#catch-scope). |
 |||
 
 <a name="try-scope"></a>
@@ -147,9 +147,9 @@ Di seguito è riportato il flusso di primo livello nell' `Try` [azione ambito](.
 | Nome | Descrizione |
 |------|-------------|
 | `Complete initial message in queue` | Questa azione del bus di servizio contrassegna un messaggio recuperato correttamente come completo e rimuove il messaggio dalla coda per evitare la rielaborazione. Per informazioni dettagliate, vedere [gestire il messaggio iniziale](#handle-initial-message). |
-| `While there are more messages for the session in the queue` | Il [ciclo **until** ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) continua a ricevere i messaggi mentre i messaggi esistono o fino a quando non viene passata un'ora. Per ulteriori informazioni sulle azioni in questo ciclo, vedere [mentre nella coda sono presenti più messaggi per la sessione](#while-more-messages-for-session). |
-| **`Set isDone = true`** | Quando non sono più presenti messaggi, questa [azione **set variable** ](../logic-apps/logic-apps-create-variables-store-values.md#set-variable) imposta `isDone` su `true` . |
-| **`Renew session lock until cancelled`** | Questo [ciclo **until** ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) garantisce che il blocco della sessione venga mantenuto da questa app per la logica mentre i messaggi esistono o fino a un'ora. Per ulteriori informazioni sulle azioni in questo ciclo, vedere [rinnovo del blocco della sessione fino a quando non viene annullato](#renew-session-while-messages-exist). |
+| `While there are more messages for the session in the queue` | Il [ciclo **until**](../logic-apps/logic-apps-control-flow-loops.md#until-loop) continua a ricevere i messaggi mentre i messaggi esistono o fino a quando non viene passata un'ora. Per ulteriori informazioni sulle azioni in questo ciclo, vedere [mentre nella coda sono presenti più messaggi per la sessione](#while-more-messages-for-session). |
+| **`Set isDone = true`** | Quando non sono più presenti messaggi, questa [azione **set variable**](../logic-apps/logic-apps-create-variables-store-values.md#set-variable) imposta `isDone` su `true` . |
+| **`Renew session lock until cancelled`** | Questo [ciclo **until**](../logic-apps/logic-apps-control-flow-loops.md#until-loop) garantisce che il blocco della sessione venga mantenuto da questa app per la logica mentre i messaggi esistono o fino a un'ora. Per ulteriori informazioni sulle azioni in questo ciclo, vedere [rinnovo del blocco della sessione fino a quando non viene annullato](#renew-session-while-messages-exist). |
 |||
 
 <a name="abandon-initial-message"></a>
@@ -171,9 +171,9 @@ Di seguito è riportato il flusso di primo livello nell' `Catch` azione ambito q
 | Nome | Descrizione |
 |------|-------------|
 | **`Close a session in a queue and fail`** | Questa azione del bus di servizio chiude la sessione nella coda, in modo che il blocco della sessione non resti aperto. Per informazioni dettagliate, vedere [chiudere una sessione in una coda e avere esito negativo](#close-session-fail). |
-| **`Find failure msg from 'Try' block`** | Questa [azione di **matrice di filtri** ](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) crea una matrice dagli input e dagli output di tutte le azioni all'interno dell' `Try` ambito in base ai criteri specificati. In questo caso, questa azione restituisce gli output delle azioni che hanno generato `Failed` lo stato. Per informazioni dettagliate, vedere [trovare un messaggio di errore dal blocco ' Try '](#find-failure-message). |
-| **`Select error details`** | Questa [azione **Select** ](../logic-apps/logic-apps-perform-data-operations.md#select-action) crea una matrice che contiene oggetti JSON in base ai criteri specificati. Questi oggetti JSON vengono compilati in base ai valori della matrice creata dall'azione precedente, `Find failure msg from 'Try' block` . In questo caso, questa azione restituisce una matrice che contiene un oggetto JSON creato con i dettagli dell'errore restituiti dall'azione precedente. Per informazioni dettagliate, vedere [selezionare i dettagli dell'errore](#select-error-details). |
-| **`Terminate`** | Questa [azione **termina** ](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) arresta l'esecuzione del flusso di lavoro, Annulla tutte le azioni in corso, ignora tutte le azioni rimanenti e restituisce lo stato specificato, l'ID sessione e il risultato dell'errore dall' `Select error details` azione. Per informazioni dettagliate, vedere [terminare l'app](#terminate-logic-app)per la logica. |
+| **`Find failure msg from 'Try' block`** | Questa [azione di **matrice di filtri**](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) crea una matrice dagli input e dagli output di tutte le azioni all'interno dell' `Try` ambito in base ai criteri specificati. In questo caso, questa azione restituisce gli output delle azioni che hanno generato `Failed` lo stato. Per informazioni dettagliate, vedere [trovare un messaggio di errore dal blocco ' Try '](#find-failure-message). |
+| **`Select error details`** | Questa [azione **Select**](../logic-apps/logic-apps-perform-data-operations.md#select-action) crea una matrice che contiene oggetti JSON in base ai criteri specificati. Questi oggetti JSON vengono compilati in base ai valori della matrice creata dall'azione precedente, `Find failure msg from 'Try' block` . In questo caso, questa azione restituisce una matrice che contiene un oggetto JSON creato con i dettagli dell'errore restituiti dall'azione precedente. Per informazioni dettagliate, vedere [selezionare i dettagli dell'errore](#select-error-details). |
+| **`Terminate`** | Questa [azione **termina**](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) arresta l'esecuzione del flusso di lavoro, Annulla tutte le azioni in corso, ignora tutte le azioni rimanenti e restituisce lo stato specificato, l'ID sessione e il risultato dell'errore dall' `Select error details` azione. Per informazioni dettagliate, vedere [terminare l'app](#terminate-logic-app)per la logica. |
 |||
 
 <a name="complete-template"></a>
@@ -238,7 +238,7 @@ Successivamente, verranno fornite le informazioni necessarie per le azioni che s
 
 ### <a name="while-there-are-more-messages-for-the-session-in-the-queue"></a>Sono presenti più messaggi per la sessione nella coda
 
-Il [ciclo **until** ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) esegue queste azioni mentre i messaggi sono presenti nella coda o fino a un'ora. Per modificare il limite di tempo del ciclo, modificare il valore della proprietà **timeout** del ciclo.
+Il [ciclo **until**](../logic-apps/logic-apps-control-flow-loops.md#until-loop) esegue queste azioni mentre i messaggi sono presenti nella coda o fino a un'ora. Per modificare il limite di tempo del ciclo, modificare il valore della proprietà **timeout** del ciclo.
 
 * Consente di ottenere messaggi aggiuntivi dalla coda mentre sono presenti messaggi.
 
@@ -261,7 +261,7 @@ Il [ciclo **until** ](../logic-apps/logic-apps-control-flow-loops.md#until-loop)
 
    ![Condizione-elabora i messaggi se presenti](./media/send-related-messages-sequential-convoy/process-messages-if-any.png)
 
-   Nella sezione **If false** , un ciclo **For Each** elabora ogni messaggio in ordine FIFO (First-in, First-out). Nelle **Impostazioni**del ciclo, l'impostazione del **controllo della concorrenza** è impostata su `1` , pertanto viene elaborato un solo messaggio alla volta.
+   Nella sezione **If false** , un ciclo **For Each** elabora ogni messaggio in ordine FIFO (First-in, First-out). Nelle **Impostazioni** del ciclo, l'impostazione del **controllo della concorrenza** è impostata su `1` , pertanto viene elaborato un solo messaggio alla volta.
 
    !["For each" loop-elabora ogni messaggio uno alla volta](./media/send-related-messages-sequential-convoy/for-each-additional-message.png)
 
@@ -277,7 +277,7 @@ A questo punto, verranno fornite le informazioni necessarie per le azioni nel ci
 
 ### <a name="renew-session-lock-until-cancelled"></a>Rinnovo blocco sessione fino all'annullamento
 
-Questo [ciclo **until** ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) garantisce che il blocco della sessione venga mantenuto da questa app per la logica mentre i messaggi sono presenti nella coda o fino a quando non viene superata un'ora eseguendo queste azioni. Per modificare il limite di tempo del ciclo, modificare il valore della proprietà **timeout** del ciclo.
+Questo [ciclo **until**](../logic-apps/logic-apps-control-flow-loops.md#until-loop) garantisce che il blocco della sessione venga mantenuto da questa app per la logica mentre i messaggi sono presenti nella coda o fino a quando non viene superata un'ora eseguendo queste azioni. Per modificare il limite di tempo del ciclo, modificare il valore della proprietà **timeout** del ciclo.
 
 * Ritardo per 25 secondi o per un periodo di tempo inferiore alla durata del timeout del blocco per la coda in fase di elaborazione. La durata minima del blocco è di 30 secondi, quindi il valore predefinito è sufficiente. Tuttavia, è possibile ottimizzare il numero di volte in cui il ciclo viene eseguito regolando in modo appropriato.
 
@@ -309,7 +309,7 @@ Successivamente, verranno fornite le informazioni necessarie per l'azione del bu
 
 Questa azione del bus di servizio chiude la sessione nella coda dopo che il flusso di lavoro ha completato l'elaborazione di tutti i messaggi disponibili nella coda o se il flusso di lavoro abbandona il messaggio iniziale.
 
-* Nell'azione del bus di servizio **chiudere una sessione in una coda e**ottenere il nome della coda del bus di servizio.
+* Nell'azione del bus di servizio **chiudere una sessione in una coda e** ottenere il nome della coda del bus di servizio.
 
   ![Azione del bus di servizio: "chiudere una sessione in una coda e avere esito positivo"](./media/send-related-messages-sequential-convoy/close-session-in-queue-succeed.png)
 
@@ -321,7 +321,7 @@ Le sezioni seguenti descrivono le azioni nella `Catch` sezione, che gestiscono g
 
 Questa azione del bus di servizio viene sempre eseguita come prima azione nell' `Catch` ambito e chiude la sessione nella coda.
 
-* Nell'azione del bus di servizio **chiudere una sessione in una coda e generare un errore e**specificare il nome della coda del bus di servizio.
+* Nell'azione del bus di servizio **chiudere una sessione in una coda e generare un errore e** specificare il nome della coda del bus di servizio.
 
   ![Azione del bus di servizio: "chiudere una sessione in una coda e non riuscire"](./media/send-related-messages-sequential-convoy/close-session-in-queue-fail.png)
 
@@ -331,7 +331,7 @@ Successivamente, il flusso di lavoro crea una matrice con gli input e gli output
 
 ### <a name="find-failure-msg-from-try-block"></a>Trova il messaggio di errore dal blocco ' Try '
 
-Questa [azione di **matrice di filtri** ](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) crea una matrice con gli input e gli output di tutte le azioni all'interno dell' `Try` ambito in base ai criteri specificati tramite la [ `result()` funzione](../logic-apps/workflow-definition-language-functions-reference.md#result). In questo caso, questa azione restituisce gli output delle azioni con `Failed` stato usando la [ `equals()` funzione](../logic-apps/workflow-definition-language-functions-reference.md#equals) e la [ `item()` funzione](../logic-apps/workflow-definition-language-functions-reference.md#item).
+Questa [azione di **matrice di filtri**](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) crea una matrice con gli input e gli output di tutte le azioni all'interno dell' `Try` ambito in base ai criteri specificati tramite la [ `result()` funzione](../logic-apps/workflow-definition-language-functions-reference.md#result). In questo caso, questa azione restituisce gli output delle azioni con `Failed` stato usando la [ `equals()` funzione](../logic-apps/workflow-definition-language-functions-reference.md#equals) e la [ `item()` funzione](../logic-apps/workflow-definition-language-functions-reference.md#item).
 
 ![Azione filtra matrice-"trova il messaggio di errore dal blocco ' Try '"](./media/send-related-messages-sequential-convoy/find-failure-message.png)
 
@@ -358,7 +358,7 @@ Successivamente, il flusso di lavoro crea una matrice con un oggetto JSON conten
 
 ### <a name="select-error-details"></a>Seleziona dettagli errore
 
-Questa [azione **Select** ](../logic-apps/logic-apps-perform-data-operations.md#select-action) crea una matrice che contiene oggetti JSON basati sulla matrice di input di output dell'azione precedente, `Find failure msg from 'Try' block` . In particolare, questa azione restituisce una matrice con solo le proprietà specificate per ogni oggetto nella matrice. In questo caso, la matrice contiene il nome dell'azione e le proprietà dei risultati degli errori.
+Questa [azione **Select**](../logic-apps/logic-apps-perform-data-operations.md#select-action) crea una matrice che contiene oggetti JSON basati sulla matrice di input di output dell'azione precedente, `Find failure msg from 'Try' block` . In particolare, questa azione restituisce una matrice con solo le proprietà specificate per ogni oggetto nella matrice. In questo caso, la matrice contiene il nome dell'azione e le proprietà dei risultati degli errori.
 
 ![Selezionare l'azione-"seleziona Dettagli errore"](./media/send-related-messages-sequential-convoy/select-error-details.png)
 
@@ -388,7 +388,7 @@ Il flusso di lavoro interrompe quindi l'esecuzione dell'app per la logica e rest
 
 ### <a name="terminate-logic-app-run"></a>Termina esecuzione App per la logica
 
-Questa [azione **termina** ](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) arresta l'esecuzione dell'app per la logica e restituisce lo `Failed` stato per l'esecuzione dell'app per la logica con l'ID sessione e il risultato dell'errore dell' `Select error details` azione.
+Questa [azione **termina**](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) arresta l'esecuzione dell'app per la logica e restituisce lo `Failed` stato per l'esecuzione dell'app per la logica con l'ID sessione e il risultato dell'errore dell' `Select error details` azione.
 
 ![Termina l'azione per arrestare l'esecuzione dell'app per la logica](./media/send-related-messages-sequential-convoy/terminate-logic-app-run.png)
 

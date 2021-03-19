@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/09/2021
 ms.author: aahi
 keywords: text mining, analisi del sentiment, analisi del testo
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: cb7bdeb379ee753424d9c975a8c030b0f7890552
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7fcc030e3c63c24fa255e578c2d8aaf1b466e99c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722280"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598967"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -33,7 +33,7 @@ Usare l'[analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis
 
 La funzionalità prevede etichette per il sentiment, ad esempio "negativo", "neutro" e "positivo", in base al punteggio di attendibilità più alto trovato dal servizio a livello di frase e di documento. Questa funzionalità restituisce inoltre i punteggi di attendibilità compresi tra 0 e 1 per ogni documento e per le frasi al suo interno per il sentiment positivo, neutro e negativo. È anche possibile eseguire il servizio in locale [usando un contenitore](how-tos/text-analytics-how-to-install-containers.md).
 
-A partire dalla versione 3.1 in anteprima, l'opinion mining è una funzionalità di Analisi del sentiment. Nota anche come analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (NLP), questa funzionalità fornisce informazioni più granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi.
+A partire dalla versione 3.1 in anteprima, l'opinion mining è una funzionalità di Analisi del sentiment. Nota anche come Analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (PNL), questa funzionalità fornisce informazioni più granulari sulle opinioni correlate alle parole, ad esempio gli attributi di prodotti o servizi, nel testo.
 
 ## <a name="key-phrase-extraction"></a>Estrazione di frasi chiave
 

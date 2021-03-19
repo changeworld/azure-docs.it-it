@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -9,17 +9,17 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ace42278269ff6af31902dbecead81329815af12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67180383"
 ---
 ## <a name="create-a-topic-using-the-azure-portal"></a>Creare un argomento usando il portale di Azure
 1. Nella pagina **Spazio dei nomi del bus di servizio** scegliere **Argomenti** dal menu a sinistra.
 2. Selezionare **+ Argomento** sulla barra degli strumenti. 
 4. Immettere un **nome** per l'argomento. Lasciare invariati i valori predefiniti delle altre opzioni.
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 
     ![Creare un argomento](./media/service-bus-create-topics-subscriptions-portal/create-topic.png)
 

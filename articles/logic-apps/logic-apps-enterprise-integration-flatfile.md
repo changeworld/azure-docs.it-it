@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
 ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87001486"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Codificare o decodificare file flat con App per la logica di Azure tramite l'Enterprise Integration Pack
@@ -40,7 +40,7 @@ Prima di inviare contenuto XML a un partner aziendale in uno scenario business-t
    > [!TIP]
    > La specifica di uno schema JSON è facoltativa. Se si dispone di un payload di esempio dalla richiesta in ingresso, selezionare **USA payload di esempio per generare lo schema**, immettere il payload di esempio e fare clic su **fine**. Lo schema viene visualizzato nella casella **dello schema JSON del corpo della richiesta** .
 
-1. In **scegliere un'azione**immettere `flat file` . Nell'elenco azioni selezionare questa azione: **codifica file flat**
+1. In **scegliere un'azione** immettere `flat file` . Nell'elenco azioni selezionare questa azione: **codifica file flat**
 
    ![Selezionare l'azione "codifica file flat"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-encoding.png)
 
@@ -72,7 +72,7 @@ A questo punto è stata eseguita la configurazione dell'azione di codifica file 
    > [!TIP]
    > La specifica di uno schema JSON è facoltativa. Se si dispone di un payload di esempio dalla richiesta in ingresso, selezionare **USA payload di esempio per generare lo schema**, immettere il payload di esempio e fare clic su **fine**. Lo schema viene visualizzato nella casella **dello schema JSON del corpo della richiesta** .
 
-1. In **scegliere un'azione**immettere `flat file` . Nell'elenco azioni selezionare questa azione: **decodifica file flat**
+1. In **scegliere un'azione** immettere `flat file` . Nell'elenco azioni selezionare questa azione: **decodifica file flat**
 
    ![Selezionare l'azione "decodifica file flat"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-decoding.png)
 

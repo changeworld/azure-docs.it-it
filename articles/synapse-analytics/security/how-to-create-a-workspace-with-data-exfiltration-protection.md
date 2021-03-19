@@ -1,19 +1,19 @@
 ---
 title: Creare un'area di lavoro con la protezione Exfiltration dati abilitata
 description: Questo articolo illustra come creare un'area di lavoro con protezione Exfiltration dati in Azure sinapsi Analytics
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3dc0b9e83af5a29172189f75e5a2174dc4d393d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 59c2f5e5738b29aa11e9227b157f8b11d53f2b25
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096123"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598083"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Creare un'area di lavoro con la protezione Exfiltration dati abilitata
 Questo articolo descrive come creare un'area di lavoro con la protezione Exfiltration dati abilitata e come gestire i tenant Azure AD approvati per questa area di lavoro.

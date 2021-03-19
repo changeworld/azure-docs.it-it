@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: eefc42fb8e66e66c6388599df65c59ff642a6b59
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c953668d6b2e364e6e703b1769317f1c520317ca
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124109"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654374"
 ---
 # <a name="about-expressroute-fastpath"></a>Informazioni su ExpressRoute FastPath
 
@@ -42,7 +42,7 @@ Per configurare FastPath, il gateway di rete virtuale deve essere uno dei seguen
 
 Sebbene FastPath supporti la maggior parte delle configurazioni, non supporta le funzionalità seguenti:
 
-* UDR sulla subnet del gateway: se si applica un UDR alla subnet del gateway della rete virtuale, il traffico di rete proveniente dalla rete locale continuerà a essere inviato al gateway di rete virtuale.
+* UDR sulla subnet del gateway: questo UDR non ha alcun effetto sul traffico di rete che FastPath Invia direttamente dalla rete locale alle macchine virtuali nella rete virtuale di Azure. 
 
 * Peering VNet: se si dispone di altre reti virtuali con peering con quello connesso a ExpressRoute, il traffico di rete dalla rete locale alle altre reti virtuali, ad esempio il cosiddetto "spoke" reti virtuali, continuerà a essere inviato al gateway di rete virtuale. La soluzione alternativa consiste nel connettere direttamente tutte le reti virtuali al circuito ExpressRoute.
 

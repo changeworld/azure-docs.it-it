@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c020a9be7683bf045dbcc747dad3cb45058dd7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077677"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedura: richiedere l'autenticazione a più fattori per l'accesso da reti non attendibili con accesso condizionale   
@@ -58,7 +58,7 @@ Anziché tentare di definire quali sono tutte le posizioni che non vengono consi
 
 - Escludere tutte le località attendibili 
 
-   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Screenshot del riquadro Azure A D locations, con Configure impostato su Yes, la scheda include visibile e l'opzione any location selezionata ed evidenziata." border="false":::
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Screenshot del riquadro Azure A D locations, con Configure impostato su Yes, la scheda Exclude Visible e l'opzione all Trusted Locations selezionata." border="false":::
 
 ## <a name="policy-deployment"></a>Distribuzione dei criteri
 

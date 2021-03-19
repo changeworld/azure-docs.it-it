@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.openlocfilehash: d604ca8c8979ec98b990f8002ce29d0df92ac2af
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90945069"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server-preview"></a>Avvio rapido: Usare MySQL Workbench per connettersi ed eseguire query sui dati in Database di Azure per MySQL - Server flessibile (anteprima)
@@ -53,7 +53,7 @@ Per connettersi al server flessibile di Database di Azure per MySQL tramite MySQ
 
 2. Nella finestra di dialogo **Setup New Connection** (Configura nuova connessione) immettere le informazioni seguenti nella scheda **Parameters** (Parametri):
 
-    :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Azure Database for MySQL Flexible Server name":::
+    :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Setup New Connection (Configura nuova connessione)":::
 
     | **Parameters** | **Valore consigliato** | **Descrizione campo** |
     |---|---|---|
@@ -108,7 +108,7 @@ Per connettersi al server flessibile di Database di Azure per MySQL tramite MySQ
 
     Lo screenshot mostra un esempio di codice SQL in MySQL Workbench e l'output dopo l'esecuzione.
 
-    :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="Azure Database for MySQL Flexible Server name":::
+    :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="Scheda SQL in MySQL Workbench per l'esecuzione del codice SQL di esempio":::
 
 2. Per eseguire l'esempio di codice SQL, fare clic sull'icona saetta nella barra degli strumenti della scheda **File SQL**.
 3. Si notino i tre risultati a schede nella sezione **Griglia risultati** nella parte centrale della pagina.
@@ -117,7 +117,7 @@ Per connettersi al server flessibile di Database di Azure per MySQL tramite MySQ
 A questo punto è stata effettuata la connessione al server flessibile di Database di Azure per MySQL tramite MySQL Workbench ed è stata eseguita una query sui dati con il linguaggio SQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Connettività crittografata con Transport Layer Security (TLS 1.2) in Database di Azure per MySQL - Server flessibile](./how-to-connect-tls-ssl.md).
+- [Connettività crittografata con Transport Layer Security (TLS 1.2) nel server flessibile di Database di Azure per MySQL](./how-to-connect-tls-ssl.md).
 - Vedere le informazioni sulle [funzionalità di rete nel server flessibile di Database di Azure per MySQL](./concepts-networking.md).
 - [Creare e gestire le regole del firewall del server flessibile di Database di Azure per MySQL tramite il portale di Azure](./how-to-manage-firewall-portal.md).
 - [Creare e gestire la rete virtuale del server flessibile di Database di Azure per MySQL tramite il portale di Azure](./how-to-manage-virtual-network-portal.md).

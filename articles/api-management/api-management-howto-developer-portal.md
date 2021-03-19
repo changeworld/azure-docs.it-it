@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93074798"
 ---
 # <a name="overview-of-the-developer-portal"></a>Panoramica del portale per sviluppatori
@@ -62,7 +62,7 @@ Quando è stata avviata per la prima volta la versione di anteprima del portale 
 
 Se il portale è stato personalizzato in modo significativo in base alla versione di anteprima del contenuto, è possibile continuare a usarlo così com'è e posizionare manualmente i nuovi widget nelle pagine del portale. In caso contrario, è consigliabile sostituire il contenuto del portale con il nuovo contenuto predefinito.
 
-Per reimpostare il contenuto in un portale gestito, selezionare **Reimposta contenuto** nella sezione del menu **operazioni** . Questa operazione rimuoverà tutto il contenuto del portale ed effettuerà il provisioning del nuovo contenuto predefinito. Tutte le personalizzazioni e le modifiche del portale per sviluppatori andranno perse. **Non è possibile annullare questa azione** .
+Per reimpostare il contenuto in un portale gestito, selezionare **Reimposta contenuto** nella sezione del menu **operazioni** . Questa operazione rimuoverà tutto il contenuto del portale ed effettuerà il provisioning del nuovo contenuto predefinito. Tutte le personalizzazioni e le modifiche del portale per sviluppatori andranno perse. **Non è possibile annullare questa azione**.
 
 ![Reimposta contenuto portale](media/api-management-howto-developer-portal/reset-content.png)
 

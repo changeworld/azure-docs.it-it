@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 673e2260f358332de00a15b29729f14d62fe82a4
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: aa91851787bbb0f5570a4f439f794ee352bf0625
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518008"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579689"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Esercitazione: Creare un tenant di Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Prima che le applicazioni possano interagire con Azure Active Directory B2C (Azu
 > [!NOTE]
 > È possibile creare fino a 20 tenant per sottoscrizione. Questo limite consente di proteggere le risorse dalle minacce, ad esempio gli attacchi Denial of Service, e viene applicato sia nel portale di Azure che nell'API di creazione del tenant sottostante. Se è necessario creare più di 20 tenant, contattare il [supporto tecnico Microsoft](support-options.md).
 > 
-> Se si vuole riusare un nome di tenant che in precedenza si è tentato di eliminare, ma viene visualizzato l'errore "già in uso da un'altra directory" quando si immette il nome di dominio, è necessario [seguire questa procedura per eliminare prima di tutto il tenant](https://docs.microsoft.com/azure/active-directory-b2c/faq?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). È necessario un ruolo di almeno amministratore della sottoscrizione. Dopo l'eliminazione del tenant, potrebbe essere necessario disconnettersi e accedere di nuovo prima di poter riutilizzare il nome di dominio.
+> Se si vuole riusare un nome di tenant che in precedenza si è tentato di eliminare, ma viene visualizzato l'errore "già in uso da un'altra directory" quando si immette il nome di dominio, è necessario [seguire questa procedura per eliminare prima di tutto il tenant](./faq.md?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). È necessario un ruolo di almeno amministratore della sottoscrizione. Dopo l'eliminazione del tenant, potrebbe essere necessario disconnettersi e accedere di nuovo prima di poter riutilizzare il nome di dominio.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 

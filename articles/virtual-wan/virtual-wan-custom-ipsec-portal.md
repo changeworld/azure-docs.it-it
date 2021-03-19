@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: cherylmc
 ms.openlocfilehash: 07eae453441ea8bff81d7cdb60f9c46c08a22829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91851175"
 ---
 # <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>Configurare un criterio IPsec personalizzato per la rete WAN virtuale usando il portale
@@ -28,7 +28,7 @@ ms.locfileid: "91851175"
 2. **Selezionare il sito VPN**. Dalla pagina panoramica Hub fare clic su **VPN (da sito a sito)** e selezionare il sito VPN per cui si desidera configurare un criterio IPsec personalizzato.
 
    ![Proprietà](./media/virtual-wan-custom-ipsec-portal/locate.png)
-3. **Modificare la connessione VPN**. Dal **menu di scelta rapida** **...** Selezionare **Modifica connessione VPN**.
+3. **Modificare la connessione VPN**. Dal **menu di scelta rapida** Selezionare **Modifica connessione VPN**.
 
    ![modifica](./media/virtual-wan-custom-ipsec-portal/contextmenu.png)
 4. **Configurare le impostazioni**. Nella pagina **Modifica connessione VPN** modificare l'impostazione IPSec da predefinita a personalizzata e personalizzare i criteri IPSec. Per salvare le impostazioni, fare clic su **Save** (Salva).

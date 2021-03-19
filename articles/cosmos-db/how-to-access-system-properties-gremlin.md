@@ -8,10 +8,10 @@ ms.date: 09/10/2019
 author: SnehaGunda
 ms.author: sngun
 ms.openlocfilehash: 61814082ebe9828a08da1e8786890b500c239082
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081842"
 ---
 # <a name="system-document-properties"></a>Proprietà di sistema dei documenti
@@ -35,7 +35,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 Se nella raccolta è abilitata la scadenza dei documenti e nei documenti è impostata la proprietà ```ttl```, questa proprietà sarà disponibile nell'attraversamento Gremlin come una normale proprietà vertice o bordo. Non occorre ```ProjectionStrategy``` per abilitare l'esposizione della proprietà relativa alla durata (TTL).
 
-Il vertice creato con l'attraversamento riportato di seguito verrà eliminato automaticamente tra **123 secondi** .
+Il vertice creato con l'attraversamento riportato di seguito verrà eliminato automaticamente tra **123 secondi**.
 
 ```
 g.addV('vertex-one').property('ttl', 123)

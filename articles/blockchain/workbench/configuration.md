@@ -5,10 +5,10 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87073081"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Informazioni di riferimento sulla configurazione di Azure Blockchain Workbench
@@ -61,11 +61,11 @@ La logica di business di un'applicazione può essere modellata come macchina a s
 
 Per un esempio, vedere il [file di configurazione di esempio](#configuration-file-example).
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tipo
 
 Tipi di dati supportati.
 
-| Type | Descrizione |
+| Tipo | Descrizione |
 |-------|-------------|
 | address  | Tipo di indirizzo blockchain, ad esempio *contratti* o *utenti*. |
 | array    | Matrice a livello singolo di tipo integer, bool, money o time. Le matrici possono essere statiche o dinamiche. Usare **ElementType** per specificare il tipo di dati degli elementi all'interno della matrice. Vedere una [configurazione di esempio](#example-configuration-of-type-array). |
@@ -391,7 +391,7 @@ Gli identificatori rappresentano una raccolta di informazioni usate per descrive
 | Nome | Nome univoco della proprietà o del parametro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la proprietà o il parametro applicabile. | Sì | 50 |
 | DisplayName | Nome visualizzato descrittivo per la proprietà o il parametro. | Sì | 255 |
 | Descrizione | Descrizione della proprietà o del parametro. | No | 255 |
-| Type | [Tipo di dati](#type)della proprietà. | Sì |
+| Tipo | [Tipo di dati](#type)della proprietà. | Sì |
 
 ### <a name="identifiers-example"></a>Esempio di identificatori
 
@@ -418,7 +418,7 @@ Gli identificatori rappresentano una raccolta di informazioni usate per descrive
 
 ## <a name="configuration-file-example"></a>File di configurazione di esempio
 
-Il trasferimento di cespiti è uno scenario di contratto intelligente per l'acquisto e la vendita di cespiti di valore elevato, che richiedono un responsabile controllo e un responsabile valutazione. I venditori possono elencare i loro cespiti creando un'istanza di un contratto intelligente di trasferimento cespiti. Gli acquirenti possono presentare offerte eseguendo un'azione nel contratto intelligente e altre parti possono eseguire azioni per controllare o valutare il cespite. Dopo che il cespite è stato contrassegnato come controllato e valutato, l'acquirente e il venditore confermeranno di nuovo la vendita prima che il contratto sia impostato come completato. In ogni passaggio del processo tutti i partecipanti hanno la visibilità sullo stato del contratto mentre viene aggiornato. 
+Il trasferimento di cespiti è uno scenario di contratto intelligente per l'acquisto e la vendita di cespiti di valore elevato, che richiedono un responsabile controllo e un responsabile valutazione. I venditori possono elencare i loro cespiti creando un'istanza di un contratto intelligente di trasferimento cespiti. Gli acquirenti possono presentare offerte eseguendo un'azione nel contratto intelligente e altre parti possono eseguire azioni per controllare o valutare il cespite. Dopo che il cespite è stato contrassegnato come controllato e valutato, l'acquirente e il venditore confermeranno di nuovo la vendita prima che il contratto sia impostato come completato. In ogni passaggio del processo tutti i partecipanti hanno la visibilità sullo stato del contratto mentre viene aggiornato. 
 
 Per altre informazioni, inclusi i file di codice, vedere l'[esempio di trasferimento cespiti per Azure Blockchain Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 
