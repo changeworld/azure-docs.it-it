@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 4adfb63ecab72eb42e188af472bb5387a0276a79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723776"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596009"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Aree e zone di disponibilità in Azure
 
@@ -82,7 +82,7 @@ Se un'offerta di servizio non è disponibile in un'area specifica, è possibile 
 | Consigliato | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | :heavy_check_mark: | :heavy_check_mark: |
 | Alternativo | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | Basata su richiesta | N/D | :heavy_check_mark: |
 
-### <a name="services-by-category-with-availability-zones"></a>Servizi per categoria con zone di disponibilità
+### <a name="services-by-category"></a>Servizi per categoria
 
 Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondamentale, mainstream e specializzato. Le categorie di servizio vengono assegnate a livello generale. Spesso i servizi avviano il ciclo di vita come servizio specializzato e gli aumenti di richiesta e utilizzo possono essere promossi al mainstream o alla base. La tabella seguente elenca la categoria per i servizi come base, mainstream. Per la tabella è necessario tenere presente quanto segue:
 
@@ -101,7 +101,7 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | IP pubblico di Azure                        | Cache Redis di Azure                             | 
 > | Database SQL di Azure                     | Ricerca cognitiva di Azure                            | 
-> | Azure SQL: Istanza gestita           | Servizi cognitivi di Azure                          | 
+> | Istanza gestita di SQL di Azure             | Servizi cognitivi di Azure                          | 
 > | Archiviazione su disco                           | Servizi cognitivi di Azure: Visione artificiale         | 
 > | Hub eventi                             | Servizi cognitivi di Azure: Content Moderator       | 
 > | Key Vault                              | Servizi cognitivi di Azure: viso                    | 
@@ -172,7 +172,7 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > | Servizio Migrazione del database di Azure                     |
 > | Modulo di protezione hardware dedicato di Azure                                  |
 > | Gemelli digitali di Azure                                  |
-> | Bot per l'integrità di Azure                                     |
+> | Azure Health Bot                                     |
 > | Cache HPC di Azure                                      |
 > | Azure Lab Services                                   |
 > | Azure NetApp Files                                   |

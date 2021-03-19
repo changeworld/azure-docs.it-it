@@ -14,10 +14,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 1455259bc42aea9d506a9a2a19d725cac3d643f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87562770"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Cambiare il piano tariffario di uno spazio dei nomi di Hub di notifica di Azure
@@ -30,7 +30,7 @@ In hub di notifica di Azure, un *Hub di notifica* è la risorsa/entità più pic
 
 Uno *spazio dei nomi* è una raccolta di hub di notifica. Ogni spazio dei nomi in genere è costituito da hub correlati e usati per uno scopo specifico. Ad esempio, è possibile avere tre diversi spazi dei nomi a scopo di sviluppo, test e produzione, rispettivamente.
 
-È possibile associare uno spazio dei nomi ai piani tariffari **gratuito**, **Basic**o **standard** . Per qualsiasi spazio dei nomi, è possibile usare il livello più adatto ai propri requisiti. Le sezioni seguenti illustrano come cambiare il piano tariffario di uno spazio dei nomi di Hub di notifica.
+È possibile associare uno spazio dei nomi ai piani tariffari **gratuito**, **Basic** o **standard** . Per qualsiasi spazio dei nomi, è possibile usare il livello più adatto ai propri requisiti. Le sezioni seguenti illustrano come cambiare il piano tariffario di uno spazio dei nomi di Hub di notifica.
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure
 

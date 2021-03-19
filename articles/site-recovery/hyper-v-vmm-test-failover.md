@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sideeksh
 ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87420414"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
@@ -46,7 +46,7 @@ Quando si esegue un failover di test, viene chiesto di selezionare le impostazio
 | **Opzione** | **Dettagli** | |
 | --- | --- | --- |
 | **Nessuno** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud e non è connessa ad alcuna rete.<br/><br/> Dopo essere stata creata, la macchina può essere connessa a una rete VM.| |
-| **Usare il**  esistente | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud.<br/><br/>Creare una rete VM isolata dalla rete di produzione.<br/><br/>Se si vuole usare una rete basata su VLAN, è consigliabile creare a questo scopo in VMM una rete logica separata non usata in produzione. Questa rete logica viene usata per creare reti VM per i failover di test.<br/><br/>La rete logica deve essere associata ad almeno una delle schede di rete di tutti i server Hyper-V che ospitano macchine virtuali.<br/><br/>Per le reti logiche VLAN i siti di rete che vengono aggiunti alla rete logica devono essere isolati.<br/><br/>Se si usa una rete logica basata su Virtualizzazione rete Windows, Azure Site Recovery crea automaticamente reti VM isolate. | |
+| **Usa esistente** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud.<br/><br/>Creare una rete VM isolata dalla rete di produzione.<br/><br/>Se si vuole usare una rete basata su VLAN, è consigliabile creare a questo scopo in VMM una rete logica separata non usata in produzione. Questa rete logica viene usata per creare reti VM per i failover di test.<br/><br/>La rete logica deve essere associata ad almeno una delle schede di rete di tutti i server Hyper-V che ospitano macchine virtuali.<br/><br/>Per le reti logiche VLAN i siti di rete che vengono aggiunti alla rete logica devono essere isolati.<br/><br/>Se si usa una rete logica basata su Virtualizzazione rete Windows, Azure Site Recovery crea automaticamente reti VM isolate. | |
 | **Crea una rete** | Viene creata automaticamente una rete di test temporanea in base all'impostazione specificata in **Rete logica** e ai siti di rete correlati.<br/><br/> Il failover controlla che le macchine virtuali vengano create.<br/><br/> Usare questa opzione se un piano di ripristino uza più reti VM.<br/><br/> Se si utilizzano reti di virtualizzazione rete Windows, è possibile utilizzare questa opzione per creare automaticamente reti VM con le stesse impostazioni (subnet e pool di indirizzi IP) specificate nella rete della macchina virtuale di replica. Queste reti VM vengono eliminate automaticamente al termine del failover di test.<br/><br/> La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud.|
 
 ### <a name="best-practices"></a>Procedure consigliate
@@ -119,7 +119,7 @@ Preparare un server DNS per il failover di test come segue:
 
 Questa procedura descrive come eseguire un failover di test per un piano di ripristino. In alternativa, è possibile eseguire il failover per una singola macchina virtuale nella scheda **macchine virtuali** .
 
-1. Selezionare i **piani di ripristino**  >  *recoveryplan_name*. Fare **clic su failover di**  >  **test**failover.
+1. Selezionare i **piani di ripristino**  >  *recoveryplan_name*. Fare **clic su failover di**  >  **test** failover.
 2. Nel pannello **Failover di test** specificare come le macchine virtuali di replica devono essere connesse alle reti dopo il failover di test.
 3. Tenere traccia dello stato di avanzamento del failover nella scheda **Processi** .
 4. Dopo il completamento del failover verificare che le macchine virtuali vengano avviate correttamente.

@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, sensore, visualizzatore, sincronizzazione esterna, ritardo fase, profondità, RGB, fotocamera, cavo audio, registratore
 ms.openlocfilehash: 052f6f1ac9f90e764de25d1d4d1b25b3d50a848d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276661"
 ---
 # <a name="use-azure-kinect-recorder-with-external-synchronized-devices"></a>Usare il registratore Kinect di Azure con dispositivi sincronizzati esterni
@@ -118,7 +118,7 @@ Avviare sempre prima i dispositivi subordinati e l'ultimo master.
 
 Per eventuali problemi, vedere [risoluzione dei](troubleshooting.md) problemi
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Configurare la sincronizzazione esterna](https://support.microsoft.com/help/4494429/sync-multiple-devices)
 - [Registratore Kinect di Azure](azure-kinect-recorder.md) per le impostazioni del registratore e informazioni aggiuntive.

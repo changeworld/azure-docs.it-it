@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: bfaee493c25f882b8beeed565a155db93efd0083
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: be2ff9d6ed908bdc0645fc713717a08674354096
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431755"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593221"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gestire e trovare i dati BLOB di Azure con i tag degli indici BLOB (anteprima)
 
@@ -289,12 +289,7 @@ I tag di indice BLOB sono disponibili solo negli account per utilizzo generico V
 
 I tag di indice non sono supportati negli account di archiviazione Premium. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
 
-Nell'anteprima pubblica, i tag degli indici BLOB sono disponibili solo nelle aree seguenti:
-
-- Canada centrale
-- Canada orientale
-- Francia centrale
-- Francia meridionale
+I tag dell'indice BLOB sono attualmente disponibili in tutte le aree pubbliche.
 
 Per iniziare, vedere [usare i tag degli indici BLOB per gestire e trovare i dati](storage-blob-index-how-to.md).
 

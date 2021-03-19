@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: b2164f8927e5c3224f8b07c30d057f48fb7bbc32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87495973"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurare il ripristino di emergenza per macchine virtuali Hyper-V in un sito locale secondario
@@ -95,14 +95,14 @@ Installare il provider di Azure Site Recovery nei server VMM, rilevare e registr
 5. Al termine dell'installazione fare clic su **Registra** per registrare il server nell'insieme di credenziali.
 
     ![Screenshot della schermata di installazione del provider, incluso il percorso di installazione.](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
-6. In **Vault name**verificare il nome dell'insieme di credenziali in cui verrà registrato il server. Fare clic su **Avanti**.
+6. In **Vault name** verificare il nome dell'insieme di credenziali in cui verrà registrato il server. Fare clic su **Avanti**.
 7. Nella pagina **Connessione del proxy**, specificare la modalità di connessione ad Azure del provider in esecuzione sul server VMM.
    - È possibile specificare che il provider debba connettersi direttamente a Internet o tramite un proxy. Se necessario, specificare le impostazioni proxy.
    - Se si usa un proxy, viene creato automaticamente un account RunAs di VMM (DRAProxyAccount) con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione. È possibile modificare le impostazioni dell'account RunAs nella console di VMM > **Impostazioni** > **Sicurezza** > **Account RunAs**.
    - Riavviare il servizio VMM per aggiornare le modifiche.
 8. In **Chiave di registrazione** selezionare il codice scaricato e copiato nel server VMM.
 9. L'impostazione di crittografia non è rilevante per questo scenario. 
-10. In **Nome server**specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali. In un cluster, specificare il nome del ruolo relativo al cluster VMM.
+10. In **Nome server** specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali. In un cluster, specificare il nome del ruolo relativo al cluster VMM.
 11. In **Sincronizza i metadati cloud** scegliere se sincronizzare i metadati per tutti i cloud presenti nel server VMM. È necessario eseguire questa azione solo una volta in ogni server. Se non si desidera sincronizzare tutti i cloud, lasciare deselezionata questa opzione. È possibile sincronizzare ogni cloud singolarmente nelle proprietà del cloud sulla console VMM.
 12. Fare clic su **Avanti** per completare il processo. Dopo la registrazione, i metadati del server VMM vengono recuperati da Site Recovery. Il server viene visualizzato in **Server** > **Server VMM** nell'insieme di credenziali.
 13. Quando il server compare nell'insieme di credenziali, in **Origine** > **Prepara origine** selezionare il server VMM, quindi selezionare il cloud in cui si trova l'host Hyper-V. Fare quindi clic su **OK**.
@@ -123,14 +123,14 @@ Selezionare il server VMM di destinazione e il cloud:
 Prima di iniziare, assicurarsi che tutti gli host che usano i criteri abbiano lo stesso sistema operativo. Se gli host eseguono versioni diverse di Windows Server, saranno necessari più criteri di replica.
 
 1. Per creare nuovi criteri di replica, fare clic su **Preparare l'infrastruttura** > **Impostazioni della replica** >  **+Crea e associa**.
-2. In **Criteri di creazione e associazione**specificare il nome dei criteri. Il tipo di origine e di destinazione deve essere **Hyper-V**.
+2. In **Criteri di creazione e associazione** specificare il nome dei criteri. Il tipo di origine e di destinazione deve essere **Hyper-V**.
 3. In **Versione host Hyper-V** selezionare il sistema operativo in esecuzione nell'host.
 4. In **Tipo di autenticazione** e **Porta di autenticazione** specificare come viene autenticato il traffico tra il server host Hyper-V primario e quello di ripristino.
     - Selezionare **Certificato** a meno che non sia configurato un ambiente Kerberos funzionante. Azure Site Recovery configura automaticamente i certificati per l'autenticazione HTTPS. Non è necessario intervenire manualmente.
     - Per impostazione predefinita, le porte 8083 e 8084 (per i certificati) sono aperte in Windows Firewall per i server host Hyper-V.
     - Se si seleziona **Kerberos**, verrà usato un ticket Kerberos per l'autenticazione reciproca dei server host. Kerberos è rilevante solo per i server host Hyper-V in esecuzione su Windows Server 2012 R2 o successivo.
-1. In **Frequenza di copia**specificare la frequenza con cui replicare i dati differenziali dopo la replica iniziale, ogni 30 secondi oppure ogni 5 o 15 minuti.
-2. In **Conservazione del punto di recupero**specificare la durata in ore dell'intervallo di conservazione per ogni punto di recupero. I computer replicati possono essere ripristinati in qualsiasi punto all'interno di un intervallo.
+1. In **Frequenza di copia** specificare la frequenza con cui replicare i dati differenziali dopo la replica iniziale, ogni 30 secondi oppure ogni 5 o 15 minuti.
+2. In **Conservazione del punto di recupero** specificare la durata in ore dell'intervallo di conservazione per ogni punto di recupero. I computer replicati possono essere ripristinati in qualsiasi punto all'interno di un intervallo.
 3. In **Frequenza snapshot coerenti con l'app** specificare la frequenza, da 1 a 12 ore, per la creazione di punti di ripristino contenenti snapshot coerenti con l'applicazione. Hyper-V usa due tipi di snapshot:
     - **Snapshot standard**: fornisce uno snapshot incrementale dell'intera macchina virtuale.
     - **Snapshot coerente con l'app**: snapshot temporizzato dei dati dell'applicazione all'interno della macchina virtuale. Il servizio Copia Shadow del volume assicura che lo stato dell'app sia coerente quando viene creato lo snapshot. L'abilitazione di snapshot coerenti con l'app influisce sulle prestazioni dell'app su macchine virtuali di origine. Impostare un valore inferiore al numero di punti di ripristino aggiuntivi configurati.

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84710372"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Eseguire operazioni sui dati in App per la logica di Azure
@@ -35,7 +35,7 @@ Queste azioni consentono di operare sui dati in matrici.
 | [**Crea tabella HTML**](#create-html-table-action) | Creare una tabella HTML da una matrice. |
 | [**Filtra matrice**](#filter-array-action) | Creare un subset di matrice da una matrice in base al filtro o alla condizione specificati. |
 | [**Join**](#join-action) | Creare una stringa da tutti gli elementi in una matrice e separare gli elementi con il carattere specificato. |
-| [**Selezionare**](#select-action) | Creare una matrice dalle proprietà specificate per tutti gli elementi in una matrice diversa. |
+| [**Select**](#select-action) | Creare una matrice dalle proprietà specificate per tutti gli elementi in una matrice diversa. |
 ||| 
 
 **Azioni per JSON**
@@ -44,7 +44,7 @@ Queste azioni consentono di operare sui dati in formato JSON (JavaScript Object 
 
 | Azione | Descrizione |
 |--------|-------------|
-| [**Composizione**](#compose-action) | Creare un messaggio o una stringa da più input che possono avere vari tipi di dati. È quindi possibile usare questa stringa come un singolo input, invece di immettere ripetutamente gli stessi input. Ad esempio, è possibile creare un singolo messaggio JSON da vari input. |
+| [**Compose**](#compose-action) | Creare un messaggio o una stringa da più input che possono avere vari tipi di dati. È quindi possibile usare questa stringa come un singolo input, invece di immettere ripetutamente gli stessi input. Ad esempio, è possibile creare un singolo messaggio JSON da vari input. |
 | [**Analizza JSON**](#parse-json-action) | Creare token di dati descrittivi per le proprietà in contenuto JSON, in modo da poter usare più facilmente le proprietà nelle app per la logica. |
 |||
 
@@ -608,7 +608,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
    
    1. Nell'azione **Analizza JSON** selezionare **Usare il payload di esempio per generare lo schema**.
 
-   1. In **immettere o incollare un payload JSON di esempio**specificare il contenuto JSON e quindi fare clic su **fine**.
+   1. In **immettere o incollare un payload JSON di esempio** specificare il contenuto JSON e quindi fare clic su **fine**.
 
       ![Immettere il contenuto JSON per la generazione dello schema](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png)
 
@@ -624,7 +624,7 @@ Per verificare se l'azione **Analizza JSON** crea i risultati previsti, inviare 
 
 1. In tale azione, fare clic in qualsiasi punto in cui si vogliono visualizzare i risultati. Quando si apre l'elenco di contenuto dinamico, nell'azione **Analizza JSON**, è ora possibile selezionare le proprietà dal contenuto JSON analizzato.
 
-   Questo esempio usa l'azione **Invia un messaggio di posta elettronica** di Office 365 Outlook e include i campi **FirstName**, **LastName**e **email** nel corpo del messaggio di posta elettronica:
+   Questo esempio usa l'azione **Invia un messaggio di posta elettronica** di Office 365 Outlook e include i campi **FirstName**, **LastName** e **email** nel corpo del messaggio di posta elettronica:
 
    ![Proprietà JSON nell'azione "Invia un messaggio di posta elettronica"](./media/logic-apps-perform-data-operations/send-email-parse-json-action.png)
 

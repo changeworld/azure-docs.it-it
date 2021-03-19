@@ -4,15 +4,15 @@ description: Descrive i tre servizi di messaggistica di Azure - Griglia di event
 ms.topic: overview
 ms.date: 07/07/2020
 ms.openlocfilehash: 7a3a0cd7f63a67206053ae55f33bd71aee2c19c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87460406"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Scegliere tra i servizi di messaggistica di Azure - Griglia di eventi, Hub eventi, bus di servizio
 
-Azure offre tre servizi che agevolano il recapito di messaggi di eventi tramite una soluzione. Questi servizi sono:
+Azure offre tre servizi che agevolano il recapito di messaggi di eventi tramite una soluzione. I servizi includono:
 
 * [Griglia di eventi](./index.yml)
 * [Hub eventi](../event-hubs/index.yml)
@@ -24,11 +24,11 @@ Nonostante alcune analogie, ogni servizio è progettato per determinati scenari.
 
 È importante tenere presente la differenza tra servizi che recapitano un evento e servizi che recapitano un messaggio.
 
-### <a name="event"></a>Event
+### <a name="event"></a>Evento
 
 Un evento è una notifica leggera di una condizione o di una modifica di stato. L'autore dell'evento non ha aspettative su come viene gestito l'evento. Il consumer dell'evento decide come procedere con la notifica. Gli eventi possono essere unità separate o fare parte di una serie.
 
-Gli eventi separati segnalano una modifica dello stato ed possibile intervenire. Per eseguire il passaggio successivo, il consumer deve solo sapere che è accaduto qualcosa. I dati dell'evento contengono informazioni su ciò che è accaduto, ma non includono i dati che hanno attivato l'evento. Un evento ad esempio notifica ai consumer che è stato creato un file. Può contenere informazioni generali sul file, ma non il file stesso. Gli eventi separati sono ideali per le soluzioni [senza server](https://azure.com/serverless) che devono essere ridimensionate.
+Gli eventi separati segnalano una modifica dello stato ed possibile intervenire. Per eseguire il passaggio successivo, il consumer deve solo sapere che è accaduto qualcosa. I dati dell'evento contengono informazioni su ciò che è accaduto, ma non includono i dati che hanno attivato l'evento. Un evento ad esempio notifica ai consumer che è stato creato un file. Può contenere informazioni generali sul file, ma non il file stesso. Gli eventi discreti sono ideali per le soluzioni senza [Server](https://azure.com/serverless) che devono essere ridimensionate.
 
 Gli eventi di una serie segnalano una condizione e sono analizzabili. Gli eventi sono ordinati nel tempo e intercorrelati. Il consumer ha bisogno della serie sequenziata di eventi per analizzare che cosa è accaduto.
 
@@ -38,7 +38,7 @@ I messaggi sono dati non elaborati generati da un servizio da utilizzare o archi
 
 ## <a name="comparison-of-services"></a>Confronto dei servizi
 
-| Service | Scopo | Type | Utilizzo |
+| Servizio | Scopo | Tipo | Utilizzo |
 | ------- | ------- | ---- | ----------- |
 | Griglia di eventi | Programmazione reattiva | Distribuzione di eventi (separati) | Reazione alle modifiche di stato |
 | Hub eventi | Pipeline di Big Data | Streaming di eventi (serie) | Flusso dei dati di telemetria e distribuiti |
@@ -52,7 +52,7 @@ Griglia di eventi è strettamente integrato con i servizi di Azure e può essere
 
 Griglia di eventi supporta l'Inserimento degli eventi che non vengono recapitati a un endpoint nella coda dei messaggi non recapitabili.
 
-Presenta le caratteristiche seguenti:
+Le caratteristiche sono le seguenti:
 
 * scalabile dinamicamente
 * basso costo
@@ -63,7 +63,7 @@ Presenta le caratteristiche seguenti:
 
 Hub eventi di Azure è una pipeline di Big Data. Semplifica l'acquisizione, la conservazione e la riproduzione dei dati dei flussi di eventi e di telemetria. I dati possono provenire da molte origini simultanee. Hub eventi consente di rendere disponibili i dati di telemetria e degli eventi per svariate infrastrutture di elaborazione di flussi e servizi di analisi. È disponibile come flusso dei dati o batch di eventi in bundle. Questo servizio offre un'unica soluzione che consente di recuperare rapidamente i dati per l'elaborazione in tempo reale oltre che per la riproduzione ripetuta dei dati non elaborati archiviati. Consente di acquisire i dati di streaming in un file per l'elaborazione e l'analisi.
 
-Presenta le caratteristiche seguenti:
+Le caratteristiche sono le seguenti:
 
 * bassa latenza
 * possibilità di ricevere ed elaborare milioni di eventi al secondo
@@ -71,11 +71,11 @@ Presenta le caratteristiche seguenti:
 
 ### <a name="service-bus"></a>Bus di servizio
 
-Il bus di servizio è adatto alle tradizionali applicazioni aziendali. Queste applicazioni aziendali richiedono transazioni, ordinamento, rilevamento duplicati e coerenza immediata. Il bus di servizio consente alle applicazioni [native del cloud](https://azure.microsoft.com/overview/cloudnative/) di offrire una gestione delle transizioni di stato affidabile per i processi aziendali. Quando si gestiscono messaggi di alto valore che non devono andare persi o essere duplicati, usare il bus di servizio di Azure. Il bus di servizio agevola anche la comunicazione a sicurezza elevata tra soluzioni di cloud ibrido e può connettere i sistemi locali esistenti alle soluzioni cloud.
+Il bus di servizio è adatto alle tradizionali applicazioni aziendali. Queste applicazioni aziendali richiedono transazioni, ordinamento, rilevamento duplicati e coerenza immediata. Il bus di servizio consente alle applicazioni [native del cloud](https://azure.microsoft.com/overview/cloudnative/) di fornire una gestione affidabile delle transizioni di stato per i processi aziendali. Quando si gestiscono messaggi di alto valore che non devono andare persi o essere duplicati, usare il bus di servizio di Azure. Il bus di servizio agevola anche la comunicazione a sicurezza elevata tra soluzioni di cloud ibrido e può connettere i sistemi locali esistenti alle soluzioni cloud.
 
 Il bus di servizio è un sistema di messaggistica negoziata. Archivia i messaggi in un "broker", ad esempio una coda, fino a quando il consumer non è pronto a riceverli.
 
-Presenta le caratteristiche seguenti:
+Le caratteristiche sono le seguenti:
 
 * recapito dei messaggi asincrono affidabile (messaggistica aziendale come servizio) che richiede il polling
 * funzionalità di messaggistica avanzate, ad esempio FIFO, invio in batch/sessioni, transazioni, messaggi non recapitabili, controllo temporale, routing e filtri e rilevamento duplicati

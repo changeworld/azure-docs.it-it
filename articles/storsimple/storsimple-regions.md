@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: 5efb87ad674474b2e21b86b5cdc48785753a51dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90564152"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Aree disponibili per StorSimple
@@ -39,7 +39,7 @@ Un'area viene definita al momento della prima creazione del servizio Gestione di
 
 Ecco un elenco delle aree in cui il servizio Gestione dispositivi StorSimple è disponibile per il cloud pubblico di Azure e può essere distribuito.
 
-![Screenshot mostra la Device Manager StorSimple con l'elenco dei percorsi evidenziato.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![Screenshot mostra la Gestione dispositivi StorSimple con l'elenco dei percorsi evidenziato.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 Per il cloud di Azure per enti pubblici, il servizio Gestione dispositivi StorSimple è disponibile nei data center statunitensi dell'Iowa e della Virginia.
 

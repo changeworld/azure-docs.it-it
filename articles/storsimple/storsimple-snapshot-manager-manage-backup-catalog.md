@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 2efc35e65ca1db2b5241e1d3b2798e068880c87e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90054994"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Uso di StorSimple Snapshot Manager per gestire il catalogo di backup
@@ -37,7 +37,7 @@ In questa esercitazione viene descritto come utilizzare il nodo del **catalogo d
 Per visualizzare il catalogo di backup espandere il nodo **Catalogo di backup** nel riquadro **Ambito**, quindi espandere il gruppo di volumi.
 
 * Se si fa clic sul nome del gruppo di volumi, il riquadro **Risultati** mostra il numero di snapshot locali e cloud disponibili per il gruppo di volumi. 
-* Se si fa clic su **Snapshot locale** o **Snapshot cloud**, il riquadro **Risultati** mostra le seguenti informazioni su ogni snapshot di backup, a seconda delle impostazioni di visualizzazione selezionate:****
+* Se si fa clic su **Snapshot locale** o **Snapshot cloud**, il riquadro **Risultati** mostra le seguenti informazioni su ogni snapshot di backup, a seconda delle impostazioni di visualizzazione selezionate:
   
   * **Nome**: momento in cui è stato eseguito lo snapshot.
   * **Tipo**: valore che indica se si tratta di uno snapshot locale o cloud.
@@ -140,7 +140,7 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 1. Arrestare il servizio di gestione Microsoft StorSimple:
    
    1. Avviare Server Manager.
-   2. Nel Dashboard Server Manager scegliere **Servizi**dal menu **strumenti** .
+   2. Nel Dashboard Server Manager scegliere **Servizi** dal menu **strumenti** .
    3. Nella finestra **Servizi** selezionare **Microsoft StorSimple Management Service**.
    4. Nel riquadro destro, in **Servizio di gestione Microsoft StorSimple** fare clic su **Arresta il servizio**.
 2. Nel computer host, passare a C:\ProgramData\Microsoft\StorSimple\BACatalog. 
@@ -154,7 +154,7 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
     ![File del catalogo di backup di Azure StorSimple](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_bacatalog.png)
 4. Riavviare il servizio di gestione di Microsoft StorSimple: 
    
-   1. Nel Dashboard Server Manager scegliere **Servizi**dal menu **strumenti** .
+   1. Nel Dashboard Server Manager scegliere **Servizi** dal menu **strumenti** .
    2. Nella finestra **Servizi** selezionare **Microsoft StorSimple Management Service**.
    3. Nel riquadro destro, in **Servizio di gestione Microsoft StorSimple** fare clic su **Riavvia il servizio**.
 5. Nel computer host, passare a C:\ProgramData\Microsoft\StorSimple\BACatalog. 

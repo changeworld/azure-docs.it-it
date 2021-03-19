@@ -7,10 +7,10 @@ ms.date: 06/19/2019
 ms.author: jobreen
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 4f425af7681b666b42fbcc70ac0e4c31d9df6d49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87503753"
 ---
 # <a name="create-and-use-a-custom-provider"></a>Creare e usare un provider personalizzato
@@ -127,8 +127,8 @@ az resource invoke-action --action myCustomAction \
 Parametro | Obbligatoria | Descrizione
 ---|---|---
 *action* | Sì | Il nome dell'azione definita nel provider personalizzato
-*ids* | Sì | L'ID risorsa del provider personalizzato
-*request-body* | No | Il corpo della richiesta che verrà inviato all'endpoint
+*ID* | Sì | L'ID risorsa del provider personalizzato
+*corpo della richiesta* | No | Il corpo della richiesta che verrà inviato all'endpoint
 
 # <a name="template"></a>[Modello](#tab/template)
 
@@ -220,5 +220,5 @@ Parametro | Obbligatoria | Descrizione
 
 In questo articolo sono state fornite informazioni sui provider personalizzati. Per altre informazioni, vedere:
 
-- [Procedura: Aggiunta di azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
-- [Procedura: Aggiunta di risorse personalizzate all'API REST di Azure](./custom-providers-resources-endpoint-how-to.md)
+- [Procedura: aggiungere azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
+- [Procedura: aggiungere risorse personalizzate all'API REST di Azure](./custom-providers-resources-endpoint-how-to.md)

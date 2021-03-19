@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e2096e8c0ebfb233c7449510bf0bc8e80b56231e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88140718"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Panoramica del cloud privato CloudSimple
@@ -54,7 +54,7 @@ Un cloud privato è uno stack VMware isolato che supporta:
 
 * Host ESXi
 * vCenter
-* Rete VSAN
+* vSAN
 * NSX
 
 I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio server vCenter nel proprio dominio di gestione.

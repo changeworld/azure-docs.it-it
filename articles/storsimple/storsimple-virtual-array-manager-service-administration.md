@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/1/2016
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 2395e3c6f2026bc1024de38122bc20959fdcf9b7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cb5b6b1a2d890fe49d78da17d549c5676557b971
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967092"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654247"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per amministrare l'array virtuale StorSimple
 ![flusso del processo di installazione](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -35,14 +35,12 @@ Dopo aver letto l'articolo, l'utente sarà in grado di:
 
 > [!NOTE]
 > Per visualizzare le opzioni di gestione disponibili per il dispositivo StorSimple serie 8000, vedere [Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](./storsimple-8000-manager-service-administration.md).
-> 
-> 
 
 ## <a name="connect-to-the-storsimple-device-manager-service"></a>Connettersi al servizio Gestione dispositivi StorSimple
 Il servizio Gestione dispositivi StorSimple viene eseguito in Microsoft Azure ed è connesso a più array virtuali StorSimple. Per gestire questi dispositivi, si usa un portale di Microsoft Azure centrale in esecuzione in un browser. Per connettersi al servizio Gestione dispositivi StorSimple, effettuare le operazioni seguenti.
 
 #### <a name="to-connect-to-the-service"></a>Per connettersi al servizio
-1. Passare a [https://ms.portal.azure.com](https://ms.portal.azure.com).
+1. Passare a [https://portal.azure.com](https://portal.azure.com).
 2. Usando le credenziali dell'account Microsoft, accedere al portale di Microsoft Azure (in alto a destra del riquadro).
 3. Passare a Esplora --> 'Filtro' in Gestione dispositivi StorSimple per visualizzare tutti i gestori di dispositivo in una determinata sottoscrizione.
 
@@ -50,6 +48,8 @@ Il servizio Gestione dispositivi StorSimple viene eseguito in Microsoft Azure ed
 La tabella seguente illustra un riepilogo di tutte le attività di gestione comuni e dei flussi di lavoro complessi che possono essere eseguiti nel pannello di riepilogo del servizio Gestione dispositivi StorSimple. Queste attività sono organizzate in base ai pannelli in cui vengono avviate.
 
 Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appropriata nella tabella.
+
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
 
 #### <a name="storsimple-device-manager-workflows"></a>Flussi di lavoro di Gestione dispositivi StorSimple
 | Se si desidera eseguire questa operazione... | Seguire questa procedura |

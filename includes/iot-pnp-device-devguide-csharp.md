@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: f731e07de4936bc8de396c4f9bcd3a52913cb502
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 38a29aa765bde4adb390423a9d180132b57d4fee
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99616405"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582765"
 ---
 ## <a name="model-id-announcement"></a>Annuncio ID modello
 
@@ -42,7 +42,7 @@ I dispositivi che usano il [servizio Device provisioning (DPS)](../articles/iot-
 
 ## <a name="implement-telemetry-properties-and-commands"></a>Implementare la telemetria, le proprietà e i comandi
 
-Come descritto in [informazioni sui componenti nei modelli plug and Play](../articles/iot-pnp/concepts-components.md), i generatori di dispositivi devono decidere se vogliono usare i componenti per descrivere i dispositivi. Quando si usano i componenti, i dispositivi devono seguire le regole descritte in questa sezione.
+Come descritto in [informazioni sui componenti nei modelli plug and Play](../articles/iot-pnp/concepts-modeling-guide.md), i generatori di dispositivi devono decidere se vogliono usare i componenti per descrivere i dispositivi. Quando si usano i componenti, i dispositivi devono seguire le regole descritte in questa sezione.
 
 ### <a name="telemetry"></a>Telemetria
 

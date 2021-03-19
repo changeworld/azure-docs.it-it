@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: b0fc5bd16aaa455ce3f6d634ce35e9a389a6f13b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 86296385a0e657246e415f326261ce401e3cdeaf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732582"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604186"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Risolvere i problemi comuni relativi all'agente desktop virtuale di Windows
 
@@ -208,7 +208,7 @@ Per risolvere il problema:
 >Per modificare la modalità **fReverseConnectMode** o **FEnableWinStation** per più macchine virtuali alla volta, è possibile eseguire una delle due operazioni seguenti:
 >
 >- Esportare la chiave del registro di sistema dal computer già in uso e importarla in tutti gli altri computer che necessitano di questa modifica.
->- Creare un oggetto Criteri generale (GPO) che imposta il valore della chiave del registro di sistema per i computer che necessitano della modifica.
+>- Creare un oggetto Criteri di gruppo (GPO) che imposta il valore della chiave del registro di sistema per i computer che richiedono la modifica.
 
 7. Passare a **HKEY_LOCAL_MACHINE**  >  **System**  >  **CurrentControlSet**  >  **Control**  >  **Terminal Server**  >  **ClusterSettings**.
 8. In **ClusterSettings** trovare **SessionDirectoryListener** e verificare che il valore dei dati sia **RDP-SxS...**.

@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc3ef7d168c17ec10fe64925adbda7044a2a4c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87909312"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Uscire da un'organizzazione come utente guest
@@ -32,12 +32,12 @@ Per uscire da un'organizzazione, attenersi alla seguente procedura.
 1. Passare alla pagina del profilo del pannello di accesso eseguendo una delle operazioni seguenti:
    
    - Nella [portale di Azure](https://portal.azure.com)fare clic sul proprio nome nell'angolo in alto a destra e selezionare **Visualizza account**.
-   - Aprire il [Pannello di accesso](https://myapps.microsoft.com), fare clic sul nome in alto a destra e accanto a **organizzazioni**Selezionare l'icona delle impostazioni (a forma di ingranaggio).
+   - Aprire il [Pannello di accesso](https://myapps.microsoft.com), fare clic sul nome in alto a destra e accanto a **organizzazioni** Selezionare l'icona delle impostazioni (a forma di ingranaggio).
  
    ![Screenshot che illustra le impostazioni utente nel riquadro di accesso](media/leave-the-organization/UserSettings.png) 
 
    > [!NOTE]
-   > Se non è già stato effettuato l'accesso all'organizzazione che si vuole lasciare, in **organizzazioni**fare clic sul collegamento **Accedi per uscire dall'organizzazione** accanto al nome dell'organizzazione. Dopo aver eseguito l'accesso, fare di nuovo clic sul nome in alto a destra e accanto a **organizzazioni**selezionare l'icona delle impostazioni (a forma di ingranaggio).
+   > Se non è già stato effettuato l'accesso all'organizzazione che si vuole lasciare, in **organizzazioni** fare clic sul collegamento **Accedi per uscire dall'organizzazione** accanto al nome dell'organizzazione. Dopo aver eseguito l'accesso, fare di nuovo clic sul nome in alto a destra e accanto a **organizzazioni** selezionare l'icona delle impostazioni (a forma di ingranaggio).
 
 3. In **Organizzazioni**, individuare l'organizzazione da cui uscire e selezionare **Esci da organizzazione**.
 

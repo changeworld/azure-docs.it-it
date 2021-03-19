@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/06/2020
+ms.date: 03/18/2021
 ms.author: Zhchia
-ms.openlocfilehash: 5243e9490c9de0d6df1520edb970da93fabef85a
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: f6ef2f91d178db01e618c19df55705bc9c1209e4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746122"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583752"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: Configurare G Suite per il provisioning utenti automatico
 
@@ -273,6 +273,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 * 17/10/2020: aggiunta del supporto per altri attributi di gruppo e utente di G Suite.
 * 17/10/2020: aggiornamento dei nomi degli attributi di destinazione di G Suite in base a quanto definito [qui](https://developers.google.com/admin-sdk/directory).
 * 17/10/2020: aggiornamento dei mapping degli attributi predefiniti.
+* 03/18/2021-la posta elettronica Manager è stata sincronizzata al posto di ID per tutti i nuovi utenti. Per tutti gli utenti esistenti di cui è stato effettuato il provisioning con un responsabile come ID, è possibile eseguire un riavvio tramite [Microsoft Graph](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) con ambito "completo" per assicurarsi che venga effettuato il provisioning del messaggio di posta elettronica. Questa modifica ha un effetto solo sul processo di provisioning di GSuite e non sul precedente processo probisioning che inizia con Goov2OutDelta. Si noti che viene effettuato il provisioning del messaggio di posta elettronica del Manager quando l'utente viene creato per la prima volta o quando viene modificato. Non viene effettuato il provisioning della posta elettronica del Manager se il responsabile modifica il proprio indirizzo di posta elettronica. 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

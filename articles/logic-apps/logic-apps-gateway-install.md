@@ -4,18 +4,18 @@ description: Prima di poter accedere ai dati in locale delle App per la logica d
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: article
-ms.date: 05/15/2020
-ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.topic: how-to
+ms.date: 03/16/2021
+ms.openlocfilehash: 4b2559ad20036870c6df5c0662bb973f35155bfa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054772"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576799"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
-Prima di poter [connettere le origini dati locali da App per la logica di Azure](../logic-apps/logic-apps-gateway-connection.md), scaricare e installare il [gateway dati locale](https://aka.ms/on-premises-data-gateway-installer) in un computer locale. Il gateway funge da ponte che consente il rapido trasferimento dei dati e la crittografia tra le origini di dati in locale e le app per la logica. È possibile usare la stessa installazione del gateway con altri servizi cloud come Power BI, Power Automate, Power Apps e Azure Analysis Services. Per informazioni su come usare il gateway con questi servizi, consultare gli articoli seguenti:
+Prima di poter [connettere le origini dati locali da App per la logica di Azure](../logic-apps/logic-apps-gateway-connection.md), scaricare e installare il [gateway dati locale](https://aka.ms/on-premises-data-gateway-installer) in un computer locale. Il gateway funge da ponte che consente il rapido trasferimento dei dati e la crittografia tra le origini di dati in locale e le app per la logica. È possibile usare la stessa installazione del gateway con altri servizi cloud, ad esempio Power automatizzate, Power BI, Power Apps e Azure Analysis Services. Per informazioni su come usare il gateway con questi servizi, consultare gli articoli seguenti:
 
 * [Gateway dati locale di Microsoft Power Automate](/power-automate/gateway-reference)
 * [Gateway dati locale di Microsoft Power BI](/power-bi/service-gateway-onprem)
@@ -71,7 +71,12 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
   * Se si prevede di usare l'autenticazione di Windows, assicurarsi di installare il gateway in un computer membro dello stesso ambiente Active Directory delle origini dati.
 
-  * L'area selezionata per l'installazione del gateway è la stessa che è necessario selezionare quando in seguito si crea la risorsa del gateway di Azure per l'app per la logica. Per impostazione predefinita, questa area è la stessa del tenant di Azure AD che gestisce l'account Azure. Tuttavia, è possibile modificare la posizione durante l'installazione del gateway.
+  * L'area selezionata per l'installazione del gateway è la stessa che è necessario selezionare quando in seguito si crea la risorsa del gateway di Azure per l'app per la logica. Per impostazione predefinita, questa area è la stessa in cui si trova il tenant di Azure AD che gestisce l'account utente di Azure. Tuttavia, è possibile modificare il percorso durante l'installazione del gateway o versione successiva.
+
+    > [!IMPORTANT]
+    > Durante l'installazione del gateway, il comando **Cambia area** non è disponibile se è stato eseguito l'accesso con l'account Azure per enti pubblici, associato a un tenant di Azure Active Directory (Azure ad) nel [cloud di Azure per enti pubblici](../azure-government/compare-azure-government-global-azure.md). Il gateway usa automaticamente la stessa area del tenant di Azure AD dell'account utente.
+    > 
+    > Per continuare a usare l'account Azure per enti pubblici, ma configurare il gateway in modo che funzioni nel cloud commerciale globale multi-tenant di Azure, per prima cosa eseguire l'accesso durante l'installazione del gateway con il `prod@microsoft.com` nome utente. Questa soluzione impone al gateway di usare il cloud di Azure multi-tenant globale, ma consente comunque di continuare a usare l'account Azure per enti pubblici.
 
   * Se si sta aggiornando l'installazione del gateway, disinstallare prima il gateway corrente per un'esperienza pulita.
 

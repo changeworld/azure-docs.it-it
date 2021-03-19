@@ -6,15 +6,15 @@ services: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.openlocfilehash: 35c9e76c234e4b09fbb090eda363506ee3e11130
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88164241"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Applicare gli aggiornamenti di sicurezza e kernel ai nodi Linux in Azure Kubernetes Service (AKS)
 
-Per proteggere i cluster, gli aggiornamenti della sicurezza vengono applicati automaticamente ai nodi Linux in AKS. Questi aggiornamenti includono correzioni della sicurezza del sistema operativo o gli aggiornamenti del kernel. Alcuni di questi aggiornamenti richiedono il riavvio di un nodo per completare il processo. AKS non riavvia automaticamente questi nodi Linux per completare il processo di aggiornamento.
+Per proteggere i cluster, gli aggiornamenti della sicurezza vengono applicati automaticamente ai nodi Linux in AKS. Questi aggiornamenti includono correzioni della sicurezza del sistema operativo o gli aggiornamenti del kernel. Alcuni di questi aggiornamenti richiedono il riavvio di un nodo per completare il processo. Il servizio Azure Kubernetes non riavvia automaticamente i nodi Linux per completare il processo di aggiornamento.
 
 Il processo di mantenimento dei nodi di Windows Server aggiornato è leggermente diverso. I nodi di Windows Server non ricevono gli aggiornamenti giornalieri. Viene invece eseguito un aggiornamento di AKS che distribuisce nuovi nodi con l'immagine e le patch più recenti della finestra di base del server. Per i cluster AKS che usano i nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
 
@@ -27,7 +27,7 @@ Questo articolo illustra come usare il KURED Open Source [(daemon riavvio KUbern
 
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="understand-the-aks-node-update-experience"></a>Comprendere l'esperienza di aggiornamento del nodo del servizio Azure Kubernetes
 

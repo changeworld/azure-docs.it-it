@@ -8,10 +8,10 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87474326"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hosting di più siti in un gateway applicazione
@@ -35,7 +35,7 @@ Il gateway applicazione consente il routing basato su host mediante listener HTT
 
 Utilizzando un carattere jolly nel nome host, è possibile associare più nomi host in un singolo listener. Ad esempio, `*.contoso.com` può corrispondere a `ecom.contoso.com` , così `b2b.contoso.com` come `customer1.b2b.contoso.com` e così via. Utilizzando una matrice di nomi host, è possibile configurare più di un nome host per un listener per indirizzare le richieste a un pool back-end. Un listener può ad esempio contenere, `contoso.com, fabrikam.com` che accetterà le richieste per entrambi i nomi host.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Gateway applicazione multisito":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Listener con caratteri jolly":::
 
 >[!NOTE]
 > Questa funzionalità è disponibile in anteprima ed è disponibile solo per Standard_v2 e WAF_v2 SKU del gateway applicazione. Per ulteriori informazioni sulle anteprime, vedere [le condizioni per l'utilizzo qui](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -93,7 +93,7 @@ Il gateway applicazione si basa su intestazioni host HTTP 1.1 per ospitare più 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come configurare l'hosting di più siti nel gateway applicazione
-* [Uso del portale di Azure](create-multiple-sites-portal.md)
+* [Utilizzo di portale di Azure](create-multiple-sites-portal.md)
 * [Uso di Azure PowerShell](tutorial-multiple-sites-powershell.md) 
 * [Utilizzare l'interfaccia della riga di comando di Azure](tutorial-multiple-sites-cli.md)
 

@@ -5,10 +5,10 @@ ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89651423"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Creare un'assegnazione di criteri per identificare le risorse non conformi tramite un modello di Resource Manager
@@ -49,7 +49,7 @@ Nel modello è definita la risorsa seguente:
 
 1. Selezionare o immettere i valori seguenti:
 
-   | Nome | valore |
+   | Nome | Valore |
    |------|-------|
    | Subscription | Selezionare la sottoscrizione di Azure. |
    | Resource group | Selezionare **Crea nuovo**, specificare un nome e quindi fare clic su **OK**. Nello screenshot il nome del gruppo di risorse è _mypolicyquickstart\<Date in MMDD\>rg_. |
@@ -72,7 +72,7 @@ Alcune risorse aggiuntive:
 
 Selezionare **Assegnazioni** a sinistra nella pagina. Individuare l'assegnazione dei criteri _Audit VMs that do not use managed disks_ (Controllare le macchine virtuali che non usano Managed Disks) creata.
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Pulsante per distribuire il modello di Resource Manager per l'assegnazione di criteri di Azure ad Azure." border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Screenshot dei dettagli di conformità nella pagina Conformità dei criteri." border="false":::
 
 Le eventuali risorse esistenti non conformi a questa nuova assegnazione verranno visualizzate nella scheda **Non-compliant resources** (Risorse non conformi).
 
@@ -86,7 +86,7 @@ Per rimuovere l'assegnazione creata, eseguire la procedura seguente:
 
 1. Fare clic con il pulsante destro del mouse sull'assegnazione di criteri _Controlla macchine virtuali che non usano dischi gestiti_ e scegliere **Elimina assegnazione**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Pulsante per distribuire il modello di Resource Manager per l'assegnazione di criteri di Azure ad Azure." border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Screenshot dell'uso del menu di scelta rapida per eliminare un'assegnazione dalla pagina Conformità." border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

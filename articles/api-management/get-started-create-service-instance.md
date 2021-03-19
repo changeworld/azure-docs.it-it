@@ -8,15 +8,15 @@ ms.custom: mvc
 ms.date: 09/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 66d0874536b358b720b43780d6ecce879ac866ee
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90708207"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>Avvio rapido: Creare una nuova istanza del servizio Gestione API di Azure usando il portale di Azure
 
-Gestione API di Azure consente alle organizzazioni di pubblicare API per permettere a sviluppatori esterni, partner e interni di sfruttare tutte le potenzialità dei dati e dei servizi. Gestione API fornisce le competenze fondamentali per assicurare un programma API di successo attraverso il coinvolgimento degli sviluppatori, informazioni aziendali approfondite, strumenti di analisi, sicurezza e protezione. Gestione API di Azure consente di creare e gestire gateway API moderni per servizi back-end esistenti ospitati ovunque. Per altre informazioni, vedere la [panoramica](api-management-key-concepts.md).
+Gestione API di Azure consente alle organizzazioni di pubblicare API per permettere a sviluppatori esterni, partner e interni di sfruttare tutte le potenzialità dei dati e dei servizi. Gestione API fornisce le competenze fondamentali per assicurare un programma API di successo attraverso il coinvolgimento degli sviluppatori, informazioni aziendali approfondite, strumenti di analisi, sicurezza e protezione. Gestione API consente di creare e gestire gateway API moderni per servizi back-end esistenti ospitati ovunque. Per altre informazioni, vedere la [panoramica](api-management-key-concepts.md).
 
 In questa guida introduttiva vengono descritti i passaggi per la creazione di una nuova istanza di Gestione API con il portale di Azure.
 
@@ -41,9 +41,9 @@ Accedere al [portale di Azure](https://portal.azure.com).
    
 1. Nella pagina **Servizio Gestione API** immettere le impostazioni.
 
-   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Crea una risorsa":::
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Nuova istanza":::
    
-   | Impostazione                 | DESCRIZIONE   |                                                                     
+   | Impostazione                 | Descrizione   |                                                                     
    |-------------------------|-----------------------------------------------|
    | nome - **                | Un nome univoco per il servizio Gestione API. Il nome non può essere modificato in seguito. Il nome del servizio fa riferimento sia al servizio che alla risorsa di Azure corrispondente. <br/> Il nome del servizio viene usato per generare un nome di dominio predefinito: *\<name\>.azure-api.net.* Se si desidera usare un nome di dominio personalizzato, vedere [Configure a custom domain](configure-custom-domain.md) (Configurare un dominio personalizzato). |
    | **--subscription**:          | La sottoscrizione in cui verrà creata questa nuova istanza del servizio.   |
@@ -64,7 +64,7 @@ Esaminare le proprietà del servizio nella pagina **Panoramica**.
 
    Istanza di Gestione API
 
-Nel momento in cui l'istanza del servizio Gestione API è online, è possibile iniziare a usarla. Cominciare con l'esercitazione per [importare e pubblicare la prima API](import-and-publish.md).
+Nel momento in cui l'istanza del servizio Gestione API è online, è possibile iniziare a usarla. Iniziare con l'esercitazione per l'[importazione e la pubblicazione della prima API](import-and-publish.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -72,11 +72,11 @@ Quando non servono più, è possibile rimuovere il gruppo di risorse e tutte le 
 
 1. Accedere al portale di Azure e selezionare **Gruppi di risorse**. È anche possibile selezionare **Gruppi di risorse** nella pagina **Home**. 
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Crea una risorsa":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Esplorazione gruppi di risorse":::
 
 1. Nella pagina **Gruppi di risorse** selezionare il gruppo di risorse desiderato.
 
-   Selezionare :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Crea una risorsa":::.
+   Selezionare :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Gruppo di risorse":::.
 
 1. Nella pagina del gruppo di risorse selezionare **Elimina gruppo di risorse**. 
    

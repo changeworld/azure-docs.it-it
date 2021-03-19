@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
-ms.openlocfilehash: 9ff98a2613143474afd6041ccf52d4eb509d646b
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.date: 03/18/2021
+ms.openlocfilehash: c33739124092a17acf0590f00b2f9c3c09bf894e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418879"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654663"
 ---
-# <a name="create-a-semantic-query-in-cognitive-search"></a>Creare una query semantica in ricerca cognitiva
+# <a name="create-a-query-for-semantic-captions-in-cognitive-search"></a>Creare una query per le didascalie semantiche in ricerca cognitiva
 
 > [!IMPORTANT]
-> Il tipo di query semantico è disponibile in anteprima pubblica, disponibile tramite l'API REST di anteprima e portale di Azure. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
+> La ricerca semantica è in anteprima pubblica, disponibile tramite l'API REST di anteprima e portale di Azure. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità sono fatturabili. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
 
-Questo articolo illustra come formulare una richiesta di ricerca che usa la classificazione semantica. La richiesta restituirà didascalie semantiche e, facoltativamente, [risposte semantiche](semantic-answers.md), con evidenziazioni sui termini e sulle frasi più rilevanti.
+In questo articolo viene illustrato come formulare una richiesta di ricerca che utilizza la classificazione semantica e restituisce didascalie semantiche (e facoltativamente [risposte semantiche](semantic-answers.md)), con evidenziazioni rispetto ai termini e alle frasi più rilevanti. Entrambe le didascalie e le risposte vengono restituite nelle query formulate usando il tipo di query "semantico".
 
-Sia le didascalie che le risposte vengono estratti Verbatim dal testo nel documento di ricerca. Il sottosistema semantico determina il contenuto che presenta le caratteristiche di una didascalia o di una risposta, ma non compone nuove frasi o frasi. Per questo motivo, i contenuti che includono spiegazioni o definizioni funzionano meglio per la ricerca semantica.
+Didascalie e risposte vengono estratti Verbatim dal testo nel documento di ricerca. Il sottosistema semantico determina quale parte del contenuto presenta le caratteristiche di una didascalia o di una risposta, ma non compone nuove frasi o frasi. Per questo motivo, i contenuti che includono spiegazioni o definizioni funzionano meglio per la ricerca semantica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,11 +30,11 @@ Sia le didascalie che le risposte vengono estratti Verbatim dal testo nel docume
 
 + Accesso all'anteprima di ricerca semantica: [iscrizione](https://aka.ms/SemanticSearchPreviewSignup)
 
-+ Un indice di ricerca esistente, che contiene contenuto in lingua inglese
++ Un indice di ricerca esistente contenente contenuto in lingua inglese
 
 + Un client di ricerca per l'invio di query
 
-  Il client di ricerca deve supportare le API REST di anteprima nella richiesta di query. È possibile usare il [post](search-get-started-rest.md), il [Visual Studio Code](search-get-started-vs-code.md)o il codice modificato per eseguire chiamate REST alle API di anteprima. È anche possibile usare [Esplora ricerche](search-explorer.md) in portale di Azure per inviare una query semantica.
+  Il client di ricerca deve supportare le API REST di anteprima nella richiesta di query. È possibile usare il [post](search-get-started-rest.md), il [Visual Studio Code](search-get-started-vs-code.md)o il codice che effettua chiamate REST alle API di anteprima. È anche possibile usare [Esplora ricerche](search-explorer.md) in portale di Azure per inviare una query semantica.
 
 + Una [richiesta di query](/rest/api/searchservice/preview-api/search-documents) deve includere l'opzione semantica e altri parametri descritti in questo articolo.
 
@@ -62,9 +62,13 @@ Solo le prime 50 corrispondenze dei risultati iniziali possono essere classifica
 
 ## <a name="query-with-search-explorer"></a>Eseguire query con Esplora ricerche
 
-[Esplora ricerche](search-explorer.md) è stato aggiornato per includere le opzioni per le query semantiche. Queste opzioni diventano visibili nel portale dopo aver ottenuto l'accesso all'anteprima. Le opzioni di query consentono di abilitare query semantiche, searchFields e correzioni ortografiche.
+[Esplora ricerche](search-explorer.md) è stato aggiornato per includere le opzioni per le query semantiche. Queste opzioni diventano visibili nel portale dopo aver completato i passaggi seguenti:
 
-È anche possibile incollare i parametri di query obbligatori nella stringa di query.
+1. [Iscrizione](https://aka.ms/SemanticSearchPreviewSignup) e ammissione del servizio di ricerca nel programma di anteprima
+
+1. Aprire il portale con la sintassi seguente: `https://portal.azure.com/?feature.semanticSearch=true`
+
+Le opzioni di query includono opzioni per abilitare query semantiche, searchFields e correzioni ortografiche. È anche possibile incollare i parametri di query obbligatori nella stringa di query.
 
 :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options.png" alt-text="Opzioni di query in Esplora ricerche" border="true":::
 
@@ -98,7 +102,7 @@ Nella tabella seguente vengono riepilogati i parametri di query utilizzati in un
 |-----------|-------|-------------|
 | queryType | string | I valori validi includono semplice, completo e semantico. Per le query semantiche è necessario un valore "semantico". |
 | queryLanguage | string | Obbligatorio per le query semantiche. Attualmente, viene implementato solo "en-US". |
-| searchFields | string | Elenco delimitato da virgole di campi disponibili per la ricerca. Facoltativo ma consigliato. Specifica i campi in base ai quali si verifica la classificazione semantica. </br></br>Diversamente dai tipi di query semplici e completi, l'ordine in cui vengono elencati i campi determina la precedenza. Per altre istruzioni sull'utilizzo, vedere [Step 2: set searchFields](#searchfields). |
+| searchFields | string | Elenco delimitato da virgole di campi disponibili per la ricerca. Specifica i campi in base ai quali viene eseguita la classificazione semantica, da cui vengono estratte le didascalie e le risposte. </br></br>Diversamente dai tipi di query semplici e completi, l'ordine in cui vengono elencati i campi determina la precedenza. Per altre istruzioni sull'utilizzo, vedere [Step 2: set searchFields](#searchfields). |
 | correttore ortografico | string | Parametro facoltativo, non specifico per le query semantiche, che corregge i termini errati prima che raggiungano il motore di ricerca. Per altre informazioni, vedere [aggiungere la correzione ortografica alle query](speller-how-to-add.md). |
 | risposte |string | Parametri facoltativi che specificano se le risposte semantiche sono incluse nel risultato. Attualmente, viene implementato solo "estrazione". È possibile configurare le risposte per restituire un massimo di cinque. Il valore predefinito è uno. Questo esempio mostra un conteggio di tre risposte: "estrazione \| Count3". Per altre informazioni, vedere [restituire risposte semantiche](semantic-answers.md).|
 
@@ -125,13 +129,11 @@ Mentre il contenuto di un indice di ricerca può essere composto in più lingue,
 
 #### <a name="step-2-set-searchfields"></a>Passaggio 2: impostare searchFields
 
-Questo parametro è facoltativo in quanto non si verifica alcun errore se si omette, ma è consigliabile fornire un elenco ordinato di campi per le didascalie e le risposte.
-
 Il parametro searchFields viene usato per identificare i passaggi da valutare per "somiglianza semantica" alla query. Per l'anteprima, non è consigliabile lasciare vuoto searchFields perché il modello richiede un hint per i campi più importanti da elaborare.
 
-L'ordine di searchFields è critico. Se si usa già searchFields in query Lucene semplici o complete esistenti, assicurarsi di rivisitare questo parametro per verificare l'ordine dei campi quando si passa a un tipo di query semantico.
+L'ordine di searchFields è critico. Se si usa già searchFields nel codice esistente per le query Lucene semplici o complete, rivedere questo parametro per verificare l'ordine dei campi quando si passa a un tipo di query semantico.
 
-Seguire queste linee guida per garantire risultati ottimali quando si specificano due o più searchFields:
+Per due o più searchFields:
 
 + Includere solo i campi stringa e i campi stringa di primo livello nelle raccolte. Se si includono campi non di stringa o campi di livello inferiore in una raccolta, non si verifica alcun errore, ma questi campi non verranno usati nella classificazione semantica.
 
@@ -141,7 +143,7 @@ Seguire queste linee guida per garantire risultati ottimali quando si specifican
 
 + Seguire i campi in base ai campi descrittivi in cui è possibile trovare la risposta alle query semantiche, ad esempio il contenuto principale di un documento.
 
-Se è stato specificato un solo campo, utilizzare un campo descrittivo in cui è possibile trovare la risposta alle query semantiche, ad esempio il contenuto principale di un documento. Scegliere un campo che fornisca contenuto sufficiente. Per garantire l'elaborazione tempestiva, solo circa 8.000 token del contenuto collettivo di searchFields subiscono la valutazione semantica e la classificazione.
+Se è stato specificato un solo campo, utilizzare un campo descrittivo in cui è possibile trovare la risposta alle query semantiche, ad esempio il contenuto principale di un documento. 
 
 #### <a name="step-3-remove-orderby-clauses"></a>Passaggio 3: rimuovere le clausole orderBy
 
@@ -191,7 +193,7 @@ La risposta per la query di esempio precedente restituisce la seguente corrispon
 Tenere presente che le risposte e la classificazione semantica vengono compilate su un set di risultati iniziale. Tutte le logiche che migliorano la qualità dei risultati iniziali porteranno alla ricerca semantica. Come passaggio successivo, esaminare le funzionalità che contribuiscono ai risultati iniziali, inclusi gli analizzatori che influiscono sul modo in cui le stringhe vengono suddivise in token, i profili di punteggio che possono ottimizzare i risultati e l'algoritmo di pertinenza predefinito.
 
 + [Analizzatori per l'elaborazione del testo](search-analyzers.md)
-+ [Somiglianza e assegnazione dei punteggi in ricerca cognitiva](index-similarity-and-scoring.md)
-+ [Aggiungere profili di punteggio](index-add-scoring-profiles.md)
++ [Algoritmo di classificazione di somiglianza](index-similarity-and-scoring.md)
++ [Profili di punteggio](index-add-scoring-profiles.md)
 + [Panoramica della ricerca semantica](semantic-search-overview.md)
-+ [Aggiungere il controllo ortografico ai termini della query](speller-how-to-add.md)
++ [Algoritmo di classificazione semantica](semantic-ranking.md)

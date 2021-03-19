@@ -7,13 +7,13 @@ ms.date: 07/29/2020
 ms.author: hazeng
 ms.custom: devx-track-python
 ms.openlocfilehash: 9b9f5d389eda5d74e7e78cfcfa9a46fba7276cbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87846038"
 ---
-# <a name="troubleshoot-python-errors-in-azure-functions"></a>Risolvere gli errori di Python in funzioni di Azure
+# <a name="troubleshoot-python-errors-in-azure-functions"></a>Risolvere gli errori di modulo Python in Funzioni di Azure
 
 Di seguito è riportato un elenco di guide per la risoluzione dei problemi comuni nelle funzioni di Python:
 
@@ -69,7 +69,7 @@ Vedere [abilitare la compilazione remota](#enable-remote-build) o [creare dipend
 
 Passare a `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` o `.python_packages/lib/site-packages/<package-name>-<version>-dist-info` . Utilizzando un editor di testo, aprire il file di metadati e controllare la sezione **classificatori:** . Se la sezione non contiene `Python :: 3` , `Python :: 3.6` , `Python :: 3.7` o `Python :: 3.8` , significa che la versione del pacchetto è troppo vecchia o molto probabilmente il pacchetto è già fuori dalla manutenzione.
 
-È possibile controllare la versione di Python dell'app per le funzioni dalla [portale di Azure](https://portal.azure.com). Passare all'app per le funzioni, scegliere **Esplora inventario risorse**e selezionare **Vai**.
+È possibile controllare la versione di Python dell'app per le funzioni dalla [portale di Azure](https://portal.azure.com). Passare all'app per le funzioni, scegliere **Esplora inventario risorse** e selezionare **Vai**.
 
 :::image type="content" source="media/recover-module-not-found/resource-explorer.png" alt-text="Aprire il Esplora inventario risorse per l'app per le funzioni nel portale":::
 

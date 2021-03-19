@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0dfde6fef7cc91edf2101095018bc031d392c4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: ea6673a04bf9f5f568c660658e51036f2d2712e0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898182"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654731"
 ---
 # <a name="train-clustering-model"></a>Eseguire il training del modello di clustering
 
@@ -35,7 +35,7 @@ Il modulo accetta un modello di clustering senza training che è già stato conf
     
 3.  Alleghi un set di dati di training all'input di destra del **modello di clustering di Train**.
   
-5.  In **Column set**selezionare le colonne del set di dati da utilizzare per la compilazione dei cluster. Assicurarsi di selezionare le colonne che rendono valide le funzionalità: ad esempio, evitare di usare ID o altre colonne con valori univoci o colonne con tutti gli stessi valori.
+5.  In **Column set** selezionare le colonne del set di dati da utilizzare per la compilazione dei cluster. Assicurarsi di selezionare le colonne che rendono valide le funzionalità: ad esempio, evitare di usare ID o altre colonne con valori univoci o colonne con tutti gli stessi valori.
 
     Se è disponibile un'etichetta, è possibile usarla come funzionalità o lasciarla invariata.  
   
@@ -52,6 +52,9 @@ Al termine del training:
 + Per salvare uno snapshot del modello sottoposto a training, selezionare la scheda **output** nel riquadro di destra del modulo **Train Model** . Selezionare l'icona **registra set di dati** per salvare il modello come modulo riutilizzabile.
 
 + Per generare punteggi dal modello, usare [Assegna dati ai cluster](assign-data-to-clusters.md).
+
+> [!NOTE]
+> Se è necessario distribuire il modello sottoposto a training nella finestra di progettazione, assicurarsi che [assegnare i dati ai cluster](assign-data-to-clusters.md) anziché al **modello di Punteggio** sia connesso all'input del modulo di [output del servizio Web](web-service-input-output.md) nella pipeline di inferenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
