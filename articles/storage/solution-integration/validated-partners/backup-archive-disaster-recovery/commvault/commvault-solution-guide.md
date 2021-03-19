@@ -8,12 +8,12 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 29484bee685fcc15073ef255e65a780e05f1200d
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: ce321574ce2878f51864f55bf5618df2c96d1068
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561669"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589889"
 ---
 # <a name="backup-to-azure-with-commvault"></a>Eseguire il backup in Azure con CommVault
 
@@ -45,7 +45,7 @@ Una piccola pianificazione iniziale consentirà di usare Azure come destinazione
 
 ### <a name="get-started-with-azure"></a>Introduzione ad Azure
 
-Microsoft offre un Framework da seguire per iniziare a usare Azure. Il [Framework di adozione cloud](https://docs.microsoft.com/azure/architecture/cloud-adoption/) è un approccio dettagliato alla trasformazione digitale aziendale e una guida completa alla pianificazione di un'adozione del cloud di livello produzione. Il CAF include una guida dettagliata per l' [installazione di Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/) che consente di diventare operativi in modo rapido e sicuro. È possibile trovare una versione interattiva nel [portale di Azure](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). Sono disponibili architetture di esempio, procedure consigliate specifiche per la distribuzione di applicazioni e risorse di formazione gratuite che consentono di accedere al percorso delle competenze di Azure.
+Microsoft offre un Framework da seguire per iniziare a usare Azure. Il [Framework di adozione cloud](/azure/architecture/cloud-adoption/) è un approccio dettagliato alla trasformazione digitale aziendale e una guida completa alla pianificazione di un'adozione del cloud di livello produzione. Il CAF include una guida dettagliata per l' [installazione di Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/) che consente di diventare operativi in modo rapido e sicuro. È possibile trovare una versione interattiva nel [portale di Azure](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). Sono disponibili architetture di esempio, procedure consigliate specifiche per la distribuzione di applicazioni e risorse di formazione gratuite che consentono di accedere al percorso delle competenze di Azure.
 
 ### <a name="consider-the-network-between-your-location-and-azure"></a>Prendere in considerazione la rete tra la località e Azure
 
@@ -187,7 +187,7 @@ Questa sezione fornisce una breve guida per aggiungere archiviazione di Azure a 
 
 #### <a name="azure-portal"></a>Portale di Azure
 
-Azure offre una soluzione di monitoraggio affidabile sotto forma di [monitoraggio di Azure](../../../../../azure-monitor/essentials/monitor-azure-resource.md). È possibile [configurare monitoraggio di Azure](../../../../common/monitor-storage.md) per tenere traccia di capacità, transazioni, disponibilità, autenticazione e altro ancora di archiviazione di Azure. È possibile trovare il riferimento completo delle metriche raccolte [qui](../../../../blobs/monitor-blob-storage-reference.md). Alcune metriche utili per tenere traccia sono BlobCapacity: per assicurarsi di rimanere al di sotto del limite massimo di [capacità dell'account di archiviazione](../../../../common/scalability-targets-standard-account.md), in ingresso e in uscita, per tenere traccia della quantità di dati scritti e letti dall'account di archiviazione di Azure e SuccessE2ELatency per tenere traccia del tempo di round trip per le richieste da e verso archiviazione di Azure e MediaAgent.
+Azure offre una soluzione di monitoraggio affidabile sotto forma di [monitoraggio di Azure](../../../../../azure-monitor/essentials/monitor-azure-resource.md). È possibile [configurare monitoraggio di Azure](../../../../blobs/monitor-blob-storage.md) per tenere traccia di capacità, transazioni, disponibilità, autenticazione e altro ancora di archiviazione di Azure. È possibile trovare il riferimento completo delle metriche raccolte [qui](../../../../blobs/monitor-blob-storage-reference.md). Alcune metriche utili per tenere traccia sono BlobCapacity: per assicurarsi di rimanere al di sotto del limite massimo di [capacità dell'account di archiviazione](../../../../common/scalability-targets-standard-account.md), in ingresso e in uscita, per tenere traccia della quantità di dati scritti e letti dall'account di archiviazione di Azure e SuccessE2ELatency per tenere traccia del tempo di round trip per le richieste da e verso archiviazione di Azure e MediaAgent.
 
 È anche possibile [creare avvisi di log](../../../../../service-health/alerts-activity-log-service-notifications-portal.md) per tenere traccia dell'integrità del servizio di archiviazione di Azure e visualizzare il [Dashboard dello stato di Azure](https://status.azure.com/status) in qualsiasi momento.
 

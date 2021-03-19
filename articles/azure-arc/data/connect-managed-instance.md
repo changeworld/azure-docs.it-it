@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: abd27e15ccf5b421e69e78b2b726d192ffdecacb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92372362"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Connettersi ad Azure Arc Istanza gestita SQL abilitato
@@ -49,7 +49,7 @@ Connettersi con Azure Data Studio, SQL Server Management Studio o SQLCMD
 
 Aprire Azure Data Studio e connettersi all'istanza di con l'indirizzo IP e il numero di porta dell'endpoint esterno. Se si usa una macchina virtuale di Azure, sarà necessario l'indirizzo IP _pubblico_ , che è identificabile usando la [Nota speciale sulle distribuzioni delle macchine virtuali di Azure](#special-note-about-azure-virtual-machine-deployments).
 
-Esempio:
+Ad esempio:
 
 - Server: 52.229.9.30, 30913
 - Nome utente: SA

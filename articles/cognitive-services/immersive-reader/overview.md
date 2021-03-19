@@ -12,16 +12,21 @@ ms.date: 01/4/2020
 ms.author: metang
 ms.custom: cog-serv-seo-aug-2020
 keywords: lettori, studenti di lingue, visualizzare immagini, migliorare la lettura, leggere contenuto, tradurre
-ms.openlocfilehash: 0661bd5f917a2bf071f11393ad8ac9af53ddfe97
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
-ms.translationtype: HT
+ms.openlocfilehash: 6affc0a2b94c7ea950a8995981d63470722d981f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631240"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599528"
 ---
 # <a name="what-is-immersive-reader"></a>Cos'è lo strumento di lettura immersiva?
 
 Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è stato progettato per l'inclusività e implementa tecniche comprovate per migliorare la comprensione della lettura per nuovi lettori, studenti di lingue e persone con differenze di apprendimento, come la dislessia. Con la libreria client dello strumento di lettura immersiva, è possibile sfruttare la stessa tecnologia usata in Microsoft Word e Microsoft OneNote per migliorare le applicazioni Web. 
+
+Questa documentazione contiene i seguenti tipi di articoli:  
+
+* Le **[guide introduttive](quickstarts/client-libraries.md)** sono istruzioni dettagliate che consentono di effettuare chiamate al servizio e ottenere risultati.
+* Le **[guide alle procedure](how-to-create-immersive-reader.md)** contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.  
 
 ## <a name="use-immersive-reader-to-improve-reading-accessibility"></a>Usare lo strumento di lettura immersiva per migliorare l'accessibilità della lettura 
 
@@ -72,10 +77,3 @@ Lo strumento di lettura immersiva è un'applicazione Web autonoma. Quando viene 
 La libreria client dello strumento di lettura immersiva è disponibile in C#, JavaScript, Java (Android), Kotlin (Android) e Swift (iOS). Iniziare con:
 
 * [Avvio rapido: Usare la libreria client dello strumento di lettura immersiva](quickstarts/client-libraries.md)
-
-## <a name="next-steps"></a>Passaggi successivi
-
-Iniziare a usare lo strumento di lettura immersiva:
-
-* Vedere le [informazioni di riferimento sulla libreria client dello strumento di lettura immersiva](./reference.md)
-* Esplorare la [libreria client dello strumento di lettura immersiva in GitHub](https://github.com/microsoft/immersive-reader-sdk)

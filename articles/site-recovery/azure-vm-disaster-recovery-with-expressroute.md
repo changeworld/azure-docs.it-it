@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88654379"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare ExpressRoute con il ripristino di emergenza per macchine virtuali di Azure
@@ -106,10 +106,10 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 
 **Direzione** | **Impostazione** | **State**
 --- | --- | ---
-Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
-Da spoke a hub | Consenti traffico inoltrato | Attivato
+Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Abilitato
+Da spoke a hub | Consenti traffico inoltrato | Abilitato
 Da spoke a hub | Consenti transito gateway | Disabled
-Da spoke a hub | Usa gateway remoti | Attivato
+Da spoke a hub | Usa gateway remoti | Abilitato
 
  ![Configurazione peering da spoke a hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ Da spoke a hub | Usa gateway remoti | Attivato
 
 **Direzione** | **Impostazione** | **State**
 --- | --- | ---
-Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
-Da hub a spoke | Consenti traffico inoltrato | Attivato
-Da hub a spoke | Consenti transito gateway | Attivato
+Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Abilitato
+Da hub a spoke | Consenti traffico inoltrato | Abilitato
+Da hub a spoke | Consenti transito gateway | Abilitato
 Da hub a spoke | Usa gateway remoti | Disabled
 
  ![Configurazione peering da hub a spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbd7eecd80b528b1d20d016d51c985bc24d1301d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371801"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory
@@ -61,7 +61,7 @@ Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro grupp
 ### <a name="to-remove-a-member-group-from-another-group"></a>Per rimuovere un gruppo membri da un altro gruppo
 1. Nella pagina **Gruppi - Tutti i gruppi** cercare e selezionare il gruppo da rimuovere come membro di un altro gruppo. Per questo esercizio, viene usato ancora il gruppo **MDM policy - West**.
 
-2. Nella pagina **Panoramica MDM policy - West ** selezionare **Appartenenze a gruppi**.
+2. Nella pagina **Panoramica MDM policy - West** selezionare **Appartenenze a gruppi**.
 
 3. Selezionare il gruppo **MDM policy - All org** nella pagina **MDM policy - West - Appartenenze a gruppi** e quindi selezionare **Rimuovi** dai dettagli della pagina **MDM policy - West**.
 

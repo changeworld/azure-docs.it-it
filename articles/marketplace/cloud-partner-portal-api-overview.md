@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92425782"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Riferimento all'API del portale Cloud Partner
@@ -50,7 +50,7 @@ Questo riferimento illustra nel dettaglio le API per eseguire le seguenti attivi
 - [Creare un'offerta](./cloud-partner-portal-api-creating-offer.md)
 - [Pubblicare un'offerta](./cloud-partner-portal-api-publish-offer.md)
 
-### <a name="operations"></a>Operazioni
+### <a name="operations"></a>Gestione operativa
 
 - [Recuperare le operazioni](./cloud-partner-portal-api-retrieve-operations.md)
 - [Annullare le operazioni](./cloud-partner-portal-api-cancel-operations.md)

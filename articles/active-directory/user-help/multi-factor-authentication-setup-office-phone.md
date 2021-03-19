@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83739210"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configurare il telefono dell'ufficio come metodo di verifica a due fattori
@@ -26,7 +26,7 @@ ms.locfileid: "83739210"
 
 ## <a name="set-up-your-office-phone-number-as-your-verification-method"></a>Configurare il telefono dell'ufficio come metodo di verifica
 
-1. Nella pagina **Verifica di sicurezza aggiuntiva** selezionare **Telefono ufficio** nell'area **Passaggio 1: indicare il modo in cui si preferisce essere contattati**, selezionare il paese o l'area geografica nell'elenco a discesa e quindi digitare il numero di telefono dell'ufficio e infine il numero di interno, se presente.
+1. Nella pagina **verifica aggiuntiva di sicurezza** selezionare **telefono ufficio** dall'area **passaggio 1: modalità di contatto dell'utente** , selezionare il paese o l'area geografica nell'elenco a discesa, digitare il numero di telefono dell'ufficio, quindi digitare l'estensione, se disponibile.
 
     ![Pagina Verifica di sicurezza aggiuntiva, con Telefono per l'autenticazione e telefonata](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone.png)
 
@@ -34,7 +34,7 @@ ms.locfileid: "83739210"
 
     ![Test del numero di telefono specificato](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone-test.png)
 
-3. Dall'area **Passaggio 3: continuare a usare le applicazioni esistenti** copiare la password per le app visualizzata e incollarla in una posizione sicura.
+3. Dall'area **passaggio 3: continua a usare le applicazioni esistenti** , copiare la password dell'app specificata e incollarla in un luogo sicuro.
 
     ![Area delle password per le app nella pagina Verifica di sicurezza aggiuntiva](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 

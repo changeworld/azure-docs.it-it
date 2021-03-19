@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: 712a933276393890bf017a2517196031306233ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bc1dea8121d7986b8394adf6545a0b2c30afb133
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572995"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580182"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
 
@@ -46,7 +46,7 @@ Il diagramma seguente illustra i componenti che verranno configurati nella Azure
 
 ![Proiezione del gruppo di risorse](./media/azure-monitor/resource-group-projection.png)
 
-Durante questa distribuzione, si configureranno sia il tenant di Azure AD B2C che Azure AD tenant in cui verrà ospitata l'area di lavoro Log Analytics. All'account utilizzato per eseguire la distribuzione deve essere assegnato il ruolo di [amministratore globale](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) in entrambi i tenant. È anche importante verificare di aver eseguito l'accesso alla directory corretta quando si completa ogni passaggio, come descritto.
+Durante questa distribuzione, si configureranno sia il tenant di Azure AD B2C che Azure AD tenant in cui verrà ospitata l'area di lavoro Log Analytics. All'account Azure AD B2C deve essere assegnato il ruolo di [amministratore globale](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) nel tenant di Azure ad B2C. All'account Azure AD usato per eseguire la distribuzione deve essere assegnato il ruolo di [proprietario](../role-based-access-control/built-in-roles.md#owner) nella sottoscrizione di Azure ad. È anche importante verificare di aver eseguito l'accesso alla directory corretta quando si completa ogni passaggio, come descritto.
 
 ## <a name="1-create-or-choose-resource-group"></a>1. creare o scegliere un gruppo di risorse
 
@@ -97,7 +97,7 @@ Successivamente, verrà creato un modello di Azure Resource Manager che concede 
 2. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant **Azure ad** .
 3. Usare il pulsante **Distribuisci in Azure** per aprire il portale di Azure e distribuire il modello direttamente nel portale. Per altre informazioni, vedere [creare un modello di Azure Resource Manager](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
 
-   [![Distribuzione in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Lighthouse-samples%2Fmaster%2Ftemplates%2Frg-delegated-resource-management%2FrgDelegatedResourceManagement.json)
+   [![Distribuzione in Azure](https://aka.ms/deploytoazurebutton)](   https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
 5. Nella pagina **distribuzione personalizzata** immettere le informazioni seguenti:
 

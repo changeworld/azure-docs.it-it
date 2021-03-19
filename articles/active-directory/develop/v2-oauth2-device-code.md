@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 8c757f3e067aeac5d8145ca47b2eac145daba574
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88272451"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft Identity Platform e il flusso di concessione dell'autorizzazione del dispositivo OAuth 2,0
@@ -54,7 +54,7 @@ scope=user.read%20openid%20profile
 | Parametro | Condizione | Descrizione |
 | --- | --- | --- |
 | `tenant` | Obbligatoria | Può essere/Common,/consumers o/Organizations.  Può anche essere il tenant di directory per cui si desidera richiedere l'autorizzazione nel formato GUID o nome descrittivo.  |
-| `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza[Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
+| `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza [Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `scope` | Obbligatoria | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso.  |
 
 ### <a name="device-authorization-response"></a>Risposta di autorizzazione per il dispositivo
@@ -71,7 +71,7 @@ Una risposta di esito positivo sarà un oggetto JSON contenente le informazioni 
 | `message`        | string | Stringa leggibile con le istruzioni per l'utente. Può essere localizzata includendo un **parametro di query** nella richiesta del form `?mkt=xx-XX`, compilando l'apposito codice della lingua di destinazione. |
 
 > [!NOTE]
-> Il `verification_uri_complete` campo della risposta non è incluso né supportato in questo momento.  Questa operazione viene citata perché, se [standard](https://tools.ietf.org/html/rfc8628) si legge lo standard `verification_uri_complete` , viene elencato come parte facoltativa dello standard del flusso del codice del dispositivo.
+> Il `verification_uri_complete` campo della risposta non è incluso né supportato in questo momento.  Questa operazione viene citata perché, se [](https://tools.ietf.org/html/rfc8628) si legge lo standard `verification_uri_complete` , viene elencato come parte facoltativa dello standard del flusso del codice del dispositivo.
 
 ## <a name="authenticating-the-user"></a>Autenticazione dell'utente
 
@@ -93,9 +93,9 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 | Parametro | Obbligatoria | Descrizione|
 | -------- | -------- | ---------- |
 | `tenant`  | Obbligatoria | Stesso alias tenant o tenant usato nella richiesta iniziale. |
-| `grant_type` | Obbligatoria | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Obbligatoria | Deve corrispondere al `client_id` usato nella richiesta iniziale. |
-| `device_code`| Obbligatoria | Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
+| `grant_type` | Necessario | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
+| `client_id`  | Necessario | Deve corrispondere al `client_id` usato nella richiesta iniziale. |
+| `device_code`| Necessario | Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
 
 ### <a name="expected-errors"></a>Errori previsti
 

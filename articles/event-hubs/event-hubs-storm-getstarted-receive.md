@@ -1,16 +1,16 @@
 ---
-title: 'Guida introduttiva: Ricevere eventi usando Apache Storm - Hub eventi di Azure'
-description: 'Guida introduttiva: Questo articolo fornisce informazioni su come ricevere eventi da Hub eventi di Azure con Apache Storm.'
+title: 'Guida introduttiva: ricevere eventi usando Apache Storm-Hub eventi di Azure'
+description: 'Guida introduttiva: questo articolo fornisce informazioni su come ricevere eventi da Hub eventi di Azure usando Apache Storm.'
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87087578"
 ---
-# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Guida introduttiva: Ricevere eventi da Hub eventi di Azure usando Apache Storm
+# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Guida introduttiva: ricevere eventi da Hub eventi usando Apache Storm
 
 [Apache Storm](https://storm.incubator.apache.org) è un sistema distribuito di calcolo in tempo reale che semplifica l'elaborazione affidabile di flussi di dati non associati. Questa sezione illustra come usare uno Storm Spout di Hub eventi per ricevere eventi da Hub eventi stesso. Usando Apache Storm, è possibile dividere gli eventi tra più processi ospitati in nodi diversi. L'integrazione di Hub eventi con Storm semplifica l'uso degli eventi eseguendo il checkpoint trasparente dello stato di avanzamento grazie all'installazione di Zookeeper di Storm e alla gestione dei checkpoint persistenti e delle ricezioni parallele dagli hub eventi.
 

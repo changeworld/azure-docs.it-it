@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 448998328ff15b74b0aa0b17e2435a7ff55c54a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83124178"
 ---
 # <a name="work-with-incidents-in-many-workspaces-at-once"></a>Lavorare con gli eventi imprevisti in molte aree di lavoro contemporaneamente 
@@ -40,11 +40,11 @@ Si noti che nell'elenco delle aree di lavoro è possibile visualizzare la direct
 
 ## <a name="working-with-incidents"></a>Gestione degli eventi imprevisti
 
-In una **visualizzazione di più aree di lavoro**è disponibile per ora solo la schermata **eventi imprevisti** . Sembra e funziona nella maggior parte dei casi, come nella schermata **eventi imprevisti** regolari. Tuttavia, esistono alcune importanti differenze:
+In una **visualizzazione di più aree di lavoro** è disponibile per ora solo la schermata **eventi imprevisti** . Sembra e funziona nella maggior parte dei casi, come nella schermata **eventi imprevisti** regolari. Tuttavia, esistono alcune importanti differenze:
 
    ![Visualizzare gli eventi imprevisti in più aree di lavoro](./media/multiple-workspace-view/incidents.png)
 
-- I contatori nella parte superiore della pagina: *eventi imprevisti aperti*, *nuovi eventi imprevisti*, *in corso*e così via, mostrano i numeri per tutte le aree di lavoro selezionate collettivamente.
+- I contatori nella parte superiore della pagina: *eventi imprevisti aperti*, *nuovi eventi imprevisti*, *in corso* e così via, mostrano i numeri per tutte le aree di lavoro selezionate collettivamente.
 
 - Gli eventi imprevisti da tutte le aree di lavoro e le directory selezionate (tenant) verranno visualizzati in un unico elenco unificato. È possibile filtrare l'elenco in base all'area di lavoro e alla directory, oltre ai filtri della schermata **eventi imprevisti** regolari.
 

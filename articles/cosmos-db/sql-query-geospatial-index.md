@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: tisande
 ms.openlocfilehash: 47eedf1ddbb155180d364c42ec179b3e01279e44
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336215"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indicizzare i dati geospaziali con Azure Cosmos DB
@@ -19,7 +19,7 @@ ms.locfileid: "93336215"
 
 Il motore di database di Azure Cosmos DB è stato progettato in modo da essere effettivamente indipendente dallo schema e fornire supporto di prima classe per JSON. Il motore di database ottimizzato per la scrittura di Azure Cosmos DB riconosce in modo nativo i dati spaziali rappresentati nello standard GeoJSON.
 
-In breve, la geometria è proiettata dalle coordinate geodetiche su un piano 2D, quindi suddivisa progressivamente in celle utilizzando un **quadtree**. Queste celle vengono mappate in 1D in base alla posizione della cella all'interno di una **curva di riempimento dello spazio di Hilbert** , che consente di mantenere la posizione dei punti. Quando i dati di località vengono indicizzati, passano attraverso un processo noto come **mosaico** : tutte le celle che intersecano una posizione vengono identificate e archiviate come chiavi nell'indice di Azure Cosmos DB. In fase di query, anche argomenti come punti e poligoni sono tassellati per estrarre gli intervalli degli ID delle celle pertinenti e quindi usati per recuperare dati dall'indice.
+In breve, la geometria è proiettata dalle coordinate geodetiche su un piano 2D, quindi suddivisa progressivamente in celle utilizzando un **quadtree**. Queste celle vengono mappate in 1D in base alla posizione della cella all'interno di una **curva di riempimento dello spazio di Hilbert**, che consente di mantenere la posizione dei punti. Quando i dati di località vengono indicizzati, passano attraverso un processo noto come **mosaico**: tutte le celle che intersecano una posizione vengono identificate e archiviate come chiavi nell'indice di Azure Cosmos DB. In fase di query, anche argomenti come punti e poligoni sono tassellati per estrarre gli intervalli degli ID delle celle pertinenti e quindi usati per recuperare dati dall'indice.
 
 Se si specifica un criterio di indicizzazione che include un indice spaziale per `/*` (tutti i percorsi), tutti i dati trovati all'interno del contenitore vengono indicizzati per query spaziali efficienti.
 
@@ -36,11 +36,11 @@ Di seguito viene illustrato come impostare la **configurazione geospaziale** in 
 
 :::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Impostazione della configurazione geospaziale":::
 
-È anche possibile modificare `geospatialConfig` in .NET SDK per modificare la **configurazione geospaziale** :
+È anche possibile modificare `geospatialConfig` in .NET SDK per modificare la **configurazione geospaziale**:
 
 Se non specificato, `geospatialConfig` per impostazione predefinita viene impostato il tipo di dati geography. Quando si modifica la `geospatialConfig` , tutti i dati geospaziali esistenti nel contenitore verranno reindicizzati.
 
-Di seguito è riportato un esempio per modificare il tipo di dati geospaziale in impostando `geometry` la `geospatialConfig` proprietà e aggiungendo un **BoundingBox** :
+Di seguito è riportato un esempio per modificare il tipo di dati geospaziale in impostando `geometry` la `geospatialConfig` proprietà e aggiungendo un **BoundingBox**:
 
 ```csharp
     //Retrieve the container's details
@@ -111,10 +111,10 @@ Con il tipo di dati **Geometry** , simile al tipo di dati geography, è necessar
 
 Il rettangolo di delimitazione è costituito dalle proprietà seguenti:
 
-- **xmin** : coordinata x minima indicizzata
-- **yMin** : coordinata y minima indicizzata
-- **Xmax** : coordinata x massima indicizzata
-- **yMax** : coordinata y massima indicizzata
+- **xmin**: coordinata x minima indicizzata
+- **yMin**: coordinata y minima indicizzata
+- **Xmax**: coordinata x massima indicizzata
+- **yMax**: coordinata y massima indicizzata
 
 È necessario un rettangolo di delimitazione perché i dati geometrici occupano un piano che può essere infinito. Gli indici spaziali, tuttavia, richiedono uno spazio finito. Per il tipo di dati **geography** , la terra è il limite e non è necessario impostare un rettangolo di delimitazione.
 

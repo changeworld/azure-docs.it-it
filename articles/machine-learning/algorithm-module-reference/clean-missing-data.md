@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 5b7943b2026d640ae7e5d119e165bd752ae2fe7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898822"
 ---
 # <a name="clean-missing-data-module"></a>Pulisci modulo dati mancanti
@@ -58,11 +58,11 @@ Ogni volta che si applica il modulo  [Clean Missing data](./clean-missing-data.m
 
     1. Selezionare il modulo **Clean Missing data** e fare clic su **Edit Column** nel pannello di destra del modulo.
 
-    3. Per **Includi**selezionare **tipi di colonna** dall'elenco a discesa, quindi selezionare **numeric**. 
+    3. Per **Includi** selezionare **tipi di colonna** dall'elenco a discesa, quindi selezionare **numeric**. 
   
     Qualsiasi metodo di pulizia o sostituzione scelto deve essere applicabile a **tutte** le colonne nella selezione. Se i dati in una colonna non sono compatibili con l'operazione specificata, il modulo restituisce un errore e arresta la pipeline.
   
-3.  Per il **rapporto valore mancante minimo**specificare il numero minimo di valori mancanti necessari per l'esecuzione dell'operazione.  
+3.  Per il **rapporto valore mancante minimo** specificare il numero minimo di valori mancanti necessari per l'esecuzione dell'operazione.  
   
     Usare questa opzione in combinazione con la **percentuale massima di valori mancanti** per definire le condizioni in base alle quali viene eseguita un'operazione di pulizia sul set di dati. Se sono presenti troppe righe o troppe righe prive di valori, non è possibile eseguire l'operazione. 
   

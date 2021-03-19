@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 02/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: b3be465c488bdd3c5dbd62f757733939d1bee393
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5463f1d8376cbe1a6e81d17c1f95a84e67f3b418
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393514"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581083"
 ---
 # <a name="media-services-live-event-error-codes"></a>Codici di errore dell'evento live di servizi multimediali
 
@@ -28,7 +28,7 @@ Nelle tabelle seguenti sono elencati i codici di errore dell' [evento Live](live
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](../../event-grid/index.yml) per un evento Live, è possibile che venga visualizzato uno degli errori seguenti dell'evento [LiveEventConnectionRejected](media-services-event-schemas.md\#liveeventconnectionrejected) .
+Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](../../event-grid/index.yml) per un evento Live, è possibile che venga visualizzato uno degli errori seguenti dell'evento [LiveEventConnectionRejected](monitoring/media-services-event-schemas.md\#liveeventconnectionrejected) .
 > [!div class="mx-tdCol2BreakAll"]
 >| Errore | Informazioni |
 >|--|--|
@@ -68,7 +68,7 @@ Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](../../even
 
 ## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
-È possibile che venga visualizzato uno degli errori seguenti dell'evento [LiveEventEncoderDisconnected](media-services-event-schemas.md\#liveeventencoderdisconnected) .
+È possibile che venga visualizzato uno degli errori seguenti dell'evento [LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md\#liveeventencoderdisconnected) .
 
 > [!div class="mx-tdCol2BreakAll"]
 >| Errore | Informazioni |

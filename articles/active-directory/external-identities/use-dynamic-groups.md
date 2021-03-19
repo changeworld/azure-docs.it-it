@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b820b8b9606795709d03414fa14ec29a1b5c519
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92441556"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Gruppi dinamici e Collaborazione B2B di Azure Active Directory
@@ -30,9 +30,9 @@ La [licenza di Azure AD Premium P1 o P2](https://azure.microsoft.com/pricing/det
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account a cui è assegnato il ruolo di amministratore globale o amministratore utente nel tenant.
 1. Selezionare **Azure Active Directory**.
-2. In **Gestisci**selezionare **gruppi**, quindi selezionare **nuovo gruppo**.
+2. In **Gestisci** selezionare **gruppi**, quindi selezionare **nuovo gruppo**.
 1. Nella pagina **nuovo gruppo** , in **tipo di gruppo**, selezionare **sicurezza**. Immettere un **Nome gruppo** e una **Descrizione gruppo** per il nuovo gruppo. 
-2. In **tipo di appartenenza**selezionare **utente dinamico**, quindi selezionare **Aggiungi query dinamica**. 
+2. In **tipo di appartenenza** selezionare **utente dinamico**, quindi selezionare **Aggiungi query dinamica**. 
 4. Sopra la casella di testo **sintassi regola** selezionare **modifica**. Nella pagina **modifica sintassi regola** Digitare l'espressione seguente nella casella di testo:
 
    ```

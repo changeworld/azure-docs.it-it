@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: d28cfd533caaef3fb80a63aea932e6418dff7e55
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5943a65d61dee4fcf610b8cc45139674362995cb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724252"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600718"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -59,8 +59,8 @@ Per gestire in modo efficace queste applicazioni, è necessario monitorarle atti
   * [Il problema è dovuto all'uso dell'emulatore di archiviazione per attività di sviluppo o test]
   * [Si stanno verificando problemi di installazione di Azure SDK per .NET]
   * [Si è verificato un problema diverso con un servizio di archiviazione]
-  * [Risoluzione dei problemi dei dischi rigidi virtuali in macchine virtuali Windows](../../virtual-machines/troubleshooting/index.yml)   
-  * [Risoluzione dei problemi dei dischi rigidi virtuali in macchine virtuali Linux](../../virtual-machines/troubleshooting/index.yml)
+  * [Risoluzione dei problemi dei dischi rigidi virtuali in macchine virtuali Windows](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)   
+  * [Risoluzione dei problemi dei dischi rigidi virtuali in macchine virtuali Linux](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
   * [Risoluzione di problemi di File di Azure in Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Risoluzione di problemi di File di Azure in Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Appendici]

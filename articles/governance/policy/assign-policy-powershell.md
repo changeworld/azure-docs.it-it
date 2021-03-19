@@ -1,16 +1,16 @@
 ---
-title: 'Guida introduttiva: Nuova assegnazione di criteri con PowerShell'
+title: 'Guida introduttiva: nuova assegnazione di criteri con PowerShell'
 description: In questa guida di avvio rapido si userà Azure PowerShell per creare un'assegnazione di criteri di Azure per identificare le risorse non conformi.
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.openlocfilehash: e941b74101308af703f243197fb4043f8f32d233
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88548413"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi con Azure PowerShell
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Guida introduttiva: creare un'assegnazione di criteri per identificare le risorse non conformi usando Azure PowerShell
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse. In questo avvio rapido si creerà un'assegnazione di criteri per identificare le macchine virtuali che non usano dischi gestiti. Al termine, si identificheranno le macchine virtuali _non conformi_.
 
@@ -51,7 +51,7 @@ $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName 
 New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs without managed disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
-I comandi precedenti utilizzano le informazioni seguenti:
+I comandi precedenti usano le informazioni seguenti:
 
 - **Name**: nome effettivo dell'assegnazione. Per questo esempio è stato usato il nome _audit-vm-manageddisks_.
 - **DisplayName**: nome visualizzato per l'assegnazione di criteri. In questo caso viene usato _controllare le macchine virtuali senza assegnazione di dischi gestiti_.
@@ -60,7 +60,7 @@ I comandi precedenti utilizzano le informazioni seguenti:
 
 A questo punto si è pronti per identificare le risorse non conformi e comprendere così lo stato di conformità dell'ambiente.
 
-## <a name="identify-non-compliant-resources"></a>Identificare le risorse non conformi
+## <a name="identify-non-compliant-resources"></a>Identificare risorse non conformi
 
 Usare le informazioni seguenti per identificare le risorse non conformi all'assegnazione di criteri creata. Eseguire i comandi seguenti:
 

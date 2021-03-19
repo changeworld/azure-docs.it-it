@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 71c73fec4f559b34b097556243617636acd77480
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92673266"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Esercitazione: Configurare la replica geografica attiva e il failover nel portale di Azure (database SQL di Azure)
@@ -70,8 +70,8 @@ Dopo aver creato ed eseguito il seeding del database secondario, inizia la repli
 Il database secondario può diventare il database primario.  
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al database primario nella relazione di replica geografica.
-2. Nel pannello del database SQL selezionare **Tutte le impostazioni** > **Replica geografica** .
-3. Nell'elenco **SECONDARI** selezionare il database che si vuole impostare come nuovo database primario e fare clic su **Failover forzato** .
+2. Nel pannello del database SQL selezionare **Tutte le impostazioni** > **Replica geografica**.
+3. Nell'elenco **SECONDARI** selezionare il database che si vuole impostare come nuovo database primario e fare clic su **Failover forzato**.
 
     ![failover](./media/active-geo-replication-configure-portal/secondaries.png)
 4. Fare clic su **Sì** per avviare il failover.
@@ -88,9 +88,9 @@ Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibil
 Questa operazione interrompe in modo permanente la replica al database secondario e modifica il ruolo del database secondario in un database di lettura/scrittura normale. Se la connettività al database secondario viene interrotta il comando ha esito positivo ma il database secondario non diventa un database di lettura-scrittura fino a quando la connettività non verrà ripristinata.  
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al database primario nella relazione di replica geografica.
-2. Nella pagina del database SQL selezionare **Replica geografica** .
+2. Nella pagina del database SQL selezionare **Replica geografica**.
 3. Nell'elenco **SECONDARI** passare al database da rimuovere dalla relazione di replica geografica.
-4. Fare clic su **Arresta replica** .
+4. Fare clic su **Arresta replica**.
 
     ![Rimuovere un database secondario](./media/active-geo-replication-configure-portal/remove-secondary.png)
 5. Verrà visualizzata una finestra di conferma. Fare clic su **Sì** per rimuovere il database dalla relazione di replica geografica. Impostarla su un database di lettura/scrittura che non fa parte del processo di replica.

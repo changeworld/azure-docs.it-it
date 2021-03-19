@@ -3,18 +3,18 @@ title: Gestire e trovare i dati BLOB di Azure con i tag degli indici BLOB (antep
 description: Informazioni su come usare i tag degli indici BLOB per categorizzare, gestire ed eseguire query per oggetti BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/05/2021
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: be2ff9d6ed908bdc0645fc713717a08674354096
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 540f6ca165c80dd90f5004fb53e1577cdc35d770
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593221"
+ms.locfileid: "104656040"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gestire e trovare i dati BLOB di Azure con i tag degli indici BLOB (anteprima)
 
@@ -30,7 +30,7 @@ I tag di indice BLOB consentono di:
 Si consideri uno scenario in cui sono presenti milioni di BLOB nell'account di archiviazione, a cui è possibile accedere da molte applicazioni diverse. Si desidera trovare tutti i dati correlati da un singolo progetto. Non si è certi dell'ambito perché i dati possono essere distribuiti tra più contenitori con convenzioni di denominazione diverse. Tuttavia, le applicazioni caricano tutti i dati con tag basati sul progetto. Anziché cercare in milioni di BLOB e confrontare nomi e proprietà, è possibile usare `Project = Contoso` come criterio di individuazione. L'indice BLOB filtra tutti i contenitori nell'intero account di archiviazione per trovare rapidamente e restituire solo il set di BLOB 50 da `Project = Contoso` .
 
 > [!IMPORTANT]
-> I tag dell'indice BLOB sono attualmente in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali applicabili alle funzionalità di Azure disponibili in versione beta, di anteprima o non ancora rilasciate a livello generale.
+> I tag degli indici BLOB sono attualmente in **Anteprima** e sono disponibili in tutte le aree pubbliche. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali applicabili alle funzionalità di Azure disponibili in versione beta, di anteprima o non ancora rilasciate a livello generale.
 
 Per iniziare con esempi su come usare l'indice BLOB, vedere [usare i tag degli indici BLOB per gestire e trovare i dati](storage-blob-index-how-to.md).
 

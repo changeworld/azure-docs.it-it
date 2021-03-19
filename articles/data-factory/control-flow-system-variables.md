@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 119ecb3ec9c208340f09f513bf10b3ad24312cb5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: a5d2043c29db87876cc0d5ddb5b3708abad033c5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201227"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591980"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variabili di sistema supportate da Azure Data Factory
 
@@ -66,6 +66,20 @@ Questo articolo descrive le variabili di sistema supportate da Azure Data Factor
 | @triggerBody(). fileName  |Nome del file la cui creazione o eliminazione ha causato l'attivazione del trigger.   |
 | @triggerBody(). FolderName  |Percorso della cartella che contiene il file specificato da `@triggerBody().fileName` . Il primo segmento del percorso della cartella è il nome del contenitore di archiviazione BLOB di Azure.  |
 | @trigger().startTime |Ora in cui il trigger è stato attivato per richiamare l'esecuzione della pipeline. |
+
+## <a name="custom-event-trigger-scope"></a>Ambito trigger evento personalizzato
+
+È possibile fare riferimento a queste variabili di sistema in qualsiasi punto del trigger JSON per i trigger di tipo [CustomEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
+
+>[!NOTE]
+>Azure Data Factory prevede che l'evento personalizzato venga formattato con lo [schema di eventi di griglia di eventi di Azure](../event-grid/event-schema.md).
+
+| Nome variabile | Descrizione
+| --- | --- |
+| @triggerBody(). event. eventType | Tipo di eventi che hanno attivato l'esecuzione del trigger di evento personalizzato. Il tipo di evento è il campo definito dal cliente e accetta tutti i valori di tipo stringa. |
+| @triggerBody(). event. Subject | Oggetto dell'evento personalizzato che ha provocato l'attivazione del trigger. |
+| @triggerBody(). event. Data. _nome_ della pagina | Il campo dati in un evento personalizzato è un BLOB JSON gratuito, che può essere usato dal cliente per inviare messaggi e dati. Usare i dati. _nome_ della pagina per fare riferimento a ogni campo. Ad esempio, @triggerBody (). event. Data. callback restituisce il valore per il campo di _callback_ archiviato in _Data_. |
+| @trigger().startTime | Ora in cui il trigger è stato attivato per richiamare l'esecuzione della pipeline. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
 ms.openlocfilehash: 501f3e8946023d28d67a33fbbfca661afbc6306d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898263"
 ---
 # <a name="smote"></a>SMOTE
@@ -32,27 +32,27 @@ Le nuove istanze non sono solo copie di casi di minoranza esistenti. Al contrari
   
 PERCOSsa accetta l'intero set di dati come input, ma aumenta la percentuale dei soli casi di minoranza. Si supponga, ad esempio, di disporre di un set di dati sbilanciato in cui solo l'1% dei case dispone del valore di destinazione A (classe di minoranza) e il valore B del 99% dei case. Per aumentare la percentuale di casi di minoranza al doppio della percentuale precedente, immettere **200** per la **percentuale di percosse** nelle proprietà del modulo.  
   
-## <a name="examples"></a>Esempi  
+## <a name="examples"></a>Esempio  
 
 È consigliabile provare a usare SMOTE con un set di dati di dimensioni inferiori per verificarne il funzionamento. Nell'esempio seguente viene usato il set di dati della donazione di sangue disponibile in Azure Machine Learning Designer.
   
 Se si aggiunge il set di dati a una pipeline e si seleziona **Visualizza** nell'output del set di dati, è possibile osservare che le 748 righe o case del set di dati, 570 case (76%) sono della classe 0 e 178 case (24%) sono della classe 1. Sebbene questo risultato non sia terribilmente sbilanciato, la classe 1 rappresenta le persone che hanno donato sangue, quindi queste righe contengono lo *spazio di funzionalità* che si desidera modellare.
  
-Per aumentare il numero di case, è possibile impostare il valore di **colpì la percentuale**utilizzando multipli di 100, come indicato di seguito:
+Per aumentare il numero di case, è possibile impostare il valore di **colpì la percentuale** utilizzando multipli di 100, come indicato di seguito:
 
 ||Classe 0|Classe 1|total|  
 |-|-------------|-------------|-----------|  
-|Set di dati originale<br /><br /> (equivalente alla **percentuale**  =  di percosse **0**)|570<br /><br /> 76%|178<br /><br /> 24|748|  
-|Percentuale di percosse **SMOTE percentage**  =  **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
-|Percentuale di percosse **SMOTE percentage**  =  **200**|570<br /><br /> 52%|534<br /><br /> 48%|1.104|  
-|Percentuale di percosse **SMOTE percentage**  =  **300**|570<br /><br /> 44%|712<br /><br /> 56%|1.282|  
+|Set di dati originale<br /><br /> (equivalente alla **percentuale**  =  di percosse **0**)|570<br /><br /> 76%|178<br /><br /> 24%|748|  
+|Percentuale di percosse   =  **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
+|Percentuale di percosse   =  **200**|570<br /><br /> 52%|534<br /><br /> 48%|1.104|  
+|Percentuale di percosse   =  **300**|570<br /><br /> 44%|712<br /><br /> 56%|1.282|  
   
 > [!WARNING]
 > L'aumento del numero di case con COLPÌ non garantisce la produzione di modelli più accurati. Provare a eseguire il pipelining con percentuali diverse, set di funzionalità diversi e numeri diversi di adiacenti più vicini per vedere in che modo l'aggiunta dei case influisce sul modello.  
   
 ## <a name="how-to-configure-smote"></a>Come configurare PERCOSse
   
-1.  Aggiungere il modulo PERCOSd alla pipeline. È possibile trovare il modulo in **moduli di trasformazione dei dati**nella categoria **manipolazione** .
+1.  Aggiungere il modulo PERCOSd alla pipeline. È possibile trovare il modulo in **moduli di trasformazione dei dati** nella categoria **manipolazione** .
 
 2. Connettere il set di dati che si desidera aumentare. Se si desidera specificare lo spazio di funzionalità per la compilazione dei nuovi case, utilizzando solo colonne specifiche o escludendo alcune, utilizzare il modulo [Select Columns in DataSet](select-columns-in-dataset.md) . È quindi possibile isolare le colonne che si desidera utilizzare prima di utilizzare PERCOSse.
   

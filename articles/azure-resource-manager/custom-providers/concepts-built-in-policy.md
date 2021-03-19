@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: 00cd1d39c0110aac9ea96f73127e83197976c95a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82190130"
 ---
 # <a name="deploy-associations-for-a-custom-provider-using-azure-policy"></a>Distribuire le associazioni per un provider personalizzato usando criteri di Azure
@@ -32,7 +32,7 @@ Per altre informazioni sulle associazioni, vedere Caricamento di [risorse dei pr
 ### <a name="prerequisites"></a>Prerequisiti
 Se il provider personalizzato necessita di autorizzazioni per l'ambito dei criteri per eseguire un'azione, la distribuzione dei criteri della risorsa di associazione non funzionerà senza concedere le autorizzazioni.
 
-### <a name="policy-assignment"></a>Assegnazione di criteri
+### <a name="policy-assignment"></a>Assegnazione di criterio
 Per usare i criteri predefiniti, creare un'assegnazione di criteri e assegnare le associazioni Distribuisci per un criterio del provider personalizzato. Il criterio identificherà quindi le risorse non conformi e distribuirà le associazioni per tali risorse.
 
 ![Assegnare i criteri predefiniti](media/concepts-built-in-policy/assign-builtin-policy-customprovider.png)
@@ -43,7 +43,7 @@ In caso di domande sullo sviluppo di provider di risorse personalizzati di Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo illustra come usare i criteri predefiniti per distribuire le associazioni. Per ulteriori informazioni, vedere questi articoli:
+Questo articolo illustra come usare i criteri predefiniti per distribuire le associazioni. Per altre informazioni, vedere questi articoli:
 
 - [Concetti: onboarding delle risorse del provider personalizzato di Azure](./concepts-resource-onboarding.md)
 - [Esercitazione: onboarding delle risorse con provider personalizzati](./tutorial-resource-onboarding.md)

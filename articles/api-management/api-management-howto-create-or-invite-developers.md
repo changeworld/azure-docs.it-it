@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 92e032eb104835788f515cc7800fe5dacfa8adaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88566132"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Come gestire gli account utente in Gestione API di Azure
@@ -42,7 +42,7 @@ Per aggiungere un nuovo utente, eseguire la procedura in questa sezione:
 
     ![Aggiungere un nuovo utente](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-Per impostazione predefinita, gli account sviluppatore appena creati sono **attivi**e associati al gruppo **Developers** . Gli account per sviluppatori che si trovano in uno stato **attivo** possono essere usati per accedere a tutte le API per le quali hanno sottoscrizioni. Per associare il nuovo sviluppatore creato ad altri gruppi, vedere [Come associare i gruppi agli sviluppatori][How to associate groups with developers].
+Per impostazione predefinita, gli account sviluppatore appena creati sono **attivi** e associati al gruppo **Developers** . Gli account per sviluppatori che si trovano in uno stato **attivo** possono essere usati per accedere a tutte le API per le quali hanno sottoscrizioni. Per associare il nuovo sviluppatore creato ad altri gruppi, vedere [Come associare i gruppi agli sviluppatori][How to associate groups with developers].
 
 ## <a name="invite-a-developer"></a><a name="invite-developer"> </a>Invitare uno sviluppatore
 Per invitare uno sviluppatore, eseguire la procedura in questa sezione:
@@ -56,7 +56,7 @@ Quando uno sviluppatore viene invitato, gli viene inviato un messaggio di posta 
 
 Dopo l'accettazione dell'invito, l'account diventa attivo.
 
-## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"> </a> Disattivare o riattivare un account sviluppatore
+## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"></a> Disattivare o riattivare un account sviluppatore
 
 Per impostazione predefinita, un nuovo account sviluppatore creato o invitato è **Attivo**. Per disattivare un account sviluppatore, fare clic su **Blocca**. Per riattivare un account sviluppatore bloccato, fare clic su **Attiva**. Un account sviluppatore bloccato non può accedere al portale per sviluppatori né chiamare le API. Per eliminare un account utente, fare clic su **Elimina**.
 

@@ -14,10 +14,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: f823b6d04a217328fe2e825e64906460cd9cbae9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92672489"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Avvio rapido: Usare Visual Studio Code per connettersi ed eseguire query 
@@ -51,7 +51,7 @@ Assicurarsi di aver installato l'ultima versione di [Visual Studio Code](https:/
 
 ### <a name="macos"></a>**macOS**
 
-Per macOS è necessario installare OpenSSL, che è un prerequisito per .NET Core usato dall'estensione mssql. Aprire il terminale e immettere i comandi seguenti per installare **brew** e **OpenSSL** .
+Per macOS è necessario installare OpenSSL, che è un prerequisito per .NET Core usato dall'estensione mssql. Aprire il terminale e immettere i comandi seguenti per installare **brew** e **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -76,9 +76,9 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Passare alla pagina **Database SQL** o **Istanze gestite di SQL** .
+2. Passare alla pagina **Database SQL** o **Istanze gestite di SQL**.
 
-3. Nella pagina **Panoramica** verificare il nome completo del server accanto a **Nome server** per il database SQL o accanto a **Host** per un'istanza gestita di SQL. Per copiare il nome del server o il nome host, passare il puntatore su di esso e selezionare l'icona **Copia** .
+3. Nella pagina **Panoramica** verificare il nome completo del server accanto a **Nome server** per il database SQL o accanto a **Host** per un'istanza gestita di SQL. Per copiare il nome del server o il nome host, passare il puntatore su di esso e selezionare l'icona **Copia**.
 
 ## <a name="set-language-mode-to-sql"></a>Impostare la modalità linguaggio SQL
 
@@ -86,11 +86,11 @@ In Visual Studio Code impostare la modalità di linguaggio su **SQL** per abilit
 
 1. Aprire una nuova finestra di Visual Studio Code.
 
-2. Premere **CTRL**+**N** . Verrà aperto un nuovo file di testo normale.
+2. Premere **CTRL**+**N**. Verrà aperto un nuovo file di testo normale.
 
 3. Selezionare **Testo normale** nell'angolo inferiore destro della barra di stato.
 
-4. Nel menu a discesa **Seleziona modalità linguaggio** visualizzato selezionare **SQL** .
+4. Nel menu a discesa **Seleziona modalità linguaggio** visualizzato selezionare **SQL**.
 
 ## <a name="connect-to-your-database"></a>Connettersi al database
 
@@ -101,7 +101,7 @@ Usare Visual Studio Code per stabilire una connessione al server.
 
 1. In Visual Studio Code premere **CTRL+MAIUSC+P** o **F1** per aprire il riquadro comandi.
 
-2. Selezionare **MS SQL:Connect** (MS SQL: Connetti) e premere **INVIO** .
+2. Selezionare **MS SQL:Connect** (MS SQL: Connetti) e premere **INVIO**.
 
 3. Selezionare **Create Connection Profile** (Crea profilo di connessione).
 
@@ -109,7 +109,7 @@ Usare Visual Studio Code per stabilire una connessione al server.
 
    | Proprietà       | Valore consigliato | Descrizione |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nome server** | Nome completo del server | Ad esempio, **mynewserver20170313.database.windows.net** . |
+   | **Nome server** | Nome completo del server | Ad esempio, **mynewserver20170313.database.windows.net**. |
    | **Nome database** | mySampleDatabase | Database a cui connettersi. |
    | **autenticazione** | Account di accesso SQL| In questa esercitazione viene usata l'autenticazione SQL. |
    | **Nome utente** | Nome utente | Nome utente dell'account amministratore del server usato per creare il server. |

@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: harshacs
 ms.custom: MVC
 ms.openlocfilehash: 60c268ba837540eda86a4cbaf6e0ab1c425d90b4
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91814223"
 ---
 # <a name="fail-over--azure-vmware-solution-vms"></a>Effettuare il failover delle macchine virtuali della soluzione Azure VMware
@@ -48,7 +48,7 @@ Prima di eseguire un failover, controllare le proprietà della VM per assicurars
 
 Verificare le proprietà come segue:
 
-1. In **Elementi protetti**, selezionare **Elementi replicati**e quindi selezionare la VM che si desidera verificare.
+1. In **Elementi protetti**, selezionare **Elementi replicati** e quindi selezionare la VM che si desidera verificare.
 
 2. Nel riquadro **Elemento replicato** è possibile vedere un riepilogo relativo a informazioni sulla macchina virtuale, stato integrità e ultimi punti di ripristino disponibili. Selezionare **Proprietà** per visualizzare altri dettagli.
 

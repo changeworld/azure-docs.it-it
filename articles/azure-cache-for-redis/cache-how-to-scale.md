@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 2913869067ff138922ebb7ea1483a1132e360d29
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d91b62afacad31d78feb7d4743cd4050fcc1bd4e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382396"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581644"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Ridimensionare una cache di Azure per l'istanza di redis
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Per una cache Basic, standard o Premium, è possibile modificarne le dimensioni e il livello dopo che è stato creato per soddisfare le esigenze dell'applicazione. Questo articolo illustra come ridimensionare la cache usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -45,7 +45,7 @@ Il passaggio a un piano tariffario diverso è soggetto alle restrizioni seguenti
   * Non è possibile passare da una cache **Standard** a una cache **Basic**.
 * È possibile passare da una cache **Basic** a una cache **Standard**, ma non è possibile modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
 * Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È innanzitutto necessario passare da **Basic** a **Standard** con una prima operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
-* Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)** .
+* Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)** . Tuttavia, è possibile ridurre le dimensioni di qualsiasi altra dimensione all'interno dello stesso piano tariffario. Ad esempio, è possibile ridurre dallo standard C5 allo standard C1.
  
 Mentre è in corso il ridimensionamento della cache in base al nuovo piano tariffario, nel pannello **Cache Redis di Azure** viene visualizzato lo stato **Ridimensionamento**.
 

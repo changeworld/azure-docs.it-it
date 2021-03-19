@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 694d63dacedd8ffcd075e73bb91b5ab0a089b58c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91766494"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configurare CHAP per il dispositivo StorSimple
@@ -59,7 +59,7 @@ Nell’autenticazione unidirezionale, la destinazione autentica l'iniziatore. Qu
    3. Confermare la password.
 
        ![Iniziatore CHAP 2](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. Fare clic su **Save**. Viene visualizzato un messaggio di conferma. Fare clic su **OK** per salvare le modifiche.
+3. Fare clic su **Salva**. Viene visualizzato un messaggio di conferma. Fare clic su **OK** per salvare le modifiche.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Per configurare l'autenticazione unidirezionale nel server host di Windows
 1. Nel server host di Windows, avviare l'iniziatore iSCSI.
@@ -113,7 +113,7 @@ Nell'autenticazione bidirezionale la destinazione autentica l'iniziatore e poi l
    3. Confermare la password.
 
        ![Iniziatore CHAP 3](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. Fare clic su **Save**. Viene visualizzato un messaggio di conferma. Fare clic su **OK** per salvare le modifiche.
+4. Fare clic su **Salva**. Viene visualizzato un messaggio di conferma. Fare clic su **OK** per salvare le modifiche.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Per configurare l'autenticazione bidirezionale nel server host di Windows
 
@@ -151,7 +151,7 @@ Nella finestra di dialogo **Connetti a destinazione** visualizzata selezionare l
 
 ## <a name="errors-during-configuration"></a>Errori durante la configurazione
 
-Se la configurazione CHAP non è corretta, può essere visualizzato un messaggio di errore di autenticazione non riuscita.****
+Se la configurazione CHAP non è corretta, può essere visualizzato un messaggio di errore di autenticazione non riuscita.
 
 ## <a name="verification-of-chap-configuration"></a>Verifica della configurazione di CHAP
 

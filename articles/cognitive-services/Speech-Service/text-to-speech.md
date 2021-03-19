@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: sintesi vocale
-ms.openlocfilehash: fec90b3257ffafaf2919d2f0a41c2ade6fbc1f64
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7722c9387e8d6475c6da4c771e9a0e355a4ac0af
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597675"
+ms.locfileid: "104654850"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
@@ -41,7 +41,7 @@ In questa panoramica vengono illustrati i vantaggi e le funzionalità del serviz
 
 * Modificare gli stili di pronuncia con SSML-Speech Synthesis Markup Language (SSML) è un linguaggio di markup basato su XML usato per personalizzare gli output di sintesi vocale. Con SSML è possibile modificare il pitch, aggiungere pause, migliorare la pronuncia, accelerare o rallentare la velocità di pronuncia, aumentare o diminuire il volume e attribuire più voci a un singolo documento. Vedere le [procedure](speech-synthesis-markup.md) per la regolazione degli stili di pronuncia.
 
-* Visemes- [visemes](how-to-speech-synthesis-viseme.md) vengono usati per rappresentare la chiave in un discorso osservato, ovvero la posizione dei labbri, la mascella e la lingua durante la produzione di un fonema particolare. Ha una forte correlazione con voci e fonemi. Usando viseme nell'SDK vocale, è possibile generare dati di animazione facciali, che vengono in genere usati per la comunicazione animata per la lettura del labbro, l'istruzione, l'intrattenimento e il servizio clienti. 
+* Visemes- [visemes](how-to-speech-synthesis-viseme.md) è la chiave che si pone in un discorso osservato, inclusa la posizione dei labbri, la mascella e la lingua durante la produzione di un fonema particolare. Visemes hanno una forte correlazione con voci e fonemi. Usando gli eventi viseme nell'SDK vocale, è possibile generare dati di animazione facciali, che possono essere usati per animare i visi nelle comunicazioni di lettura del labbro, istruzione, intrattenimento e servizio clienti. 
 
 ## <a name="get-started"></a>Introduzione
 

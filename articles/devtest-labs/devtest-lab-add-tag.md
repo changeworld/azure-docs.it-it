@@ -4,10 +4,10 @@ description: Informazioni su come creare tag personalizzati in Azure DevTest Lab
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a4d2b328626f0d0f096082fa88bb170894ccf3e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270734"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Aggiungere tag a un lab in Azure DevTest Labs
@@ -36,7 +36,7 @@ Ogni tag è costituito da una coppia **nome**- / **valore** . Ad esempio, è pos
 
     ![Pulsante Configurazione e criteri](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
-1. A sinistra sotto **GESTISCI**selezionare **Tag**.
+1. A sinistra sotto **GESTISCI** selezionare **Tag**.
 1. Per creare un nuovo tag per questo Lab, immettere una coppia **nome** / **/valore** e selezionare **Salva**. È anche possibile selezionare un tag esistente dall'elenco per visualizzare o gestire le risorse associate a questo tag.
 
     ![Gestire i tag](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)

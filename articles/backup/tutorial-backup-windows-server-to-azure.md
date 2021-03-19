@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
 ms.openlocfilehash: d2990b5950cf8812367c3a59c6cace39e4085e2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88261906"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Eseguire il backup di Windows Server in Azure
@@ -59,7 +59,7 @@ L'agente di Servizi di ripristino di Microsoft Azure (MARS) crea un'associazione
 
 3. Nel menu **Obiettivo del backup**:
 
-   * per **Posizione di esecuzione del carico di lavoro** selezionare**locale**
+   * per **Posizione di esecuzione del carico di lavoro** selezionare **locale**
    * per **Elementi di cui eseguire il backup**, selezionare **File e cartelle** e **Stato del sistema**
 
    ![Menu Obiettivo del backup](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
@@ -96,7 +96,7 @@ L'agente di Servizi di ripristino di Microsoft Azure (MARS) crea un'associazione
 
 Usare l'agente di Servizi di ripristino di Microsoft Azure per la pianificazione dei backup di Windows Server in Azure. Eseguire la procedura seguente nel server in cui è stato scaricato l'agente.
 
-1. Aprire l'agente di Servizi di ripristino di Microsoft Azure. È possibile trovarlo se si cerca **Backup di Microsoft Azure**nel computer.
+1. Aprire l'agente di Servizi di ripristino di Microsoft Azure. È possibile trovarlo se si cerca **Backup di Microsoft Azure** nel computer.
 
 2. Nella console dell'agente di Servizi di ripristino selezionare **Pianifica backup** nel **riquadro Azioni**.
 

@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 011b50449f0a02b128bc000535f93e1809fd9777
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92673874"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Assegnare i ruoli delle risorse di Azure in Privileged Identity Management
@@ -43,9 +43,9 @@ Seguire questi passaggi per rendere un utente idoneo per un ruolo delle risorse 
 
     Per informazioni su come concedere a un altro amministratore l'accesso per gestire Privileged Identity Management, vedere [concedere l'accesso ad altri amministratori per gestire Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
-1. Aprire **Azure ad Privileged Identity Management** .
+1. Aprire **Azure ad Privileged Identity Management**.
 
-1. Selezionare **risorse di Azure** .
+1. Selezionare **risorse di Azure**.
 
 1. Usare il filtro delle risorse per trovare le risorse gestite che si sta cercando.
 
@@ -63,11 +63,11 @@ Seguire questi passaggi per rendere un utente idoneo per un ruolo delle risorse 
 
     ![Riquadro Nuova assegnazione](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-1. Selezionare un ruolo da assegnare e quindi fare clic su **Seleziona** .
+1. Selezionare un ruolo da assegnare e quindi fare clic su **Seleziona**.
 
     Viene visualizzato il riquadro **selezionare un membro o un gruppo** .
 
-1. Selezionare un membro o un gruppo che si desidera assegnare al ruolo, quindi fare clic su **Seleziona** .
+1. Selezionare un membro o un gruppo che si desidera assegnare al ruolo, quindi fare clic su **Seleziona**.
 
     ![Riquadro Selezionare un membro o un gruppo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
@@ -83,7 +83,7 @@ Seguire questi passaggi per rendere un utente idoneo per un ruolo delle risorse 
 
 1. Per specificare una durata di assegnazione specifica, modificare le date e le ore di inizio e di fine.
 
-1. Al termine, selezionare **assegna** .
+1. Al termine, selezionare **assegna**.
 
 1. Una volta creata la nuova assegnazione di ruolo, viene visualizzata una notifica di stato.
 
@@ -93,9 +93,9 @@ Seguire questi passaggi per rendere un utente idoneo per un ruolo delle risorse 
 
 Seguire questi passaggi per aggiornare o rimuovere un'assegnazione di ruolo esistente.
 
-1. Aprire **Azure ad Privileged Identity Management** .
+1. Aprire **Azure ad Privileged Identity Management**.
 
-1. Selezionare **risorse di Azure** .
+1. Selezionare **risorse di Azure**.
 
 1. Selezionare la risorsa che si vuole gestire per aprire la relativa pagina di panoramica.
 
@@ -105,7 +105,7 @@ Seguire questi passaggi per aggiornare o rimuovere un'assegnazione di ruolo esis
 
 1. Selezionare il ruolo da aggiornare o rimuovere.
 
-1. Trovare l'assegnazione del ruolo nelle schede **Ruoli idonei** o **Ruoli attivi** .
+1. Trovare l'assegnazione del ruolo nelle schede **Ruoli idonei** o **Ruoli attivi**.
 
     ![Aggiornare o rimuovere un'assegnazione di ruolo](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
 

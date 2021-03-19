@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: juliako
 ms.openlocfilehash: 6ebdb22f50efbefc695f9752c6e6fc333571828c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90530939"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Aree di Azure in cui esiste Video Indexer
 
 Le API di Video Indexer contengono un parametro **location** che è consigliabile impostare sull'area di Azure a cui deve essere indirizzata la chiamata. Questa deve essere un'[area di Azure in cui è disponibile Video Indexer](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
 
-## <a name="locations"></a>Percorsi
+## <a name="locations"></a>Posizioni
 
 Al `location` parametro deve essere assegnato il nome del codice dell'area di Azure come valore. Se si usa Video Indexer in modalità di anteprima, è necessario inserire `"trial"` come valore. `trial` è il valore predefinito per il `location` parametro. In caso contrario, per ottenere il nome in codice dell'area di Azure in cui si trova l'account e che la chiamata deve essere indirizzata a, è possibile usare il portale di Azure o eseguire un comando dell'interfaccia della riga di comando di [Azure](/cli/azure) .
 

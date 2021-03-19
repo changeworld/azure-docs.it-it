@@ -1,6 +1,6 @@
 ---
 title: 'Regressione quantile foresta rapida: riferimento al modulo'
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure Machine Learning
 description: Informazioni su come usare il modulo di regressione quantile per la foresta rapida per creare un modello di regressione in grado di stimare i valori per un numero specificato di quantili.
 services: machine-learning
 ms.service: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
 ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907960"
 ---
 # <a name="fast-forest-quantile-regression"></a>Regressione quantile della foresta rapida
@@ -43,13 +43,13 @@ La regressione quantile consente di comprendere la distribuzione del valore stim
   
 ## <a name="how-to-configure-fast-forest-quantile-regression"></a>Come configurare la regressione quantile rapida della foresta
 
-1. Aggiungere il modulo **Fast Forest quantile regressione** alla pipeline nella finestra di progettazione. È possibile trovare questo modulo in **Machine Learning algoritmi**nella categoria **regressione** .
+1. Aggiungere il modulo **Fast Forest quantile regressione** alla pipeline nella finestra di progettazione. È possibile trovare questo modulo in **Machine Learning algoritmi** nella categoria **regressione** .
 
 2. Nel riquadro destro del modulo **Fast Forest quantile regressione** specificare come si vuole eseguire il training del modello, impostando l'opzione **create Trainer Mode** .  
   
     - **Singolo parametro**: se si sa come si desidera configurare il modello, fornire un set di valori specifico come argomenti. Quando si esegue il training del modello, usare [Train Model](train-model.md).
   
-    - **Intervallo**di parametri: se non si è certi dei parametri migliori, eseguire uno sweep di parametri usando il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) . Il trainer esegue l'iterazione su più valori specificati per trovare la configurazione ottimale.
+    - **Intervallo** di parametri: se non si è certi dei parametri migliori, eseguire uno sweep di parametri usando il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) . Il trainer esegue l'iterazione su più valori specificati per trovare la configurazione ottimale.
 
 3. **Numero di alberi**, digitare il numero massimo di alberi che è possibile creare nell'insieme. La creazione di più alberi in genere garantisce una maggior precisione, ma anche tempi di training più lunghi.  
 

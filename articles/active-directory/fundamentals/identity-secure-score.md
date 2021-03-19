@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90705487"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Informazioni su Identity Secure Score in Azure Active Directory
@@ -48,7 +48,7 @@ Applicando le azioni di miglioramento, è possibile:
 
 ## <a name="how-do-i-get-my-secure-score"></a>Come si ottiene il punteggio di sicurezza?
 
-Il Punteggio di sicurezza identità è disponibile in tutte le edizioni di Azure AD. Le organizzazioni possono accedere al Punteggio sicuro dell'identità dall' **portale di Azure**  >  **Azure Active Directory**  >  **Security**  >  **Punteggio sicuro**per l'identità di sicurezza.
+Il Punteggio di sicurezza identità è disponibile in tutte le edizioni di Azure AD. Le organizzazioni possono accedere al Punteggio sicuro dell'identità dall' **portale di Azure**  >  **Azure Active Directory**  >    >  **Punteggio sicuro** per l'identità di sicurezza.
 
 ## <a name="how-does-it-work"></a>Come funziona?
 
@@ -66,7 +66,7 @@ Il punteggio di sicurezza consente di:
 - Pianificare miglioramenti per la sicurezza delle identità
 - Verificare il successo dei miglioramenti apportati
 
-## <a name="what-you-should-know"></a>Informazioni importanti
+## <a name="what-you-should-know"></a>Informazioni utili
 
 ### <a name="who-can-use-the-identity-secure-score"></a>Chi può usare Identity Secure Score?
 
@@ -107,7 +107,7 @@ Per visualizzare la cronologia dei punteggi, passare al [Centro sicurezza Micros
 Il [Punteggio Microsoft Secure](/office365/securitycompliance/microsoft-secure-score) contiene cinque categorie di controllo e Punteggio distinte:
 
 - Identità
-- Dati
+- Data
 - Dispositivi
 - Infrastruttura
 - App

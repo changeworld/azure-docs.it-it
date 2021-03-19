@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: troubleshooting
 ms.date: 02/26/2020
 ms.openlocfilehash: b5f7ed1f2ded8f6ec0320d417b59bab016d75028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91777276"
 ---
 # <a name="personalizer-troubleshooting"></a>Risoluzione dei problemi di personalizzazione
@@ -66,7 +66,7 @@ Quando inizia il nuovo periodo di aggiornamento, viene usato il modello aggiorna
 
 ### <a name="how-do-i-know-that-the-learning-loop-is-getting-updated-regularly-and-is-used-to-score-my-data"></a>Ricerca per categorie sapere che il ciclo di apprendimento viene aggiornato regolarmente e viene usato per assegnare un punteggio ai dati?
 
-È possibile trovare l'ora dell'ultimo aggiornamento del modello nella pagina **Impostazioni modello e apprendimento** della portale di Azure. Se viene visualizzato un timestamp obsoleto, è probabile che non vengano inviate le chiamate di rango e di ricompensa. Se il servizio non dispone di dati in ingresso, non aggiorna l'apprendimento. Se il ciclo di apprendimento non viene aggiornato con frequenza sufficiente, è possibile modificare la frequenza di **aggiornamento del modello**del ciclo.
+È possibile trovare l'ora dell'ultimo aggiornamento del modello nella pagina **Impostazioni modello e apprendimento** della portale di Azure. Se viene visualizzato un timestamp obsoleto, è probabile che non vengano inviate le chiamate di rango e di ricompensa. Se il servizio non dispone di dati in ingresso, non aggiorna l'apprendimento. Se il ciclo di apprendimento non viene aggiornato con frequenza sufficiente, è possibile modificare la frequenza di **aggiornamento del modello** del ciclo.
 
 ## <a name="offline-evaluations"></a>Valutazioni offline
 
