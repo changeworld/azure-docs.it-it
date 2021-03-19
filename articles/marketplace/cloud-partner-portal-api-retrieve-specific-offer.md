@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87271842"
 ---
 # <a name="retrieve-a-specific-offer"></a>Recuperare un'offerta specifica
@@ -176,7 +176,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  offerTypeId    | Identifica il tipo di offerta                                                                                                    |
 |  publisherId    | Identificatore univoco della pubblicazione                                                                                              |
 |  status         | Stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito:                                  |
-|  ID             | GUID che identifica in modo univoco l'offerta                                                                                         |
+|  Id             | GUID che identifica in modo univoco l'offerta                                                                                         |
 |  version        | Versione corrente dell'offerta. La proprietà della versione non può essere modificata dal client. Viene incrementata dopo ogni pubblicazione.    |
 |  Definizione     | Definizione effettiva del carico di lavoro                                                                                               |
 |  changedTime    | Ora UTC dell'ultima modifica dell'offerta                                                                                   |
@@ -200,7 +200,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  NotStarted                 | L'offerta è nuova, ma non è stata attivata.              |
 |  WaitingForPublisherReview  | L'offerta è in attesa di approvazione da parte dell'editore.      |
 |  In esecuzione                    | Invio dell'offerta in corso.          |
-|  Operazione riuscita                  | Invio dell'offerta completato.    |
+|  Completato                  | Invio dell'offerta completato.    |
 |  Cancellati                   | Invio dell'offerta annullato.                |
-|  Operazione non riuscita                     | Invio dell'offerta non riuscito.                      |
+|  Non riuscito                     | Invio dell'offerta non riuscito.                      |
 |  |  |

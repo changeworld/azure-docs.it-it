@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935790"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funzioni di ricerca full-text OData in Azure ricerca cognitiva `search.ismatch` e `search.ismatchscoring`
@@ -69,7 +69,7 @@ La `search.ismatch` funzione valuta una query di ricerca full-text come parte di
 
 I parametri sono definiti nella tabella seguente:
 
-| Nome parametro | Type | Descrizione |
+| Nome parametro | Tipo | Descrizione |
 | --- | --- | --- |
 | `search` | `Edm.String` | Query di ricerca, in una sintassi di query Lucene [semplice](query-simple-syntax.md) o [completa](query-lucene-syntax.md) . |
 | `searchFields` | `Edm.String` | Elenco delimitato da virgole di campi ricercabili in cui eseguire la ricerca; il valore predefinito è tutti i campi disponibili per la ricerca nell'indice. Quando si usa la ricerca nel parametro nel [campo](query-lucene-syntax.md#bkmk_fields) `search` , gli identificatori di campo nella query Lucene eseguono l'override di tutti i campi specificati in questo parametro. |
@@ -94,7 +94,7 @@ La `search.ismatchscoring` funzione, come la `search.ismatch` funzione, restitui
 
 Entrambe le `search.ismatch` `search.ismatchscoring` funzioni e possono essere utilizzate nella stessa espressione di filtro.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Trovare documenti con la parola "waterfront". Questa query di filtro è identica a una [richiesta di ricerca](/rest/api/searchservice/search-documents) con `search=waterfront`.
 

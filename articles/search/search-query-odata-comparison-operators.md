@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934872"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operatori di confronto OData in Azure ricerca cognitiva- `eq` ,, `ne` `gt` , `lt` , `ge` e `le`
@@ -132,7 +132,7 @@ Non è possibile confrontare direttamente un campo di tipo `Edm.GeographyPoint` 
 
 Le stringhe possono essere confrontate nei filtri per le corrispondenze esatte usando gli `eq` `ne` operatori e. Questi confronti distinguono tra maiuscole e minuscole.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Trova la corrispondenza dei documenti in cui il `Rating` campo è compreso tra 3 e 5 inclusi:
 

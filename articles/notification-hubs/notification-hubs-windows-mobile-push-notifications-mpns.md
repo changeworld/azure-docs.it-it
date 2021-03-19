@@ -1,5 +1,5 @@
 ---
-title: Inviare notifiche push alle app Windows Phone con Hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push alle app Windows Phone usando hub di notifica di Azure | Microsoft Docs
 description: Questa esercitazione descrive come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Windows Phone 8 o Windows Phone 8.1 Silverlight.
 services: notification-hubs
 documentationcenter: windows
@@ -19,13 +19,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e91d250b8cc9b80f2c97910c7fa972af32fa9104
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88998340"
 ---
-# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Esercitazione: Inviare notifiche push alle app Windows Phone con Hub di notifica
+# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Esercitazione: inviare notifiche push ad app Windows Phone usando hub di notifica
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -34,7 +34,7 @@ Questa esercitazione descrive come usare Hub di notifica di Azure per inviare no
 In questa esercitazione si creerà un'app per Windows Phone 8 vuota che riceve notifiche push tramite il Servizio di notifica Push di Microsoft. Dopo aver creato l'app è possibile usare l'hub di notifica per trasmettere le notifiche push a tutti i dispositivi che eseguono l'app.
 
 > [!NOTE]
-> L’SDK Hub di notifica per Windows Phone [AZURE.NOTE] non supporta l'uso di Windows Push Notification Service (WNS) con app per Windows Phone 8.1 Silverlight. Per usare WNS (invece di MPNS) con le app di Windows Phone 8.1 Silverlight, completare la seguente [Esercitazione su Hub di notifica - Windows Phone Silverlight]che usa le API REST.
+> L’SDK Hub di notifica per Windows Phone [AZURE.NOTE] non supporta l'uso di Windows Push Notification Service (WNS) con app per Windows Phone 8.1 Silverlight. Per usare WNS (anziché MPNS) con Windows Phone app Silverlight 8,1, seguire l' [esercitazione su Hub di notifica-Windows Phone Silverlight], che usa le API REST.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -79,7 +79,7 @@ In questa sezione viene creata un'applicazione Windows Phone che si registra con
 
     ![Visual Studio - Nuovo progetto - App vuota - Windows Phone Silverlight][11]
 2. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet**.
-3. Cercare `WindowsAzure.Messaging.Managed` , quindi fare clic su **Installa**e accettare le condizioni per l'utilizzo.
+3. Cercare `WindowsAzure.Messaging.Managed` , quindi fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
     ![Visual Studio - Gestione pacchetti NuGet][20]
 4. Aprire il file App.xaml.cs e aggiungere le istruzioni `using` seguenti:
@@ -144,7 +144,7 @@ In questa sezione viene creata un'applicazione Windows Phone che si registra con
 
     1. Per **Platforms** (Piattaforme) selezionare **Windows Phone**.
     2. Per **Notification Type** (Tipo di notifica) selezionare **Toast** (Avviso popup).
-    3. Selezionare **Send** (Invia)
+    3. Selezionare **Invia**
     4. Vedere il **risultato** nell'elenco nella parte inferiore della finestra.
 
         ![Finestra Test Send (Invio di prova)](./media/notification-hubs-windows-phone-get-started/test-send-window.png)

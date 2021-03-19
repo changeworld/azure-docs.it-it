@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 263d27f4236ba43f6514f6a084e58cfe0a13a9d2
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 0197b533f80ccb1524de2bbb9fc5c642f2626bbc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199525"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655258"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architettura di connettività nel database di Azure per MySQL
 Questo articolo illustra l'architettura di connettività del database di Azure per MySQL e il modo in cui il traffico viene indirizzato all'istanza di database di Azure per MySQL da client sia all'interno che all'esterno di Azure.
@@ -84,7 +84,7 @@ La tabella seguente elenca gli indirizzi IP del gateway del database di Azure pe
 | Stati Uniti centro-occidentali | 13.78.145.25     | | |
 | Europa occidentale |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
 | Stati Uniti occidentali |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
-| Stati Uniti occidentali 2 | 13.66.226.202  | | |
+| Stati Uniti occidentali 2 | 13.66.136.192 | 13.66.226.202  | | 
 ||||
 
 ## <a name="connection-redirection"></a>Reindirizzamento della connessione

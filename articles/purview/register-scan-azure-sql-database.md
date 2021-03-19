@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 62f4b6c76cafab5c6cc46a73851abce1e38551a1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 11ce7b3da0d33fbe7f1229cbc00246da00858ec5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677756"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598219"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registrare e analizzare Database SQL di Azure
 
@@ -158,6 +158,7 @@ Nella schermata **Register sources (Azure SQL Database)** (Registra origini - Da
 
 > [!NOTE]
 > L'eliminazione dell'analisi non rimuove gli asset dalle precedenti analisi di Database SQL di Azure.
+> L'asset non verrà più aggiornato con le modifiche dello schema se la tabella di origine viene modificata e si ripete l'analisi della tabella di origine dopo aver modificato la descrizione nella scheda Schema di competenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

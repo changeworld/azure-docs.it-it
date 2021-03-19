@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4fdb891d668d99644d8a9ed9c15d158e65d53ba5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "72793107"
 ---
 Per proteggere un'infrastruttura IoT (Internet of Things, Internet delle cose) è richiesta una strategia di sicurezza rigorosa e approfondita. Questa strategia richiede la protezione dei dati nel cloud, dell'integrità dei dati in transito sulla rete internet pubblica e il provisioning sicuro dei dispositivi. Ogni livello crea maggiori garanzie di sicurezza dell'infrastruttura complessiva.
@@ -27,7 +27,7 @@ Questa strategia di sicurezza può essere sviluppata e implementata con la parte
 
 * **Distributore di soluzioni IoT**: una volta sviluppata, la soluzione IoT deve essere distribuita nell'ambiente. Questo processo implica la distribuzione dell'hardware, l'interconnessione dei dispositivi e la distribuzione di soluzioni su dispositivi hardware o nel cloud.
 
-* **Operatore di soluzione**Internet delle cose: dopo la distribuzione della soluzione Internet delle cose, sono necessari operazioni a lungo termine, monitoraggio, aggiornamenti e manutenzione. Queste operazioni possono essere eseguite da un team interno che comprende esperti di tecnologie informatiche, team per le operazioni hardware e team di manutenzione, nonché specialisti di dominio che monitorano il corretto funzionamento dell'intera infrastruttura IoT.
+* **Operatore di soluzione** Internet delle cose: dopo la distribuzione della soluzione Internet delle cose, sono necessari operazioni a lungo termine, monitoraggio, aggiornamenti e manutenzione. Queste operazioni possono essere eseguite da un team interno che comprende esperti di tecnologie informatiche, team per le operazioni hardware e team di manutenzione, nonché specialisti di dominio che monitorano il corretto funzionamento dell'intera infrastruttura IoT.
 
 Le sezioni che seguono descrivono le procedure consigliate per ognuno di questi attori per aiutare a sviluppare, distribuire e gestire un'infrastruttura IoT protetta.
 
@@ -71,7 +71,7 @@ Di seguito sono riportate le pratiche ottimali per gli operatori di soluzioni Io
 
 * **Effettuare controlli regolari**: controllare la presenza di problemi di sicurezza all'infrastruttura IoT è un fattore chiave durante la risposta agli incidenti di sicurezza. La maggior parte dei sistemi operativi offre la registrazione integrata degli eventi che è opportuno esaminare frequentemente per assicurarsi che non si verifichino violazioni della protezione. Le informazioni di controllo possono essere inviate come flusso dati di telemetria separati al servizio cloud per l'analisi.
 
-* **Proteggere fisicamente l'infrastruttura di**Internet delle cose: i peggiori attacchi alla sicurezza per l'infrastruttura di Internet delle cose vengono avviati usando l'accesso fisico ai dispositivi Un'importante procedura di sicurezza è la protezione contro l'uso non autorizzato di porte USB e altri accessi fisici. Un'operazione fondamentale per rilevare eventuali violazioni è la registrazione degli accessi fisici, come l'uso delle porte USB. Anche in questo caso, Windows 10 (IoT e altri SKU) offre la registrazione dettagliata di questi eventi.
+* **Proteggere fisicamente l'infrastruttura di** Internet delle cose: i peggiori attacchi alla sicurezza per l'infrastruttura di Internet delle cose vengono avviati usando l'accesso fisico ai dispositivi Un'importante procedura di sicurezza è la protezione contro l'uso non autorizzato di porte USB e altri accessi fisici. Un'operazione fondamentale per rilevare eventuali violazioni è la registrazione degli accessi fisici, come l'uso delle porte USB. Anche in questo caso, Windows 10 (IoT e altri SKU) offre la registrazione dettagliata di questi eventi.
 
 * **Proteggere le credenziali del cloud**: le credenziali di autenticazione cloud usate per la configurazione e il funzionamento di una distribuzione di Internet delle cose sono probabilmente il modo più semplice per ottenere l'accesso e compromettere un sistema Proteggere le credenziali modificando frequentemente la password ed evitare di usarle sui computer pubblici.
 

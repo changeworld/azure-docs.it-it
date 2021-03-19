@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 45f18727b53b802ba746da41b47fe955543ed9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75648548"
 ---
 # <a name="create-custom-actions-and-resources-in-azure"></a>Creare azioni e risorse personalizzate in Azure
@@ -40,10 +40,10 @@ La terza parte di questa esercitazione descrive come creare un provider personal
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state fornite informazioni sui provider personalizzati e su come crearli. Per continuare con l'esercitazione successiva, vedere [Esercitazione: Configurare Funzioni di Azure per i provider personalizzati di Azure](./tutorial-custom-providers-function-setup.md).
+In questa esercitazione sono state fornite informazioni sui provider personalizzati e su come crearli. Per passare all'esercitazione successiva, vedere [esercitazione: configurare funzioni di Azure per i provider personalizzati di Azure](./tutorial-custom-providers-function-setup.md).
 
 Per informazioni di riferimento o una guida di avvio rapido, ecco alcuni collegamenti utili:
 
-- [Avvio rapido: Creare un provider di risorse personalizzato e distribuire risorse personalizzate](./create-custom-provider.md)
-- [Procedura: Aggiunta di azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
-- [Procedura: Aggiunta di risorse personalizzate all'API REST di Azure](./custom-providers-resources-endpoint-how-to.md)
+- [Guida introduttiva: creare un provider di risorse personalizzato di Azure e distribuire le risorse personalizzate](./create-custom-provider.md)
+- [Procedura: aggiungere azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
+- [Procedura: aggiungere risorse personalizzate all'API REST di Azure](./custom-providers-resources-endpoint-how-to.md)

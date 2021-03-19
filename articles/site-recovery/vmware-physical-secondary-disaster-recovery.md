@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84711902"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurare il ripristino di emergenza di macchine virtuali VMware locali o server fisici in un sito secondario
@@ -236,7 +236,7 @@ Scout Update 5 è un aggiornamento cumulativo. Include tutte le correzioni appor
 > [!NOTE]
 > * Le correzioni per il cluster P2V sono applicabili solo ai cluster MSCS fisici appena protetti con Site Recovery Scout Update 5. Per installare le correzioni per il cluster nei cluster MSCS P2V protetti con aggiornamenti precedenti, seguire i passaggi di aggiornamento descritti nella sezione 12 delle [Note sulla versione di Site Recovery Scout](https://aka.ms/asr-scout-release-notes).
 > * Se al momento della riprotezione su ogni nodo del cluster è attivo lo stesso set di dischi che era attivo al momento della protezione iniziale, la riprotezione di un cluster MSCS fisico potrà soltanto riusare i dischi di destinazione esistenti. In caso contrario, usare i passaggi manuali illustrati nella sezione 12 delle [Note sulla versione di Site Recovery Scout](https://aka.ms/asr-scout-release-notes) per spostare i dischi sul lato di destinazione nel percorso dell'archivio dati corretto in modo da riusarli durante la riprotezione. Se si riprotegge il cluster MSCS in modalità P2V senza seguire i passaggi di aggiornamento, viene creato un nuovo disco nel server ESXi di destinazione. Sarà necessario eliminare manualmente i vecchi dischi dall'archivio dati.
-> * Quando un server SLES11 o SLES11 (con qualsiasi Service Pack) di origine viene riavviato normalmente, contrassegnare manualmente le coppie di replica del disco **radice** per la risincronizzazione. Nell'interfaccia CX non viene visualizzata alcuna notifica.Se il disco radice non viene contrassegnato per la risincronizzazione è possibile che si verifichino problemi di integrità dei dati.
+> * Quando un server SLES11 o SLES11 (con qualsiasi Service Pack) di origine viene riavviato normalmente, contrassegnare manualmente le coppie di replica del disco **radice** per la risincronizzazione. Nell'interfaccia CX non viene visualizzata alcuna notifica. Se il disco radice non viene contrassegnato per la risincronizzazione è possibile che si verifichino problemi di integrità dei dati.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4

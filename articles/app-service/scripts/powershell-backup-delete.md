@@ -1,5 +1,5 @@
 ---
-title: "PowerShell: Eliminare un backup dell'app"
+title: "PowerShell: eliminare un backup dell'app"
 description: Informazioni su come usare Azure PowerShell per automatizzare la distribuzione e la gestione di Servizio app. Questo esempio illustra come eliminare il backup di un'app.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.openlocfilehash: 29eda8fcb24dce6c54fb56c94d242513b319caad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89073965"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Eliminare un backup per un'app Web usando Azure PowerShell

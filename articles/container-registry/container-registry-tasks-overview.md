@@ -3,12 +3,12 @@ title: Panoramica delle Attività del Registro Azure Container
 description: Introduzione alle attività di ACR, una suite di funzionalità in Azure Container Registry che fornisce la compilazione, la gestione e l'applicazione di patch di immagini del contenitore sicure e automatizzate nel cloud.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1cf9faf934cebfb5abe0d2e1b26ffd7da2d6c549
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562855"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606787"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -39,7 +39,7 @@ Il ciclo di sviluppo interno, processo iterativo di scrittura di codice, compila
 
 Prima di eseguire il commit della prima riga di codice, la funzione [attività rapida](container-registry-tutorial-quick-task.md) di Attività del Registro Azure Container può offrire un'esperienza di sviluppo integrato eseguendo l'offload delle build di un'immagine del contenitore in Azure. Con questa funzionalità è possibile verificare le definizioni delle compilazioni automatiche e rilevare problemi potenziali prima di eseguire il commit di codice.
 
-Usando il noto formato `docker build`, il comando [az acr build][az-acr-build] nell'interfaccia della riga di comando di Azure accetta un [contesto](#context-locations) (l'insieme di file da compilare), lo invia al servizio ACR Tasks e al termine, per impostazione predefinita, esegue il push dell'immagine compilata nel registro.
+Usando il `docker build` formato familiare, il comando [AZ ACR Build][az-acr-build] nell'interfaccia della riga di comando di Azure accetta un [contesto](#context-locations) (il set di file da compilare), lo invia alle attività di ACR e, per impostazione predefinita, effettua il push dell'immagine compilata al relativo registro al termine del completamento.
 
 Per un'introduzione, vedere la Guida introduttiva per [compilare ed eseguire un'immagine del contenitore](container-registry-quickstart-task-cli.md) in Azure container Registry.  
 
@@ -120,7 +120,7 @@ La tabella seguente illustra alcuni esempi di percorsi di contesto supportati pe
 
 Per impostazione predefinita, le attività ACR compilano immagini per il sistema operativo Linux e l'architettura amd64. Specificare il `--platform` tag per compilare immagini Windows o immagini Linux per altre architetture. Specificare il sistema operativo e, facoltativamente, un'architettura supportata nel formato del sistema operativo/architettura (ad esempio, `--platform Linux/arm` ). Per le architetture ARM, è possibile specificare facoltativamente una variante nel formato sistema operativo/architettura/variante (ad esempio, `--platform Linux/arm64/v8` ):
 
-| OS | Architecture|
+| OS | Architettura|
 | --- | ------- | 
 | Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |

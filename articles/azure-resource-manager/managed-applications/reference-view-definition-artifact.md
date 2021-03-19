@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 5173db54abef132a4a4d5d117881352ca37d6b23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75651202"
 ---
 # <a name="reference-view-definition-artifact"></a>Riferimento: elemento della definizione della visualizzazione
@@ -87,6 +87,6 @@ Il codice JSON seguente mostra un esempio di *viewDefinition.jssu* file per le a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: creare un'applicazione gestita con azioni e risorse personalizzate](tutorial-create-managed-app-with-custom-provider.md)
+- [Esercitazione: Creare un'applicazione gestita con azioni e risorse personalizzate](tutorial-create-managed-app-with-custom-provider.md)
 - [Riferimento: artefatto degli elementi dell'interfaccia utente](reference-createuidefinition-artifact.md)
 - [Riferimento: artefatto modello di distribuzione](reference-main-template-artifact.md)

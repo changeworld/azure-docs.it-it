@@ -1,22 +1,22 @@
 ---
 title: 'ExpressRoute: come configurare gli avvisi personalizzati per le route annunciate'
-description: Questo articolo illustra come usare automazione di Azure e le app per la logica per monitorare il numero di route annunciate dal gateway ExpressRoute alle reti locali per evitare di raggiungere il limite di 200 Route.
+description: Questo articolo illustra come usare automazione di Azure e le app per la logica per monitorare il numero di route annunciate dal gateway ExpressRoute alle reti locali per evitare di raggiungere il limite di 1000 Route.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: fed7663e2342a708aee70b9a54e6e0a6b6f97e8c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2291d1fa7f890296c59661060f5a823d8eb194ba
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504402"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654391"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurare avvisi personalizzati per il monitoraggio di route annunciate
 
-Questo articolo consente di usare automazione di Azure e app per la logica per monitorare costantemente il numero di route annunciate dal gateway ExpressRoute alle reti locali. Il monitoraggio consente di evitare di raggiungere il [limite di 200 Route](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
+Questo articolo consente di usare automazione di Azure e app per la logica per monitorare costantemente il numero di route annunciate dal gateway ExpressRoute alle reti locali. Il monitoraggio consente di evitare di raggiungere il limite di 1000 Route] (expressroute-FAQs. MD # how-many-prefissi-can-be-advertised-from-a-VNET-to-on-premises-on-expressroute-private-peering).
 
 **Automazione di Azure** consente di automatizzare l'esecuzione dello script di PowerShell personalizzato archiviato in un *Runbook*. Quando si usa la configurazione in questo articolo, Runbook contiene uno script di PowerShell che esegue una query su uno o più gateway ExpressRoute. Raccoglie un set di dati contenente il gruppo di risorse, il nome del gateway ExpressRoute e il numero di prefissi di rete annunciati in locale.
 
@@ -48,7 +48,7 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 
 * L'avviso personalizzato illustrato in questo articolo è un componente aggiuntivo per ottimizzare il funzionamento e il controllo. Non è una sostituzione per gli avvisi nativi in ExpressRoute.
 * La raccolta dei dati per i gateway ExpressRoute viene eseguita in background. Il runtime può essere più lungo del previsto. Per evitare l'accodamento dei processi, la ricorrenza del flusso di lavoro deve essere configurata correttamente.
-* Le distribuzioni tramite script o modelli ARM potrebbero essere più veloci del trigger di allarme personalizzato. Questo potrebbe comportare un aumento del numero di prefissi di rete nel gateway ExpressRoute oltre il limite di 200 Route.
+* Le distribuzioni tramite script o modelli ARM potrebbero essere più veloci del trigger di allarme personalizzato. Questo potrebbe comportare un aumento del numero di prefissi di rete nel gateway ExpressRoute oltre il limite di 1000 Route.
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>Creare e configurare gli account
 
@@ -409,7 +409,7 @@ Una volta analizzato il codice JSON, l'azione **analizza operazioni dati JSON** 
 
    :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numRoutesPeer2":::
 
-9. La condizione logica è true quando una delle due variabili dinamiche, numRoute1 o numRoute2, è maggiore della soglia. In questo esempio, la soglia è fissata a 160 (80% del valore massimo di 200 Route). È possibile modificare il valore di soglia in base ai propri requisiti. Per coerenza, il valore deve corrispondere allo stesso valore usato nello script di PowerShell Runbook.
+9. La condizione logica è true quando una delle due variabili dinamiche, numRoute1 o numRoute2, è maggiore della soglia. In questo esempio, la soglia è fissata a 800 (80% del valore massimo di 1000 Route). È possibile modificare il valore di soglia in base ai propri requisiti. Per coerenza, il valore deve corrispondere allo stesso valore usato nello script di PowerShell Runbook.
 
    :::image type="content" source="./media/custom-route-alert-portal/logic-condition.png" alt-text="Condizione logica":::
 

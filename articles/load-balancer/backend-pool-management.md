@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: ac21e1f00dc2a5580b90a1a5eb43da05288e800a
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: c49a721a4db758965c9cf8d71f5d73b5754b6088
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489424"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654476"
 ---
 # <a name="backend-pool-management"></a>Gestione del pool back-end
 Il pool back-end è un componente cruciale del servizio di bilanciamento del carico. Definisce il gruppo di risorse che gestirà il traffico per una specifica regola di bilanciamento del carico.
@@ -156,99 +156,6 @@ az vm create \
 --generate-ssh-keys
 ```
 
-### <a name="rest-api"></a>API REST
-Creare il pool back-end:
-
-```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
-```
-
-Creare un'interfaccia di rete e aggiungerla al pool back-end creato tramite la proprietà di configurazione IP dell'interfaccia di rete:
-
-```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
-```
-
-Corpo della richiesta JSON:
-```json
-{
-  "properties": {
-    "enableAcceleratedNetworking": true,
-    "ipConfigurations": [
-      {
-        "name": "ipconfig1",
-        "properties": {
-          "subnet": {
-            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}/subnets/{subnet-name}"
-          },
-          "loadBalancerBackendAddressPools": [
-            {
-              "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  "location": "eastus"
-}
-```
-
-Recuperare le informazioni sul pool back-end per il servizio di bilanciamento del carico per confermare che questa interfaccia di rete viene aggiunta al pool back-end:
-
-```
-GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name/providers/Microsoft.Network/loadBalancers/{load-balancer-name/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
-```
-
-Creare una macchina virtuale e collegare la scheda di interfaccia di rete che fa riferimento al pool back-end:
-
-```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2019-12-01
-```
-
-Corpo della richiesta JSON:
-```JSON
-{
-  "location": "easttus",
-  "properties": {
-    "hardwareProfile": {
-      "vmSize": "Standard_D1_v2"
-    },
-    "storageProfile": {
-      "imageReference": {
-        "sku": "2016-Datacenter",
-        "publisher": "MicrosoftWindowsServer",
-        "version": "latest",
-        "offer": "WindowsServer"
-      },
-      "osDisk": {
-        "caching": "ReadWrite",
-        "managedDisk": {
-          "storageAccountType": "Standard_LRS"
-        },
-        "name": "myVMosdisk",
-        "createOption": "FromImage"
-      }
-    },
-    "networkProfile": {
-      "networkInterfaces": [
-        {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{nic-name}",
-          "properties": {
-            "primary": true
-          }
-        }
-      ]
-    },
-    "osProfile": {
-      "adminUsername": "{your-username}",
-      "computerName": "myVM",
-      "adminPassword": "{your-password}"
-    }
-  }
-}
-```
-
 ### <a name="resource-manager-template"></a>Modello di Resource Manager
 
 Seguire questo [argomento di avvio rapido sul modello di Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) per distribuire un servizio di bilanciamento del carico e le macchine virtuali, quindi aggiungere le macchine virtuali al pool back-end tramite l'interfaccia di rete.
@@ -260,17 +167,6 @@ Seguire questa [Guida introduttiva gestione risorse modello](https://github.com/
 Negli scenari con pool back-end già popolati, usare l'indirizzo IP e la rete virtuale.
 
 Tutte le operazioni di gestione dei pool back-end vengono eseguite direttamente nell'oggetto pool back-end, come evidenziato negli esempi seguenti.
-
-### <a name="limitations"></a>Limitazioni
-Un pool back-end configurato in base all'indirizzo IP presenta le limitazioni seguenti:
-  * Può essere usato solo per i bilanciamenti del carico standard
-  * Limite di 100 indirizzi IP nel pool back-end
-  * Le risorse back-end devono trovarsi nella stessa rete virtuale del servizio di bilanciamento del carico
-  * Un'istanza di Load Balancer con pool back-end non può funzionare come servizio di collegamento privato
-  * Questa funzionalità non è attualmente supportata nel portale di Azure
-  * I contenitori dell'istanza di Istanze di contenitore di Azure non sono attualmente supportati da questa funzionalità
-  * I servizi di bilanciamento del carico o i servizi gestiti da servizi di bilanciamento del carico non possono essere inseriti nel pool back-end del servizio di bilanciamento del carico
-  * Le regole NAT in ingresso non possono essere specificate in base all'indirizzo IP
 
 ### <a name="powershell"></a>PowerShell
 Creare un nuovo pool back-end:
@@ -411,128 +307,21 @@ az vm create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
+ 
+### <a name="limitations"></a>Limitazioni
+Un pool back-end configurato in base all'indirizzo IP presenta le limitazioni seguenti:
+  * Può essere usato solo per i bilanciamenti del carico standard
+  * Limite di 100 indirizzi IP nel pool back-end
+  * Le risorse back-end devono trovarsi nella stessa rete virtuale del servizio di bilanciamento del carico
+  * Un'istanza di Load Balancer con pool back-end non può funzionare come servizio di collegamento privato
+  * Questa funzionalità non è attualmente supportata nel portale di Azure
+  * I contenitori dell'istanza di Istanze di contenitore di Azure non sono attualmente supportati da questa funzionalità
+  * I servizi di bilanciamento del carico o i servizi, ad esempio il gateway applicazione, non possono essere inseriti nel pool back-end del servizio di bilanciamento del carico
+  * Le regole NAT in ingresso non possono essere specificate in base all'indirizzo IP
 
-### <a name="rest-api"></a>API REST
-
-Creare il pool back-end e definire gli indirizzi back-end tramite una richiesta PUT al pool back-end. Configurare gli indirizzi back-end nel corpo JSON della richiesta PUT tramite:
-
-* Nome indirizzo
-* Indirizzo IP
-* ID rete virtuale 
-
-```
-PUT https://management.azure.com/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend?api-version=2020-05-01
-```
-
-Corpo della richiesta JSON:
-```JSON
-{
-  "properties": {
-    "loadBalancerBackendAddresses": [
-      {
-        "name": "address1",
-        "properties": {
-          "virtualNetwork": {
-            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}"
-          },
-          "ipAddress": "10.0.0.4"
-        }
-      },
-      {
-        "name": "address2",
-        "properties": {
-          "virtualNetwork": {
-            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}"
-          },
-          "ipAddress": "10.0.0.5"
-        }
-      }
-    ]
-  }
-}
-```
-
-Recuperare le informazioni sul pool back-end per il servizio di bilanciamento del carico per confermare che gli indirizzi back-end sono stati aggiunti al pool back-end:
-```
-GET https://management.azure.com/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
-```
-
-Creare una nuova interfaccia di rete e aggiungerla al pool back-end. Impostare l'indirizzo IP su uno degli indirizzi back-end:
-```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
-```
-
-Corpo della richiesta JSON:
-```JSON
-{
-  "properties": {
-    "enableAcceleratedNetworking": true,
-    "ipConfigurations": [
-      {
-        "name": "ipconfig1",
-        "properties": {
-          "privateIPAddress": "10.0.0.4",
-          "subnet": {
-            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}/subnets/{subnet-name}"
-          }
-        }
-      }
-    ]
-  },
-  "location": "eastus"
-}
-```
-
-Creare una macchina virtuale e collegare la scheda di interfaccia di rete con un indirizzo IP nel pool back-end:
-
-```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2019-12-01
-```
-
-Corpo della richiesta JSON:
-```JSON
-{
-  "location": "eastus",
-  "properties": {
-    "hardwareProfile": {
-      "vmSize": "Standard_D1_v2"
-    },
-    "storageProfile": {
-      "imageReference": {
-        "sku": "2016-Datacenter",
-        "publisher": "MicrosoftWindowsServer",
-        "version": "latest",
-        "offer": "WindowsServer"
-      },
-      "osDisk": {
-        "caching": "ReadWrite",
-        "managedDisk": {
-          "storageAccountType": "Standard_LRS"
-        },
-        "name": "myVMosdisk",
-        "createOption": "FromImage"
-      }
-    },
-    "networkProfile": {
-      "networkInterfaces": [
-        {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{nic-name}",
-          "properties": {
-            "primary": true
-          }
-        }
-      ]
-    },
-    "osProfile": {
-      "adminUsername": "{your-username}",
-      "computerName": "myVM",
-      "adminPassword": "{your-password}"
-    }
-  }
-}
-```
-  
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo sono state fornite informazioni sulla gestione del pool back-end di Azure Load Balancer e su come configurare il pool back-end tramite indirizzo IP e rete virtuale.
 
 Altre informazioni su [Azure Load Balancer](load-balancer-overview.md).
+
+Esaminare l' [API REST](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerbackendaddresspools/createorupdate) per la gestione integri basata su IP.

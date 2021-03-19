@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: eb006482b851e9094b82ec3d0753b74c05296994
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68727837"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Minacce di Microsoft Threat Modeling Tool
@@ -38,7 +38,7 @@ Threat Modeling Tool consente di rispondere a domande specifiche, ad esempio que
 
 Per aiutare l'utente a formulare questo tipo di domande indirizzate, Microsoft usa il modello STRIDE, che classifica i diversi tipi di minacce e semplifica le conversazioni di protezione globale.
 
-| Categoria | Descrizione |
+| Category | Descrizione |
 | -------- | ----------- |
 | **Spoofing** | Implica l'accesso in modo illegale e l'uso delle informazioni di autenticazione di un altro utente, ad esempio nome utente e password |
 | **Manomissione** | Comporta la modifica non autorizzata dei dati. Alcuni esempi sono le modifiche non autorizzate apportate ai dati persistenti, ad esempio quelli contenuti in un database, e la modifica dei dati trasmessi tra due computer in una rete aperta, ad esempio Internet |

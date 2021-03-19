@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: ea5f3fca18e6a5781bf46112134ae4efc7159106
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4bea9f202d40090217219752a13ffde64b466140
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101205"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597586"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET di tabella di CosmosDB di Azure: download e note sulla versione
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "93101205"
 > * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
 
-|   |   |
+|   | Collegamenti  |
 |---|---|
 |**Download dell'SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
 |**Guida introduttiva**|[Azure Cosmos DB: Build an app with .NET and the Table API](create-table-dotnet.md) (Cosmos DB di Azure: compilare un'app con .NET e l'API di tabella)|
@@ -97,7 +97,7 @@ Il pacchetto di anteprima [WindowsAzure. storage-PremiumTable](https://www.nuget
 | [1.0.0](#1.0.0) |15 novembre 2017|15 novembre 2019 |
 | 0.9.0-preview |11 novembre 2017 |11 novembre 2019 |
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si ottiene l'errore 
 

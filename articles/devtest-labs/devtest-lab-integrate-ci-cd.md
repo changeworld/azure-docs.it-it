@@ -4,10 +4,10 @@ description: Informazioni su come integrare Azure DevTest Labs nella pipeline di
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288920"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integrare Azure DevTest Labs nella pipeline CI/CD Azure Pipelines
@@ -89,7 +89,7 @@ Per creare il file script:
    Write-Host "##vso[task.setvariable variable=labVMFqdn;]$labVMFqdn"
    ```
 
-1. Salvare il file con un nome come *GetLabVMParams.ps1*e archiviarlo nel sistema di controllo del codice sorgente. 
+1. Salvare il file con un nome come *GetLabVMParams.ps1* e archiviarlo nel sistema di controllo del codice sorgente. 
 
 ## <a name="create-a-release-pipeline-in-azure-pipelines"></a>Creare una pipeline di versione in Azure Pipelines
 
@@ -97,7 +97,7 @@ Per creare una nuova pipeline di versione:
 
 1. Dalla pagina del progetto Azure DevOps selezionare **pipeline**  >  **versioni** dal dispositivo di spostamento a sinistra.
 1. Selezionare **nuova pipeline**.
-1. In **Seleziona un modello**scorrere verso il basso e selezionare **processo vuoto**e quindi selezionare **applica**.
+1. In **Seleziona un modello** scorrere verso il basso e selezionare **processo vuoto** e quindi selezionare **applica**.
 
 ### <a name="add-and-set-variables"></a>Aggiungere e impostare le variabili
 
@@ -109,7 +109,7 @@ Per aggiungere variabili per i valori:
    
 1. Per ogni variabile, selezionare **Aggiungi** e immettere il nome e il valore:
    
-   |Nome|valore|
+   |Nome|Valore|
    |---|---|
    |*vmName*|Nome della macchina virtuale assegnato nel modello di Gestione risorse|
    |*userName*|Nome utente per accedere alla macchina virtuale|
@@ -121,19 +121,19 @@ Il passaggio successivo consiste nel creare la macchina virtuale dell'immagine d
 
 1. Nella scheda **pipeline** della pipeline di rilascio selezionare il testo con collegamento ipertestuale nella **fase 1** per **visualizzare le attività della fase**, quindi selezionare il segno più **+** accanto a **processo di Agent**. 
    
-1. In **Aggiungi attività**selezionare **Azure DevTest Labs crea macchina virtuale**e selezionare **Aggiungi**. 
+1. In **Aggiungi attività** selezionare **Azure DevTest Labs crea macchina virtuale** e selezionare **Aggiungi**. 
    
 1. Selezionare **crea Azure DevTest Labs macchina virtuale** nel riquadro sinistro. 
 
 1. Nel riquadro destro completare il modulo come segue:
    
-   |Campo|valore|
+   |Campo|Valore|
    |---|---|
    |**Sottoscrizione di Azure RM**|Selezionare una connessione al servizio o una sottoscrizione dalle **connessioni al servizio di Azure disponibili** o dalle **sottoscrizioni di Azure disponibili** nell'elenco a discesa e selezionare **autorizza** se necessario.<br /><br />**Nota:** Per informazioni sulla creazione di una connessione con autorizzazioni più limitate alla sottoscrizione di Azure, vedere [Azure Resource Manager endpoint del servizio](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).|
    |**Nome Lab**|Selezionare il nome di un lab esistente in cui verrà creata la macchina virtuale Lab.|
    |**Nome modello**|Immettere il percorso completo e il nome del file modello salvato nel repository del codice sorgente. È possibile utilizzare le proprietà predefinite per semplificare il percorso, ad esempio:<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**Parametri di modello**|Immettere i parametri per le variabili definite in precedenza:<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|
-   |**Variabili**  >  di output **ID macchina virtuale Lab**|Immettere la variabile per l'ID macchina virtuale Lab creato. Se si usa il **labVMId**predefinito, è possibile fare riferimento alla variabile nelle attività successive come *$ (labVMId)*.<br /><br />È possibile creare un nome diverso da quello predefinito, ma ricordare di usare il nome corretto nelle attività successive. È possibile scrivere l'ID macchina virtuale Lab nel formato seguente:<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
+   |**Variabili**  >  di output **ID macchina virtuale Lab**|Immettere la variabile per l'ID macchina virtuale Lab creato. Se si usa il **labVMId** predefinito, è possibile fare riferimento alla variabile nelle attività successive come *$ (labVMId)*.<br /><br />È possibile creare un nome diverso da quello predefinito, ma ricordare di usare il nome corretto nelle attività successive. È possibile scrivere l'ID macchina virtuale Lab nel formato seguente:<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
 
 ### <a name="collect-the-details-of-the-devtest-labs-vm"></a>Raccogliere i dettagli della macchina virtuale DevTest Labs
 
@@ -141,13 +141,13 @@ Eseguire lo script creato in precedenza per raccogliere i dettagli della macchin
 
 1. Nella scheda **pipeline** della pipeline di rilascio selezionare il testo con collegamento ipertestuale nella **fase 1** per **visualizzare le attività della fase**, quindi selezionare il segno più **+** accanto a **processo di Agent**. 
    
-1. In **Aggiungi attività**selezionare **Azure PowerShell**e selezionare **Aggiungi**. 
+1. In **Aggiungi attività** selezionare **Azure PowerShell** e selezionare **Aggiungi**. 
    
 1. Selezionare **Azure PowerShell script: FilePath** nel riquadro sinistro. 
    
 1. Nel riquadro destro completare il modulo come segue:
    
-   |Campo|valore|
+   |Campo|Valore|
    |---|---|
    |**Tipo di connessione di Azure**|Selezionare **Azure Resource Manager**.|
    |**Sottoscrizione di Azure**|Selezionare la sottoscrizione o la connessione al servizio.| 
@@ -163,11 +163,11 @@ L'attività successiva consiste nel creare un'immagine della macchina virtuale a
 
 1. Nella scheda **pipeline** della pipeline di rilascio selezionare il testo con collegamento ipertestuale nella **fase 1** per **visualizzare le attività della fase**, quindi selezionare il segno più **+** accanto a **processo di Agent**. 
    
-1. In **Aggiungi attività**selezionare **Azure DevTest Labs Crea immagine personalizzata**e selezionare **Aggiungi**. 
+1. In **Aggiungi attività** selezionare **Azure DevTest Labs Crea immagine personalizzata** e selezionare **Aggiungi**. 
    
 1. Configurare le attività in questo modo:
    
-   |Campo|valore|
+   |Campo|Valore|
    |---|---|
    |**Sottoscrizione di Azure RM**|Selezionare la sottoscrizione o la connessione al servizio.|
    |**Nome Lab**|Consente di selezionare il nome di un lab esistente in cui verrà creata l'immagine.|
@@ -180,7 +180,7 @@ L'attività successiva consiste nel creare un'immagine della macchina virtuale a
 
 È possibile aggiungere attività per distribuire l'app nella nuova macchina virtuale DevTest Labs. Le attività che in genere si usano per distribuire l'app sono *copia file di Azure* e *PowerShell nei computer di destinazione*.
 
-Le informazioni sulla macchina virtuale necessarie per i parametri di queste attività sono archiviate in tre variabili di configurazione denominate **labVmRgName**, **labVMIpAddress**e **labVMFqdn** all'interno della pipeline di rilascio. Se si vuole solo provare a creare una macchina virtuale DevTest Labs e un'immagine personalizzata, senza distribuirvi un'app, è possibile ignorare questo passaggio.
+Le informazioni sulla macchina virtuale necessarie per i parametri di queste attività sono archiviate in tre variabili di configurazione denominate **labVmRgName**, **labVMIpAddress** e **labVMFqdn** all'interno della pipeline di rilascio. Se si vuole solo provare a creare una macchina virtuale DevTest Labs e un'immagine personalizzata, senza distribuirvi un'app, è possibile ignorare questo passaggio.
 
 ### <a name="delete-the-vm"></a>Eliminare la macchina virtuale
 
@@ -188,11 +188,11 @@ L'attività finale consiste nell'eliminare la macchina virtuale distribuita nell
 
 1. Nella scheda **pipeline** della pipeline di rilascio selezionare il testo con collegamento ipertestuale nella **fase 1** per **visualizzare le attività della fase**, quindi selezionare il segno più **+** accanto a **processo di Agent**. 
    
-1. In **Aggiungi attività**selezionare **Azure DevTest Labs Elimina macchina virtuale**e selezionare **Aggiungi**. 
+1. In **Aggiungi attività** selezionare **Azure DevTest Labs Elimina macchina virtuale** e selezionare **Aggiungi**. 
    
 1. Configurare le attività in questo modo:
    
-   - In **sottoscrizione di Azure RM**selezionare la connessione al servizio o la sottoscrizione. 
+   - In **sottoscrizione di Azure RM** selezionare la connessione al servizio o la sottoscrizione. 
    - Per **ID macchina virtuale Lab**, se è stato modificato il nome predefinito della variabile LabVMId, immetterlo qui. Il valore predefinito è **$(labVMId)**.
    
 ### <a name="save-the-release-pipeline"></a>Salvare la pipeline di versione
@@ -209,7 +209,7 @@ Per creare ed eseguire una versione usando la nuova pipeline:
 
 1. Selezionare **Crea versione** in alto a destra nella pagina della pipeline di rilascio. 
    
-1. In **elementi**selezionare la build più recente e quindi selezionare **Crea**.
+1. In **elementi** selezionare la build più recente e quindi selezionare **Crea**.
    
 1. Per ogni fase di rilascio, aggiornare la visualizzazione dell'istanza di DevTest Labs nel portale di Azure per visualizzare la creazione della macchina virtuale, la creazione di immagini e l'eliminazione della macchina virtuale.
 

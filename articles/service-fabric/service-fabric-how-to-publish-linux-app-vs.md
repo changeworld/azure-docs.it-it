@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 5/20/2019
 ms.author: pepogors
 ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75614350"
 ---
 # <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Usare Visual Studio per creare e pubblicare applicazioni .NET Core destinate a un cluster Linux Service Fabric remoto
@@ -54,7 +54,7 @@ Con gli strumenti di Visual Studio è possibile sviluppare e pubblicare Service 
     </EntryPoint>
 ```
 6. In Esplora soluzioni fare clic con il pulsante destro del mouse sull'applicazione e scegliere **pubblica**. Viene visualizzata la finestra di dialogo **Pubblica**.
-7. In **endpoint connessione**selezionare l'endpoint per il cluster remoto Service Fabric Linux di destinazione.
+7. In **endpoint connessione** selezionare l'endpoint per il cluster remoto Service Fabric Linux di destinazione.
 ![pubblica-applicazione]
 
 <!--Image references-->

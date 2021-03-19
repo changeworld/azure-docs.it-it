@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74792464"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gestire i metadati degli elementi dagli account di integrazione con App per la logica di Azure ed Enterprise Integration Pack
@@ -73,7 +73,7 @@ ms.locfileid: "74792464"
 
 1. Aggiungere l'azione desiderata per la gestione dei metadati, ad esempio:
 
-   1. Sotto l'azione **Ricerca elemento dell'account di integrazione** scegliere **Passaggio successivo**e selezionare **Aggiungi un'azione**. 
+   1. Sotto l'azione **Ricerca elemento dell'account di integrazione** scegliere **Passaggio successivo** e selezionare **Aggiungi un'azione**. 
 
    1. Nella casella di ricerca immettere "http". Nella casella di ricerca scegliere **built-** in e selezionare questa azione: **http-http**
 

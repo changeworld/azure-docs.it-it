@@ -4,10 +4,10 @@ description: Questo articolo illustra come usare il dashboard di panoramica dell
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: 74351d781287d863db8be0fc7d20517e0479106c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89002131"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
@@ -118,7 +118,7 @@ Per impostazione predefinita, tutti i dettagli, tranne **Ora ultima occorrenza**
 
 ### <a name="change-the-details-in-alerts-report"></a>Modificare i dettagli nei report degli avvisi
 
-1. Per modificare le informazioni del report, scegliere **Scegli colonne**dal menu **avvisi di backup** .
+1. Per modificare le informazioni del report, scegliere **Scegli colonne** dal menu **avvisi di backup** .
 
    ![Selezionare Scegli colonne](./media/backup-azure-manage-windows-server/alerts-menu-choose-columns.png)
 
@@ -140,7 +140,7 @@ Usare il menu **Filtra** per modificare la gravità, lo stato, l'ora di inizio e
 > Modificando il filtro di Avvisi di backup, gli avvisi critici o le avvertenze nel dashboard Panoramica dell'insieme di credenziali non cambiano.
 >  
 
-1. Per modificare il filtro avvisi di backup, scegliere **filtro**dal menu avvisi di backup.
+1. Per modificare il filtro avvisi di backup, scegliere **filtro** dal menu avvisi di backup.
 
    ![Scegliere il menu Filtra](./media/backup-azure-manage-windows-server/alerts-menu-choose-filter.png)
 
@@ -194,7 +194,7 @@ Per visualizzare ulteriori dettagli sui processi, selezionare **in corso** o **n
 
 Il menu **Processi di backup** visualizza informazioni sul tipo di elemento, sull'operazione, sullo stato, sull'ora di inizio e sulla durata.  
 
-Per aprire il menu processi di backup, scegliere **processi di backup**dal menu principale dell'insieme di credenziali.
+Per aprire il menu processi di backup, scegliere **processi di backup** dal menu principale dell'insieme di credenziali.
 
 ![Seleziona processi di backup](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -245,7 +245,7 @@ Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne e
 * Tutti gli stati
 * Completi
 * In corso
-* Operazione non riuscita
+* Non riuscito
 * Cancellati
 * Completato con avvisi
 

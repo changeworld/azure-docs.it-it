@@ -3,12 +3,12 @@ title: Usare la libreria client di Azure Batch per Node.js
 description: Informazioni sui concetti di base di Azure Batch e compilazione di una soluzione semplice con Node.js.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 36a127a20014e87554f0d3e3927b05679b6f72f1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a2d86582c94804a20a3a9e952bc64d60414e25a5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737287"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656023"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introduzione all'SDK di Batch per Node.js
 
@@ -32,9 +32,9 @@ Il diagramma seguente illustra come è possibile ridimensionare lo script Python
 
 Il client Node.js distribuisce un processo batch con un'attività di preparazione (illustrata in dettaglio più avanti) e un set di attività in base al numero di contenitori nell'account di archiviazione. È possibile scaricare gli script dal repository GitHub.
 
-- [Client Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
-- [Script della shell per l'attività di preparazione](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-- [Processore Python per la conversione da CSV a JSON](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+- [Client Node.js](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/sample.js)
+- [Script della shell per l'attività di preparazione](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/startup_prereq.sh)
+- [Processore Python per la conversione da CSV a JSON](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/processcsv.py)
 
 > [!TIP]
 > Il client Node.js del collegamento riportato non contiene codice specifico da distribuire come app per le funzioni di Azure. Per istruzioni per crearne una, vedere i collegamenti seguenti.

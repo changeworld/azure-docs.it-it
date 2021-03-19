@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
-ms.openlocfilehash: 4590129b8d0d7a63ef4291a023ea4d980c89368c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: b86559422b6efeed666a3ae35022563a66d9c7e6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386646"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597318"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiare dati da SAP Cloud for Customer (C4C) usando Azure Data Factory
 
@@ -162,6 +162,7 @@ Per copiare dati in SAP Cloud for Customer, impostare il tipo di sink nell'attiv
 | type | La proprietà type deve essere impostata su: **SapCloudForCustomerSink**  | Sì |
 | writeBehavior | Comportamento dell'azione di scrittura dell'operazione. Può essere "Insert", "Update". | No. Il valore predefinito è "Insert". |
 | writeBatchSize | Dimensioni batch dell'operazione di scrittura. Le dimensioni batch per ottenere prestazioni ottimali possono essere diverse per tabelle o server differenti. | No. Il valore predefinito è 10. |
+| maxConcurrentConnections |Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee.| No |
 
 **Esempio:**
 

@@ -4,10 +4,10 @@ description: Migliorare le prestazioni tramite la prelettura del bus di servizio
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 05e23b0590f0c04171efda8fb561b4c2664ed096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85341055"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prelettura dei messaggi del bus di servizio di Azure
@@ -22,7 +22,7 @@ Con .NET è possibile abilitare la funzionalità Prelettura impostando la propri
 
 È possibile aggiungere con facilità questa impostazione sul lato di ricezione delle impostazioni degli esempi [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) o [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) per verificare l'effetto in questi contesti.
 
-Mentre i messaggi sono disponibili nel buffer di prelettura, le **Receive**successive / chiamate**ReceiveAsync** di ricezione vengono soddisfatte immediatamente dal buffer e il buffer viene riempito in background quando lo spazio diventa disponibile. Se non sono presenti messaggi disponibili per il recapito, l'operazione di ricezione svuota il buffer e quindi attende o si blocca, in base a quanto previsto.
+Mentre i messaggi sono disponibili nel buffer di prelettura, le successive / chiamate **ReceiveAsync** di ricezione vengono soddisfatte immediatamente dal buffer e il buffer viene riempito in background quando lo spazio diventa disponibile. Se non sono presenti messaggi disponibili per il recapito, l'operazione di ricezione svuota il buffer e quindi attende o si blocca, in base a quanto previsto.
 
 La prelettura funziona allo stesso modo anche con le API [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e [OnMessageAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync).
 

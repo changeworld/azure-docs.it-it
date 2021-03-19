@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5174cb584f2e8df236725f7427b423fda1a02c88
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630861"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596723"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Segnala tracce audio descrittive
 
@@ -80,7 +80,7 @@ Il completamento del processo richiede tempo e al termine dell'elaborazione può
 
 Il processo in genere passa attraverso gli Stati seguenti: **pianificato**, in **coda**, **elaborazione**, **completato** (stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Error**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Canceling** e, al termine, lo stato **Canceled**.
 
-Per ulteriori informazioni, vedere [gestione degli eventi di griglia di eventi](reacting-to-media-services-events.md).
+Per ulteriori informazioni, vedere [gestione degli eventi di griglia di eventi](monitoring/reacting-to-media-services-events.md).
 
 ## <a name="upload-the-audio-only-mp4-file"></a>Caricare il file MP4 solo audio
 

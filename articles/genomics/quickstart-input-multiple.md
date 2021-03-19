@@ -10,10 +10,10 @@ ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.openlocfilehash: b426015906a8e17674123c0c3ad2fccb9c43798f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "72248576"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Inviare un flusso di lavoro usando più input dallo stesso esempio
@@ -28,7 +28,7 @@ In questo articolo si presuppone che sia già stato installato ed eseguito il cl
 ## <a name="multiple-bam-files"></a>Più file BAM
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>Caricare i file di input in Archiviazione di Azure
-Si supponga che siano disponibili più file BAM come input, *reads.bam*, *additional_reads.bam* e *yet_more_reads.bam*, e che i file siano stati caricati nell'account di archiviazione *myaccount* in Azure. È necessario che siano disponibili l'URL dell'API e la chiave di accesso. Gli output devono essere disponibili in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
+Si supponga che siano disponibili più file BAM come input, *reads.bam*, *additional_reads.bam* e *yet_more_reads.bam*, e che i file siano stati caricati nell'account di archiviazione *myaccount* in Azure. È necessario che siano disponibili l'URL dell'API e la chiave di accesso. Gli output devono essere disponibili in **https://<span></span>myaccount.blob.core <span></span>.windows <span></span>.net <span></span>/outputs <span></span>**.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Inviare il processo al client `msgen` 
@@ -91,7 +91,7 @@ Inviare il file `config.txt` con questa chiamata: `msgen submit -f config.txt`
 ## <a name="multiple-paired-fastq-files"></a>Più file FASTQ abbinati
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>Caricare i file di input in Archiviazione di Azure
-Si supponga che siano disponibili più file FASTQ abbinati come input, *reads_1.fq.gz* e *reads_2.fq.gz*, *additional_reads_1.fq.gz* e *additional_reads_2.fq.gz* e *yet_more_reads_1.fq.gz* e *yet_more_reads_2.fq.gz*. I file sono stati caricati in un account di archiviazione *myaccount* in Azure e sono disponibili l'URL dell'API e la chiave di accesso. Gli output devono essere disponibili in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
+Si supponga che siano disponibili più file FASTQ abbinati come input, *reads_1.fq.gz* e *reads_2.fq.gz*, *additional_reads_1.fq.gz* e *additional_reads_2.fq.gz* e *yet_more_reads_1.fq.gz* e *yet_more_reads_2.fq.gz*. I file sono stati caricati in un account di archiviazione *myaccount* in Azure e sono disponibili l'URL dell'API e la chiave di accesso. Gli output devono essere disponibili in **https://<span></span>myaccount.blob.core <span></span>.windows <span></span>.net <span></span>/outputs <span></span>**.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Inviare il processo al client `msgen` 

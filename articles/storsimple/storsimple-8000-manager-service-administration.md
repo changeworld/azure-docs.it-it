@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 69a36f38cc76693f596b45d4df6e232bc01584d5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0e25d41fbf6a9683f178cbfd1b07fde1b6796509
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967976"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656822"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Usare il servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple
 
@@ -47,6 +47,8 @@ Il servizio Gestione dispositivi StorSimple viene eseguito in Microsoft Azure e 
 La tabella seguente illustra un riepilogo di tutte le attività di gestione comuni e dei flussi di lavoro complessi che possono essere eseguiti nell'interfaccia utente del servizio Gestione dispositivi StorSimple. Queste attività sono organizzate in base ai pannelli dell'interfaccia utente in cui vengono avviate.
 
 Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appropriata nella tabella.
+
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
 
 #### <a name="storsimple-device-manager-workflows"></a>Flussi di lavoro di Gestione dispositivi StorSimple
 

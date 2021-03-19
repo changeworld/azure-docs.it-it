@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d0d8dfe43d8d51107b226277918bb4ab9925a1da
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 5ef75719686f9299fee56cad247ca49167171813
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211822"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577173"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Libreria BulkExecutor per Java: informazioni sul download
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "102211822"
 > * [Esecuzione bulk - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| | Collegamenti/Note |
 |---|---|
 |**Descrizione**|La libreria dell'executor bulk consente alle applicazioni client di eseguire operazioni in blocco negli account di Azure Cosmos DB. La libreria dell'executor bulk fornisce gli spazi dei nomi per BulkImport e BulkUpdate. Il modulo BulkImport può inserire in blocco i documenti in maniera ottimizzata, in modo che la velocità effettiva di cui è stato eseguito il provisioning per una raccolta venga utilizzata nella misura massima consentita. Il modulo BulkUpdate può aggiornare in blocco i dati esistenti nei contenitori di Azure Cosmos come patch.|
 |**Download dell'SDK**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|

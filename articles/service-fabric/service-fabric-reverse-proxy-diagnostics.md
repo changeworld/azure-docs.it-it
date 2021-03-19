@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75645464"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorare e diagnosticare l'elaborazione della richiesta nel proxy inverso
@@ -77,7 +77,7 @@ Di seguito sono riportati alcuni esempi su come interpretare i log di potenziali
     
     Di seguito è riportato un evento di esempio in cui il proxy inverso restituisce il codice 404 poiché non è riuscito a trovare l'endpoint di servizio corrispondente.
     Le voci del payload di interesse sono:
-   * **processRequestPhase**: indica la fase di elaborazione della richiesta in cui si è verificato l'errore ***TryGetEndpoint***, ad esempio durante il tentativo di recupero dell'endpoint di servizio a cui eseguire l'inoltro. 
+   * **processRequestPhase**: indica la fase durante l'elaborazione della richiesta quando si è verificato l'errore, **_TryGetEndpoint_** , ad esempio durante il tentativo di recupero dell'endpoint di servizio a cui eseguire l'inoltro. 
    * **errorDetails**: elenca i criteri di ricerca dell'endpoint. Esaminare qui che il listenerName specificato = **FrontEndListener**, mentre l'elenco di endpoint di replica contiene solo un listener con il nome **OldListener**.
     
      ```

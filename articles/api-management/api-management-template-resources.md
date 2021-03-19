@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84689988"
 ---
 # <a name="azure-api-management-template-resources"></a>Risorse del modello Gestione API di Azure
@@ -146,7 +146,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 |Nome|Testo|  
 |----------|----------|  
-|WebApplicationsHeader|APPLICAZIONI|  
+|WebApplicationsHeader|Applicazioni|  
   
 ###  <a name="commonresources"></a><a name="CommonResources"></a> CommonResources  
   
@@ -168,7 +168,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |GeneralExceptionMessage|Something is not right. (Si è verificato un problema.) It could be a temporary glitch or a bug. (Potrebbe trattarsi di un problema temporaneo o di un bug.) Please, try again. (Riprovare.)|  
 |NoItemsToDisplay|There are no items to display. (Nessun elemento da visualizzare.)|  
 |PagerButtonLabelFirst|First (Primo)|  
-|PagerButtonLabelLast|Ultimi|  
+|PagerButtonLabelLast|Last (Ultimo)|  
 |PagerButtonLabelNext|Prossima|  
 |PagerButtonLabelPrevious|Prev (Precedente)|  
 |PagerLabelPageNOfM|Pagina {0} di {1}|  
@@ -322,12 +322,12 @@ Sono supportate le opzioni di localizzazione seguenti:
 |TooltipTextDoubleClickToSelectAll|Double click to select all. (Fare doppio clic per selezionare tutto.)|  
 |TooltipTextHideRevealSecret|Mostra/Nascondi|  
 |ButtonLinkOpenConsole|Prova|  
-|SectionHeadingRequestBody|Corpo della richiesta|  
+|SectionHeadingRequestBody|Testo della richiesta|  
 |SectionHeadingRequestParameters|Parametri della richiesta|  
 |SectionHeadingRequestUrl|URL richiesta|  
 |SectionHeadingResponse|Risposta|  
 |SectionHeadingRequestHeaders|Intestazioni della richiesta|  
-|FormLabelSubtextOptional|facoltativo|  
+|FormLabelSubtextOptional|facoltative|  
 |SectionHeadingCodeSamples|Esempi di codice|  
 |TextblockOpenidConnectHeaderDescription|Token ID OpenID Connect ottenuto da <i \> {0}</i \> . Tipi di concessione supportati: <i\>{1}</i\>.|  
   
@@ -381,7 +381,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |----------|----------|  
 |WebProductsAgreement|Con la sottoscrizione al Prodotto {0}, accetto il `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Condizioni per l'utilizzo|  
-|WebProductsSubscribeButton|Sottoscrivere|  
+|WebProductsSubscribeButton|Sottoscrivi|  
 |WebProductsUsageLimitsHeader|Limiti di utilizzo|  
 |WebProductsYouAreNotSubscribed|You are subscribed to this product. (È presente una sottoscrizione al prodotto.)|  
 |WebProductsYouRequestedSubscription|You requested subscription to this product. (È stata richiesta una sottoscrizione al prodotto.)|  

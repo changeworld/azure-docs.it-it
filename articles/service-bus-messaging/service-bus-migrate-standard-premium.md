@@ -4,10 +4,10 @@ description: Guida per consentire la migrazione degli spazi dei nomi standard de
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85340744"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Eseguire la migrazione degli spazi dei nomi standard del bus di servizio di Azure esistenti al livello Premium
@@ -22,10 +22,10 @@ Questo articolo descrive come eseguire la migrazione di spazi dei nomi di livell
 Alcuni punti da considerare:
 
 - Questa migrazione è concepita per essere eseguita, pertanto le applicazioni mittente e ricevitore esistenti **non richiedono alcuna modifica al codice o alla configurazione**. La stringa di connessione esistente punterà automaticamente al nuovo spazio dei nomi Premium.
-- Lo **premium** spazio dei nomi Premium **non** deve contenere entità perché la migrazione abbia esito positivo.
+- Lo  spazio dei nomi Premium **non** deve contenere entità perché la migrazione abbia esito positivo.
 - Tutte le **entità** nello spazio dei nomi standard vengono **copiate** nello spazio dei nomi Premium durante il processo di migrazione.
 - La migrazione supporta **1.000 entità per ogni unità di messaggistica** nel livello Premium. Per identificare il numero di unità di messaggistica necessarie, iniziare con il numero di entità disponibili nello spazio dei nomi standard corrente.
-- Non è possibile eseguire la migrazione diretta dal livello **Basic** al **livello Premium** , ma è possibile eseguire questa operazione indirettamente eseguendo la migrazione da Basic a standard e quindi da standard a Premium nel passaggio successivo.
+- Non è possibile eseguire la migrazione diretta dal livello **Basic** al **livello Premium**, ma è possibile eseguire questa operazione indirettamente eseguendo la migrazione da Basic a standard e quindi da standard a Premium nel passaggio successivo.
 
 ## <a name="migration-steps"></a>Passaggi della migrazione
 
