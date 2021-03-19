@@ -1,23 +1,20 @@
 ---
-title: Eseguire analisi di flusso di Azure in Azure Stack (anteprima)
+title: Eseguire analisi di flusso di Azure in Azure Stack
 description: Creare un processo Edge di analisi di flusso di Azure e distribuirlo nell'hub Azure Stack tramite il runtime di IoT Edge.
 ms.service: stream-analytics
 author: an-emma
 ms.author: raan
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3463b3eae96c0a65206023ed0f21efe44294d4eb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 315b2efa042721a19fa779794c4921f9ced1fc83
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020129"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589804"
 ---
-# <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Eseguire analisi di flusso di Azure in Azure Stack (anteprima)
-
-> [!IMPORTANT]
-> Questa funzionalità è disponibile in anteprima e non è consigliabile usarla nell'ambiente di produzione.
+# <a name="run-azure-stream-analytics-on-azure-stack"></a>Eseguire analisi di flusso di Azure in Azure Stack 
 
 È possibile eseguire analisi di flusso di Azure nell'hub Azure Stack come modulo di IoT Edge. Le configurazioni sono state aggiunte al modulo IoT Edge che consente di interagire con l'archiviazione BLOB, gli hub eventi e gli hub Internet in esecuzione in una sottoscrizione Hub Azure Stack consentendo l'utilizzo di URL personalizzati in ogni Azure Stack dell'hub.
 
@@ -46,7 +43,7 @@ Oltre ad avere accesso di rete alle risorse dell'hub Azure Stack, il dispositivo
 Le guide seguenti illustrano come configurare il runtime di IoT Edge nel dispositivo o nella VM:
 
 * [Installare il runtime Azure IoT Edge in Windows](../iot-edge/how-to-install-iot-edge.md)
-* [Installare il runtime di Azure IoT Edge nei sistemi Linux basati su Debian](../iot-edge/how-to-install-iot-edge.md)
+* [Installare il runtime Azure IoT Edge in sistemi Linux basati su Debian](../iot-edge/how-to-install-iot-edge.md)
 
 
 ## <a name="create-an-azure-stream-analytics-edge-job"></a>Creare un processo Edge di analisi di flusso di Azure

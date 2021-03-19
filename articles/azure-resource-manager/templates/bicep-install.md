@@ -2,13 +2,13 @@
 title: Configurare gli ambienti di sviluppo e distribuzione di bicipiti
 description: Come configurare gli ambienti di sviluppo e distribuzione bicipite
 ms.topic: conceptual
-ms.date: 03/09/2021
-ms.openlocfilehash: 0434c08a4427d2549a9adf4e4ab1e7e73a465ad8
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.date: 03/17/2021
+ms.openlocfilehash: d665a863affdec2009fc208f76b85a7f25de451d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102620053"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594394"
 ---
 # <a name="setup-bicep-development-and-deployment-environment"></a>Configurare l'ambiente di sviluppo e distribuzione bicipite
 
@@ -18,7 +18,7 @@ Informazioni su come configurare gli ambienti di sviluppo e distribuzione di bic
 
 Per ottenere la migliore esperienza di creazione del bicipite, sono necessari due componenti:
 
-- **Estensione bicipite per Visual Studio Code**. Per creare i file bicipite, è necessario un editor bicipite valido. Si consiglia di [Visual Studio Code](https://code.visualstudio.com/) con l' [estensione bicipite](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). Questi strumenti forniscono supporto per la lingua e il completamento automatico delle risorse. Consentono di creare e convalidare i file bicipite. Per altre informazioni, vedere [Guida introduttiva: creare file bicipite con Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+- **Estensione bicipite per Visual Studio Code**. Per creare i file bicipite, è necessario un editor bicipite valido. Si consiglia di [Visual Studio Code](https://code.visualstudio.com/) con l' [estensione bicipite](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). Questi strumenti forniscono supporto per la lingua e il completamento automatico delle risorse. Consentono di creare e convalidare i file bicipite. Per altre informazioni sull'uso di Visual Studio Code e dell'estensione bicipite, vedere [Guida introduttiva: creare file bicipit con Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - INTERFACCIA della riga di comando **bicipite**. Usare l'interfaccia della riga di comando bicipite per compilare i file bicipite nei modelli JSON ARM e decompilare i modelli JSON ARM nei file bicipite. Per altre informazioni, vedere Installare l'interfaccia della riga di comando di [bicipite](#install-bicep-cli).
 
 ## <a name="deployment-environment"></a>Ambiente di distribuzione

@@ -7,13 +7,13 @@ ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73468548"
 ---
-# <a name="azure-data-share-concepts"></a>Concetti relativi alla condivisione di dati di Azure 
+# <a name="azure-data-share-concepts"></a>Concetti relativi a Condivisione dati di Azure 
 
 La condivisione di dati di Azure introduce una nuova terminologia relativa alla condivisione dei dati. Questo articolo illustra alcuni termini usati di frequente che potrebbero essere usati in tutto il servizio. 
 
@@ -27,7 +27,7 @@ Un consumer di dati è l'organizzazione che riceve dati da un provider di dati. 
 
 ## <a name="data-share"></a>Condivisione dati
 
-Una condivisione dati è un gruppo di set di dati condivisi come una singola entità. I set di dati possono provenire da diverse origini dati di Azure supportate dalla condivisione dati di Azure. Attualmente, la condivisione di dati di Azure supporta l'archiviazione BLOB di Azure e Azure Data Lake Store. 
+Una condivisione dati è un gruppo di set di dati condivisi come singola entità. I set di dati possono provenire da diverse origini dati di Azure supportate da Condivisione dati di Azure. Condivisione dati di Azure supporta attualmente Archiviazione BLOB di Azure e Azure Data Lake Store. 
 
 ## <a name="share-subscription"></a>Condividi sottoscrizione 
 

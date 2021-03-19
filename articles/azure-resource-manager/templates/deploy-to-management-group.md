@@ -2,13 +2,13 @@
 title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.openlocfilehash: b14dc3622a6ad6519968bd2998aa354a850f2515
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.date: 03/18/2021
+ms.openlocfilehash: 79020e8e24cb43697a44ac9accd4e777bffe959e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601594"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594207"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Distribuzioni del gruppo di gestione con i modelli ARM
 
@@ -219,6 +219,14 @@ Nell'esempio seguente viene creato un nuovo gruppo di gestione nel gruppo di ges
     }
 }
 ```
+
+## <a name="subscriptions"></a>Sottoscrizioni
+
+Per usare un modello ARM per creare una nuova sottoscrizione di Azure in un gruppo di gestione, vedere:
+
+* [Creare sottoscrizioni di Azure Contratto Enterprise a livello di codice](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)
+* [Creare sottoscrizioni di Azure a livello di codice per un contratto cliente Microsoft](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
+* [Creare sottoscrizioni di Azure a livello di codice per un contratto partner Microsoft](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
 
 Per distribuire un modello che sposta una sottoscrizione di Azure esistente in un nuovo gruppo di gestione, vedere [spostare le sottoscrizioni nel modello ARM](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
 

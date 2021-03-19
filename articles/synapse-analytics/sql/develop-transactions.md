@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ceb242dcd05105b533e365e91afd9601cc550392
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8af6802f785718ca6064a34c98d9f6dafc046a2c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116729"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594768"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Usare le transazioni con un pool SQL dedicato in Azure sinapsi Analytics
 
 Suggerimenti per l'implementazione di transazioni con pool SQL dedicato in Azure sinapsi Analytics per lo sviluppo di soluzioni.
 
-## <a name="what-to-expect"></a>Cosa aspettarsi
+## <a name="what-to-expect"></a>Risultati previsti
 
 Come ci si aspetterebbe, il pool SQL dedicato supporta le transazioni come parte del carico di lavoro data warehouse. Tuttavia, per garantire che le prestazioni del pool SQL dedicato siano gestite su larga scala, alcune funzionalità sono limitate rispetto a SQL Server. Questo articolo evidenzia le differenze ed elenca le altre.
 
@@ -204,4 +204,4 @@ Il pool SQL dedicato presenta alcune altre restrizioni correlate alle transazion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Procedure consigliate per le transazioni](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Sono inoltre disponibili guide alle procedure consigliate aggiuntive per pool SQL [dedicato](best-practices-sql-pool.md) e [pool SQL senza server](best-practices-sql-on-demand.md).
+Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Procedure consigliate per le transazioni](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Sono inoltre disponibili guide alle procedure consigliate aggiuntive per pool SQL [dedicato](best-practices-dedicated-sql-pool.md) e [pool SQL senza server](best-practices-serverless-sql-pool.md).

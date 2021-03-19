@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per il database SQL di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per il database SQL di Azure e Istanza gestita di SQL. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8bbb9fc7a023059d4c0d0557bcb45cbcd173a267
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 111b8ea97486d94a97ce6603f0fccfbbbf9e13c2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102617974"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594130"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Definizioni predefinite di Criteri di Azure per Database SQL di Azure e Istanza gestita di SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]

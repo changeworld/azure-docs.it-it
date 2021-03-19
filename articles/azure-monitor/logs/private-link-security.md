@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 65af5810152034fd7b6014041edd07835eebd194
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 76c6d7caf3c63779e12443304688192f7311720a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101478"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594564"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 
@@ -51,14 +51,16 @@ Alcuni servizi di monitoraggio di Azure usano gli endpoint globali, ovvero servo
 Quando si configura una connessione a un collegamento privato, il DNS viene aggiornato per eseguire il mapping degli endpoint di monitoraggio di Azure a indirizzi IP privati dall'intervallo IP di VNet. Questa modifica sostituisce qualsiasi mapping precedente di questi endpoint, che può avere implicazioni significative, esaminato di seguito. 
 
 ### <a name="azure-monitor-private-link-applies-to-all-azure-monitor-resources---its-all-or-nothing"></a>Il collegamento privato di monitoraggio di Azure si applica a tutte le risorse di monitoraggio di Azure. tutto o niente
-Poiché alcuni endpoint di monitoraggio di Azure sono globali, non è possibile creare una connessione di collegamento privato per un componente o un'area di lavoro specifica. Al contrario, quando si configura un collegamento privato a un singolo componente Application Insights, i record DNS vengono aggiornati per **tutti i** componenti Application Insights. Qualsiasi tentativo di inserire o eseguire query su un componente passerà attraverso il collegamento privato e potrebbe non riuscire. Analogamente, se si configura un collegamento privato a una singola area di lavoro, tutte le query Log Analytics passano attraverso l'endpoint della query di collegamento privato (ma non le richieste di inserimento, che hanno endpoint specifici dell'area di lavoro).
+Poiché alcuni endpoint di monitoraggio di Azure sono globali, non è possibile creare una connessione di collegamento privato per un componente o un'area di lavoro specifica. Al contrario, quando si configura un collegamento privato a un singolo componente Application Insights o Log Analytics area di lavoro, i record DNS vengono aggiornati per **tutti i** componenti di Application Insights. Qualsiasi tentativo di inserire o eseguire query su un componente passerà attraverso il collegamento privato e potrebbe non riuscire. Per quanto riguarda Log Analytics, gli endpoint di inserimento e configurazione sono specifici dell'area di lavoro, ovvero l'installazione del collegamento privato verrà applicata solo per le aree di lavoro specificate. L'inserimento e la configurazione di altre aree di lavoro verranno indirizzate agli endpoint Log Analytics pubblici predefiniti.
 
 ![Diagramma degli override DNS in un singolo VNet](./media/private-link-security/dns-overrides-single-vnet.png)
 
 Questo vale non solo per un VNet specifico, ma per tutti reti virtuali che condividono lo stesso server DNS (vedere [il problema degli override DNS](#the-issue-of-dns-overrides)). Quindi, ad esempio, la richiesta di inserimento dei log in qualsiasi Application Insights componente verrà sempre inviata tramite la route di collegamento privata. I componenti che non sono collegati a AMPLS non riusciranno a eseguire la convalida del collegamento privato e non passano attraverso.
 
 > [!NOTE]
-> Conclusione: dopo aver configurato una connessione a un collegamento privato a una singola risorsa, questa si applica a tutte le risorse di monitoraggio di Azure nella rete, ovvero tutto o niente. Ciò significa che è necessario aggiungere tutte le risorse di monitoraggio di Azure nella rete alla AMPLS o nessuna di esse.
+> Conclusione: dopo aver configurato una connessione a un collegamento privato a una singola risorsa, questa si applica alle risorse di monitoraggio di Azure in rete. Per Application Insights risorse, si tratta di "tutto o niente". Ciò significa che è necessario aggiungere tutte le risorse di Application Insights nella rete a AMPLS o nessuna di esse.
+> 
+> Per gestire i rischi exfiltration, è consigliabile aggiungere tutte le risorse Application Insights e Log Analytics alla AMPLS e bloccare il più possibile il traffico in uscita per le reti.
 
 ### <a name="azure-monitor-private-link-applies-to-your-entire-network"></a>Il collegamento privato di monitoraggio di Azure si applica all'intera rete
 Alcune reti sono costituite da più reti virtuali. Se il reti virtuali usa lo stesso server DNS, eseguirà l'override dei mapping DNS degli altri ed eventualmente interromperà le comunicazioni con monitoraggio di Azure (vedere [il problema degli override DNS](#the-issue-of-dns-overrides)). Infine, solo l'ultimo VNet sarà in grado di comunicare con monitoraggio di Azure, poiché il DNS eseguirà il mapping degli endpoint di monitoraggio di Azure a indirizzi IP privati da questo intervallo di reti virtuali (che potrebbero non essere raggiungibili da altri reti virtuali).

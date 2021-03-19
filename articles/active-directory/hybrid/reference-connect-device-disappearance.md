@@ -11,10 +11,10 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73176034"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Informazioni Azure AD Connect 1.4. XX. x e la scomparsa del dispositivo
@@ -22,7 +22,7 @@ Con la versione 1.4. XX. x di Azure AD Connect, alcuni clienti potrebbero visual
 
 Se viene visualizzata l'eliminazione degli oggetti dispositivo in Azure AD superando la soglia di eliminazione dell'esportazione, è consigliabile che il cliente consenta il passaggio delle eliminazioni. [Procedura: consentire la propagazione delle eliminazioni quando superano la soglia di eliminazione](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
-## <a name="background"></a>Background
+## <a name="background"></a>Sfondo
 I dispositivi Windows registrati come Azure AD ibrido Uniti sono rappresentati in Azure AD come oggetti dispositivo. Questi oggetti dispositivo possono essere utilizzati per l'accesso condizionale. I dispositivi Windows 10 vengono sincronizzati con il cloud tramite Azure AD Connect, i dispositivi Windows di livello inferiore vengono registrati direttamente usando AD FS o Single Sign-On Seamless.
 
 ## <a name="windows-10-devices"></a>Dispositivi Windows 10

@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f5e361d32cf2ab436f92ce2ca86a054a6dd3337e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: dec9c7581bbcf55196b04e0a76e9e61f81a27244
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553749"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582069"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Distribuire una macchina virtuale con avvio attendibile abilitato (anteprima)
 
@@ -134,13 +134,13 @@ Selezionare il pulsante seguente per distribuire i criteri alla sottoscrizione:
 
 Il modello deve essere distribuito una sola volta per ogni sottoscrizione. Installa automaticamente le `GuestAttestation` `AzureSecurity` estensioni e in tutte le macchine virtuali supportate. Se si verificano errori, provare a ridistribuire il modello.
 
-Per ottenere vTPM e consigli di avvio protetti per le macchine virtuali con avvio attendibile, vedere [aggiungere un'iniziativa personalizzata alla sottoscrizione](https://docs.microsoft.com/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription).
+Per ottenere vTPM e consigli di avvio protetti per le macchine virtuali con avvio attendibile, vedere [aggiungere un'iniziativa personalizzata alla sottoscrizione](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription).
  
 ## <a name="sign-things-for-secure-boot-on-linux"></a>Firmare gli elementi per l'avvio protetto in Linux
 
 In alcuni casi, potrebbe essere necessario firmare gli elementi per l'avvio protetto UEFI.  Ad esempio, potrebbe essere necessario esaminare [come firmare gli elementi per l'avvio protetto](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) per Ubuntu. In questi casi, è necessario immettere le chiavi di registrazione dell'utilità per la macchina virtuale. Per eseguire questa operazione, è necessario usare la console seriale di Azure per accedere all'utilità di.
 
-1. Abilitare la console seriale di Azure per Linux. Per altre informazioni, vedere [console seriale per Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
+1. Abilitare la console seriale di Azure per Linux. Per altre informazioni, vedere [console seriale per Linux](/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 1. Cercare le **macchine virtuali** e selezionare la VM dall'elenco.
 1. Nel menu a sinistra, in **supporto e risoluzione dei problemi**, selezionare **console seriale**. Viene visualizzata una pagina a destra, con la console seriale.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 05/07/2020
+ms.date: 03/17/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0f88b310bc00881e66ee8e8b5f2d40616d60315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 01deae46c442fc95c6aead0f11de929f47163c3c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906913"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586558"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD
 
@@ -37,17 +37,17 @@ Scaricare e compilare il modello CSV di caricamento in blocco per invitare corre
 
 ### <a name="csv-template-structure"></a>Struttura del modello CSV
 
-Un modello CSV scaricato contiene le righe descritte di seguito.
+Un modello CSV scaricato contiene le righe descritte di seguito:
 
 - **Numero di versione**: nel file CSV di caricamento deve essere inclusa la prima riga contenente il numero di versione.
 - **Intestazioni di colonna**: il formato delle intestazioni di colonna è &lt;*Nome elemento*&gt; [NomeProprietà] &lt;*Required o vuoto*&gt;. Ad esempio: `Email address to invite [inviteeEmail] Required`. Alcune versioni precedenti del modello potrebbero presentare lievi variazioni.
-- **Riga di esempi**: nel modello è stata inclusa una riga di esempi di valori accettabili per ogni colonna. È necessario rimuovere la riga degli esempi e sostituirla con le proprie voci.
+- **Esempi di riga**: è stato incluso nel modello una riga di esempi di valori per ogni colonna. È necessario rimuovere la riga degli esempi e sostituirla con le proprie voci.
 
 ### <a name="additional-guidance"></a>Indicazioni aggiuntive
 
-- Le prime due righe del modello di caricamento non devono essere rimosse o modificate. In caso contrario, il caricamento non potrà essere elaborato.
+- Le prime due righe del modello di caricamento non devono essere rimosse o modificate. In caso contrario, il caricamento non può essere elaborato.
 - Le colonne obbligatorie sono riportate per prime.
-- Non è consigliabile aggiungere nuove colonne al modello. Le colonne aggiunte saranno ignorate e non verranno elaborate.
+- Non è consigliabile aggiungere nuove colonne al modello. Eventuali colonne aggiuntive aggiunte saranno ignorate e non verranno elaborate.
 - È consigliabile scaricare l'ultima versione del modello CSV il più spesso possibile.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -56,18 +56,22 @@ Sono necessari almeno due account di posta elettronica di test a cui inviare gli
 
 ## <a name="invite-guest-users-in-bulk"></a>Invitare utenti guest in blocco
 
-1. Accedere al portale di Azure con un account di amministratore utenti nell'organizzazione.
+1. Accedere al portale di Azure con un account che sia un amministratore globale dell'organizzazione.
 2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
-3. In **Gestisci** selezionare **Utenti** > **Invita in blocco**.
+3. In **Gestisci** selezionare **tutti gli utenti**.
+4. Selezionare **operazioni bulk**  >  **invita**.
+
+    ![Pulsante di invito bulk](media/tutorial-bulk-invite/bulk-invite-button.png)
+
 4. Nella pagina **Invita utenti in blocco** selezionare **Scarica** per scaricare un modello con estensione csv valido con le proprietà di invito.
 
-    ![Pulsante di download in Invita in blocco](media/tutorial-bulk-invite/bulk-invite-button.png)
+     ![Scaricare il file CSV](media/tutorial-bulk-invite/download-button.png)
 
-5. Aprire il modello con estensione csv e aggiungere una riga per ogni utente guest. I valori obbligatori sono:
+1. Aprire il modello con estensione csv e aggiungere una riga per ogni utente guest. I valori obbligatori sono:
 
    * **Indirizzo di posta elettronica da invitare**: utente che riceverà un invito
 
-   * **URL di reindirizzamento**: URL al quale viene reindirizzato l'utente invitato dopo aver accettato l'invito
+   * **URL di reindirizzamento** : URL a cui l'utente invitato viene inviato dopo l'accettazione dell'invito. Se si desidera inviare l'utente alla pagina App personali, è necessario modificare questo valore in https://myapps.microsoft.com o https://myapplications.microsoft.com .
 
     ![Esempio di un file CSV con utenti guest immessi](media/tutorial-bulk-invite/bulk-invite-csv.png)
 

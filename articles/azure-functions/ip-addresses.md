@@ -3,21 +3,21 @@ title: Indirizzi IP in Funzioni di Azure
 description: Informazioni su come trovare gli indirizzi IP in ingresso e in uscita per le app per le funzioni e sugli elementi che ne causano la modifica.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: fcc92e61e180d25bc67d5ca3f9e2bff4af01fd3f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2c248756899459e17082bcab863a4e857b594909
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726732"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608232"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Indirizzi IP in Funzioni di Azure
 
-Questo articolo descrive gli argomenti seguenti correlati agli indirizzi IP delle app per le funzioni:
+Questo articolo illustra i concetti seguenti relativi agli indirizzi IP delle app per le funzioni:
 
-* Come trovare gli indirizzi IP attualmente in uso da parte di un'app per le funzioni.
-* Quali elementi causano la modifica degli indirizzi IP di un'app per le funzioni.
-* Come limitare gli indirizzi IP che possono accedere a un'app per le funzioni.
-* Come ottenere indirizzi IP dedicati per un'app per le funzioni.
+* Individuazione degli indirizzi IP attualmente in uso da parte di un'app per le funzioni.
+* Condizioni che provocano la modifica degli indirizzi IP delle app per le funzioni.
+* Limitazione degli indirizzi IP che possono accedere a un'app per le funzioni.
+* Definizione di indirizzi IP dedicati per un'app per le funzioni.
 
 Gli indirizzi IP sono associati alle app per le funzioni, non alle singole funzioni. Le richieste HTTP in ingresso non possono usare l'indirizzo IP in ingresso per chiamare le singole funzioni: devono usare il nome di dominio predefinito (functionappname.azurewebsites.net) o un nome di dominio personalizzato.
 
@@ -54,9 +54,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="data-center-outbound-ip-addresses"></a>Indirizzi IP in uscita del data center
 
-Se è necessario aggiungere gli indirizzi IP in uscita usati dalle app per le funzioni a un elenco consentiti, un'altra opzione consiste nell'aggiungere il data center delle app per le funzioni (area di Azure) a un elenco consentiti. È possibile [scaricare un file JSON che elenca gli indirizzi IP per tutti i data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Trovare quindi l'elemento JSON applicabile per l'area in cui viene eseguita l'app per le funzioni.
+Se è necessario aggiungere gli indirizzi IP in uscita usati dalle app per le funzioni a un oggetto Allow, un'altra opzione consiste nell'aggiungere il data center delle app per le funzioni (area di Azure) a un oggetto allow. È possibile [scaricare un file JSON che elenca gli indirizzi IP per tutti i data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Trovare quindi l'elemento JSON applicabile per l'area in cui viene eseguita l'app per le funzioni.
 
-Ad esempio, l'elemento JSON per l'Europa occidentale è simile al seguente:
+Ad esempio, il frammento JSON seguente è quello che l'oggetto allow per Europa occidentale potrebbe avere:
 
 ```
 {
@@ -99,10 +99,12 @@ Il set di indirizzi IP in uscita disponibili per un'app per le funzioni potrebbe
 
 Quando l'app per le funzioni viene eseguita in un [piano a consumo](consumption-plan.md) o in un [piano Premium](functions-premium-plan.md), l'indirizzo IP in uscita potrebbe cambiare anche se non sono state eseguite azioni come quelle [elencate in precedenza](#inbound-ip-address-changes).
 
-Per forzare deliberatamente la modifica di un indirizzo IP in uscita:
+Usare la procedura seguente per forzare intenzionalmente una modifica dell'indirizzo IP in uscita:
 
 1. Aumentare o ridurre il piano di servizio app tra i piani tariffari Standard e Premium v2.
+
 2. Attendere 10 minuti.
+
 3. Ridurre di nuovo il piano al livello iniziale.
 
 ## <a name="ip-address-restrictions"></a>Restrizioni degli indirizzi IP
@@ -111,7 +113,15 @@ Per forzare deliberatamente la modifica di un indirizzo IP in uscita:
 
 ## <a name="dedicated-ip-addresses"></a>Indirizzi IP dedicati
 
-Se sono necessari indirizzi IP statici dedicati, è consigliabile [Ambienti del servizio app](../app-service/environment/intro.md) ([livello isolato](https://azure.microsoft.com/pricing/details/app-service/) dei piani di servizio app). Per altre informazioni, vedere [Indirizzi IP dell'ambiente del servizio app](../app-service/environment/network-info.md#ase-ip-addresses) e [Come controllare il traffico in ingresso a un ambiente del servizio app](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
+Sono disponibili diverse strategie per esplorare quando l'app per le funzioni richiede indirizzi IP statici e dedicati. 
+
+### <a name="virtual-network-nat-gateway-for-outbound-static-ip"></a>Gateway NAT di rete virtuale per IP statico in uscita
+
+È possibile controllare l'indirizzo IP del traffico in uscita dalle funzioni usando un gateway NAT di rete virtuale per indirizzare il traffico attraverso un indirizzo IP pubblico statico. È possibile usare questa topologia durante l'esecuzione in un [piano Premium](functions-premium-plan.md). Per altre informazioni, vedere [esercitazione: controllare l'IP in uscita di funzioni di Azure con un gateway NAT di rete virtuale di Azure](functions-how-to-use-nat-gateway.md).
+
+### <a name="app-service-environments"></a>Ambienti del servizio app
+
+Per il controllo completo sugli indirizzi IP, sia in ingresso che in uscita, è consigliabile usare gli [ambienti del servizio app](../app-service/environment/intro.md) (il [livello isolato](https://azure.microsoft.com/pricing/details/app-service/) dei piani di servizio app). Per altre informazioni, vedere [Indirizzi IP dell'ambiente del servizio app](../app-service/environment/network-info.md#ase-ip-addresses) e [Come controllare il traffico in ingresso a un ambiente del servizio app](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
 
 Per scoprire se l'app per le funzioni viene eseguita in un ambiente del servizio app:
 

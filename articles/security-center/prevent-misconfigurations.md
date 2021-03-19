@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 5d172a73674195e7f64f5ef02322e2bd2d6314df
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: fabbd255f64e5614ae052c9d7c8d65fc35d45856
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439528"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600497"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Impedire gli errori di configurazione con i consigli di tipo Imponi/Nega
 
@@ -68,6 +68,7 @@ Questi consigli possono essere usati con l'opzione **Imponi** :
 - È consigliabile abilitare il controllo in SQL Server
 - La soluzione Backup di Azure deve essere abilitata per le macchine virtuali
 - Azure Defender per SQL deve essere abilitato nei server SQL
+- È consigliabile installare e abilitare il componente aggiuntivo Criteri di Azure per Kubernetes nei cluster
 - I log di diagnostica devono essere abilitati in Analisi di flusso di Azure
 - È consigliabile abilitare i log di diagnostica negli account Batch
 - È consigliabile abilitare i log di diagnostica Data Lake Analytics

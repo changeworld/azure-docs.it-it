@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 40751401760d877fe3feab39f3fea1f2fbeee54b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: efa255ba38f7e00785335bf458ecc0ed91da646b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665496"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608181"
 ---
 # <a name="quickstart-unbox-and-assemble-your-azure-percept-dk-components"></a>Guida introduttiva: eseguire l'unboxing e assemblare i componenti di Azure Percept DK
 
@@ -32,7 +32,7 @@ Dopo aver ricevuto Azure Percept DK, fare riferimento a questa guida per informa
 1. Connettere i componenti di devkit.
 
     > [!NOTE]
-    > La porta dell'adattatore di alimentazione si trova sul lato destro della lavagna del vettore. Le porte rimanenti (2x USB-A, 1x USB-C, 1x HDMI e 1x Ethernet) e il pulsante Reimposta si trovano sul lato sinistro della lavagna del vettore.
+    > La porta dell'adattatore di alimentazione si trova sul lato destro della lavagna del vettore. Le porte rimanenti (2x USB-A, 1x USB-C e 1x Ethernet) e il pulsante di alimentazione si trovano sul lato sinistro della lavagna del vettore.
 
     1. Avvitare entrambe Wi-Fi antenne nella lavagna del vettore.
 
@@ -44,11 +44,17 @@ Dopo aver ricevuto Azure Percept DK, fare riferimento a questa guida per informa
 
     1. Connettere il cavo/adattatore alla lavagna del vettore e una presa a muro. Per proteggere completamente il connettore del cavo di alimentazione alla lavagna del vettore, usare un cacciavite P7 (non incluso in DevKit) per rafforzare le viti del connettore.
 
-    1. Dopo aver collegato il cavo di alimentazione a una presa a muro, il dispositivo si accende automaticamente. Il pulsante Reimposta sul lato sinistro della lavagna del vettore verrà illuminato. Attendere un po' di tempo per l'avvio del dispositivo.
+    1. Dopo aver collegato il cavo di alimentazione a una presa a muro, il dispositivo si accende automaticamente. Il pulsante di alimentazione sul lato sinistro della lavagna del vettore verrà illuminato. Attendere un po' di tempo per l'avvio del dispositivo.
 
         > [!NOTE]
-        > Il pulsante Reimposta è per spegnere o reimpostare il dispositivo quando si è connessi a un'alimentazione. In caso di interruzione dell'alimentazione, il dispositivo verrà reimpostato e riattivato automaticamente.
+        > Il pulsante di alimentazione è per spegnere o riavviare il dispositivo quando si è connessi a un'alimentazione. In caso di interruzione dell'alimentazione, il dispositivo verrà riavviato automaticamente.
+
+Per una dimostrazione visiva dell'assembly DevKit, vedere 0:00-0:50 del video seguente:
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che la DevKit è connessa e accesa, vedere la procedura dettagliata sull'esperienza di installazione di Azure Percept DK per completare la configurazione del dispositivo. L'esperienza di installazione consente di connettere la DevKit a una rete Wi-Fi, configurare un account di accesso SSH, creare un hub delle cose ed effettuare il provisioning della DevKit nel proprio account Azure. Dopo aver completato l'installazione del dispositivo, sarà possibile iniziare a creare i prototipi.
+Ora che la DevKit è connessa e accesa, vedere la [procedura dettagliata sull'esperienza di installazione di Azure PERCEPT dk](./quickstart-percept-dk-set-up.md) per completare la configurazione del dispositivo. L'esperienza di installazione consente di connettere la DevKit a una rete Wi-Fi, configurare un account di accesso SSH, creare un hub delle cose ed effettuare il provisioning della DevKit nel proprio account Azure. Dopo aver completato l'installazione del dispositivo, sarà possibile iniziare a creare i prototipi.

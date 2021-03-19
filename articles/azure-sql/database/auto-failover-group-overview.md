@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/26/2020
-ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: e0b9eea7be97b9b67e75c314c4a1d9e69322e5b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792501"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594258"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,10 +33,10 @@ I gruppi di failover automatico forniscono anche endpoint di listener di sola le
 
 Quando si usano i gruppi di failover automatico con i criteri di failover automatico, eventuali interruzioni che influiscano sui database in un server o in un'istanza gestita generano failover automatico. È possibile gestire il gruppo di failover automatico mediante:
 
-- [Portale di Azure](geo-distributed-application-configure-tutorial.md)
+- [Azure portal](geo-distributed-application-configure-tutorial.md)
 - [INTERFACCIA della riga di comando di Azure: gruppo di failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: gruppo di failover](scripts/add-database-to-failover-group-powershell.md)
-- [API REST: gruppo di failover](/rest/api/sql/failovergroups).
+- [API REST: gruppo di failover](/rest/api/sql/failovergroups)
 
 Dopo il failover, verificare che i requisiti di autenticazione per il database e il server o l'istanza siano configurati nel nuovo database primario. Per tutti i dettagli, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](active-geo-replication-security-configure.md).
 
@@ -115,7 +115,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
   - Eseguire esercitazioni per il ripristino di emergenza in produzione quando la perdita di dati non è accettabile
   - Rilocare i database in un'area diversa
-  - Ripristinare i database nell'area primaria dopo la risoluzione dell'interruzione (failback).
+  - Restituire i database all'area primaria dopo che l'interruzione è stata attenuata (failback)
 
 - **Failover non pianificato**
 
@@ -176,7 +176,7 @@ Quando si eseguono operazioni OLTP, usare `<fog-name>.database.windows.net` come
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a>Uso del listener di sola lettura per il carico di lavoro di sola lettura
 
-Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per sessioni di sola lettura usare `<fog-name>.secondary.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al server secondario. È inoltre consigliabile indicare la finalità di lettura della stringa di connessione tramite `ApplicationIntent=ReadOnly` .
+Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per sessioni di sola lettura usare `<fog-name>.secondary.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al server secondario. È inoltre consigliabile indicare la finalità di lettura nella stringa di connessione utilizzando `ApplicationIntent=ReadOnly` .
 
 ### <a name="preparing-for-performance-degradation"></a>Preparazione per il calo delle prestazioni
 

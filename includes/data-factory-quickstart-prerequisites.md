@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: include
 ms.custom: include file
 ms.date: 06/27/2019
-ms.openlocfilehash: a979cd0a4c2ee6466edebadf61e8a98b8f17c9f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 0c21c576cbb99ccc96bf7edf733769a9b28b9344
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013362"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104611970"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -59,7 +59,8 @@ In questa sezione viene creato un contenitore BLOB denominato **adftutorial** ne
 2. Sulla barra degli strumenti della pagina *\<Account name>*  - **Contenitori** selezionare **Contenitore**.
 3. Nella finestra di dialogo **Nuovo contenitore** immettere **adftutorial** come nome e quindi fare clic su **OK**. La pagina *\<Account name>*  - **Contenitori** viene aggiornata per includere **adftutorial** nell'elenco.
 
-   ![Elenco dei contenitori](media/data-factory-quickstart-prerequisites/list-of-containers.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/list-of-containers.png" alt-text="Elenco dei contenitori":::
+
 
 #### <a name="add-an-input-folder-and-file-for-the-blob-container"></a>Aggiungere una cartella di input e un file per il contenitore BLOB
 
@@ -82,7 +83,8 @@ Salvare il file nella cartella **C:\ADFv2QuickStartPSH**. Se la cartella non esi
 3. Nella pagina **Carica BLOB** selezionare la casella **File**, quindi individuare e selezionare il file **emp.txt**.
 4. Espandere l'intestazione **Avanzate**. La pagina viene ora visualizzata come illustrato di seguito:
 
-   ![Selezionare il collegamento Avanzate](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/upload-blob-advanced.png" alt-text="Selezionare il collegamento Avanzate":::
+
 5. Nella casella **Carica nella cartella** immettere **input**.
 6. Selezionare il pulsante **Carica**. Verranno visualizzati il file **emp.txt** e lo stato del caricamento nell'elenco.
 7. Selezionare l'icona **Chiudi** (una **X**) per chiudere la pagina **Carica BLOB**.

@@ -3,15 +3,15 @@ title: Impostare i parametri dei servizi collegati in Azure Data Factory
 description: Informazioni su come impostare i parametri dei servizi collegati in Azure Data Factory e passare i valori dinamici in fase di esecuzione.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 03/18/2021
 author: dcstwh
 ms.author: weetok
-ms.openlocfilehash: fbb7cb6fd0041ab77e649b14712907d916eaa449
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: df26b77f37100ae41b26c013c57cccbfa0d7e205
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372927"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595584"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Impostare i parametri dei servizi collegati in Azure Data Factory
 
@@ -38,18 +38,21 @@ Quando si crea il servizio collegato nell'interfaccia utente, Data Factory forni
 
 - Amazon Redshift
 - Amazon S3
+- Archiviazione BLOB di Azure
 - Azure Cosmos DB (API SQL)
+- Azure Data Lake Storage Gen2
 - Database di Azure per MySQL
 - Azure Databricks
 - Insieme di credenziali chiave di Azure
 - Database SQL di Azure
 - Istanza gestita di SQL di Azure
 - Azure Synapse Analytics 
+- Archiviazione tabelle di Azure
+- HTTP generico
+- REST generico
 - MySQL
 - Oracle
 - SQL Server
-- HTTP generico
-- REST generico
 
 Per gli altri tipi di servizi collegati che non si trovano nell'elenco precedente, è possibile parametrizzare il servizio collegato modificando il codice JSON sull'interfaccia utente:
 

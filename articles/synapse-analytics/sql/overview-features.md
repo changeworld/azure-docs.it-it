@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 769149d49d4d233c5c202f570ceb871365728c59
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b22f2ed2704f752ff2ca7a5bc21e856b076f0f70
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671227"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584092"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Funzionalità Transact-SQL supportate in Azure Synapse SQL
 
@@ -51,7 +51,7 @@ I linguaggi di query usati in Synapse SQL possono supportare funzionalità diver
 
 |   | Dedicato | Senza server |
 | --- | --- | --- |
-| **Istruzione SELECT** | Sì. Le clausole di query Transact-SQL [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true) e [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true) non sono supportate. | Sì. Le clausole di query Transact-SQL [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true) e [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true) e gli hint per la query non sono supportati. |
+| **Istruzione SELECT** | Sì. Le clausole di query Transact-SQL [per XML/for JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [match](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), offset/fetch non sono supportate. | Sì. Le clausole di query Transact-SQL [per XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [match](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [Predict](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), GROUPNG set e hint per la query non sono supportate. |
 | **Istruzione INSERT** | Sì | No |
 | **Istruzione UPDATE** | Sì | No |
 | **Istruzione DELETE** | Sì | No |
@@ -158,5 +158,5 @@ I dati analizzati possono essere archiviati in vari formati di archiviazione. La
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle procedure consigliate per il pool SQL dedicato e il pool SQL serverless, vedere gli articoli seguenti:
 
-- [Procedure consigliate per il pool SQL dedicato](best-practices-sql-pool.md)
-- [Procedure consigliate per il pool SQL serverless](best-practices-sql-on-demand.md)
+- [Procedure consigliate per il pool SQL dedicato](best-practices-dedicated-sql-pool.md)
+- [Procedure consigliate per il pool SQL serverless](best-practices-serverless-sql-pool.md)

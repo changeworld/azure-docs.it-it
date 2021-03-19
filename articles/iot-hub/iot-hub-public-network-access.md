@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 539e420cb9085fad10ea3972ba0e9e5ffb9d0622
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: b225ad7e12a95b4dcbb8656f54f8a9e9562b2ee8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419763"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604696"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Gestione dell'accesso alla rete pubblica per l'hub Internet delle cose
 
@@ -32,7 +32,7 @@ Per abilitare l'accesso alla rete pubblica, selezionare **tutte le reti**, quind
 
 ## <a name="accessing-the-iot-hub-after-disabling-public-network-access"></a>Accesso all'hub delle cose dopo la disabilitazione dell'accesso alla rete pubblica
 
-Quando l'accesso alla rete pubblica è disabilitato, l'hub Internet è accessibile solo tramite [il relativo endpoint privato VNet usando il collegamento privato di Azure](virtual-network-support.md). Questa restrizione include l'accesso tramite portale di Azure, perché le chiamate API al servizio hub Internet vengono effettuate direttamente usando il browser con le proprie credenziali. 
+Quando l'accesso alla rete pubblica è disabilitato, l'hub Internet è accessibile solo tramite [il relativo endpoint privato VNet usando il collegamento privato di Azure](virtual-network-support.md).
 
 ## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>Endpoint dell'hub Internet, indirizzo IP e porte dopo la disabilitazione dell'accesso alla rete pubblica
 

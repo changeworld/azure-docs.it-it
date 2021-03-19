@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: b02a08b7e8d8b867df820868b72a0ce14b6afa40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "71670939"
 ---
 # <a name="microsoft-client-tools-for-working-with-azure-storage"></a>Strumenti client Microsoft per l'uso di archiviazione di Azure
@@ -22,7 +22,7 @@ Microsoft offre diversi strumenti di interfaccia utente grafica (GUI) per l'uso 
 
 | Strumento client di archiviazione di Azure                 | Piattaforme supportate | BLOB in blocchi | BLOB di pagine | Append Blob | Tabelle | Code | File |
 |-------------------------------------------|---------------------|------------|-----------|-------------|--------|--------|-------|
-| [Portale di Azure](https://portal.azure.com)                    | Web                 | Sì          | Sì         | Sì           | Sì      | Sì      | Sì     |
+| [Azure portal](https://portal.azure.com)                    | Web                 | Sì          | Sì         | Sì           | Sì      | Sì      | Sì     |
 | [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)          | Windows, OSX        | Sì          | Sì         | Sì           | Sì      | Sì      | Sì     |
 | [Microsoft Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | Windows             | Sì          | Sì         | Sì           | Sì      | Sì      | No      |
 

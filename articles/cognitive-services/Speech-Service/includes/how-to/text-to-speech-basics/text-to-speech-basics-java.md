@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: bb2d9b04e6366b17cfb0ee4b8586359035be910d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 80384662789e9dad979566715672c15a8648ea9a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428223"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612754"
 ---
 Questo argomento di avvio rapido illustra i modelli di progettazione comuni per eseguire la sintesi vocale con Speech SDK. Si inizia con la configurazione di base e la sintesi e si passa ad esempi più avanzati per lo sviluppo di applicazioni personalizzate, tra cui:
 
@@ -67,7 +67,7 @@ Esistono diversi modi per inizializzare [`SpeechConfig`](/java/api/com.microsoft
 In questo esempio viene creato un oggetto [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) usando una chiave e un'area di sottoscrizione. Per ottenere queste credenziali, seguire la procedura descritta in [Provare il servizio Voce gratuitamente](../../../overview.md#try-the-speech-service-for-free). Si crea anche un codice boilerplate di base da usare per la parte restante di questo articolo, che viene modificato per diverse personalizzazioni.
 
 ```java
-public class Program 
+public class Program
 {
     public static void main(String[] args) {
         SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -124,7 +124,7 @@ Per molti scenari di sviluppo di applicazioni vocali, i dati audio risultanti po
 * Integrare il risultato con altri servizi o API.
 * Modificare i dati audio, scrivere intestazioni di `.wav` personalizzate e così via.
 
-È semplice apportare questa modifica dall'esempio precedente. Rimuovere prima di tutto il blocco `AudioConfig`, perché il comportamento di output verrà gestito manualmente da questo punto in poi per un maggior controllo. Passare quindi `null` per `AudioConfig` nel costruttore `SpeechSynthesizer`. 
+È semplice apportare questa modifica dall'esempio precedente. Rimuovere prima di tutto il blocco `AudioConfig`, perché il comportamento di output verrà gestito manualmente da questo punto in poi per un maggior controllo. Passare quindi `null` per `AudioConfig` nel costruttore `SpeechSynthesizer`.
 
 > [!NOTE]
 > Se si passa `null` per `AudioConfig`, invece di ometterlo come nel precedente esempio di output nell'altoparlante, l'audio non verrà riprodotto per impostazione predefinita nel dispositivo di output attivo corrente.
@@ -135,7 +135,7 @@ Questa volta il risultato viene salvato in una variabile [`SpeechSynthesisResult
 public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
-    
+
     SpeechSynthesisResult result = synthesizer.SpeakText("Getting the response as an in-memory stream.");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     System.out.print(stream.getStatus());
@@ -254,3 +254,10 @@ Per passare a una voce neurale, impostare `name` su una delle [opzioni di voce n
   </voice>
 </speak>
 ```
+
+## <a name="visemes"></a>Visemes
+
+Il discorso viene in genere trattato come un modo efficace per guidare l'animazione delle espressioni facciali.
+Spesso [visemes](../../../how-to-speech-synthesis-viseme.md) vengono usati per rappresentare la chiave che si pone in un riconoscimento vocale osservato, ovvero la posizione dei labbri, la mascella e la lingua durante la produzione di un fonema particolare.
+È possibile sottoscrivere l'evento viseme nell'SDK vocale per generare dati di animazione facciali. Quindi, è possibile applicare tali dati a un carattere per realizzare animazioni facciali.
+Informazioni [su come ottenere output viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).

@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 218803d0b7e1f5add2f033a7ce01e0a8f6ffc956
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 450a089c6cc1c77ac26cb0aa339277d5c49b41c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674095"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594785"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistiche in Synapse SQL
 
@@ -90,9 +90,9 @@ Le statistiche sulla colonna del paese o dell'area geografica nella tabella di u
 
 Tuttavia se il data warehouse contiene solo un paese e si importano i dati da un nuovo paese o una nuova area geografica, sarà necessario aggiornare le statistiche nella colonna del paese o dell'area geografica.
 
-Di seguito sono forniti alcuni elementi consigliati per l'aggiornamento delle statistiche:
+Di seguito sono riportati i consigli per l'aggiornamento delle statistiche:
 
-|||
+|Tipo|Recommendation|
 |-|-|
 | **Frequenza degli aggiornamenti delle statistiche**  | Conservativa: Giornaliera </br> Dopo il caricamento o la trasformazione dei dati |
 | **Campionamento** |  Se inferiore a 1 miliardo di righe, usare il campionamento predefinito (20%). </br> Se superiore a 1 miliardo righe, usare il campionamento del 2%. |
@@ -884,6 +884,6 @@ WHERE   st.[user_created] = 1
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per migliorare ulteriormente le prestazioni delle query per il pool SQL dedicato, vedere [monitorare il carico di lavoro e le](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) procedure consigliate [per il pool SQL dedicato](best-practices-sql-pool.md#maintain-statistics).
+Per migliorare ulteriormente le prestazioni delle query per il pool SQL dedicato, vedere [monitorare il carico di lavoro e le](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) procedure consigliate [per il pool SQL dedicato](best-practices-dedicated-sql-pool.md#maintain-statistics).
 
-Per migliorare ulteriormente le prestazioni delle query per il pool SQL senza server, vedere [procedure consigliate per il pool SQL senza server](best-practices-sql-on-demand.md)
+Per migliorare ulteriormente le prestazioni delle query per il pool SQL senza server, vedere [procedure consigliate per il pool SQL senza server](best-practices-serverless-sql-pool.md)

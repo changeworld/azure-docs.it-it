@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 0325dcf16c8e637a58365311a4ebd37a442d6b8c
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: c206cba3b23a0bf41ce32481980aa466e869bcde
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522451"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596298"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>Stati e fatturazione di macchine virtuali di Azure
 
@@ -61,7 +61,7 @@ Uno stato di provisioning è lo stato di un'operazione del piano di controllo av
 
 | Stato provisioning | Descrizione | Stato di alimentazione | Fatturazione | 
 |---|---|---|---|
-| Create | Creazione della macchina virtuale. | Avvio in corso | Non fatturato * | 
+| Crea | Creazione della macchina virtuale. | Avvio in corso | Non fatturato * | 
 | Aggiornamento | Aggiorna il modello per una macchina virtuale esistente. Alcune modifiche non del modello a una macchina virtuale, ad esempio avvio e riavvio, rientrano nello stato di aggiornamento. | In esecuzione | Fatturato | 
 | Elimina | Eliminazione della macchina virtuale. | Deallocazione | Non fatturato * |
 | Deallocare | La macchina virtuale viene arrestata e rimossa completamente dall'host sottostante. La deallocazione di una macchina virtuale è considerata un aggiornamento e visualizza stati di provisioning simili all'aggiornamento. | Deallocazione | Non fatturato * | 
@@ -82,6 +82,6 @@ Gli Stati del provisioning del sistema operativo si applicano solo alle macchine
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Esaminare la [documentazione di gestione costi e fatturazione di Azure](https://docs.microsoft.com/azure/cost-management-billing/)
+- Esaminare la [documentazione di gestione costi e fatturazione di Azure](../cost-management-billing/index.yml)
 - Usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) per pianificare le distribuzioni.
-- Per altre informazioni sul monitoraggio della VM, vedere [monitorare le macchine virtuali in Azure](../azure-monitor/insights/monitor-vm-azure.md).
+- Per altre informazioni sul monitoraggio della VM, vedere [monitorare le macchine virtuali in Azure](../azure-monitor/vm/monitor-vm-azure.md).

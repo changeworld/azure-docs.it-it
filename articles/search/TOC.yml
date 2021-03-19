@@ -198,7 +198,7 @@
           href: index-add-language-analyzers.md
         - name: Aggiungere un analizzatore personalizzato
           href: index-add-custom-analyzers.md
-    - name: Dati
+    - name: Data
       items:
         - name: Panoramica dell'importazione dei dati
           href: search-what-is-data-import.md
@@ -358,6 +358,8 @@
           href: search-query-understand-collection-filters.md
         - name: Filtrare per lingua
           href: search-filters-language.md
+        - name: Normalizza testo
+          href: search-normalizers.md
     - name: Pertinenza
       items:
         - name: Classificazione di somiglianza
