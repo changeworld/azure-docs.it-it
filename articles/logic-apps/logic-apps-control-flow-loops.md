@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93358457"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
@@ -60,7 +60,7 @@ Questa app per la logica di esempio invia un riepilogo giornaliero per un feed R
 
       ![Aggiungere un ciclo "For each"](media/logic-apps-control-flow-loops/select-for-each.png)
 
-3. A questo punto creare il ciclo. In **Selezionare un output dai passaggi precedenti** , quando viene visualizzato l'elenco **Aggiungi contenuto dinamico** , selezionare la matrice **Collegamenti ai feed** , che è l'output del trigger RSS. 
+3. A questo punto creare il ciclo. In **Selezionare un output dai passaggi precedenti**, quando viene visualizzato l'elenco **Aggiungi contenuto dinamico**, selezionare la matrice **Collegamenti ai feed**, che è l'output del trigger RSS. 
 
    ![Selezionare dall'elenco di contenuto dinamico](media/logic-apps-control-flow-loops/for-each-loop-dynamic-content-list.png)
 
@@ -251,9 +251,9 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
 Il ciclo "until" interrompe l'esecuzione in base a queste proprietà, quindi assicurarsi di impostare i rispettivi valori di conseguenza:
 
-* **Count** : questo valore è il numero più elevato di cicli eseguiti prima della chiusura del ciclo. Per i limiti predefiniti e massimi relativi al numero di cicli "until" che possono essere eseguiti da un'app per la logica, vedere [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* **Count**: questo valore è il numero più elevato di cicli eseguiti prima della chiusura del ciclo. Per i limiti predefiniti e massimi relativi al numero di cicli "until" che possono essere eseguiti da un'app per la logica, vedere [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-* **Timeout** : questo valore è la quantità di tempo che il ciclo viene eseguito prima di uscire e viene specificato nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Per i limiti predefiniti e massimi per il valore di **timeout** , vedere [limiti di concorrenza, ciclo e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* **Timeout**: questo valore è la quantità di tempo che il ciclo viene eseguito prima di uscire e viene specificato nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Per i limiti predefiniti e massimi per il valore di **timeout** , vedere [limiti di concorrenza, ciclo e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
   Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite.
 

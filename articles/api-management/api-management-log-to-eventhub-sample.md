@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: abb9cbb73f8957cec2cb3240bbf186623b9b2ef9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88205513"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorare le API con Gestione API di Azure, Hub eventi e Moesif
@@ -295,7 +295,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-`MoesifHttpMessageProcessor` si avvale di una [libreria di API C# per Moesif](https://www.moesif.com/docs/api?csharp#events) che facilita il push di dati di eventi HTTP nel proprio servizio. Per inviare i dati HTTP all'API dell'agente di raccolta Moesif, sono necessari un account e un ID applicazione. Per ottenere un ID applicazione Moesif, creare un account nel [sito Web di Moesif](https://www.moesif.com) e quindi passare all'installazione dell'app del _menu in alto a destra_  ->  _App Setup_.
+`MoesifHttpMessageProcessor` si avvale di una [libreria di API C# per Moesif](https://www.moesif.com/docs/api?csharp#events) che facilita il push di dati di eventi HTTP nel proprio servizio. Per inviare i dati HTTP all'API dell'agente di raccolta Moesif, sono necessari un account e un ID applicazione. Per ottenere un ID applicazione Moesif, creare un account nel [sito Web di Moesif](https://www.moesif.com) e quindi passare all'installazione dell'app del _menu in alto a destra_  ->  .
 
 ## <a name="complete-sample"></a>Esempio completo
 Il [codice sorgente](https://github.com/dgilling/ApimEventProcessor) e i test per l'esempio sono disponibili su GitHub. Per eseguire l'esempio, è necessario disporre di un [servizio Gestione API](get-started-create-service-instance.md), [un hub eventi connesso](api-management-howto-log-event-hubs.md) e un [account di archiviazione](../storage/common/storage-account-create.md).   

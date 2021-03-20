@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: chrande
 ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93357046"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modellazione di dati del grafo per l'API Gremlin di Azure Cosmos DB
@@ -36,7 +36,7 @@ Una soluzione di database a grafo può essere applicata in modo ottimale se le e
 * Sono presenti **relazioni molti-a-molti** tra le entità.
 * Sono presenti **requisiti di scrittura e lettura per entità e relazioni**. 
 
-Se i criteri precedenti vengono soddisfatti, è probabile che un approccio basato su database a grafo offrirà vantaggi in termini di **complessità delle query** , **scalabilità del modello di dati** , e **prestazioni delle query**.
+Se i criteri precedenti vengono soddisfatti, è probabile che un approccio basato su database a grafo offrirà vantaggi in termini di **complessità delle query**, **scalabilità del modello di dati**, e **prestazioni delle query**.
 
 Il passaggio successivo consiste nel determinare se il grafo verrà usato per scopi analitici o transazionali. Se il grafo deve essere usato per carichi di lavoro ingenti di calcolo ed elaborazione dati, è consigliabile considerare il [connettore Spark per Cosmos DB](./spark-connector.md) e valutare l'uso della [libreria GraphX](https://spark.apache.org/graphx/). 
 
@@ -48,12 +48,12 @@ Di seguito sono riportate le procedure consigliate per le proprietà negli ogget
 
 | Oggetto | Proprietà | Type | Note |
 | --- | --- | --- |  --- |
-| Vertice | ID | Stringa | Imposto in modo univoco per partizione. Se non viene fornito alcun valore durante l'inserimento, verrà archiviato un GUID generato automaticamente. |
-| Vertice | label | Stringa | Questa proprietà viene usata per definire il tipo di entità rappresentata dal vertice. Se non viene specificato alcun valore, verrà usato il valore predefinito "vertex". |
+| Vertice | ID | string | Imposto in modo univoco per partizione. Se non viene fornito alcun valore durante l'inserimento, verrà archiviato un GUID generato automaticamente. |
+| Vertice | label | string | Questa proprietà viene usata per definire il tipo di entità rappresentata dal vertice. Se non viene specificato alcun valore, verrà usato il valore predefinito "vertex". |
 | Vertice | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni vertice. |
 | Vertice | chiave di partizione | Stringa, booleano, intero, binario | Questa proprietà consente di definire dove verranno archiviati il vertice e i relativi archi in uscita. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md). |
-| Microsoft Edge | ID | Stringa | Imposto in modo univoco per partizione. Generato automaticamente per impostazione predefinita. Gli archi non devono in genere essere recuperati in modo univoco in base a un ID. |
-| Microsoft Edge | label | Stringa | Questa proprietà viene usata per definire il tipo di relazione tra due vertici. |
+| Microsoft Edge | ID | string | Imposto in modo univoco per partizione. Generato automaticamente per impostazione predefinita. Gli archi non devono in genere essere recuperati in modo univoco in base a un ID. |
+| Microsoft Edge | label | string | Questa proprietà viene usata per definire il tipo di relazione tra due vertici. |
 | Microsoft Edge | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni arco. |
 
 > [!NOTE]
@@ -72,11 +72,11 @@ Il primo passaggio per la creazione di un modello di dati del grafo consiste nel
 
 Un errore comune consiste nell'eseguire il mapping delle proprietà di una singola entità come vertici separati. Considerare l'esempio seguente, in cui la stessa entità è rappresentata in due modi diversi:
 
-* **Proprietà basate su vertici** : in questo approccio, l'entità usa tre vertici distinti e due bordi per descrivere le relative proprietà. Pur riducendo la ridondanza, questo approccio implica un incremento della complessità del modello e di conseguenza una maggiore latenza, una maggiore complessità delle query e un aumento del costo di calcolo. Questo modello può anche presentare problemi relativi al partizionamento.
+* **Proprietà basate su vertici**: in questo approccio, l'entità usa tre vertici distinti e due bordi per descrivere le relative proprietà. Pur riducendo la ridondanza, questo approccio implica un incremento della complessità del modello e di conseguenza una maggiore latenza, una maggiore complessità delle query e un aumento del costo di calcolo. Questo modello può anche presentare problemi relativi al partizionamento.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modello di entità con vertici per le proprietà." border="false":::
 
-* **Vertici incorporati proprietà** : questo approccio sfrutta l'elenco di coppie chiave-valore per rappresentare tutte le proprietà dell'entità all'interno di un vertice. Si tratta di un approccio che consente di ridurre la complessità del modello e implica query più semplici e attraversamenti più convenienti.
+* **Vertici incorporati proprietà**: questo approccio sfrutta l'elenco di coppie chiave-valore per rappresentare tutte le proprietà dell'entità all'interno di un vertice. Si tratta di un approccio che consente di ridurre la complessità del modello e implica query più semplici e attraversamenti più convenienti.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Il diagramma mostra il vertice Luis del diagramma precedente con le proprietà i d, Label e." border="false":::
 

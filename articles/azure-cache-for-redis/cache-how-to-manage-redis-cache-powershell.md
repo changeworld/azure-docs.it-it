@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: 88e433dbfa87d8ea483789b1fd838c62a6a481c0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536760"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gestire Cache Redis di Azure con Azure PowerShell
@@ -364,10 +364,10 @@ Il comando seguente aggiorna maxmemory-policy per la Cache Redis di Azure denomi
 > Il ridimensionamento dell'istanza di una cache con PowerShell è soggetto agli stessi limiti e alle stesse linee guida per il ridimensionamento di una cache dal portale di Azure. Il passaggio a un piano tariffario diverso è soggetto alle restrizioni seguenti.
 > 
 > * Non è possibile passare da un piano tariffario superiore a uno inferiore.
-> * Non è possibile passare da una cache **Premium** a una cache **Standard** o **Basic** .
-> * Non è possibile passare da una cache **Standard** a una cache **Basic** .
-> * È possibile passare da una cache **Basic** a una cache **Standard** , ma non è possibile modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
-> * Non è possibile passare direttamente da una cache **Basic** a una cache **Premium** . È necessario passare da **Basic** a **Standard** con una prima operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
+> * Non è possibile passare da una cache **Premium** a una cache **Standard** o **Basic**.
+> * Non è possibile passare da una cache **Standard** a una cache **Basic**.
+> * È possibile passare da una cache **Basic** a una cache **Standard**, ma non è possibile modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
+> * Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario passare da **Basic** a **Standard** con una prima operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
 > * Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)** .
 > 
 > Per altre informazioni, vedere [Come ridimensionare la Cache Redis di Azure](cache-how-to-scale.md).

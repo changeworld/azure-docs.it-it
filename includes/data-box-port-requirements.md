@@ -6,13 +6,13 @@ ms.topic: include
 ms.date: 09/06/2020
 ms.author: alkohli
 ms.openlocfilehash: b9ff5968b4bb406f1a96780985b5c6fe64ca976c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89505910"
 ---
-| N. porta| In ingresso/In uscita | Ambito porta| Obbligatoria| Note |
+| N. porta| In ingresso/In uscita | Ambito porta| Necessario| Note |
 |--------|-----|-----|-----------|----------|
 | TCP 80 (HTTP)|In|LAN|Sì|Questa porta viene usata per connettersi alle API REST dell'archiviazione BLOB Data Box su HTTP. Se non ci si connette alle API REST, viene automaticamente reindirizzato all'interfaccia utente Web locale su 8443. |
 | TCP 443 (HTTPS)|In|LAN|Sì|Questa porta viene usata per connettersi alle API REST dell'archiviazione BLOB Data Box su HTTPS. Se non ci si connette alle API REST, viene automaticamente reindirizzato all'interfaccia utente Web locale su 8443. |

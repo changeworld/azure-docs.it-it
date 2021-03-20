@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
 ms.openlocfilehash: 64a8dabaedc3922ebd8d163b1ea162b7d1584de2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371920"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Confrontare Active Directory con Azure Active Directory
@@ -41,7 +41,7 @@ La maggior parte degli amministratori IT ha familiarità con Active Directory Do
 | App line-of-business (LOB) con autenticazione moderna|Le organizzazioni possono usare AD FS con Active Directory per supportare le app LOB che richiedono l'autenticazione moderna.| Le app LOB che richiedono l'autenticazione moderna possono essere configurate per usare Azure AD per l'autenticazione. |
 | Servizi di livello intermedio/daemon|I servizi in esecuzione in ambienti locali usano in genere gli account del servizio Active Directory o gli account del servizio gestito del gruppo (gMSA) per l'esecuzione. Queste app erediteranno quindi le autorizzazioni dell'account del servizio.| Azure AD fornisce le [identità gestite](../managed-identities-azure-resources/index.yml) per eseguire altri carichi di lavoro nel cloud. Il ciclo di vita di queste identità è gestito da Azure AD ed è associato al provider di risorse non può essere usato per altri scopi per ottenere l'accesso backdoor.|
 | **Dispositivi**|||
-| Mobile|Active Directory non supporta in modo nativo i dispositivi mobili senza soluzioni di terze parti.| La soluzione di gestione dei dispositivi mobili Microsoft, Microsoft Intune, è integrata con Azure AD. Microsoft Intune fornisce informazioni sullo stato del dispositivo al sistema di identità da valutare durante l'autenticazione. |
+| Dispositivi mobili|Active Directory non supporta in modo nativo i dispositivi mobili senza soluzioni di terze parti.| La soluzione di gestione dei dispositivi mobili Microsoft, Microsoft Intune, è integrata con Azure AD. Microsoft Intune fornisce informazioni sullo stato del dispositivo al sistema di identità da valutare durante l'autenticazione. |
 | Desktop di Windows|Active Directory offre la possibilità di aggiungere a un dominio i dispositivi Windows per gestirli con Criteri di gruppo, System Center Configuration Manager o altre soluzioni di terze parti.|I dispositivi Windows possono essere [aggiunti a Azure ad](../devices/index.yml). L'accesso condizionale può verificare se un dispositivo è Azure AD Unito come parte del processo di autenticazione. I dispositivi Windows possono essere gestiti anche con [Microsoft Intune](/intune/what-is-intune). In questo caso, l'accesso condizionale considera se un dispositivo è conforme (ad esempio, patch di sicurezza aggiornate e firme antivirus) prima di consentire l'accesso alle app.|
 | Server Windows| Active Directory offre funzionalità di gestione complesse per i server Windows locali che usano Criteri di gruppo o altre soluzioni di gestione.| Le macchine virtuali di Windows Server in Azure possono essere gestite con [Azure ad Domain Services](../../active-directory-domain-services/index.yml). È possibile usare le [identità gestite](../managed-identities-azure-resources/index.yml) quando le macchine virtuali devono accedere alla directory o alle risorse del sistema di identità.|
 | Carichi di lavoro Linux/UNIX|Active Directory non supporta in modo nativo non Windows senza soluzioni di terze parti, anche se i computer Linux possono essere configurati per l'autenticazione con Active Directory come area di autenticazione Kerberos.|Le macchine virtuali Linux/Unix possono usare [identità gestite](../managed-identities-azure-resources/index.yml) per accedere al sistema di identità o alle risorse. Per alcune organizzazioni, migrare questi carichi di lavoro in tecnologie contenitore cloud, che possono usare anche identità gestite.|

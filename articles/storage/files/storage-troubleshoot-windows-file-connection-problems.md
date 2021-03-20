@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 242c0819e916f3ea7912d4d57b7d3e338152e4d9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878511"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Risolvere i problemi di File di Azure in Windows (SMB)
@@ -210,7 +210,7 @@ Per forzare la chiusura di un handle di file, usare il cmdlet di PowerShell [Clo
 > I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo AZ PowerShell versione 2,4 o successiva. Per installare la versione più recente del modulo AZ PowerShell, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="cause-2"></a>Causa 2
-Un lease di file impedisce la modifica o l'eliminazione di un file. È possibile verificare se un file ha un lease di file con il seguente PowerShell, sostituendo `<resource-group>` ,, `<storage-account>` `<file-share>` e `<path-to-file>` con i valori appropriati per l'ambiente:
+Un lease del file impedisce la modifica o l'eliminazione di un file. È possibile verificare se un file ha un lease di file con il seguente PowerShell, sostituendo `<resource-group>` ,, `<storage-account>` `<file-share>` e `<path-to-file>` con i valori appropriati per l'ambiente:
 
 ```PowerShell
 # Set variables 
@@ -245,7 +245,7 @@ LeaseStatus           : Locked
 ```
 
 ### <a name="solution-2"></a>Soluzione 2
-Per rimuovere un lease da un file, è possibile rilasciare il lease o interrompere il lease. Per rilasciare il lease, è necessario il LeaseId del lease, impostato quando si crea il lease. Non è necessario LeaseId per interrompere il lease.
+Per rimuovere un lease da un file, è possibile rilasciare o interrompere il lease. Per rilasciare il lease, è necessario il valore di LeaseId impostato durante la creazione del lease. Il valore di LeaseId non è necessario per interrompere il lease.
 
 Nell'esempio seguente viene illustrato come interrompere il lease per il file indicato nella ragione 2 (questo esempio continua con le variabili di PowerShell dalla cause 2):
 

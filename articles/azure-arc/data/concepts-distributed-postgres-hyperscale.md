@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: c01da4aed9e27296ea7b570420bb190b16749848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90939783"
 ---
 # <a name="concepts-for-distributing-data-with-arc-enabled-postgresql-hyperscale-server-group"></a>Concetti per la distribuzione dei dati con un gruppo di server con iperscalabilità PostgreSQL abilitato per Arc
@@ -46,7 +46,7 @@ Per altre informazioni [, vedere nodi e tabelle in database di Azure per Postgre
 ## <a name="determine-the-application-type"></a>Determinare il tipo di applicazione
 È importante identificare chiaramente il tipo di applicazione che si sta compilando. Perché? Poiché l'esecuzione di query efficienti su un gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc richiede che le tabelle vengano distribuite correttamente tra i server. La distribuzione consigliata varia in base al tipo di applicazione e ai relativi modelli di query. Sono disponibili due tipi di applicazioni che funzionano in modo ottimale in Azure Arc con iperscalabilità Postgres abilitata:
 - Applicazioni multi-tenant
-- Applicazioni Real-Time
+- Applicazioni in tempo reale
 
 Il primo passaggio nella modellazione dei dati consiste nell'identificare quali sono più simili all'applicazione.
 

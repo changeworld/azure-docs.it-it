@@ -1,17 +1,17 @@
 ---
-title: "Guida introduttiva: Creare un'app Java in Azure Service Fabric"
+title: "Guida introduttiva: creare un'app Java in Azure Service Fabric"
 description: In questa guida introduttiva viene creata un'applicazione Java per Azure usando un'applicazione Reliable Services Service Fabric di esempio.
 ms.topic: quickstart
 ms.date: 01/29/2019
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 2f1e5f8f73f74d4b427e574b9e6a75aaf84a4211
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91529855"
 ---
-# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Guida introduttiva:  Distribuire un'app Java in Azure Service Fabric in Linux
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Guida introduttiva: distribuire un'app Java in Azure Service Fabric in Linux
 
 Questo argomento di avvio rapido illustra come distribuire un'applicazione Java in Azure Service Fabric usando l'IDE Eclipse in un computer di sviluppo Linux. Al termine, sarà disponibile un'applicazione di voto con un front-end Web Java che salva i risultati delle votazioni in un servizio back-end con stato nel cluster.
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Azure Service Fabric Explorer mostra nodi integri](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Aprire Eclipse.
-3. Selezionare **File** > **Import** (Importa)  > **Gradle** > **Existing Gradle Project** (Progetto Gradle esistente) e seguire la procedura guidata.
+3. Selezionare **file**  >  **Import**  >  **Gradle**  >  **existing Gradle Project** e seguire la procedura guidata.
 4. Selezionare **Directory** e scegliere la directory **Valutazione** nella cartella **service-fabric-java-quickstart** clonata da GitHub. Selezionare **Fine**.
 
     ![Importare il progetto Gradle in Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
@@ -71,7 +71,7 @@ Service Fabric Explorer è in esecuzione in tutti i cluster di Service Fabric ed
 Per ridimensionare il servizio front-end Web, seguire questa procedura:
 
 1. Aprire Service Fabric Explorer nel cluster. Ad esempio: `https://localhost:19080`.
-2. Selezionare i puntini di sospensione ( **...** ) accanto al nodo **fabric:/Voting/VotingWeb** nella visualizzazione ad albero e selezionare **Scale Service** (Ridimensiona servizio).
+2. Selezionare i puntini di sospensione (**...**) accanto al nodo **fabric:/Voting/VotingWeb** nella visualizzazione ad albero e selezionare **Scale Service** (Ridimensiona servizio).
 
     ![Ridimensionare un servizio in Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
@@ -88,7 +88,7 @@ Con questa semplice attività di gestione, sono state raddoppiate le risorse dis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come:
+In questo argomento di avvio rapido si è appreso come:
 
 * Usare Eclipse come strumento per le applicazioni Java di Service Fabric
 * Distribuire le applicazioni Java nel cluster locale

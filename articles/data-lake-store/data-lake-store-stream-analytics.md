@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91576218"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Trasmettere i dati dal BLOB del servizio di archiviazione di Azure a Data Lake Storage Gen1 usando Analisi di flusso di Azure
@@ -55,7 +55,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
    * Per **Account di archiviazione** selezionare l'account di archiviazione creato come parte dei prerequisiti. 
    * Per **Contenitore** selezionare il contenitore creato nell'account di archiviazione selezionato.
    * In **Formato di serializzazione eventi** scegliere **CSV**.
-   * Per **Delimitatore **selezionare **scheda**.
+   * Per **Delimitatore** selezionare **scheda**.
    * Per **Codifica** selezionare **UTF-8**.
 
      Fare clic su **Crea**. Il portale ora aggiunge l'input e verifica la connessione allo stesso.
@@ -72,7 +72,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
     ![Screenshot del pannello Data Lake Storage generazione 1-nuovo output con l'opzione autorizzazione chiamata.](./media/data-lake-store-stream-analytics/create.output.2.png "Aggiungere un output al processo")
 
     * In **Alias dell'output** inserire un nome univoco per l'output del processo. È un nome descrittivo usato nelle query per indirizzare l'output delle query all'account Data Lake Storage Gen1.
-    * Verrà richiesto di autorizzare l'accesso all'account Data Lake Storage Gen1. Fare clic su **Autorizza**.
+    * Verrà richiesto di autorizzare l'accesso all'account Data Lake Storage Gen1. Fare clic su **autorizza**.
 
 3. Nel pannello **Nuovo output** continuare a specificare i valori seguenti.
 
@@ -83,7 +83,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
    * Per **Formato data**, se nel percorso di prefisso viene usato un token di data, è possibile selezionare il formato della data in cui sono organizzati i file.
    * Per **Formato ora**, se nel percorso di prefisso viene usato un token di ora, specificare il formato dell'ora in cui sono organizzati i file.
    * In **Formato di serializzazione eventi** scegliere **CSV**.
-   * Per **Delimitatore **selezionare **scheda**.
+   * Per **Delimitatore** selezionare **scheda**.
    * Per **Codifica** selezionare **UTF-8**.
     
      Fare clic su **Crea**. Il portale ora aggiunge l'output e verifica la connessione allo stesso.
@@ -112,5 +112,5 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
 
     Nel riquadro Esplora dati l'output viene scritto in un percorso di cartella come specificato nelle impostazioni di output di Data Lake Storage Gen1 (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Creare un cluster HDInsight per usare Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

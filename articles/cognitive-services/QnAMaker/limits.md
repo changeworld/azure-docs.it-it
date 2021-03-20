@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
 ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98164873"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
@@ -20,7 +20,7 @@ QnA Maker limiti indicati di seguito sono una combinazione dei limiti del piano 
 
 Il numero massimo di Knowledge base è basato sui [limiti del livello di ricerca cognitiva di Azure](../../search/search-limits-quotas-capacity.md).
 
-|**Livello ricerca cognitiva di Azure** | **Gratuito** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Livello ricerca cognitiva di Azure** | **Free** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Numero massimo di knowledge base pubblicate consentite|2|14|49|199|199|2999|
 
@@ -66,7 +66,7 @@ I metadati vengono presentati come coppia chiave-valore basata su testo, ad esem
 
 Il numero massimo di campi di metadati per Knowledge base è basato sui **[limiti del livello di ricerca cognitiva di Azure](../../search/search-limits-quotas-capacity.md)**.
 
-|**Livello ricerca cognitiva di Azure** | **Gratuito** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Livello ricerca cognitiva di Azure** | **Free** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Numero massimo di campi di metadati per ogni servizio QnA Maker (attraverso tutte le knowledge base)|1\.000|100*|1\.000|1\.000|1\.000|1\.000|
 
@@ -74,7 +74,7 @@ Il numero massimo di campi di metadati per Knowledge base è basato sui **[limit
 
 Nella tabella seguente sono elencati i caratteri di lunghezza e accettabili per il nome e il valore dei metadati.
 
-|Item|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
+|Elemento|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
 |--|--|--|--|
 |Nome (chiave)|Consente<br>alfanumerico (lettere e cifre)<br>`_` sottolineatura<br> Non devono contenere spazi.|`^[a-zA-Z0-9_]+$`|100|
 |Valore|Consente tutti gli elementi eccetto<br>`:` virgola<br>`|` (barra verticale)<br>È consentito un solo valore.|`^[^:|]+$`|500|

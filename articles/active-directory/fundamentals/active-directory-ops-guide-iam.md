@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 66bce573be5a31641bdff809b8e9a79b617a703a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371002"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guida di riferimento alle operazioni di gestione delle identità e degli accessi Azure Active Directory
@@ -37,7 +37,7 @@ La gestione di Azure Active Directory richiede l'esecuzione continua delle attiv
 | Decidere chi ottiene Enterprise Mobility + Security licenze | Team operativo IAM |
 | Decidere chi ottiene Microsoft 365 licenze | Team di produttività |
 | Decidere chi ottiene altre licenze, ad esempio, Dynamics, codespaces di Visual Studio | Proprietario dell'applicazione |
-| Assegnare le licenze | Team operativo IAM |
+| Assegnare licenze | Team operativo IAM |
 | Risoluzione dei problemi e correzione degli errori di assegnazione delle licenze | Team operativo IAM |
 | Effettuare il provisioning delle identità nelle applicazioni Azure AD | Team operativo IAM |
 
@@ -97,7 +97,7 @@ Se l'organizzazione non dispone di una strategia di ripristino di emergenza e di
 
 ![Screenshot della configurazione della modalità di gestione temporanea Azure AD Connect](./media/active-directory-ops-guide/active-directory-ops-img1.png)
 
-#### <a name="stay-current"></a>Mantenersi aggiornati
+#### <a name="stay-current"></a>Rimanere aggiornati
 
 Microsoft Update Azure AD Connect regolarmente. Rimanere aggiornati per sfruttare i miglioramenti delle prestazioni, le correzioni di bug e le nuove funzionalità disponibili in ogni nuova versione.
 

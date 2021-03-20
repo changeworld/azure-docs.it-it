@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: 6288a10e111e42629abf5e09b84a6a7791dcfe95
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018223"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Usare una cache compatibile con Redis esterna in gestione API di Azure
@@ -46,13 +46,13 @@ Per completare questa esercitazione, è necessario:
 + [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 + Conoscere la [memorizzazione nella cache di Gestione API di Azure](api-management-howto-cache.md)
 
-## <a name="create-azure-cache-for-redis"></a><a name="create-cache"> </a> Creare cache di Azure per Redis
+## <a name="create-azure-cache-for-redis"></a><a name="create-cache"></a> Creare cache di Azure per Redis
 
 Questa sezione illustra come creare una cache per Redis in Azure. Se già si disponde di una cache di Azure per Redis, all'interno o all'esterno di Azure, è possibile <a href="#add-external-cache">passare</a> alla sezione successiva.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"> </a> Distribuire cache Redis in Kubernetes
+## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"></a> Distribuire cache Redis in Kubernetes
 
 Per la memorizzazione nella cache, i gateway indipendenti si basano esclusivamente su cache esterne. Per la memorizzazione nella cache in modo che siano gateway self-hosted efficaci e la cache su cui si basano devono trovarsi vicini per ridurre al minimo le latenze di ricerca e archiviazione. La distribuzione di una cache Redis nello stesso cluster Kubernetes o in un cluster separato vicino è la scelta migliore. Seguire questo [collegamento](https://github.com/kubernetes/examples/tree/master/guestbook) per informazioni su come distribuire cache Redis in un cluster Kubernetes.
 

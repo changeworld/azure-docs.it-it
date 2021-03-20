@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3e30252d8f5e80538139f8100f1070385c1b6016
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93361788"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Endpoint a livello di area per l'account del database a grafo di Azure Cosmos DB
@@ -21,8 +21,8 @@ ms.locfileid: "93361788"
 Il database a grafo di Azure Cosmos DB è [distribuito a livello globale](distribute-data-globally.md), pertanto le applicazioni possono usare più endpoint di lettura. Le applicazioni che richiedono l'accesso in scrittura in più posizioni devono abilitare la funzionalità di scrittura in più [aree](how-to-multi-master.md) .
 
 Motivi per cui scegliere più di un'area:
-1. **Scalabilità in lettura orizzontale** : man mano che il carico dell'applicazione aumenta, potrebbe essere prudente instradare il traffico di lettura verso aree di Azure diverse.
-2. **Latenza più bassa** : è possibile ridurre l'overhead della latenza di rete di ogni attraversamento instradando il traffico di lettura e scrittura verso l'area di Azure più vicina.
+1. **Scalabilità in lettura orizzontale**: man mano che il carico dell'applicazione aumenta, potrebbe essere prudente instradare il traffico di lettura verso aree di Azure diverse.
+2. **Latenza più bassa**: è possibile ridurre l'overhead della latenza di rete di ogni attraversamento instradando il traffico di lettura e scrittura verso l'area di Azure più vicina.
 
 Il requisito di **residenza dei dati** viene soddisfatto impostando criteri di Azure Resource Manager per l'account Cosmos DB. Il cliente può limitare le aree in cui Cosmos DB replica i dati.
 

@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: larryfr
 ms.openlocfilehash: 2bba53410834aadce5627a34a759e65aa0e11c28
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94574522"
 ---
 > [!IMPORTANT]
-> L'istanza Cosmos DB viene creata in un gruppo di risorse gestito da Microsoft nella __sottoscrizione__ , insieme alle risorse necessarie. Ciò significa che viene addebitato il costo per questa istanza di Cosmos DB. Al gruppo di risorse gestito viene assegnato un nome nel formato `<AML Workspace Resource Group Name><GUID>`. Se l'area di lavoro Azure Machine Learning usa un endpoint privato, viene creata anche una rete virtuale per l'istanza di Cosmos DB. Questo VNet viene usato per proteggere le comunicazioni tra Cosmos DB e Azure Machine Learning.
+> L'istanza Cosmos DB viene creata in un gruppo di risorse gestito da Microsoft nella __sottoscrizione__, insieme alle risorse necessarie. Ciò significa che viene addebitato il costo per questa istanza di Cosmos DB. Al gruppo di risorse gestito viene assegnato un nome nel formato `<AML Workspace Resource Group Name><GUID>`. Se l'area di lavoro Azure Machine Learning usa un endpoint privato, viene creata anche una rete virtuale per l'istanza di Cosmos DB. Questo VNet viene usato per proteggere le comunicazioni tra Cosmos DB e Azure Machine Learning.
 > 
 > * __Non eliminare il gruppo di risorse__ che contiene questa istanza di Cosmos DB o una delle risorse create automaticamente in questo gruppo. Se è necessario eliminare il gruppo di risorse, Cosmos DB istanza e così via, è necessario eliminare l'area di lavoro Azure Machine Learning che la utilizza. Il gruppo di risorse, l'istanza Cosmos DB e altre risorse create automaticamente vengono eliminate quando l'area di lavoro associata viene eliminata.
 > * Le [__Unità richiesta__](../articles/cosmos-db/request-units.md) per l'account Cosmos DB sono impostate su __8000__.

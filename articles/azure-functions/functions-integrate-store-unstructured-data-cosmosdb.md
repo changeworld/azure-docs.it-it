@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 5bc3895cb219338acde492b871dce806db70622b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91661160"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Archiviare dati non strutturati usando Funzioni di Azure e Azure Cosmos DB
@@ -42,11 +42,11 @@ Prima di creare il binding di output è necessario un account Azure Cosmos DB ch
 
 1. Selezionare **Integrazione** e **+ Aggiungi output**.
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Selezionare la funzione HTTP nel portale di Azure." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Aggiungere un binding di output di Azure Cosmos DB." border="true":::
 
 1. Usare le impostazioni di **Crea output** come specificato nella tabella:
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Selezionare la funzione HTTP nel portale di Azure." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Configurare il binding di output di Azure Cosmos DB." border="true":::
 
     | Impostazione      | Valore consigliato  | Descrizione                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -138,23 +138,23 @@ Questo esempio di codice legge le stringhe della query di richiesta HTTP e le as
     + `task`
     + `duedate`
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Selezionare la funzione HTTP nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Testare la funzione." border="true":::
 
 
 1. Selezionare **Esegui** e verificare che venga restituito uno stato 200.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Selezionare la funzione HTTP nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Screenshot dello stato 200 del codice di risposta HTTP evidenziato dopo la selezione di Esegui." border="true":::
 
 
 1. Nel portale di Azure cercare e selezionare **Azure Cosmos DB**.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Selezionare la funzione HTTP nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Cercare il servizio Cosmos DB." border="true":::
 
 1. Scegliere l'account Azure Cosmos DB, quindi selezionare **Esplora dati**.
 
 1. Espandere i nodi **TaskCollection**, selezionare il nuovo documento e verificare che contenga i valori della stringa di query, oltre ad alcuni metadati aggiuntivi.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Selezionare la funzione HTTP nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Verificare i valori di stringa nel documento." border="true":::
 
 È stato aggiunto un binding al trigger HTTP per archiviare dati non strutturati in un'istanza di Azure Cosmos DB.
 
